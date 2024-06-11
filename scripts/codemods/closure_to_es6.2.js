@@ -365,7 +365,7 @@ function memberExprToName(expr) {
 }
 
 const jsdocDecls =
-  /@(?:constructor|enum|record|struct|dict|interface|type|typedef|const|package|public|private|protected|return|returns|param|define)\b/;
+  /@(?:constructor|enum|record|struct|dict|interface|type|typedef|const|package|public|private|protected|final|return|returns|param|define)\b/;
 
 function classifyExpr(path, includeTraversal = false) {
   switch (path.parentPath.node.type) {
@@ -376,6 +376,13 @@ function classifyExpr(path, includeTraversal = false) {
         path.parentPath.parentPath.node.comments?.some((c) =>
           jsdocDecls.test(c.value)
         )
+      ) {
+        return "declaration";
+      }
+      if (
+        path.name == "left" &&
+        path.parentPath.parentPath.node.type === "ExpressionStatement" &&
+        path.parentPath.node.right.type === "ClassExpression"
       ) {
         return "declaration";
       }
