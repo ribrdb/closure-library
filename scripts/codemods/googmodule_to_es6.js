@@ -1,4 +1,7 @@
-export function transformGoogModule(prog, j) {
+const forwardDeclares = new Set(require("../../forwardDeclare.json"));
+const fs = require("fs");
+
+export function transformGoogModule(prog, j, filename) {
   const body = prog.nodes()[0].body;
 
   const firstStatement = body[0];
@@ -20,6 +23,7 @@ export function transformGoogModule(prog, j) {
   if (!moduleName) {
     return;
   }
+
   prog
     .find(j.ExpressionStatement, {
       expression: {
@@ -39,6 +43,19 @@ export function transformGoogModule(prog, j) {
       },
     })
     .remove();
+  const needsModuleId = forwardDeclares.has(moduleName);
+
+  if (needsModuleId) {
+    const callee = j.memberExpression(
+      j.identifier("goog"),
+      j.identifier("declareModuleId")
+    );
+    const argument = j.stringLiteral(moduleName);
+    const call = j.callExpression(callee, [argument]);
+    const stmt = j.expressionStatement(call);
+    body.unshift(firstStatement);
+    body[1] = stmt;
+  }
   if (body.length > 1) {
     const secondStatement = body[1];
     if (firstStatement.comments) {
@@ -64,8 +81,9 @@ export function transformGoogModule(prog, j) {
     })
     .forEach((path) => {
       let id = path.node.expression.right;
-
-      path.replace(
+      checkToplevel(path);
+      replacePreservingComments(
+        path,
         j.exportNamedDeclaration(null, [
           j.exportSpecifier.from({ local: id, exported: id }),
         ])
@@ -81,11 +99,12 @@ export function transformGoogModule(prog, j) {
       },
     })
     .forEach((path) => {
-      const specifiers = path.node.expression.right.properties.map((op) =>
-        j.exportSpecifier.from({ local: op.value, exported: op.key })
+      checkToplevel(path);
+      replacePreservingComments(
+        path,
+        j.exportDefaultDeclaration(path.node.expression.right)
       );
-
-      path.replace(j.exportNamedDeclaration(null, specifiers));
+      fs.appendFileSync("defaultexports.txt", moduleName + "\n", "utf8");
     });
 
   // exports.foo = ...
@@ -100,10 +119,44 @@ export function transformGoogModule(prog, j) {
       let id = path.node.expression.left.property;
       let value = path.node.expression.right;
 
-      path.replace(
-        j.exportNamedDeclaration(null, [
-          j.exportSpecifier.from({ local: value, exported: id }),
-        ])
-      );
+      checkToplevel(path);
+      if (j.Identifier.check(value)) {
+        replacePreservingComments(
+          path,
+          j.exportNamedDeclaration(null, [
+            j.exportSpecifier.from({ local: value, exported: id }),
+          ])
+        );
+      } else {
+        replacePreservingComments(
+          path,
+          j.exportNamedDeclaration(
+            j.variableDeclaration("const", [j.variableDeclarator(id, value)]),
+            []
+          )
+        );
+      }
     });
+
+  function checkToplevel(path) {
+    if (path.parent.name !== "program") {
+      throw new Error(
+        `${filename}:${path.node.loc?.start?.line}: exports not at top level`
+      );
+    }
+  }
 }
+
+function replacePreservingComments(old, newNode) {
+  newNode.comments = old.node.comments;
+  newNode.loc = old.node.loc;
+  old.replace(newNode);
+}
+
+export default (fileInfo, api) => {
+  debugger;
+  const j = api.jscodeshift;
+  const root = j(fileInfo.source);
+  transformGoogModule(root.find(j.Program), j, fileInfo.path);
+  return root.toSource();
+};
