@@ -44,6 +44,10 @@ for (const [path] of roots) {
   if (includeExtras) {
     args.push(...extraFiles);
   }
-  child_process.execFileSync("clutz", args, { stdio: "inherit" });
+  child_process.execFileSync(
+    "/Users/ryan/Developer/clutz/build/install/clutz/bin/clutz",
+    args,
+    { stdio: "inherit" }
+  );
   console.log(path);
 }
