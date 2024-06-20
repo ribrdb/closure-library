@@ -17,6 +17,19 @@ goog.provide('goog.userAgent.iphoto');
 goog.require('goog.string');
 goog.require('goog.userAgent');
 
+/**
+ * Whether we can detect that the user has iPhoto installed.
+ * @type {boolean}
+ */
+goog.userAgent.iphoto.HAS_IPHOTO;
+
+
+/**
+ * The version of iPhoto installed if found.
+ * @type {string}
+ */
+goog.userAgent.iphoto.VERSION;
+
 
 (function() {
 'use strict';
@@ -49,17 +62,9 @@ if (goog.userAgent.WEBKIT && navigator.mimeTypes &&
   }
 }
 
-/**
- * Whether we can detect that the user has iPhoto installed.
- * @type {boolean}
- */
 goog.userAgent.iphoto.HAS_IPHOTO = hasIphoto;
 
 
-/**
- * The version of iPhoto installed if found.
- * @type {string}
- */
 goog.userAgent.iphoto.VERSION = version;
 })();
 
