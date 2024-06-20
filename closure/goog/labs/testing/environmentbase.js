@@ -21,7 +21,7 @@ const asserts = goog.require('goog.asserts');
  *
  * This base class has no dependencies on mocking or goog.testing.asserts.
  */
-class EnvironmentBase {
+exports.EnvironmentBase = class EnvironmentBase {
   constructor() {
     // Use the same EnvironmentTestCase instance across all EnvironmentBase
     // objects.
@@ -309,4 +309,3 @@ function EnvironmentTest(name, ref, scope, objChain) {
 }
 goog.inherits(EnvironmentTest, TestCase.Test);
 
-exports = {EnvironmentBase};

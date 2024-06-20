@@ -24,7 +24,7 @@ goog.module('goog.streams.liteTypes');
  * @template T
  * @interface
  */
-class ReadableStream {
+exports.ReadableStream = class ReadableStream {
   /**
    * Returns true if the ReadableStream has been locked to a reader.
    * https://streams.spec.whatwg.org/#rs-locked
@@ -49,7 +49,7 @@ class ReadableStream {
  * @template T
  * @interface
  */
-class ReadableStreamDefaultReader {
+exports.ReadableStreamDefaultReader =class ReadableStreamDefaultReader {
   /**
    * Returns a Promise that resolves when the Stream closes or is errored, or if
    * the reader releases its lock.
@@ -83,7 +83,7 @@ class ReadableStreamDefaultReader {
  * @template T
  * @interface
  */
-class ReadableStreamDefaultController {
+exports.ReadableStreamDefaultController = class ReadableStreamDefaultController {
   /**
    * Signals that the ReadableStream should close. The ReadableStream will
    * actually close once all of its chunks have been read.
@@ -113,7 +113,7 @@ class ReadableStreamDefaultController {
  * @template T
  * @record
  */
-class ReadableStreamUnderlyingSource {
+exports.ReadableStreamUnderlyingSource = class ReadableStreamUnderlyingSource {
   constructor() {
     /**
      * A start method that is called when the ReadableStream is constructed.
@@ -129,9 +129,3 @@ class ReadableStreamUnderlyingSource {
   }
 }
 
-exports = {
-  ReadableStream,
-  ReadableStreamDefaultController,
-  ReadableStreamDefaultReader,
-  ReadableStreamUnderlyingSource,
-};
