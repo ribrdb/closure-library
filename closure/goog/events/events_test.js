@@ -8,7 +8,6 @@ goog.module('goog.eventsTest');
 goog.setTestOnly();
 
 const CaptureSimulationMode = goog.require('goog.events.CaptureSimulationMode');
-const EntryPointMonitor = goog.require('goog.debug.EntryPointMonitor');
 const ErrorHandler = goog.require('goog.debug.ErrorHandler');
 const EventType = goog.require('goog.events.EventType');
 const GoogEvent = goog.require('goog.events.Event');
@@ -487,7 +486,7 @@ testSuite({
   /** @suppress {visibility} suppression added to enable type checking */
   testEntryPointRegistry() {
     /** @suppress {checkTypes} suppression added to enable type checking */
-    const monitor = new EntryPointMonitor();
+    const monitor = new entryPointRegistry.EntryPointMonitor();
     const replacement = () => {};
     monitor.wrap = recordFunction(functions.constant(replacement));
 

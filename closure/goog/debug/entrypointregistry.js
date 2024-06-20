@@ -15,7 +15,6 @@
  * later, the existing monitor will instrument the new entry point.
  */
 
-goog.provide('goog.debug.EntryPointMonitor');
 goog.provide('goog.debug.entryPointRegistry');
 
 goog.require('goog.asserts');
@@ -54,13 +53,6 @@ goog.debug.entryPointRegistry.EntryPointMonitor.prototype.wrap;
  */
 goog.debug.entryPointRegistry.EntryPointMonitor.prototype.unwrap;
 
-/**
- * Alias for goog.debug.entryPointRegistry.EntryPointMonitor, for compatibility
- * purposes.
- * @const
- */
-goog.debug.EntryPointMonitor = goog.debug.entryPointRegistry.EntryPointMonitor;
-
 
 /**
  * An array of entry point callbacks.
@@ -72,7 +64,7 @@ goog.debug.entryPointRegistry.refList_ = [];
 
 /**
  * Monitors that should wrap all the entry points.
- * @type {!Array<!goog.debug.EntryPointMonitor>}
+ * @type {!Array<!goog.debug.entryPointRegistry.EntryPointMonitor>}
  * @private
  */
 goog.debug.entryPointRegistry.monitors_ = [];
@@ -121,7 +113,7 @@ goog.debug.entryPointRegistry.register = function(callback) {
  * the monitor. When an entry point is registered in the future, it will also
  * be wrapped by the monitor when it is registered.
  *
- * @param {!goog.debug.EntryPointMonitor} monitor An entry point monitor.
+ * @param {!goog.debug.entryPointRegistry.EntryPointMonitor} monitor An entry point monitor.
  */
 goog.debug.entryPointRegistry.monitorAll = function(monitor) {
   'use strict';
@@ -140,7 +132,7 @@ goog.debug.entryPointRegistry.monitorAll = function(monitor) {
  * monitor when it is registered. Note that this may fail if the entry points
  * have additional wrapping.
  *
- * @param {!goog.debug.EntryPointMonitor} monitor The last monitor to wrap
+ * @param {!goog.debug.entryPointRegistry.EntryPointMonitor} monitor The last monitor to wrap
  *     the entry points.
  * @throws {Error} If the monitor is not the most recently configured monitor.
  */

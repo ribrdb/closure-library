@@ -13,7 +13,7 @@ goog.provide('goog.debug.ErrorHandler.ProtectedFunctionError');
 
 goog.require('goog.Disposable');
 goog.require('goog.asserts');
-goog.require('goog.debug.EntryPointMonitor');
+goog.require('goog.debug.entryPointRegistry');
 goog.require('goog.debug.Error');
 
 
@@ -33,7 +33,7 @@ goog.require('goog.debug.Error');
  * @param {Function} handler Handler for exceptions.
  * @constructor
  * @extends {goog.Disposable}
- * @implements {goog.debug.EntryPointMonitor}
+ * @implements {goog.debug.entryPointRegistry.EntryPointMonitor}
  */
 goog.debug.ErrorHandler = function(handler) {
   'use strict';

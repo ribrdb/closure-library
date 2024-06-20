@@ -7,7 +7,6 @@
 goog.module('goog.net.XhrIoTest');
 goog.setTestOnly('goog.net.XhrIoTest');
 
-const EntryPointMonitor = goog.require('goog.debug.EntryPointMonitor');
 const ErrorHandler = goog.require('goog.debug.ErrorHandler');
 const EventType = goog.require('goog.net.EventType');
 const MockClock = goog.require('goog.testing.MockClock');
@@ -726,7 +725,7 @@ testSuite({
   /** @suppress {visibility} suppression added to enable type checking */
   testEntryPointRegistry() {
     /** @suppress {checkTypes} suppression added to enable type checking */
-    const monitor = new EntryPointMonitor();
+    const monitor = new entryPointRegistry.EntryPointMonitor();
     const replacement = function() {};
     monitor.wrap = recordFunction(functions.constant(replacement));
 
