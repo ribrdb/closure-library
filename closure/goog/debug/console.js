@@ -13,7 +13,7 @@
 
 goog.provide('goog.debug.Console');
 
-goog.require('goog.debug.TextFormatter');
+goog.require('goog.debug.formatter');
 goog.require('goog.log');
 goog.requireType('goog.log.LogRecord');
 
@@ -28,10 +28,10 @@ goog.debug.Console = function() {
 
   /**
    * Formatter for formatted output.
-   * @type {!goog.debug.TextFormatter}
+   * @type {!goog.debug.formatter.TextFormatter}
    * @private
    */
-  this.formatter_ = new goog.debug.TextFormatter();
+  this.formatter_ = new goog.debug.formatter.TextFormatter();
   this.formatter_.showAbsoluteTime = false;
   this.formatter_.showExceptionText = false;
   // The console logging methods automatically append a newline.
@@ -51,7 +51,7 @@ goog.debug.Console = function() {
 
 /**
  * Returns the text formatter used by this console
- * @return {!goog.debug.TextFormatter} The text formatter.
+ * @return {!goog.debug.formatter.TextFormatter} The text formatter.
  */
 goog.debug.Console.prototype.getFormatter = function() {
   'use strict';

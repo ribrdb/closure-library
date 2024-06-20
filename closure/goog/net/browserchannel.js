@@ -36,7 +36,7 @@ goog.provide('goog.net.BrowserChannel.TimingEvent');
 goog.require('goog.Uri');
 goog.require('goog.array');
 goog.require('goog.asserts');
-goog.require('goog.debug.TextFormatter');
+goog.require('goog.debug.formatter');
 goog.require('goog.events.Event');
 goog.require('goog.events.EventTarget');
 goog.require('goog.json');
@@ -54,7 +54,7 @@ goog.require('goog.object');
 goog.require('goog.string');
 goog.require('goog.structs');
 goog.require('goog.structs.CircularBuffer');
-goog.requireType('goog.debug.Formatter');
+goog.requireType('goog.debug.formatter');
 goog.requireType('goog.string.Parser');
 goog.requireType('goog.structs.Map');
 
@@ -2456,10 +2456,10 @@ goog.net.BrowserChannel.LogSaver.enabled_ = false;
 
 /**
  * Formatter for saving logs.
- * @type {goog.debug.Formatter}
+ * @type {goog.debug.formatter.Formatter}
  * @private
  */
-goog.net.BrowserChannel.LogSaver.formatter_ = new goog.debug.TextFormatter();
+goog.net.BrowserChannel.LogSaver.formatter_ = new goog.debug.formatter.TextFormatter();
 
 
 /**

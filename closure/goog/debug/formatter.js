@@ -10,9 +10,6 @@
  * takes won't be able to use the logging infrastructure.
  */
 
-goog.provide('goog.debug.Formatter');
-goog.provide('goog.debug.HtmlFormatter');
-goog.provide('goog.debug.TextFormatter');
 goog.provide('goog.debug.formatter');
 
 goog.require('goog.debug');
@@ -485,20 +482,3 @@ goog.debug.formatter.TextFormatter.prototype.formatRecordAsHtml = function(
       goog.debug.formatter.TextFormatter.prototype.formatRecord(logRecord));
 };
 
-// Aliases for the above formatters.
-// TODO(user): Delete these aliases when there are no more usages.
-
-/**
- * @constructor
- */
-goog.debug.Formatter = goog.debug.formatter.Formatter;
-
-/**
- * @constructor
- */
-goog.debug.TextFormatter = goog.debug.formatter.TextFormatter;
-
-/**
- * @constructor
- */
-goog.debug.HtmlFormatter = goog.debug.formatter.HtmlFormatter;

@@ -12,7 +12,7 @@
 
 goog.provide('goog.debug.DebugWindow');
 
-goog.require('goog.debug.HtmlFormatter');
+goog.require('goog.debug.formatter');
 goog.require('goog.dom.safe');
 goog.require('goog.html.SafeHtml');
 goog.require('goog.html.SafeStyleSheet');
@@ -20,7 +20,7 @@ goog.require('goog.log');
 goog.require('goog.string.Const');
 goog.require('goog.structs.CircularBuffer');
 goog.require('goog.userAgent');
-goog.requireType('goog.debug.Formatter');
+goog.requireType('goog.debug.formatter');
 
 
 /**
@@ -70,9 +70,9 @@ goog.debug.DebugWindow = function(opt_identifier, opt_prefix) {
 
   /**
    * Formatter for formatted output
-   * @private {goog.debug.Formatter}
+   * @private {goog.debug.formatter.Formatter}
    */
-  this.formatter_ = new goog.debug.HtmlFormatter(this.prefix_);
+  this.formatter_ = new goog.debug.formatter.HtmlFormatter(this.prefix_);
 
   /**
    * Loggers that we shouldn't output
@@ -275,8 +275,8 @@ goog.debug.DebugWindow.prototype.setCapturing = function(capturing) {
 
 /**
  * Gets the formatter for outputting to the debug window. The default formatter
- * is an instance of goog.debug.HtmlFormatter
- * @return {goog.debug.Formatter} The formatter in use.
+ * is an instance of goog.debug.formatter.HtmlFormatter
+ * @return {goog.debug.formatter.Formatter} The formatter in use.
  */
 goog.debug.DebugWindow.prototype.getFormatter = function() {
   'use strict';
@@ -286,7 +286,7 @@ goog.debug.DebugWindow.prototype.getFormatter = function() {
 
 /**
  * Sets the formatter for outputting to the debug window.
- * @param {goog.debug.Formatter} formatter The formatter to use.
+ * @param {goog.debug.formatter.Formatter} formatter The formatter to use.
  */
 goog.debug.DebugWindow.prototype.setFormatter = function(formatter) {
   'use strict';

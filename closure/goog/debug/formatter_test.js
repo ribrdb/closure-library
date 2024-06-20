@@ -7,7 +7,7 @@
 goog.module('goog.debug.FormatterTest');
 goog.setTestOnly();
 
-const HtmlFormatter = goog.require('goog.debug.HtmlFormatter');
+const HtmlFormatter = goog.require('goog.debug.formatter');
 const SafeHtml = goog.require('goog.html.SafeHtml');
 const testSuite = goog.require('goog.testing.testSuite');
 const {Level, LogRecord} = goog.require('goog.log');

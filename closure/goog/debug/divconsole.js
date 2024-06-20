@@ -10,7 +10,7 @@
 
 goog.provide('goog.debug.DivConsole');
 
-goog.require('goog.debug.HtmlFormatter');
+goog.require('goog.debug.formatter');
 goog.require('goog.dom.DomHelper');
 goog.require('goog.dom.TagName');
 goog.require('goog.dom.safe');
@@ -19,7 +19,7 @@ goog.require('goog.html.SafeStyleSheet');
 goog.require('goog.log');
 goog.require('goog.string.Const');
 goog.require('goog.style');
-goog.requireType('goog.debug.Formatter');
+goog.requireType('goog.debug.formatter');
 goog.requireType('goog.log.LogRecord');
 
 
@@ -31,7 +31,7 @@ goog.requireType('goog.log.LogRecord');
 goog.debug.DivConsole = function(element) {
   'use strict';
   this.publishHandler_ = goog.bind(this.addLogRecord, this);
-  this.formatter_ = new goog.debug.HtmlFormatter();
+  this.formatter_ = new goog.debug.formatter.HtmlFormatter();
   this.formatter_.showAbsoluteTime = false;
   this.isCapturing_ = false;
   this.element_ = element;
@@ -114,8 +114,8 @@ goog.debug.DivConsole.prototype.addLogRecord = function(logRecord) {
 
 /**
  * Gets the formatter for outputting to the console. The default formatter
- * is an instance of goog.debug.HtmlFormatter
- * @return {!goog.debug.Formatter} The formatter in use.
+ * is an instance of goog.debug.formatter.HtmlFormatter
+ * @return {!goog.debug.formatter.Formatter} The formatter in use.
  */
 goog.debug.DivConsole.prototype.getFormatter = function() {
   'use strict';
@@ -125,7 +125,7 @@ goog.debug.DivConsole.prototype.getFormatter = function() {
 
 /**
  * Sets the formatter for outputting to the console.
- * @param {goog.debug.HtmlFormatter} formatter The formatter to use.
+ * @param {goog.debug.formatter.HtmlFormatter} formatter The formatter to use.
  */
 goog.debug.DivConsole.prototype.setFormatter = function(formatter) {
   'use strict';

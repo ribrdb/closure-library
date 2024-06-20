@@ -89,7 +89,7 @@
   "goog.net.streams.NodeReadableStream",
   "goog.net.BrowserChannel",
   "goog.net.ChannelDebug",
-  "goog.debug.Formatter",
+  "goog.debug.formatter",
   "goog.testing.net.XhrIo",
   "goog.debug.ErrorHandler",
   "goog.net.BrowserTestChannel",
