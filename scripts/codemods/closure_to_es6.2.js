@@ -3,7 +3,7 @@ const fs = require("fs");
 const recast = require("recast");
 import { removeStrict } from "./no_strict";
 import { descope } from "./descope";
-const reservedWords = [
+export const reservedWords = [
   "abstract",
   "arguments",
   "await",
@@ -303,7 +303,7 @@ function processProvides(prog, j, filename) {
   return [filterProvides, filterRequires];
 }
 
-function makeModuleID(filename) {
+export function makeModuleID(filename) {
   if (filename.endsWith(".js")) {
     filename = filename.slice(0, -3);
   }
