@@ -199,16 +199,17 @@ function maybeGenerateHtmlForFile(filename, args) {
 
   const originalJs = fs.readFileSync(filename, 'utf8');
   const provide = /goog\.(?:provide|module)\('([^']*?)'\);/g.exec(originalJs);
+  const testModName = /goog\.setTestOnly\('([^']*?)'\);/g.exec(originalJs) || filename;
 
-  if (!provide || !provide[1]) {
+  if (provide) {
     console.error(
-        `File ${filename} does not provide or module the tests, ` +
+        `File ${filename} should not provide or module the tests, ` +
         'cannot generate html.');
     return;
   }
 
-  const newJS = `goog.require('${provide[1]}');`;
-  const title = `Closure Unit Tests - ${provide[1]}`;
+  const newJS = `import('./${path.basename(filename)}')`;
+  const title = `Closure Unit Tests - ${testModName}`;
 
   const baseFileName = filename.replace('_test.js', '');
   const testDomFilename = baseFileName + '_test_dom.html';

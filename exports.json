@@ -46,7 +46,7 @@
   "closure/goog/array/array.js": [
     "ASSUME_NATIVE_FUNCTIONS",
     "peek",
-    "peek",
+    "last",
     "indexOf",
     "lastIndexOf",
     "forEach",
@@ -384,6 +384,7 @@
   ],
   "closure/goog/date/date.js": [
     "weekDay",
+    "month",
     "MS_PER_DAY",
     "isLeapYear",
     "isLongIsoYear",
@@ -399,6 +400,7 @@
     "padYear_",
     "Interval",
     "DateLike",
+    "Date",
     "DateTime"
   ],
   "closure/goog/date/daterange.js": [
@@ -406,6 +408,18 @@
   ],
   "closure/goog/date/duration.js": [
     "format"
+  ],
+  "closure/goog/date/relative.js": [
+    "Unit",
+    "TimeDeltaFormatter",
+    "setTimeDeltaFormatter",
+    "setCasingMode",
+    "upcase",
+    "format",
+    "formatPast",
+    "formatDay",
+    "getDateString",
+    "getPastDateString"
   ],
   "closure/goog/date/utcdatetime.js": [
     "UtcDateTime"
@@ -476,7 +490,6 @@
   ],
   "closure/goog/debug/entrypointregistry.js": [
     "EntryPointMonitor",
-    "EntryPointMonitor",
     "register",
     "monitorAll",
     "unmonitorAllIfPossible"
@@ -500,10 +513,7 @@
   "closure/goog/debug/formatter.js": [
     "Formatter",
     "HtmlFormatter",
-    "TextFormatter",
-    "Formatter",
-    "TextFormatter",
-    "HtmlFormatter"
+    "TextFormatter"
   ],
   "closure/goog/debug/relativetimeprovider.js": [
     "RelativeTimeProvider"
@@ -608,6 +618,7 @@
   "closure/goog/dom/classes.js": [
     "set",
     "get",
+    "add",
     "remove",
     "swap",
     "addRemove",
@@ -620,6 +631,7 @@
     "get",
     "set",
     "contains",
+    "add",
     "addAll",
     "remove",
     "removeAll",
@@ -800,7 +812,8 @@
     "createCaret",
     "createFromNodes",
     "clearSelection",
-    "hasSelection"
+    "hasSelection",
+    "isReversed"
   ],
   "closure/goog/dom/rangeendpoint.js": [
     "RangeEndpoint"
@@ -1239,7 +1252,11 @@
     "FileEntryImpl"
   ],
   "closure/goog/fs/error.js": [
-    "DOMErrorLike"
+    "DOMErrorLike",
+    "Error"
+  ],
+  "closure/goog/fs/filereader.js": [
+    "FileReader"
   ],
   "closure/goog/fs/filesaver.js": [
     "FileSaver"
@@ -4213,6 +4230,12 @@
     "DateIntervalSymbols_zh_Hant_MO",
     "DateIntervalSymbols_zh_Hant_TW",
     "DateIntervalSymbols_zu_ZA"
+  ],
+  "closure/goog/i18n/datetimeformat.js": [
+    "DateTimeFormat"
+  ],
+  "closure/goog/i18n/datetimeparse.js": [
+    "DateTimeParse"
   ],
   "closure/goog/i18n/datetimepatterns.js": [
     "DateTimePatterns_af",
@@ -7566,6 +7589,9 @@
   "closure/goog/i18n/nativelocaledigits.js": [
     "FormatWithLocaleDigits"
   ],
+  "closure/goog/i18n/numberformat.js": [
+    "NumberFormat"
+  ],
   "closure/goog/i18n/numberformatsymbols.js": [
     "NumberFormatSymbols_af",
     "NumberFormatSymbols_am",
@@ -9376,7 +9402,9 @@
     "toArray",
     "equals",
     "nextOrValue",
+    "product",
     "cycle",
+    "count",
     "repeat",
     "accumulate",
     "zip",
@@ -9409,6 +9437,12 @@
   ],
   "closure/goog/json/jsonable.js": [
     "Jsonable"
+  ],
+  "closure/goog/json/nativejsonprocessor.js": [
+    "default"
+  ],
+  "closure/goog/labs/dom/pagevisibilityevent.js": [
+    "default"
   ],
   "closure/goog/labs/dom/pagevisibilitymonitor.js": [
     "PageVisibilityMonitor"
@@ -9461,6 +9495,12 @@
   "closure/goog/labs/net/webchannel.js": [
     "WebChannel"
   ],
+  "closure/goog/labs/net/webchannel/channel.js": [
+    "Channel"
+  ],
+  "closure/goog/labs/net/webchannel/channelrequest.js": [
+    "ChannelRequest"
+  ],
   "closure/goog/labs/net/webchannel/connectionstate.js": [
     "ConnectionState"
   ],
@@ -9498,8 +9538,20 @@
   "closure/goog/labs/net/webchannel/testing/fakewebchannel.js": [
     "default"
   ],
+  "closure/goog/labs/net/webchannel/webchannelbase.js": [
+    "WebChannelBase"
+  ],
+  "closure/goog/labs/net/webchannel/webchannelbasetransport.js": [
+    "WebChannelBaseTransport"
+  ],
+  "closure/goog/labs/net/webchannel/webchanneldebug.js": [
+    "WebChannelDebug"
+  ],
   "closure/goog/labs/net/webchannel/wire.js": [
     "Wire"
+  ],
+  "closure/goog/labs/net/webchannel/wirev8.js": [
+    "WireV8"
   ],
   "closure/goog/labs/net/webchanneltransport.js": [
     "WebChannelTransport"
@@ -9553,7 +9605,7 @@
     "Environment"
   ],
   "closure/goog/labs/testing/environmentbase.js": [
-    "default"
+    "EnvironmentBase"
   ],
   "closure/goog/labs/testing/json_fuzzing.js": [
     "JsonFuzzing"
@@ -9739,6 +9791,10 @@
     "isResourceRegistered",
     "registerTimeZoneConstants",
     "registerLocaleNameConstants",
+    "registerTimeZoneSelectedIds",
+    "registerTimeZoneSelectedShortNames",
+    "registerTimeZoneSelectedLongNames",
+    "registerTimeZoneAllLongNames",
     "getResource",
     "getResourceWithFallback",
     "activeLocale_"
@@ -9848,9 +9904,11 @@
     "toDegrees",
     "angleDx",
     "angleDy",
+    "angle",
     "angleDifference",
     "sign",
     "longestCommonSubsequence",
+    "sum",
     "average",
     "sampleVariance",
     "standardDeviation",
@@ -9960,6 +10018,9 @@
   "closure/goog/module/moduleloadfailure.js": [
     "ModuleLoadFailure",
     "Type"
+  ],
+  "closure/goog/module/modulemanager.js": [
+    "ModuleManager"
   ],
   "closure/goog/net/browserchannel.js": [
     "BrowserChannel"
@@ -10073,6 +10134,12 @@
   "closure/goog/net/streams/base64pbstreamparser.js": [
     "Base64PbStreamParser"
   ],
+  "closure/goog/net/streams/base64streamdecoder.js": [
+    "Base64StreamDecoder"
+  ],
+  "closure/goog/net/streams/jsonstreamparser.js": [
+    "JsonStreamParser"
+  ],
   "closure/goog/net/streams/nodereadablestream.js": [
     "NodeReadableStream"
   ],
@@ -10107,8 +10174,14 @@
     "testLoadImageWithRetries",
     "testLoadImage"
   ],
+  "closure/goog/net/websocket.js": [
+    "WebSocket"
+  ],
   "closure/goog/net/wrapperxmlhttpfactory.js": [
     "WrapperXmlHttpFactory"
+  ],
+  "closure/goog/net/xhrio.js": [
+    "XhrIo"
   ],
   "closure/goog/net/xhriopool.js": [
     "XhrIoPool"
@@ -10267,11 +10340,24 @@
     "sinkValue",
     "canAccessProperty",
     "cache",
-    "object_"
+    "object"
   ],
   "closure/goog/singleton/singleton.js": [
     "getInstance",
     "instantiatedSingletons"
+  ],
+  "closure/goog/soy/data.js": [
+    "SanitizedContentKind",
+    "SanitizedContent",
+    "SanitizedHtml",
+    "SanitizedJs",
+    "SanitizedUri",
+    "SanitizedTrustedResourceUri",
+    "SanitizedHtmlAttribute",
+    "SanitizedCss"
+  ],
+  "closure/goog/soy/injecteddatasupplier.js": [
+    "default"
   ],
   "closure/goog/soy/renderer.js": [
     "Renderer"
@@ -10403,7 +10489,10 @@
     "default"
   ],
   "closure/goog/streams/lite_types.js": [
-    "default"
+    "ReadableStream",
+    "ReadableStreamDefaultReader",
+    "ReadableStreamDefaultController",
+    "ReadableStreamUnderlyingSource"
   ],
   "closure/goog/string/const.js": [
     "Const"
@@ -10439,6 +10528,7 @@
     "Parser"
   ],
   "closure/goog/string/path.js": [
+    "baseName",
     "basename",
     "dirname",
     "extension",
@@ -10516,6 +10606,7 @@
     "toSelectorCase",
     "toTitleCase",
     "capitalize",
+    "parseInt",
     "splitLimit",
     "lastComponent",
     "editDistance"
@@ -10707,6 +10798,25 @@
     "withAssertionFailure"
   ],
   "closure/goog/testing/asserts.js": [
+    "fail",
+    "assert",
+    "assertThrows",
+    "assertNotThrows",
+    "assertThrowsJsUnitException",
+    "assertRejects",
+    "assertTrue",
+    "assertFalse",
+    "assertEquals",
+    "assertNotEquals",
+    "assertNull",
+    "assertNotNull",
+    "assertUndefined",
+    "assertNotUndefined",
+    "assertNullOrUndefined",
+    "assertNotNullNorUndefined",
+    "assertNonEmptyString",
+    "assertNaN",
+    "assertNotNaN",
     "EQUALITY_PREDICATE_CANT_PROCESS",
     "EQUALITY_PREDICATE_VARS_ARE_EQUAL",
     "ARRAY_TYPES",
@@ -10715,6 +10825,22 @@
     "registerComparator",
     "clearCustomComparator",
     "findDifferences",
+    "assertObjectEquals",
+    "assertObjectRoughlyEquals",
+    "assertObjectNotEquals",
+    "assertArrayEquals",
+    "assertElementsEquals",
+    "assertElementsRoughlyEqual",
+    "assertSameElements",
+    "assertEvaluatesToTrue",
+    "assertEvaluatesToFalse",
+    "assertHTMLEquals",
+    "assertCSSValueEquals",
+    "assertHashEquals",
+    "assertRoughlyEquals",
+    "assertContains",
+    "assertNotContains",
+    "assertRegExp",
     "raiseException"
   ],
   "closure/goog/testing/async/mockcontrol.js": [
@@ -10932,6 +11058,9 @@
   ],
   "closure/goog/testing/net/mockiframeio.js": [
     "MockIFrameIo"
+  ],
+  "closure/goog/testing/net/xhrio.js": [
+    "XhrIo"
   ],
   "closure/goog/testing/net/xhriopool.js": [
     "XhrIoPool"
@@ -11724,10 +11853,12 @@
   ],
   "closure/goog/useragent/adobereader.js": [
     "HAS_READER",
-    "version",
+    "VERSION",
     "SILENT_PRINT"
   ],
   "closure/goog/useragent/iphoto.js": [
+    "HAS_IPHOTO",
+    "VERSION",
     "isVersion"
   ],
   "closure/goog/useragent/jscript.js": [
@@ -11815,10 +11946,10 @@
     "reinitializeUserAgent"
   ],
   "closure/goog/vec/float32array.js": [
-    "Float32Array_"
+    "Float32Array"
   ],
   "closure/goog/vec/float64array.js": [
-    "Float64Array_"
+    "Float64Array"
   ],
   "closure/goog/vec/mat3.js": [
     "createFloat32",
@@ -12090,6 +12221,7 @@
     "makeEulerZXZ",
     "toEulerZXZ",
     "translate",
+    "scale",
     "rotate",
     "rotateX",
     "rotateY",
@@ -12149,6 +12281,7 @@
     "makeEulerZXZ",
     "toEulerZXZ",
     "translate",
+    "scale",
     "rotate",
     "rotateX",
     "rotateY",
@@ -12173,7 +12306,9 @@
     "negate",
     "scale",
     "magnitudeSquared",
+    "magnitude",
     "normalize",
+    "dot",
     "invert",
     "conjugate",
     "concat",
@@ -12336,6 +12471,7 @@
     "abs",
     "scale",
     "magnitudeSquared",
+    "magnitude",
     "normalize",
     "dot",
     "cross",
@@ -12363,6 +12499,7 @@
     "abs",
     "scale",
     "magnitudeSquared",
+    "magnitude",
     "normalize",
     "dot",
     "cross",
@@ -12767,10 +12904,10 @@
     "openBlank",
     "popup"
   ],
-  "closure/goog/../../third_party/closure/goog/mochikit/async/deferred.js": [
+  "third_party/closure/goog/mochikit/async/deferred.js": [
     "Deferred"
   ],
-  "closure/goog/../../third_party/closure/goog/mochikit/async/deferredlist.js": [
+  "third_party/closure/goog/mochikit/async/deferredlist.js": [
     "DeferredList"
   ]
 }

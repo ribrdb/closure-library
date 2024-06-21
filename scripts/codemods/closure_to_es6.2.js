@@ -70,11 +70,26 @@ export const reservedWords = [
   "yield",
 ];
 
+const forceDescope = [
+  'labs/net/webchannel/netutils.js',
+  'labs/net/webchannel/requeststats.js',
+  'labs/net/xhr.js',
+]
+
 export function transformClosureModule(prog, j, filename, provides, requires) {
+  if (forceDescope.some(f => filename.endsWith(f))) {
+    descope(prog, j);
+  }
   if (!(provides && requires)) {
     [provides, requires] = processProvides(prog, j, filename);
   }
+  const debug = makeModuleID(filename) === 'goog.module.ModuleInfo';
+  if (debug) {
+    console.log(filename);
+    console.log(provides);
+  }
   if (provides.length == 0) {
+    console.log('no provides', filename);
     return;
   }
   const stmt = j.template.statement;
@@ -161,13 +176,13 @@ export function transformClosureModule(prog, j, filename, provides, requires) {
         declStmt.loc = decl.parentPath.node.loc;
         const replacements = [declStmt];
         if (!isPrivate) {
-          replacements.push();
+          replacements.push(
           j.exportNamedDeclaration(null, [
             j.exportSpecifier.from({
               local: j.identifier(newname),
               exported: j.identifier(basename),
             }),
-          ]);
+          ]));
         }
         decl.parentPath.replace(...replacements);
       }
@@ -319,8 +334,16 @@ function walk(prog, j, provides) {
   const refs = new Map();
   const ids = new Set(reservedWords);
   const comments = [];
+  const toPrune = [];
   const visitor = {
     visitIdentifier(path) {
+      if (path.name === 'id' && path.parent.node.init?.property?.name === path.value.name) {
+        const name = memberExprToName(path.parent.node.init);
+        if (providesSet.has(name)) {
+          toPrune.push(path.parent);
+          return false;
+        }
+      }
       if (path.name !== "property" && path.name !== "key") {
         ids.add(path.value.name);
       }
@@ -337,6 +360,9 @@ function walk(prog, j, provides) {
     visitMemberExpression(path) {
       const name = memberExprToName(path.node);
       if (providesSet.has(name)) {
+        if (path.name === 'init' && path.parent.node.id?.name === path.value.property.name) {
+          return false;
+        }
         if (!refs.has(name)) {
           refs.set(name, {
             assignment: [],
@@ -351,6 +377,10 @@ function walk(prog, j, provides) {
     },
   };
   recast.visit(prog.get("body"), visitor);
+  toPrune.forEach((i) => {
+    ids.delete(i.value.id.name);
+    i.prune()
+});
   return [ids, refs, comments];
 }
 
@@ -450,5 +480,22 @@ export default (fileInfo, api) => {
   const j = api.jscodeshift;
   const root = j(fileInfo.source);
   transformClosureModule(root.find(j.Program), j, fileInfo.path);
-  return root.toSource();
+  let result = root.toSource({quote: 'single'});
+  try {
+    if (/^ +export /m.test(result)) {
+      const newRoot = j(fileInfo.source);
+      if (descope(newRoot, j)) {
+        transformClosureModule(newRoot.find(j.Program), j, fileInfo.path);
+        result = newRoot.toSource({quote: 'single'});
+      } else {
+        console.log(result);
+        throw new Error("bad export");
+      }
+    }
+    j(result); // make sure the result is valid
+  } catch (ex) {
+    // console.log(result);
+    throw ex;
+  }
+  return result;
 };

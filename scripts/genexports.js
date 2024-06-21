@@ -9,14 +9,14 @@ const exportsMap = {};
 lineReader.on("line", function (line) {
   const [filename, code] = line.split(":");
   const match = code.match(
-    /export (?:var|let|const|function|class|\{)?\s*(\w+)/
+    /export (?:var|let|const|function|class|\{)?\s*(\w+)(?: as (\w+))?/
   );
 
   if (match) {
     if (!exportsMap[filename]) {
       exportsMap[filename] = [];
     }
-    exportsMap[filename].push(match[1]);
+    exportsMap[filename].push(match[2]||match[1]);
   } else {
     console.log("no match", line);
   }

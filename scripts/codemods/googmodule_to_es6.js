@@ -95,7 +95,6 @@ export function transformGoogModule(prog, j, filename) {
       expression: {
         type: "AssignmentExpression",
         left: { name: "exports" },
-        right: { type: "ObjectExpression" },
       },
     })
     .forEach((path) => {
@@ -104,7 +103,6 @@ export function transformGoogModule(prog, j, filename) {
         path,
         j.exportDefaultDeclaration(path.node.expression.right)
       );
-      fs.appendFileSync("defaultexports.txt", moduleName + "\n", "utf8");
     });
 
   // exports.foo = ...
@@ -158,5 +156,5 @@ export default (fileInfo, api) => {
   const j = api.jscodeshift;
   const root = j(fileInfo.source);
   transformGoogModule(root.find(j.Program), j, fileInfo.path);
-  return root.toSource();
+  return root.toSource({quote: 'single'});
 };

@@ -10,10 +10,7 @@ See the COPYING file for details.
 <title>Closure - All JsUnit Tests</title>
 <script src="closure/goog/base.js"></script>
 <script src="alltests.js"></script>
-<script>
-goog.require('goog.userAgent.product');
-goog.require('goog.testing.MultiTestRunner');
-</script>
+
 <link rel="stylesheet" href="closure/goog/css/multitestrunner.css" type="text/css">
 <style>
 h1 {
@@ -47,8 +44,9 @@ a:hover {
 </head>
 <body>
 
-<script>
-  if (goog.userAgent.product.CHROME &&
+<script type=module>
+  import {CHROME} from './closure/goog/useragent/product.js';
+  if (CHROME &&
       window.location.toString().indexOf('file:') == 0) {
     document.write(
         '<div class="warning">' +
@@ -73,7 +71,9 @@ a:hover {
   <input type="text" name="filter" id="filter" value="">
   <label for="filter">Run only tests for path</label>
 </form>
-<script>
+<script type=module>
+  import {MultiTestRunner} from "./closure/goog/testing/multitestrunner.js";
+
   var hidePassesInput = document.getElementById('hidepasses');
   var parallelInput = document.getElementById('parallel');
   var filterInput = document.getElementById('filter');
@@ -86,7 +86,7 @@ a:hover {
   }
 
   // Create a test runner and render it.
-  var testRunner = new goog.testing.MultiTestRunner()
+  var testRunner = new MultiTestRunner()
       .setName(document.title)
       .setBasePath('./')
       .setPoolSize(parallelInput.checked ? 8 : 1)

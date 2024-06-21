@@ -86,6 +86,9 @@ export function transformGoogRequires(prog, j, filename) {
     for (const expr of [...requires, ...mods]) {
       const name = expr.node.arguments[0].value;
       const file = provideInfo.get(name);
+      if (!file) {
+        throw new Error(`missing require: ${name}`);
+      }
       if (!result.has(file.id)) {
         result.set(file.id, { file, requires: new Map(), comments: [] });
       }
@@ -99,7 +102,7 @@ export function transformGoogRequires(prog, j, filename) {
         stmt = expr.parent;
       }
       if (typeof stmt.name !== "number") {
-        throw new Error();
+        throw new Error(`goog.require at ${filename}:${stmt.value.loc?.start.line}: ${stmt.name}`);
       }
       if (startIndex == null || stmt.name < startIndex) {
         startIndex = stmt.name;
@@ -144,12 +147,14 @@ export function transformGoogRequires(prog, j, filename) {
     }
 
     for (const info of importInfo.values()) {
-      const importpath = path.relative(filename, info.file.filename);
+      let importpath = path.relative(path.dirname(filename), info.file.filename);
+      if (!(importpath.startsWith('./') || importpath.startsWith('../'))) {
+        importpath = `./${importpath}`;
+      }
       let specifiers = [];
 
       if (!info.file.exports) {
-        console.log(`no exports ${info.file.filename}`);
-        console.log(info.file);
+        throw new Error(`no exports ${info.file.filename}`);
         continue;
       }
       const exports = new Set(info.file.exports);
@@ -181,11 +186,12 @@ export function transformGoogRequires(prog, j, filename) {
             const parts = name.split(".");
             for (let i = 0; i < parts.length; i++) {
               if (exports.has(parts[i])) {
+                if (id && i < parts.length - 1) {
+                  continue;
+                }
                 match = parts[i];
                 fullmatch = parts.slice(0, i + 1).join(".");
-                if (id && i < parts.length - 1) {
-                  throw new Error(`destructuring ${name} in ${info.file.id}`);
-                }
+
                 break;
               }
             }
@@ -346,7 +352,7 @@ export default (fileInfo, api) => {
   const j = api.jscodeshift;
   const root = j(fileInfo.source);
   transformGoogRequires(root.find(j.Program), j, fileInfo.path);
-  return root.toSource();
+  return root.toSource({quote: 'single'});
 };
 
 function memberExprToName(expr) {
