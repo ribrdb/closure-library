@@ -20,12 +20,12 @@ goog.require('goog.events');
 goog.require('goog.events.EventHandler');
 goog.require('goog.log');
 goog.require('goog.net.xpc');
+goog.require('goog.net.xpc.CrossPageChannel');
 goog.require('goog.net.xpc.CrossPageChannelRole');
 goog.require('goog.net.xpc.Transport');
 goog.require('goog.net.xpc.TransportTypes');
 goog.requireType('goog.dom.DomHelper');
 goog.requireType('goog.events.BrowserEvent');
-goog.requireType('goog.net.xpc.CrossPageChannel');
 
 
 
@@ -317,7 +317,7 @@ goog.net.xpc.NativeMessagingTransport.messageReceived_ = function(msgEvt) {
   //  - channel was created in a different namespace
   //  - message was sent to the wrong window
   //  - channel has become stale (e.g. caching iframes and back clicks)
-  const allChannels = goog.module.get('goog.net.xpc.CrossPageChannel').channels;
+  const allChannels = goog.net.xpc.CrossPageChannel.channels;
   const channel = allChannels[channelName];
   if (channel) {
     channel.xpcDeliver(
