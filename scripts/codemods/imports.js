@@ -140,7 +140,7 @@ export function transformGoogRequires(prog, j, filename) {
             nextPart + alias.substring(0, 1).toUpperCase() + alias.substring(1);
         } else {
           if (n > 0) {
-            alias = alias.substring(0, (alias.length = `${n - 1}`.length));
+            alias = alias.substring(0, (alias.length + `${n - 1}`.length));
           }
           alias = `${alias}_${n++}`;
         }
@@ -219,11 +219,11 @@ export function transformGoogRequires(prog, j, filename) {
                 break;
               }
             }
-            if (match) {
+            if (match && fullmatch !== "goog.log") {
               if (extra?.length || !id) {
                 const alias = makeAlias(fullmatch);
                 renames.push([fullmatch, alias]);
-                if (extra?.length) {
+                if (extra?.length && id) {
                   const rhs = extra.reduce(
                     (a, b) => j.memberExpression(a, j.identifier(b)),
                     j.identifier(alias)
