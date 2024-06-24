@@ -9,4 +9,4 @@ grep -l goog.provide closure/**/*.js third_party/**/*.js|xargs ./node_modules/.b
 grep -l '^goog.module' closure/**/*.js third_party/**/*.js|xargs ./node_modules/.bin/jscodeshift -t scripts/codemods/googmodule_to_es6.js --fail-on-error 
 grep '^export ' closure/**/*.js third_party/**/*.js >exports.grep                 
 node scripts/genexports.js
-grep -l '^goog.require' closure/**/*.js third_party/**/*.js|xargs ./node_modules/.bin/jscodeshift -t scripts/codemods/imports.js --fail-on-error 
+grep -l 'goog.require' closure/**/*.js third_party/**/*.js|xargs ./node_modules/.bin/jscodeshift -t scripts/codemods/imports.js --fail-on-error 

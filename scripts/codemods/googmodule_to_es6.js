@@ -129,12 +129,54 @@ export function transformGoogModule(prog, j, filename) {
         replacePreservingComments(
           path,
           j.exportNamedDeclaration(
-            j.variableDeclaration("const", [j.variableDeclarator(id, value)]),
+            j.variableDeclaration("let", [j.variableDeclarator(id, value)]),
             []
           )
         );
       }
     });
+
+  // exports.foo;
+  prog
+    .find(j.ExpressionStatement, {
+      expression: {
+        type: "MemberExpression",
+        object: { name: "exports" },
+      },
+    })
+    .forEach((path) => {
+      let id = path.node.expression.property;
+      let decl = prog
+        .find(j.VariableDeclarator, { id: { name: id.name } })
+        .closest(j.VariableDeclaration)
+        .paths()[0];
+      if (decl) {
+        replacePreservingComments(
+          decl,
+          j.exportNamedDeclaration(decl.value, [])
+        );
+        path.prune();
+        return;
+      }
+
+      checkToplevel(path);
+      replacePreservingComments(
+        path,
+        j.exportNamedDeclaration(
+          j.variableDeclaration("let", [j.variableDeclarator(id)]),
+          []
+        )
+      );
+    });
+
+
+  prog
+  .find(j.MemberExpression, {
+      object: { name: "exports" },
+  })
+  .forEach((path) => {
+    path.replace(path.node.property);
+  });
 
   function checkToplevel(path) {
     if (path.parent.name !== "program") {
@@ -148,6 +190,7 @@ export function transformGoogModule(prog, j, filename) {
 function replacePreservingComments(old, newNode) {
   newNode.comments = old.node.comments;
   newNode.loc = old.node.loc;
+  old.node.comments = [];
   old.replace(newNode);
 }
 
@@ -156,5 +199,5 @@ export default (fileInfo, api) => {
   const j = api.jscodeshift;
   const root = j(fileInfo.source);
   transformGoogModule(root.find(j.Program), j, fileInfo.path);
-  return root.toSource({quote: 'single'});
+  return root.toSource({ quote: "single" });
 };

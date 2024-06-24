@@ -87,7 +87,8 @@ export function transformGoogRequires(prog, j, filename) {
       const name = expr.node.arguments[0].value;
       const file = provideInfo.get(name);
       if (!file) {
-        throw new Error(`missing require: ${name}`);
+        console.log(`missing require: ${name}`);
+        continue;
       }
       if (!result.has(file.id)) {
         result.set(file.id, { file, requires: new Map(), comments: [] });
@@ -102,7 +103,9 @@ export function transformGoogRequires(prog, j, filename) {
         stmt = expr.parent;
       }
       if (typeof stmt.name !== "number") {
-        throw new Error(`goog.require at ${filename}:${stmt.value.loc?.start.line}: ${stmt.name}`);
+        throw new Error(
+          `goog.require at ${filename}:${stmt.value.loc?.start.line}: ${stmt.name}`
+        );
       }
       if (startIndex == null || stmt.name < startIndex) {
         startIndex = stmt.name;
@@ -147,29 +150,47 @@ export function transformGoogRequires(prog, j, filename) {
     }
 
     for (const info of importInfo.values()) {
-      let importpath = path.relative(path.dirname(filename), info.file.filename);
-      if (!(importpath.startsWith('./') || importpath.startsWith('../'))) {
+      const assignments = [];
+      let importpath = path.relative(
+        path.dirname(filename),
+        info.file.filename
+      );
+      if (!(importpath.startsWith("./") || importpath.startsWith("../"))) {
         importpath = `./${importpath}`;
       }
       let specifiers = [];
 
-      if (!info.file.exports) {
-        throw new Error(`no exports ${info.file.filename}`);
-        continue;
-      }
       const exports = new Set(info.file.exports);
       const namespaces = info.file.namespaces ? [...info.file.namespaces] : [];
       info.requires.forEach((id, name) => {
-        if (info.file.defaultExport) {
-          if (id && !id.name) {
-            throw new Error(`destructuring default export ${info.file.id}`);
+        if (!info.file.exports) {
+          if (id.name) {
+            specifiers.push(j.importNamespaceSpecifier(id));
+          } else if (id) {
+            const alias = makeAlias(name);
+            specifiers.push(j.importNamespaceSpecifier(j.identifier(alias)));
+            assignments.push(
+              j.variableDeclaration("const", [
+                j.variableDeclarator(id, j.identifier(alias)),
+              ])
+            );
           }
-          if (id) {
+          return;
+        }
+        if (info.file.defaultExport) {
+          if (id && id.name) {
             specifiers.push(j.importDefaultSpecifier(id));
           } else {
             const alias = makeAlias(name);
             specifiers.push(j.importDefaultSpecifier(j.identifier(alias)));
             renames.push([name, alias]);
+            if (id) {
+              assignments.push(
+                j.variableDeclaration("const", [
+                  j.variableDeclarator(id, j.identifier(alias)),
+                ])
+              );
+            }
           }
         } else {
           if (id?.properties) {
@@ -215,13 +236,23 @@ export function transformGoogRequires(prog, j, filename) {
                   name.startsWith(n + ".")
                 );
                 if (namespace) {
+                  const alias = makeAlias(namespace);
+                  renames.push([namespace, alias]);
+                  specifiers.push(
+                    j.importNamespaceSpecifier(j.identifier(alias))
+                  );
                   if (id) {
-                    throw new Error(`destructuring ${name} in ${info.file.id}`);
-                  } else {
-                    const alias = makeAlias(namespace);
-                    renames.push([namespace, alias]);
-                    specifiers.push(
-                      j.importNamespaceSpecifier(j.identifier(alias))
+                    const tail = name.slice(namespace.length + 1);
+                    const rhs = tail
+                      .split(".")
+                      .reduce(
+                        (a, b) => j.memberExpression(a, j.identifier(b)),
+                        j.identifier(alias)
+                      );
+                    assignments.push(
+                      j.variableDeclaration("const", [
+                        j.variableDeclarator(id, rhs),
+                      ])
                     );
                   }
                 }
@@ -316,7 +347,7 @@ export function transformGoogRequires(prog, j, filename) {
 
       const stmt = j.importDeclaration(specifiers, j.literal(importpath));
       stmt.comments = info.comments;
-      importStatements.push(stmt);
+      importStatements.push(stmt, ...assignments);
     }
     const body = prog.nodes()[0].body;
     body.splice(startIndex, 0, ...importStatements);
@@ -352,7 +383,7 @@ export default (fileInfo, api) => {
   const j = api.jscodeshift;
   const root = j(fileInfo.source);
   transformGoogRequires(root.find(j.Program), j, fileInfo.path);
-  return root.toSource({quote: 'single'});
+  return root.toSource({ quote: "single" });
 };
 
 function memberExprToName(expr) {
