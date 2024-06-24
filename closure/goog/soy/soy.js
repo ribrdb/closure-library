@@ -36,7 +36,7 @@ exports.shouldStub = goog.define('goog.soy.SHOULD_STUB', false);
  */
 exports.alwaysStub = goog.define('goog.soy.ALWAYS_STUB', false);
 
-let shouldStubAtRuntime = true;
+let shouldStubAtRuntime_ = true;
 
 /**
  * A runtime control for whether a Soy template will be replaced with an
@@ -46,12 +46,12 @@ let shouldStubAtRuntime = true;
  * @return {boolean}
  */
 exports.shouldStubAtRuntime = function() {
-  return shouldStubAtRuntime;
+  return shouldStubAtRuntime_;
 };
 
 /** See above. */
 exports.disableStubbingAtRuntime = function() {
-  shouldStubAtRuntime = false;
+  shouldStubAtRuntime_ = false;
 };
 
 /**
