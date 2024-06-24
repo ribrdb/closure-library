@@ -158,17 +158,20 @@ export function transformGoogRequires(prog, j, filename) {
       if (!(importpath.startsWith("./") || importpath.startsWith("../"))) {
         importpath = `./${importpath}`;
       }
-      let specifiers = [];
+      let namespaceSpecifiers = [];
+      let namedSpecifiers = [];
 
       const exports = new Set(info.file.exports);
       const namespaces = info.file.namespaces ? [...info.file.namespaces] : [];
       info.requires.forEach((id, name) => {
         if (!info.file.exports) {
           if (id.name) {
-            specifiers.push(j.importNamespaceSpecifier(id));
+            namespaceSpecifiers.push(j.importNamespaceSpecifier(id));
           } else if (id) {
             const alias = makeAlias(name);
-            specifiers.push(j.importNamespaceSpecifier(j.identifier(alias)));
+            namespaceSpecifiers.push(
+              j.importNamespaceSpecifier(j.identifier(alias))
+            );
             assignments.push(
               j.variableDeclaration("const", [
                 j.variableDeclarator(id, j.identifier(alias)),
@@ -179,10 +182,12 @@ export function transformGoogRequires(prog, j, filename) {
         }
         if (info.file.defaultExport) {
           if (id && id.name) {
-            specifiers.push(j.importDefaultSpecifier(id));
+            namespaceSpecifiers.push(j.importDefaultSpecifier(id));
           } else {
             const alias = makeAlias(name);
-            specifiers.push(j.importDefaultSpecifier(j.identifier(alias)));
+            namespaceSpecifiers.push(
+              j.importDefaultSpecifier(j.identifier(alias))
+            );
             renames.push([name, alias]);
             if (id) {
               assignments.push(
@@ -200,16 +205,14 @@ export function transformGoogRequires(prog, j, filename) {
                   `export ${p.key.name} not found in ${info.file.id}`
                 );
               }
-              specifiers.push(j.importSpecifier(p.key, p.value));
+              namedSpecifiers.push(j.importSpecifier(p.key, p.value));
             });
           } else {
-            let match, fullmatch;
+            let match, fullmatch, extra;
             const parts = name.split(".");
             for (let i = 0; i < parts.length; i++) {
               if (exports.has(parts[i])) {
-                if (id && i < parts.length - 1) {
-                  continue;
-                }
+                extra = parts.slice(i + 1);
                 match = parts[i];
                 fullmatch = parts.slice(0, i + 1).join(".");
 
@@ -217,12 +220,23 @@ export function transformGoogRequires(prog, j, filename) {
               }
             }
             if (match) {
-              if (!id) {
+              if (extra?.length || !id) {
                 const alias = makeAlias(fullmatch);
                 renames.push([fullmatch, alias]);
+                if (extra?.length) {
+                  const rhs = extra.reduce(
+                    (a, b) => j.memberExpression(a, j.identifier(b)),
+                    j.identifier(alias)
+                  );
+                  assignments.push(
+                    j.variableDeclaration("const", [
+                      j.variableDeclarator(id, rhs),
+                    ])
+                  );
+                }
                 id = j.identifier(alias);
               }
-              specifiers.push(j.importSpecifier(j.identifier(match), id));
+              namedSpecifiers.push(j.importSpecifier(j.identifier(match), id));
             } else {
               if (info.file.module || namespaces.includes(name)) {
                 if (!id) {
@@ -230,7 +244,7 @@ export function transformGoogRequires(prog, j, filename) {
                   renames.push([name, alias]);
                   id = j.identifier(alias);
                 }
-                specifiers.push(j.importNamespaceSpecifier(id));
+                namespaceSpecifiers.push(j.importNamespaceSpecifier(id));
               } else {
                 let namespace = namespaces.find((n) =>
                   name.startsWith(n + ".")
@@ -238,7 +252,7 @@ export function transformGoogRequires(prog, j, filename) {
                 if (namespace) {
                   const alias = makeAlias(namespace);
                   renames.push([namespace, alias]);
-                  specifiers.push(
+                  namespaceSpecifiers.push(
                     j.importNamespaceSpecifier(j.identifier(alias))
                   );
                   if (id) {
@@ -261,93 +275,15 @@ export function transformGoogRequires(prog, j, filename) {
           }
         }
       });
-      // if (info.file.module) {
-      //   if (info.requires.size !== 1) {
-      //     console.log(info);
-      //     throw new Error();
-      //   }
-      //   const id = [...info.requires.values()][0];
-      //   if (!id) {
-      //     let alias = makeAlias(info.file.id);
-      //     renames.push([info.file.id, alias]);
-      //     if (info.file.defaultExport) {
-      //       specifiers.push(j.importDefaultSpecifier(j.identifier(alias)));
-      //     } else {
-      //       specifiers.push(j.importNamespaceSpecifier(j.identifier(alias)));
-      //     }
-      //   } else if (id?.name) {
-      //     if (info.file.defaultExport) {
-      //       specifiers.push(j.importDefaultSpecifier(id));
-      //     } else {
-      //       // TODO: probably this should be importNamespacedSpecifier,
-      //       // but need to fix and re-run googmodule_to_es6 to have more default exports.
-      //       specifiers.push(j.importSpecifier(id, id));
-      //     }
-      //   } else {
-      //     if (info.file.defaultExport) {
-      //       throw new Error(`destructuring default export ${info.file.id}`);
-      //     }
-      //     id?.properties.forEach((p) => {
-      //       specifiers.push(j.importSpecifier(p.key, p.value));
-      //     });
-      //   }
-      // } else {
-      //   const namespaces = [...info.file.namespaces];
-      //   info.requires.forEach((id, name) => {
-      //     const namespace = namespaces.find(
-      //       (n) => name == n || name.startsWith(n + ".")
-      //     );
-      //     if (!id) {
-      //       const rename = renames.find(
-      //         (r) => r[0] === name || name.startsWith(r[0] + ".")
-      //       );
-      //       if (rename) {
-      //         console.log(`skipping ${name}: ${rename[0]} -> ${rename[1]}`);
-      //         return;
-      //       }
 
-      //       const summary = {
-      //         filename: info.file.filename,
-      //         provides: [...info.file.provides],
-      //       };
-      //       if (namespace) {
-      //         summary["namespace"] = namespace;
-      //       }
-      //       console.log(`${name}: ${JSON.stringify(summary, null, 2)}`);
-      //       let alias;
-      //       if (namespace) {
-      //         alias = makeAlias(namespace);
-      //       } else {
-      //         alias = makeAlias(name);
-      //       }
-      //       renames.push([namespace ?? name, alias]);
-      //       specifiers.push(j.importNamespaceSpecifier(j.identifier(alias)));
-      //     } else {
-      //       if (id.name) {
-      //         if (namespace) {
-      //           if (name == namespace) {
-      //             specifiers.push(j.importNamespaceSpecifier(id));
-      //           } else {
-      //             throw new Error(`weird namespace import ${namespace}`);
-      //           }
-      //         } else {
-      //           specifiers.push(j.importSpecifier(id, id));
-      //         }
-      //       } else {
-      //         if (namespace) {
-      //           throw new Error(`destructuring namespace ${namespace}`);
-      //         }
-      //         id.properties.forEach((p) => {
-      //           specifiers.push(j.importSpecifier(p.key, p.value));
-      //         });
-      //       }
-      //     }
-      //   });
-      // }
-
-      const stmt = j.importDeclaration(specifiers, j.literal(importpath));
-      stmt.comments = info.comments;
-      importStatements.push(stmt, ...assignments);
+      const stmts = namespaceSpecifiers.map((s) =>
+        j.importDeclaration([s], j.literal(importpath))
+      );
+      if (namedSpecifiers.length > 0 || namespaceSpecifiers.length == 0) {
+        stmts.push(j.importDeclaration(namedSpecifiers, j.literal(importpath)));
+      }
+      stmts[0].comments = info.comments;
+      importStatements.push(...stmts, ...assignments);
     }
     const body = prog.nodes()[0].body;
     body.splice(startIndex, 0, ...importStatements);
