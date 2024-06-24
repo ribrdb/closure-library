@@ -26,9 +26,10 @@ const events = goog.require('goog.events');
 const functions = goog.require('goog.functions');
 const googJson = goog.require('goog.json');
 const testSuite = goog.require('goog.testing.testSuite');
-const {anything} = goog.require('goog.labs.testing.AnythingMatcher');
+const AnythingMatcher = goog.require('goog.labs.testing.AnythingMatcher');
 const {atMost, times} = goog.require('goog.labs.mock.verification');
 const {mock, mockFunction, verify} = goog.require('goog.labs.mock');
+const {anything} = AnythingMatcher;
 
 let webChannel;
 const channelUrl = 'http://127.0.0.1:8080/channel';
