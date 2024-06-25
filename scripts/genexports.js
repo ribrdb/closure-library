@@ -9,7 +9,7 @@ const exportsMap = {};
 lineReader.on("line", function (line) {
   const [filename, code] = line.split(":");
   const match = code.match(
-    /export (?:var|let|const|function|class|\{)?\s*(\w+)(?: as (\w+))?/
+    /export (?:var|let|const|function|class|\{)?\s*([^ (;]+)(?: as (\w+))?/
   );
 
   if (match) {

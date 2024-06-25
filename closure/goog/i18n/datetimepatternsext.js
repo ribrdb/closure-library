@@ -30,7 +30,7 @@
  */
 
 
-import { DateTimePatterns } from './datetimepatterns.js';
+import { DateTimePatterns, DateTimePatterns_af, DateTimePatterns_am, DateTimePatterns_ar, DateTimePatterns_az, DateTimePatterns_be, DateTimePatterns_bg, DateTimePatterns_bn, DateTimePatterns_br, DateTimePatterns_bs, DateTimePatterns_ca, DateTimePatterns_chr, DateTimePatterns_cs, DateTimePatterns_cy, DateTimePatterns_da, DateTimePatterns_de, DateTimePatterns_el, DateTimePatterns_en, DateTimePatterns_es, DateTimePatterns_et, DateTimePatterns_eu, DateTimePatterns_fa, DateTimePatterns_fi, DateTimePatterns_fil, DateTimePatterns_fr, DateTimePatterns_ga, DateTimePatterns_gl, DateTimePatterns_gsw, DateTimePatterns_gu, DateTimePatterns_haw, DateTimePatterns_he, DateTimePatterns_hi, DateTimePatterns_hr, DateTimePatterns_hu, DateTimePatterns_hy, DateTimePatterns_id, DateTimePatterns_is, DateTimePatterns_it, DateTimePatterns_ja, DateTimePatterns_ka, DateTimePatterns_kk, DateTimePatterns_km, DateTimePatterns_kn, DateTimePatterns_ko, DateTimePatterns_ky, DateTimePatterns_ln, DateTimePatterns_lo, DateTimePatterns_lt, DateTimePatterns_lv, DateTimePatterns_mk, DateTimePatterns_ml, DateTimePatterns_mn, DateTimePatterns_mr, DateTimePatterns_ms, DateTimePatterns_mt, DateTimePatterns_my, DateTimePatterns_nb, DateTimePatterns_ne, DateTimePatterns_nl, DateTimePatterns_or, DateTimePatterns_pa, DateTimePatterns_pl, DateTimePatterns_ro, DateTimePatterns_ru, DateTimePatterns_si, DateTimePatterns_sk, DateTimePatterns_sl, DateTimePatterns_sq, DateTimePatterns_sr, DateTimePatterns_sv, DateTimePatterns_sw, DateTimePatterns_ta, DateTimePatterns_te, DateTimePatterns_th, DateTimePatterns_tr, DateTimePatterns_uk, DateTimePatterns_ur, DateTimePatterns_uz, DateTimePatterns_vi, DateTimePatterns_zh, DateTimePatterns_zu } from './datetimepatterns.js';
 
 
 /**
@@ -57,7 +57,7 @@ DateTimePatterns_af_NA = {
 /**
  * Extended set of localized date/time patterns for locale af_ZA.
  */
-DateTimePatterns_af_ZA = goog.i18n.DateTimePatterns_af;
+DateTimePatterns_af_ZA = DateTimePatterns_af;
 
 
 /**
@@ -117,43 +117,43 @@ DateTimePatterns_ak_GH = DateTimePatterns_ak;
 /**
  * Extended set of localized date/time patterns for locale am_ET.
  */
-DateTimePatterns_am_ET = goog.i18n.DateTimePatterns_am;
+DateTimePatterns_am_ET = DateTimePatterns_am;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_001.
  */
-DateTimePatterns_ar_001 = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_001 = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_AE.
  */
-DateTimePatterns_ar_AE = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_AE = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_BH.
  */
-DateTimePatterns_ar_BH = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_BH = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_DJ.
  */
-DateTimePatterns_ar_DJ = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_DJ = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_EH.
  */
-DateTimePatterns_ar_EH = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_EH = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_ER.
  */
-DateTimePatterns_ar_ER = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_ER = DateTimePatterns_ar;
 
 
 /**
@@ -180,13 +180,13 @@ DateTimePatterns_ar_IL = {
 /**
  * Extended set of localized date/time patterns for locale ar_IQ.
  */
-DateTimePatterns_ar_IQ = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_IQ = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_JO.
  */
-DateTimePatterns_ar_JO = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_JO = DateTimePatterns_ar;
 
 
 /**
@@ -213,19 +213,19 @@ DateTimePatterns_ar_KM = {
 /**
  * Extended set of localized date/time patterns for locale ar_KW.
  */
-DateTimePatterns_ar_KW = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_KW = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_LB.
  */
-DateTimePatterns_ar_LB = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_LB = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_LY.
  */
-DateTimePatterns_ar_LY = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_LY = DateTimePatterns_ar;
 
 
 /**
@@ -252,67 +252,67 @@ DateTimePatterns_ar_MA = {
 /**
  * Extended set of localized date/time patterns for locale ar_MR.
  */
-DateTimePatterns_ar_MR = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_MR = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_OM.
  */
-DateTimePatterns_ar_OM = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_OM = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_PS.
  */
-DateTimePatterns_ar_PS = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_PS = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_QA.
  */
-DateTimePatterns_ar_QA = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_QA = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SA.
  */
-DateTimePatterns_ar_SA = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_SA = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SD.
  */
-DateTimePatterns_ar_SD = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_SD = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SO.
  */
-DateTimePatterns_ar_SO = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_SO = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SS.
  */
-DateTimePatterns_ar_SS = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_SS = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SY.
  */
-DateTimePatterns_ar_SY = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_SY = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_TD.
  */
-DateTimePatterns_ar_TD = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_TD = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_TN.
  */
-DateTimePatterns_ar_TN = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_TN = DateTimePatterns_ar;
 
 
 /**
@@ -339,7 +339,7 @@ DateTimePatterns_ar_XB = {
 /**
  * Extended set of localized date/time patterns for locale ar_YE.
  */
-DateTimePatterns_ar_YE = goog.i18n.DateTimePatterns_ar;
+DateTimePatterns_ar_YE = DateTimePatterns_ar;
 
 
 /**
@@ -468,13 +468,13 @@ DateTimePatterns_az_Cyrl_AZ = {
 /**
  * Extended set of localized date/time patterns for locale az_Latn.
  */
-DateTimePatterns_az_Latn = goog.i18n.DateTimePatterns_az;
+DateTimePatterns_az_Latn = DateTimePatterns_az;
 
 
 /**
  * Extended set of localized date/time patterns for locale az_Latn_AZ.
  */
-DateTimePatterns_az_Latn_AZ = goog.i18n.DateTimePatterns_az;
+DateTimePatterns_az_Latn_AZ = DateTimePatterns_az;
 
 
 /**
@@ -507,7 +507,7 @@ DateTimePatterns_bas_CM = DateTimePatterns_bas;
 /**
  * Extended set of localized date/time patterns for locale be_BY.
  */
-DateTimePatterns_be_BY = goog.i18n.DateTimePatterns_be;
+DateTimePatterns_be_BY = DateTimePatterns_be;
 
 
 /**
@@ -567,7 +567,7 @@ DateTimePatterns_bez_TZ = DateTimePatterns_bez;
 /**
  * Extended set of localized date/time patterns for locale bg_BG.
  */
-DateTimePatterns_bg_BG = goog.i18n.DateTimePatterns_bg;
+DateTimePatterns_bg_BG = DateTimePatterns_bg;
 
 
 /**
@@ -654,13 +654,13 @@ DateTimePatterns_bm_ML = DateTimePatterns_bm;
 /**
  * Extended set of localized date/time patterns for locale bn_BD.
  */
-DateTimePatterns_bn_BD = goog.i18n.DateTimePatterns_bn;
+DateTimePatterns_bn_BD = DateTimePatterns_bn;
 
 
 /**
  * Extended set of localized date/time patterns for locale bn_IN.
  */
-DateTimePatterns_bn_IN = goog.i18n.DateTimePatterns_bn;
+DateTimePatterns_bn_IN = DateTimePatterns_bn;
 
 
 /**
@@ -714,7 +714,7 @@ DateTimePatterns_bo_IN = {
 /**
  * Extended set of localized date/time patterns for locale br_FR.
  */
-DateTimePatterns_br_FR = goog.i18n.DateTimePatterns_br;
+DateTimePatterns_br_FR = DateTimePatterns_br;
 
 
 /**
@@ -789,37 +789,37 @@ DateTimePatterns_bs_Cyrl_BA = {
 /**
  * Extended set of localized date/time patterns for locale bs_Latn.
  */
-DateTimePatterns_bs_Latn = goog.i18n.DateTimePatterns_bs;
+DateTimePatterns_bs_Latn = DateTimePatterns_bs;
 
 
 /**
  * Extended set of localized date/time patterns for locale bs_Latn_BA.
  */
-DateTimePatterns_bs_Latn_BA = goog.i18n.DateTimePatterns_bs;
+DateTimePatterns_bs_Latn_BA = DateTimePatterns_bs;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_AD.
  */
-DateTimePatterns_ca_AD = goog.i18n.DateTimePatterns_ca;
+DateTimePatterns_ca_AD = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_ES.
  */
-DateTimePatterns_ca_ES = goog.i18n.DateTimePatterns_ca;
+DateTimePatterns_ca_ES = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_FR.
  */
-DateTimePatterns_ca_FR = goog.i18n.DateTimePatterns_ca;
+DateTimePatterns_ca_FR = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_IT.
  */
-DateTimePatterns_ca_IT = goog.i18n.DateTimePatterns_ca;
+DateTimePatterns_ca_IT = DateTimePatterns_ca;
 
 
 /**
@@ -939,7 +939,7 @@ DateTimePatterns_cgg_UG = DateTimePatterns_cgg;
 /**
  * Extended set of localized date/time patterns for locale chr_US.
  */
-DateTimePatterns_chr_US = goog.i18n.DateTimePatterns_chr;
+DateTimePatterns_chr_US = DateTimePatterns_chr;
 
 
 /**
@@ -1026,7 +1026,7 @@ DateTimePatterns_ckb_IR = {
 /**
  * Extended set of localized date/time patterns for locale cs_CZ.
  */
-DateTimePatterns_cs_CZ = goog.i18n.DateTimePatterns_cs;
+DateTimePatterns_cs_CZ = DateTimePatterns_cs;
 
 
 /**
@@ -1059,19 +1059,19 @@ DateTimePatterns_cv_RU = DateTimePatterns_cv;
 /**
  * Extended set of localized date/time patterns for locale cy_GB.
  */
-DateTimePatterns_cy_GB = goog.i18n.DateTimePatterns_cy;
+DateTimePatterns_cy_GB = DateTimePatterns_cy;
 
 
 /**
  * Extended set of localized date/time patterns for locale da_DK.
  */
-DateTimePatterns_da_DK = goog.i18n.DateTimePatterns_da;
+DateTimePatterns_da_DK = DateTimePatterns_da;
 
 
 /**
  * Extended set of localized date/time patterns for locale da_GL.
  */
-DateTimePatterns_da_GL = goog.i18n.DateTimePatterns_da;
+DateTimePatterns_da_GL = DateTimePatterns_da;
 
 
 /**
@@ -1104,31 +1104,31 @@ DateTimePatterns_dav_KE = DateTimePatterns_dav;
 /**
  * Extended set of localized date/time patterns for locale de_BE.
  */
-DateTimePatterns_de_BE = goog.i18n.DateTimePatterns_de;
+DateTimePatterns_de_BE = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_DE.
  */
-DateTimePatterns_de_DE = goog.i18n.DateTimePatterns_de;
+DateTimePatterns_de_DE = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_IT.
  */
-DateTimePatterns_de_IT = goog.i18n.DateTimePatterns_de;
+DateTimePatterns_de_IT = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_LI.
  */
-DateTimePatterns_de_LI = goog.i18n.DateTimePatterns_de;
+DateTimePatterns_de_LI = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_LU.
  */
-DateTimePatterns_de_LU = goog.i18n.DateTimePatterns_de;
+DateTimePatterns_de_LU = DateTimePatterns_de;
 
 
 /**
@@ -1371,13 +1371,13 @@ DateTimePatterns_ee_TG = {
 /**
  * Extended set of localized date/time patterns for locale el_CY.
  */
-DateTimePatterns_el_CY = goog.i18n.DateTimePatterns_el;
+DateTimePatterns_el_CY = DateTimePatterns_el;
 
 
 /**
  * Extended set of localized date/time patterns for locale el_GR.
  */
-DateTimePatterns_el_GR = goog.i18n.DateTimePatterns_el;
+DateTimePatterns_el_GR = DateTimePatterns_el;
 
 
 /**
@@ -1488,7 +1488,7 @@ DateTimePatterns_en_AI = {
 /**
  * Extended set of localized date/time patterns for locale en_AS.
  */
-DateTimePatterns_en_AS = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_AS = DateTimePatterns_en;
 
 
 /**
@@ -2082,7 +2082,7 @@ DateTimePatterns_en_GM = {
 /**
  * Extended set of localized date/time patterns for locale en_GU.
  */
-DateTimePatterns_en_GU = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_GU = DateTimePatterns_en;
 
 
 /**
@@ -2403,7 +2403,7 @@ DateTimePatterns_en_MG = {
 /**
  * Extended set of localized date/time patterns for locale en_MH.
  */
-DateTimePatterns_en_MH = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_MH = DateTimePatterns_en;
 
 
 /**
@@ -2430,7 +2430,7 @@ DateTimePatterns_en_MO = {
 /**
  * Extended set of localized date/time patterns for locale en_MP.
  */
-DateTimePatterns_en_MP = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_MP = DateTimePatterns_en;
 
 
 /**
@@ -2730,7 +2730,7 @@ DateTimePatterns_en_PG = {
 /**
  * Extended set of localized date/time patterns for locale en_PH.
  */
-DateTimePatterns_en_PH = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_PH = DateTimePatterns_en;
 
 
 /**
@@ -2778,7 +2778,7 @@ DateTimePatterns_en_PN = {
 /**
  * Extended set of localized date/time patterns for locale en_PR.
  */
-DateTimePatterns_en_PR = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_PR = DateTimePatterns_en;
 
 
 /**
@@ -3183,13 +3183,13 @@ DateTimePatterns_en_UG = {
 /**
  * Extended set of localized date/time patterns for locale en_UM.
  */
-DateTimePatterns_en_UM = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_UM = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_US_POSIX.
  */
-DateTimePatterns_en_US_POSIX = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_US_POSIX = DateTimePatterns_en;
 
 
 /**
@@ -3237,7 +3237,7 @@ DateTimePatterns_en_VG = {
 /**
  * Extended set of localized date/time patterns for locale en_VI.
  */
-DateTimePatterns_en_VI = goog.i18n.DateTimePatterns_en;
+DateTimePatterns_en_VI = DateTimePatterns_en;
 
 
 /**
@@ -3564,7 +3564,7 @@ DateTimePatterns_es_DO = {
 /**
  * Extended set of localized date/time patterns for locale es_EA.
  */
-DateTimePatterns_es_EA = goog.i18n.DateTimePatterns_es;
+DateTimePatterns_es_EA = DateTimePatterns_es;
 
 
 /**
@@ -3591,7 +3591,7 @@ DateTimePatterns_es_EC = {
 /**
  * Extended set of localized date/time patterns for locale es_GQ.
  */
-DateTimePatterns_es_GQ = goog.i18n.DateTimePatterns_es;
+DateTimePatterns_es_GQ = DateTimePatterns_es;
 
 
 /**
@@ -3639,7 +3639,7 @@ DateTimePatterns_es_HN = {
 /**
  * Extended set of localized date/time patterns for locale es_IC.
  */
-DateTimePatterns_es_IC = goog.i18n.DateTimePatterns_es;
+DateTimePatterns_es_IC = DateTimePatterns_es;
 
 
 /**
@@ -3834,13 +3834,13 @@ DateTimePatterns_es_VE = {
 /**
  * Extended set of localized date/time patterns for locale et_EE.
  */
-DateTimePatterns_et_EE = goog.i18n.DateTimePatterns_et;
+DateTimePatterns_et_EE = DateTimePatterns_et;
 
 
 /**
  * Extended set of localized date/time patterns for locale eu_ES.
  */
-DateTimePatterns_eu_ES = goog.i18n.DateTimePatterns_eu;
+DateTimePatterns_eu_ES = DateTimePatterns_eu;
 
 
 /**
@@ -3894,7 +3894,7 @@ DateTimePatterns_fa_AF = {
 /**
  * Extended set of localized date/time patterns for locale fa_IR.
  */
-DateTimePatterns_fa_IR = goog.i18n.DateTimePatterns_fa;
+DateTimePatterns_fa_IR = DateTimePatterns_fa;
 
 
 /**
@@ -4347,13 +4347,13 @@ DateTimePatterns_ff_Latn_SN = DateTimePatterns_ff;
 /**
  * Extended set of localized date/time patterns for locale fi_FI.
  */
-DateTimePatterns_fi_FI = goog.i18n.DateTimePatterns_fi;
+DateTimePatterns_fi_FI = DateTimePatterns_fi;
 
 
 /**
  * Extended set of localized date/time patterns for locale fil_PH.
  */
-DateTimePatterns_fil_PH = goog.i18n.DateTimePatterns_fil;
+DateTimePatterns_fil_PH = DateTimePatterns_fil;
 
 
 /**
@@ -4392,49 +4392,49 @@ DateTimePatterns_fo_FO = DateTimePatterns_fo;
 /**
  * Extended set of localized date/time patterns for locale fr_BE.
  */
-DateTimePatterns_fr_BE = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_BE = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BF.
  */
-DateTimePatterns_fr_BF = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_BF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BI.
  */
-DateTimePatterns_fr_BI = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_BI = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BJ.
  */
-DateTimePatterns_fr_BJ = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_BJ = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BL.
  */
-DateTimePatterns_fr_BL = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_BL = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CD.
  */
-DateTimePatterns_fr_CD = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_CD = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CF.
  */
-DateTimePatterns_fr_CF = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_CF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CG.
  */
-DateTimePatterns_fr_CG = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_CG = DateTimePatterns_fr;
 
 
 /**
@@ -4461,13 +4461,13 @@ DateTimePatterns_fr_CH = {
 /**
  * Extended set of localized date/time patterns for locale fr_CI.
  */
-DateTimePatterns_fr_CI = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_CI = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CM.
  */
-DateTimePatterns_fr_CM = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_CM = DateTimePatterns_fr;
 
 
 /**
@@ -4515,91 +4515,91 @@ DateTimePatterns_fr_DZ = {
 /**
  * Extended set of localized date/time patterns for locale fr_FR.
  */
-DateTimePatterns_fr_FR = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_FR = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GA.
  */
-DateTimePatterns_fr_GA = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_GA = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GF.
  */
-DateTimePatterns_fr_GF = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_GF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GN.
  */
-DateTimePatterns_fr_GN = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_GN = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GP.
  */
-DateTimePatterns_fr_GP = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_GP = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GQ.
  */
-DateTimePatterns_fr_GQ = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_GQ = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_HT.
  */
-DateTimePatterns_fr_HT = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_HT = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_KM.
  */
-DateTimePatterns_fr_KM = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_KM = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_LU.
  */
-DateTimePatterns_fr_LU = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_LU = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MA.
  */
-DateTimePatterns_fr_MA = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_MA = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MC.
  */
-DateTimePatterns_fr_MC = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_MC = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MF.
  */
-DateTimePatterns_fr_MF = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_MF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MG.
  */
-DateTimePatterns_fr_MG = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_MG = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_ML.
  */
-DateTimePatterns_fr_ML = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_ML = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MQ.
  */
-DateTimePatterns_fr_MQ = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_MQ = DateTimePatterns_fr;
 
 
 /**
@@ -4626,55 +4626,55 @@ DateTimePatterns_fr_MR = {
 /**
  * Extended set of localized date/time patterns for locale fr_MU.
  */
-DateTimePatterns_fr_MU = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_MU = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_NC.
  */
-DateTimePatterns_fr_NC = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_NC = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_NE.
  */
-DateTimePatterns_fr_NE = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_NE = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_PF.
  */
-DateTimePatterns_fr_PF = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_PF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_PM.
  */
-DateTimePatterns_fr_PM = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_PM = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_RE.
  */
-DateTimePatterns_fr_RE = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_RE = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_RW.
  */
-DateTimePatterns_fr_RW = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_RW = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_SC.
  */
-DateTimePatterns_fr_SC = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_SC = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_SN.
  */
-DateTimePatterns_fr_SN = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_SN = DateTimePatterns_fr;
 
 
 /**
@@ -4722,7 +4722,7 @@ DateTimePatterns_fr_TD = {
 /**
  * Extended set of localized date/time patterns for locale fr_TG.
  */
-DateTimePatterns_fr_TG = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_TG = DateTimePatterns_fr;
 
 
 /**
@@ -4770,13 +4770,13 @@ DateTimePatterns_fr_VU = {
 /**
  * Extended set of localized date/time patterns for locale fr_WF.
  */
-DateTimePatterns_fr_WF = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_WF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_YT.
  */
-DateTimePatterns_fr_YT = goog.i18n.DateTimePatterns_fr;
+DateTimePatterns_fr_YT = DateTimePatterns_fr;
 
 
 /**
@@ -4836,13 +4836,13 @@ DateTimePatterns_fy_NL = DateTimePatterns_fy;
 /**
  * Extended set of localized date/time patterns for locale ga_GB.
  */
-DateTimePatterns_ga_GB = goog.i18n.DateTimePatterns_ga;
+DateTimePatterns_ga_GB = DateTimePatterns_ga;
 
 
 /**
  * Extended set of localized date/time patterns for locale ga_IE.
  */
-DateTimePatterns_ga_IE = goog.i18n.DateTimePatterns_ga;
+DateTimePatterns_ga_IE = DateTimePatterns_ga;
 
 
 /**
@@ -4875,31 +4875,31 @@ DateTimePatterns_gd_GB = DateTimePatterns_gd;
 /**
  * Extended set of localized date/time patterns for locale gl_ES.
  */
-DateTimePatterns_gl_ES = goog.i18n.DateTimePatterns_gl;
+DateTimePatterns_gl_ES = DateTimePatterns_gl;
 
 
 /**
  * Extended set of localized date/time patterns for locale gsw_CH.
  */
-DateTimePatterns_gsw_CH = goog.i18n.DateTimePatterns_gsw;
+DateTimePatterns_gsw_CH = DateTimePatterns_gsw;
 
 
 /**
  * Extended set of localized date/time patterns for locale gsw_FR.
  */
-DateTimePatterns_gsw_FR = goog.i18n.DateTimePatterns_gsw;
+DateTimePatterns_gsw_FR = DateTimePatterns_gsw;
 
 
 /**
  * Extended set of localized date/time patterns for locale gsw_LI.
  */
-DateTimePatterns_gsw_LI = goog.i18n.DateTimePatterns_gsw;
+DateTimePatterns_gsw_LI = DateTimePatterns_gsw;
 
 
 /**
  * Extended set of localized date/time patterns for locale gu_IN.
  */
-DateTimePatterns_gu_IN = goog.i18n.DateTimePatterns_gu;
+DateTimePatterns_gu_IN = DateTimePatterns_gu;
 
 
 /**
@@ -5013,19 +5013,19 @@ DateTimePatterns_ha_NG = DateTimePatterns_ha;
 /**
  * Extended set of localized date/time patterns for locale haw_US.
  */
-DateTimePatterns_haw_US = goog.i18n.DateTimePatterns_haw;
+DateTimePatterns_haw_US = DateTimePatterns_haw;
 
 
 /**
  * Extended set of localized date/time patterns for locale he_IL.
  */
-DateTimePatterns_he_IL = goog.i18n.DateTimePatterns_he;
+DateTimePatterns_he_IL = DateTimePatterns_he;
 
 
 /**
  * Extended set of localized date/time patterns for locale hi_IN.
  */
-DateTimePatterns_hi_IN = goog.i18n.DateTimePatterns_hi;
+DateTimePatterns_hi_IN = DateTimePatterns_hi;
 
 
 /**
@@ -5073,13 +5073,13 @@ DateTimePatterns_hi_Latn_IN = {
 /**
  * Extended set of localized date/time patterns for locale hr_BA.
  */
-DateTimePatterns_hr_BA = goog.i18n.DateTimePatterns_hr;
+DateTimePatterns_hr_BA = DateTimePatterns_hr;
 
 
 /**
  * Extended set of localized date/time patterns for locale hr_HR.
  */
-DateTimePatterns_hr_HR = goog.i18n.DateTimePatterns_hr;
+DateTimePatterns_hr_HR = DateTimePatterns_hr;
 
 
 /**
@@ -5112,13 +5112,13 @@ DateTimePatterns_hsb_DE = DateTimePatterns_hsb;
 /**
  * Extended set of localized date/time patterns for locale hu_HU.
  */
-DateTimePatterns_hu_HU = goog.i18n.DateTimePatterns_hu;
+DateTimePatterns_hu_HU = DateTimePatterns_hu;
 
 
 /**
  * Extended set of localized date/time patterns for locale hy_AM.
  */
-DateTimePatterns_hy_AM = goog.i18n.DateTimePatterns_hy;
+DateTimePatterns_hy_AM = DateTimePatterns_hy;
 
 
 /**
@@ -5151,7 +5151,7 @@ DateTimePatterns_ia_001 = DateTimePatterns_ia;
 /**
  * Extended set of localized date/time patterns for locale id_ID.
  */
-DateTimePatterns_id_ID = goog.i18n.DateTimePatterns_id;
+DateTimePatterns_id_ID = DateTimePatterns_id;
 
 
 /**
@@ -5211,37 +5211,37 @@ DateTimePatterns_ii_CN = DateTimePatterns_ii;
 /**
  * Extended set of localized date/time patterns for locale is_IS.
  */
-DateTimePatterns_is_IS = goog.i18n.DateTimePatterns_is;
+DateTimePatterns_is_IS = DateTimePatterns_is;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_CH.
  */
-DateTimePatterns_it_CH = goog.i18n.DateTimePatterns_it;
+DateTimePatterns_it_CH = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_IT.
  */
-DateTimePatterns_it_IT = goog.i18n.DateTimePatterns_it;
+DateTimePatterns_it_IT = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_SM.
  */
-DateTimePatterns_it_SM = goog.i18n.DateTimePatterns_it;
+DateTimePatterns_it_SM = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_VA.
  */
-DateTimePatterns_it_VA = goog.i18n.DateTimePatterns_it;
+DateTimePatterns_it_VA = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale ja_JP.
  */
-DateTimePatterns_ja_JP = goog.i18n.DateTimePatterns_ja;
+DateTimePatterns_ja_JP = DateTimePatterns_ja;
 
 
 /**
@@ -5328,7 +5328,7 @@ DateTimePatterns_jv_ID = DateTimePatterns_jv;
 /**
  * Extended set of localized date/time patterns for locale ka_GE.
  */
-DateTimePatterns_ka_GE = goog.i18n.DateTimePatterns_ka;
+DateTimePatterns_ka_GE = DateTimePatterns_ka;
 
 
 /**
@@ -5523,7 +5523,7 @@ DateTimePatterns_ki_KE = DateTimePatterns_ki;
 /**
  * Extended set of localized date/time patterns for locale kk_KZ.
  */
-DateTimePatterns_kk_KZ = goog.i18n.DateTimePatterns_kk;
+DateTimePatterns_kk_KZ = DateTimePatterns_kk;
 
 
 /**
@@ -5610,25 +5610,25 @@ DateTimePatterns_kln_KE = DateTimePatterns_kln;
 /**
  * Extended set of localized date/time patterns for locale km_KH.
  */
-DateTimePatterns_km_KH = goog.i18n.DateTimePatterns_km;
+DateTimePatterns_km_KH = DateTimePatterns_km;
 
 
 /**
  * Extended set of localized date/time patterns for locale kn_IN.
  */
-DateTimePatterns_kn_IN = goog.i18n.DateTimePatterns_kn;
+DateTimePatterns_kn_IN = DateTimePatterns_kn;
 
 
 /**
  * Extended set of localized date/time patterns for locale ko_KP.
  */
-DateTimePatterns_ko_KP = goog.i18n.DateTimePatterns_ko;
+DateTimePatterns_ko_KP = DateTimePatterns_ko;
 
 
 /**
  * Extended set of localized date/time patterns for locale ko_KR.
  */
-DateTimePatterns_ko_KR = goog.i18n.DateTimePatterns_ko;
+DateTimePatterns_ko_KR = DateTimePatterns_ko;
 
 
 /**
@@ -5871,7 +5871,7 @@ DateTimePatterns_kw_GB = DateTimePatterns_kw;
 /**
  * Extended set of localized date/time patterns for locale ky_KG.
  */
-DateTimePatterns_ky_KG = goog.i18n.DateTimePatterns_ky;
+DateTimePatterns_ky_KG = DateTimePatterns_ky;
 
 
 /**
@@ -5985,31 +5985,31 @@ DateTimePatterns_lkt_US = DateTimePatterns_lkt;
 /**
  * Extended set of localized date/time patterns for locale ln_AO.
  */
-DateTimePatterns_ln_AO = goog.i18n.DateTimePatterns_ln;
+DateTimePatterns_ln_AO = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_CD.
  */
-DateTimePatterns_ln_CD = goog.i18n.DateTimePatterns_ln;
+DateTimePatterns_ln_CD = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_CF.
  */
-DateTimePatterns_ln_CF = goog.i18n.DateTimePatterns_ln;
+DateTimePatterns_ln_CF = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_CG.
  */
-DateTimePatterns_ln_CG = goog.i18n.DateTimePatterns_ln;
+DateTimePatterns_ln_CG = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale lo_LA.
  */
-DateTimePatterns_lo_LA = goog.i18n.DateTimePatterns_lo;
+DateTimePatterns_lo_LA = DateTimePatterns_lo;
 
 
 /**
@@ -6063,7 +6063,7 @@ DateTimePatterns_lrc_IR = DateTimePatterns_lrc;
 /**
  * Extended set of localized date/time patterns for locale lt_LT.
  */
-DateTimePatterns_lt_LT = goog.i18n.DateTimePatterns_lt;
+DateTimePatterns_lt_LT = DateTimePatterns_lt;
 
 
 /**
@@ -6150,7 +6150,7 @@ DateTimePatterns_luy_KE = DateTimePatterns_luy;
 /**
  * Extended set of localized date/time patterns for locale lv_LV.
  */
-DateTimePatterns_lv_LV = goog.i18n.DateTimePatterns_lv;
+DateTimePatterns_lv_LV = DateTimePatterns_lv;
 
 
 /**
@@ -6378,19 +6378,19 @@ DateTimePatterns_mi_NZ = DateTimePatterns_mi;
 /**
  * Extended set of localized date/time patterns for locale mk_MK.
  */
-DateTimePatterns_mk_MK = goog.i18n.DateTimePatterns_mk;
+DateTimePatterns_mk_MK = DateTimePatterns_mk;
 
 
 /**
  * Extended set of localized date/time patterns for locale ml_IN.
  */
-DateTimePatterns_ml_IN = goog.i18n.DateTimePatterns_ml;
+DateTimePatterns_ml_IN = DateTimePatterns_ml;
 
 
 /**
  * Extended set of localized date/time patterns for locale mn_MN.
  */
-DateTimePatterns_mn_MN = goog.i18n.DateTimePatterns_mn;
+DateTimePatterns_mn_MN = DateTimePatterns_mn;
 
 
 /**
@@ -6429,13 +6429,13 @@ DateTimePatterns_mni_Beng_IN = DateTimePatterns_mni;
 /**
  * Extended set of localized date/time patterns for locale mr_IN.
  */
-DateTimePatterns_mr_IN = goog.i18n.DateTimePatterns_mr;
+DateTimePatterns_mr_IN = DateTimePatterns_mr;
 
 
 /**
  * Extended set of localized date/time patterns for locale ms_BN.
  */
-DateTimePatterns_ms_BN = goog.i18n.DateTimePatterns_ms;
+DateTimePatterns_ms_BN = DateTimePatterns_ms;
 
 
 /**
@@ -6462,19 +6462,19 @@ DateTimePatterns_ms_ID = {
 /**
  * Extended set of localized date/time patterns for locale ms_MY.
  */
-DateTimePatterns_ms_MY = goog.i18n.DateTimePatterns_ms;
+DateTimePatterns_ms_MY = DateTimePatterns_ms;
 
 
 /**
  * Extended set of localized date/time patterns for locale ms_SG.
  */
-DateTimePatterns_ms_SG = goog.i18n.DateTimePatterns_ms;
+DateTimePatterns_ms_SG = DateTimePatterns_ms;
 
 
 /**
  * Extended set of localized date/time patterns for locale mt_MT.
  */
-DateTimePatterns_mt_MT = goog.i18n.DateTimePatterns_mt;
+DateTimePatterns_mt_MT = DateTimePatterns_mt;
 
 
 /**
@@ -6507,7 +6507,7 @@ DateTimePatterns_mua_CM = DateTimePatterns_mua;
 /**
  * Extended set of localized date/time patterns for locale my_MM.
  */
-DateTimePatterns_my_MM = goog.i18n.DateTimePatterns_my;
+DateTimePatterns_my_MM = DateTimePatterns_my;
 
 
 /**
@@ -6567,13 +6567,13 @@ DateTimePatterns_naq_NA = DateTimePatterns_naq;
 /**
  * Extended set of localized date/time patterns for locale nb_NO.
  */
-DateTimePatterns_nb_NO = goog.i18n.DateTimePatterns_nb;
+DateTimePatterns_nb_NO = DateTimePatterns_nb;
 
 
 /**
  * Extended set of localized date/time patterns for locale nb_SJ.
  */
-DateTimePatterns_nb_SJ = goog.i18n.DateTimePatterns_nb;
+DateTimePatterns_nb_SJ = DateTimePatterns_nb;
 
 
 /**
@@ -6627,13 +6627,13 @@ DateTimePatterns_ne_IN = {
 /**
  * Extended set of localized date/time patterns for locale ne_NP.
  */
-DateTimePatterns_ne_NP = goog.i18n.DateTimePatterns_ne;
+DateTimePatterns_ne_NP = DateTimePatterns_ne;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_AW.
  */
-DateTimePatterns_nl_AW = goog.i18n.DateTimePatterns_nl;
+DateTimePatterns_nl_AW = DateTimePatterns_nl;
 
 
 /**
@@ -6660,31 +6660,31 @@ DateTimePatterns_nl_BE = {
 /**
  * Extended set of localized date/time patterns for locale nl_BQ.
  */
-DateTimePatterns_nl_BQ = goog.i18n.DateTimePatterns_nl;
+DateTimePatterns_nl_BQ = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_CW.
  */
-DateTimePatterns_nl_CW = goog.i18n.DateTimePatterns_nl;
+DateTimePatterns_nl_CW = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_NL.
  */
-DateTimePatterns_nl_NL = goog.i18n.DateTimePatterns_nl;
+DateTimePatterns_nl_NL = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_SR.
  */
-DateTimePatterns_nl_SR = goog.i18n.DateTimePatterns_nl;
+DateTimePatterns_nl_SR = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_SX.
  */
-DateTimePatterns_nl_SX = goog.i18n.DateTimePatterns_nl;
+DateTimePatterns_nl_SX = DateTimePatterns_nl;
 
 
 /**
@@ -6873,7 +6873,7 @@ DateTimePatterns_om_KE = {
 /**
  * Extended set of localized date/time patterns for locale or_IN.
  */
-DateTimePatterns_or_IN = goog.i18n.DateTimePatterns_or;
+DateTimePatterns_or_IN = DateTimePatterns_or;
 
 
 /**
@@ -6954,13 +6954,13 @@ DateTimePatterns_pa_Arab_PK = {
 /**
  * Extended set of localized date/time patterns for locale pa_Guru.
  */
-DateTimePatterns_pa_Guru = goog.i18n.DateTimePatterns_pa;
+DateTimePatterns_pa_Guru = DateTimePatterns_pa;
 
 
 /**
  * Extended set of localized date/time patterns for locale pa_Guru_IN.
  */
-DateTimePatterns_pa_Guru_IN = goog.i18n.DateTimePatterns_pa;
+DateTimePatterns_pa_Guru_IN = DateTimePatterns_pa;
 
 
 /**
@@ -6993,7 +6993,7 @@ DateTimePatterns_pcm_NG = DateTimePatterns_pcm;
 /**
  * Extended set of localized date/time patterns for locale pl_PL.
  */
-DateTimePatterns_pl_PL = goog.i18n.DateTimePatterns_pl;
+DateTimePatterns_pl_PL = DateTimePatterns_pl;
 
 
 /**
@@ -7377,13 +7377,13 @@ DateTimePatterns_rn_BI = DateTimePatterns_rn;
 /**
  * Extended set of localized date/time patterns for locale ro_MD.
  */
-DateTimePatterns_ro_MD = goog.i18n.DateTimePatterns_ro;
+DateTimePatterns_ro_MD = DateTimePatterns_ro;
 
 
 /**
  * Extended set of localized date/time patterns for locale ro_RO.
  */
-DateTimePatterns_ro_RO = goog.i18n.DateTimePatterns_ro;
+DateTimePatterns_ro_RO = DateTimePatterns_ro;
 
 
 /**
@@ -7416,37 +7416,37 @@ DateTimePatterns_rof_TZ = DateTimePatterns_rof;
 /**
  * Extended set of localized date/time patterns for locale ru_BY.
  */
-DateTimePatterns_ru_BY = goog.i18n.DateTimePatterns_ru;
+DateTimePatterns_ru_BY = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_KG.
  */
-DateTimePatterns_ru_KG = goog.i18n.DateTimePatterns_ru;
+DateTimePatterns_ru_KG = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_KZ.
  */
-DateTimePatterns_ru_KZ = goog.i18n.DateTimePatterns_ru;
+DateTimePatterns_ru_KZ = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_MD.
  */
-DateTimePatterns_ru_MD = goog.i18n.DateTimePatterns_ru;
+DateTimePatterns_ru_MD = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_RU.
  */
-DateTimePatterns_ru_RU = goog.i18n.DateTimePatterns_ru;
+DateTimePatterns_ru_RU = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_UA.
  */
-DateTimePatterns_ru_UA = goog.i18n.DateTimePatterns_ru;
+DateTimePatterns_ru_UA = DateTimePatterns_ru;
 
 
 /**
@@ -7929,19 +7929,19 @@ DateTimePatterns_shi_Tfng_MA = DateTimePatterns_shi;
 /**
  * Extended set of localized date/time patterns for locale si_LK.
  */
-DateTimePatterns_si_LK = goog.i18n.DateTimePatterns_si;
+DateTimePatterns_si_LK = DateTimePatterns_si;
 
 
 /**
  * Extended set of localized date/time patterns for locale sk_SK.
  */
-DateTimePatterns_sk_SK = goog.i18n.DateTimePatterns_sk;
+DateTimePatterns_sk_SK = DateTimePatterns_sk;
 
 
 /**
  * Extended set of localized date/time patterns for locale sl_SI.
  */
-DateTimePatterns_sl_SI = goog.i18n.DateTimePatterns_sl;
+DateTimePatterns_sl_SI = DateTimePatterns_sl;
 
 
 /**
@@ -8061,7 +8061,7 @@ DateTimePatterns_so_SO = DateTimePatterns_so;
 /**
  * Extended set of localized date/time patterns for locale sq_AL.
  */
-DateTimePatterns_sq_AL = goog.i18n.DateTimePatterns_sq;
+DateTimePatterns_sq_AL = DateTimePatterns_sq;
 
 
 /**
@@ -8109,55 +8109,55 @@ DateTimePatterns_sq_XK = {
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl.
  */
-DateTimePatterns_sr_Cyrl = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Cyrl = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_BA.
  */
-DateTimePatterns_sr_Cyrl_BA = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Cyrl_BA = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_ME.
  */
-DateTimePatterns_sr_Cyrl_ME = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Cyrl_ME = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_RS.
  */
-DateTimePatterns_sr_Cyrl_RS = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Cyrl_RS = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_XK.
  */
-DateTimePatterns_sr_Cyrl_XK = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Cyrl_XK = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_BA.
  */
-DateTimePatterns_sr_Latn_BA = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Latn_BA = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_ME.
  */
-DateTimePatterns_sr_Latn_ME = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Latn_ME = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_RS.
  */
-DateTimePatterns_sr_Latn_RS = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Latn_RS = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_XK.
  */
-DateTimePatterns_sr_Latn_XK = goog.i18n.DateTimePatterns_sr;
+DateTimePatterns_sr_Latn_XK = DateTimePatterns_sr;
 
 
 /**
@@ -8196,7 +8196,7 @@ DateTimePatterns_su_Latn_ID = DateTimePatterns_su;
 /**
  * Extended set of localized date/time patterns for locale sv_AX.
  */
-DateTimePatterns_sv_AX = goog.i18n.DateTimePatterns_sv;
+DateTimePatterns_sv_AX = DateTimePatterns_sv;
 
 
 /**
@@ -8223,37 +8223,37 @@ DateTimePatterns_sv_FI = {
 /**
  * Extended set of localized date/time patterns for locale sv_SE.
  */
-DateTimePatterns_sv_SE = goog.i18n.DateTimePatterns_sv;
+DateTimePatterns_sv_SE = DateTimePatterns_sv;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_CD.
  */
-DateTimePatterns_sw_CD = goog.i18n.DateTimePatterns_sw;
+DateTimePatterns_sw_CD = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_KE.
  */
-DateTimePatterns_sw_KE = goog.i18n.DateTimePatterns_sw;
+DateTimePatterns_sw_KE = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_TZ.
  */
-DateTimePatterns_sw_TZ = goog.i18n.DateTimePatterns_sw;
+DateTimePatterns_sw_TZ = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_UG.
  */
-DateTimePatterns_sw_UG = goog.i18n.DateTimePatterns_sw;
+DateTimePatterns_sw_UG = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale ta_IN.
  */
-DateTimePatterns_ta_IN = goog.i18n.DateTimePatterns_ta;
+DateTimePatterns_ta_IN = DateTimePatterns_ta;
 
 
 /**
@@ -8280,19 +8280,19 @@ DateTimePatterns_ta_LK = {
 /**
  * Extended set of localized date/time patterns for locale ta_MY.
  */
-DateTimePatterns_ta_MY = goog.i18n.DateTimePatterns_ta;
+DateTimePatterns_ta_MY = DateTimePatterns_ta;
 
 
 /**
  * Extended set of localized date/time patterns for locale ta_SG.
  */
-DateTimePatterns_ta_SG = goog.i18n.DateTimePatterns_ta;
+DateTimePatterns_ta_SG = DateTimePatterns_ta;
 
 
 /**
  * Extended set of localized date/time patterns for locale te_IN.
  */
-DateTimePatterns_te_IN = goog.i18n.DateTimePatterns_te;
+DateTimePatterns_te_IN = DateTimePatterns_te;
 
 
 /**
@@ -8358,7 +8358,7 @@ DateTimePatterns_tg_TJ = DateTimePatterns_tg;
 /**
  * Extended set of localized date/time patterns for locale th_TH.
  */
-DateTimePatterns_th_TH = goog.i18n.DateTimePatterns_th;
+DateTimePatterns_th_TH = DateTimePatterns_th;
 
 
 /**
@@ -8472,7 +8472,7 @@ DateTimePatterns_tr_CY = {
 /**
  * Extended set of localized date/time patterns for locale tr_TR.
  */
-DateTimePatterns_tr_TR = goog.i18n.DateTimePatterns_tr;
+DateTimePatterns_tr_TR = DateTimePatterns_tr;
 
 
 /**
@@ -8586,19 +8586,19 @@ DateTimePatterns_ug_CN = DateTimePatterns_ug;
 /**
  * Extended set of localized date/time patterns for locale uk_UA.
  */
-DateTimePatterns_uk_UA = goog.i18n.DateTimePatterns_uk;
+DateTimePatterns_uk_UA = DateTimePatterns_uk;
 
 
 /**
  * Extended set of localized date/time patterns for locale ur_IN.
  */
-DateTimePatterns_ur_IN = goog.i18n.DateTimePatterns_ur;
+DateTimePatterns_ur_IN = DateTimePatterns_ur;
 
 
 /**
  * Extended set of localized date/time patterns for locale ur_PK.
  */
-DateTimePatterns_ur_PK = goog.i18n.DateTimePatterns_ur;
+DateTimePatterns_ur_PK = DateTimePatterns_ur;
 
 
 /**
@@ -8688,13 +8688,13 @@ DateTimePatterns_uz_Cyrl_UZ = {
 /**
  * Extended set of localized date/time patterns for locale uz_Latn.
  */
-DateTimePatterns_uz_Latn = goog.i18n.DateTimePatterns_uz;
+DateTimePatterns_uz_Latn = DateTimePatterns_uz;
 
 
 /**
  * Extended set of localized date/time patterns for locale uz_Latn_UZ.
  */
-DateTimePatterns_uz_Latn_UZ = goog.i18n.DateTimePatterns_uz;
+DateTimePatterns_uz_Latn_UZ = DateTimePatterns_uz;
 
 
 /**
@@ -8775,7 +8775,7 @@ DateTimePatterns_vai_Vaii_LR = DateTimePatterns_vai;
 /**
  * Extended set of localized date/time patterns for locale vi_VN.
  */
-DateTimePatterns_vi_VN = goog.i18n.DateTimePatterns_vi;
+DateTimePatterns_vi_VN = DateTimePatterns_vi;
 
 
 /**
@@ -9174,13 +9174,13 @@ DateTimePatterns_zgh_MA = DateTimePatterns_zgh;
 /**
  * Extended set of localized date/time patterns for locale zh_Hans.
  */
-DateTimePatterns_zh_Hans = goog.i18n.DateTimePatterns_zh;
+DateTimePatterns_zh_Hans = DateTimePatterns_zh;
 
 
 /**
  * Extended set of localized date/time patterns for locale zh_Hans_CN.
  */
-DateTimePatterns_zh_Hans_CN = goog.i18n.DateTimePatterns_zh;
+DateTimePatterns_zh_Hans_CN = DateTimePatterns_zh;
 
 
 /**
@@ -9333,7 +9333,7 @@ DateTimePatterns_zh_Hant_TW = {
 /**
  * Extended set of localized date/time patterns for locale zu_ZA.
  */
-DateTimePatterns_zu_ZA = goog.i18n.DateTimePatterns_zu;
+DateTimePatterns_zu_ZA = DateTimePatterns_zu;
 
 
 /**

@@ -13,7 +13,7 @@ goog.declareModuleId('goog.debug.errorhandler');
 import { Disposable } from '../disposable/disposable.js';
 import * as asserts from '../asserts/asserts.js';
 import * as entryPointRegistry from './entrypointregistry.js';
-import * as debugError from './error.js';
+import { DebugError } from './error.js';
 
 
 
@@ -323,7 +323,7 @@ ErrorHandler.prototype.disposeInternal = function() {
  * throws an error.
  * @param {*} cause The error thrown by the entry point.
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 ErrorHandler.ProtectedFunctionError = function(cause) {
@@ -339,7 +339,7 @@ ErrorHandler.ProtectedFunctionError = function(cause) {
     this.stack = /** @type {string} */ (stack);
   }
 };
-goog.inherits(ErrorHandler.ProtectedFunctionError, debugError);
+goog.inherits(ErrorHandler.ProtectedFunctionError, DebugError);
 
 
 /**

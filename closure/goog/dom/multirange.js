@@ -28,6 +28,7 @@ import { SavedRange } from './savedrange.js';
 import { TextRange } from './textrange.js';
 import * as iter from '../iter/iter.js';
 import * as log from '../log/log.js';
+import { isReversed } from './range.js';
 
 
 
@@ -215,9 +216,9 @@ MultiRange.prototype.getSortedRanges = function() {
              * @suppress {missingRequire} Cannot depend on dom.Range because
              *     it creates a circular dependency.
              */
-      const isReversed = dom.Range.isReversed(
+      const reversed = isReversed(
           aStartNode, aStartOffset, bStartNode, bStartOffset);
-      return isReversed ? 1 : -1;
+      return reversed ? 1 : -1;
     });
   }
   return this.sortedRanges_;
@@ -336,7 +337,7 @@ MultiRange.prototype.removeContents = function() {
 
 /** @override */
 MultiRange.prototype.saveUsingDom = function() {
-  return new dom.DomSavedMultiRange_(this);
+  return new DomSavedMultiRange_(this);
 };
 
 /** @override */
@@ -370,6 +371,14 @@ MultiRange.prototype.collapse = function(toAnchor) {
 };
 
 
+/** @override */
+MultiRange.prototype.containsNode = function(
+  node, opt_allowPartial) {
+return this.containsRange(
+    TextRange.createFromNodeContents(node), opt_allowPartial);
+};
+
+
 // SAVED RANGE OBJECTS
 
 
@@ -381,7 +390,7 @@ MultiRange.prototype.collapse = function(toAnchor) {
  * @extends {SavedRange}
  * @private
  */
-dom.DomSavedMultiRange_ = function(range) {
+function DomSavedMultiRange_(range) {
   /**
      * Array of saved ranges.
      * @type {Array<SavedRange>}
@@ -391,14 +400,14 @@ dom.DomSavedMultiRange_ = function(range) {
     return range.saveUsingDom();
   });
 };
-goog.inherits(dom.DomSavedMultiRange_, SavedRange);
+goog.inherits(DomSavedMultiRange_, SavedRange);
 
 
 /**
  * @return {!MultiRange} The restored range.
  * @override
  */
-dom.DomSavedMultiRange_.prototype.restoreInternal = function() {
+DomSavedMultiRange_.prototype.restoreInternal = function() {
   var ranges = this.savedRanges_.map(function(savedRange) {
     return savedRange.restore();
   });
@@ -407,8 +416,8 @@ dom.DomSavedMultiRange_.prototype.restoreInternal = function() {
 
 
 /** @override */
-dom.DomSavedMultiRange_.prototype.disposeInternal = function() {
-  dom.DomSavedMultiRange_.superClass_.disposeInternal.call(this);
+DomSavedMultiRange_.prototype.disposeInternal = function() {
+  DomSavedMultiRange_.superClass_.disposeInternal.call(this);
 
   this.savedRanges_.forEach(function(savedRange) {
     savedRange.dispose();

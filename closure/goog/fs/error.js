@@ -19,7 +19,7 @@
 
 import * as asserts from '../asserts/asserts.js';
 
-import * as debugError from '../debug/error.js';
+import { DebugError } from '../debug/error.js';
 import object from '../object/object.js';
 import * as string from '../string/string.js';
 
@@ -42,7 +42,7 @@ DOMErrorLike.prototype.code;
  * @param {!DOMError|!DOMErrorLike} error
  * @param {string} action The action being undertaken when the error was raised.
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 function Error_(error, action) {
@@ -72,7 +72,7 @@ function Error_(error, action) {
       this, 'constructor', string.subs('%s %s', this.name, action));
 }
 export { Error_ as Error };
-goog.inherits(Error_, debugError);
+goog.inherits(Error_, DebugError);
 
 
 /**

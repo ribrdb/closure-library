@@ -200,6 +200,7 @@
     "hexToRgbaStyle",
     "extractHexColor",
     "extractAlpha",
+    "normalizeAlphaHex_",
     "hexToRgba",
     "rgbaToHex",
     "hslaToHex",
@@ -212,6 +213,10 @@
     "hslaToRgba",
     "rgbaToHsla",
     "rgbaArrayToHsla",
+    "isValidAlphaHexColor_",
+    "isValidRgbaColor_",
+    "isValidHslaColor_",
+    "rgbaStyle_",
     "hsvaToHex",
     "hsvaArrayToHex"
   ],
@@ -231,6 +236,8 @@
     "rgbArrayToHsl",
     "hslToRgb",
     "hslArrayToRgb",
+    "isValidHexColor_",
+    "isValidRgbColor_",
     "prependZeroIfNecessaryHelper",
     "prependHashIfNecessaryHelper",
     "hsvToRgb",
@@ -247,7 +254,10 @@
     "blend",
     "darken",
     "lighten",
-    "highContrast"
+    "highContrast",
+    "yiqBrightness_",
+    "yiqBrightnessDiff_",
+    "colorDiff_"
   ],
   "closure/goog/color/names.js": [
     "names"
@@ -378,6 +388,7 @@
     "getFileNameFromStyleSheet"
   ],
   "closure/goog/cssom/iframe/style.js": [
+    "NodeAncestry_",
     "getElementContext",
     "getBackgroundContext",
     "resetDomCache"
@@ -397,6 +408,7 @@
     "min",
     "max",
     "setIso8601DateTime",
+    "setIso8601TimeOnly_",
     "padYear_",
     "Interval",
     "DateLike",
@@ -411,6 +423,7 @@
   ],
   "closure/goog/date/relative.js": [
     "Unit",
+    "monthDateFormatter_",
     "TimeDeltaFormatter",
     "setTimeDeltaFormatter",
     "setCasingMode",
@@ -490,6 +503,7 @@
   ],
   "closure/goog/debug/entrypointregistry.js": [
     "EntryPointMonitor",
+    "refList_",
     "register",
     "monitorAll",
     "unmonitorAllIfPossible"
@@ -565,6 +579,7 @@
   "closure/goog/dom/animationframe/animationframe.js": [
     "Spec",
     "State",
+    "requestedFrame_",
     "createTask",
     "isRunning"
   ],
@@ -661,7 +676,7 @@
     "getHTMLElement",
     "getRequiredElement",
     "getRequiredHTMLElement",
-    "var",
+    "$",
     "getElementsByTagName",
     "getElementsByTagNameAndClass",
     "getElementByTagNameAndClass",
@@ -670,7 +685,7 @@
     "getHTMLElementByClass",
     "getRequiredElementByClass",
     "getRequiredHTMLElementByClass",
-    "var",
+    "$$",
     "setProperties",
     "getViewportSize",
     "getDocumentHeight",
@@ -680,13 +695,14 @@
     "getDocumentScrollElement",
     "getWindow",
     "createDom",
-    "var",
+    "$dom",
     "createElement",
     "createTextNode",
     "createTable",
     "constHtmlToNode",
     "safeHtmlToNode",
     "isCss1CompatMode",
+    "isCss1CompatMode_",
     "canHaveChildren",
     "appendChild",
     "append",
@@ -1071,6 +1087,7 @@
     "TableRow"
   ],
   "closure/goog/events/actioneventwrapper.js": [
+    "ActionEventWrapper_",
     "actionEventWrapper"
   ],
   "closure/goog/events/actionhandler.js": [
@@ -10862,6 +10879,7 @@
     "assertContains",
     "assertNotContains",
     "assertRegExp",
+    "standardizeCSSValue",
     "raiseException"
   ],
   "closure/goog/testing/async/mockcontrol.js": [
@@ -11180,6 +11198,9 @@
   ],
   "closure/goog/tweak/registry.js": [
     "Registry"
+  ],
+  "closure/goog/tweak/testhelpers.js": [
+    "createRegistryEntries"
   ],
   "closure/goog/tweak/tweak.js": [
     "getRegistry",
@@ -11915,6 +11936,7 @@
     "SAFARI"
   ],
   "closure/goog/useragent/product_isversion.js": [
+    "VERSION",
     "isVersion"
   ],
   "closure/goog/useragent/useragent.js": [
@@ -11956,6 +11978,7 @@
     "KAIOS",
     "VERSION",
     "compare",
+    "isVersionOrHigherCache_",
     "isVersionOrHigher",
     "isDocumentModeOrHigher",
     "isDocumentMode",

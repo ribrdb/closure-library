@@ -93,7 +93,7 @@ var shortTimeFormatter_;
  * @type {?DateTimeFormat}
  * @private
  */
-var monthDateFormatter_;
+export var monthDateFormatter_;
 
 
 /**

@@ -9,7 +9,7 @@
  * matcher's matches method to test if a matcher matches assertThat's arguments.
  */
 
-import * as DebugError from '../../debug/error.js';
+import { DebugError } from '../../debug/error.js';
 
 /**
  * Error thrown when a Matcher fails to match the input value.

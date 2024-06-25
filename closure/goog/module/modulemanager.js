@@ -13,7 +13,7 @@ import * as array from '../array/array.js';
 
 import * as asserts from '../asserts/asserts.js';
 import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
-import * as debugError from '../debug/error.js';
+import { DebugError } from '../debug/error.js';
 import { IDisposable } from '../disposable/idisposable.js';
 import { disposeAll } from '../disposable/disposeall.js';
 import { AbstractModuleManager } from '../loader/abstractmodulemanager.js';
@@ -217,7 +217,7 @@ goog.inherits(ModuleManager, AbstractModuleManager);
  * @param {string} moduleID The id of the module that didn't load.
  * @param {?ModuleLoadFailure} failureType
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 ModuleManager.ModuleFailureError = function(moduleID, failureType) {
@@ -229,7 +229,7 @@ ModuleManager.ModuleFailureError = function(moduleID, failureType) {
   /** @type {?ModuleLoadFailure} */
   this.failureType = failureType;
 };
-goog.inherits(ModuleManager.ModuleFailureError, debugError);
+goog.inherits(ModuleManager.ModuleFailureError, DebugError);
 
 
 /**

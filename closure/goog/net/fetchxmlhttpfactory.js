@@ -17,7 +17,7 @@ import { XmlHttpFactory } from './xmlhttpfactory.js';
 /**
  * @record
  */
-goog.net.FetchXmlHttpFactoryOptions = function() {
+function FetchXmlHttpFactoryOptions() {
   /**
    * @type {!WorkerGlobalScope|undefined} The Service Worker global scope.
    */

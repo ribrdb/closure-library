@@ -432,7 +432,7 @@ function setDateFromIso8601Week_(d, week, dayOfWeek) {
  * @return {boolean} Whether the parsing succeeded.
  * @private
  */
-function setIso8601TimeOnly_(d, formatted) {
+export function setIso8601TimeOnly_(d, formatted) {
   // first strip timezone info from the end
   var timezoneParts = formatted.match(splitTimezoneStringRegex_);
 

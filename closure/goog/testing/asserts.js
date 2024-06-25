@@ -11,6 +11,7 @@ import * as uncheckedconversions from '../html/uncheckedconversions.js';
 import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
 import { JsUnitException } from './jsunitexception.js';
+import { TestCase } from './testcase.js';
 
 var DOUBLE_EQUALITY_PREDICATE = function(var1, var2) {
   return var1 == var2;
@@ -203,7 +204,7 @@ var _getCurrentTestCase = function() {
   // Some users of goog.testing.asserts do not use goog.testing.TestRunner and
   // they do not include goog.testing.TestCase. Exceptions will not be
   // completely correct for these users.
-  if (!goog.testing.TestCase) {
+  if (!TestCase) {
     if (goog.global.console) {
       goog.global.console.error(
           'Missing goog.testing.TestCase, ' +
@@ -212,7 +213,7 @@ var _getCurrentTestCase = function() {
     }
     return null;
   }
-  return goog.testing.TestCase.getActiveTestCase();
+  return TestCase.getActiveTestCase();
 };
 
 var _assert = function(comment, booleanValue, failureMessage) {
@@ -1786,7 +1787,7 @@ var standardizeHTML = function(html) {
  * @param {string} value CSS value.
  * @return {string} Normalized CSS value.
  */
-var standardizeCSSValue = function(propertyName, value) {
+export var standardizeCSSValue = function(propertyName, value) {
   var styleDeclaration = document.createElement('div').style;
   styleDeclaration[propertyName] = value;
   return styleDeclaration[propertyName];

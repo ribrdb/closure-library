@@ -6,7 +6,7 @@
 
 goog.setTestOnly();
 
-import * as HtmlFormatter from './formatter.js';
+import { HtmlFormatter } from './formatter.js';
 import { SafeHtml } from '../html/safehtml.js';
 import { testSuite } from '../testing/testsuite.js';
 import { Level, LogRecord } from '../log/log.js';

@@ -17,7 +17,7 @@ let registry;
 
 testSuite({
   setUp() {
-    createRegistryEntries('');
+    testhelpers.createRegistryEntries('');
     registry = tweak.getRegistry();
   },
 
@@ -48,7 +48,7 @@ testSuite({
      */
     function assertQuery(
         queryStr, boolValue, enumValue, strValue, subBoolValue, subBoolValue2) {
-      createRegistryEntries(queryStr);
+      testhelpers.createRegistryEntries(queryStr);
       assertEquals(
           `Wrong bool value for query: ${queryStr}`, boolValue,
           boolEntry.getValue());

@@ -23,7 +23,7 @@ import * as asserts from '../../asserts/asserts.js';
 import * as debug from '../../debug/debug.js';
 import * as Error from '../../debug/error.js';
 import * as functions from '../../functions/functions.js';
-import { timeout as mockTimeout, timeout as labsMockTimeout } from './timeoutmode.js';
+import * as timeoutmode from './timeoutmode.js';
 import * as verification from './verificationmode.js';
 import { BaseVerificationMode, VerificationMode } from './verificationmode.js';
 import object from '../../object/object.js';
@@ -124,7 +124,7 @@ export function verify(obj, opt_verificationMode) {
  * given mock.
  * @param {!Object} obj The mocked object.
  * @param {...(!VerificationMode|
- *   !mockTimeout.TimeoutMode)} verificationOrTimeoutModes
+ *   !timeoutmode.TimeoutMode)} verificationOrTimeoutModes
  *   The mode under which to verify invocations.
  * @return {?} The waiter. Return type {?} to avoid compilation errors.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
@@ -135,7 +135,7 @@ export function waitAndVerify(obj, ...verificationOrTimeoutModes) {
       'At most 2 arguments may be passed as Timeout and Verification modes.');
   for (let i = 0; i < 2; i++) {
     const mode = verificationOrTimeoutModes[i];
-    if (mode instanceof labsMockTimeout.TimeoutMode) {
+    if (mode instanceof timeoutmode.TimeoutMode) {
       obj.$timeoutModeSetter(mode);
     } else if (
         mode instanceof BaseVerificationMode) {
@@ -498,7 +498,7 @@ function MockManager_() {
    * Which `TimeoutMode` to use during waitAndVerify.
    * @private
    */
-  this.timeoutMode_ = labsMockTimeout.timeout(0);
+  this.timeoutMode_ = timeoutmode.timeout(0);
 
   /**
      * Maintains a dictionary keyed by methodName, that holds a list of
@@ -527,7 +527,7 @@ MockManager_.prototype.setVerificationMode_ = function(
  * Allows callers of `#waitAndVerify` to override the default timeout
  * mode of this MockManager.
  *
- * @param {!mockTimeout.TimeoutMode} timeoutMode
+ * @param {!timeoutmode.TimeoutMode} timeoutMode
  * @private
  */
 MockManager_.prototype.setTimeoutMode_ = function(timeoutMode) {

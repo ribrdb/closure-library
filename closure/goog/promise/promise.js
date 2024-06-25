@@ -11,7 +11,7 @@ import * as asserts from '../asserts/asserts.js';
 import { FreeList } from '../async/freelist.js';
 import { run } from '../async/run.js';
 import { throwException } from '../async/throwexception.js';
-import * as debugError from '../debug/error.js';
+import { DebugError } from '../debug/error.js';
 import asyncStackTag from '../debug/asyncstacktag.js';
 import * as functions from '../functions/functions.js';
 import { Resolver } from './resolver.js';
@@ -1370,14 +1370,14 @@ Promise.setUnhandledRejectionHandler = function(handler) {
  *
  * @param {string=} opt_message
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 Promise.CancellationError = function(opt_message) {
   Promise.CancellationError.base(this, 'constructor', opt_message);
   this.reportErrorToServer = false;
 };
-goog.inherits(Promise.CancellationError, debugError);
+goog.inherits(Promise.CancellationError, DebugError);
 
 
 /** @override */

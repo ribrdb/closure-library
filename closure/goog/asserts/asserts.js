@@ -36,7 +36,7 @@
  * </code>
  */
 
-import * as DebugError from '../debug/error.js';
+import { DebugError } from '../debug/error.js';
 
 import { NodeType } from '../dom/nodetype.js';
 

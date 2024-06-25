@@ -100,7 +100,7 @@ export class BaseVerificationMode {}
  *
  * @private @implements {VerificationMode}
  */
-class TimesVerificationMode_ extends goog.labs.mock.verification.BaseVerificationMode {
+class TimesVerificationMode_ extends BaseVerificationMode {
 /**
 * @param {number} expectedNumberOfInvocations
 */
@@ -129,7 +129,7 @@ return this.expectedNumberOfInvocations_ + ' times';
  *
  * @private @implements {VerificationMode}
  */
-class AtLeastVerificationMode_ extends goog.labs.mock.verification.BaseVerificationMode {
+class AtLeastVerificationMode_ extends BaseVerificationMode {
 /**
 * @param {number} minimumNumberOfInvocations
 */
@@ -158,7 +158,7 @@ return 'at least ' + this.minimumNumberOfInvocations_ + ' times';
  *
  * @private @implements {VerificationMode}
  */
-class AtMostVerificationMode_ extends goog.labs.mock.verification.BaseVerificationMode {
+class AtMostVerificationMode_ extends BaseVerificationMode {
 /**
 * @param {number} maxNumberOfInvocations
 */

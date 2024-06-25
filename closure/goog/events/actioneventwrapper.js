@@ -31,26 +31,26 @@ import { KeyCodes } from './keycodes.js';
  * @implements {EventWrapper}
  * @private
  */
-events.ActionEventWrapper_ = function() {};
+export function ActionEventWrapper_() {};
 
 /**
  * @interface
  * @private
  */
-events.ActionEventWrapper_.FunctionExtension_ = function() {};
+ActionEventWrapper_.FunctionExtension_ = function() {};
 
 /** @private {!Object|undefined} */
-events.ActionEventWrapper_.FunctionExtension_.prototype.scope_;
+ActionEventWrapper_.FunctionExtension_.prototype.scope_;
 
 /** @private {function(?):?|{handleEvent:function(?):?}|null} */
-events.ActionEventWrapper_.FunctionExtension_.prototype.listener_;
+ActionEventWrapper_.FunctionExtension_.prototype.listener_;
 
 
 /**
  * Singleton instance of ActionEventWrapper_.
- * @type {events.ActionEventWrapper_}
+ * @type {ActionEventWrapper_}
  */
-export var actionEventWrapper = new events.ActionEventWrapper_();
+export var actionEventWrapper = new ActionEventWrapper_();
 
 
 /**
@@ -59,7 +59,7 @@ export var actionEventWrapper = new events.ActionEventWrapper_();
  * @type {Array<EventType>}
  * @private
  */
-events.ActionEventWrapper_.EVENT_TYPES_ = [
+ActionEventWrapper_.EVENT_TYPES_ = [
   EventType.CLICK, EventType.KEYDOWN,
   EventType.KEYUP
 ];
@@ -80,7 +80,7 @@ events.ActionEventWrapper_.EVENT_TYPES_ = [
  *     listener to.
  * @override
  */
-events.ActionEventWrapper_.prototype.listen = function(
+ActionEventWrapper_.prototype.listen = function(
     target, listener, opt_capt, opt_scope, opt_eventHandler) {
   var callback = function(e) {
     var listenerFn = events.wrapListener(listener);
@@ -114,11 +114,11 @@ events.ActionEventWrapper_.prototype.listen = function(
 
   if (opt_eventHandler) {
     opt_eventHandler.listen(
-        target, events.ActionEventWrapper_.EVENT_TYPES_, callback,
+        target, ActionEventWrapper_.EVENT_TYPES_, callback,
         opt_capt);
   } else {
     events.listen(
-        target, events.ActionEventWrapper_.EVENT_TYPES_, callback,
+        target, ActionEventWrapper_.EVENT_TYPES_, callback,
         opt_capt);
   }
 };
@@ -137,14 +137,14 @@ events.ActionEventWrapper_.prototype.listen = function(
  *     listener from.
  * @override
  */
-events.ActionEventWrapper_.prototype.unlisten = function(
+ActionEventWrapper_.prototype.unlisten = function(
     target, listener, opt_capt, opt_scope, opt_eventHandler) {
-  for (var type, j = 0; type = events.ActionEventWrapper_.EVENT_TYPES_[j];
+  for (var type, j = 0; type = ActionEventWrapper_.EVENT_TYPES_[j];
        j++) {
     var listeners = events.getListeners(target, type, !!opt_capt);
     for (var obj, i = 0; obj = listeners[i]; i++) {
       var objListener =
-          /** @type {!events.ActionEventWrapper_.FunctionExtension_} */ (
+          /** @type {!ActionEventWrapper_.FunctionExtension_} */ (
               obj.listener);
       if (objListener.listener_ == listener &&
           objListener.scope_ == opt_scope) {

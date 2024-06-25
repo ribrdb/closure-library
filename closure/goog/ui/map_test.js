@@ -6,7 +6,7 @@
 
 goog.setTestOnly();
 
-import * as StructsMap from './map.js';
+import { UiMap as StructsMap} from './map.js';
 
 // const googIter = goog.require('goog.iter');
 import * as structs from '../structs/structs.js';

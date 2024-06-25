@@ -7,7 +7,7 @@
 goog.setTestOnly();
 
 import { AsyncTestCase } from './asynctestcase.js';
-import * as DebugError from '../debug/error.js';
+import { DebugError } from '../debug/error.js';
 import * as asserts from './asserts.js';
 import { testSuite } from './testsuite.js';
 

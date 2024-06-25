@@ -486,7 +486,7 @@ export function compare(v1, v2) {
  * @const
  * @private
  */
-var isVersionOrHigherCache_ = {};
+export var isVersionOrHigherCache_ = {};
 
 
 /**

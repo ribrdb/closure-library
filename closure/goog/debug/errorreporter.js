@@ -12,7 +12,7 @@
 import * as asserts from '../asserts/asserts.js';
 
 import * as debug from './debug.js';
-import * as debugError from './error.js';
+import { DebugError } from './error.js';
 import { ErrorHandler } from './errorhandler.js';
 import * as entryPointRegistry from './entrypointregistry.js';
 import * as errorcontext from './errorcontext.js';
@@ -327,7 +327,7 @@ ErrorReporter.prototype.handleException = function(e, opt_context) {
   // The entire URL length historically needed to be 2,083 or less, so leave
   // some room for the rest of the URL.
   var message = error.message.substring(0, 1900);
-  if (!(e instanceof debugError) || e.reportErrorToServer) {
+  if (!(e instanceof DebugError) || e.reportErrorToServer) {
     this.sendErrorReport(
         message, error.fileName, error.lineNumber, error.stack, context);
   }

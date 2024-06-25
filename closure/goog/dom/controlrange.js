@@ -272,6 +272,13 @@ ControlRange.prototype.__iterator__ = function(opt_keys) {
 };
 
 
+/** @override */
+ControlRange.prototype.containsNode = function(
+  node, opt_allowPartial) {
+return this.containsRange(
+    TextRange.createFromNodeContents(node), opt_allowPartial);
+};
+
 // RANGE ACTIONS
 
 
@@ -318,7 +325,7 @@ ControlRange.prototype.replaceContentsWithNode = function(node) {
 
 /** @override */
 ControlRange.prototype.saveUsingDom = function() {
-  return new dom.DomSavedControlRange_(this);
+  return new DomSavedControlRange_(this);
 };
 
 /** @override */
@@ -350,7 +357,7 @@ ControlRange.prototype.collapse = function(toAnchor) {
  * @extends {SavedRange}
  * @private
  */
-dom.DomSavedControlRange_ = function(range) {
+function DomSavedControlRange_(range) {
   /**
    * The element list.
    * @type {Array<Element>}
@@ -358,11 +365,11 @@ dom.DomSavedControlRange_ = function(range) {
    */
   this.elements_ = range.getElements();
 };
-goog.inherits(dom.DomSavedControlRange_, SavedRange);
+goog.inherits(DomSavedControlRange_, SavedRange);
 
 
 /** @override */
-dom.DomSavedControlRange_.prototype.restoreInternal = function() {
+DomSavedControlRange_.prototype.restoreInternal = function() {
   var doc = this.elements_.length ?
       dom.getOwnerDocument(this.elements_[0]) :
       document;
@@ -375,8 +382,8 @@ dom.DomSavedControlRange_.prototype.restoreInternal = function() {
 
 
 /** @override */
-dom.DomSavedControlRange_.prototype.disposeInternal = function() {
-  dom.DomSavedControlRange_.superClass_.disposeInternal.call(this);
+DomSavedControlRange_.prototype.disposeInternal = function() {
+  DomSavedControlRange_.superClass_.disposeInternal.call(this);
   delete this.elements_;
 };
 

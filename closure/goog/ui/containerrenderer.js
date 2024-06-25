@@ -19,14 +19,15 @@ import * as string from '../string/string.js';
 import * as style from '../style/style.js';
 import * as registry from './registry.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.ui.container');
-goog.requireType('goog.ui.container');
+import { Container } from './container.js';
+goog.requireType('Container');
+goog.requireType('Container');
 goog.requireType('goog.ui.control');
 
 
 
 /**
- * Default renderer for {@link goog.ui.Container}.  Can be used as-is, but
+ * Default renderer for {@link Container}.  Can be used as-is, but
  * subclasses of Container will probably want to use renderers specifically
  * tailored for them by extending this class.
  * @param {string=} opt_ariaRole Optional ARIA role used for the element.
@@ -124,7 +125,7 @@ ContainerRenderer.prototype.enableTabIndex = function(element, enable) {
  * Creates and returns the container's root element.  The default
  * simply creates a DIV and applies the renderer's own CSS class name to it.
  * To be overridden in subclasses.
- * @param {goog.ui.Container} container Container to render.
+ * @param {Container} container Container to render.
  * @return {Element} Root element for the container.
  */
 ContainerRenderer.prototype.createDom = function(container) {
@@ -157,10 +158,10 @@ ContainerRenderer.prototype.canDecorate = function(element) {
 
 
 /**
- * Default implementation of `decorate` for {@link goog.ui.Container}s.
+ * Default implementation of `decorate` for {@link Container}s.
  * Decorates the element with the container, and attempts to decorate its child
  * elements.  Returns the decorated element.
- * @param {goog.ui.Container} container Container to decorate the element.
+ * @param {Container} container Container to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {!Element} Decorated element.
  */
@@ -205,21 +206,21 @@ ContainerRenderer.prototype.decorate = function(container, element) {
  * during decoration.  CSS class names that don't represent container states
  * are ignored.  Considered protected; subclasses should override this method
  * to support more states and CSS class names.
- * @param {goog.ui.Container} container Container to update.
+ * @param {Container} container Container to update.
  * @param {string} className CSS class name.
  * @param {string} baseClass Base class name used as the root of state-specific
  *     class names (typically the renderer's own class name).
  * @protected
- * @suppress {missingRequire} goog.ui.Container
+ * @suppress {missingRequire} Container
  */
 ContainerRenderer.prototype.setStateFromClassName = function(
     container, className, baseClass) {
   if (className == goog.getCssName(baseClass, 'disabled')) {
     container.setEnabled(false);
   } else if (className == goog.getCssName(baseClass, 'horizontal')) {
-    container.setOrientation(goog.ui.Container.Orientation.HORIZONTAL);
+    container.setOrientation(Container.Orientation.HORIZONTAL);
   } else if (className == goog.getCssName(baseClass, 'vertical')) {
-    container.setOrientation(goog.ui.Container.Orientation.VERTICAL);
+    container.setOrientation(Container.Orientation.VERTICAL);
   }
 };
 
@@ -229,7 +230,7 @@ ContainerRenderer.prototype.setStateFromClassName = function(
  * the child elements, and adds the corresponding components to the container
  * as child components.  Any non-element child nodes (e.g. empty text nodes
  * introduced by line breaks in the HTML source) are removed from the element.
- * @param {goog.ui.Container} container Container whose children are to be
+ * @param {Container} container Container whose children are to be
  *     discovered.
  * @param {Element} element Element whose children are to be decorated.
  * @param {Element=} opt_firstChild the first child to be decorated.
@@ -286,8 +287,8 @@ ContainerRenderer.prototype.getDecoratorForChild = function(element) {
 
 /**
  * Initializes the container's DOM when the container enters the document.
- * Called from {@link goog.ui.Container#enterDocument}.
- * @param {goog.ui.Container} container Container whose DOM is to be initialized
+ * Called from {@link Container#enterDocument}.
+ * @param {Container} container Container whose DOM is to be initialized
  *     as it enters the document.
  */
 ContainerRenderer.prototype.initializeDom = function(container) {
@@ -315,7 +316,7 @@ ContainerRenderer.prototype.initializeDom = function(container) {
  * Returns the element within the container's DOM that should receive keyboard
  * focus (null if none).  The default implementation returns the container's
  * root element.
- * @param {goog.ui.Container} container Container whose key event target is
+ * @param {Container} container Container whose key event target is
  *     to be returned.
  * @return {Element} Key event target (null if none).
  */
@@ -339,7 +340,7 @@ ContainerRenderer.prototype.getCssClass = function() {
  * state.  The array of class names returned includes the renderer's own CSS
  * class, followed by a CSS class indicating the container's orientation,
  * followed by any state-specific CSS classes.
- * @param {goog.ui.Container} container Container whose CSS classes are to be
+ * @param {Container} container Container whose CSS classes are to be
  *     returned.
  * @return {!Array<string>} Array of CSS class names applicable to the
  *     container.
@@ -348,7 +349,7 @@ ContainerRenderer.prototype.getCssClass = function() {
 ContainerRenderer.prototype.getClassNames = function(container) {
   var baseClass = this.getCssClass();
   var isHorizontal =
-      container.getOrientation() == goog.ui.Container.Orientation.HORIZONTAL;
+      container.getOrientation() == Container.Orientation.HORIZONTAL;
   var classNames = [
     baseClass, (isHorizontal ? goog.getCssName(baseClass, 'horizontal') :
                                goog.getCssName(baseClass, 'vertical'))
@@ -363,10 +364,10 @@ ContainerRenderer.prototype.getClassNames = function(container) {
 /**
  * Returns the default orientation of containers rendered or decorated by this
  * renderer.  The base class implementation returns `VERTICAL`.
- * @return {goog.ui.Container.Orientation} Default orientation for containers
+ * @return {Container.Orientation} Default orientation for containers
  *     created or decorated by this renderer.
- * @suppress {missingRequire} goog.ui.Container
+ * @suppress {missingRequire} Container
  */
 ContainerRenderer.prototype.getDefaultOrientation = function() {
-  return goog.ui.Container.Orientation.VERTICAL;
+  return Container.Orientation.VERTICAL;
 };

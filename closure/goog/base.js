@@ -594,39 +594,6 @@ goog.module.declareLegacyNamespace = function() {
  * @suppress {missingProvide}
  */
 goog.declareModuleId = function(namespace) {
-  if (!COMPILED) {
-    if (!goog.isInEs6ModuleLoader_()) {
-      throw new Error(
-          'goog.declareModuleId may only be called from ' +
-          'within an ES6 module');
-    }
-    if (goog.moduleLoaderState_ && goog.moduleLoaderState_.moduleName) {
-      throw new Error(
-          'goog.declareModuleId may only be called once per module.');
-    }
-    if (namespace in goog.loadedModules_) {
-      throw new Error(
-          'Module with namespace "' + namespace + '" already exists.');
-    }
-  }
-  if (goog.moduleLoaderState_) {
-    // Not bundled - debug loading.
-    goog.moduleLoaderState_.moduleName = namespace;
-  } else {
-    // Bundled - not debug loading, no module loader state.
-    var jscomp = goog.global['$jscomp'];
-    if (!jscomp || typeof jscomp.getCurrentModulePath != 'function') {
-      throw new Error(
-          'Module with namespace "' + namespace +
-          '" has been loaded incorrectly.');
-    }
-    var exports = jscomp.require(jscomp.getCurrentModulePath());
-    goog.loadedModules_[namespace] = {
-      exports: exports,
-      type: goog.ModuleType.ES6,
-      moduleId: namespace
-    };
-  }
 };
 
 

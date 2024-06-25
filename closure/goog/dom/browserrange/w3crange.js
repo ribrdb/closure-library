@@ -19,6 +19,8 @@ import { TagName } from '../tagname.js';
 import { AbstractRange } from './abstractrange.js';
 import * as string from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
+import { createFromNodes, createFromWindow } from '../range.js';
+import { canContainRangeEndpoint } from './browserrange.js';
 
 
 
@@ -50,7 +52,7 @@ W3cRange.getBrowserRangeForNode = function(node) {
     nodeRange.setEnd(node, node.length);
   } else {
     /** @suppress {missingRequire} */
-    if (!dom.browserrange.canContainRangeEndpoint(node)) {
+    if (!canContainRangeEndpoint(node)) {
       var rangeParent = node.parentNode;
       var rangeStartOffset =
           Array.prototype.indexOf.call(rangeParent.childNodes, node);
@@ -60,7 +62,7 @@ W3cRange.getBrowserRangeForNode = function(node) {
       var tempNode, leaf = node;
       while ((tempNode = leaf.firstChild) &&
              /** @suppress {missingRequire} */
-             dom.browserrange.canContainRangeEndpoint(tempNode)) {
+             canContainRangeEndpoint(tempNode)) {
         leaf = tempNode;
       }
       nodeRange.setStart(leaf, 0);
@@ -68,7 +70,7 @@ W3cRange.getBrowserRangeForNode = function(node) {
       leaf = node;
       /** @suppress {missingRequire} Circular dep with browserrange */
       while ((tempNode = leaf.lastChild) &&
-             dom.browserrange.canContainRangeEndpoint(tempNode)) {
+             canContainRangeEndpoint(tempNode)) {
         leaf = tempNode;
       }
       nodeRange.setEnd(
@@ -327,7 +329,7 @@ W3cRange.prototype.surroundWithNodes = function(
     startNode, endNode) {
   var win = dom.getWindow(dom.getOwnerDocument(this.getStartNode()));
   /** @suppress {missingRequire,missingProperties} */
-  var selectionRange = dom.Range.createFromWindow(win);
+  var selectionRange = createFromWindow(win);
   if (selectionRange) {
     var sNode = selectionRange.getStartNode();
     var eNode = selectionRange.getEndNode();
@@ -378,8 +380,7 @@ W3cRange.prototype.surroundWithNodes = function(
     }
 
     /** @suppress {missingRequire} */
-    dom.Range
-        .createFromNodes(
+    createFromNodes(
             sNode, /** @type {number} */ (sOffset), eNode,
             /** @type {number} */ (eOffset))
         .select();

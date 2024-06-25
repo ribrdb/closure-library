@@ -201,8 +201,8 @@ TweakUi.createCollapsible = function(opt_domHelper) {
  */
 TweakUi.entryCompare_ = function(a, b) {
   return (array.defaultCompare(
-      a instanceof googTweak.NamespaceEntry_,
-      b instanceof googTweak.NamespaceEntry_) ||
+      a instanceof NamespaceEntry_,
+      b instanceof NamespaceEntry_) ||
   array.defaultCompare(
       a instanceof BooleanGroup,
       b instanceof BooleanGroup) ||
@@ -219,7 +219,7 @@ TweakUi.entryCompare_ = function(a, b) {
  * @private
  */
 TweakUi.isGroupEntry_ = function(entry) {
-  return entry instanceof googTweak.NamespaceEntry_ ||
+  return entry instanceof NamespaceEntry_ ||
       entry instanceof BooleanGroup;
 };
 
@@ -355,12 +355,12 @@ TweakUi.prototype.insertEntry_ = function(entry) {
 
   if (namespace) {
     // Find the NamespaceEntry that the entry belongs to.
-    var namespaceEntryId = googTweak.NamespaceEntry_.ID_PREFIX + namespace;
+    var namespaceEntryId = NamespaceEntry_.ID_PREFIX + namespace;
     var nsPanel = panel.childPanels[namespaceEntryId];
     if (nsPanel) {
       panel = nsPanel;
     } else {
-      entry = new googTweak.NamespaceEntry_(namespace, [entry]);
+      entry = new NamespaceEntry_(namespace, [entry]);
     }
   }
   if (entry instanceof BooleanInGroupSetting) {
@@ -688,7 +688,7 @@ EntriesPanel.prototype.createBooleanSettingDom_ = function(
 
 /**
  * Creates the DOM for a BooleanGroup or NamespaceEntry.
- * @param {!BooleanGroup|!googTweak.NamespaceEntry_} entry The
+ * @param {!BooleanGroup|!NamespaceEntry_} entry The
  *     entry.
  * @param {string} label The label for the entry.
  * @param {!Array<BaseEntry>} childEntries The child entries.
@@ -812,7 +812,7 @@ EntriesPanel.prototype.createTweakEntryDom_ = function(entry) {
     return entry.getValidValues() ?
         this.createComboBoxDom_(entry, label, setValueFunc) :
         this.createTextBoxDom_(entry, label, setValueFunc);
-  } else if (entry instanceof googTweak.NamespaceEntry_) {
+  } else if (entry instanceof NamespaceEntry_) {
     return this.createSubPanelDom_(entry, entry.label, entry.entries);
   }
   asserts.assertInstanceof(
@@ -833,9 +833,9 @@ EntriesPanel.prototype.createTweakEntryDom_ = function(entry) {
  * @extends {BaseEntry}
  * @private
  */
-googTweak.NamespaceEntry_ = function(namespace, entries) {
+function NamespaceEntry_(namespace, entries) {
   BaseEntry.call(
-      this, googTweak.NamespaceEntry_.ID_PREFIX + namespace,
+      this, NamespaceEntry_.ID_PREFIX + namespace,
       'Tweaks within the ' + namespace + ' namespace.');
 
   /**
@@ -846,7 +846,7 @@ googTweak.NamespaceEntry_ = function(namespace, entries) {
 
   this.label = namespace;
 };
-goog.inherits(googTweak.NamespaceEntry_, BaseEntry);
+goog.inherits(NamespaceEntry_, BaseEntry);
 
 
 /**
@@ -854,4 +854,4 @@ goog.inherits(googTweak.NamespaceEntry_, BaseEntry);
  * conflict with regular entries.
  * @type {string}
  */
-googTweak.NamespaceEntry_.ID_PREFIX = '!';
+NamespaceEntry_.ID_PREFIX = '!';

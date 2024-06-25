@@ -330,7 +330,7 @@ var validHexColorRe_ = /^#(?:[0-9a-f]{3}){1,2}$/i;
  * @return {boolean} Whether the string is a valid hex color.
  * @private
  */
-function isValidHexColor_(str) {
+export function isValidHexColor_(str) {
   return validHexColorRe_.test(str);
 }
 
@@ -353,7 +353,7 @@ var rgbColorRe_ = /^(?:rgb)?\((0|[1-9]\d{0,2}),\s?(0|[1-9]\d{0,2}),\s?(0|[1-9]\d
  *     a valid color, or the empty array otherwise.
  * @private
  */
-function isValidRgbColor_(str) {
+export function isValidRgbColor_(str) {
   // Each component is separate (rather than using a repeater) so we can
   // capture the match. Also, we explicitly set each component to be either 0,
   // or start with a non-zero, to prevent octal numbers from slipping through.
@@ -709,7 +709,7 @@ export function highContrast(prime, suggestions) {
  * @return {number} brightness (Y).
  * @private
  */
-function yiqBrightness_(rgb) {
+export function yiqBrightness_(rgb) {
   return Math.round((rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000);
 }
 
@@ -722,7 +722,7 @@ function yiqBrightness_(rgb) {
  * @return {number} Brightness difference.
  * @private
  */
-function yiqBrightnessDiff_(rgb1, rgb2) {
+export function yiqBrightnessDiff_(rgb1, rgb2) {
   return Math.abs(
       yiqBrightness_(rgb1) - yiqBrightness_(rgb2));
 }
@@ -736,7 +736,7 @@ function yiqBrightnessDiff_(rgb1, rgb2) {
  * @return {number} Color difference.
  * @private
  */
-function colorDiff_(rgb1, rgb2) {
+export function colorDiff_(rgb1, rgb2) {
   return Math.abs(rgb1[0] - rgb2[0]) + Math.abs(rgb1[1] - rgb2[1]) +
       Math.abs(rgb1[2] - rgb2[2]);
 }

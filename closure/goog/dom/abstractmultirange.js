@@ -14,7 +14,7 @@ import * as array from '../array/array.js';
 
 import * as dom from './dom.js';
 import { AbstractRange } from './abstractrange.js';
-import { TextRange } from './textrange.js';
+// import { TextRange } from './textrange.js';
 
 
 
@@ -45,15 +45,6 @@ AbstractMultiRange.prototype.containsRange = function(
     });
   });
 };
-
-
-/** @override */
-AbstractMultiRange.prototype.containsNode = function(
-    node, opt_allowPartial) {
-  return this.containsRange(
-      TextRange.createFromNodeContents(node), opt_allowPartial);
-};
-
 
 
 /** @override */

@@ -1124,7 +1124,7 @@ export function isCss1CompatMode() {
  * @return {boolean} True if in CSS1-compatible mode.
  * @private
  */
-function isCss1CompatMode_(doc) {
+export function isCss1CompatMode_(doc) {
   if (COMPAT_MODE_KNOWN_) {
     return ASSUME_STANDARDS_MODE;
   }

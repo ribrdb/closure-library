@@ -6,7 +6,7 @@
 
 goog.setTestOnly();
 
-import * as DebugError from './error.js';
+import { DebugError } from './error.js';
 import { ExpectedFailures } from '../testing/expectedfailures.js';
 import * as product from '../useragent/product.js';
 import { testSuite } from '../testing/testsuite.js';

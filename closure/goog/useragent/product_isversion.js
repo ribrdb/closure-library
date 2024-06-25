@@ -27,13 +27,13 @@ import * as product from './product.js';
  *     contain 'b', 'a', and so on.
  * @private
  */
-product.determineVersion_ = function() {
+function determineVersion_() {
   // All browsers have different ways to detect the version and they all have
   // different naming schemes.
 
   if (product.FIREFOX) {
     // Firefox/2.0.0.1 or Firefox/3.5.3
-    return product.getFirstRegExpGroup_(/Firefox\/([0-9.]+)/);
+    return getFirstRegExpGroup_(/Firefox\/([0-9.]+)/);
   }
 
   if (product.IE || product.EDGE ||
@@ -48,13 +48,13 @@ product.determineVersion_ = function() {
         platform.isMacintosh()) {
       // CriOS/56.0.2924.79
       const chromeIosVersion =
-          product.getFirstRegExpGroup_(/CriOS\/([0-9.]+)/);
+          getFirstRegExpGroup_(/CriOS\/([0-9.]+)/);
       if (chromeIosVersion) {
         return chromeIosVersion;
       }
     }
     // Chrome/4.0.223.1
-    return product.getFirstRegExpGroup_(/Chrome\/([0-9.]+)/);
+    return getFirstRegExpGroup_(/Chrome\/([0-9.]+)/);
   }
 
   // This replicates legacy logic, which considered Safari and iOS to be
@@ -65,7 +65,7 @@ product.determineVersion_ = function() {
     // NOTE: Before version 3, Safari did not report a product version number.
     // The product version number for these browsers will be the empty string.
     // They may be differentiated by WebKit version number in goog.userAgent.
-    return product.getFirstRegExpGroup_(/Version\/([0-9.]+)/);
+    return getFirstRegExpGroup_(/Version\/([0-9.]+)/);
   }
 
   if (product.IPHONE || product.IPAD) {
@@ -74,7 +74,7 @@ product.determineVersion_ = function() {
     // Version is the browser version, Mobile is the build number. We combine
     // the version string with the build number: 3.0.3A100a for the example.
     var arr =
-        product.execRegExp_(/Version\/(\S+).*Mobile\/(\S+)/);
+        execRegExp_(/Version\/(\S+).*Mobile\/(\S+)/);
     if (arr) {
       return arr[1] + '.' + arr[2];
     }
@@ -87,12 +87,12 @@ product.determineVersion_ = function() {
     //
     // Prefer Version number if present, else make do with the OS number
     var version =
-        product.getFirstRegExpGroup_(/Android\s+([0-9.]+)/);
+        getFirstRegExpGroup_(/Android\s+([0-9.]+)/);
     if (version) {
       return version;
     }
 
-    return product.getFirstRegExpGroup_(/Version\/([0-9.]+)/);
+    return getFirstRegExpGroup_(/Version\/([0-9.]+)/);
   }
 
   return '';
@@ -105,8 +105,8 @@ product.determineVersion_ = function() {
  * @return {string} Contents of the first group or an empty string if no match.
  * @private
  */
-product.getFirstRegExpGroup_ = function(re) {
-  var arr = product.execRegExp_(re);
+function getFirstRegExpGroup_(re) {
+  var arr = execRegExp_(re);
   return arr ? arr[1] : '';
 };
 
@@ -117,7 +117,7 @@ product.getFirstRegExpGroup_ = function(re) {
  * @return {?IArrayLike<string>} A result array, or null for no match.
  * @private
  */
-product.execRegExp_ = function(re) {
+function execRegExp_(re) {
   return re.exec(userAgent.getUserAgentString());
 };
 
@@ -127,7 +127,7 @@ product.execRegExp_ = function(re) {
  * 'b' (as in beta) as well as multiple dots.
  * @type {string}
  */
-product.VERSION = product.determineVersion_();
+export var VERSION = determineVersion_();
 
 
 /**
@@ -139,6 +139,6 @@ product.VERSION = product.determineVersion_();
  *     same as the given version.
  */
 export function isVersion(version) {
-  return string.compareVersions(product.VERSION, version) >=
+  return string.compareVersions(VERSION, version) >=
       0;
 }

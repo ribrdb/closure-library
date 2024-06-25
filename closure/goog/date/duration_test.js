@@ -15,6 +15,7 @@ import { DateTimeFormat } from '../i18n/datetimeformat.js';
 
 /** @suppress {extraRequire} */
 import {
+  $set,
   DateTimeSymbols,
   DateTimeSymbols_bn,
   DateTimeSymbols_en,
@@ -110,7 +111,7 @@ testSuite({
   },
 
   testFormatDurationPersianDigits() {
-    goog.i18n.DateTimeSymbols = DateTimeSymbols_fa;
+    $set('DateTimeSymbols', DateTimeSymbols_fa);
 
     // ۱ minute
     assertEquals(localizeNumber(1) + ' minute', duration(MINUTE_MS));
@@ -122,11 +123,11 @@ testSuite({
     assertEquals(localizeNumber(23) + ' days', duration(23 * DAY_MS));
 
     // Restore to English, to make sure we don't mess up other tests
-    goog.i18n.DateTimeSymbols = DateTimeSymbols_en;
+    $set('DateTimeSymbols', DateTimeSymbols_en);
   },
 
   testFormatDurationBengaliDigits() {
-    goog.i18n.DateTimeSymbols = DateTimeSymbols_bn;
+    $set('DateTimeSymbols', DateTimeSymbols_bn);
 
     // ১ minute
     assertEquals(localizeNumber(1) + ' minute', duration(MINUTE_MS));
@@ -138,6 +139,6 @@ testSuite({
     assertEquals(localizeNumber(23) + ' days', duration(23 * DAY_MS));
 
     // Restore to English, to make sure we don't mess up other tests
-    goog.i18n.DateTimeSymbols = DateTimeSymbols_en;
+    $set('DateTimeSymbols', DateTimeSymbols_en);
   },
 });

@@ -34,7 +34,7 @@ import { SafeHtml } from '../html/safehtml.js';
 import { Rect } from '../math/rect.js';
 import * as string from '../string/string.js';
 import * as style from '../style/style.js';
-import * as Map from './map.js';
+import { UiMap as Map } from './map.js';
 import { ModalPopup } from './modalpopup.js';
 goog.requireType('goog.events.browserevent');
 

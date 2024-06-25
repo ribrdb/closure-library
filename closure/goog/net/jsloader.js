@@ -12,7 +12,7 @@
 import * as array from '../array/array.js';
 
 import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
-import * as debugError from '../debug/error.js';
+import { DebugError } from '../debug/error.js';
 import * as dom from '../dom/dom.js';
 import { DomHelper } from '../dom/dom.js';
 import { TagName } from '../dom/tagname.js';
@@ -363,7 +363,7 @@ export var ErrorCode = {
  * @param {ErrorCode} code The error code.
  * @param {string=} opt_message Additional message.
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 export function Error(code, opt_message) {
@@ -380,4 +380,4 @@ export function Error(code, opt_message) {
      */
   this.code = code;
 }
-goog.inherits(Error, debugError);
+goog.inherits(Error, DebugError);

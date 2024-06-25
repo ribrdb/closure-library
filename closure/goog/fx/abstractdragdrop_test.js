@@ -552,7 +552,7 @@ testSuite({
   testAddingRemovingScrollableContainers() {
     const group = new AbstractDragDrop();
     const el1 = dom.createElement(TagName.DIV);
-    const el2 = dom.createElement(dom.TagName.DIV);
+    const el2 = dom.createElement(TagName.DIV);
 
     assertEquals(0, group.scrollableContainers_.length);
 

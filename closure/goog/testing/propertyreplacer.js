@@ -159,7 +159,11 @@ PropertyReplacer.restoreOriginal_ = function(original) {
   if (original.value == PropertyReplacer.NO_SUCH_KEY_) {
     PropertyReplacer.deleteKey_(original.object, original.key);
   } else {
-    original.object[original.key] = original.value;
+    if (typeof original.object.$set == 'function') {
+      original.object.$set(original.key, original.value);
+    } else {
+      original.object[original.key] = original.value;
+    }
   }
 };
 
@@ -178,7 +182,11 @@ PropertyReplacer.prototype.set = function(obj, key, value) {
       obj[key] :
       PropertyReplacer.NO_SUCH_KEY_;
   this.original_.push({object: obj, key: key, value: origValue});
-  obj[key] = value;
+  if (typeof obj.$set == 'function') {
+    obj.$set(key, value);
+  } else {
+    obj[key] = value;    
+  }
 
   // Check whether obj[key] was a read-only value and the assignment failed.
   // Also, check that we're not comparing returned pixel values when "value"

@@ -19,7 +19,7 @@
 
 import * as asserts from '../asserts/asserts.js';
 
-import * as debugError from '../debug/error.js';
+import {DebugError} from '../debug/error.js';
 
 /**
  * A database error. Since the stack trace can be unhelpful in an asynchronous
@@ -31,7 +31,7 @@ import * as debugError from '../debug/error.js';
  * @param {string} context A description of where the error occurred.
  * @param {string=} opt_message Additional message.
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 export function Error(error, context, opt_message) {
@@ -66,7 +66,7 @@ export function Error(error, context, opt_message) {
   }
   Error.base(this, 'constructor', msg);
 }
-goog.inherits(Error, debugError);
+goog.inherits(Error, DebugError);
 
 
 /**
@@ -84,14 +84,14 @@ Error.prototype.getName = function() {
  * thrown.
  *
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  * @final
  */
 Error.VersionChangeBlockedError = function() {
   Error.VersionChangeBlockedError.base(
       this, 'constructor', 'Version change blocked');
 };
-goog.inherits(Error.VersionChangeBlockedError, debugError);
+goog.inherits(Error.VersionChangeBlockedError, DebugError);
 
 
 /**

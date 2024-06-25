@@ -218,7 +218,7 @@ SafeUrl.fromConstant = function(url) {
  * @const
  * @private
  */
-goog.html.SAFE_MIME_TYPE_PATTERN_ = new RegExp(
+const SAFE_MIME_TYPE_PATTERN_ = new RegExp(
     // Note: Due to content-sniffing concerns, only add MIME types for
     // media formats.
     '^(?:audio/(?:3gpp2|3gpp|aac|L16|midi|mp3|mp4|mpeg|oga|ogg|opus|x-m4a|x-matroska|x-wav|wav|webm)|' +
@@ -237,7 +237,7 @@ goog.html.SAFE_MIME_TYPE_PATTERN_ = new RegExp(
  * @package
  */
 SafeUrl.isSafeMimeType = function(mimeType) {
-  return goog.html.SAFE_MIME_TYPE_PATTERN_.test(mimeType);
+  return SAFE_MIME_TYPE_PATTERN_.test(mimeType);
 };
 
 
@@ -298,7 +298,7 @@ SafeUrl.fromMediaSource = function(mediaSource) {
  * @const
  * @private
  */
-goog.html.DATA_URL_PATTERN_ = /^data:(.*);base64,[a-z0-9+\/]+=*$/i;
+const DATA_URL_PATTERN_ = /^data:(.*);base64,[a-z0-9+\/]+=*$/i;
 
 
 /**
@@ -317,7 +317,7 @@ SafeUrl.tryFromDataUrl = function(dataUrl) {
   // See https://tools.ietf.org/html/rfc4648.
   // Remove the CR (%0D) and LF (%0A) from the dataUrl.
   var filteredDataUrl = dataUrl.replace(/(%0A|%0D)/g, '');
-  var match = filteredDataUrl.match(goog.html.DATA_URL_PATTERN_);
+  var match = filteredDataUrl.match(DATA_URL_PATTERN_);
   // Note: The only risk of XSS here is if the `data:` URL results in a
   // same-origin document. In which case content-sniffing might cause the
   // browser to interpret the contents as html.
@@ -375,7 +375,7 @@ SafeUrl.fromTelUrl = function(telUrl) {
  * @const
  * @private
  */
-goog.html.SIP_URL_PATTERN_ = new RegExp(
+const SIP_URL_PATTERN_ = new RegExp(
     '^sip[s]?:[+a-z0-9_.!$%&\'*\\/=^`{|}~-]+@([a-z0-9-]+\\.)+[a-z0-9]{2,63}$',
     'i');
 
@@ -390,7 +390,7 @@ goog.html.SIP_URL_PATTERN_ = new RegExp(
  *     wrapped as a SafeUrl if it does not pass.
  */
 SafeUrl.fromSipUrl = function(sipUrl) {
-  if (!goog.html.SIP_URL_PATTERN_.test(decodeURIComponent(sipUrl))) {
+  if (!SIP_URL_PATTERN_.test(decodeURIComponent(sipUrl))) {
     sipUrl = SafeUrl.INNOCUOUS_STRING;
   }
   return SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(
@@ -623,7 +623,7 @@ SafeUrl.fromTrustedResourceUrl = function(trustedResourceUrl) {
  * @private
  * @const {!RegExp}
  */
-goog.html.SAFE_URL_PATTERN_ =
+const SAFE_URL_PATTERN_ =
     /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;
 
 /**
@@ -650,7 +650,7 @@ SafeUrl.trySanitize = function(url) {
     // For defensive purposes, in case users cast around the parameter type.
     url = String(url);
   }
-  if (!goog.html.SAFE_URL_PATTERN_.test(url)) {
+  if (!SAFE_URL_PATTERN_.test(url)) {
     return SafeUrl.tryFromDataUrl(url);
   }
   return SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
@@ -707,7 +707,7 @@ SafeUrl.sanitizeAssertUnchanged = function(url, opt_allowDataUrl) {
     }
   }
   if (!asserts.assert(
-          goog.html.SAFE_URL_PATTERN_.test(url),
+          SAFE_URL_PATTERN_.test(url),
           '%s does not match the safe URL pattern', url)) {
     url = SafeUrl.INNOCUOUS_STRING;
   }

@@ -45,7 +45,7 @@ var buttonEntry;
  *     registry.
  * @suppress {accessControls} Private state is accessed for test purposes.
  */
-function createRegistryEntries(queryParams) {
+export function createRegistryEntries(queryParams) {
   // Initialize the registry with the given query string.
   var registry = new Registry(queryParams);
   tweak.registry_ = registry;

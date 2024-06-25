@@ -13,6 +13,7 @@ import * as cssom from '../cssom.js';
 import * as style from './style.js';
 import { testSuite } from '../../testing/testsuite.js';
 import * as userAgent from '../../useragent/useragent.js';
+import { standardizeCSSValue } from '../../testing/asserts.js';
 
 // unit tests
 const propertiesToTest = [

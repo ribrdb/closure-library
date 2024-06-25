@@ -472,7 +472,7 @@ CssSelectorPart_.prototype.testElement = function(
  * @constructor
  * @private
  */
-function NodeAncestry_(el) {
+export function NodeAncestry_(el) {
   var node = el;
   var nodeUid = goog.getUid(node);
 

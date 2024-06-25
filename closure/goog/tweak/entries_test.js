@@ -32,7 +32,7 @@ testSuite({
      checking
    */
   testGetValue_defaultValues() {
-    createRegistryEntries('');
+    testhelpers.createRegistryEntries('');
     assertFalse('wrong initial value for bool', boolEntry.getValue());
     assertEquals('wrong initial value for enum', 'A', strEnumEntry.getValue());
     assertEquals('wrong initial value for str', '', strEntry.getValue());
@@ -50,7 +50,7 @@ testSuite({
      checking
    */
   testGetValue_nonDefaultValues() {
-    createRegistryEntries('?bool=1&enum=C');
+    testhelpers.createRegistryEntries('?bool=1&enum=C');
     // These have the restartRequired option set.
     boolEntry.setValue(false);
     strEntry.setValue('foo');
@@ -74,7 +74,7 @@ testSuite({
      checking
    */
   testCallbacks() {
-    createRegistryEntries('');
+    testhelpers.createRegistryEntries('');
     const mockCallback = mockControl.createFunctionMock();
     boolEntry.addCallback(mockCallback);
     boolOneEntry.addCallback(mockCallback);

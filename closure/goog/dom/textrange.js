@@ -525,7 +525,7 @@ TextRange.prototype.surroundWithNodes = function(startNode, endNode) {
 
 /** @override */
 TextRange.prototype.saveUsingDom = function() {
-  return new dom.DomSavedTextRange_(this);
+  return new DomSavedTextRange_(this);
 };
 
 /** @override */
@@ -571,8 +571,8 @@ TextRange.prototype.collapse = function(toAnchor) {
  * @extends {SavedRange}
  * @private
  */
-dom.DomSavedTextRange_ = function(range) {
-  dom.DomSavedTextRange_.base(this, 'constructor');
+function DomSavedTextRange_(range) {
+  DomSavedTextRange_.base(this, 'constructor');
 
   /**
    * The anchor node.
@@ -602,22 +602,22 @@ dom.DomSavedTextRange_ = function(range) {
    */
   this.focusOffset_ = range.getFocusOffset();
 };
-goog.inherits(dom.DomSavedTextRange_, SavedRange);
+goog.inherits(DomSavedTextRange_, SavedRange);
 
 
 /**
  * @return {!AbstractRange} The restored range.
  * @override
  */
-dom.DomSavedTextRange_.prototype.restoreInternal = function() {
+DomSavedTextRange_.prototype.restoreInternal = function() {
   return RangeUtils.createFromNodes(
       this.anchorNode_, this.anchorOffset_, this.focusNode_, this.focusOffset_);
 };
 
 
 /** @override */
-dom.DomSavedTextRange_.prototype.disposeInternal = function() {
-  dom.DomSavedTextRange_.superClass_.disposeInternal.call(this);
+DomSavedTextRange_.prototype.disposeInternal = function() {
+  DomSavedTextRange_.superClass_.disposeInternal.call(this);
 
   this.anchorNode_ = null;
   this.focusNode_ = null;

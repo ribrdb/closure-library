@@ -70,7 +70,7 @@ testSuite({
     root = document.getElementById('root');
     // Make both test cases use the same entries in order to be able to test
     // that having two UIs on the same page does not cause trouble.
-    createRegistryEntries('');
+    testhelpers.createRegistryEntries('');
     registry = tweak.getRegistry();
   },
 
@@ -89,7 +89,7 @@ testSuite({
       return;
     }
     // Create both registries for interactive testing.
-    createRegistryEntries('');
+    testhelpers.createRegistryEntries('');
     registry = tweak.getRegistry();
     // Add an extra tweak for testing the creation of tweaks after the UI has
     // already been rendered.

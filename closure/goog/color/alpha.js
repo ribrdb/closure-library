@@ -116,7 +116,7 @@ var hexQuadrupletRe_ = /#(.)(.)(.)(.)/;
  *     literals.
  * @private
  */
-function normalizeAlphaHex_(hexColor) {
+export function normalizeAlphaHex_(hexColor) {
   if (!isValidAlphaHexColor_(hexColor)) {
     throw new Error('\'' + hexColor + '\' is not a valid alpha hex color');
   }
@@ -324,7 +324,7 @@ var validAlphaHexColorRe_ = /^#(?:[0-9a-f]{4}){1,2}$/i;
  * @private
  */
 // TODO(user): Support percentages when goog.color also supports them.
-function isValidAlphaHexColor_(str) {
+export function isValidAlphaHexColor_(str) {
   return validAlphaHexColorRe_.test(str);
 }
 
@@ -403,7 +403,7 @@ var hslaColorRe_ = new RegExp(
  *     empty array for invalid colors.
  * @private
  */
-function isValidRgbaColor_(str) {
+export function isValidRgbaColor_(str) {
   // Each component is separate (rather than using a repeater) so we can
   // capture the match. Also, we explicitly set each component to be either 0,
   // or start with a non-zero, to prevent octal numbers from slipping through.
@@ -431,7 +431,7 @@ function isValidRgbaColor_(str) {
  *     empty array for invalid colors.
  * @private
  */
-function isValidHslaColor_(str) {
+export function isValidHslaColor_(str) {
   // Each component is separate (rather than using a repeater) so we can
   // capture the match. Also, we explicitly set each component to be either 0,
   // or start with a non-zero, to prevent octal numbers from slipping through.
@@ -459,7 +459,7 @@ function isValidHslaColor_(str) {
  * @return {string} string of the form 'rgba(r,g,b,a)'.
  * @private
  */
-function rgbaStyle_(rgba) {
+export function rgbaStyle_(rgba) {
   const roundedRgba = rgba.slice(0);
   roundedRgba[3] = Math.round(rgba[3] * 1000) / 1000;
   return 'rgba(' + roundedRgba.join(',') + ')';

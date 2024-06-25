@@ -15,7 +15,7 @@
 import { Promise } from '../../promise/promise.js';
 
 import * as asserts from '../../asserts/asserts.js';
-import * as debugError from '../../debug/error.js';
+import { DebugError } from '../../debug/error.js';
 import { HttpStatus } from '../../net/httpstatus.js';
 import { XmlHttp } from '../../net/xmlhttp.js';
 import object from '../../object/object.js';
@@ -439,7 +439,7 @@ function stripXssiPrefix_(prefix, string) {
  * @param {string} message The error message.
  * @param {string} url The URL that was being requested.
  * @param {!goog.net.XhrLike.OrNative} request The XHR that failed.
- * @extends {debugError}
+ * @extends {DebugError}
  * @constructor
  */
 export function Error(message, url, request) {
@@ -457,7 +457,7 @@ export function Error(message, url, request) {
    */
   this.xhr = request;
 }
-goog.inherits(Error, debugError);
+goog.inherits(Error, DebugError);
 
 
 /** @override */

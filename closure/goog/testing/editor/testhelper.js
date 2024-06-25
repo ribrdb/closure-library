@@ -95,7 +95,7 @@ TestHelper.prototype.tearDownEditableElement = function() {
   this.root_.innerHTML = this.savedHtml_;
   this.root_.removeAttribute('g_editable');
 
-  if (goog.editor.plugins && AbstractBubblePlugin) {
+  if (AbstractBubblePlugin) {
     // Remove old bubbles.
     for (let key in AbstractBubblePlugin.bubbleMap_) {
       AbstractBubblePlugin.bubbleMap_[key].dispose();

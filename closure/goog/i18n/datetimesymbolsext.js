@@ -18,7 +18,7 @@
 
 // clang-format off
 
-import { DateTimeSymbols } from './datetimesymbols.js';
+import { DateTimeSymbols, DateTimeSymbols_af, DateTimeSymbols_am, DateTimeSymbols_ar, DateTimeSymbols_az, DateTimeSymbols_be, DateTimeSymbols_bg, DateTimeSymbols_bn, DateTimeSymbols_br, DateTimeSymbols_bs, DateTimeSymbols_ca, DateTimeSymbols_chr, DateTimeSymbols_cs, DateTimeSymbols_cy, DateTimeSymbols_da, DateTimeSymbols_de, DateTimeSymbols_el, DateTimeSymbols_en, DateTimeSymbols_et, DateTimeSymbols_eu, DateTimeSymbols_fa, DateTimeSymbols_fi, DateTimeSymbols_fil, DateTimeSymbols_fr, DateTimeSymbols_ga, DateTimeSymbols_gl, DateTimeSymbols_gsw, DateTimeSymbols_gu, DateTimeSymbols_haw, DateTimeSymbols_he, DateTimeSymbols_hi, DateTimeSymbols_hr, DateTimeSymbols_hu, DateTimeSymbols_hy, DateTimeSymbols_id, DateTimeSymbols_is, DateTimeSymbols_it, DateTimeSymbols_ja, DateTimeSymbols_ka, DateTimeSymbols_kk, DateTimeSymbols_km, DateTimeSymbols_kn, DateTimeSymbols_ko, DateTimeSymbols_ky, DateTimeSymbols_ln, DateTimeSymbols_lo, DateTimeSymbols_lt, DateTimeSymbols_lv, DateTimeSymbols_mk, DateTimeSymbols_ml, DateTimeSymbols_mn, DateTimeSymbols_mr, DateTimeSymbols_ms, DateTimeSymbols_mt, DateTimeSymbols_my, DateTimeSymbols_nb, DateTimeSymbols_ne, DateTimeSymbols_nl, DateTimeSymbols_or, DateTimeSymbols_pa, DateTimeSymbols_pl, DateTimeSymbols_ro, DateTimeSymbols_ru, DateTimeSymbols_si, DateTimeSymbols_sk, DateTimeSymbols_sl, DateTimeSymbols_sq, DateTimeSymbols_sr, DateTimeSymbols_sv, DateTimeSymbols_sw, DateTimeSymbols_ta, DateTimeSymbols_te, DateTimeSymbols_th, DateTimeSymbols_tr, DateTimeSymbols_uk, DateTimeSymbols_ur, DateTimeSymbols_uz, DateTimeSymbols_vi, DateTimeSymbols_zh, DateTimeSymbols_zu  } from './datetimesymbols.js';
 
 /**
  * Date/time formatting symbols for locale af_NA.
@@ -57,7 +57,7 @@ export var DateTimeSymbols_af_NA = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_af_ZA = goog.i18n.DateTimeSymbols_af;
+export var DateTimeSymbols_af_ZA = DateTimeSymbols_af;
 
 
 /**
@@ -145,7 +145,7 @@ export var DateTimeSymbols_ak_GH = DateTimeSymbols_ak;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_am_ET = goog.i18n.DateTimeSymbols_am;
+export var DateTimeSymbols_am_ET = DateTimeSymbols_am;
 
 
 /**
@@ -546,7 +546,7 @@ export var DateTimeSymbols_ar_LB = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ar_LY = goog.i18n.DateTimeSymbols_ar;
+export var DateTimeSymbols_ar_LY = DateTimeSymbols_ar;
 
 
 /**
@@ -1198,7 +1198,7 @@ export var DateTimeSymbols_az_Cyrl_AZ = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_az_Latn = goog.i18n.DateTimeSymbols_az;
+export var DateTimeSymbols_az_Latn = DateTimeSymbols_az;
 
 
 /**
@@ -1206,7 +1206,7 @@ export var DateTimeSymbols_az_Latn = goog.i18n.DateTimeSymbols_az;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_az_Latn_AZ = goog.i18n.DateTimeSymbols_az;
+export var DateTimeSymbols_az_Latn_AZ = DateTimeSymbols_az;
 
 
 /**
@@ -1254,7 +1254,7 @@ export var DateTimeSymbols_bas_CM = DateTimeSymbols_bas;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_be_BY = goog.i18n.DateTimeSymbols_be;
+export var DateTimeSymbols_be_BY = DateTimeSymbols_be;
 
 
 /**
@@ -1342,7 +1342,7 @@ export var DateTimeSymbols_bez_TZ = DateTimeSymbols_bez;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_bg_BG = goog.i18n.DateTimeSymbols_bg;
+export var DateTimeSymbols_bg_BG = DateTimeSymbols_bg;
 
 
 /**
@@ -1472,7 +1472,7 @@ export var DateTimeSymbols_bm_ML = DateTimeSymbols_bm;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_bn_BD = goog.i18n.DateTimeSymbols_bn;
+export var DateTimeSymbols_bn_BD = DateTimeSymbols_bn;
 
 
 /**
@@ -1585,7 +1585,7 @@ export var DateTimeSymbols_bo_IN = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_br_FR = goog.i18n.DateTimeSymbols_br;
+export var DateTimeSymbols_br_FR = DateTimeSymbols_br;
 
 
 /**
@@ -1697,7 +1697,7 @@ export var DateTimeSymbols_bs_Cyrl_BA = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_bs_Latn = goog.i18n.DateTimeSymbols_bs;
+export var DateTimeSymbols_bs_Latn = DateTimeSymbols_bs;
 
 
 /**
@@ -1705,7 +1705,7 @@ export var DateTimeSymbols_bs_Latn = goog.i18n.DateTimeSymbols_bs;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_bs_Latn_BA = goog.i18n.DateTimeSymbols_bs;
+export var DateTimeSymbols_bs_Latn_BA = DateTimeSymbols_bs;
 
 
 /**
@@ -1745,7 +1745,7 @@ export var DateTimeSymbols_ca_AD = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ca_ES = goog.i18n.DateTimeSymbols_ca;
+export var DateTimeSymbols_ca_ES = DateTimeSymbols_ca;
 
 
 /**
@@ -2009,7 +2009,7 @@ export var DateTimeSymbols_cgg_UG = DateTimeSymbols_cgg;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_chr_US = goog.i18n.DateTimeSymbols_chr;
+export var DateTimeSymbols_chr_US = DateTimeSymbols_chr;
 
 
 /**
@@ -2140,7 +2140,7 @@ export var DateTimeSymbols_ckb_IR = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_cs_CZ = goog.i18n.DateTimeSymbols_cs;
+export var DateTimeSymbols_cs_CZ = DateTimeSymbols_cs;
 
 
 /**
@@ -2188,7 +2188,7 @@ export var DateTimeSymbols_cv_RU = DateTimeSymbols_cv;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_cy_GB = goog.i18n.DateTimeSymbols_cy;
+export var DateTimeSymbols_cy_GB = DateTimeSymbols_cy;
 
 
 /**
@@ -2196,7 +2196,7 @@ export var DateTimeSymbols_cy_GB = goog.i18n.DateTimeSymbols_cy;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_da_DK = goog.i18n.DateTimeSymbols_da;
+export var DateTimeSymbols_da_DK = DateTimeSymbols_da;
 
 
 /**
@@ -2276,7 +2276,7 @@ export var DateTimeSymbols_dav_KE = DateTimeSymbols_dav;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_de_BE = goog.i18n.DateTimeSymbols_de;
+export var DateTimeSymbols_de_BE = DateTimeSymbols_de;
 
 
 /**
@@ -2284,7 +2284,7 @@ export var DateTimeSymbols_de_BE = goog.i18n.DateTimeSymbols_de;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_de_DE = goog.i18n.DateTimeSymbols_de;
+export var DateTimeSymbols_de_DE = DateTimeSymbols_de;
 
 
 /**
@@ -2324,7 +2324,7 @@ export var DateTimeSymbols_de_IT = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_de_LI = goog.i18n.DateTimeSymbols_de;
+export var DateTimeSymbols_de_LI = DateTimeSymbols_de;
 
 
 /**
@@ -2332,7 +2332,7 @@ export var DateTimeSymbols_de_LI = goog.i18n.DateTimeSymbols_de;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_de_LU = goog.i18n.DateTimeSymbols_de;
+export var DateTimeSymbols_de_LU = DateTimeSymbols_de;
 
 
 /**
@@ -2725,7 +2725,7 @@ export var DateTimeSymbols_el_CY = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_el_GR = goog.i18n.DateTimeSymbols_el;
+export var DateTimeSymbols_el_GR = DateTimeSymbols_el;
 
 
 /**
@@ -2893,7 +2893,7 @@ export var DateTimeSymbols_en_AI = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_AS = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_AS = DateTimeSymbols_en;
 
 
 /**
@@ -3797,7 +3797,7 @@ export var DateTimeSymbols_en_GM = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_GU = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_GU = DateTimeSymbols_en;
 
 
 /**
@@ -4285,7 +4285,7 @@ export var DateTimeSymbols_en_MG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_MH = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_MH = DateTimeSymbols_en;
 
 
 /**
@@ -4805,7 +4805,7 @@ export var DateTimeSymbols_en_PG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_PH = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_PH = DateTimeSymbols_en;
 
 
 /**
@@ -4877,7 +4877,7 @@ export var DateTimeSymbols_en_PN = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_PR = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_PR = DateTimeSymbols_en;
 
 
 /**
@@ -5493,7 +5493,7 @@ export var DateTimeSymbols_en_UG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_UM = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_UM = DateTimeSymbols_en;
 
 
 /**
@@ -5501,7 +5501,7 @@ export var DateTimeSymbols_en_UM = goog.i18n.DateTimeSymbols_en;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_US_POSIX = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_US_POSIX = DateTimeSymbols_en;
 
 
 /**
@@ -5573,7 +5573,7 @@ export var DateTimeSymbols_en_VG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_en_VI = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_VI = DateTimeSymbols_en;
 
 
 /**
@@ -6549,7 +6549,7 @@ export var DateTimeSymbols_es_VE = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_et_EE = goog.i18n.DateTimeSymbols_et;
+export var DateTimeSymbols_et_EE = DateTimeSymbols_et;
 
 
 /**
@@ -6557,7 +6557,7 @@ export var DateTimeSymbols_et_EE = goog.i18n.DateTimeSymbols_et;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_eu_ES = goog.i18n.DateTimeSymbols_eu;
+export var DateTimeSymbols_eu_ES = DateTimeSymbols_eu;
 
 
 /**
@@ -6638,7 +6638,7 @@ export var DateTimeSymbols_fa_AF = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fa_IR = goog.i18n.DateTimeSymbols_fa;
+export var DateTimeSymbols_fa_IR = DateTimeSymbols_fa;
 
 
 /**
@@ -7318,7 +7318,7 @@ export var DateTimeSymbols_ff_Latn_SN = DateTimeSymbols_ff;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fi_FI = goog.i18n.DateTimeSymbols_fi;
+export var DateTimeSymbols_fi_FI = DateTimeSymbols_fi;
 
 
 /**
@@ -7326,7 +7326,7 @@ export var DateTimeSymbols_fi_FI = goog.i18n.DateTimeSymbols_fi;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fil_PH = goog.i18n.DateTimeSymbols_fil;
+export var DateTimeSymbols_fil_PH = DateTimeSymbols_fil;
 
 
 /**
@@ -7798,7 +7798,7 @@ export var DateTimeSymbols_fr_DZ = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_FR = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_FR = DateTimeSymbols_fr;
 
 
 /**
@@ -7838,7 +7838,7 @@ export var DateTimeSymbols_fr_GA = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_GF = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_GF = DateTimeSymbols_fr;
 
 
 /**
@@ -7878,7 +7878,7 @@ export var DateTimeSymbols_fr_GN = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_GP = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_GP = DateTimeSymbols_fr;
 
 
 /**
@@ -7982,7 +7982,7 @@ export var DateTimeSymbols_fr_KM = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_LU = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_LU = DateTimeSymbols_fr;
 
 
 /**
@@ -8022,7 +8022,7 @@ export var DateTimeSymbols_fr_MA = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_MC = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_MC = DateTimeSymbols_fr;
 
 
 /**
@@ -8126,7 +8126,7 @@ export var DateTimeSymbols_fr_ML = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_MQ = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_MQ = DateTimeSymbols_fr;
 
 
 /**
@@ -8326,7 +8326,7 @@ export var DateTimeSymbols_fr_PM = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_fr_RE = goog.i18n.DateTimeSymbols_fr;
+export var DateTimeSymbols_fr_RE = DateTimeSymbols_fr;
 
 
 /**
@@ -8734,7 +8734,7 @@ export var DateTimeSymbols_fy_NL = DateTimeSymbols_fy;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ga_GB = goog.i18n.DateTimeSymbols_ga;
+export var DateTimeSymbols_ga_GB = DateTimeSymbols_ga;
 
 
 /**
@@ -8742,7 +8742,7 @@ export var DateTimeSymbols_ga_GB = goog.i18n.DateTimeSymbols_ga;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ga_IE = goog.i18n.DateTimeSymbols_ga;
+export var DateTimeSymbols_ga_IE = DateTimeSymbols_ga;
 
 
 /**
@@ -8790,7 +8790,7 @@ export var DateTimeSymbols_gd_GB = DateTimeSymbols_gd;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_gl_ES = goog.i18n.DateTimeSymbols_gl;
+export var DateTimeSymbols_gl_ES = DateTimeSymbols_gl;
 
 
 /**
@@ -8798,7 +8798,7 @@ export var DateTimeSymbols_gl_ES = goog.i18n.DateTimeSymbols_gl;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_gsw_CH = goog.i18n.DateTimeSymbols_gsw;
+export var DateTimeSymbols_gsw_CH = DateTimeSymbols_gsw;
 
 
 /**
@@ -8806,7 +8806,7 @@ export var DateTimeSymbols_gsw_CH = goog.i18n.DateTimeSymbols_gsw;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_gsw_FR = goog.i18n.DateTimeSymbols_gsw;
+export var DateTimeSymbols_gsw_FR = DateTimeSymbols_gsw;
 
 
 /**
@@ -8814,7 +8814,7 @@ export var DateTimeSymbols_gsw_FR = goog.i18n.DateTimeSymbols_gsw;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_gsw_LI = goog.i18n.DateTimeSymbols_gsw;
+export var DateTimeSymbols_gsw_LI = DateTimeSymbols_gsw;
 
 
 /**
@@ -8822,7 +8822,7 @@ export var DateTimeSymbols_gsw_LI = goog.i18n.DateTimeSymbols_gsw;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_gu_IN = goog.i18n.DateTimeSymbols_gu;
+export var DateTimeSymbols_gu_IN = DateTimeSymbols_gu;
 
 
 /**
@@ -8990,7 +8990,7 @@ export var DateTimeSymbols_ha_NG = DateTimeSymbols_ha;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_haw_US = goog.i18n.DateTimeSymbols_haw;
+export var DateTimeSymbols_haw_US = DateTimeSymbols_haw;
 
 
 /**
@@ -8998,7 +8998,7 @@ export var DateTimeSymbols_haw_US = goog.i18n.DateTimeSymbols_haw;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_he_IL = goog.i18n.DateTimeSymbols_he;
+export var DateTimeSymbols_he_IL = DateTimeSymbols_he;
 
 
 /**
@@ -9006,7 +9006,7 @@ export var DateTimeSymbols_he_IL = goog.i18n.DateTimeSymbols_he;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_hi_IN = goog.i18n.DateTimeSymbols_hi;
+export var DateTimeSymbols_hi_IN = DateTimeSymbols_hi;
 
 
 /**
@@ -9110,7 +9110,7 @@ export var DateTimeSymbols_hr_BA = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_hr_HR = goog.i18n.DateTimeSymbols_hr;
+export var DateTimeSymbols_hr_HR = DateTimeSymbols_hr;
 
 
 /**
@@ -9158,7 +9158,7 @@ export var DateTimeSymbols_hsb_DE = DateTimeSymbols_hsb;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_hu_HU = goog.i18n.DateTimeSymbols_hu;
+export var DateTimeSymbols_hu_HU = DateTimeSymbols_hu;
 
 
 /**
@@ -9166,7 +9166,7 @@ export var DateTimeSymbols_hu_HU = goog.i18n.DateTimeSymbols_hu;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_hy_AM = goog.i18n.DateTimeSymbols_hy;
+export var DateTimeSymbols_hy_AM = DateTimeSymbols_hy;
 
 
 /**
@@ -9214,7 +9214,7 @@ export var DateTimeSymbols_ia_001 = DateTimeSymbols_ia;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_id_ID = goog.i18n.DateTimeSymbols_id;
+export var DateTimeSymbols_id_ID = DateTimeSymbols_id;
 
 
 /**
@@ -9302,7 +9302,7 @@ export var DateTimeSymbols_ii_CN = DateTimeSymbols_ii;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_is_IS = goog.i18n.DateTimeSymbols_is;
+export var DateTimeSymbols_is_IS = DateTimeSymbols_is;
 
 
 /**
@@ -9342,7 +9342,7 @@ export var DateTimeSymbols_it_CH = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_it_IT = goog.i18n.DateTimeSymbols_it;
+export var DateTimeSymbols_it_IT = DateTimeSymbols_it;
 
 
 /**
@@ -9350,7 +9350,7 @@ export var DateTimeSymbols_it_IT = goog.i18n.DateTimeSymbols_it;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_it_SM = goog.i18n.DateTimeSymbols_it;
+export var DateTimeSymbols_it_SM = DateTimeSymbols_it;
 
 
 /**
@@ -9358,7 +9358,7 @@ export var DateTimeSymbols_it_SM = goog.i18n.DateTimeSymbols_it;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_it_VA = goog.i18n.DateTimeSymbols_it;
+export var DateTimeSymbols_it_VA = DateTimeSymbols_it;
 
 
 /**
@@ -9366,7 +9366,7 @@ export var DateTimeSymbols_it_VA = goog.i18n.DateTimeSymbols_it;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ja_JP = goog.i18n.DateTimeSymbols_ja;
+export var DateTimeSymbols_ja_JP = DateTimeSymbols_ja;
 
 
 /**
@@ -9494,7 +9494,7 @@ export var DateTimeSymbols_jv_ID = DateTimeSymbols_jv;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ka_GE = goog.i18n.DateTimeSymbols_ka;
+export var DateTimeSymbols_ka_GE = DateTimeSymbols_ka;
 
 
 /**
@@ -9782,7 +9782,7 @@ export var DateTimeSymbols_ki_KE = DateTimeSymbols_ki;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_kk_KZ = goog.i18n.DateTimeSymbols_kk;
+export var DateTimeSymbols_kk_KZ = DateTimeSymbols_kk;
 
 
 /**
@@ -9910,7 +9910,7 @@ export var DateTimeSymbols_kln_KE = DateTimeSymbols_kln;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_km_KH = goog.i18n.DateTimeSymbols_km;
+export var DateTimeSymbols_km_KH = DateTimeSymbols_km;
 
 
 /**
@@ -9918,7 +9918,7 @@ export var DateTimeSymbols_km_KH = goog.i18n.DateTimeSymbols_km;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_kn_IN = goog.i18n.DateTimeSymbols_kn;
+export var DateTimeSymbols_kn_IN = DateTimeSymbols_kn;
 
 
 /**
@@ -9958,7 +9958,7 @@ export var DateTimeSymbols_ko_KP = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ko_KR = goog.i18n.DateTimeSymbols_ko;
+export var DateTimeSymbols_ko_KR = DateTimeSymbols_ko;
 
 
 /**
@@ -10319,7 +10319,7 @@ export var DateTimeSymbols_kw_GB = DateTimeSymbols_kw;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ky_KG = goog.i18n.DateTimeSymbols_ky;
+export var DateTimeSymbols_ky_KG = DateTimeSymbols_ky;
 
 
 /**
@@ -10487,7 +10487,7 @@ export var DateTimeSymbols_lkt_US = DateTimeSymbols_lkt;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ln_AO = goog.i18n.DateTimeSymbols_ln;
+export var DateTimeSymbols_ln_AO = DateTimeSymbols_ln;
 
 
 /**
@@ -10495,7 +10495,7 @@ export var DateTimeSymbols_ln_AO = goog.i18n.DateTimeSymbols_ln;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ln_CD = goog.i18n.DateTimeSymbols_ln;
+export var DateTimeSymbols_ln_CD = DateTimeSymbols_ln;
 
 
 /**
@@ -10503,7 +10503,7 @@ export var DateTimeSymbols_ln_CD = goog.i18n.DateTimeSymbols_ln;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ln_CF = goog.i18n.DateTimeSymbols_ln;
+export var DateTimeSymbols_ln_CF = DateTimeSymbols_ln;
 
 
 /**
@@ -10511,7 +10511,7 @@ export var DateTimeSymbols_ln_CF = goog.i18n.DateTimeSymbols_ln;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ln_CG = goog.i18n.DateTimeSymbols_ln;
+export var DateTimeSymbols_ln_CG = DateTimeSymbols_ln;
 
 
 /**
@@ -10519,7 +10519,7 @@ export var DateTimeSymbols_ln_CG = goog.i18n.DateTimeSymbols_ln;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_lo_LA = goog.i18n.DateTimeSymbols_lo;
+export var DateTimeSymbols_lo_LA = DateTimeSymbols_lo;
 
 
 /**
@@ -10601,7 +10601,7 @@ export var DateTimeSymbols_lrc_IR = DateTimeSymbols_lrc;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_lt_LT = goog.i18n.DateTimeSymbols_lt;
+export var DateTimeSymbols_lt_LT = DateTimeSymbols_lt;
 
 
 /**
@@ -10729,7 +10729,7 @@ export var DateTimeSymbols_luy_KE = DateTimeSymbols_luy;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_lv_LV = goog.i18n.DateTimeSymbols_lv;
+export var DateTimeSymbols_lv_LV = DateTimeSymbols_lv;
 
 
 /**
@@ -11089,7 +11089,7 @@ export var DateTimeSymbols_mi_NZ = DateTimeSymbols_mi;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_mk_MK = goog.i18n.DateTimeSymbols_mk;
+export var DateTimeSymbols_mk_MK = DateTimeSymbols_mk;
 
 
 /**
@@ -11097,7 +11097,7 @@ export var DateTimeSymbols_mk_MK = goog.i18n.DateTimeSymbols_mk;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ml_IN = goog.i18n.DateTimeSymbols_ml;
+export var DateTimeSymbols_ml_IN = DateTimeSymbols_ml;
 
 
 /**
@@ -11105,7 +11105,7 @@ export var DateTimeSymbols_ml_IN = goog.i18n.DateTimeSymbols_ml;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_mn_MN = goog.i18n.DateTimeSymbols_mn;
+export var DateTimeSymbols_mn_MN = DateTimeSymbols_mn;
 
 
 /**
@@ -11162,7 +11162,7 @@ export var DateTimeSymbols_mni_Beng_IN = DateTimeSymbols_mni;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_mr_IN = goog.i18n.DateTimeSymbols_mr;
+export var DateTimeSymbols_mr_IN = DateTimeSymbols_mr;
 
 
 /**
@@ -11234,7 +11234,7 @@ export var DateTimeSymbols_ms_ID = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ms_MY = goog.i18n.DateTimeSymbols_ms;
+export var DateTimeSymbols_ms_MY = DateTimeSymbols_ms;
 
 
 /**
@@ -11274,7 +11274,7 @@ export var DateTimeSymbols_ms_SG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_mt_MT = goog.i18n.DateTimeSymbols_mt;
+export var DateTimeSymbols_mt_MT = DateTimeSymbols_mt;
 
 
 /**
@@ -11322,7 +11322,7 @@ export var DateTimeSymbols_mua_CM = DateTimeSymbols_mua;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_my_MM = goog.i18n.DateTimeSymbols_my;
+export var DateTimeSymbols_my_MM = DateTimeSymbols_my;
 
 
 /**
@@ -11411,7 +11411,7 @@ export var DateTimeSymbols_naq_NA = DateTimeSymbols_naq;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_nb_NO = goog.i18n.DateTimeSymbols_nb;
+export var DateTimeSymbols_nb_NO = DateTimeSymbols_nb;
 
 
 /**
@@ -11419,7 +11419,7 @@ export var DateTimeSymbols_nb_NO = goog.i18n.DateTimeSymbols_nb;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_nb_SJ = goog.i18n.DateTimeSymbols_nb;
+export var DateTimeSymbols_nb_SJ = DateTimeSymbols_nb;
 
 
 /**
@@ -11500,7 +11500,7 @@ export var DateTimeSymbols_ne_IN = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ne_NP = goog.i18n.DateTimeSymbols_ne;
+export var DateTimeSymbols_ne_NP = DateTimeSymbols_ne;
 
 
 /**
@@ -11636,7 +11636,7 @@ export var DateTimeSymbols_nl_CW = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_nl_NL = goog.i18n.DateTimeSymbols_nl;
+export var DateTimeSymbols_nl_NL = DateTimeSymbols_nl;
 
 
 /**
@@ -11980,7 +11980,7 @@ export var DateTimeSymbols_om_KE = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_or_IN = goog.i18n.DateTimeSymbols_or;
+export var DateTimeSymbols_or_IN = DateTimeSymbols_or;
 
 
 /**
@@ -12126,7 +12126,7 @@ export var DateTimeSymbols_pa_Arab_PK = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_pa_Guru = goog.i18n.DateTimeSymbols_pa;
+export var DateTimeSymbols_pa_Guru = DateTimeSymbols_pa;
 
 
 /**
@@ -12134,7 +12134,7 @@ export var DateTimeSymbols_pa_Guru = goog.i18n.DateTimeSymbols_pa;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_pa_Guru_IN = goog.i18n.DateTimeSymbols_pa;
+export var DateTimeSymbols_pa_Guru_IN = DateTimeSymbols_pa;
 
 
 /**
@@ -12182,7 +12182,7 @@ export var DateTimeSymbols_pcm_NG = DateTimeSymbols_pcm;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_pl_PL = goog.i18n.DateTimeSymbols_pl;
+export var DateTimeSymbols_pl_PL = DateTimeSymbols_pl;
 
 
 /**
@@ -12841,7 +12841,7 @@ export var DateTimeSymbols_ro_MD = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ro_RO = goog.i18n.DateTimeSymbols_ro;
+export var DateTimeSymbols_ro_RO = DateTimeSymbols_ro;
 
 
 /**
@@ -13017,7 +13017,7 @@ export var DateTimeSymbols_ru_MD = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ru_RU = goog.i18n.DateTimeSymbols_ru;
+export var DateTimeSymbols_ru_RU = DateTimeSymbols_ru;
 
 
 /**
@@ -13812,7 +13812,7 @@ export var DateTimeSymbols_shi_Tfng_MA = DateTimeSymbols_shi;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_si_LK = goog.i18n.DateTimeSymbols_si;
+export var DateTimeSymbols_si_LK = DateTimeSymbols_si;
 
 
 /**
@@ -13820,7 +13820,7 @@ export var DateTimeSymbols_si_LK = goog.i18n.DateTimeSymbols_si;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sk_SK = goog.i18n.DateTimeSymbols_sk;
+export var DateTimeSymbols_sk_SK = DateTimeSymbols_sk;
 
 
 /**
@@ -13828,7 +13828,7 @@ export var DateTimeSymbols_sk_SK = goog.i18n.DateTimeSymbols_sk;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sl_SI = goog.i18n.DateTimeSymbols_sl;
+export var DateTimeSymbols_sl_SI = DateTimeSymbols_sl;
 
 
 /**
@@ -14052,7 +14052,7 @@ export var DateTimeSymbols_so_SO = DateTimeSymbols_so;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sq_AL = goog.i18n.DateTimeSymbols_sq;
+export var DateTimeSymbols_sq_AL = DateTimeSymbols_sq;
 
 
 /**
@@ -14124,7 +14124,7 @@ export var DateTimeSymbols_sq_XK = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sr_Cyrl = goog.i18n.DateTimeSymbols_sr;
+export var DateTimeSymbols_sr_Cyrl = DateTimeSymbols_sr;
 
 
 /**
@@ -14196,7 +14196,7 @@ export var DateTimeSymbols_sr_Cyrl_ME = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sr_Cyrl_RS = goog.i18n.DateTimeSymbols_sr;
+export var DateTimeSymbols_sr_Cyrl_RS = DateTimeSymbols_sr;
 
 
 /**
@@ -14412,7 +14412,7 @@ export var DateTimeSymbols_su_Latn_ID = DateTimeSymbols_su;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sv_AX = goog.i18n.DateTimeSymbols_sv;
+export var DateTimeSymbols_sv_AX = DateTimeSymbols_sv;
 
 
 /**
@@ -14452,7 +14452,7 @@ export var DateTimeSymbols_sv_FI = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sv_SE = goog.i18n.DateTimeSymbols_sv;
+export var DateTimeSymbols_sv_SE = DateTimeSymbols_sv;
 
 
 /**
@@ -14460,7 +14460,7 @@ export var DateTimeSymbols_sv_SE = goog.i18n.DateTimeSymbols_sv;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sw_CD = goog.i18n.DateTimeSymbols_sw;
+export var DateTimeSymbols_sw_CD = DateTimeSymbols_sw;
 
 
 /**
@@ -14500,7 +14500,7 @@ export var DateTimeSymbols_sw_KE = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_sw_TZ = goog.i18n.DateTimeSymbols_sw;
+export var DateTimeSymbols_sw_TZ = DateTimeSymbols_sw;
 
 
 /**
@@ -14540,7 +14540,7 @@ export var DateTimeSymbols_sw_UG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ta_IN = goog.i18n.DateTimeSymbols_ta;
+export var DateTimeSymbols_ta_IN = DateTimeSymbols_ta;
 
 
 /**
@@ -14644,7 +14644,7 @@ export var DateTimeSymbols_ta_SG = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_te_IN = goog.i18n.DateTimeSymbols_te;
+export var DateTimeSymbols_te_IN = DateTimeSymbols_te;
 
 
 /**
@@ -14764,7 +14764,7 @@ export var DateTimeSymbols_tg_TJ = DateTimeSymbols_tg;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_th_TH = goog.i18n.DateTimeSymbols_th;
+export var DateTimeSymbols_th_TH = DateTimeSymbols_th;
 
 
 /**
@@ -14956,7 +14956,7 @@ export var DateTimeSymbols_tr_CY = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_tr_TR = goog.i18n.DateTimeSymbols_tr;
+export var DateTimeSymbols_tr_TR = DateTimeSymbols_tr;
 
 
 /**
@@ -15124,7 +15124,7 @@ export var DateTimeSymbols_ug_CN = DateTimeSymbols_ug;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_uk_UA = goog.i18n.DateTimeSymbols_uk;
+export var DateTimeSymbols_uk_UA = DateTimeSymbols_uk;
 
 
 /**
@@ -15165,7 +15165,7 @@ export var DateTimeSymbols_ur_IN = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_ur_PK = goog.i18n.DateTimeSymbols_ur;
+export var DateTimeSymbols_ur_PK = DateTimeSymbols_ur;
 
 
 /**
@@ -15303,7 +15303,7 @@ export var DateTimeSymbols_uz_Cyrl_UZ = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_uz_Latn = goog.i18n.DateTimeSymbols_uz;
+export var DateTimeSymbols_uz_Latn = DateTimeSymbols_uz;
 
 
 /**
@@ -15311,7 +15311,7 @@ export var DateTimeSymbols_uz_Latn = goog.i18n.DateTimeSymbols_uz;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_uz_Latn_UZ = goog.i18n.DateTimeSymbols_uz;
+export var DateTimeSymbols_uz_Latn_UZ = DateTimeSymbols_uz;
 
 
 /**
@@ -15431,7 +15431,7 @@ export var DateTimeSymbols_vai_Vaii_LR = DateTimeSymbols_vai;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_vi_VN = goog.i18n.DateTimeSymbols_vi;
+export var DateTimeSymbols_vi_VN = DateTimeSymbols_vi;
 
 
 /**
@@ -16047,7 +16047,7 @@ export var DateTimeSymbols_zgh_MA = DateTimeSymbols_zgh;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_zh_Hans = goog.i18n.DateTimeSymbols_zh;
+export var DateTimeSymbols_zh_Hans = DateTimeSymbols_zh;
 
 
 /**
@@ -16055,7 +16055,7 @@ export var DateTimeSymbols_zh_Hans = goog.i18n.DateTimeSymbols_zh;
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_zh_Hans_CN = goog.i18n.DateTimeSymbols_zh;
+export var DateTimeSymbols_zh_Hans_CN = DateTimeSymbols_zh;
 
 
 /**
@@ -16287,7 +16287,7 @@ export var DateTimeSymbols_zh_Hant_TW = {
  * @const
  * @type {!DateTimeSymbolsType}
  */
-export var DateTimeSymbols_zu_ZA = goog.i18n.DateTimeSymbols_zu;
+export var DateTimeSymbols_zu_ZA = DateTimeSymbols_zu;
 
 
 /**

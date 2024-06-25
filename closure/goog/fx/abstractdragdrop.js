@@ -65,7 +65,7 @@ export function AbstractDragDrop() {
 
   /**
    * Scrollable containers to account for during drag
-   * @private {Array<goog.fx.ScrollableContainer_>}
+   * @private {Array<ScrollableContainer_>}
    */
   this.scrollableContainers_ = [];
 
@@ -121,7 +121,7 @@ export function AbstractDragDrop() {
 
   /**
    * Dummy target, {@see maybeCreateDummyTargetForPosition_}.
-   * @private {?goog.fx.ActiveDropTarget_}
+   * @private {?ActiveDropTarget_}
    */
   this.dummyTarget_;
 
@@ -134,13 +134,13 @@ export function AbstractDragDrop() {
   /** @private {?Element} */
   this.dragEl_;
 
-  /** @private {?Array<!goog.fx.ActiveDropTarget_>} */
+  /** @private {?Array<!ActiveDropTarget_>} */
   this.targetList_;
 
   /** @private {?Box} */
   this.targetBox_;
 
-  /** @private {?goog.fx.ActiveDropTarget_} */
+  /** @private {?ActiveDropTarget_} */
   this.activeTarget_;
 
   /** @private {?DragDropItem} */
@@ -725,7 +725,7 @@ AbstractDragDrop.prototype.disposeScrollableContainerListeners_ =
  * @param {Element} element The scroll container.
  */
 AbstractDragDrop.prototype.addScrollableContainer = function(element) {
-  this.scrollableContainers_.push(new goog.fx.ScrollableContainer_(element));
+  this.scrollableContainers_.push(new ScrollableContainer_(element));
 };
 
 
@@ -899,7 +899,7 @@ AbstractDragDrop.prototype.addDragTarget_ = function(target, item) {
     var box = this.getElementBox(item, draggableElement);
 
     this.targetList_.push(
-        new goog.fx.ActiveDropTarget_(box, target, item, draggableElement));
+        new ActiveDropTarget_(box, target, item, draggableElement));
 
     this.calculateTargetBox_(box);
   }
@@ -1000,13 +1000,13 @@ AbstractDragDrop.prototype.calculateTargetBox_ = function(box) {
  *
  * @param {number} x Cursor position on the x-axis.
  * @param {number} y Cursor position on the y-axis.
- * @return {goog.fx.ActiveDropTarget_} Dummy drop target.
+ * @return {ActiveDropTarget_} Dummy drop target.
  * @private
  */
 AbstractDragDrop.prototype.maybeCreateDummyTargetForPosition_ =
     function(x, y) {
       if (!this.dummyTarget_) {
-        this.dummyTarget_ = new goog.fx.ActiveDropTarget_(this.targetBox_.clone());
+        this.dummyTarget_ = new ActiveDropTarget_(this.targetBox_.clone());
       }
       var fakeTargetBox = this.dummyTarget_.box_;
 
@@ -1099,7 +1099,7 @@ AbstractDragDrop.prototype.maybeCreateDummyTargetForPosition_ =
  * Returns the target for a given cursor position.
  *
  * @param {Coordinate} position Cursor position.
- * @return {goog.fx.ActiveDropTarget_} Target for position or null if no target
+ * @return {ActiveDropTarget_} Target for position or null if no target
  *     was defined for the given position.
  * @private
  */
@@ -1497,7 +1497,7 @@ DragDropItem.prototype.mouseUp_ = function(event) {
  * @struct
  * @private
  */
-goog.fx.ActiveDropTarget_ = function(box, opt_target, opt_item, opt_element) {
+function ActiveDropTarget_(box, opt_target, opt_item, opt_element) {
   /**
      * Box describing the position and dimension of the target item
      * @type {Box}
@@ -1528,7 +1528,7 @@ goog.fx.ActiveDropTarget_ = function(box, opt_target, opt_item, opt_element) {
 
   /**
    * If this target is in a scrollable container this is it.
-   * @private {?goog.fx.ScrollableContainer_}
+   * @private {?ScrollableContainer_}
    */
   this.scrollableContainer_ = null;
 };
@@ -1541,10 +1541,10 @@ goog.fx.ActiveDropTarget_ = function(box, opt_target, opt_item, opt_element) {
  * @constructor
  * @private
  */
-goog.fx.ScrollableContainer_ = function(element) {
+function ScrollableContainer_(element) {
   /**
    * The targets that lie within this container.
-   * @type {Array<goog.fx.ActiveDropTarget_>}
+   * @type {Array<ActiveDropTarget_>}
    * @private
    */
   this.containedTargets_ = [];
@@ -1584,5 +1584,5 @@ goog.fx.ScrollableContainer_ = function(element) {
  * @const
  */
 AbstractDragDrop.TEST_ONLY = {
-  ActiveDropTarget: goog.fx.ActiveDropTarget_,
+  ActiveDropTarget: ActiveDropTarget_,
 };

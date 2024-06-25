@@ -17,7 +17,7 @@ import * as asserts from '../asserts/asserts.js';
 import * as googDate from '../date/date.js';
 import { UtcDateTime } from '../date/utcdatetime.js';
 import { DateTimeSymbols } from './datetimesymbols.js';
-import { DayPeriods } from './dayperiodsymbols.js';
+import * as DayPeriods from './dayperiodsymbols.js';
 import * as LocaleFeature from './localefeature.js';
 import * as NativeLocaleDigits from './nativelocaledigits.js';
 import { TimeZone } from './timezone.js';

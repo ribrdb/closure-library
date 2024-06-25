@@ -7,6 +7,7 @@
 goog.setTestOnly();
 
 import { Sha224 } from './sha224.js';
+import { Sha2 } from './sha2.js';
 import * as crypt from './crypt.js';
 import * as hashTester from './hashtester.js';
 import { testSuite } from '../testing/testsuite.js';
@@ -46,8 +47,8 @@ testSuite({
         'asdfljhr78yasdfljh45opa78sdf' +
         '120839414104897aavnasdfafasd';
     assertTrue(
-        biggerThanOneBlock.length > crypt.Sha2.BLOCKSIZE_ &&
-        biggerThanOneBlock.length < 2 * crypt.Sha2.BLOCKSIZE_);
+        biggerThanOneBlock.length > Sha2.BLOCKSIZE_ &&
+        biggerThanOneBlock.length < 2 * Sha2.BLOCKSIZE_);
     sha224.update(crypt.stringToByteArray(biggerThanOneBlock));
     assertEquals(
         '27c9b678012becd6891bac653f355b2d26f63132e840644d565f5dac',
@@ -60,7 +61,7 @@ testSuite({
         'asdfljhr78yasdfljh45opa78sdf' +
         '120839414104897aavnasdfafasd' +
         'laasdouvhalacbnalalseryalcla';
-    assertTrue(biggerThanTwoBlocks.length > 2 * crypt.Sha2.BLOCKSIZE_);
+    assertTrue(biggerThanTwoBlocks.length > 2 * Sha2.BLOCKSIZE_);
     sha224.update(crypt.stringToByteArray(biggerThanTwoBlocks));
     assertEquals(
         '1c2c1455cc984eef6f25ec9d79b1c661b3794887c3d0b24111ed9803',

@@ -264,9 +264,9 @@ export function ChannelRequest(channel, channelDebug, opt_sessionId, opt_request
   /**
    * The current state of fetch responses if webchannel is using WHATWG
    * fetch/streams.
-   * @private {!goog.labs.net.webChannel.FetchResponseState}
+   * @private {!FetchResponseState}
    */
-  this.fetchResponseState_ = new goog.labs.net.webChannel.FetchResponseState();
+  this.fetchResponseState_ = new FetchResponseState();
 }
 
 /**
@@ -274,7 +274,7 @@ export function ChannelRequest(channel, channelDebug, opt_sessionId, opt_request
  * @struct
  * @constructor
  */
-goog.labs.net.webChannel.FetchResponseState = function() {
+function FetchResponseState() {
   /**
    * The TextDecoder for decoding Uint8Array responses from fetch request.
    * @type {?goog.global.TextDecoder}
@@ -298,7 +298,6 @@ goog.labs.net.webChannel.FetchResponseState = function() {
 goog.scope(function() {
   const WebChannel = netWebChannel;
   const Channel = webChannelChannel;
-  const FetchResponseState = goog.labs.net.webChannel.FetchResponseState;
   const requestStats = webChannelRequestStats;
   const WebChannelDebug = webChannelWebChannelDebug;
   const environment = webChannelEnvironment;

@@ -6,7 +6,7 @@
 
 goog.setTestOnly();
 
-import * as DebugError from './error.js';
+import { DebugError } from './error.js';
 import { ErrorReporter } from './errorreporter.js';
 import { PropertyReplacer } from '../testing/propertyreplacer.js';
 import { dispose } from '../disposable/dispose.js';
@@ -16,6 +16,7 @@ import * as functions from '../functions/functions.js';
 import * as product from '../useragent/product.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as userAgent from '../useragent/useragent.js';
+import * as xhrio from '../net/xhrio.js';
 
 class MockXhrIo {
   onReadyStateChangeEntryPoint_() {}
@@ -81,7 +82,7 @@ function throwAnErrorWith(
 
 testSuite({
   setUp() {
-    stubs.set(goog.net, 'XhrIo', MockXhrIo);
+    stubs.set(xhrio, 'XhrIo', MockXhrIo);
     // NOTE: bypass compiler check for the define
     ErrorReporter['ALLOW_AUTO_PROTECT'] = true;
   },

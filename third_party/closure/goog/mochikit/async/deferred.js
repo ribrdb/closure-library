@@ -26,7 +26,7 @@ import { Promise } from '../../../../../closure/goog/promise/promise.js';
 import { Thenable } from '../../../../../closure/goog/promise/thenable.js';
 import * as array from '../../../../../closure/goog/array/array.js';
 import * as asserts from '../../../../../closure/goog/asserts/asserts.js';
-import * as debugError from '../../../../../closure/goog/debug/error.js';
+import { DebugError } from '../../../../../closure/goog/debug/error.js';
 
 
 
@@ -870,10 +870,10 @@ Deferred.when = function(value, callback, opt_scope) {
  * @param {!Deferred} deferred The Deferred.
  *
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  */
 Deferred.AlreadyCalledError = function(deferred) {
-  debugError.call(this);
+  DebugError.call(this);
 
   /**
      * The Deferred that raised this error.
@@ -881,7 +881,7 @@ Deferred.AlreadyCalledError = function(deferred) {
      */
   this.deferred = deferred;
 };
-goog.inherits(Deferred.AlreadyCalledError, debugError);
+goog.inherits(Deferred.AlreadyCalledError, DebugError);
 
 
 /** @override */
@@ -899,10 +899,10 @@ Deferred.AlreadyCalledError.prototype.name = 'AlreadyCalledError';
  *
  * @param {!Deferred} deferred The Deferred object.
  * @constructor
- * @extends {debugError}
+ * @extends {DebugError}
  */
 Deferred.CanceledError = function(deferred) {
-  debugError.call(this);
+  DebugError.call(this);
 
   /**
      * The Deferred that raised this error.
@@ -910,7 +910,7 @@ Deferred.CanceledError = function(deferred) {
      */
   this.deferred = deferred;
 };
-goog.inherits(Deferred.CanceledError, debugError);
+goog.inherits(Deferred.CanceledError, DebugError);
 
 
 /** @override */

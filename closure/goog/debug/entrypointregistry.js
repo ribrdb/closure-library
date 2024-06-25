@@ -57,7 +57,7 @@ EntryPointMonitor.prototype.unwrap;
  * @type {!Array<function(!Function)>}
  * @private
  */
-var refList_ = [];
+export var refList_ = [];
 
 
 /**

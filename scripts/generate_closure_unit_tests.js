@@ -208,7 +208,7 @@ function maybeGenerateHtmlForFile(filename, args) {
     return;
   }
 
-  const newJS = `import('./${path.basename(filename)}')`;
+  const newJS = `import './${path.basename(filename)}';`;
   const title = `Closure Unit Tests - ${testModName}`;
 
   const baseFileName = filename.replace('_test.js', '');
@@ -259,8 +259,16 @@ See the COPYING file for details.
 <meta charset="UTF-8" />
 ${pathToBootstrap ? `<script src=${pathToBootstrap}></script>` : ''}
 <script src="${pathToBase}"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "/closure/": "/mock/closure/",
+      "/orig/": "/"
+    }
+  }
+</script>
 ${pathToDeps ? `<script src=${pathToDeps}></script>` : ''}
-<script>${js}</script>
+<script type=module>${js}</script>
 <title>${title}</title>` + testDom));
 }
 

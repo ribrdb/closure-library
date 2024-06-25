@@ -7,6 +7,7 @@
 goog.setTestOnly();
 
 import { TagName } from '../dom/tagname.js';
+import * as asserts from './asserts.js';
 import { AssertionError } from './asserts.js';
 import * as dom from '../dom/dom.js';
 import * as googString from '../string/string.js';

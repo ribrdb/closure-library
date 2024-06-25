@@ -12,6 +12,7 @@ import { TagName } from '../../dom/tagname.js';
 import * as aria from './aria.js';
 import * as dom from '../../dom/dom.js';
 import { testSuite } from '../../testing/testsuite.js';
+import { LivePriority, RelevantValues } from './attributes.js';
 
 let sandbox;
 let someDiv;
@@ -98,12 +99,12 @@ testSuite({
     assertFalse(
         someDiv.hasAttribute ? someDiv.hasAttribute('aria-relevant') :
                                !!someDiv.getAttribute('aria-relevant'));
-    aria.setState(someDiv, State.RELEVANT, aria.RelevantValues.TEXT);
+    aria.setState(someDiv, State.RELEVANT, RelevantValues.TEXT);
     assertEquals(
-        aria.RelevantValues.TEXT, aria.getState(someDiv, State.RELEVANT));
+        RelevantValues.TEXT, aria.getState(someDiv, State.RELEVANT));
     aria.setState(someDiv, State.RELEVANT, '');
     assertEquals(
-        aria.RelevantValues.ADDITIONS + ' ' + aria.RelevantValues.TEXT,
+        RelevantValues.ADDITIONS + ' ' + RelevantValues.TEXT,
         aria.getState(someDiv, State.RELEVANT));
 
     // Test toggling an attribute that has a true/false value.
@@ -117,9 +118,9 @@ testSuite({
     assertEquals('false', aria.getState(someDiv, State.EXPANDED));
 
     // Test toggling an attribute that does not have a true/false value.
-    aria.setState(someDiv, State.RELEVANT, aria.RelevantValues.TEXT);
+    aria.setState(someDiv, State.RELEVANT, RelevantValues.TEXT);
     assertEquals(
-        aria.RelevantValues.TEXT, aria.getState(someDiv, State.RELEVANT));
+        RelevantValues.TEXT, aria.getState(someDiv, State.RELEVANT));
     aria.toggleState(someDiv, State.RELEVANT);
     assertEquals('', aria.getState(someDiv, State.RELEVANT));
     aria.removeState(someDiv, State.RELEVANT);
@@ -153,7 +154,7 @@ testSuite({
       thrown = true;
     }
     assertTrue('invalid use of getStateString on boolean.', thrown);
-    aria.setState(someDiv, State.LIVE, aria.LivePriority.ASSERTIVE);
+    aria.setState(someDiv, State.LIVE, LivePriority.ASSERTIVE);
     thrown = false;
     aria.setState(someDiv, State.LEVEL, 1);
     try {
@@ -217,7 +218,7 @@ testSuite({
       thrown = true;
     }
     assertTrue('invalid use of getStateNumber on boolean.', thrown);
-    aria.setState(someDiv, State.LIVE, aria.LivePriority.ASSERTIVE);
+    aria.setState(someDiv, State.LIVE, LivePriority.ASSERTIVE);
     thrown = false;
     try {
       aria.getStateBoolean(someDiv, State.LIVE);
@@ -261,7 +262,7 @@ testSuite({
       thrown = true;
     }
     assertTrue('invalid use of getStateBoolean on numbers.', thrown);
-    aria.setState(someDiv, State.LIVE, aria.LivePriority.ASSERTIVE);
+    aria.setState(someDiv, State.LIVE, LivePriority.ASSERTIVE);
     thrown = false;
     try {
       aria.getStateBoolean(someDiv, State.LIVE);

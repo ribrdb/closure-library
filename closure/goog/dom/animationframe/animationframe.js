@@ -111,7 +111,7 @@ var doubleBufferIndex_ = 0;
  * yet.
  * @private {boolean}
  */
-var requestedFrame_ = false;
+export var requestedFrame_ = false;
 
 
 /**
