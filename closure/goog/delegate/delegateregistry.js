@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.delegate.DelegateRegistry');
+import { ENABLE_ASSERTS, assert } from '../asserts/asserts.js';
 
-const {ENABLE_ASSERTS, assert} = goog.require('goog.asserts');
-const {binarySelect} = goog.require('goog.array');
-const {freeze} = goog.require('goog.debug');
+import { binarySelect } from '../array/array.js';
+import { freeze } from '../debug/debug.js';
 
 
 /**
@@ -368,4 +367,4 @@ DelegateRegistry.Prioritized = class extends DelegateRegistryBase {
 };
 
 
-exports = DelegateRegistry;
+export { DelegateRegistry };

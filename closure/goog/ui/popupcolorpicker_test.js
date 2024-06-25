@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PopupColorPickerTest');
 goog.setTestOnly();
 
-const ColorPicker = goog.require('goog.ui.ColorPicker');
-const PopupColorPicker = goog.require('goog.ui.PopupColorPicker');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { ColorPicker } from './colorpicker.js';
+import { PopupColorPicker } from './popupcolorpicker.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 // Unittest to ensure that the popup gets created in createDom().
 

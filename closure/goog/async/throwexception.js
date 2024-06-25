@@ -9,9 +9,6 @@
  * the current execution context.
  */
 
-goog.module('goog.async.throwException');
-goog.module.declareLegacyNamespace();
-
 /**
  * Throw an item without interrupting the current execution context.  For
  * example, if processing a group of items in a loop, sometimes it is useful
@@ -25,4 +22,4 @@ function throwException(exception) {
     throw exception;
   }, 0);
 }
-exports = throwException;
+export { throwException };

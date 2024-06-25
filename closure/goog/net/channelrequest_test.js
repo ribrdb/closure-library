@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.ChannelRequestTest');
 goog.setTestOnly();
 
-const BrowserChannel = goog.require('goog.net.BrowserChannel');
-const ChannelDebug = goog.require('goog.net.ChannelDebug');
-const ChannelRequest = goog.require('goog.net.ChannelRequest');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Uri = goog.require('goog.Uri');
-const XhrIo = goog.require('goog.testing.net.XhrIo');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserChannel } from './browserchannel.js';
+import { ChannelDebug } from './channeldebug.js';
+import { ChannelRequest } from './channelrequest.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Uri } from '../uri/uri.js';
+import { XhrIo } from '../testing/net/xhrio.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let channelRequest;
 let mockBrowserChannel;

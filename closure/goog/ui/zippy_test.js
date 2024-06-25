@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ZippyTest');
 goog.setTestOnly();
 
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const TagName = goog.require('goog.dom.TagName');
-const Zippy = goog.require('goog.ui.Zippy');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { KeyCodes } from '../events/keycodes.js';
+import { TagName } from '../dom/tagname.js';
+import { Zippy } from './zippy.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let buttonZippy;
 let contentlessZippy;

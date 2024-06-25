@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.proto2.FieldDescriptorTest');
 goog.setTestOnly();
 
-const FieldDescriptor = goog.require('goog.proto2.FieldDescriptor');
-const Message = goog.require('goog.proto2.Message');
-const testSuite = goog.require('goog.testing.testSuite');
+import { FieldDescriptor } from './fielddescriptor.js';
+import { Message } from './message.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testFieldDescriptorConstruction() {

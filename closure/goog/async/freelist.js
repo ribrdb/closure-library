@@ -11,9 +11,6 @@
  * objects in the list contain a "next" property that can be used to maintain
  * the pool.
  */
-goog.module('goog.async.FreeList');
-goog.module.declareLegacyNamespace();
-
 /** @template ITEM */
 class FreeList {
   /**
@@ -69,4 +66,4 @@ class FreeList {
   }
 }
 
-exports = FreeList;
+export { FreeList };

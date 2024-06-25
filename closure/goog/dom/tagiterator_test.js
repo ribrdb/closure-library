@@ -4,16 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.TagIteratorTest');
 goog.setTestOnly();
 
-const TagIterator = goog.require('goog.dom.TagIterator');
-const TagName = goog.require('goog.dom.TagName');
-const TagWalkType = goog.require('goog.dom.TagWalkType');
-const dom = goog.require('goog.dom');
-const iter = goog.require('goog.iter');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { TagIterator, TagWalkType } from './tagiterator.js';
+import { TagName } from './tagname.js';
+import * as dom from './dom.js';
+import * as iter from '../iter/iter.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
 
 let it;
 let pos;

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.iframeTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const dom = goog.require('goog.dom');
-const domIframe = goog.require('goog.dom.iframe');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Const } from '../string/const.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { SafeStyle } from '../html/safestyle.js';
+import * as dom from './dom.js';
+import * as domIframe from './iframe.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let domHelper;
 let sandbox;

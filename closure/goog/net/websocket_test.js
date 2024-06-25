@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.WebSocketTest');
 goog.setTestOnly();
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const MockClock = goog.require('goog.testing.MockClock');
-const NetWebSocket = goog.require('goog.net.WebSocket');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dispose = goog.require('goog.dispose');
-const entryPointRegistry = goog.require('goog.debug.entryPointRegistry');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandler } from '../debug/errorhandler.js';
+import { MockClock } from '../testing/mockclock.js';
+import { WebSocket as NetWebSocket } from './websocket.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as entryPointRegistry from '../debug/entrypointregistry.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let webSocket;
 let mockClock;

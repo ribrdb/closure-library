@@ -14,12 +14,10 @@
  * at the tests.
  */
 
-goog.provide('goog.string.format');
-
-goog.require('goog.string');
+import * as string from './string.js';
 
 
-// TODO(johnlenz): goog.string.format should not accept undefined as a parameter
+/* TODO(johnlenz): format should not accept undefined as a parameter*/
 /**
  * Performs sprintf-like conversion, i.e. puts the values in a template.
  * DO NOT use it instead of built-in conversions in simple cases such as
@@ -30,8 +28,7 @@ goog.require('goog.string');
  *     be filled with.
  * @return {string} Formatted string.
  */
-goog.string.format = function(formatString, var_args) {
-  'use strict';
+export function format(formatString, var_args) {
   // Convert the arguments to an array (MDC recommended way).
   const args = Array.prototype.slice.call(arguments);
 
@@ -75,18 +72,18 @@ goog.string.format = function(formatString, var_args) {
     // Patch the value argument to the beginning of our type specific call.
     arguments[0] = value;
 
-    return goog.string.format.demuxes_[type].apply(null, arguments);
+    return format.demuxes_[type].apply(null, arguments);
   }
 
   return template.replace(formatRe, replacerDemuxer);
-};
+}
 
 
 /**
  * Contains various conversion functions (to be filled in later on).
  * @private {!Object}
  */
-goog.string.format.demuxes_ = {};
+format.demuxes_ = {};
 
 
 /**
@@ -101,9 +98,8 @@ goog.string.format.demuxes_ = {};
  * @param {string} wholeString Has the actualString being searched.
  * @return {string} Replacement string.
  */
-goog.string.format.demuxes_['s'] = function(
+format.demuxes_['s'] = function(
     value, flags, width, dotp, precision, type, offset, wholeString) {
-  'use strict';
   let replacement = value;
   // If no padding is necessary we're done.
   // The check for '' is necessary because Firefox incorrectly provides the
@@ -116,9 +112,9 @@ goog.string.format.demuxes_['s'] = function(
   // Otherwise we should find out where to put spaces.
   if (flags.indexOf('-', 0) > -1) {
     replacement = replacement +
-        goog.string.repeat(' ', Number(width) - replacement.length);
+        string.repeat(' ', Number(width) - replacement.length);
   } else {
-    replacement = goog.string.repeat(' ', Number(width) - replacement.length) +
+    replacement = string.repeat(' ', Number(width) - replacement.length) +
         replacement;
   }
   return replacement;
@@ -137,9 +133,8 @@ goog.string.format.demuxes_['s'] = function(
  * @param {string} wholeString Has the actualString being searched.
  * @return {string} Replacement string.
  */
-goog.string.format.demuxes_['f'] = function(
+format.demuxes_['f'] = function(
     value, flags, width, dotp, precision, type, offset, wholeString) {
-  'use strict';
   let replacement = value.toString();
 
   // The check for '' is necessary because Firefox incorrectly provides the
@@ -179,12 +174,12 @@ goog.string.format.demuxes_['f'] = function(
   // Find out which side to pad, and if it's left side, then which character to
   // pad, and set the sign on the left and padding in the middle.
   if (flags.indexOf('-', 0) >= 0) {
-    replacement = sign + replacement + goog.string.repeat(' ', padCount);
+    replacement = sign + replacement + string.repeat(' ', padCount);
   } else {
     // Decides which character to pad.
     const paddingChar = (flags.indexOf('0', 0) >= 0) ? '0' : ' ';
     replacement =
-        sign + goog.string.repeat(paddingChar, padCount) + replacement;
+        sign + string.repeat(paddingChar, padCount) + replacement;
   }
 
   return replacement;
@@ -203,15 +198,14 @@ goog.string.format.demuxes_['f'] = function(
  * @param {string} wholeString Has the actualString being searched.
  * @return {string} Replacement string.
  */
-goog.string.format.demuxes_['d'] = function(
+format.demuxes_['d'] = function(
     value, flags, width, dotp, precision, type, offset, wholeString) {
-  'use strict';
-  return goog.string.format.demuxes_['f'](
+  return format.demuxes_['f'](
       parseInt(value, 10) /* value */, flags, width, dotp, 0 /* precision */,
       type, offset, wholeString);
 };
 
 
 // These are additional aliases, for integer conversion.
-goog.string.format.demuxes_['i'] = goog.string.format.demuxes_['d'];
-goog.string.format.demuxes_['u'] = goog.string.format.demuxes_['d'];
+format.demuxes_['i'] = format.demuxes_['d'];
+format.demuxes_['u'] = format.demuxes_['d'];

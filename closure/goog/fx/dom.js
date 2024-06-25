@@ -10,30 +10,14 @@
  * @see ../demos/effects.html
  */
 
-goog.provide('goog.fx.dom');
-goog.provide('goog.fx.dom.BgColorTransform');
-goog.provide('goog.fx.dom.ColorTransform');
-goog.provide('goog.fx.dom.Fade');
-goog.provide('goog.fx.dom.FadeIn');
-goog.provide('goog.fx.dom.FadeInAndShow');
-goog.provide('goog.fx.dom.FadeOut');
-goog.provide('goog.fx.dom.FadeOutAndHide');
-goog.provide('goog.fx.dom.PredefinedEffect');
-goog.provide('goog.fx.dom.Resize');
-goog.provide('goog.fx.dom.ResizeHeight');
-goog.provide('goog.fx.dom.ResizeWidth');
-goog.provide('goog.fx.dom.Scroll');
-goog.provide('goog.fx.dom.Slide');
-goog.provide('goog.fx.dom.SlideFrom');
-goog.provide('goog.fx.dom.Swipe');
+import * as googColor from '../color/color.js';
 
-goog.require('goog.color');
-goog.require('goog.events');
-goog.require('goog.fx.Animation');
-goog.require('goog.fx.Transition');
-goog.require('goog.style');
-goog.require('goog.style.bidi');
-goog.requireType('goog.events.EventHandler');
+import * as events from '../events/events.js';
+import { Animation } from './animation.js';
+import { Transition } from './transition.js';
+import * as style from '../style/style.js';
+import * as bidi from '../style/bidi.js';
+goog.requireType('goog.events.eventhandler');
 
 
 
@@ -46,13 +30,12 @@ goog.requireType('goog.events.EventHandler');
  * @param {Array<number>} end Array for end coordinates.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.Animation}
+ * @extends {Animation}
  * @constructor
  * @struct
  */
-goog.fx.dom.PredefinedEffect = function(element, start, end, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.PredefinedEffect.base(
+export function PredefinedEffect(element, start, end, time, opt_acc) {
+  PredefinedEffect.base(
       this, 'constructor', start, end, time, opt_acc);
 
   /**
@@ -67,15 +50,15 @@ goog.fx.dom.PredefinedEffect = function(element, start, end, time, opt_acc) {
    * @private {boolean|undefined}
    */
   this.rightToLeft_;
-};
-goog.inherits(goog.fx.dom.PredefinedEffect, goog.fx.Animation);
+}
+goog.inherits(PredefinedEffect, Animation);
 
 
 /**
  * Called to update the style of the element.
  * @protected
  */
-goog.fx.dom.PredefinedEffect.prototype.updateStyle = function() {};
+PredefinedEffect.prototype.updateStyle = function() {};
 
 
 /**
@@ -83,36 +66,32 @@ goog.fx.dom.PredefinedEffect.prototype.updateStyle = function() {};
  * @return {boolean} True if the DOM element is rendered right-to-left, false
  *     otherwise.
  */
-goog.fx.dom.PredefinedEffect.prototype.isRightToLeft = function() {
-  'use strict';
+PredefinedEffect.prototype.isRightToLeft = function() {
   if (this.rightToLeft_ === undefined) {
-    this.rightToLeft_ = goog.style.isRightToLeft(this.element);
+    this.rightToLeft_ = style.isRightToLeft(this.element);
   }
   return this.rightToLeft_;
 };
 
 
 /** @override */
-goog.fx.dom.PredefinedEffect.prototype.onAnimate = function() {
-  'use strict';
+PredefinedEffect.prototype.onAnimate = function() {
   this.updateStyle();
-  goog.fx.dom.PredefinedEffect.superClass_.onAnimate.call(this);
+  PredefinedEffect.superClass_.onAnimate.call(this);
 };
 
 
 /** @override */
-goog.fx.dom.PredefinedEffect.prototype.onEnd = function() {
-  'use strict';
+PredefinedEffect.prototype.onEnd = function() {
   this.updateStyle();
-  goog.fx.dom.PredefinedEffect.superClass_.onEnd.call(this);
+  PredefinedEffect.superClass_.onEnd.call(this);
 };
 
 
 /** @override */
-goog.fx.dom.PredefinedEffect.prototype.onBegin = function() {
-  'use strict';
+PredefinedEffect.prototype.onBegin = function() {
   this.updateStyle();
-  goog.fx.dom.PredefinedEffect.superClass_.onBegin.call(this);
+  PredefinedEffect.superClass_.onBegin.call(this);
 };
 
 
@@ -128,24 +107,22 @@ goog.fx.dom.PredefinedEffect.prototype.onBegin = function() {
  * @param {Array<number>} end 2D array for end coordinates (X, Y).
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.Slide = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function Slide(element, start, end, time, opt_acc) {
   if (start.length != 2 || end.length != 2) {
     throw new Error('Start and end points must be 2D');
   }
-  goog.fx.dom.Slide.base(
+  Slide.base(
       this, 'constructor', element, start, end, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.Slide, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(Slide, PredefinedEffect);
 
 
 /** @override */
-goog.fx.dom.Slide.prototype.updateStyle = function() {
-  'use strict';
+Slide.prototype.updateStyle = function() {
   var pos = (this.isRightPositioningForRtlEnabled() && this.isRightToLeft()) ?
       'right' :
       'left';
@@ -162,33 +139,31 @@ goog.fx.dom.Slide.prototype.updateStyle = function() {
  * @param {Array<number>} end 2D array for end coordinates (X, Y).
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.Slide}
+ * @extends {Slide}
  * @constructor
  * @struct
  */
-goog.fx.dom.SlideFrom = function(element, end, time, opt_acc) {
-  'use strict';
+export function SlideFrom(element, end, time, opt_acc) {
   var offsetLeft = /** @type {!HTMLElement} */ (element).offsetLeft;
   var start = [offsetLeft, /** @type {!HTMLElement} */ (element).offsetTop];
-  goog.fx.dom.SlideFrom.base(
+  SlideFrom.base(
       this, 'constructor', element, start, end, time, opt_acc);
   /** @type {?Array<number>} */
   this.startPoint;
-};
-goog.inherits(goog.fx.dom.SlideFrom, goog.fx.dom.Slide);
+}
+goog.inherits(SlideFrom, Slide);
 
 
 /** @override */
-goog.fx.dom.SlideFrom.prototype.onBegin = function() {
-  'use strict';
+SlideFrom.prototype.onBegin = function() {
   var offsetLeft = this.isRightPositioningForRtlEnabled() ?
-      goog.style.bidi.getOffsetStart(this.element) :
+      bidi.getOffsetStart(this.element) :
       /** @type {!HTMLElement} */ (this.element).offsetLeft;
   this.startPoint = [
     offsetLeft,
     /** @type {!HTMLElement} */ (this.element).offsetTop
   ];
-  goog.fx.dom.SlideFrom.superClass_.onBegin.call(this);
+  SlideFrom.superClass_.onBegin.call(this);
 };
 
 
@@ -202,16 +177,15 @@ goog.fx.dom.SlideFrom.prototype.onBegin = function() {
  * @param {Array<number>} end 2D array for end size (W, H).
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.Swipe = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function Swipe(element, start, end, time, opt_acc) {
   if (start.length != 2 || end.length != 2) {
     throw new Error('Start and end points must be 2D');
   }
-  goog.fx.dom.Swipe.base(
+  Swipe.base(
       this, 'constructor', element, start, end, time, opt_acc);
 
   /**
@@ -227,8 +201,8 @@ goog.fx.dom.Swipe = function(element, start, end, time, opt_acc) {
    * @private
    */
   this.maxHeight_ = Math.max(this.endPoint[1], this.startPoint[1]);
-};
-goog.inherits(goog.fx.dom.Swipe, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(Swipe, PredefinedEffect);
 
 
 /**
@@ -237,8 +211,7 @@ goog.inherits(goog.fx.dom.Swipe, goog.fx.dom.PredefinedEffect);
  * @protected
  * @override
  */
-goog.fx.dom.Swipe.prototype.updateStyle = function() {
-  'use strict';
+Swipe.prototype.updateStyle = function() {
   var x = this.coords[0];
   var y = this.coords[1];
   this.clip_(Math.round(x), Math.round(y), this.maxWidth_, this.maxHeight_);
@@ -261,8 +234,7 @@ goog.fx.dom.Swipe.prototype.updateStyle = function() {
  * @param {number} h Maximum element height.
  * @private
  */
-goog.fx.dom.Swipe.prototype.clip_ = function(x, y, w, h) {
-  'use strict';
+Swipe.prototype.clip_ = function(x, y, w, h) {
   this.element.style.clip =
       'rect(' + (h - y) + 'px ' + w + 'px ' + h + 'px ' + (w - x) + 'px)';
 };
@@ -279,19 +251,18 @@ goog.fx.dom.Swipe.prototype.clip_ = function(x, y, w, h) {
  * @param {Array<number>} end 2D array for end scroll left and top.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.Scroll = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function Scroll(element, start, end, time, opt_acc) {
   if (start.length != 2 || end.length != 2) {
     throw new Error('Start and end points must be 2D');
   }
-  goog.fx.dom.Scroll.base(
+  Scroll.base(
       this, 'constructor', element, start, end, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.Scroll, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(Scroll, PredefinedEffect);
 
 
 /**
@@ -299,10 +270,9 @@ goog.inherits(goog.fx.dom.Scroll, goog.fx.dom.PredefinedEffect);
  * @protected
  * @override
  */
-goog.fx.dom.Scroll.prototype.updateStyle = function() {
-  'use strict';
+Scroll.prototype.updateStyle = function() {
   if (this.isRightPositioningForRtlEnabled()) {
-    goog.style.bidi.setScrollOffset(this.element, Math.round(this.coords[0]));
+    bidi.setScrollOffset(this.element, Math.round(this.coords[0]));
   } else {
     this.element.scrollLeft = Math.round(this.coords[0]);
   }
@@ -322,19 +292,18 @@ goog.fx.dom.Scroll.prototype.updateStyle = function() {
  * @param {Array<number>} end 2D array for end width and height.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.Resize = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function Resize(element, start, end, time, opt_acc) {
   if (start.length != 2 || end.length != 2) {
     throw new Error('Start and end points must be 2D');
   }
-  goog.fx.dom.Resize.base(
+  Resize.base(
       this, 'constructor', element, start, end, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.Resize, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(Resize, PredefinedEffect);
 
 
 /**
@@ -343,8 +312,7 @@ goog.inherits(goog.fx.dom.Resize, goog.fx.dom.PredefinedEffect);
  * @protected
  * @override
  */
-goog.fx.dom.Resize.prototype.updateStyle = function() {
-  'use strict';
+Resize.prototype.updateStyle = function() {
   this.element.style.width = Math.round(this.coords[0]) + 'px';
   this.element.style.height = Math.round(this.coords[1]) + 'px';
 };
@@ -361,16 +329,15 @@ goog.fx.dom.Resize.prototype.updateStyle = function() {
  * @param {number} end End width.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.ResizeWidth = function(element, start, end, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.ResizeWidth.base(
+export function ResizeWidth(element, start, end, time, opt_acc) {
+  ResizeWidth.base(
       this, 'constructor', element, [start], [end], time, opt_acc);
-};
-goog.inherits(goog.fx.dom.ResizeWidth, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(ResizeWidth, PredefinedEffect);
 
 
 /**
@@ -378,8 +345,7 @@ goog.inherits(goog.fx.dom.ResizeWidth, goog.fx.dom.PredefinedEffect);
  * @protected
  * @override
  */
-goog.fx.dom.ResizeWidth.prototype.updateStyle = function() {
-  'use strict';
+ResizeWidth.prototype.updateStyle = function() {
   this.element.style.width = Math.round(this.coords[0]) + 'px';
 };
 
@@ -395,16 +361,15 @@ goog.fx.dom.ResizeWidth.prototype.updateStyle = function() {
  * @param {number} end End height.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.ResizeHeight = function(element, start, end, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.ResizeHeight.base(
+export function ResizeHeight(element, start, end, time, opt_acc) {
+  ResizeHeight.base(
       this, 'constructor', element, [start], [end], time, opt_acc);
-};
-goog.inherits(goog.fx.dom.ResizeHeight, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(ResizeHeight, PredefinedEffect);
 
 
 /**
@@ -412,8 +377,7 @@ goog.inherits(goog.fx.dom.ResizeHeight, goog.fx.dom.PredefinedEffect);
  * @protected
  * @override
  */
-goog.fx.dom.ResizeHeight.prototype.updateStyle = function() {
-  'use strict';
+ResizeHeight.prototype.updateStyle = function() {
   this.element.style.height = Math.round(this.coords[0]) + 'px';
 };
 
@@ -430,16 +394,15 @@ goog.fx.dom.ResizeHeight.prototype.updateStyle = function() {
  * @param {Array<number>|number} end 1D Array or Number for end opacity.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.Fade = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function Fade(element, start, end, time, opt_acc) {
   if (typeof start === 'number') start = [start];
   if (typeof end === 'number') end = [end];
 
-  goog.fx.dom.Fade.base(
+  Fade.base(
       this, 'constructor', element, start, end, time, opt_acc);
 
   if (start.length != 1 || end.length != 1) {
@@ -450,23 +413,23 @@ goog.fx.dom.Fade = function(element, start, end, time, opt_acc) {
    * The last opacity we set, or -1 for not set.
    * @private {number}
    */
-  this.lastOpacityUpdate_ = goog.fx.dom.Fade.OPACITY_UNSET_;
-};
-goog.inherits(goog.fx.dom.Fade, goog.fx.dom.PredefinedEffect);
+  this.lastOpacityUpdate_ = Fade.OPACITY_UNSET_;
+}
+goog.inherits(Fade, PredefinedEffect);
 
 
 /**
  * The quantization of opacity values to use.
  * @private {number}
  */
-goog.fx.dom.Fade.TOLERANCE_ = 1.0 / 0x400;  // 10-bit color
+Fade.TOLERANCE_ = 1.0 / 0x400;  // 10-bit color
 
 
 /**
  * Value indicating that the opacity must be set on next update.
  * @private {number}
  */
-goog.fx.dom.Fade.OPACITY_UNSET_ = -1;
+Fade.OPACITY_UNSET_ = -1;
 
 
 /**
@@ -474,40 +437,36 @@ goog.fx.dom.Fade.OPACITY_UNSET_ = -1;
  * @protected
  * @override
  */
-goog.fx.dom.Fade.prototype.updateStyle = function() {
-  'use strict';
+Fade.prototype.updateStyle = function() {
   var opacity = this.coords[0];
   var delta = Math.abs(opacity - this.lastOpacityUpdate_);
   // In order to keep eager browsers from over-rendering, only update
   // on a potentially visible change in opacity.
-  if (delta >= goog.fx.dom.Fade.TOLERANCE_) {
-    goog.style.setOpacity(this.element, opacity);
+  if (delta >= Fade.TOLERANCE_) {
+    style.setOpacity(this.element, opacity);
     this.lastOpacityUpdate_ = opacity;
   }
 };
 
 
 /** @override */
-goog.fx.dom.Fade.prototype.onBegin = function() {
-  'use strict';
-  this.lastOpacityUpdate_ = goog.fx.dom.Fade.OPACITY_UNSET_;
-  goog.fx.dom.Fade.base(this, 'onBegin');
+Fade.prototype.onBegin = function() {
+  this.lastOpacityUpdate_ = Fade.OPACITY_UNSET_;
+  Fade.base(this, 'onBegin');
 };
 
 
 /** @override */
-goog.fx.dom.Fade.prototype.onEnd = function() {
-  'use strict';
-  this.lastOpacityUpdate_ = goog.fx.dom.Fade.OPACITY_UNSET_;
-  goog.fx.dom.Fade.base(this, 'onEnd');
+Fade.prototype.onEnd = function() {
+  this.lastOpacityUpdate_ = Fade.OPACITY_UNSET_;
+  Fade.base(this, 'onEnd');
 };
 
 
 /**
  * Animation event handler that will show the element.
  */
-goog.fx.dom.Fade.prototype.show = function() {
-  'use strict';
+Fade.prototype.show = function() {
   this.element.style.display = '';
 };
 
@@ -515,8 +474,7 @@ goog.fx.dom.Fade.prototype.show = function() {
 /**
  * Animation event handler that will hide the element
  */
-goog.fx.dom.Fade.prototype.hide = function() {
-  'use strict';
+Fade.prototype.hide = function() {
   this.element.style.display = 'none';
 };
 
@@ -528,15 +486,14 @@ goog.fx.dom.Fade.prototype.hide = function() {
  * @param {Element} element Dom Node to be used in the animation.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.Fade}
+ * @extends {Fade}
  * @constructor
  * @struct
  */
-goog.fx.dom.FadeOut = function(element, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.FadeOut.base(this, 'constructor', element, 1, 0, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.FadeOut, goog.fx.dom.Fade);
+export function FadeOut(element, time, opt_acc) {
+  FadeOut.base(this, 'constructor', element, 1, 0, time, opt_acc);
+}
+goog.inherits(FadeOut, Fade);
 
 
 
@@ -546,15 +503,14 @@ goog.inherits(goog.fx.dom.FadeOut, goog.fx.dom.Fade);
  * @param {Element} element Dom Node to be used in the animation.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.Fade}
+ * @extends {Fade}
  * @constructor
  * @struct
  */
-goog.fx.dom.FadeIn = function(element, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.FadeIn.base(this, 'constructor', element, 0, 1, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.FadeIn, goog.fx.dom.Fade);
+export function FadeIn(element, time, opt_acc) {
+  FadeIn.base(this, 'constructor', element, 0, 1, time, opt_acc);
+}
+goog.inherits(FadeIn, Fade);
 
 
 
@@ -565,31 +521,28 @@ goog.inherits(goog.fx.dom.FadeIn, goog.fx.dom.Fade);
  * @param {Element} element Dom Node to be used in the animation.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.Fade}
+ * @extends {Fade}
  * @constructor
  * @struct
  */
-goog.fx.dom.FadeOutAndHide = function(element, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.FadeOutAndHide.base(
+export function FadeOutAndHide(element, time, opt_acc) {
+  FadeOutAndHide.base(
       this, 'constructor', element, 1, 0, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.FadeOutAndHide, goog.fx.dom.Fade);
+}
+goog.inherits(FadeOutAndHide, Fade);
 
 
 /** @override */
-goog.fx.dom.FadeOutAndHide.prototype.onBegin = function() {
-  'use strict';
+FadeOutAndHide.prototype.onBegin = function() {
   this.show();
-  goog.fx.dom.FadeOutAndHide.superClass_.onBegin.call(this);
+  FadeOutAndHide.superClass_.onBegin.call(this);
 };
 
 
 /** @override */
-goog.fx.dom.FadeOutAndHide.prototype.onEnd = function() {
-  'use strict';
+FadeOutAndHide.prototype.onEnd = function() {
   this.hide();
-  goog.fx.dom.FadeOutAndHide.superClass_.onEnd.call(this);
+  FadeOutAndHide.superClass_.onEnd.call(this);
 };
 
 
@@ -601,23 +554,21 @@ goog.fx.dom.FadeOutAndHide.prototype.onEnd = function() {
  * @param {Element} element Dom Node to be used in the animation.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.Fade}
+ * @extends {Fade}
  * @constructor
  * @struct
  */
-goog.fx.dom.FadeInAndShow = function(element, time, opt_acc) {
-  'use strict';
-  goog.fx.dom.FadeInAndShow.base(
+export function FadeInAndShow(element, time, opt_acc) {
+  FadeInAndShow.base(
       this, 'constructor', element, 0, 1, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.FadeInAndShow, goog.fx.dom.Fade);
+}
+goog.inherits(FadeInAndShow, Fade);
 
 
 /** @override */
-goog.fx.dom.FadeInAndShow.prototype.onBegin = function() {
-  'use strict';
+FadeInAndShow.prototype.onBegin = function() {
   this.show();
-  goog.fx.dom.FadeInAndShow.superClass_.onBegin.call(this);
+  FadeInAndShow.superClass_.onBegin.call(this);
 };
 
 
@@ -632,26 +583,24 @@ goog.fx.dom.FadeInAndShow.prototype.onBegin = function() {
  * @param {Array<number>} end 3D Array for RGB of end color.
  * @param {number} time Length of animation in milliseconds.
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  * @constructor
  * @struct
  */
-goog.fx.dom.BgColorTransform = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function BgColorTransform(element, start, end, time, opt_acc) {
   if (start.length != 3 || end.length != 3) {
     throw new Error('Start and end points must be 3D');
   }
-  goog.fx.dom.BgColorTransform.base(
+  BgColorTransform.base(
       this, 'constructor', element, start, end, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.BgColorTransform, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(BgColorTransform, PredefinedEffect);
 
 
 /**
  * Animation event handler that will set the background-color of an element
  */
-goog.fx.dom.BgColorTransform.prototype.setColor = function() {
-  'use strict';
+BgColorTransform.prototype.setColor = function() {
   var coordsAsInts = [];
   for (var i = 0; i < this.coords.length; i++) {
     coordsAsInts[i] = Math.round(this.coords[i]);
@@ -662,8 +611,7 @@ goog.fx.dom.BgColorTransform.prototype.setColor = function() {
 
 
 /** @override */
-goog.fx.dom.BgColorTransform.prototype.updateStyle = function() {
-  'use strict';
+BgColorTransform.prototype.updateStyle = function() {
   this.setColor();
 };
 
@@ -677,36 +625,35 @@ goog.fx.dom.BgColorTransform.prototype.updateStyle = function() {
  * @param {Element} element Dom Node to be used in the animation.
  * @param {Array<number>} start 3D Array for RGB of start color.
  * @param {number} time Length of animation in milliseconds.
- * @param {goog.events.EventHandler=} opt_eventHandler Optional event handler
+ * @param {events.EventHandler=} opt_eventHandler Optional event handler
  *     to use when listening for events.
  */
-goog.fx.dom.bgColorFadeIn = function(element, start, time, opt_eventHandler) {
-  'use strict';
+export function bgColorFadeIn(element, start, time, opt_eventHandler) {
   var initialBgColor = element.style.backgroundColor || '';
-  var computedBgColor = goog.style.getBackgroundColor(element);
+  var computedBgColor = style.getBackgroundColor(element);
   var end;
 
   if (computedBgColor && computedBgColor != 'transparent' &&
       computedBgColor != 'rgba(0, 0, 0, 0)') {
-    end = goog.color.hexToRgb(goog.color.parse(computedBgColor).hex);
+    end = googColor.hexToRgb(googColor.parse(computedBgColor).hex);
   } else {
     end = [255, 255, 255];
   }
 
-  var anim = new goog.fx.dom.BgColorTransform(element, start, end, time);
+  var anim = new BgColorTransform(element, start, end, time);
 
   function setBgColor() {
     element.style.backgroundColor = initialBgColor;
   }
 
   if (opt_eventHandler) {
-    opt_eventHandler.listen(anim, goog.fx.Transition.EventType.END, setBgColor);
+    opt_eventHandler.listen(anim, Transition.EventType.END, setBgColor);
   } else {
-    goog.events.listen(anim, goog.fx.Transition.EventType.END, setBgColor);
+    events.listen(anim, Transition.EventType.END, setBgColor);
   }
 
   anim.play();
-};
+}
 
 
 
@@ -720,17 +667,16 @@ goog.fx.dom.bgColorFadeIn = function(element, start, time, opt_eventHandler) {
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
  * @constructor
  * @struct
- * @extends {goog.fx.dom.PredefinedEffect}
+ * @extends {PredefinedEffect}
  */
-goog.fx.dom.ColorTransform = function(element, start, end, time, opt_acc) {
-  'use strict';
+export function ColorTransform(element, start, end, time, opt_acc) {
   if (start.length != 3 || end.length != 3) {
     throw new Error('Start and end points must be 3D');
   }
-  goog.fx.dom.ColorTransform.base(
+  ColorTransform.base(
       this, 'constructor', element, start, end, time, opt_acc);
-};
-goog.inherits(goog.fx.dom.ColorTransform, goog.fx.dom.PredefinedEffect);
+}
+goog.inherits(ColorTransform, PredefinedEffect);
 
 
 /**
@@ -738,8 +684,7 @@ goog.inherits(goog.fx.dom.ColorTransform, goog.fx.dom.PredefinedEffect);
  * @protected
  * @override
  */
-goog.fx.dom.ColorTransform.prototype.updateStyle = function() {
-  'use strict';
+ColorTransform.prototype.updateStyle = function() {
   var coordsAsInts = [];
   for (var i = 0; i < this.coords.length; i++) {
     coordsAsInts[i] = Math.round(this.coords[i]);

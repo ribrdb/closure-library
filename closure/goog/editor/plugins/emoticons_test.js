@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.EmoticonsTest');
 goog.setTestOnly();
 
-const Emoji = goog.require('goog.ui.emoji.Emoji');
-const Emoticons = goog.require('goog.editor.plugins.Emoticons');
-const Field = goog.require('goog.editor.Field');
-const TagName = goog.require('goog.dom.TagName');
-const Uri = goog.require('goog.Uri');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Emoji } from '../../ui/emoji/emoji.js';
+import { Emoticons } from './emoticons.js';
+import { Field } from '../field.js';
+import { TagName } from '../../dom/tagname.js';
+import { Uri } from '../../uri/uri.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let HTML;
 

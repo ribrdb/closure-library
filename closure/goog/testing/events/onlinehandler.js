@@ -9,10 +9,9 @@
  */
 
 goog.setTestOnly('goog.testing.events.OnlineHandler');
-goog.provide('goog.testing.events.OnlineHandler');
 
-goog.require('goog.events.EventTarget');
-goog.require('goog.net.NetworkStatusMonitor');
+import { EventTarget } from '../../events/eventtarget.js';
+import { NetworkStatusMonitor } from '../../net/networkstatusmonitor.js';
 
 
 
@@ -20,27 +19,25 @@ goog.require('goog.net.NetworkStatusMonitor');
  * NetworkStatusMonitor test double.
  * @param {boolean} initialState The initial online state of the mock.
  * @constructor
- * @extends {goog.events.EventTarget}
- * @implements {goog.net.NetworkStatusMonitor}
+ * @extends {EventTarget}
+ * @implements {NetworkStatusMonitor}
  * @final
  */
-goog.testing.events.OnlineHandler = function(initialState) {
-  'use strict';
-  goog.testing.events.OnlineHandler.base(this, 'constructor');
+export function OnlineHandler(initialState) {
+ OnlineHandler.base(this, 'constructor');
 
-  /**
-   * Whether the mock is online.
-   * @private {boolean}
-   */
-  this.online_ = initialState;
-};
-goog.inherits(goog.testing.events.OnlineHandler, goog.events.EventTarget);
+ /**
+  * Whether the mock is online.
+  * @private {boolean}
+  */
+ this.online_ = initialState;
+}
+goog.inherits(OnlineHandler, EventTarget);
 
 
 /** @override */
-goog.testing.events.OnlineHandler.prototype.isOnline = function() {
-  'use strict';
-  return this.online_;
+OnlineHandler.prototype.isOnline = function() {
+ return this.online_;
 };
 
 
@@ -48,13 +45,12 @@ goog.testing.events.OnlineHandler.prototype.isOnline = function() {
  * Sets the online state.
  * @param {boolean} newOnlineState The new online state.
  */
-goog.testing.events.OnlineHandler.prototype.setOnline = function(
+OnlineHandler.prototype.setOnline = function(
     newOnlineState) {
-  'use strict';
-  if (newOnlineState != this.online_) {
-    this.online_ = newOnlineState;
-    this.dispatchEvent(
-        newOnlineState ? goog.net.NetworkStatusMonitor.EventType.ONLINE :
-                         goog.net.NetworkStatusMonitor.EventType.OFFLINE);
-  }
+ if (newOnlineState != this.online_) {
+   this.online_ = newOnlineState;
+   this.dispatchEvent(
+       newOnlineState ? NetworkStatusMonitor.EventType.ONLINE :
+                        NetworkStatusMonitor.EventType.OFFLINE);
+ }
 };

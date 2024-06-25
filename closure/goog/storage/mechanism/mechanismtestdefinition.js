@@ -12,17 +12,16 @@
  * to work correctly for these legacy tests.
  */
 
-goog.module('goog.storage.mechanism.testhelpers');
 goog.setTestOnly('goog.storage.mechanism.testhelpers');
 
-const {getFunctionName} = goog.require('goog.debug');
+import { getFunctionName } from '../../debug/debug.js';
 
 /**
  * @param {!Array<!Function>} tests
  * @param {!Function} bindFnCallback
  * @return {!Object}
  */
-exports.bindTests = function(tests, bindFnCallback) {
+export let bindTests = function(tests, bindFnCallback) {
   const boundTests = {};
   for (const test of tests) {
     const name = getFunctionName(test);

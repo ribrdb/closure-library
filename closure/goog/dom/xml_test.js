@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.xmlTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const domXml = goog.require('goog.dom.xml');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { TagName } from './tagname.js';
+import * as dom from './dom.js';
+import * as domXml from './xml.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 testSuite({
   testSerialize() {

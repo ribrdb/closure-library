@@ -10,9 +10,6 @@
  * goog.editor.TableRow.
  */
 
-goog.module('goog.editor.TableRow');
-goog.module.declareLegacyNamespace();
-
 /**
  * Class representing a logical table row: a tr element and any cells
  * that appear in that row.
@@ -27,4 +24,4 @@ const TableRow = function(trElement, rowIndex) {
   this.columns = [];
 };
 
-exports = TableRow;
+export { TableRow };

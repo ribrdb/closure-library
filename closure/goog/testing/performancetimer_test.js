@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.PerformanceTimerTest');
 goog.setTestOnly();
 
-const Deferred = goog.require('goog.async.Deferred');
-const MockClock = goog.require('goog.testing.MockClock');
-const PerformanceTimer = goog.require('goog.testing.PerformanceTimer');
-const dom = goog.require('goog.dom');
-const googMath = goog.require('goog.math');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import { MockClock } from './mockclock.js';
+import { PerformanceTimer } from './performancetimer.js';
+import * as dom from '../dom/dom.js';
+import * as googMath from '../math/math.js';
+import { testSuite } from './testsuite.js';
 
 let mockClock;
 let sandbox;

@@ -16,27 +16,12 @@
  *     Adding support for the other TypedArray classes here does not make sense
  *     since this vector math library only needs Float32Array.
  */
-goog.provide('goog.vec.Float32Array');
-
-
-
-/**
- * Constructs a new Float32Array. The new array is initialized to all zeros.
- *
- * @param {goog.vec.Float32Array|Array|ArrayBuffer|number} p0
- *     The length of the array, or an array to initialize the contents of the
- *     new Float32Array.
- * @constructor
- * @implements {IArrayLike<number>}
- * @final
- */
-goog.vec.Float32Array = function(p0) {
-  'use strict';
-  /** @type {number} */
-  this.length = /** @type {number} */ (/** @type {?} */ (p0).length || p0);
-  for (let i = 0; i < this.length; i++) {
-    this[i] = p0[i] || 0;
-  }
+Float32Array_ = function(p0) {
+ /** @type {number} */
+ this.length = /** @type {number} */ (/** @type {?} */ ((p0).length || p0));
+ for (let i = 0; i < this.length; i++) {
+   this[i] = p0[i] || 0;
+ }
 };
 
 
@@ -46,7 +31,7 @@ goog.vec.Float32Array = function(p0) {
  *
  * @type {number}
  */
-goog.vec.Float32Array.BYTES_PER_ELEMENT = 4;
+Float32Array_.BYTES_PER_ELEMENT = 4;
 
 
 /**
@@ -55,7 +40,7 @@ goog.vec.Float32Array.BYTES_PER_ELEMENT = 4;
  *
  * @type {number}
  */
-goog.vec.Float32Array.prototype.BYTES_PER_ELEMENT = 4;
+Float32Array_.prototype.BYTES_PER_ELEMENT = 4;
 
 
 /**
@@ -63,12 +48,11 @@ goog.vec.Float32Array.prototype.BYTES_PER_ELEMENT = 4;
  * @param {Array<number>|Float32Array} values The array of values.
  * @param {number=} opt_offset The offset in this array to start.
  */
-goog.vec.Float32Array.prototype.set = function(values, opt_offset) {
-  'use strict';
-  opt_offset = opt_offset || 0;
-  for (let i = 0; i < values.length && opt_offset + i < this.length; i++) {
-    this[opt_offset + i] = values[i];
-  }
+Float32Array_.prototype.set = function(values, opt_offset) {
+ opt_offset = opt_offset || 0;
+ for (let i = 0; i < values.length && opt_offset + i < this.length; i++) {
+   this[opt_offset + i] = values[i];
+ }
 };
 
 
@@ -77,7 +61,7 @@ goog.vec.Float32Array.prototype.set = function(values, opt_offset) {
  * @return {string} The string version of this array.
  * @override
  */
-goog.vec.Float32Array.prototype.toString = Array.prototype.join;
+Float32Array_.prototype.toString = Array.prototype.join;
 
 
 /**
@@ -91,20 +75,22 @@ goog.vec.Float32Array.prototype.toString = Array.prototype.join;
 
 /**
  * If no existing Float32Array implementation is found then we export
- * goog.vec.Float32Array as Float32Array.
+ * Float32Array_ as Float32Array.
  */
 if (typeof Float32Array == 'undefined') {
   goog.exportProperty(
-      goog.vec.Float32Array, 'BYTES_PER_ELEMENT',
-      goog.vec.Float32Array.BYTES_PER_ELEMENT);
+      Float32Array_, 'BYTES_PER_ELEMENT',
+      Float32Array_.BYTES_PER_ELEMENT);
   goog.exportProperty(
-      goog.vec.Float32Array.prototype, 'BYTES_PER_ELEMENT',
-      goog.vec.Float32Array.prototype.BYTES_PER_ELEMENT);
+      Float32Array_.prototype, 'BYTES_PER_ELEMENT',
+      Float32Array_.prototype.BYTES_PER_ELEMENT);
   goog.exportProperty(
-      goog.vec.Float32Array.prototype, 'set',
-      goog.vec.Float32Array.prototype.set);
+      Float32Array_.prototype, 'set',
+      Float32Array_.prototype.set);
   goog.exportProperty(
-      goog.vec.Float32Array.prototype, 'toString',
-      goog.vec.Float32Array.prototype.toString);
-  goog.exportSymbol('Float32Array', goog.vec.Float32Array);
+      Float32Array_.prototype, 'toString',
+      Float32Array_.prototype.toString);
+  goog.exportSymbol('Float32Array', Float32Array_);
 }
+var Float32Array_;
+export { Float32Array_ as Float32Array };

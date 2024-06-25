@@ -14,12 +14,14 @@
  * because this file is not actually using them.
  */
 
-goog.provide('goog.fx');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.fx.Animation');
-goog.require('goog.fx.Animation.EventType');
-goog.require('goog.fx.Animation.State');
-goog.require('goog.fx.AnimationEvent');
-goog.require('goog.fx.Transition.EventType');
-goog.require('goog.fx.easing');
+import {
+ Animation,
+ Animation as fxAnimation,
+ Animation as googFxAnimation,
+ AnimationEvent,
+} from './animation.js';
+
+import { Transition } from './transition.js';
+import * as easing from './easing.js';

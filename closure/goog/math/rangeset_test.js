@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.RangeSetTest');
 goog.setTestOnly();
 
-const Range = goog.require('goog.math.Range');
-const RangeSet = goog.require('goog.math.RangeSet');
-const iter = goog.require('goog.iter');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Range } from './range.js';
+import { RangeSet } from './rangeset.js';
+import * as iter from '../iter/iter.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Produce legible assertion results for comparing ranges. The expected range

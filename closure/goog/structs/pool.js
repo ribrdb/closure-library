@@ -13,11 +13,10 @@
  */
 
 
-goog.provide('goog.structs.Pool');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.structs.Queue');
-goog.require('goog.structs.Set');
+import { Queue } from './queue.js';
+import { Set } from './set.js';
 
 
 
@@ -26,12 +25,11 @@ goog.require('goog.structs.Set');
  * @param {number=} opt_minCount Min. number of objects (Default: 0).
  * @param {number=} opt_maxCount Max. number of objects (Default: 10).
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @template T
  */
-goog.structs.Pool = function(opt_minCount, opt_maxCount) {
-  'use strict';
-  goog.Disposable.call(this);
+export function Pool(opt_minCount, opt_maxCount) {
+  Disposable.call(this);
 
   /**
    * Minimum number of objects allowed
@@ -47,21 +45,21 @@ goog.structs.Pool = function(opt_minCount, opt_maxCount) {
 
   // Make sure that the max and min constraints are valid.
   if (this.minCount_ > this.maxCount_) {
-    throw new Error(goog.structs.Pool.ERROR_MIN_MAX_);
+    throw new Error(Pool.ERROR_MIN_MAX_);
   }
 
   /**
-   * Set used to store objects that are currently in the pool and available
-   * to be used.
-   * @private {goog.structs.Queue<T>}
-   */
-  this.freeQueue_ = new goog.structs.Queue();
+     * Set used to store objects that are currently in the pool and available
+     * to be used.
+     * @private {Queue<T>}
+     */
+  this.freeQueue_ = new Queue();
 
   /**
-   * Set used to store objects that are currently in the pool and in use.
-   * @private {goog.structs.Set<T>}
-   */
-  this.inUseSet_ = new goog.structs.Set();
+     * Set used to store objects that are currently in the pool and in use.
+     * @private {Set<T>}
+     */
+  this.inUseSet_ = new Set();
 
   /**
    * The minimum delay between objects being made available, in milliseconds. If
@@ -80,8 +78,8 @@ goog.structs.Pool = function(opt_minCount, opt_maxCount) {
 
   // Make sure that the minCount constraint is satisfied.
   this.adjustForMinMax();
-};
-goog.inherits(goog.structs.Pool, goog.Disposable);
+}
+goog.inherits(Pool, Disposable);
 
 
 /**
@@ -90,7 +88,7 @@ goog.inherits(goog.structs.Pool, goog.Disposable);
  * @type {string}
  * @private
  */
-goog.structs.Pool.ERROR_MIN_MAX_ =
+Pool.ERROR_MIN_MAX_ =
     '[goog.structs.Pool] Min can not be greater than max';
 
 
@@ -101,7 +99,7 @@ goog.structs.Pool.ERROR_MIN_MAX_ =
  * @type {string}
  * @private
  */
-goog.structs.Pool.ERROR_DISPOSE_UNRELEASED_OBJS_ =
+Pool.ERROR_DISPOSE_UNRELEASED_OBJS_ =
     '[goog.structs.Pool] Objects not released';
 
 
@@ -110,11 +108,10 @@ goog.structs.Pool.ERROR_DISPOSE_UNRELEASED_OBJS_ =
  * If min is greater than the max count of the pool, an error is thrown.
  * @param {number} min The minimum count of the pool.
  */
-goog.structs.Pool.prototype.setMinimumCount = function(min) {
-  'use strict';
+Pool.prototype.setMinimumCount = function(min) {
   // Check count constraints.
   if (min > this.maxCount_) {
-    throw new Error(goog.structs.Pool.ERROR_MIN_MAX_);
+    throw new Error(Pool.ERROR_MIN_MAX_);
   }
   this.minCount_ = min;
 
@@ -128,11 +125,10 @@ goog.structs.Pool.prototype.setMinimumCount = function(min) {
  * If max is less than the min count of the pool, an error is thrown.
  * @param {number} max The maximum count of the pool.
  */
-goog.structs.Pool.prototype.setMaximumCount = function(max) {
-  'use strict';
+Pool.prototype.setMaximumCount = function(max) {
   // Check count constraints.
   if (max < this.minCount_) {
-    throw new Error(goog.structs.Pool.ERROR_MIN_MAX_);
+    throw new Error(Pool.ERROR_MIN_MAX_);
   }
   this.maxCount_ = max;
 
@@ -147,8 +143,7 @@ goog.structs.Pool.prototype.setMaximumCount = function(max) {
  * enforced and objects may be used as soon as they're available.
  * @param {number} delay The minimum delay, in milliseconds.
  */
-goog.structs.Pool.prototype.setDelay = function(delay) {
-  'use strict';
+Pool.prototype.setDelay = function(delay) {
   this.delay = delay;
 };
 
@@ -157,8 +152,7 @@ goog.structs.Pool.prototype.setDelay = function(delay) {
  * @return {T|undefined} A new object from the pool if there is one available,
  *     otherwise undefined.
  */
-goog.structs.Pool.prototype.getObject = function() {
-  'use strict';
+Pool.prototype.getObject = function() {
   var time = Date.now();
   if (this.lastAccess != null && time - this.lastAccess < this.delay) {
     return undefined;
@@ -180,8 +174,7 @@ goog.structs.Pool.prototype.getObject = function() {
  * @return {boolean} Whether the object was found in the Pool's set of in-use
  *     objects (in other words, whether any action was taken).
  */
-goog.structs.Pool.prototype.releaseObject = function(obj) {
-  'use strict';
+Pool.prototype.releaseObject = function(obj) {
   if (this.inUseSet_.remove(obj)) {
     this.addFreeObject(obj);
     return true;
@@ -200,8 +193,7 @@ goog.structs.Pool.prototype.releaseObject = function(obj) {
  *     is one available. Otherwise, undefined.
  * @private
  */
-goog.structs.Pool.prototype.removeFreeObject_ = function() {
-  'use strict';
+Pool.prototype.removeFreeObject_ = function() {
   var obj;
   while (this.getFreeCount() > 0) {
     obj = this.freeQueue_.dequeue();
@@ -227,8 +219,7 @@ goog.structs.Pool.prototype.removeFreeObject_ = function() {
  *
  * @param {T} obj The object to add to collection of free objects.
  */
-goog.structs.Pool.prototype.addFreeObject = function(obj) {
-  'use strict';
+Pool.prototype.addFreeObject = function(obj) {
   this.inUseSet_.remove(obj);
   if (this.objectCanBeReused(obj) && this.getCount() < this.maxCount_) {
     this.freeQueue_.enqueue(obj);
@@ -246,8 +237,7 @@ goog.structs.Pool.prototype.addFreeObject = function(obj) {
  * if no more free objects can be disposed of to get below the minimum count
  * (i.e., all objects are in use).
  */
-goog.structs.Pool.prototype.adjustForMinMax = function() {
-  'use strict';
+Pool.prototype.adjustForMinMax = function() {
   var freeQueue = this.freeQueue_;
 
   // Make sure the at least the minimum number of objects are created.
@@ -267,8 +257,7 @@ goog.structs.Pool.prototype.adjustForMinMax = function() {
  * that is expected in the pool.
  * @return {T} The created object.
  */
-goog.structs.Pool.prototype.createObject = function() {
-  'use strict';
+Pool.prototype.createObject = function() {
   return {};
 };
 
@@ -279,8 +268,7 @@ goog.structs.Pool.prototype.createObject = function() {
  * `dispose()` method, if available.
  * @param {T} obj The object to dispose.
  */
-goog.structs.Pool.prototype.disposeObject = function(obj) {
-  'use strict';
+Pool.prototype.disposeObject = function(obj) {
   if (typeof obj.dispose == 'function') {
     obj.dispose();
   } else {
@@ -298,8 +286,7 @@ goog.structs.Pool.prototype.disposeObject = function(obj) {
  * @param {T} obj The object to test.
  * @return {boolean} Whether the object can be reused.
  */
-goog.structs.Pool.prototype.objectCanBeReused = function(obj) {
-  'use strict';
+Pool.prototype.objectCanBeReused = function(obj) {
   if (typeof obj.canBeReused == 'function') {
     return obj.canBeReused();
   }
@@ -312,8 +299,7 @@ goog.structs.Pool.prototype.objectCanBeReused = function(obj) {
  * @param {T} obj The object to check the pool for.
  * @return {boolean} Whether the pool contains the object.
  */
-goog.structs.Pool.prototype.contains = function(obj) {
-  'use strict';
+Pool.prototype.contains = function(obj) {
   return this.freeQueue_.contains(obj) || this.inUseSet_.contains(obj);
 };
 
@@ -322,8 +308,7 @@ goog.structs.Pool.prototype.contains = function(obj) {
  * Returns the number of objects currently in the pool.
  * @return {number} Number of objects currently in the pool.
  */
-goog.structs.Pool.prototype.getCount = function() {
-  'use strict';
+Pool.prototype.getCount = function() {
   return this.freeQueue_.getCount() + this.inUseSet_.getCount();
 };
 
@@ -332,8 +317,7 @@ goog.structs.Pool.prototype.getCount = function() {
  * Returns the number of objects currently in use in the pool.
  * @return {number} Number of objects currently in use in the pool.
  */
-goog.structs.Pool.prototype.getInUseCount = function() {
-  'use strict';
+Pool.prototype.getInUseCount = function() {
   return this.inUseSet_.getCount();
 };
 
@@ -342,8 +326,7 @@ goog.structs.Pool.prototype.getInUseCount = function() {
  * Returns the number of objects currently free in the pool.
  * @return {number} Number of objects currently free in the pool.
  */
-goog.structs.Pool.prototype.getFreeCount = function() {
-  'use strict';
+Pool.prototype.getFreeCount = function() {
   return this.freeQueue_.getCount();
 };
 
@@ -352,8 +335,7 @@ goog.structs.Pool.prototype.getFreeCount = function() {
  * Determines if the pool contains no objects.
  * @return {boolean} Whether the pool contains no objects.
  */
-goog.structs.Pool.prototype.isEmpty = function() {
-  'use strict';
+Pool.prototype.isEmpty = function() {
   return this.freeQueue_.isEmpty() && this.inUseSet_.isEmpty();
 };
 
@@ -363,11 +345,10 @@ goog.structs.Pool.prototype.isEmpty = function() {
  * @override
  * @protected
  */
-goog.structs.Pool.prototype.disposeInternal = function() {
-  'use strict';
-  goog.structs.Pool.superClass_.disposeInternal.call(this);
+Pool.prototype.disposeInternal = function() {
+  Pool.superClass_.disposeInternal.call(this);
   if (this.getInUseCount() > 0) {
-    throw new Error(goog.structs.Pool.ERROR_DISPOSE_UNRELEASED_OBJS_);
+    throw new Error(Pool.ERROR_DISPOSE_UNRELEASED_OBJS_);
   }
   delete this.inUseSet_;
 

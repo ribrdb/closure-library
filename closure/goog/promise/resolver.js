@@ -3,10 +3,7 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.promise.Resolver');
-goog.module.declareLegacyNamespace();
-
-const GoogPromise = goog.requireType('goog.Promise');
+const GoogPromise = goog.requireType('goog.promise.promise');
 const Thenable = goog.requireType('goog.Thenable');
 
 /**
@@ -36,4 +33,4 @@ class Resolver {
   }
 }
 
-exports = Resolver;
+export { Resolver };

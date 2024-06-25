@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.CharListDecompressorTest');
 goog.setTestOnly();
 
-const CharListDecompressor = goog.require('goog.i18n.CharListDecompressor');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CharListDecompressor } from './charlistdecompressor.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const decompressor = new CharListDecompressor();
 

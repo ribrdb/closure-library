@@ -9,9 +9,6 @@
  * Chromium-based browsers.
  */
 
-goog.module('goog.labs.userAgent.chromiumRebrands');
-goog.module.declareLegacyNamespace();
-
 /**
  * The set of browsers that are based on Chromium, but also identify themselves
  * in UACH API surfaces with their user-recognizable brand (e.g. Chrome, Brave,
@@ -28,4 +25,4 @@ const ChromiumRebrand = {
   EDGE: 'Microsoft Edge',
 };
 
-exports.ChromiumRebrand = ChromiumRebrand;
+export { ChromiumRebrand };

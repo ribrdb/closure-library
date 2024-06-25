@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.emoji.PopupEmojiPickerTest');
 goog.setTestOnly();
 
-const PopupEmojiPicker = goog.require('goog.ui.emoji.PopupEmojiPicker');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PopupEmojiPicker } from './popupemojipicker.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 const emojiGroup1 = [
   'Emoji 1',

@@ -6,14 +6,13 @@
 
 /** @fileoverview Shared code for classlist_test.html. */
 
-goog.module('goog.dom.classlist_test');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { TagName } from './tagname.js';
+import * as classlist from './classlist.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let expectedFailures;
 

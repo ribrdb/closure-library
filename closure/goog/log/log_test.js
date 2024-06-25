@@ -8,12 +8,12 @@
  * @fileoverview Unit tests for log.
  */
 
-goog.module('goog.logTest');
 goog.setTestOnly();
 
-const Level = goog.require('goog.log.Level');
-const log = goog.require('goog.log');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as googLog from './log.js';
+import * as log from './log.js';
+const Level = googLog.Level;
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * A simple log handler that remembers the last record published.

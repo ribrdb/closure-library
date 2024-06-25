@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.interpolator.Linear1Test');
 goog.setTestOnly();
 
-const Linear1 = goog.require('goog.math.interpolator.Linear1');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Linear1 } from './linear1.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testLinear() {

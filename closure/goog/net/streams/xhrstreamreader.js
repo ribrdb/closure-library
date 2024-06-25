@@ -20,21 +20,19 @@
  * TODO(user): xhr polling, stream timeout, CORS and preflight optimization.
  */
 
-goog.module('goog.net.streams.xhrStreamReader');
+import { ErrorCode } from '../errorcode.js';
 
-goog.module.declareLegacyNamespace();
-
-const ErrorCode = goog.require('goog.net.ErrorCode');
-const Event = goog.requireType('goog.events.Event');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.net.EventType');
-const HttpStatus = goog.require('goog.net.HttpStatus');
-const StreamParser = goog.requireType('goog.net.streams.StreamParser');
-const XhrIo = goog.require('goog.net.XhrIo');
-const XmlHttp = goog.require('goog.net.XmlHttp');
-const googLog = goog.require('goog.log');
-const googUserAgent = goog.require('goog.userAgent');
-const {getStreamParser} = goog.require('goog.net.streams.streamParsers');
+import { EventHandler } from '../../events/eventhandler.js';
+import { EventType } from '../eventtype.js';
+import { HttpStatus } from '../httpstatus.js';
+import { XhrIo } from '../xhrio.js';
+import { XmlHttp } from '../xmlhttp.js';
+import * as googLog from '../../log/log.js';
+import * as googUserAgent from '../../useragent/useragent.js';
+import streamParsers from './streamparsers.js';
+const {getStreamParser} = streamParsers;
+const Event = goog.requireType('goog.events.event');
+const StreamParser = goog.requireType('goog.net.streams.streamparser');
 
 /**
  * The XhrStreamReader class.
@@ -419,7 +417,7 @@ const XhrStreamReaderStatus = {
   CANCELLED: 8,
 };
 
-exports = {
+export default {
   XhrStreamReader,
   XhrStreamReaderStatus
 };

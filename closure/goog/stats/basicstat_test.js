@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.stats.BasicStatTest');
 goog.setTestOnly();
 
-const BasicStat = goog.require('goog.stats.BasicStat');
-const PseudoRandom = goog.require('goog.testing.PseudoRandom');
-const format = goog.require('goog.string.format');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BasicStat } from './basicstat.js';
+import { PseudoRandom } from '../testing/pseudorandom.js';
+import { format } from '../string/stringformat.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /**
  * A horribly inefficient implementation of BasicStat that stores

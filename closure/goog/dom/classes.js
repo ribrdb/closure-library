@@ -16,9 +16,7 @@
  */
 
 
-goog.provide('goog.dom.classes');
-
-goog.require('goog.array');
+import * as array from '../array/array.js';
 
 
 /**
@@ -27,10 +25,9 @@ goog.require('goog.array');
  * @param {string} className Class name(s) to apply to element.
  * @deprecated Use goog.dom.classlist.set instead.
  */
-goog.dom.classes.set = function(element, className) {
-  'use strict';
+export function set(element, className) {
   /** @type {!HTMLElement} */ (element).className = className;
-};
+}
 
 
 /**
@@ -40,14 +37,13 @@ goog.dom.classes.set = function(element, className) {
  *     properties to the array. Do not depend on any of these!
  * @deprecated Use goog.dom.classlist.get instead.
  */
-goog.dom.classes.get = function(element) {
-  'use strict';
+export function get(element) {
   var className = /** @type {!Element} */ (element).className;
   // Some types of elements don't have a className in IE (e.g. iframes).
   // Furthermore, in Firefox, className is not a string when the element is
   // an SVG element.
   return typeof className === 'string' && className.match(/\S+/g) || [];
-};
+}
 
 
 /**
@@ -57,15 +53,17 @@ goog.dom.classes.get = function(element) {
  * @return {boolean} Whether class was added (or all classes were added).
  * @deprecated Use goog.dom.classlist.add or goog.dom.classlist.addAll instead.
  */
-goog.dom.classes.add = function(element, var_args) {
-  'use strict';
-  var classes = goog.dom.classes.get(element);
+function add_(element, var_args) {
+  var classes = get(element);
   var args = Array.prototype.slice.call(arguments, 1);
   var expectedCount = classes.length + args.length;
-  goog.dom.classes.add_(classes, args);
-  goog.dom.classes.set(element, classes.join(' '));
+  add__(classes, args);
+  set(element, classes.join(' '));
   return classes.length == expectedCount;
-};
+}
+
+
+export { add_ as add };
 
 
 /**
@@ -77,51 +75,47 @@ goog.dom.classes.add = function(element, var_args) {
  * @deprecated Use goog.dom.classlist.remove or goog.dom.classlist.removeAll
  *     instead.
  */
-goog.dom.classes.remove = function(element, var_args) {
-  'use strict';
-  var classes = goog.dom.classes.get(element);
+export function remove(element, var_args) {
+  var classes = get(element);
   var args = Array.prototype.slice.call(arguments, 1);
-  var newClasses = goog.dom.classes.getDifference_(classes, args);
-  goog.dom.classes.set(element, newClasses.join(' '));
+  var newClasses = getDifference_(classes, args);
+  set(element, newClasses.join(' '));
   return newClasses.length == classes.length - args.length;
-};
+}
 
 
 /**
- * Helper method for {@link goog.dom.classes.add} and
- * {@link goog.dom.classes.addRemove}. Adds one or more classes to the supplied
+ * Helper method for {@link add} and
+ * {@link addRemove}. Adds one or more classes to the supplied
  * classes array.
  * @param {Array<string>} classes All class names for the element, will be
  *     updated to have the classes supplied in `args` added.
  * @param {Array<string>} args Class names to add.
  * @private
  */
-goog.dom.classes.add_ = function(classes, args) {
-  'use strict';
+function add__(classes, args) {
   for (var i = 0; i < args.length; i++) {
-    if (!goog.array.contains(classes, args[i])) {
+    if (!array.contains(classes, args[i])) {
       classes.push(args[i]);
     }
   }
-};
+}
 
 
 /**
- * Helper method for {@link goog.dom.classes.remove} and
- * {@link goog.dom.classes.addRemove}. Calculates the difference of two arrays.
+ * Helper method for {@link remove} and
+ * {@link addRemove}. Calculates the difference of two arrays.
  * @param {!Array<string>} arr1 First array.
  * @param {!Array<string>} arr2 Second array.
  * @return {!Array<string>} The first array without the elements of the second
  *     array.
  * @private
  */
-goog.dom.classes.getDifference_ = function(arr1, arr2) {
-  'use strict';
+function getDifference_(arr1, arr2) {
   return arr1.filter(function(item) {
-    'use strict';
-    return !goog.array.contains(arr2, item);
+    return !array.contains(arr2, item);
   });
-};
+}
 
 
 /**
@@ -133,9 +127,8 @@ goog.dom.classes.getDifference_ = function(arr1, arr2) {
  * @return {boolean} Whether classes were switched.
  * @deprecated Use goog.dom.classlist.swap instead.
  */
-goog.dom.classes.swap = function(element, fromClass, toClass) {
-  'use strict';
-  var classes = goog.dom.classes.get(element);
+export function swap(element, fromClass, toClass) {
+  var classes = get(element);
 
   var removed = false;
   for (var i = 0; i < classes.length; i++) {
@@ -147,21 +140,21 @@ goog.dom.classes.swap = function(element, fromClass, toClass) {
 
   if (removed) {
     classes.push(toClass);
-    goog.dom.classes.set(element, classes.join(' '));
+    set(element, classes.join(' '));
   }
 
   return removed;
-};
+}
 
 
 /**
  * Adds zero or more classes to an element and removes zero or more as a single
- * operation. Unlike calling {@link goog.dom.classes.add} and
- * {@link goog.dom.classes.remove} separately, this is more efficient as it only
+ * operation. Unlike calling {@link add} and
+ * {@link remove} separately, this is more efficient as it only
  * parses the class property once.
  *
  * If a class is in both the remove and add lists, it will be added. Thus,
- * you can use this instead of {@link goog.dom.classes.swap} when you have
+ * you can use this instead of {@link swap} when you have
  * more than two class names that you want to swap.
  *
  * @param {Node} element DOM node to swap classes on.
@@ -171,24 +164,23 @@ goog.dom.classes.swap = function(element, fromClass, toClass) {
  *     null no classes are added.
  * @deprecated Use goog.dom.classlist.addRemove instead.
  */
-goog.dom.classes.addRemove = function(element, classesToRemove, classesToAdd) {
-  'use strict';
-  var classes = goog.dom.classes.get(element);
+export function addRemove(element, classesToRemove, classesToAdd) {
+  var classes = get(element);
   if (typeof classesToRemove === 'string') {
-    goog.array.remove(classes, classesToRemove);
+    array.remove(classes, classesToRemove);
   } else if (Array.isArray(classesToRemove)) {
-    classes = goog.dom.classes.getDifference_(classes, classesToRemove);
+    classes = getDifference_(classes, classesToRemove);
   }
 
   if (typeof classesToAdd === 'string' &&
-      !goog.array.contains(classes, classesToAdd)) {
+      !array.contains(classes, classesToAdd)) {
     classes.push(classesToAdd);
   } else if (Array.isArray(classesToAdd)) {
-    goog.dom.classes.add_(classes, classesToAdd);
+    add__(classes, classesToAdd);
   }
 
-  goog.dom.classes.set(element, classes.join(' '));
-};
+  set(element, classes.join(' '));
+}
 
 
 /**
@@ -198,10 +190,9 @@ goog.dom.classes.addRemove = function(element, classesToRemove, classesToAdd) {
  * @return {boolean} Whether element has the class.
  * @deprecated Use goog.dom.classlist.contains instead.
  */
-goog.dom.classes.has = function(element, className) {
-  'use strict';
-  return goog.array.contains(goog.dom.classes.get(element), className);
-};
+export function has(element, className) {
+  return array.contains(get(element), className);
+}
 
 
 /**
@@ -213,14 +204,13 @@ goog.dom.classes.has = function(element, className) {
  * @deprecated Use goog.dom.classlist.enable or goog.dom.classlist.enableAll
  *     instead.
  */
-goog.dom.classes.enable = function(element, className, enabled) {
-  'use strict';
+export function enable(element, className, enabled) {
   if (enabled) {
-    goog.dom.classes.add(element, className);
+    add_(element, className);
   } else {
-    goog.dom.classes.remove(element, className);
+    remove(element, className);
   }
-};
+}
 
 
 /**
@@ -233,9 +223,8 @@ goog.dom.classes.enable = function(element, className, enabled) {
  *     been called).
  * @deprecated Use goog.dom.classlist.toggle instead.
  */
-goog.dom.classes.toggle = function(element, className) {
-  'use strict';
-  var add = !goog.dom.classes.has(element, className);
-  goog.dom.classes.enable(element, className, add);
+export function toggle(element, className) {
+  var add = !has(element, className);
+  enable(element, className, add);
   return add;
-};
+}

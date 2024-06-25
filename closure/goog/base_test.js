@@ -17,18 +17,16 @@
  * @fileoverview Unit tests for Closure's base.js.
  */
 
-goog.module('goog.baseTest');
-
 goog.setTestOnly('goog.baseTest');
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const object = goog.require('goog.object');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const {assertInstanceof} = goog.require('goog.asserts');
+import { PropertyReplacer } from './testing/propertyreplacer.js';
+import { TagName } from './dom/tagname.js';
+import * as dom from './dom/dom.js';
+import object from './object/object.js';
+import { recordFunction } from './testing/recordfunction.js';
+import { testSuite } from './testing/testsuite.js';
+import * as userAgent from './useragent/useragent.js';
+import { assertInstanceof } from './asserts/asserts.js';
 
 
 /**
@@ -1231,7 +1229,7 @@ testSuite({
 
     // Safari 10 will throw an exception if the module being loaded is eval'd
     // without a containing function.
-    assertNotThrows(exports.fn);
+    assertNotThrows(fn);
   },
 
   /** @suppress {visibility} goog.loadFileSync_ access violation */

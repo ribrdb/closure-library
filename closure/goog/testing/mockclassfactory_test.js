@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockClassFactoryTest');
 goog.setTestOnly('goog.testing.MockClassFactoryTest');
 
-const LooseMock = goog.require('goog.testing.LooseMock');
-const MockClassFactory = goog.require('goog.testing.MockClassFactory');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.testing');
+import { LooseMock } from './loosemock.js';
+import { MockClassFactory } from './mockclassfactory.js';
+import { StrictMock } from './strictmock.js';
+import { testSuite } from './testsuite.js';
+import * as testing from './functionmock.js';
 
 /** A fake namespace. */
 const fake = {};

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.ContentEditableFieldTest');
 goog.setTestOnly();
 
-const ContentEditableField = goog.require('goog.editor.ContentEditableField');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const googDom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ContentEditableField } from './contenteditablefield.js';
+import { SafeHtml } from '../html/safehtml.js';
+import * as googDom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 const HTML = '<div id="testField">I am text.</div>';

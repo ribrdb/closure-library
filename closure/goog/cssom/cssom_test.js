@@ -4,16 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.cssomTest');
 goog.setTestOnly();
 
-const CssRuleType = goog.require('goog.cssom.CssRuleType');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const cssom = goog.require('goog.cssom');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const {assertIsHtmlIFrameElement} = goog.require('goog.asserts.dom');
-const {getStyleNonce} = goog.require('goog.dom.safe');
+import * as cssom from './cssom.js';
+import { CssRuleType } from './cssom.js';
+import { DomHelper } from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
+import dom from '../asserts/dom.js';
+const {assertIsHtmlIFrameElement} = dom;
+import { getStyleNonce } from '../dom/safe.js';
 
 // Since sheet cssom_test1.css's first line is to import
 // cssom_test2.css, we should get 2 before one in the string.

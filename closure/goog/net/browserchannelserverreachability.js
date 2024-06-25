@@ -8,9 +8,6 @@
  * @fileoverview Definition of events for Server Reachability.
  */
 
-goog.module('goog.net.browserchannelinternal.ServerReachability');
-goog.module.declareLegacyNamespace();
-
 /**
  * Types of events which reveal information about the reachability of the
  * server.
@@ -22,4 +19,4 @@ const ServerReachability = {
   REQUEST_FAILED: 3,
   BACK_CHANNEL_ACTIVITY: 4,
 };
-exports = ServerReachability;
+export { ServerReachability };

@@ -9,11 +9,10 @@
  * data storage mechanism.
  */
 
-goog.provide('goog.storage.Storage');
+import * as googJson from '../json/json.js';
 
-goog.require('goog.json');
-goog.require('goog.storage.ErrorCode');
-goog.requireType('goog.storage.mechanism.Mechanism');
+import { ErrorCode } from './errorcode.js';
+goog.requireType('goog.storage.mechanism.mechanism');
 
 
 
@@ -25,15 +24,14 @@ goog.requireType('goog.storage.mechanism.Mechanism');
  * @constructor
  * @struct
  */
-goog.storage.Storage = function(mechanism) {
-  'use strict';
+export function Storage(mechanism) {
   /**
    * The mechanism used to persist key-value pairs.
    *
    * @protected {goog.storage.mechanism.Mechanism}
    */
   this.mechanism = mechanism;
-};
+}
 
 
 /**
@@ -42,13 +40,12 @@ goog.storage.Storage = function(mechanism) {
  * @param {string} key The key to set.
  * @param {*} value The value to serialize to a string and save.
  */
-goog.storage.Storage.prototype.set = function(key, value) {
-  'use strict';
+Storage.prototype.set = function(key, value) {
   if (value === undefined) {
     this.mechanism.remove(key);
     return;
   }
-  this.mechanism.set(key, goog.json.serialize(value));
+  this.mechanism.set(key, googJson.serialize(value));
 };
 
 
@@ -58,8 +55,7 @@ goog.storage.Storage.prototype.set = function(key, value) {
  * @param {string} key The key to get.
  * @return {*} Deserialized value or undefined if not found.
  */
-goog.storage.Storage.prototype.get = function(key) {
-  'use strict';
+Storage.prototype.get = function(key) {
   let json;
   try {
     json = this.mechanism.get(key);
@@ -77,7 +73,7 @@ goog.storage.Storage.prototype.get = function(key) {
   try {
     return JSON.parse(json);
   } catch (e) {
-    throw goog.storage.ErrorCode.INVALID_VALUE;
+    throw ErrorCode.INVALID_VALUE;
   }
 };
 
@@ -87,7 +83,6 @@ goog.storage.Storage.prototype.get = function(key) {
  *
  * @param {string} key The key to remove.
  */
-goog.storage.Storage.prototype.remove = function(key) {
-  'use strict';
+Storage.prototype.remove = function(key) {
   this.mechanism.remove(key);
 };

@@ -4,34 +4,32 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.pubsub.TypedPubSub');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.pubsub.PubSub');
-goog.requireType('goog.pubsub.TopicId');
+import { PubSub } from './pubsub.js';
+goog.requireType('goog.pubsub.topicid');
 
 
 
 /**
  * This object is a temporary shim that provides goog.pubsub.TopicId support
- * for goog.pubsub.PubSub.  See b/12477087 for more info.
+ * for PubSub.  See b/12477087 for more info.
  * @param {boolean=} opt_async Enable asynchronous behavior.  Recommended for
- *     new code.  See notes on `goog.pubsub.PubSub.publish`.
+ *     new code.  See notes on `PubSub.publish`.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  */
-goog.pubsub.TypedPubSub = function(opt_async) {
-  'use strict';
-  goog.pubsub.TypedPubSub.base(this, 'constructor');
+export function TypedPubSub(opt_async) {
+ TypedPubSub.base(this, 'constructor');
 
-  this.pubSub_ = new goog.pubsub.PubSub(opt_async);
-  this.registerDisposable(this.pubSub_);
-};
-goog.inherits(goog.pubsub.TypedPubSub, goog.Disposable);
+ this.pubSub_ = new PubSub(opt_async);
+ this.registerDisposable(this.pubSub_);
+}
+goog.inherits(TypedPubSub, Disposable);
 
 
 /**
- * See `goog.pubsub.PubSub.subscribe`.
+ * See `PubSub.subscribe`.
  * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to subscribe to.
  * @param {function(this:CONTEXT, PAYLOAD)} fn Function to be invoked when a
  *     message is published to the given topic.
@@ -40,14 +38,13 @@ goog.inherits(goog.pubsub.TypedPubSub, goog.Disposable);
  * @return {number} Subscription key.
  * @template PAYLOAD, CONTEXT
  */
-goog.pubsub.TypedPubSub.prototype.subscribe = function(topic, fn, opt_context) {
-  'use strict';
-  return this.pubSub_.subscribe(topic.toString(), fn, opt_context);
+TypedPubSub.prototype.subscribe = function(topic, fn, opt_context) {
+ return this.pubSub_.subscribe(topic.toString(), fn, opt_context);
 };
 
 
 /**
- * See `goog.pubsub.PubSub.subscribeOnce`.
+ * See `PubSub.subscribeOnce`.
  * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to subscribe to.
  * @param {function(this:CONTEXT, PAYLOAD)} fn Function to be invoked once and
  *     then unsubscribed when a message is published to the given topic.
@@ -56,15 +53,14 @@ goog.pubsub.TypedPubSub.prototype.subscribe = function(topic, fn, opt_context) {
  * @return {number} Subscription key.
  * @template PAYLOAD, CONTEXT
  */
-goog.pubsub.TypedPubSub.prototype.subscribeOnce = function(
+TypedPubSub.prototype.subscribeOnce = function(
     topic, fn, opt_context) {
-  'use strict';
-  return this.pubSub_.subscribeOnce(topic.toString(), fn, opt_context);
+ return this.pubSub_.subscribeOnce(topic.toString(), fn, opt_context);
 };
 
 
 /**
- * See `goog.pubsub.PubSub.unsubscribe`.
+ * See `PubSub.unsubscribe`.
  * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to unsubscribe from.
  * @param {function(this:CONTEXT, PAYLOAD)} fn Function to unsubscribe.
  * @param {CONTEXT=} opt_context Object in whose context the function was to be
@@ -72,59 +68,54 @@ goog.pubsub.TypedPubSub.prototype.subscribeOnce = function(
  * @return {boolean} Whether a matching subscription was removed.
  * @template PAYLOAD, CONTEXT
  */
-goog.pubsub.TypedPubSub.prototype.unsubscribe = function(
+TypedPubSub.prototype.unsubscribe = function(
     topic, fn, opt_context) {
-  'use strict';
-  return this.pubSub_.unsubscribe(topic.toString(), fn, opt_context);
+ return this.pubSub_.unsubscribe(topic.toString(), fn, opt_context);
 };
 
 
 /**
- * See `goog.pubsub.PubSub.unsubscribeByKey`.
+ * See `PubSub.unsubscribeByKey`.
  * @param {number} key Subscription key.
  * @return {boolean} Whether a matching subscription was removed.
  */
-goog.pubsub.TypedPubSub.prototype.unsubscribeByKey = function(key) {
-  'use strict';
-  return this.pubSub_.unsubscribeByKey(key);
+TypedPubSub.prototype.unsubscribeByKey = function(key) {
+ return this.pubSub_.unsubscribeByKey(key);
 };
 
 
 /**
- * See `goog.pubsub.PubSub.publish`.
+ * See `PubSub.publish`.
  * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to publish to.
  * @param {PAYLOAD} payload Payload passed to each subscription function.
  * @return {boolean} Whether any subscriptions were called.
  * @template PAYLOAD
  */
-goog.pubsub.TypedPubSub.prototype.publish = function(topic, payload) {
-  'use strict';
-  return this.pubSub_.publish(topic.toString(), payload);
+TypedPubSub.prototype.publish = function(topic, payload) {
+ return this.pubSub_.publish(topic.toString(), payload);
 };
 
 
 /**
- * See `goog.pubsub.PubSub.clear`.
+ * See `PubSub.clear`.
  * @param {!goog.pubsub.TopicId<PAYLOAD>=} opt_topic Topic to clear (all topics
  *     if unspecified).
  * @template PAYLOAD
  */
-goog.pubsub.TypedPubSub.prototype.clear = function(opt_topic) {
-  'use strict';
-  this.pubSub_.clear(
-      opt_topic !== undefined ? opt_topic.toString() : undefined);
+TypedPubSub.prototype.clear = function(opt_topic) {
+ this.pubSub_.clear(
+     opt_topic !== undefined ? opt_topic.toString() : undefined);
 };
 
 
 /**
- * See `goog.pubsub.PubSub.getCount`.
+ * See `PubSub.getCount`.
  * @param {!goog.pubsub.TopicId<PAYLOAD>=} opt_topic The topic (all topics if
  *     unspecified).
  * @return {number} Number of subscriptions to the topic.
  * @template PAYLOAD
  */
-goog.pubsub.TypedPubSub.prototype.getCount = function(opt_topic) {
-  'use strict';
-  return this.pubSub_.getCount(
-      opt_topic !== undefined ? opt_topic.toString() : undefined);
+TypedPubSub.prototype.getCount = function(opt_topic) {
+ return this.pubSub_.getCount(
+     opt_topic !== undefined ? opt_topic.toString() : undefined);
 };

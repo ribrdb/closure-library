@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.messaging.MockMessageChannelTest');
 goog.setTestOnly();
 
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const messaging = goog.require('goog.messaging');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import * as messaging from './messaging.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testPipe() {

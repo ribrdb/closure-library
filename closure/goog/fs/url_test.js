@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.urlTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const testSuite = goog.require('goog.testing.testSuite');
-const url = goog.require('goog.fs.url');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as url from './url.js';
 
 const stubs = new PropertyReplacer();
 

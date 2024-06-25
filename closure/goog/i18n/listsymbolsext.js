@@ -19,9 +19,7 @@
 
 // clang-format off
 
-goog.module('goog.i18n.ListFormatSymbolsExt');
-
-const ListSymbols = goog.require('goog.i18n.ListFormatSymbols');
+import { ListFormatSymbols as ListSymbols } from './listsymbols.js';
 
 /**
  * @type {!ListSymbols.ListFormatSymbols}
@@ -34,7 +32,7 @@ let defaultSymbols = ListSymbols.ListFormatSymbols_en;
  * List formatting symbols for locale af_NA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_af_NA = {
+export let ListFormatSymbols_af_NA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0}, {1}'],
@@ -47,7 +45,7 @@ exports.ListFormatSymbols_af_NA = {
  * List formatting symbols for locale af_ZA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_af_ZA = {
+export let ListFormatSymbols_af_ZA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0}, {1}'],
@@ -60,7 +58,7 @@ exports.ListFormatSymbols_af_ZA = {
  * List formatting symbols for locale agq.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_agq = {
+export let ListFormatSymbols_agq = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -71,7 +69,7 @@ exports.ListFormatSymbols_agq = {
  * List formatting symbols for locale agq_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_agq_CM = {
+export let ListFormatSymbols_agq_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -82,7 +80,7 @@ exports.ListFormatSymbols_agq_CM = {
  * List formatting symbols for locale ak.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ak = {
+export let ListFormatSymbols_ak = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -93,7 +91,7 @@ exports.ListFormatSymbols_ak = {
  * List formatting symbols for locale ak_GH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ak_GH = {
+export let ListFormatSymbols_ak_GH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -104,7 +102,7 @@ exports.ListFormatSymbols_ak_GH = {
  * List formatting symbols for locale am_ET.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_am_ET = {
+export let ListFormatSymbols_am_ET = {
   AND_START: ['{0}፣ {1}', '{0}፣ {1}', '{0}, {1}'],
   AND_TWO: ['{0} እና {1}', '{0} እና {1}', '{0} እና {1}'],
   AND_MIDDLE: ['{0}፣ {1}', '{0}፣ {1}', '{0}፣ {1}'],
@@ -122,7 +120,7 @@ exports.ListFormatSymbols_am_ET = {
  * List formatting symbols for locale ar_001.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_001 = {
+export let ListFormatSymbols_ar_001 = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -138,7 +136,7 @@ exports.ListFormatSymbols_ar_001 = {
  * List formatting symbols for locale ar_AE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_AE = {
+export let ListFormatSymbols_ar_AE = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -154,7 +152,7 @@ exports.ListFormatSymbols_ar_AE = {
  * List formatting symbols for locale ar_BH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_BH = {
+export let ListFormatSymbols_ar_BH = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -170,7 +168,7 @@ exports.ListFormatSymbols_ar_BH = {
  * List formatting symbols for locale ar_DJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_DJ = {
+export let ListFormatSymbols_ar_DJ = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -186,7 +184,7 @@ exports.ListFormatSymbols_ar_DJ = {
  * List formatting symbols for locale ar_EH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_EH = {
+export let ListFormatSymbols_ar_EH = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -202,7 +200,7 @@ exports.ListFormatSymbols_ar_EH = {
  * List formatting symbols for locale ar_ER.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_ER = {
+export let ListFormatSymbols_ar_ER = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -218,7 +216,7 @@ exports.ListFormatSymbols_ar_ER = {
  * List formatting symbols for locale ar_IL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_IL = {
+export let ListFormatSymbols_ar_IL = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -234,7 +232,7 @@ exports.ListFormatSymbols_ar_IL = {
  * List formatting symbols for locale ar_IQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_IQ = {
+export let ListFormatSymbols_ar_IQ = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -250,7 +248,7 @@ exports.ListFormatSymbols_ar_IQ = {
  * List formatting symbols for locale ar_JO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_JO = {
+export let ListFormatSymbols_ar_JO = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -266,7 +264,7 @@ exports.ListFormatSymbols_ar_JO = {
  * List formatting symbols for locale ar_KM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_KM = {
+export let ListFormatSymbols_ar_KM = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -282,7 +280,7 @@ exports.ListFormatSymbols_ar_KM = {
  * List formatting symbols for locale ar_KW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_KW = {
+export let ListFormatSymbols_ar_KW = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -298,7 +296,7 @@ exports.ListFormatSymbols_ar_KW = {
  * List formatting symbols for locale ar_LB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_LB = {
+export let ListFormatSymbols_ar_LB = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -314,7 +312,7 @@ exports.ListFormatSymbols_ar_LB = {
  * List formatting symbols for locale ar_LY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_LY = {
+export let ListFormatSymbols_ar_LY = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -330,7 +328,7 @@ exports.ListFormatSymbols_ar_LY = {
  * List formatting symbols for locale ar_MA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_MA = {
+export let ListFormatSymbols_ar_MA = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -346,7 +344,7 @@ exports.ListFormatSymbols_ar_MA = {
  * List formatting symbols for locale ar_MR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_MR = {
+export let ListFormatSymbols_ar_MR = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -362,7 +360,7 @@ exports.ListFormatSymbols_ar_MR = {
  * List formatting symbols for locale ar_OM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_OM = {
+export let ListFormatSymbols_ar_OM = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -378,7 +376,7 @@ exports.ListFormatSymbols_ar_OM = {
  * List formatting symbols for locale ar_PS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_PS = {
+export let ListFormatSymbols_ar_PS = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -394,7 +392,7 @@ exports.ListFormatSymbols_ar_PS = {
  * List formatting symbols for locale ar_QA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_QA = {
+export let ListFormatSymbols_ar_QA = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -410,7 +408,7 @@ exports.ListFormatSymbols_ar_QA = {
  * List formatting symbols for locale ar_SA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_SA = {
+export let ListFormatSymbols_ar_SA = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -426,7 +424,7 @@ exports.ListFormatSymbols_ar_SA = {
  * List formatting symbols for locale ar_SD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_SD = {
+export let ListFormatSymbols_ar_SD = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -442,7 +440,7 @@ exports.ListFormatSymbols_ar_SD = {
  * List formatting symbols for locale ar_SO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_SO = {
+export let ListFormatSymbols_ar_SO = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -458,7 +456,7 @@ exports.ListFormatSymbols_ar_SO = {
  * List formatting symbols for locale ar_SS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_SS = {
+export let ListFormatSymbols_ar_SS = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -474,7 +472,7 @@ exports.ListFormatSymbols_ar_SS = {
  * List formatting symbols for locale ar_SY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_SY = {
+export let ListFormatSymbols_ar_SY = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -490,7 +488,7 @@ exports.ListFormatSymbols_ar_SY = {
  * List formatting symbols for locale ar_TD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_TD = {
+export let ListFormatSymbols_ar_TD = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -506,7 +504,7 @@ exports.ListFormatSymbols_ar_TD = {
  * List formatting symbols for locale ar_TN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_TN = {
+export let ListFormatSymbols_ar_TN = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -522,7 +520,7 @@ exports.ListFormatSymbols_ar_TN = {
  * List formatting symbols for locale ar_XB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_XB = {
+export let ListFormatSymbols_ar_XB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0} و{1}'],
   AND_TWO: ['{0} ؜‮and‬؜ {1}', '{0} & {1}', '{0} و{1}'],
   AND_END: ['{0}, ؜‮and‬؜ {1}', '{0}, & {1}', '{0} و{1}'],
@@ -537,7 +535,7 @@ exports.ListFormatSymbols_ar_XB = {
  * List formatting symbols for locale ar_YE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ar_YE = {
+export let ListFormatSymbols_ar_YE = {
   AND_START: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   AND_END: ['{0} و{1}', '{0} و{1}', '{0} و{1}'],
   OR_START: ['{0} أو {1}', '{0} أو {1}', '{0} أو {1}'],
@@ -553,7 +551,7 @@ exports.ListFormatSymbols_ar_YE = {
  * List formatting symbols for locale as.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_as = {
+export let ListFormatSymbols_as = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} আৰু {1}', '{0} আৰু {1}', '{0}, {1}'],
   OR_END: ['{0} বা {1}', '{0} বা {1}', '{0} বা {1}'],
@@ -566,7 +564,7 @@ exports.ListFormatSymbols_as = {
  * List formatting symbols for locale as_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_as_IN = {
+export let ListFormatSymbols_as_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} আৰু {1}', '{0} আৰু {1}', '{0}, {1}'],
   OR_END: ['{0} বা {1}', '{0} বা {1}', '{0} বা {1}'],
@@ -579,7 +577,7 @@ exports.ListFormatSymbols_as_IN = {
  * List formatting symbols for locale asa.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_asa = {
+export let ListFormatSymbols_asa = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -590,7 +588,7 @@ exports.ListFormatSymbols_asa = {
  * List formatting symbols for locale asa_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_asa_TZ = {
+export let ListFormatSymbols_asa_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -601,7 +599,7 @@ exports.ListFormatSymbols_asa_TZ = {
  * List formatting symbols for locale ast.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ast = {
+export let ListFormatSymbols_ast = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0}, {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -612,7 +610,7 @@ exports.ListFormatSymbols_ast = {
  * List formatting symbols for locale ast_ES.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ast_ES = {
+export let ListFormatSymbols_ast_ES = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0}, {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -623,7 +621,7 @@ exports.ListFormatSymbols_ast_ES = {
  * List formatting symbols for locale az_Cyrl.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_az_Cyrl = {
+export let ListFormatSymbols_az_Cyrl = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -634,7 +632,7 @@ exports.ListFormatSymbols_az_Cyrl = {
  * List formatting symbols for locale az_Cyrl_AZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_az_Cyrl_AZ = {
+export let ListFormatSymbols_az_Cyrl_AZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -645,7 +643,7 @@ exports.ListFormatSymbols_az_Cyrl_AZ = {
  * List formatting symbols for locale az_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_az_Latn = {
+export let ListFormatSymbols_az_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} və {1}', '{0} və {1}', '{0}, {1}'],
   OR_END: ['{0}, yaxud {1}', '{0}, yaxud {1}', '{0}, yaxud {1}'],
@@ -656,7 +654,7 @@ exports.ListFormatSymbols_az_Latn = {
  * List formatting symbols for locale az_Latn_AZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_az_Latn_AZ = {
+export let ListFormatSymbols_az_Latn_AZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} və {1}', '{0} və {1}', '{0}, {1}'],
   OR_END: ['{0}, yaxud {1}', '{0}, yaxud {1}', '{0}, yaxud {1}'],
@@ -667,7 +665,7 @@ exports.ListFormatSymbols_az_Latn_AZ = {
  * List formatting symbols for locale bas.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bas = {
+export let ListFormatSymbols_bas = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -678,7 +676,7 @@ exports.ListFormatSymbols_bas = {
  * List formatting symbols for locale bas_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bas_CM = {
+export let ListFormatSymbols_bas_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -689,7 +687,7 @@ exports.ListFormatSymbols_bas_CM = {
  * List formatting symbols for locale be_BY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_be_BY = {
+export let ListFormatSymbols_be_BY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} і {1}', '{0} і {1}', '{0} і {1}'],
   OR_END: ['{0} ці {1}', '{0} ці {1}', '{0} ці {1}'],
@@ -702,7 +700,7 @@ exports.ListFormatSymbols_be_BY = {
  * List formatting symbols for locale bem.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bem = {
+export let ListFormatSymbols_bem = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -713,7 +711,7 @@ exports.ListFormatSymbols_bem = {
  * List formatting symbols for locale bem_ZM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bem_ZM = {
+export let ListFormatSymbols_bem_ZM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -724,7 +722,7 @@ exports.ListFormatSymbols_bem_ZM = {
  * List formatting symbols for locale bez.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bez = {
+export let ListFormatSymbols_bez = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -735,7 +733,7 @@ exports.ListFormatSymbols_bez = {
  * List formatting symbols for locale bez_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bez_TZ = {
+export let ListFormatSymbols_bez_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -746,7 +744,7 @@ exports.ListFormatSymbols_bez_TZ = {
  * List formatting symbols for locale bg_BG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bg_BG = {
+export let ListFormatSymbols_bg_BG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
@@ -760,7 +758,7 @@ exports.ListFormatSymbols_bg_BG = {
  * List formatting symbols for locale bgc.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bgc = {
+export let ListFormatSymbols_bgc = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -771,7 +769,7 @@ exports.ListFormatSymbols_bgc = {
  * List formatting symbols for locale bgc_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bgc_IN = {
+export let ListFormatSymbols_bgc_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -782,7 +780,7 @@ exports.ListFormatSymbols_bgc_IN = {
  * List formatting symbols for locale bho.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bho = {
+export let ListFormatSymbols_bho = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -793,7 +791,7 @@ exports.ListFormatSymbols_bho = {
  * List formatting symbols for locale bho_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bho_IN = {
+export let ListFormatSymbols_bho_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -804,7 +802,7 @@ exports.ListFormatSymbols_bho_IN = {
  * List formatting symbols for locale bm.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bm = {
+export let ListFormatSymbols_bm = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -815,7 +813,7 @@ exports.ListFormatSymbols_bm = {
  * List formatting symbols for locale bm_ML.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bm_ML = {
+export let ListFormatSymbols_bm_ML = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -826,7 +824,7 @@ exports.ListFormatSymbols_bm_ML = {
  * List formatting symbols for locale bn_BD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bn_BD = {
+export let ListFormatSymbols_bn_BD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} এবং {1}', '{0} এবং {1}', '{0}, {1}'],
   OR_END: ['{0}, বা {1}', '{0}, বা {1}', '{0}, বা {1}'],
@@ -837,7 +835,7 @@ exports.ListFormatSymbols_bn_BD = {
  * List formatting symbols for locale bn_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bn_IN = {
+export let ListFormatSymbols_bn_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} এবং {1}', '{0} এবং {1}', '{0}, {1}'],
   OR_END: ['{0}, বা {1}', '{0}, বা {1}', '{0}, বা {1}'],
@@ -848,7 +846,7 @@ exports.ListFormatSymbols_bn_IN = {
  * List formatting symbols for locale bo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bo = {
+export let ListFormatSymbols_bo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -859,7 +857,7 @@ exports.ListFormatSymbols_bo = {
  * List formatting symbols for locale bo_CN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bo_CN = {
+export let ListFormatSymbols_bo_CN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -870,7 +868,7 @@ exports.ListFormatSymbols_bo_CN = {
  * List formatting symbols for locale bo_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bo_IN = {
+export let ListFormatSymbols_bo_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -881,7 +879,7 @@ exports.ListFormatSymbols_bo_IN = {
  * List formatting symbols for locale br_FR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_br_FR = {
+export let ListFormatSymbols_br_FR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ha {1}', '{0} & {1}', '{0} & {1}'],
   OR_END: ['{0} pe {1}', '{0} pe {1}', '{0} pe {1}'],
@@ -892,7 +890,7 @@ exports.ListFormatSymbols_br_FR = {
  * List formatting symbols for locale brx.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_brx = {
+export let ListFormatSymbols_brx = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} आरो {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, आरो {1}', '{0}, {1}', '{0}, {1}'],
@@ -905,7 +903,7 @@ exports.ListFormatSymbols_brx = {
  * List formatting symbols for locale brx_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_brx_IN = {
+export let ListFormatSymbols_brx_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} आरो {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, आरो {1}', '{0}, {1}', '{0}, {1}'],
@@ -918,7 +916,7 @@ exports.ListFormatSymbols_brx_IN = {
  * List formatting symbols for locale bs_Cyrl.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bs_Cyrl = {
+export let ListFormatSymbols_bs_Cyrl = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -929,7 +927,7 @@ exports.ListFormatSymbols_bs_Cyrl = {
  * List formatting symbols for locale bs_Cyrl_BA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bs_Cyrl_BA = {
+export let ListFormatSymbols_bs_Cyrl_BA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -940,7 +938,7 @@ exports.ListFormatSymbols_bs_Cyrl_BA = {
  * List formatting symbols for locale bs_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bs_Latn = {
+export let ListFormatSymbols_bs_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -951,7 +949,7 @@ exports.ListFormatSymbols_bs_Latn = {
  * List formatting symbols for locale bs_Latn_BA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_bs_Latn_BA = {
+export let ListFormatSymbols_bs_Latn_BA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -962,7 +960,7 @@ exports.ListFormatSymbols_bs_Latn_BA = {
  * List formatting symbols for locale ca_AD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ca_AD = {
+export let ListFormatSymbols_ca_AD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -973,7 +971,7 @@ exports.ListFormatSymbols_ca_AD = {
  * List formatting symbols for locale ca_ES.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ca_ES = {
+export let ListFormatSymbols_ca_ES = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -984,7 +982,7 @@ exports.ListFormatSymbols_ca_ES = {
  * List formatting symbols for locale ca_FR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ca_FR = {
+export let ListFormatSymbols_ca_FR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -995,7 +993,7 @@ exports.ListFormatSymbols_ca_FR = {
  * List formatting symbols for locale ca_IT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ca_IT = {
+export let ListFormatSymbols_ca_IT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -1006,7 +1004,7 @@ exports.ListFormatSymbols_ca_IT = {
  * List formatting symbols for locale ccp.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ccp = {
+export let ListFormatSymbols_ccp = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} 𑄃𑄳𑄃 {1}', '{0} 𑄃𑄳𑄃 {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1017,7 +1015,7 @@ exports.ListFormatSymbols_ccp = {
  * List formatting symbols for locale ccp_BD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ccp_BD = {
+export let ListFormatSymbols_ccp_BD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} 𑄃𑄳𑄃 {1}', '{0} 𑄃𑄳𑄃 {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1028,7 +1026,7 @@ exports.ListFormatSymbols_ccp_BD = {
  * List formatting symbols for locale ccp_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ccp_IN = {
+export let ListFormatSymbols_ccp_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} 𑄃𑄳𑄃 {1}', '{0} 𑄃𑄳𑄃 {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1039,7 +1037,7 @@ exports.ListFormatSymbols_ccp_IN = {
  * List formatting symbols for locale ce.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ce = {
+export let ListFormatSymbols_ce = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1050,7 +1048,7 @@ exports.ListFormatSymbols_ce = {
  * List formatting symbols for locale ce_RU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ce_RU = {
+export let ListFormatSymbols_ce_RU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1061,7 +1059,7 @@ exports.ListFormatSymbols_ce_RU = {
  * List formatting symbols for locale ceb.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ceb = {
+export let ListFormatSymbols_ceb = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ug {1}', '{0} ug {1}', '{0}, {1}'],
   AND_END: ['{0}, ug {1}', '{0}, ug {1}', '{0}, {1}'],
@@ -1076,7 +1074,7 @@ exports.ListFormatSymbols_ceb = {
  * List formatting symbols for locale ceb_PH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ceb_PH = {
+export let ListFormatSymbols_ceb_PH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ug {1}', '{0} ug {1}', '{0}, {1}'],
   AND_END: ['{0}, ug {1}', '{0}, ug {1}', '{0}, {1}'],
@@ -1091,7 +1089,7 @@ exports.ListFormatSymbols_ceb_PH = {
  * List formatting symbols for locale cgg.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_cgg = {
+export let ListFormatSymbols_cgg = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1102,7 +1100,7 @@ exports.ListFormatSymbols_cgg = {
  * List formatting symbols for locale cgg_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_cgg_UG = {
+export let ListFormatSymbols_cgg_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1113,7 +1111,7 @@ exports.ListFormatSymbols_cgg_UG = {
  * List formatting symbols for locale chr_US.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_chr_US = {
+export let ListFormatSymbols_chr_US = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ᎠᎴ {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, ᎠᎴ {1}', '{0}, & {1}', '{0}, & {1}'],
@@ -1128,7 +1126,7 @@ exports.ListFormatSymbols_chr_US = {
  * List formatting symbols for locale ckb.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ckb = {
+export let ListFormatSymbols_ckb = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1139,7 +1137,7 @@ exports.ListFormatSymbols_ckb = {
  * List formatting symbols for locale ckb_Arab.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ckb_Arab = {
+export let ListFormatSymbols_ckb_Arab = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1150,7 +1148,7 @@ exports.ListFormatSymbols_ckb_Arab = {
  * List formatting symbols for locale ckb_Arab_IQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ckb_Arab_IQ = {
+export let ListFormatSymbols_ckb_Arab_IQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1161,7 +1159,7 @@ exports.ListFormatSymbols_ckb_Arab_IQ = {
  * List formatting symbols for locale ckb_Arab_IR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ckb_Arab_IR = {
+export let ListFormatSymbols_ckb_Arab_IR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1172,7 +1170,7 @@ exports.ListFormatSymbols_ckb_Arab_IR = {
  * List formatting symbols for locale ckb_IQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ckb_IQ = {
+export let ListFormatSymbols_ckb_IQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1183,7 +1181,7 @@ exports.ListFormatSymbols_ckb_IQ = {
  * List formatting symbols for locale ckb_IR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ckb_IR = {
+export let ListFormatSymbols_ckb_IR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1194,7 +1192,7 @@ exports.ListFormatSymbols_ckb_IR = {
  * List formatting symbols for locale cs_CZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_cs_CZ = {
+export let ListFormatSymbols_cs_CZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a {1}', '{0} a {1}', '{0}, {1}'],
   OR_END: ['{0} nebo {1}', '{0} nebo {1}', '{0} nebo {1}'],
@@ -1208,7 +1206,7 @@ exports.ListFormatSymbols_cs_CZ = {
  * List formatting symbols for locale cv.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_cv = {
+export let ListFormatSymbols_cv = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} тата {1}', '{0} тата {1}', '{0}, {1}'],
   OR_END: ['{0} е {1}', '{0} е {1}', '{0} е {1}'],
@@ -1221,7 +1219,7 @@ exports.ListFormatSymbols_cv = {
  * List formatting symbols for locale cv_RU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_cv_RU = {
+export let ListFormatSymbols_cv_RU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} тата {1}', '{0} тата {1}', '{0}, {1}'],
   OR_END: ['{0} е {1}', '{0} е {1}', '{0} е {1}'],
@@ -1234,7 +1232,7 @@ exports.ListFormatSymbols_cv_RU = {
  * List formatting symbols for locale cy_GB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_cy_GB = {
+export let ListFormatSymbols_cy_GB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} a(c) {1}', '{0} a(c) {1}', '{0}, {1}'],
   AND_END: ['{0}, a(c) {1}', '{0}, a(c) {1}', '{0}, {1}'],
@@ -1247,7 +1245,7 @@ exports.ListFormatSymbols_cy_GB = {
  * List formatting symbols for locale da_DK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_da_DK = {
+export let ListFormatSymbols_da_DK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -1258,7 +1256,7 @@ exports.ListFormatSymbols_da_DK = {
  * List formatting symbols for locale da_GL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_da_GL = {
+export let ListFormatSymbols_da_GL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -1269,7 +1267,7 @@ exports.ListFormatSymbols_da_GL = {
  * List formatting symbols for locale dav.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dav = {
+export let ListFormatSymbols_dav = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1280,7 +1278,7 @@ exports.ListFormatSymbols_dav = {
  * List formatting symbols for locale dav_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dav_KE = {
+export let ListFormatSymbols_dav_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1291,7 +1289,7 @@ exports.ListFormatSymbols_dav_KE = {
  * List formatting symbols for locale de_BE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_de_BE = {
+export let ListFormatSymbols_de_BE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0} und {1}', '{0} und {1}'],
   OR_END: ['{0} oder {1}', '{0} oder {1}', '{0} oder {1}'],
@@ -1303,7 +1301,7 @@ exports.ListFormatSymbols_de_BE = {
  * List formatting symbols for locale de_DE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_de_DE = {
+export let ListFormatSymbols_de_DE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0} und {1}', '{0} und {1}'],
   OR_END: ['{0} oder {1}', '{0} oder {1}', '{0} oder {1}'],
@@ -1315,7 +1313,7 @@ exports.ListFormatSymbols_de_DE = {
  * List formatting symbols for locale de_IT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_de_IT = {
+export let ListFormatSymbols_de_IT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0} und {1}', '{0} und {1}'],
   OR_END: ['{0} oder {1}', '{0} oder {1}', '{0} oder {1}'],
@@ -1327,7 +1325,7 @@ exports.ListFormatSymbols_de_IT = {
  * List formatting symbols for locale de_LI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_de_LI = {
+export let ListFormatSymbols_de_LI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0} und {1}', '{0} und {1}'],
   OR_END: ['{0} oder {1}', '{0} oder {1}', '{0} oder {1}'],
@@ -1339,7 +1337,7 @@ exports.ListFormatSymbols_de_LI = {
  * List formatting symbols for locale de_LU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_de_LU = {
+export let ListFormatSymbols_de_LU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0} und {1}', '{0} und {1}'],
   OR_END: ['{0} oder {1}', '{0} oder {1}', '{0} oder {1}'],
@@ -1351,7 +1349,7 @@ exports.ListFormatSymbols_de_LU = {
  * List formatting symbols for locale dje.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dje = {
+export let ListFormatSymbols_dje = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1362,7 +1360,7 @@ exports.ListFormatSymbols_dje = {
  * List formatting symbols for locale dje_NE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dje_NE = {
+export let ListFormatSymbols_dje_NE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1373,7 +1371,7 @@ exports.ListFormatSymbols_dje_NE = {
  * List formatting symbols for locale doi.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_doi = {
+export let ListFormatSymbols_doi = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ते {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, ते {1}', '{0}, {1}', '{0}, {1}'],
@@ -1386,7 +1384,7 @@ exports.ListFormatSymbols_doi = {
  * List formatting symbols for locale doi_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_doi_IN = {
+export let ListFormatSymbols_doi_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ते {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, ते {1}', '{0}, {1}', '{0}, {1}'],
@@ -1399,7 +1397,7 @@ exports.ListFormatSymbols_doi_IN = {
  * List formatting symbols for locale dsb.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dsb = {
+export let ListFormatSymbols_dsb = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a {1}', '{0} a {1}', '{0} a {1}'],
   OR_END: ['{0} abo {1}', '{0} abo {1}', '{0} abo {1}'],
@@ -1411,7 +1409,7 @@ exports.ListFormatSymbols_dsb = {
  * List formatting symbols for locale dsb_DE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dsb_DE = {
+export let ListFormatSymbols_dsb_DE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a {1}', '{0} a {1}', '{0} a {1}'],
   OR_END: ['{0} abo {1}', '{0} abo {1}', '{0} abo {1}'],
@@ -1423,7 +1421,7 @@ exports.ListFormatSymbols_dsb_DE = {
  * List formatting symbols for locale dua.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dua = {
+export let ListFormatSymbols_dua = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1434,7 +1432,7 @@ exports.ListFormatSymbols_dua = {
  * List formatting symbols for locale dua_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dua_CM = {
+export let ListFormatSymbols_dua_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1445,7 +1443,7 @@ exports.ListFormatSymbols_dua_CM = {
  * List formatting symbols for locale dyo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dyo = {
+export let ListFormatSymbols_dyo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1456,7 +1454,7 @@ exports.ListFormatSymbols_dyo = {
  * List formatting symbols for locale dyo_SN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dyo_SN = {
+export let ListFormatSymbols_dyo_SN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1467,7 +1465,7 @@ exports.ListFormatSymbols_dyo_SN = {
  * List formatting symbols for locale dz.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dz = {
+export let ListFormatSymbols_dz = {
   AND_START: ['{0} དང་ {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} དང་ {1}', '{0}, {1}', '{0}, {1}'],
   OR_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
@@ -1482,7 +1480,7 @@ exports.ListFormatSymbols_dz = {
  * List formatting symbols for locale dz_BT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_dz_BT = {
+export let ListFormatSymbols_dz_BT = {
   AND_START: ['{0} དང་ {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} དང་ {1}', '{0}, {1}', '{0}, {1}'],
   OR_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
@@ -1497,7 +1495,7 @@ exports.ListFormatSymbols_dz_BT = {
  * List formatting symbols for locale ebu.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ebu = {
+export let ListFormatSymbols_ebu = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1508,7 +1506,7 @@ exports.ListFormatSymbols_ebu = {
  * List formatting symbols for locale ebu_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ebu_KE = {
+export let ListFormatSymbols_ebu_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -1519,7 +1517,7 @@ exports.ListFormatSymbols_ebu_KE = {
  * List formatting symbols for locale ee.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ee = {
+export let ListFormatSymbols_ee = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} kple {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, kple {1}', '{0}, {1}', '{0}, {1}'],
@@ -1533,7 +1531,7 @@ exports.ListFormatSymbols_ee = {
  * List formatting symbols for locale ee_GH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ee_GH = {
+export let ListFormatSymbols_ee_GH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} kple {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, kple {1}', '{0}, {1}', '{0}, {1}'],
@@ -1547,7 +1545,7 @@ exports.ListFormatSymbols_ee_GH = {
  * List formatting symbols for locale ee_TG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ee_TG = {
+export let ListFormatSymbols_ee_TG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} kple {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, kple {1}', '{0}, {1}', '{0}, {1}'],
@@ -1561,7 +1559,7 @@ exports.ListFormatSymbols_ee_TG = {
  * List formatting symbols for locale el_CY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_el_CY = {
+export let ListFormatSymbols_el_CY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} και {1}', '{0} και {1}', '{0}, {1}'],
   OR_END: ['{0} ή {1}', '{0} ή {1}', '{0} ή {1}'],
@@ -1574,7 +1572,7 @@ exports.ListFormatSymbols_el_CY = {
  * List formatting symbols for locale el_GR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_el_GR = {
+export let ListFormatSymbols_el_GR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} και {1}', '{0} και {1}', '{0}, {1}'],
   OR_END: ['{0} ή {1}', '{0} ή {1}', '{0} ή {1}'],
@@ -1587,7 +1585,7 @@ exports.ListFormatSymbols_el_GR = {
  * List formatting symbols for locale en_001.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_001 = {
+export let ListFormatSymbols_en_001 = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1600,7 +1598,7 @@ exports.ListFormatSymbols_en_001 = {
  * List formatting symbols for locale en_150.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_150 = {
+export let ListFormatSymbols_en_150 = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1613,7 +1611,7 @@ exports.ListFormatSymbols_en_150 = {
  * List formatting symbols for locale en_AE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_AE = {
+export let ListFormatSymbols_en_AE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -1628,7 +1626,7 @@ exports.ListFormatSymbols_en_AE = {
  * List formatting symbols for locale en_AG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_AG = {
+export let ListFormatSymbols_en_AG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1641,7 +1639,7 @@ exports.ListFormatSymbols_en_AG = {
  * List formatting symbols for locale en_AI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_AI = {
+export let ListFormatSymbols_en_AI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1654,7 +1652,7 @@ exports.ListFormatSymbols_en_AI = {
  * List formatting symbols for locale en_AS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_AS = {
+export let ListFormatSymbols_en_AS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -1669,7 +1667,7 @@ exports.ListFormatSymbols_en_AS = {
  * List formatting symbols for locale en_AT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_AT = {
+export let ListFormatSymbols_en_AT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1682,7 +1680,7 @@ exports.ListFormatSymbols_en_AT = {
  * List formatting symbols for locale en_BB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BB = {
+export let ListFormatSymbols_en_BB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1695,7 +1693,7 @@ exports.ListFormatSymbols_en_BB = {
  * List formatting symbols for locale en_BE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BE = {
+export let ListFormatSymbols_en_BE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1708,7 +1706,7 @@ exports.ListFormatSymbols_en_BE = {
  * List formatting symbols for locale en_BI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BI = {
+export let ListFormatSymbols_en_BI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -1723,7 +1721,7 @@ exports.ListFormatSymbols_en_BI = {
  * List formatting symbols for locale en_BM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BM = {
+export let ListFormatSymbols_en_BM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1736,7 +1734,7 @@ exports.ListFormatSymbols_en_BM = {
  * List formatting symbols for locale en_BS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BS = {
+export let ListFormatSymbols_en_BS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1749,7 +1747,7 @@ exports.ListFormatSymbols_en_BS = {
  * List formatting symbols for locale en_BW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BW = {
+export let ListFormatSymbols_en_BW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1762,7 +1760,7 @@ exports.ListFormatSymbols_en_BW = {
  * List formatting symbols for locale en_BZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_BZ = {
+export let ListFormatSymbols_en_BZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1775,7 +1773,7 @@ exports.ListFormatSymbols_en_BZ = {
  * List formatting symbols for locale en_CC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_CC = {
+export let ListFormatSymbols_en_CC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1788,7 +1786,7 @@ exports.ListFormatSymbols_en_CC = {
  * List formatting symbols for locale en_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_CH = {
+export let ListFormatSymbols_en_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1801,7 +1799,7 @@ exports.ListFormatSymbols_en_CH = {
  * List formatting symbols for locale en_CK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_CK = {
+export let ListFormatSymbols_en_CK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1814,7 +1812,7 @@ exports.ListFormatSymbols_en_CK = {
  * List formatting symbols for locale en_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_CM = {
+export let ListFormatSymbols_en_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1827,7 +1825,7 @@ exports.ListFormatSymbols_en_CM = {
  * List formatting symbols for locale en_CX.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_CX = {
+export let ListFormatSymbols_en_CX = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1840,7 +1838,7 @@ exports.ListFormatSymbols_en_CX = {
  * List formatting symbols for locale en_CY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_CY = {
+export let ListFormatSymbols_en_CY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1853,7 +1851,7 @@ exports.ListFormatSymbols_en_CY = {
  * List formatting symbols for locale en_DE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_DE = {
+export let ListFormatSymbols_en_DE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1866,7 +1864,7 @@ exports.ListFormatSymbols_en_DE = {
  * List formatting symbols for locale en_DG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_DG = {
+export let ListFormatSymbols_en_DG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1879,7 +1877,7 @@ exports.ListFormatSymbols_en_DG = {
  * List formatting symbols for locale en_DK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_DK = {
+export let ListFormatSymbols_en_DK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1892,7 +1890,7 @@ exports.ListFormatSymbols_en_DK = {
  * List formatting symbols for locale en_DM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_DM = {
+export let ListFormatSymbols_en_DM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1905,7 +1903,7 @@ exports.ListFormatSymbols_en_DM = {
  * List formatting symbols for locale en_ER.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_ER = {
+export let ListFormatSymbols_en_ER = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1918,7 +1916,7 @@ exports.ListFormatSymbols_en_ER = {
  * List formatting symbols for locale en_FI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_FI = {
+export let ListFormatSymbols_en_FI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1931,7 +1929,7 @@ exports.ListFormatSymbols_en_FI = {
  * List formatting symbols for locale en_FJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_FJ = {
+export let ListFormatSymbols_en_FJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1944,7 +1942,7 @@ exports.ListFormatSymbols_en_FJ = {
  * List formatting symbols for locale en_FK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_FK = {
+export let ListFormatSymbols_en_FK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1957,7 +1955,7 @@ exports.ListFormatSymbols_en_FK = {
  * List formatting symbols for locale en_FM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_FM = {
+export let ListFormatSymbols_en_FM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1970,7 +1968,7 @@ exports.ListFormatSymbols_en_FM = {
  * List formatting symbols for locale en_GD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GD = {
+export let ListFormatSymbols_en_GD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1983,7 +1981,7 @@ exports.ListFormatSymbols_en_GD = {
  * List formatting symbols for locale en_GG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GG = {
+export let ListFormatSymbols_en_GG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -1996,7 +1994,7 @@ exports.ListFormatSymbols_en_GG = {
  * List formatting symbols for locale en_GH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GH = {
+export let ListFormatSymbols_en_GH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2009,7 +2007,7 @@ exports.ListFormatSymbols_en_GH = {
  * List formatting symbols for locale en_GI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GI = {
+export let ListFormatSymbols_en_GI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2022,7 +2020,7 @@ exports.ListFormatSymbols_en_GI = {
  * List formatting symbols for locale en_GM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GM = {
+export let ListFormatSymbols_en_GM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2035,7 +2033,7 @@ exports.ListFormatSymbols_en_GM = {
  * List formatting symbols for locale en_GU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GU = {
+export let ListFormatSymbols_en_GU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2050,7 +2048,7 @@ exports.ListFormatSymbols_en_GU = {
  * List formatting symbols for locale en_GY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_GY = {
+export let ListFormatSymbols_en_GY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2063,7 +2061,7 @@ exports.ListFormatSymbols_en_GY = {
  * List formatting symbols for locale en_HK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_HK = {
+export let ListFormatSymbols_en_HK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2076,7 +2074,7 @@ exports.ListFormatSymbols_en_HK = {
  * List formatting symbols for locale en_IL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_IL = {
+export let ListFormatSymbols_en_IL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2089,7 +2087,7 @@ exports.ListFormatSymbols_en_IL = {
  * List formatting symbols for locale en_IM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_IM = {
+export let ListFormatSymbols_en_IM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2102,7 +2100,7 @@ exports.ListFormatSymbols_en_IM = {
  * List formatting symbols for locale en_IO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_IO = {
+export let ListFormatSymbols_en_IO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2115,7 +2113,7 @@ exports.ListFormatSymbols_en_IO = {
  * List formatting symbols for locale en_JE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_JE = {
+export let ListFormatSymbols_en_JE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2128,7 +2126,7 @@ exports.ListFormatSymbols_en_JE = {
  * List formatting symbols for locale en_JM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_JM = {
+export let ListFormatSymbols_en_JM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2141,7 +2139,7 @@ exports.ListFormatSymbols_en_JM = {
  * List formatting symbols for locale en_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_KE = {
+export let ListFormatSymbols_en_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2154,7 +2152,7 @@ exports.ListFormatSymbols_en_KE = {
  * List formatting symbols for locale en_KI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_KI = {
+export let ListFormatSymbols_en_KI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2167,7 +2165,7 @@ exports.ListFormatSymbols_en_KI = {
  * List formatting symbols for locale en_KN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_KN = {
+export let ListFormatSymbols_en_KN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2180,7 +2178,7 @@ exports.ListFormatSymbols_en_KN = {
  * List formatting symbols for locale en_KY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_KY = {
+export let ListFormatSymbols_en_KY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2193,7 +2191,7 @@ exports.ListFormatSymbols_en_KY = {
  * List formatting symbols for locale en_LC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_LC = {
+export let ListFormatSymbols_en_LC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2206,7 +2204,7 @@ exports.ListFormatSymbols_en_LC = {
  * List formatting symbols for locale en_LR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_LR = {
+export let ListFormatSymbols_en_LR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2219,7 +2217,7 @@ exports.ListFormatSymbols_en_LR = {
  * List formatting symbols for locale en_LS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_LS = {
+export let ListFormatSymbols_en_LS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2232,7 +2230,7 @@ exports.ListFormatSymbols_en_LS = {
  * List formatting symbols for locale en_MG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MG = {
+export let ListFormatSymbols_en_MG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2245,7 +2243,7 @@ exports.ListFormatSymbols_en_MG = {
  * List formatting symbols for locale en_MH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MH = {
+export let ListFormatSymbols_en_MH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2260,7 +2258,7 @@ exports.ListFormatSymbols_en_MH = {
  * List formatting symbols for locale en_MO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MO = {
+export let ListFormatSymbols_en_MO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2273,7 +2271,7 @@ exports.ListFormatSymbols_en_MO = {
  * List formatting symbols for locale en_MP.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MP = {
+export let ListFormatSymbols_en_MP = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2288,7 +2286,7 @@ exports.ListFormatSymbols_en_MP = {
  * List formatting symbols for locale en_MS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MS = {
+export let ListFormatSymbols_en_MS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2301,7 +2299,7 @@ exports.ListFormatSymbols_en_MS = {
  * List formatting symbols for locale en_MT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MT = {
+export let ListFormatSymbols_en_MT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2314,7 +2312,7 @@ exports.ListFormatSymbols_en_MT = {
  * List formatting symbols for locale en_MU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MU = {
+export let ListFormatSymbols_en_MU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2327,7 +2325,7 @@ exports.ListFormatSymbols_en_MU = {
  * List formatting symbols for locale en_MV.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MV = {
+export let ListFormatSymbols_en_MV = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2340,7 +2338,7 @@ exports.ListFormatSymbols_en_MV = {
  * List formatting symbols for locale en_MW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MW = {
+export let ListFormatSymbols_en_MW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2353,7 +2351,7 @@ exports.ListFormatSymbols_en_MW = {
  * List formatting symbols for locale en_MY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_MY = {
+export let ListFormatSymbols_en_MY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2366,7 +2364,7 @@ exports.ListFormatSymbols_en_MY = {
  * List formatting symbols for locale en_NA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NA = {
+export let ListFormatSymbols_en_NA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2379,7 +2377,7 @@ exports.ListFormatSymbols_en_NA = {
  * List formatting symbols for locale en_NF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NF = {
+export let ListFormatSymbols_en_NF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2392,7 +2390,7 @@ exports.ListFormatSymbols_en_NF = {
  * List formatting symbols for locale en_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NG = {
+export let ListFormatSymbols_en_NG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2405,7 +2403,7 @@ exports.ListFormatSymbols_en_NG = {
  * List formatting symbols for locale en_NL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NL = {
+export let ListFormatSymbols_en_NL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2418,7 +2416,7 @@ exports.ListFormatSymbols_en_NL = {
  * List formatting symbols for locale en_NR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NR = {
+export let ListFormatSymbols_en_NR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2431,7 +2429,7 @@ exports.ListFormatSymbols_en_NR = {
  * List formatting symbols for locale en_NU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NU = {
+export let ListFormatSymbols_en_NU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2444,7 +2442,7 @@ exports.ListFormatSymbols_en_NU = {
  * List formatting symbols for locale en_NZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_NZ = {
+export let ListFormatSymbols_en_NZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2457,7 +2455,7 @@ exports.ListFormatSymbols_en_NZ = {
  * List formatting symbols for locale en_PG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_PG = {
+export let ListFormatSymbols_en_PG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2470,7 +2468,7 @@ exports.ListFormatSymbols_en_PG = {
  * List formatting symbols for locale en_PH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_PH = {
+export let ListFormatSymbols_en_PH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2485,7 +2483,7 @@ exports.ListFormatSymbols_en_PH = {
  * List formatting symbols for locale en_PK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_PK = {
+export let ListFormatSymbols_en_PK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2498,7 +2496,7 @@ exports.ListFormatSymbols_en_PK = {
  * List formatting symbols for locale en_PN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_PN = {
+export let ListFormatSymbols_en_PN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2511,7 +2509,7 @@ exports.ListFormatSymbols_en_PN = {
  * List formatting symbols for locale en_PR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_PR = {
+export let ListFormatSymbols_en_PR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2526,7 +2524,7 @@ exports.ListFormatSymbols_en_PR = {
  * List formatting symbols for locale en_PW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_PW = {
+export let ListFormatSymbols_en_PW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2539,7 +2537,7 @@ exports.ListFormatSymbols_en_PW = {
  * List formatting symbols for locale en_RW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_RW = {
+export let ListFormatSymbols_en_RW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2552,7 +2550,7 @@ exports.ListFormatSymbols_en_RW = {
  * List formatting symbols for locale en_SB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SB = {
+export let ListFormatSymbols_en_SB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2565,7 +2563,7 @@ exports.ListFormatSymbols_en_SB = {
  * List formatting symbols for locale en_SC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SC = {
+export let ListFormatSymbols_en_SC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2578,7 +2576,7 @@ exports.ListFormatSymbols_en_SC = {
  * List formatting symbols for locale en_SD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SD = {
+export let ListFormatSymbols_en_SD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2591,7 +2589,7 @@ exports.ListFormatSymbols_en_SD = {
  * List formatting symbols for locale en_SE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SE = {
+export let ListFormatSymbols_en_SE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2604,7 +2602,7 @@ exports.ListFormatSymbols_en_SE = {
  * List formatting symbols for locale en_SH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SH = {
+export let ListFormatSymbols_en_SH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2617,7 +2615,7 @@ exports.ListFormatSymbols_en_SH = {
  * List formatting symbols for locale en_SI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SI = {
+export let ListFormatSymbols_en_SI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2630,7 +2628,7 @@ exports.ListFormatSymbols_en_SI = {
  * List formatting symbols for locale en_SL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SL = {
+export let ListFormatSymbols_en_SL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2643,7 +2641,7 @@ exports.ListFormatSymbols_en_SL = {
  * List formatting symbols for locale en_SS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SS = {
+export let ListFormatSymbols_en_SS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2656,7 +2654,7 @@ exports.ListFormatSymbols_en_SS = {
  * List formatting symbols for locale en_SX.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SX = {
+export let ListFormatSymbols_en_SX = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2669,7 +2667,7 @@ exports.ListFormatSymbols_en_SX = {
  * List formatting symbols for locale en_SZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_SZ = {
+export let ListFormatSymbols_en_SZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2682,7 +2680,7 @@ exports.ListFormatSymbols_en_SZ = {
  * List formatting symbols for locale en_TC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_TC = {
+export let ListFormatSymbols_en_TC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2695,7 +2693,7 @@ exports.ListFormatSymbols_en_TC = {
  * List formatting symbols for locale en_TK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_TK = {
+export let ListFormatSymbols_en_TK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2708,7 +2706,7 @@ exports.ListFormatSymbols_en_TK = {
  * List formatting symbols for locale en_TO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_TO = {
+export let ListFormatSymbols_en_TO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2721,7 +2719,7 @@ exports.ListFormatSymbols_en_TO = {
  * List formatting symbols for locale en_TT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_TT = {
+export let ListFormatSymbols_en_TT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2734,7 +2732,7 @@ exports.ListFormatSymbols_en_TT = {
  * List formatting symbols for locale en_TV.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_TV = {
+export let ListFormatSymbols_en_TV = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2747,7 +2745,7 @@ exports.ListFormatSymbols_en_TV = {
  * List formatting symbols for locale en_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_TZ = {
+export let ListFormatSymbols_en_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2760,7 +2758,7 @@ exports.ListFormatSymbols_en_TZ = {
  * List formatting symbols for locale en_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_UG = {
+export let ListFormatSymbols_en_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2773,7 +2771,7 @@ exports.ListFormatSymbols_en_UG = {
  * List formatting symbols for locale en_UM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_UM = {
+export let ListFormatSymbols_en_UM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2788,7 +2786,7 @@ exports.ListFormatSymbols_en_UM = {
  * List formatting symbols for locale en_US_POSIX.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_US_POSIX = {
+export let ListFormatSymbols_en_US_POSIX = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2803,7 +2801,7 @@ exports.ListFormatSymbols_en_US_POSIX = {
  * List formatting symbols for locale en_VC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_VC = {
+export let ListFormatSymbols_en_VC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2816,7 +2814,7 @@ exports.ListFormatSymbols_en_VC = {
  * List formatting symbols for locale en_VG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_VG = {
+export let ListFormatSymbols_en_VG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2829,7 +2827,7 @@ exports.ListFormatSymbols_en_VG = {
  * List formatting symbols for locale en_VI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_VI = {
+export let ListFormatSymbols_en_VI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, & {1}', '{0}, {1}'],
@@ -2844,7 +2842,7 @@ exports.ListFormatSymbols_en_VI = {
  * List formatting symbols for locale en_VU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_VU = {
+export let ListFormatSymbols_en_VU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2857,7 +2855,7 @@ exports.ListFormatSymbols_en_VU = {
  * List formatting symbols for locale en_WS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_WS = {
+export let ListFormatSymbols_en_WS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2870,7 +2868,7 @@ exports.ListFormatSymbols_en_WS = {
  * List formatting symbols for locale en_XA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_XA = {
+export let ListFormatSymbols_en_XA = {
   AND_START: ['[{0}، {1} one two]', '[{0}، {1} one two]', '{0}, {1}'],
   AND_TWO: ['[{0} åñð {1} one two]', '[{0} ⅋ {1} one two]', '{0}, {1}'],
   AND_END: ['[{0}، åñð {1} one two]', '[{0}، ⅋ {1} one two]', '{0}, {1}'],
@@ -2887,7 +2885,7 @@ exports.ListFormatSymbols_en_XA = {
  * List formatting symbols for locale en_ZM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_ZM = {
+export let ListFormatSymbols_en_ZM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2900,7 +2898,7 @@ exports.ListFormatSymbols_en_ZM = {
  * List formatting symbols for locale en_ZW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_en_ZW = {
+export let ListFormatSymbols_en_ZW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} and {1}', '{0} and {1}', '{0}, {1}'],
   OR_END: ['{0} or {1}', '{0} or {1}', '{0} or {1}'],
@@ -2913,7 +2911,7 @@ exports.ListFormatSymbols_en_ZW = {
  * List formatting symbols for locale eo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_eo = {
+export let ListFormatSymbols_eo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -2924,7 +2922,7 @@ exports.ListFormatSymbols_eo = {
  * List formatting symbols for locale eo_001.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_eo_001 = {
+export let ListFormatSymbols_eo_001 = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -2935,7 +2933,7 @@ exports.ListFormatSymbols_eo_001 = {
  * List formatting symbols for locale es_AR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_AR = {
+export let ListFormatSymbols_es_AR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -2949,7 +2947,7 @@ exports.ListFormatSymbols_es_AR = {
  * List formatting symbols for locale es_BO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_BO = {
+export let ListFormatSymbols_es_BO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -2963,7 +2961,7 @@ exports.ListFormatSymbols_es_BO = {
  * List formatting symbols for locale es_BR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_BR = {
+export let ListFormatSymbols_es_BR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -2977,7 +2975,7 @@ exports.ListFormatSymbols_es_BR = {
  * List formatting symbols for locale es_BZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_BZ = {
+export let ListFormatSymbols_es_BZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -2991,7 +2989,7 @@ exports.ListFormatSymbols_es_BZ = {
  * List formatting symbols for locale es_CL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_CL = {
+export let ListFormatSymbols_es_CL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3005,7 +3003,7 @@ exports.ListFormatSymbols_es_CL = {
  * List formatting symbols for locale es_CO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_CO = {
+export let ListFormatSymbols_es_CO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3019,7 +3017,7 @@ exports.ListFormatSymbols_es_CO = {
  * List formatting symbols for locale es_CR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_CR = {
+export let ListFormatSymbols_es_CR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3033,7 +3031,7 @@ exports.ListFormatSymbols_es_CR = {
  * List formatting symbols for locale es_CU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_CU = {
+export let ListFormatSymbols_es_CU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3047,7 +3045,7 @@ exports.ListFormatSymbols_es_CU = {
  * List formatting symbols for locale es_DO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_DO = {
+export let ListFormatSymbols_es_DO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3061,7 +3059,7 @@ exports.ListFormatSymbols_es_DO = {
  * List formatting symbols for locale es_EA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_EA = {
+export let ListFormatSymbols_es_EA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3075,7 +3073,7 @@ exports.ListFormatSymbols_es_EA = {
  * List formatting symbols for locale es_EC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_EC = {
+export let ListFormatSymbols_es_EC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3089,7 +3087,7 @@ exports.ListFormatSymbols_es_EC = {
  * List formatting symbols for locale es_GQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_GQ = {
+export let ListFormatSymbols_es_GQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3103,7 +3101,7 @@ exports.ListFormatSymbols_es_GQ = {
  * List formatting symbols for locale es_GT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_GT = {
+export let ListFormatSymbols_es_GT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3117,7 +3115,7 @@ exports.ListFormatSymbols_es_GT = {
  * List formatting symbols for locale es_HN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_HN = {
+export let ListFormatSymbols_es_HN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3131,7 +3129,7 @@ exports.ListFormatSymbols_es_HN = {
  * List formatting symbols for locale es_IC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_IC = {
+export let ListFormatSymbols_es_IC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3145,7 +3143,7 @@ exports.ListFormatSymbols_es_IC = {
  * List formatting symbols for locale es_NI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_NI = {
+export let ListFormatSymbols_es_NI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3159,7 +3157,7 @@ exports.ListFormatSymbols_es_NI = {
  * List formatting symbols for locale es_PA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_PA = {
+export let ListFormatSymbols_es_PA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3173,7 +3171,7 @@ exports.ListFormatSymbols_es_PA = {
  * List formatting symbols for locale es_PE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_PE = {
+export let ListFormatSymbols_es_PE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3187,7 +3185,7 @@ exports.ListFormatSymbols_es_PE = {
  * List formatting symbols for locale es_PH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_PH = {
+export let ListFormatSymbols_es_PH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3201,7 +3199,7 @@ exports.ListFormatSymbols_es_PH = {
  * List formatting symbols for locale es_PR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_PR = {
+export let ListFormatSymbols_es_PR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3215,7 +3213,7 @@ exports.ListFormatSymbols_es_PR = {
  * List formatting symbols for locale es_PY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_PY = {
+export let ListFormatSymbols_es_PY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3228,7 +3226,7 @@ exports.ListFormatSymbols_es_PY = {
  * List formatting symbols for locale es_SV.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_SV = {
+export let ListFormatSymbols_es_SV = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3242,7 +3240,7 @@ exports.ListFormatSymbols_es_SV = {
  * List formatting symbols for locale es_UY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_UY = {
+export let ListFormatSymbols_es_UY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3256,7 +3254,7 @@ exports.ListFormatSymbols_es_UY = {
  * List formatting symbols for locale es_VE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_es_VE = {
+export let ListFormatSymbols_es_VE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} y {1}', '{0} y {1}', '{0} y {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -3270,7 +3268,7 @@ exports.ListFormatSymbols_es_VE = {
  * List formatting symbols for locale et_EE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_et_EE = {
+export let ListFormatSymbols_et_EE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ja {1}', '{0} ja {1}', '{0}, {1}'],
   OR_END: ['{0} või {1}', '{0} või {1}', '{0} või {1}'],
@@ -3283,7 +3281,7 @@ exports.ListFormatSymbols_et_EE = {
  * List formatting symbols for locale eu_ES.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_eu_ES = {
+export let ListFormatSymbols_eu_ES = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} eta {1}', '{0} eta {1}', '{0}, {1}'],
   OR_END: ['{0} edo {1}', '{0} edo {1}', '{0} edo {1}'],
@@ -3294,7 +3292,7 @@ exports.ListFormatSymbols_eu_ES = {
  * List formatting symbols for locale ewo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ewo = {
+export let ListFormatSymbols_ewo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3305,7 +3303,7 @@ exports.ListFormatSymbols_ewo = {
  * List formatting symbols for locale ewo_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ewo_CM = {
+export let ListFormatSymbols_ewo_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3316,7 +3314,7 @@ exports.ListFormatSymbols_ewo_CM = {
  * List formatting symbols for locale fa_AF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fa_AF = {
+export let ListFormatSymbols_fa_AF = {
   AND_START: ['{0}،‏ {1}', '{0}،‏ {1}', '{0}،‏ {1}'],
   AND_TWO: ['{0} و {1}', '{0} و {1}', '{0}،‏ {1}'],
   AND_END: ['{0}، و {1}', '{0}، و {1}', '{0}،‏ {1}'],
@@ -3332,7 +3330,7 @@ exports.ListFormatSymbols_fa_AF = {
  * List formatting symbols for locale fa_IR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fa_IR = {
+export let ListFormatSymbols_fa_IR = {
   AND_START: ['{0}،‏ {1}', '{0}،‏ {1}', '{0}،‏ {1}'],
   AND_TWO: ['{0} و {1}', '{0} و {1}', '{0}،‏ {1}'],
   AND_END: ['{0}، و {1}', '{0}، و {1}', '{0}،‏ {1}'],
@@ -3348,7 +3346,7 @@ exports.ListFormatSymbols_fa_IR = {
  * List formatting symbols for locale ff.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff = {
+export let ListFormatSymbols_ff = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3359,7 +3357,7 @@ exports.ListFormatSymbols_ff = {
  * List formatting symbols for locale ff_Adlm.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm = {
+export let ListFormatSymbols_ff_Adlm = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3375,7 +3373,7 @@ exports.ListFormatSymbols_ff_Adlm = {
  * List formatting symbols for locale ff_Adlm_BF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_BF = {
+export let ListFormatSymbols_ff_Adlm_BF = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3391,7 +3389,7 @@ exports.ListFormatSymbols_ff_Adlm_BF = {
  * List formatting symbols for locale ff_Adlm_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_CM = {
+export let ListFormatSymbols_ff_Adlm_CM = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3407,7 +3405,7 @@ exports.ListFormatSymbols_ff_Adlm_CM = {
  * List formatting symbols for locale ff_Adlm_GH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_GH = {
+export let ListFormatSymbols_ff_Adlm_GH = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3423,7 +3421,7 @@ exports.ListFormatSymbols_ff_Adlm_GH = {
  * List formatting symbols for locale ff_Adlm_GM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_GM = {
+export let ListFormatSymbols_ff_Adlm_GM = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3439,7 +3437,7 @@ exports.ListFormatSymbols_ff_Adlm_GM = {
  * List formatting symbols for locale ff_Adlm_GN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_GN = {
+export let ListFormatSymbols_ff_Adlm_GN = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3455,7 +3453,7 @@ exports.ListFormatSymbols_ff_Adlm_GN = {
  * List formatting symbols for locale ff_Adlm_GW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_GW = {
+export let ListFormatSymbols_ff_Adlm_GW = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3471,7 +3469,7 @@ exports.ListFormatSymbols_ff_Adlm_GW = {
  * List formatting symbols for locale ff_Adlm_LR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_LR = {
+export let ListFormatSymbols_ff_Adlm_LR = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3487,7 +3485,7 @@ exports.ListFormatSymbols_ff_Adlm_LR = {
  * List formatting symbols for locale ff_Adlm_MR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_MR = {
+export let ListFormatSymbols_ff_Adlm_MR = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3503,7 +3501,7 @@ exports.ListFormatSymbols_ff_Adlm_MR = {
  * List formatting symbols for locale ff_Adlm_NE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_NE = {
+export let ListFormatSymbols_ff_Adlm_NE = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3519,7 +3517,7 @@ exports.ListFormatSymbols_ff_Adlm_NE = {
  * List formatting symbols for locale ff_Adlm_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_NG = {
+export let ListFormatSymbols_ff_Adlm_NG = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3535,7 +3533,7 @@ exports.ListFormatSymbols_ff_Adlm_NG = {
  * List formatting symbols for locale ff_Adlm_SL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_SL = {
+export let ListFormatSymbols_ff_Adlm_SL = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3551,7 +3549,7 @@ exports.ListFormatSymbols_ff_Adlm_SL = {
  * List formatting symbols for locale ff_Adlm_SN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Adlm_SN = {
+export let ListFormatSymbols_ff_Adlm_SN = {
   AND_START: ['{0}⹁ {1}', '{0}⹁ {1}', '{0}⹁ {1}'],
   AND_TWO: ['{0} 𞤫 {1}', '{0} & {1}', '{0}⹁ {1}'],
   AND_END: ['{0}⹁ 𞤫 {1}', '{0}⹁ & {1}', '{0}⹁ {1}'],
@@ -3567,7 +3565,7 @@ exports.ListFormatSymbols_ff_Adlm_SN = {
  * List formatting symbols for locale ff_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn = {
+export let ListFormatSymbols_ff_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3578,7 +3576,7 @@ exports.ListFormatSymbols_ff_Latn = {
  * List formatting symbols for locale ff_Latn_BF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_BF = {
+export let ListFormatSymbols_ff_Latn_BF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3589,7 +3587,7 @@ exports.ListFormatSymbols_ff_Latn_BF = {
  * List formatting symbols for locale ff_Latn_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_CM = {
+export let ListFormatSymbols_ff_Latn_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3600,7 +3598,7 @@ exports.ListFormatSymbols_ff_Latn_CM = {
  * List formatting symbols for locale ff_Latn_GH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_GH = {
+export let ListFormatSymbols_ff_Latn_GH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3611,7 +3609,7 @@ exports.ListFormatSymbols_ff_Latn_GH = {
  * List formatting symbols for locale ff_Latn_GM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_GM = {
+export let ListFormatSymbols_ff_Latn_GM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3622,7 +3620,7 @@ exports.ListFormatSymbols_ff_Latn_GM = {
  * List formatting symbols for locale ff_Latn_GN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_GN = {
+export let ListFormatSymbols_ff_Latn_GN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3633,7 +3631,7 @@ exports.ListFormatSymbols_ff_Latn_GN = {
  * List formatting symbols for locale ff_Latn_GW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_GW = {
+export let ListFormatSymbols_ff_Latn_GW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3644,7 +3642,7 @@ exports.ListFormatSymbols_ff_Latn_GW = {
  * List formatting symbols for locale ff_Latn_LR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_LR = {
+export let ListFormatSymbols_ff_Latn_LR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3655,7 +3653,7 @@ exports.ListFormatSymbols_ff_Latn_LR = {
  * List formatting symbols for locale ff_Latn_MR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_MR = {
+export let ListFormatSymbols_ff_Latn_MR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3666,7 +3664,7 @@ exports.ListFormatSymbols_ff_Latn_MR = {
  * List formatting symbols for locale ff_Latn_NE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_NE = {
+export let ListFormatSymbols_ff_Latn_NE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3677,7 +3675,7 @@ exports.ListFormatSymbols_ff_Latn_NE = {
  * List formatting symbols for locale ff_Latn_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_NG = {
+export let ListFormatSymbols_ff_Latn_NG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3688,7 +3686,7 @@ exports.ListFormatSymbols_ff_Latn_NG = {
  * List formatting symbols for locale ff_Latn_SL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_SL = {
+export let ListFormatSymbols_ff_Latn_SL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3699,7 +3697,7 @@ exports.ListFormatSymbols_ff_Latn_SL = {
  * List formatting symbols for locale ff_Latn_SN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ff_Latn_SN = {
+export let ListFormatSymbols_ff_Latn_SN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -3710,7 +3708,7 @@ exports.ListFormatSymbols_ff_Latn_SN = {
  * List formatting symbols for locale fi_FI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fi_FI = {
+export let ListFormatSymbols_fi_FI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ja {1}', '{0} ja {1}', '{0} ja {1}'],
   OR_END: ['{0} tai {1}', '{0} tai {1}', '{0} tai {1}'],
@@ -3723,7 +3721,7 @@ exports.ListFormatSymbols_fi_FI = {
  * List formatting symbols for locale fil_PH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fil_PH = {
+export let ListFormatSymbols_fil_PH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} at {1}', '{0} at {1}', '{0}, {1}'],
   AND_END: ['{0}, at {1}', '{0}, at {1}', '{0}, {1}'],
@@ -3738,7 +3736,7 @@ exports.ListFormatSymbols_fil_PH = {
  * List formatting symbols for locale fo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fo = {
+export let ListFormatSymbols_fo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0}, ella {1}', '{0}, ella {1}', '{0}, ella {1}'],
@@ -3752,7 +3750,7 @@ exports.ListFormatSymbols_fo = {
  * List formatting symbols for locale fo_DK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fo_DK = {
+export let ListFormatSymbols_fo_DK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0}, ella {1}', '{0}, ella {1}', '{0}, ella {1}'],
@@ -3766,7 +3764,7 @@ exports.ListFormatSymbols_fo_DK = {
  * List formatting symbols for locale fo_FO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fo_FO = {
+export let ListFormatSymbols_fo_FO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0}, ella {1}', '{0}, ella {1}', '{0}, ella {1}'],
@@ -3780,7 +3778,7 @@ exports.ListFormatSymbols_fo_FO = {
  * List formatting symbols for locale fr_BE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_BE = {
+export let ListFormatSymbols_fr_BE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3793,7 +3791,7 @@ exports.ListFormatSymbols_fr_BE = {
  * List formatting symbols for locale fr_BF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_BF = {
+export let ListFormatSymbols_fr_BF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3806,7 +3804,7 @@ exports.ListFormatSymbols_fr_BF = {
  * List formatting symbols for locale fr_BI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_BI = {
+export let ListFormatSymbols_fr_BI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3819,7 +3817,7 @@ exports.ListFormatSymbols_fr_BI = {
  * List formatting symbols for locale fr_BJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_BJ = {
+export let ListFormatSymbols_fr_BJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3832,7 +3830,7 @@ exports.ListFormatSymbols_fr_BJ = {
  * List formatting symbols for locale fr_BL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_BL = {
+export let ListFormatSymbols_fr_BL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3845,7 +3843,7 @@ exports.ListFormatSymbols_fr_BL = {
  * List formatting symbols for locale fr_CD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_CD = {
+export let ListFormatSymbols_fr_CD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3858,7 +3856,7 @@ exports.ListFormatSymbols_fr_CD = {
  * List formatting symbols for locale fr_CF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_CF = {
+export let ListFormatSymbols_fr_CF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3871,7 +3869,7 @@ exports.ListFormatSymbols_fr_CF = {
  * List formatting symbols for locale fr_CG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_CG = {
+export let ListFormatSymbols_fr_CG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3884,7 +3882,7 @@ exports.ListFormatSymbols_fr_CG = {
  * List formatting symbols for locale fr_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_CH = {
+export let ListFormatSymbols_fr_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3897,7 +3895,7 @@ exports.ListFormatSymbols_fr_CH = {
  * List formatting symbols for locale fr_CI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_CI = {
+export let ListFormatSymbols_fr_CI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3910,7 +3908,7 @@ exports.ListFormatSymbols_fr_CI = {
  * List formatting symbols for locale fr_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_CM = {
+export let ListFormatSymbols_fr_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3923,7 +3921,7 @@ exports.ListFormatSymbols_fr_CM = {
  * List formatting symbols for locale fr_DJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_DJ = {
+export let ListFormatSymbols_fr_DJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3936,7 +3934,7 @@ exports.ListFormatSymbols_fr_DJ = {
  * List formatting symbols for locale fr_DZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_DZ = {
+export let ListFormatSymbols_fr_DZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3949,7 +3947,7 @@ exports.ListFormatSymbols_fr_DZ = {
  * List formatting symbols for locale fr_FR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_FR = {
+export let ListFormatSymbols_fr_FR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3962,7 +3960,7 @@ exports.ListFormatSymbols_fr_FR = {
  * List formatting symbols for locale fr_GA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_GA = {
+export let ListFormatSymbols_fr_GA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3975,7 +3973,7 @@ exports.ListFormatSymbols_fr_GA = {
  * List formatting symbols for locale fr_GF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_GF = {
+export let ListFormatSymbols_fr_GF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -3988,7 +3986,7 @@ exports.ListFormatSymbols_fr_GF = {
  * List formatting symbols for locale fr_GN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_GN = {
+export let ListFormatSymbols_fr_GN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4001,7 +3999,7 @@ exports.ListFormatSymbols_fr_GN = {
  * List formatting symbols for locale fr_GP.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_GP = {
+export let ListFormatSymbols_fr_GP = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4014,7 +4012,7 @@ exports.ListFormatSymbols_fr_GP = {
  * List formatting symbols for locale fr_GQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_GQ = {
+export let ListFormatSymbols_fr_GQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4027,7 +4025,7 @@ exports.ListFormatSymbols_fr_GQ = {
  * List formatting symbols for locale fr_HT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_HT = {
+export let ListFormatSymbols_fr_HT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4040,7 +4038,7 @@ exports.ListFormatSymbols_fr_HT = {
  * List formatting symbols for locale fr_KM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_KM = {
+export let ListFormatSymbols_fr_KM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4053,7 +4051,7 @@ exports.ListFormatSymbols_fr_KM = {
  * List formatting symbols for locale fr_LU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_LU = {
+export let ListFormatSymbols_fr_LU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4066,7 +4064,7 @@ exports.ListFormatSymbols_fr_LU = {
  * List formatting symbols for locale fr_MA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MA = {
+export let ListFormatSymbols_fr_MA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4079,7 +4077,7 @@ exports.ListFormatSymbols_fr_MA = {
  * List formatting symbols for locale fr_MC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MC = {
+export let ListFormatSymbols_fr_MC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4092,7 +4090,7 @@ exports.ListFormatSymbols_fr_MC = {
  * List formatting symbols for locale fr_MF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MF = {
+export let ListFormatSymbols_fr_MF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4105,7 +4103,7 @@ exports.ListFormatSymbols_fr_MF = {
  * List formatting symbols for locale fr_MG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MG = {
+export let ListFormatSymbols_fr_MG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4118,7 +4116,7 @@ exports.ListFormatSymbols_fr_MG = {
  * List formatting symbols for locale fr_ML.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_ML = {
+export let ListFormatSymbols_fr_ML = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4131,7 +4129,7 @@ exports.ListFormatSymbols_fr_ML = {
  * List formatting symbols for locale fr_MQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MQ = {
+export let ListFormatSymbols_fr_MQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4144,7 +4142,7 @@ exports.ListFormatSymbols_fr_MQ = {
  * List formatting symbols for locale fr_MR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MR = {
+export let ListFormatSymbols_fr_MR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4157,7 +4155,7 @@ exports.ListFormatSymbols_fr_MR = {
  * List formatting symbols for locale fr_MU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_MU = {
+export let ListFormatSymbols_fr_MU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4170,7 +4168,7 @@ exports.ListFormatSymbols_fr_MU = {
  * List formatting symbols for locale fr_NC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_NC = {
+export let ListFormatSymbols_fr_NC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4183,7 +4181,7 @@ exports.ListFormatSymbols_fr_NC = {
  * List formatting symbols for locale fr_NE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_NE = {
+export let ListFormatSymbols_fr_NE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4196,7 +4194,7 @@ exports.ListFormatSymbols_fr_NE = {
  * List formatting symbols for locale fr_PF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_PF = {
+export let ListFormatSymbols_fr_PF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4209,7 +4207,7 @@ exports.ListFormatSymbols_fr_PF = {
  * List formatting symbols for locale fr_PM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_PM = {
+export let ListFormatSymbols_fr_PM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4222,7 +4220,7 @@ exports.ListFormatSymbols_fr_PM = {
  * List formatting symbols for locale fr_RE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_RE = {
+export let ListFormatSymbols_fr_RE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4235,7 +4233,7 @@ exports.ListFormatSymbols_fr_RE = {
  * List formatting symbols for locale fr_RW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_RW = {
+export let ListFormatSymbols_fr_RW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4248,7 +4246,7 @@ exports.ListFormatSymbols_fr_RW = {
  * List formatting symbols for locale fr_SC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_SC = {
+export let ListFormatSymbols_fr_SC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4261,7 +4259,7 @@ exports.ListFormatSymbols_fr_SC = {
  * List formatting symbols for locale fr_SN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_SN = {
+export let ListFormatSymbols_fr_SN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4274,7 +4272,7 @@ exports.ListFormatSymbols_fr_SN = {
  * List formatting symbols for locale fr_SY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_SY = {
+export let ListFormatSymbols_fr_SY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4287,7 +4285,7 @@ exports.ListFormatSymbols_fr_SY = {
  * List formatting symbols for locale fr_TD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_TD = {
+export let ListFormatSymbols_fr_TD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4300,7 +4298,7 @@ exports.ListFormatSymbols_fr_TD = {
  * List formatting symbols for locale fr_TG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_TG = {
+export let ListFormatSymbols_fr_TG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4313,7 +4311,7 @@ exports.ListFormatSymbols_fr_TG = {
  * List formatting symbols for locale fr_TN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_TN = {
+export let ListFormatSymbols_fr_TN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4326,7 +4324,7 @@ exports.ListFormatSymbols_fr_TN = {
  * List formatting symbols for locale fr_VU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_VU = {
+export let ListFormatSymbols_fr_VU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4339,7 +4337,7 @@ exports.ListFormatSymbols_fr_VU = {
  * List formatting symbols for locale fr_WF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_WF = {
+export let ListFormatSymbols_fr_WF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4352,7 +4350,7 @@ exports.ListFormatSymbols_fr_WF = {
  * List formatting symbols for locale fr_YT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fr_YT = {
+export let ListFormatSymbols_fr_YT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} et {1}', '{0} et {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4365,7 +4363,7 @@ exports.ListFormatSymbols_fr_YT = {
  * List formatting symbols for locale fur.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fur = {
+export let ListFormatSymbols_fur = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4376,7 +4374,7 @@ exports.ListFormatSymbols_fur = {
  * List formatting symbols for locale fur_IT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fur_IT = {
+export let ListFormatSymbols_fur_IT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4387,7 +4385,7 @@ exports.ListFormatSymbols_fur_IT = {
  * List formatting symbols for locale fy.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fy = {
+export let ListFormatSymbols_fy = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4399,7 +4397,7 @@ exports.ListFormatSymbols_fy = {
  * List formatting symbols for locale fy_NL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_fy_NL = {
+export let ListFormatSymbols_fy_NL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4411,7 +4409,7 @@ exports.ListFormatSymbols_fy_NL = {
  * List formatting symbols for locale ga_GB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ga_GB = {
+export let ListFormatSymbols_ga_GB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} agus {1}', '{0} agus {1}', '{0}, {1}'],
   OR_END: ['{0} nó {1}', '{0} nó {1}', '{0} nó {1}'],
@@ -4424,7 +4422,7 @@ exports.ListFormatSymbols_ga_GB = {
  * List formatting symbols for locale ga_IE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ga_IE = {
+export let ListFormatSymbols_ga_IE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} agus {1}', '{0} agus {1}', '{0}, {1}'],
   OR_END: ['{0} nó {1}', '{0} nó {1}', '{0} nó {1}'],
@@ -4437,7 +4435,7 @@ exports.ListFormatSymbols_ga_IE = {
  * List formatting symbols for locale gd.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gd = {
+export let ListFormatSymbols_gd = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} agus {1}', '{0} ⁊ {1}', '{0}, {1}'],
   OR_END: ['{0} no {1}', '{0} no {1}', '{0} no {1}'],
@@ -4450,7 +4448,7 @@ exports.ListFormatSymbols_gd = {
  * List formatting symbols for locale gd_GB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gd_GB = {
+export let ListFormatSymbols_gd_GB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} agus {1}', '{0} ⁊ {1}', '{0}, {1}'],
   OR_END: ['{0} no {1}', '{0} no {1}', '{0} no {1}'],
@@ -4463,7 +4461,7 @@ exports.ListFormatSymbols_gd_GB = {
  * List formatting symbols for locale gl_ES.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gl_ES = {
+export let ListFormatSymbols_gl_ES = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -4474,7 +4472,7 @@ exports.ListFormatSymbols_gl_ES = {
  * List formatting symbols for locale gsw_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gsw_CH = {
+export let ListFormatSymbols_gsw_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4485,7 +4483,7 @@ exports.ListFormatSymbols_gsw_CH = {
  * List formatting symbols for locale gsw_FR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gsw_FR = {
+export let ListFormatSymbols_gsw_FR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4496,7 +4494,7 @@ exports.ListFormatSymbols_gsw_FR = {
  * List formatting symbols for locale gsw_LI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gsw_LI = {
+export let ListFormatSymbols_gsw_LI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4507,7 +4505,7 @@ exports.ListFormatSymbols_gsw_LI = {
  * List formatting symbols for locale gu_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gu_IN = {
+export let ListFormatSymbols_gu_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} અને {1}', '{0} અને {1}', '{0}, {1}'],
   OR_END: ['{0}, અથવા {1}', '{0}, અથવા {1}', '{0}, અથવા {1}'],
@@ -4519,7 +4517,7 @@ exports.ListFormatSymbols_gu_IN = {
  * List formatting symbols for locale guz.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_guz = {
+export let ListFormatSymbols_guz = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4530,7 +4528,7 @@ exports.ListFormatSymbols_guz = {
  * List formatting symbols for locale guz_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_guz_KE = {
+export let ListFormatSymbols_guz_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4541,7 +4539,7 @@ exports.ListFormatSymbols_guz_KE = {
  * List formatting symbols for locale gv.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gv = {
+export let ListFormatSymbols_gv = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4552,7 +4550,7 @@ exports.ListFormatSymbols_gv = {
  * List formatting symbols for locale gv_IM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_gv_IM = {
+export let ListFormatSymbols_gv_IM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4563,7 +4561,7 @@ exports.ListFormatSymbols_gv_IM = {
  * List formatting symbols for locale ha.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ha = {
+export let ListFormatSymbols_ha = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} da {1}', '{0} da {1}', '{0} da {1}'],
   AND_END: ['{0}, da {1}', '{0}, da {1}', '{0}, da {1}'],
@@ -4576,7 +4574,7 @@ exports.ListFormatSymbols_ha = {
  * List formatting symbols for locale ha_GH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ha_GH = {
+export let ListFormatSymbols_ha_GH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} da {1}', '{0} da {1}', '{0} da {1}'],
   AND_END: ['{0}, da {1}', '{0}, da {1}', '{0}, da {1}'],
@@ -4589,7 +4587,7 @@ exports.ListFormatSymbols_ha_GH = {
  * List formatting symbols for locale ha_NE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ha_NE = {
+export let ListFormatSymbols_ha_NE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} da {1}', '{0} da {1}', '{0} da {1}'],
   AND_END: ['{0}, da {1}', '{0}, da {1}', '{0}, da {1}'],
@@ -4602,7 +4600,7 @@ exports.ListFormatSymbols_ha_NE = {
  * List formatting symbols for locale ha_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ha_NG = {
+export let ListFormatSymbols_ha_NG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} da {1}', '{0} da {1}', '{0} da {1}'],
   AND_END: ['{0}, da {1}', '{0}, da {1}', '{0}, da {1}'],
@@ -4615,7 +4613,7 @@ exports.ListFormatSymbols_ha_NG = {
  * List formatting symbols for locale haw_US.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_haw_US = {
+export let ListFormatSymbols_haw_US = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4626,7 +4624,7 @@ exports.ListFormatSymbols_haw_US = {
  * List formatting symbols for locale he_IL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_he_IL = {
+export let ListFormatSymbols_he_IL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ו{1}', '{0} ו{1}', '{0} ו{1}'],
   OR_END: ['{0} או {1}', '{0} או {1}', '{0} או {1}'],
@@ -4640,7 +4638,7 @@ exports.ListFormatSymbols_he_IL = {
  * List formatting symbols for locale hi_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hi_IN = {
+export let ListFormatSymbols_hi_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} और {1}', '{0} और {1}', '{0} और {1}'],
   AND_END: ['{0}, और {1}', '{0} और {1}', '{0} और {1}'],
@@ -4654,7 +4652,7 @@ exports.ListFormatSymbols_hi_IN = {
  * List formatting symbols for locale hi_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hi_Latn = {
+export let ListFormatSymbols_hi_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} aur {1}', '{0} aur {1}', '{0} aur {1}'],
   AND_END: ['{0}, aur {1}', '{0}, aur {1}', '{0}, {1}'],
@@ -4668,7 +4666,7 @@ exports.ListFormatSymbols_hi_Latn = {
  * List formatting symbols for locale hi_Latn_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hi_Latn_IN = {
+export let ListFormatSymbols_hi_Latn_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} aur {1}', '{0} aur {1}', '{0} aur {1}'],
   AND_END: ['{0}, aur {1}', '{0}, aur {1}', '{0}, {1}'],
@@ -4682,7 +4680,7 @@ exports.ListFormatSymbols_hi_Latn_IN = {
  * List formatting symbols for locale hr_BA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hr_BA = {
+export let ListFormatSymbols_hr_BA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -4695,7 +4693,7 @@ exports.ListFormatSymbols_hr_BA = {
  * List formatting symbols for locale hr_HR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hr_HR = {
+export let ListFormatSymbols_hr_HR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -4708,7 +4706,7 @@ exports.ListFormatSymbols_hr_HR = {
  * List formatting symbols for locale hsb.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hsb = {
+export let ListFormatSymbols_hsb = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a {1}', '{0} a {1}', '{0} a {1}'],
   OR_END: ['{0} abo {1}', '{0} abo {1}', '{0} abo {1}'],
@@ -4720,7 +4718,7 @@ exports.ListFormatSymbols_hsb = {
  * List formatting symbols for locale hsb_DE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hsb_DE = {
+export let ListFormatSymbols_hsb_DE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a {1}', '{0} a {1}', '{0} a {1}'],
   OR_END: ['{0} abo {1}', '{0} abo {1}', '{0} abo {1}'],
@@ -4732,7 +4730,7 @@ exports.ListFormatSymbols_hsb_DE = {
  * List formatting symbols for locale hu_HU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hu_HU = {
+export let ListFormatSymbols_hu_HU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} és {1}', '{0} és {1}', '{0} és {1}'],
   OR_END: ['{0} vagy {1}', '{0} vagy {1}', '{0} vagy {1}'],
@@ -4743,7 +4741,7 @@ exports.ListFormatSymbols_hu_HU = {
  * List formatting symbols for locale hy_AM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_hy_AM = {
+export let ListFormatSymbols_hy_AM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} և {1}', '{0} և {1}', '{0}, {1}'],
   OR_END: ['{0} կամ {1}', '{0} կամ {1}', '{0} կամ {1}'],
@@ -4756,7 +4754,7 @@ exports.ListFormatSymbols_hy_AM = {
  * List formatting symbols for locale ia.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ia = {
+export let ListFormatSymbols_ia = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -4769,7 +4767,7 @@ exports.ListFormatSymbols_ia = {
  * List formatting symbols for locale ia_001.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ia_001 = {
+export let ListFormatSymbols_ia_001 = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -4782,7 +4780,7 @@ exports.ListFormatSymbols_ia_001 = {
  * List formatting symbols for locale id_ID.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_id_ID = {
+export let ListFormatSymbols_id_ID = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} dan {1}', '{0} dan {1}', '{0}, {1}'],
   AND_END: ['{0}, dan {1}', '{0}, dan {1}', '{0}, {1}'],
@@ -4795,7 +4793,7 @@ exports.ListFormatSymbols_id_ID = {
  * List formatting symbols for locale ig.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ig = {
+export let ListFormatSymbols_ig = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} na {1}', '{0} na {1}', '{0}, {1}'],
   AND_END: ['{0}, na {1}', '{0}, na {1}', '{0}, na {1}'],
@@ -4809,7 +4807,7 @@ exports.ListFormatSymbols_ig = {
  * List formatting symbols for locale ig_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ig_NG = {
+export let ListFormatSymbols_ig_NG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} na {1}', '{0} na {1}', '{0}, {1}'],
   AND_END: ['{0}, na {1}', '{0}, na {1}', '{0}, na {1}'],
@@ -4823,7 +4821,7 @@ exports.ListFormatSymbols_ig_NG = {
  * List formatting symbols for locale ii.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ii = {
+export let ListFormatSymbols_ii = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4834,7 +4832,7 @@ exports.ListFormatSymbols_ii = {
  * List formatting symbols for locale ii_CN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ii_CN = {
+export let ListFormatSymbols_ii_CN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4845,7 +4843,7 @@ exports.ListFormatSymbols_ii_CN = {
  * List formatting symbols for locale is_IS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_is_IS = {
+export let ListFormatSymbols_is_IS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0}, {1}'],
   OR_END: ['{0} eða {1}', '{0} eða {1}', '{0} eða {1}'],
@@ -4858,7 +4856,7 @@ exports.ListFormatSymbols_is_IS = {
  * List formatting symbols for locale it_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_it_CH = {
+export let ListFormatSymbols_it_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -4871,7 +4869,7 @@ exports.ListFormatSymbols_it_CH = {
  * List formatting symbols for locale it_IT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_it_IT = {
+export let ListFormatSymbols_it_IT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -4884,7 +4882,7 @@ exports.ListFormatSymbols_it_IT = {
  * List formatting symbols for locale it_SM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_it_SM = {
+export let ListFormatSymbols_it_SM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -4897,7 +4895,7 @@ exports.ListFormatSymbols_it_SM = {
  * List formatting symbols for locale it_VA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_it_VA = {
+export let ListFormatSymbols_it_VA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -4910,7 +4908,7 @@ exports.ListFormatSymbols_it_VA = {
  * List formatting symbols for locale ja_JP.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ja_JP = {
+export let ListFormatSymbols_ja_JP = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   OR_END: ['{0}、または{1}', '{0}、または{1}', '{0}、または{1}'],
@@ -4923,7 +4921,7 @@ exports.ListFormatSymbols_ja_JP = {
  * List formatting symbols for locale jgo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_jgo = {
+export let ListFormatSymbols_jgo = {
   AND_START: ['{0}, ŋ́gɛ {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} pɔp {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, ḿbɛn ŋ́gɛ {1}', '{0}, {1}', '{0}, {1}'],
@@ -4940,7 +4938,7 @@ exports.ListFormatSymbols_jgo = {
  * List formatting symbols for locale jgo_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_jgo_CM = {
+export let ListFormatSymbols_jgo_CM = {
   AND_START: ['{0}, ŋ́gɛ {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} pɔp {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, ḿbɛn ŋ́gɛ {1}', '{0}, {1}', '{0}, {1}'],
@@ -4957,7 +4955,7 @@ exports.ListFormatSymbols_jgo_CM = {
  * List formatting symbols for locale jmc.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_jmc = {
+export let ListFormatSymbols_jmc = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4968,7 +4966,7 @@ exports.ListFormatSymbols_jmc = {
  * List formatting symbols for locale jmc_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_jmc_TZ = {
+export let ListFormatSymbols_jmc_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -4979,7 +4977,7 @@ exports.ListFormatSymbols_jmc_TZ = {
  * List formatting symbols for locale jv.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_jv = {
+export let ListFormatSymbols_jv = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} lan {1}', '{0} lan {1}', '{0}, {1}'],
   AND_END: ['{0}, lan {1}', '{0}, lan {1}', '{0}, {1}'],
@@ -4994,7 +4992,7 @@ exports.ListFormatSymbols_jv = {
  * List formatting symbols for locale jv_ID.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_jv_ID = {
+export let ListFormatSymbols_jv_ID = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} lan {1}', '{0} lan {1}', '{0}, {1}'],
   AND_END: ['{0}, lan {1}', '{0}, lan {1}', '{0}, {1}'],
@@ -5009,7 +5007,7 @@ exports.ListFormatSymbols_jv_ID = {
  * List formatting symbols for locale ka_GE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ka_GE = {
+export let ListFormatSymbols_ka_GE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} და {1}', '{0} და {1}', '{0} და {1}'],
   OR_END: ['{0} ან {1}', '{0} ან {1}', '{0} ან {1}'],
@@ -5020,7 +5018,7 @@ exports.ListFormatSymbols_ka_GE = {
  * List formatting symbols for locale kab.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kab = {
+export let ListFormatSymbols_kab = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5031,7 +5029,7 @@ exports.ListFormatSymbols_kab = {
  * List formatting symbols for locale kab_DZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kab_DZ = {
+export let ListFormatSymbols_kab_DZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5042,7 +5040,7 @@ exports.ListFormatSymbols_kab_DZ = {
  * List formatting symbols for locale kam.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kam = {
+export let ListFormatSymbols_kam = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5053,7 +5051,7 @@ exports.ListFormatSymbols_kam = {
  * List formatting symbols for locale kam_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kam_KE = {
+export let ListFormatSymbols_kam_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5064,7 +5062,7 @@ exports.ListFormatSymbols_kam_KE = {
  * List formatting symbols for locale kde.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kde = {
+export let ListFormatSymbols_kde = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5075,7 +5073,7 @@ exports.ListFormatSymbols_kde = {
  * List formatting symbols for locale kde_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kde_TZ = {
+export let ListFormatSymbols_kde_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5086,7 +5084,7 @@ exports.ListFormatSymbols_kde_TZ = {
  * List formatting symbols for locale kea.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kea = {
+export let ListFormatSymbols_kea = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -5097,7 +5095,7 @@ exports.ListFormatSymbols_kea = {
  * List formatting symbols for locale kea_CV.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kea_CV = {
+export let ListFormatSymbols_kea_CV = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -5108,7 +5106,7 @@ exports.ListFormatSymbols_kea_CV = {
  * List formatting symbols for locale kgp.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kgp = {
+export let ListFormatSymbols_kgp = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} kar {1}', '{0} kar {1}', '{0}, {1}'],
   OR_END: ['{0} ketũmỹr {1}', '{0} ketũmỹr {1}', '{0} ketũmỹr {1}'],
@@ -5121,7 +5119,7 @@ exports.ListFormatSymbols_kgp = {
  * List formatting symbols for locale kgp_BR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kgp_BR = {
+export let ListFormatSymbols_kgp_BR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} kar {1}', '{0} kar {1}', '{0}, {1}'],
   OR_END: ['{0} ketũmỹr {1}', '{0} ketũmỹr {1}', '{0} ketũmỹr {1}'],
@@ -5134,7 +5132,7 @@ exports.ListFormatSymbols_kgp_BR = {
  * List formatting symbols for locale khq.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_khq = {
+export let ListFormatSymbols_khq = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5145,7 +5143,7 @@ exports.ListFormatSymbols_khq = {
  * List formatting symbols for locale khq_ML.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_khq_ML = {
+export let ListFormatSymbols_khq_ML = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5156,7 +5154,7 @@ exports.ListFormatSymbols_khq_ML = {
  * List formatting symbols for locale ki.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ki = {
+export let ListFormatSymbols_ki = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5167,7 +5165,7 @@ exports.ListFormatSymbols_ki = {
  * List formatting symbols for locale ki_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ki_KE = {
+export let ListFormatSymbols_ki_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5178,7 +5176,7 @@ exports.ListFormatSymbols_ki_KE = {
  * List formatting symbols for locale kk_KZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kk_KZ = {
+export let ListFormatSymbols_kk_KZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} және {1}', '{0} және {1}', '{0} және {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
@@ -5193,7 +5191,7 @@ exports.ListFormatSymbols_kk_KZ = {
  * List formatting symbols for locale kkj.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kkj = {
+export let ListFormatSymbols_kkj = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5204,7 +5202,7 @@ exports.ListFormatSymbols_kkj = {
  * List formatting symbols for locale kkj_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kkj_CM = {
+export let ListFormatSymbols_kkj_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5215,7 +5213,7 @@ exports.ListFormatSymbols_kkj_CM = {
  * List formatting symbols for locale kl.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kl = {
+export let ListFormatSymbols_kl = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5226,7 +5224,7 @@ exports.ListFormatSymbols_kl = {
  * List formatting symbols for locale kl_GL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kl_GL = {
+export let ListFormatSymbols_kl_GL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5237,7 +5235,7 @@ exports.ListFormatSymbols_kl_GL = {
  * List formatting symbols for locale kln.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kln = {
+export let ListFormatSymbols_kln = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5248,7 +5246,7 @@ exports.ListFormatSymbols_kln = {
  * List formatting symbols for locale kln_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kln_KE = {
+export let ListFormatSymbols_kln_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5259,7 +5257,7 @@ exports.ListFormatSymbols_kln_KE = {
  * List formatting symbols for locale km_KH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_km_KH = {
+export let ListFormatSymbols_km_KH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} និង​{1}', '{0} និង {1}', '{0}, {1}'],
   AND_END: ['{0} និង {1}', '{0} និង {1}', '{0}, {1}'],
@@ -5274,7 +5272,7 @@ exports.ListFormatSymbols_km_KH = {
  * List formatting symbols for locale kn_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kn_IN = {
+export let ListFormatSymbols_kn_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ಮತ್ತು {1}', '{0} ಮತ್ತು {1}', '{0}, {1}'],
   AND_END: ['{0}, ಮತ್ತು {1}', '{0}, ಮತ್ತು {1}', '{0}, {1}'],
@@ -5288,7 +5286,7 @@ exports.ListFormatSymbols_kn_IN = {
  * List formatting symbols for locale ko_KP.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ko_KP = {
+export let ListFormatSymbols_ko_KP = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} 및 {1}', '{0} 및 {1}', '{0} 및 {1}'],
   OR_END: ['{0} 또는 {1}', '{0} 또는 {1}', '{0} 또는 {1}'],
@@ -5301,7 +5299,7 @@ exports.ListFormatSymbols_ko_KP = {
  * List formatting symbols for locale ko_KR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ko_KR = {
+export let ListFormatSymbols_ko_KR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} 및 {1}', '{0} 및 {1}', '{0} 및 {1}'],
   OR_END: ['{0} 또는 {1}', '{0} 또는 {1}', '{0} 또는 {1}'],
@@ -5314,7 +5312,7 @@ exports.ListFormatSymbols_ko_KR = {
  * List formatting symbols for locale kok.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kok = {
+export let ListFormatSymbols_kok = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0}, {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, & {1}', '{0}, {1}'],
@@ -5329,7 +5327,7 @@ exports.ListFormatSymbols_kok = {
  * List formatting symbols for locale kok_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kok_IN = {
+export let ListFormatSymbols_kok_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0}, {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, & {1}', '{0}, {1}'],
@@ -5344,7 +5342,7 @@ exports.ListFormatSymbols_kok_IN = {
  * List formatting symbols for locale ks.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ks = {
+export let ListFormatSymbols_ks = {
   AND_START: ['{0}، {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} تٕہ {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}، تٕہ {1}', '{0}, {1}', '{0}, {1}'],
@@ -5361,7 +5359,7 @@ exports.ListFormatSymbols_ks = {
  * List formatting symbols for locale ks_Arab.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ks_Arab = {
+export let ListFormatSymbols_ks_Arab = {
   AND_START: ['{0}، {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} تٕہ {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}، تٕہ {1}', '{0}, {1}', '{0}, {1}'],
@@ -5378,7 +5376,7 @@ exports.ListFormatSymbols_ks_Arab = {
  * List formatting symbols for locale ks_Arab_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ks_Arab_IN = {
+export let ListFormatSymbols_ks_Arab_IN = {
   AND_START: ['{0}، {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} تٕہ {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}، تٕہ {1}', '{0}, {1}', '{0}, {1}'],
@@ -5395,7 +5393,7 @@ exports.ListFormatSymbols_ks_Arab_IN = {
  * List formatting symbols for locale ks_Deva.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ks_Deva = {
+export let ListFormatSymbols_ks_Deva = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ति {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, ति {1}', '{0}, {1}', '{0}, {1}'],
@@ -5408,7 +5406,7 @@ exports.ListFormatSymbols_ks_Deva = {
  * List formatting symbols for locale ks_Deva_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ks_Deva_IN = {
+export let ListFormatSymbols_ks_Deva_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ति {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, ति {1}', '{0}, {1}', '{0}, {1}'],
@@ -5421,7 +5419,7 @@ exports.ListFormatSymbols_ks_Deva_IN = {
  * List formatting symbols for locale ksb.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ksb = {
+export let ListFormatSymbols_ksb = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5432,7 +5430,7 @@ exports.ListFormatSymbols_ksb = {
  * List formatting symbols for locale ksb_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ksb_TZ = {
+export let ListFormatSymbols_ksb_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5443,7 +5441,7 @@ exports.ListFormatSymbols_ksb_TZ = {
  * List formatting symbols for locale ksf.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ksf = {
+export let ListFormatSymbols_ksf = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5454,7 +5452,7 @@ exports.ListFormatSymbols_ksf = {
  * List formatting symbols for locale ksf_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ksf_CM = {
+export let ListFormatSymbols_ksf_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5465,7 +5463,7 @@ exports.ListFormatSymbols_ksf_CM = {
  * List formatting symbols for locale ksh.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ksh = {
+export let ListFormatSymbols_ksh = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} un {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5478,7 +5476,7 @@ exports.ListFormatSymbols_ksh = {
  * List formatting symbols for locale ksh_DE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ksh_DE = {
+export let ListFormatSymbols_ksh_DE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} un {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5491,7 +5489,7 @@ exports.ListFormatSymbols_ksh_DE = {
  * List formatting symbols for locale ku.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ku = {
+export let ListFormatSymbols_ku = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} û {1}', '{0} û {1}', '{0} û {1}'],
   OR_END: ['{0} an {1}', '{0} an {1}', '{0} an {1}'],
@@ -5504,7 +5502,7 @@ exports.ListFormatSymbols_ku = {
  * List formatting symbols for locale ku_TR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ku_TR = {
+export let ListFormatSymbols_ku_TR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} û {1}', '{0} û {1}', '{0} û {1}'],
   OR_END: ['{0} an {1}', '{0} an {1}', '{0} an {1}'],
@@ -5517,7 +5515,7 @@ exports.ListFormatSymbols_ku_TR = {
  * List formatting symbols for locale kw.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kw = {
+export let ListFormatSymbols_kw = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5528,7 +5526,7 @@ exports.ListFormatSymbols_kw = {
  * List formatting symbols for locale kw_GB.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_kw_GB = {
+export let ListFormatSymbols_kw_GB = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5539,7 +5537,7 @@ exports.ListFormatSymbols_kw_GB = {
  * List formatting symbols for locale ky_KG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ky_KG = {
+export let ListFormatSymbols_ky_KG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} жана {1}', '{0} жана {1}', '{0} жана {1}'],
   OR_END: ['{0} же {1}', '{0} же {1}', '{0} же {1}'],
@@ -5552,7 +5550,7 @@ exports.ListFormatSymbols_ky_KG = {
  * List formatting symbols for locale lag.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lag = {
+export let ListFormatSymbols_lag = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5563,7 +5561,7 @@ exports.ListFormatSymbols_lag = {
  * List formatting symbols for locale lag_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lag_TZ = {
+export let ListFormatSymbols_lag_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5574,7 +5572,7 @@ exports.ListFormatSymbols_lag_TZ = {
  * List formatting symbols for locale lb.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lb = {
+export let ListFormatSymbols_lb = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a(n) {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5587,7 +5585,7 @@ exports.ListFormatSymbols_lb = {
  * List formatting symbols for locale lb_LU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lb_LU = {
+export let ListFormatSymbols_lb_LU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} a(n) {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5600,7 +5598,7 @@ exports.ListFormatSymbols_lb_LU = {
  * List formatting symbols for locale lg.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lg = {
+export let ListFormatSymbols_lg = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5611,7 +5609,7 @@ exports.ListFormatSymbols_lg = {
  * List formatting symbols for locale lg_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lg_UG = {
+export let ListFormatSymbols_lg_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5622,7 +5620,7 @@ exports.ListFormatSymbols_lg_UG = {
  * List formatting symbols for locale lkt.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lkt = {
+export let ListFormatSymbols_lkt = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5633,7 +5631,7 @@ exports.ListFormatSymbols_lkt = {
  * List formatting symbols for locale lkt_US.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lkt_US = {
+export let ListFormatSymbols_lkt_US = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5644,7 +5642,7 @@ exports.ListFormatSymbols_lkt_US = {
  * List formatting symbols for locale ln_AO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ln_AO = {
+export let ListFormatSymbols_ln_AO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5655,7 +5653,7 @@ exports.ListFormatSymbols_ln_AO = {
  * List formatting symbols for locale ln_CD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ln_CD = {
+export let ListFormatSymbols_ln_CD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5666,7 +5664,7 @@ exports.ListFormatSymbols_ln_CD = {
  * List formatting symbols for locale ln_CF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ln_CF = {
+export let ListFormatSymbols_ln_CF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5677,7 +5675,7 @@ exports.ListFormatSymbols_ln_CF = {
  * List formatting symbols for locale ln_CG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ln_CG = {
+export let ListFormatSymbols_ln_CG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5688,7 +5686,7 @@ exports.ListFormatSymbols_ln_CG = {
  * List formatting symbols for locale lo_LA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lo_LA = {
+export let ListFormatSymbols_lo_LA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ແລະ {1}', '{0} ແລະ {1}', '{0} ແລະ {1}'],
   AND_END: ['{0}, {1}', '{0} ແລະ {1}', '{0}, {1}'],
@@ -5703,7 +5701,7 @@ exports.ListFormatSymbols_lo_LA = {
  * List formatting symbols for locale lrc.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lrc = {
+export let ListFormatSymbols_lrc = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5714,7 +5712,7 @@ exports.ListFormatSymbols_lrc = {
  * List formatting symbols for locale lrc_IQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lrc_IQ = {
+export let ListFormatSymbols_lrc_IQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5725,7 +5723,7 @@ exports.ListFormatSymbols_lrc_IQ = {
  * List formatting symbols for locale lrc_IR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lrc_IR = {
+export let ListFormatSymbols_lrc_IR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5736,7 +5734,7 @@ exports.ListFormatSymbols_lrc_IR = {
  * List formatting symbols for locale lt_LT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lt_LT = {
+export let ListFormatSymbols_lt_LT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ir {1}', '{0} ir {1}', '{0} ir {1}'],
   OR_END: ['{0} ar {1}', '{0} ar {1}', '{0} ar {1}'],
@@ -5749,7 +5747,7 @@ exports.ListFormatSymbols_lt_LT = {
  * List formatting symbols for locale lu.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lu = {
+export let ListFormatSymbols_lu = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5760,7 +5758,7 @@ exports.ListFormatSymbols_lu = {
  * List formatting symbols for locale lu_CD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lu_CD = {
+export let ListFormatSymbols_lu_CD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5771,7 +5769,7 @@ exports.ListFormatSymbols_lu_CD = {
  * List formatting symbols for locale luo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_luo = {
+export let ListFormatSymbols_luo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5782,7 +5780,7 @@ exports.ListFormatSymbols_luo = {
  * List formatting symbols for locale luo_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_luo_KE = {
+export let ListFormatSymbols_luo_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5793,7 +5791,7 @@ exports.ListFormatSymbols_luo_KE = {
  * List formatting symbols for locale luy.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_luy = {
+export let ListFormatSymbols_luy = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5804,7 +5802,7 @@ exports.ListFormatSymbols_luy = {
  * List formatting symbols for locale luy_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_luy_KE = {
+export let ListFormatSymbols_luy_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5815,7 +5813,7 @@ exports.ListFormatSymbols_luy_KE = {
  * List formatting symbols for locale lv_LV.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_lv_LV = {
+export let ListFormatSymbols_lv_LV = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} un {1}', '{0} un {1}', '{0} un {1}'],
   OR_END: ['{0} vai {1}', '{0} vai {1}', '{0} vai {1}'],
@@ -5828,7 +5826,7 @@ exports.ListFormatSymbols_lv_LV = {
  * List formatting symbols for locale mai.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mai = {
+export let ListFormatSymbols_mai = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} और {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, और {1}', '{0}, {1}', '{0}, {1}'],
@@ -5841,7 +5839,7 @@ exports.ListFormatSymbols_mai = {
  * List formatting symbols for locale mai_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mai_IN = {
+export let ListFormatSymbols_mai_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} और {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, और {1}', '{0}, {1}', '{0}, {1}'],
@@ -5854,7 +5852,7 @@ exports.ListFormatSymbols_mai_IN = {
  * List formatting symbols for locale mas.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mas = {
+export let ListFormatSymbols_mas = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5865,7 +5863,7 @@ exports.ListFormatSymbols_mas = {
  * List formatting symbols for locale mas_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mas_KE = {
+export let ListFormatSymbols_mas_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5876,7 +5874,7 @@ exports.ListFormatSymbols_mas_KE = {
  * List formatting symbols for locale mas_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mas_TZ = {
+export let ListFormatSymbols_mas_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5887,7 +5885,7 @@ exports.ListFormatSymbols_mas_TZ = {
  * List formatting symbols for locale mer.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mer = {
+export let ListFormatSymbols_mer = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5898,7 +5896,7 @@ exports.ListFormatSymbols_mer = {
  * List formatting symbols for locale mer_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mer_KE = {
+export let ListFormatSymbols_mer_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5909,7 +5907,7 @@ exports.ListFormatSymbols_mer_KE = {
  * List formatting symbols for locale mfe.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mfe = {
+export let ListFormatSymbols_mfe = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5920,7 +5918,7 @@ exports.ListFormatSymbols_mfe = {
  * List formatting symbols for locale mfe_MU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mfe_MU = {
+export let ListFormatSymbols_mfe_MU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5931,7 +5929,7 @@ exports.ListFormatSymbols_mfe_MU = {
  * List formatting symbols for locale mg.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mg = {
+export let ListFormatSymbols_mg = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5942,7 +5940,7 @@ exports.ListFormatSymbols_mg = {
  * List formatting symbols for locale mg_MG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mg_MG = {
+export let ListFormatSymbols_mg_MG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5953,7 +5951,7 @@ exports.ListFormatSymbols_mg_MG = {
  * List formatting symbols for locale mgh.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mgh = {
+export let ListFormatSymbols_mgh = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5964,7 +5962,7 @@ exports.ListFormatSymbols_mgh = {
  * List formatting symbols for locale mgh_MZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mgh_MZ = {
+export let ListFormatSymbols_mgh_MZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5975,7 +5973,7 @@ exports.ListFormatSymbols_mgh_MZ = {
  * List formatting symbols for locale mgo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mgo = {
+export let ListFormatSymbols_mgo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5986,7 +5984,7 @@ exports.ListFormatSymbols_mgo = {
  * List formatting symbols for locale mgo_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mgo_CM = {
+export let ListFormatSymbols_mgo_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -5997,7 +5995,7 @@ exports.ListFormatSymbols_mgo_CM = {
  * List formatting symbols for locale mi.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mi = {
+export let ListFormatSymbols_mi = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6008,7 +6006,7 @@ exports.ListFormatSymbols_mi = {
  * List formatting symbols for locale mi_NZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mi_NZ = {
+export let ListFormatSymbols_mi_NZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6019,7 +6017,7 @@ exports.ListFormatSymbols_mi_NZ = {
  * List formatting symbols for locale mk_MK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mk_MK = {
+export let ListFormatSymbols_mk_MK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -6030,7 +6028,7 @@ exports.ListFormatSymbols_mk_MK = {
  * List formatting symbols for locale ml_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ml_IN = {
+export let ListFormatSymbols_ml_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} കൂടാതെ {1}', '{0} കൂടാതെ {1}', '{0}, {1} എന്നിവ'],
   AND_END: ['{0}, {1} എന്നിവ', '{0}, {1} എന്നിവ', '{0}, {1} എന്നിവ'],
@@ -6046,7 +6044,7 @@ exports.ListFormatSymbols_ml_IN = {
  * List formatting symbols for locale mn_MN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mn_MN = {
+export let ListFormatSymbols_mn_MN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, {1} зэргийн аль нэг', '{0}, {1} зэргийн аль нэг', '{0}, {1} зэргийн аль нэг'],
@@ -6059,7 +6057,7 @@ exports.ListFormatSymbols_mn_MN = {
  * List formatting symbols for locale mni.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mni = {
+export let ListFormatSymbols_mni = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} অমসুং {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6070,7 +6068,7 @@ exports.ListFormatSymbols_mni = {
  * List formatting symbols for locale mni_Beng.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mni_Beng = {
+export let ListFormatSymbols_mni_Beng = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} অমসুং {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6081,7 +6079,7 @@ exports.ListFormatSymbols_mni_Beng = {
  * List formatting symbols for locale mni_Beng_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mni_Beng_IN = {
+export let ListFormatSymbols_mni_Beng_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} অমসুং {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6092,7 +6090,7 @@ exports.ListFormatSymbols_mni_Beng_IN = {
  * List formatting symbols for locale mr_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mr_IN = {
+export let ListFormatSymbols_mr_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} आणि {1}', '{0} आणि {1}', '{0} आणि {1}'],
   OR_END: ['{0}, किंवा {1}', '{0}, किंवा {1}', '{0}, किंवा {1}'],
@@ -6105,7 +6103,7 @@ exports.ListFormatSymbols_mr_IN = {
  * List formatting symbols for locale ms_BN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ms_BN = {
+export let ListFormatSymbols_ms_BN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dan {1}', '{0} dan {1}', '{0}, {1}'],
   OR_END: ['{0}, atau {1}', '{0}, atau {1}', '{0}, atau {1}'],
@@ -6118,7 +6116,7 @@ exports.ListFormatSymbols_ms_BN = {
  * List formatting symbols for locale ms_ID.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ms_ID = {
+export let ListFormatSymbols_ms_ID = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dan {1}', '{0} dan {1}', '{0}, {1}'],
   OR_END: ['{0}, atau {1}', '{0}, atau {1}', '{0}, atau {1}'],
@@ -6131,7 +6129,7 @@ exports.ListFormatSymbols_ms_ID = {
  * List formatting symbols for locale ms_MY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ms_MY = {
+export let ListFormatSymbols_ms_MY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dan {1}', '{0} dan {1}', '{0}, {1}'],
   OR_END: ['{0}, atau {1}', '{0}, atau {1}', '{0}, atau {1}'],
@@ -6144,7 +6142,7 @@ exports.ListFormatSymbols_ms_MY = {
  * List formatting symbols for locale ms_SG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ms_SG = {
+export let ListFormatSymbols_ms_SG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dan {1}', '{0} dan {1}', '{0}, {1}'],
   OR_END: ['{0}, atau {1}', '{0}, atau {1}', '{0}, atau {1}'],
@@ -6157,7 +6155,7 @@ exports.ListFormatSymbols_ms_SG = {
  * List formatting symbols for locale mt_MT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mt_MT = {
+export let ListFormatSymbols_mt_MT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} u {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, u {1}', '{0}, {1}', '{0}, {1}'],
@@ -6171,7 +6169,7 @@ exports.ListFormatSymbols_mt_MT = {
  * List formatting symbols for locale mua.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mua = {
+export let ListFormatSymbols_mua = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6182,7 +6180,7 @@ exports.ListFormatSymbols_mua = {
  * List formatting symbols for locale mua_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mua_CM = {
+export let ListFormatSymbols_mua_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6193,7 +6191,7 @@ exports.ListFormatSymbols_mua_CM = {
  * List formatting symbols for locale my_MM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_my_MM = {
+export let ListFormatSymbols_my_MM = {
   AND_START: ['{0} - {1}', '{0} - {1}', '{0} - {1}'],
   AND_END: ['{0}နှင့် {1}', '{0}နှင့် {1}', '{0}နှင့် {1}'],
   OR_END: ['{0} သို့မဟုတ် {1}', '{0} သို့မဟုတ် {1}', '{0} သို့မဟုတ် {1}'],
@@ -6207,7 +6205,7 @@ exports.ListFormatSymbols_my_MM = {
  * List formatting symbols for locale mzn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mzn = {
+export let ListFormatSymbols_mzn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6218,7 +6216,7 @@ exports.ListFormatSymbols_mzn = {
  * List formatting symbols for locale mzn_IR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_mzn_IR = {
+export let ListFormatSymbols_mzn_IR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6229,7 +6227,7 @@ exports.ListFormatSymbols_mzn_IR = {
  * List formatting symbols for locale naq.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_naq = {
+export let ListFormatSymbols_naq = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6240,7 +6238,7 @@ exports.ListFormatSymbols_naq = {
  * List formatting symbols for locale naq_NA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_naq_NA = {
+export let ListFormatSymbols_naq_NA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6251,7 +6249,7 @@ exports.ListFormatSymbols_naq_NA = {
  * List formatting symbols for locale nb_NO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nb_NO = {
+export let ListFormatSymbols_nb_NO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -6262,7 +6260,7 @@ exports.ListFormatSymbols_nb_NO = {
  * List formatting symbols for locale nb_SJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nb_SJ = {
+export let ListFormatSymbols_nb_SJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -6273,7 +6271,7 @@ exports.ListFormatSymbols_nb_SJ = {
  * List formatting symbols for locale nd.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nd = {
+export let ListFormatSymbols_nd = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6284,7 +6282,7 @@ exports.ListFormatSymbols_nd = {
  * List formatting symbols for locale nd_ZW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nd_ZW = {
+export let ListFormatSymbols_nd_ZW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6295,7 +6293,7 @@ exports.ListFormatSymbols_nd_ZW = {
  * List formatting symbols for locale ne_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ne_IN = {
+export let ListFormatSymbols_ne_IN = {
   AND_START: ['{0},{1}', '{0},{1}', '{0},{1}'],
   AND_MIDDLE: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} र {1}', '{0} र {1}', '{0}, {1}'],
@@ -6312,7 +6310,7 @@ exports.ListFormatSymbols_ne_IN = {
  * List formatting symbols for locale ne_NP.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ne_NP = {
+export let ListFormatSymbols_ne_NP = {
   AND_START: ['{0},{1}', '{0},{1}', '{0},{1}'],
   AND_MIDDLE: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} र {1}', '{0} र {1}', '{0}, {1}'],
@@ -6329,7 +6327,7 @@ exports.ListFormatSymbols_ne_NP = {
  * List formatting symbols for locale nl_AW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_AW = {
+export let ListFormatSymbols_nl_AW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6340,7 +6338,7 @@ exports.ListFormatSymbols_nl_AW = {
  * List formatting symbols for locale nl_BE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_BE = {
+export let ListFormatSymbols_nl_BE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6351,7 +6349,7 @@ exports.ListFormatSymbols_nl_BE = {
  * List formatting symbols for locale nl_BQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_BQ = {
+export let ListFormatSymbols_nl_BQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6362,7 +6360,7 @@ exports.ListFormatSymbols_nl_BQ = {
  * List formatting symbols for locale nl_CW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_CW = {
+export let ListFormatSymbols_nl_CW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6373,7 +6371,7 @@ exports.ListFormatSymbols_nl_CW = {
  * List formatting symbols for locale nl_NL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_NL = {
+export let ListFormatSymbols_nl_NL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6384,7 +6382,7 @@ exports.ListFormatSymbols_nl_NL = {
  * List formatting symbols for locale nl_SR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_SR = {
+export let ListFormatSymbols_nl_SR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6395,7 +6393,7 @@ exports.ListFormatSymbols_nl_SR = {
  * List formatting symbols for locale nl_SX.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nl_SX = {
+export let ListFormatSymbols_nl_SX = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} en {1}', '{0} en {1}', '{0} en {1}'],
   OR_END: ['{0} of {1}', '{0} of {1}', '{0} of {1}'],
@@ -6406,7 +6404,7 @@ exports.ListFormatSymbols_nl_SX = {
  * List formatting symbols for locale nmg.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nmg = {
+export let ListFormatSymbols_nmg = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6417,7 +6415,7 @@ exports.ListFormatSymbols_nmg = {
  * List formatting symbols for locale nmg_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nmg_CM = {
+export let ListFormatSymbols_nmg_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6428,7 +6426,7 @@ exports.ListFormatSymbols_nmg_CM = {
  * List formatting symbols for locale nn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nn = {
+export let ListFormatSymbols_nn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -6441,7 +6439,7 @@ exports.ListFormatSymbols_nn = {
  * List formatting symbols for locale nn_NO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nn_NO = {
+export let ListFormatSymbols_nn_NO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} og {1}', '{0} og {1}', '{0} og {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -6454,7 +6452,7 @@ exports.ListFormatSymbols_nn_NO = {
  * List formatting symbols for locale nnh.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nnh = {
+export let ListFormatSymbols_nnh = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6465,7 +6463,7 @@ exports.ListFormatSymbols_nnh = {
  * List formatting symbols for locale nnh_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nnh_CM = {
+export let ListFormatSymbols_nnh_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6476,7 +6474,7 @@ exports.ListFormatSymbols_nnh_CM = {
  * List formatting symbols for locale nus.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nus = {
+export let ListFormatSymbols_nus = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6487,7 +6485,7 @@ exports.ListFormatSymbols_nus = {
  * List formatting symbols for locale nus_SS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nus_SS = {
+export let ListFormatSymbols_nus_SS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6498,7 +6496,7 @@ exports.ListFormatSymbols_nus_SS = {
  * List formatting symbols for locale nyn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nyn = {
+export let ListFormatSymbols_nyn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6509,7 +6507,7 @@ exports.ListFormatSymbols_nyn = {
  * List formatting symbols for locale nyn_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_nyn_UG = {
+export let ListFormatSymbols_nyn_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6520,7 +6518,7 @@ exports.ListFormatSymbols_nyn_UG = {
  * List formatting symbols for locale om.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_om = {
+export let ListFormatSymbols_om = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6531,7 +6529,7 @@ exports.ListFormatSymbols_om = {
  * List formatting symbols for locale om_ET.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_om_ET = {
+export let ListFormatSymbols_om_ET = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6542,7 +6540,7 @@ exports.ListFormatSymbols_om_ET = {
  * List formatting symbols for locale om_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_om_KE = {
+export let ListFormatSymbols_om_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6553,7 +6551,7 @@ exports.ListFormatSymbols_om_KE = {
  * List formatting symbols for locale or_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_or_IN = {
+export let ListFormatSymbols_or_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ଓ {1}', '{0} ଓ {1}', '{0} ଓ {1}'],
   AND_END: ['{0}, ଓ {1}', '{0}, ଓ {1}', '{0}, ଓ {1}'],
@@ -6568,7 +6566,7 @@ exports.ListFormatSymbols_or_IN = {
  * List formatting symbols for locale os.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_os = {
+export let ListFormatSymbols_os = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ӕмӕ {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6579,7 +6577,7 @@ exports.ListFormatSymbols_os = {
  * List formatting symbols for locale os_GE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_os_GE = {
+export let ListFormatSymbols_os_GE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ӕмӕ {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6590,7 +6588,7 @@ exports.ListFormatSymbols_os_GE = {
  * List formatting symbols for locale os_RU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_os_RU = {
+export let ListFormatSymbols_os_RU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ӕмӕ {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6601,7 +6599,7 @@ exports.ListFormatSymbols_os_RU = {
  * List formatting symbols for locale pa_Arab.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pa_Arab = {
+export let ListFormatSymbols_pa_Arab = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6612,7 +6610,7 @@ exports.ListFormatSymbols_pa_Arab = {
  * List formatting symbols for locale pa_Arab_PK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pa_Arab_PK = {
+export let ListFormatSymbols_pa_Arab_PK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6623,7 +6621,7 @@ exports.ListFormatSymbols_pa_Arab_PK = {
  * List formatting symbols for locale pa_Guru.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pa_Guru = {
+export let ListFormatSymbols_pa_Guru = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ਅਤੇ {1}', '{0} ਅਤੇ {1}', '{0}, {1}'],
   OR_END: ['{0} ਜਾਂ {1}', '{0} ਜਾਂ {1}', '{0} ਜਾਂ {1}'],
@@ -6636,7 +6634,7 @@ exports.ListFormatSymbols_pa_Guru = {
  * List formatting symbols for locale pa_Guru_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pa_Guru_IN = {
+export let ListFormatSymbols_pa_Guru_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ਅਤੇ {1}', '{0} ਅਤੇ {1}', '{0}, {1}'],
   OR_END: ['{0} ਜਾਂ {1}', '{0} ਜਾਂ {1}', '{0} ਜਾਂ {1}'],
@@ -6649,7 +6647,7 @@ exports.ListFormatSymbols_pa_Guru_IN = {
  * List formatting symbols for locale pcm.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pcm = {
+export let ListFormatSymbols_pcm = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} an {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, an {1}', '{0}, & {1}', '{0}, ọ {1}'],
@@ -6664,7 +6662,7 @@ exports.ListFormatSymbols_pcm = {
  * List formatting symbols for locale pcm_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pcm_NG = {
+export let ListFormatSymbols_pcm_NG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} an {1}', '{0} & {1}', '{0}, {1}'],
   AND_END: ['{0}, an {1}', '{0}, & {1}', '{0}, ọ {1}'],
@@ -6679,7 +6677,7 @@ exports.ListFormatSymbols_pcm_NG = {
  * List formatting symbols for locale pl_PL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pl_PL = {
+export let ListFormatSymbols_pl_PL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} lub {1}', '{0} lub {1}', '{0} lub {1}'],
@@ -6690,7 +6688,7 @@ exports.ListFormatSymbols_pl_PL = {
  * List formatting symbols for locale ps.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ps = {
+export let ListFormatSymbols_ps = {
   AND_START: ['{0}، {1}', '{0}، {1}', '{0}، {1}'],
   AND_TWO: ['{0} او {1}', '{0} او {1}', '{0}، {1}'],
   AND_END: ['{0}، او {1}', '{0}، او {1}', '{0}، او {1}'],
@@ -6708,7 +6706,7 @@ exports.ListFormatSymbols_ps = {
  * List formatting symbols for locale ps_AF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ps_AF = {
+export let ListFormatSymbols_ps_AF = {
   AND_START: ['{0}، {1}', '{0}، {1}', '{0}، {1}'],
   AND_TWO: ['{0} او {1}', '{0} او {1}', '{0}، {1}'],
   AND_END: ['{0}، او {1}', '{0}، او {1}', '{0}، او {1}'],
@@ -6726,7 +6724,7 @@ exports.ListFormatSymbols_ps_AF = {
  * List formatting symbols for locale ps_PK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ps_PK = {
+export let ListFormatSymbols_ps_PK = {
   AND_START: ['{0}، {1}', '{0}، {1}', '{0}، {1}'],
   AND_TWO: ['{0} او {1}', '{0} او {1}', '{0}، {1}'],
   AND_END: ['{0}، او {1}', '{0}، او {1}', '{0}، او {1}'],
@@ -6744,7 +6742,7 @@ exports.ListFormatSymbols_ps_PK = {
  * List formatting symbols for locale pt_AO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_AO = {
+export let ListFormatSymbols_pt_AO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6755,7 +6753,7 @@ exports.ListFormatSymbols_pt_AO = {
  * List formatting symbols for locale pt_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_CH = {
+export let ListFormatSymbols_pt_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6766,7 +6764,7 @@ exports.ListFormatSymbols_pt_CH = {
  * List formatting symbols for locale pt_CV.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_CV = {
+export let ListFormatSymbols_pt_CV = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6777,7 +6775,7 @@ exports.ListFormatSymbols_pt_CV = {
  * List formatting symbols for locale pt_GQ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_GQ = {
+export let ListFormatSymbols_pt_GQ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6788,7 +6786,7 @@ exports.ListFormatSymbols_pt_GQ = {
  * List formatting symbols for locale pt_GW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_GW = {
+export let ListFormatSymbols_pt_GW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6799,7 +6797,7 @@ exports.ListFormatSymbols_pt_GW = {
  * List formatting symbols for locale pt_LU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_LU = {
+export let ListFormatSymbols_pt_LU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6810,7 +6808,7 @@ exports.ListFormatSymbols_pt_LU = {
  * List formatting symbols for locale pt_MO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_MO = {
+export let ListFormatSymbols_pt_MO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6821,7 +6819,7 @@ exports.ListFormatSymbols_pt_MO = {
  * List formatting symbols for locale pt_MZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_MZ = {
+export let ListFormatSymbols_pt_MZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6832,7 +6830,7 @@ exports.ListFormatSymbols_pt_MZ = {
  * List formatting symbols for locale pt_ST.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_ST = {
+export let ListFormatSymbols_pt_ST = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6843,7 +6841,7 @@ exports.ListFormatSymbols_pt_ST = {
  * List formatting symbols for locale pt_TL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_pt_TL = {
+export let ListFormatSymbols_pt_TL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0}, {1}'],
   OR_END: ['{0} ou {1}', '{0} ou {1}', '{0} ou {1}'],
@@ -6854,7 +6852,7 @@ exports.ListFormatSymbols_pt_TL = {
  * List formatting symbols for locale qu.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_qu = {
+export let ListFormatSymbols_qu = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, utaq {1}', '{0}, utaq {1}', '{0}, utaq {1}'],
@@ -6865,7 +6863,7 @@ exports.ListFormatSymbols_qu = {
  * List formatting symbols for locale qu_BO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_qu_BO = {
+export let ListFormatSymbols_qu_BO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, utaq {1}', '{0}, utaq {1}', '{0}, utaq {1}'],
@@ -6876,7 +6874,7 @@ exports.ListFormatSymbols_qu_BO = {
  * List formatting symbols for locale qu_EC.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_qu_EC = {
+export let ListFormatSymbols_qu_EC = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, utaq {1}', '{0}, utaq {1}', '{0}, utaq {1}'],
@@ -6887,7 +6885,7 @@ exports.ListFormatSymbols_qu_EC = {
  * List formatting symbols for locale qu_PE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_qu_PE = {
+export let ListFormatSymbols_qu_PE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, utaq {1}', '{0}, utaq {1}', '{0}, utaq {1}'],
@@ -6898,7 +6896,7 @@ exports.ListFormatSymbols_qu_PE = {
  * List formatting symbols for locale raj.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_raj = {
+export let ListFormatSymbols_raj = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6909,7 +6907,7 @@ exports.ListFormatSymbols_raj = {
  * List formatting symbols for locale raj_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_raj_IN = {
+export let ListFormatSymbols_raj_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6920,7 +6918,7 @@ exports.ListFormatSymbols_raj_IN = {
  * List formatting symbols for locale rm.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rm = {
+export let ListFormatSymbols_rm = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} u {1}', '{0} u {1}', '{0} u {1}'],
@@ -6933,7 +6931,7 @@ exports.ListFormatSymbols_rm = {
  * List formatting symbols for locale rm_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rm_CH = {
+export let ListFormatSymbols_rm_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} u {1}', '{0} u {1}', '{0} u {1}'],
@@ -6946,7 +6944,7 @@ exports.ListFormatSymbols_rm_CH = {
  * List formatting symbols for locale rn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rn = {
+export let ListFormatSymbols_rn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6957,7 +6955,7 @@ exports.ListFormatSymbols_rn = {
  * List formatting symbols for locale rn_BI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rn_BI = {
+export let ListFormatSymbols_rn_BI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -6968,7 +6966,7 @@ exports.ListFormatSymbols_rn_BI = {
  * List formatting symbols for locale ro_MD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ro_MD = {
+export let ListFormatSymbols_ro_MD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} și {1}', '{0} și {1}', '{0}, {1}'],
   OR_END: ['{0} sau {1}', '{0} sau {1}', '{0} sau {1}'],
@@ -6980,7 +6978,7 @@ exports.ListFormatSymbols_ro_MD = {
  * List formatting symbols for locale ro_RO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ro_RO = {
+export let ListFormatSymbols_ro_RO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} și {1}', '{0} și {1}', '{0}, {1}'],
   OR_END: ['{0} sau {1}', '{0} sau {1}', '{0} sau {1}'],
@@ -6992,7 +6990,7 @@ exports.ListFormatSymbols_ro_RO = {
  * List formatting symbols for locale rof.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rof = {
+export let ListFormatSymbols_rof = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7003,7 +7001,7 @@ exports.ListFormatSymbols_rof = {
  * List formatting symbols for locale rof_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rof_TZ = {
+export let ListFormatSymbols_rof_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7014,7 +7012,7 @@ exports.ListFormatSymbols_rof_TZ = {
  * List formatting symbols for locale ru_BY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ru_BY = {
+export let ListFormatSymbols_ru_BY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7027,7 +7025,7 @@ exports.ListFormatSymbols_ru_BY = {
  * List formatting symbols for locale ru_KG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ru_KG = {
+export let ListFormatSymbols_ru_KG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7040,7 +7038,7 @@ exports.ListFormatSymbols_ru_KG = {
  * List formatting symbols for locale ru_KZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ru_KZ = {
+export let ListFormatSymbols_ru_KZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7053,7 +7051,7 @@ exports.ListFormatSymbols_ru_KZ = {
  * List formatting symbols for locale ru_MD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ru_MD = {
+export let ListFormatSymbols_ru_MD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7066,7 +7064,7 @@ exports.ListFormatSymbols_ru_MD = {
  * List formatting symbols for locale ru_RU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ru_RU = {
+export let ListFormatSymbols_ru_RU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7079,7 +7077,7 @@ exports.ListFormatSymbols_ru_RU = {
  * List formatting symbols for locale ru_UA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ru_UA = {
+export let ListFormatSymbols_ru_UA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0}, {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7092,7 +7090,7 @@ exports.ListFormatSymbols_ru_UA = {
  * List formatting symbols for locale rw.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rw = {
+export let ListFormatSymbols_rw = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7103,7 +7101,7 @@ exports.ListFormatSymbols_rw = {
  * List formatting symbols for locale rw_RW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rw_RW = {
+export let ListFormatSymbols_rw_RW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7114,7 +7112,7 @@ exports.ListFormatSymbols_rw_RW = {
  * List formatting symbols for locale rwk.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rwk = {
+export let ListFormatSymbols_rwk = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7125,7 +7123,7 @@ exports.ListFormatSymbols_rwk = {
  * List formatting symbols for locale rwk_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_rwk_TZ = {
+export let ListFormatSymbols_rwk_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7136,7 +7134,7 @@ exports.ListFormatSymbols_rwk_TZ = {
  * List formatting symbols for locale sa.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sa = {
+export let ListFormatSymbols_sa = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} तथा {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, तथा {1}', '{0}, {1}', '{0}, {1}'],
@@ -7149,7 +7147,7 @@ exports.ListFormatSymbols_sa = {
  * List formatting symbols for locale sa_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sa_IN = {
+export let ListFormatSymbols_sa_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} तथा {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, तथा {1}', '{0}, {1}', '{0}, {1}'],
@@ -7162,7 +7160,7 @@ exports.ListFormatSymbols_sa_IN = {
  * List formatting symbols for locale sah.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sah = {
+export let ListFormatSymbols_sah = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} уонна {1}', '{0} уонна {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7173,7 +7171,7 @@ exports.ListFormatSymbols_sah = {
  * List formatting symbols for locale sah_RU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sah_RU = {
+export let ListFormatSymbols_sah_RU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} уонна {1}', '{0} уонна {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7184,7 +7182,7 @@ exports.ListFormatSymbols_sah_RU = {
  * List formatting symbols for locale saq.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_saq = {
+export let ListFormatSymbols_saq = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7195,7 +7193,7 @@ exports.ListFormatSymbols_saq = {
  * List formatting symbols for locale saq_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_saq_KE = {
+export let ListFormatSymbols_saq_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7206,7 +7204,7 @@ exports.ListFormatSymbols_saq_KE = {
  * List formatting symbols for locale sat.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sat = {
+export let ListFormatSymbols_sat = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7217,7 +7215,7 @@ exports.ListFormatSymbols_sat = {
  * List formatting symbols for locale sat_Olck.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sat_Olck = {
+export let ListFormatSymbols_sat_Olck = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7228,7 +7226,7 @@ exports.ListFormatSymbols_sat_Olck = {
  * List formatting symbols for locale sat_Olck_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sat_Olck_IN = {
+export let ListFormatSymbols_sat_Olck_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7239,7 +7237,7 @@ exports.ListFormatSymbols_sat_Olck_IN = {
  * List formatting symbols for locale sbp.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sbp = {
+export let ListFormatSymbols_sbp = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7250,7 +7248,7 @@ exports.ListFormatSymbols_sbp = {
  * List formatting symbols for locale sbp_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sbp_TZ = {
+export let ListFormatSymbols_sbp_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7261,7 +7259,7 @@ exports.ListFormatSymbols_sbp_TZ = {
  * List formatting symbols for locale sc.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sc = {
+export let ListFormatSymbols_sc = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -7274,7 +7272,7 @@ exports.ListFormatSymbols_sc = {
  * List formatting symbols for locale sc_IT.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sc_IT = {
+export let ListFormatSymbols_sc_IT = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} e {1}', '{0} e {1}', '{0} e {1}'],
   OR_END: ['{0} o {1}', '{0} o {1}', '{0} o {1}'],
@@ -7287,7 +7285,7 @@ exports.ListFormatSymbols_sc_IT = {
  * List formatting symbols for locale sd.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sd = {
+export let ListFormatSymbols_sd = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ۽ {1}', '{0} ۽ {1}', '{0}, {1}'],
   AND_END: ['{0}، ۽ {1}', '{0}، ۽ {1}', '{0}, {1}'],
@@ -7300,7 +7298,7 @@ exports.ListFormatSymbols_sd = {
  * List formatting symbols for locale sd_Arab.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sd_Arab = {
+export let ListFormatSymbols_sd_Arab = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ۽ {1}', '{0} ۽ {1}', '{0}, {1}'],
   AND_END: ['{0}، ۽ {1}', '{0}، ۽ {1}', '{0}, {1}'],
@@ -7313,7 +7311,7 @@ exports.ListFormatSymbols_sd_Arab = {
  * List formatting symbols for locale sd_Arab_PK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sd_Arab_PK = {
+export let ListFormatSymbols_sd_Arab_PK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ۽ {1}', '{0} ۽ {1}', '{0}, {1}'],
   AND_END: ['{0}، ۽ {1}', '{0}، ۽ {1}', '{0}, {1}'],
@@ -7326,7 +7324,7 @@ exports.ListFormatSymbols_sd_Arab_PK = {
  * List formatting symbols for locale sd_Deva.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sd_Deva = {
+export let ListFormatSymbols_sd_Deva = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7337,7 +7335,7 @@ exports.ListFormatSymbols_sd_Deva = {
  * List formatting symbols for locale sd_Deva_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sd_Deva_IN = {
+export let ListFormatSymbols_sd_Deva_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7348,7 +7346,7 @@ exports.ListFormatSymbols_sd_Deva_IN = {
  * List formatting symbols for locale se.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_se = {
+export let ListFormatSymbols_se = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ja {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7361,7 +7359,7 @@ exports.ListFormatSymbols_se = {
  * List formatting symbols for locale se_FI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_se_FI = {
+export let ListFormatSymbols_se_FI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ja {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7374,7 +7372,7 @@ exports.ListFormatSymbols_se_FI = {
  * List formatting symbols for locale se_NO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_se_NO = {
+export let ListFormatSymbols_se_NO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ja {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7387,7 +7385,7 @@ exports.ListFormatSymbols_se_NO = {
  * List formatting symbols for locale se_SE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_se_SE = {
+export let ListFormatSymbols_se_SE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ja {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7400,7 +7398,7 @@ exports.ListFormatSymbols_se_SE = {
  * List formatting symbols for locale seh.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_seh = {
+export let ListFormatSymbols_seh = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7411,7 +7409,7 @@ exports.ListFormatSymbols_seh = {
  * List formatting symbols for locale seh_MZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_seh_MZ = {
+export let ListFormatSymbols_seh_MZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7422,7 +7420,7 @@ exports.ListFormatSymbols_seh_MZ = {
  * List formatting symbols for locale ses.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ses = {
+export let ListFormatSymbols_ses = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7433,7 +7431,7 @@ exports.ListFormatSymbols_ses = {
  * List formatting symbols for locale ses_ML.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ses_ML = {
+export let ListFormatSymbols_ses_ML = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7444,7 +7442,7 @@ exports.ListFormatSymbols_ses_ML = {
  * List formatting symbols for locale sg.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sg = {
+export let ListFormatSymbols_sg = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7455,7 +7453,7 @@ exports.ListFormatSymbols_sg = {
  * List formatting symbols for locale sg_CF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sg_CF = {
+export let ListFormatSymbols_sg_CF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7466,7 +7464,7 @@ exports.ListFormatSymbols_sg_CF = {
  * List formatting symbols for locale shi.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_shi = {
+export let ListFormatSymbols_shi = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7477,7 +7475,7 @@ exports.ListFormatSymbols_shi = {
  * List formatting symbols for locale shi_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_shi_Latn = {
+export let ListFormatSymbols_shi_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7488,7 +7486,7 @@ exports.ListFormatSymbols_shi_Latn = {
  * List formatting symbols for locale shi_Latn_MA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_shi_Latn_MA = {
+export let ListFormatSymbols_shi_Latn_MA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7499,7 +7497,7 @@ exports.ListFormatSymbols_shi_Latn_MA = {
  * List formatting symbols for locale shi_Tfng.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_shi_Tfng = {
+export let ListFormatSymbols_shi_Tfng = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7510,7 +7508,7 @@ exports.ListFormatSymbols_shi_Tfng = {
  * List formatting symbols for locale shi_Tfng_MA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_shi_Tfng_MA = {
+export let ListFormatSymbols_shi_Tfng_MA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7521,7 +7519,7 @@ exports.ListFormatSymbols_shi_Tfng_MA = {
  * List formatting symbols for locale si_LK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_si_LK = {
+export let ListFormatSymbols_si_LK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} සහ {1}', '{0} සහ {1}', '{0} සහ {1}'],
   AND_END: ['{0}, සහ {1}', '{0}, සහ {1}', '{0}, සහ {1}'],
@@ -7535,7 +7533,7 @@ exports.ListFormatSymbols_si_LK = {
  * List formatting symbols for locale sk_SK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sk_SK = {
+export let ListFormatSymbols_sk_SK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} a {1}', '{0} a {1}', '{0} a {1}'],
   AND_END: ['{0} a {1}', '{0} a {1}', '{0} a {1}'],
@@ -7548,7 +7546,7 @@ exports.ListFormatSymbols_sk_SK = {
  * List formatting symbols for locale sl_SI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sl_SI = {
+export let ListFormatSymbols_sl_SI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} in {1}', '{0} in {1}', '{0} in {1}'],
   OR_END: ['{0} ali {1}', '{0} ali {1}', '{0} ali {1}'],
@@ -7559,7 +7557,7 @@ exports.ListFormatSymbols_sl_SI = {
  * List formatting symbols for locale smn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_smn = {
+export let ListFormatSymbols_smn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7570,7 +7568,7 @@ exports.ListFormatSymbols_smn = {
  * List formatting symbols for locale smn_FI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_smn_FI = {
+export let ListFormatSymbols_smn_FI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7581,7 +7579,7 @@ exports.ListFormatSymbols_smn_FI = {
  * List formatting symbols for locale sn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sn = {
+export let ListFormatSymbols_sn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7592,7 +7590,7 @@ exports.ListFormatSymbols_sn = {
  * List formatting symbols for locale sn_ZW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sn_ZW = {
+export let ListFormatSymbols_sn_ZW = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7603,7 +7601,7 @@ exports.ListFormatSymbols_sn_ZW = {
  * List formatting symbols for locale so.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_so = {
+export let ListFormatSymbols_so = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} iyo {1}', '{0} & {1}', '{0}, {1}'],
   OR_END: ['{0} ama {1}', '{0} ama {1}', '{0} ama {1}'],
@@ -7615,7 +7613,7 @@ exports.ListFormatSymbols_so = {
  * List formatting symbols for locale so_DJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_so_DJ = {
+export let ListFormatSymbols_so_DJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} iyo {1}', '{0} & {1}', '{0}, {1}'],
   OR_END: ['{0} ama {1}', '{0} ama {1}', '{0} ama {1}'],
@@ -7627,7 +7625,7 @@ exports.ListFormatSymbols_so_DJ = {
  * List formatting symbols for locale so_ET.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_so_ET = {
+export let ListFormatSymbols_so_ET = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} iyo {1}', '{0} & {1}', '{0}, {1}'],
   OR_END: ['{0} ama {1}', '{0} ama {1}', '{0} ama {1}'],
@@ -7639,7 +7637,7 @@ exports.ListFormatSymbols_so_ET = {
  * List formatting symbols for locale so_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_so_KE = {
+export let ListFormatSymbols_so_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} iyo {1}', '{0} & {1}', '{0}, {1}'],
   OR_END: ['{0} ama {1}', '{0} ama {1}', '{0} ama {1}'],
@@ -7651,7 +7649,7 @@ exports.ListFormatSymbols_so_KE = {
  * List formatting symbols for locale so_SO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_so_SO = {
+export let ListFormatSymbols_so_SO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} iyo {1}', '{0} & {1}', '{0}, {1}'],
   OR_END: ['{0} ama {1}', '{0} ama {1}', '{0} ama {1}'],
@@ -7663,7 +7661,7 @@ exports.ListFormatSymbols_so_SO = {
  * List formatting symbols for locale sq_AL.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sq_AL = {
+export let ListFormatSymbols_sq_AL = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dhe {1}', '{0} dhe {1}', '{0} dhe {1}'],
   OR_END: ['{0} ose {1}', '{0} ose {1}', '{0} ose {1}'],
@@ -7674,7 +7672,7 @@ exports.ListFormatSymbols_sq_AL = {
  * List formatting symbols for locale sq_MK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sq_MK = {
+export let ListFormatSymbols_sq_MK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dhe {1}', '{0} dhe {1}', '{0} dhe {1}'],
   OR_END: ['{0} ose {1}', '{0} ose {1}', '{0} ose {1}'],
@@ -7685,7 +7683,7 @@ exports.ListFormatSymbols_sq_MK = {
  * List formatting symbols for locale sq_XK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sq_XK = {
+export let ListFormatSymbols_sq_XK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} dhe {1}', '{0} dhe {1}', '{0} dhe {1}'],
   OR_END: ['{0} ose {1}', '{0} ose {1}', '{0} ose {1}'],
@@ -7696,7 +7694,7 @@ exports.ListFormatSymbols_sq_XK = {
  * List formatting symbols for locale sr_Cyrl.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Cyrl = {
+export let ListFormatSymbols_sr_Cyrl = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7707,7 +7705,7 @@ exports.ListFormatSymbols_sr_Cyrl = {
  * List formatting symbols for locale sr_Cyrl_BA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Cyrl_BA = {
+export let ListFormatSymbols_sr_Cyrl_BA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7718,7 +7716,7 @@ exports.ListFormatSymbols_sr_Cyrl_BA = {
  * List formatting symbols for locale sr_Cyrl_ME.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Cyrl_ME = {
+export let ListFormatSymbols_sr_Cyrl_ME = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7729,7 +7727,7 @@ exports.ListFormatSymbols_sr_Cyrl_ME = {
  * List formatting symbols for locale sr_Cyrl_RS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Cyrl_RS = {
+export let ListFormatSymbols_sr_Cyrl_RS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7740,7 +7738,7 @@ exports.ListFormatSymbols_sr_Cyrl_RS = {
  * List formatting symbols for locale sr_Cyrl_XK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Cyrl_XK = {
+export let ListFormatSymbols_sr_Cyrl_XK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} и {1}', '{0} и {1}', '{0} и {1}'],
   OR_END: ['{0} или {1}', '{0} или {1}', '{0} или {1}'],
@@ -7751,7 +7749,7 @@ exports.ListFormatSymbols_sr_Cyrl_XK = {
  * List formatting symbols for locale sr_Latn_BA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Latn_BA = {
+export let ListFormatSymbols_sr_Latn_BA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -7762,7 +7760,7 @@ exports.ListFormatSymbols_sr_Latn_BA = {
  * List formatting symbols for locale sr_Latn_ME.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Latn_ME = {
+export let ListFormatSymbols_sr_Latn_ME = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -7773,7 +7771,7 @@ exports.ListFormatSymbols_sr_Latn_ME = {
  * List formatting symbols for locale sr_Latn_RS.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Latn_RS = {
+export let ListFormatSymbols_sr_Latn_RS = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -7784,7 +7782,7 @@ exports.ListFormatSymbols_sr_Latn_RS = {
  * List formatting symbols for locale sr_Latn_XK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sr_Latn_XK = {
+export let ListFormatSymbols_sr_Latn_XK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} i {1}', '{0} i {1}', '{0} i {1}'],
   OR_END: ['{0} ili {1}', '{0} ili {1}', '{0} ili {1}'],
@@ -7795,7 +7793,7 @@ exports.ListFormatSymbols_sr_Latn_XK = {
  * List formatting symbols for locale su.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_su = {
+export let ListFormatSymbols_su = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} sareng {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, sareng {1}', '{0}, {1}', '{0}, {1}'],
@@ -7808,7 +7806,7 @@ exports.ListFormatSymbols_su = {
  * List formatting symbols for locale su_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_su_Latn = {
+export let ListFormatSymbols_su_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} sareng {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, sareng {1}', '{0}, {1}', '{0}, {1}'],
@@ -7821,7 +7819,7 @@ exports.ListFormatSymbols_su_Latn = {
  * List formatting symbols for locale su_Latn_ID.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_su_Latn_ID = {
+export let ListFormatSymbols_su_Latn_ID = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} sareng {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, sareng {1}', '{0}, {1}', '{0}, {1}'],
@@ -7834,7 +7832,7 @@ exports.ListFormatSymbols_su_Latn_ID = {
  * List formatting symbols for locale sv_AX.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sv_AX = {
+export let ListFormatSymbols_sv_AX = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} och {1}', '{0} och {1}', '{0}, {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -7847,7 +7845,7 @@ exports.ListFormatSymbols_sv_AX = {
  * List formatting symbols for locale sv_FI.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sv_FI = {
+export let ListFormatSymbols_sv_FI = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} och {1}', '{0} och {1}', '{0}, {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -7860,7 +7858,7 @@ exports.ListFormatSymbols_sv_FI = {
  * List formatting symbols for locale sv_SE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sv_SE = {
+export let ListFormatSymbols_sv_SE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} och {1}', '{0} och {1}', '{0}, {1}'],
   OR_END: ['{0} eller {1}', '{0} eller {1}', '{0} eller {1}'],
@@ -7873,7 +7871,7 @@ exports.ListFormatSymbols_sv_SE = {
  * List formatting symbols for locale sw_CD.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sw_CD = {
+export let ListFormatSymbols_sw_CD = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} na {1}', '{0} na {1}', '{0}, {1}'],
   AND_END: ['{0} na {1}', '{0} na {1}', '{0} na {1}'],
@@ -7886,7 +7884,7 @@ exports.ListFormatSymbols_sw_CD = {
  * List formatting symbols for locale sw_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sw_KE = {
+export let ListFormatSymbols_sw_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} na {1}', '{0} na {1}', '{0}, {1}'],
   AND_END: ['{0} na {1}', '{0} na {1}', '{0} na {1}'],
@@ -7899,7 +7897,7 @@ exports.ListFormatSymbols_sw_KE = {
  * List formatting symbols for locale sw_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sw_TZ = {
+export let ListFormatSymbols_sw_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} na {1}', '{0} na {1}', '{0}, {1}'],
   AND_END: ['{0} na {1}', '{0} na {1}', '{0} na {1}'],
@@ -7912,7 +7910,7 @@ exports.ListFormatSymbols_sw_TZ = {
  * List formatting symbols for locale sw_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_sw_UG = {
+export let ListFormatSymbols_sw_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} na {1}', '{0} na {1}', '{0}, {1}'],
   AND_END: ['{0} na {1}', '{0} na {1}', '{0} na {1}'],
@@ -7925,7 +7923,7 @@ exports.ListFormatSymbols_sw_UG = {
  * List formatting symbols for locale ta_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ta_IN = {
+export let ListFormatSymbols_ta_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} மற்றும் {1}', '{0} மற்றும் {1}', '{0} மற்றும் {1}'],
   OR_END: ['{0} அல்லது {1}', '{0} அல்லது {1}', '{0} அல்லது {1}'],
@@ -7938,7 +7936,7 @@ exports.ListFormatSymbols_ta_IN = {
  * List formatting symbols for locale ta_LK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ta_LK = {
+export let ListFormatSymbols_ta_LK = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} மற்றும் {1}', '{0} மற்றும் {1}', '{0} மற்றும் {1}'],
   OR_END: ['{0} அல்லது {1}', '{0} அல்லது {1}', '{0} அல்லது {1}'],
@@ -7951,7 +7949,7 @@ exports.ListFormatSymbols_ta_LK = {
  * List formatting symbols for locale ta_MY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ta_MY = {
+export let ListFormatSymbols_ta_MY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} மற்றும் {1}', '{0} மற்றும் {1}', '{0} மற்றும் {1}'],
   OR_END: ['{0} அல்லது {1}', '{0} அல்லது {1}', '{0} அல்லது {1}'],
@@ -7964,7 +7962,7 @@ exports.ListFormatSymbols_ta_MY = {
  * List formatting symbols for locale ta_SG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ta_SG = {
+export let ListFormatSymbols_ta_SG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} மற்றும் {1}', '{0} மற்றும் {1}', '{0} மற்றும் {1}'],
   OR_END: ['{0} அல்லது {1}', '{0} அல்லது {1}', '{0} அல்லது {1}'],
@@ -7977,7 +7975,7 @@ exports.ListFormatSymbols_ta_SG = {
  * List formatting symbols for locale te_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_te_IN = {
+export let ListFormatSymbols_te_IN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} మరియు {1}', '{0} మరియు {1}', '{0}, {1}'],
   OR_END: ['{0} లేదా {1}', '{0} లేదా {1}', '{0} లేదా {1}'],
@@ -7988,7 +7986,7 @@ exports.ListFormatSymbols_te_IN = {
  * List formatting symbols for locale teo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_teo = {
+export let ListFormatSymbols_teo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -7999,7 +7997,7 @@ exports.ListFormatSymbols_teo = {
  * List formatting symbols for locale teo_KE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_teo_KE = {
+export let ListFormatSymbols_teo_KE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8010,7 +8008,7 @@ exports.ListFormatSymbols_teo_KE = {
  * List formatting symbols for locale teo_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_teo_UG = {
+export let ListFormatSymbols_teo_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8021,7 +8019,7 @@ exports.ListFormatSymbols_teo_UG = {
  * List formatting symbols for locale tg.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tg = {
+export let ListFormatSymbols_tg = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8032,7 +8030,7 @@ exports.ListFormatSymbols_tg = {
  * List formatting symbols for locale tg_TJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tg_TJ = {
+export let ListFormatSymbols_tg_TJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8043,7 +8041,7 @@ exports.ListFormatSymbols_tg_TJ = {
  * List formatting symbols for locale th_TH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_th_TH = {
+export let ListFormatSymbols_th_TH = {
   AND_START: ['{0} {1}', '{0} {1}', '{0} {1}'],
   AND_TWO: ['{0}และ{1}', '{0}และ{1}', '{0}และ{1}'],
   AND_END: ['{0} และ{1}', '{0} และ{1}', '{0} และ{1}'],
@@ -8059,7 +8057,7 @@ exports.ListFormatSymbols_th_TH = {
  * List formatting symbols for locale ti.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ti = {
+export let ListFormatSymbols_ti = {
   AND_START: ['{0}፣ {1}', '{0}፣ {1}', '{0}፣ {1}'],
   AND_END: ['{0}ን {1}ን', '{0}ን {1}ን', '{0}ን {1}ን'],
   OR_END: ['{0} ወይ {1}', '{0} ወይ {1}', '{0} ወይ {1}'],
@@ -8073,7 +8071,7 @@ exports.ListFormatSymbols_ti = {
  * List formatting symbols for locale ti_ER.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ti_ER = {
+export let ListFormatSymbols_ti_ER = {
   AND_START: ['{0}፣ {1}', '{0}፣ {1}', '{0}፣ {1}'],
   AND_END: ['{0}ን {1}ን', '{0}ን {1}ን', '{0}ን {1}ን'],
   OR_END: ['{0} ወይ {1}', '{0} ወይ {1}', '{0} ወይ {1}'],
@@ -8087,7 +8085,7 @@ exports.ListFormatSymbols_ti_ER = {
  * List formatting symbols for locale ti_ET.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ti_ET = {
+export let ListFormatSymbols_ti_ET = {
   AND_START: ['{0}፣ {1}', '{0}፣ {1}', '{0}፣ {1}'],
   AND_END: ['{0}ን {1}ን', '{0}ን {1}ን', '{0}ን {1}ን'],
   OR_END: ['{0} ወይ {1}', '{0} ወይ {1}', '{0} ወይ {1}'],
@@ -8101,7 +8099,7 @@ exports.ListFormatSymbols_ti_ET = {
  * List formatting symbols for locale tk.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tk = {
+export let ListFormatSymbols_tk = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} we {1}', '{0} we {1}', '{0}, {1}'],
   OR_END: ['{0} ýa-da {1}', '{0} ýa-da {1}', '{0} ýa-da {1}'],
@@ -8114,7 +8112,7 @@ exports.ListFormatSymbols_tk = {
  * List formatting symbols for locale tk_TM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tk_TM = {
+export let ListFormatSymbols_tk_TM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} we {1}', '{0} we {1}', '{0}, {1}'],
   OR_END: ['{0} ýa-da {1}', '{0} ýa-da {1}', '{0} ýa-da {1}'],
@@ -8127,7 +8125,7 @@ exports.ListFormatSymbols_tk_TM = {
  * List formatting symbols for locale to.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_to = {
+export let ListFormatSymbols_to = {
   AND_START: ['{0} mo {1}', '{0} mo {1}', '{0} mo {1}'],
   AND_END: ['{0} mo {1}', '{0} mo {1}', '{0} mo {1}'],
   OR_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
@@ -8142,7 +8140,7 @@ exports.ListFormatSymbols_to = {
  * List formatting symbols for locale to_TO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_to_TO = {
+export let ListFormatSymbols_to_TO = {
   AND_START: ['{0} mo {1}', '{0} mo {1}', '{0} mo {1}'],
   AND_END: ['{0} mo {1}', '{0} mo {1}', '{0} mo {1}'],
   OR_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
@@ -8157,7 +8155,7 @@ exports.ListFormatSymbols_to_TO = {
  * List formatting symbols for locale tr_CY.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tr_CY = {
+export let ListFormatSymbols_tr_CY = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ve {1}', '{0} ve {1}', '{0}, {1}'],
   OR_END: ['{0} veya {1}', '{0} veya {1}', '{0} veya {1}'],
@@ -8170,7 +8168,7 @@ exports.ListFormatSymbols_tr_CY = {
  * List formatting symbols for locale tr_TR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tr_TR = {
+export let ListFormatSymbols_tr_TR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} ve {1}', '{0} ve {1}', '{0}, {1}'],
   OR_END: ['{0} veya {1}', '{0} veya {1}', '{0} veya {1}'],
@@ -8183,7 +8181,7 @@ exports.ListFormatSymbols_tr_TR = {
  * List formatting symbols for locale tt.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tt = {
+export let ListFormatSymbols_tt = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} һәм {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8194,7 +8192,7 @@ exports.ListFormatSymbols_tt = {
  * List formatting symbols for locale tt_RU.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tt_RU = {
+export let ListFormatSymbols_tt_RU = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} һәм {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8205,7 +8203,7 @@ exports.ListFormatSymbols_tt_RU = {
  * List formatting symbols for locale twq.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_twq = {
+export let ListFormatSymbols_twq = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8216,7 +8214,7 @@ exports.ListFormatSymbols_twq = {
  * List formatting symbols for locale twq_NE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_twq_NE = {
+export let ListFormatSymbols_twq_NE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8227,7 +8225,7 @@ exports.ListFormatSymbols_twq_NE = {
  * List formatting symbols for locale tzm.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tzm = {
+export let ListFormatSymbols_tzm = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8238,7 +8236,7 @@ exports.ListFormatSymbols_tzm = {
  * List formatting symbols for locale tzm_MA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_tzm_MA = {
+export let ListFormatSymbols_tzm_MA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8249,7 +8247,7 @@ exports.ListFormatSymbols_tzm_MA = {
  * List formatting symbols for locale ug.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ug = {
+export let ListFormatSymbols_ug = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, {1}', '{0}, {1}'],
@@ -8262,7 +8260,7 @@ exports.ListFormatSymbols_ug = {
  * List formatting symbols for locale ug_CN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ug_CN = {
+export let ListFormatSymbols_ug_CN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} and {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, and {1}', '{0}, {1}', '{0}, {1}'],
@@ -8275,7 +8273,7 @@ exports.ListFormatSymbols_ug_CN = {
  * List formatting symbols for locale uk_UA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uk_UA = {
+export let ListFormatSymbols_uk_UA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} і {1}', '{0} і {1}', '{0}, {1}'],
   OR_END: ['{0} або {1}', '{0} або {1}', '{0} або {1}'],
@@ -8286,7 +8284,7 @@ exports.ListFormatSymbols_uk_UA = {
  * List formatting symbols for locale ur_IN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ur_IN = {
+export let ListFormatSymbols_ur_IN = {
   AND_START: ['{0}، {1}', '{0}، {1}', '{0}، {1}'],
   AND_TWO: ['{0} اور {1}', '{0} اور {1}', '{0}، {1}'],
   AND_END: ['{0}، اور {1}', '{0}، اور {1}', '{0}، {1}'],
@@ -8302,7 +8300,7 @@ exports.ListFormatSymbols_ur_IN = {
  * List formatting symbols for locale ur_PK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_ur_PK = {
+export let ListFormatSymbols_ur_PK = {
   AND_START: ['{0}، {1}', '{0}، {1}', '{0}، {1}'],
   AND_TWO: ['{0} اور {1}', '{0} اور {1}', '{0}، {1}'],
   AND_END: ['{0}، اور {1}', '{0}، اور {1}', '{0}، {1}'],
@@ -8318,7 +8316,7 @@ exports.ListFormatSymbols_ur_PK = {
  * List formatting symbols for locale uz_Arab.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uz_Arab = {
+export let ListFormatSymbols_uz_Arab = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8329,7 +8327,7 @@ exports.ListFormatSymbols_uz_Arab = {
  * List formatting symbols for locale uz_Arab_AF.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uz_Arab_AF = {
+export let ListFormatSymbols_uz_Arab_AF = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8340,7 +8338,7 @@ exports.ListFormatSymbols_uz_Arab_AF = {
  * List formatting symbols for locale uz_Cyrl.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uz_Cyrl = {
+export let ListFormatSymbols_uz_Cyrl = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8351,7 +8349,7 @@ exports.ListFormatSymbols_uz_Cyrl = {
  * List formatting symbols for locale uz_Cyrl_UZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uz_Cyrl_UZ = {
+export let ListFormatSymbols_uz_Cyrl_UZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8362,7 +8360,7 @@ exports.ListFormatSymbols_uz_Cyrl_UZ = {
  * List formatting symbols for locale uz_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uz_Latn = {
+export let ListFormatSymbols_uz_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} va {1}', '{0} va {1}', '{0}, {1}'],
   OR_END: ['{0} yoki {1}', '{0} yoki {1}', '{0} yoki {1}'],
@@ -8375,7 +8373,7 @@ exports.ListFormatSymbols_uz_Latn = {
  * List formatting symbols for locale uz_Latn_UZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_uz_Latn_UZ = {
+export let ListFormatSymbols_uz_Latn_UZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} va {1}', '{0} va {1}', '{0}, {1}'],
   OR_END: ['{0} yoki {1}', '{0} yoki {1}', '{0} yoki {1}'],
@@ -8388,7 +8386,7 @@ exports.ListFormatSymbols_uz_Latn_UZ = {
  * List formatting symbols for locale vai.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vai = {
+export let ListFormatSymbols_vai = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8399,7 +8397,7 @@ exports.ListFormatSymbols_vai = {
  * List formatting symbols for locale vai_Latn.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vai_Latn = {
+export let ListFormatSymbols_vai_Latn = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8410,7 +8408,7 @@ exports.ListFormatSymbols_vai_Latn = {
  * List formatting symbols for locale vai_Latn_LR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vai_Latn_LR = {
+export let ListFormatSymbols_vai_Latn_LR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8421,7 +8419,7 @@ exports.ListFormatSymbols_vai_Latn_LR = {
  * List formatting symbols for locale vai_Vaii.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vai_Vaii = {
+export let ListFormatSymbols_vai_Vaii = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8432,7 +8430,7 @@ exports.ListFormatSymbols_vai_Vaii = {
  * List formatting symbols for locale vai_Vaii_LR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vai_Vaii_LR = {
+export let ListFormatSymbols_vai_Vaii_LR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8443,7 +8441,7 @@ exports.ListFormatSymbols_vai_Vaii_LR = {
  * List formatting symbols for locale vi_VN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vi_VN = {
+export let ListFormatSymbols_vi_VN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} và {1}', '{0} và {1}', '{0}, {1}'],
   OR_END: ['{0} hoặc {1}', '{0} hoặc {1}', '{0} hoặc {1}'],
@@ -8456,7 +8454,7 @@ exports.ListFormatSymbols_vi_VN = {
  * List formatting symbols for locale vun.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vun = {
+export let ListFormatSymbols_vun = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8467,7 +8465,7 @@ exports.ListFormatSymbols_vun = {
  * List formatting symbols for locale vun_TZ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_vun_TZ = {
+export let ListFormatSymbols_vun_TZ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8478,7 +8476,7 @@ exports.ListFormatSymbols_vun_TZ = {
  * List formatting symbols for locale wae.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_wae = {
+export let ListFormatSymbols_wae = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8489,7 +8487,7 @@ exports.ListFormatSymbols_wae = {
  * List formatting symbols for locale wae_CH.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_wae_CH = {
+export let ListFormatSymbols_wae_CH = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} und {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8500,7 +8498,7 @@ exports.ListFormatSymbols_wae_CH = {
  * List formatting symbols for locale wo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_wo = {
+export let ListFormatSymbols_wo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8511,7 +8509,7 @@ exports.ListFormatSymbols_wo = {
  * List formatting symbols for locale wo_SN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_wo_SN = {
+export let ListFormatSymbols_wo_SN = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8522,7 +8520,7 @@ exports.ListFormatSymbols_wo_SN = {
  * List formatting symbols for locale xh.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_xh = {
+export let ListFormatSymbols_xh = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8533,7 +8531,7 @@ exports.ListFormatSymbols_xh = {
  * List formatting symbols for locale xh_ZA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_xh_ZA = {
+export let ListFormatSymbols_xh_ZA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8544,7 +8542,7 @@ exports.ListFormatSymbols_xh_ZA = {
  * List formatting symbols for locale xog.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_xog = {
+export let ListFormatSymbols_xog = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8555,7 +8553,7 @@ exports.ListFormatSymbols_xog = {
  * List formatting symbols for locale xog_UG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_xog_UG = {
+export let ListFormatSymbols_xog_UG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8566,7 +8564,7 @@ exports.ListFormatSymbols_xog_UG = {
  * List formatting symbols for locale yav.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yav = {
+export let ListFormatSymbols_yav = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8577,7 +8575,7 @@ exports.ListFormatSymbols_yav = {
  * List formatting symbols for locale yav_CM.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yav_CM = {
+export let ListFormatSymbols_yav_CM = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8588,7 +8586,7 @@ exports.ListFormatSymbols_yav_CM = {
  * List formatting symbols for locale yi.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yi = {
+export let ListFormatSymbols_yi = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} און {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8599,7 +8597,7 @@ exports.ListFormatSymbols_yi = {
  * List formatting symbols for locale yi_001.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yi_001 = {
+export let ListFormatSymbols_yi_001 = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} און {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8610,7 +8608,7 @@ exports.ListFormatSymbols_yi_001 = {
  * List formatting symbols for locale yo.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yo = {
+export let ListFormatSymbols_yo = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_START: ['{0} pẹ̀lú {1}', '{0} pẹ̀lú {1}', '{0} pẹ̀lú {1}'],
@@ -8622,7 +8620,7 @@ exports.ListFormatSymbols_yo = {
  * List formatting symbols for locale yo_BJ.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yo_BJ = {
+export let ListFormatSymbols_yo_BJ = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_START: ['{0} pɛ̀lú {1}', '{0} pɛ̀lú {1}', '{0} pɛ̀lú {1}'],
@@ -8634,7 +8632,7 @@ exports.ListFormatSymbols_yo_BJ = {
  * List formatting symbols for locale yo_NG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yo_NG = {
+export let ListFormatSymbols_yo_NG = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_START: ['{0} pẹ̀lú {1}', '{0} pẹ̀lú {1}', '{0} pẹ̀lú {1}'],
@@ -8646,7 +8644,7 @@ exports.ListFormatSymbols_yo_NG = {
  * List formatting symbols for locale yrl.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yrl = {
+export let ListFormatSymbols_yrl = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} asuí {1}', '{0} asuí {1}', '{0}, {1}'],
   OR_END: ['{0} u {1}', '{0} u {1}', '{0} u {1}'],
@@ -8659,7 +8657,7 @@ exports.ListFormatSymbols_yrl = {
  * List formatting symbols for locale yrl_BR.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yrl_BR = {
+export let ListFormatSymbols_yrl_BR = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} asuí {1}', '{0} asuí {1}', '{0}, {1}'],
   OR_END: ['{0} u {1}', '{0} u {1}', '{0} u {1}'],
@@ -8672,7 +8670,7 @@ exports.ListFormatSymbols_yrl_BR = {
  * List formatting symbols for locale yrl_CO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yrl_CO = {
+export let ListFormatSymbols_yrl_CO = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} asuí {1}', '{0} asuí {1}', '{0}, {1}'],
   OR_END: ['{0} u {1}', '{0} u {1}', '{0} u {1}'],
@@ -8685,7 +8683,7 @@ exports.ListFormatSymbols_yrl_CO = {
  * List formatting symbols for locale yrl_VE.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yrl_VE = {
+export let ListFormatSymbols_yrl_VE = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0} asuí {1}', '{0} asuí {1}', '{0}, {1}'],
   OR_END: ['{0} u {1}', '{0} u {1}', '{0} u {1}'],
@@ -8698,7 +8696,7 @@ exports.ListFormatSymbols_yrl_VE = {
  * List formatting symbols for locale yue.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yue = {
+export let ListFormatSymbols_yue = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}同{1}', '{0}同{1}', '{0}同{1}'],
   OR_END: ['{0} 或 {1}', '{0} 或 {1}', '{0} 或 {1}'],
@@ -8711,7 +8709,7 @@ exports.ListFormatSymbols_yue = {
  * List formatting symbols for locale yue_Hans.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yue_Hans = {
+export let ListFormatSymbols_yue_Hans = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}同{1}', '{0}同{1}', '{0}同{1}'],
   OR_END: ['{0} 或 {1}', '{0} 或 {1}', '{0} 或 {1}'],
@@ -8724,7 +8722,7 @@ exports.ListFormatSymbols_yue_Hans = {
  * List formatting symbols for locale yue_Hans_CN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yue_Hans_CN = {
+export let ListFormatSymbols_yue_Hans_CN = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}同{1}', '{0}同{1}', '{0}同{1}'],
   OR_END: ['{0} 或 {1}', '{0} 或 {1}', '{0} 或 {1}'],
@@ -8737,7 +8735,7 @@ exports.ListFormatSymbols_yue_Hans_CN = {
  * List formatting symbols for locale yue_Hant.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yue_Hant = {
+export let ListFormatSymbols_yue_Hant = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}同{1}', '{0}同{1}', '{0}同{1}'],
   OR_END: ['{0} 或 {1}', '{0} 或 {1}', '{0} 或 {1}'],
@@ -8750,7 +8748,7 @@ exports.ListFormatSymbols_yue_Hant = {
  * List formatting symbols for locale yue_Hant_HK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_yue_Hant_HK = {
+export let ListFormatSymbols_yue_Hant_HK = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}同{1}', '{0}同{1}', '{0}同{1}'],
   OR_END: ['{0} 或 {1}', '{0} 或 {1}', '{0} 或 {1}'],
@@ -8763,7 +8761,7 @@ exports.ListFormatSymbols_yue_Hant_HK = {
  * List formatting symbols for locale zgh.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zgh = {
+export let ListFormatSymbols_zgh = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8774,7 +8772,7 @@ exports.ListFormatSymbols_zgh = {
  * List formatting symbols for locale zgh_MA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zgh_MA = {
+export let ListFormatSymbols_zgh_MA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_END: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   OR_END: ['{0}, or {1}', '{0}, or {1}', '{0}, or {1}'],
@@ -8785,7 +8783,7 @@ exports.ListFormatSymbols_zgh_MA = {
  * List formatting symbols for locale zh_Hans.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hans = {
+export let ListFormatSymbols_zh_Hans = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}、{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8798,7 +8796,7 @@ exports.ListFormatSymbols_zh_Hans = {
  * List formatting symbols for locale zh_Hans_CN.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hans_CN = {
+export let ListFormatSymbols_zh_Hans_CN = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}、{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8811,7 +8809,7 @@ exports.ListFormatSymbols_zh_Hans_CN = {
  * List formatting symbols for locale zh_Hans_HK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hans_HK = {
+export let ListFormatSymbols_zh_Hans_HK = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}、{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8824,7 +8822,7 @@ exports.ListFormatSymbols_zh_Hans_HK = {
  * List formatting symbols for locale zh_Hans_MO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hans_MO = {
+export let ListFormatSymbols_zh_Hans_MO = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}、{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8837,7 +8835,7 @@ exports.ListFormatSymbols_zh_Hans_MO = {
  * List formatting symbols for locale zh_Hans_SG.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hans_SG = {
+export let ListFormatSymbols_zh_Hans_SG = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}、{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8850,7 +8848,7 @@ exports.ListFormatSymbols_zh_Hans_SG = {
  * List formatting symbols for locale zh_Hant.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hant = {
+export let ListFormatSymbols_zh_Hant = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}和{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8863,7 +8861,7 @@ exports.ListFormatSymbols_zh_Hant = {
  * List formatting symbols for locale zh_Hant_HK.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hant_HK = {
+export let ListFormatSymbols_zh_Hant_HK = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}及{1}', '{0}及{1}', '{0}及{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8876,7 +8874,7 @@ exports.ListFormatSymbols_zh_Hant_HK = {
  * List formatting symbols for locale zh_Hant_MO.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hant_MO = {
+export let ListFormatSymbols_zh_Hant_MO = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}及{1}', '{0}及{1}', '{0}及{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8889,7 +8887,7 @@ exports.ListFormatSymbols_zh_Hant_MO = {
  * List formatting symbols for locale zh_Hant_TW.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zh_Hant_TW = {
+export let ListFormatSymbols_zh_Hant_TW = {
   AND_START: ['{0}、{1}', '{0}、{1}', '{0}、{1}'],
   AND_END: ['{0}和{1}', '{0}和{1}', '{0}和{1}'],
   OR_END: ['{0}或{1}', '{0}或{1}', '{0}或{1}'],
@@ -8902,7 +8900,7 @@ exports.ListFormatSymbols_zh_Hant_TW = {
  * List formatting symbols for locale zu_ZA.
  * @const ListFormatSymbols
  */
-exports.ListFormatSymbols_zu_ZA = {
+export let ListFormatSymbols_zu_ZA = {
   AND_START: ['{0}, {1}', '{0}, {1}', '{0}, {1}'],
   AND_TWO: ['{0} ne-{1}', '{0} ne-{1}', '{0}, {1}'],
   AND_END: ['{0}, ne-{1}', '{0}, ne-{1}', '{0}, {1}'],
@@ -8918,2699 +8916,2699 @@ exports.ListFormatSymbols_zu_ZA = {
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    defaultSymbols = exports.ListFormatSymbols_af_NA;
+    defaultSymbols = ListFormatSymbols_af_NA;
     break;
   case 'af_ZA':
   case 'af-ZA':
-    defaultSymbols = exports.ListFormatSymbols_af_ZA;
+    defaultSymbols = ListFormatSymbols_af_ZA;
     break;
   case 'agq':
-    defaultSymbols = exports.ListFormatSymbols_agq;
+    defaultSymbols = ListFormatSymbols_agq;
     break;
   case 'agq_CM':
   case 'agq-CM':
-    defaultSymbols = exports.ListFormatSymbols_agq_CM;
+    defaultSymbols = ListFormatSymbols_agq_CM;
     break;
   case 'ak':
-    defaultSymbols = exports.ListFormatSymbols_ak;
+    defaultSymbols = ListFormatSymbols_ak;
     break;
   case 'ak_GH':
   case 'ak-GH':
-    defaultSymbols = exports.ListFormatSymbols_ak_GH;
+    defaultSymbols = ListFormatSymbols_ak_GH;
     break;
   case 'am_ET':
   case 'am-ET':
-    defaultSymbols = exports.ListFormatSymbols_am_ET;
+    defaultSymbols = ListFormatSymbols_am_ET;
     break;
   case 'ar_001':
   case 'ar-001':
-    defaultSymbols = exports.ListFormatSymbols_ar_001;
+    defaultSymbols = ListFormatSymbols_ar_001;
     break;
   case 'ar_AE':
   case 'ar-AE':
-    defaultSymbols = exports.ListFormatSymbols_ar_AE;
+    defaultSymbols = ListFormatSymbols_ar_AE;
     break;
   case 'ar_BH':
   case 'ar-BH':
-    defaultSymbols = exports.ListFormatSymbols_ar_BH;
+    defaultSymbols = ListFormatSymbols_ar_BH;
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    defaultSymbols = exports.ListFormatSymbols_ar_DJ;
+    defaultSymbols = ListFormatSymbols_ar_DJ;
     break;
   case 'ar_EH':
   case 'ar-EH':
-    defaultSymbols = exports.ListFormatSymbols_ar_EH;
+    defaultSymbols = ListFormatSymbols_ar_EH;
     break;
   case 'ar_ER':
   case 'ar-ER':
-    defaultSymbols = exports.ListFormatSymbols_ar_ER;
+    defaultSymbols = ListFormatSymbols_ar_ER;
     break;
   case 'ar_IL':
   case 'ar-IL':
-    defaultSymbols = exports.ListFormatSymbols_ar_IL;
+    defaultSymbols = ListFormatSymbols_ar_IL;
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    defaultSymbols = exports.ListFormatSymbols_ar_IQ;
+    defaultSymbols = ListFormatSymbols_ar_IQ;
     break;
   case 'ar_JO':
   case 'ar-JO':
-    defaultSymbols = exports.ListFormatSymbols_ar_JO;
+    defaultSymbols = ListFormatSymbols_ar_JO;
     break;
   case 'ar_KM':
   case 'ar-KM':
-    defaultSymbols = exports.ListFormatSymbols_ar_KM;
+    defaultSymbols = ListFormatSymbols_ar_KM;
     break;
   case 'ar_KW':
   case 'ar-KW':
-    defaultSymbols = exports.ListFormatSymbols_ar_KW;
+    defaultSymbols = ListFormatSymbols_ar_KW;
     break;
   case 'ar_LB':
   case 'ar-LB':
-    defaultSymbols = exports.ListFormatSymbols_ar_LB;
+    defaultSymbols = ListFormatSymbols_ar_LB;
     break;
   case 'ar_LY':
   case 'ar-LY':
-    defaultSymbols = exports.ListFormatSymbols_ar_LY;
+    defaultSymbols = ListFormatSymbols_ar_LY;
     break;
   case 'ar_MA':
   case 'ar-MA':
-    defaultSymbols = exports.ListFormatSymbols_ar_MA;
+    defaultSymbols = ListFormatSymbols_ar_MA;
     break;
   case 'ar_MR':
   case 'ar-MR':
-    defaultSymbols = exports.ListFormatSymbols_ar_MR;
+    defaultSymbols = ListFormatSymbols_ar_MR;
     break;
   case 'ar_OM':
   case 'ar-OM':
-    defaultSymbols = exports.ListFormatSymbols_ar_OM;
+    defaultSymbols = ListFormatSymbols_ar_OM;
     break;
   case 'ar_PS':
   case 'ar-PS':
-    defaultSymbols = exports.ListFormatSymbols_ar_PS;
+    defaultSymbols = ListFormatSymbols_ar_PS;
     break;
   case 'ar_QA':
   case 'ar-QA':
-    defaultSymbols = exports.ListFormatSymbols_ar_QA;
+    defaultSymbols = ListFormatSymbols_ar_QA;
     break;
   case 'ar_SA':
   case 'ar-SA':
-    defaultSymbols = exports.ListFormatSymbols_ar_SA;
+    defaultSymbols = ListFormatSymbols_ar_SA;
     break;
   case 'ar_SD':
   case 'ar-SD':
-    defaultSymbols = exports.ListFormatSymbols_ar_SD;
+    defaultSymbols = ListFormatSymbols_ar_SD;
     break;
   case 'ar_SO':
   case 'ar-SO':
-    defaultSymbols = exports.ListFormatSymbols_ar_SO;
+    defaultSymbols = ListFormatSymbols_ar_SO;
     break;
   case 'ar_SS':
   case 'ar-SS':
-    defaultSymbols = exports.ListFormatSymbols_ar_SS;
+    defaultSymbols = ListFormatSymbols_ar_SS;
     break;
   case 'ar_SY':
   case 'ar-SY':
-    defaultSymbols = exports.ListFormatSymbols_ar_SY;
+    defaultSymbols = ListFormatSymbols_ar_SY;
     break;
   case 'ar_TD':
   case 'ar-TD':
-    defaultSymbols = exports.ListFormatSymbols_ar_TD;
+    defaultSymbols = ListFormatSymbols_ar_TD;
     break;
   case 'ar_TN':
   case 'ar-TN':
-    defaultSymbols = exports.ListFormatSymbols_ar_TN;
+    defaultSymbols = ListFormatSymbols_ar_TN;
     break;
   case 'ar_XB':
   case 'ar-XB':
-    defaultSymbols = exports.ListFormatSymbols_ar_XB;
+    defaultSymbols = ListFormatSymbols_ar_XB;
     break;
   case 'ar_YE':
   case 'ar-YE':
-    defaultSymbols = exports.ListFormatSymbols_ar_YE;
+    defaultSymbols = ListFormatSymbols_ar_YE;
     break;
   case 'as':
-    defaultSymbols = exports.ListFormatSymbols_as;
+    defaultSymbols = ListFormatSymbols_as;
     break;
   case 'as_IN':
   case 'as-IN':
-    defaultSymbols = exports.ListFormatSymbols_as_IN;
+    defaultSymbols = ListFormatSymbols_as_IN;
     break;
   case 'asa':
-    defaultSymbols = exports.ListFormatSymbols_asa;
+    defaultSymbols = ListFormatSymbols_asa;
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    defaultSymbols = exports.ListFormatSymbols_asa_TZ;
+    defaultSymbols = ListFormatSymbols_asa_TZ;
     break;
   case 'ast':
-    defaultSymbols = exports.ListFormatSymbols_ast;
+    defaultSymbols = ListFormatSymbols_ast;
     break;
   case 'ast_ES':
   case 'ast-ES':
-    defaultSymbols = exports.ListFormatSymbols_ast_ES;
+    defaultSymbols = ListFormatSymbols_ast_ES;
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    defaultSymbols = exports.ListFormatSymbols_az_Cyrl;
+    defaultSymbols = ListFormatSymbols_az_Cyrl;
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    defaultSymbols = exports.ListFormatSymbols_az_Cyrl_AZ;
+    defaultSymbols = ListFormatSymbols_az_Cyrl_AZ;
     break;
   case 'az_Latn':
   case 'az-Latn':
-    defaultSymbols = exports.ListFormatSymbols_az_Latn;
+    defaultSymbols = ListFormatSymbols_az_Latn;
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    defaultSymbols = exports.ListFormatSymbols_az_Latn_AZ;
+    defaultSymbols = ListFormatSymbols_az_Latn_AZ;
     break;
   case 'bas':
-    defaultSymbols = exports.ListFormatSymbols_bas;
+    defaultSymbols = ListFormatSymbols_bas;
     break;
   case 'bas_CM':
   case 'bas-CM':
-    defaultSymbols = exports.ListFormatSymbols_bas_CM;
+    defaultSymbols = ListFormatSymbols_bas_CM;
     break;
   case 'be_BY':
   case 'be-BY':
-    defaultSymbols = exports.ListFormatSymbols_be_BY;
+    defaultSymbols = ListFormatSymbols_be_BY;
     break;
   case 'bem':
-    defaultSymbols = exports.ListFormatSymbols_bem;
+    defaultSymbols = ListFormatSymbols_bem;
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    defaultSymbols = exports.ListFormatSymbols_bem_ZM;
+    defaultSymbols = ListFormatSymbols_bem_ZM;
     break;
   case 'bez':
-    defaultSymbols = exports.ListFormatSymbols_bez;
+    defaultSymbols = ListFormatSymbols_bez;
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    defaultSymbols = exports.ListFormatSymbols_bez_TZ;
+    defaultSymbols = ListFormatSymbols_bez_TZ;
     break;
   case 'bg_BG':
   case 'bg-BG':
-    defaultSymbols = exports.ListFormatSymbols_bg_BG;
+    defaultSymbols = ListFormatSymbols_bg_BG;
     break;
   case 'bgc':
-    defaultSymbols = exports.ListFormatSymbols_bgc;
+    defaultSymbols = ListFormatSymbols_bgc;
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    defaultSymbols = exports.ListFormatSymbols_bgc_IN;
+    defaultSymbols = ListFormatSymbols_bgc_IN;
     break;
   case 'bho':
-    defaultSymbols = exports.ListFormatSymbols_bho;
+    defaultSymbols = ListFormatSymbols_bho;
     break;
   case 'bho_IN':
   case 'bho-IN':
-    defaultSymbols = exports.ListFormatSymbols_bho_IN;
+    defaultSymbols = ListFormatSymbols_bho_IN;
     break;
   case 'bm':
-    defaultSymbols = exports.ListFormatSymbols_bm;
+    defaultSymbols = ListFormatSymbols_bm;
     break;
   case 'bm_ML':
   case 'bm-ML':
-    defaultSymbols = exports.ListFormatSymbols_bm_ML;
+    defaultSymbols = ListFormatSymbols_bm_ML;
     break;
   case 'bn_BD':
   case 'bn-BD':
-    defaultSymbols = exports.ListFormatSymbols_bn_BD;
+    defaultSymbols = ListFormatSymbols_bn_BD;
     break;
   case 'bn_IN':
   case 'bn-IN':
-    defaultSymbols = exports.ListFormatSymbols_bn_IN;
+    defaultSymbols = ListFormatSymbols_bn_IN;
     break;
   case 'bo':
-    defaultSymbols = exports.ListFormatSymbols_bo;
+    defaultSymbols = ListFormatSymbols_bo;
     break;
   case 'bo_CN':
   case 'bo-CN':
-    defaultSymbols = exports.ListFormatSymbols_bo_CN;
+    defaultSymbols = ListFormatSymbols_bo_CN;
     break;
   case 'bo_IN':
   case 'bo-IN':
-    defaultSymbols = exports.ListFormatSymbols_bo_IN;
+    defaultSymbols = ListFormatSymbols_bo_IN;
     break;
   case 'br_FR':
   case 'br-FR':
-    defaultSymbols = exports.ListFormatSymbols_br_FR;
+    defaultSymbols = ListFormatSymbols_br_FR;
     break;
   case 'brx':
-    defaultSymbols = exports.ListFormatSymbols_brx;
+    defaultSymbols = ListFormatSymbols_brx;
     break;
   case 'brx_IN':
   case 'brx-IN':
-    defaultSymbols = exports.ListFormatSymbols_brx_IN;
+    defaultSymbols = ListFormatSymbols_brx_IN;
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    defaultSymbols = exports.ListFormatSymbols_bs_Cyrl;
+    defaultSymbols = ListFormatSymbols_bs_Cyrl;
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    defaultSymbols = exports.ListFormatSymbols_bs_Cyrl_BA;
+    defaultSymbols = ListFormatSymbols_bs_Cyrl_BA;
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    defaultSymbols = exports.ListFormatSymbols_bs_Latn;
+    defaultSymbols = ListFormatSymbols_bs_Latn;
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    defaultSymbols = exports.ListFormatSymbols_bs_Latn_BA;
+    defaultSymbols = ListFormatSymbols_bs_Latn_BA;
     break;
   case 'ca_AD':
   case 'ca-AD':
-    defaultSymbols = exports.ListFormatSymbols_ca_AD;
+    defaultSymbols = ListFormatSymbols_ca_AD;
     break;
   case 'ca_ES':
   case 'ca-ES':
-    defaultSymbols = exports.ListFormatSymbols_ca_ES;
+    defaultSymbols = ListFormatSymbols_ca_ES;
     break;
   case 'ca_FR':
   case 'ca-FR':
-    defaultSymbols = exports.ListFormatSymbols_ca_FR;
+    defaultSymbols = ListFormatSymbols_ca_FR;
     break;
   case 'ca_IT':
   case 'ca-IT':
-    defaultSymbols = exports.ListFormatSymbols_ca_IT;
+    defaultSymbols = ListFormatSymbols_ca_IT;
     break;
   case 'ccp':
-    defaultSymbols = exports.ListFormatSymbols_ccp;
+    defaultSymbols = ListFormatSymbols_ccp;
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    defaultSymbols = exports.ListFormatSymbols_ccp_BD;
+    defaultSymbols = ListFormatSymbols_ccp_BD;
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    defaultSymbols = exports.ListFormatSymbols_ccp_IN;
+    defaultSymbols = ListFormatSymbols_ccp_IN;
     break;
   case 'ce':
-    defaultSymbols = exports.ListFormatSymbols_ce;
+    defaultSymbols = ListFormatSymbols_ce;
     break;
   case 'ce_RU':
   case 'ce-RU':
-    defaultSymbols = exports.ListFormatSymbols_ce_RU;
+    defaultSymbols = ListFormatSymbols_ce_RU;
     break;
   case 'ceb':
-    defaultSymbols = exports.ListFormatSymbols_ceb;
+    defaultSymbols = ListFormatSymbols_ceb;
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    defaultSymbols = exports.ListFormatSymbols_ceb_PH;
+    defaultSymbols = ListFormatSymbols_ceb_PH;
     break;
   case 'cgg':
-    defaultSymbols = exports.ListFormatSymbols_cgg;
+    defaultSymbols = ListFormatSymbols_cgg;
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    defaultSymbols = exports.ListFormatSymbols_cgg_UG;
+    defaultSymbols = ListFormatSymbols_cgg_UG;
     break;
   case 'chr_US':
   case 'chr-US':
-    defaultSymbols = exports.ListFormatSymbols_chr_US;
+    defaultSymbols = ListFormatSymbols_chr_US;
     break;
   case 'ckb':
-    defaultSymbols = exports.ListFormatSymbols_ckb;
+    defaultSymbols = ListFormatSymbols_ckb;
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    defaultSymbols = exports.ListFormatSymbols_ckb_Arab;
+    defaultSymbols = ListFormatSymbols_ckb_Arab;
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    defaultSymbols = exports.ListFormatSymbols_ckb_Arab_IQ;
+    defaultSymbols = ListFormatSymbols_ckb_Arab_IQ;
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    defaultSymbols = exports.ListFormatSymbols_ckb_Arab_IR;
+    defaultSymbols = ListFormatSymbols_ckb_Arab_IR;
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    defaultSymbols = exports.ListFormatSymbols_ckb_IQ;
+    defaultSymbols = ListFormatSymbols_ckb_IQ;
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    defaultSymbols = exports.ListFormatSymbols_ckb_IR;
+    defaultSymbols = ListFormatSymbols_ckb_IR;
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    defaultSymbols = exports.ListFormatSymbols_cs_CZ;
+    defaultSymbols = ListFormatSymbols_cs_CZ;
     break;
   case 'cv':
-    defaultSymbols = exports.ListFormatSymbols_cv;
+    defaultSymbols = ListFormatSymbols_cv;
     break;
   case 'cv_RU':
   case 'cv-RU':
-    defaultSymbols = exports.ListFormatSymbols_cv_RU;
+    defaultSymbols = ListFormatSymbols_cv_RU;
     break;
   case 'cy_GB':
   case 'cy-GB':
-    defaultSymbols = exports.ListFormatSymbols_cy_GB;
+    defaultSymbols = ListFormatSymbols_cy_GB;
     break;
   case 'da_DK':
   case 'da-DK':
-    defaultSymbols = exports.ListFormatSymbols_da_DK;
+    defaultSymbols = ListFormatSymbols_da_DK;
     break;
   case 'da_GL':
   case 'da-GL':
-    defaultSymbols = exports.ListFormatSymbols_da_GL;
+    defaultSymbols = ListFormatSymbols_da_GL;
     break;
   case 'dav':
-    defaultSymbols = exports.ListFormatSymbols_dav;
+    defaultSymbols = ListFormatSymbols_dav;
     break;
   case 'dav_KE':
   case 'dav-KE':
-    defaultSymbols = exports.ListFormatSymbols_dav_KE;
+    defaultSymbols = ListFormatSymbols_dav_KE;
     break;
   case 'de_BE':
   case 'de-BE':
-    defaultSymbols = exports.ListFormatSymbols_de_BE;
+    defaultSymbols = ListFormatSymbols_de_BE;
     break;
   case 'de_DE':
   case 'de-DE':
-    defaultSymbols = exports.ListFormatSymbols_de_DE;
+    defaultSymbols = ListFormatSymbols_de_DE;
     break;
   case 'de_IT':
   case 'de-IT':
-    defaultSymbols = exports.ListFormatSymbols_de_IT;
+    defaultSymbols = ListFormatSymbols_de_IT;
     break;
   case 'de_LI':
   case 'de-LI':
-    defaultSymbols = exports.ListFormatSymbols_de_LI;
+    defaultSymbols = ListFormatSymbols_de_LI;
     break;
   case 'de_LU':
   case 'de-LU':
-    defaultSymbols = exports.ListFormatSymbols_de_LU;
+    defaultSymbols = ListFormatSymbols_de_LU;
     break;
   case 'dje':
-    defaultSymbols = exports.ListFormatSymbols_dje;
+    defaultSymbols = ListFormatSymbols_dje;
     break;
   case 'dje_NE':
   case 'dje-NE':
-    defaultSymbols = exports.ListFormatSymbols_dje_NE;
+    defaultSymbols = ListFormatSymbols_dje_NE;
     break;
   case 'doi':
-    defaultSymbols = exports.ListFormatSymbols_doi;
+    defaultSymbols = ListFormatSymbols_doi;
     break;
   case 'doi_IN':
   case 'doi-IN':
-    defaultSymbols = exports.ListFormatSymbols_doi_IN;
+    defaultSymbols = ListFormatSymbols_doi_IN;
     break;
   case 'dsb':
-    defaultSymbols = exports.ListFormatSymbols_dsb;
+    defaultSymbols = ListFormatSymbols_dsb;
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    defaultSymbols = exports.ListFormatSymbols_dsb_DE;
+    defaultSymbols = ListFormatSymbols_dsb_DE;
     break;
   case 'dua':
-    defaultSymbols = exports.ListFormatSymbols_dua;
+    defaultSymbols = ListFormatSymbols_dua;
     break;
   case 'dua_CM':
   case 'dua-CM':
-    defaultSymbols = exports.ListFormatSymbols_dua_CM;
+    defaultSymbols = ListFormatSymbols_dua_CM;
     break;
   case 'dyo':
-    defaultSymbols = exports.ListFormatSymbols_dyo;
+    defaultSymbols = ListFormatSymbols_dyo;
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    defaultSymbols = exports.ListFormatSymbols_dyo_SN;
+    defaultSymbols = ListFormatSymbols_dyo_SN;
     break;
   case 'dz':
-    defaultSymbols = exports.ListFormatSymbols_dz;
+    defaultSymbols = ListFormatSymbols_dz;
     break;
   case 'dz_BT':
   case 'dz-BT':
-    defaultSymbols = exports.ListFormatSymbols_dz_BT;
+    defaultSymbols = ListFormatSymbols_dz_BT;
     break;
   case 'ebu':
-    defaultSymbols = exports.ListFormatSymbols_ebu;
+    defaultSymbols = ListFormatSymbols_ebu;
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    defaultSymbols = exports.ListFormatSymbols_ebu_KE;
+    defaultSymbols = ListFormatSymbols_ebu_KE;
     break;
   case 'ee':
-    defaultSymbols = exports.ListFormatSymbols_ee;
+    defaultSymbols = ListFormatSymbols_ee;
     break;
   case 'ee_GH':
   case 'ee-GH':
-    defaultSymbols = exports.ListFormatSymbols_ee_GH;
+    defaultSymbols = ListFormatSymbols_ee_GH;
     break;
   case 'ee_TG':
   case 'ee-TG':
-    defaultSymbols = exports.ListFormatSymbols_ee_TG;
+    defaultSymbols = ListFormatSymbols_ee_TG;
     break;
   case 'el_CY':
   case 'el-CY':
-    defaultSymbols = exports.ListFormatSymbols_el_CY;
+    defaultSymbols = ListFormatSymbols_el_CY;
     break;
   case 'el_GR':
   case 'el-GR':
-    defaultSymbols = exports.ListFormatSymbols_el_GR;
+    defaultSymbols = ListFormatSymbols_el_GR;
     break;
   case 'en_001':
   case 'en-001':
-    defaultSymbols = exports.ListFormatSymbols_en_001;
+    defaultSymbols = ListFormatSymbols_en_001;
     break;
   case 'en_150':
   case 'en-150':
-    defaultSymbols = exports.ListFormatSymbols_en_150;
+    defaultSymbols = ListFormatSymbols_en_150;
     break;
   case 'en_AE':
   case 'en-AE':
-    defaultSymbols = exports.ListFormatSymbols_en_AE;
+    defaultSymbols = ListFormatSymbols_en_AE;
     break;
   case 'en_AG':
   case 'en-AG':
-    defaultSymbols = exports.ListFormatSymbols_en_AG;
+    defaultSymbols = ListFormatSymbols_en_AG;
     break;
   case 'en_AI':
   case 'en-AI':
-    defaultSymbols = exports.ListFormatSymbols_en_AI;
+    defaultSymbols = ListFormatSymbols_en_AI;
     break;
   case 'en_AS':
   case 'en-AS':
-    defaultSymbols = exports.ListFormatSymbols_en_AS;
+    defaultSymbols = ListFormatSymbols_en_AS;
     break;
   case 'en_AT':
   case 'en-AT':
-    defaultSymbols = exports.ListFormatSymbols_en_AT;
+    defaultSymbols = ListFormatSymbols_en_AT;
     break;
   case 'en_BB':
   case 'en-BB':
-    defaultSymbols = exports.ListFormatSymbols_en_BB;
+    defaultSymbols = ListFormatSymbols_en_BB;
     break;
   case 'en_BE':
   case 'en-BE':
-    defaultSymbols = exports.ListFormatSymbols_en_BE;
+    defaultSymbols = ListFormatSymbols_en_BE;
     break;
   case 'en_BI':
   case 'en-BI':
-    defaultSymbols = exports.ListFormatSymbols_en_BI;
+    defaultSymbols = ListFormatSymbols_en_BI;
     break;
   case 'en_BM':
   case 'en-BM':
-    defaultSymbols = exports.ListFormatSymbols_en_BM;
+    defaultSymbols = ListFormatSymbols_en_BM;
     break;
   case 'en_BS':
   case 'en-BS':
-    defaultSymbols = exports.ListFormatSymbols_en_BS;
+    defaultSymbols = ListFormatSymbols_en_BS;
     break;
   case 'en_BW':
   case 'en-BW':
-    defaultSymbols = exports.ListFormatSymbols_en_BW;
+    defaultSymbols = ListFormatSymbols_en_BW;
     break;
   case 'en_BZ':
   case 'en-BZ':
-    defaultSymbols = exports.ListFormatSymbols_en_BZ;
+    defaultSymbols = ListFormatSymbols_en_BZ;
     break;
   case 'en_CC':
   case 'en-CC':
-    defaultSymbols = exports.ListFormatSymbols_en_CC;
+    defaultSymbols = ListFormatSymbols_en_CC;
     break;
   case 'en_CH':
   case 'en-CH':
-    defaultSymbols = exports.ListFormatSymbols_en_CH;
+    defaultSymbols = ListFormatSymbols_en_CH;
     break;
   case 'en_CK':
   case 'en-CK':
-    defaultSymbols = exports.ListFormatSymbols_en_CK;
+    defaultSymbols = ListFormatSymbols_en_CK;
     break;
   case 'en_CM':
   case 'en-CM':
-    defaultSymbols = exports.ListFormatSymbols_en_CM;
+    defaultSymbols = ListFormatSymbols_en_CM;
     break;
   case 'en_CX':
   case 'en-CX':
-    defaultSymbols = exports.ListFormatSymbols_en_CX;
+    defaultSymbols = ListFormatSymbols_en_CX;
     break;
   case 'en_CY':
   case 'en-CY':
-    defaultSymbols = exports.ListFormatSymbols_en_CY;
+    defaultSymbols = ListFormatSymbols_en_CY;
     break;
   case 'en_DE':
   case 'en-DE':
-    defaultSymbols = exports.ListFormatSymbols_en_DE;
+    defaultSymbols = ListFormatSymbols_en_DE;
     break;
   case 'en_DG':
   case 'en-DG':
-    defaultSymbols = exports.ListFormatSymbols_en_DG;
+    defaultSymbols = ListFormatSymbols_en_DG;
     break;
   case 'en_DK':
   case 'en-DK':
-    defaultSymbols = exports.ListFormatSymbols_en_DK;
+    defaultSymbols = ListFormatSymbols_en_DK;
     break;
   case 'en_DM':
   case 'en-DM':
-    defaultSymbols = exports.ListFormatSymbols_en_DM;
+    defaultSymbols = ListFormatSymbols_en_DM;
     break;
   case 'en_ER':
   case 'en-ER':
-    defaultSymbols = exports.ListFormatSymbols_en_ER;
+    defaultSymbols = ListFormatSymbols_en_ER;
     break;
   case 'en_FI':
   case 'en-FI':
-    defaultSymbols = exports.ListFormatSymbols_en_FI;
+    defaultSymbols = ListFormatSymbols_en_FI;
     break;
   case 'en_FJ':
   case 'en-FJ':
-    defaultSymbols = exports.ListFormatSymbols_en_FJ;
+    defaultSymbols = ListFormatSymbols_en_FJ;
     break;
   case 'en_FK':
   case 'en-FK':
-    defaultSymbols = exports.ListFormatSymbols_en_FK;
+    defaultSymbols = ListFormatSymbols_en_FK;
     break;
   case 'en_FM':
   case 'en-FM':
-    defaultSymbols = exports.ListFormatSymbols_en_FM;
+    defaultSymbols = ListFormatSymbols_en_FM;
     break;
   case 'en_GD':
   case 'en-GD':
-    defaultSymbols = exports.ListFormatSymbols_en_GD;
+    defaultSymbols = ListFormatSymbols_en_GD;
     break;
   case 'en_GG':
   case 'en-GG':
-    defaultSymbols = exports.ListFormatSymbols_en_GG;
+    defaultSymbols = ListFormatSymbols_en_GG;
     break;
   case 'en_GH':
   case 'en-GH':
-    defaultSymbols = exports.ListFormatSymbols_en_GH;
+    defaultSymbols = ListFormatSymbols_en_GH;
     break;
   case 'en_GI':
   case 'en-GI':
-    defaultSymbols = exports.ListFormatSymbols_en_GI;
+    defaultSymbols = ListFormatSymbols_en_GI;
     break;
   case 'en_GM':
   case 'en-GM':
-    defaultSymbols = exports.ListFormatSymbols_en_GM;
+    defaultSymbols = ListFormatSymbols_en_GM;
     break;
   case 'en_GU':
   case 'en-GU':
-    defaultSymbols = exports.ListFormatSymbols_en_GU;
+    defaultSymbols = ListFormatSymbols_en_GU;
     break;
   case 'en_GY':
   case 'en-GY':
-    defaultSymbols = exports.ListFormatSymbols_en_GY;
+    defaultSymbols = ListFormatSymbols_en_GY;
     break;
   case 'en_HK':
   case 'en-HK':
-    defaultSymbols = exports.ListFormatSymbols_en_HK;
+    defaultSymbols = ListFormatSymbols_en_HK;
     break;
   case 'en_IL':
   case 'en-IL':
-    defaultSymbols = exports.ListFormatSymbols_en_IL;
+    defaultSymbols = ListFormatSymbols_en_IL;
     break;
   case 'en_IM':
   case 'en-IM':
-    defaultSymbols = exports.ListFormatSymbols_en_IM;
+    defaultSymbols = ListFormatSymbols_en_IM;
     break;
   case 'en_IO':
   case 'en-IO':
-    defaultSymbols = exports.ListFormatSymbols_en_IO;
+    defaultSymbols = ListFormatSymbols_en_IO;
     break;
   case 'en_JE':
   case 'en-JE':
-    defaultSymbols = exports.ListFormatSymbols_en_JE;
+    defaultSymbols = ListFormatSymbols_en_JE;
     break;
   case 'en_JM':
   case 'en-JM':
-    defaultSymbols = exports.ListFormatSymbols_en_JM;
+    defaultSymbols = ListFormatSymbols_en_JM;
     break;
   case 'en_KE':
   case 'en-KE':
-    defaultSymbols = exports.ListFormatSymbols_en_KE;
+    defaultSymbols = ListFormatSymbols_en_KE;
     break;
   case 'en_KI':
   case 'en-KI':
-    defaultSymbols = exports.ListFormatSymbols_en_KI;
+    defaultSymbols = ListFormatSymbols_en_KI;
     break;
   case 'en_KN':
   case 'en-KN':
-    defaultSymbols = exports.ListFormatSymbols_en_KN;
+    defaultSymbols = ListFormatSymbols_en_KN;
     break;
   case 'en_KY':
   case 'en-KY':
-    defaultSymbols = exports.ListFormatSymbols_en_KY;
+    defaultSymbols = ListFormatSymbols_en_KY;
     break;
   case 'en_LC':
   case 'en-LC':
-    defaultSymbols = exports.ListFormatSymbols_en_LC;
+    defaultSymbols = ListFormatSymbols_en_LC;
     break;
   case 'en_LR':
   case 'en-LR':
-    defaultSymbols = exports.ListFormatSymbols_en_LR;
+    defaultSymbols = ListFormatSymbols_en_LR;
     break;
   case 'en_LS':
   case 'en-LS':
-    defaultSymbols = exports.ListFormatSymbols_en_LS;
+    defaultSymbols = ListFormatSymbols_en_LS;
     break;
   case 'en_MG':
   case 'en-MG':
-    defaultSymbols = exports.ListFormatSymbols_en_MG;
+    defaultSymbols = ListFormatSymbols_en_MG;
     break;
   case 'en_MH':
   case 'en-MH':
-    defaultSymbols = exports.ListFormatSymbols_en_MH;
+    defaultSymbols = ListFormatSymbols_en_MH;
     break;
   case 'en_MO':
   case 'en-MO':
-    defaultSymbols = exports.ListFormatSymbols_en_MO;
+    defaultSymbols = ListFormatSymbols_en_MO;
     break;
   case 'en_MP':
   case 'en-MP':
-    defaultSymbols = exports.ListFormatSymbols_en_MP;
+    defaultSymbols = ListFormatSymbols_en_MP;
     break;
   case 'en_MS':
   case 'en-MS':
-    defaultSymbols = exports.ListFormatSymbols_en_MS;
+    defaultSymbols = ListFormatSymbols_en_MS;
     break;
   case 'en_MT':
   case 'en-MT':
-    defaultSymbols = exports.ListFormatSymbols_en_MT;
+    defaultSymbols = ListFormatSymbols_en_MT;
     break;
   case 'en_MU':
   case 'en-MU':
-    defaultSymbols = exports.ListFormatSymbols_en_MU;
+    defaultSymbols = ListFormatSymbols_en_MU;
     break;
   case 'en_MV':
   case 'en-MV':
-    defaultSymbols = exports.ListFormatSymbols_en_MV;
+    defaultSymbols = ListFormatSymbols_en_MV;
     break;
   case 'en_MW':
   case 'en-MW':
-    defaultSymbols = exports.ListFormatSymbols_en_MW;
+    defaultSymbols = ListFormatSymbols_en_MW;
     break;
   case 'en_MY':
   case 'en-MY':
-    defaultSymbols = exports.ListFormatSymbols_en_MY;
+    defaultSymbols = ListFormatSymbols_en_MY;
     break;
   case 'en_NA':
   case 'en-NA':
-    defaultSymbols = exports.ListFormatSymbols_en_NA;
+    defaultSymbols = ListFormatSymbols_en_NA;
     break;
   case 'en_NF':
   case 'en-NF':
-    defaultSymbols = exports.ListFormatSymbols_en_NF;
+    defaultSymbols = ListFormatSymbols_en_NF;
     break;
   case 'en_NG':
   case 'en-NG':
-    defaultSymbols = exports.ListFormatSymbols_en_NG;
+    defaultSymbols = ListFormatSymbols_en_NG;
     break;
   case 'en_NL':
   case 'en-NL':
-    defaultSymbols = exports.ListFormatSymbols_en_NL;
+    defaultSymbols = ListFormatSymbols_en_NL;
     break;
   case 'en_NR':
   case 'en-NR':
-    defaultSymbols = exports.ListFormatSymbols_en_NR;
+    defaultSymbols = ListFormatSymbols_en_NR;
     break;
   case 'en_NU':
   case 'en-NU':
-    defaultSymbols = exports.ListFormatSymbols_en_NU;
+    defaultSymbols = ListFormatSymbols_en_NU;
     break;
   case 'en_NZ':
   case 'en-NZ':
-    defaultSymbols = exports.ListFormatSymbols_en_NZ;
+    defaultSymbols = ListFormatSymbols_en_NZ;
     break;
   case 'en_PG':
   case 'en-PG':
-    defaultSymbols = exports.ListFormatSymbols_en_PG;
+    defaultSymbols = ListFormatSymbols_en_PG;
     break;
   case 'en_PH':
   case 'en-PH':
-    defaultSymbols = exports.ListFormatSymbols_en_PH;
+    defaultSymbols = ListFormatSymbols_en_PH;
     break;
   case 'en_PK':
   case 'en-PK':
-    defaultSymbols = exports.ListFormatSymbols_en_PK;
+    defaultSymbols = ListFormatSymbols_en_PK;
     break;
   case 'en_PN':
   case 'en-PN':
-    defaultSymbols = exports.ListFormatSymbols_en_PN;
+    defaultSymbols = ListFormatSymbols_en_PN;
     break;
   case 'en_PR':
   case 'en-PR':
-    defaultSymbols = exports.ListFormatSymbols_en_PR;
+    defaultSymbols = ListFormatSymbols_en_PR;
     break;
   case 'en_PW':
   case 'en-PW':
-    defaultSymbols = exports.ListFormatSymbols_en_PW;
+    defaultSymbols = ListFormatSymbols_en_PW;
     break;
   case 'en_RW':
   case 'en-RW':
-    defaultSymbols = exports.ListFormatSymbols_en_RW;
+    defaultSymbols = ListFormatSymbols_en_RW;
     break;
   case 'en_SB':
   case 'en-SB':
-    defaultSymbols = exports.ListFormatSymbols_en_SB;
+    defaultSymbols = ListFormatSymbols_en_SB;
     break;
   case 'en_SC':
   case 'en-SC':
-    defaultSymbols = exports.ListFormatSymbols_en_SC;
+    defaultSymbols = ListFormatSymbols_en_SC;
     break;
   case 'en_SD':
   case 'en-SD':
-    defaultSymbols = exports.ListFormatSymbols_en_SD;
+    defaultSymbols = ListFormatSymbols_en_SD;
     break;
   case 'en_SE':
   case 'en-SE':
-    defaultSymbols = exports.ListFormatSymbols_en_SE;
+    defaultSymbols = ListFormatSymbols_en_SE;
     break;
   case 'en_SH':
   case 'en-SH':
-    defaultSymbols = exports.ListFormatSymbols_en_SH;
+    defaultSymbols = ListFormatSymbols_en_SH;
     break;
   case 'en_SI':
   case 'en-SI':
-    defaultSymbols = exports.ListFormatSymbols_en_SI;
+    defaultSymbols = ListFormatSymbols_en_SI;
     break;
   case 'en_SL':
   case 'en-SL':
-    defaultSymbols = exports.ListFormatSymbols_en_SL;
+    defaultSymbols = ListFormatSymbols_en_SL;
     break;
   case 'en_SS':
   case 'en-SS':
-    defaultSymbols = exports.ListFormatSymbols_en_SS;
+    defaultSymbols = ListFormatSymbols_en_SS;
     break;
   case 'en_SX':
   case 'en-SX':
-    defaultSymbols = exports.ListFormatSymbols_en_SX;
+    defaultSymbols = ListFormatSymbols_en_SX;
     break;
   case 'en_SZ':
   case 'en-SZ':
-    defaultSymbols = exports.ListFormatSymbols_en_SZ;
+    defaultSymbols = ListFormatSymbols_en_SZ;
     break;
   case 'en_TC':
   case 'en-TC':
-    defaultSymbols = exports.ListFormatSymbols_en_TC;
+    defaultSymbols = ListFormatSymbols_en_TC;
     break;
   case 'en_TK':
   case 'en-TK':
-    defaultSymbols = exports.ListFormatSymbols_en_TK;
+    defaultSymbols = ListFormatSymbols_en_TK;
     break;
   case 'en_TO':
   case 'en-TO':
-    defaultSymbols = exports.ListFormatSymbols_en_TO;
+    defaultSymbols = ListFormatSymbols_en_TO;
     break;
   case 'en_TT':
   case 'en-TT':
-    defaultSymbols = exports.ListFormatSymbols_en_TT;
+    defaultSymbols = ListFormatSymbols_en_TT;
     break;
   case 'en_TV':
   case 'en-TV':
-    defaultSymbols = exports.ListFormatSymbols_en_TV;
+    defaultSymbols = ListFormatSymbols_en_TV;
     break;
   case 'en_TZ':
   case 'en-TZ':
-    defaultSymbols = exports.ListFormatSymbols_en_TZ;
+    defaultSymbols = ListFormatSymbols_en_TZ;
     break;
   case 'en_UG':
   case 'en-UG':
-    defaultSymbols = exports.ListFormatSymbols_en_UG;
+    defaultSymbols = ListFormatSymbols_en_UG;
     break;
   case 'en_UM':
   case 'en-UM':
-    defaultSymbols = exports.ListFormatSymbols_en_UM;
+    defaultSymbols = ListFormatSymbols_en_UM;
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    defaultSymbols = exports.ListFormatSymbols_en_US_POSIX;
+    defaultSymbols = ListFormatSymbols_en_US_POSIX;
     break;
   case 'en_VC':
   case 'en-VC':
-    defaultSymbols = exports.ListFormatSymbols_en_VC;
+    defaultSymbols = ListFormatSymbols_en_VC;
     break;
   case 'en_VG':
   case 'en-VG':
-    defaultSymbols = exports.ListFormatSymbols_en_VG;
+    defaultSymbols = ListFormatSymbols_en_VG;
     break;
   case 'en_VI':
   case 'en-VI':
-    defaultSymbols = exports.ListFormatSymbols_en_VI;
+    defaultSymbols = ListFormatSymbols_en_VI;
     break;
   case 'en_VU':
   case 'en-VU':
-    defaultSymbols = exports.ListFormatSymbols_en_VU;
+    defaultSymbols = ListFormatSymbols_en_VU;
     break;
   case 'en_WS':
   case 'en-WS':
-    defaultSymbols = exports.ListFormatSymbols_en_WS;
+    defaultSymbols = ListFormatSymbols_en_WS;
     break;
   case 'en_XA':
   case 'en-XA':
-    defaultSymbols = exports.ListFormatSymbols_en_XA;
+    defaultSymbols = ListFormatSymbols_en_XA;
     break;
   case 'en_ZM':
   case 'en-ZM':
-    defaultSymbols = exports.ListFormatSymbols_en_ZM;
+    defaultSymbols = ListFormatSymbols_en_ZM;
     break;
   case 'en_ZW':
   case 'en-ZW':
-    defaultSymbols = exports.ListFormatSymbols_en_ZW;
+    defaultSymbols = ListFormatSymbols_en_ZW;
     break;
   case 'eo':
-    defaultSymbols = exports.ListFormatSymbols_eo;
+    defaultSymbols = ListFormatSymbols_eo;
     break;
   case 'eo_001':
   case 'eo-001':
-    defaultSymbols = exports.ListFormatSymbols_eo_001;
+    defaultSymbols = ListFormatSymbols_eo_001;
     break;
   case 'es_AR':
   case 'es-AR':
-    defaultSymbols = exports.ListFormatSymbols_es_AR;
+    defaultSymbols = ListFormatSymbols_es_AR;
     break;
   case 'es_BO':
   case 'es-BO':
-    defaultSymbols = exports.ListFormatSymbols_es_BO;
+    defaultSymbols = ListFormatSymbols_es_BO;
     break;
   case 'es_BR':
   case 'es-BR':
-    defaultSymbols = exports.ListFormatSymbols_es_BR;
+    defaultSymbols = ListFormatSymbols_es_BR;
     break;
   case 'es_BZ':
   case 'es-BZ':
-    defaultSymbols = exports.ListFormatSymbols_es_BZ;
+    defaultSymbols = ListFormatSymbols_es_BZ;
     break;
   case 'es_CL':
   case 'es-CL':
-    defaultSymbols = exports.ListFormatSymbols_es_CL;
+    defaultSymbols = ListFormatSymbols_es_CL;
     break;
   case 'es_CO':
   case 'es-CO':
-    defaultSymbols = exports.ListFormatSymbols_es_CO;
+    defaultSymbols = ListFormatSymbols_es_CO;
     break;
   case 'es_CR':
   case 'es-CR':
-    defaultSymbols = exports.ListFormatSymbols_es_CR;
+    defaultSymbols = ListFormatSymbols_es_CR;
     break;
   case 'es_CU':
   case 'es-CU':
-    defaultSymbols = exports.ListFormatSymbols_es_CU;
+    defaultSymbols = ListFormatSymbols_es_CU;
     break;
   case 'es_DO':
   case 'es-DO':
-    defaultSymbols = exports.ListFormatSymbols_es_DO;
+    defaultSymbols = ListFormatSymbols_es_DO;
     break;
   case 'es_EA':
   case 'es-EA':
-    defaultSymbols = exports.ListFormatSymbols_es_EA;
+    defaultSymbols = ListFormatSymbols_es_EA;
     break;
   case 'es_EC':
   case 'es-EC':
-    defaultSymbols = exports.ListFormatSymbols_es_EC;
+    defaultSymbols = ListFormatSymbols_es_EC;
     break;
   case 'es_GQ':
   case 'es-GQ':
-    defaultSymbols = exports.ListFormatSymbols_es_GQ;
+    defaultSymbols = ListFormatSymbols_es_GQ;
     break;
   case 'es_GT':
   case 'es-GT':
-    defaultSymbols = exports.ListFormatSymbols_es_GT;
+    defaultSymbols = ListFormatSymbols_es_GT;
     break;
   case 'es_HN':
   case 'es-HN':
-    defaultSymbols = exports.ListFormatSymbols_es_HN;
+    defaultSymbols = ListFormatSymbols_es_HN;
     break;
   case 'es_IC':
   case 'es-IC':
-    defaultSymbols = exports.ListFormatSymbols_es_IC;
+    defaultSymbols = ListFormatSymbols_es_IC;
     break;
   case 'es_NI':
   case 'es-NI':
-    defaultSymbols = exports.ListFormatSymbols_es_NI;
+    defaultSymbols = ListFormatSymbols_es_NI;
     break;
   case 'es_PA':
   case 'es-PA':
-    defaultSymbols = exports.ListFormatSymbols_es_PA;
+    defaultSymbols = ListFormatSymbols_es_PA;
     break;
   case 'es_PE':
   case 'es-PE':
-    defaultSymbols = exports.ListFormatSymbols_es_PE;
+    defaultSymbols = ListFormatSymbols_es_PE;
     break;
   case 'es_PH':
   case 'es-PH':
-    defaultSymbols = exports.ListFormatSymbols_es_PH;
+    defaultSymbols = ListFormatSymbols_es_PH;
     break;
   case 'es_PR':
   case 'es-PR':
-    defaultSymbols = exports.ListFormatSymbols_es_PR;
+    defaultSymbols = ListFormatSymbols_es_PR;
     break;
   case 'es_PY':
   case 'es-PY':
-    defaultSymbols = exports.ListFormatSymbols_es_PY;
+    defaultSymbols = ListFormatSymbols_es_PY;
     break;
   case 'es_SV':
   case 'es-SV':
-    defaultSymbols = exports.ListFormatSymbols_es_SV;
+    defaultSymbols = ListFormatSymbols_es_SV;
     break;
   case 'es_UY':
   case 'es-UY':
-    defaultSymbols = exports.ListFormatSymbols_es_UY;
+    defaultSymbols = ListFormatSymbols_es_UY;
     break;
   case 'es_VE':
   case 'es-VE':
-    defaultSymbols = exports.ListFormatSymbols_es_VE;
+    defaultSymbols = ListFormatSymbols_es_VE;
     break;
   case 'et_EE':
   case 'et-EE':
-    defaultSymbols = exports.ListFormatSymbols_et_EE;
+    defaultSymbols = ListFormatSymbols_et_EE;
     break;
   case 'eu_ES':
   case 'eu-ES':
-    defaultSymbols = exports.ListFormatSymbols_eu_ES;
+    defaultSymbols = ListFormatSymbols_eu_ES;
     break;
   case 'ewo':
-    defaultSymbols = exports.ListFormatSymbols_ewo;
+    defaultSymbols = ListFormatSymbols_ewo;
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    defaultSymbols = exports.ListFormatSymbols_ewo_CM;
+    defaultSymbols = ListFormatSymbols_ewo_CM;
     break;
   case 'fa_AF':
   case 'fa-AF':
-    defaultSymbols = exports.ListFormatSymbols_fa_AF;
+    defaultSymbols = ListFormatSymbols_fa_AF;
     break;
   case 'fa_IR':
   case 'fa-IR':
-    defaultSymbols = exports.ListFormatSymbols_fa_IR;
+    defaultSymbols = ListFormatSymbols_fa_IR;
     break;
   case 'ff':
-    defaultSymbols = exports.ListFormatSymbols_ff;
+    defaultSymbols = ListFormatSymbols_ff;
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm;
+    defaultSymbols = ListFormatSymbols_ff_Adlm;
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_BF;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_BF;
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_CM;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_CM;
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_GH;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_GH;
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_GM;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_GM;
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_GN;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_GN;
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_GW;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_GW;
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_LR;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_LR;
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_MR;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_MR;
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_NE;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_NE;
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_NG;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_NG;
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_SL;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_SL;
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    defaultSymbols = exports.ListFormatSymbols_ff_Adlm_SN;
+    defaultSymbols = ListFormatSymbols_ff_Adlm_SN;
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn;
+    defaultSymbols = ListFormatSymbols_ff_Latn;
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_BF;
+    defaultSymbols = ListFormatSymbols_ff_Latn_BF;
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_CM;
+    defaultSymbols = ListFormatSymbols_ff_Latn_CM;
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_GH;
+    defaultSymbols = ListFormatSymbols_ff_Latn_GH;
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_GM;
+    defaultSymbols = ListFormatSymbols_ff_Latn_GM;
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_GN;
+    defaultSymbols = ListFormatSymbols_ff_Latn_GN;
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_GW;
+    defaultSymbols = ListFormatSymbols_ff_Latn_GW;
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_LR;
+    defaultSymbols = ListFormatSymbols_ff_Latn_LR;
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_MR;
+    defaultSymbols = ListFormatSymbols_ff_Latn_MR;
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_NE;
+    defaultSymbols = ListFormatSymbols_ff_Latn_NE;
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_NG;
+    defaultSymbols = ListFormatSymbols_ff_Latn_NG;
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_SL;
+    defaultSymbols = ListFormatSymbols_ff_Latn_SL;
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    defaultSymbols = exports.ListFormatSymbols_ff_Latn_SN;
+    defaultSymbols = ListFormatSymbols_ff_Latn_SN;
     break;
   case 'fi_FI':
   case 'fi-FI':
-    defaultSymbols = exports.ListFormatSymbols_fi_FI;
+    defaultSymbols = ListFormatSymbols_fi_FI;
     break;
   case 'fil_PH':
   case 'fil-PH':
-    defaultSymbols = exports.ListFormatSymbols_fil_PH;
+    defaultSymbols = ListFormatSymbols_fil_PH;
     break;
   case 'fo':
-    defaultSymbols = exports.ListFormatSymbols_fo;
+    defaultSymbols = ListFormatSymbols_fo;
     break;
   case 'fo_DK':
   case 'fo-DK':
-    defaultSymbols = exports.ListFormatSymbols_fo_DK;
+    defaultSymbols = ListFormatSymbols_fo_DK;
     break;
   case 'fo_FO':
   case 'fo-FO':
-    defaultSymbols = exports.ListFormatSymbols_fo_FO;
+    defaultSymbols = ListFormatSymbols_fo_FO;
     break;
   case 'fr_BE':
   case 'fr-BE':
-    defaultSymbols = exports.ListFormatSymbols_fr_BE;
+    defaultSymbols = ListFormatSymbols_fr_BE;
     break;
   case 'fr_BF':
   case 'fr-BF':
-    defaultSymbols = exports.ListFormatSymbols_fr_BF;
+    defaultSymbols = ListFormatSymbols_fr_BF;
     break;
   case 'fr_BI':
   case 'fr-BI':
-    defaultSymbols = exports.ListFormatSymbols_fr_BI;
+    defaultSymbols = ListFormatSymbols_fr_BI;
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    defaultSymbols = exports.ListFormatSymbols_fr_BJ;
+    defaultSymbols = ListFormatSymbols_fr_BJ;
     break;
   case 'fr_BL':
   case 'fr-BL':
-    defaultSymbols = exports.ListFormatSymbols_fr_BL;
+    defaultSymbols = ListFormatSymbols_fr_BL;
     break;
   case 'fr_CD':
   case 'fr-CD':
-    defaultSymbols = exports.ListFormatSymbols_fr_CD;
+    defaultSymbols = ListFormatSymbols_fr_CD;
     break;
   case 'fr_CF':
   case 'fr-CF':
-    defaultSymbols = exports.ListFormatSymbols_fr_CF;
+    defaultSymbols = ListFormatSymbols_fr_CF;
     break;
   case 'fr_CG':
   case 'fr-CG':
-    defaultSymbols = exports.ListFormatSymbols_fr_CG;
+    defaultSymbols = ListFormatSymbols_fr_CG;
     break;
   case 'fr_CH':
   case 'fr-CH':
-    defaultSymbols = exports.ListFormatSymbols_fr_CH;
+    defaultSymbols = ListFormatSymbols_fr_CH;
     break;
   case 'fr_CI':
   case 'fr-CI':
-    defaultSymbols = exports.ListFormatSymbols_fr_CI;
+    defaultSymbols = ListFormatSymbols_fr_CI;
     break;
   case 'fr_CM':
   case 'fr-CM':
-    defaultSymbols = exports.ListFormatSymbols_fr_CM;
+    defaultSymbols = ListFormatSymbols_fr_CM;
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    defaultSymbols = exports.ListFormatSymbols_fr_DJ;
+    defaultSymbols = ListFormatSymbols_fr_DJ;
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    defaultSymbols = exports.ListFormatSymbols_fr_DZ;
+    defaultSymbols = ListFormatSymbols_fr_DZ;
     break;
   case 'fr_FR':
   case 'fr-FR':
-    defaultSymbols = exports.ListFormatSymbols_fr_FR;
+    defaultSymbols = ListFormatSymbols_fr_FR;
     break;
   case 'fr_GA':
   case 'fr-GA':
-    defaultSymbols = exports.ListFormatSymbols_fr_GA;
+    defaultSymbols = ListFormatSymbols_fr_GA;
     break;
   case 'fr_GF':
   case 'fr-GF':
-    defaultSymbols = exports.ListFormatSymbols_fr_GF;
+    defaultSymbols = ListFormatSymbols_fr_GF;
     break;
   case 'fr_GN':
   case 'fr-GN':
-    defaultSymbols = exports.ListFormatSymbols_fr_GN;
+    defaultSymbols = ListFormatSymbols_fr_GN;
     break;
   case 'fr_GP':
   case 'fr-GP':
-    defaultSymbols = exports.ListFormatSymbols_fr_GP;
+    defaultSymbols = ListFormatSymbols_fr_GP;
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    defaultSymbols = exports.ListFormatSymbols_fr_GQ;
+    defaultSymbols = ListFormatSymbols_fr_GQ;
     break;
   case 'fr_HT':
   case 'fr-HT':
-    defaultSymbols = exports.ListFormatSymbols_fr_HT;
+    defaultSymbols = ListFormatSymbols_fr_HT;
     break;
   case 'fr_KM':
   case 'fr-KM':
-    defaultSymbols = exports.ListFormatSymbols_fr_KM;
+    defaultSymbols = ListFormatSymbols_fr_KM;
     break;
   case 'fr_LU':
   case 'fr-LU':
-    defaultSymbols = exports.ListFormatSymbols_fr_LU;
+    defaultSymbols = ListFormatSymbols_fr_LU;
     break;
   case 'fr_MA':
   case 'fr-MA':
-    defaultSymbols = exports.ListFormatSymbols_fr_MA;
+    defaultSymbols = ListFormatSymbols_fr_MA;
     break;
   case 'fr_MC':
   case 'fr-MC':
-    defaultSymbols = exports.ListFormatSymbols_fr_MC;
+    defaultSymbols = ListFormatSymbols_fr_MC;
     break;
   case 'fr_MF':
   case 'fr-MF':
-    defaultSymbols = exports.ListFormatSymbols_fr_MF;
+    defaultSymbols = ListFormatSymbols_fr_MF;
     break;
   case 'fr_MG':
   case 'fr-MG':
-    defaultSymbols = exports.ListFormatSymbols_fr_MG;
+    defaultSymbols = ListFormatSymbols_fr_MG;
     break;
   case 'fr_ML':
   case 'fr-ML':
-    defaultSymbols = exports.ListFormatSymbols_fr_ML;
+    defaultSymbols = ListFormatSymbols_fr_ML;
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    defaultSymbols = exports.ListFormatSymbols_fr_MQ;
+    defaultSymbols = ListFormatSymbols_fr_MQ;
     break;
   case 'fr_MR':
   case 'fr-MR':
-    defaultSymbols = exports.ListFormatSymbols_fr_MR;
+    defaultSymbols = ListFormatSymbols_fr_MR;
     break;
   case 'fr_MU':
   case 'fr-MU':
-    defaultSymbols = exports.ListFormatSymbols_fr_MU;
+    defaultSymbols = ListFormatSymbols_fr_MU;
     break;
   case 'fr_NC':
   case 'fr-NC':
-    defaultSymbols = exports.ListFormatSymbols_fr_NC;
+    defaultSymbols = ListFormatSymbols_fr_NC;
     break;
   case 'fr_NE':
   case 'fr-NE':
-    defaultSymbols = exports.ListFormatSymbols_fr_NE;
+    defaultSymbols = ListFormatSymbols_fr_NE;
     break;
   case 'fr_PF':
   case 'fr-PF':
-    defaultSymbols = exports.ListFormatSymbols_fr_PF;
+    defaultSymbols = ListFormatSymbols_fr_PF;
     break;
   case 'fr_PM':
   case 'fr-PM':
-    defaultSymbols = exports.ListFormatSymbols_fr_PM;
+    defaultSymbols = ListFormatSymbols_fr_PM;
     break;
   case 'fr_RE':
   case 'fr-RE':
-    defaultSymbols = exports.ListFormatSymbols_fr_RE;
+    defaultSymbols = ListFormatSymbols_fr_RE;
     break;
   case 'fr_RW':
   case 'fr-RW':
-    defaultSymbols = exports.ListFormatSymbols_fr_RW;
+    defaultSymbols = ListFormatSymbols_fr_RW;
     break;
   case 'fr_SC':
   case 'fr-SC':
-    defaultSymbols = exports.ListFormatSymbols_fr_SC;
+    defaultSymbols = ListFormatSymbols_fr_SC;
     break;
   case 'fr_SN':
   case 'fr-SN':
-    defaultSymbols = exports.ListFormatSymbols_fr_SN;
+    defaultSymbols = ListFormatSymbols_fr_SN;
     break;
   case 'fr_SY':
   case 'fr-SY':
-    defaultSymbols = exports.ListFormatSymbols_fr_SY;
+    defaultSymbols = ListFormatSymbols_fr_SY;
     break;
   case 'fr_TD':
   case 'fr-TD':
-    defaultSymbols = exports.ListFormatSymbols_fr_TD;
+    defaultSymbols = ListFormatSymbols_fr_TD;
     break;
   case 'fr_TG':
   case 'fr-TG':
-    defaultSymbols = exports.ListFormatSymbols_fr_TG;
+    defaultSymbols = ListFormatSymbols_fr_TG;
     break;
   case 'fr_TN':
   case 'fr-TN':
-    defaultSymbols = exports.ListFormatSymbols_fr_TN;
+    defaultSymbols = ListFormatSymbols_fr_TN;
     break;
   case 'fr_VU':
   case 'fr-VU':
-    defaultSymbols = exports.ListFormatSymbols_fr_VU;
+    defaultSymbols = ListFormatSymbols_fr_VU;
     break;
   case 'fr_WF':
   case 'fr-WF':
-    defaultSymbols = exports.ListFormatSymbols_fr_WF;
+    defaultSymbols = ListFormatSymbols_fr_WF;
     break;
   case 'fr_YT':
   case 'fr-YT':
-    defaultSymbols = exports.ListFormatSymbols_fr_YT;
+    defaultSymbols = ListFormatSymbols_fr_YT;
     break;
   case 'fur':
-    defaultSymbols = exports.ListFormatSymbols_fur;
+    defaultSymbols = ListFormatSymbols_fur;
     break;
   case 'fur_IT':
   case 'fur-IT':
-    defaultSymbols = exports.ListFormatSymbols_fur_IT;
+    defaultSymbols = ListFormatSymbols_fur_IT;
     break;
   case 'fy':
-    defaultSymbols = exports.ListFormatSymbols_fy;
+    defaultSymbols = ListFormatSymbols_fy;
     break;
   case 'fy_NL':
   case 'fy-NL':
-    defaultSymbols = exports.ListFormatSymbols_fy_NL;
+    defaultSymbols = ListFormatSymbols_fy_NL;
     break;
   case 'ga_GB':
   case 'ga-GB':
-    defaultSymbols = exports.ListFormatSymbols_ga_GB;
+    defaultSymbols = ListFormatSymbols_ga_GB;
     break;
   case 'ga_IE':
   case 'ga-IE':
-    defaultSymbols = exports.ListFormatSymbols_ga_IE;
+    defaultSymbols = ListFormatSymbols_ga_IE;
     break;
   case 'gd':
-    defaultSymbols = exports.ListFormatSymbols_gd;
+    defaultSymbols = ListFormatSymbols_gd;
     break;
   case 'gd_GB':
   case 'gd-GB':
-    defaultSymbols = exports.ListFormatSymbols_gd_GB;
+    defaultSymbols = ListFormatSymbols_gd_GB;
     break;
   case 'gl_ES':
   case 'gl-ES':
-    defaultSymbols = exports.ListFormatSymbols_gl_ES;
+    defaultSymbols = ListFormatSymbols_gl_ES;
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    defaultSymbols = exports.ListFormatSymbols_gsw_CH;
+    defaultSymbols = ListFormatSymbols_gsw_CH;
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    defaultSymbols = exports.ListFormatSymbols_gsw_FR;
+    defaultSymbols = ListFormatSymbols_gsw_FR;
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    defaultSymbols = exports.ListFormatSymbols_gsw_LI;
+    defaultSymbols = ListFormatSymbols_gsw_LI;
     break;
   case 'gu_IN':
   case 'gu-IN':
-    defaultSymbols = exports.ListFormatSymbols_gu_IN;
+    defaultSymbols = ListFormatSymbols_gu_IN;
     break;
   case 'guz':
-    defaultSymbols = exports.ListFormatSymbols_guz;
+    defaultSymbols = ListFormatSymbols_guz;
     break;
   case 'guz_KE':
   case 'guz-KE':
-    defaultSymbols = exports.ListFormatSymbols_guz_KE;
+    defaultSymbols = ListFormatSymbols_guz_KE;
     break;
   case 'gv':
-    defaultSymbols = exports.ListFormatSymbols_gv;
+    defaultSymbols = ListFormatSymbols_gv;
     break;
   case 'gv_IM':
   case 'gv-IM':
-    defaultSymbols = exports.ListFormatSymbols_gv_IM;
+    defaultSymbols = ListFormatSymbols_gv_IM;
     break;
   case 'ha':
-    defaultSymbols = exports.ListFormatSymbols_ha;
+    defaultSymbols = ListFormatSymbols_ha;
     break;
   case 'ha_GH':
   case 'ha-GH':
-    defaultSymbols = exports.ListFormatSymbols_ha_GH;
+    defaultSymbols = ListFormatSymbols_ha_GH;
     break;
   case 'ha_NE':
   case 'ha-NE':
-    defaultSymbols = exports.ListFormatSymbols_ha_NE;
+    defaultSymbols = ListFormatSymbols_ha_NE;
     break;
   case 'ha_NG':
   case 'ha-NG':
-    defaultSymbols = exports.ListFormatSymbols_ha_NG;
+    defaultSymbols = ListFormatSymbols_ha_NG;
     break;
   case 'haw_US':
   case 'haw-US':
-    defaultSymbols = exports.ListFormatSymbols_haw_US;
+    defaultSymbols = ListFormatSymbols_haw_US;
     break;
   case 'he_IL':
   case 'he-IL':
-    defaultSymbols = exports.ListFormatSymbols_he_IL;
+    defaultSymbols = ListFormatSymbols_he_IL;
     break;
   case 'hi_IN':
   case 'hi-IN':
-    defaultSymbols = exports.ListFormatSymbols_hi_IN;
+    defaultSymbols = ListFormatSymbols_hi_IN;
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    defaultSymbols = exports.ListFormatSymbols_hi_Latn;
+    defaultSymbols = ListFormatSymbols_hi_Latn;
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    defaultSymbols = exports.ListFormatSymbols_hi_Latn_IN;
+    defaultSymbols = ListFormatSymbols_hi_Latn_IN;
     break;
   case 'hr_BA':
   case 'hr-BA':
-    defaultSymbols = exports.ListFormatSymbols_hr_BA;
+    defaultSymbols = ListFormatSymbols_hr_BA;
     break;
   case 'hr_HR':
   case 'hr-HR':
-    defaultSymbols = exports.ListFormatSymbols_hr_HR;
+    defaultSymbols = ListFormatSymbols_hr_HR;
     break;
   case 'hsb':
-    defaultSymbols = exports.ListFormatSymbols_hsb;
+    defaultSymbols = ListFormatSymbols_hsb;
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    defaultSymbols = exports.ListFormatSymbols_hsb_DE;
+    defaultSymbols = ListFormatSymbols_hsb_DE;
     break;
   case 'hu_HU':
   case 'hu-HU':
-    defaultSymbols = exports.ListFormatSymbols_hu_HU;
+    defaultSymbols = ListFormatSymbols_hu_HU;
     break;
   case 'hy_AM':
   case 'hy-AM':
-    defaultSymbols = exports.ListFormatSymbols_hy_AM;
+    defaultSymbols = ListFormatSymbols_hy_AM;
     break;
   case 'ia':
-    defaultSymbols = exports.ListFormatSymbols_ia;
+    defaultSymbols = ListFormatSymbols_ia;
     break;
   case 'ia_001':
   case 'ia-001':
-    defaultSymbols = exports.ListFormatSymbols_ia_001;
+    defaultSymbols = ListFormatSymbols_ia_001;
     break;
   case 'id_ID':
   case 'id-ID':
-    defaultSymbols = exports.ListFormatSymbols_id_ID;
+    defaultSymbols = ListFormatSymbols_id_ID;
     break;
   case 'ig':
-    defaultSymbols = exports.ListFormatSymbols_ig;
+    defaultSymbols = ListFormatSymbols_ig;
     break;
   case 'ig_NG':
   case 'ig-NG':
-    defaultSymbols = exports.ListFormatSymbols_ig_NG;
+    defaultSymbols = ListFormatSymbols_ig_NG;
     break;
   case 'ii':
-    defaultSymbols = exports.ListFormatSymbols_ii;
+    defaultSymbols = ListFormatSymbols_ii;
     break;
   case 'ii_CN':
   case 'ii-CN':
-    defaultSymbols = exports.ListFormatSymbols_ii_CN;
+    defaultSymbols = ListFormatSymbols_ii_CN;
     break;
   case 'is_IS':
   case 'is-IS':
-    defaultSymbols = exports.ListFormatSymbols_is_IS;
+    defaultSymbols = ListFormatSymbols_is_IS;
     break;
   case 'it_CH':
   case 'it-CH':
-    defaultSymbols = exports.ListFormatSymbols_it_CH;
+    defaultSymbols = ListFormatSymbols_it_CH;
     break;
   case 'it_IT':
   case 'it-IT':
-    defaultSymbols = exports.ListFormatSymbols_it_IT;
+    defaultSymbols = ListFormatSymbols_it_IT;
     break;
   case 'it_SM':
   case 'it-SM':
-    defaultSymbols = exports.ListFormatSymbols_it_SM;
+    defaultSymbols = ListFormatSymbols_it_SM;
     break;
   case 'it_VA':
   case 'it-VA':
-    defaultSymbols = exports.ListFormatSymbols_it_VA;
+    defaultSymbols = ListFormatSymbols_it_VA;
     break;
   case 'ja_JP':
   case 'ja-JP':
-    defaultSymbols = exports.ListFormatSymbols_ja_JP;
+    defaultSymbols = ListFormatSymbols_ja_JP;
     break;
   case 'jgo':
-    defaultSymbols = exports.ListFormatSymbols_jgo;
+    defaultSymbols = ListFormatSymbols_jgo;
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    defaultSymbols = exports.ListFormatSymbols_jgo_CM;
+    defaultSymbols = ListFormatSymbols_jgo_CM;
     break;
   case 'jmc':
-    defaultSymbols = exports.ListFormatSymbols_jmc;
+    defaultSymbols = ListFormatSymbols_jmc;
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    defaultSymbols = exports.ListFormatSymbols_jmc_TZ;
+    defaultSymbols = ListFormatSymbols_jmc_TZ;
     break;
   case 'jv':
-    defaultSymbols = exports.ListFormatSymbols_jv;
+    defaultSymbols = ListFormatSymbols_jv;
     break;
   case 'jv_ID':
   case 'jv-ID':
-    defaultSymbols = exports.ListFormatSymbols_jv_ID;
+    defaultSymbols = ListFormatSymbols_jv_ID;
     break;
   case 'ka_GE':
   case 'ka-GE':
-    defaultSymbols = exports.ListFormatSymbols_ka_GE;
+    defaultSymbols = ListFormatSymbols_ka_GE;
     break;
   case 'kab':
-    defaultSymbols = exports.ListFormatSymbols_kab;
+    defaultSymbols = ListFormatSymbols_kab;
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    defaultSymbols = exports.ListFormatSymbols_kab_DZ;
+    defaultSymbols = ListFormatSymbols_kab_DZ;
     break;
   case 'kam':
-    defaultSymbols = exports.ListFormatSymbols_kam;
+    defaultSymbols = ListFormatSymbols_kam;
     break;
   case 'kam_KE':
   case 'kam-KE':
-    defaultSymbols = exports.ListFormatSymbols_kam_KE;
+    defaultSymbols = ListFormatSymbols_kam_KE;
     break;
   case 'kde':
-    defaultSymbols = exports.ListFormatSymbols_kde;
+    defaultSymbols = ListFormatSymbols_kde;
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    defaultSymbols = exports.ListFormatSymbols_kde_TZ;
+    defaultSymbols = ListFormatSymbols_kde_TZ;
     break;
   case 'kea':
-    defaultSymbols = exports.ListFormatSymbols_kea;
+    defaultSymbols = ListFormatSymbols_kea;
     break;
   case 'kea_CV':
   case 'kea-CV':
-    defaultSymbols = exports.ListFormatSymbols_kea_CV;
+    defaultSymbols = ListFormatSymbols_kea_CV;
     break;
   case 'kgp':
-    defaultSymbols = exports.ListFormatSymbols_kgp;
+    defaultSymbols = ListFormatSymbols_kgp;
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    defaultSymbols = exports.ListFormatSymbols_kgp_BR;
+    defaultSymbols = ListFormatSymbols_kgp_BR;
     break;
   case 'khq':
-    defaultSymbols = exports.ListFormatSymbols_khq;
+    defaultSymbols = ListFormatSymbols_khq;
     break;
   case 'khq_ML':
   case 'khq-ML':
-    defaultSymbols = exports.ListFormatSymbols_khq_ML;
+    defaultSymbols = ListFormatSymbols_khq_ML;
     break;
   case 'ki':
-    defaultSymbols = exports.ListFormatSymbols_ki;
+    defaultSymbols = ListFormatSymbols_ki;
     break;
   case 'ki_KE':
   case 'ki-KE':
-    defaultSymbols = exports.ListFormatSymbols_ki_KE;
+    defaultSymbols = ListFormatSymbols_ki_KE;
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    defaultSymbols = exports.ListFormatSymbols_kk_KZ;
+    defaultSymbols = ListFormatSymbols_kk_KZ;
     break;
   case 'kkj':
-    defaultSymbols = exports.ListFormatSymbols_kkj;
+    defaultSymbols = ListFormatSymbols_kkj;
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    defaultSymbols = exports.ListFormatSymbols_kkj_CM;
+    defaultSymbols = ListFormatSymbols_kkj_CM;
     break;
   case 'kl':
-    defaultSymbols = exports.ListFormatSymbols_kl;
+    defaultSymbols = ListFormatSymbols_kl;
     break;
   case 'kl_GL':
   case 'kl-GL':
-    defaultSymbols = exports.ListFormatSymbols_kl_GL;
+    defaultSymbols = ListFormatSymbols_kl_GL;
     break;
   case 'kln':
-    defaultSymbols = exports.ListFormatSymbols_kln;
+    defaultSymbols = ListFormatSymbols_kln;
     break;
   case 'kln_KE':
   case 'kln-KE':
-    defaultSymbols = exports.ListFormatSymbols_kln_KE;
+    defaultSymbols = ListFormatSymbols_kln_KE;
     break;
   case 'km_KH':
   case 'km-KH':
-    defaultSymbols = exports.ListFormatSymbols_km_KH;
+    defaultSymbols = ListFormatSymbols_km_KH;
     break;
   case 'kn_IN':
   case 'kn-IN':
-    defaultSymbols = exports.ListFormatSymbols_kn_IN;
+    defaultSymbols = ListFormatSymbols_kn_IN;
     break;
   case 'ko_KP':
   case 'ko-KP':
-    defaultSymbols = exports.ListFormatSymbols_ko_KP;
+    defaultSymbols = ListFormatSymbols_ko_KP;
     break;
   case 'ko_KR':
   case 'ko-KR':
-    defaultSymbols = exports.ListFormatSymbols_ko_KR;
+    defaultSymbols = ListFormatSymbols_ko_KR;
     break;
   case 'kok':
-    defaultSymbols = exports.ListFormatSymbols_kok;
+    defaultSymbols = ListFormatSymbols_kok;
     break;
   case 'kok_IN':
   case 'kok-IN':
-    defaultSymbols = exports.ListFormatSymbols_kok_IN;
+    defaultSymbols = ListFormatSymbols_kok_IN;
     break;
   case 'ks':
-    defaultSymbols = exports.ListFormatSymbols_ks;
+    defaultSymbols = ListFormatSymbols_ks;
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    defaultSymbols = exports.ListFormatSymbols_ks_Arab;
+    defaultSymbols = ListFormatSymbols_ks_Arab;
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    defaultSymbols = exports.ListFormatSymbols_ks_Arab_IN;
+    defaultSymbols = ListFormatSymbols_ks_Arab_IN;
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    defaultSymbols = exports.ListFormatSymbols_ks_Deva;
+    defaultSymbols = ListFormatSymbols_ks_Deva;
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    defaultSymbols = exports.ListFormatSymbols_ks_Deva_IN;
+    defaultSymbols = ListFormatSymbols_ks_Deva_IN;
     break;
   case 'ksb':
-    defaultSymbols = exports.ListFormatSymbols_ksb;
+    defaultSymbols = ListFormatSymbols_ksb;
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    defaultSymbols = exports.ListFormatSymbols_ksb_TZ;
+    defaultSymbols = ListFormatSymbols_ksb_TZ;
     break;
   case 'ksf':
-    defaultSymbols = exports.ListFormatSymbols_ksf;
+    defaultSymbols = ListFormatSymbols_ksf;
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    defaultSymbols = exports.ListFormatSymbols_ksf_CM;
+    defaultSymbols = ListFormatSymbols_ksf_CM;
     break;
   case 'ksh':
-    defaultSymbols = exports.ListFormatSymbols_ksh;
+    defaultSymbols = ListFormatSymbols_ksh;
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    defaultSymbols = exports.ListFormatSymbols_ksh_DE;
+    defaultSymbols = ListFormatSymbols_ksh_DE;
     break;
   case 'ku':
-    defaultSymbols = exports.ListFormatSymbols_ku;
+    defaultSymbols = ListFormatSymbols_ku;
     break;
   case 'ku_TR':
   case 'ku-TR':
-    defaultSymbols = exports.ListFormatSymbols_ku_TR;
+    defaultSymbols = ListFormatSymbols_ku_TR;
     break;
   case 'kw':
-    defaultSymbols = exports.ListFormatSymbols_kw;
+    defaultSymbols = ListFormatSymbols_kw;
     break;
   case 'kw_GB':
   case 'kw-GB':
-    defaultSymbols = exports.ListFormatSymbols_kw_GB;
+    defaultSymbols = ListFormatSymbols_kw_GB;
     break;
   case 'ky_KG':
   case 'ky-KG':
-    defaultSymbols = exports.ListFormatSymbols_ky_KG;
+    defaultSymbols = ListFormatSymbols_ky_KG;
     break;
   case 'lag':
-    defaultSymbols = exports.ListFormatSymbols_lag;
+    defaultSymbols = ListFormatSymbols_lag;
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    defaultSymbols = exports.ListFormatSymbols_lag_TZ;
+    defaultSymbols = ListFormatSymbols_lag_TZ;
     break;
   case 'lb':
-    defaultSymbols = exports.ListFormatSymbols_lb;
+    defaultSymbols = ListFormatSymbols_lb;
     break;
   case 'lb_LU':
   case 'lb-LU':
-    defaultSymbols = exports.ListFormatSymbols_lb_LU;
+    defaultSymbols = ListFormatSymbols_lb_LU;
     break;
   case 'lg':
-    defaultSymbols = exports.ListFormatSymbols_lg;
+    defaultSymbols = ListFormatSymbols_lg;
     break;
   case 'lg_UG':
   case 'lg-UG':
-    defaultSymbols = exports.ListFormatSymbols_lg_UG;
+    defaultSymbols = ListFormatSymbols_lg_UG;
     break;
   case 'lkt':
-    defaultSymbols = exports.ListFormatSymbols_lkt;
+    defaultSymbols = ListFormatSymbols_lkt;
     break;
   case 'lkt_US':
   case 'lkt-US':
-    defaultSymbols = exports.ListFormatSymbols_lkt_US;
+    defaultSymbols = ListFormatSymbols_lkt_US;
     break;
   case 'ln_AO':
   case 'ln-AO':
-    defaultSymbols = exports.ListFormatSymbols_ln_AO;
+    defaultSymbols = ListFormatSymbols_ln_AO;
     break;
   case 'ln_CD':
   case 'ln-CD':
-    defaultSymbols = exports.ListFormatSymbols_ln_CD;
+    defaultSymbols = ListFormatSymbols_ln_CD;
     break;
   case 'ln_CF':
   case 'ln-CF':
-    defaultSymbols = exports.ListFormatSymbols_ln_CF;
+    defaultSymbols = ListFormatSymbols_ln_CF;
     break;
   case 'ln_CG':
   case 'ln-CG':
-    defaultSymbols = exports.ListFormatSymbols_ln_CG;
+    defaultSymbols = ListFormatSymbols_ln_CG;
     break;
   case 'lo_LA':
   case 'lo-LA':
-    defaultSymbols = exports.ListFormatSymbols_lo_LA;
+    defaultSymbols = ListFormatSymbols_lo_LA;
     break;
   case 'lrc':
-    defaultSymbols = exports.ListFormatSymbols_lrc;
+    defaultSymbols = ListFormatSymbols_lrc;
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    defaultSymbols = exports.ListFormatSymbols_lrc_IQ;
+    defaultSymbols = ListFormatSymbols_lrc_IQ;
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    defaultSymbols = exports.ListFormatSymbols_lrc_IR;
+    defaultSymbols = ListFormatSymbols_lrc_IR;
     break;
   case 'lt_LT':
   case 'lt-LT':
-    defaultSymbols = exports.ListFormatSymbols_lt_LT;
+    defaultSymbols = ListFormatSymbols_lt_LT;
     break;
   case 'lu':
-    defaultSymbols = exports.ListFormatSymbols_lu;
+    defaultSymbols = ListFormatSymbols_lu;
     break;
   case 'lu_CD':
   case 'lu-CD':
-    defaultSymbols = exports.ListFormatSymbols_lu_CD;
+    defaultSymbols = ListFormatSymbols_lu_CD;
     break;
   case 'luo':
-    defaultSymbols = exports.ListFormatSymbols_luo;
+    defaultSymbols = ListFormatSymbols_luo;
     break;
   case 'luo_KE':
   case 'luo-KE':
-    defaultSymbols = exports.ListFormatSymbols_luo_KE;
+    defaultSymbols = ListFormatSymbols_luo_KE;
     break;
   case 'luy':
-    defaultSymbols = exports.ListFormatSymbols_luy;
+    defaultSymbols = ListFormatSymbols_luy;
     break;
   case 'luy_KE':
   case 'luy-KE':
-    defaultSymbols = exports.ListFormatSymbols_luy_KE;
+    defaultSymbols = ListFormatSymbols_luy_KE;
     break;
   case 'lv_LV':
   case 'lv-LV':
-    defaultSymbols = exports.ListFormatSymbols_lv_LV;
+    defaultSymbols = ListFormatSymbols_lv_LV;
     break;
   case 'mai':
-    defaultSymbols = exports.ListFormatSymbols_mai;
+    defaultSymbols = ListFormatSymbols_mai;
     break;
   case 'mai_IN':
   case 'mai-IN':
-    defaultSymbols = exports.ListFormatSymbols_mai_IN;
+    defaultSymbols = ListFormatSymbols_mai_IN;
     break;
   case 'mas':
-    defaultSymbols = exports.ListFormatSymbols_mas;
+    defaultSymbols = ListFormatSymbols_mas;
     break;
   case 'mas_KE':
   case 'mas-KE':
-    defaultSymbols = exports.ListFormatSymbols_mas_KE;
+    defaultSymbols = ListFormatSymbols_mas_KE;
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    defaultSymbols = exports.ListFormatSymbols_mas_TZ;
+    defaultSymbols = ListFormatSymbols_mas_TZ;
     break;
   case 'mer':
-    defaultSymbols = exports.ListFormatSymbols_mer;
+    defaultSymbols = ListFormatSymbols_mer;
     break;
   case 'mer_KE':
   case 'mer-KE':
-    defaultSymbols = exports.ListFormatSymbols_mer_KE;
+    defaultSymbols = ListFormatSymbols_mer_KE;
     break;
   case 'mfe':
-    defaultSymbols = exports.ListFormatSymbols_mfe;
+    defaultSymbols = ListFormatSymbols_mfe;
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    defaultSymbols = exports.ListFormatSymbols_mfe_MU;
+    defaultSymbols = ListFormatSymbols_mfe_MU;
     break;
   case 'mg':
-    defaultSymbols = exports.ListFormatSymbols_mg;
+    defaultSymbols = ListFormatSymbols_mg;
     break;
   case 'mg_MG':
   case 'mg-MG':
-    defaultSymbols = exports.ListFormatSymbols_mg_MG;
+    defaultSymbols = ListFormatSymbols_mg_MG;
     break;
   case 'mgh':
-    defaultSymbols = exports.ListFormatSymbols_mgh;
+    defaultSymbols = ListFormatSymbols_mgh;
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    defaultSymbols = exports.ListFormatSymbols_mgh_MZ;
+    defaultSymbols = ListFormatSymbols_mgh_MZ;
     break;
   case 'mgo':
-    defaultSymbols = exports.ListFormatSymbols_mgo;
+    defaultSymbols = ListFormatSymbols_mgo;
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    defaultSymbols = exports.ListFormatSymbols_mgo_CM;
+    defaultSymbols = ListFormatSymbols_mgo_CM;
     break;
   case 'mi':
-    defaultSymbols = exports.ListFormatSymbols_mi;
+    defaultSymbols = ListFormatSymbols_mi;
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    defaultSymbols = exports.ListFormatSymbols_mi_NZ;
+    defaultSymbols = ListFormatSymbols_mi_NZ;
     break;
   case 'mk_MK':
   case 'mk-MK':
-    defaultSymbols = exports.ListFormatSymbols_mk_MK;
+    defaultSymbols = ListFormatSymbols_mk_MK;
     break;
   case 'ml_IN':
   case 'ml-IN':
-    defaultSymbols = exports.ListFormatSymbols_ml_IN;
+    defaultSymbols = ListFormatSymbols_ml_IN;
     break;
   case 'mn_MN':
   case 'mn-MN':
-    defaultSymbols = exports.ListFormatSymbols_mn_MN;
+    defaultSymbols = ListFormatSymbols_mn_MN;
     break;
   case 'mni':
-    defaultSymbols = exports.ListFormatSymbols_mni;
+    defaultSymbols = ListFormatSymbols_mni;
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    defaultSymbols = exports.ListFormatSymbols_mni_Beng;
+    defaultSymbols = ListFormatSymbols_mni_Beng;
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    defaultSymbols = exports.ListFormatSymbols_mni_Beng_IN;
+    defaultSymbols = ListFormatSymbols_mni_Beng_IN;
     break;
   case 'mr_IN':
   case 'mr-IN':
-    defaultSymbols = exports.ListFormatSymbols_mr_IN;
+    defaultSymbols = ListFormatSymbols_mr_IN;
     break;
   case 'ms_BN':
   case 'ms-BN':
-    defaultSymbols = exports.ListFormatSymbols_ms_BN;
+    defaultSymbols = ListFormatSymbols_ms_BN;
     break;
   case 'ms_ID':
   case 'ms-ID':
-    defaultSymbols = exports.ListFormatSymbols_ms_ID;
+    defaultSymbols = ListFormatSymbols_ms_ID;
     break;
   case 'ms_MY':
   case 'ms-MY':
-    defaultSymbols = exports.ListFormatSymbols_ms_MY;
+    defaultSymbols = ListFormatSymbols_ms_MY;
     break;
   case 'ms_SG':
   case 'ms-SG':
-    defaultSymbols = exports.ListFormatSymbols_ms_SG;
+    defaultSymbols = ListFormatSymbols_ms_SG;
     break;
   case 'mt_MT':
   case 'mt-MT':
-    defaultSymbols = exports.ListFormatSymbols_mt_MT;
+    defaultSymbols = ListFormatSymbols_mt_MT;
     break;
   case 'mua':
-    defaultSymbols = exports.ListFormatSymbols_mua;
+    defaultSymbols = ListFormatSymbols_mua;
     break;
   case 'mua_CM':
   case 'mua-CM':
-    defaultSymbols = exports.ListFormatSymbols_mua_CM;
+    defaultSymbols = ListFormatSymbols_mua_CM;
     break;
   case 'my_MM':
   case 'my-MM':
-    defaultSymbols = exports.ListFormatSymbols_my_MM;
+    defaultSymbols = ListFormatSymbols_my_MM;
     break;
   case 'mzn':
-    defaultSymbols = exports.ListFormatSymbols_mzn;
+    defaultSymbols = ListFormatSymbols_mzn;
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    defaultSymbols = exports.ListFormatSymbols_mzn_IR;
+    defaultSymbols = ListFormatSymbols_mzn_IR;
     break;
   case 'naq':
-    defaultSymbols = exports.ListFormatSymbols_naq;
+    defaultSymbols = ListFormatSymbols_naq;
     break;
   case 'naq_NA':
   case 'naq-NA':
-    defaultSymbols = exports.ListFormatSymbols_naq_NA;
+    defaultSymbols = ListFormatSymbols_naq_NA;
     break;
   case 'nb_NO':
   case 'nb-NO':
-    defaultSymbols = exports.ListFormatSymbols_nb_NO;
+    defaultSymbols = ListFormatSymbols_nb_NO;
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    defaultSymbols = exports.ListFormatSymbols_nb_SJ;
+    defaultSymbols = ListFormatSymbols_nb_SJ;
     break;
   case 'nd':
-    defaultSymbols = exports.ListFormatSymbols_nd;
+    defaultSymbols = ListFormatSymbols_nd;
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    defaultSymbols = exports.ListFormatSymbols_nd_ZW;
+    defaultSymbols = ListFormatSymbols_nd_ZW;
     break;
   case 'ne_IN':
   case 'ne-IN':
-    defaultSymbols = exports.ListFormatSymbols_ne_IN;
+    defaultSymbols = ListFormatSymbols_ne_IN;
     break;
   case 'ne_NP':
   case 'ne-NP':
-    defaultSymbols = exports.ListFormatSymbols_ne_NP;
+    defaultSymbols = ListFormatSymbols_ne_NP;
     break;
   case 'nl_AW':
   case 'nl-AW':
-    defaultSymbols = exports.ListFormatSymbols_nl_AW;
+    defaultSymbols = ListFormatSymbols_nl_AW;
     break;
   case 'nl_BE':
   case 'nl-BE':
-    defaultSymbols = exports.ListFormatSymbols_nl_BE;
+    defaultSymbols = ListFormatSymbols_nl_BE;
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    defaultSymbols = exports.ListFormatSymbols_nl_BQ;
+    defaultSymbols = ListFormatSymbols_nl_BQ;
     break;
   case 'nl_CW':
   case 'nl-CW':
-    defaultSymbols = exports.ListFormatSymbols_nl_CW;
+    defaultSymbols = ListFormatSymbols_nl_CW;
     break;
   case 'nl_NL':
   case 'nl-NL':
-    defaultSymbols = exports.ListFormatSymbols_nl_NL;
+    defaultSymbols = ListFormatSymbols_nl_NL;
     break;
   case 'nl_SR':
   case 'nl-SR':
-    defaultSymbols = exports.ListFormatSymbols_nl_SR;
+    defaultSymbols = ListFormatSymbols_nl_SR;
     break;
   case 'nl_SX':
   case 'nl-SX':
-    defaultSymbols = exports.ListFormatSymbols_nl_SX;
+    defaultSymbols = ListFormatSymbols_nl_SX;
     break;
   case 'nmg':
-    defaultSymbols = exports.ListFormatSymbols_nmg;
+    defaultSymbols = ListFormatSymbols_nmg;
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    defaultSymbols = exports.ListFormatSymbols_nmg_CM;
+    defaultSymbols = ListFormatSymbols_nmg_CM;
     break;
   case 'nn':
-    defaultSymbols = exports.ListFormatSymbols_nn;
+    defaultSymbols = ListFormatSymbols_nn;
     break;
   case 'nn_NO':
   case 'nn-NO':
-    defaultSymbols = exports.ListFormatSymbols_nn_NO;
+    defaultSymbols = ListFormatSymbols_nn_NO;
     break;
   case 'nnh':
-    defaultSymbols = exports.ListFormatSymbols_nnh;
+    defaultSymbols = ListFormatSymbols_nnh;
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    defaultSymbols = exports.ListFormatSymbols_nnh_CM;
+    defaultSymbols = ListFormatSymbols_nnh_CM;
     break;
   case 'nus':
-    defaultSymbols = exports.ListFormatSymbols_nus;
+    defaultSymbols = ListFormatSymbols_nus;
     break;
   case 'nus_SS':
   case 'nus-SS':
-    defaultSymbols = exports.ListFormatSymbols_nus_SS;
+    defaultSymbols = ListFormatSymbols_nus_SS;
     break;
   case 'nyn':
-    defaultSymbols = exports.ListFormatSymbols_nyn;
+    defaultSymbols = ListFormatSymbols_nyn;
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    defaultSymbols = exports.ListFormatSymbols_nyn_UG;
+    defaultSymbols = ListFormatSymbols_nyn_UG;
     break;
   case 'om':
-    defaultSymbols = exports.ListFormatSymbols_om;
+    defaultSymbols = ListFormatSymbols_om;
     break;
   case 'om_ET':
   case 'om-ET':
-    defaultSymbols = exports.ListFormatSymbols_om_ET;
+    defaultSymbols = ListFormatSymbols_om_ET;
     break;
   case 'om_KE':
   case 'om-KE':
-    defaultSymbols = exports.ListFormatSymbols_om_KE;
+    defaultSymbols = ListFormatSymbols_om_KE;
     break;
   case 'or_IN':
   case 'or-IN':
-    defaultSymbols = exports.ListFormatSymbols_or_IN;
+    defaultSymbols = ListFormatSymbols_or_IN;
     break;
   case 'os':
-    defaultSymbols = exports.ListFormatSymbols_os;
+    defaultSymbols = ListFormatSymbols_os;
     break;
   case 'os_GE':
   case 'os-GE':
-    defaultSymbols = exports.ListFormatSymbols_os_GE;
+    defaultSymbols = ListFormatSymbols_os_GE;
     break;
   case 'os_RU':
   case 'os-RU':
-    defaultSymbols = exports.ListFormatSymbols_os_RU;
+    defaultSymbols = ListFormatSymbols_os_RU;
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    defaultSymbols = exports.ListFormatSymbols_pa_Arab;
+    defaultSymbols = ListFormatSymbols_pa_Arab;
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    defaultSymbols = exports.ListFormatSymbols_pa_Arab_PK;
+    defaultSymbols = ListFormatSymbols_pa_Arab_PK;
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    defaultSymbols = exports.ListFormatSymbols_pa_Guru;
+    defaultSymbols = ListFormatSymbols_pa_Guru;
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    defaultSymbols = exports.ListFormatSymbols_pa_Guru_IN;
+    defaultSymbols = ListFormatSymbols_pa_Guru_IN;
     break;
   case 'pcm':
-    defaultSymbols = exports.ListFormatSymbols_pcm;
+    defaultSymbols = ListFormatSymbols_pcm;
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    defaultSymbols = exports.ListFormatSymbols_pcm_NG;
+    defaultSymbols = ListFormatSymbols_pcm_NG;
     break;
   case 'pl_PL':
   case 'pl-PL':
-    defaultSymbols = exports.ListFormatSymbols_pl_PL;
+    defaultSymbols = ListFormatSymbols_pl_PL;
     break;
   case 'ps':
-    defaultSymbols = exports.ListFormatSymbols_ps;
+    defaultSymbols = ListFormatSymbols_ps;
     break;
   case 'ps_AF':
   case 'ps-AF':
-    defaultSymbols = exports.ListFormatSymbols_ps_AF;
+    defaultSymbols = ListFormatSymbols_ps_AF;
     break;
   case 'ps_PK':
   case 'ps-PK':
-    defaultSymbols = exports.ListFormatSymbols_ps_PK;
+    defaultSymbols = ListFormatSymbols_ps_PK;
     break;
   case 'pt_AO':
   case 'pt-AO':
-    defaultSymbols = exports.ListFormatSymbols_pt_AO;
+    defaultSymbols = ListFormatSymbols_pt_AO;
     break;
   case 'pt_CH':
   case 'pt-CH':
-    defaultSymbols = exports.ListFormatSymbols_pt_CH;
+    defaultSymbols = ListFormatSymbols_pt_CH;
     break;
   case 'pt_CV':
   case 'pt-CV':
-    defaultSymbols = exports.ListFormatSymbols_pt_CV;
+    defaultSymbols = ListFormatSymbols_pt_CV;
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    defaultSymbols = exports.ListFormatSymbols_pt_GQ;
+    defaultSymbols = ListFormatSymbols_pt_GQ;
     break;
   case 'pt_GW':
   case 'pt-GW':
-    defaultSymbols = exports.ListFormatSymbols_pt_GW;
+    defaultSymbols = ListFormatSymbols_pt_GW;
     break;
   case 'pt_LU':
   case 'pt-LU':
-    defaultSymbols = exports.ListFormatSymbols_pt_LU;
+    defaultSymbols = ListFormatSymbols_pt_LU;
     break;
   case 'pt_MO':
   case 'pt-MO':
-    defaultSymbols = exports.ListFormatSymbols_pt_MO;
+    defaultSymbols = ListFormatSymbols_pt_MO;
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    defaultSymbols = exports.ListFormatSymbols_pt_MZ;
+    defaultSymbols = ListFormatSymbols_pt_MZ;
     break;
   case 'pt_ST':
   case 'pt-ST':
-    defaultSymbols = exports.ListFormatSymbols_pt_ST;
+    defaultSymbols = ListFormatSymbols_pt_ST;
     break;
   case 'pt_TL':
   case 'pt-TL':
-    defaultSymbols = exports.ListFormatSymbols_pt_TL;
+    defaultSymbols = ListFormatSymbols_pt_TL;
     break;
   case 'qu':
-    defaultSymbols = exports.ListFormatSymbols_qu;
+    defaultSymbols = ListFormatSymbols_qu;
     break;
   case 'qu_BO':
   case 'qu-BO':
-    defaultSymbols = exports.ListFormatSymbols_qu_BO;
+    defaultSymbols = ListFormatSymbols_qu_BO;
     break;
   case 'qu_EC':
   case 'qu-EC':
-    defaultSymbols = exports.ListFormatSymbols_qu_EC;
+    defaultSymbols = ListFormatSymbols_qu_EC;
     break;
   case 'qu_PE':
   case 'qu-PE':
-    defaultSymbols = exports.ListFormatSymbols_qu_PE;
+    defaultSymbols = ListFormatSymbols_qu_PE;
     break;
   case 'raj':
-    defaultSymbols = exports.ListFormatSymbols_raj;
+    defaultSymbols = ListFormatSymbols_raj;
     break;
   case 'raj_IN':
   case 'raj-IN':
-    defaultSymbols = exports.ListFormatSymbols_raj_IN;
+    defaultSymbols = ListFormatSymbols_raj_IN;
     break;
   case 'rm':
-    defaultSymbols = exports.ListFormatSymbols_rm;
+    defaultSymbols = ListFormatSymbols_rm;
     break;
   case 'rm_CH':
   case 'rm-CH':
-    defaultSymbols = exports.ListFormatSymbols_rm_CH;
+    defaultSymbols = ListFormatSymbols_rm_CH;
     break;
   case 'rn':
-    defaultSymbols = exports.ListFormatSymbols_rn;
+    defaultSymbols = ListFormatSymbols_rn;
     break;
   case 'rn_BI':
   case 'rn-BI':
-    defaultSymbols = exports.ListFormatSymbols_rn_BI;
+    defaultSymbols = ListFormatSymbols_rn_BI;
     break;
   case 'ro_MD':
   case 'ro-MD':
-    defaultSymbols = exports.ListFormatSymbols_ro_MD;
+    defaultSymbols = ListFormatSymbols_ro_MD;
     break;
   case 'ro_RO':
   case 'ro-RO':
-    defaultSymbols = exports.ListFormatSymbols_ro_RO;
+    defaultSymbols = ListFormatSymbols_ro_RO;
     break;
   case 'rof':
-    defaultSymbols = exports.ListFormatSymbols_rof;
+    defaultSymbols = ListFormatSymbols_rof;
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    defaultSymbols = exports.ListFormatSymbols_rof_TZ;
+    defaultSymbols = ListFormatSymbols_rof_TZ;
     break;
   case 'ru_BY':
   case 'ru-BY':
-    defaultSymbols = exports.ListFormatSymbols_ru_BY;
+    defaultSymbols = ListFormatSymbols_ru_BY;
     break;
   case 'ru_KG':
   case 'ru-KG':
-    defaultSymbols = exports.ListFormatSymbols_ru_KG;
+    defaultSymbols = ListFormatSymbols_ru_KG;
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    defaultSymbols = exports.ListFormatSymbols_ru_KZ;
+    defaultSymbols = ListFormatSymbols_ru_KZ;
     break;
   case 'ru_MD':
   case 'ru-MD':
-    defaultSymbols = exports.ListFormatSymbols_ru_MD;
+    defaultSymbols = ListFormatSymbols_ru_MD;
     break;
   case 'ru_RU':
   case 'ru-RU':
-    defaultSymbols = exports.ListFormatSymbols_ru_RU;
+    defaultSymbols = ListFormatSymbols_ru_RU;
     break;
   case 'ru_UA':
   case 'ru-UA':
-    defaultSymbols = exports.ListFormatSymbols_ru_UA;
+    defaultSymbols = ListFormatSymbols_ru_UA;
     break;
   case 'rw':
-    defaultSymbols = exports.ListFormatSymbols_rw;
+    defaultSymbols = ListFormatSymbols_rw;
     break;
   case 'rw_RW':
   case 'rw-RW':
-    defaultSymbols = exports.ListFormatSymbols_rw_RW;
+    defaultSymbols = ListFormatSymbols_rw_RW;
     break;
   case 'rwk':
-    defaultSymbols = exports.ListFormatSymbols_rwk;
+    defaultSymbols = ListFormatSymbols_rwk;
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    defaultSymbols = exports.ListFormatSymbols_rwk_TZ;
+    defaultSymbols = ListFormatSymbols_rwk_TZ;
     break;
   case 'sa':
-    defaultSymbols = exports.ListFormatSymbols_sa;
+    defaultSymbols = ListFormatSymbols_sa;
     break;
   case 'sa_IN':
   case 'sa-IN':
-    defaultSymbols = exports.ListFormatSymbols_sa_IN;
+    defaultSymbols = ListFormatSymbols_sa_IN;
     break;
   case 'sah':
-    defaultSymbols = exports.ListFormatSymbols_sah;
+    defaultSymbols = ListFormatSymbols_sah;
     break;
   case 'sah_RU':
   case 'sah-RU':
-    defaultSymbols = exports.ListFormatSymbols_sah_RU;
+    defaultSymbols = ListFormatSymbols_sah_RU;
     break;
   case 'saq':
-    defaultSymbols = exports.ListFormatSymbols_saq;
+    defaultSymbols = ListFormatSymbols_saq;
     break;
   case 'saq_KE':
   case 'saq-KE':
-    defaultSymbols = exports.ListFormatSymbols_saq_KE;
+    defaultSymbols = ListFormatSymbols_saq_KE;
     break;
   case 'sat':
-    defaultSymbols = exports.ListFormatSymbols_sat;
+    defaultSymbols = ListFormatSymbols_sat;
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    defaultSymbols = exports.ListFormatSymbols_sat_Olck;
+    defaultSymbols = ListFormatSymbols_sat_Olck;
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    defaultSymbols = exports.ListFormatSymbols_sat_Olck_IN;
+    defaultSymbols = ListFormatSymbols_sat_Olck_IN;
     break;
   case 'sbp':
-    defaultSymbols = exports.ListFormatSymbols_sbp;
+    defaultSymbols = ListFormatSymbols_sbp;
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    defaultSymbols = exports.ListFormatSymbols_sbp_TZ;
+    defaultSymbols = ListFormatSymbols_sbp_TZ;
     break;
   case 'sc':
-    defaultSymbols = exports.ListFormatSymbols_sc;
+    defaultSymbols = ListFormatSymbols_sc;
     break;
   case 'sc_IT':
   case 'sc-IT':
-    defaultSymbols = exports.ListFormatSymbols_sc_IT;
+    defaultSymbols = ListFormatSymbols_sc_IT;
     break;
   case 'sd':
-    defaultSymbols = exports.ListFormatSymbols_sd;
+    defaultSymbols = ListFormatSymbols_sd;
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    defaultSymbols = exports.ListFormatSymbols_sd_Arab;
+    defaultSymbols = ListFormatSymbols_sd_Arab;
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    defaultSymbols = exports.ListFormatSymbols_sd_Arab_PK;
+    defaultSymbols = ListFormatSymbols_sd_Arab_PK;
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    defaultSymbols = exports.ListFormatSymbols_sd_Deva;
+    defaultSymbols = ListFormatSymbols_sd_Deva;
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    defaultSymbols = exports.ListFormatSymbols_sd_Deva_IN;
+    defaultSymbols = ListFormatSymbols_sd_Deva_IN;
     break;
   case 'se':
-    defaultSymbols = exports.ListFormatSymbols_se;
+    defaultSymbols = ListFormatSymbols_se;
     break;
   case 'se_FI':
   case 'se-FI':
-    defaultSymbols = exports.ListFormatSymbols_se_FI;
+    defaultSymbols = ListFormatSymbols_se_FI;
     break;
   case 'se_NO':
   case 'se-NO':
-    defaultSymbols = exports.ListFormatSymbols_se_NO;
+    defaultSymbols = ListFormatSymbols_se_NO;
     break;
   case 'se_SE':
   case 'se-SE':
-    defaultSymbols = exports.ListFormatSymbols_se_SE;
+    defaultSymbols = ListFormatSymbols_se_SE;
     break;
   case 'seh':
-    defaultSymbols = exports.ListFormatSymbols_seh;
+    defaultSymbols = ListFormatSymbols_seh;
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    defaultSymbols = exports.ListFormatSymbols_seh_MZ;
+    defaultSymbols = ListFormatSymbols_seh_MZ;
     break;
   case 'ses':
-    defaultSymbols = exports.ListFormatSymbols_ses;
+    defaultSymbols = ListFormatSymbols_ses;
     break;
   case 'ses_ML':
   case 'ses-ML':
-    defaultSymbols = exports.ListFormatSymbols_ses_ML;
+    defaultSymbols = ListFormatSymbols_ses_ML;
     break;
   case 'sg':
-    defaultSymbols = exports.ListFormatSymbols_sg;
+    defaultSymbols = ListFormatSymbols_sg;
     break;
   case 'sg_CF':
   case 'sg-CF':
-    defaultSymbols = exports.ListFormatSymbols_sg_CF;
+    defaultSymbols = ListFormatSymbols_sg_CF;
     break;
   case 'shi':
-    defaultSymbols = exports.ListFormatSymbols_shi;
+    defaultSymbols = ListFormatSymbols_shi;
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    defaultSymbols = exports.ListFormatSymbols_shi_Latn;
+    defaultSymbols = ListFormatSymbols_shi_Latn;
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    defaultSymbols = exports.ListFormatSymbols_shi_Latn_MA;
+    defaultSymbols = ListFormatSymbols_shi_Latn_MA;
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    defaultSymbols = exports.ListFormatSymbols_shi_Tfng;
+    defaultSymbols = ListFormatSymbols_shi_Tfng;
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    defaultSymbols = exports.ListFormatSymbols_shi_Tfng_MA;
+    defaultSymbols = ListFormatSymbols_shi_Tfng_MA;
     break;
   case 'si_LK':
   case 'si-LK':
-    defaultSymbols = exports.ListFormatSymbols_si_LK;
+    defaultSymbols = ListFormatSymbols_si_LK;
     break;
   case 'sk_SK':
   case 'sk-SK':
-    defaultSymbols = exports.ListFormatSymbols_sk_SK;
+    defaultSymbols = ListFormatSymbols_sk_SK;
     break;
   case 'sl_SI':
   case 'sl-SI':
-    defaultSymbols = exports.ListFormatSymbols_sl_SI;
+    defaultSymbols = ListFormatSymbols_sl_SI;
     break;
   case 'smn':
-    defaultSymbols = exports.ListFormatSymbols_smn;
+    defaultSymbols = ListFormatSymbols_smn;
     break;
   case 'smn_FI':
   case 'smn-FI':
-    defaultSymbols = exports.ListFormatSymbols_smn_FI;
+    defaultSymbols = ListFormatSymbols_smn_FI;
     break;
   case 'sn':
-    defaultSymbols = exports.ListFormatSymbols_sn;
+    defaultSymbols = ListFormatSymbols_sn;
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    defaultSymbols = exports.ListFormatSymbols_sn_ZW;
+    defaultSymbols = ListFormatSymbols_sn_ZW;
     break;
   case 'so':
-    defaultSymbols = exports.ListFormatSymbols_so;
+    defaultSymbols = ListFormatSymbols_so;
     break;
   case 'so_DJ':
   case 'so-DJ':
-    defaultSymbols = exports.ListFormatSymbols_so_DJ;
+    defaultSymbols = ListFormatSymbols_so_DJ;
     break;
   case 'so_ET':
   case 'so-ET':
-    defaultSymbols = exports.ListFormatSymbols_so_ET;
+    defaultSymbols = ListFormatSymbols_so_ET;
     break;
   case 'so_KE':
   case 'so-KE':
-    defaultSymbols = exports.ListFormatSymbols_so_KE;
+    defaultSymbols = ListFormatSymbols_so_KE;
     break;
   case 'so_SO':
   case 'so-SO':
-    defaultSymbols = exports.ListFormatSymbols_so_SO;
+    defaultSymbols = ListFormatSymbols_so_SO;
     break;
   case 'sq_AL':
   case 'sq-AL':
-    defaultSymbols = exports.ListFormatSymbols_sq_AL;
+    defaultSymbols = ListFormatSymbols_sq_AL;
     break;
   case 'sq_MK':
   case 'sq-MK':
-    defaultSymbols = exports.ListFormatSymbols_sq_MK;
+    defaultSymbols = ListFormatSymbols_sq_MK;
     break;
   case 'sq_XK':
   case 'sq-XK':
-    defaultSymbols = exports.ListFormatSymbols_sq_XK;
+    defaultSymbols = ListFormatSymbols_sq_XK;
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    defaultSymbols = exports.ListFormatSymbols_sr_Cyrl;
+    defaultSymbols = ListFormatSymbols_sr_Cyrl;
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    defaultSymbols = exports.ListFormatSymbols_sr_Cyrl_BA;
+    defaultSymbols = ListFormatSymbols_sr_Cyrl_BA;
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    defaultSymbols = exports.ListFormatSymbols_sr_Cyrl_ME;
+    defaultSymbols = ListFormatSymbols_sr_Cyrl_ME;
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    defaultSymbols = exports.ListFormatSymbols_sr_Cyrl_RS;
+    defaultSymbols = ListFormatSymbols_sr_Cyrl_RS;
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    defaultSymbols = exports.ListFormatSymbols_sr_Cyrl_XK;
+    defaultSymbols = ListFormatSymbols_sr_Cyrl_XK;
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    defaultSymbols = exports.ListFormatSymbols_sr_Latn_BA;
+    defaultSymbols = ListFormatSymbols_sr_Latn_BA;
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    defaultSymbols = exports.ListFormatSymbols_sr_Latn_ME;
+    defaultSymbols = ListFormatSymbols_sr_Latn_ME;
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    defaultSymbols = exports.ListFormatSymbols_sr_Latn_RS;
+    defaultSymbols = ListFormatSymbols_sr_Latn_RS;
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    defaultSymbols = exports.ListFormatSymbols_sr_Latn_XK;
+    defaultSymbols = ListFormatSymbols_sr_Latn_XK;
     break;
   case 'su':
-    defaultSymbols = exports.ListFormatSymbols_su;
+    defaultSymbols = ListFormatSymbols_su;
     break;
   case 'su_Latn':
   case 'su-Latn':
-    defaultSymbols = exports.ListFormatSymbols_su_Latn;
+    defaultSymbols = ListFormatSymbols_su_Latn;
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    defaultSymbols = exports.ListFormatSymbols_su_Latn_ID;
+    defaultSymbols = ListFormatSymbols_su_Latn_ID;
     break;
   case 'sv_AX':
   case 'sv-AX':
-    defaultSymbols = exports.ListFormatSymbols_sv_AX;
+    defaultSymbols = ListFormatSymbols_sv_AX;
     break;
   case 'sv_FI':
   case 'sv-FI':
-    defaultSymbols = exports.ListFormatSymbols_sv_FI;
+    defaultSymbols = ListFormatSymbols_sv_FI;
     break;
   case 'sv_SE':
   case 'sv-SE':
-    defaultSymbols = exports.ListFormatSymbols_sv_SE;
+    defaultSymbols = ListFormatSymbols_sv_SE;
     break;
   case 'sw_CD':
   case 'sw-CD':
-    defaultSymbols = exports.ListFormatSymbols_sw_CD;
+    defaultSymbols = ListFormatSymbols_sw_CD;
     break;
   case 'sw_KE':
   case 'sw-KE':
-    defaultSymbols = exports.ListFormatSymbols_sw_KE;
+    defaultSymbols = ListFormatSymbols_sw_KE;
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    defaultSymbols = exports.ListFormatSymbols_sw_TZ;
+    defaultSymbols = ListFormatSymbols_sw_TZ;
     break;
   case 'sw_UG':
   case 'sw-UG':
-    defaultSymbols = exports.ListFormatSymbols_sw_UG;
+    defaultSymbols = ListFormatSymbols_sw_UG;
     break;
   case 'ta_IN':
   case 'ta-IN':
-    defaultSymbols = exports.ListFormatSymbols_ta_IN;
+    defaultSymbols = ListFormatSymbols_ta_IN;
     break;
   case 'ta_LK':
   case 'ta-LK':
-    defaultSymbols = exports.ListFormatSymbols_ta_LK;
+    defaultSymbols = ListFormatSymbols_ta_LK;
     break;
   case 'ta_MY':
   case 'ta-MY':
-    defaultSymbols = exports.ListFormatSymbols_ta_MY;
+    defaultSymbols = ListFormatSymbols_ta_MY;
     break;
   case 'ta_SG':
   case 'ta-SG':
-    defaultSymbols = exports.ListFormatSymbols_ta_SG;
+    defaultSymbols = ListFormatSymbols_ta_SG;
     break;
   case 'te_IN':
   case 'te-IN':
-    defaultSymbols = exports.ListFormatSymbols_te_IN;
+    defaultSymbols = ListFormatSymbols_te_IN;
     break;
   case 'teo':
-    defaultSymbols = exports.ListFormatSymbols_teo;
+    defaultSymbols = ListFormatSymbols_teo;
     break;
   case 'teo_KE':
   case 'teo-KE':
-    defaultSymbols = exports.ListFormatSymbols_teo_KE;
+    defaultSymbols = ListFormatSymbols_teo_KE;
     break;
   case 'teo_UG':
   case 'teo-UG':
-    defaultSymbols = exports.ListFormatSymbols_teo_UG;
+    defaultSymbols = ListFormatSymbols_teo_UG;
     break;
   case 'tg':
-    defaultSymbols = exports.ListFormatSymbols_tg;
+    defaultSymbols = ListFormatSymbols_tg;
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    defaultSymbols = exports.ListFormatSymbols_tg_TJ;
+    defaultSymbols = ListFormatSymbols_tg_TJ;
     break;
   case 'th_TH':
   case 'th-TH':
-    defaultSymbols = exports.ListFormatSymbols_th_TH;
+    defaultSymbols = ListFormatSymbols_th_TH;
     break;
   case 'ti':
-    defaultSymbols = exports.ListFormatSymbols_ti;
+    defaultSymbols = ListFormatSymbols_ti;
     break;
   case 'ti_ER':
   case 'ti-ER':
-    defaultSymbols = exports.ListFormatSymbols_ti_ER;
+    defaultSymbols = ListFormatSymbols_ti_ER;
     break;
   case 'ti_ET':
   case 'ti-ET':
-    defaultSymbols = exports.ListFormatSymbols_ti_ET;
+    defaultSymbols = ListFormatSymbols_ti_ET;
     break;
   case 'tk':
-    defaultSymbols = exports.ListFormatSymbols_tk;
+    defaultSymbols = ListFormatSymbols_tk;
     break;
   case 'tk_TM':
   case 'tk-TM':
-    defaultSymbols = exports.ListFormatSymbols_tk_TM;
+    defaultSymbols = ListFormatSymbols_tk_TM;
     break;
   case 'to':
-    defaultSymbols = exports.ListFormatSymbols_to;
+    defaultSymbols = ListFormatSymbols_to;
     break;
   case 'to_TO':
   case 'to-TO':
-    defaultSymbols = exports.ListFormatSymbols_to_TO;
+    defaultSymbols = ListFormatSymbols_to_TO;
     break;
   case 'tr_CY':
   case 'tr-CY':
-    defaultSymbols = exports.ListFormatSymbols_tr_CY;
+    defaultSymbols = ListFormatSymbols_tr_CY;
     break;
   case 'tr_TR':
   case 'tr-TR':
-    defaultSymbols = exports.ListFormatSymbols_tr_TR;
+    defaultSymbols = ListFormatSymbols_tr_TR;
     break;
   case 'tt':
-    defaultSymbols = exports.ListFormatSymbols_tt;
+    defaultSymbols = ListFormatSymbols_tt;
     break;
   case 'tt_RU':
   case 'tt-RU':
-    defaultSymbols = exports.ListFormatSymbols_tt_RU;
+    defaultSymbols = ListFormatSymbols_tt_RU;
     break;
   case 'twq':
-    defaultSymbols = exports.ListFormatSymbols_twq;
+    defaultSymbols = ListFormatSymbols_twq;
     break;
   case 'twq_NE':
   case 'twq-NE':
-    defaultSymbols = exports.ListFormatSymbols_twq_NE;
+    defaultSymbols = ListFormatSymbols_twq_NE;
     break;
   case 'tzm':
-    defaultSymbols = exports.ListFormatSymbols_tzm;
+    defaultSymbols = ListFormatSymbols_tzm;
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    defaultSymbols = exports.ListFormatSymbols_tzm_MA;
+    defaultSymbols = ListFormatSymbols_tzm_MA;
     break;
   case 'ug':
-    defaultSymbols = exports.ListFormatSymbols_ug;
+    defaultSymbols = ListFormatSymbols_ug;
     break;
   case 'ug_CN':
   case 'ug-CN':
-    defaultSymbols = exports.ListFormatSymbols_ug_CN;
+    defaultSymbols = ListFormatSymbols_ug_CN;
     break;
   case 'uk_UA':
   case 'uk-UA':
-    defaultSymbols = exports.ListFormatSymbols_uk_UA;
+    defaultSymbols = ListFormatSymbols_uk_UA;
     break;
   case 'ur_IN':
   case 'ur-IN':
-    defaultSymbols = exports.ListFormatSymbols_ur_IN;
+    defaultSymbols = ListFormatSymbols_ur_IN;
     break;
   case 'ur_PK':
   case 'ur-PK':
-    defaultSymbols = exports.ListFormatSymbols_ur_PK;
+    defaultSymbols = ListFormatSymbols_ur_PK;
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    defaultSymbols = exports.ListFormatSymbols_uz_Arab;
+    defaultSymbols = ListFormatSymbols_uz_Arab;
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    defaultSymbols = exports.ListFormatSymbols_uz_Arab_AF;
+    defaultSymbols = ListFormatSymbols_uz_Arab_AF;
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    defaultSymbols = exports.ListFormatSymbols_uz_Cyrl;
+    defaultSymbols = ListFormatSymbols_uz_Cyrl;
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    defaultSymbols = exports.ListFormatSymbols_uz_Cyrl_UZ;
+    defaultSymbols = ListFormatSymbols_uz_Cyrl_UZ;
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    defaultSymbols = exports.ListFormatSymbols_uz_Latn;
+    defaultSymbols = ListFormatSymbols_uz_Latn;
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    defaultSymbols = exports.ListFormatSymbols_uz_Latn_UZ;
+    defaultSymbols = ListFormatSymbols_uz_Latn_UZ;
     break;
   case 'vai':
-    defaultSymbols = exports.ListFormatSymbols_vai;
+    defaultSymbols = ListFormatSymbols_vai;
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    defaultSymbols = exports.ListFormatSymbols_vai_Latn;
+    defaultSymbols = ListFormatSymbols_vai_Latn;
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    defaultSymbols = exports.ListFormatSymbols_vai_Latn_LR;
+    defaultSymbols = ListFormatSymbols_vai_Latn_LR;
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    defaultSymbols = exports.ListFormatSymbols_vai_Vaii;
+    defaultSymbols = ListFormatSymbols_vai_Vaii;
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    defaultSymbols = exports.ListFormatSymbols_vai_Vaii_LR;
+    defaultSymbols = ListFormatSymbols_vai_Vaii_LR;
     break;
   case 'vi_VN':
   case 'vi-VN':
-    defaultSymbols = exports.ListFormatSymbols_vi_VN;
+    defaultSymbols = ListFormatSymbols_vi_VN;
     break;
   case 'vun':
-    defaultSymbols = exports.ListFormatSymbols_vun;
+    defaultSymbols = ListFormatSymbols_vun;
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    defaultSymbols = exports.ListFormatSymbols_vun_TZ;
+    defaultSymbols = ListFormatSymbols_vun_TZ;
     break;
   case 'wae':
-    defaultSymbols = exports.ListFormatSymbols_wae;
+    defaultSymbols = ListFormatSymbols_wae;
     break;
   case 'wae_CH':
   case 'wae-CH':
-    defaultSymbols = exports.ListFormatSymbols_wae_CH;
+    defaultSymbols = ListFormatSymbols_wae_CH;
     break;
   case 'wo':
-    defaultSymbols = exports.ListFormatSymbols_wo;
+    defaultSymbols = ListFormatSymbols_wo;
     break;
   case 'wo_SN':
   case 'wo-SN':
-    defaultSymbols = exports.ListFormatSymbols_wo_SN;
+    defaultSymbols = ListFormatSymbols_wo_SN;
     break;
   case 'xh':
-    defaultSymbols = exports.ListFormatSymbols_xh;
+    defaultSymbols = ListFormatSymbols_xh;
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    defaultSymbols = exports.ListFormatSymbols_xh_ZA;
+    defaultSymbols = ListFormatSymbols_xh_ZA;
     break;
   case 'xog':
-    defaultSymbols = exports.ListFormatSymbols_xog;
+    defaultSymbols = ListFormatSymbols_xog;
     break;
   case 'xog_UG':
   case 'xog-UG':
-    defaultSymbols = exports.ListFormatSymbols_xog_UG;
+    defaultSymbols = ListFormatSymbols_xog_UG;
     break;
   case 'yav':
-    defaultSymbols = exports.ListFormatSymbols_yav;
+    defaultSymbols = ListFormatSymbols_yav;
     break;
   case 'yav_CM':
   case 'yav-CM':
-    defaultSymbols = exports.ListFormatSymbols_yav_CM;
+    defaultSymbols = ListFormatSymbols_yav_CM;
     break;
   case 'yi':
-    defaultSymbols = exports.ListFormatSymbols_yi;
+    defaultSymbols = ListFormatSymbols_yi;
     break;
   case 'yi_001':
   case 'yi-001':
-    defaultSymbols = exports.ListFormatSymbols_yi_001;
+    defaultSymbols = ListFormatSymbols_yi_001;
     break;
   case 'yo':
-    defaultSymbols = exports.ListFormatSymbols_yo;
+    defaultSymbols = ListFormatSymbols_yo;
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    defaultSymbols = exports.ListFormatSymbols_yo_BJ;
+    defaultSymbols = ListFormatSymbols_yo_BJ;
     break;
   case 'yo_NG':
   case 'yo-NG':
-    defaultSymbols = exports.ListFormatSymbols_yo_NG;
+    defaultSymbols = ListFormatSymbols_yo_NG;
     break;
   case 'yrl':
-    defaultSymbols = exports.ListFormatSymbols_yrl;
+    defaultSymbols = ListFormatSymbols_yrl;
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    defaultSymbols = exports.ListFormatSymbols_yrl_BR;
+    defaultSymbols = ListFormatSymbols_yrl_BR;
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    defaultSymbols = exports.ListFormatSymbols_yrl_CO;
+    defaultSymbols = ListFormatSymbols_yrl_CO;
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    defaultSymbols = exports.ListFormatSymbols_yrl_VE;
+    defaultSymbols = ListFormatSymbols_yrl_VE;
     break;
   case 'yue':
-    defaultSymbols = exports.ListFormatSymbols_yue;
+    defaultSymbols = ListFormatSymbols_yue;
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    defaultSymbols = exports.ListFormatSymbols_yue_Hans;
+    defaultSymbols = ListFormatSymbols_yue_Hans;
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    defaultSymbols = exports.ListFormatSymbols_yue_Hans_CN;
+    defaultSymbols = ListFormatSymbols_yue_Hans_CN;
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    defaultSymbols = exports.ListFormatSymbols_yue_Hant;
+    defaultSymbols = ListFormatSymbols_yue_Hant;
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    defaultSymbols = exports.ListFormatSymbols_yue_Hant_HK;
+    defaultSymbols = ListFormatSymbols_yue_Hant_HK;
     break;
   case 'zgh':
-    defaultSymbols = exports.ListFormatSymbols_zgh;
+    defaultSymbols = ListFormatSymbols_zgh;
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    defaultSymbols = exports.ListFormatSymbols_zgh_MA;
+    defaultSymbols = ListFormatSymbols_zgh_MA;
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hans;
+    defaultSymbols = ListFormatSymbols_zh_Hans;
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hans_CN;
+    defaultSymbols = ListFormatSymbols_zh_Hans_CN;
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hans_HK;
+    defaultSymbols = ListFormatSymbols_zh_Hans_HK;
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hans_MO;
+    defaultSymbols = ListFormatSymbols_zh_Hans_MO;
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hans_SG;
+    defaultSymbols = ListFormatSymbols_zh_Hans_SG;
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hant;
+    defaultSymbols = ListFormatSymbols_zh_Hant;
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hant_HK;
+    defaultSymbols = ListFormatSymbols_zh_Hant_HK;
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hant_MO;
+    defaultSymbols = ListFormatSymbols_zh_Hant_MO;
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    defaultSymbols = exports.ListFormatSymbols_zh_Hant_TW;
+    defaultSymbols = ListFormatSymbols_zh_Hant_TW;
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    defaultSymbols = exports.ListFormatSymbols_zu_ZA;
+    defaultSymbols = ListFormatSymbols_zu_ZA;
     break;
 }
 

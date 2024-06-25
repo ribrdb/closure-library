@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.async.MockControlTest');
 goog.setTestOnly();
 
-const AsyncMockControl = goog.require('goog.testing.async.MockControl');
-const Deferred = goog.require('goog.async.Deferred');
-const MockControl = goog.require('goog.testing.MockControl');
-const asserts = goog.require('goog.testing.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockControl as AsyncMockControl } from './mockcontrol.js';
+import { Deferred } from '../../../../third_party/closure/goog/mochikit/async/deferred.js';
+import { MockControl } from '../mockcontrol.js';
+import * as asserts from '../asserts.js';
+import { testSuite } from '../testsuite.js';
 
 let mockControl;
 let asyncMockControl;

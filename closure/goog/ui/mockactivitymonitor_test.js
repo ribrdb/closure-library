@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.MockActivityMonitorTest');
 goog.setTestOnly();
 
-const ActivityMonitor = goog.require('goog.ui.ActivityMonitor');
-const MockActivityMonitor = goog.require('goog.ui.MockActivityMonitor');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ActivityMonitor } from './activitymonitor.js';
+import { MockActivityMonitor } from './mockactivitymonitor.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const googNow = Date.now;
 let monitor;

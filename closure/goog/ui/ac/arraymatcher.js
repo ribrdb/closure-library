@@ -9,9 +9,7 @@
  */
 
 
-goog.provide('goog.ui.ac.ArrayMatcher');
-
-goog.require('goog.string');
+import * as string from '../../string/string.js';
 
 
 
@@ -23,20 +21,18 @@ goog.require('goog.string');
  * @param {boolean=} opt_noSimilar if true, do not do similarity matches for the
  *     input token against the dictionary.
  */
-goog.ui.ac.ArrayMatcher = function(rows, opt_noSimilar) {
-  'use strict';
+export function ArrayMatcher(rows, opt_noSimilar) {
   /** @type {!Array<?>} */
   this.rows_ = rows || [];
   this.useSimilar_ = !opt_noSimilar;
-};
+}
 
 
 /**
  * Replaces the rows that this object searches over.
  * @param {Array<?>} rows Dictionary of items to match.
  */
-goog.ui.ac.ArrayMatcher.prototype.setRows = function(rows) {
-  'use strict';
+ArrayMatcher.prototype.setRows = function(rows) {
   this.rows_ = rows || [];
 };
 
@@ -48,11 +44,10 @@ goog.ui.ac.ArrayMatcher.prototype.setRows = function(rows) {
  * @param {Function} matchHandler callback to execute after matching.
  * @param {string=} opt_fullString The full string from the input box.
  */
-goog.ui.ac.ArrayMatcher.prototype.requestMatchingRows = function(
+ArrayMatcher.prototype.requestMatchingRows = function(
     token, maxMatches, matchHandler, opt_fullString) {
-  'use strict';
   var matches = this.useSimilar_ ?
-      goog.ui.ac.ArrayMatcher.getMatchesForRows(token, maxMatches, this.rows_) :
+      ArrayMatcher.getMatchesForRows(token, maxMatches, this.rows_) :
       this.getPrefixMatches(token, maxMatches);
 
   matchHandler(token, matches);
@@ -69,13 +64,12 @@ goog.ui.ac.ArrayMatcher.prototype.requestMatchingRows = function(
  *     have a toString method that returns the value to match against.
  * @return {!Array<?>} Rows that match.
  */
-goog.ui.ac.ArrayMatcher.getMatchesForRows = function(token, maxMatches, rows) {
-  'use strict';
+ArrayMatcher.getMatchesForRows = function(token, maxMatches, rows) {
   var matches =
-      goog.ui.ac.ArrayMatcher.getPrefixMatchesForRows(token, maxMatches, rows);
+      ArrayMatcher.getPrefixMatchesForRows(token, maxMatches, rows);
 
   if (matches.length == 0) {
-    matches = goog.ui.ac.ArrayMatcher.getSimilarMatchesForRows(
+    matches = ArrayMatcher.getSimilarMatchesForRows(
         token, maxMatches, rows);
   }
   return matches;
@@ -88,10 +82,9 @@ goog.ui.ac.ArrayMatcher.getMatchesForRows = function(token, maxMatches, rows) {
  * @param {number} maxMatches Max number of matches to return.
  * @return {!Array<?>} Rows that match.
  */
-goog.ui.ac.ArrayMatcher.prototype.getPrefixMatches = function(
+ArrayMatcher.prototype.getPrefixMatches = function(
     token, maxMatches) {
-  'use strict';
-  return goog.ui.ac.ArrayMatcher.getPrefixMatchesForRows(
+  return ArrayMatcher.getPrefixMatchesForRows(
       token, maxMatches, this.rows_);
 };
 
@@ -105,13 +98,12 @@ goog.ui.ac.ArrayMatcher.prototype.getPrefixMatches = function(
  *     a toString method that returns the value to match against.
  * @return {!Array<?>} Rows that match.
  */
-goog.ui.ac.ArrayMatcher.getPrefixMatchesForRows = function(
+ArrayMatcher.getPrefixMatchesForRows = function(
     token, maxMatches, rows) {
-  'use strict';
   var matches = [];
 
   if (token != '') {
-    var escapedToken = goog.string.regExpEscape(token);
+    var escapedToken = string.regExpEscape(token);
     var matcher = new RegExp('(^|\\W+)' + escapedToken, 'i');
 
     for (var i = 0; i < rows.length && matches.length < maxMatches; i++) {
@@ -132,9 +124,8 @@ goog.ui.ac.ArrayMatcher.getPrefixMatchesForRows = function(
  * @param {number} maxMatches Max number of matches to return.
  * @return {!Array<?>} The best maxMatches rows.
  */
-goog.ui.ac.ArrayMatcher.prototype.getSimilarRows = function(token, maxMatches) {
-  'use strict';
-  return goog.ui.ac.ArrayMatcher.getSimilarMatchesForRows(
+ArrayMatcher.prototype.getSimilarRows = function(token, maxMatches) {
+  return ArrayMatcher.getSimilarMatchesForRows(
       token, maxMatches, this.rows_);
 };
 
@@ -149,9 +140,8 @@ goog.ui.ac.ArrayMatcher.prototype.getSimilarRows = function(token, maxMatches) {
  *     match against.
  * @return {!Array<?>} The best maxMatches rows.
  */
-goog.ui.ac.ArrayMatcher.getSimilarMatchesForRows = function(
+ArrayMatcher.getSimilarMatchesForRows = function(
     token, maxMatches, rows) {
-  'use strict';
   var results = [];
 
   for (var index = 0; index < rows.length; index++) {
@@ -195,7 +185,6 @@ goog.ui.ac.ArrayMatcher.getSimilarMatchesForRows = function(
   }
 
   results.sort(function(a, b) {
-    'use strict';
     var diff = a.score - b.score;
     if (diff != 0) {
       return diff;

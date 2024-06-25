@@ -4,16 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.positioning.ViewportClientPositionTest');
 goog.setTestOnly();
 
-const Corner = goog.require('goog.positioning.Corner');
-const Overflow = goog.require('goog.positioning.Overflow');
-const ViewportClientPosition = goog.require('goog.positioning.ViewportClientPosition');
-const googDom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Corner, Overflow } from './positioning.js';
+import { ViewportClientPosition } from './viewportclientposition.js';
+import * as googDom from '../dom/dom.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let anchor;
 let dom;

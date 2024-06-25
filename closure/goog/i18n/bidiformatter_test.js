@@ -4,15 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.BidiFormatterTest');
 goog.setTestOnly();
 
-const BidiFormatter = goog.require('goog.i18n.BidiFormatter');
-const Dir = goog.require('goog.i18n.bidi.Dir');
-const Format = goog.require('goog.i18n.bidi.Format');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
+import { BidiFormatter } from './bidiformatter.js';
+import { Dir, Format } from './bidi.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
 
 const LRM = Format.LRM;
 const RLM = Format.RLM;

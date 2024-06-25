@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.tdmaTest');
 goog.setTestOnly();
 
-const tdma = goog.require('goog.math.tdma');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as tdma from './tdma.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testTdmaSolver() {

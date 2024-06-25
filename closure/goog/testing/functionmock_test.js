@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.FunctionMockTest');
 goog.setTestOnly();
 
-const FunctionMock = goog.require('goog.testing.FunctionMock');
-const Mock = goog.require('goog.testing.Mock');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const asserts = goog.require('goog.testing.asserts');
-const googArray = goog.require('goog.array');
-const googString = goog.require('goog.string');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.testing');
+import * as testing from './functionmock.js';
+import { FunctionMock } from './functionmock.js';
+import { Mock } from './mock.js';
+import { StrictMock } from './strictmock.js';
+import * as asserts from './asserts.js';
+import * as googArray from '../array/array.js';
+import * as googString from '../string/string.js';
+import * as mockmatchers from './mockmatchers.js';
+import { testSuite } from './testsuite.js';
 
 // Global scope so we can tear it down safely
 let mockGlobal;

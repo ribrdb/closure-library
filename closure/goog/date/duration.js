@@ -9,10 +9,9 @@
  * "3 hours", "14 minutes", "2 hours 45 minutes".
  */
 
-goog.provide('goog.date.duration');
+import { DateTimeFormat } from '../i18n/datetimeformat.js';
 
-goog.require('goog.i18n.DateTimeFormat');
-goog.require('goog.i18n.MessageFormat');
+import { MessageFormat } from '../i18n/messageformat.js';
 
 
 /**
@@ -20,7 +19,7 @@ goog.require('goog.i18n.MessageFormat');
  * @type {number}
  * @private
  */
-goog.date.duration.MINUTE_MS_ = 60000;
+var MINUTE_MS_ = 60000;
 
 
 /**
@@ -28,7 +27,7 @@ goog.date.duration.MINUTE_MS_ = 60000;
  * @type {number}
  * @private
  */
-goog.date.duration.HOUR_MS_ = 3600000;
+var HOUR_MS_ = 3600000;
 
 
 /**
@@ -36,7 +35,7 @@ goog.date.duration.HOUR_MS_ = 3600000;
  * @type {number}
  * @private
  */
-goog.date.duration.DAY_MS_ = 86400000;
+var DAY_MS_ = 86400000;
 
 
 /**
@@ -45,87 +44,86 @@ goog.date.duration.DAY_MS_ = 86400000;
  * @param {number} durationMs Duration in milliseconds.
  * @return {string} The formatted duration.
  */
-goog.date.duration.format = function(durationMs) {
-  'use strict';
-  var ms = Math.abs(durationMs);
+export function format(durationMs) {
+ var ms = Math.abs(durationMs);
 
-  // Handle durations shorter than 1 minute.
-  if (ms < goog.date.duration.MINUTE_MS_) {
-    /**
-     * @desc Duration time of zero minutes.
-     */
-    var MSG_ZERO_MINUTES = goog.getMsg('0 minutes');
-    return MSG_ZERO_MINUTES;
-  }
+ // Handle durations shorter than 1 minute.
+ if (ms < MINUTE_MS_) {
+   /**
+    * @desc Duration time of zero minutes.
+    */
+   var MSG_ZERO_MINUTES = goog.getMsg('0 minutes');
+   return MSG_ZERO_MINUTES;
+ }
 
-  var days = Math.floor(ms / goog.date.duration.DAY_MS_);
-  ms %= goog.date.duration.DAY_MS_;
+ var days = Math.floor(ms / DAY_MS_);
+ ms %= DAY_MS_;
 
-  var hours = Math.floor(ms / goog.date.duration.HOUR_MS_);
-  ms %= goog.date.duration.HOUR_MS_;
+ var hours = Math.floor(ms / HOUR_MS_);
+ ms %= HOUR_MS_;
 
-  var minutes = Math.floor(ms / goog.date.duration.MINUTE_MS_);
+ var minutes = Math.floor(ms / MINUTE_MS_);
 
-  // Localized number representations.
-  var daysText = goog.i18n.DateTimeFormat.localizeNumbers(days);
-  var hoursText = goog.i18n.DateTimeFormat.localizeNumbers(hours);
-  var minutesText = goog.i18n.DateTimeFormat.localizeNumbers(minutes);
+ // Localized number representations.
+ var daysText = DateTimeFormat.localizeNumbers(days);
+ var hoursText = DateTimeFormat.localizeNumbers(hours);
+ var minutesText = DateTimeFormat.localizeNumbers(minutes);
 
-  // We need a space after the days if there are hours or minutes to come.
-  var daysSeparator = days * (hours + minutes) ? ' ' : '';
-  // We need a space after the hours if there are minutes to come.
-  var hoursSeparator = hours * minutes ? ' ' : '';
+ // We need a space after the days if there are hours or minutes to come.
+ var daysSeparator = days * (hours + minutes) ? ' ' : '';
+ // We need a space after the hours if there are minutes to come.
+ var hoursSeparator = hours * minutes ? ' ' : '';
 
-  /**
-   * @desc The days part of the duration message: 1 day, 5 days.
-   */
-  var MSG_DURATION_DAYS = goog.getMsg(
-      '{COUNT, plural, ' +
-      '=0 {}' +
-      '=1 {{TEXT} day}' +
-      'other {{TEXT} days}}');
-  /**
-   * @desc The hours part of the duration message: 1 hour, 5 hours.
-   */
-  var MSG_DURATION_HOURS = goog.getMsg(
-      '{COUNT, plural, ' +
-      '=0 {}' +
-      '=1 {{TEXT} hour}' +
-      'other {{TEXT} hours}}');
-  /**
-   * @desc The minutes part of the duration message: 1 minute, 5 minutes.
-   */
-  var MSG_DURATION_MINUTES = goog.getMsg(
-      '{COUNT, plural, ' +
-      '=0 {}' +
-      '=1 {{TEXT} minute}' +
-      'other {{TEXT} minutes}}');
+ /**
+  * @desc The days part of the duration message: 1 day, 5 days.
+  */
+ var MSG_DURATION_DAYS = goog.getMsg(
+     '{COUNT, plural, ' +
+     '=0 {}' +
+     '=1 {{TEXT} day}' +
+     'other {{TEXT} days}}');
+ /**
+  * @desc The hours part of the duration message: 1 hour, 5 hours.
+  */
+ var MSG_DURATION_HOURS = goog.getMsg(
+     '{COUNT, plural, ' +
+     '=0 {}' +
+     '=1 {{TEXT} hour}' +
+     'other {{TEXT} hours}}');
+ /**
+  * @desc The minutes part of the duration message: 1 minute, 5 minutes.
+  */
+ var MSG_DURATION_MINUTES = goog.getMsg(
+     '{COUNT, plural, ' +
+     '=0 {}' +
+     '=1 {{TEXT} minute}' +
+     'other {{TEXT} minutes}}');
 
-  var daysPart = goog.date.duration.getDurationMessagePart_(
-      MSG_DURATION_DAYS, days, daysText);
-  var hoursPart = goog.date.duration.getDurationMessagePart_(
-      MSG_DURATION_HOURS, hours, hoursText);
-  var minutesPart = goog.date.duration.getDurationMessagePart_(
-      MSG_DURATION_MINUTES, minutes, minutesText);
+ var daysPart = getDurationMessagePart_(
+     MSG_DURATION_DAYS, days, daysText);
+ var hoursPart = getDurationMessagePart_(
+     MSG_DURATION_HOURS, hours, hoursText);
+ var minutesPart = getDurationMessagePart_(
+     MSG_DURATION_MINUTES, minutes, minutesText);
 
-  /**
-   * @desc Duration time text concatenated from the individual time unit message
-   * parts. The separator will be a space (e.g. '1 day 2 hours 24 minutes') or
-   * nothing in case one/two of the duration parts is empty (
-   * e.g. '1 hour 30 minutes', '3 days 15 minutes', '2 hours').
-   */
-  var MSG_CONCATENATED_DURATION_TEXT = goog.getMsg(
-      '{$daysPart}{$daysSeparator}{$hoursPart}{$hoursSeparator}{$minutesPart}',
-      {
-        'daysPart': daysPart,
-        'daysSeparator': daysSeparator,
-        'hoursPart': hoursPart,
-        'hoursSeparator': hoursSeparator,
-        'minutesPart': minutesPart
-      });
+ /**
+  * @desc Duration time text concatenated from the individual time unit message
+  * parts. The separator will be a space (e.g. '1 day 2 hours 24 minutes') or
+  * nothing in case one/two of the duration parts is empty (
+  * e.g. '1 hour 30 minutes', '3 days 15 minutes', '2 hours').
+  */
+ var MSG_CONCATENATED_DURATION_TEXT = goog.getMsg(
+     '{$daysPart}{$daysSeparator}{$hoursPart}{$hoursSeparator}{$minutesPart}',
+     {
+       'daysPart': daysPart,
+       'daysSeparator': daysSeparator,
+       'hoursPart': hoursPart,
+       'hoursSeparator': hoursSeparator,
+       'minutesPart': minutesPart
+     });
 
-  return MSG_CONCATENATED_DURATION_TEXT;
-};
+ return MSG_CONCATENATED_DURATION_TEXT;
+}
 
 
 /**
@@ -136,8 +134,7 @@ goog.date.duration.format = function(durationMs) {
  * @return {string} The formatted message part.
  * @private
  */
-goog.date.duration.getDurationMessagePart_ = function(pattern, count, text) {
-  'use strict';
-  var formatter = new goog.i18n.MessageFormat(pattern);
-  return formatter.format({'COUNT': count, 'TEXT': text});
-};
+function getDurationMessagePart_(pattern, count, text) {
+ var formatter = new MessageFormat(pattern);
+ return formatter.format({'COUNT': count, 'TEXT': text});
+}

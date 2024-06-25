@@ -9,22 +9,17 @@
  *
  * Base64 encoding bytes in the buffer will be decoded and delivered in a batch.
  * - Decodes input string in 4-character groups.
- * - Accepts both normal and websafe characters (see {@link goog.crypt.base64}).
+ * - Accepts both normal and websafe characters (see {@link base64}).
  * - Whitespaces are skipped.
  * - Further input after padding characters are decoded normally. Padding
  *   characters are simply treated as 6 input bits (like other characters),
  *   and has no more semantics meaning to the decoder.
  */
 
-goog.provide('goog.net.streams.Base64StreamDecoder');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.crypt.base64');
+import * as base64 from '../../crypt/base64.js';
 
-goog.scope(function() {
-
-
-'use strict';
 /**
  * Base64 stream decoder.
  *
@@ -33,30 +28,26 @@ goog.scope(function() {
  * @final
  * @package
  */
-goog.net.streams.Base64StreamDecoder = function() {
-  'use strict';
-  /**
-   * If the input stream is still valid.
-   * @private {boolean}
-   */
-  this.isInputValid_ = true;
+export function Base64StreamDecoder() {
+ /**
+  * If the input stream is still valid.
+  * @private {boolean}
+  */
+ this.isInputValid_ = true;
 
-  /**
-   * The current position in the streamed data that has been processed, i.e.
-   * the position right before `leftoverInput_`.
-   * @private {number}
-   */
-  this.streamPos_ = 0;
+ /**
+  * The current position in the streamed data that has been processed, i.e.
+  * the position right before `leftoverInput_`.
+  * @private {number}
+  */
+ this.streamPos_ = 0;
 
-  /**
-   * The leftover characters when grouping input characters into four.
-   * @private {string}
-   */
-  this.leftoverInput_ = '';
-};
-
-
-const Decoder = goog.net.streams.Base64StreamDecoder;
+ /**
+  * The leftover characters when grouping input characters into four.
+  * @private {string}
+  */
+ this.leftoverInput_ = '';
+}
 
 
 /**
@@ -64,9 +55,8 @@ const Decoder = goog.net.streams.Base64StreamDecoder;
  *
  * @return {boolean} true if the input is still valid.
  */
-Decoder.prototype.isInputValid = function() {
-  'use strict';
-  return this.isInputValid_;
+Base64StreamDecoder.prototype.isInputValid = function() {
+ return this.isInputValid_;
 };
 
 
@@ -76,12 +66,11 @@ Decoder.prototype.isInputValid = function() {
  * @throws {!Error} Throws an error indicating where the stream is broken
  * @private
  */
-Decoder.prototype.error_ = function(input, errorMsg) {
-  'use strict';
-  this.isInputValid_ = false;
-  throw new Error(
-      'The stream is broken @' + this.streamPos_ + '. Error: ' + errorMsg +
-      '. With input:\n' + input);
+Base64StreamDecoder.prototype.error_ = function(input, errorMsg) {
+ this.isInputValid_ = false;
+ throw new Error(
+     'The stream is broken @' + this.streamPos_ + '. Error: ' + errorMsg +
+     '. With input:\n' + input);
 };
 
 
@@ -93,31 +82,29 @@ Decoder.prototype.error_ = function(input, errorMsg) {
  *     input data to decode any new bytes
  * @throws {!Error} Throws an error message if the input is invalid
  */
-Decoder.prototype.decode = function(input) {
-  'use strict';
-  goog.asserts.assertString(input);
+Base64StreamDecoder.prototype.decode = function(input) {
+ asserts.assertString(input);
 
-  if (!this.isInputValid_) {
-    this.error_(input, 'stream already broken');
-  }
+ if (!this.isInputValid_) {
+   this.error_(input, 'stream already broken');
+ }
 
-  this.leftoverInput_ += input;
+ this.leftoverInput_ += input;
 
-  const groups = Math.floor(this.leftoverInput_.length / 4);
-  if (groups == 0) {
-    return null;
-  }
+ const groups = Math.floor(this.leftoverInput_.length / 4);
+ if (groups == 0) {
+   return null;
+ }
 
-  let result;
-  try {
-    result = goog.crypt.base64.decodeStringToByteArray(
-        this.leftoverInput_.slice(0, groups * 4));
-  } catch (e) {
-    this.error_(this.leftoverInput_, e.message);
-  }
+ let result;
+ try {
+   result = base64.decodeStringToByteArray(
+       this.leftoverInput_.slice(0, groups * 4));
+ } catch (e) {
+   this.error_(this.leftoverInput_, e.message);
+ }
 
-  this.streamPos_ += groups * 4;
-  this.leftoverInput_ = this.leftoverInput_.slice(groups * 4);
-  return result;
+ this.streamPos_ += groups * 4;
+ this.leftoverInput_ = this.leftoverInput_.slice(groups * 4);
+ return result;
 };
-});  // goog.scope

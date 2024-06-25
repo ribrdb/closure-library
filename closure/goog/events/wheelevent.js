@@ -26,10 +26,9 @@
  * @see ../demos/wheelhandler.html
  */
 
-goog.provide('goog.events.WheelEvent');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.events.BrowserEvent');
+import { BrowserEvent } from './browserevent.js';
 
 
 
@@ -37,88 +36,86 @@ goog.require('goog.events.BrowserEvent');
  * A common class for wheel events. This is used with the WheelHandler.
  *
  * @param {Event} browserEvent Browser event object.
- * @param {goog.events.WheelEvent.DeltaMode} deltaMode The delta mode units of
+ * @param {WheelEvent.DeltaMode} deltaMode The delta mode units of
  *     the wheel event.
  * @param {number} deltaX The number of delta units the user in the X axis.
  * @param {number} deltaY The number of delta units the user in the Y axis.
  * @param {number} deltaZ The number of delta units the user in the Z axis.
  * @constructor
- * @extends {goog.events.BrowserEvent}
+ * @extends {BrowserEvent}
  * @final
  */
-goog.events.WheelEvent = function(
-    browserEvent, deltaMode, deltaX, deltaY, deltaZ) {
-  'use strict';
-  goog.events.WheelEvent.base(this, 'constructor', browserEvent);
-  goog.asserts.assert(browserEvent, 'Expecting a non-null browserEvent');
+export function WheelEvent(browserEvent, deltaMode, deltaX, deltaY, deltaZ) {
+ WheelEvent.base(this, 'constructor', browserEvent);
+ asserts.assert(browserEvent, 'Expecting a non-null browserEvent');
 
-  /** @type {goog.events.WheelEvent.EventType} */
-  this.type = goog.events.WheelEvent.EventType.WHEEL;
+ /** @type {WheelEvent.EventType} */
+ this.type = WheelEvent.EventType.WHEEL;
 
-  /**
-   * An enum corresponding to the units of this event.
-   * @type {goog.events.WheelEvent.DeltaMode}
-   */
-  this.deltaMode = deltaMode;
+ /**
+    * An enum corresponding to the units of this event.
+    * @type {WheelEvent.DeltaMode}
+    */
+ this.deltaMode = deltaMode;
 
-  /**
-   * The number of delta units in the X axis.
-   * @type {number}
-   */
-  this.deltaX = deltaX;
+ /**
+  * The number of delta units in the X axis.
+  * @type {number}
+  */
+ this.deltaX = deltaX;
 
-  /**
-   * The number of delta units in the Y axis.
-   * @type {number}
-   */
-  this.deltaY = deltaY;
+ /**
+  * The number of delta units in the Y axis.
+  * @type {number}
+  */
+ this.deltaY = deltaY;
 
-  /**
-   * The number of delta units in the Z axis.
-   * @type {number}
-   */
-  this.deltaZ = deltaZ;
+ /**
+  * The number of delta units in the Z axis.
+  * @type {number}
+  */
+ this.deltaZ = deltaZ;
 
-  // Ratio between delta and pixel values.
-  var pixelRatio = 1;  // Value for DeltaMode.PIXEL
-  switch (deltaMode) {
-    case goog.events.WheelEvent.DeltaMode.PAGE:
-      pixelRatio *= goog.events.WheelEvent.PIXELS_PER_PAGE_;
-      break;
-    case goog.events.WheelEvent.DeltaMode.LINE:
-      pixelRatio *= goog.events.WheelEvent.PIXELS_PER_LINE_;
-      break;
-  }
+ // Ratio between delta and pixel values.
+ var pixelRatio = 1;  // Value for DeltaMode.PIXEL
+ switch (deltaMode) {
+   case WheelEvent.DeltaMode.PAGE:
+     pixelRatio *= WheelEvent.PIXELS_PER_PAGE_;
+     break;
+   case WheelEvent.DeltaMode.LINE:
+     pixelRatio *= WheelEvent.PIXELS_PER_LINE_;
+     break;
+ }
 
-  /**
-   * The number of delta pixels in the X axis. Code that doesn't want to handle
-   * different deltaMode units can just look here.
-   * @type {number}
-   */
-  this.pixelDeltaX = this.deltaX * pixelRatio;
+ /**
+  * The number of delta pixels in the X axis. Code that doesn't want to handle
+  * different deltaMode units can just look here.
+  * @type {number}
+  */
+ this.pixelDeltaX = this.deltaX * pixelRatio;
 
-  /**
-   * The number of pixels in the Y axis. Code that doesn't want to
-   * handle different deltaMode units can just look here.
-   * @type {number}
-   */
-  this.pixelDeltaY = this.deltaY * pixelRatio;
+ /**
+  * The number of pixels in the Y axis. Code that doesn't want to
+  * handle different deltaMode units can just look here.
+  * @type {number}
+  */
+ this.pixelDeltaY = this.deltaY * pixelRatio;
 
-  /**
-   * The number of pixels scrolled in the Z axis. Code that doesn't want to
-   * handle different deltaMode units can just look here.
-   * @type {number}
-   */
-  this.pixelDeltaZ = this.deltaZ * pixelRatio;
-};
-goog.inherits(goog.events.WheelEvent, goog.events.BrowserEvent);
+ /**
+  * The number of pixels scrolled in the Z axis. Code that doesn't want to
+  * handle different deltaMode units can just look here.
+  * @type {number}
+  */
+ this.pixelDeltaZ = this.deltaZ * pixelRatio;
+}
+goog.inherits(WheelEvent, BrowserEvent);
 
 
 /**
  * Enum type for the events fired by the wheel handler.
  * @enum {string}
  */
-goog.events.WheelEvent.EventType = {
+WheelEvent.EventType = {
   /** The user has provided wheel-based input. */
   WHEEL: 'wheel'
 };
@@ -128,7 +125,7 @@ goog.events.WheelEvent.EventType = {
  * Units for the deltas in a WheelEvent.
  * @enum {number}
  */
-goog.events.WheelEvent.DeltaMode = {
+WheelEvent.DeltaMode = {
   /** The units are in pixels. From DOM_DELTA_PIXEL. */
   PIXEL: 0,
   /** The units are in lines. From DOM_DELTA_LINE. */
@@ -146,7 +143,7 @@ goog.events.WheelEvent.DeltaMode = {
  * @const {number}
  * @private
  */
-goog.events.WheelEvent.PIXELS_PER_LINE_ = 15;
+WheelEvent.PIXELS_PER_LINE_ = 15;
 
 
 /**
@@ -158,5 +155,5 @@ goog.events.WheelEvent.PIXELS_PER_LINE_ = 15;
  * @const {number}
  * @private
  */
-goog.events.WheelEvent.PIXELS_PER_PAGE_ =
-    30 * goog.events.WheelEvent.PIXELS_PER_LINE_;
+WheelEvent.PIXELS_PER_PAGE_ =
+    30 * WheelEvent.PIXELS_PER_LINE_;

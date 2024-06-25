@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.AnimatedZippyTest');
 goog.setTestOnly();
 
-const AnimatedZippy = goog.require('goog.ui.AnimatedZippy');
-const Animation = goog.require('goog.fx.Animation');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Role = goog.require('goog.a11y.aria.Role');
-const State = goog.require('goog.a11y.aria.State');
-const Transition = goog.require('goog.fx.Transition');
-const Zippy = goog.require('goog.ui.Zippy');
-const aria = goog.require('goog.a11y.aria');
-const asserts = goog.require('goog.asserts');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingAsserts = goog.require('goog.testing.asserts');
+import { AnimatedZippy } from './animatedzippy.js';
+import { Animation } from '../fx/animation.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Role } from '../a11y/aria/roles.js';
+import { State } from '../a11y/aria/attributes.js';
+import { Transition } from '../fx/transition.js';
+import { Zippy } from './zippy.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingAsserts from '../testing/asserts.js';
 
 let animatedZippy;
 let animatedZippyHeaderEl;

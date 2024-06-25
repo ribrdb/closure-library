@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.HmacTest');
 goog.setTestOnly();
 
-const Hmac = goog.require('goog.crypt.Hmac');
-const Sha1 = goog.require('goog.crypt.Sha1');
-const hashTester = goog.require('goog.crypt.hashTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Hmac } from './hmac.js';
+import { Sha1 } from './sha1.js';
+import * as hashTester from './hashtester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function stringToBytes(s) {
   const bytes = new Array(s.length);

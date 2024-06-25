@@ -18,13 +18,12 @@
  * @supported IE 10+, Chrome 26+, Firefox 22+, Safari 7.1+, Opera 15+
  */
 
-goog.provide('goog.html.sanitizer.unsafe');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.html.sanitizer.HtmlSanitizer.Builder');
-goog.require('goog.string');
-goog.require('goog.string.Const');
-goog.requireType('goog.html.sanitizer.HtmlSanitizerAttributePolicy');
+import { HtmlSanitizer } from './htmlsanitizer.js';
+import * as string from '../../string/string.js';
+import { Const } from '../../string/const.js';
+goog.requireType('goog.html.sanitizer.htmlsanitizer');
 
 
 /**
@@ -35,25 +34,23 @@ goog.requireType('goog.html.sanitizer.HtmlSanitizerAttributePolicy');
  * that the new tags do not introduce untrusted code execution or unsanctioned
  * network activity.
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     the addition of these tags to the whitelist is safe. May include a
  *     security review ticket number.
- * @param {!goog.html.sanitizer.HtmlSanitizer.Builder} builder The builder
+ * @param {!HtmlSanitizer.Builder} builder The builder
  *     whose tag whitelist should be extended.
  * @param {!Array<string>} tags A list of additional tags to allow through the
  *     sanitizer. The tag names are case-insensitive.
- * @return {!goog.html.sanitizer.HtmlSanitizer.Builder}
+ * @return {!HtmlSanitizer.Builder}
  */
-goog.html.sanitizer.unsafe.alsoAllowTags = function(
-    justification, builder, tags) {
-  'use strict';
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.isEmptyOrWhitespace(goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return builder.alsoAllowTagsPrivateDoNotAccessOrElse(tags);
-};
+export function alsoAllowTags(justification, builder, tags) {
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !string.isEmptyOrWhitespace(Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return builder.alsoAllowTagsPrivateDoNotAccessOrElse(tags);
+}
 
 /**
  * Installs custom attribute policies for the attributes provided in the list.
@@ -65,12 +62,12 @@ goog.html.sanitizer.unsafe.alsoAllowTags = function(
  * that the new tags do not introduce untrusted code execution or unsanctioned
  * network activity.
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     the addition of these attributes to the whitelist is safe. May include a
  *     security review ticket number.
- * @param {!goog.html.sanitizer.HtmlSanitizer.Builder} builder The builder
+ * @param {!HtmlSanitizer.Builder} builder The builder
  *     whose attribute whitelist should be extended.
- * @param {!Array<(string|!goog.html.sanitizer.HtmlSanitizerAttributePolicy)>}
+ * @param {!Array<(string|!HtmlSanitizerAttributePolicy)>}
  *     attrs A list of attributes whose policy should be overridden. Attributes
  *     can come in of two forms:
  *     - string: allow all values and just trim whitespaces for this attribute
@@ -80,15 +77,13 @@ goog.html.sanitizer.unsafe.alsoAllowTags = function(
  *         policy is passed, the default is allow all values and just trim
  *         whitespaces.
  *     The tag and attribute names are case-insensitive.
- * @return {!goog.html.sanitizer.HtmlSanitizer.Builder}
+ * @return {!HtmlSanitizer.Builder}
  */
-goog.html.sanitizer.unsafe.alsoAllowAttributes = function(
-    justification, builder, attrs) {
-  'use strict';
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.isEmptyOrWhitespace(goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return builder.alsoAllowAttributesPrivateDoNotAccessOrElse(attrs);
-};
+export function alsoAllowAttributes(justification, builder, attrs) {
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !string.isEmptyOrWhitespace(Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return builder.alsoAllowAttributesPrivateDoNotAccessOrElse(attrs);
+}

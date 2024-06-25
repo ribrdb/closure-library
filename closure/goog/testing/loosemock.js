@@ -9,13 +9,11 @@
  */
 
 goog.setTestOnly('goog.testing.LooseExpectationCollection');
-goog.provide('goog.testing.LooseExpectationCollection');
-goog.provide('goog.testing.LooseMock');
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.testing.Mock');
-goog.requireType('goog.testing.MockExpectation');
+import * as array from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import { Mock } from './mock.js';
+goog.requireType('goog.testing.mock');
 
 
 
@@ -27,34 +25,31 @@ goog.requireType('goog.testing.MockExpectation');
  * @constructor
  * @final
  */
-goog.testing.LooseExpectationCollection = function() {
-  'use strict';
+export function LooseExpectationCollection() {
   /**
-   * The list of expectations. All of these should have the same name.
-   * @type {!Array<!goog.testing.MockExpectation>}
-   * @private
-   */
+     * The list of expectations. All of these should have the same name.
+     * @type {!Array<!MockExpectation>}
+     * @private
+     */
   this.expectations_ = [];
-};
+}
 
 
 /**
  * Adds an expectation to this collection.
- * @param {!goog.testing.MockExpectation} expectation The expectation to add.
+ * @param {!MockExpectation} expectation The expectation to add.
  */
-goog.testing.LooseExpectationCollection.prototype.addExpectation = function(
+LooseExpectationCollection.prototype.addExpectation = function(
     expectation) {
-  'use strict';
   this.expectations_.push(expectation);
 };
 
 
 /**
  * Gets the list of expectations in this collection.
- * @return {!Array<!goog.testing.MockExpectation>} The array of expectations.
+ * @return {!Array<!MockExpectation>} The array of expectations.
  */
-goog.testing.LooseExpectationCollection.prototype.getExpectations = function() {
-  'use strict';
+LooseExpectationCollection.prototype.getExpectations = function() {
   return this.expectations_;
 };
 
@@ -74,23 +69,25 @@ goog.testing.LooseExpectationCollection.prototype.getExpectations = function() {
  * @param {boolean=} opt_createProxy An optional argument denoting that
  *     a proxy for the target mock should be created.
  * @constructor
- * @extends {goog.testing.Mock}
+ * @extends {Mock}
  */
-goog.testing.LooseMock = function(
-    objectToMock, opt_ignoreUnexpectedCalls, opt_mockStaticMethods,
-    opt_createProxy) {
-  'use strict';
-  goog.testing.Mock.call(
+export function LooseMock(
+  objectToMock,
+  opt_ignoreUnexpectedCalls,
+  opt_mockStaticMethods,
+  opt_createProxy
+) {
+  Mock.call(
       this, objectToMock, opt_mockStaticMethods, opt_createProxy);
 
   /**
-   * A map of method names to a LooseExpectationCollection for that method.
-   * @type {!Map<string, !goog.testing.LooseExpectationCollection>}
-   * @private
-   */
+     * A map of method names to a LooseExpectationCollection for that method.
+     * @type {!Map<string, !LooseExpectationCollection>}
+     * @private
+     */
   this.$expectations_ = new Map();
 
-  /** @private {!Set<!goog.testing.MockExpectation>} */
+  /** @private {!Set<!MockExpectation>} */
   this.awaitingExpectations_ = new Set();
 
   /**
@@ -108,30 +105,28 @@ goog.testing.LooseMock = function(
    * @private
    */
   this.$ignoreUnexpectedCalls_ = !!opt_ignoreUnexpectedCalls;
-};
-goog.inherits(goog.testing.LooseMock, goog.testing.Mock);
+}
+goog.inherits(LooseMock, Mock);
 
 
 /**
  * A setter for the ignoreUnexpectedCalls field.
  * @param {boolean} ignoreUnexpectedCalls Whether to ignore unexpected calls.
- * @return {!goog.testing.LooseMock} This mock object.
+ * @return {!LooseMock} This mock object.
  */
-goog.testing.LooseMock.prototype.$setIgnoreUnexpectedCalls = function(
+LooseMock.prototype.$setIgnoreUnexpectedCalls = function(
     ignoreUnexpectedCalls) {
-  'use strict';
   this.$ignoreUnexpectedCalls_ = ignoreUnexpectedCalls;
   return this;
 };
 
 
 /** @override */
-goog.testing.LooseMock.prototype.$recordExpectation = function() {
-  'use strict';
+LooseMock.prototype.$recordExpectation = function() {
   if (!this.$expectations_.has(this.$pendingExpectation.name)) {
     this.$expectations_.set(
         this.$pendingExpectation.name,
-        new goog.testing.LooseExpectationCollection());
+        new LooseExpectationCollection());
   }
 
   var collection = this.$expectations_.get(this.$pendingExpectation.name);
@@ -143,8 +138,7 @@ goog.testing.LooseMock.prototype.$recordExpectation = function() {
 
 
 /** @override */
-goog.testing.LooseMock.prototype.$recordCall = function(name, args) {
-  'use strict';
+LooseMock.prototype.$recordCall = function(name, args) {
   if (!this.$expectations_.has(name)) {
     if (this.$ignoreUnexpectedCalls_) {
       return;
@@ -189,9 +183,8 @@ goog.testing.LooseMock.prototype.$recordCall = function(name, args) {
 
 
 /** @override */
-goog.testing.LooseMock.prototype.$reset = function() {
-  'use strict';
-  goog.testing.LooseMock.superClass_.$reset.call(this);
+LooseMock.prototype.$reset = function() {
+  LooseMock.superClass_.$reset.call(this);
 
   this.$expectations_ = new Map();
   this.awaitingExpectations_ = new Set();
@@ -200,9 +193,8 @@ goog.testing.LooseMock.prototype.$reset = function() {
 
 
 /** @override */
-goog.testing.LooseMock.prototype.$replay = function() {
-  'use strict';
-  goog.testing.LooseMock.superClass_.$replay.call(this);
+LooseMock.prototype.$replay = function() {
+  LooseMock.superClass_.$replay.call(this);
 
   // Verify that there are no expectations that can never be reached.
   // This can't catch every situation, but it is a decent sanity check
@@ -218,7 +210,7 @@ goog.testing.LooseMock.prototype.$replay = function() {
         for (var k = j + 1; k < expectations.length; k++) {
           var laterExpectation = expectations[k];
           if (laterExpectation.minCalls > 0 &&
-              goog.array.equals(
+              array.equals(
                   expectation.argumentList, laterExpectation.argumentList)) {
             var name = expectation.name;
             var argsString = this.$argumentsAsString(expectation.argumentList);
@@ -236,20 +228,19 @@ goog.testing.LooseMock.prototype.$replay = function() {
 
 
 /** @override */
-goog.testing.LooseMock.prototype.$waitAndVerify = function() {
-  'use strict';
+LooseMock.prototype.$waitAndVerify = function() {
   for (const expectationCollection of this.$expectations_.values()) {
     var expectations = expectationCollection.getExpectations();
     for (var j = 0; j < expectations.length; j++) {
       var expectation = expectations[j];
-      goog.asserts.assert(
+      asserts.assert(
           !isFinite(expectation.maxCalls) ||
               expectation.minCalls == expectation.maxCalls,
           'Mock expectations cannot have a loose number of expected calls to ' +
               'use $waitAndVerify.');
     }
   }
-  var promise = goog.testing.LooseMock.base(this, '$waitAndVerify');
+  var promise = LooseMock.base(this, '$waitAndVerify');
   this.maybeFinishedWithExpectations_();
   return promise;
 };
@@ -257,17 +248,14 @@ goog.testing.LooseMock.prototype.$waitAndVerify = function() {
 /**
  * @private
  */
-goog.testing.LooseMock.prototype.maybeFinishedWithExpectations_ = function() {
-  'use strict';
-  var unresolvedExpectations = goog.array.some(
+LooseMock.prototype.maybeFinishedWithExpectations_ = function() {
+  var unresolvedExpectations = array.some(
       Array.from(this.$expectations_.values()),
       function(expectationCollection) {
-        'use strict';
-        return goog.array.some(
+        return array.some(
             expectationCollection.getExpectations(), function(expectation) {
-              'use strict';
-              return expectation.actualCalls < expectation.minCalls;
-            });
+          return expectation.actualCalls < expectation.minCalls;
+        });
       });
   if (this.waitingForExpectations && !unresolvedExpectations) {
     this.waitingForExpectations.resolve();
@@ -275,9 +263,8 @@ goog.testing.LooseMock.prototype.maybeFinishedWithExpectations_ = function() {
 };
 
 /** @override */
-goog.testing.LooseMock.prototype.$verify = function() {
-  'use strict';
-  goog.testing.LooseMock.superClass_.$verify.call(this);
+LooseMock.prototype.$verify = function() {
+  LooseMock.superClass_.$verify.call(this);
   for (const expectationCollection of this.$expectations_.values()) {
     var expectations = expectationCollection.getExpectations();
     for (var j = 0; j < expectations.length; j++) {

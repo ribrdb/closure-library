@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.rangeTest');
 goog.setTestOnly();
 
-const Point = goog.require('goog.editor.range.Point');
-const Range = goog.require('goog.dom.Range');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const editorRange = goog.require('goog.editor.range');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import * as editorRange from './range.js';
+import { Point } from './range.js';
+import * as Range from '../dom/range.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as googString from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let savedHtml;
 let $;

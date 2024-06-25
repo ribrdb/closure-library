@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structsTest');
 goog.setTestOnly();
 
-const StructsMap = goog.require('goog.structs.Map');
-const StructsSet = goog.require('goog.structs.Set');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Map as StructsMap } from './map.js';
+import { Set as StructsSet } from './set.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as googArray from '../array/array.js';
+import * as structs from './structs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /*
 

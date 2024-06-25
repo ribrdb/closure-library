@@ -9,11 +9,9 @@
  * simple factory methods.
  */
 
-goog.provide('goog.net.WrapperXmlHttpFactory');
+import { XhrLike } from './xhrlike.js';
 
-/** @suppress {extraRequire} Typedef. */
-goog.require('goog.net.XhrLike');
-goog.require('goog.net.XmlHttpFactory');
+import { XmlHttpFactory } from './xmlhttpfactory.js';
 
 
 
@@ -21,44 +19,41 @@ goog.require('goog.net.XmlHttpFactory');
  * An xhr factory subclass which can be constructed using two factory methods.
  * This exists partly to allow the preservation of goog.net.XmlHttp.setFactory()
  * with an unchanged signature.
- * @param {function():!goog.net.XhrLike.OrNative} xhrFactory
+ * @param {function():!XhrLike.OrNative} xhrFactory
  *     A function which returns a new XHR object.
  * @param {function():!Object} optionsFactory A function which returns the
  *     options associated with xhr objects from this factory.
- * @extends {goog.net.XmlHttpFactory}
+ * @extends {XmlHttpFactory}
  * @constructor
  * @final
  */
-goog.net.WrapperXmlHttpFactory = function(xhrFactory, optionsFactory) {
-  'use strict';
-  goog.net.XmlHttpFactory.call(this);
+export function WrapperXmlHttpFactory(xhrFactory, optionsFactory) {
+ XmlHttpFactory.call(this);
 
-  /**
+ /**
    * XHR factory method.
-   * @type {function() : !goog.net.XhrLike.OrNative}
+   * @type {function() : !XhrLike.OrNative}
    * @private
    */
-  this.xhrFactory_ = xhrFactory;
+ this.xhrFactory_ = xhrFactory;
 
-  /**
-   * Options factory method.
-   * @type {function() : !Object}
-   * @private
-   */
-  this.optionsFactory_ = optionsFactory;
-};
-goog.inherits(goog.net.WrapperXmlHttpFactory, goog.net.XmlHttpFactory);
+ /**
+  * Options factory method.
+  * @type {function() : !Object}
+  * @private
+  */
+ this.optionsFactory_ = optionsFactory;
+}
+goog.inherits(WrapperXmlHttpFactory, XmlHttpFactory);
 
 
 /** @override */
-goog.net.WrapperXmlHttpFactory.prototype.createInstance = function() {
-  'use strict';
-  return this.xhrFactory_();
+WrapperXmlHttpFactory.prototype.createInstance = function() {
+ return this.xhrFactory_();
 };
 
 
 /** @override */
-goog.net.WrapperXmlHttpFactory.prototype.getOptions = function() {
-  'use strict';
-  return this.optionsFactory_();
+WrapperXmlHttpFactory.prototype.getOptions = function() {
+ return this.optionsFactory_();
 };

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.ext.ElementTest');
 goog.setTestOnly();
 
-const StrictMock = goog.require('goog.testing.StrictMock');
-const ext = goog.require('goog.graphics.ext');
-const googGraphics = goog.require('goog.graphics');
-const testSuite = goog.require('goog.testing.testSuite');
+import { StrictMock } from '../../testing/strictmock.js';
+import * as ext from './ext.js';
+import * as googGraphics from '../graphics.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let el;
 let graphics;

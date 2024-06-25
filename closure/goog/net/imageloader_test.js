@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.ImageLoaderTest');
 goog.setTestOnly();
 
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const GoogPromise = goog.require('goog.Promise');
-const ImageLoader = goog.require('goog.net.ImageLoader');
-const NetEventType = goog.require('goog.net.EventType');
-const TestCase = goog.require('goog.testing.TestCase');
-const Timer = goog.require('goog.Timer');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const googString = goog.require('goog.string');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventHandler } from '../events/eventhandler.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { ImageLoader } from './imageloader.js';
+import { EventType as NetEventType } from './eventtype.js';
+import { TestCase } from '../testing/testcase.js';
+import { Timer } from '../timer/timer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from '../events/events.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import * as googString from '../string/string.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const TEST_EVENT_TYPES = [
   EventType.LOAD,

@@ -6,21 +6,20 @@
 
 /**
  * @fileoverview Definition of MenuBarRenderer decorator, a static call into
- * the goog.ui.registry.
+ * the registry.
  *
  * @see ../demos/menubar.html
  */
 
-goog.provide('goog.ui.menuBarDecorator');
+import { MenuBarRenderer } from './menubarrenderer.js';
 
-goog.require('goog.ui.MenuBarRenderer');
-goog.require('goog.ui.menuBar');
-goog.require('goog.ui.registry');
+import * as menuBar from './menubar.js';
+import * as registry from './registry.js';
 
 
 /**
  * Register a decorator factory function. 'goog-menubar' defaults to
- * goog.ui.MenuBarRenderer.
+ * MenuBarRenderer.
  */
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.MenuBarRenderer.CSS_CLASS, goog.ui.menuBar.create);
+registry.setDecoratorByClassName(
+    MenuBarRenderer.CSS_CLASS, menuBar.create);

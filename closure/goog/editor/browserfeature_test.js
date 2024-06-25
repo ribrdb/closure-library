@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.BrowserFeatureTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Range = goog.require('goog.dom.Range');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserFeature } from './browserfeature.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import * as Range from '../dom/range.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let expectedFailures;
 

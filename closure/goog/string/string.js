@@ -12,35 +12,31 @@
 /**
  * Namespace for string utilities
  */
-goog.provide('goog.string');
-goog.provide('goog.string.Unicode');
+import * as safe from '../dom/safe.js';
 
-goog.require('goog.dom.safe');
-goog.require('goog.html.uncheckedconversions');
-goog.require('goog.string.Const');
-goog.require('goog.string.internal');
+import * as uncheckedconversions from '../html/uncheckedconversions.js';
+import { Const } from './const.js';
+import * as internal from './internal.js';
 
 
 /**
  * @define {boolean} Enables HTML escaping of lowercase letter "e" which helps
  * with detection of double-escaping as this letter is frequently used.
  */
-goog.string.DETECT_DOUBLE_ESCAPING =
-    goog.define('goog.string.DETECT_DOUBLE_ESCAPING', false);
+export var DETECT_DOUBLE_ESCAPING = goog.define('goog.string.DETECT_DOUBLE_ESCAPING', false);
 
 
 /**
  * @define {boolean} Whether to force non-dom html unescaping.
  */
-goog.string.FORCE_NON_DOM_HTML_UNESCAPING =
-    goog.define('goog.string.FORCE_NON_DOM_HTML_UNESCAPING', false);
+export var FORCE_NON_DOM_HTML_UNESCAPING = goog.define('goog.string.FORCE_NON_DOM_HTML_UNESCAPING', false);
 
 
 /**
  * Common Unicode string characters.
  * @enum {string}
  */
-goog.string.Unicode = {
+export var Unicode = {
   NBSP: '\xa0',
   ZERO_WIDTH_SPACE: '\u200b'  // This is equivalent to <wbr>.
 };
@@ -52,7 +48,7 @@ goog.string.Unicode = {
  * @param {string} prefix A string to look for at the start of `str`.
  * @return {boolean} True if `str` begins with `prefix`.
  */
-goog.string.startsWith = goog.string.internal.startsWith;
+export var startsWith = internal.startsWith;
 
 
 /**
@@ -61,7 +57,7 @@ goog.string.startsWith = goog.string.internal.startsWith;
  * @param {string} suffix A string to look for at the end of `str`.
  * @return {boolean} True if `str` ends with `suffix`.
  */
-goog.string.endsWith = goog.string.internal.endsWith;
+export var endsWith = internal.endsWith;
 
 
 /**
@@ -71,8 +67,7 @@ goog.string.endsWith = goog.string.internal.endsWith;
  * @return {boolean} True if `str` begins with `prefix` (ignoring
  *     case).
  */
-goog.string.caseInsensitiveStartsWith =
-    goog.string.internal.caseInsensitiveStartsWith;
+export var caseInsensitiveStartsWith = internal.caseInsensitiveStartsWith;
 
 
 /**
@@ -82,8 +77,7 @@ goog.string.caseInsensitiveStartsWith =
  * @return {boolean} True if `str` ends with `suffix` (ignoring
  *     case).
  */
-goog.string.caseInsensitiveEndsWith =
-    goog.string.internal.caseInsensitiveEndsWith;
+export var caseInsensitiveEndsWith = internal.caseInsensitiveEndsWith;
 
 
 /**
@@ -93,7 +87,7 @@ goog.string.caseInsensitiveEndsWith =
  * @return {boolean} True if `str1` and `str2` are the same string,
  *     ignoring case.
  */
-goog.string.caseInsensitiveEquals = goog.string.internal.caseInsensitiveEquals;
+export var caseInsensitiveEquals = internal.caseInsensitiveEquals;
 
 
 /**
@@ -104,8 +98,7 @@ goog.string.caseInsensitiveEquals = goog.string.internal.caseInsensitiveEquals;
  * @return {string} A copy of `str` in which each occurrence of
  *     {@code %s} has been replaced an argument from `var_args`.
  */
-goog.string.subs = function(str, var_args) {
-  'use strict';
+export function subs(str, var_args) {
   const splitParts = str.split('%s');
   let returnString = '';
 
@@ -118,7 +111,7 @@ goog.string.subs = function(str, var_args) {
   }
 
   return returnString + splitParts.join('%s');  // Join unused '%s'
-};
+}
 
 
 /**
@@ -127,13 +120,12 @@ goog.string.subs = function(str, var_args) {
  * @param {string} str Input string.
  * @return {string} A copy of `str` with collapsed whitespace.
  */
-goog.string.collapseWhitespace = function(str) {
-  'use strict';
+export function collapseWhitespace(str) {
   // Since IE doesn't include non-breaking-space (0xa0) in their \s character
   // class (as required by section 7.2 of the ECMAScript spec), we explicitly
   // include it in the regexp to enforce consistent cross-browser behavior.
   return str.replace(/[\s\xa0]+/g, ' ').replace(/^\s+|\s+$/g, '');
-};
+}
 
 
 /**
@@ -141,7 +133,7 @@ goog.string.collapseWhitespace = function(str) {
  * @param {string} str The string to check.
  * @return {boolean} Whether `str` is empty or whitespace only.
  */
-goog.string.isEmptyOrWhitespace = goog.string.internal.isEmptyOrWhitespace;
+export var isEmptyOrWhitespace = internal.isEmptyOrWhitespace;
 
 
 /**
@@ -149,10 +141,9 @@ goog.string.isEmptyOrWhitespace = goog.string.internal.isEmptyOrWhitespace;
  * @param {string} str The string to check.
  * @return {boolean} Whether `str` is empty.
  */
-goog.string.isEmptyString = function(str) {
-  'use strict';
+export function isEmptyString(str) {
   return str.length == 0;
-};
+}
 
 
 /**
@@ -160,9 +151,9 @@ goog.string.isEmptyString = function(str) {
  *
  * @param {string} str The string to check.
  * @return {boolean} Whether `str` is empty or whitespace only.
- * @deprecated Use goog.string.isEmptyOrWhitespace instead.
+ * @deprecated Use isEmptyOrWhitespace instead.
  */
-goog.string.isEmpty = goog.string.isEmptyOrWhitespace;
+export var isEmpty = isEmptyOrWhitespace;
 
 
 /**
@@ -170,13 +161,12 @@ goog.string.isEmpty = goog.string.isEmptyOrWhitespace;
  * @param {*} str The string to check.
  * @return {boolean} Whether `str` is null, undefined, empty, or
  *     whitespace only.
- * @deprecated Use goog.string.isEmptyOrWhitespace(goog.string.makeSafe(str))
+ * @deprecated Use isEmptyOrWhitespace(makeSafe(str))
  *     instead.
  */
-goog.string.isEmptyOrWhitespaceSafe = function(str) {
-  'use strict';
-  return goog.string.isEmptyOrWhitespace(goog.string.makeSafe(str));
-};
+export function isEmptyOrWhitespaceSafe(str) {
+  return isEmptyOrWhitespace(makeSafe(str));
+}
 
 
 /**
@@ -185,9 +175,9 @@ goog.string.isEmptyOrWhitespaceSafe = function(str) {
  * @param {*} str The string to check.
  * @return {boolean} Whether `str` is null, undefined, empty, or
  *     whitespace only.
- * @deprecated Use goog.string.isEmptyOrWhitespace instead.
+ * @deprecated Use isEmptyOrWhitespace instead.
  */
-goog.string.isEmptySafe = goog.string.isEmptyOrWhitespaceSafe;
+export var isEmptySafe = isEmptyOrWhitespaceSafe;
 
 
 /**
@@ -195,10 +185,9 @@ goog.string.isEmptySafe = goog.string.isEmptyOrWhitespaceSafe;
  * @param {string} str The string to check.
  * @return {boolean} Whether the string is all breaking whitespace.
  */
-goog.string.isBreakingWhitespace = function(str) {
-  'use strict';
+export function isBreakingWhitespace(str) {
   return !/[^\t\n\r ]/.test(str);
-};
+}
 
 
 /**
@@ -206,10 +195,9 @@ goog.string.isBreakingWhitespace = function(str) {
  * @param {string} str string to check.
  * @return {boolean} True if `str` consists entirely of letters.
  */
-goog.string.isAlpha = function(str) {
-  'use strict';
+export function isAlpha(str) {
   return !/[^a-zA-Z]/.test(str);
-};
+}
 
 
 /**
@@ -218,10 +206,9 @@ goog.string.isAlpha = function(str) {
  *     casted to one.
  * @return {boolean} True if `str` is numeric.
  */
-goog.string.isNumeric = function(str) {
-  'use strict';
+export function isNumeric(str) {
   return !/[^0-9]/.test(str);
-};
+}
 
 
 /**
@@ -229,10 +216,9 @@ goog.string.isNumeric = function(str) {
  * @param {string} str string to check.
  * @return {boolean} True if `str` is alphanumeric.
  */
-goog.string.isAlphaNumeric = function(str) {
-  'use strict';
+export function isAlphaNumeric(str) {
   return !/[^a-zA-Z0-9]/.test(str);
-};
+}
 
 
 /**
@@ -240,10 +226,9 @@ goog.string.isAlphaNumeric = function(str) {
  * @param {string} ch Character to check.
  * @return {boolean} True if `ch` is a space.
  */
-goog.string.isSpace = function(ch) {
-  'use strict';
+export function isSpace(ch) {
   return ch == ' ';
-};
+}
 
 
 /**
@@ -251,11 +236,10 @@ goog.string.isSpace = function(ch) {
  * @param {string} ch Character to check.
  * @return {boolean} True if `ch` is a valid unicode character.
  */
-goog.string.isUnicodeChar = function(ch) {
-  'use strict';
+export function isUnicodeChar(ch) {
   return ch.length == 1 && ch >= ' ' && ch <= '~' ||
       ch >= '\u0080' && ch <= '\uFFFD';
-};
+}
 
 
 /**
@@ -264,10 +248,9 @@ goog.string.isUnicodeChar = function(ch) {
  * @param {string} str The string from which to strip newlines.
  * @return {string} A copy of `str` stripped of newlines.
  */
-goog.string.stripNewlines = function(str) {
-  'use strict';
+export function stripNewlines(str) {
   return str.replace(/(\r\n|\r|\n)+/g, ' ');
-};
+}
 
 
 /**
@@ -275,10 +258,9 @@ goog.string.stripNewlines = function(str) {
  * @param {string} str The string to in which to canonicalize newlines.
  * @return {string} `str` A copy of {@code} with canonicalized newlines.
  */
-goog.string.canonicalizeNewlines = function(str) {
-  'use strict';
+export function canonicalizeNewlines(str) {
   return str.replace(/(\r\n|\r|\n)/g, '\n');
-};
+}
 
 
 /**
@@ -287,10 +269,9 @@ goog.string.canonicalizeNewlines = function(str) {
  * @param {string} str The string in which to normalize whitespace.
  * @return {string} A copy of `str` with all whitespace normalized.
  */
-goog.string.normalizeWhitespace = function(str) {
-  'use strict';
+export function normalizeWhitespace(str) {
   return str.replace(/\xa0|\s/g, ' ');
-};
+}
 
 
 /**
@@ -300,10 +281,9 @@ goog.string.normalizeWhitespace = function(str) {
  * @return {string} A copy of `str` with all consecutive spaces and tabs
  *    replaced with a single space.
  */
-goog.string.normalizeSpaces = function(str) {
-  'use strict';
+export function normalizeSpaces(str) {
   return str.replace(/\xa0|[ \t]+/g, ' ');
-};
+}
 
 
 /**
@@ -313,11 +293,10 @@ goog.string.normalizeSpaces = function(str) {
  * @param {string} str A string in which to collapse spaces.
  * @return {string} Copy of the string with normalized breaking spaces.
  */
-goog.string.collapseBreakingSpaces = function(str) {
-  'use strict';
+export function collapseBreakingSpaces(str) {
   return str.replace(/[\t\r\n ]+/g, ' ')
       .replace(/^[\t\r\n ]+|[\t\r\n ]+$/g, '');
-};
+}
 
 
 /**
@@ -325,7 +304,7 @@ goog.string.collapseBreakingSpaces = function(str) {
  * @param {string} str The string to trim.
  * @return {string} A trimmed copy of `str`.
  */
-goog.string.trim = goog.string.internal.trim;
+export var trim = internal.trim;
 
 
 /**
@@ -333,13 +312,12 @@ goog.string.trim = goog.string.internal.trim;
  * @param {string} str The string to left trim.
  * @return {string} A trimmed copy of `str`.
  */
-goog.string.trimLeft = function(str) {
-  'use strict';
+export function trimLeft(str) {
   // Since IE doesn't include non-breaking-space (0xa0) in their \s character
   // class (as required by section 7.2 of the ECMAScript spec), we explicitly
   // include it in the regexp to enforce consistent cross-browser behavior.
   return str.replace(/^[\s\xa0]+/, '');
-};
+}
 
 
 /**
@@ -347,13 +325,12 @@ goog.string.trimLeft = function(str) {
  * @param {string} str The string to right trim.
  * @return {string} A trimmed copy of `str`.
  */
-goog.string.trimRight = function(str) {
-  'use strict';
+export function trimRight(str) {
   // Since IE doesn't include non-breaking-space (0xa0) in their \s character
   // class (as required by section 7.2 of the ECMAScript spec), we explicitly
   // include it in the regexp to enforce consistent cross-browser behavior.
   return str.replace(/[\s\xa0]+$/, '');
-};
+}
 
 
 /**
@@ -366,8 +343,7 @@ goog.string.trimRight = function(str) {
  * @param {string} str2 The string to compare `str1` to.
  * @return {number} The comparator result, as described above.
  */
-goog.string.caseInsensitiveCompare =
-    goog.string.internal.caseInsensitiveCompare;
+export var caseInsensitiveCompare = internal.caseInsensitiveCompare;
 
 
 /**
@@ -382,8 +358,7 @@ goog.string.caseInsensitiveCompare =
  *     str1 > str2.
  * @private
  */
-goog.string.numberAwareCompare_ = function(str1, str2, tokenizerRegExp) {
-  'use strict';
+function numberAwareCompare_(str1, str2, tokenizerRegExp) {
   if (str1 == str2) {
     return 0;
   }
@@ -429,7 +404,7 @@ goog.string.numberAwareCompare_ = function(str1, str2, tokenizerRegExp) {
   // tested at the head of the function.) Revert to default ASCII string
   // comparison to stabilize the sort.
   return str1 < str2 ? -1 : 1;
-};
+}
 
 
 /**
@@ -449,17 +424,16 @@ goog.string.numberAwareCompare_ = function(str1, str2, tokenizerRegExp) {
  * @return {number} less than 0 if str1 < str2, 0 if str1 == str2, greater than
  *     0 if str1 > str2.
  */
-goog.string.intAwareCompare = function(str1, str2) {
-  'use strict';
-  return goog.string.numberAwareCompare_(str1, str2, /\d+|\D+/g);
-};
+export function intAwareCompare(str1, str2) {
+  return numberAwareCompare_(str1, str2, /\d+|\D+/g);
+}
 
 
 /**
  * String comparison function that handles non-negative integer and fractional
  * numbers in a way humans might expect. Using this function, the string
  * 'File 2.jpg' sorts before 'File 10.jpg', and '3.14' before '3.2'. Equivalent
- * to {@link goog.string.intAwareCompare} apart from the way how it interprets
+ * to {@link intAwareCompare} apart from the way how it interprets
  * dots.
  *
  * @param {string} str1 The string to compare in a numerically sensitive way.
@@ -467,20 +441,19 @@ goog.string.intAwareCompare = function(str1, str2) {
  * @return {number} less than 0 if str1 < str2, 0 if str1 == str2, greater than
  *     0 if str1 > str2.
  */
-goog.string.floatAwareCompare = function(str1, str2) {
-  'use strict';
-  return goog.string.numberAwareCompare_(str1, str2, /\d+|\.\d+|\D+/g);
-};
+export function floatAwareCompare(str1, str2) {
+  return numberAwareCompare_(str1, str2, /\d+|\.\d+|\D+/g);
+}
 
 
 /**
- * Alias for {@link goog.string.floatAwareCompare}.
+ * Alias for {@link floatAwareCompare}.
  *
  * @param {string} str1
  * @param {string} str2
  * @return {number}
  */
-goog.string.numerateCompare = goog.string.floatAwareCompare;
+export var numerateCompare = floatAwareCompare;
 
 
 /**
@@ -490,10 +463,9 @@ goog.string.numerateCompare = goog.string.floatAwareCompare;
  *     Note that '#', ':', and other characters used to delimit portions
  *     of URLs *will* be encoded.
  */
-goog.string.urlEncode = function(str) {
-  'use strict';
+export function urlEncode(str) {
   return encodeURIComponent(String(str));
-};
+}
 
 
 /**
@@ -502,10 +474,9 @@ goog.string.urlEncode = function(str) {
  * @param {string} str The string to url decode.
  * @return {string} The decoded `str`.
  */
-goog.string.urlDecode = function(str) {
-  'use strict';
+export function urlDecode(str) {
   return decodeURIComponent(str.replace(/\+/g, ' '));
-};
+}
 
 
 /**
@@ -514,7 +485,7 @@ goog.string.urlDecode = function(str) {
  * @param {boolean=} opt_xml Whether to use XML compatible tags.
  * @return {string} A copy of `str` with converted newlines.
  */
-goog.string.newLineToBr = goog.string.internal.newLineToBr;
+export var newLineToBr = internal.newLineToBr;
 
 
 /**
@@ -526,7 +497,7 @@ goog.string.newLineToBr = goog.string.internal.newLineToBr;
  * be valid, but it has been decided to escape it for consistency with other
  * implementations.
  *
- * With goog.string.DETECT_DOUBLE_ESCAPING, this function escapes also the
+ * With DETECT_DOUBLE_ESCAPING, this function escapes also the
  * lowercase letter "e".
  *
  * NOTE(user):
@@ -561,14 +532,13 @@ goog.string.newLineToBr = goog.string.internal.newLineToBr;
  *     characters to occur in your strings, such as if you are escaping HTML.
  * @return {string} An escaped copy of `str`.
  */
-goog.string.htmlEscape = function(str, opt_isLikelyToContainHtmlChars) {
-  'use strict';
-  str = goog.string.internal.htmlEscape(str, opt_isLikelyToContainHtmlChars);
-  if (goog.string.DETECT_DOUBLE_ESCAPING) {
-    str = str.replace(goog.string.E_RE_, '&#101;');
+export function htmlEscape(str, opt_isLikelyToContainHtmlChars) {
+  str = internal.htmlEscape(str, opt_isLikelyToContainHtmlChars);
+  if (DETECT_DOUBLE_ESCAPING) {
+    str = str.replace(E_RE_, '&#101;');
   }
   return str;
-};
+}
 
 
 /**
@@ -576,7 +546,7 @@ goog.string.htmlEscape = function(str, opt_isLikelyToContainHtmlChars) {
  * @const {!RegExp}
  * @private
  */
-goog.string.E_RE_ = /e/g;
+var E_RE_ = /e/g;
 
 
 /**
@@ -585,21 +555,20 @@ goog.string.E_RE_ = /e/g;
  * @param {string} str The string to unescape.
  * @return {string} An unescaped copy of `str`.
  */
-goog.string.unescapeEntities = function(str) {
-  'use strict';
-  if (goog.string.contains(str, '&')) {
+export function unescapeEntities(str) {
+  if (contains(str, '&')) {
     // We are careful not to use a DOM if we do not have one or we explicitly
     // requested non-DOM html unescaping.
-    if (!goog.string.FORCE_NON_DOM_HTML_UNESCAPING &&
+    if (!FORCE_NON_DOM_HTML_UNESCAPING &&
         'document' in goog.global) {
-      return goog.string.unescapeEntitiesUsingDom_(str);
+      return unescapeEntitiesUsingDom_(str);
     } else {
       // Fall back on pure XML entities
-      return goog.string.unescapePureXmlEntities_(str);
+      return unescapePureXmlEntities_(str);
     }
   }
   return str;
-};
+}
 
 
 /**
@@ -609,13 +578,12 @@ goog.string.unescapeEntities = function(str) {
  * @param {!Document} document A document to use in escaping the string.
  * @return {string} An unescaped copy of `str`.
  */
-goog.string.unescapeEntitiesWithDocument = function(str, document) {
-  'use strict';
-  if (goog.string.contains(str, '&')) {
-    return goog.string.unescapeEntitiesUsingDom_(str, document);
+export function unescapeEntitiesWithDocument(str, document) {
+  if (contains(str, '&')) {
+    return unescapeEntitiesUsingDom_(str, document);
   }
   return str;
-};
+}
 
 
 /**
@@ -628,8 +596,7 @@ goog.string.unescapeEntitiesWithDocument = function(str, document) {
  *     will be used.
  * @return {string} The unescaped `str` string.
  */
-goog.string.unescapeEntitiesUsingDom_ = function(str, opt_document) {
-  'use strict';
+function unescapeEntitiesUsingDom_(str, opt_document) {
   /** @type {!Object<string, string>} */
   const seen = {'&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"'};
   /** @type {!Element} */
@@ -644,8 +611,7 @@ goog.string.unescapeEntitiesUsingDom_ = function(str, opt_document) {
   // trailing characters unchanged. Since the entity characters do not include
   // open angle bracket, there is no chance of XSS from the innerHTML use.
   // Since no whitespace is passed to innerHTML, whitespace is preserved.
-  return str.replace(goog.string.HTML_ENTITY_PATTERN_, function(s, entity) {
-    'use strict';
+  return str.replace(HTML_ENTITY_PATTERN_, function(s, entity) {
     // Check for cached entity.
     let value = seen[s];
     if (value) {
@@ -663,18 +629,18 @@ goog.string.unescapeEntitiesUsingDom_ = function(str, opt_document) {
     if (!value) {
       // Append a non-entity character to avoid a bug in Webkit that parses
       // an invalid entity at the end of innerHTML text as the empty string.
-      goog.dom.safe.setInnerHtml(
+      safe.setInnerHtml(
           div,
-          goog.html.uncheckedconversions
+          uncheckedconversions
               .safeHtmlFromStringKnownToSatisfyTypeContract(
-                  goog.string.Const.from('Single HTML entity.'), s + ' '));
+                  Const.from('Single HTML entity.'), s + ' '));
       // Then remove the trailing character from the result.
       value = div.firstChild.nodeValue.slice(0, -1);
     }
     // Cache and return.
     return seen[s] = value;
   });
-};
+}
 
 
 /**
@@ -683,10 +649,8 @@ goog.string.unescapeEntitiesUsingDom_ = function(str, opt_document) {
  * @param {string} str The string to unescape.
  * @return {string} An unescaped copy of `str`.
  */
-goog.string.unescapePureXmlEntities_ = function(str) {
-  'use strict';
+function unescapePureXmlEntities_(str) {
   return str.replace(/&([^;]+);/g, function(s, entity) {
-    'use strict';
     switch (entity) {
       case 'amp':
         return '&';
@@ -708,7 +672,7 @@ goog.string.unescapePureXmlEntities_ = function(str) {
         return s;
     }
   });
-};
+}
 
 
 /**
@@ -717,7 +681,7 @@ goog.string.unescapePureXmlEntities_ = function(str) {
  * @private
  * @type {!RegExp}
  */
-goog.string.HTML_ENTITY_PATTERN_ = /&([^;\s<&]+);?/g;
+var HTML_ENTITY_PATTERN_ = /&([^;\s<&]+);?/g;
 
 
 /**
@@ -727,11 +691,10 @@ goog.string.HTML_ENTITY_PATTERN_ = /&([^;\s<&]+);?/g;
  * @param {boolean=} opt_xml Whether to use XML compatible tags.
  * @return {string} An escaped copy of `str`.
  */
-goog.string.whitespaceEscape = function(str, opt_xml) {
-  'use strict';
-  // This doesn't use goog.string.preserveSpaces for backwards compatibility.
-  return goog.string.newLineToBr(str.replace(/  /g, ' &#160;'), opt_xml);
-};
+export function whitespaceEscape(str, opt_xml) {
+  /* This doesn't use preserveSpaces for backwards compatibility.*/
+  return newLineToBr(str.replace(/  /g, ' &#160;'), opt_xml);
+}
 
 
 /**
@@ -740,10 +703,9 @@ goog.string.whitespaceEscape = function(str, opt_xml) {
  * @param {string} str The string in which to preserve whitespace.
  * @return {string} A copy of `str` with preserved whitespace.
  */
-goog.string.preserveSpaces = function(str) {
-  'use strict';
-  return str.replace(/(^|[\n ]) /g, '$1' + goog.string.Unicode.NBSP);
-};
+export function preserveSpaces(str) {
+  return str.replace(/(^|[\n ]) /g, '$1' + Unicode.NBSP);
+}
 
 
 /**
@@ -753,16 +715,15 @@ goog.string.preserveSpaces = function(str) {
  * quote characters. For example:
  *
  * <pre>
- * goog.string.stripQuotes('"abc"', '"`') --> 'abc'
- * goog.string.stripQuotes('`abc`', '"`') --> 'abc'
+ * stripQuotes('"abc"', '"`') --> 'abc'
+ * stripQuotes('`abc`', '"`') --> 'abc'
  * </pre>
  *
  * @param {string} str The string to strip.
  * @param {string} quoteChars The quote characters to strip.
  * @return {string} A copy of `str` without the quotes.
  */
-goog.string.stripQuotes = function(str, quoteChars) {
-  'use strict';
+export function stripQuotes(str, quoteChars) {
   const length = quoteChars.length;
   for (let i = 0; i < length; i++) {
     const quoteChar = length == 1 ? quoteChars : quoteChars.charAt(i);
@@ -771,7 +732,7 @@ goog.string.stripQuotes = function(str, quoteChars) {
     }
   }
   return str;
-};
+}
 
 
 /**
@@ -784,10 +745,9 @@ goog.string.stripQuotes = function(str, quoteChars) {
  *     characters from being cut off in the middle.
  * @return {string} The truncated `str` string.
  */
-goog.string.truncate = function(str, chars, opt_protectEscapedCharacters) {
-  'use strict';
+export function truncate(str, chars, opt_protectEscapedCharacters) {
   if (opt_protectEscapedCharacters) {
-    str = goog.string.unescapeEntities(str);
+    str = unescapeEntities(str);
   }
 
   if (str.length > chars) {
@@ -795,11 +755,11 @@ goog.string.truncate = function(str, chars, opt_protectEscapedCharacters) {
   }
 
   if (opt_protectEscapedCharacters) {
-    str = goog.string.htmlEscape(str);
+    str = htmlEscape(str);
   }
 
   return str;
-};
+}
 
 
 /**
@@ -814,11 +774,9 @@ goog.string.truncate = function(str, chars, opt_protectEscapedCharacters) {
  *     middle as possible.
  * @return {string} A truncated copy of `str`.
  */
-goog.string.truncateMiddle = function(
-    str, chars, opt_protectEscapedCharacters, opt_trailingChars) {
-  'use strict';
+export function truncateMiddle(str, chars, opt_protectEscapedCharacters, opt_trailingChars) {
   if (opt_protectEscapedCharacters) {
-    str = goog.string.unescapeEntities(str);
+    str = unescapeEntities(str);
   }
 
   if (opt_trailingChars && str.length > chars) {
@@ -837,18 +795,18 @@ goog.string.truncateMiddle = function(
   }
 
   if (opt_protectEscapedCharacters) {
-    str = goog.string.htmlEscape(str);
+    str = htmlEscape(str);
   }
 
   return str;
-};
+}
 
 
 /**
- * Special chars that need to be escaped for goog.string.quote.
+ * Special chars that need to be escaped for quote.
  * @private {!Object<string, string>}
  */
-goog.string.specialEscapeChars_ = {
+var specialEscapeChars_ = {
   '\0': '\\0',
   '\b': '\\b',
   '\f': '\\f',
@@ -868,10 +826,10 @@ goog.string.specialEscapeChars_ = {
 
 
 /**
- * Character mappings used internally for goog.string.escapeChar.
+ * Character mappings used internally for escapeChar.
  * @private {!Object<string, string>}
  */
-goog.string.jsEscapeCache_ = {
+var jsEscapeCache_ = {
   '\'': '\\\''
 };
 
@@ -883,19 +841,18 @@ goog.string.jsEscapeCache_ = {
  * @param {string} s The string to quote.
  * @return {string} A copy of `s` surrounded by double quotes.
  */
-goog.string.quote = function(s) {
-  'use strict';
+export function quote(s) {
   s = String(s);
   const sb = ['"'];
   for (let i = 0; i < s.length; i++) {
     const ch = s.charAt(i);
     const cc = ch.charCodeAt(0);
-    sb[i + 1] = goog.string.specialEscapeChars_[ch] ||
-        ((cc > 31 && cc < 127) ? ch : goog.string.escapeChar(ch));
+    sb[i + 1] = specialEscapeChars_[ch] ||
+        ((cc > 31 && cc < 127) ? ch : escapeChar(ch));
   }
   sb.push('"');
   return sb.join('');
-};
+}
 
 
 /**
@@ -903,14 +860,13 @@ goog.string.quote = function(s) {
  * @param {string} str The string to escape.
  * @return {string} An escaped string representing `str`.
  */
-goog.string.escapeString = function(str) {
-  'use strict';
+export function escapeString(str) {
   const sb = [];
   for (let i = 0; i < str.length; i++) {
-    sb[i] = goog.string.escapeChar(str.charAt(i));
+    sb[i] = escapeChar(str.charAt(i));
   }
   return sb.join('');
-};
+}
 
 
 /**
@@ -919,14 +875,13 @@ goog.string.escapeString = function(str) {
  * @param {string} c The character to escape.
  * @return {string} An escaped string representing `c`.
  */
-goog.string.escapeChar = function(c) {
-  'use strict';
-  if (c in goog.string.jsEscapeCache_) {
-    return goog.string.jsEscapeCache_[c];
+export function escapeChar(c) {
+  if (c in jsEscapeCache_) {
+    return jsEscapeCache_[c];
   }
 
-  if (c in goog.string.specialEscapeChars_) {
-    return goog.string.jsEscapeCache_[c] = goog.string.specialEscapeChars_[c];
+  if (c in specialEscapeChars_) {
+    return jsEscapeCache_[c] = specialEscapeChars_[c];
   }
 
   let rv = c;
@@ -949,8 +904,8 @@ goog.string.escapeChar = function(c) {
     rv += cc.toString(16).toUpperCase();
   }
 
-  return goog.string.jsEscapeCache_[c] = rv;
-};
+  return jsEscapeCache_[c] = rv;
+}
 
 
 /**
@@ -959,7 +914,7 @@ goog.string.escapeChar = function(c) {
  * @param {string} subString The substring to search for.
  * @return {boolean} Whether `str` contains `subString`.
  */
-goog.string.contains = goog.string.internal.contains;
+export var contains = internal.contains;
 
 
 /**
@@ -968,8 +923,7 @@ goog.string.contains = goog.string.internal.contains;
  * @param {string} subString The substring to search for.
  * @return {boolean} Whether `str` contains `subString`.
  */
-goog.string.caseInsensitiveContains =
-    goog.string.internal.caseInsensitiveContains;
+export var caseInsensitiveContains = internal.caseInsensitiveContains;
 
 
 /**
@@ -979,10 +933,9 @@ goog.string.caseInsensitiveContains =
  * @param {string} ss The string to look for.
  * @return {number} Number of occurrences of ss in s.
  */
-goog.string.countOf = function(s, ss) {
-  'use strict';
+export function countOf(s, ss) {
   return s && ss ? s.split(ss).length - 1 : 0;
-};
+}
 
 
 /**
@@ -994,15 +947,14 @@ goog.string.countOf = function(s, ss) {
  * @return {string} A copy of `s` with the substring removed or the full
  *     string if nothing is removed or the input is invalid.
  */
-goog.string.removeAt = function(s, index, stringLength) {
-  'use strict';
+export function removeAt(s, index, stringLength) {
   let resultStr = s;
   // If the index is greater or equal to 0 then remove substring
   if (index >= 0 && index < s.length && stringLength > 0) {
     resultStr = s.slice(0, index) + s.slice(index + stringLength);
   }
   return resultStr;
-};
+}
 
 
 /**
@@ -1012,10 +964,9 @@ goog.string.removeAt = function(s, index, stringLength) {
  * @return {string} A copy of `str` with `substr` removed or the
  *     full string if nothing is removed.
  */
-goog.string.remove = function(str, substr) {
-  'use strict';
+export function remove(str, substr) {
   return str.replace(substr, '');
-};
+}
 
 
 /**
@@ -1025,11 +976,10 @@ goog.string.remove = function(str, substr) {
  *  @return {string} A copy of `s` with `ss` removed or the full
  *      string if nothing is removed.
  */
-goog.string.removeAll = function(s, ss) {
-  'use strict';
-  const re = new RegExp(goog.string.regExpEscape(ss), 'g');
+export function removeAll(s, ss) {
+  const re = new RegExp(regExpEscape(ss), 'g');
   return s.replace(re, '');
-};
+}
 
 
 /**
@@ -1040,11 +990,10 @@ goog.string.removeAll = function(s, ss) {
  *  @return {string} A copy of `s` with `ss` replaced by
  *      `replacement` or the original string if nothing is replaced.
  */
-goog.string.replaceAll = function(s, ss, replacement) {
-  'use strict';
-  const re = new RegExp(goog.string.regExpEscape(ss), 'g');
+export function replaceAll(s, ss, replacement) {
+  const re = new RegExp(regExpEscape(ss), 'g');
   return s.replace(re, replacement.replace(/\$/g, '$$$$'));
-};
+}
 
 
 /**
@@ -1053,12 +1002,11 @@ goog.string.replaceAll = function(s, ss, replacement) {
  *     to one.
  * @return {string} A RegExp safe, escaped copy of `s`.
  */
-goog.string.regExpEscape = function(s) {
-  'use strict';
+export function regExpEscape(s) {
   return String(s)
       .replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1')
       .replace(/\x08/g, '\\x08');
-};
+}
 
 
 /**
@@ -1068,12 +1016,10 @@ goog.string.regExpEscape = function(s) {
  * @return {string} A string containing `length` repetitions of
  *     `string`.
  */
-goog.string.repeat = (String.prototype.repeat) ? function(string, length) {
-  'use strict';
+export var repeat = (String.prototype.repeat) ? function(string, length) {
   // The native method is over 100 times faster than the alternative.
   return string.repeat(length);
 } : function(string, length) {
-  'use strict';
   return new Array(length + 1).join(string);
 };
 
@@ -1091,8 +1037,7 @@ goog.string.repeat = (String.prototype.repeat) ? function(string, length) {
  * @param {number=} opt_precision The desired precision.
  * @return {string} `num` as a string with the given options.
  */
-goog.string.padNumber = function(num, length, opt_precision) {
-  'use strict';
+export function padNumber(num, length, opt_precision) {
   if (!Number.isFinite(num)) return String(num);
   let s =
       (opt_precision !== undefined) ? num.toFixed(opt_precision) : String(num);
@@ -1104,8 +1049,8 @@ goog.string.padNumber = function(num, length, opt_precision) {
   if (sign) {
     s = s.substring(1);
   }
-  return sign + goog.string.repeat('0', Math.max(0, length - index)) + s;
-};
+  return sign + repeat('0', Math.max(0, length - index)) + s;
+}
 
 
 /**
@@ -1115,10 +1060,9 @@ goog.string.padNumber = function(num, length, opt_precision) {
  * @param {*} obj The object to convert.
  * @return {string} A string representation of the `obj`.
  */
-goog.string.makeSafe = function(obj) {
-  'use strict';
+export function makeSafe(obj) {
   return obj == null ? '' : String(obj);
-};
+}
 
 /**
  * Returns a string with at least 64-bits of randomness.
@@ -1129,12 +1073,11 @@ goog.string.makeSafe = function(obj) {
  *
  * @return {string} A random string, e.g. sn1s7vb4gcic.
  */
-goog.string.getRandomString = function() {
-  'use strict';
+export function getRandomString() {
   const x = 2147483648;
   return Math.floor(Math.random() * x).toString(36) +
       Math.abs(Math.floor(Math.random() * x) ^ goog.now()).toString(36);
-};
+}
 
 
 /**
@@ -1147,7 +1090,7 @@ goog.string.getRandomString = function() {
  *                   0 if arguments are equal.
  *                  -1 if `version2` is higher.
  */
-goog.string.compareVersions = goog.string.internal.compareVersions;
+export var compareVersions = internal.compareVersions;
 
 
 /**
@@ -1161,15 +1104,14 @@ goog.string.compareVersions = goog.string.internal.compareVersions;
  * @return {number} Hash value for `str`, between 0 (inclusive) and 2^32
  *  (exclusive). The empty string returns 0.
  */
-goog.string.hashCode = function(str) {
-  'use strict';
+export function hashCode(str) {
   let result = 0;
   for (let i = 0; i < str.length; ++i) {
     // Normalize to 4 byte range, 0 ... 2^32.
     result = (31 * result + str.charCodeAt(i)) >>> 0;
   }
   return result;
-};
+}
 
 
 /**
@@ -1177,7 +1119,7 @@ goog.string.hashCode = function(str) {
  * @type {number}
  * @private
  */
-goog.string.uniqueStringCounter_ = Math.random() * 0x80000000 | 0;
+var uniqueStringCounter_ = Math.random() * 0x80000000 | 0;
 
 
 /**
@@ -1185,10 +1127,9 @@ goog.string.uniqueStringCounter_ = Math.random() * 0x80000000 | 0;
  * This is useful, for example, to create unique IDs for DOM elements.
  * @return {string} A unique id.
  */
-goog.string.createUniqueString = function() {
-  'use strict';
-  return 'goog_' + goog.string.uniqueStringCounter_++;
-};
+export function createUniqueString() {
+  return 'goog_' + uniqueStringCounter_++;
+}
 
 
 /**
@@ -1202,14 +1143,13 @@ goog.string.createUniqueString = function() {
  * @param {string} str The string to convert.
  * @return {number} The number the supplied string represents, or NaN.
  */
-goog.string.toNumber = function(str) {
-  'use strict';
+export function toNumber(str) {
   const num = Number(str);
-  if (num == 0 && goog.string.isEmptyOrWhitespace(str)) {
+  if (num == 0 && isEmptyOrWhitespace(str)) {
     return NaN;
   }
   return num;
-};
+}
 
 
 /**
@@ -1221,10 +1161,9 @@ goog.string.toNumber = function(str) {
  * @param {string} str String to test.
  * @return {boolean} Whether the string is lower camel case.
  */
-goog.string.isLowerCamelCase = function(str) {
-  'use strict';
+export function isLowerCamelCase(str) {
   return /^[a-z]+([A-Z][a-z]*)*$/.test(str);
-};
+}
 
 
 /**
@@ -1236,10 +1175,9 @@ goog.string.isLowerCamelCase = function(str) {
  * @param {string} str String to test.
  * @return {boolean} Whether the string is upper camel case.
  */
-goog.string.isUpperCamelCase = function(str) {
-  'use strict';
+export function isUpperCamelCase(str) {
   return /^([A-Z][a-z]*)+$/.test(str);
-};
+}
 
 
 /**
@@ -1249,13 +1187,11 @@ goog.string.isUpperCamelCase = function(str) {
  * @param {string} str The string in selector-case form.
  * @return {string} The string in camelCase form.
  */
-goog.string.toCamelCase = function(str) {
-  'use strict';
+export function toCamelCase(str) {
   return String(str).replace(/\-([a-z])/g, function(all, match) {
-    'use strict';
     return match.toUpperCase();
   });
-};
+}
 
 
 /**
@@ -1265,10 +1201,9 @@ goog.string.toCamelCase = function(str) {
  * @param {string} str The string in camelCase form.
  * @return {string} The string in selector-case form.
  */
-goog.string.toSelectorCase = function(str) {
-  'use strict';
+export function toSelectorCase(str) {
   return String(str).replace(/([A-Z])/g, '-$1').toLowerCase();
-};
+}
 
 
 /**
@@ -1279,21 +1214,21 @@ goog.string.toSelectorCase = function(str) {
  * whitespace delimiters and instead must be explicitly included if needed.
  *
  * Default delimiter => " ":
- *    goog.string.toTitleCase('oneTwoThree')    => 'OneTwoThree'
- *    goog.string.toTitleCase('one two three')  => 'One Two Three'
- *    goog.string.toTitleCase('  one   two   ') => '  One   Two   '
- *    goog.string.toTitleCase('one_two_three')  => 'One_two_three'
- *    goog.string.toTitleCase('one-two-three')  => 'One-two-three'
+ *    toTitleCase('oneTwoThree')    => 'OneTwoThree'
+ *    toTitleCase('one two three')  => 'One Two Three'
+ *    toTitleCase('  one   two   ') => '  One   Two   '
+ *    toTitleCase('one_two_three')  => 'One_two_three'
+ *    toTitleCase('one-two-three')  => 'One-two-three'
  *
  * Custom delimiter => "_-.":
- *    goog.string.toTitleCase('oneTwoThree', '_-.')       => 'OneTwoThree'
- *    goog.string.toTitleCase('one two three', '_-.')     => 'One two three'
- *    goog.string.toTitleCase('  one   two   ', '_-.')    => '  one   two   '
- *    goog.string.toTitleCase('one_two_three', '_-.')     => 'One_Two_Three'
- *    goog.string.toTitleCase('one-two-three', '_-.')     => 'One-Two-Three'
- *    goog.string.toTitleCase('one...two...three', '_-.') => 'One...Two...Three'
- *    goog.string.toTitleCase('one. two. three', '_-.')   => 'One. two. three'
- *    goog.string.toTitleCase('one-two.three', '_-.')     => 'One-Two.Three'
+ *    toTitleCase('oneTwoThree', '_-.')       => 'OneTwoThree'
+ *    toTitleCase('one two three', '_-.')     => 'One two three'
+ *    toTitleCase('  one   two   ', '_-.')    => '  one   two   '
+ *    toTitleCase('one_two_three', '_-.')     => 'One_Two_Three'
+ *    toTitleCase('one-two-three', '_-.')     => 'One-Two-Three'
+ *    toTitleCase('one...two...three', '_-.') => 'One...Two...Three'
+ *    toTitleCase('one. two. three', '_-.')   => 'One. two. three'
+ *    toTitleCase('one-two.three', '_-.')     => 'One-Two.Three'
  *
  * @param {string} str String value in camelCase form.
  * @param {string=} opt_delimiters Custom delimiter character set used to
@@ -1302,10 +1237,9 @@ goog.string.toSelectorCase = function(str) {
  *      overridden and must be explicitly included if needed.
  * @return {string} String value in TitleCase form.
  */
-goog.string.toTitleCase = function(str, opt_delimiters) {
-  'use strict';
+export function toTitleCase(str, opt_delimiters) {
   let delimiters = (typeof opt_delimiters === 'string') ?
-      goog.string.regExpEscape(opt_delimiters) :
+      regExpEscape(opt_delimiters) :
       '\\s';
 
   // For IE8, we need to prevent using an empty character set. Otherwise,
@@ -1314,30 +1248,28 @@ goog.string.toTitleCase = function(str, opt_delimiters) {
 
   const regexp = new RegExp('(^' + delimiters + ')([a-z])', 'g');
   return str.replace(regexp, function(all, p1, p2) {
-    'use strict';
     return p1 + p2.toUpperCase();
   });
-};
+}
 
 
 /**
  * Capitalizes a string, i.e. converts the first letter to uppercase
  * and all other letters to lowercase, e.g.:
  *
- * goog.string.capitalize('one')     => 'One'
- * goog.string.capitalize('ONE')     => 'One'
- * goog.string.capitalize('one two') => 'One two'
+ * capitalize('one')     => 'One'
+ * capitalize('ONE')     => 'One'
+ * capitalize('one two') => 'One two'
  *
  * Note that this function does not trim initial whitespace.
  *
  * @param {string} str String value to capitalize.
  * @return {string} String value with first letter in uppercase.
  */
-goog.string.capitalize = function(str) {
-  'use strict';
+export function capitalize(str) {
   return String(str.charAt(0)).toUpperCase() +
       String(str.slice(1)).toLowerCase();
-};
+}
 
 
 /**
@@ -1357,8 +1289,7 @@ goog.string.capitalize = function(str) {
  * @return {number} The number, parsed. If the string failed to parse, this
  *     will be NaN.
  */
-goog.string.parseInt = function(value) {
-  'use strict';
+function parseInt_(value) {
   // Force finite numbers to strings.
   if (isFinite(value)) {
     value = String(value);
@@ -1370,7 +1301,10 @@ goog.string.parseInt = function(value) {
   }
 
   return NaN;
-};
+}
+
+
+export { parseInt_ as parseInt };
 
 
 /**
@@ -1391,8 +1325,7 @@ goog.string.parseInt = function(value) {
  *     as zero.
  * @return {!Array<string>} The string, split.
  */
-goog.string.splitLimit = function(str, separator, limit) {
-  'use strict';
+export function splitLimit(str, separator, limit) {
   const parts = str.split(separator);
   const returnVal = [];
 
@@ -1409,24 +1342,23 @@ goog.string.splitLimit = function(str, separator, limit) {
   }
 
   return returnVal;
-};
+}
 
 
 /**
  * Finds the characters to the right of the last instance of any separator
  *
- * This function is similar to goog.string.path.baseName, except it can take a
+ * This function is similar to path.baseName, except it can take a
  * list of characters to split the string on. It will return the rightmost
  * grouping of characters to the right of any separator as a left-to-right
  * oriented string.
  *
- * @see goog.string.path.baseName
+ * @see path.baseName
  * @param {string} str The string
  * @param {string|!Array<string>} separators A list of separator characters
  * @return {string} The last part of the string with respect to the separators
  */
-goog.string.lastComponent = function(str, separators) {
-  'use strict';
+export function lastComponent(str, separators) {
   if (!separators) {
     return str;
   } else if (typeof separators == 'string') {
@@ -1447,7 +1379,7 @@ goog.string.lastComponent = function(str, separators) {
     return str;
   }
   return str.slice(lastSeparatorIndex + 1);
-};
+}
 
 
 /**
@@ -1456,8 +1388,7 @@ goog.string.lastComponent = function(str, separators) {
  * @param {string} b
  * @return {number} The edit distance between the two strings.
  */
-goog.string.editDistance = function(a, b) {
-  'use strict';
+export function editDistance(a, b) {
   const v0 = [];
   const v1 = [];
 
@@ -1489,4 +1420,4 @@ goog.string.editDistance = function(a, b) {
   }
 
   return v1[b.length];
-};
+}

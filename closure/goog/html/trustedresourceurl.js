@@ -10,15 +10,15 @@
  * TODO(xtof): Link to document stating type contract.
  */
 
-goog.provide('goog.html.TrustedResourceUrl');
+goog.declareModuleId('goog.html.trustedresourceurl');
 
-goog.require('goog.asserts');
-goog.require('goog.fs.blob');
-goog.require('goog.fs.url');
-goog.require('goog.html.SafeScript');
-goog.require('goog.html.trustedtypes');
-goog.require('goog.string.Const');
-goog.require('goog.string.TypedString');
+import * as asserts from '../asserts/asserts.js';
+import * as fsBlob from '../fs/blob.js';
+import * as fsUrl from '../fs/url.js';
+import { SafeScript } from './safescript.js';
+import * as trustedtypes from './trustedtypes.js';
+import { Const } from '../string/const.js';
+import { TypedString } from '../string/typedstring.js';
 
 
 
@@ -43,12 +43,12 @@ goog.require('goog.string.TypedString');
  * Creating TrustedResourceUrl objects HAS SIDE-EFFECTS due to calling
  * Trusted Types Web API.
  *
- * @see goog.html.TrustedResourceUrl#fromConstant
+ * @see TrustedResourceUrl#fromConstant
  * @final
  * @struct
- * @implements {goog.string.TypedString}
+ * @implements {TypedString}
  */
-goog.html.TrustedResourceUrl = class {
+export class TrustedResourceUrl {
   /**
    * @private
    * @param {!TrustedScriptURL|string} value
@@ -56,7 +56,7 @@ goog.html.TrustedResourceUrl = class {
    */
   constructor(value, token) {
     if (goog.DEBUG &&
-        token !== goog.html.TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_) {
+        token !== TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_) {
       throw Error('TrustedResourceUrl is not meant to be built directly');
     }
 
@@ -71,26 +71,26 @@ goog.html.TrustedResourceUrl = class {
   }
 
   /**
-   * Returns a string-representation of this value.
-   *
-   * To obtain the actual string value wrapped in a TrustedResourceUrl, use
-   * `goog.html.TrustedResourceUrl.unwrap`.
-   *
-   * @return {string}
-   * @see goog.html.TrustedResourceUrl#unwrap
-   * @override
-   */
+     * Returns a string-representation of this value.
+     *
+     * To obtain the actual string value wrapped in a TrustedResourceUrl, use
+     * `TrustedResourceUrl.unwrap`.
+     *
+     * @return {string}
+     * @see TrustedResourceUrl#unwrap
+     * @override
+     */
   toString() {
     return this.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue_ + '';
   }
-};
+}
 
 
 /**
  * @override
  * @const
  */
-goog.html.TrustedResourceUrl.prototype.implementsGoogStringTypedString = true;
+TrustedResourceUrl.prototype.implementsGoogStringTypedString = true;
 
 
 /**
@@ -98,7 +98,7 @@ goog.html.TrustedResourceUrl.prototype.implementsGoogStringTypedString = true;
  *
  * IMPORTANT: In code where it is security relevant that an object's type is
  * indeed `TrustedResourceUrl`, use
- * `goog.html.TrustedResourceUrl.unwrap` instead of this method. If in
+ * `TrustedResourceUrl.unwrap` instead of this method. If in
  * doubt, assume that it's security relevant. In particular, note that
  * goog.html functions which return a goog.html type do not guarantee that
  * the returned instance is of the right type. For example:
@@ -112,12 +112,11 @@ goog.html.TrustedResourceUrl.prototype.implementsGoogStringTypedString = true;
  * // goog.html.SafeHtml.
  * </pre>
  *
- * @see goog.html.TrustedResourceUrl#unwrap
+ * @see TrustedResourceUrl#unwrap
  * @override
  * @deprecated Use `toString()` or the String constructor instead.
  */
-goog.html.TrustedResourceUrl.prototype.getTypedStringValue = function() {
-  'use strict';
+TrustedResourceUrl.prototype.getTypedStringValue = function() {
   return this.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue_
       .toString();
 };
@@ -128,30 +127,29 @@ goog.html.TrustedResourceUrl.prototype.getTypedStringValue = function() {
  * hash params can be specified.
  *
  * @param {string|?Object<string, *>|undefined} searchParams Search parameters
- *     to add to URL. See goog.html.TrustedResourceUrl.stringifyParams_ for
+ *     to add to URL. See TrustedResourceUrl.stringifyParams_ for
  *     exact format definition.
  * @param {(string|?Object<string, *>)=} opt_hashParams Hash parameters to add
- *     to URL. See goog.html.TrustedResourceUrl.stringifyParams_ for exact
+ *     to URL. See TrustedResourceUrl.stringifyParams_ for exact
  *     format definition.
- * @return {!goog.html.TrustedResourceUrl} New TrustedResourceUrl with params.
+ * @return {!TrustedResourceUrl} New TrustedResourceUrl with params.
  * @deprecated Use `safevalues.appendParams` and `safevalues.replaceFragment`
  *     instead.
  */
-goog.html.TrustedResourceUrl.prototype.cloneWithParams = function(
+TrustedResourceUrl.prototype.cloneWithParams = function(
     searchParams, opt_hashParams) {
-  'use strict';
-  var url = goog.html.TrustedResourceUrl.unwrap(this);
-  var parts = goog.html.TrustedResourceUrl.URL_PARAM_PARSER_.exec(url);
+  var url = TrustedResourceUrl.unwrap(this);
+  var parts = TrustedResourceUrl.URL_PARAM_PARSER_.exec(url);
   var urlBase = parts[1];
   var urlSearch = parts[2] || '';
   var urlHash = parts[3] || '';
 
-  return goog.html.TrustedResourceUrl
+  return TrustedResourceUrl
       .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(
           urlBase +
-          goog.html.TrustedResourceUrl.stringifyParams_(
+          TrustedResourceUrl.stringifyParams_(
               '?', urlSearch, searchParams) +
-          goog.html.TrustedResourceUrl.stringifyParams_(
+          TrustedResourceUrl.stringifyParams_(
               '#', urlHash, opt_hashParams));
 };
 
@@ -159,31 +157,29 @@ goog.html.TrustedResourceUrl.prototype.cloneWithParams = function(
  * Performs a runtime check that the provided object is indeed a
  * TrustedResourceUrl object, and returns its value.
  *
- * @param {!goog.html.TrustedResourceUrl} trustedResourceUrl The object to
+ * @param {!TrustedResourceUrl} trustedResourceUrl The object to
  *     extract from.
  * @return {string} The trustedResourceUrl object's contained string, unless
  *     the run-time type check fails. In that case, `unwrap` returns an
  *     innocuous string, or, if assertions are enabled, throws
- *     `goog.asserts.AssertionError`.
+ *     `asserts.AssertionError`.
  * @deprecated Use `safevalues.unwrapResourceUrl` and `toString()` instead
  */
-goog.html.TrustedResourceUrl.unwrap = function(trustedResourceUrl) {
-  'use strict';
-  return goog.html.TrustedResourceUrl.unwrapTrustedScriptURL(trustedResourceUrl)
+TrustedResourceUrl.unwrap = function(trustedResourceUrl) {
+  return TrustedResourceUrl.unwrapTrustedScriptURL(trustedResourceUrl)
       .toString();
 };
 
 
 /**
  * Unwraps value as TrustedScriptURL if supported or as a string if not.
- * @param {!goog.html.TrustedResourceUrl} trustedResourceUrl
+ * @param {!TrustedResourceUrl} trustedResourceUrl
  * @return {!TrustedScriptURL|string}
- * @see goog.html.TrustedResourceUrl.unwrap
+ * @see TrustedResourceUrl.unwrap
  * @deprecated Use `safevalues.unwrapResourceUrl` instead.
  */
-goog.html.TrustedResourceUrl.unwrapTrustedScriptURL = function(
+TrustedResourceUrl.unwrapTrustedScriptURL = function(
     trustedResourceUrl) {
-  'use strict';
   // Perform additional Run-time type-checking to ensure that
   // trustedResourceUrl is indeed an instance of the expected type.  This
   // provides some additional protection against security bugs due to
@@ -191,12 +187,12 @@ goog.html.TrustedResourceUrl.unwrapTrustedScriptURL = function(
   // Specifically, the following checks are performed:
   // 1. The object is an instance of the expected type.
   // 2. The object is not an instance of a subclass.
-  if (trustedResourceUrl instanceof goog.html.TrustedResourceUrl &&
-      trustedResourceUrl.constructor === goog.html.TrustedResourceUrl) {
+  if (trustedResourceUrl instanceof TrustedResourceUrl &&
+      trustedResourceUrl.constructor === TrustedResourceUrl) {
     return trustedResourceUrl
         .privateDoNotAccessOrElseTrustedResourceUrlWrappedValue_;
   } else {
-    goog.asserts.fail(
+    asserts.fail(
         'expected object of type TrustedResourceUrl, got \'%s\' of type %s',
         trustedResourceUrl, goog.typeOf(trustedResourceUrl));
     return 'type_error:TrustedResourceUrl';
@@ -208,7 +204,7 @@ goog.html.TrustedResourceUrl.unwrapTrustedScriptURL = function(
  * Creates a TrustedResourceUrl from a format string and arguments.
  *
  * The arguments for interpolation into the format string map labels to values.
- * Values of type `goog.string.Const` are interpolated without modifcation.
+ * Values of type `Const` are interpolated without modifcation.
  * Values of other types are cast to string and encoded with
  * encodeURIComponent.
  *
@@ -216,57 +212,55 @@ goog.html.TrustedResourceUrl.unwrapTrustedScriptURL = function(
  * to be interpolated with the valued mapped to the given label. `<label>`
  * must contain only alphanumeric and `_` characters.
  *
- * The format string must match goog.html.TrustedResourceUrl.BASE_URL_.
+ * The format string must match TrustedResourceUrl.BASE_URL_.
  *
  * Example usage:
  *
- *    var url = goog.html.TrustedResourceUrl.format(goog.string.Const.from(
+ *    var url = TrustedResourceUrl.format(Const.from(
  *        'https://www.google.com/search?q=%{query}'), {'query': searchTerm});
  *
- *    var url = goog.html.TrustedResourceUrl.format(goog.string.Const.from(
+ *    var url = TrustedResourceUrl.format(Const.from(
  *        '//www.youtube.com/v/%{videoId}?hl=en&fs=1%{autoplay}'), {
  *        'videoId': videoId,
  *        'autoplay': opt_autoplay ?
- *            goog.string.Const.from('&autoplay=1') : goog.string.Const.EMPTY
+ *            Const.from('&autoplay=1') : Const.EMPTY
  *    });
  *
  * While this function can be used to create a TrustedResourceUrl from only
  * constants, fromConstant() and fromConstants() are generally preferable for
  * that purpose.
  *
- * @param {!goog.string.Const} format The format string.
- * @param {!Object<string, (string|number|!goog.string.Const)>} args Mapping
+ * @param {!Const} format The format string.
+ * @param {!Object<string, (string|number|!Const)>} args Mapping
  *     of labels to values to be interpolated into the format string.
- *     goog.string.Const values are interpolated without encoding.
- * @return {!goog.html.TrustedResourceUrl}
+ *     Const values are interpolated without encoding.
+ * @return {!TrustedResourceUrl}
  * @throws {!Error} On an invalid format string or if a label used in the
  *     the format string is not present in args.
  * @deprecated Use the `safevalues.trustedResourceUrl` template string literal
  *     builder instead.
  */
-goog.html.TrustedResourceUrl.format = function(format, args) {
-  'use strict';
-  var formatStr = goog.string.Const.unwrap(format);
-  if (!goog.html.TrustedResourceUrl.BASE_URL_.test(formatStr)) {
+TrustedResourceUrl.format = function(format, args) {
+  var formatStr = Const.unwrap(format);
+  if (!TrustedResourceUrl.BASE_URL_.test(formatStr)) {
     throw new Error('Invalid TrustedResourceUrl format: ' + formatStr);
   }
   var result = formatStr.replace(
-      goog.html.TrustedResourceUrl.FORMAT_MARKER_, function(match, id) {
-        'use strict';
-        if (!Object.prototype.hasOwnProperty.call(args, id)) {
-          throw new Error(
-              'Found marker, "' + id + '", in format string, "' + formatStr +
-              '", but no valid label mapping found ' +
-              'in args: ' + JSON.stringify(args));
-        }
-        var arg = args[id];
-        if (arg instanceof goog.string.Const) {
-          return goog.string.Const.unwrap(arg);
-        } else {
-          return encodeURIComponent(String(arg));
-        }
-      });
-  return goog.html.TrustedResourceUrl
+      TrustedResourceUrl.FORMAT_MARKER_, function(match, id) {
+    if (!Object.prototype.hasOwnProperty.call(args, id)) {
+      throw new Error(
+          'Found marker, "' + id + '", in format string, "' + formatStr +
+          '", but no valid label mapping found ' +
+          'in args: ' + JSON.stringify(args));
+    }
+    var arg = args[id];
+    if (arg instanceof Const) {
+      return Const.unwrap(arg);
+    } else {
+      return encodeURIComponent(String(arg));
+    }
+  });
+  return TrustedResourceUrl
       .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(result);
 };
 
@@ -274,7 +268,7 @@ goog.html.TrustedResourceUrl.format = function(format, args) {
 /**
  * @private @const {!RegExp}
  */
-goog.html.TrustedResourceUrl.FORMAT_MARKER_ = /%{(\w+)}/g;
+TrustedResourceUrl.FORMAT_MARKER_ = /%{(\w+)}/g;
 
 
 /**
@@ -304,7 +298,7 @@ goog.html.TrustedResourceUrl.FORMAT_MARKER_ = /%{(\w+)}/g;
  *   code.
  * @private @const {!RegExp}
  */
-goog.html.TrustedResourceUrl.BASE_URL_ = new RegExp(
+TrustedResourceUrl.BASE_URL_ = new RegExp(
     '^((https:)?//[0-9a-z.:[\\]-]+/'  // Origin.
         + '|/[^/\\\\]'                // Absolute path.
         + '|[^:/\\\\%]+/'             // Relative path.
@@ -318,7 +312,7 @@ goog.html.TrustedResourceUrl.BASE_URL_ = new RegExp(
  *
  * @private @const {!RegExp}
  */
-goog.html.TrustedResourceUrl.URL_PARAM_PARSER_ =
+TrustedResourceUrl.URL_PARAM_PARSER_ =
     /^([^?#]*)(\?[^#]*)?(#[\s\S]*)?/;
 
 
@@ -331,31 +325,30 @@ goog.html.TrustedResourceUrl.URL_PARAM_PARSER_ =
  *     // Creates '//www.youtube.com/v/abc?autoplay=1' for videoId='abc' and
  *     // opt_autoplay=1. Creates '//www.youtube.com/v/abc' for videoId='abc'
  *     // and opt_autoplay=undefined.
- *     var url = goog.html.TrustedResourceUrl.formatWithParams(
- *         goog.string.Const.from('//www.youtube.com/v/%{videoId}'),
+ *     var url = TrustedResourceUrl.formatWithParams(
+ *         Const.from('//www.youtube.com/v/%{videoId}'),
  *         {'videoId': videoId},
  *         {'autoplay': opt_autoplay});
  *
- * @param {!goog.string.Const} format The format string.
- * @param {!Object<string, (string|number|!goog.string.Const)>} args Mapping
+ * @param {!Const} format The format string.
+ * @param {!Object<string, (string|number|!Const)>} args Mapping
  *     of labels to values to be interpolated into the format string.
- *     goog.string.Const values are interpolated without encoding.
+ *     Const values are interpolated without encoding.
  * @param {string|?Object<string, *>|undefined} searchParams Parameters to add
- *     to URL. See goog.html.TrustedResourceUrl.stringifyParams_ for exact
+ *     to URL. See TrustedResourceUrl.stringifyParams_ for exact
  *     format definition.
  * @param {(string|?Object<string, *>)=} opt_hashParams Hash parameters to add
- *     to URL. See goog.html.TrustedResourceUrl.stringifyParams_ for exact
+ *     to URL. See TrustedResourceUrl.stringifyParams_ for exact
  *     format definition.
- * @return {!goog.html.TrustedResourceUrl}
+ * @return {!TrustedResourceUrl}
  * @throws {!Error} On an invalid format string or if a label used in the
  *     the format string is not present in args.
  * @deprecated Use `safevalues.trustedResourceUrl` and `safevalues.appendParams`
  *     instead.
  */
-goog.html.TrustedResourceUrl.formatWithParams = function(
+TrustedResourceUrl.formatWithParams = function(
     format, args, searchParams, opt_hashParams) {
-  'use strict';
-  var url = goog.html.TrustedResourceUrl.format(format, args);
+  var url = TrustedResourceUrl.format(format, args);
   return url.cloneWithParams(searchParams, opt_hashParams);
 };
 
@@ -366,17 +359,16 @@ goog.html.TrustedResourceUrl.formatWithParams = function(
  * Compile-time constant strings are inherently program-controlled and hence
  * trusted.
  *
- * @param {!goog.string.Const} url A compile-time-constant string from which to
+ * @param {!Const} url A compile-time-constant string from which to
  *     create a TrustedResourceUrl.
- * @return {!goog.html.TrustedResourceUrl} A TrustedResourceUrl object
+ * @return {!TrustedResourceUrl} A TrustedResourceUrl object
  *     initialized to `url`.
  * @deprecated Use `safevalues.trustedResourceUrl` instead.
  */
-goog.html.TrustedResourceUrl.fromConstant = function(url) {
-  'use strict';
-  return goog.html.TrustedResourceUrl
+TrustedResourceUrl.fromConstant = function(url) {
+  return TrustedResourceUrl
       .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(
-          goog.string.Const.unwrap(url));
+          Const.unwrap(url));
 };
 
 
@@ -386,19 +378,18 @@ goog.html.TrustedResourceUrl.fromConstant = function(url) {
  * Compile-time constant strings are inherently program-controlled and hence
  * trusted.
  *
- * @param {!Array<!goog.string.Const>} parts Compile-time-constant strings from
+ * @param {!Array<!Const>} parts Compile-time-constant strings from
  *     which to create a TrustedResourceUrl.
- * @return {!goog.html.TrustedResourceUrl} A TrustedResourceUrl object
+ * @return {!TrustedResourceUrl} A TrustedResourceUrl object
  *     initialized to concatenation of `parts`.
  * @deprecated Use `safevalues.trustedResourceUrl` instead.
  */
-goog.html.TrustedResourceUrl.fromConstants = function(parts) {
-  'use strict';
+TrustedResourceUrl.fromConstants = function(parts) {
   var unwrapped = '';
   for (var i = 0; i < parts.length; i++) {
-    unwrapped += goog.string.Const.unwrap(parts[i]);
+    unwrapped += Const.unwrap(parts[i]);
   }
-  return goog.html.TrustedResourceUrl
+  return TrustedResourceUrl
       .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(unwrapped);
 };
 
@@ -408,23 +399,22 @@ goog.html.TrustedResourceUrl.fromConstants = function(parts) {
  *
  * SafeScript objects are trusted to contain executable JavaScript code.
  *
- * Caller must call goog.fs.url.revokeObjectUrl() on the unwrapped url to
+ * Caller must call fsUrl.revokeObjectUrl() on the unwrapped url to
  * release the underlying blob.
  *
  * Throws if browser doesn't support blob construction.
  *
- * @param {!goog.html.SafeScript} safeScript A script from which to create a
+ * @param {!SafeScript} safeScript A script from which to create a
  *     TrustedResourceUrl.
- * @return {!goog.html.TrustedResourceUrl} A TrustedResourceUrl object
+ * @return {!TrustedResourceUrl} A TrustedResourceUrl object
  *     initialized to a new blob URL.
  * @deprecated Use `safevalues.objectUrlFromScript` instead.
  */
-goog.html.TrustedResourceUrl.fromSafeScript = function(safeScript) {
-  'use strict';
-  var blob = goog.fs.blob.getBlobWithProperties(
-      [goog.html.SafeScript.unwrap(safeScript)], 'text/javascript');
-  var url = goog.fs.url.createObjectUrl(blob);
-  return goog.html.TrustedResourceUrl
+TrustedResourceUrl.fromSafeScript = function(safeScript) {
+  var blob = fsBlob.getBlobWithProperties(
+      [SafeScript.unwrap(safeScript)], 'text/javascript');
+  var url = fsUrl.createObjectUrl(blob);
+  return TrustedResourceUrl
       .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(url);
 };
 
@@ -435,7 +425,7 @@ goog.html.TrustedResourceUrl.fromSafeScript = function(safeScript) {
  * @private {!Object}
  * @const
  */
-goog.html.TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_ = {};
+TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_ = {};
 
 
 /**
@@ -443,19 +433,18 @@ goog.html.TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_ = {};
  *
  * @param {string} url The string to initialize the TrustedResourceUrl object
  *     with.
- * @return {!goog.html.TrustedResourceUrl} The initialized TrustedResourceUrl
+ * @return {!TrustedResourceUrl} The initialized TrustedResourceUrl
  *     object.
  * @package
  */
-goog.html.TrustedResourceUrl
+TrustedResourceUrl
     .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse = function(url) {
-  'use strict';
   /** @noinline */
   const noinlineUrl = url;
-  const policy = goog.html.trustedtypes.getPolicyPrivateDoNotAccessOrElse();
+  const policy = trustedtypes.getPolicyPrivateDoNotAccessOrElse();
   const value = policy ? policy.createScriptURL(noinlineUrl) : noinlineUrl;
-  return new goog.html.TrustedResourceUrl(
-      value, goog.html.TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_);
+  return new TrustedResourceUrl(
+      value, TrustedResourceUrl.CONSTRUCTOR_TOKEN_PRIVATE_);
 };
 
 
@@ -483,9 +472,8 @@ goog.html.TrustedResourceUrl
  * @return {string}
  * @private
  */
-goog.html.TrustedResourceUrl.stringifyParams_ = function(
+TrustedResourceUrl.stringifyParams_ = function(
     prefix, currentString, params) {
-  'use strict';
   if (params == null) {
     // Do not modify the field.
     return currentString;

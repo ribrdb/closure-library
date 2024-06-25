@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.ListFormatTest');
 goog.setTestOnly();
 
-const ListSymbols = goog.require('goog.i18n.ListFormatSymbols');
-const ListSymbolsExt = goog.require('goog.i18n.ListFormatSymbolsExt');
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const testSuite = goog.require('goog.testing.testSuite');
-const {ListFormat, ListFormatStyle, ListFormatType} = goog.require('goog.i18n.listFormat');
+import { ListFormatSymbols as ListSymbols } from './listsymbols.js';
+import * as ListSymbolsExt from './listsymbolsext.js';
+import * as LocaleFeature from './localefeature.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { testSuite } from '../testing/testsuite.js';
+import { ListFormat, ListFormatStyle, ListFormatType } from './listformat.js';
 
 
 let propertyReplacer;

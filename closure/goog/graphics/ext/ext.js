@@ -12,12 +12,11 @@
  */
 
 
-goog.provide('goog.graphics.ext');
+import { Ellipse } from './ellipse.js';
 
-goog.require('goog.graphics.ext.Ellipse');
-goog.require('goog.graphics.ext.Graphics');
-goog.require('goog.graphics.ext.Group');
-goog.require('goog.graphics.ext.Image');
-goog.require('goog.graphics.ext.Rectangle');
-goog.require('goog.graphics.ext.Shape');
-goog.require('goog.graphics.ext.coordinates');
+import { Graphics } from './graphics.js';
+import { Group } from './group.js';
+import { Image } from './image.js';
+import { Rectangle } from './rectangle.js';
+import { Shape } from './shape.js';
+import * as coordinates from './coordinates.js';

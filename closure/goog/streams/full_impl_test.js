@@ -4,11 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.streams.fullImplTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {TestCasesWithIterator} = goog.require('goog.streams.fullTestCases');
-const {newReadableStream} = goog.require('goog.streams.fullImpl');
+import { testSuite } from '../testing/testsuite.js';
+import fullTestCases from './full_test_cases.js';
+const {TestCasesWithIterator} = fullTestCases;
+import fullImpl from './full_impl.js';
+const {newReadableStream} = fullImpl;
 
 testSuite(new TestCasesWithIterator(newReadableStream));

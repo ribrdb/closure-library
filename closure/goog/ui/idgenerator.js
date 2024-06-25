@@ -8,17 +8,8 @@
  * @fileoverview Generator for unique element IDs.
  */
 
-goog.provide('goog.ui.IdGenerator');
-
-
-
-/**
- * Creates a new id generator.
- * @constructor
- * @final
- */
-goog.ui.IdGenerator = function() {};
-goog.addSingletonGetter(goog.ui.IdGenerator);
+IdGenerator = function() {};
+goog.addSingletonGetter(IdGenerator);
 
 
 /**
@@ -26,7 +17,7 @@ goog.addSingletonGetter(goog.ui.IdGenerator);
  * @type {number}
  * @private
  */
-goog.ui.IdGenerator.prototype.nextId_ = 0;
+IdGenerator.prototype.nextId_ = 0;
 
 
 /**
@@ -35,7 +26,7 @@ goog.ui.IdGenerator.prototype.nextId_ = 0;
  * @type {string}
  * @private
  */
-goog.ui.IdGenerator.prototype.idPrefix_ = '';
+IdGenerator.prototype.idPrefix_ = '';
 
 
 /**
@@ -45,9 +36,8 @@ goog.ui.IdGenerator.prototype.idPrefix_ = '';
  * a randomly generated string.
  * @param {string} idPrefix
  */
-goog.ui.IdGenerator.prototype.setIdPrefix = function(idPrefix) {
-  'use strict';
-  this.idPrefix_ = idPrefix;
+IdGenerator.prototype.setIdPrefix = function(idPrefix) {
+ this.idPrefix_ = idPrefix;
 };
 
 
@@ -55,7 +45,7 @@ goog.ui.IdGenerator.prototype.setIdPrefix = function(idPrefix) {
  * Gets the next unique ID.
  * @return {string} The next unique identifier.
  */
-goog.ui.IdGenerator.prototype.getNextUniqueId = function() {
-  'use strict';
-  return this.idPrefix_ + ':' + (this.nextId_++).toString(36);
+IdGenerator.prototype.getNextUniqueId = function() {
+ return this.idPrefix_ + ':' + (this.nextId_++).toString(36);
 };
+export var IdGenerator;

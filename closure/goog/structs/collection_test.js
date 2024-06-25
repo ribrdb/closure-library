@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.CollectionTest');
 goog.setTestOnly();
 
-const AvlTree = goog.require('goog.structs.AvlTree');
-const StructsSet = goog.require('goog.structs.Set');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AvlTree } from './avltree.js';
+import { Set as StructsSet } from './set.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Simple exercise of a collection object.
 function exerciseCollection(collection) {

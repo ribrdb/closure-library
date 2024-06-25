@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ColorMenuButtonTest');
 goog.setTestOnly();
 
-const ColorMenuButton = goog.require('goog.ui.ColorMenuButton');
-const ColorMenuButtonRenderer = goog.require('goog.ui.ColorMenuButtonRenderer');
-const RendererHarness = goog.require('goog.testing.ui.RendererHarness');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { ColorMenuButton } from './colormenubutton.js';
+import { ColorMenuButtonRenderer } from './colormenubuttonrenderer.js';
+import { RendererHarness } from '../testing/ui/rendererharness.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let harness;
 

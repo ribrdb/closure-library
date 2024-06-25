@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for Const. */
 
-goog.module('goog.string.constTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Const } from './const.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testConst() {

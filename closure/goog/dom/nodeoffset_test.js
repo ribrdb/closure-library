@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.NodeOffsetTest');
 goog.setTestOnly();
 
-const NodeOffset = goog.require('goog.dom.NodeOffset');
-const NodeType = goog.require('goog.dom.NodeType');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { NodeOffset } from './nodeoffset.js';
+import { NodeType } from './nodetype.js';
+import { TagName } from './tagname.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let test1;
 let test2;

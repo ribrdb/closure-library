@@ -4,9 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.dom.asserts');
-
-goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 /**
  * @fileoverview Custom assertions to ensure that an element has the appropriate
@@ -52,20 +50,19 @@ goog.require('goog.asserts');
  * @param {?Object} o The object whose type to assert.
  * @return {!Location}
  */
-goog.dom.asserts.assertIsLocation = function(o) {
-  'use strict';
-  if (goog.asserts.ENABLE_ASSERTS) {
-    var win = goog.dom.asserts.getWindow_(o);
+export function assertIsLocation(o) {
+  if (asserts.ENABLE_ASSERTS) {
+    var win = getWindow_(o);
     if (win) {
       if (!o || (!(o instanceof win.Location) && o instanceof win.Element)) {
-        goog.asserts.fail(
+        asserts.fail(
             'Argument is not a Location (or a non-Element mock); got: %s',
-            goog.dom.asserts.debugStringForType_(o));
+            debugStringForType_(o));
       }
     }
   }
   return /** @type {!Location} */ (o);
-};
+}
 
 
 /**
@@ -75,8 +72,7 @@ goog.dom.asserts.assertIsLocation = function(o) {
  * @return {string} The best display name for the value.
  * @private
  */
-goog.dom.asserts.debugStringForType_ = function(value) {
-  'use strict';
+function debugStringForType_(value) {
   if (goog.isObject(value)) {
     try {
       return /** @type {string|undefined} */ (value.constructor.displayName) ||
@@ -88,7 +84,7 @@ goog.dom.asserts.debugStringForType_ = function(value) {
     return value === undefined ? 'undefined' :
                                  value === null ? 'null' : typeof value;
   }
-};
+}
 
 /**
  * Gets window of element.
@@ -97,8 +93,7 @@ goog.dom.asserts.debugStringForType_ = function(value) {
  * @private
  * @suppress {strictMissingProperties} ownerDocument not defined on Object
  */
-goog.dom.asserts.getWindow_ = function(o) {
-  'use strict';
+function getWindow_(o) {
   try {
     var doc = o && o.ownerDocument;
     // This can throw “Blocked a frame with origin "chrome-extension://..." from
@@ -114,4 +109,4 @@ goog.dom.asserts.getWindow_ = function(o) {
   } catch (ex) {
   }
   return null;
-};
+}

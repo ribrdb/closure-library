@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.PseudoRandomTest');
 goog.setTestOnly();
 
-const PseudoRandom = goog.require('goog.testing.PseudoRandom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PseudoRandom } from './pseudorandom.js';
+import { testSuite } from './testsuite.js';
 
 function runFairnessTest(sides, rolls, chiSquareLimit) {
   // Initialize the count table for dice rolls.

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.XhrIoPoolTest');
 goog.setTestOnly();
 
-const StructsMap = goog.require('goog.structs.Map');
-const XhrIoPool = goog.require('goog.net.XhrIoPool');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Map as StructsMap } from '../structs/map.js';
+import { XhrIoPool } from './xhriopool.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const headers = new StructsMap();
 headers.set('X-Foo', 'Bar');

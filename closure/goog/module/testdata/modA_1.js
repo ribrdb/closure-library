@@ -9,14 +9,11 @@
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 
-goog.provide('goog.module.testdata.modA_1');
-
-
 goog.setTestOnly('goog.module.testdata.modA_1');
 
-goog.require('goog.testing.asserts');
+import * as asserts from '../../testing/asserts.js';
 
 if (window.modA1Loaded) {
-  goog.testing.asserts.fail('modA_1 loaded twice');
+  asserts.fail('modA_1 loaded twice');
 }
 window.modA1Loaded = true;

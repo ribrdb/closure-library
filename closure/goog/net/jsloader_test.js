@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.jsloaderTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const ErrorCode = goog.require('goog.net.jsloader.ErrorCode');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const jsloader = goog.require('goog.net.jsloader');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Const } from '../string/const.js';
+import * as jsloader from './jsloader.js';
+import { ErrorCode } from './jsloader.js';
+import { TagName } from '../dom/tagname.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as dom from '../dom/dom.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Sunny day scenario for load function.
 

@@ -8,11 +8,10 @@
  * @fileoverview Class that can be used to determine when multiple iframes have
  * been loaded. Refactored from static APIs in IframeLoadMonitor.
  */
-goog.provide('goog.net.MultiIframeLoadMonitor');
+import * as events from '../events/events.js';
 
-goog.require('goog.events');
-goog.require('goog.net.IframeLoadMonitor');
-goog.requireType('goog.events.Event');
+import { IframeLoadMonitor } from './iframeloadmonitor.js';
+goog.requireType('goog.events.event');
 
 
 
@@ -29,14 +28,13 @@ goog.requireType('goog.events.Event');
  * @constructor
  * @final
  */
-goog.net.MultiIframeLoadMonitor = function(iframes, callback, opt_hasContent) {
-  'use strict';
+export function MultiIframeLoadMonitor(iframes, callback, opt_hasContent) {
   /**
-   * Array of IframeLoadMonitors we use to track the loaded status of any
-   * currently unloaded iframes.
-   * @type {Array<goog.net.IframeLoadMonitor>}
-   * @private
-   */
+     * Array of IframeLoadMonitors we use to track the loaded status of any
+     * currently unloaded iframes.
+     * @type {Array<IframeLoadMonitor>}
+     * @private
+     */
   this.pendingIframeLoadMonitors_ = [];
 
   /**
@@ -48,7 +46,7 @@ goog.net.MultiIframeLoadMonitor = function(iframes, callback, opt_hasContent) {
 
   for (let i = 0; i < iframes.length; i++) {
     const iframeLoadMonitor =
-        new goog.net.IframeLoadMonitor(iframes[i], opt_hasContent);
+        new IframeLoadMonitor(iframes[i], opt_hasContent);
     if (iframeLoadMonitor.isLoaded()) {
       // Already loaded - don't need to wait
       iframeLoadMonitor.dispose();
@@ -57,24 +55,23 @@ goog.net.MultiIframeLoadMonitor = function(iframes, callback, opt_hasContent) {
       // loaded, and track this monitor so we can dispose later as
       // required.
       this.pendingIframeLoadMonitors_.push(iframeLoadMonitor);
-      goog.events.listen(
-          iframeLoadMonitor, goog.net.IframeLoadMonitor.LOAD_EVENT, this);
+      events.listen(
+          iframeLoadMonitor, IframeLoadMonitor.LOAD_EVENT, this);
     }
   }
   if (!this.pendingIframeLoadMonitors_.length) {
     // All frames were already loaded
     this.callback_();
   }
-};
+}
 
 
 /**
  * Handles a pending iframe load monitor load event.
- * @param {goog.events.Event} e The goog.net.IframeLoadMonitor.LOAD_EVENT event.
+ * @param {events.Event} e The IframeLoadMonitor.LOAD_EVENT event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.net.MultiIframeLoadMonitor.prototype.handleEvent = function(e) {
-  'use strict';
+MultiIframeLoadMonitor.prototype.handleEvent = function(e) {
   const iframeLoadMonitor = e.target;
   // iframeLoadMonitor is now loaded, remove it from the array of
   // pending iframe load monitors.
@@ -105,8 +102,7 @@ goog.net.MultiIframeLoadMonitor.prototype.handleEvent = function(e) {
  * monitoring before the iframes are loaded (for example, if the caller is
  * implementing a timeout).
  */
-goog.net.MultiIframeLoadMonitor.prototype.stopMonitoring = function() {
-  'use strict';
+MultiIframeLoadMonitor.prototype.stopMonitoring = function() {
   for (let i = 0; i < this.pendingIframeLoadMonitors_.length; i++) {
     this.pendingIframeLoadMonitors_[i].dispose();
   }

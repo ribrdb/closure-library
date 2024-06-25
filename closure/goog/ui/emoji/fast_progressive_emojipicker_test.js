@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.emoji.FastProgressiveEmojiPickerTest');
 goog.setTestOnly();
 
-const Emoji = goog.require('goog.ui.emoji.Emoji');
-const EmojiPicker = goog.require('goog.ui.emoji.EmojiPicker');
-const EventType = goog.require('goog.events.EventType');
-const GoogPromise = goog.require('goog.Promise');
-const NetEventType = goog.require('goog.net.EventType');
-const SpriteInfo = goog.require('goog.ui.emoji.SpriteInfo');
-const classlist = goog.require('goog.dom.classlist');
-const events = goog.require('goog.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Emoji } from './emoji.js';
+import { EmojiPicker } from './emojipicker.js';
+import { EventType } from '../../events/eventtype.js';
+import { Promise as GoogPromise } from '../../promise/promise.js';
+import { EventType as NetEventType } from '../../net/eventtype.js';
+import { SpriteInfo } from './spriteinfo.js';
+import * as classlist from '../../dom/classlist.js';
+import * as events from '../../events/events.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let images;
 let picker;

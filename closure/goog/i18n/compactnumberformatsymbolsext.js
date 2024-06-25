@@ -12,740 +12,31 @@
  * "compactnumberformatsymbols.js".
  *
  * @suppress {const,missingRequire,useOfGoogProvide} Suppress "missing require"
- *     warnings for names like goog.i18n.CompactNumberFormatSymbols_af.
- *     They are included by requiring goog.i18n.CompactNumberFormatSymbols.
+ *     warnings for names like CompactNumberFormatSymbols_af.
+ *     They are included by requiring CompactNumberFormatSymbols.
  */
 
 // clang-format off
 
-goog.provide('goog.i18n.CompactNumberFormatSymbolsExt');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_af_NA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_af_ZA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_agq');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_agq_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ak');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ak_GH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_am_ET');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_001');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_AE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_BH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_DJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_EH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_ER');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_IL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_IQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_JO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_KM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_KW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_LB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_LY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_MA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_MR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_OM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_PS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_QA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_SA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_SD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_SO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_SS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_SY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_TD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_TN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_XB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ar_YE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_as');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_as_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_asa');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_asa_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ast');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ast_ES');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_az_Cyrl');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_az_Cyrl_AZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_az_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_az_Latn_AZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bas');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bas_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_be_BY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bem');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bem_ZM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bez');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bez_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bg_BG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bgc');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bgc_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bho');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bho_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bm');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bm_ML');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bn_BD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bn_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bo_CN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bo_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_br_FR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_brx');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_brx_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bs_Cyrl');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bs_Cyrl_BA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bs_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_bs_Latn_BA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ca_AD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ca_ES');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ca_FR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ca_IT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ccp');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ccp_BD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ccp_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ce');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ce_RU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ceb');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ceb_PH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_cgg');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_cgg_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_chr_US');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ckb');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ckb_Arab');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ckb_Arab_IQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ckb_Arab_IR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ckb_IQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ckb_IR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_cs_CZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_cv');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_cv_RU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_cy_GB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_da_DK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_da_GL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dav');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dav_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_de_BE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_de_DE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_de_IT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_de_LI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_de_LU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dje');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dje_NE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_doi');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_doi_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dsb');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dsb_DE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dua');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dua_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dyo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dyo_SN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dz');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_dz_BT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ebu');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ebu_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ee');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ee_GH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ee_TG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_el_CY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_el_GR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_001');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_150');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_AE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_AG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_AI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_AS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_AT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_BZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_CC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_CK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_CX');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_CY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_DE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_DG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_DK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_DM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_ER');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_FI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_FJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_FK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_FM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_GY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_HK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_IL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_IM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_IO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_JE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_JM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_KI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_KN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_KY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_LC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_LR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_LS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MP');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MV');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_MY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_NZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_PG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_PH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_PK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_PN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_PR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_PW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_RW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SX');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_SZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_TC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_TK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_TO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_TT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_TV');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_UM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_US_POSIX');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_VC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_VG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_VI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_VU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_WS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_XA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_ZM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_en_ZW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_eo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_eo_001');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_AR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_BO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_BR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_BZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_CL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_CO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_CR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_CU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_DO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_EA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_EC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_GQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_GT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_HN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_IC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_NI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_PA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_PE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_PH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_PR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_PY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_SV');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_UY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_es_VE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_et_EE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_eu_ES');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ewo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ewo_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fa_AF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fa_IR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_BF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_LR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_MR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_BF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_GH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_GM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_GN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_GW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_LR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_MR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_NE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_SL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ff_Latn_SN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fi_FI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fil_PH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fo_DK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fo_FO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_BE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_BF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_BI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_BJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_BL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_CD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_CF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_CG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_CI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_DJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_DZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_FR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_GA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_GF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_GN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_GP');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_GQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_HT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_KM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_LU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_ML');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_MU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_NC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_NE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_PF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_PM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_RE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_RW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_SC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_SN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_SY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_TD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_TG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_TN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_VU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_WF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fr_YT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fur');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fur_IT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fy');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_fy_NL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ga_GB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ga_IE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gd');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gd_GB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gl_ES');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gsw_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gsw_FR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gsw_LI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gu_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_guz');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_guz_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gv');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_gv_IM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ha');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ha_GH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ha_NE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ha_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_haw_US');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_he_IL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hi_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hi_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hi_Latn_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hr_BA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hr_HR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hsb');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hsb_DE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hu_HU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_hy_AM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ia');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ia_001');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_id_ID');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ig');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ig_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ii');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ii_CN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_is_IS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_it_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_it_IT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_it_SM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_it_VA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ja_JP');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_jgo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_jgo_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_jmc');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_jmc_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_jv');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_jv_ID');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ka_GE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kab');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kab_DZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kam');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kam_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kde');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kde_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kea');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kea_CV');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kgp');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kgp_BR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_khq');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_khq_ML');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ki');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ki_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kk_KZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kkj');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kkj_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kl');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kl_GL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kln');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kln_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_km_KH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kn_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ko_KP');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ko_KR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kok');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kok_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ks');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ks_Arab');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ks_Arab_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ks_Deva');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ks_Deva_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ksb');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ksb_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ksf');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ksf_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ksh');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ksh_DE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ku');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ku_TR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kw');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_kw_GB');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ky_KG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lag');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lag_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lb');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lb_LU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lg');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lg_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lkt');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lkt_US');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ln_AO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ln_CD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ln_CF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ln_CG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lo_LA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lrc');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lrc_IQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lrc_IR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lt_LT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lu');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lu_CD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_luo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_luo_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_luy');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_luy_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_lv_LV');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mai');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mai_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mas');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mas_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mas_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mer');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mer_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mfe');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mfe_MU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mg');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mg_MG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mgh');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mgh_MZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mgo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mgo_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mi');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mi_NZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mk_MK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ml_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mn_MN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mni');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mni_Beng');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mni_Beng_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mr_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ms_BN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ms_ID');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ms_MY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ms_SG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mt_MT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mua');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mua_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_my_MM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mzn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_mzn_IR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_naq');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_naq_NA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nb_NO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nb_SJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nd');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nd_ZW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ne_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ne_NP');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_AW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_BE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_BQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_CW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_NL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_SR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nl_SX');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nmg');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nmg_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nn_NO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nnh');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nnh_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nus');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nus_SS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nyn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_nyn_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_om');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_om_ET');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_om_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_or_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_os');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_os_GE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_os_RU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pa_Arab');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pa_Arab_PK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pa_Guru');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pa_Guru_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pcm');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pcm_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pl_PL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ps');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ps_AF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ps_PK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_AO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_CV');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_GQ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_GW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_LU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_MO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_MZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_ST');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_pt_TL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_qu');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_qu_BO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_qu_EC');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_qu_PE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_raj');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_raj_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rm');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rm_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rn_BI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ro_MD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ro_RO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rof');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rof_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ru_BY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ru_KG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ru_KZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ru_MD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ru_RU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ru_UA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rw');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rw_RW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rwk');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_rwk_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sa');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sa_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sah');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sah_RU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_saq');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_saq_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sat');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sat_Olck');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sat_Olck_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sbp');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sbp_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sc');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sc_IT');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sd');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sd_Arab');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sd_Arab_PK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sd_Deva');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sd_Deva_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_se');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_se_FI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_se_NO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_se_SE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_seh');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_seh_MZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ses');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ses_ML');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sg');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sg_CF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_shi');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_shi_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_shi_Latn_MA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_shi_Tfng');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_shi_Tfng_MA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_si_LK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sk_SK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sl_SI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_smn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_smn_FI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sn_ZW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_so');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_so_DJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_so_ET');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_so_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_so_SO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sq_AL');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sq_MK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sq_XK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Cyrl');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_BA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_ME');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_RS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_XK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Latn_BA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Latn_ME');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Latn_RS');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sr_Latn_XK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_su');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_su_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_su_Latn_ID');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sv_AX');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sv_FI');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sv_SE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sw_CD');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sw_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sw_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_sw_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ta_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ta_LK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ta_MY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ta_SG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_te_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_teo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_teo_KE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_teo_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tg');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tg_TJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_th_TH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ti');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ti_ER');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ti_ET');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tk');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tk_TM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_to');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_to_TO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tr_CY');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tr_TR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tt');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tt_RU');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_twq');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_twq_NE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tzm');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_tzm_MA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ug');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ug_CN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uk_UA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ur_IN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_ur_PK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uz_Arab');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uz_Arab_AF');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uz_Cyrl');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uz_Cyrl_UZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uz_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_uz_Latn_UZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vai');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vai_Latn');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vai_Latn_LR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vai_Vaii');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vai_Vaii_LR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vi_VN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vun');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_vun_TZ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_wae');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_wae_CH');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_wo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_wo_SN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_xh');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_xh_ZA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_xog');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_xog_UG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yav');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yav_CM');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yi');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yi_001');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yo');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yo_BJ');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yo_NG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yrl');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yrl_BR');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yrl_CO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yrl_VE');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yue');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yue_Hans');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yue_Hans_CN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yue_Hant');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_yue_Hant_HK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zgh');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zgh_MA');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hans');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hans_CN');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hans_HK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hans_MO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hans_SG');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hant');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hant_HK');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hant_MO');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zh_Hant_TW');
-goog.provide('goog.i18n.CompactNumberFormatSymbols_zu_ZA');
-goog.require('goog.i18n.CompactNumberFormatSymbols');
+import { CompactNumberFormatSymbols } from './compactnumberformatsymbols.js';
 
 
 /**
  * Compact number formatting symbols for locale af_NA.
  */
-goog.i18n.CompactNumberFormatSymbols_af_NA = goog.i18n.CompactNumberFormatSymbols_af;
+CompactNumberFormatSymbols_af_NA = goog.i18n.CompactNumberFormatSymbols_af;
 
 
 /**
  * Compact number formatting symbols for locale af_ZA.
  */
-goog.i18n.CompactNumberFormatSymbols_af_ZA = goog.i18n.CompactNumberFormatSymbols_af;
+CompactNumberFormatSymbols_af_ZA = goog.i18n.CompactNumberFormatSymbols_af;
 
 
 /**
  * Compact number formatting symbols for locale agq.
  */
-goog.i18n.CompactNumberFormatSymbols_agq = {
+CompactNumberFormatSymbols_agq = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -790,13 +81,13 @@ goog.i18n.CompactNumberFormatSymbols_agq = {
 /**
  * Compact number formatting symbols for locale agq_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_agq_CM = goog.i18n.CompactNumberFormatSymbols_agq;
+CompactNumberFormatSymbols_agq_CM = CompactNumberFormatSymbols_agq;
 
 
 /**
  * Compact number formatting symbols for locale ak.
  */
-goog.i18n.CompactNumberFormatSymbols_ak = {
+CompactNumberFormatSymbols_ak = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -841,181 +132,181 @@ goog.i18n.CompactNumberFormatSymbols_ak = {
 /**
  * Compact number formatting symbols for locale ak_GH.
  */
-goog.i18n.CompactNumberFormatSymbols_ak_GH = goog.i18n.CompactNumberFormatSymbols_ak;
+CompactNumberFormatSymbols_ak_GH = CompactNumberFormatSymbols_ak;
 
 
 /**
  * Compact number formatting symbols for locale am_ET.
  */
-goog.i18n.CompactNumberFormatSymbols_am_ET = goog.i18n.CompactNumberFormatSymbols_am;
+CompactNumberFormatSymbols_am_ET = goog.i18n.CompactNumberFormatSymbols_am;
 
 
 /**
  * Compact number formatting symbols for locale ar_001.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_001 = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_001 = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_AE.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_AE = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_AE = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_BH.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_BH = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_BH = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_DJ.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_DJ = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_DJ = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_EH.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_EH = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_EH = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_ER.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_ER = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_ER = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_IL.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_IL = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_IL = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_IQ.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_IQ = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_IQ = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_JO.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_JO = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_JO = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_KM.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_KM = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_KM = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_KW.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_KW = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_KW = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_LB.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_LB = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_LB = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_LY.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_LY = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_LY = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_MA.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_MA = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_MA = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_MR.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_MR = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_MR = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_OM.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_OM = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_OM = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_PS.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_PS = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_PS = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_QA.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_QA = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_QA = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SA.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_SA = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SA = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SD.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_SD = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SD = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SO.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_SO = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SO = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SS.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_SS = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SS = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SY.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_SY = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SY = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_TD.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_TD = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_TD = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_TN.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_TN = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_TN = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_XB.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_XB = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_XB = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_YE.
  */
-goog.i18n.CompactNumberFormatSymbols_ar_YE = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_YE = goog.i18n.CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale as.
  */
-goog.i18n.CompactNumberFormatSymbols_as = {
+CompactNumberFormatSymbols_as = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 হাজাৰ'
@@ -1098,13 +389,13 @@ goog.i18n.CompactNumberFormatSymbols_as = {
 /**
  * Compact number formatting symbols for locale as_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_as_IN = goog.i18n.CompactNumberFormatSymbols_as;
+CompactNumberFormatSymbols_as_IN = CompactNumberFormatSymbols_as;
 
 
 /**
  * Compact number formatting symbols for locale asa.
  */
-goog.i18n.CompactNumberFormatSymbols_asa = {
+CompactNumberFormatSymbols_asa = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1149,13 +440,13 @@ goog.i18n.CompactNumberFormatSymbols_asa = {
 /**
  * Compact number formatting symbols for locale asa_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_asa_TZ = goog.i18n.CompactNumberFormatSymbols_asa;
+CompactNumberFormatSymbols_asa_TZ = CompactNumberFormatSymbols_asa;
 
 
 /**
  * Compact number formatting symbols for locale ast.
  */
-goog.i18n.CompactNumberFormatSymbols_ast = {
+CompactNumberFormatSymbols_ast = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1238,13 +529,13 @@ goog.i18n.CompactNumberFormatSymbols_ast = {
 /**
  * Compact number formatting symbols for locale ast_ES.
  */
-goog.i18n.CompactNumberFormatSymbols_ast_ES = goog.i18n.CompactNumberFormatSymbols_ast;
+CompactNumberFormatSymbols_ast_ES = CompactNumberFormatSymbols_ast;
 
 
 /**
  * Compact number formatting symbols for locale az_Cyrl.
  */
-goog.i18n.CompactNumberFormatSymbols_az_Cyrl = {
+CompactNumberFormatSymbols_az_Cyrl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1289,7 +580,7 @@ goog.i18n.CompactNumberFormatSymbols_az_Cyrl = {
 /**
  * Compact number formatting symbols for locale az_Cyrl_AZ.
  */
-goog.i18n.CompactNumberFormatSymbols_az_Cyrl_AZ = {
+CompactNumberFormatSymbols_az_Cyrl_AZ = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1334,19 +625,19 @@ goog.i18n.CompactNumberFormatSymbols_az_Cyrl_AZ = {
 /**
  * Compact number formatting symbols for locale az_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_az_Latn = goog.i18n.CompactNumberFormatSymbols_az;
+CompactNumberFormatSymbols_az_Latn = goog.i18n.CompactNumberFormatSymbols_az;
 
 
 /**
  * Compact number formatting symbols for locale az_Latn_AZ.
  */
-goog.i18n.CompactNumberFormatSymbols_az_Latn_AZ = goog.i18n.CompactNumberFormatSymbols_az;
+CompactNumberFormatSymbols_az_Latn_AZ = goog.i18n.CompactNumberFormatSymbols_az;
 
 
 /**
  * Compact number formatting symbols for locale bas.
  */
-goog.i18n.CompactNumberFormatSymbols_bas = {
+CompactNumberFormatSymbols_bas = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1391,19 +682,19 @@ goog.i18n.CompactNumberFormatSymbols_bas = {
 /**
  * Compact number formatting symbols for locale bas_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_bas_CM = goog.i18n.CompactNumberFormatSymbols_bas;
+CompactNumberFormatSymbols_bas_CM = CompactNumberFormatSymbols_bas;
 
 
 /**
  * Compact number formatting symbols for locale be_BY.
  */
-goog.i18n.CompactNumberFormatSymbols_be_BY = goog.i18n.CompactNumberFormatSymbols_be;
+CompactNumberFormatSymbols_be_BY = goog.i18n.CompactNumberFormatSymbols_be;
 
 
 /**
  * Compact number formatting symbols for locale bem.
  */
-goog.i18n.CompactNumberFormatSymbols_bem = {
+CompactNumberFormatSymbols_bem = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1448,13 +739,13 @@ goog.i18n.CompactNumberFormatSymbols_bem = {
 /**
  * Compact number formatting symbols for locale bem_ZM.
  */
-goog.i18n.CompactNumberFormatSymbols_bem_ZM = goog.i18n.CompactNumberFormatSymbols_bem;
+CompactNumberFormatSymbols_bem_ZM = CompactNumberFormatSymbols_bem;
 
 
 /**
  * Compact number formatting symbols for locale bez.
  */
-goog.i18n.CompactNumberFormatSymbols_bez = {
+CompactNumberFormatSymbols_bez = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1499,19 +790,19 @@ goog.i18n.CompactNumberFormatSymbols_bez = {
 /**
  * Compact number formatting symbols for locale bez_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_bez_TZ = goog.i18n.CompactNumberFormatSymbols_bez;
+CompactNumberFormatSymbols_bez_TZ = CompactNumberFormatSymbols_bez;
 
 
 /**
  * Compact number formatting symbols for locale bg_BG.
  */
-goog.i18n.CompactNumberFormatSymbols_bg_BG = goog.i18n.CompactNumberFormatSymbols_bg;
+CompactNumberFormatSymbols_bg_BG = goog.i18n.CompactNumberFormatSymbols_bg;
 
 
 /**
  * Compact number formatting symbols for locale bgc.
  */
-goog.i18n.CompactNumberFormatSymbols_bgc = {
+CompactNumberFormatSymbols_bgc = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1556,13 +847,13 @@ goog.i18n.CompactNumberFormatSymbols_bgc = {
 /**
  * Compact number formatting symbols for locale bgc_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_bgc_IN = goog.i18n.CompactNumberFormatSymbols_bgc;
+CompactNumberFormatSymbols_bgc_IN = CompactNumberFormatSymbols_bgc;
 
 
 /**
  * Compact number formatting symbols for locale bho.
  */
-goog.i18n.CompactNumberFormatSymbols_bho = {
+CompactNumberFormatSymbols_bho = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1607,13 +898,13 @@ goog.i18n.CompactNumberFormatSymbols_bho = {
 /**
  * Compact number formatting symbols for locale bho_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_bho_IN = goog.i18n.CompactNumberFormatSymbols_bho;
+CompactNumberFormatSymbols_bho_IN = CompactNumberFormatSymbols_bho;
 
 
 /**
  * Compact number formatting symbols for locale bm.
  */
-goog.i18n.CompactNumberFormatSymbols_bm = {
+CompactNumberFormatSymbols_bm = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1658,25 +949,25 @@ goog.i18n.CompactNumberFormatSymbols_bm = {
 /**
  * Compact number formatting symbols for locale bm_ML.
  */
-goog.i18n.CompactNumberFormatSymbols_bm_ML = goog.i18n.CompactNumberFormatSymbols_bm;
+CompactNumberFormatSymbols_bm_ML = CompactNumberFormatSymbols_bm;
 
 
 /**
  * Compact number formatting symbols for locale bn_BD.
  */
-goog.i18n.CompactNumberFormatSymbols_bn_BD = goog.i18n.CompactNumberFormatSymbols_bn;
+CompactNumberFormatSymbols_bn_BD = goog.i18n.CompactNumberFormatSymbols_bn;
 
 
 /**
  * Compact number formatting symbols for locale bn_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_bn_IN = goog.i18n.CompactNumberFormatSymbols_bn;
+CompactNumberFormatSymbols_bn_IN = goog.i18n.CompactNumberFormatSymbols_bn;
 
 
 /**
  * Compact number formatting symbols for locale bo.
  */
-goog.i18n.CompactNumberFormatSymbols_bo = {
+CompactNumberFormatSymbols_bo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1721,25 +1012,25 @@ goog.i18n.CompactNumberFormatSymbols_bo = {
 /**
  * Compact number formatting symbols for locale bo_CN.
  */
-goog.i18n.CompactNumberFormatSymbols_bo_CN = goog.i18n.CompactNumberFormatSymbols_bo;
+CompactNumberFormatSymbols_bo_CN = CompactNumberFormatSymbols_bo;
 
 
 /**
  * Compact number formatting symbols for locale bo_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_bo_IN = goog.i18n.CompactNumberFormatSymbols_bo;
+CompactNumberFormatSymbols_bo_IN = CompactNumberFormatSymbols_bo;
 
 
 /**
  * Compact number formatting symbols for locale br_FR.
  */
-goog.i18n.CompactNumberFormatSymbols_br_FR = goog.i18n.CompactNumberFormatSymbols_br;
+CompactNumberFormatSymbols_br_FR = goog.i18n.CompactNumberFormatSymbols_br;
 
 
 /**
  * Compact number formatting symbols for locale brx.
  */
-goog.i18n.CompactNumberFormatSymbols_brx = {
+CompactNumberFormatSymbols_brx = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0के'
@@ -1822,13 +1113,13 @@ goog.i18n.CompactNumberFormatSymbols_brx = {
 /**
  * Compact number formatting symbols for locale brx_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_brx_IN = goog.i18n.CompactNumberFormatSymbols_brx;
+CompactNumberFormatSymbols_brx_IN = CompactNumberFormatSymbols_brx;
 
 
 /**
  * Compact number formatting symbols for locale bs_Cyrl.
  */
-goog.i18n.CompactNumberFormatSymbols_bs_Cyrl = {
+CompactNumberFormatSymbols_bs_Cyrl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -1911,7 +1202,7 @@ goog.i18n.CompactNumberFormatSymbols_bs_Cyrl = {
 /**
  * Compact number formatting symbols for locale bs_Cyrl_BA.
  */
-goog.i18n.CompactNumberFormatSymbols_bs_Cyrl_BA = {
+CompactNumberFormatSymbols_bs_Cyrl_BA = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -1994,43 +1285,43 @@ goog.i18n.CompactNumberFormatSymbols_bs_Cyrl_BA = {
 /**
  * Compact number formatting symbols for locale bs_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_bs_Latn = goog.i18n.CompactNumberFormatSymbols_bs;
+CompactNumberFormatSymbols_bs_Latn = goog.i18n.CompactNumberFormatSymbols_bs;
 
 
 /**
  * Compact number formatting symbols for locale bs_Latn_BA.
  */
-goog.i18n.CompactNumberFormatSymbols_bs_Latn_BA = goog.i18n.CompactNumberFormatSymbols_bs;
+CompactNumberFormatSymbols_bs_Latn_BA = goog.i18n.CompactNumberFormatSymbols_bs;
 
 
 /**
  * Compact number formatting symbols for locale ca_AD.
  */
-goog.i18n.CompactNumberFormatSymbols_ca_AD = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_AD = goog.i18n.CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ca_ES.
  */
-goog.i18n.CompactNumberFormatSymbols_ca_ES = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_ES = goog.i18n.CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ca_FR.
  */
-goog.i18n.CompactNumberFormatSymbols_ca_FR = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_FR = goog.i18n.CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ca_IT.
  */
-goog.i18n.CompactNumberFormatSymbols_ca_IT = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_IT = goog.i18n.CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ccp.
  */
-goog.i18n.CompactNumberFormatSymbols_ccp = {
+CompactNumberFormatSymbols_ccp = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000000000': {
       'other': '0G'
@@ -2048,19 +1339,19 @@ goog.i18n.CompactNumberFormatSymbols_ccp = {
 /**
  * Compact number formatting symbols for locale ccp_BD.
  */
-goog.i18n.CompactNumberFormatSymbols_ccp_BD = goog.i18n.CompactNumberFormatSymbols_ccp;
+CompactNumberFormatSymbols_ccp_BD = CompactNumberFormatSymbols_ccp;
 
 
 /**
  * Compact number formatting symbols for locale ccp_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ccp_IN = goog.i18n.CompactNumberFormatSymbols_ccp;
+CompactNumberFormatSymbols_ccp_IN = CompactNumberFormatSymbols_ccp;
 
 
 /**
  * Compact number formatting symbols for locale ce.
  */
-goog.i18n.CompactNumberFormatSymbols_ce = {
+CompactNumberFormatSymbols_ce = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 эзар'
@@ -2143,13 +1434,13 @@ goog.i18n.CompactNumberFormatSymbols_ce = {
 /**
  * Compact number formatting symbols for locale ce_RU.
  */
-goog.i18n.CompactNumberFormatSymbols_ce_RU = goog.i18n.CompactNumberFormatSymbols_ce;
+CompactNumberFormatSymbols_ce_RU = CompactNumberFormatSymbols_ce;
 
 
 /**
  * Compact number formatting symbols for locale ceb.
  */
-goog.i18n.CompactNumberFormatSymbols_ceb = {
+CompactNumberFormatSymbols_ceb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2194,13 +1485,13 @@ goog.i18n.CompactNumberFormatSymbols_ceb = {
 /**
  * Compact number formatting symbols for locale ceb_PH.
  */
-goog.i18n.CompactNumberFormatSymbols_ceb_PH = goog.i18n.CompactNumberFormatSymbols_ceb;
+CompactNumberFormatSymbols_ceb_PH = CompactNumberFormatSymbols_ceb;
 
 
 /**
  * Compact number formatting symbols for locale cgg.
  */
-goog.i18n.CompactNumberFormatSymbols_cgg = {
+CompactNumberFormatSymbols_cgg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2245,19 +1536,19 @@ goog.i18n.CompactNumberFormatSymbols_cgg = {
 /**
  * Compact number formatting symbols for locale cgg_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_cgg_UG = goog.i18n.CompactNumberFormatSymbols_cgg;
+CompactNumberFormatSymbols_cgg_UG = CompactNumberFormatSymbols_cgg;
 
 
 /**
  * Compact number formatting symbols for locale chr_US.
  */
-goog.i18n.CompactNumberFormatSymbols_chr_US = goog.i18n.CompactNumberFormatSymbols_chr;
+CompactNumberFormatSymbols_chr_US = goog.i18n.CompactNumberFormatSymbols_chr;
 
 
 /**
  * Compact number formatting symbols for locale ckb.
  */
-goog.i18n.CompactNumberFormatSymbols_ckb = {
+CompactNumberFormatSymbols_ckb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2302,43 +1593,43 @@ goog.i18n.CompactNumberFormatSymbols_ckb = {
 /**
  * Compact number formatting symbols for locale ckb_Arab.
  */
-goog.i18n.CompactNumberFormatSymbols_ckb_Arab = goog.i18n.CompactNumberFormatSymbols_ckb;
+CompactNumberFormatSymbols_ckb_Arab = CompactNumberFormatSymbols_ckb;
 
 
 /**
  * Compact number formatting symbols for locale ckb_Arab_IQ.
  */
-goog.i18n.CompactNumberFormatSymbols_ckb_Arab_IQ = goog.i18n.CompactNumberFormatSymbols_ckb;
+CompactNumberFormatSymbols_ckb_Arab_IQ = CompactNumberFormatSymbols_ckb;
 
 
 /**
  * Compact number formatting symbols for locale ckb_Arab_IR.
  */
-goog.i18n.CompactNumberFormatSymbols_ckb_Arab_IR = goog.i18n.CompactNumberFormatSymbols_ckb;
+CompactNumberFormatSymbols_ckb_Arab_IR = CompactNumberFormatSymbols_ckb;
 
 
 /**
  * Compact number formatting symbols for locale ckb_IQ.
  */
-goog.i18n.CompactNumberFormatSymbols_ckb_IQ = goog.i18n.CompactNumberFormatSymbols_ckb;
+CompactNumberFormatSymbols_ckb_IQ = CompactNumberFormatSymbols_ckb;
 
 
 /**
  * Compact number formatting symbols for locale ckb_IR.
  */
-goog.i18n.CompactNumberFormatSymbols_ckb_IR = goog.i18n.CompactNumberFormatSymbols_ckb;
+CompactNumberFormatSymbols_ckb_IR = CompactNumberFormatSymbols_ckb;
 
 
 /**
  * Compact number formatting symbols for locale cs_CZ.
  */
-goog.i18n.CompactNumberFormatSymbols_cs_CZ = goog.i18n.CompactNumberFormatSymbols_cs;
+CompactNumberFormatSymbols_cs_CZ = goog.i18n.CompactNumberFormatSymbols_cs;
 
 
 /**
  * Compact number formatting symbols for locale cv.
  */
-goog.i18n.CompactNumberFormatSymbols_cv = {
+CompactNumberFormatSymbols_cv = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2383,31 +1674,31 @@ goog.i18n.CompactNumberFormatSymbols_cv = {
 /**
  * Compact number formatting symbols for locale cv_RU.
  */
-goog.i18n.CompactNumberFormatSymbols_cv_RU = goog.i18n.CompactNumberFormatSymbols_cv;
+CompactNumberFormatSymbols_cv_RU = CompactNumberFormatSymbols_cv;
 
 
 /**
  * Compact number formatting symbols for locale cy_GB.
  */
-goog.i18n.CompactNumberFormatSymbols_cy_GB = goog.i18n.CompactNumberFormatSymbols_cy;
+CompactNumberFormatSymbols_cy_GB = goog.i18n.CompactNumberFormatSymbols_cy;
 
 
 /**
  * Compact number formatting symbols for locale da_DK.
  */
-goog.i18n.CompactNumberFormatSymbols_da_DK = goog.i18n.CompactNumberFormatSymbols_da;
+CompactNumberFormatSymbols_da_DK = goog.i18n.CompactNumberFormatSymbols_da;
 
 
 /**
  * Compact number formatting symbols for locale da_GL.
  */
-goog.i18n.CompactNumberFormatSymbols_da_GL = goog.i18n.CompactNumberFormatSymbols_da;
+CompactNumberFormatSymbols_da_GL = goog.i18n.CompactNumberFormatSymbols_da;
 
 
 /**
  * Compact number formatting symbols for locale dav.
  */
-goog.i18n.CompactNumberFormatSymbols_dav = {
+CompactNumberFormatSymbols_dav = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2452,43 +1743,43 @@ goog.i18n.CompactNumberFormatSymbols_dav = {
 /**
  * Compact number formatting symbols for locale dav_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_dav_KE = goog.i18n.CompactNumberFormatSymbols_dav;
+CompactNumberFormatSymbols_dav_KE = CompactNumberFormatSymbols_dav;
 
 
 /**
  * Compact number formatting symbols for locale de_BE.
  */
-goog.i18n.CompactNumberFormatSymbols_de_BE = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_BE = goog.i18n.CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_DE.
  */
-goog.i18n.CompactNumberFormatSymbols_de_DE = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_DE = goog.i18n.CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_IT.
  */
-goog.i18n.CompactNumberFormatSymbols_de_IT = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_IT = goog.i18n.CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_LI.
  */
-goog.i18n.CompactNumberFormatSymbols_de_LI = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_LI = goog.i18n.CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_LU.
  */
-goog.i18n.CompactNumberFormatSymbols_de_LU = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_LU = goog.i18n.CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale dje.
  */
-goog.i18n.CompactNumberFormatSymbols_dje = {
+CompactNumberFormatSymbols_dje = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2533,13 +1824,13 @@ goog.i18n.CompactNumberFormatSymbols_dje = {
 /**
  * Compact number formatting symbols for locale dje_NE.
  */
-goog.i18n.CompactNumberFormatSymbols_dje_NE = goog.i18n.CompactNumberFormatSymbols_dje;
+CompactNumberFormatSymbols_dje_NE = CompactNumberFormatSymbols_dje;
 
 
 /**
  * Compact number formatting symbols for locale doi.
  */
-goog.i18n.CompactNumberFormatSymbols_doi = {
+CompactNumberFormatSymbols_doi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2584,13 +1875,13 @@ goog.i18n.CompactNumberFormatSymbols_doi = {
 /**
  * Compact number formatting symbols for locale doi_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_doi_IN = goog.i18n.CompactNumberFormatSymbols_doi;
+CompactNumberFormatSymbols_doi_IN = CompactNumberFormatSymbols_doi;
 
 
 /**
  * Compact number formatting symbols for locale dsb.
  */
-goog.i18n.CompactNumberFormatSymbols_dsb = {
+CompactNumberFormatSymbols_dsb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tys.'
@@ -2673,13 +1964,13 @@ goog.i18n.CompactNumberFormatSymbols_dsb = {
 /**
  * Compact number formatting symbols for locale dsb_DE.
  */
-goog.i18n.CompactNumberFormatSymbols_dsb_DE = goog.i18n.CompactNumberFormatSymbols_dsb;
+CompactNumberFormatSymbols_dsb_DE = CompactNumberFormatSymbols_dsb;
 
 
 /**
  * Compact number formatting symbols for locale dua.
  */
-goog.i18n.CompactNumberFormatSymbols_dua = {
+CompactNumberFormatSymbols_dua = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2724,13 +2015,13 @@ goog.i18n.CompactNumberFormatSymbols_dua = {
 /**
  * Compact number formatting symbols for locale dua_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_dua_CM = goog.i18n.CompactNumberFormatSymbols_dua;
+CompactNumberFormatSymbols_dua_CM = CompactNumberFormatSymbols_dua;
 
 
 /**
  * Compact number formatting symbols for locale dyo.
  */
-goog.i18n.CompactNumberFormatSymbols_dyo = {
+CompactNumberFormatSymbols_dyo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2775,13 +2066,13 @@ goog.i18n.CompactNumberFormatSymbols_dyo = {
 /**
  * Compact number formatting symbols for locale dyo_SN.
  */
-goog.i18n.CompactNumberFormatSymbols_dyo_SN = goog.i18n.CompactNumberFormatSymbols_dyo;
+CompactNumberFormatSymbols_dyo_SN = CompactNumberFormatSymbols_dyo;
 
 
 /**
  * Compact number formatting symbols for locale dz.
  */
-goog.i18n.CompactNumberFormatSymbols_dz = {
+CompactNumberFormatSymbols_dz = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2864,13 +2155,13 @@ goog.i18n.CompactNumberFormatSymbols_dz = {
 /**
  * Compact number formatting symbols for locale dz_BT.
  */
-goog.i18n.CompactNumberFormatSymbols_dz_BT = goog.i18n.CompactNumberFormatSymbols_dz;
+CompactNumberFormatSymbols_dz_BT = CompactNumberFormatSymbols_dz;
 
 
 /**
  * Compact number formatting symbols for locale ebu.
  */
-goog.i18n.CompactNumberFormatSymbols_ebu = {
+CompactNumberFormatSymbols_ebu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2915,13 +2206,13 @@ goog.i18n.CompactNumberFormatSymbols_ebu = {
 /**
  * Compact number formatting symbols for locale ebu_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_ebu_KE = goog.i18n.CompactNumberFormatSymbols_ebu;
+CompactNumberFormatSymbols_ebu_KE = CompactNumberFormatSymbols_ebu;
 
 
 /**
  * Compact number formatting symbols for locale ee.
  */
-goog.i18n.CompactNumberFormatSymbols_ee = {
+CompactNumberFormatSymbols_ee = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -3004,631 +2295,631 @@ goog.i18n.CompactNumberFormatSymbols_ee = {
 /**
  * Compact number formatting symbols for locale ee_GH.
  */
-goog.i18n.CompactNumberFormatSymbols_ee_GH = goog.i18n.CompactNumberFormatSymbols_ee;
+CompactNumberFormatSymbols_ee_GH = CompactNumberFormatSymbols_ee;
 
 
 /**
  * Compact number formatting symbols for locale ee_TG.
  */
-goog.i18n.CompactNumberFormatSymbols_ee_TG = goog.i18n.CompactNumberFormatSymbols_ee;
+CompactNumberFormatSymbols_ee_TG = CompactNumberFormatSymbols_ee;
 
 
 /**
  * Compact number formatting symbols for locale el_CY.
  */
-goog.i18n.CompactNumberFormatSymbols_el_CY = goog.i18n.CompactNumberFormatSymbols_el;
+CompactNumberFormatSymbols_el_CY = goog.i18n.CompactNumberFormatSymbols_el;
 
 
 /**
  * Compact number formatting symbols for locale el_GR.
  */
-goog.i18n.CompactNumberFormatSymbols_el_GR = goog.i18n.CompactNumberFormatSymbols_el;
+CompactNumberFormatSymbols_el_GR = goog.i18n.CompactNumberFormatSymbols_el;
 
 
 /**
  * Compact number formatting symbols for locale en_001.
  */
-goog.i18n.CompactNumberFormatSymbols_en_001 = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_001 = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_150.
  */
-goog.i18n.CompactNumberFormatSymbols_en_150 = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_150 = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AE.
  */
-goog.i18n.CompactNumberFormatSymbols_en_AE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AE = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_AG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_AI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AS.
  */
-goog.i18n.CompactNumberFormatSymbols_en_AS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AS = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AT.
  */
-goog.i18n.CompactNumberFormatSymbols_en_AT = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AT = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BB.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BB = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BB = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BE.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BE = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BS.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BS = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BW.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BW = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BZ.
  */
-goog.i18n.CompactNumberFormatSymbols_en_BZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BZ = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CC.
  */
-goog.i18n.CompactNumberFormatSymbols_en_CC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CC = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_en_CH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CH = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CK.
  */
-goog.i18n.CompactNumberFormatSymbols_en_CK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CK = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_CM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CX.
  */
-goog.i18n.CompactNumberFormatSymbols_en_CX = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CX = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CY.
  */
-goog.i18n.CompactNumberFormatSymbols_en_CY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CY = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DE.
  */
-goog.i18n.CompactNumberFormatSymbols_en_DE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DE = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_DG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DK.
  */
-goog.i18n.CompactNumberFormatSymbols_en_DK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DK = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_DM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ER.
  */
-goog.i18n.CompactNumberFormatSymbols_en_ER = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_ER = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_FI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FJ.
  */
-goog.i18n.CompactNumberFormatSymbols_en_FJ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FJ = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FK.
  */
-goog.i18n.CompactNumberFormatSymbols_en_FK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FK = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_FM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GD.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GD = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GD = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GH.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GH = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GU.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GU = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GY.
  */
-goog.i18n.CompactNumberFormatSymbols_en_GY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GY = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_HK.
  */
-goog.i18n.CompactNumberFormatSymbols_en_HK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_HK = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IL.
  */
-goog.i18n.CompactNumberFormatSymbols_en_IL = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_IL = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_IM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_IM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IO.
  */
-goog.i18n.CompactNumberFormatSymbols_en_IO = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_IO = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_JE.
  */
-goog.i18n.CompactNumberFormatSymbols_en_JE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_JE = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_JM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_JM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_JM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_en_KE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KE = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_KI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KN.
  */
-goog.i18n.CompactNumberFormatSymbols_en_KN = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KN = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KY.
  */
-goog.i18n.CompactNumberFormatSymbols_en_KY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KY = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_LC.
  */
-goog.i18n.CompactNumberFormatSymbols_en_LC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_LC = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_LR.
  */
-goog.i18n.CompactNumberFormatSymbols_en_LR = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_LR = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_LS.
  */
-goog.i18n.CompactNumberFormatSymbols_en_LS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_LS = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MH.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MH = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MO.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MO = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MO = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MP.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MP = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MP = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MS.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MS = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MT.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MT = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MT = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MU.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MU = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MV.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MV = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MV = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MW.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MW = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MY.
  */
-goog.i18n.CompactNumberFormatSymbols_en_MY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MY = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NA.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NA = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NA = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NF.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NF = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NF = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NL.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NL = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NL = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NR.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NR = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NR = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NU.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NU = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NZ.
  */
-goog.i18n.CompactNumberFormatSymbols_en_NZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NZ = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_PG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PH.
  */
-goog.i18n.CompactNumberFormatSymbols_en_PH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PH = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PK.
  */
-goog.i18n.CompactNumberFormatSymbols_en_PK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PK = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PN.
  */
-goog.i18n.CompactNumberFormatSymbols_en_PN = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PN = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PR.
  */
-goog.i18n.CompactNumberFormatSymbols_en_PR = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PR = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PW.
  */
-goog.i18n.CompactNumberFormatSymbols_en_PW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PW = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_RW.
  */
-goog.i18n.CompactNumberFormatSymbols_en_RW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_RW = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SB.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SB = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SB = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SC.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SC = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SD.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SD = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SD = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SE.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SE = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SH.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SH = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SL.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SL = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SL = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SS.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SS = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SX.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SX = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SX = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SZ.
  */
-goog.i18n.CompactNumberFormatSymbols_en_SZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SZ = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TC.
  */
-goog.i18n.CompactNumberFormatSymbols_en_TC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TC = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TK.
  */
-goog.i18n.CompactNumberFormatSymbols_en_TK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TK = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TO.
  */
-goog.i18n.CompactNumberFormatSymbols_en_TO = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TO = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TT.
  */
-goog.i18n.CompactNumberFormatSymbols_en_TT = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TT = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TV.
  */
-goog.i18n.CompactNumberFormatSymbols_en_TV = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TV = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_en_TZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TZ = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_UG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_UG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_UM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_UM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_UM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_US_POSIX.
  */
-goog.i18n.CompactNumberFormatSymbols_en_US_POSIX = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_US_POSIX = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VC.
  */
-goog.i18n.CompactNumberFormatSymbols_en_VC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VC = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VG.
  */
-goog.i18n.CompactNumberFormatSymbols_en_VG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VG = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VI.
  */
-goog.i18n.CompactNumberFormatSymbols_en_VI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VI = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VU.
  */
-goog.i18n.CompactNumberFormatSymbols_en_VU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VU = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_WS.
  */
-goog.i18n.CompactNumberFormatSymbols_en_WS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_WS = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_XA.
  */
-goog.i18n.CompactNumberFormatSymbols_en_XA = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_XA = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ZM.
  */
-goog.i18n.CompactNumberFormatSymbols_en_ZM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_ZM = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ZW.
  */
-goog.i18n.CompactNumberFormatSymbols_en_ZW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_ZW = goog.i18n.CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale eo.
  */
-goog.i18n.CompactNumberFormatSymbols_eo = {
+CompactNumberFormatSymbols_eo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -3673,13 +2964,13 @@ goog.i18n.CompactNumberFormatSymbols_eo = {
 /**
  * Compact number formatting symbols for locale eo_001.
  */
-goog.i18n.CompactNumberFormatSymbols_eo_001 = goog.i18n.CompactNumberFormatSymbols_eo;
+CompactNumberFormatSymbols_eo_001 = CompactNumberFormatSymbols_eo;
 
 
 /**
  * Compact number formatting symbols for locale es_AR.
  */
-goog.i18n.CompactNumberFormatSymbols_es_AR = {
+CompactNumberFormatSymbols_es_AR = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -3762,7 +3053,7 @@ goog.i18n.CompactNumberFormatSymbols_es_AR = {
 /**
  * Compact number formatting symbols for locale es_BO.
  */
-goog.i18n.CompactNumberFormatSymbols_es_BO = {
+CompactNumberFormatSymbols_es_BO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -3845,7 +3136,7 @@ goog.i18n.CompactNumberFormatSymbols_es_BO = {
 /**
  * Compact number formatting symbols for locale es_BR.
  */
-goog.i18n.CompactNumberFormatSymbols_es_BR = {
+CompactNumberFormatSymbols_es_BR = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -3928,7 +3219,7 @@ goog.i18n.CompactNumberFormatSymbols_es_BR = {
 /**
  * Compact number formatting symbols for locale es_BZ.
  */
-goog.i18n.CompactNumberFormatSymbols_es_BZ = {
+CompactNumberFormatSymbols_es_BZ = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4011,7 +3302,7 @@ goog.i18n.CompactNumberFormatSymbols_es_BZ = {
 /**
  * Compact number formatting symbols for locale es_CL.
  */
-goog.i18n.CompactNumberFormatSymbols_es_CL = {
+CompactNumberFormatSymbols_es_CL = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4094,7 +3385,7 @@ goog.i18n.CompactNumberFormatSymbols_es_CL = {
 /**
  * Compact number formatting symbols for locale es_CO.
  */
-goog.i18n.CompactNumberFormatSymbols_es_CO = {
+CompactNumberFormatSymbols_es_CO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4177,7 +3468,7 @@ goog.i18n.CompactNumberFormatSymbols_es_CO = {
 /**
  * Compact number formatting symbols for locale es_CR.
  */
-goog.i18n.CompactNumberFormatSymbols_es_CR = {
+CompactNumberFormatSymbols_es_CR = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4260,7 +3551,7 @@ goog.i18n.CompactNumberFormatSymbols_es_CR = {
 /**
  * Compact number formatting symbols for locale es_CU.
  */
-goog.i18n.CompactNumberFormatSymbols_es_CU = {
+CompactNumberFormatSymbols_es_CU = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4343,7 +3634,7 @@ goog.i18n.CompactNumberFormatSymbols_es_CU = {
 /**
  * Compact number formatting symbols for locale es_DO.
  */
-goog.i18n.CompactNumberFormatSymbols_es_DO = {
+CompactNumberFormatSymbols_es_DO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4426,13 +3717,13 @@ goog.i18n.CompactNumberFormatSymbols_es_DO = {
 /**
  * Compact number formatting symbols for locale es_EA.
  */
-goog.i18n.CompactNumberFormatSymbols_es_EA = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_EA = goog.i18n.CompactNumberFormatSymbols_es;
 
 
 /**
  * Compact number formatting symbols for locale es_EC.
  */
-goog.i18n.CompactNumberFormatSymbols_es_EC = {
+CompactNumberFormatSymbols_es_EC = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4515,13 +3806,13 @@ goog.i18n.CompactNumberFormatSymbols_es_EC = {
 /**
  * Compact number formatting symbols for locale es_GQ.
  */
-goog.i18n.CompactNumberFormatSymbols_es_GQ = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_GQ = goog.i18n.CompactNumberFormatSymbols_es;
 
 
 /**
  * Compact number formatting symbols for locale es_GT.
  */
-goog.i18n.CompactNumberFormatSymbols_es_GT = {
+CompactNumberFormatSymbols_es_GT = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4604,7 +3895,7 @@ goog.i18n.CompactNumberFormatSymbols_es_GT = {
 /**
  * Compact number formatting symbols for locale es_HN.
  */
-goog.i18n.CompactNumberFormatSymbols_es_HN = {
+CompactNumberFormatSymbols_es_HN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4687,13 +3978,13 @@ goog.i18n.CompactNumberFormatSymbols_es_HN = {
 /**
  * Compact number formatting symbols for locale es_IC.
  */
-goog.i18n.CompactNumberFormatSymbols_es_IC = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_IC = goog.i18n.CompactNumberFormatSymbols_es;
 
 
 /**
  * Compact number formatting symbols for locale es_NI.
  */
-goog.i18n.CompactNumberFormatSymbols_es_NI = {
+CompactNumberFormatSymbols_es_NI = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4776,7 +4067,7 @@ goog.i18n.CompactNumberFormatSymbols_es_NI = {
 /**
  * Compact number formatting symbols for locale es_PA.
  */
-goog.i18n.CompactNumberFormatSymbols_es_PA = {
+CompactNumberFormatSymbols_es_PA = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4859,7 +4150,7 @@ goog.i18n.CompactNumberFormatSymbols_es_PA = {
 /**
  * Compact number formatting symbols for locale es_PE.
  */
-goog.i18n.CompactNumberFormatSymbols_es_PE = {
+CompactNumberFormatSymbols_es_PE = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4942,13 +4233,13 @@ goog.i18n.CompactNumberFormatSymbols_es_PE = {
 /**
  * Compact number formatting symbols for locale es_PH.
  */
-goog.i18n.CompactNumberFormatSymbols_es_PH = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_PH = goog.i18n.CompactNumberFormatSymbols_es;
 
 
 /**
  * Compact number formatting symbols for locale es_PR.
  */
-goog.i18n.CompactNumberFormatSymbols_es_PR = {
+CompactNumberFormatSymbols_es_PR = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -5031,7 +4322,7 @@ goog.i18n.CompactNumberFormatSymbols_es_PR = {
 /**
  * Compact number formatting symbols for locale es_PY.
  */
-goog.i18n.CompactNumberFormatSymbols_es_PY = {
+CompactNumberFormatSymbols_es_PY = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -5114,7 +4405,7 @@ goog.i18n.CompactNumberFormatSymbols_es_PY = {
 /**
  * Compact number formatting symbols for locale es_SV.
  */
-goog.i18n.CompactNumberFormatSymbols_es_SV = {
+CompactNumberFormatSymbols_es_SV = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -5197,7 +4488,7 @@ goog.i18n.CompactNumberFormatSymbols_es_SV = {
 /**
  * Compact number formatting symbols for locale es_UY.
  */
-goog.i18n.CompactNumberFormatSymbols_es_UY = {
+CompactNumberFormatSymbols_es_UY = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -5280,7 +4571,7 @@ goog.i18n.CompactNumberFormatSymbols_es_UY = {
 /**
  * Compact number formatting symbols for locale es_VE.
  */
-goog.i18n.CompactNumberFormatSymbols_es_VE = {
+CompactNumberFormatSymbols_es_VE = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -5363,19 +4654,19 @@ goog.i18n.CompactNumberFormatSymbols_es_VE = {
 /**
  * Compact number formatting symbols for locale et_EE.
  */
-goog.i18n.CompactNumberFormatSymbols_et_EE = goog.i18n.CompactNumberFormatSymbols_et;
+CompactNumberFormatSymbols_et_EE = goog.i18n.CompactNumberFormatSymbols_et;
 
 
 /**
  * Compact number formatting symbols for locale eu_ES.
  */
-goog.i18n.CompactNumberFormatSymbols_eu_ES = goog.i18n.CompactNumberFormatSymbols_eu;
+CompactNumberFormatSymbols_eu_ES = goog.i18n.CompactNumberFormatSymbols_eu;
 
 
 /**
  * Compact number formatting symbols for locale ewo.
  */
-goog.i18n.CompactNumberFormatSymbols_ewo = {
+CompactNumberFormatSymbols_ewo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -5420,25 +4711,25 @@ goog.i18n.CompactNumberFormatSymbols_ewo = {
 /**
  * Compact number formatting symbols for locale ewo_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_ewo_CM = goog.i18n.CompactNumberFormatSymbols_ewo;
+CompactNumberFormatSymbols_ewo_CM = CompactNumberFormatSymbols_ewo;
 
 
 /**
  * Compact number formatting symbols for locale fa_AF.
  */
-goog.i18n.CompactNumberFormatSymbols_fa_AF = goog.i18n.CompactNumberFormatSymbols_fa;
+CompactNumberFormatSymbols_fa_AF = goog.i18n.CompactNumberFormatSymbols_fa;
 
 
 /**
  * Compact number formatting symbols for locale fa_IR.
  */
-goog.i18n.CompactNumberFormatSymbols_fa_IR = goog.i18n.CompactNumberFormatSymbols_fa;
+CompactNumberFormatSymbols_fa_IR = goog.i18n.CompactNumberFormatSymbols_fa;
 
 
 /**
  * Compact number formatting symbols for locale ff.
  */
-goog.i18n.CompactNumberFormatSymbols_ff = {
+CompactNumberFormatSymbols_ff = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -5483,7 +4774,7 @@ goog.i18n.CompactNumberFormatSymbols_ff = {
 /**
  * Compact number formatting symbols for locale ff_Adlm.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm = {
+CompactNumberFormatSymbols_ff_Adlm = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -5566,7 +4857,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_BF.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_BF = {
+CompactNumberFormatSymbols_ff_Adlm_BF = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -5649,7 +4940,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_BF = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_CM = {
+CompactNumberFormatSymbols_ff_Adlm_CM = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -5732,7 +5023,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_CM = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_GH.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GH = {
+CompactNumberFormatSymbols_ff_Adlm_GH = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -5815,7 +5106,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GH = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_GM.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GM = {
+CompactNumberFormatSymbols_ff_Adlm_GM = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -5898,7 +5189,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GM = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_GN.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GN = {
+CompactNumberFormatSymbols_ff_Adlm_GN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -5981,7 +5272,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GN = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_GW.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GW = {
+CompactNumberFormatSymbols_ff_Adlm_GW = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6064,7 +5355,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GW = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_LR.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_LR = {
+CompactNumberFormatSymbols_ff_Adlm_LR = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6147,7 +5438,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_LR = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_MR.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_MR = {
+CompactNumberFormatSymbols_ff_Adlm_MR = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6230,7 +5521,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_MR = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_NE.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NE = {
+CompactNumberFormatSymbols_ff_Adlm_NE = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6313,7 +5604,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NE = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NG = {
+CompactNumberFormatSymbols_ff_Adlm_NG = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6396,7 +5687,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NG = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_SL.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SL = {
+CompactNumberFormatSymbols_ff_Adlm_SL = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6479,7 +5770,7 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SL = {
 /**
  * Compact number formatting symbols for locale ff_Adlm_SN.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SN = {
+CompactNumberFormatSymbols_ff_Adlm_SN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0𞤓'
@@ -6562,97 +5853,97 @@ goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SN = {
 /**
  * Compact number formatting symbols for locale ff_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_BF.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_BF = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_BF = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_CM = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_CM = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_GH.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_GH = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_GH = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_GM.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_GM = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_GM = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_GN.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_GN = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_GN = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_GW.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_GW = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_GW = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_LR.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_LR = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_LR = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_MR.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_MR = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_MR = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_NE.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_NE = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_NE = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_NG = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_NG = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_SL.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_SL = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_SL = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale ff_Latn_SN.
  */
-goog.i18n.CompactNumberFormatSymbols_ff_Latn_SN = goog.i18n.CompactNumberFormatSymbols_ff;
+CompactNumberFormatSymbols_ff_Latn_SN = CompactNumberFormatSymbols_ff;
 
 
 /**
  * Compact number formatting symbols for locale fi_FI.
  */
-goog.i18n.CompactNumberFormatSymbols_fi_FI = goog.i18n.CompactNumberFormatSymbols_fi;
+CompactNumberFormatSymbols_fi_FI = goog.i18n.CompactNumberFormatSymbols_fi;
 
 
 /**
  * Compact number formatting symbols for locale fil_PH.
  */
-goog.i18n.CompactNumberFormatSymbols_fil_PH = goog.i18n.CompactNumberFormatSymbols_fil;
+CompactNumberFormatSymbols_fil_PH = goog.i18n.CompactNumberFormatSymbols_fil;
 
 
 /**
  * Compact number formatting symbols for locale fo.
  */
-goog.i18n.CompactNumberFormatSymbols_fo = {
+CompactNumberFormatSymbols_fo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tús.'
@@ -6735,289 +6026,289 @@ goog.i18n.CompactNumberFormatSymbols_fo = {
 /**
  * Compact number formatting symbols for locale fo_DK.
  */
-goog.i18n.CompactNumberFormatSymbols_fo_DK = goog.i18n.CompactNumberFormatSymbols_fo;
+CompactNumberFormatSymbols_fo_DK = CompactNumberFormatSymbols_fo;
 
 
 /**
  * Compact number formatting symbols for locale fo_FO.
  */
-goog.i18n.CompactNumberFormatSymbols_fo_FO = goog.i18n.CompactNumberFormatSymbols_fo;
+CompactNumberFormatSymbols_fo_FO = CompactNumberFormatSymbols_fo;
 
 
 /**
  * Compact number formatting symbols for locale fr_BE.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_BE = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BE = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BF.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_BF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BF = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BI.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_BI = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BI = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BJ.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_BJ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BJ = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BL.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_BL = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BL = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CD.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_CD = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CD = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CF.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_CF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CF = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CG.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_CG = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CG = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_CH = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CH = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CI.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_CI = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CI = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_CM = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CM = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_DJ.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_DJ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_DJ = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_DZ.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_DZ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_DZ = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_FR.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_FR = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_FR = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GA.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_GA = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GA = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GF.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_GF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GF = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GN.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_GN = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GN = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GP.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_GP = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GP = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GQ.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_GQ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GQ = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_HT.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_HT = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_HT = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_KM.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_KM = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_KM = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_LU.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_LU = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_LU = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MA.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MA = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MA = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MC.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MC = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MC = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MF.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MF = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MG.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MG = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MG = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_ML.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_ML = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_ML = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MQ.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MQ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MQ = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MR.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MR = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MR = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MU.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_MU = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MU = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_NC.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_NC = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_NC = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_NE.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_NE = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_NE = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_PF.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_PF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_PF = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_PM.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_PM = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_PM = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_RE.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_RE = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_RE = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_RW.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_RW = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_RW = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_SC.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_SC = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_SC = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_SN.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_SN = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_SN = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_SY.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_SY = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_SY = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_TD.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_TD = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_TD = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_TG.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_TG = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_TG = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_TN.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_TN = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_TN = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_VU.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_VU = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_VU = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_WF.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_WF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_WF = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_YT.
  */
-goog.i18n.CompactNumberFormatSymbols_fr_YT = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_YT = goog.i18n.CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fur.
  */
-goog.i18n.CompactNumberFormatSymbols_fur = {
+CompactNumberFormatSymbols_fur = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7062,13 +6353,13 @@ goog.i18n.CompactNumberFormatSymbols_fur = {
 /**
  * Compact number formatting symbols for locale fur_IT.
  */
-goog.i18n.CompactNumberFormatSymbols_fur_IT = goog.i18n.CompactNumberFormatSymbols_fur;
+CompactNumberFormatSymbols_fur_IT = CompactNumberFormatSymbols_fur;
 
 
 /**
  * Compact number formatting symbols for locale fy.
  */
-goog.i18n.CompactNumberFormatSymbols_fy = {
+CompactNumberFormatSymbols_fy = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7151,25 +6442,25 @@ goog.i18n.CompactNumberFormatSymbols_fy = {
 /**
  * Compact number formatting symbols for locale fy_NL.
  */
-goog.i18n.CompactNumberFormatSymbols_fy_NL = goog.i18n.CompactNumberFormatSymbols_fy;
+CompactNumberFormatSymbols_fy_NL = CompactNumberFormatSymbols_fy;
 
 
 /**
  * Compact number formatting symbols for locale ga_GB.
  */
-goog.i18n.CompactNumberFormatSymbols_ga_GB = goog.i18n.CompactNumberFormatSymbols_ga;
+CompactNumberFormatSymbols_ga_GB = goog.i18n.CompactNumberFormatSymbols_ga;
 
 
 /**
  * Compact number formatting symbols for locale ga_IE.
  */
-goog.i18n.CompactNumberFormatSymbols_ga_IE = goog.i18n.CompactNumberFormatSymbols_ga;
+CompactNumberFormatSymbols_ga_IE = goog.i18n.CompactNumberFormatSymbols_ga;
 
 
 /**
  * Compact number formatting symbols for locale gd.
  */
-goog.i18n.CompactNumberFormatSymbols_gd = {
+CompactNumberFormatSymbols_gd = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7252,43 +6543,43 @@ goog.i18n.CompactNumberFormatSymbols_gd = {
 /**
  * Compact number formatting symbols for locale gd_GB.
  */
-goog.i18n.CompactNumberFormatSymbols_gd_GB = goog.i18n.CompactNumberFormatSymbols_gd;
+CompactNumberFormatSymbols_gd_GB = CompactNumberFormatSymbols_gd;
 
 
 /**
  * Compact number formatting symbols for locale gl_ES.
  */
-goog.i18n.CompactNumberFormatSymbols_gl_ES = goog.i18n.CompactNumberFormatSymbols_gl;
+CompactNumberFormatSymbols_gl_ES = goog.i18n.CompactNumberFormatSymbols_gl;
 
 
 /**
  * Compact number formatting symbols for locale gsw_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_gsw_CH = goog.i18n.CompactNumberFormatSymbols_gsw;
+CompactNumberFormatSymbols_gsw_CH = goog.i18n.CompactNumberFormatSymbols_gsw;
 
 
 /**
  * Compact number formatting symbols for locale gsw_FR.
  */
-goog.i18n.CompactNumberFormatSymbols_gsw_FR = goog.i18n.CompactNumberFormatSymbols_gsw;
+CompactNumberFormatSymbols_gsw_FR = goog.i18n.CompactNumberFormatSymbols_gsw;
 
 
 /**
  * Compact number formatting symbols for locale gsw_LI.
  */
-goog.i18n.CompactNumberFormatSymbols_gsw_LI = goog.i18n.CompactNumberFormatSymbols_gsw;
+CompactNumberFormatSymbols_gsw_LI = goog.i18n.CompactNumberFormatSymbols_gsw;
 
 
 /**
  * Compact number formatting symbols for locale gu_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_gu_IN = goog.i18n.CompactNumberFormatSymbols_gu;
+CompactNumberFormatSymbols_gu_IN = goog.i18n.CompactNumberFormatSymbols_gu;
 
 
 /**
  * Compact number formatting symbols for locale guz.
  */
-goog.i18n.CompactNumberFormatSymbols_guz = {
+CompactNumberFormatSymbols_guz = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7333,13 +6624,13 @@ goog.i18n.CompactNumberFormatSymbols_guz = {
 /**
  * Compact number formatting symbols for locale guz_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_guz_KE = goog.i18n.CompactNumberFormatSymbols_guz;
+CompactNumberFormatSymbols_guz_KE = CompactNumberFormatSymbols_guz;
 
 
 /**
  * Compact number formatting symbols for locale gv.
  */
-goog.i18n.CompactNumberFormatSymbols_gv = {
+CompactNumberFormatSymbols_gv = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7384,13 +6675,13 @@ goog.i18n.CompactNumberFormatSymbols_gv = {
 /**
  * Compact number formatting symbols for locale gv_IM.
  */
-goog.i18n.CompactNumberFormatSymbols_gv_IM = goog.i18n.CompactNumberFormatSymbols_gv;
+CompactNumberFormatSymbols_gv_IM = CompactNumberFormatSymbols_gv;
 
 
 /**
  * Compact number formatting symbols for locale ha.
  */
-goog.i18n.CompactNumberFormatSymbols_ha = {
+CompactNumberFormatSymbols_ha = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0D'
@@ -7473,43 +6764,43 @@ goog.i18n.CompactNumberFormatSymbols_ha = {
 /**
  * Compact number formatting symbols for locale ha_GH.
  */
-goog.i18n.CompactNumberFormatSymbols_ha_GH = goog.i18n.CompactNumberFormatSymbols_ha;
+CompactNumberFormatSymbols_ha_GH = CompactNumberFormatSymbols_ha;
 
 
 /**
  * Compact number formatting symbols for locale ha_NE.
  */
-goog.i18n.CompactNumberFormatSymbols_ha_NE = goog.i18n.CompactNumberFormatSymbols_ha;
+CompactNumberFormatSymbols_ha_NE = CompactNumberFormatSymbols_ha;
 
 
 /**
  * Compact number formatting symbols for locale ha_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_ha_NG = goog.i18n.CompactNumberFormatSymbols_ha;
+CompactNumberFormatSymbols_ha_NG = CompactNumberFormatSymbols_ha;
 
 
 /**
  * Compact number formatting symbols for locale haw_US.
  */
-goog.i18n.CompactNumberFormatSymbols_haw_US = goog.i18n.CompactNumberFormatSymbols_haw;
+CompactNumberFormatSymbols_haw_US = goog.i18n.CompactNumberFormatSymbols_haw;
 
 
 /**
  * Compact number formatting symbols for locale he_IL.
  */
-goog.i18n.CompactNumberFormatSymbols_he_IL = goog.i18n.CompactNumberFormatSymbols_he;
+CompactNumberFormatSymbols_he_IL = goog.i18n.CompactNumberFormatSymbols_he;
 
 
 /**
  * Compact number formatting symbols for locale hi_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_hi_IN = goog.i18n.CompactNumberFormatSymbols_hi;
+CompactNumberFormatSymbols_hi_IN = goog.i18n.CompactNumberFormatSymbols_hi;
 
 
 /**
  * Compact number formatting symbols for locale hi_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_hi_Latn = {
+CompactNumberFormatSymbols_hi_Latn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0T'
@@ -7592,7 +6883,7 @@ goog.i18n.CompactNumberFormatSymbols_hi_Latn = {
 /**
  * Compact number formatting symbols for locale hi_Latn_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_hi_Latn_IN = {
+CompactNumberFormatSymbols_hi_Latn_IN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0T'
@@ -7675,19 +6966,19 @@ goog.i18n.CompactNumberFormatSymbols_hi_Latn_IN = {
 /**
  * Compact number formatting symbols for locale hr_BA.
  */
-goog.i18n.CompactNumberFormatSymbols_hr_BA = goog.i18n.CompactNumberFormatSymbols_hr;
+CompactNumberFormatSymbols_hr_BA = goog.i18n.CompactNumberFormatSymbols_hr;
 
 
 /**
  * Compact number formatting symbols for locale hr_HR.
  */
-goog.i18n.CompactNumberFormatSymbols_hr_HR = goog.i18n.CompactNumberFormatSymbols_hr;
+CompactNumberFormatSymbols_hr_HR = goog.i18n.CompactNumberFormatSymbols_hr;
 
 
 /**
  * Compact number formatting symbols for locale hsb.
  */
-goog.i18n.CompactNumberFormatSymbols_hsb = {
+CompactNumberFormatSymbols_hsb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tys.'
@@ -7770,25 +7061,25 @@ goog.i18n.CompactNumberFormatSymbols_hsb = {
 /**
  * Compact number formatting symbols for locale hsb_DE.
  */
-goog.i18n.CompactNumberFormatSymbols_hsb_DE = goog.i18n.CompactNumberFormatSymbols_hsb;
+CompactNumberFormatSymbols_hsb_DE = CompactNumberFormatSymbols_hsb;
 
 
 /**
  * Compact number formatting symbols for locale hu_HU.
  */
-goog.i18n.CompactNumberFormatSymbols_hu_HU = goog.i18n.CompactNumberFormatSymbols_hu;
+CompactNumberFormatSymbols_hu_HU = goog.i18n.CompactNumberFormatSymbols_hu;
 
 
 /**
  * Compact number formatting symbols for locale hy_AM.
  */
-goog.i18n.CompactNumberFormatSymbols_hy_AM = goog.i18n.CompactNumberFormatSymbols_hy;
+CompactNumberFormatSymbols_hy_AM = goog.i18n.CompactNumberFormatSymbols_hy;
 
 
 /**
  * Compact number formatting symbols for locale ia.
  */
-goog.i18n.CompactNumberFormatSymbols_ia = {
+CompactNumberFormatSymbols_ia = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -7871,19 +7162,19 @@ goog.i18n.CompactNumberFormatSymbols_ia = {
 /**
  * Compact number formatting symbols for locale ia_001.
  */
-goog.i18n.CompactNumberFormatSymbols_ia_001 = goog.i18n.CompactNumberFormatSymbols_ia;
+CompactNumberFormatSymbols_ia_001 = CompactNumberFormatSymbols_ia;
 
 
 /**
  * Compact number formatting symbols for locale id_ID.
  */
-goog.i18n.CompactNumberFormatSymbols_id_ID = goog.i18n.CompactNumberFormatSymbols_id;
+CompactNumberFormatSymbols_id_ID = goog.i18n.CompactNumberFormatSymbols_id;
 
 
 /**
  * Compact number formatting symbols for locale ig.
  */
-goog.i18n.CompactNumberFormatSymbols_ig = {
+CompactNumberFormatSymbols_ig = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7966,13 +7257,13 @@ goog.i18n.CompactNumberFormatSymbols_ig = {
 /**
  * Compact number formatting symbols for locale ig_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_ig_NG = goog.i18n.CompactNumberFormatSymbols_ig;
+CompactNumberFormatSymbols_ig_NG = CompactNumberFormatSymbols_ig;
 
 
 /**
  * Compact number formatting symbols for locale ii.
  */
-goog.i18n.CompactNumberFormatSymbols_ii = {
+CompactNumberFormatSymbols_ii = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8017,49 +7308,49 @@ goog.i18n.CompactNumberFormatSymbols_ii = {
 /**
  * Compact number formatting symbols for locale ii_CN.
  */
-goog.i18n.CompactNumberFormatSymbols_ii_CN = goog.i18n.CompactNumberFormatSymbols_ii;
+CompactNumberFormatSymbols_ii_CN = CompactNumberFormatSymbols_ii;
 
 
 /**
  * Compact number formatting symbols for locale is_IS.
  */
-goog.i18n.CompactNumberFormatSymbols_is_IS = goog.i18n.CompactNumberFormatSymbols_is;
+CompactNumberFormatSymbols_is_IS = goog.i18n.CompactNumberFormatSymbols_is;
 
 
 /**
  * Compact number formatting symbols for locale it_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_it_CH = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_CH = goog.i18n.CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale it_IT.
  */
-goog.i18n.CompactNumberFormatSymbols_it_IT = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_IT = goog.i18n.CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale it_SM.
  */
-goog.i18n.CompactNumberFormatSymbols_it_SM = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_SM = goog.i18n.CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale it_VA.
  */
-goog.i18n.CompactNumberFormatSymbols_it_VA = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_VA = goog.i18n.CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale ja_JP.
  */
-goog.i18n.CompactNumberFormatSymbols_ja_JP = goog.i18n.CompactNumberFormatSymbols_ja;
+CompactNumberFormatSymbols_ja_JP = goog.i18n.CompactNumberFormatSymbols_ja;
 
 
 /**
  * Compact number formatting symbols for locale jgo.
  */
-goog.i18n.CompactNumberFormatSymbols_jgo = {
+CompactNumberFormatSymbols_jgo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8104,13 +7395,13 @@ goog.i18n.CompactNumberFormatSymbols_jgo = {
 /**
  * Compact number formatting symbols for locale jgo_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_jgo_CM = goog.i18n.CompactNumberFormatSymbols_jgo;
+CompactNumberFormatSymbols_jgo_CM = CompactNumberFormatSymbols_jgo;
 
 
 /**
  * Compact number formatting symbols for locale jmc.
  */
-goog.i18n.CompactNumberFormatSymbols_jmc = {
+CompactNumberFormatSymbols_jmc = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8155,13 +7446,13 @@ goog.i18n.CompactNumberFormatSymbols_jmc = {
 /**
  * Compact number formatting symbols for locale jmc_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_jmc_TZ = goog.i18n.CompactNumberFormatSymbols_jmc;
+CompactNumberFormatSymbols_jmc_TZ = CompactNumberFormatSymbols_jmc;
 
 
 /**
  * Compact number formatting symbols for locale jv.
  */
-goog.i18n.CompactNumberFormatSymbols_jv = {
+CompactNumberFormatSymbols_jv = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0È'
@@ -8235,19 +7526,19 @@ goog.i18n.CompactNumberFormatSymbols_jv = {
 /**
  * Compact number formatting symbols for locale jv_ID.
  */
-goog.i18n.CompactNumberFormatSymbols_jv_ID = goog.i18n.CompactNumberFormatSymbols_jv;
+CompactNumberFormatSymbols_jv_ID = CompactNumberFormatSymbols_jv;
 
 
 /**
  * Compact number formatting symbols for locale ka_GE.
  */
-goog.i18n.CompactNumberFormatSymbols_ka_GE = goog.i18n.CompactNumberFormatSymbols_ka;
+CompactNumberFormatSymbols_ka_GE = goog.i18n.CompactNumberFormatSymbols_ka;
 
 
 /**
  * Compact number formatting symbols for locale kab.
  */
-goog.i18n.CompactNumberFormatSymbols_kab = {
+CompactNumberFormatSymbols_kab = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8292,13 +7583,13 @@ goog.i18n.CompactNumberFormatSymbols_kab = {
 /**
  * Compact number formatting symbols for locale kab_DZ.
  */
-goog.i18n.CompactNumberFormatSymbols_kab_DZ = goog.i18n.CompactNumberFormatSymbols_kab;
+CompactNumberFormatSymbols_kab_DZ = CompactNumberFormatSymbols_kab;
 
 
 /**
  * Compact number formatting symbols for locale kam.
  */
-goog.i18n.CompactNumberFormatSymbols_kam = {
+CompactNumberFormatSymbols_kam = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8343,13 +7634,13 @@ goog.i18n.CompactNumberFormatSymbols_kam = {
 /**
  * Compact number formatting symbols for locale kam_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_kam_KE = goog.i18n.CompactNumberFormatSymbols_kam;
+CompactNumberFormatSymbols_kam_KE = CompactNumberFormatSymbols_kam;
 
 
 /**
  * Compact number formatting symbols for locale kde.
  */
-goog.i18n.CompactNumberFormatSymbols_kde = {
+CompactNumberFormatSymbols_kde = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8394,13 +7685,13 @@ goog.i18n.CompactNumberFormatSymbols_kde = {
 /**
  * Compact number formatting symbols for locale kde_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_kde_TZ = goog.i18n.CompactNumberFormatSymbols_kde;
+CompactNumberFormatSymbols_kde_TZ = CompactNumberFormatSymbols_kde;
 
 
 /**
  * Compact number formatting symbols for locale kea.
  */
-goog.i18n.CompactNumberFormatSymbols_kea = {
+CompactNumberFormatSymbols_kea = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -8483,13 +7774,13 @@ goog.i18n.CompactNumberFormatSymbols_kea = {
 /**
  * Compact number formatting symbols for locale kea_CV.
  */
-goog.i18n.CompactNumberFormatSymbols_kea_CV = goog.i18n.CompactNumberFormatSymbols_kea;
+CompactNumberFormatSymbols_kea_CV = CompactNumberFormatSymbols_kea;
 
 
 /**
  * Compact number formatting symbols for locale kgp.
  */
-goog.i18n.CompactNumberFormatSymbols_kgp = {
+CompactNumberFormatSymbols_kgp = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -8572,13 +7863,13 @@ goog.i18n.CompactNumberFormatSymbols_kgp = {
 /**
  * Compact number formatting symbols for locale kgp_BR.
  */
-goog.i18n.CompactNumberFormatSymbols_kgp_BR = goog.i18n.CompactNumberFormatSymbols_kgp;
+CompactNumberFormatSymbols_kgp_BR = CompactNumberFormatSymbols_kgp;
 
 
 /**
  * Compact number formatting symbols for locale khq.
  */
-goog.i18n.CompactNumberFormatSymbols_khq = {
+CompactNumberFormatSymbols_khq = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8623,13 +7914,13 @@ goog.i18n.CompactNumberFormatSymbols_khq = {
 /**
  * Compact number formatting symbols for locale khq_ML.
  */
-goog.i18n.CompactNumberFormatSymbols_khq_ML = goog.i18n.CompactNumberFormatSymbols_khq;
+CompactNumberFormatSymbols_khq_ML = CompactNumberFormatSymbols_khq;
 
 
 /**
  * Compact number formatting symbols for locale ki.
  */
-goog.i18n.CompactNumberFormatSymbols_ki = {
+CompactNumberFormatSymbols_ki = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8674,19 +7965,19 @@ goog.i18n.CompactNumberFormatSymbols_ki = {
 /**
  * Compact number formatting symbols for locale ki_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_ki_KE = goog.i18n.CompactNumberFormatSymbols_ki;
+CompactNumberFormatSymbols_ki_KE = CompactNumberFormatSymbols_ki;
 
 
 /**
  * Compact number formatting symbols for locale kk_KZ.
  */
-goog.i18n.CompactNumberFormatSymbols_kk_KZ = goog.i18n.CompactNumberFormatSymbols_kk;
+CompactNumberFormatSymbols_kk_KZ = goog.i18n.CompactNumberFormatSymbols_kk;
 
 
 /**
  * Compact number formatting symbols for locale kkj.
  */
-goog.i18n.CompactNumberFormatSymbols_kkj = {
+CompactNumberFormatSymbols_kkj = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8731,13 +8022,13 @@ goog.i18n.CompactNumberFormatSymbols_kkj = {
 /**
  * Compact number formatting symbols for locale kkj_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_kkj_CM = goog.i18n.CompactNumberFormatSymbols_kkj;
+CompactNumberFormatSymbols_kkj_CM = CompactNumberFormatSymbols_kkj;
 
 
 /**
  * Compact number formatting symbols for locale kl.
  */
-goog.i18n.CompactNumberFormatSymbols_kl = {
+CompactNumberFormatSymbols_kl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8782,13 +8073,13 @@ goog.i18n.CompactNumberFormatSymbols_kl = {
 /**
  * Compact number formatting symbols for locale kl_GL.
  */
-goog.i18n.CompactNumberFormatSymbols_kl_GL = goog.i18n.CompactNumberFormatSymbols_kl;
+CompactNumberFormatSymbols_kl_GL = CompactNumberFormatSymbols_kl;
 
 
 /**
  * Compact number formatting symbols for locale kln.
  */
-goog.i18n.CompactNumberFormatSymbols_kln = {
+CompactNumberFormatSymbols_kln = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8833,37 +8124,37 @@ goog.i18n.CompactNumberFormatSymbols_kln = {
 /**
  * Compact number formatting symbols for locale kln_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_kln_KE = goog.i18n.CompactNumberFormatSymbols_kln;
+CompactNumberFormatSymbols_kln_KE = CompactNumberFormatSymbols_kln;
 
 
 /**
  * Compact number formatting symbols for locale km_KH.
  */
-goog.i18n.CompactNumberFormatSymbols_km_KH = goog.i18n.CompactNumberFormatSymbols_km;
+CompactNumberFormatSymbols_km_KH = goog.i18n.CompactNumberFormatSymbols_km;
 
 
 /**
  * Compact number formatting symbols for locale kn_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_kn_IN = goog.i18n.CompactNumberFormatSymbols_kn;
+CompactNumberFormatSymbols_kn_IN = goog.i18n.CompactNumberFormatSymbols_kn;
 
 
 /**
  * Compact number formatting symbols for locale ko_KP.
  */
-goog.i18n.CompactNumberFormatSymbols_ko_KP = goog.i18n.CompactNumberFormatSymbols_ko;
+CompactNumberFormatSymbols_ko_KP = goog.i18n.CompactNumberFormatSymbols_ko;
 
 
 /**
  * Compact number formatting symbols for locale ko_KR.
  */
-goog.i18n.CompactNumberFormatSymbols_ko_KR = goog.i18n.CompactNumberFormatSymbols_ko;
+CompactNumberFormatSymbols_ko_KR = goog.i18n.CompactNumberFormatSymbols_ko;
 
 
 /**
  * Compact number formatting symbols for locale kok.
  */
-goog.i18n.CompactNumberFormatSymbols_kok = {
+CompactNumberFormatSymbols_kok = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8946,13 +8237,13 @@ goog.i18n.CompactNumberFormatSymbols_kok = {
 /**
  * Compact number formatting symbols for locale kok_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_kok_IN = goog.i18n.CompactNumberFormatSymbols_kok;
+CompactNumberFormatSymbols_kok_IN = CompactNumberFormatSymbols_kok;
 
 
 /**
  * Compact number formatting symbols for locale ks.
  */
-goog.i18n.CompactNumberFormatSymbols_ks = {
+CompactNumberFormatSymbols_ks = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -8997,31 +8288,31 @@ goog.i18n.CompactNumberFormatSymbols_ks = {
 /**
  * Compact number formatting symbols for locale ks_Arab.
  */
-goog.i18n.CompactNumberFormatSymbols_ks_Arab = goog.i18n.CompactNumberFormatSymbols_ks;
+CompactNumberFormatSymbols_ks_Arab = CompactNumberFormatSymbols_ks;
 
 
 /**
  * Compact number formatting symbols for locale ks_Arab_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ks_Arab_IN = goog.i18n.CompactNumberFormatSymbols_ks;
+CompactNumberFormatSymbols_ks_Arab_IN = CompactNumberFormatSymbols_ks;
 
 
 /**
  * Compact number formatting symbols for locale ks_Deva.
  */
-goog.i18n.CompactNumberFormatSymbols_ks_Deva = goog.i18n.CompactNumberFormatSymbols_ks;
+CompactNumberFormatSymbols_ks_Deva = CompactNumberFormatSymbols_ks;
 
 
 /**
  * Compact number formatting symbols for locale ks_Deva_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ks_Deva_IN = goog.i18n.CompactNumberFormatSymbols_ks;
+CompactNumberFormatSymbols_ks_Deva_IN = CompactNumberFormatSymbols_ks;
 
 
 /**
  * Compact number formatting symbols for locale ksb.
  */
-goog.i18n.CompactNumberFormatSymbols_ksb = {
+CompactNumberFormatSymbols_ksb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9066,13 +8357,13 @@ goog.i18n.CompactNumberFormatSymbols_ksb = {
 /**
  * Compact number formatting symbols for locale ksb_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_ksb_TZ = goog.i18n.CompactNumberFormatSymbols_ksb;
+CompactNumberFormatSymbols_ksb_TZ = CompactNumberFormatSymbols_ksb;
 
 
 /**
  * Compact number formatting symbols for locale ksf.
  */
-goog.i18n.CompactNumberFormatSymbols_ksf = {
+CompactNumberFormatSymbols_ksf = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9117,13 +8408,13 @@ goog.i18n.CompactNumberFormatSymbols_ksf = {
 /**
  * Compact number formatting symbols for locale ksf_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_ksf_CM = goog.i18n.CompactNumberFormatSymbols_ksf;
+CompactNumberFormatSymbols_ksf_CM = CompactNumberFormatSymbols_ksf;
 
 
 /**
  * Compact number formatting symbols for locale ksh.
  */
-goog.i18n.CompactNumberFormatSymbols_ksh = {
+CompactNumberFormatSymbols_ksh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tsd'
@@ -9206,13 +8497,13 @@ goog.i18n.CompactNumberFormatSymbols_ksh = {
 /**
  * Compact number formatting symbols for locale ksh_DE.
  */
-goog.i18n.CompactNumberFormatSymbols_ksh_DE = goog.i18n.CompactNumberFormatSymbols_ksh;
+CompactNumberFormatSymbols_ksh_DE = CompactNumberFormatSymbols_ksh;
 
 
 /**
  * Compact number formatting symbols for locale ku.
  */
-goog.i18n.CompactNumberFormatSymbols_ku = {
+CompactNumberFormatSymbols_ku = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9257,13 +8548,13 @@ goog.i18n.CompactNumberFormatSymbols_ku = {
 /**
  * Compact number formatting symbols for locale ku_TR.
  */
-goog.i18n.CompactNumberFormatSymbols_ku_TR = goog.i18n.CompactNumberFormatSymbols_ku;
+CompactNumberFormatSymbols_ku_TR = CompactNumberFormatSymbols_ku;
 
 
 /**
  * Compact number formatting symbols for locale kw.
  */
-goog.i18n.CompactNumberFormatSymbols_kw = {
+CompactNumberFormatSymbols_kw = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9308,19 +8599,19 @@ goog.i18n.CompactNumberFormatSymbols_kw = {
 /**
  * Compact number formatting symbols for locale kw_GB.
  */
-goog.i18n.CompactNumberFormatSymbols_kw_GB = goog.i18n.CompactNumberFormatSymbols_kw;
+CompactNumberFormatSymbols_kw_GB = CompactNumberFormatSymbols_kw;
 
 
 /**
  * Compact number formatting symbols for locale ky_KG.
  */
-goog.i18n.CompactNumberFormatSymbols_ky_KG = goog.i18n.CompactNumberFormatSymbols_ky;
+CompactNumberFormatSymbols_ky_KG = goog.i18n.CompactNumberFormatSymbols_ky;
 
 
 /**
  * Compact number formatting symbols for locale lag.
  */
-goog.i18n.CompactNumberFormatSymbols_lag = {
+CompactNumberFormatSymbols_lag = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9365,13 +8656,13 @@ goog.i18n.CompactNumberFormatSymbols_lag = {
 /**
  * Compact number formatting symbols for locale lag_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_lag_TZ = goog.i18n.CompactNumberFormatSymbols_lag;
+CompactNumberFormatSymbols_lag_TZ = CompactNumberFormatSymbols_lag;
 
 
 /**
  * Compact number formatting symbols for locale lb.
  */
-goog.i18n.CompactNumberFormatSymbols_lb = {
+CompactNumberFormatSymbols_lb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 Dsd.'
@@ -9454,13 +8745,13 @@ goog.i18n.CompactNumberFormatSymbols_lb = {
 /**
  * Compact number formatting symbols for locale lb_LU.
  */
-goog.i18n.CompactNumberFormatSymbols_lb_LU = goog.i18n.CompactNumberFormatSymbols_lb;
+CompactNumberFormatSymbols_lb_LU = CompactNumberFormatSymbols_lb;
 
 
 /**
  * Compact number formatting symbols for locale lg.
  */
-goog.i18n.CompactNumberFormatSymbols_lg = {
+CompactNumberFormatSymbols_lg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9505,13 +8796,13 @@ goog.i18n.CompactNumberFormatSymbols_lg = {
 /**
  * Compact number formatting symbols for locale lg_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_lg_UG = goog.i18n.CompactNumberFormatSymbols_lg;
+CompactNumberFormatSymbols_lg_UG = CompactNumberFormatSymbols_lg;
 
 
 /**
  * Compact number formatting symbols for locale lkt.
  */
-goog.i18n.CompactNumberFormatSymbols_lkt = {
+CompactNumberFormatSymbols_lkt = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9556,43 +8847,43 @@ goog.i18n.CompactNumberFormatSymbols_lkt = {
 /**
  * Compact number formatting symbols for locale lkt_US.
  */
-goog.i18n.CompactNumberFormatSymbols_lkt_US = goog.i18n.CompactNumberFormatSymbols_lkt;
+CompactNumberFormatSymbols_lkt_US = CompactNumberFormatSymbols_lkt;
 
 
 /**
  * Compact number formatting symbols for locale ln_AO.
  */
-goog.i18n.CompactNumberFormatSymbols_ln_AO = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_AO = goog.i18n.CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale ln_CD.
  */
-goog.i18n.CompactNumberFormatSymbols_ln_CD = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_CD = goog.i18n.CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale ln_CF.
  */
-goog.i18n.CompactNumberFormatSymbols_ln_CF = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_CF = goog.i18n.CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale ln_CG.
  */
-goog.i18n.CompactNumberFormatSymbols_ln_CG = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_CG = goog.i18n.CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale lo_LA.
  */
-goog.i18n.CompactNumberFormatSymbols_lo_LA = goog.i18n.CompactNumberFormatSymbols_lo;
+CompactNumberFormatSymbols_lo_LA = goog.i18n.CompactNumberFormatSymbols_lo;
 
 
 /**
  * Compact number formatting symbols for locale lrc.
  */
-goog.i18n.CompactNumberFormatSymbols_lrc = {
+CompactNumberFormatSymbols_lrc = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9637,25 +8928,25 @@ goog.i18n.CompactNumberFormatSymbols_lrc = {
 /**
  * Compact number formatting symbols for locale lrc_IQ.
  */
-goog.i18n.CompactNumberFormatSymbols_lrc_IQ = goog.i18n.CompactNumberFormatSymbols_lrc;
+CompactNumberFormatSymbols_lrc_IQ = CompactNumberFormatSymbols_lrc;
 
 
 /**
  * Compact number formatting symbols for locale lrc_IR.
  */
-goog.i18n.CompactNumberFormatSymbols_lrc_IR = goog.i18n.CompactNumberFormatSymbols_lrc;
+CompactNumberFormatSymbols_lrc_IR = CompactNumberFormatSymbols_lrc;
 
 
 /**
  * Compact number formatting symbols for locale lt_LT.
  */
-goog.i18n.CompactNumberFormatSymbols_lt_LT = goog.i18n.CompactNumberFormatSymbols_lt;
+CompactNumberFormatSymbols_lt_LT = goog.i18n.CompactNumberFormatSymbols_lt;
 
 
 /**
  * Compact number formatting symbols for locale lu.
  */
-goog.i18n.CompactNumberFormatSymbols_lu = {
+CompactNumberFormatSymbols_lu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9700,13 +8991,13 @@ goog.i18n.CompactNumberFormatSymbols_lu = {
 /**
  * Compact number formatting symbols for locale lu_CD.
  */
-goog.i18n.CompactNumberFormatSymbols_lu_CD = goog.i18n.CompactNumberFormatSymbols_lu;
+CompactNumberFormatSymbols_lu_CD = CompactNumberFormatSymbols_lu;
 
 
 /**
  * Compact number formatting symbols for locale luo.
  */
-goog.i18n.CompactNumberFormatSymbols_luo = {
+CompactNumberFormatSymbols_luo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9751,13 +9042,13 @@ goog.i18n.CompactNumberFormatSymbols_luo = {
 /**
  * Compact number formatting symbols for locale luo_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_luo_KE = goog.i18n.CompactNumberFormatSymbols_luo;
+CompactNumberFormatSymbols_luo_KE = CompactNumberFormatSymbols_luo;
 
 
 /**
  * Compact number formatting symbols for locale luy.
  */
-goog.i18n.CompactNumberFormatSymbols_luy = {
+CompactNumberFormatSymbols_luy = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9802,19 +9093,19 @@ goog.i18n.CompactNumberFormatSymbols_luy = {
 /**
  * Compact number formatting symbols for locale luy_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_luy_KE = goog.i18n.CompactNumberFormatSymbols_luy;
+CompactNumberFormatSymbols_luy_KE = CompactNumberFormatSymbols_luy;
 
 
 /**
  * Compact number formatting symbols for locale lv_LV.
  */
-goog.i18n.CompactNumberFormatSymbols_lv_LV = goog.i18n.CompactNumberFormatSymbols_lv;
+CompactNumberFormatSymbols_lv_LV = goog.i18n.CompactNumberFormatSymbols_lv;
 
 
 /**
  * Compact number formatting symbols for locale mai.
  */
-goog.i18n.CompactNumberFormatSymbols_mai = {
+CompactNumberFormatSymbols_mai = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9859,13 +9150,13 @@ goog.i18n.CompactNumberFormatSymbols_mai = {
 /**
  * Compact number formatting symbols for locale mai_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_mai_IN = goog.i18n.CompactNumberFormatSymbols_mai;
+CompactNumberFormatSymbols_mai_IN = CompactNumberFormatSymbols_mai;
 
 
 /**
  * Compact number formatting symbols for locale mas.
  */
-goog.i18n.CompactNumberFormatSymbols_mas = {
+CompactNumberFormatSymbols_mas = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9910,19 +9201,19 @@ goog.i18n.CompactNumberFormatSymbols_mas = {
 /**
  * Compact number formatting symbols for locale mas_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_mas_KE = goog.i18n.CompactNumberFormatSymbols_mas;
+CompactNumberFormatSymbols_mas_KE = CompactNumberFormatSymbols_mas;
 
 
 /**
  * Compact number formatting symbols for locale mas_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_mas_TZ = goog.i18n.CompactNumberFormatSymbols_mas;
+CompactNumberFormatSymbols_mas_TZ = CompactNumberFormatSymbols_mas;
 
 
 /**
  * Compact number formatting symbols for locale mer.
  */
-goog.i18n.CompactNumberFormatSymbols_mer = {
+CompactNumberFormatSymbols_mer = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -9967,13 +9258,13 @@ goog.i18n.CompactNumberFormatSymbols_mer = {
 /**
  * Compact number formatting symbols for locale mer_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_mer_KE = goog.i18n.CompactNumberFormatSymbols_mer;
+CompactNumberFormatSymbols_mer_KE = CompactNumberFormatSymbols_mer;
 
 
 /**
  * Compact number formatting symbols for locale mfe.
  */
-goog.i18n.CompactNumberFormatSymbols_mfe = {
+CompactNumberFormatSymbols_mfe = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10018,13 +9309,13 @@ goog.i18n.CompactNumberFormatSymbols_mfe = {
 /**
  * Compact number formatting symbols for locale mfe_MU.
  */
-goog.i18n.CompactNumberFormatSymbols_mfe_MU = goog.i18n.CompactNumberFormatSymbols_mfe;
+CompactNumberFormatSymbols_mfe_MU = CompactNumberFormatSymbols_mfe;
 
 
 /**
  * Compact number formatting symbols for locale mg.
  */
-goog.i18n.CompactNumberFormatSymbols_mg = {
+CompactNumberFormatSymbols_mg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10069,13 +9360,13 @@ goog.i18n.CompactNumberFormatSymbols_mg = {
 /**
  * Compact number formatting symbols for locale mg_MG.
  */
-goog.i18n.CompactNumberFormatSymbols_mg_MG = goog.i18n.CompactNumberFormatSymbols_mg;
+CompactNumberFormatSymbols_mg_MG = CompactNumberFormatSymbols_mg;
 
 
 /**
  * Compact number formatting symbols for locale mgh.
  */
-goog.i18n.CompactNumberFormatSymbols_mgh = {
+CompactNumberFormatSymbols_mgh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10120,13 +9411,13 @@ goog.i18n.CompactNumberFormatSymbols_mgh = {
 /**
  * Compact number formatting symbols for locale mgh_MZ.
  */
-goog.i18n.CompactNumberFormatSymbols_mgh_MZ = goog.i18n.CompactNumberFormatSymbols_mgh;
+CompactNumberFormatSymbols_mgh_MZ = CompactNumberFormatSymbols_mgh;
 
 
 /**
  * Compact number formatting symbols for locale mgo.
  */
-goog.i18n.CompactNumberFormatSymbols_mgo = {
+CompactNumberFormatSymbols_mgo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10171,13 +9462,13 @@ goog.i18n.CompactNumberFormatSymbols_mgo = {
 /**
  * Compact number formatting symbols for locale mgo_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_mgo_CM = goog.i18n.CompactNumberFormatSymbols_mgo;
+CompactNumberFormatSymbols_mgo_CM = CompactNumberFormatSymbols_mgo;
 
 
 /**
  * Compact number formatting symbols for locale mi.
  */
-goog.i18n.CompactNumberFormatSymbols_mi = {
+CompactNumberFormatSymbols_mi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10260,31 +9551,31 @@ goog.i18n.CompactNumberFormatSymbols_mi = {
 /**
  * Compact number formatting symbols for locale mi_NZ.
  */
-goog.i18n.CompactNumberFormatSymbols_mi_NZ = goog.i18n.CompactNumberFormatSymbols_mi;
+CompactNumberFormatSymbols_mi_NZ = CompactNumberFormatSymbols_mi;
 
 
 /**
  * Compact number formatting symbols for locale mk_MK.
  */
-goog.i18n.CompactNumberFormatSymbols_mk_MK = goog.i18n.CompactNumberFormatSymbols_mk;
+CompactNumberFormatSymbols_mk_MK = goog.i18n.CompactNumberFormatSymbols_mk;
 
 
 /**
  * Compact number formatting symbols for locale ml_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ml_IN = goog.i18n.CompactNumberFormatSymbols_ml;
+CompactNumberFormatSymbols_ml_IN = goog.i18n.CompactNumberFormatSymbols_ml;
 
 
 /**
  * Compact number formatting symbols for locale mn_MN.
  */
-goog.i18n.CompactNumberFormatSymbols_mn_MN = goog.i18n.CompactNumberFormatSymbols_mn;
+CompactNumberFormatSymbols_mn_MN = goog.i18n.CompactNumberFormatSymbols_mn;
 
 
 /**
  * Compact number formatting symbols for locale mni.
  */
-goog.i18n.CompactNumberFormatSymbols_mni = {
+CompactNumberFormatSymbols_mni = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10329,55 +9620,55 @@ goog.i18n.CompactNumberFormatSymbols_mni = {
 /**
  * Compact number formatting symbols for locale mni_Beng.
  */
-goog.i18n.CompactNumberFormatSymbols_mni_Beng = goog.i18n.CompactNumberFormatSymbols_mni;
+CompactNumberFormatSymbols_mni_Beng = CompactNumberFormatSymbols_mni;
 
 
 /**
  * Compact number formatting symbols for locale mni_Beng_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_mni_Beng_IN = goog.i18n.CompactNumberFormatSymbols_mni;
+CompactNumberFormatSymbols_mni_Beng_IN = CompactNumberFormatSymbols_mni;
 
 
 /**
  * Compact number formatting symbols for locale mr_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_mr_IN = goog.i18n.CompactNumberFormatSymbols_mr;
+CompactNumberFormatSymbols_mr_IN = goog.i18n.CompactNumberFormatSymbols_mr;
 
 
 /**
  * Compact number formatting symbols for locale ms_BN.
  */
-goog.i18n.CompactNumberFormatSymbols_ms_BN = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_BN = goog.i18n.CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale ms_ID.
  */
-goog.i18n.CompactNumberFormatSymbols_ms_ID = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_ID = goog.i18n.CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale ms_MY.
  */
-goog.i18n.CompactNumberFormatSymbols_ms_MY = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_MY = goog.i18n.CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale ms_SG.
  */
-goog.i18n.CompactNumberFormatSymbols_ms_SG = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_SG = goog.i18n.CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale mt_MT.
  */
-goog.i18n.CompactNumberFormatSymbols_mt_MT = goog.i18n.CompactNumberFormatSymbols_mt;
+CompactNumberFormatSymbols_mt_MT = goog.i18n.CompactNumberFormatSymbols_mt;
 
 
 /**
  * Compact number formatting symbols for locale mua.
  */
-goog.i18n.CompactNumberFormatSymbols_mua = {
+CompactNumberFormatSymbols_mua = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10422,19 +9713,19 @@ goog.i18n.CompactNumberFormatSymbols_mua = {
 /**
  * Compact number formatting symbols for locale mua_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_mua_CM = goog.i18n.CompactNumberFormatSymbols_mua;
+CompactNumberFormatSymbols_mua_CM = CompactNumberFormatSymbols_mua;
 
 
 /**
  * Compact number formatting symbols for locale my_MM.
  */
-goog.i18n.CompactNumberFormatSymbols_my_MM = goog.i18n.CompactNumberFormatSymbols_my;
+CompactNumberFormatSymbols_my_MM = goog.i18n.CompactNumberFormatSymbols_my;
 
 
 /**
  * Compact number formatting symbols for locale mzn.
  */
-goog.i18n.CompactNumberFormatSymbols_mzn = {
+CompactNumberFormatSymbols_mzn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10479,13 +9770,13 @@ goog.i18n.CompactNumberFormatSymbols_mzn = {
 /**
  * Compact number formatting symbols for locale mzn_IR.
  */
-goog.i18n.CompactNumberFormatSymbols_mzn_IR = goog.i18n.CompactNumberFormatSymbols_mzn;
+CompactNumberFormatSymbols_mzn_IR = CompactNumberFormatSymbols_mzn;
 
 
 /**
  * Compact number formatting symbols for locale naq.
  */
-goog.i18n.CompactNumberFormatSymbols_naq = {
+CompactNumberFormatSymbols_naq = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10530,25 +9821,25 @@ goog.i18n.CompactNumberFormatSymbols_naq = {
 /**
  * Compact number formatting symbols for locale naq_NA.
  */
-goog.i18n.CompactNumberFormatSymbols_naq_NA = goog.i18n.CompactNumberFormatSymbols_naq;
+CompactNumberFormatSymbols_naq_NA = CompactNumberFormatSymbols_naq;
 
 
 /**
  * Compact number formatting symbols for locale nb_NO.
  */
-goog.i18n.CompactNumberFormatSymbols_nb_NO = goog.i18n.CompactNumberFormatSymbols_nb;
+CompactNumberFormatSymbols_nb_NO = goog.i18n.CompactNumberFormatSymbols_nb;
 
 
 /**
  * Compact number formatting symbols for locale nb_SJ.
  */
-goog.i18n.CompactNumberFormatSymbols_nb_SJ = goog.i18n.CompactNumberFormatSymbols_nb;
+CompactNumberFormatSymbols_nb_SJ = goog.i18n.CompactNumberFormatSymbols_nb;
 
 
 /**
  * Compact number formatting symbols for locale nd.
  */
-goog.i18n.CompactNumberFormatSymbols_nd = {
+CompactNumberFormatSymbols_nd = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10593,67 +9884,67 @@ goog.i18n.CompactNumberFormatSymbols_nd = {
 /**
  * Compact number formatting symbols for locale nd_ZW.
  */
-goog.i18n.CompactNumberFormatSymbols_nd_ZW = goog.i18n.CompactNumberFormatSymbols_nd;
+CompactNumberFormatSymbols_nd_ZW = CompactNumberFormatSymbols_nd;
 
 
 /**
  * Compact number formatting symbols for locale ne_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ne_IN = goog.i18n.CompactNumberFormatSymbols_ne;
+CompactNumberFormatSymbols_ne_IN = goog.i18n.CompactNumberFormatSymbols_ne;
 
 
 /**
  * Compact number formatting symbols for locale ne_NP.
  */
-goog.i18n.CompactNumberFormatSymbols_ne_NP = goog.i18n.CompactNumberFormatSymbols_ne;
+CompactNumberFormatSymbols_ne_NP = goog.i18n.CompactNumberFormatSymbols_ne;
 
 
 /**
  * Compact number formatting symbols for locale nl_AW.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_AW = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_AW = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_BE.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_BE = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_BE = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_BQ.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_BQ = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_BQ = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_CW.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_CW = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_CW = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_NL.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_NL = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_NL = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_SR.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_SR = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_SR = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_SX.
  */
-goog.i18n.CompactNumberFormatSymbols_nl_SX = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_SX = goog.i18n.CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nmg.
  */
-goog.i18n.CompactNumberFormatSymbols_nmg = {
+CompactNumberFormatSymbols_nmg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10698,13 +9989,13 @@ goog.i18n.CompactNumberFormatSymbols_nmg = {
 /**
  * Compact number formatting symbols for locale nmg_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_nmg_CM = goog.i18n.CompactNumberFormatSymbols_nmg;
+CompactNumberFormatSymbols_nmg_CM = CompactNumberFormatSymbols_nmg;
 
 
 /**
  * Compact number formatting symbols for locale nn.
  */
-goog.i18n.CompactNumberFormatSymbols_nn = {
+CompactNumberFormatSymbols_nn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0k'
@@ -10787,13 +10078,13 @@ goog.i18n.CompactNumberFormatSymbols_nn = {
 /**
  * Compact number formatting symbols for locale nn_NO.
  */
-goog.i18n.CompactNumberFormatSymbols_nn_NO = goog.i18n.CompactNumberFormatSymbols_nn;
+CompactNumberFormatSymbols_nn_NO = CompactNumberFormatSymbols_nn;
 
 
 /**
  * Compact number formatting symbols for locale nnh.
  */
-goog.i18n.CompactNumberFormatSymbols_nnh = {
+CompactNumberFormatSymbols_nnh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10838,13 +10129,13 @@ goog.i18n.CompactNumberFormatSymbols_nnh = {
 /**
  * Compact number formatting symbols for locale nnh_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_nnh_CM = goog.i18n.CompactNumberFormatSymbols_nnh;
+CompactNumberFormatSymbols_nnh_CM = CompactNumberFormatSymbols_nnh;
 
 
 /**
  * Compact number formatting symbols for locale nus.
  */
-goog.i18n.CompactNumberFormatSymbols_nus = {
+CompactNumberFormatSymbols_nus = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10889,13 +10180,13 @@ goog.i18n.CompactNumberFormatSymbols_nus = {
 /**
  * Compact number formatting symbols for locale nus_SS.
  */
-goog.i18n.CompactNumberFormatSymbols_nus_SS = goog.i18n.CompactNumberFormatSymbols_nus;
+CompactNumberFormatSymbols_nus_SS = CompactNumberFormatSymbols_nus;
 
 
 /**
  * Compact number formatting symbols for locale nyn.
  */
-goog.i18n.CompactNumberFormatSymbols_nyn = {
+CompactNumberFormatSymbols_nyn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10940,13 +10231,13 @@ goog.i18n.CompactNumberFormatSymbols_nyn = {
 /**
  * Compact number formatting symbols for locale nyn_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_nyn_UG = goog.i18n.CompactNumberFormatSymbols_nyn;
+CompactNumberFormatSymbols_nyn_UG = CompactNumberFormatSymbols_nyn;
 
 
 /**
  * Compact number formatting symbols for locale om.
  */
-goog.i18n.CompactNumberFormatSymbols_om = {
+CompactNumberFormatSymbols_om = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -10991,25 +10282,25 @@ goog.i18n.CompactNumberFormatSymbols_om = {
 /**
  * Compact number formatting symbols for locale om_ET.
  */
-goog.i18n.CompactNumberFormatSymbols_om_ET = goog.i18n.CompactNumberFormatSymbols_om;
+CompactNumberFormatSymbols_om_ET = CompactNumberFormatSymbols_om;
 
 
 /**
  * Compact number formatting symbols for locale om_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_om_KE = goog.i18n.CompactNumberFormatSymbols_om;
+CompactNumberFormatSymbols_om_KE = CompactNumberFormatSymbols_om;
 
 
 /**
  * Compact number formatting symbols for locale or_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_or_IN = goog.i18n.CompactNumberFormatSymbols_or;
+CompactNumberFormatSymbols_or_IN = goog.i18n.CompactNumberFormatSymbols_or;
 
 
 /**
  * Compact number formatting symbols for locale os.
  */
-goog.i18n.CompactNumberFormatSymbols_os = {
+CompactNumberFormatSymbols_os = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -11054,19 +10345,19 @@ goog.i18n.CompactNumberFormatSymbols_os = {
 /**
  * Compact number formatting symbols for locale os_GE.
  */
-goog.i18n.CompactNumberFormatSymbols_os_GE = goog.i18n.CompactNumberFormatSymbols_os;
+CompactNumberFormatSymbols_os_GE = CompactNumberFormatSymbols_os;
 
 
 /**
  * Compact number formatting symbols for locale os_RU.
  */
-goog.i18n.CompactNumberFormatSymbols_os_RU = goog.i18n.CompactNumberFormatSymbols_os;
+CompactNumberFormatSymbols_os_RU = CompactNumberFormatSymbols_os;
 
 
 /**
  * Compact number formatting symbols for locale pa_Arab.
  */
-goog.i18n.CompactNumberFormatSymbols_pa_Arab = {
+CompactNumberFormatSymbols_pa_Arab = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -11111,7 +10402,7 @@ goog.i18n.CompactNumberFormatSymbols_pa_Arab = {
 /**
  * Compact number formatting symbols for locale pa_Arab_PK.
  */
-goog.i18n.CompactNumberFormatSymbols_pa_Arab_PK = {
+CompactNumberFormatSymbols_pa_Arab_PK = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -11156,19 +10447,19 @@ goog.i18n.CompactNumberFormatSymbols_pa_Arab_PK = {
 /**
  * Compact number formatting symbols for locale pa_Guru.
  */
-goog.i18n.CompactNumberFormatSymbols_pa_Guru = goog.i18n.CompactNumberFormatSymbols_pa;
+CompactNumberFormatSymbols_pa_Guru = goog.i18n.CompactNumberFormatSymbols_pa;
 
 
 /**
  * Compact number formatting symbols for locale pa_Guru_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_pa_Guru_IN = goog.i18n.CompactNumberFormatSymbols_pa;
+CompactNumberFormatSymbols_pa_Guru_IN = goog.i18n.CompactNumberFormatSymbols_pa;
 
 
 /**
  * Compact number formatting symbols for locale pcm.
  */
-goog.i18n.CompactNumberFormatSymbols_pcm = {
+CompactNumberFormatSymbols_pcm = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -11251,19 +10542,19 @@ goog.i18n.CompactNumberFormatSymbols_pcm = {
 /**
  * Compact number formatting symbols for locale pcm_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_pcm_NG = goog.i18n.CompactNumberFormatSymbols_pcm;
+CompactNumberFormatSymbols_pcm_NG = CompactNumberFormatSymbols_pcm;
 
 
 /**
  * Compact number formatting symbols for locale pl_PL.
  */
-goog.i18n.CompactNumberFormatSymbols_pl_PL = goog.i18n.CompactNumberFormatSymbols_pl;
+CompactNumberFormatSymbols_pl_PL = goog.i18n.CompactNumberFormatSymbols_pl;
 
 
 /**
  * Compact number formatting symbols for locale ps.
  */
-goog.i18n.CompactNumberFormatSymbols_ps = {
+CompactNumberFormatSymbols_ps = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -11346,19 +10637,19 @@ goog.i18n.CompactNumberFormatSymbols_ps = {
 /**
  * Compact number formatting symbols for locale ps_AF.
  */
-goog.i18n.CompactNumberFormatSymbols_ps_AF = goog.i18n.CompactNumberFormatSymbols_ps;
+CompactNumberFormatSymbols_ps_AF = CompactNumberFormatSymbols_ps;
 
 
 /**
  * Compact number formatting symbols for locale ps_PK.
  */
-goog.i18n.CompactNumberFormatSymbols_ps_PK = goog.i18n.CompactNumberFormatSymbols_ps;
+CompactNumberFormatSymbols_ps_PK = CompactNumberFormatSymbols_ps;
 
 
 /**
  * Compact number formatting symbols for locale pt_AO.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_AO = {
+CompactNumberFormatSymbols_pt_AO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11441,7 +10732,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_AO = {
 /**
  * Compact number formatting symbols for locale pt_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_CH = {
+CompactNumberFormatSymbols_pt_CH = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11524,7 +10815,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_CH = {
 /**
  * Compact number formatting symbols for locale pt_CV.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_CV = {
+CompactNumberFormatSymbols_pt_CV = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11607,7 +10898,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_CV = {
 /**
  * Compact number formatting symbols for locale pt_GQ.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_GQ = {
+CompactNumberFormatSymbols_pt_GQ = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11690,7 +10981,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_GQ = {
 /**
  * Compact number formatting symbols for locale pt_GW.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_GW = {
+CompactNumberFormatSymbols_pt_GW = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11773,7 +11064,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_GW = {
 /**
  * Compact number formatting symbols for locale pt_LU.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_LU = {
+CompactNumberFormatSymbols_pt_LU = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11856,7 +11147,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_LU = {
 /**
  * Compact number formatting symbols for locale pt_MO.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_MO = {
+CompactNumberFormatSymbols_pt_MO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -11939,7 +11230,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_MO = {
 /**
  * Compact number formatting symbols for locale pt_MZ.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_MZ = {
+CompactNumberFormatSymbols_pt_MZ = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -12022,7 +11313,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_MZ = {
 /**
  * Compact number formatting symbols for locale pt_ST.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_ST = {
+CompactNumberFormatSymbols_pt_ST = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -12105,7 +11396,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_ST = {
 /**
  * Compact number formatting symbols for locale pt_TL.
  */
-goog.i18n.CompactNumberFormatSymbols_pt_TL = {
+CompactNumberFormatSymbols_pt_TL = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -12188,7 +11479,7 @@ goog.i18n.CompactNumberFormatSymbols_pt_TL = {
 /**
  * Compact number formatting symbols for locale qu.
  */
-goog.i18n.CompactNumberFormatSymbols_qu = {
+CompactNumberFormatSymbols_qu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12271,25 +11562,25 @@ goog.i18n.CompactNumberFormatSymbols_qu = {
 /**
  * Compact number formatting symbols for locale qu_BO.
  */
-goog.i18n.CompactNumberFormatSymbols_qu_BO = goog.i18n.CompactNumberFormatSymbols_qu;
+CompactNumberFormatSymbols_qu_BO = CompactNumberFormatSymbols_qu;
 
 
 /**
  * Compact number formatting symbols for locale qu_EC.
  */
-goog.i18n.CompactNumberFormatSymbols_qu_EC = goog.i18n.CompactNumberFormatSymbols_qu;
+CompactNumberFormatSymbols_qu_EC = CompactNumberFormatSymbols_qu;
 
 
 /**
  * Compact number formatting symbols for locale qu_PE.
  */
-goog.i18n.CompactNumberFormatSymbols_qu_PE = goog.i18n.CompactNumberFormatSymbols_qu;
+CompactNumberFormatSymbols_qu_PE = CompactNumberFormatSymbols_qu;
 
 
 /**
  * Compact number formatting symbols for locale raj.
  */
-goog.i18n.CompactNumberFormatSymbols_raj = {
+CompactNumberFormatSymbols_raj = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12334,13 +11625,13 @@ goog.i18n.CompactNumberFormatSymbols_raj = {
 /**
  * Compact number formatting symbols for locale raj_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_raj_IN = goog.i18n.CompactNumberFormatSymbols_raj;
+CompactNumberFormatSymbols_raj_IN = CompactNumberFormatSymbols_raj;
 
 
 /**
  * Compact number formatting symbols for locale rm.
  */
-goog.i18n.CompactNumberFormatSymbols_rm = {
+CompactNumberFormatSymbols_rm = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12385,13 +11676,13 @@ goog.i18n.CompactNumberFormatSymbols_rm = {
 /**
  * Compact number formatting symbols for locale rm_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_rm_CH = goog.i18n.CompactNumberFormatSymbols_rm;
+CompactNumberFormatSymbols_rm_CH = CompactNumberFormatSymbols_rm;
 
 
 /**
  * Compact number formatting symbols for locale rn.
  */
-goog.i18n.CompactNumberFormatSymbols_rn = {
+CompactNumberFormatSymbols_rn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12436,25 +11727,25 @@ goog.i18n.CompactNumberFormatSymbols_rn = {
 /**
  * Compact number formatting symbols for locale rn_BI.
  */
-goog.i18n.CompactNumberFormatSymbols_rn_BI = goog.i18n.CompactNumberFormatSymbols_rn;
+CompactNumberFormatSymbols_rn_BI = CompactNumberFormatSymbols_rn;
 
 
 /**
  * Compact number formatting symbols for locale ro_MD.
  */
-goog.i18n.CompactNumberFormatSymbols_ro_MD = goog.i18n.CompactNumberFormatSymbols_ro;
+CompactNumberFormatSymbols_ro_MD = goog.i18n.CompactNumberFormatSymbols_ro;
 
 
 /**
  * Compact number formatting symbols for locale ro_RO.
  */
-goog.i18n.CompactNumberFormatSymbols_ro_RO = goog.i18n.CompactNumberFormatSymbols_ro;
+CompactNumberFormatSymbols_ro_RO = goog.i18n.CompactNumberFormatSymbols_ro;
 
 
 /**
  * Compact number formatting symbols for locale rof.
  */
-goog.i18n.CompactNumberFormatSymbols_rof = {
+CompactNumberFormatSymbols_rof = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12499,49 +11790,49 @@ goog.i18n.CompactNumberFormatSymbols_rof = {
 /**
  * Compact number formatting symbols for locale rof_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_rof_TZ = goog.i18n.CompactNumberFormatSymbols_rof;
+CompactNumberFormatSymbols_rof_TZ = CompactNumberFormatSymbols_rof;
 
 
 /**
  * Compact number formatting symbols for locale ru_BY.
  */
-goog.i18n.CompactNumberFormatSymbols_ru_BY = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_BY = goog.i18n.CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_KG.
  */
-goog.i18n.CompactNumberFormatSymbols_ru_KG = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_KG = goog.i18n.CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_KZ.
  */
-goog.i18n.CompactNumberFormatSymbols_ru_KZ = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_KZ = goog.i18n.CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_MD.
  */
-goog.i18n.CompactNumberFormatSymbols_ru_MD = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_MD = goog.i18n.CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_RU.
  */
-goog.i18n.CompactNumberFormatSymbols_ru_RU = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_RU = goog.i18n.CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_UA.
  */
-goog.i18n.CompactNumberFormatSymbols_ru_UA = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_UA = goog.i18n.CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale rw.
  */
-goog.i18n.CompactNumberFormatSymbols_rw = {
+CompactNumberFormatSymbols_rw = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12586,13 +11877,13 @@ goog.i18n.CompactNumberFormatSymbols_rw = {
 /**
  * Compact number formatting symbols for locale rw_RW.
  */
-goog.i18n.CompactNumberFormatSymbols_rw_RW = goog.i18n.CompactNumberFormatSymbols_rw;
+CompactNumberFormatSymbols_rw_RW = CompactNumberFormatSymbols_rw;
 
 
 /**
  * Compact number formatting symbols for locale rwk.
  */
-goog.i18n.CompactNumberFormatSymbols_rwk = {
+CompactNumberFormatSymbols_rwk = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12637,13 +11928,13 @@ goog.i18n.CompactNumberFormatSymbols_rwk = {
 /**
  * Compact number formatting symbols for locale rwk_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_rwk_TZ = goog.i18n.CompactNumberFormatSymbols_rwk;
+CompactNumberFormatSymbols_rwk_TZ = CompactNumberFormatSymbols_rwk;
 
 
 /**
  * Compact number formatting symbols for locale sa.
  */
-goog.i18n.CompactNumberFormatSymbols_sa = {
+CompactNumberFormatSymbols_sa = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12688,13 +11979,13 @@ goog.i18n.CompactNumberFormatSymbols_sa = {
 /**
  * Compact number formatting symbols for locale sa_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_sa_IN = goog.i18n.CompactNumberFormatSymbols_sa;
+CompactNumberFormatSymbols_sa_IN = CompactNumberFormatSymbols_sa;
 
 
 /**
  * Compact number formatting symbols for locale sah.
  */
-goog.i18n.CompactNumberFormatSymbols_sah = {
+CompactNumberFormatSymbols_sah = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 тыһ.'
@@ -12777,13 +12068,13 @@ goog.i18n.CompactNumberFormatSymbols_sah = {
 /**
  * Compact number formatting symbols for locale sah_RU.
  */
-goog.i18n.CompactNumberFormatSymbols_sah_RU = goog.i18n.CompactNumberFormatSymbols_sah;
+CompactNumberFormatSymbols_sah_RU = CompactNumberFormatSymbols_sah;
 
 
 /**
  * Compact number formatting symbols for locale saq.
  */
-goog.i18n.CompactNumberFormatSymbols_saq = {
+CompactNumberFormatSymbols_saq = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12828,13 +12119,13 @@ goog.i18n.CompactNumberFormatSymbols_saq = {
 /**
  * Compact number formatting symbols for locale saq_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_saq_KE = goog.i18n.CompactNumberFormatSymbols_saq;
+CompactNumberFormatSymbols_saq_KE = CompactNumberFormatSymbols_saq;
 
 
 /**
  * Compact number formatting symbols for locale sat.
  */
-goog.i18n.CompactNumberFormatSymbols_sat = {
+CompactNumberFormatSymbols_sat = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12879,19 +12170,19 @@ goog.i18n.CompactNumberFormatSymbols_sat = {
 /**
  * Compact number formatting symbols for locale sat_Olck.
  */
-goog.i18n.CompactNumberFormatSymbols_sat_Olck = goog.i18n.CompactNumberFormatSymbols_sat;
+CompactNumberFormatSymbols_sat_Olck = CompactNumberFormatSymbols_sat;
 
 
 /**
  * Compact number formatting symbols for locale sat_Olck_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_sat_Olck_IN = goog.i18n.CompactNumberFormatSymbols_sat;
+CompactNumberFormatSymbols_sat_Olck_IN = CompactNumberFormatSymbols_sat;
 
 
 /**
  * Compact number formatting symbols for locale sbp.
  */
-goog.i18n.CompactNumberFormatSymbols_sbp = {
+CompactNumberFormatSymbols_sbp = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -12936,13 +12227,13 @@ goog.i18n.CompactNumberFormatSymbols_sbp = {
 /**
  * Compact number formatting symbols for locale sbp_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_sbp_TZ = goog.i18n.CompactNumberFormatSymbols_sbp;
+CompactNumberFormatSymbols_sbp_TZ = CompactNumberFormatSymbols_sbp;
 
 
 /**
  * Compact number formatting symbols for locale sc.
  */
-goog.i18n.CompactNumberFormatSymbols_sc = {
+CompactNumberFormatSymbols_sc = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mìg'
@@ -13025,13 +12316,13 @@ goog.i18n.CompactNumberFormatSymbols_sc = {
 /**
  * Compact number formatting symbols for locale sc_IT.
  */
-goog.i18n.CompactNumberFormatSymbols_sc_IT = goog.i18n.CompactNumberFormatSymbols_sc;
+CompactNumberFormatSymbols_sc_IT = CompactNumberFormatSymbols_sc;
 
 
 /**
  * Compact number formatting symbols for locale sd.
  */
-goog.i18n.CompactNumberFormatSymbols_sd = {
+CompactNumberFormatSymbols_sd = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 هزار'
@@ -13114,19 +12405,19 @@ goog.i18n.CompactNumberFormatSymbols_sd = {
 /**
  * Compact number formatting symbols for locale sd_Arab.
  */
-goog.i18n.CompactNumberFormatSymbols_sd_Arab = goog.i18n.CompactNumberFormatSymbols_sd;
+CompactNumberFormatSymbols_sd_Arab = CompactNumberFormatSymbols_sd;
 
 
 /**
  * Compact number formatting symbols for locale sd_Arab_PK.
  */
-goog.i18n.CompactNumberFormatSymbols_sd_Arab_PK = goog.i18n.CompactNumberFormatSymbols_sd;
+CompactNumberFormatSymbols_sd_Arab_PK = CompactNumberFormatSymbols_sd;
 
 
 /**
  * Compact number formatting symbols for locale sd_Deva.
  */
-goog.i18n.CompactNumberFormatSymbols_sd_Deva = {
+CompactNumberFormatSymbols_sd_Deva = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13171,7 +12462,7 @@ goog.i18n.CompactNumberFormatSymbols_sd_Deva = {
 /**
  * Compact number formatting symbols for locale sd_Deva_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_sd_Deva_IN = {
+CompactNumberFormatSymbols_sd_Deva_IN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13216,7 +12507,7 @@ goog.i18n.CompactNumberFormatSymbols_sd_Deva_IN = {
 /**
  * Compact number formatting symbols for locale se.
  */
-goog.i18n.CompactNumberFormatSymbols_se = {
+CompactNumberFormatSymbols_se = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 dt'
@@ -13299,25 +12590,25 @@ goog.i18n.CompactNumberFormatSymbols_se = {
 /**
  * Compact number formatting symbols for locale se_FI.
  */
-goog.i18n.CompactNumberFormatSymbols_se_FI = goog.i18n.CompactNumberFormatSymbols_se;
+CompactNumberFormatSymbols_se_FI = CompactNumberFormatSymbols_se;
 
 
 /**
  * Compact number formatting symbols for locale se_NO.
  */
-goog.i18n.CompactNumberFormatSymbols_se_NO = goog.i18n.CompactNumberFormatSymbols_se;
+CompactNumberFormatSymbols_se_NO = CompactNumberFormatSymbols_se;
 
 
 /**
  * Compact number formatting symbols for locale se_SE.
  */
-goog.i18n.CompactNumberFormatSymbols_se_SE = goog.i18n.CompactNumberFormatSymbols_se;
+CompactNumberFormatSymbols_se_SE = CompactNumberFormatSymbols_se;
 
 
 /**
  * Compact number formatting symbols for locale seh.
  */
-goog.i18n.CompactNumberFormatSymbols_seh = {
+CompactNumberFormatSymbols_seh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13362,13 +12653,13 @@ goog.i18n.CompactNumberFormatSymbols_seh = {
 /**
  * Compact number formatting symbols for locale seh_MZ.
  */
-goog.i18n.CompactNumberFormatSymbols_seh_MZ = goog.i18n.CompactNumberFormatSymbols_seh;
+CompactNumberFormatSymbols_seh_MZ = CompactNumberFormatSymbols_seh;
 
 
 /**
  * Compact number formatting symbols for locale ses.
  */
-goog.i18n.CompactNumberFormatSymbols_ses = {
+CompactNumberFormatSymbols_ses = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13413,13 +12704,13 @@ goog.i18n.CompactNumberFormatSymbols_ses = {
 /**
  * Compact number formatting symbols for locale ses_ML.
  */
-goog.i18n.CompactNumberFormatSymbols_ses_ML = goog.i18n.CompactNumberFormatSymbols_ses;
+CompactNumberFormatSymbols_ses_ML = CompactNumberFormatSymbols_ses;
 
 
 /**
  * Compact number formatting symbols for locale sg.
  */
-goog.i18n.CompactNumberFormatSymbols_sg = {
+CompactNumberFormatSymbols_sg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13464,13 +12755,13 @@ goog.i18n.CompactNumberFormatSymbols_sg = {
 /**
  * Compact number formatting symbols for locale sg_CF.
  */
-goog.i18n.CompactNumberFormatSymbols_sg_CF = goog.i18n.CompactNumberFormatSymbols_sg;
+CompactNumberFormatSymbols_sg_CF = CompactNumberFormatSymbols_sg;
 
 
 /**
  * Compact number formatting symbols for locale shi.
  */
-goog.i18n.CompactNumberFormatSymbols_shi = {
+CompactNumberFormatSymbols_shi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13515,49 +12806,49 @@ goog.i18n.CompactNumberFormatSymbols_shi = {
 /**
  * Compact number formatting symbols for locale shi_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_shi_Latn = goog.i18n.CompactNumberFormatSymbols_shi;
+CompactNumberFormatSymbols_shi_Latn = CompactNumberFormatSymbols_shi;
 
 
 /**
  * Compact number formatting symbols for locale shi_Latn_MA.
  */
-goog.i18n.CompactNumberFormatSymbols_shi_Latn_MA = goog.i18n.CompactNumberFormatSymbols_shi;
+CompactNumberFormatSymbols_shi_Latn_MA = CompactNumberFormatSymbols_shi;
 
 
 /**
  * Compact number formatting symbols for locale shi_Tfng.
  */
-goog.i18n.CompactNumberFormatSymbols_shi_Tfng = goog.i18n.CompactNumberFormatSymbols_shi;
+CompactNumberFormatSymbols_shi_Tfng = CompactNumberFormatSymbols_shi;
 
 
 /**
  * Compact number formatting symbols for locale shi_Tfng_MA.
  */
-goog.i18n.CompactNumberFormatSymbols_shi_Tfng_MA = goog.i18n.CompactNumberFormatSymbols_shi;
+CompactNumberFormatSymbols_shi_Tfng_MA = CompactNumberFormatSymbols_shi;
 
 
 /**
  * Compact number formatting symbols for locale si_LK.
  */
-goog.i18n.CompactNumberFormatSymbols_si_LK = goog.i18n.CompactNumberFormatSymbols_si;
+CompactNumberFormatSymbols_si_LK = goog.i18n.CompactNumberFormatSymbols_si;
 
 
 /**
  * Compact number formatting symbols for locale sk_SK.
  */
-goog.i18n.CompactNumberFormatSymbols_sk_SK = goog.i18n.CompactNumberFormatSymbols_sk;
+CompactNumberFormatSymbols_sk_SK = goog.i18n.CompactNumberFormatSymbols_sk;
 
 
 /**
  * Compact number formatting symbols for locale sl_SI.
  */
-goog.i18n.CompactNumberFormatSymbols_sl_SI = goog.i18n.CompactNumberFormatSymbols_sl;
+CompactNumberFormatSymbols_sl_SI = goog.i18n.CompactNumberFormatSymbols_sl;
 
 
 /**
  * Compact number formatting symbols for locale smn.
  */
-goog.i18n.CompactNumberFormatSymbols_smn = {
+CompactNumberFormatSymbols_smn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13640,13 +12931,13 @@ goog.i18n.CompactNumberFormatSymbols_smn = {
 /**
  * Compact number formatting symbols for locale smn_FI.
  */
-goog.i18n.CompactNumberFormatSymbols_smn_FI = goog.i18n.CompactNumberFormatSymbols_smn;
+CompactNumberFormatSymbols_smn_FI = CompactNumberFormatSymbols_smn;
 
 
 /**
  * Compact number formatting symbols for locale sn.
  */
-goog.i18n.CompactNumberFormatSymbols_sn = {
+CompactNumberFormatSymbols_sn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13691,13 +12982,13 @@ goog.i18n.CompactNumberFormatSymbols_sn = {
 /**
  * Compact number formatting symbols for locale sn_ZW.
  */
-goog.i18n.CompactNumberFormatSymbols_sn_ZW = goog.i18n.CompactNumberFormatSymbols_sn;
+CompactNumberFormatSymbols_sn_ZW = CompactNumberFormatSymbols_sn;
 
 
 /**
  * Compact number formatting symbols for locale so.
  */
-goog.i18n.CompactNumberFormatSymbols_so = {
+CompactNumberFormatSymbols_so = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -13780,79 +13071,79 @@ goog.i18n.CompactNumberFormatSymbols_so = {
 /**
  * Compact number formatting symbols for locale so_DJ.
  */
-goog.i18n.CompactNumberFormatSymbols_so_DJ = goog.i18n.CompactNumberFormatSymbols_so;
+CompactNumberFormatSymbols_so_DJ = CompactNumberFormatSymbols_so;
 
 
 /**
  * Compact number formatting symbols for locale so_ET.
  */
-goog.i18n.CompactNumberFormatSymbols_so_ET = goog.i18n.CompactNumberFormatSymbols_so;
+CompactNumberFormatSymbols_so_ET = CompactNumberFormatSymbols_so;
 
 
 /**
  * Compact number formatting symbols for locale so_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_so_KE = goog.i18n.CompactNumberFormatSymbols_so;
+CompactNumberFormatSymbols_so_KE = CompactNumberFormatSymbols_so;
 
 
 /**
  * Compact number formatting symbols for locale so_SO.
  */
-goog.i18n.CompactNumberFormatSymbols_so_SO = goog.i18n.CompactNumberFormatSymbols_so;
+CompactNumberFormatSymbols_so_SO = CompactNumberFormatSymbols_so;
 
 
 /**
  * Compact number formatting symbols for locale sq_AL.
  */
-goog.i18n.CompactNumberFormatSymbols_sq_AL = goog.i18n.CompactNumberFormatSymbols_sq;
+CompactNumberFormatSymbols_sq_AL = goog.i18n.CompactNumberFormatSymbols_sq;
 
 
 /**
  * Compact number formatting symbols for locale sq_MK.
  */
-goog.i18n.CompactNumberFormatSymbols_sq_MK = goog.i18n.CompactNumberFormatSymbols_sq;
+CompactNumberFormatSymbols_sq_MK = goog.i18n.CompactNumberFormatSymbols_sq;
 
 
 /**
  * Compact number formatting symbols for locale sq_XK.
  */
-goog.i18n.CompactNumberFormatSymbols_sq_XK = goog.i18n.CompactNumberFormatSymbols_sq;
+CompactNumberFormatSymbols_sq_XK = goog.i18n.CompactNumberFormatSymbols_sq;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Cyrl = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl = goog.i18n.CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_BA.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_BA = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_BA = goog.i18n.CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_ME.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_ME = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_ME = goog.i18n.CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_RS.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_RS = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_RS = goog.i18n.CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_XK.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_XK = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_XK = goog.i18n.CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Latn_BA.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Latn_BA = {
+CompactNumberFormatSymbols_sr_Latn_BA = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -13935,7 +13226,7 @@ goog.i18n.CompactNumberFormatSymbols_sr_Latn_BA = {
 /**
  * Compact number formatting symbols for locale sr_Latn_ME.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Latn_ME = {
+CompactNumberFormatSymbols_sr_Latn_ME = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -14018,7 +13309,7 @@ goog.i18n.CompactNumberFormatSymbols_sr_Latn_ME = {
 /**
  * Compact number formatting symbols for locale sr_Latn_RS.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Latn_RS = {
+CompactNumberFormatSymbols_sr_Latn_RS = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -14101,7 +13392,7 @@ goog.i18n.CompactNumberFormatSymbols_sr_Latn_RS = {
 /**
  * Compact number formatting symbols for locale sr_Latn_XK.
  */
-goog.i18n.CompactNumberFormatSymbols_sr_Latn_XK = {
+CompactNumberFormatSymbols_sr_Latn_XK = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -14184,7 +13475,7 @@ goog.i18n.CompactNumberFormatSymbols_sr_Latn_XK = {
 /**
  * Compact number formatting symbols for locale su.
  */
-goog.i18n.CompactNumberFormatSymbols_su = {
+CompactNumberFormatSymbols_su = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -14229,43 +13520,43 @@ goog.i18n.CompactNumberFormatSymbols_su = {
 /**
  * Compact number formatting symbols for locale su_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_su_Latn = goog.i18n.CompactNumberFormatSymbols_su;
+CompactNumberFormatSymbols_su_Latn = CompactNumberFormatSymbols_su;
 
 
 /**
  * Compact number formatting symbols for locale su_Latn_ID.
  */
-goog.i18n.CompactNumberFormatSymbols_su_Latn_ID = goog.i18n.CompactNumberFormatSymbols_su;
+CompactNumberFormatSymbols_su_Latn_ID = CompactNumberFormatSymbols_su;
 
 
 /**
  * Compact number formatting symbols for locale sv_AX.
  */
-goog.i18n.CompactNumberFormatSymbols_sv_AX = goog.i18n.CompactNumberFormatSymbols_sv;
+CompactNumberFormatSymbols_sv_AX = goog.i18n.CompactNumberFormatSymbols_sv;
 
 
 /**
  * Compact number formatting symbols for locale sv_FI.
  */
-goog.i18n.CompactNumberFormatSymbols_sv_FI = goog.i18n.CompactNumberFormatSymbols_sv;
+CompactNumberFormatSymbols_sv_FI = goog.i18n.CompactNumberFormatSymbols_sv;
 
 
 /**
  * Compact number formatting symbols for locale sv_SE.
  */
-goog.i18n.CompactNumberFormatSymbols_sv_SE = goog.i18n.CompactNumberFormatSymbols_sv;
+CompactNumberFormatSymbols_sv_SE = goog.i18n.CompactNumberFormatSymbols_sv;
 
 
 /**
  * Compact number formatting symbols for locale sw_CD.
  */
-goog.i18n.CompactNumberFormatSymbols_sw_CD = goog.i18n.CompactNumberFormatSymbols_sw;
+CompactNumberFormatSymbols_sw_CD = goog.i18n.CompactNumberFormatSymbols_sw;
 
 
 /**
  * Compact number formatting symbols for locale sw_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_sw_KE = {
+CompactNumberFormatSymbols_sw_KE = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': 'elfu 0'
@@ -14348,49 +13639,49 @@ goog.i18n.CompactNumberFormatSymbols_sw_KE = {
 /**
  * Compact number formatting symbols for locale sw_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_sw_TZ = goog.i18n.CompactNumberFormatSymbols_sw;
+CompactNumberFormatSymbols_sw_TZ = goog.i18n.CompactNumberFormatSymbols_sw;
 
 
 /**
  * Compact number formatting symbols for locale sw_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_sw_UG = goog.i18n.CompactNumberFormatSymbols_sw;
+CompactNumberFormatSymbols_sw_UG = goog.i18n.CompactNumberFormatSymbols_sw;
 
 
 /**
  * Compact number formatting symbols for locale ta_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ta_IN = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_IN = goog.i18n.CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale ta_LK.
  */
-goog.i18n.CompactNumberFormatSymbols_ta_LK = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_LK = goog.i18n.CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale ta_MY.
  */
-goog.i18n.CompactNumberFormatSymbols_ta_MY = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_MY = goog.i18n.CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale ta_SG.
  */
-goog.i18n.CompactNumberFormatSymbols_ta_SG = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_SG = goog.i18n.CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale te_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_te_IN = goog.i18n.CompactNumberFormatSymbols_te;
+CompactNumberFormatSymbols_te_IN = goog.i18n.CompactNumberFormatSymbols_te;
 
 
 /**
  * Compact number formatting symbols for locale teo.
  */
-goog.i18n.CompactNumberFormatSymbols_teo = {
+CompactNumberFormatSymbols_teo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -14435,19 +13726,19 @@ goog.i18n.CompactNumberFormatSymbols_teo = {
 /**
  * Compact number formatting symbols for locale teo_KE.
  */
-goog.i18n.CompactNumberFormatSymbols_teo_KE = goog.i18n.CompactNumberFormatSymbols_teo;
+CompactNumberFormatSymbols_teo_KE = CompactNumberFormatSymbols_teo;
 
 
 /**
  * Compact number formatting symbols for locale teo_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_teo_UG = goog.i18n.CompactNumberFormatSymbols_teo;
+CompactNumberFormatSymbols_teo_UG = CompactNumberFormatSymbols_teo;
 
 
 /**
  * Compact number formatting symbols for locale tg.
  */
-goog.i18n.CompactNumberFormatSymbols_tg = {
+CompactNumberFormatSymbols_tg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ҳзр.'
@@ -14530,19 +13821,19 @@ goog.i18n.CompactNumberFormatSymbols_tg = {
 /**
  * Compact number formatting symbols for locale tg_TJ.
  */
-goog.i18n.CompactNumberFormatSymbols_tg_TJ = goog.i18n.CompactNumberFormatSymbols_tg;
+CompactNumberFormatSymbols_tg_TJ = CompactNumberFormatSymbols_tg;
 
 
 /**
  * Compact number formatting symbols for locale th_TH.
  */
-goog.i18n.CompactNumberFormatSymbols_th_TH = goog.i18n.CompactNumberFormatSymbols_th;
+CompactNumberFormatSymbols_th_TH = goog.i18n.CompactNumberFormatSymbols_th;
 
 
 /**
  * Compact number formatting symbols for locale ti.
  */
-goog.i18n.CompactNumberFormatSymbols_ti = {
+CompactNumberFormatSymbols_ti = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ሽ'
@@ -14625,19 +13916,19 @@ goog.i18n.CompactNumberFormatSymbols_ti = {
 /**
  * Compact number formatting symbols for locale ti_ER.
  */
-goog.i18n.CompactNumberFormatSymbols_ti_ER = goog.i18n.CompactNumberFormatSymbols_ti;
+CompactNumberFormatSymbols_ti_ER = CompactNumberFormatSymbols_ti;
 
 
 /**
  * Compact number formatting symbols for locale ti_ET.
  */
-goog.i18n.CompactNumberFormatSymbols_ti_ET = goog.i18n.CompactNumberFormatSymbols_ti;
+CompactNumberFormatSymbols_ti_ET = CompactNumberFormatSymbols_ti;
 
 
 /**
  * Compact number formatting symbols for locale tk.
  */
-goog.i18n.CompactNumberFormatSymbols_tk = {
+CompactNumberFormatSymbols_tk = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 müň'
@@ -14720,13 +14011,13 @@ goog.i18n.CompactNumberFormatSymbols_tk = {
 /**
  * Compact number formatting symbols for locale tk_TM.
  */
-goog.i18n.CompactNumberFormatSymbols_tk_TM = goog.i18n.CompactNumberFormatSymbols_tk;
+CompactNumberFormatSymbols_tk_TM = CompactNumberFormatSymbols_tk;
 
 
 /**
  * Compact number formatting symbols for locale to.
  */
-goog.i18n.CompactNumberFormatSymbols_to = {
+CompactNumberFormatSymbols_to = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0a'
@@ -14809,25 +14100,25 @@ goog.i18n.CompactNumberFormatSymbols_to = {
 /**
  * Compact number formatting symbols for locale to_TO.
  */
-goog.i18n.CompactNumberFormatSymbols_to_TO = goog.i18n.CompactNumberFormatSymbols_to;
+CompactNumberFormatSymbols_to_TO = CompactNumberFormatSymbols_to;
 
 
 /**
  * Compact number formatting symbols for locale tr_CY.
  */
-goog.i18n.CompactNumberFormatSymbols_tr_CY = goog.i18n.CompactNumberFormatSymbols_tr;
+CompactNumberFormatSymbols_tr_CY = goog.i18n.CompactNumberFormatSymbols_tr;
 
 
 /**
  * Compact number formatting symbols for locale tr_TR.
  */
-goog.i18n.CompactNumberFormatSymbols_tr_TR = goog.i18n.CompactNumberFormatSymbols_tr;
+CompactNumberFormatSymbols_tr_TR = goog.i18n.CompactNumberFormatSymbols_tr;
 
 
 /**
  * Compact number formatting symbols for locale tt.
  */
-goog.i18n.CompactNumberFormatSymbols_tt = {
+CompactNumberFormatSymbols_tt = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -14872,13 +14163,13 @@ goog.i18n.CompactNumberFormatSymbols_tt = {
 /**
  * Compact number formatting symbols for locale tt_RU.
  */
-goog.i18n.CompactNumberFormatSymbols_tt_RU = goog.i18n.CompactNumberFormatSymbols_tt;
+CompactNumberFormatSymbols_tt_RU = CompactNumberFormatSymbols_tt;
 
 
 /**
  * Compact number formatting symbols for locale twq.
  */
-goog.i18n.CompactNumberFormatSymbols_twq = {
+CompactNumberFormatSymbols_twq = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -14923,13 +14214,13 @@ goog.i18n.CompactNumberFormatSymbols_twq = {
 /**
  * Compact number formatting symbols for locale twq_NE.
  */
-goog.i18n.CompactNumberFormatSymbols_twq_NE = goog.i18n.CompactNumberFormatSymbols_twq;
+CompactNumberFormatSymbols_twq_NE = CompactNumberFormatSymbols_twq;
 
 
 /**
  * Compact number formatting symbols for locale tzm.
  */
-goog.i18n.CompactNumberFormatSymbols_tzm = {
+CompactNumberFormatSymbols_tzm = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -14974,13 +14265,13 @@ goog.i18n.CompactNumberFormatSymbols_tzm = {
 /**
  * Compact number formatting symbols for locale tzm_MA.
  */
-goog.i18n.CompactNumberFormatSymbols_tzm_MA = goog.i18n.CompactNumberFormatSymbols_tzm;
+CompactNumberFormatSymbols_tzm_MA = CompactNumberFormatSymbols_tzm;
 
 
 /**
  * Compact number formatting symbols for locale ug.
  */
-goog.i18n.CompactNumberFormatSymbols_ug = {
+CompactNumberFormatSymbols_ug = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0مىڭ'
@@ -15063,31 +14354,31 @@ goog.i18n.CompactNumberFormatSymbols_ug = {
 /**
  * Compact number formatting symbols for locale ug_CN.
  */
-goog.i18n.CompactNumberFormatSymbols_ug_CN = goog.i18n.CompactNumberFormatSymbols_ug;
+CompactNumberFormatSymbols_ug_CN = CompactNumberFormatSymbols_ug;
 
 
 /**
  * Compact number formatting symbols for locale uk_UA.
  */
-goog.i18n.CompactNumberFormatSymbols_uk_UA = goog.i18n.CompactNumberFormatSymbols_uk;
+CompactNumberFormatSymbols_uk_UA = goog.i18n.CompactNumberFormatSymbols_uk;
 
 
 /**
  * Compact number formatting symbols for locale ur_IN.
  */
-goog.i18n.CompactNumberFormatSymbols_ur_IN = goog.i18n.CompactNumberFormatSymbols_ur;
+CompactNumberFormatSymbols_ur_IN = goog.i18n.CompactNumberFormatSymbols_ur;
 
 
 /**
  * Compact number formatting symbols for locale ur_PK.
  */
-goog.i18n.CompactNumberFormatSymbols_ur_PK = goog.i18n.CompactNumberFormatSymbols_ur;
+CompactNumberFormatSymbols_ur_PK = goog.i18n.CompactNumberFormatSymbols_ur;
 
 
 /**
  * Compact number formatting symbols for locale uz_Arab.
  */
-goog.i18n.CompactNumberFormatSymbols_uz_Arab = {
+CompactNumberFormatSymbols_uz_Arab = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15132,7 +14423,7 @@ goog.i18n.CompactNumberFormatSymbols_uz_Arab = {
 /**
  * Compact number formatting symbols for locale uz_Arab_AF.
  */
-goog.i18n.CompactNumberFormatSymbols_uz_Arab_AF = {
+CompactNumberFormatSymbols_uz_Arab_AF = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15177,7 +14468,7 @@ goog.i18n.CompactNumberFormatSymbols_uz_Arab_AF = {
 /**
  * Compact number formatting symbols for locale uz_Cyrl.
  */
-goog.i18n.CompactNumberFormatSymbols_uz_Cyrl = {
+CompactNumberFormatSymbols_uz_Cyrl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0минг'
@@ -15260,7 +14551,7 @@ goog.i18n.CompactNumberFormatSymbols_uz_Cyrl = {
 /**
  * Compact number formatting symbols for locale uz_Cyrl_UZ.
  */
-goog.i18n.CompactNumberFormatSymbols_uz_Cyrl_UZ = {
+CompactNumberFormatSymbols_uz_Cyrl_UZ = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0минг'
@@ -15343,19 +14634,19 @@ goog.i18n.CompactNumberFormatSymbols_uz_Cyrl_UZ = {
 /**
  * Compact number formatting symbols for locale uz_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_uz_Latn = goog.i18n.CompactNumberFormatSymbols_uz;
+CompactNumberFormatSymbols_uz_Latn = goog.i18n.CompactNumberFormatSymbols_uz;
 
 
 /**
  * Compact number formatting symbols for locale uz_Latn_UZ.
  */
-goog.i18n.CompactNumberFormatSymbols_uz_Latn_UZ = goog.i18n.CompactNumberFormatSymbols_uz;
+CompactNumberFormatSymbols_uz_Latn_UZ = goog.i18n.CompactNumberFormatSymbols_uz;
 
 
 /**
  * Compact number formatting symbols for locale vai.
  */
-goog.i18n.CompactNumberFormatSymbols_vai = {
+CompactNumberFormatSymbols_vai = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15400,37 +14691,37 @@ goog.i18n.CompactNumberFormatSymbols_vai = {
 /**
  * Compact number formatting symbols for locale vai_Latn.
  */
-goog.i18n.CompactNumberFormatSymbols_vai_Latn = goog.i18n.CompactNumberFormatSymbols_vai;
+CompactNumberFormatSymbols_vai_Latn = CompactNumberFormatSymbols_vai;
 
 
 /**
  * Compact number formatting symbols for locale vai_Latn_LR.
  */
-goog.i18n.CompactNumberFormatSymbols_vai_Latn_LR = goog.i18n.CompactNumberFormatSymbols_vai;
+CompactNumberFormatSymbols_vai_Latn_LR = CompactNumberFormatSymbols_vai;
 
 
 /**
  * Compact number formatting symbols for locale vai_Vaii.
  */
-goog.i18n.CompactNumberFormatSymbols_vai_Vaii = goog.i18n.CompactNumberFormatSymbols_vai;
+CompactNumberFormatSymbols_vai_Vaii = CompactNumberFormatSymbols_vai;
 
 
 /**
  * Compact number formatting symbols for locale vai_Vaii_LR.
  */
-goog.i18n.CompactNumberFormatSymbols_vai_Vaii_LR = goog.i18n.CompactNumberFormatSymbols_vai;
+CompactNumberFormatSymbols_vai_Vaii_LR = CompactNumberFormatSymbols_vai;
 
 
 /**
  * Compact number formatting symbols for locale vi_VN.
  */
-goog.i18n.CompactNumberFormatSymbols_vi_VN = goog.i18n.CompactNumberFormatSymbols_vi;
+CompactNumberFormatSymbols_vi_VN = goog.i18n.CompactNumberFormatSymbols_vi;
 
 
 /**
  * Compact number formatting symbols for locale vun.
  */
-goog.i18n.CompactNumberFormatSymbols_vun = {
+CompactNumberFormatSymbols_vun = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15475,13 +14766,13 @@ goog.i18n.CompactNumberFormatSymbols_vun = {
 /**
  * Compact number formatting symbols for locale vun_TZ.
  */
-goog.i18n.CompactNumberFormatSymbols_vun_TZ = goog.i18n.CompactNumberFormatSymbols_vun;
+CompactNumberFormatSymbols_vun_TZ = CompactNumberFormatSymbols_vun;
 
 
 /**
  * Compact number formatting symbols for locale wae.
  */
-goog.i18n.CompactNumberFormatSymbols_wae = {
+CompactNumberFormatSymbols_wae = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15526,13 +14817,13 @@ goog.i18n.CompactNumberFormatSymbols_wae = {
 /**
  * Compact number formatting symbols for locale wae_CH.
  */
-goog.i18n.CompactNumberFormatSymbols_wae_CH = goog.i18n.CompactNumberFormatSymbols_wae;
+CompactNumberFormatSymbols_wae_CH = CompactNumberFormatSymbols_wae;
 
 
 /**
  * Compact number formatting symbols for locale wo.
  */
-goog.i18n.CompactNumberFormatSymbols_wo = {
+CompactNumberFormatSymbols_wo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15577,13 +14868,13 @@ goog.i18n.CompactNumberFormatSymbols_wo = {
 /**
  * Compact number formatting symbols for locale wo_SN.
  */
-goog.i18n.CompactNumberFormatSymbols_wo_SN = goog.i18n.CompactNumberFormatSymbols_wo;
+CompactNumberFormatSymbols_wo_SN = CompactNumberFormatSymbols_wo;
 
 
 /**
  * Compact number formatting symbols for locale xh.
  */
-goog.i18n.CompactNumberFormatSymbols_xh = {
+CompactNumberFormatSymbols_xh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15628,13 +14919,13 @@ goog.i18n.CompactNumberFormatSymbols_xh = {
 /**
  * Compact number formatting symbols for locale xh_ZA.
  */
-goog.i18n.CompactNumberFormatSymbols_xh_ZA = goog.i18n.CompactNumberFormatSymbols_xh;
+CompactNumberFormatSymbols_xh_ZA = CompactNumberFormatSymbols_xh;
 
 
 /**
  * Compact number formatting symbols for locale xog.
  */
-goog.i18n.CompactNumberFormatSymbols_xog = {
+CompactNumberFormatSymbols_xog = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15679,13 +14970,13 @@ goog.i18n.CompactNumberFormatSymbols_xog = {
 /**
  * Compact number formatting symbols for locale xog_UG.
  */
-goog.i18n.CompactNumberFormatSymbols_xog_UG = goog.i18n.CompactNumberFormatSymbols_xog;
+CompactNumberFormatSymbols_xog_UG = CompactNumberFormatSymbols_xog;
 
 
 /**
  * Compact number formatting symbols for locale yav.
  */
-goog.i18n.CompactNumberFormatSymbols_yav = {
+CompactNumberFormatSymbols_yav = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15730,13 +15021,13 @@ goog.i18n.CompactNumberFormatSymbols_yav = {
 /**
  * Compact number formatting symbols for locale yav_CM.
  */
-goog.i18n.CompactNumberFormatSymbols_yav_CM = goog.i18n.CompactNumberFormatSymbols_yav;
+CompactNumberFormatSymbols_yav_CM = CompactNumberFormatSymbols_yav;
 
 
 /**
  * Compact number formatting symbols for locale yi.
  */
-goog.i18n.CompactNumberFormatSymbols_yi = {
+CompactNumberFormatSymbols_yi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15781,13 +15072,13 @@ goog.i18n.CompactNumberFormatSymbols_yi = {
 /**
  * Compact number formatting symbols for locale yi_001.
  */
-goog.i18n.CompactNumberFormatSymbols_yi_001 = goog.i18n.CompactNumberFormatSymbols_yi;
+CompactNumberFormatSymbols_yi_001 = CompactNumberFormatSymbols_yi;
 
 
 /**
  * Compact number formatting symbols for locale yo.
  */
-goog.i18n.CompactNumberFormatSymbols_yo = {
+CompactNumberFormatSymbols_yo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15870,7 +15161,7 @@ goog.i18n.CompactNumberFormatSymbols_yo = {
 /**
  * Compact number formatting symbols for locale yo_BJ.
  */
-goog.i18n.CompactNumberFormatSymbols_yo_BJ = {
+CompactNumberFormatSymbols_yo_BJ = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -15953,13 +15244,13 @@ goog.i18n.CompactNumberFormatSymbols_yo_BJ = {
 /**
  * Compact number formatting symbols for locale yo_NG.
  */
-goog.i18n.CompactNumberFormatSymbols_yo_NG = goog.i18n.CompactNumberFormatSymbols_yo;
+CompactNumberFormatSymbols_yo_NG = CompactNumberFormatSymbols_yo;
 
 
 /**
  * Compact number formatting symbols for locale yrl.
  */
-goog.i18n.CompactNumberFormatSymbols_yrl = {
+CompactNumberFormatSymbols_yrl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 miu'
@@ -16042,13 +15333,13 @@ goog.i18n.CompactNumberFormatSymbols_yrl = {
 /**
  * Compact number formatting symbols for locale yrl_BR.
  */
-goog.i18n.CompactNumberFormatSymbols_yrl_BR = goog.i18n.CompactNumberFormatSymbols_yrl;
+CompactNumberFormatSymbols_yrl_BR = CompactNumberFormatSymbols_yrl;
 
 
 /**
  * Compact number formatting symbols for locale yrl_CO.
  */
-goog.i18n.CompactNumberFormatSymbols_yrl_CO = {
+CompactNumberFormatSymbols_yrl_CO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 miu'
@@ -16131,7 +15422,7 @@ goog.i18n.CompactNumberFormatSymbols_yrl_CO = {
 /**
  * Compact number formatting symbols for locale yrl_VE.
  */
-goog.i18n.CompactNumberFormatSymbols_yrl_VE = {
+CompactNumberFormatSymbols_yrl_VE = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 miu'
@@ -16214,7 +15505,7 @@ goog.i18n.CompactNumberFormatSymbols_yrl_VE = {
 /**
  * Compact number formatting symbols for locale yue.
  */
-goog.i18n.CompactNumberFormatSymbols_yue = {
+CompactNumberFormatSymbols_yue = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0千'
@@ -16297,7 +15588,7 @@ goog.i18n.CompactNumberFormatSymbols_yue = {
 /**
  * Compact number formatting symbols for locale yue_Hans.
  */
-goog.i18n.CompactNumberFormatSymbols_yue_Hans = {
+CompactNumberFormatSymbols_yue_Hans = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -16380,7 +15671,7 @@ goog.i18n.CompactNumberFormatSymbols_yue_Hans = {
 /**
  * Compact number formatting symbols for locale yue_Hans_CN.
  */
-goog.i18n.CompactNumberFormatSymbols_yue_Hans_CN = {
+CompactNumberFormatSymbols_yue_Hans_CN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -16463,19 +15754,19 @@ goog.i18n.CompactNumberFormatSymbols_yue_Hans_CN = {
 /**
  * Compact number formatting symbols for locale yue_Hant.
  */
-goog.i18n.CompactNumberFormatSymbols_yue_Hant = goog.i18n.CompactNumberFormatSymbols_yue;
+CompactNumberFormatSymbols_yue_Hant = CompactNumberFormatSymbols_yue;
 
 
 /**
  * Compact number formatting symbols for locale yue_Hant_HK.
  */
-goog.i18n.CompactNumberFormatSymbols_yue_Hant_HK = goog.i18n.CompactNumberFormatSymbols_yue;
+CompactNumberFormatSymbols_yue_Hant_HK = CompactNumberFormatSymbols_yue;
 
 
 /**
  * Compact number formatting symbols for locale zgh.
  */
-goog.i18n.CompactNumberFormatSymbols_zgh = {
+CompactNumberFormatSymbols_zgh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -16520,43 +15811,43 @@ goog.i18n.CompactNumberFormatSymbols_zgh = {
 /**
  * Compact number formatting symbols for locale zgh_MA.
  */
-goog.i18n.CompactNumberFormatSymbols_zgh_MA = goog.i18n.CompactNumberFormatSymbols_zgh;
+CompactNumberFormatSymbols_zgh_MA = CompactNumberFormatSymbols_zgh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hans = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans = goog.i18n.CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_CN.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hans_CN = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_CN = goog.i18n.CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_HK.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hans_HK = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_HK = goog.i18n.CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_MO.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hans_MO = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_MO = goog.i18n.CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_SG.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hans_SG = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_SG = goog.i18n.CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hant.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hant = {
+CompactNumberFormatSymbols_zh_Hant = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -16639,7 +15930,7 @@ goog.i18n.CompactNumberFormatSymbols_zh_Hant = {
 /**
  * Compact number formatting symbols for locale zh_Hant_HK.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hant_HK = {
+CompactNumberFormatSymbols_zh_Hant_HK = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -16722,7 +16013,7 @@ goog.i18n.CompactNumberFormatSymbols_zh_Hant_HK = {
 /**
  * Compact number formatting symbols for locale zh_Hant_MO.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hant_MO = {
+CompactNumberFormatSymbols_zh_Hant_MO = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -16805,7 +16096,7 @@ goog.i18n.CompactNumberFormatSymbols_zh_Hant_MO = {
 /**
  * Compact number formatting symbols for locale zh_Hant_TW.
  */
-goog.i18n.CompactNumberFormatSymbols_zh_Hant_TW = {
+CompactNumberFormatSymbols_zh_Hant_TW = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -16888,7 +16179,7 @@ goog.i18n.CompactNumberFormatSymbols_zh_Hant_TW = {
 /**
  * Compact number formatting symbols for locale zu_ZA.
  */
-goog.i18n.CompactNumberFormatSymbols_zu_ZA = goog.i18n.CompactNumberFormatSymbols_zu;
+CompactNumberFormatSymbols_zu_ZA = goog.i18n.CompactNumberFormatSymbols_zu;
 
 
 /**
@@ -16897,2698 +16188,3406 @@ goog.i18n.CompactNumberFormatSymbols_zu_ZA = goog.i18n.CompactNumberFormatSymbol
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_af_NA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_af_NA;
     break;
   case 'af_ZA':
   case 'af-ZA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_af_ZA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_af_ZA;
     break;
   case 'agq':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_agq;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_agq;
     break;
   case 'agq_CM':
   case 'agq-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_agq_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_agq_CM;
     break;
   case 'ak':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ak;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ak;
     break;
   case 'ak_GH':
   case 'ak-GH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ak_GH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ak_GH;
     break;
   case 'am_ET':
   case 'am-ET':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_am_ET;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_am_ET;
     break;
   case 'ar_001':
   case 'ar-001':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_001;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_001;
     break;
   case 'ar_AE':
   case 'ar-AE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_AE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_AE;
     break;
   case 'ar_BH':
   case 'ar-BH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_BH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_BH;
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_DJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_DJ;
     break;
   case 'ar_EH':
   case 'ar-EH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_EH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_EH;
     break;
   case 'ar_ER':
   case 'ar-ER':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_ER;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_ER;
     break;
   case 'ar_IL':
   case 'ar-IL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_IL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_IL;
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_IQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_IQ;
     break;
   case 'ar_JO':
   case 'ar-JO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_JO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_JO;
     break;
   case 'ar_KM':
   case 'ar-KM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_KM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_KM;
     break;
   case 'ar_KW':
   case 'ar-KW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_KW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_KW;
     break;
   case 'ar_LB':
   case 'ar-LB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_LB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_LB;
     break;
   case 'ar_LY':
   case 'ar-LY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_LY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_LY;
     break;
   case 'ar_MA':
   case 'ar-MA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_MA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_MA;
     break;
   case 'ar_MR':
   case 'ar-MR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_MR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_MR;
     break;
   case 'ar_OM':
   case 'ar-OM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_OM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_OM;
     break;
   case 'ar_PS':
   case 'ar-PS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_PS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_PS;
     break;
   case 'ar_QA':
   case 'ar-QA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_QA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_QA;
     break;
   case 'ar_SA':
   case 'ar-SA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_SA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_SA;
     break;
   case 'ar_SD':
   case 'ar-SD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_SD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_SD;
     break;
   case 'ar_SO':
   case 'ar-SO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_SO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_SO;
     break;
   case 'ar_SS':
   case 'ar-SS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_SS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_SS;
     break;
   case 'ar_SY':
   case 'ar-SY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_SY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_SY;
     break;
   case 'ar_TD':
   case 'ar-TD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_TD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_TD;
     break;
   case 'ar_TN':
   case 'ar-TN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_TN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_TN;
     break;
   case 'ar_XB':
   case 'ar-XB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_XB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_XB;
     break;
   case 'ar_YE':
   case 'ar-YE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ar_YE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ar_YE;
     break;
   case 'as':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_as;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_as;
     break;
   case 'as_IN':
   case 'as-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_as_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_as_IN;
     break;
   case 'asa':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_asa;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_asa;
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_asa_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_asa_TZ;
     break;
   case 'ast':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ast;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ast;
     break;
   case 'ast_ES':
   case 'ast-ES':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ast_ES;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ast_ES;
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_az_Cyrl;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_az_Cyrl;
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_az_Cyrl_AZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_az_Cyrl_AZ;
     break;
   case 'az_Latn':
   case 'az-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_az_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_az_Latn;
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_az_Latn_AZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_az_Latn_AZ;
     break;
   case 'bas':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bas;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bas;
     break;
   case 'bas_CM':
   case 'bas-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bas_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bas_CM;
     break;
   case 'be_BY':
   case 'be-BY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_be_BY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_be_BY;
     break;
   case 'bem':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bem;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bem;
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bem_ZM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bem_ZM;
     break;
   case 'bez':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bez;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bez;
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bez_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bez_TZ;
     break;
   case 'bg_BG':
   case 'bg-BG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bg_BG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bg_BG;
     break;
   case 'bgc':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bgc;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bgc;
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bgc_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bgc_IN;
     break;
   case 'bho':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bho;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bho;
     break;
   case 'bho_IN':
   case 'bho-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bho_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bho_IN;
     break;
   case 'bm':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bm;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bm;
     break;
   case 'bm_ML':
   case 'bm-ML':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bm_ML;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bm_ML;
     break;
   case 'bn_BD':
   case 'bn-BD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bn_BD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bn_BD;
     break;
   case 'bn_IN':
   case 'bn-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bn_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bn_IN;
     break;
   case 'bo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bo;
     break;
   case 'bo_CN':
   case 'bo-CN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bo_CN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bo_CN;
     break;
   case 'bo_IN':
   case 'bo-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bo_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bo_IN;
     break;
   case 'br_FR':
   case 'br-FR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_br_FR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_br_FR;
     break;
   case 'brx':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_brx;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_brx;
     break;
   case 'brx_IN':
   case 'brx-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_brx_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_brx_IN;
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bs_Cyrl;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bs_Cyrl;
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bs_Cyrl_BA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bs_Cyrl_BA;
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bs_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bs_Latn;
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_bs_Latn_BA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_bs_Latn_BA;
     break;
   case 'ca_AD':
   case 'ca-AD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ca_AD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ca_AD;
     break;
   case 'ca_ES':
   case 'ca-ES':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ca_ES;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ca_ES;
     break;
   case 'ca_FR':
   case 'ca-FR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ca_FR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ca_FR;
     break;
   case 'ca_IT':
   case 'ca-IT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ca_IT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ca_IT;
     break;
   case 'ccp':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ccp;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ccp;
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ccp_BD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ccp_BD;
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ccp_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ccp_IN;
     break;
   case 'ce':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ce;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ce;
     break;
   case 'ce_RU':
   case 'ce-RU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ce_RU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ce_RU;
     break;
   case 'ceb':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ceb;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ceb;
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ceb_PH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ceb_PH;
     break;
   case 'cgg':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_cgg;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_cgg;
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_cgg_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_cgg_UG;
     break;
   case 'chr_US':
   case 'chr-US':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_chr_US;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_chr_US;
     break;
   case 'ckb':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ckb;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ckb;
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ckb_Arab;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ckb_Arab;
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ckb_Arab_IQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ckb_Arab_IQ;
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ckb_Arab_IR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ckb_Arab_IR;
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ckb_IQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ckb_IQ;
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ckb_IR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ckb_IR;
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_cs_CZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_cs_CZ;
     break;
   case 'cv':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_cv;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_cv;
     break;
   case 'cv_RU':
   case 'cv-RU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_cv_RU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_cv_RU;
     break;
   case 'cy_GB':
   case 'cy-GB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_cy_GB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_cy_GB;
     break;
   case 'da_DK':
   case 'da-DK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_da_DK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_da_DK;
     break;
   case 'da_GL':
   case 'da-GL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_da_GL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_da_GL;
     break;
   case 'dav':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dav;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dav;
     break;
   case 'dav_KE':
   case 'dav-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dav_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dav_KE;
     break;
   case 'de_BE':
   case 'de-BE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_de_BE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_de_BE;
     break;
   case 'de_DE':
   case 'de-DE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_de_DE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_de_DE;
     break;
   case 'de_IT':
   case 'de-IT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_de_IT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_de_IT;
     break;
   case 'de_LI':
   case 'de-LI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_de_LI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_de_LI;
     break;
   case 'de_LU':
   case 'de-LU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_de_LU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_de_LU;
     break;
   case 'dje':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dje;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dje;
     break;
   case 'dje_NE':
   case 'dje-NE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dje_NE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dje_NE;
     break;
   case 'doi':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_doi;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_doi;
     break;
   case 'doi_IN':
   case 'doi-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_doi_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_doi_IN;
     break;
   case 'dsb':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dsb;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dsb;
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dsb_DE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dsb_DE;
     break;
   case 'dua':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dua;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dua;
     break;
   case 'dua_CM':
   case 'dua-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dua_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dua_CM;
     break;
   case 'dyo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dyo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dyo;
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dyo_SN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dyo_SN;
     break;
   case 'dz':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dz;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dz;
     break;
   case 'dz_BT':
   case 'dz-BT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_dz_BT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_dz_BT;
     break;
   case 'ebu':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ebu;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ebu;
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ebu_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ebu_KE;
     break;
   case 'ee':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ee;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ee;
     break;
   case 'ee_GH':
   case 'ee-GH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ee_GH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ee_GH;
     break;
   case 'ee_TG':
   case 'ee-TG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ee_TG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ee_TG;
     break;
   case 'el_CY':
   case 'el-CY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_el_CY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_el_CY;
     break;
   case 'el_GR':
   case 'el-GR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_el_GR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_el_GR;
     break;
   case 'en_001':
   case 'en-001':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_001;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_001;
     break;
   case 'en_150':
   case 'en-150':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_150;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_150;
     break;
   case 'en_AE':
   case 'en-AE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_AE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_AE;
     break;
   case 'en_AG':
   case 'en-AG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_AG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_AG;
     break;
   case 'en_AI':
   case 'en-AI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_AI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_AI;
     break;
   case 'en_AS':
   case 'en-AS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_AS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_AS;
     break;
   case 'en_AT':
   case 'en-AT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_AT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_AT;
     break;
   case 'en_BB':
   case 'en-BB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BB;
     break;
   case 'en_BE':
   case 'en-BE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BE;
     break;
   case 'en_BI':
   case 'en-BI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BI;
     break;
   case 'en_BM':
   case 'en-BM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BM;
     break;
   case 'en_BS':
   case 'en-BS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BS;
     break;
   case 'en_BW':
   case 'en-BW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BW;
     break;
   case 'en_BZ':
   case 'en-BZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_BZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_BZ;
     break;
   case 'en_CC':
   case 'en-CC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_CC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_CC;
     break;
   case 'en_CH':
   case 'en-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_CH;
     break;
   case 'en_CK':
   case 'en-CK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_CK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_CK;
     break;
   case 'en_CM':
   case 'en-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_CM;
     break;
   case 'en_CX':
   case 'en-CX':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_CX;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_CX;
     break;
   case 'en_CY':
   case 'en-CY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_CY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_CY;
     break;
   case 'en_DE':
   case 'en-DE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_DE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_DE;
     break;
   case 'en_DG':
   case 'en-DG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_DG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_DG;
     break;
   case 'en_DK':
   case 'en-DK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_DK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_DK;
     break;
   case 'en_DM':
   case 'en-DM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_DM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_DM;
     break;
   case 'en_ER':
   case 'en-ER':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_ER;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_ER;
     break;
   case 'en_FI':
   case 'en-FI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_FI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_FI;
     break;
   case 'en_FJ':
   case 'en-FJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_FJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_FJ;
     break;
   case 'en_FK':
   case 'en-FK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_FK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_FK;
     break;
   case 'en_FM':
   case 'en-FM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_FM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_FM;
     break;
   case 'en_GD':
   case 'en-GD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GD;
     break;
   case 'en_GG':
   case 'en-GG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GG;
     break;
   case 'en_GH':
   case 'en-GH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GH;
     break;
   case 'en_GI':
   case 'en-GI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GI;
     break;
   case 'en_GM':
   case 'en-GM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GM;
     break;
   case 'en_GU':
   case 'en-GU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GU;
     break;
   case 'en_GY':
   case 'en-GY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_GY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_GY;
     break;
   case 'en_HK':
   case 'en-HK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_HK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_HK;
     break;
   case 'en_IL':
   case 'en-IL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_IL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_IL;
     break;
   case 'en_IM':
   case 'en-IM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_IM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_IM;
     break;
   case 'en_IO':
   case 'en-IO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_IO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_IO;
     break;
   case 'en_JE':
   case 'en-JE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_JE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_JE;
     break;
   case 'en_JM':
   case 'en-JM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_JM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_JM;
     break;
   case 'en_KE':
   case 'en-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_KE;
     break;
   case 'en_KI':
   case 'en-KI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_KI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_KI;
     break;
   case 'en_KN':
   case 'en-KN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_KN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_KN;
     break;
   case 'en_KY':
   case 'en-KY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_KY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_KY;
     break;
   case 'en_LC':
   case 'en-LC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_LC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_LC;
     break;
   case 'en_LR':
   case 'en-LR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_LR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_LR;
     break;
   case 'en_LS':
   case 'en-LS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_LS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_LS;
     break;
   case 'en_MG':
   case 'en-MG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MG;
     break;
   case 'en_MH':
   case 'en-MH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MH;
     break;
   case 'en_MO':
   case 'en-MO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MO;
     break;
   case 'en_MP':
   case 'en-MP':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MP;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MP;
     break;
   case 'en_MS':
   case 'en-MS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MS;
     break;
   case 'en_MT':
   case 'en-MT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MT;
     break;
   case 'en_MU':
   case 'en-MU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MU;
     break;
   case 'en_MV':
   case 'en-MV':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MV;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MV;
     break;
   case 'en_MW':
   case 'en-MW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MW;
     break;
   case 'en_MY':
   case 'en-MY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_MY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_MY;
     break;
   case 'en_NA':
   case 'en-NA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NA;
     break;
   case 'en_NF':
   case 'en-NF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NF;
     break;
   case 'en_NG':
   case 'en-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NG;
     break;
   case 'en_NL':
   case 'en-NL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NL;
     break;
   case 'en_NR':
   case 'en-NR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NR;
     break;
   case 'en_NU':
   case 'en-NU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NU;
     break;
   case 'en_NZ':
   case 'en-NZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_NZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_NZ;
     break;
   case 'en_PG':
   case 'en-PG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_PG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_PG;
     break;
   case 'en_PH':
   case 'en-PH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_PH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_PH;
     break;
   case 'en_PK':
   case 'en-PK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_PK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_PK;
     break;
   case 'en_PN':
   case 'en-PN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_PN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_PN;
     break;
   case 'en_PR':
   case 'en-PR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_PR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_PR;
     break;
   case 'en_PW':
   case 'en-PW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_PW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_PW;
     break;
   case 'en_RW':
   case 'en-RW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_RW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_RW;
     break;
   case 'en_SB':
   case 'en-SB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SB;
     break;
   case 'en_SC':
   case 'en-SC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SC;
     break;
   case 'en_SD':
   case 'en-SD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SD;
     break;
   case 'en_SE':
   case 'en-SE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SE;
     break;
   case 'en_SH':
   case 'en-SH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SH;
     break;
   case 'en_SI':
   case 'en-SI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SI;
     break;
   case 'en_SL':
   case 'en-SL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SL;
     break;
   case 'en_SS':
   case 'en-SS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SS;
     break;
   case 'en_SX':
   case 'en-SX':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SX;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SX;
     break;
   case 'en_SZ':
   case 'en-SZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_SZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_SZ;
     break;
   case 'en_TC':
   case 'en-TC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_TC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_TC;
     break;
   case 'en_TK':
   case 'en-TK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_TK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_TK;
     break;
   case 'en_TO':
   case 'en-TO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_TO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_TO;
     break;
   case 'en_TT':
   case 'en-TT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_TT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_TT;
     break;
   case 'en_TV':
   case 'en-TV':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_TV;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_TV;
     break;
   case 'en_TZ':
   case 'en-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_TZ;
     break;
   case 'en_UG':
   case 'en-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_UG;
     break;
   case 'en_UM':
   case 'en-UM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_UM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_UM;
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_US_POSIX;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_US_POSIX;
     break;
   case 'en_VC':
   case 'en-VC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_VC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_VC;
     break;
   case 'en_VG':
   case 'en-VG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_VG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_VG;
     break;
   case 'en_VI':
   case 'en-VI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_VI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_VI;
     break;
   case 'en_VU':
   case 'en-VU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_VU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_VU;
     break;
   case 'en_WS':
   case 'en-WS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_WS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_WS;
     break;
   case 'en_XA':
   case 'en-XA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_XA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_XA;
     break;
   case 'en_ZM':
   case 'en-ZM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_ZM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_ZM;
     break;
   case 'en_ZW':
   case 'en-ZW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_en_ZW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_en_ZW;
     break;
   case 'eo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_eo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_eo;
     break;
   case 'eo_001':
   case 'eo-001':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_eo_001;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_eo_001;
     break;
   case 'es_AR':
   case 'es-AR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_AR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_AR;
     break;
   case 'es_BO':
   case 'es-BO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_BO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_BO;
     break;
   case 'es_BR':
   case 'es-BR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_BR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_BR;
     break;
   case 'es_BZ':
   case 'es-BZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_BZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_BZ;
     break;
   case 'es_CL':
   case 'es-CL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_CL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_CL;
     break;
   case 'es_CO':
   case 'es-CO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_CO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_CO;
     break;
   case 'es_CR':
   case 'es-CR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_CR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_CR;
     break;
   case 'es_CU':
   case 'es-CU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_CU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_CU;
     break;
   case 'es_DO':
   case 'es-DO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_DO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_DO;
     break;
   case 'es_EA':
   case 'es-EA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_EA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_EA;
     break;
   case 'es_EC':
   case 'es-EC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_EC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_EC;
     break;
   case 'es_GQ':
   case 'es-GQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_GQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_GQ;
     break;
   case 'es_GT':
   case 'es-GT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_GT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_GT;
     break;
   case 'es_HN':
   case 'es-HN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_HN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_HN;
     break;
   case 'es_IC':
   case 'es-IC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_IC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_IC;
     break;
   case 'es_NI':
   case 'es-NI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_NI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_NI;
     break;
   case 'es_PA':
   case 'es-PA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_PA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_PA;
     break;
   case 'es_PE':
   case 'es-PE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_PE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_PE;
     break;
   case 'es_PH':
   case 'es-PH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_PH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_PH;
     break;
   case 'es_PR':
   case 'es-PR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_PR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_PR;
     break;
   case 'es_PY':
   case 'es-PY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_PY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_PY;
     break;
   case 'es_SV':
   case 'es-SV':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_SV;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_SV;
     break;
   case 'es_UY':
   case 'es-UY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_UY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_UY;
     break;
   case 'es_VE':
   case 'es-VE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_es_VE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_es_VE;
     break;
   case 'et_EE':
   case 'et-EE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_et_EE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_et_EE;
     break;
   case 'eu_ES':
   case 'eu-ES':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_eu_ES;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_eu_ES;
     break;
   case 'ewo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ewo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ewo;
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ewo_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ewo_CM;
     break;
   case 'fa_AF':
   case 'fa-AF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fa_AF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fa_AF;
     break;
   case 'fa_IR':
   case 'fa-IR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fa_IR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fa_IR;
     break;
   case 'ff':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff;
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm;
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_BF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_BF;
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_CM;
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_GH;
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_GM;
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_GN;
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_GW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_GW;
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_LR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_LR;
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_MR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_MR;
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_NE;
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_NG;
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_SL;
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Adlm_SN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Adlm_SN;
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn;
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_BF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_BF;
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_CM;
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_GH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_GH;
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_GM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_GM;
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_GN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_GN;
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_GW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_GW;
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_LR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_LR;
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_MR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_MR;
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_NE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_NE;
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_NG;
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_SL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_SL;
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ff_Latn_SN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ff_Latn_SN;
     break;
   case 'fi_FI':
   case 'fi-FI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fi_FI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fi_FI;
     break;
   case 'fil_PH':
   case 'fil-PH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fil_PH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fil_PH;
     break;
   case 'fo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fo;
     break;
   case 'fo_DK':
   case 'fo-DK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fo_DK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fo_DK;
     break;
   case 'fo_FO':
   case 'fo-FO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fo_FO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fo_FO;
     break;
   case 'fr_BE':
   case 'fr-BE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_BE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_BE;
     break;
   case 'fr_BF':
   case 'fr-BF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_BF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_BF;
     break;
   case 'fr_BI':
   case 'fr-BI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_BI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_BI;
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_BJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_BJ;
     break;
   case 'fr_BL':
   case 'fr-BL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_BL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_BL;
     break;
   case 'fr_CD':
   case 'fr-CD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_CD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_CD;
     break;
   case 'fr_CF':
   case 'fr-CF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_CF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_CF;
     break;
   case 'fr_CG':
   case 'fr-CG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_CG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_CG;
     break;
   case 'fr_CH':
   case 'fr-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_CH;
     break;
   case 'fr_CI':
   case 'fr-CI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_CI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_CI;
     break;
   case 'fr_CM':
   case 'fr-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_CM;
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_DJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_DJ;
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_DZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_DZ;
     break;
   case 'fr_FR':
   case 'fr-FR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_FR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_FR;
     break;
   case 'fr_GA':
   case 'fr-GA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_GA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_GA;
     break;
   case 'fr_GF':
   case 'fr-GF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_GF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_GF;
     break;
   case 'fr_GN':
   case 'fr-GN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_GN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_GN;
     break;
   case 'fr_GP':
   case 'fr-GP':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_GP;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_GP;
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_GQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_GQ;
     break;
   case 'fr_HT':
   case 'fr-HT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_HT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_HT;
     break;
   case 'fr_KM':
   case 'fr-KM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_KM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_KM;
     break;
   case 'fr_LU':
   case 'fr-LU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_LU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_LU;
     break;
   case 'fr_MA':
   case 'fr-MA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MA;
     break;
   case 'fr_MC':
   case 'fr-MC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MC;
     break;
   case 'fr_MF':
   case 'fr-MF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MF;
     break;
   case 'fr_MG':
   case 'fr-MG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MG;
     break;
   case 'fr_ML':
   case 'fr-ML':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_ML;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_ML;
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MQ;
     break;
   case 'fr_MR':
   case 'fr-MR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MR;
     break;
   case 'fr_MU':
   case 'fr-MU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_MU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_MU;
     break;
   case 'fr_NC':
   case 'fr-NC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_NC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_NC;
     break;
   case 'fr_NE':
   case 'fr-NE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_NE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_NE;
     break;
   case 'fr_PF':
   case 'fr-PF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_PF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_PF;
     break;
   case 'fr_PM':
   case 'fr-PM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_PM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_PM;
     break;
   case 'fr_RE':
   case 'fr-RE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_RE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_RE;
     break;
   case 'fr_RW':
   case 'fr-RW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_RW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_RW;
     break;
   case 'fr_SC':
   case 'fr-SC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_SC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_SC;
     break;
   case 'fr_SN':
   case 'fr-SN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_SN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_SN;
     break;
   case 'fr_SY':
   case 'fr-SY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_SY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_SY;
     break;
   case 'fr_TD':
   case 'fr-TD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_TD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_TD;
     break;
   case 'fr_TG':
   case 'fr-TG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_TG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_TG;
     break;
   case 'fr_TN':
   case 'fr-TN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_TN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_TN;
     break;
   case 'fr_VU':
   case 'fr-VU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_VU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_VU;
     break;
   case 'fr_WF':
   case 'fr-WF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_WF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_WF;
     break;
   case 'fr_YT':
   case 'fr-YT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fr_YT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fr_YT;
     break;
   case 'fur':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fur;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fur;
     break;
   case 'fur_IT':
   case 'fur-IT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fur_IT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fur_IT;
     break;
   case 'fy':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fy;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fy;
     break;
   case 'fy_NL':
   case 'fy-NL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_fy_NL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_fy_NL;
     break;
   case 'ga_GB':
   case 'ga-GB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ga_GB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ga_GB;
     break;
   case 'ga_IE':
   case 'ga-IE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ga_IE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ga_IE;
     break;
   case 'gd':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gd;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gd;
     break;
   case 'gd_GB':
   case 'gd-GB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gd_GB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gd_GB;
     break;
   case 'gl_ES':
   case 'gl-ES':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gl_ES;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gl_ES;
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gsw_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gsw_CH;
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gsw_FR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gsw_FR;
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gsw_LI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gsw_LI;
     break;
   case 'gu_IN':
   case 'gu-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gu_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gu_IN;
     break;
   case 'guz':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_guz;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_guz;
     break;
   case 'guz_KE':
   case 'guz-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_guz_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_guz_KE;
     break;
   case 'gv':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gv;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gv;
     break;
   case 'gv_IM':
   case 'gv-IM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_gv_IM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_gv_IM;
     break;
   case 'ha':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ha;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ha;
     break;
   case 'ha_GH':
   case 'ha-GH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ha_GH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ha_GH;
     break;
   case 'ha_NE':
   case 'ha-NE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ha_NE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ha_NE;
     break;
   case 'ha_NG':
   case 'ha-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ha_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ha_NG;
     break;
   case 'haw_US':
   case 'haw-US':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_haw_US;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_haw_US;
     break;
   case 'he_IL':
   case 'he-IL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_he_IL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_he_IL;
     break;
   case 'hi_IN':
   case 'hi-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hi_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hi_IN;
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hi_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hi_Latn;
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hi_Latn_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hi_Latn_IN;
     break;
   case 'hr_BA':
   case 'hr-BA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hr_BA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hr_BA;
     break;
   case 'hr_HR':
   case 'hr-HR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hr_HR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hr_HR;
     break;
   case 'hsb':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hsb;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hsb;
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hsb_DE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hsb_DE;
     break;
   case 'hu_HU':
   case 'hu-HU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hu_HU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hu_HU;
     break;
   case 'hy_AM':
   case 'hy-AM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_hy_AM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_hy_AM;
     break;
   case 'ia':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ia;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ia;
     break;
   case 'ia_001':
   case 'ia-001':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ia_001;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ia_001;
     break;
   case 'id_ID':
   case 'id-ID':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_id_ID;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_id_ID;
     break;
   case 'ig':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ig;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ig;
     break;
   case 'ig_NG':
   case 'ig-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ig_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ig_NG;
     break;
   case 'ii':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ii;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ii;
     break;
   case 'ii_CN':
   case 'ii-CN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ii_CN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ii_CN;
     break;
   case 'is_IS':
   case 'is-IS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_is_IS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_is_IS;
     break;
   case 'it_CH':
   case 'it-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_it_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_it_CH;
     break;
   case 'it_IT':
   case 'it-IT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_it_IT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_it_IT;
     break;
   case 'it_SM':
   case 'it-SM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_it_SM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_it_SM;
     break;
   case 'it_VA':
   case 'it-VA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_it_VA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_it_VA;
     break;
   case 'ja_JP':
   case 'ja-JP':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ja_JP;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ja_JP;
     break;
   case 'jgo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_jgo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_jgo;
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_jgo_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_jgo_CM;
     break;
   case 'jmc':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_jmc;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_jmc;
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_jmc_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_jmc_TZ;
     break;
   case 'jv':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_jv;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_jv;
     break;
   case 'jv_ID':
   case 'jv-ID':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_jv_ID;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_jv_ID;
     break;
   case 'ka_GE':
   case 'ka-GE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ka_GE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ka_GE;
     break;
   case 'kab':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kab;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kab;
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kab_DZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kab_DZ;
     break;
   case 'kam':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kam;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kam;
     break;
   case 'kam_KE':
   case 'kam-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kam_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kam_KE;
     break;
   case 'kde':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kde;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kde;
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kde_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kde_TZ;
     break;
   case 'kea':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kea;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kea;
     break;
   case 'kea_CV':
   case 'kea-CV':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kea_CV;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kea_CV;
     break;
   case 'kgp':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kgp;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kgp;
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kgp_BR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kgp_BR;
     break;
   case 'khq':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_khq;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_khq;
     break;
   case 'khq_ML':
   case 'khq-ML':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_khq_ML;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_khq_ML;
     break;
   case 'ki':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ki;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ki;
     break;
   case 'ki_KE':
   case 'ki-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ki_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ki_KE;
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kk_KZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kk_KZ;
     break;
   case 'kkj':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kkj;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kkj;
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kkj_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kkj_CM;
     break;
   case 'kl':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kl;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kl;
     break;
   case 'kl_GL':
   case 'kl-GL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kl_GL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kl_GL;
     break;
   case 'kln':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kln;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kln;
     break;
   case 'kln_KE':
   case 'kln-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kln_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kln_KE;
     break;
   case 'km_KH':
   case 'km-KH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_km_KH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_km_KH;
     break;
   case 'kn_IN':
   case 'kn-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kn_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kn_IN;
     break;
   case 'ko_KP':
   case 'ko-KP':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ko_KP;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ko_KP;
     break;
   case 'ko_KR':
   case 'ko-KR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ko_KR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ko_KR;
     break;
   case 'kok':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kok;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kok;
     break;
   case 'kok_IN':
   case 'kok-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kok_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kok_IN;
     break;
   case 'ks':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ks;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ks;
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ks_Arab;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ks_Arab;
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ks_Arab_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ks_Arab_IN;
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ks_Deva;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ks_Deva;
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ks_Deva_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ks_Deva_IN;
     break;
   case 'ksb':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ksb;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ksb;
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ksb_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ksb_TZ;
     break;
   case 'ksf':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ksf;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ksf;
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ksf_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ksf_CM;
     break;
   case 'ksh':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ksh;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ksh;
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ksh_DE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ksh_DE;
     break;
   case 'ku':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ku;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ku;
     break;
   case 'ku_TR':
   case 'ku-TR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ku_TR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ku_TR;
     break;
   case 'kw':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kw;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kw;
     break;
   case 'kw_GB':
   case 'kw-GB':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_kw_GB;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_kw_GB;
     break;
   case 'ky_KG':
   case 'ky-KG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ky_KG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ky_KG;
     break;
   case 'lag':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lag;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lag;
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lag_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lag_TZ;
     break;
   case 'lb':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lb;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lb;
     break;
   case 'lb_LU':
   case 'lb-LU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lb_LU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lb_LU;
     break;
   case 'lg':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lg;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lg;
     break;
   case 'lg_UG':
   case 'lg-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lg_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lg_UG;
     break;
   case 'lkt':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lkt;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lkt;
     break;
   case 'lkt_US':
   case 'lkt-US':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lkt_US;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lkt_US;
     break;
   case 'ln_AO':
   case 'ln-AO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ln_AO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ln_AO;
     break;
   case 'ln_CD':
   case 'ln-CD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ln_CD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ln_CD;
     break;
   case 'ln_CF':
   case 'ln-CF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ln_CF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ln_CF;
     break;
   case 'ln_CG':
   case 'ln-CG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ln_CG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ln_CG;
     break;
   case 'lo_LA':
   case 'lo-LA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lo_LA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lo_LA;
     break;
   case 'lrc':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lrc;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lrc;
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lrc_IQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lrc_IQ;
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lrc_IR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lrc_IR;
     break;
   case 'lt_LT':
   case 'lt-LT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lt_LT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lt_LT;
     break;
   case 'lu':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lu;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lu;
     break;
   case 'lu_CD':
   case 'lu-CD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lu_CD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lu_CD;
     break;
   case 'luo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_luo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_luo;
     break;
   case 'luo_KE':
   case 'luo-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_luo_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_luo_KE;
     break;
   case 'luy':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_luy;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_luy;
     break;
   case 'luy_KE':
   case 'luy-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_luy_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_luy_KE;
     break;
   case 'lv_LV':
   case 'lv-LV':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_lv_LV;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_lv_LV;
     break;
   case 'mai':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mai;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mai;
     break;
   case 'mai_IN':
   case 'mai-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mai_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mai_IN;
     break;
   case 'mas':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mas;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mas;
     break;
   case 'mas_KE':
   case 'mas-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mas_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mas_KE;
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mas_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mas_TZ;
     break;
   case 'mer':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mer;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mer;
     break;
   case 'mer_KE':
   case 'mer-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mer_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mer_KE;
     break;
   case 'mfe':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mfe;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mfe;
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mfe_MU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mfe_MU;
     break;
   case 'mg':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mg;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mg;
     break;
   case 'mg_MG':
   case 'mg-MG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mg_MG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mg_MG;
     break;
   case 'mgh':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mgh;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mgh;
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mgh_MZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mgh_MZ;
     break;
   case 'mgo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mgo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mgo;
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mgo_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mgo_CM;
     break;
   case 'mi':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mi;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mi;
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mi_NZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mi_NZ;
     break;
   case 'mk_MK':
   case 'mk-MK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mk_MK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mk_MK;
     break;
   case 'ml_IN':
   case 'ml-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ml_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ml_IN;
     break;
   case 'mn_MN':
   case 'mn-MN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mn_MN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mn_MN;
     break;
   case 'mni':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mni;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mni;
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mni_Beng;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mni_Beng;
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mni_Beng_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mni_Beng_IN;
     break;
   case 'mr_IN':
   case 'mr-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mr_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mr_IN;
     break;
   case 'ms_BN':
   case 'ms-BN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ms_BN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ms_BN;
     break;
   case 'ms_ID':
   case 'ms-ID':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ms_ID;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ms_ID;
     break;
   case 'ms_MY':
   case 'ms-MY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ms_MY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ms_MY;
     break;
   case 'ms_SG':
   case 'ms-SG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ms_SG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ms_SG;
     break;
   case 'mt_MT':
   case 'mt-MT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mt_MT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mt_MT;
     break;
   case 'mua':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mua;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mua;
     break;
   case 'mua_CM':
   case 'mua-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mua_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mua_CM;
     break;
   case 'my_MM':
   case 'my-MM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_my_MM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_my_MM;
     break;
   case 'mzn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mzn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mzn;
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_mzn_IR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_mzn_IR;
     break;
   case 'naq':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_naq;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_naq;
     break;
   case 'naq_NA':
   case 'naq-NA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_naq_NA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_naq_NA;
     break;
   case 'nb_NO':
   case 'nb-NO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nb_NO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nb_NO;
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nb_SJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nb_SJ;
     break;
   case 'nd':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nd;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nd;
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nd_ZW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nd_ZW;
     break;
   case 'ne_IN':
   case 'ne-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ne_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ne_IN;
     break;
   case 'ne_NP':
   case 'ne-NP':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ne_NP;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ne_NP;
     break;
   case 'nl_AW':
   case 'nl-AW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_AW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_AW;
     break;
   case 'nl_BE':
   case 'nl-BE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_BE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_BE;
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_BQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_BQ;
     break;
   case 'nl_CW':
   case 'nl-CW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_CW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_CW;
     break;
   case 'nl_NL':
   case 'nl-NL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_NL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_NL;
     break;
   case 'nl_SR':
   case 'nl-SR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_SR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_SR;
     break;
   case 'nl_SX':
   case 'nl-SX':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nl_SX;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nl_SX;
     break;
   case 'nmg':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nmg;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nmg;
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nmg_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nmg_CM;
     break;
   case 'nn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nn;
     break;
   case 'nn_NO':
   case 'nn-NO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nn_NO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nn_NO;
     break;
   case 'nnh':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nnh;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nnh;
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nnh_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nnh_CM;
     break;
   case 'nus':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nus;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nus;
     break;
   case 'nus_SS':
   case 'nus-SS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nus_SS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nus_SS;
     break;
   case 'nyn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nyn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nyn;
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_nyn_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_nyn_UG;
     break;
   case 'om':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_om;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_om;
     break;
   case 'om_ET':
   case 'om-ET':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_om_ET;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_om_ET;
     break;
   case 'om_KE':
   case 'om-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_om_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_om_KE;
     break;
   case 'or_IN':
   case 'or-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_or_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_or_IN;
     break;
   case 'os':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_os;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_os;
     break;
   case 'os_GE':
   case 'os-GE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_os_GE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_os_GE;
     break;
   case 'os_RU':
   case 'os-RU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_os_RU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_os_RU;
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pa_Arab;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pa_Arab;
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pa_Arab_PK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pa_Arab_PK;
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pa_Guru;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pa_Guru;
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pa_Guru_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pa_Guru_IN;
     break;
   case 'pcm':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pcm;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pcm;
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pcm_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pcm_NG;
     break;
   case 'pl_PL':
   case 'pl-PL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pl_PL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pl_PL;
     break;
   case 'ps':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ps;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ps;
     break;
   case 'ps_AF':
   case 'ps-AF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ps_AF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ps_AF;
     break;
   case 'ps_PK':
   case 'ps-PK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ps_PK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ps_PK;
     break;
   case 'pt_AO':
   case 'pt-AO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_AO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_AO;
     break;
   case 'pt_CH':
   case 'pt-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_CH;
     break;
   case 'pt_CV':
   case 'pt-CV':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_CV;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_CV;
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_GQ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_GQ;
     break;
   case 'pt_GW':
   case 'pt-GW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_GW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_GW;
     break;
   case 'pt_LU':
   case 'pt-LU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_LU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_LU;
     break;
   case 'pt_MO':
   case 'pt-MO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_MO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_MO;
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_MZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_MZ;
     break;
   case 'pt_ST':
   case 'pt-ST':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_ST;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_ST;
     break;
   case 'pt_TL':
   case 'pt-TL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_pt_TL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_pt_TL;
     break;
   case 'qu':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_qu;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_qu;
     break;
   case 'qu_BO':
   case 'qu-BO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_qu_BO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_qu_BO;
     break;
   case 'qu_EC':
   case 'qu-EC':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_qu_EC;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_qu_EC;
     break;
   case 'qu_PE':
   case 'qu-PE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_qu_PE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_qu_PE;
     break;
   case 'raj':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_raj;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_raj;
     break;
   case 'raj_IN':
   case 'raj-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_raj_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_raj_IN;
     break;
   case 'rm':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rm;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rm;
     break;
   case 'rm_CH':
   case 'rm-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rm_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rm_CH;
     break;
   case 'rn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rn;
     break;
   case 'rn_BI':
   case 'rn-BI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rn_BI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rn_BI;
     break;
   case 'ro_MD':
   case 'ro-MD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ro_MD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ro_MD;
     break;
   case 'ro_RO':
   case 'ro-RO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ro_RO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ro_RO;
     break;
   case 'rof':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rof;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rof;
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rof_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rof_TZ;
     break;
   case 'ru_BY':
   case 'ru-BY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ru_BY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ru_BY;
     break;
   case 'ru_KG':
   case 'ru-KG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ru_KG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ru_KG;
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ru_KZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ru_KZ;
     break;
   case 'ru_MD':
   case 'ru-MD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ru_MD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ru_MD;
     break;
   case 'ru_RU':
   case 'ru-RU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ru_RU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ru_RU;
     break;
   case 'ru_UA':
   case 'ru-UA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ru_UA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ru_UA;
     break;
   case 'rw':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rw;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rw;
     break;
   case 'rw_RW':
   case 'rw-RW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rw_RW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rw_RW;
     break;
   case 'rwk':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rwk;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rwk;
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_rwk_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_rwk_TZ;
     break;
   case 'sa':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sa;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sa;
     break;
   case 'sa_IN':
   case 'sa-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sa_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sa_IN;
     break;
   case 'sah':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sah;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sah;
     break;
   case 'sah_RU':
   case 'sah-RU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sah_RU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sah_RU;
     break;
   case 'saq':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_saq;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_saq;
     break;
   case 'saq_KE':
   case 'saq-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_saq_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_saq_KE;
     break;
   case 'sat':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sat;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sat;
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sat_Olck;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sat_Olck;
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sat_Olck_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sat_Olck_IN;
     break;
   case 'sbp':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sbp;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sbp;
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sbp_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sbp_TZ;
     break;
   case 'sc':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sc;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sc;
     break;
   case 'sc_IT':
   case 'sc-IT':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sc_IT;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sc_IT;
     break;
   case 'sd':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sd;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sd;
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sd_Arab;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sd_Arab;
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sd_Arab_PK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sd_Arab_PK;
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sd_Deva;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sd_Deva;
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sd_Deva_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sd_Deva_IN;
     break;
   case 'se':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_se;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_se;
     break;
   case 'se_FI':
   case 'se-FI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_se_FI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_se_FI;
     break;
   case 'se_NO':
   case 'se-NO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_se_NO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_se_NO;
     break;
   case 'se_SE':
   case 'se-SE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_se_SE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_se_SE;
     break;
   case 'seh':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_seh;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_seh;
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_seh_MZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_seh_MZ;
     break;
   case 'ses':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ses;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ses;
     break;
   case 'ses_ML':
   case 'ses-ML':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ses_ML;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ses_ML;
     break;
   case 'sg':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sg;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sg;
     break;
   case 'sg_CF':
   case 'sg-CF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sg_CF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sg_CF;
     break;
   case 'shi':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_shi;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_shi;
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_shi_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_shi_Latn;
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_shi_Latn_MA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_shi_Latn_MA;
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_shi_Tfng;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_shi_Tfng;
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_shi_Tfng_MA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_shi_Tfng_MA;
     break;
   case 'si_LK':
   case 'si-LK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_si_LK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_si_LK;
     break;
   case 'sk_SK':
   case 'sk-SK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sk_SK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sk_SK;
     break;
   case 'sl_SI':
   case 'sl-SI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sl_SI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sl_SI;
     break;
   case 'smn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_smn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_smn;
     break;
   case 'smn_FI':
   case 'smn-FI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_smn_FI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_smn_FI;
     break;
   case 'sn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sn;
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sn_ZW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sn_ZW;
     break;
   case 'so':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_so;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_so;
     break;
   case 'so_DJ':
   case 'so-DJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_so_DJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_so_DJ;
     break;
   case 'so_ET':
   case 'so-ET':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_so_ET;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_so_ET;
     break;
   case 'so_KE':
   case 'so-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_so_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_so_KE;
     break;
   case 'so_SO':
   case 'so-SO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_so_SO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_so_SO;
     break;
   case 'sq_AL':
   case 'sq-AL':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sq_AL;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sq_AL;
     break;
   case 'sq_MK':
   case 'sq-MK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sq_MK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sq_MK;
     break;
   case 'sq_XK':
   case 'sq-XK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sq_XK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sq_XK;
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Cyrl;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Cyrl;
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_BA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Cyrl_BA;
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_ME;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Cyrl_ME;
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_RS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Cyrl_RS;
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Cyrl_XK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Cyrl_XK;
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Latn_BA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Latn_BA;
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Latn_ME;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Latn_ME;
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Latn_RS;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Latn_RS;
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sr_Latn_XK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sr_Latn_XK;
     break;
   case 'su':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_su;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_su;
     break;
   case 'su_Latn':
   case 'su-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_su_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_su_Latn;
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_su_Latn_ID;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_su_Latn_ID;
     break;
   case 'sv_AX':
   case 'sv-AX':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sv_AX;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sv_AX;
     break;
   case 'sv_FI':
   case 'sv-FI':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sv_FI;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sv_FI;
     break;
   case 'sv_SE':
   case 'sv-SE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sv_SE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sv_SE;
     break;
   case 'sw_CD':
   case 'sw-CD':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sw_CD;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sw_CD;
     break;
   case 'sw_KE':
   case 'sw-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sw_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sw_KE;
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sw_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sw_TZ;
     break;
   case 'sw_UG':
   case 'sw-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_sw_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_sw_UG;
     break;
   case 'ta_IN':
   case 'ta-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ta_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ta_IN;
     break;
   case 'ta_LK':
   case 'ta-LK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ta_LK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ta_LK;
     break;
   case 'ta_MY':
   case 'ta-MY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ta_MY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ta_MY;
     break;
   case 'ta_SG':
   case 'ta-SG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ta_SG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ta_SG;
     break;
   case 'te_IN':
   case 'te-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_te_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_te_IN;
     break;
   case 'teo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_teo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_teo;
     break;
   case 'teo_KE':
   case 'teo-KE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_teo_KE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_teo_KE;
     break;
   case 'teo_UG':
   case 'teo-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_teo_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_teo_UG;
     break;
   case 'tg':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tg;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tg;
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tg_TJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tg_TJ;
     break;
   case 'th_TH':
   case 'th-TH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_th_TH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_th_TH;
     break;
   case 'ti':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ti;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ti;
     break;
   case 'ti_ER':
   case 'ti-ER':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ti_ER;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ti_ER;
     break;
   case 'ti_ET':
   case 'ti-ET':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ti_ET;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ti_ET;
     break;
   case 'tk':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tk;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tk;
     break;
   case 'tk_TM':
   case 'tk-TM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tk_TM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tk_TM;
     break;
   case 'to':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_to;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_to;
     break;
   case 'to_TO':
   case 'to-TO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_to_TO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_to_TO;
     break;
   case 'tr_CY':
   case 'tr-CY':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tr_CY;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tr_CY;
     break;
   case 'tr_TR':
   case 'tr-TR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tr_TR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tr_TR;
     break;
   case 'tt':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tt;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tt;
     break;
   case 'tt_RU':
   case 'tt-RU':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tt_RU;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tt_RU;
     break;
   case 'twq':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_twq;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_twq;
     break;
   case 'twq_NE':
   case 'twq-NE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_twq_NE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_twq_NE;
     break;
   case 'tzm':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tzm;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tzm;
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_tzm_MA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_tzm_MA;
     break;
   case 'ug':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ug;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ug;
     break;
   case 'ug_CN':
   case 'ug-CN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ug_CN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ug_CN;
     break;
   case 'uk_UA':
   case 'uk-UA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uk_UA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uk_UA;
     break;
   case 'ur_IN':
   case 'ur-IN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ur_IN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ur_IN;
     break;
   case 'ur_PK':
   case 'ur-PK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_ur_PK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_ur_PK;
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uz_Arab;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uz_Arab;
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uz_Arab_AF;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uz_Arab_AF;
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uz_Cyrl;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uz_Cyrl;
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uz_Cyrl_UZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uz_Cyrl_UZ;
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uz_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uz_Latn;
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_uz_Latn_UZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_uz_Latn_UZ;
     break;
   case 'vai':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vai;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vai;
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vai_Latn;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vai_Latn;
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vai_Latn_LR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vai_Latn_LR;
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vai_Vaii;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vai_Vaii;
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vai_Vaii_LR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vai_Vaii_LR;
     break;
   case 'vi_VN':
   case 'vi-VN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vi_VN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vi_VN;
     break;
   case 'vun':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vun;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vun;
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_vun_TZ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_vun_TZ;
     break;
   case 'wae':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_wae;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_wae;
     break;
   case 'wae_CH':
   case 'wae-CH':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_wae_CH;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_wae_CH;
     break;
   case 'wo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_wo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_wo;
     break;
   case 'wo_SN':
   case 'wo-SN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_wo_SN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_wo_SN;
     break;
   case 'xh':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_xh;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_xh;
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_xh_ZA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_xh_ZA;
     break;
   case 'xog':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_xog;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_xog;
     break;
   case 'xog_UG':
   case 'xog-UG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_xog_UG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_xog_UG;
     break;
   case 'yav':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yav;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yav;
     break;
   case 'yav_CM':
   case 'yav-CM':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yav_CM;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yav_CM;
     break;
   case 'yi':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yi;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yi;
     break;
   case 'yi_001':
   case 'yi-001':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yi_001;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yi_001;
     break;
   case 'yo':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yo;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yo;
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yo_BJ;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yo_BJ;
     break;
   case 'yo_NG':
   case 'yo-NG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yo_NG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yo_NG;
     break;
   case 'yrl':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yrl;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yrl;
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yrl_BR;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yrl_BR;
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yrl_CO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yrl_CO;
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yrl_VE;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yrl_VE;
     break;
   case 'yue':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yue;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yue;
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yue_Hans;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yue_Hans;
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yue_Hans_CN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yue_Hans_CN;
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yue_Hant;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yue_Hant;
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_yue_Hant_HK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_yue_Hant_HK;
     break;
   case 'zgh':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zgh;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zgh;
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zgh_MA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zgh_MA;
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hans;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hans;
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hans_CN;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hans_CN;
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hans_HK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hans_HK;
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hans_MO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hans_MO;
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hans_SG;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hans_SG;
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hant;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hant;
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hant_HK;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hant_HK;
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hant_MO;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hant_MO;
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zh_Hant_TW;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zh_Hant_TW;
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    goog.i18n.CompactNumberFormatSymbols = goog.i18n.CompactNumberFormatSymbols_zu_ZA;
+    CompactNumberFormatSymbols = CompactNumberFormatSymbols_zu_ZA;
     break;
 }
+export var CompactNumberFormatSymbols_af_NA;
+export var CompactNumberFormatSymbols_af_ZA;
+export var CompactNumberFormatSymbols_agq;
+export var CompactNumberFormatSymbols_agq_CM;
+export var CompactNumberFormatSymbols_ak;
+export var CompactNumberFormatSymbols_ak_GH;
+export var CompactNumberFormatSymbols_am_ET;
+export var CompactNumberFormatSymbols_ar_001;
+export var CompactNumberFormatSymbols_ar_AE;
+export var CompactNumberFormatSymbols_ar_BH;
+export var CompactNumberFormatSymbols_ar_DJ;
+export var CompactNumberFormatSymbols_ar_EH;
+export var CompactNumberFormatSymbols_ar_ER;
+export var CompactNumberFormatSymbols_ar_IL;
+export var CompactNumberFormatSymbols_ar_IQ;
+export var CompactNumberFormatSymbols_ar_JO;
+export var CompactNumberFormatSymbols_ar_KM;
+export var CompactNumberFormatSymbols_ar_KW;
+export var CompactNumberFormatSymbols_ar_LB;
+export var CompactNumberFormatSymbols_ar_LY;
+export var CompactNumberFormatSymbols_ar_MA;
+export var CompactNumberFormatSymbols_ar_MR;
+export var CompactNumberFormatSymbols_ar_OM;
+export var CompactNumberFormatSymbols_ar_PS;
+export var CompactNumberFormatSymbols_ar_QA;
+export var CompactNumberFormatSymbols_ar_SA;
+export var CompactNumberFormatSymbols_ar_SD;
+export var CompactNumberFormatSymbols_ar_SO;
+export var CompactNumberFormatSymbols_ar_SS;
+export var CompactNumberFormatSymbols_ar_SY;
+export var CompactNumberFormatSymbols_ar_TD;
+export var CompactNumberFormatSymbols_ar_TN;
+export var CompactNumberFormatSymbols_ar_XB;
+export var CompactNumberFormatSymbols_ar_YE;
+export var CompactNumberFormatSymbols_as;
+export var CompactNumberFormatSymbols_as_IN;
+export var CompactNumberFormatSymbols_asa;
+export var CompactNumberFormatSymbols_asa_TZ;
+export var CompactNumberFormatSymbols_ast;
+export var CompactNumberFormatSymbols_ast_ES;
+export var CompactNumberFormatSymbols_az_Cyrl;
+export var CompactNumberFormatSymbols_az_Cyrl_AZ;
+export var CompactNumberFormatSymbols_az_Latn;
+export var CompactNumberFormatSymbols_az_Latn_AZ;
+export var CompactNumberFormatSymbols_bas;
+export var CompactNumberFormatSymbols_bas_CM;
+export var CompactNumberFormatSymbols_be_BY;
+export var CompactNumberFormatSymbols_bem;
+export var CompactNumberFormatSymbols_bem_ZM;
+export var CompactNumberFormatSymbols_bez;
+export var CompactNumberFormatSymbols_bez_TZ;
+export var CompactNumberFormatSymbols_bg_BG;
+export var CompactNumberFormatSymbols_bgc;
+export var CompactNumberFormatSymbols_bgc_IN;
+export var CompactNumberFormatSymbols_bho;
+export var CompactNumberFormatSymbols_bho_IN;
+export var CompactNumberFormatSymbols_bm;
+export var CompactNumberFormatSymbols_bm_ML;
+export var CompactNumberFormatSymbols_bn_BD;
+export var CompactNumberFormatSymbols_bn_IN;
+export var CompactNumberFormatSymbols_bo;
+export var CompactNumberFormatSymbols_bo_CN;
+export var CompactNumberFormatSymbols_bo_IN;
+export var CompactNumberFormatSymbols_br_FR;
+export var CompactNumberFormatSymbols_brx;
+export var CompactNumberFormatSymbols_brx_IN;
+export var CompactNumberFormatSymbols_bs_Cyrl;
+export var CompactNumberFormatSymbols_bs_Cyrl_BA;
+export var CompactNumberFormatSymbols_bs_Latn;
+export var CompactNumberFormatSymbols_bs_Latn_BA;
+export var CompactNumberFormatSymbols_ca_AD;
+export var CompactNumberFormatSymbols_ca_ES;
+export var CompactNumberFormatSymbols_ca_FR;
+export var CompactNumberFormatSymbols_ca_IT;
+export var CompactNumberFormatSymbols_ccp;
+export var CompactNumberFormatSymbols_ccp_BD;
+export var CompactNumberFormatSymbols_ccp_IN;
+export var CompactNumberFormatSymbols_ce;
+export var CompactNumberFormatSymbols_ce_RU;
+export var CompactNumberFormatSymbols_ceb;
+export var CompactNumberFormatSymbols_ceb_PH;
+export var CompactNumberFormatSymbols_cgg;
+export var CompactNumberFormatSymbols_cgg_UG;
+export var CompactNumberFormatSymbols_chr_US;
+export var CompactNumberFormatSymbols_ckb;
+export var CompactNumberFormatSymbols_ckb_Arab;
+export var CompactNumberFormatSymbols_ckb_Arab_IQ;
+export var CompactNumberFormatSymbols_ckb_Arab_IR;
+export var CompactNumberFormatSymbols_ckb_IQ;
+export var CompactNumberFormatSymbols_ckb_IR;
+export var CompactNumberFormatSymbols_cs_CZ;
+export var CompactNumberFormatSymbols_cv;
+export var CompactNumberFormatSymbols_cv_RU;
+export var CompactNumberFormatSymbols_cy_GB;
+export var CompactNumberFormatSymbols_da_DK;
+export var CompactNumberFormatSymbols_da_GL;
+export var CompactNumberFormatSymbols_dav;
+export var CompactNumberFormatSymbols_dav_KE;
+export var CompactNumberFormatSymbols_de_BE;
+export var CompactNumberFormatSymbols_de_DE;
+export var CompactNumberFormatSymbols_de_IT;
+export var CompactNumberFormatSymbols_de_LI;
+export var CompactNumberFormatSymbols_de_LU;
+export var CompactNumberFormatSymbols_dje;
+export var CompactNumberFormatSymbols_dje_NE;
+export var CompactNumberFormatSymbols_doi;
+export var CompactNumberFormatSymbols_doi_IN;
+export var CompactNumberFormatSymbols_dsb;
+export var CompactNumberFormatSymbols_dsb_DE;
+export var CompactNumberFormatSymbols_dua;
+export var CompactNumberFormatSymbols_dua_CM;
+export var CompactNumberFormatSymbols_dyo;
+export var CompactNumberFormatSymbols_dyo_SN;
+export var CompactNumberFormatSymbols_dz;
+export var CompactNumberFormatSymbols_dz_BT;
+export var CompactNumberFormatSymbols_ebu;
+export var CompactNumberFormatSymbols_ebu_KE;
+export var CompactNumberFormatSymbols_ee;
+export var CompactNumberFormatSymbols_ee_GH;
+export var CompactNumberFormatSymbols_ee_TG;
+export var CompactNumberFormatSymbols_el_CY;
+export var CompactNumberFormatSymbols_el_GR;
+export var CompactNumberFormatSymbols_en_001;
+export var CompactNumberFormatSymbols_en_150;
+export var CompactNumberFormatSymbols_en_AE;
+export var CompactNumberFormatSymbols_en_AG;
+export var CompactNumberFormatSymbols_en_AI;
+export var CompactNumberFormatSymbols_en_AS;
+export var CompactNumberFormatSymbols_en_AT;
+export var CompactNumberFormatSymbols_en_BB;
+export var CompactNumberFormatSymbols_en_BE;
+export var CompactNumberFormatSymbols_en_BI;
+export var CompactNumberFormatSymbols_en_BM;
+export var CompactNumberFormatSymbols_en_BS;
+export var CompactNumberFormatSymbols_en_BW;
+export var CompactNumberFormatSymbols_en_BZ;
+export var CompactNumberFormatSymbols_en_CC;
+export var CompactNumberFormatSymbols_en_CH;
+export var CompactNumberFormatSymbols_en_CK;
+export var CompactNumberFormatSymbols_en_CM;
+export var CompactNumberFormatSymbols_en_CX;
+export var CompactNumberFormatSymbols_en_CY;
+export var CompactNumberFormatSymbols_en_DE;
+export var CompactNumberFormatSymbols_en_DG;
+export var CompactNumberFormatSymbols_en_DK;
+export var CompactNumberFormatSymbols_en_DM;
+export var CompactNumberFormatSymbols_en_ER;
+export var CompactNumberFormatSymbols_en_FI;
+export var CompactNumberFormatSymbols_en_FJ;
+export var CompactNumberFormatSymbols_en_FK;
+export var CompactNumberFormatSymbols_en_FM;
+export var CompactNumberFormatSymbols_en_GD;
+export var CompactNumberFormatSymbols_en_GG;
+export var CompactNumberFormatSymbols_en_GH;
+export var CompactNumberFormatSymbols_en_GI;
+export var CompactNumberFormatSymbols_en_GM;
+export var CompactNumberFormatSymbols_en_GU;
+export var CompactNumberFormatSymbols_en_GY;
+export var CompactNumberFormatSymbols_en_HK;
+export var CompactNumberFormatSymbols_en_IL;
+export var CompactNumberFormatSymbols_en_IM;
+export var CompactNumberFormatSymbols_en_IO;
+export var CompactNumberFormatSymbols_en_JE;
+export var CompactNumberFormatSymbols_en_JM;
+export var CompactNumberFormatSymbols_en_KE;
+export var CompactNumberFormatSymbols_en_KI;
+export var CompactNumberFormatSymbols_en_KN;
+export var CompactNumberFormatSymbols_en_KY;
+export var CompactNumberFormatSymbols_en_LC;
+export var CompactNumberFormatSymbols_en_LR;
+export var CompactNumberFormatSymbols_en_LS;
+export var CompactNumberFormatSymbols_en_MG;
+export var CompactNumberFormatSymbols_en_MH;
+export var CompactNumberFormatSymbols_en_MO;
+export var CompactNumberFormatSymbols_en_MP;
+export var CompactNumberFormatSymbols_en_MS;
+export var CompactNumberFormatSymbols_en_MT;
+export var CompactNumberFormatSymbols_en_MU;
+export var CompactNumberFormatSymbols_en_MV;
+export var CompactNumberFormatSymbols_en_MW;
+export var CompactNumberFormatSymbols_en_MY;
+export var CompactNumberFormatSymbols_en_NA;
+export var CompactNumberFormatSymbols_en_NF;
+export var CompactNumberFormatSymbols_en_NG;
+export var CompactNumberFormatSymbols_en_NL;
+export var CompactNumberFormatSymbols_en_NR;
+export var CompactNumberFormatSymbols_en_NU;
+export var CompactNumberFormatSymbols_en_NZ;
+export var CompactNumberFormatSymbols_en_PG;
+export var CompactNumberFormatSymbols_en_PH;
+export var CompactNumberFormatSymbols_en_PK;
+export var CompactNumberFormatSymbols_en_PN;
+export var CompactNumberFormatSymbols_en_PR;
+export var CompactNumberFormatSymbols_en_PW;
+export var CompactNumberFormatSymbols_en_RW;
+export var CompactNumberFormatSymbols_en_SB;
+export var CompactNumberFormatSymbols_en_SC;
+export var CompactNumberFormatSymbols_en_SD;
+export var CompactNumberFormatSymbols_en_SE;
+export var CompactNumberFormatSymbols_en_SH;
+export var CompactNumberFormatSymbols_en_SI;
+export var CompactNumberFormatSymbols_en_SL;
+export var CompactNumberFormatSymbols_en_SS;
+export var CompactNumberFormatSymbols_en_SX;
+export var CompactNumberFormatSymbols_en_SZ;
+export var CompactNumberFormatSymbols_en_TC;
+export var CompactNumberFormatSymbols_en_TK;
+export var CompactNumberFormatSymbols_en_TO;
+export var CompactNumberFormatSymbols_en_TT;
+export var CompactNumberFormatSymbols_en_TV;
+export var CompactNumberFormatSymbols_en_TZ;
+export var CompactNumberFormatSymbols_en_UG;
+export var CompactNumberFormatSymbols_en_UM;
+export var CompactNumberFormatSymbols_en_US_POSIX;
+export var CompactNumberFormatSymbols_en_VC;
+export var CompactNumberFormatSymbols_en_VG;
+export var CompactNumberFormatSymbols_en_VI;
+export var CompactNumberFormatSymbols_en_VU;
+export var CompactNumberFormatSymbols_en_WS;
+export var CompactNumberFormatSymbols_en_XA;
+export var CompactNumberFormatSymbols_en_ZM;
+export var CompactNumberFormatSymbols_en_ZW;
+export var CompactNumberFormatSymbols_eo;
+export var CompactNumberFormatSymbols_eo_001;
+export var CompactNumberFormatSymbols_es_AR;
+export var CompactNumberFormatSymbols_es_BO;
+export var CompactNumberFormatSymbols_es_BR;
+export var CompactNumberFormatSymbols_es_BZ;
+export var CompactNumberFormatSymbols_es_CL;
+export var CompactNumberFormatSymbols_es_CO;
+export var CompactNumberFormatSymbols_es_CR;
+export var CompactNumberFormatSymbols_es_CU;
+export var CompactNumberFormatSymbols_es_DO;
+export var CompactNumberFormatSymbols_es_EA;
+export var CompactNumberFormatSymbols_es_EC;
+export var CompactNumberFormatSymbols_es_GQ;
+export var CompactNumberFormatSymbols_es_GT;
+export var CompactNumberFormatSymbols_es_HN;
+export var CompactNumberFormatSymbols_es_IC;
+export var CompactNumberFormatSymbols_es_NI;
+export var CompactNumberFormatSymbols_es_PA;
+export var CompactNumberFormatSymbols_es_PE;
+export var CompactNumberFormatSymbols_es_PH;
+export var CompactNumberFormatSymbols_es_PR;
+export var CompactNumberFormatSymbols_es_PY;
+export var CompactNumberFormatSymbols_es_SV;
+export var CompactNumberFormatSymbols_es_UY;
+export var CompactNumberFormatSymbols_es_VE;
+export var CompactNumberFormatSymbols_et_EE;
+export var CompactNumberFormatSymbols_eu_ES;
+export var CompactNumberFormatSymbols_ewo;
+export var CompactNumberFormatSymbols_ewo_CM;
+export var CompactNumberFormatSymbols_fa_AF;
+export var CompactNumberFormatSymbols_fa_IR;
+export var CompactNumberFormatSymbols_ff;
+export var CompactNumberFormatSymbols_ff_Adlm;
+export var CompactNumberFormatSymbols_ff_Adlm_BF;
+export var CompactNumberFormatSymbols_ff_Adlm_CM;
+export var CompactNumberFormatSymbols_ff_Adlm_GH;
+export var CompactNumberFormatSymbols_ff_Adlm_GM;
+export var CompactNumberFormatSymbols_ff_Adlm_GN;
+export var CompactNumberFormatSymbols_ff_Adlm_GW;
+export var CompactNumberFormatSymbols_ff_Adlm_LR;
+export var CompactNumberFormatSymbols_ff_Adlm_MR;
+export var CompactNumberFormatSymbols_ff_Adlm_NE;
+export var CompactNumberFormatSymbols_ff_Adlm_NG;
+export var CompactNumberFormatSymbols_ff_Adlm_SL;
+export var CompactNumberFormatSymbols_ff_Adlm_SN;
+export var CompactNumberFormatSymbols_ff_Latn;
+export var CompactNumberFormatSymbols_ff_Latn_BF;
+export var CompactNumberFormatSymbols_ff_Latn_CM;
+export var CompactNumberFormatSymbols_ff_Latn_GH;
+export var CompactNumberFormatSymbols_ff_Latn_GM;
+export var CompactNumberFormatSymbols_ff_Latn_GN;
+export var CompactNumberFormatSymbols_ff_Latn_GW;
+export var CompactNumberFormatSymbols_ff_Latn_LR;
+export var CompactNumberFormatSymbols_ff_Latn_MR;
+export var CompactNumberFormatSymbols_ff_Latn_NE;
+export var CompactNumberFormatSymbols_ff_Latn_NG;
+export var CompactNumberFormatSymbols_ff_Latn_SL;
+export var CompactNumberFormatSymbols_ff_Latn_SN;
+export var CompactNumberFormatSymbols_fi_FI;
+export var CompactNumberFormatSymbols_fil_PH;
+export var CompactNumberFormatSymbols_fo;
+export var CompactNumberFormatSymbols_fo_DK;
+export var CompactNumberFormatSymbols_fo_FO;
+export var CompactNumberFormatSymbols_fr_BE;
+export var CompactNumberFormatSymbols_fr_BF;
+export var CompactNumberFormatSymbols_fr_BI;
+export var CompactNumberFormatSymbols_fr_BJ;
+export var CompactNumberFormatSymbols_fr_BL;
+export var CompactNumberFormatSymbols_fr_CD;
+export var CompactNumberFormatSymbols_fr_CF;
+export var CompactNumberFormatSymbols_fr_CG;
+export var CompactNumberFormatSymbols_fr_CH;
+export var CompactNumberFormatSymbols_fr_CI;
+export var CompactNumberFormatSymbols_fr_CM;
+export var CompactNumberFormatSymbols_fr_DJ;
+export var CompactNumberFormatSymbols_fr_DZ;
+export var CompactNumberFormatSymbols_fr_FR;
+export var CompactNumberFormatSymbols_fr_GA;
+export var CompactNumberFormatSymbols_fr_GF;
+export var CompactNumberFormatSymbols_fr_GN;
+export var CompactNumberFormatSymbols_fr_GP;
+export var CompactNumberFormatSymbols_fr_GQ;
+export var CompactNumberFormatSymbols_fr_HT;
+export var CompactNumberFormatSymbols_fr_KM;
+export var CompactNumberFormatSymbols_fr_LU;
+export var CompactNumberFormatSymbols_fr_MA;
+export var CompactNumberFormatSymbols_fr_MC;
+export var CompactNumberFormatSymbols_fr_MF;
+export var CompactNumberFormatSymbols_fr_MG;
+export var CompactNumberFormatSymbols_fr_ML;
+export var CompactNumberFormatSymbols_fr_MQ;
+export var CompactNumberFormatSymbols_fr_MR;
+export var CompactNumberFormatSymbols_fr_MU;
+export var CompactNumberFormatSymbols_fr_NC;
+export var CompactNumberFormatSymbols_fr_NE;
+export var CompactNumberFormatSymbols_fr_PF;
+export var CompactNumberFormatSymbols_fr_PM;
+export var CompactNumberFormatSymbols_fr_RE;
+export var CompactNumberFormatSymbols_fr_RW;
+export var CompactNumberFormatSymbols_fr_SC;
+export var CompactNumberFormatSymbols_fr_SN;
+export var CompactNumberFormatSymbols_fr_SY;
+export var CompactNumberFormatSymbols_fr_TD;
+export var CompactNumberFormatSymbols_fr_TG;
+export var CompactNumberFormatSymbols_fr_TN;
+export var CompactNumberFormatSymbols_fr_VU;
+export var CompactNumberFormatSymbols_fr_WF;
+export var CompactNumberFormatSymbols_fr_YT;
+export var CompactNumberFormatSymbols_fur;
+export var CompactNumberFormatSymbols_fur_IT;
+export var CompactNumberFormatSymbols_fy;
+export var CompactNumberFormatSymbols_fy_NL;
+export var CompactNumberFormatSymbols_ga_GB;
+export var CompactNumberFormatSymbols_ga_IE;
+export var CompactNumberFormatSymbols_gd;
+export var CompactNumberFormatSymbols_gd_GB;
+export var CompactNumberFormatSymbols_gl_ES;
+export var CompactNumberFormatSymbols_gsw_CH;
+export var CompactNumberFormatSymbols_gsw_FR;
+export var CompactNumberFormatSymbols_gsw_LI;
+export var CompactNumberFormatSymbols_gu_IN;
+export var CompactNumberFormatSymbols_guz;
+export var CompactNumberFormatSymbols_guz_KE;
+export var CompactNumberFormatSymbols_gv;
+export var CompactNumberFormatSymbols_gv_IM;
+export var CompactNumberFormatSymbols_ha;
+export var CompactNumberFormatSymbols_ha_GH;
+export var CompactNumberFormatSymbols_ha_NE;
+export var CompactNumberFormatSymbols_ha_NG;
+export var CompactNumberFormatSymbols_haw_US;
+export var CompactNumberFormatSymbols_he_IL;
+export var CompactNumberFormatSymbols_hi_IN;
+export var CompactNumberFormatSymbols_hi_Latn;
+export var CompactNumberFormatSymbols_hi_Latn_IN;
+export var CompactNumberFormatSymbols_hr_BA;
+export var CompactNumberFormatSymbols_hr_HR;
+export var CompactNumberFormatSymbols_hsb;
+export var CompactNumberFormatSymbols_hsb_DE;
+export var CompactNumberFormatSymbols_hu_HU;
+export var CompactNumberFormatSymbols_hy_AM;
+export var CompactNumberFormatSymbols_ia;
+export var CompactNumberFormatSymbols_ia_001;
+export var CompactNumberFormatSymbols_id_ID;
+export var CompactNumberFormatSymbols_ig;
+export var CompactNumberFormatSymbols_ig_NG;
+export var CompactNumberFormatSymbols_ii;
+export var CompactNumberFormatSymbols_ii_CN;
+export var CompactNumberFormatSymbols_is_IS;
+export var CompactNumberFormatSymbols_it_CH;
+export var CompactNumberFormatSymbols_it_IT;
+export var CompactNumberFormatSymbols_it_SM;
+export var CompactNumberFormatSymbols_it_VA;
+export var CompactNumberFormatSymbols_ja_JP;
+export var CompactNumberFormatSymbols_jgo;
+export var CompactNumberFormatSymbols_jgo_CM;
+export var CompactNumberFormatSymbols_jmc;
+export var CompactNumberFormatSymbols_jmc_TZ;
+export var CompactNumberFormatSymbols_jv;
+export var CompactNumberFormatSymbols_jv_ID;
+export var CompactNumberFormatSymbols_ka_GE;
+export var CompactNumberFormatSymbols_kab;
+export var CompactNumberFormatSymbols_kab_DZ;
+export var CompactNumberFormatSymbols_kam;
+export var CompactNumberFormatSymbols_kam_KE;
+export var CompactNumberFormatSymbols_kde;
+export var CompactNumberFormatSymbols_kde_TZ;
+export var CompactNumberFormatSymbols_kea;
+export var CompactNumberFormatSymbols_kea_CV;
+export var CompactNumberFormatSymbols_kgp;
+export var CompactNumberFormatSymbols_kgp_BR;
+export var CompactNumberFormatSymbols_khq;
+export var CompactNumberFormatSymbols_khq_ML;
+export var CompactNumberFormatSymbols_ki;
+export var CompactNumberFormatSymbols_ki_KE;
+export var CompactNumberFormatSymbols_kk_KZ;
+export var CompactNumberFormatSymbols_kkj;
+export var CompactNumberFormatSymbols_kkj_CM;
+export var CompactNumberFormatSymbols_kl;
+export var CompactNumberFormatSymbols_kl_GL;
+export var CompactNumberFormatSymbols_kln;
+export var CompactNumberFormatSymbols_kln_KE;
+export var CompactNumberFormatSymbols_km_KH;
+export var CompactNumberFormatSymbols_kn_IN;
+export var CompactNumberFormatSymbols_ko_KP;
+export var CompactNumberFormatSymbols_ko_KR;
+export var CompactNumberFormatSymbols_kok;
+export var CompactNumberFormatSymbols_kok_IN;
+export var CompactNumberFormatSymbols_ks;
+export var CompactNumberFormatSymbols_ks_Arab;
+export var CompactNumberFormatSymbols_ks_Arab_IN;
+export var CompactNumberFormatSymbols_ks_Deva;
+export var CompactNumberFormatSymbols_ks_Deva_IN;
+export var CompactNumberFormatSymbols_ksb;
+export var CompactNumberFormatSymbols_ksb_TZ;
+export var CompactNumberFormatSymbols_ksf;
+export var CompactNumberFormatSymbols_ksf_CM;
+export var CompactNumberFormatSymbols_ksh;
+export var CompactNumberFormatSymbols_ksh_DE;
+export var CompactNumberFormatSymbols_ku;
+export var CompactNumberFormatSymbols_ku_TR;
+export var CompactNumberFormatSymbols_kw;
+export var CompactNumberFormatSymbols_kw_GB;
+export var CompactNumberFormatSymbols_ky_KG;
+export var CompactNumberFormatSymbols_lag;
+export var CompactNumberFormatSymbols_lag_TZ;
+export var CompactNumberFormatSymbols_lb;
+export var CompactNumberFormatSymbols_lb_LU;
+export var CompactNumberFormatSymbols_lg;
+export var CompactNumberFormatSymbols_lg_UG;
+export var CompactNumberFormatSymbols_lkt;
+export var CompactNumberFormatSymbols_lkt_US;
+export var CompactNumberFormatSymbols_ln_AO;
+export var CompactNumberFormatSymbols_ln_CD;
+export var CompactNumberFormatSymbols_ln_CF;
+export var CompactNumberFormatSymbols_ln_CG;
+export var CompactNumberFormatSymbols_lo_LA;
+export var CompactNumberFormatSymbols_lrc;
+export var CompactNumberFormatSymbols_lrc_IQ;
+export var CompactNumberFormatSymbols_lrc_IR;
+export var CompactNumberFormatSymbols_lt_LT;
+export var CompactNumberFormatSymbols_lu;
+export var CompactNumberFormatSymbols_lu_CD;
+export var CompactNumberFormatSymbols_luo;
+export var CompactNumberFormatSymbols_luo_KE;
+export var CompactNumberFormatSymbols_luy;
+export var CompactNumberFormatSymbols_luy_KE;
+export var CompactNumberFormatSymbols_lv_LV;
+export var CompactNumberFormatSymbols_mai;
+export var CompactNumberFormatSymbols_mai_IN;
+export var CompactNumberFormatSymbols_mas;
+export var CompactNumberFormatSymbols_mas_KE;
+export var CompactNumberFormatSymbols_mas_TZ;
+export var CompactNumberFormatSymbols_mer;
+export var CompactNumberFormatSymbols_mer_KE;
+export var CompactNumberFormatSymbols_mfe;
+export var CompactNumberFormatSymbols_mfe_MU;
+export var CompactNumberFormatSymbols_mg;
+export var CompactNumberFormatSymbols_mg_MG;
+export var CompactNumberFormatSymbols_mgh;
+export var CompactNumberFormatSymbols_mgh_MZ;
+export var CompactNumberFormatSymbols_mgo;
+export var CompactNumberFormatSymbols_mgo_CM;
+export var CompactNumberFormatSymbols_mi;
+export var CompactNumberFormatSymbols_mi_NZ;
+export var CompactNumberFormatSymbols_mk_MK;
+export var CompactNumberFormatSymbols_ml_IN;
+export var CompactNumberFormatSymbols_mn_MN;
+export var CompactNumberFormatSymbols_mni;
+export var CompactNumberFormatSymbols_mni_Beng;
+export var CompactNumberFormatSymbols_mni_Beng_IN;
+export var CompactNumberFormatSymbols_mr_IN;
+export var CompactNumberFormatSymbols_ms_BN;
+export var CompactNumberFormatSymbols_ms_ID;
+export var CompactNumberFormatSymbols_ms_MY;
+export var CompactNumberFormatSymbols_ms_SG;
+export var CompactNumberFormatSymbols_mt_MT;
+export var CompactNumberFormatSymbols_mua;
+export var CompactNumberFormatSymbols_mua_CM;
+export var CompactNumberFormatSymbols_my_MM;
+export var CompactNumberFormatSymbols_mzn;
+export var CompactNumberFormatSymbols_mzn_IR;
+export var CompactNumberFormatSymbols_naq;
+export var CompactNumberFormatSymbols_naq_NA;
+export var CompactNumberFormatSymbols_nb_NO;
+export var CompactNumberFormatSymbols_nb_SJ;
+export var CompactNumberFormatSymbols_nd;
+export var CompactNumberFormatSymbols_nd_ZW;
+export var CompactNumberFormatSymbols_ne_IN;
+export var CompactNumberFormatSymbols_ne_NP;
+export var CompactNumberFormatSymbols_nl_AW;
+export var CompactNumberFormatSymbols_nl_BE;
+export var CompactNumberFormatSymbols_nl_BQ;
+export var CompactNumberFormatSymbols_nl_CW;
+export var CompactNumberFormatSymbols_nl_NL;
+export var CompactNumberFormatSymbols_nl_SR;
+export var CompactNumberFormatSymbols_nl_SX;
+export var CompactNumberFormatSymbols_nmg;
+export var CompactNumberFormatSymbols_nmg_CM;
+export var CompactNumberFormatSymbols_nn;
+export var CompactNumberFormatSymbols_nn_NO;
+export var CompactNumberFormatSymbols_nnh;
+export var CompactNumberFormatSymbols_nnh_CM;
+export var CompactNumberFormatSymbols_nus;
+export var CompactNumberFormatSymbols_nus_SS;
+export var CompactNumberFormatSymbols_nyn;
+export var CompactNumberFormatSymbols_nyn_UG;
+export var CompactNumberFormatSymbols_om;
+export var CompactNumberFormatSymbols_om_ET;
+export var CompactNumberFormatSymbols_om_KE;
+export var CompactNumberFormatSymbols_or_IN;
+export var CompactNumberFormatSymbols_os;
+export var CompactNumberFormatSymbols_os_GE;
+export var CompactNumberFormatSymbols_os_RU;
+export var CompactNumberFormatSymbols_pa_Arab;
+export var CompactNumberFormatSymbols_pa_Arab_PK;
+export var CompactNumberFormatSymbols_pa_Guru;
+export var CompactNumberFormatSymbols_pa_Guru_IN;
+export var CompactNumberFormatSymbols_pcm;
+export var CompactNumberFormatSymbols_pcm_NG;
+export var CompactNumberFormatSymbols_pl_PL;
+export var CompactNumberFormatSymbols_ps;
+export var CompactNumberFormatSymbols_ps_AF;
+export var CompactNumberFormatSymbols_ps_PK;
+export var CompactNumberFormatSymbols_pt_AO;
+export var CompactNumberFormatSymbols_pt_CH;
+export var CompactNumberFormatSymbols_pt_CV;
+export var CompactNumberFormatSymbols_pt_GQ;
+export var CompactNumberFormatSymbols_pt_GW;
+export var CompactNumberFormatSymbols_pt_LU;
+export var CompactNumberFormatSymbols_pt_MO;
+export var CompactNumberFormatSymbols_pt_MZ;
+export var CompactNumberFormatSymbols_pt_ST;
+export var CompactNumberFormatSymbols_pt_TL;
+export var CompactNumberFormatSymbols_qu;
+export var CompactNumberFormatSymbols_qu_BO;
+export var CompactNumberFormatSymbols_qu_EC;
+export var CompactNumberFormatSymbols_qu_PE;
+export var CompactNumberFormatSymbols_raj;
+export var CompactNumberFormatSymbols_raj_IN;
+export var CompactNumberFormatSymbols_rm;
+export var CompactNumberFormatSymbols_rm_CH;
+export var CompactNumberFormatSymbols_rn;
+export var CompactNumberFormatSymbols_rn_BI;
+export var CompactNumberFormatSymbols_ro_MD;
+export var CompactNumberFormatSymbols_ro_RO;
+export var CompactNumberFormatSymbols_rof;
+export var CompactNumberFormatSymbols_rof_TZ;
+export var CompactNumberFormatSymbols_ru_BY;
+export var CompactNumberFormatSymbols_ru_KG;
+export var CompactNumberFormatSymbols_ru_KZ;
+export var CompactNumberFormatSymbols_ru_MD;
+export var CompactNumberFormatSymbols_ru_RU;
+export var CompactNumberFormatSymbols_ru_UA;
+export var CompactNumberFormatSymbols_rw;
+export var CompactNumberFormatSymbols_rw_RW;
+export var CompactNumberFormatSymbols_rwk;
+export var CompactNumberFormatSymbols_rwk_TZ;
+export var CompactNumberFormatSymbols_sa;
+export var CompactNumberFormatSymbols_sa_IN;
+export var CompactNumberFormatSymbols_sah;
+export var CompactNumberFormatSymbols_sah_RU;
+export var CompactNumberFormatSymbols_saq;
+export var CompactNumberFormatSymbols_saq_KE;
+export var CompactNumberFormatSymbols_sat;
+export var CompactNumberFormatSymbols_sat_Olck;
+export var CompactNumberFormatSymbols_sat_Olck_IN;
+export var CompactNumberFormatSymbols_sbp;
+export var CompactNumberFormatSymbols_sbp_TZ;
+export var CompactNumberFormatSymbols_sc;
+export var CompactNumberFormatSymbols_sc_IT;
+export var CompactNumberFormatSymbols_sd;
+export var CompactNumberFormatSymbols_sd_Arab;
+export var CompactNumberFormatSymbols_sd_Arab_PK;
+export var CompactNumberFormatSymbols_sd_Deva;
+export var CompactNumberFormatSymbols_sd_Deva_IN;
+export var CompactNumberFormatSymbols_se;
+export var CompactNumberFormatSymbols_se_FI;
+export var CompactNumberFormatSymbols_se_NO;
+export var CompactNumberFormatSymbols_se_SE;
+export var CompactNumberFormatSymbols_seh;
+export var CompactNumberFormatSymbols_seh_MZ;
+export var CompactNumberFormatSymbols_ses;
+export var CompactNumberFormatSymbols_ses_ML;
+export var CompactNumberFormatSymbols_sg;
+export var CompactNumberFormatSymbols_sg_CF;
+export var CompactNumberFormatSymbols_shi;
+export var CompactNumberFormatSymbols_shi_Latn;
+export var CompactNumberFormatSymbols_shi_Latn_MA;
+export var CompactNumberFormatSymbols_shi_Tfng;
+export var CompactNumberFormatSymbols_shi_Tfng_MA;
+export var CompactNumberFormatSymbols_si_LK;
+export var CompactNumberFormatSymbols_sk_SK;
+export var CompactNumberFormatSymbols_sl_SI;
+export var CompactNumberFormatSymbols_smn;
+export var CompactNumberFormatSymbols_smn_FI;
+export var CompactNumberFormatSymbols_sn;
+export var CompactNumberFormatSymbols_sn_ZW;
+export var CompactNumberFormatSymbols_so;
+export var CompactNumberFormatSymbols_so_DJ;
+export var CompactNumberFormatSymbols_so_ET;
+export var CompactNumberFormatSymbols_so_KE;
+export var CompactNumberFormatSymbols_so_SO;
+export var CompactNumberFormatSymbols_sq_AL;
+export var CompactNumberFormatSymbols_sq_MK;
+export var CompactNumberFormatSymbols_sq_XK;
+export var CompactNumberFormatSymbols_sr_Cyrl;
+export var CompactNumberFormatSymbols_sr_Cyrl_BA;
+export var CompactNumberFormatSymbols_sr_Cyrl_ME;
+export var CompactNumberFormatSymbols_sr_Cyrl_RS;
+export var CompactNumberFormatSymbols_sr_Cyrl_XK;
+export var CompactNumberFormatSymbols_sr_Latn_BA;
+export var CompactNumberFormatSymbols_sr_Latn_ME;
+export var CompactNumberFormatSymbols_sr_Latn_RS;
+export var CompactNumberFormatSymbols_sr_Latn_XK;
+export var CompactNumberFormatSymbols_su;
+export var CompactNumberFormatSymbols_su_Latn;
+export var CompactNumberFormatSymbols_su_Latn_ID;
+export var CompactNumberFormatSymbols_sv_AX;
+export var CompactNumberFormatSymbols_sv_FI;
+export var CompactNumberFormatSymbols_sv_SE;
+export var CompactNumberFormatSymbols_sw_CD;
+export var CompactNumberFormatSymbols_sw_KE;
+export var CompactNumberFormatSymbols_sw_TZ;
+export var CompactNumberFormatSymbols_sw_UG;
+export var CompactNumberFormatSymbols_ta_IN;
+export var CompactNumberFormatSymbols_ta_LK;
+export var CompactNumberFormatSymbols_ta_MY;
+export var CompactNumberFormatSymbols_ta_SG;
+export var CompactNumberFormatSymbols_te_IN;
+export var CompactNumberFormatSymbols_teo;
+export var CompactNumberFormatSymbols_teo_KE;
+export var CompactNumberFormatSymbols_teo_UG;
+export var CompactNumberFormatSymbols_tg;
+export var CompactNumberFormatSymbols_tg_TJ;
+export var CompactNumberFormatSymbols_th_TH;
+export var CompactNumberFormatSymbols_ti;
+export var CompactNumberFormatSymbols_ti_ER;
+export var CompactNumberFormatSymbols_ti_ET;
+export var CompactNumberFormatSymbols_tk;
+export var CompactNumberFormatSymbols_tk_TM;
+export var CompactNumberFormatSymbols_to;
+export var CompactNumberFormatSymbols_to_TO;
+export var CompactNumberFormatSymbols_tr_CY;
+export var CompactNumberFormatSymbols_tr_TR;
+export var CompactNumberFormatSymbols_tt;
+export var CompactNumberFormatSymbols_tt_RU;
+export var CompactNumberFormatSymbols_twq;
+export var CompactNumberFormatSymbols_twq_NE;
+export var CompactNumberFormatSymbols_tzm;
+export var CompactNumberFormatSymbols_tzm_MA;
+export var CompactNumberFormatSymbols_ug;
+export var CompactNumberFormatSymbols_ug_CN;
+export var CompactNumberFormatSymbols_uk_UA;
+export var CompactNumberFormatSymbols_ur_IN;
+export var CompactNumberFormatSymbols_ur_PK;
+export var CompactNumberFormatSymbols_uz_Arab;
+export var CompactNumberFormatSymbols_uz_Arab_AF;
+export var CompactNumberFormatSymbols_uz_Cyrl;
+export var CompactNumberFormatSymbols_uz_Cyrl_UZ;
+export var CompactNumberFormatSymbols_uz_Latn;
+export var CompactNumberFormatSymbols_uz_Latn_UZ;
+export var CompactNumberFormatSymbols_vai;
+export var CompactNumberFormatSymbols_vai_Latn;
+export var CompactNumberFormatSymbols_vai_Latn_LR;
+export var CompactNumberFormatSymbols_vai_Vaii;
+export var CompactNumberFormatSymbols_vai_Vaii_LR;
+export var CompactNumberFormatSymbols_vi_VN;
+export var CompactNumberFormatSymbols_vun;
+export var CompactNumberFormatSymbols_vun_TZ;
+export var CompactNumberFormatSymbols_wae;
+export var CompactNumberFormatSymbols_wae_CH;
+export var CompactNumberFormatSymbols_wo;
+export var CompactNumberFormatSymbols_wo_SN;
+export var CompactNumberFormatSymbols_xh;
+export var CompactNumberFormatSymbols_xh_ZA;
+export var CompactNumberFormatSymbols_xog;
+export var CompactNumberFormatSymbols_xog_UG;
+export var CompactNumberFormatSymbols_yav;
+export var CompactNumberFormatSymbols_yav_CM;
+export var CompactNumberFormatSymbols_yi;
+export var CompactNumberFormatSymbols_yi_001;
+export var CompactNumberFormatSymbols_yo;
+export var CompactNumberFormatSymbols_yo_BJ;
+export var CompactNumberFormatSymbols_yo_NG;
+export var CompactNumberFormatSymbols_yrl;
+export var CompactNumberFormatSymbols_yrl_BR;
+export var CompactNumberFormatSymbols_yrl_CO;
+export var CompactNumberFormatSymbols_yrl_VE;
+export var CompactNumberFormatSymbols_yue;
+export var CompactNumberFormatSymbols_yue_Hans;
+export var CompactNumberFormatSymbols_yue_Hans_CN;
+export var CompactNumberFormatSymbols_yue_Hant;
+export var CompactNumberFormatSymbols_yue_Hant_HK;
+export var CompactNumberFormatSymbols_zgh;
+export var CompactNumberFormatSymbols_zgh_MA;
+export var CompactNumberFormatSymbols_zh_Hans;
+export var CompactNumberFormatSymbols_zh_Hans_CN;
+export var CompactNumberFormatSymbols_zh_Hans_HK;
+export var CompactNumberFormatSymbols_zh_Hans_MO;
+export var CompactNumberFormatSymbols_zh_Hans_SG;
+export var CompactNumberFormatSymbols_zh_Hant;
+export var CompactNumberFormatSymbols_zh_Hant_HK;
+export var CompactNumberFormatSymbols_zh_Hant_MO;
+export var CompactNumberFormatSymbols_zh_Hant_TW;
+export var CompactNumberFormatSymbols_zu_ZA;

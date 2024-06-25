@@ -8,10 +8,7 @@
  * @fileoverview Functions for encoding strings according to MIME
  * standards, especially RFC 1522.
  */
-goog.provide('goog.i18n.mime');
-goog.provide('goog.i18n.mime.encode');
-
-goog.require('goog.i18n.uChar');
+import * as uChar from './uchar.js';
 
 
 /**
@@ -21,15 +18,14 @@ goog.require('goog.i18n.uChar');
  * @type {RegExp}
  * @private
  */
-goog.i18n.mime.NONASCII_ = /[\uD800-\uDBFF][\uDC00-\uDFFF]|[^!-<>@-^`-~]/g;
+var NONASCII_ = /[\uD800-\uDBFF][\uDC00-\uDFFF]|[^!-<>@-^`-~]/g;
 
 /**
  * Like goog.i18n.NONASCII_ but also omits double-quotes.
  * @type {RegExp}
  * @private
  */
-goog.i18n.mime.NONASCII_NOQUOTE_ =
-    /[\uD800-\uDBFF][\uDC00-\uDFFF]|[^!#-<>@-^`-~]/g;
+var NONASCII_NOQUOTE_ = /[\uD800-\uDBFF][\uDC00-\uDFFF]|[^!#-<>@-^`-~]/g;
 
 /**
  * Encodes a string for inclusion in a MIME header. The string is encoded
@@ -40,10 +36,9 @@ goog.i18n.mime.NONASCII_NOQUOTE_ =
  *     quoted string for a parameter value in a MIME header).
  * @return {string} The encoded string.
  */
-goog.i18n.mime.encode = function(str, opt_noquote) {
-  'use strict';
+export function encode(str, opt_noquote) {
   var nonascii =
-      opt_noquote ? goog.i18n.mime.NONASCII_NOQUOTE_ : goog.i18n.mime.NONASCII_;
+      opt_noquote ? NONASCII_NOQUOTE_ : NONASCII_;
 
   if (str.search(nonascii) >= 0) {
     str = '=?UTF-8?Q?' +
@@ -54,19 +49,18 @@ goog.i18n.mime.encode = function(str, opt_noquote) {
              * @return {string} The quoted-printable form of utf-8 encoding.
              */
             function(c) {
-              'use strict';
               var i = c.charCodeAt(0);
               if (i == 32) {
                 // Special case for space, which can be encoded as _ not =20
                 return '_';
               }
-              var a = [].concat('', goog.i18n.mime.getHexCharArray(c));
+              var a = [].concat('', getHexCharArray(c));
               return a.join('=');
             }) +
         '?=';
   }
   return str;
-};
+}
 
 
 /**
@@ -74,9 +68,8 @@ goog.i18n.mime.encode = function(str, opt_noquote) {
  * @param {string} c The matched character.
  * @return {!Array<string>} A hex array representing the character.
  */
-goog.i18n.mime.getHexCharArray = function(c) {
-  'use strict';
-  var i = goog.i18n.uChar.toCharCode(c);
+export function getHexCharArray(c) {
+  var i = uChar.toCharCode(c);
   var a = [];
   // First convert the UCS-2 character into its UTF-8 bytes
   if (i < 128) {
@@ -98,4 +91,4 @@ goog.i18n.mime.getHexCharArray = function(c) {
     a[i] = a[i].toString(16);
   }
   return a;
-};
+}

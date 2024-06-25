@@ -9,13 +9,13 @@
  * functions should be migrated over to non-nullable params.
  */
 
-goog.provide('goog.math.Rect');
+goog.declareModuleId('goog.math.rect');
 
-goog.require('goog.asserts');
-goog.require('goog.math.Box');
-goog.require('goog.math.Coordinate');
-goog.require('goog.math.IRect');
-goog.require('goog.math.Size');
+import * as asserts from '../asserts/asserts.js';
+import { Box } from './box.js';
+import { Coordinate } from './coordinate.js';
+import { IRect } from './irect.js';
+import { Size } from './size.js';
 
 
 
@@ -27,10 +27,9 @@ goog.require('goog.math.Size');
  * @param {number} h Height.
  * @struct
  * @constructor
- * @implements {goog.math.IRect}
+ * @implements {IRect}
  */
-goog.math.Rect = function(x, y, w, h) {
-  'use strict';
+export function Rect(x, y, w, h) {
   /** @type {number} */
   this.left = x;
 
@@ -42,54 +41,50 @@ goog.math.Rect = function(x, y, w, h) {
 
   /** @type {number} */
   this.height = h;
-};
+}
 
 
 /**
- * @return {!goog.math.Rect} A new copy of this Rectangle.
+ * @return {!Rect} A new copy of this Rectangle.
  */
-goog.math.Rect.prototype.clone = function() {
-  'use strict';
-  return new goog.math.Rect(this.left, this.top, this.width, this.height);
+Rect.prototype.clone = function() {
+  return new Rect(this.left, this.top, this.width, this.height);
 };
 
 
 /**
  * Returns a new Box object with the same position and dimensions as this
  * rectangle.
- * @return {!goog.math.Box} A new Box representation of this Rectangle.
+ * @return {!Box} A new Box representation of this Rectangle.
  */
-goog.math.Rect.prototype.toBox = function() {
-  'use strict';
+Rect.prototype.toBox = function() {
   var right = this.left + this.width;
   var bottom = this.top + this.height;
-  return new goog.math.Box(this.top, right, bottom, this.left);
+  return new Box(this.top, right, bottom, this.left);
 };
 
 
 /**
  * Creates a new Rect object with the position and size given.
- * @param {!goog.math.Coordinate} position The top-left coordinate of the Rect
- * @param {!goog.math.Size} size The size of the Rect
- * @return {!goog.math.Rect} A new Rect initialized with the given position and
+ * @param {!Coordinate} position The top-left coordinate of the Rect
+ * @param {!Size} size The size of the Rect
+ * @return {!Rect} A new Rect initialized with the given position and
  *     size.
  */
-goog.math.Rect.createFromPositionAndSize = function(position, size) {
-  'use strict';
-  return new goog.math.Rect(position.x, position.y, size.width, size.height);
+Rect.createFromPositionAndSize = function(position, size) {
+  return new Rect(position.x, position.y, size.width, size.height);
 };
 
 
 /**
  * Creates a new Rect object with the same position and dimensions as a given
  * Box.  Note that this is only the inverse of toBox if left/top are defined.
- * @param {goog.math.Box} box A box.
- * @return {!goog.math.Rect} A new Rect initialized with the box's position
+ * @param {Box} box A box.
+ * @return {!Rect} A new Rect initialized with the box's position
  *     and size.
  */
-goog.math.Rect.createFromBox = function(box) {
-  'use strict';
-  return new goog.math.Rect(
+Rect.createFromBox = function(box) {
+  return new Rect(
       box.left, box.top, box.right - box.left, box.bottom - box.top);
 };
 
@@ -100,8 +95,7 @@ if (goog.DEBUG) {
    * @return {string} In the form (50, 73 - 75w x 25h).
    * @override
    */
-  goog.math.Rect.prototype.toString = function() {
-    'use strict';
+  Rect.prototype.toString = function() {
     return '(' + this.left + ', ' + this.top + ' - ' + this.width + 'w x ' +
         this.height + 'h)';
   };
@@ -110,13 +104,12 @@ if (goog.DEBUG) {
 
 /**
  * Compares rectangles for equality.
- * @param {goog.math.IRect} a A Rectangle.
- * @param {goog.math.IRect} b A Rectangle.
+ * @param {IRect} a A Rectangle.
+ * @param {IRect} b A Rectangle.
  * @return {boolean} True iff the rectangles have the same left, top, width,
  *     and height, or if both are null.
  */
-goog.math.Rect.equals = function(a, b) {
-  'use strict';
+Rect.equals = function(a, b) {
   if (a == b) {
     return true;
   }
@@ -131,11 +124,10 @@ goog.math.Rect.equals = function(a, b) {
 /**
  * Computes the intersection of this rectangle and the rectangle parameter.  If
  * there is no intersection, returns false and leaves this rectangle as is.
- * @param {goog.math.IRect} rect A Rectangle.
+ * @param {IRect} rect A Rectangle.
  * @return {boolean} True iff this rectangle intersects with the parameter.
  */
-goog.math.Rect.prototype.intersection = function(rect) {
-  'use strict';
+Rect.prototype.intersection = function(rect) {
   var x0 = Math.max(this.left, rect.left);
   var x1 = Math.min(this.left + this.width, rect.left + rect.width);
 
@@ -160,13 +152,12 @@ goog.math.Rect.prototype.intersection = function(rect) {
  * Returns the intersection of two rectangles. Two rectangles intersect if they
  * touch at all, for example, two zero width and height rectangles would
  * intersect if they had the same top and left.
- * @param {goog.math.IRect} a A Rectangle.
- * @param {goog.math.IRect} b A Rectangle.
- * @return {goog.math.Rect} A new intersection rect (even if width and height
+ * @param {IRect} a A Rectangle.
+ * @param {IRect} b A Rectangle.
+ * @return {Rect} A new intersection rect (even if width and height
  *     are 0), or null if there is no intersection.
  */
-goog.math.Rect.intersection = function(a, b) {
-  'use strict';
+Rect.intersection = function(a, b) {
   // There is no nice way to do intersection via a clone, because any such
   // clone might be unnecessary if this function returns null.  So, we duplicate
   // code from above.
@@ -179,7 +170,7 @@ goog.math.Rect.intersection = function(a, b) {
     var y1 = Math.min(a.top + a.height, b.top + b.height);
 
     if (y0 <= y1) {
-      return new goog.math.Rect(x0, y0, x1 - x0, y1 - y0);
+      return new Rect(x0, y0, x1 - x0, y1 - y0);
     }
   }
   return null;
@@ -190,12 +181,11 @@ goog.math.Rect.intersection = function(a, b) {
  * Returns whether two rectangles intersect. Two rectangles intersect if they
  * touch at all, for example, two zero width and height rectangles would
  * intersect if they had the same top and left.
- * @param {goog.math.IRect} a A Rectangle.
- * @param {goog.math.IRect} b A Rectangle.
+ * @param {IRect} a A Rectangle.
+ * @param {IRect} b A Rectangle.
  * @return {boolean} Whether a and b intersect.
  */
-goog.math.Rect.intersects = function(a, b) {
-  'use strict';
+Rect.intersects = function(a, b) {
   return (
       a.left <= b.left + b.width && b.left <= a.left + a.width &&
       a.top <= b.top + b.height && b.top <= a.top + a.height);
@@ -204,12 +194,11 @@ goog.math.Rect.intersects = function(a, b) {
 
 /**
  * Returns whether a rectangle intersects this rectangle.
- * @param {goog.math.IRect} rect A rectangle.
+ * @param {IRect} rect A rectangle.
  * @return {boolean} Whether rect intersects this rectangle.
  */
-goog.math.Rect.prototype.intersects = function(rect) {
-  'use strict';
-  return goog.math.Rect.intersects(this, rect);
+Rect.prototype.intersects = function(rect) {
+  return Rect.intersects(this, rect);
 };
 
 
@@ -217,14 +206,13 @@ goog.math.Rect.prototype.intersects = function(rect) {
  * Computes the difference regions between two rectangles. The return value is
  * an array of 0 to 4 rectangles defining the remaining regions of the first
  * rectangle after the second has been subtracted.
- * @param {goog.math.Rect} a A Rectangle.
- * @param {goog.math.IRect} b A Rectangle.
- * @return {!Array<!goog.math.Rect>} An array with 0 to 4 rectangles which
+ * @param {Rect} a A Rectangle.
+ * @param {IRect} b A Rectangle.
+ * @return {!Array<!Rect>} An array with 0 to 4 rectangles which
  *     together define the difference area of rectangle a minus rectangle b.
  */
-goog.math.Rect.difference = function(a, b) {
-  'use strict';
-  var intersection = goog.math.Rect.intersection(a, b);
+Rect.difference = function(a, b) {
+  var intersection = Rect.intersection(a, b);
   if (!intersection || !intersection.height || !intersection.width) {
     return [a.clone()];
   }
@@ -242,23 +230,23 @@ goog.math.Rect.difference = function(a, b) {
 
   // Subtract off any area on top where A extends past B
   if (b.top > a.top) {
-    result.push(new goog.math.Rect(a.left, a.top, a.width, b.top - a.top));
+    result.push(new Rect(a.left, a.top, a.width, b.top - a.top));
     top = b.top;
     // If we're moving the top down, we also need to subtract the height diff.
     height -= b.top - a.top;
   }
   // Subtract off any area on bottom where A extends past B
   if (bb < ab) {
-    result.push(new goog.math.Rect(a.left, bb, a.width, ab - bb));
+    result.push(new Rect(a.left, bb, a.width, ab - bb));
     height = bb - top;
   }
   // Subtract any area on left where A extends past B
   if (b.left > a.left) {
-    result.push(new goog.math.Rect(a.left, top, b.left - a.left, height));
+    result.push(new Rect(a.left, top, b.left - a.left, height));
   }
   // Subtract any area on right where A extends past B
   if (br < ar) {
-    result.push(new goog.math.Rect(br, top, ar - br, height));
+    result.push(new Rect(br, top, ar - br, height));
   }
 
   return result;
@@ -269,22 +257,20 @@ goog.math.Rect.difference = function(a, b) {
  * Computes the difference regions between this rectangle and `rect`. The
  * return value is an array of 0 to 4 rectangles defining the remaining regions
  * of this rectangle after the other has been subtracted.
- * @param {goog.math.IRect} rect A Rectangle.
- * @return {!Array<!goog.math.Rect>} An array with 0 to 4 rectangles which
+ * @param {IRect} rect A Rectangle.
+ * @return {!Array<!Rect>} An array with 0 to 4 rectangles which
  *     together define the difference area of rectangle a minus rectangle b.
  */
-goog.math.Rect.prototype.difference = function(rect) {
-  'use strict';
-  return goog.math.Rect.difference(this, rect);
+Rect.prototype.difference = function(rect) {
+  return Rect.difference(this, rect);
 };
 
 
 /**
  * Expand this rectangle to also include the area of the given rectangle.
- * @param {goog.math.IRect} rect The other rectangle.
+ * @param {IRect} rect The other rectangle.
  */
-goog.math.Rect.prototype.boundingRect = function(rect) {
-  'use strict';
+Rect.prototype.boundingRect = function(rect) {
   // We compute right and bottom before we change left and top below.
   var right = Math.max(this.left + this.width, rect.left + rect.width);
   var bottom = Math.max(this.top + this.height, rect.top + rect.height);
@@ -299,18 +285,17 @@ goog.math.Rect.prototype.boundingRect = function(rect) {
 
 /**
  * Returns a new rectangle which completely contains both input rectangles.
- * @param {goog.math.IRect} a A rectangle.
- * @param {goog.math.IRect} b A rectangle.
- * @return {goog.math.Rect} A new bounding rect, or null if either rect is
+ * @param {IRect} a A rectangle.
+ * @param {IRect} b A rectangle.
+ * @return {Rect} A new bounding rect, or null if either rect is
  *     null.
  */
-goog.math.Rect.boundingRect = function(a, b) {
-  'use strict';
+Rect.boundingRect = function(a, b) {
   if (!a || !b) {
     return null;
   }
 
-  var newRect = new goog.math.Rect(a.left, a.top, a.width, a.height);
+  var newRect = new Rect(a.left, a.top, a.width, a.height);
   newRect.boundingRect(b);
 
   return newRect;
@@ -321,14 +306,13 @@ goog.math.Rect.boundingRect = function(a, b) {
  * Tests whether this rectangle entirely contains another rectangle or
  * coordinate.
  *
- * @param {goog.math.IRect|goog.math.Coordinate} another The rectangle or
+ * @param {IRect|Coordinate} another The rectangle or
  *     coordinate to test for containment.
  * @return {boolean} Whether this rectangle contains given rectangle or
  *     coordinate.
  */
-goog.math.Rect.prototype.contains = function(another) {
-  'use strict';
-  if (another instanceof goog.math.Coordinate) {
+Rect.prototype.contains = function(another) {
+  if (another instanceof Coordinate) {
     return another.x >= this.left && another.x <= this.left + this.width &&
         another.y >= this.top && another.y <= this.top + this.height;
   } else {  // (another instanceof goog.math.IRect)
@@ -341,13 +325,12 @@ goog.math.Rect.prototype.contains = function(another) {
 
 
 /**
- * @param {!goog.math.Coordinate} point A coordinate.
+ * @param {!Coordinate} point A coordinate.
  * @return {number} The squared distance between the point and the closest
  *     point inside the rectangle. Returns 0 if the point is inside the
  *     rectangle.
  */
-goog.math.Rect.prototype.squaredDistance = function(point) {
-  'use strict';
+Rect.prototype.squaredDistance = function(point) {
   var dx = point.x < this.left ?
       this.left - point.x :
       Math.max(point.x - (this.left + this.width), 0);
@@ -358,63 +341,57 @@ goog.math.Rect.prototype.squaredDistance = function(point) {
 
 
 /**
- * @param {!goog.math.Coordinate} point A coordinate.
+ * @param {!Coordinate} point A coordinate.
  * @return {number} The distance between the point and the closest point
  *     inside the rectangle. Returns 0 if the point is inside the rectangle.
  */
-goog.math.Rect.prototype.distance = function(point) {
-  'use strict';
+Rect.prototype.distance = function(point) {
   return Math.sqrt(this.squaredDistance(point));
 };
 
 
 /**
- * @return {!goog.math.Size} The size of this rectangle.
+ * @return {!Size} The size of this rectangle.
  */
-goog.math.Rect.prototype.getSize = function() {
-  'use strict';
-  return new goog.math.Size(this.width, this.height);
+Rect.prototype.getSize = function() {
+  return new Size(this.width, this.height);
 };
 
 
 /**
- * @return {!goog.math.Coordinate} A new coordinate for the top-left corner of
+ * @return {!Coordinate} A new coordinate for the top-left corner of
  *     the rectangle.
  */
-goog.math.Rect.prototype.getTopLeft = function() {
-  'use strict';
-  return new goog.math.Coordinate(this.left, this.top);
+Rect.prototype.getTopLeft = function() {
+  return new Coordinate(this.left, this.top);
 };
 
 
 /**
- * @return {!goog.math.Coordinate} A new coordinate for the center of the
+ * @return {!Coordinate} A new coordinate for the center of the
  *     rectangle.
  */
-goog.math.Rect.prototype.getCenter = function() {
-  'use strict';
-  return new goog.math.Coordinate(
+Rect.prototype.getCenter = function() {
+  return new Coordinate(
       this.left + this.width / 2, this.top + this.height / 2);
 };
 
 
 /**
- * @return {!goog.math.Coordinate} A new coordinate for the bottom-right corner
+ * @return {!Coordinate} A new coordinate for the bottom-right corner
  *     of the rectangle.
  */
-goog.math.Rect.prototype.getBottomRight = function() {
-  'use strict';
-  return new goog.math.Coordinate(
+Rect.prototype.getBottomRight = function() {
+  return new Coordinate(
       this.left + this.width, this.top + this.height);
 };
 
 
 /**
  * Rounds the fields to the next larger integer values.
- * @return {!goog.math.Rect} This rectangle with ceil'd fields.
+ * @return {!Rect} This rectangle with ceil'd fields.
  */
-goog.math.Rect.prototype.ceil = function() {
-  'use strict';
+Rect.prototype.ceil = function() {
   this.left = Math.ceil(this.left);
   this.top = Math.ceil(this.top);
   this.width = Math.ceil(this.width);
@@ -425,10 +402,9 @@ goog.math.Rect.prototype.ceil = function() {
 
 /**
  * Rounds the fields to the next smaller integer values.
- * @return {!goog.math.Rect} This rectangle with floored fields.
+ * @return {!Rect} This rectangle with floored fields.
  */
-goog.math.Rect.prototype.floor = function() {
-  'use strict';
+Rect.prototype.floor = function() {
   this.left = Math.floor(this.left);
   this.top = Math.floor(this.top);
   this.width = Math.floor(this.width);
@@ -439,10 +415,9 @@ goog.math.Rect.prototype.floor = function() {
 
 /**
  * Rounds the fields to nearest integer values.
- * @return {!goog.math.Rect} This rectangle with rounded fields.
+ * @return {!Rect} This rectangle with rounded fields.
  */
-goog.math.Rect.prototype.round = function() {
-  'use strict';
+Rect.prototype.round = function() {
   this.left = Math.round(this.left);
   this.top = Math.round(this.top);
   this.width = Math.round(this.width);
@@ -453,21 +428,20 @@ goog.math.Rect.prototype.round = function() {
 
 /**
  * Translates this rectangle by the given offsets. If a
- * `goog.math.Coordinate` is given, then the left and top values are
+ * `Coordinate` is given, then the left and top values are
  * translated by the coordinate's x and y values. Otherwise, left and top are
  * translated by `tx` and `opt_ty` respectively.
- * @param {number|goog.math.Coordinate} tx The value to translate left by or the
+ * @param {number|Coordinate} tx The value to translate left by or the
  *     the coordinate to translate this rect by.
  * @param {number=} opt_ty The value to translate top by.
- * @return {!goog.math.Rect} This rectangle after translating.
+ * @return {!Rect} This rectangle after translating.
  */
-goog.math.Rect.prototype.translate = function(tx, opt_ty) {
-  'use strict';
-  if (tx instanceof goog.math.Coordinate) {
+Rect.prototype.translate = function(tx, opt_ty) {
+  if (tx instanceof Coordinate) {
     this.left += tx.x;
     this.top += tx.y;
   } else {
-    this.left += goog.asserts.assertNumber(tx);
+    this.left += asserts.assertNumber(tx);
     if (typeof opt_ty === 'number') {
       this.top += opt_ty;
     }
@@ -483,10 +457,9 @@ goog.math.Rect.prototype.translate = function(tx, opt_ty) {
  * by `sx`.
  * @param {number} sx The scale factor to use for the x dimension.
  * @param {number=} opt_sy The scale factor to use for the y dimension.
- * @return {!goog.math.Rect} This rectangle after scaling.
+ * @return {!Rect} This rectangle after scaling.
  */
-goog.math.Rect.prototype.scale = function(sx, opt_sy) {
-  'use strict';
+Rect.prototype.scale = function(sx, opt_sy) {
   var sy = (typeof opt_sy === 'number') ? opt_sy : sx;
   this.left *= sx;
   this.width *= sx;

@@ -14,9 +14,7 @@
  */
 
 
-goog.provide('goog.structs.SimplePool');
-
-goog.require('goog.Disposable');
+import { Disposable } from '../disposable/disposable.js';
 
 
 
@@ -38,12 +36,11 @@ goog.require('goog.Disposable');
  *     pool at construction time.
  * @param {number} maxCount Maximum number of objects to keep in the free pool.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @template T
  */
-goog.structs.SimplePool = function(initialCount, maxCount) {
-  'use strict';
-  goog.Disposable.call(this);
+export function SimplePool(initialCount, maxCount) {
+  Disposable.call(this);
 
   /**
    * Function for overriding createObject. The avoids a common case requiring
@@ -73,8 +70,8 @@ goog.structs.SimplePool = function(initialCount, maxCount) {
   this.freeQueue_ = [];
 
   this.createInitial_(initialCount);
-};
-goog.inherits(goog.structs.SimplePool, goog.Disposable);
+}
+goog.inherits(SimplePool, Disposable);
 
 
 /**
@@ -83,8 +80,7 @@ goog.inherits(goog.structs.SimplePool, goog.Disposable);
  * @param {Function} createObjectFn Create object function which returns the
  *     newly created object.
  */
-goog.structs.SimplePool.prototype.setCreateObjectFn = function(createObjectFn) {
-  'use strict';
+SimplePool.prototype.setCreateObjectFn = function(createObjectFn) {
   this.createObjectFn_ = createObjectFn;
 };
 
@@ -95,9 +91,8 @@ goog.structs.SimplePool.prototype.setCreateObjectFn = function(createObjectFn) {
  * @param {Function} disposeObjectFn Dispose object function which takes the
  *     object to dispose as a parameter.
  */
-goog.structs.SimplePool.prototype.setDisposeObjectFn = function(
+SimplePool.prototype.setDisposeObjectFn = function(
     disposeObjectFn) {
-  'use strict';
   this.disposeObjectFn_ = disposeObjectFn;
 };
 
@@ -107,8 +102,7 @@ goog.structs.SimplePool.prototype.setDisposeObjectFn = function(
  * otherwise creates a new one.
  * @return {T} An object from the pool or a new one if necessary.
  */
-goog.structs.SimplePool.prototype.getObject = function() {
-  'use strict';
+SimplePool.prototype.getObject = function() {
   if (this.freeQueue_.length) {
     return this.freeQueue_.pop();
   }
@@ -121,8 +115,7 @@ goog.structs.SimplePool.prototype.getObject = function() {
  * already full, the object is disposed instead.
  * @param {T} obj The object to release.
  */
-goog.structs.SimplePool.prototype.releaseObject = function(obj) {
-  'use strict';
+SimplePool.prototype.releaseObject = function(obj) {
   if (this.freeQueue_.length < this.maxCount_) {
     this.freeQueue_.push(obj);
   } else {
@@ -136,8 +129,7 @@ goog.structs.SimplePool.prototype.releaseObject = function(obj) {
  * @param {number} initialCount The number of objects to add to the pool.
  * @private
  */
-goog.structs.SimplePool.prototype.createInitial_ = function(initialCount) {
-  'use strict';
+SimplePool.prototype.createInitial_ = function(initialCount) {
   if (initialCount > this.maxCount_) {
     throw new Error(
         '[goog.structs.SimplePool] Initial cannot be greater than max');
@@ -153,8 +145,7 @@ goog.structs.SimplePool.prototype.createInitial_ = function(initialCount) {
  * that is expected in the pool.
  * @return {T} The created object.
  */
-goog.structs.SimplePool.prototype.createObject = function() {
-  'use strict';
+SimplePool.prototype.createObject = function() {
   if (this.createObjectFn_) {
     return this.createObjectFn_();
   } else {
@@ -169,8 +160,7 @@ goog.structs.SimplePool.prototype.createObject = function() {
  *  object's dispose method, if available.
  * @param {T} obj The object to dispose.
  */
-goog.structs.SimplePool.prototype.disposeObject = function(obj) {
-  'use strict';
+SimplePool.prototype.disposeObject = function(obj) {
   if (this.disposeObjectFn_) {
     this.disposeObjectFn_(obj);
   } else if (goog.isObject(obj)) {
@@ -190,9 +180,8 @@ goog.structs.SimplePool.prototype.disposeObject = function(obj) {
  * @override
  * @protected
  */
-goog.structs.SimplePool.prototype.disposeInternal = function() {
-  'use strict';
-  goog.structs.SimplePool.superClass_.disposeInternal.call(this);
+SimplePool.prototype.disposeInternal = function() {
+  SimplePool.superClass_.disposeInternal.call(this);
   // Call disposeObject on each object held by the pool.
   var freeQueue = this.freeQueue_;
   while (freeQueue.length) {

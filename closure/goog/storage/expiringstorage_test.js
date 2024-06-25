@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.ExpiringStorageTest');
 goog.setTestOnly();
 
-const ExpiringStorage = goog.require('goog.storage.ExpiringStorage');
-const FakeMechanism = goog.require('goog.testing.storage.FakeMechanism');
-const MockClock = goog.require('goog.testing.MockClock');
-const storageTester = goog.require('goog.storage.storageTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ExpiringStorage } from './expiringstorage.js';
+import { FakeMechanism } from '../testing/storage/fakemechanism.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as storageTester from './storagetester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testBasicOperations() {

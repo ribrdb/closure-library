@@ -9,27 +9,26 @@
  * @suppress {missingRequire} Overriding goog.i18n.DateTimeSymbols
  */
 
-goog.module('goog.ui.DatePickerTest');
 goog.setTestOnly();
 
-const DateDate = goog.require('goog.date.Date');
-const DatePicker = goog.require('goog.ui.DatePicker');
-const DateRange = goog.require('goog.date.DateRange');
+import { Date as DateDate } from '../date/date.js';
+import { DatePicker } from './datepicker.js';
+import { DateRange } from '../date/daterange.js';
+
 /** @suppress {extraRequire} */
-const DateTimeSymbols = goog.require('goog.i18n.DateTimeSymbols');
-const DateTimeSymbols_en_US = goog.require('goog.i18n.DateTimeSymbols_en_US');
-const DateTimeSymbols_zh_HK = goog.require('goog.i18n.DateTimeSymbols_zh_HK');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Role = goog.require('goog.a11y.aria.Role');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { DateTimeSymbols, DateTimeSymbols_en_US, DateTimeSymbols_zh_HK } from '../i18n/datetimesymbols.js';
+
+import { KeyCodes } from '../events/keycodes.js';
+import { Role } from '../a11y/aria/roles.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let picker;
 const $$ = dom.getElementsByTagNameAndClass;

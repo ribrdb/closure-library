@@ -29,32 +29,23 @@
  * code).
  */
 
-goog.provide('goog.net.streams.JsonStreamParser');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.net.streams.StreamParser');
-goog.require('goog.net.streams.utils');
-
-
-goog.scope(function() {
-
-
-'use strict';
-const utils = goog.module.get('goog.net.streams.utils');
+import { StreamParser } from './streamparser.js';
+import * as utils from './utils.js';
 
 
 /**
  * The default JSON stream parser.
  *
- * @param {!goog.net.streams.JsonStreamParser.Options=} opt_options
+ * @param {!JsonStreamParser.Options=} opt_options
  *     Configuration for the new JsonStreamParser instance.
  * @constructor
  * @struct
- * @implements {goog.net.streams.StreamParser}
+ * @implements {StreamParser}
  * @final
  */
-goog.net.streams.JsonStreamParser = function(opt_options) {
-  'use strict';
+export function JsonStreamParser(opt_options) {
   /**
    * The current error message, if any.
    * @private {?string}
@@ -110,16 +101,16 @@ goog.net.streams.JsonStreamParser = function(opt_options) {
   this.stringInputPattern_ = /[\\"]/g;
 
   /**
-   * The current stream state.
-   * @private {goog.net.streams.JsonStreamParser.StreamState_}
-   */
-  this.streamState_ = Parser.StreamState_.INIT;
+     * The current stream state.
+     * @private {JsonStreamParser.StreamState_}
+     */
+  this.streamState_ = JsonStreamParser.StreamState_.INIT;
 
   /**
-   * The current parser state.
-   * @private {goog.net.streams.JsonStreamParser.State_}
-   */
-  this.state_ = Parser.State_.INIT;
+     * The current parser state.
+     * @private {JsonStreamParser.State_}
+     */
+  this.state_ = JsonStreamParser.State_.INIT;
 
   /**
    * Whether to deliver the raw message string without decoding into JS object.
@@ -127,7 +118,7 @@ goog.net.streams.JsonStreamParser = function(opt_options) {
    */
   this.deliverMessageAsRawString_ =
       !!(opt_options && opt_options.deliverMessageAsRawString);
-};
+}
 
 
 /**
@@ -144,17 +135,14 @@ goog.net.streams.JsonStreamParser = function(opt_options) {
  *   deliverMessageAsRawString: (boolean|undefined),
  * }}
  */
-goog.net.streams.JsonStreamParser.Options;
-
-
-const Parser = goog.net.streams.JsonStreamParser;
+JsonStreamParser.Options;
 
 
 /**
  * The stream state.
  * @private @enum {number}
  */
-Parser.StreamState_ = {
+JsonStreamParser.StreamState_ = {
   INIT: 0,
   ARRAY_OPEN: 1,
   ARRAY_END: 2,
@@ -166,7 +154,7 @@ Parser.StreamState_ = {
  * The parser state.
  * @private @enum {number}
  */
-Parser.State_ = {
+JsonStreamParser.State_ = {
   INIT: 0,
   VALUE: 1,
   OBJECT_OPEN: 2,
@@ -194,17 +182,15 @@ Parser.State_ = {
 /**
  * @override
  */
-Parser.prototype.isInputValid = function() {
-  'use strict';
-  return this.streamState_ != Parser.StreamState_.INVALID;
+JsonStreamParser.prototype.isInputValid = function() {
+  return this.streamState_ != JsonStreamParser.StreamState_.INVALID;
 };
 
 
 /**
  * @override
  */
-Parser.prototype.getErrorMessage = function() {
-  'use strict';
+JsonStreamParser.prototype.getErrorMessage = function() {
   return this.errorMessage_;
 };
 
@@ -214,9 +200,8 @@ Parser.prototype.getErrorMessage = function() {
  *
  * TODO(updogliu): move this API to the base type.
  */
-Parser.prototype.done = function() {
-  'use strict';
-  return this.streamState_ === Parser.StreamState_.ARRAY_END;
+JsonStreamParser.prototype.done = function() {
+  return this.streamState_ === JsonStreamParser.StreamState_.ARRAY_END;
 };
 
 
@@ -228,8 +213,7 @@ Parser.prototype.done = function() {
  *
  * TODO(updogliu): move this API to the base type.
  */
-Parser.prototype.getExtraInput = function() {
-  'use strict';
+JsonStreamParser.prototype.getExtraInput = function() {
   return this.buffer_;
 };
 
@@ -241,9 +225,8 @@ Parser.prototype.getExtraInput = function() {
  * @throws {!Error} Throws an error indicating where the stream is broken
  * @private
  */
-Parser.prototype.error_ = function(input, pos) {
-  'use strict';
-  this.streamState_ = Parser.StreamState_.INVALID;
+JsonStreamParser.prototype.error_ = function(input, pos) {
+  this.streamState_ = JsonStreamParser.StreamState_.INVALID;
   this.errorMessage_ = 'The stream is broken @' + this.pos_ + '/' + pos +
       '. With input:\n' + input;
   throw new Error(this.errorMessage_);
@@ -253,7 +236,7 @@ Parser.prototype.error_ = function(input, pos) {
  * @override
  * @return {boolean}
  */
-Parser.prototype.acceptsBinaryInput = function() {
+JsonStreamParser.prototype.acceptsBinaryInput = function() {
   return false;
 };
 
@@ -261,15 +244,14 @@ Parser.prototype.acceptsBinaryInput = function() {
  * @throws {Error} Throws an error message if the input is invalid.
  * @override
  */
-Parser.prototype.parse = function(input) {
-  'use strict';
-  goog.asserts.assertString(input);
+JsonStreamParser.prototype.parse = function(input) {
+  asserts.assertString(input);
 
   // captures
   const parser = this;
   const stack = parser.stack_;
   const pattern = parser.stringInputPattern_;
-  const State = Parser.State_;  // enums
+  const State = JsonStreamParser.State_;  // enums
 
   const num = input.length;
 
@@ -281,23 +263,23 @@ Parser.prototype.parse = function(input) {
 
   while (i < num) {
     switch (parser.streamState_) {
-      case Parser.StreamState_.INVALID:
+      case JsonStreamParser.StreamState_.INVALID:
         parser.error_(input, i);
         return null;
 
-      case Parser.StreamState_.ARRAY_END:
+      case JsonStreamParser.StreamState_.ARRAY_END:
         if (readMore()) {
           parser.error_(input, i);
         }
         return null;
 
-      case Parser.StreamState_.INIT:
+      case JsonStreamParser.StreamState_.INIT:
         if (readMore()) {
           const current = input[i++];
           parser.pos_++;
 
           if (current === '[') {
-            parser.streamState_ = Parser.StreamState_.ARRAY_OPEN;
+            parser.streamState_ = JsonStreamParser.StreamState_.ARRAY_OPEN;
 
             streamStart = i;
             parser.state_ = State.ARRAY_OPEN;
@@ -309,11 +291,11 @@ Parser.prototype.parse = function(input) {
         }
         return null;
 
-      case Parser.StreamState_.ARRAY_OPEN:
+      case JsonStreamParser.StreamState_.ARRAY_OPEN:
         parseData();
 
         if (parser.depth_ === 0 && parser.state_ == State.ARRAY_END) {
-          parser.streamState_ = Parser.StreamState_.ARRAY_END;
+          parser.streamState_ = JsonStreamParser.StreamState_.ARRAY_END;
           parser.buffer_ = input.substring(i);
         } else {
           if (msgStart === -1) {
@@ -691,9 +673,9 @@ Parser.prototype.parse = function(input) {
   }
 
   /**
-   * @return {!goog.net.streams.JsonStreamParser.State_} the next state
-   *    from the stack, or the general VALUE state.
-   */
+     * @return {!JsonStreamParser.State_} the next state
+     *    from the stack, or the general VALUE state.
+     */
   function nextState() {
     const state = stack.pop();
     if (state != null) {
@@ -711,7 +693,7 @@ Parser.prototype.parse = function(input) {
       return;
     }
 
-    goog.asserts.assert(opt_data !== '');  // '' not possible
+    asserts.assert(opt_data !== '');  // '' not possible
 
     if (!opt_data) {
       // `input` must be a string here.
@@ -727,9 +709,8 @@ Parser.prototype.parse = function(input) {
       parser.result_.push(opt_data);
     } else {
       parser.result_.push(
-          goog.asserts.assertInstanceof(JSON.parse(opt_data), Object));
+          asserts.assertInstanceof(JSON.parse(opt_data), Object));
     }
     msgStart = i;
   }
 };
-});  // goog.scope

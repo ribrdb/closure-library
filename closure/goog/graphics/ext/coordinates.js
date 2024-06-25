@@ -22,9 +22,7 @@
  * element.js and groupelement.js.
  */
 
-goog.provide('goog.graphics.ext.coordinates');
-
-goog.require('goog.string');
+import * as string from '../../string/string.js';
 
 
 /**
@@ -32,7 +30,7 @@ goog.require('goog.string');
  * @type {Object}
  * @private
  */
-goog.graphics.ext.coordinates.specialCoordinateCache_ = {};
+var specialCoordinateCache_ = {};
 
 
 /**
@@ -42,10 +40,9 @@ goog.graphics.ext.coordinates.specialCoordinateCache_ = {};
  * @return {boolean} Whether the coordinate contains the string '%'.
  * @private
  */
-goog.graphics.ext.coordinates.isPercent_ = function(coord) {
-  'use strict';
-  return goog.string.contains(coord, '%');
-};
+function isPercent_(coord) {
+  return string.contains(coord, '%');
+}
 
 
 /**
@@ -55,10 +52,9 @@ goog.graphics.ext.coordinates.isPercent_ = function(coord) {
  * @return {boolean} Whether the coordinate contains the string 'px'.
  * @private
  */
-goog.graphics.ext.coordinates.isPixels_ = function(coord) {
-  'use strict';
-  return goog.string.contains(coord, 'px');
-};
+function isPixels_(coord) {
+  return string.contains(coord, 'px');
+}
 
 
 /**
@@ -66,18 +62,17 @@ goog.graphics.ext.coordinates.isPixels_ = function(coord) {
  * @param {string|number|null} coord The coordinate to test.
  * @return {boolean} Whether the coordinate is special.
  */
-goog.graphics.ext.coordinates.isSpecial = function(coord) {
-  'use strict';
-  const cache = goog.graphics.ext.coordinates.specialCoordinateCache_;
+export function isSpecial(coord) {
+  const cache = specialCoordinateCache_;
 
   if (!(coord in cache)) {
     cache[coord] = (typeof coord === 'string') &&
-        (goog.graphics.ext.coordinates.isPercent_(coord) ||
-         goog.graphics.ext.coordinates.isPixels_(coord));
+        (isPercent_(coord) ||
+         isPixels_(coord));
   }
 
   return cache[coord];
-};
+}
 
 
 /**
@@ -91,19 +86,18 @@ goog.graphics.ext.coordinates.isSpecial = function(coord) {
  * @return {number} The number of coordinate space units that corresponds to
  *     this coordinate.
  */
-goog.graphics.ext.coordinates.computeValue = function(coord, size, scale) {
-  'use strict';
+export function computeValue(coord, size, scale) {
   const number = parseFloat(String(coord));
   if (typeof coord === 'string') {
-    if (goog.graphics.ext.coordinates.isPercent_(coord)) {
+    if (isPercent_(coord)) {
       return number * size / 100;
-    } else if (goog.graphics.ext.coordinates.isPixels_(coord)) {
+    } else if (isPixels_(coord)) {
       return number / scale;
     }
   }
 
   return number;
-};
+}
 
 
 /**
@@ -124,18 +118,16 @@ goog.graphics.ext.coordinates.computeValue = function(coord, size, scale) {
  *     the cache when the scale or containerSize changes.
  * @return {number} The correct number of coordinate space units.
  */
-goog.graphics.ext.coordinates.getValue = function(
-    coord, forMaximum, containerSize, scale, opt_cache) {
-  'use strict';
+export function getValue(coord, forMaximum, containerSize, scale, opt_cache) {
   if (typeof coord !== 'number') {
     const cacheString = opt_cache && ((forMaximum ? 'X' : '') + coord);
 
     if (opt_cache && cacheString in opt_cache) {
       coord = opt_cache[cacheString];
     } else {
-      if (goog.graphics.ext.coordinates.isSpecial(
+      if (isSpecial(
               /** @type {string} */ (coord))) {
-        coord = goog.graphics.ext.coordinates.computeValue(
+        coord = computeValue(
             coord, containerSize, scale);
       } else {
         // Simple coordinates just need to be converted from a string to a
@@ -151,4 +143,4 @@ goog.graphics.ext.coordinates.getValue = function(
   }
 
   return coord;
-};
+}

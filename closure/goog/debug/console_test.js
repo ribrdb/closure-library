@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.ConsoleTest');
 goog.setTestOnly();
 
-const DebugConsole = goog.require('goog.debug.Console');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const {Level, LogRecord} = goog.require('goog.log');
+import { Console as DebugConsole } from './console.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import { Level, LogRecord } from '../log/log.js';
 
 let debugConsole;
 let mockConsole;

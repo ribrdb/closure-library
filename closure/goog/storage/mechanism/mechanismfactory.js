@@ -9,12 +9,11 @@
  * mechanism, depending on availability and needs.
  */
 
-goog.provide('goog.storage.mechanism.mechanismfactory');
+import { HTML5LocalStorage } from './html5localstorage.js';
 
-goog.require('goog.storage.mechanism.HTML5LocalStorage');
-goog.require('goog.storage.mechanism.HTML5SessionStorage');
-goog.require('goog.storage.mechanism.IEUserData');
-goog.require('goog.storage.mechanism.PrefixedMechanism');
+import { HTML5SessionStorage } from './html5sessionstorage.js';
+import { IEUserData } from './ieuserdata.js';
+import { PrefixedMechanism } from './prefixedmechanism.js';
 goog.requireType('goog.storage.mechanism.IterableMechanism');
 
 
@@ -22,8 +21,7 @@ goog.requireType('goog.storage.mechanism.IterableMechanism');
  * The key to shared userData storage.
  * @type {string}
  */
-goog.storage.mechanism.mechanismfactory.USER_DATA_SHARED_KEY =
-    'UserDataSharedStore';
+export var USER_DATA_SHARED_KEY = 'UserDataSharedStore';
 
 
 /**
@@ -36,12 +34,11 @@ goog.storage.mechanism.mechanismfactory.USER_DATA_SHARED_KEY =
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
  * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
  */
-goog.storage.mechanism.mechanismfactory.create = function(opt_namespace) {
-  'use strict';
-  return goog.storage.mechanism.mechanismfactory.createHTML5LocalStorage(
-             opt_namespace) ||
-      goog.storage.mechanism.mechanismfactory.createIEUserData(opt_namespace);
-};
+export function create(opt_namespace) {
+ return createHTML5LocalStorage(
+            opt_namespace) ||
+     createIEUserData(opt_namespace);
+}
 
 
 /**
@@ -54,17 +51,15 @@ goog.storage.mechanism.mechanismfactory.create = function(opt_namespace) {
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
  * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
  */
-goog.storage.mechanism.mechanismfactory.createHTML5LocalStorage = function(
-    opt_namespace) {
-  'use strict';
-  var storage = new goog.storage.mechanism.HTML5LocalStorage();
-  if (storage.isAvailable()) {
-    return opt_namespace ?
-        new goog.storage.mechanism.PrefixedMechanism(storage, opt_namespace) :
-        storage;
-  }
-  return null;
-};
+export function createHTML5LocalStorage(opt_namespace) {
+ var storage = new HTML5LocalStorage();
+ if (storage.isAvailable()) {
+   return opt_namespace ?
+       new PrefixedMechanism(storage, opt_namespace) :
+       storage;
+ }
+ return null;
+}
 
 
 /**
@@ -77,17 +72,15 @@ goog.storage.mechanism.mechanismfactory.createHTML5LocalStorage = function(
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
  * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
  */
-goog.storage.mechanism.mechanismfactory.createHTML5SessionStorage = function(
-    opt_namespace) {
-  'use strict';
-  var storage = new goog.storage.mechanism.HTML5SessionStorage();
-  if (storage.isAvailable()) {
-    return opt_namespace ?
-        new goog.storage.mechanism.PrefixedMechanism(storage, opt_namespace) :
-        storage;
-  }
-  return null;
-};
+export function createHTML5SessionStorage(opt_namespace) {
+ var storage = new HTML5SessionStorage();
+ if (storage.isAvailable()) {
+   return opt_namespace ?
+       new PrefixedMechanism(storage, opt_namespace) :
+       storage;
+ }
+ return null;
+}
 
 
 /**
@@ -98,14 +91,12 @@ goog.storage.mechanism.mechanismfactory.createHTML5SessionStorage = function(
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
  * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
  */
-goog.storage.mechanism.mechanismfactory.createIEUserData = function(
-    opt_namespace) {
-  'use strict';
-  var storage = new goog.storage.mechanism.IEUserData(
-      opt_namespace ||
-      goog.storage.mechanism.mechanismfactory.USER_DATA_SHARED_KEY);
-  if (storage.isAvailable()) {
-    return storage;
-  }
-  return null;
-};
+export function createIEUserData(opt_namespace) {
+ var storage = new IEUserData(
+     opt_namespace ||
+     USER_DATA_SHARED_KEY);
+ if (storage.isAvailable()) {
+   return storage;
+ }
+ return null;
+}

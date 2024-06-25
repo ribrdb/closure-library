@@ -4,28 +4,27 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.AbstractDialogPluginTest');
 goog.setTestOnly();
 
-const AbstractDialog = goog.require('goog.ui.editor.AbstractDialog');
-const AbstractDialogPlugin = goog.require('goog.editor.plugins.AbstractDialogPlugin');
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const EventHandler = goog.require('goog.events.EventHandler');
-const Field = goog.require('goog.editor.Field');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const GoogEvent = goog.require('goog.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const MockControl = goog.require('goog.testing.MockControl');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SavedRange = goog.require('goog.dom.SavedRange');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
+import { AbstractDialogPlugin } from './abstractdialogplugin.js';
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { Field } from '../field.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { SavedRange } from '../../dom/savedrange.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../testing/events/events.js';
+import * as functions from '../../functions/functions.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let plugin;
 let mockCtrl;

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.deferredTest');
 goog.setTestOnly();
-const Deferred = goog.require('goog.async.Deferred');
-const GoogPromise = goog.require('goog.Promise');
-const GoogThenable = goog.require('goog.Thenable');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Deferred } from './deferred.js';
+import { Promise as GoogPromise } from '../../../../../closure/goog/promise/promise.js';
+import { Thenable as GoogThenable } from '../../../../../closure/goog/promise/thenable.js';
+import { MockClock } from '../../../../../closure/goog/testing/mockclock.js';
+import { PropertyReplacer } from '../../../../../closure/goog/testing/propertyreplacer.js';
+import { recordFunction } from '../../../../../closure/goog/testing/recordfunction.js';
+import { testSuite } from '../../../../../closure/goog/testing/testsuite.js';
 
 const AlreadyCalledError = Deferred.AlreadyCalledError;
 const CanceledError = Deferred.CanceledError;

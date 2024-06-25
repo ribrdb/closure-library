@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PopupDatePickerTest');
 goog.setTestOnly();
 
-const DateDate = goog.require('goog.date.Date');
-const DatePicker = goog.require('goog.ui.DatePicker');
-const MockControl = goog.require('goog.testing.MockControl');
-const PopupBase = goog.require('goog.ui.PopupBase');
-const PopupDatePicker = goog.require('goog.ui.PopupDatePicker');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Date as DateDate } from '../date/date.js';
+import { DatePicker } from './datepicker.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { PopupBase } from './popupbase.js';
+import { PopupDatePicker } from './popupdatepicker.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockControl;
 let popupDatePicker;

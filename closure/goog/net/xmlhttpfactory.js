@@ -9,10 +9,10 @@
  * and metadata about them.
  */
 
-goog.provide('goog.net.XmlHttpFactory');
+goog.declareModuleId('goog.net.xmlhttpfactory');
 
 /** @suppress {extraRequire} Typedef. */
-goog.require('goog.net.XhrLike');
+import { XhrLike } from './xhrlike.js';
 
 
 
@@ -20,7 +20,7 @@ goog.require('goog.net.XhrLike');
  * Abstract base class for an XmlHttpRequest factory.
  * @constructor
  */
-goog.net.XmlHttpFactory = function() {};
+export function XmlHttpFactory() {}
 
 
 /**
@@ -28,23 +28,22 @@ goog.net.XmlHttpFactory = function() {};
  * @type {?Object}
  * @private
  */
-goog.net.XmlHttpFactory.prototype.cachedOptions_ = null;
+XmlHttpFactory.prototype.cachedOptions_ = null;
 
 
 /**
- * @return {!goog.net.XhrLike.OrNative} A new XhrLike instance.
+ * @return {!XhrLike.OrNative} A new XhrLike instance.
  */
-goog.net.XmlHttpFactory.prototype.createInstance = goog.abstractMethod;
+XmlHttpFactory.prototype.createInstance = goog.abstractMethod;
 
 
 /**
  * @return {Object} Options describing how xhr objects obtained from this
  *     factory should be used.
  */
-goog.net.XmlHttpFactory.prototype.getOptions = function() {
-  'use strict';
-  return this.cachedOptions_ ||
-      (this.cachedOptions_ = this.internalGetOptions());
+XmlHttpFactory.prototype.getOptions = function() {
+ return this.cachedOptions_ ||
+     (this.cachedOptions_ = this.internalGetOptions());
 };
 
 
@@ -55,4 +54,4 @@ goog.net.XmlHttpFactory.prototype.getOptions = function() {
  *     factory should be used.
  * @protected
  */
-goog.net.XmlHttpFactory.prototype.internalGetOptions = goog.abstractMethod;
+XmlHttpFactory.prototype.internalGetOptions = goog.abstractMethod;

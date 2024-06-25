@@ -11,54 +11,41 @@
  */
 
 
-goog.provide('goog.labs.net.webChannel.requestStats');
-goog.provide('goog.labs.net.webChannel.requestStats.Event');
-goog.provide('goog.labs.net.webChannel.requestStats.ServerReachability');
-goog.provide('goog.labs.net.webChannel.requestStats.ServerReachabilityEvent');
-goog.provide('goog.labs.net.webChannel.requestStats.Stat');
-goog.provide('goog.labs.net.webChannel.requestStats.StatEvent');
-goog.provide('goog.labs.net.webChannel.requestStats.TimingEvent');
+import { Event as eventsEvent } from '../../../events/event.js';
 
-goog.require('goog.events.Event');
-goog.require('goog.events.EventTarget');
-
-
-goog.scope(function() {
-'use strict';
-const requestStats = goog.labs.net.webChannel.requestStats;
+import { EventTarget } from '../../../events/eventtarget.js';
 
 
 /**
  * Events fired.
  * @const
  */
-requestStats.Event = {};
+export var Event = {};
 
 
 /**
  * Singleton event target for firing stat events
- * @type {?goog.events.EventTarget}
+ * @type {?EventTarget}
  * @private
  */
-requestStats.eventTarget_ = null;
+var eventTarget_ = null;
 
 /**
  * Singleton event target for firing stat events
- * @return {!goog.events.EventTarget}
+ * @return {!EventTarget}
  * @private
  */
-requestStats.getStatEventTarget_ = function() {
-  'use strict';
-  requestStats.eventTarget_ =
-      requestStats.eventTarget_ || new goog.events.EventTarget();
-  return requestStats.eventTarget_;
-};
+function getStatEventTarget_() {
+ eventTarget_ =
+     eventTarget_ || new EventTarget();
+ return eventTarget_;
+}
 
 /**
  * The type of event that occurs every time some information about how reachable
  * the server is is discovered.
  */
-requestStats.Event.SERVER_REACHABILITY_EVENT = 'serverreachability';
+Event.SERVER_REACHABILITY_EVENT = 'serverreachability';
 
 
 /**
@@ -66,7 +53,7 @@ requestStats.Event.SERVER_REACHABILITY_EVENT = 'serverreachability';
  * server.
  * @enum {number}
  */
-requestStats.ServerReachability = {
+export var ServerReachability = {
   REQUEST_MADE: 1,
   REQUEST_SUCCEEDED: 2,
   REQUEST_FAILED: 3,
@@ -78,24 +65,23 @@ requestStats.ServerReachability = {
 /**
  * Event class for SERVER_REACHABILITY_EVENT.
  *
- * @param {goog.events.EventTarget} target The stat event target for
+ * @param {EventTarget} target The stat event target for
        the channel.
  * @param {requestStats.ServerReachability} reachabilityType
  *     The reachability event type.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {eventsEvent}
  */
-requestStats.ServerReachabilityEvent = function(target, reachabilityType) {
-  'use strict';
-  goog.events.Event.call(
-      this, requestStats.Event.SERVER_REACHABILITY_EVENT, target);
+export function ServerReachabilityEvent(target, reachabilityType) {
+ eventsEvent.call(
+     this, Event.SERVER_REACHABILITY_EVENT, target);
 
-  /**
-   * @type {requestStats.ServerReachability}
-   */
-  this.reachabilityType = reachabilityType;
-};
-goog.inherits(requestStats.ServerReachabilityEvent, goog.events.Event);
+ /**
+  * @type {requestStats.ServerReachability}
+  */
+ this.reachabilityType = reachabilityType;
+}
+goog.inherits(ServerReachabilityEvent, eventsEvent);
 
 
 /**
@@ -104,26 +90,25 @@ goog.inherits(requestStats.ServerReachabilityEvent, goog.events.Event);
  * @param {requestStats.ServerReachability} reachabilityType
  *     The reachability event type.
  */
-requestStats.notifyServerReachabilityEvent = function(reachabilityType) {
-  'use strict';
-  const target = requestStats.getStatEventTarget_();
-  target.dispatchEvent(
-      new requestStats.ServerReachabilityEvent(target, reachabilityType));
-};
+export function notifyServerReachabilityEvent(reachabilityType) {
+ const target = getStatEventTarget_();
+ target.dispatchEvent(
+     new ServerReachabilityEvent(target, reachabilityType));
+}
 
 
 /**
  * Stat Event that fires when things of interest happen that may be useful for
  * applications to know about for stats or debugging purposes.
  */
-requestStats.Event.STAT_EVENT = 'statevent';
+Event.STAT_EVENT = 'statevent';
 
 
 /**
  * Enum that identifies events for statistics that are interesting to track.
  * @enum {number}
  */
-requestStats.Stat = {
+export var Stat = {
   /** Event indicating a new connection attempt. */
   CONNECT_ATTEMPT: 0,
 
@@ -214,85 +199,81 @@ requestStats.Stat = {
 /**
  * Event class for STAT_EVENT.
  *
- * @param {goog.events.EventTarget} eventTarget The stat event target for
+ * @param {EventTarget} eventTarget The stat event target for
        the channel.
  * @param {requestStats.Stat} stat The stat.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {eventsEvent}
  */
-requestStats.StatEvent = function(eventTarget, stat) {
-  'use strict';
-  goog.events.Event.call(this, requestStats.Event.STAT_EVENT, eventTarget);
+export function StatEvent(eventTarget, stat) {
+ eventsEvent.call(this, Event.STAT_EVENT, eventTarget);
 
-  /**
-   * The stat
-   * @type {requestStats.Stat}
-   */
-  this.stat = stat;
-};
-goog.inherits(requestStats.StatEvent, goog.events.Event);
+ /**
+  * The stat
+  * @type {requestStats.Stat}
+  */
+ this.stat = stat;
+}
+goog.inherits(StatEvent, eventsEvent);
 
 
 /**
  * Returns the singleton event target for stat events.
- * @return {!goog.events.EventTarget} The event target for stat events.
+ * @return {!EventTarget} The event target for stat events.
  */
-requestStats.getStatEventTarget = function() {
-  'use strict';
-  return requestStats.getStatEventTarget_();
-};
+export function getStatEventTarget() {
+ return getStatEventTarget_();
+}
 
 
 /**
  * Helper function to call the stat event callback.
  * @param {requestStats.Stat} stat The stat.
  */
-requestStats.notifyStatEvent = function(stat) {
-  'use strict';
-  const target = requestStats.getStatEventTarget_();
-  target.dispatchEvent(new requestStats.StatEvent(target, stat));
-};
+export function notifyStatEvent(stat) {
+ const target = getStatEventTarget_();
+ target.dispatchEvent(new StatEvent(target, stat));
+}
 
 
 /**
  * An event that fires when POST requests complete successfully, indicating
  * the size of the POST and the round trip time.
  */
-requestStats.Event.TIMING_EVENT = 'timingevent';
+Event.TIMING_EVENT = 'timingevent';
 
 
 
 /**
  * Event class for requestStats.Event.TIMING_EVENT
  *
- * @param {goog.events.EventTarget} target The stat event target for
+ * @param {EventTarget} target The stat event target for
        the channel.
  * @param {number} size The number of characters in the POST data.
  * @param {number} rtt The total round trip time from POST to response in MS.
  * @param {number} retries The number of times the POST had to be retried.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {eventsEvent}
  */
-requestStats.TimingEvent = function(target, size, rtt, retries) {
-  'use strict';
-  goog.events.Event.call(this, requestStats.Event.TIMING_EVENT, target);
+export function TimingEvent(target, size, rtt, retries) {
+ eventsEvent.call(this, Event.TIMING_EVENT, target);
 
-  /**
-   * @type {number}
-   */
-  this.size = size;
+ /**
+  * @type {number}
+  */
+ this.size = size;
 
-  /**
-   * @type {number}
-   */
-  this.rtt = rtt;
+ /**
+  * @type {number}
+  */
+ this.rtt = rtt;
 
-  /**
-   * @type {number}
-   */
-  this.retries = retries;
-};
-goog.inherits(requestStats.TimingEvent, goog.events.Event);
+ /**
+  * @type {number}
+  */
+ this.retries = retries;
+}
+goog.inherits(TimingEvent, eventsEvent);
 
 
 /**
@@ -302,12 +283,11 @@ goog.inherits(requestStats.TimingEvent, goog.events.Event);
  * @param {number} rtt The amount of time from POST start to response.
  * @param {number} retries The number of times the POST had to be retried.
  */
-requestStats.notifyTimingEvent = function(size, rtt, retries) {
-  'use strict';
-  const target = requestStats.getStatEventTarget_();
-  target.dispatchEvent(
-      new requestStats.TimingEvent(target, size, rtt, retries));
-};
+export function notifyTimingEvent(size, rtt, retries) {
+ const target = getStatEventTarget_();
+ target.dispatchEvent(
+     new TimingEvent(target, size, rtt, retries));
+}
 
 
 /**
@@ -316,10 +296,9 @@ requestStats.notifyTimingEvent = function(size, rtt, retries) {
  * special information. The function takes no parameters and return void.
  * @param {Function} startHook  The function for the start hook.
  */
-requestStats.setStartThreadExecutionHook = function(startHook) {
-  'use strict';
-  requestStats.startExecutionHook_ = startHook;
-};
+export function setStartThreadExecutionHook(startHook) {
+ startExecutionHook_ = startHook;
+}
 
 
 /**
@@ -328,10 +307,9 @@ requestStats.setStartThreadExecutionHook = function(startHook) {
  * special information. The function takes no parameters and return void.
  * @param {Function} endHook  The function for the end hook.
  */
-requestStats.setEndThreadExecutionHook = function(endHook) {
-  'use strict';
-  requestStats.endExecutionHook_ = endHook;
-};
+export function setEndThreadExecutionHook(endHook) {
+ endExecutionHook_ = endHook;
+}
 
 
 /**
@@ -340,7 +318,7 @@ requestStats.setEndThreadExecutionHook = function(endHook) {
  * @type {Function}
  * @private
  */
-requestStats.startExecutionHook_ = function() {};
+function startExecutionHook_() {}
 
 
 /**
@@ -349,24 +327,22 @@ requestStats.startExecutionHook_ = function() {};
  * @type {Function}
  * @private
  */
-requestStats.endExecutionHook_ = function() {};
+function endExecutionHook_() {}
 
 
 /**
  * Helper function to call the start hook
  */
-requestStats.onStartExecution = function() {
-  'use strict';
-  requestStats.startExecutionHook_();
+onStartExecution = function() {
+ startExecutionHook_();
 };
 
 
 /**
  * Helper function to call the end hook
  */
-requestStats.onEndExecution = function() {
-  'use strict';
-  requestStats.endExecutionHook_();
+onEndExecution = function() {
+ endExecutionHook_();
 };
 
 
@@ -377,19 +353,18 @@ requestStats.onEndExecution = function() {
  * @param {number} ms The time in MS for the timer.
  * @return {number} The ID of the timer.
  */
-requestStats.setTimeout = function(fn, ms) {
-  'use strict';
-  if (typeof fn !== 'function') {
-    throw new Error('Fn must not be null and must be a function');
+export function setTimeout(fn, ms) {
+ if (typeof fn !== 'function') {
+   throw new Error('Fn must not be null and must be a function');
+ }
+ return goog.global.setTimeout(function() {
+  onStartExecution();
+  try {
+    fn();
+  } finally {
+    onEndExecution();
   }
-  return goog.global.setTimeout(function() {
-    'use strict';
-    requestStats.onStartExecution();
-    try {
-      fn();
-    } finally {
-      requestStats.onEndExecution();
-    }
-  }, ms);
-};
-});  // goog.scope
+ }, ms);
+}
+export var onStartExecution;
+export var onEndExecution;

@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.module.activeModuleManagerTest');
 goog.setTestOnly();
 
-const ModuleManager = goog.require('goog.module.ModuleManager');
-const activeModuleManager = goog.require('goog.loader.activeModuleManager');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ModuleManager } from '../module/modulemanager.js';
+import activeModuleManager from './activemodulemanager.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   tearDown() {

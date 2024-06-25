@@ -12,60 +12,58 @@
  */
 
 
-goog.provide('goog.userAgent.iphoto');
+import * as string from '../string/string.js';
 
-goog.require('goog.string');
-goog.require('goog.userAgent');
+import * as userAgent from './useragent.js';
 
 /**
  * Whether we can detect that the user has iPhoto installed.
  * @type {boolean}
  */
-goog.userAgent.iphoto.HAS_IPHOTO;
+export var HAS_IPHOTO;
 
 
 /**
  * The version of iPhoto installed if found.
  * @type {string}
  */
-goog.userAgent.iphoto.VERSION;
+export var VERSION;
 
 
 (function() {
-'use strict';
-var hasIphoto = false;
-var version = '';
+ var hasIphoto = false;
+ var version = '';
 
-/**
- * The plugin description string contains the version number as in the form
- * 'iPhoto 700'. This returns just the version number as a dotted string,
- * e.g., '7.0.0', compatible with `goog.string.compareVersions`.
- * @param {string} desc The version string.
- * @return {string} The dotted version.
- */
-function getIphotoVersion(desc) {
-  var matches = desc.match(/\d/g);
-  return matches.join('.');
-}
+ /**
+   * The plugin description string contains the version number as in the form
+   * 'iPhoto 700'. This returns just the version number as a dotted string,
+   * e.g., '7.0.0', compatible with `string.compareVersions`.
+   * @param {string} desc The version string.
+   * @return {string} The dotted version.
+   */
+ function getIphotoVersion(desc) {
+   var matches = desc.match(/\d/g);
+   return matches.join('.');
+ }
 
-if (goog.userAgent.WEBKIT && navigator.mimeTypes &&
-    navigator.mimeTypes.length > 0) {
-  var iphoto = navigator.mimeTypes['application/photo'];
+ if (userAgent.WEBKIT && navigator.mimeTypes &&
+     navigator.mimeTypes.length > 0) {
+   var iphoto = navigator.mimeTypes['application/photo'];
 
-  if (iphoto) {
-    hasIphoto = true;
-    var description = iphoto['description'];
+   if (iphoto) {
+     hasIphoto = true;
+     var description = iphoto['description'];
 
-    if (description) {
-      version = getIphotoVersion(description);
-    }
-  }
-}
+     if (description) {
+       version = getIphotoVersion(description);
+     }
+   }
+ }
 
-goog.userAgent.iphoto.HAS_IPHOTO = hasIphoto;
+ HAS_IPHOTO = hasIphoto;
 
 
-goog.userAgent.iphoto.VERSION = version;
+ VERSION = version;
 })();
 
 
@@ -76,8 +74,7 @@ goog.userAgent.iphoto.VERSION = version;
  * @return {boolean} Whether the installed version of iPhoto is as new or newer
  *     than a given version.
  */
-goog.userAgent.iphoto.isVersion = function(version) {
-  'use strict';
-  return goog.string.compareVersions(goog.userAgent.iphoto.VERSION, version) >=
-      0;
-};
+export function isVersion(version) {
+ return string.compareVersions(VERSION, version) >=
+     0;
+}

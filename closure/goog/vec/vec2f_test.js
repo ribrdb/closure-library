@@ -11,12 +11,11 @@
 //                                                                           //
 ////////////////////////// NOTE ABOUT EDITING THIS FILE ///////////////////////
 
-goog.module('goog.vec.vec2fTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
-const vec2f = goog.require('goog.vec.vec2f');
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
+import * as vec2f from './vec2f.js';
 
 testSuite({
   testCreate() {

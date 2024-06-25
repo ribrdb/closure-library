@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.FileDownloaderTest');
 goog.setTestOnly();
 
-const ErrorCode = goog.require('goog.net.ErrorCode');
-const FileDownloader = goog.require('goog.net.FileDownloader');
-const FsError = goog.require('goog.fs.Error');
-const FsFileSystem = goog.require('goog.testing.fs.FileSystem');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const XhrIo = goog.require('goog.net.XhrIo');
-const XhrIoPool = goog.require('goog.testing.net.XhrIoPool');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingFs = goog.require('goog.testing.fs');
+import { ErrorCode } from './errorcode.js';
+import { FileDownloader } from './filedownloader.js';
+import { Error as FsError } from '../fs/error.js';
+import { FileSystem as FsFileSystem } from '../testing/fs/filesystem.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TestCase } from '../testing/testcase.js';
+import { XhrIo } from './xhrio.js';
+import { XhrIoPool } from '../testing/net/xhriopool.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingFs from '../testing/fs/fs.js';
 
 let dir;
 let downloader;

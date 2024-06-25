@@ -8,22 +8,21 @@
  * @fileoverview Definition of the AttachableMenu class.
  */
 
-goog.provide('goog.ui.AttachableMenu');
+import * as aria from '../a11y/aria/aria.js';
 
-goog.require('goog.a11y.aria');
-goog.require('goog.a11y.aria.State');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.classlist');
-goog.require('goog.events.Event');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.string');
-goog.require('goog.style');
-goog.require('goog.ui.ItemEvent');
-goog.require('goog.ui.MenuBase');
-goog.require('goog.ui.PopupBase');
-goog.require('goog.userAgent');
-goog.requireType('goog.events.KeyEvent');
+import { State } from '../a11y/aria/attributes.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dom from '../dom/dom.js';
+import * as classlist from '../dom/classlist.js';
+import { Event } from '../events/event.js';
+import { KeyCodes } from '../events/keycodes.js';
+import * as string from '../string/string.js';
+import * as style from '../style/style.js';
+import { ItemEvent } from './itemevent.js';
+import { MenuBase } from './menubase.js';
+import { PopupBase } from './popupbase.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.events.keyevent');
 
 
 
@@ -40,15 +39,14 @@ goog.requireType('goog.events.KeyEvent');
  *
  * @param {Element=} opt_element A DOM element for the popup.
  * @constructor
- * @extends {goog.ui.MenuBase}
+ * @extends {MenuBase}
  * @deprecated Use goog.ui.PopupMenu.
  * @final
  */
-goog.ui.AttachableMenu = function(opt_element) {
-  'use strict';
-  goog.ui.MenuBase.call(this, opt_element);
-};
-goog.inherits(goog.ui.AttachableMenu, goog.ui.MenuBase);
+export function AttachableMenu(opt_element) {
+  MenuBase.call(this, opt_element);
+}
+goog.inherits(AttachableMenu, MenuBase);
 
 
 /**
@@ -56,7 +54,7 @@ goog.inherits(goog.ui.AttachableMenu, goog.ui.MenuBase);
  * @type {?HTMLElement}
  * @private
  */
-goog.ui.AttachableMenu.prototype.selectedElement_ = null;
+AttachableMenu.prototype.selectedElement_ = null;
 
 
 /**
@@ -64,7 +62,7 @@ goog.ui.AttachableMenu.prototype.selectedElement_ = null;
  * @type {string}
  * @private
  */
-goog.ui.AttachableMenu.prototype.itemClassName_ = 'menu-item';
+AttachableMenu.prototype.itemClassName_ = 'menu-item';
 
 
 /**
@@ -72,7 +70,7 @@ goog.ui.AttachableMenu.prototype.itemClassName_ = 'menu-item';
  * @type {string}
  * @private
  */
-goog.ui.AttachableMenu.prototype.selectedItemClassName_ = 'menu-item-selected';
+AttachableMenu.prototype.selectedItemClassName_ = 'menu-item-selected';
 
 
 /**
@@ -81,13 +79,12 @@ goog.ui.AttachableMenu.prototype.selectedItemClassName_ = 'menu-item-selected';
  * @type {number}
  * @private
  */
-goog.ui.AttachableMenu.prototype.lastKeyDown_ = Date.now();
+AttachableMenu.prototype.lastKeyDown_ = Date.now();
 
 
 /** @override */
-goog.ui.AttachableMenu.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.AttachableMenu.superClass_.disposeInternal.call(this);
+AttachableMenu.prototype.disposeInternal = function() {
+  AttachableMenu.superClass_.disposeInternal.call(this);
   this.selectedElement_ = null;
 };
 
@@ -97,8 +94,7 @@ goog.ui.AttachableMenu.prototype.disposeInternal = function() {
  *
  * @return {string} The class name to use for items.
  */
-goog.ui.AttachableMenu.prototype.getItemClassName = function() {
-  'use strict';
+AttachableMenu.prototype.getItemClassName = function() {
   return this.itemClassName_;
 };
 
@@ -108,8 +104,7 @@ goog.ui.AttachableMenu.prototype.getItemClassName = function() {
  *
  * @param {string} name The class name to use for items.
  */
-goog.ui.AttachableMenu.prototype.setItemClassName = function(name) {
-  'use strict';
+AttachableMenu.prototype.setItemClassName = function(name) {
   this.itemClassName_ = name;
 };
 
@@ -120,8 +115,7 @@ goog.ui.AttachableMenu.prototype.setItemClassName = function(name) {
  *
  * @return {string} The class name to use for selected items.
  */
-goog.ui.AttachableMenu.prototype.getSelectedItemClassName = function() {
-  'use strict';
+AttachableMenu.prototype.getSelectedItemClassName = function() {
   return this.selectedItemClassName_;
 };
 
@@ -132,8 +126,7 @@ goog.ui.AttachableMenu.prototype.getSelectedItemClassName = function() {
  *
  * @param {string} name The class name to use for selected items.
  */
-goog.ui.AttachableMenu.prototype.setSelectedItemClassName = function(name) {
-  'use strict';
+AttachableMenu.prototype.setSelectedItemClassName = function(name) {
   this.selectedItemClassName_ = name;
 };
 
@@ -144,34 +137,32 @@ goog.ui.AttachableMenu.prototype.setSelectedItemClassName = function(name) {
  * @return {Element} The item selected or null if no item is selected.
  * @override
  */
-goog.ui.AttachableMenu.prototype.getSelectedItem = function() {
-  'use strict';
+AttachableMenu.prototype.getSelectedItem = function() {
   return this.selectedElement_;
 };
 
 
 /** @override */
-goog.ui.AttachableMenu.prototype.setSelectedItem = function(obj) {
-  'use strict';
+AttachableMenu.prototype.setSelectedItem = function(obj) {
   var elt = /** @type {HTMLElement} */ (obj);
   if (this.selectedElement_) {
-    goog.dom.classlist.remove(
+    classlist.remove(
         this.selectedElement_, this.selectedItemClassName_);
   }
 
   this.selectedElement_ = elt;
 
   var el = /** @type {HTMLElement} */ (this.getElement());
-  goog.asserts.assert(el, 'The attachable menu DOM element cannot be null.');
+  asserts.assert(el, 'The attachable menu DOM element cannot be null.');
   if (this.selectedElement_) {
-    goog.dom.classlist.add(this.selectedElement_, this.selectedItemClassName_);
+    classlist.add(this.selectedElement_, this.selectedItemClassName_);
 
     if (elt.id) {
       // Update activedescendant to reflect the new selection. ARIA roles for
       // menu and menuitem can be set statically (through Soy templates, for
       // example) whereas this needs to be updated as the selection changes.
-      goog.a11y.aria.setState(
-          el, goog.a11y.aria.State.ACTIVEDESCENDANT, elt.id);
+      aria.setState(
+          el, State.ACTIVEDESCENDANT, elt.id);
     }
 
     var top = this.selectedElement_.offsetTop;
@@ -188,18 +179,17 @@ goog.ui.AttachableMenu.prototype.setSelectedItem = function(obj) {
     }
   } else {
     // Clear off activedescendant to reflect no selection.
-    goog.a11y.aria.setState(el, goog.a11y.aria.State.ACTIVEDESCENDANT, '');
+    aria.setState(el, State.ACTIVEDESCENDANT, '');
   }
 };
 
 
 /** @override */
-goog.ui.AttachableMenu.prototype.showPopupElement = function() {
-  'use strict';
+AttachableMenu.prototype.showPopupElement = function() {
   // The scroll position cannot be set for hidden (display: none) elements in
   // gecko browsers.
   var el = /** @type {Element} */ (this.getElement());
-  goog.style.setElementShown(el, true);
+  style.setElementShown(el, true);
   el.scrollTop = 0;
   el.style.visibility = 'visible';
 };
@@ -211,16 +201,15 @@ goog.ui.AttachableMenu.prototype.showPopupElement = function() {
  * @protected
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.AttachableMenu.prototype.onShow = function() {
-  'use strict';
-  goog.ui.AttachableMenu.superClass_.onShow.call(this);
+AttachableMenu.prototype.onShow = function() {
+  AttachableMenu.superClass_.onShow.call(this);
 
   // In IE, focusing the menu causes weird scrolling to happen. Focusing the
   // first child makes the scroll behavior better, and the key handling still
   // works. In FF, focusing the first child causes us to lose key events, so we
   // still focus the menu.
   var el = this.getElement();
-  goog.userAgent.IE ? el.firstChild.focus() : el.focus();
+  userAgent.IE ? el.firstChild.focus() : el.focus();
 };
 
 
@@ -231,8 +220,7 @@ goog.ui.AttachableMenu.prototype.onShow = function() {
  * @return {Element} The next or previous element.
  * @protected
  */
-goog.ui.AttachableMenu.prototype.getNextPrevItem = function(prev) {
-  'use strict';
+AttachableMenu.prototype.getNextPrevItem = function(prev) {
   // first find the index of the next element
   var elements = this.getElement().getElementsByTagName('*');
   var elementCount = elements.length;
@@ -275,19 +263,18 @@ goog.ui.AttachableMenu.prototype.getNextPrevItem = function(prev) {
 
 /**
  * Mouse over handler for the menu.
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  * @override
  */
-goog.ui.AttachableMenu.prototype.onMouseOver = function(e) {
-  'use strict';
+AttachableMenu.prototype.onMouseOver = function(e) {
   var eltItem = this.getAncestorMenuItem_(/** @type {Element} */ (e.target));
   if (eltItem == null) {
     return;
   }
 
   // Stop the keydown triggering a mouseover in FF.
-  if (Date.now() - this.lastKeyDown_ > goog.ui.PopupBase.DEBOUNCE_DELAY_MS) {
+  if (Date.now() - this.lastKeyDown_ > PopupBase.DEBOUNCE_DELAY_MS) {
     this.setSelectedItem(eltItem);
   }
 };
@@ -295,19 +282,18 @@ goog.ui.AttachableMenu.prototype.onMouseOver = function(e) {
 
 /**
  * Mouse out handler for the menu.
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  * @override
  */
-goog.ui.AttachableMenu.prototype.onMouseOut = function(e) {
-  'use strict';
+AttachableMenu.prototype.onMouseOut = function(e) {
   var eltItem = this.getAncestorMenuItem_(/** @type {Element} */ (e.target));
   if (eltItem == null) {
     return;
   }
 
   // Stop the keydown triggering a mouseout in FF.
-  if (Date.now() - this.lastKeyDown_ > goog.ui.PopupBase.DEBOUNCE_DELAY_MS) {
+  if (Date.now() - this.lastKeyDown_ > PopupBase.DEBOUNCE_DELAY_MS) {
     this.setSelectedItem(null);
   }
 };
@@ -315,21 +301,20 @@ goog.ui.AttachableMenu.prototype.onMouseOut = function(e) {
 
 /**
  * Mouse down handler for the menu. Prevents default to avoid text selection.
- * @param {!goog.events.Event} e The event object.
+ * @param {!Event} e The event object.
  * @protected
  * @override
  */
-goog.ui.AttachableMenu.prototype.onMouseDown = goog.events.Event.preventDefault;
+AttachableMenu.prototype.onMouseDown = Event.preventDefault;
 
 
 /**
  * Mouse up handler for the menu.
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  * @override
  */
-goog.ui.AttachableMenu.prototype.onMouseUp = function(e) {
-  'use strict';
+AttachableMenu.prototype.onMouseUp = function(e) {
   var eltItem = this.getAncestorMenuItem_(/** @type {Element} */ (e.target));
   if (eltItem == null) {
     return;
@@ -345,24 +330,23 @@ goog.ui.AttachableMenu.prototype.onMouseUp = function(e) {
  * @protected
  * @override
  */
-goog.ui.AttachableMenu.prototype.onKeyDown = function(e) {
-  'use strict';
+AttachableMenu.prototype.onKeyDown = function(e) {
   switch (e.keyCode) {
-    case goog.events.KeyCodes.DOWN:
+    case KeyCodes.DOWN:
       this.setSelectedItem(this.getNextPrevItem(false));
       this.lastKeyDown_ = Date.now();
       break;
-    case goog.events.KeyCodes.UP:
+    case KeyCodes.UP:
       this.setSelectedItem(this.getNextPrevItem(true));
       this.lastKeyDown_ = Date.now();
       break;
-    case goog.events.KeyCodes.ENTER:
+    case KeyCodes.ENTER:
       if (this.selectedElement_) {
         this.onItemSelected_();
         this.setVisible(false);
       }
       break;
-    case goog.events.KeyCodes.ESC:
+    case KeyCodes.ESC:
       this.setVisible(false);
       break;
     default:
@@ -394,9 +378,8 @@ goog.ui.AttachableMenu.prototype.onKeyDown = function(e) {
  *     unless no other item has the given prefix.
  * @private
  */
-goog.ui.AttachableMenu.prototype.selectByName_ = function(
+AttachableMenu.prototype.selectByName_ = function(
     prefix, opt_direction, opt_skip) {
-  'use strict';
   var elements = this.getElement().getElementsByTagName('*');
   var elementCount = elements.length;
   var index;
@@ -413,13 +396,13 @@ goog.ui.AttachableMenu.prototype.selectByName_ = function(
   }
 
   var start = index;
-  var re = new RegExp('^' + goog.string.regExpEscape(prefix), 'i');
+  var re = new RegExp('^' + string.regExpEscape(prefix), 'i');
   var skip = opt_skip && this.selectedElement_;
   var dir = opt_direction || 1;
 
   do {
     if (elements[index] != skip && this.isMenuItem_(elements[index])) {
-      var name = goog.dom.getTextContent(elements[index]);
+      var name = dom.getTextContent(elements[index]);
       if (name.match(re)) {
         break;
       }
@@ -443,10 +426,9 @@ goog.ui.AttachableMenu.prototype.selectByName_ = function(
  * @param {Object=} opt_item Item selected.
  * @private
  */
-goog.ui.AttachableMenu.prototype.onItemSelected_ = function(opt_item) {
-  'use strict';
-  this.dispatchEvent(new goog.ui.ItemEvent(
-      goog.ui.MenuBase.Events.ITEM_ACTION, this,
+AttachableMenu.prototype.onItemSelected_ = function(opt_item) {
+  this.dispatchEvent(new ItemEvent(
+      MenuBase.Events.ITEM_ACTION, this,
       opt_item || this.selectedElement_));
 };
 
@@ -457,9 +439,8 @@ goog.ui.AttachableMenu.prototype.onItemSelected_ = function(opt_item) {
  * @return {boolean} Whether the specified element is a menu item.
  * @private
  */
-goog.ui.AttachableMenu.prototype.isMenuItem_ = function(elt) {
-  'use strict';
-  return !!elt && goog.dom.classlist.contains(elt, this.itemClassName_);
+AttachableMenu.prototype.isMenuItem_ = function(elt) {
+  return !!elt && classlist.contains(elt, this.itemClassName_);
 };
 
 
@@ -471,10 +452,9 @@ goog.ui.AttachableMenu.prototype.isMenuItem_ = function(elt) {
  *     there is none.
  * @private
  */
-goog.ui.AttachableMenu.prototype.getAncestorMenuItem_ = function(elt) {
-  'use strict';
+AttachableMenu.prototype.getAncestorMenuItem_ = function(elt) {
   if (elt) {
-    var ownerDocumentBody = goog.dom.getOwnerDocument(elt).body;
+    var ownerDocumentBody = dom.getOwnerDocument(elt).body;
     while (elt != null && elt != ownerDocumentBody) {
       if (this.isMenuItem_(elt)) {
         return elt;

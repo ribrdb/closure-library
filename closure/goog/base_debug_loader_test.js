@@ -18,23 +18,25 @@
  * @suppress {missingRequire}
  */
 
-goog.provide('goog.baseDebugLoaderTest');
-
 goog.setTestOnly('goog.baseDebugLoaderTest');
 
 // Used to test dynamic loading works, see testRequire*
-goog.require('goog.Timer');
-goog.require('goog.dom');
-goog.require('goog.functions');
-goog.require('goog.object');
-goog.require('goog.test_module');
-goog.require('goog.testing.PropertyReplacer');
-goog.require('goog.testing.jsunit');
+import { Timer } from './timer/timer.js';
+
+import * as dom from './dom/dom.js';
+import * as functions from './functions/functions.js';
+import object from './object/object.js';
+
+// Validate the module exports
+import * as testModuleExports from './test_module.js';
+
+import { PropertyReplacer } from './testing/propertyreplacer.js';
+import * as jsunit from './testing/jsunit.js';
 
 // NOTE: using computed properties to avoid compiler checks
 const earlyTestModuleGet = goog['module'].get('goog.test_module');
 
-var stubs = new goog.testing.PropertyReplacer();
+var stubs = new PropertyReplacer();
 var originalGoogBind = goog.bind;
 var autoLoadDep = true;
 
@@ -168,7 +170,7 @@ function testLoadBaseWithQueryParamOk() {
     goog.global.document = {
       write: () => {},
       getElementsByTagName:
-          goog.functions.constant([{src: '/path/to/base.js?zx=5'}])
+          functions.constant([{src: '/path/to/base.js?zx=5'}])
     };
     assertTrue(goog.inHtmlDocument_());
     goog.findBasePath_();
@@ -187,7 +189,7 @@ function testLoadBaseFromGlobalVariableOk() {
     goog.global.document = {
       write: () => {},
       getElementsByTagName:
-          goog.functions.constant([{src: '/path/to/base.js?zx=5'}])
+          functions.constant([{src: '/path/to/base.js?zx=5'}])
     };
     goog.global.CLOSURE_BASE_PATH = '/from/constant/';
     goog.findBasePath_();
@@ -206,7 +208,7 @@ function testLoadBaseFromGlobalVariableDOMClobbered() {
     goog.global.document = {
       write: () => {},
       getElementsByTagName:
-          goog.functions.constant([{src: '/path/to/base.js?zx=5'}])
+          functions.constant([{src: '/path/to/base.js?zx=5'}])
     };
     // Make goog.global.CLOSURE_BASE_PATH an object with a toString, like
     // it would be if it were a DOM clobbered HTMLElement.
@@ -231,7 +233,7 @@ function testLoadBaseFromCurrentScriptIgnoringOthers() {
       write: () => {},
       currentScript: {src: '/currentScript/base.js?zx=5'},
       getElementsByTagName:
-          goog.functions.constant([{src: '/path/to/base.js?zx=5'}])
+          functions.constant([{src: '/path/to/base.js?zx=5'}])
     };
     goog.findBasePath_();
     assertEquals('/currentScript/', goog.basePath);
@@ -287,7 +289,7 @@ function assertDepData(dep, relPath, provides, requires, loadFlags) {
   assertEquals(relPath, dep.relativePath);
   assertArrayEquals(provides, dep.provides);
   assertArrayEquals(requires, dep.requires);
-  assertTrue(goog.object.equals(loadFlags, dep.loadFlags));
+  assertTrue(object.equals(loadFlags, dep.loadFlags));
 }
 
 
@@ -470,7 +472,7 @@ function testIsProvided() {
 //=== tests for Require logic ===
 
 function testRequireClosure() {
-  assertNotUndefined('goog.Timer should be available', goog.Timer);
+  assertNotUndefined('goog.Timer should be available', Timer);
   /** @suppress {missingRequire} */
   assertNotUndefined(
       'goog.events.EventTarget should be available', goog.events.EventTarget);
@@ -562,7 +564,7 @@ function testGetScriptNonce() {
   const origNonce = goog.getScriptNonce_();
   goog.cspNonce_ = null;
   const nonce = origNonce ? origNonce : 'ThisIsANonceThisIsANonceThisIsANonce';
-  const script = goog.dom.createElement(goog.dom.TagName.SCRIPT);
+  const script = dom.createElement(dom.TagName.SCRIPT);
   script.setAttribute('nonce', 'invalid nonce');
   document.body.appendChild(script);
 
@@ -573,7 +575,7 @@ function testGetScriptNonce() {
     script.nonce = nonce;
     assertEquals(nonce, goog.getScriptNonce_());
   } finally {
-    goog.dom.removeNode(script);
+    dom.removeNode(script);
   }
 }
 
@@ -694,8 +696,6 @@ function testGoogModuleGet() {
   // NOTE: using computed properties to avoid compiler checks
   assertEquals(null, goog['module'].get('unrequired.module.id'));
 
-  // Validate the module exports
-  const testModuleExports = goog.module.get('goog.test_module');
   assertTrue(typeof testModuleExports === 'function');
 
   // Test that any escaping of </script> in test files is correct. Escape the

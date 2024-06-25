@@ -10,11 +10,9 @@
  * @see ../demos/timers.html
  */
 
-goog.module('goog.async.Throttle');
-goog.module.declareLegacyNamespace();
+import { Disposable } from '../disposable/disposable.js';
 
-const Disposable = goog.require('goog.Disposable');
-const Timer = goog.require('goog.Timer');
+import { Timer } from '../timer/timer.js';
 
 
 /**
@@ -163,4 +161,4 @@ class Throttle extends Disposable {
   }
 }
 
-exports = Throttle;
+export { Throttle };

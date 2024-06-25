@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.NetworkTesterTest');
 goog.setTestOnly();
 
-const GoogUri = goog.require('goog.Uri');
-const MockClock = goog.require('goog.testing.MockClock');
-const NetworkTester = goog.require('goog.net.NetworkTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Uri as GoogUri } from '../uri/uri.js';
+import { MockClock } from '../testing/mockclock.js';
+import { NetworkTester } from './networktester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let clock;
 

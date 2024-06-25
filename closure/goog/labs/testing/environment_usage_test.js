@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.environmentUsageTest');
 goog.setTestOnly();
 
-const Environment = goog.require('goog.labs.testing.Environment');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Environment } from './environment.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let testing = false;
 const env = new Environment();

@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.ErrorHandlerTest');
 goog.setTestOnly();
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const MockControl = goog.require('goog.testing.MockControl');
-const NativeResolver = goog.require('goog.promise.NativeResolver');
-const TestCase = goog.require('goog.testing.TestCase');
-const dispose = goog.require('goog.dispose');
-const product = goog.require('goog.userAgent.product');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandler } from './errorhandler.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { NativeResolver } from '../promise/nativeresolver.js';
+import { TestCase } from '../testing/testcase.js';
+import { dispose } from '../disposable/dispose.js';
+import * as product from '../useragent/product.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const PROTECTED_FUNCTION_ERROR_PREFIX =
     ErrorHandler.ProtectedFunctionError.MESSAGE_PREFIX;

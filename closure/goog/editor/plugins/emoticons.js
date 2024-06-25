@@ -8,14 +8,13 @@
  * @fileoverview Plugin for generating emoticons.
  */
 
-goog.provide('goog.editor.plugins.Emoticons');
+import { TagName } from '../../dom/tagname.js';
 
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.Plugin');
-goog.require('goog.editor.range');
-goog.require('goog.functions');
-goog.require('goog.ui.emoji.Emoji');
-goog.require('goog.userAgent');
+import { Plugin } from '../plugin.js';
+import * as range from '../range.js';
+import * as functions from '../../functions/functions.js';
+import { Emoji } from '../../ui/emoji/emoji.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 
 
@@ -23,29 +22,27 @@ goog.require('goog.userAgent');
  * Plugin for generating emoticons.
  *
  * @constructor
- * @extends {goog.editor.Plugin}
+ * @extends {Plugin}
  * @final
  */
-goog.editor.plugins.Emoticons = function() {
-  'use strict';
-  goog.editor.plugins.Emoticons.base(this, 'constructor');
-};
-goog.inherits(goog.editor.plugins.Emoticons, goog.editor.Plugin);
+export function Emoticons() {
+  Emoticons.base(this, 'constructor');
+}
+goog.inherits(Emoticons, Plugin);
 
 
 /** The emoticon command. */
-goog.editor.plugins.Emoticons.COMMAND = '+emoticon';
+Emoticons.COMMAND = '+emoticon';
 
 
 /** @override */
-goog.editor.plugins.Emoticons.prototype.getTrogClassId =
-    goog.functions.constant(goog.editor.plugins.Emoticons.COMMAND);
+Emoticons.prototype.getTrogClassId =
+    functions.constant(Emoticons.COMMAND);
 
 
 /** @override */
-goog.editor.plugins.Emoticons.prototype.isSupportedCommand = function(command) {
-  'use strict';
-  return command == goog.editor.plugins.Emoticons.COMMAND;
+Emoticons.prototype.isSupportedCommand = function(command) {
+  return command == Emoticons.COMMAND;
 };
 
 
@@ -57,10 +54,9 @@ goog.editor.plugins.Emoticons.prototype.isSupportedCommand = function(command) {
  * @return {!Object|undefined} The result of the command.
  * @override
  */
-goog.editor.plugins.Emoticons.prototype.execCommandInternal = function(
+Emoticons.prototype.execCommandInternal = function(
     command, opt_arg) {
-  'use strict';
-  var emoji = /** @type {goog.ui.emoji.Emoji} */ (opt_arg);
+  var emoji = /** @type {Emoji} */ (opt_arg);
 
   var styleProperties = 'margin:0 0.2ex;vertical-align:middle;';
   var emojiHeight = emoji.getHeight();
@@ -73,18 +69,18 @@ goog.editor.plugins.Emoticons.prototype.execCommandInternal = function(
   if (emoji.getAltText()) {
     imgAttributes['alt'] = emoji.getAltText();
   }
-  var img = dom.createDom(goog.dom.TagName.IMG, imgAttributes);
+  var img = dom.createDom(TagName.IMG, imgAttributes);
 
-  img.setAttribute(goog.ui.emoji.Emoji.ATTRIBUTE, emoji.getId());
-  img.setAttribute(goog.ui.emoji.Emoji.DATA_ATTRIBUTE, emoji.getId());
+  img.setAttribute(Emoji.ATTRIBUTE, emoji.getId());
+  img.setAttribute(Emoji.DATA_ATTRIBUTE, emoji.getId());
 
   this.getFieldObject().getRange().replaceContentsWithNode(img);
 
   // IE8 does the right thing with the cursor, and has a js error when we try
   // to place the cursor manually.
   // IE9 loses the cursor when the window is focused, so focus first.
-  if (!goog.userAgent.IE || goog.userAgent.isDocumentModeOrHigher(9)) {
+  if (!userAgent.IE || userAgent.isDocumentModeOrHigher(9)) {
     this.getFieldObject().focus();
-    goog.editor.range.placeCursorNextTo(img, false);
+    range.placeCursorNextTo(img, false);
   }
 };

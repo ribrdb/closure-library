@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.vec.Vec2Test');
 goog.setTestOnly();
 
-const Vec2 = goog.require('goog.vec.Vec2');
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
+import * as Vec2 from './vec2.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
 
 testSuite({
   /** @suppress {checkTypes} suppression added to enable type checking */

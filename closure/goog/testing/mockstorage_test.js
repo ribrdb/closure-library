@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockStorageTest');
 goog.setTestOnly();
 
-const MockStorage = goog.require('goog.testing.MockStorage');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockStorage } from './mockstorage.js';
+import { testSuite } from './testsuite.js';
 
 let instance;
 

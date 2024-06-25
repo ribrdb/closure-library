@@ -1,3 +1,4 @@
+goog.declareModuleId('goog.testing.testqueue');
 /**
  * @license
  * Copyright The Closure Library Authors.
@@ -9,7 +10,6 @@
  */
 
 goog.setTestOnly('goog.testing.TestQueue');
-goog.provide('goog.testing.TestQueue');
 
 
 
@@ -17,24 +17,22 @@ goog.provide('goog.testing.TestQueue');
  * Generic queue for writing unit tests
  * @constructor
  */
-goog.testing.TestQueue = function() {
-  'use strict';
-  /**
-   * Events that have accumulated
-   * @type {Array<Object>}
-   * @private
-   */
-  this.events_ = [];
-};
+export function TestQueue() {
+ /**
+  * Events that have accumulated
+  * @type {Array<Object>}
+  * @private
+  */
+ this.events_ = [];
+}
 
 
 /**
  * Adds a new event onto the queue.
  * @param {Object} event The event to queue.
  */
-goog.testing.TestQueue.prototype.enqueue = function(event) {
-  'use strict';
-  this.events_.push(event);
+TestQueue.prototype.enqueue = function(event) {
+ this.events_.push(event);
 };
 
 
@@ -42,9 +40,8 @@ goog.testing.TestQueue.prototype.enqueue = function(event) {
  * Returns whether the queue is empty.
  * @return {boolean} Whether the queue is empty.
  */
-goog.testing.TestQueue.prototype.isEmpty = function() {
-  'use strict';
-  return this.events_.length == 0;
+TestQueue.prototype.isEmpty = function() {
+ return this.events_.length == 0;
 };
 
 
@@ -54,10 +51,9 @@ goog.testing.TestQueue.prototype.isEmpty = function() {
  * @param {string=} opt_comment Comment if the queue is empty.
  * @return {Object} The next event from the queue.
  */
-goog.testing.TestQueue.prototype.dequeue = function(opt_comment) {
-  'use strict';
-  if (this.isEmpty()) {
-    throw new Error('Handler is empty: ' + opt_comment);
-  }
-  return this.events_.shift();
+TestQueue.prototype.dequeue = function(opt_comment) {
+ if (this.isEmpty()) {
+   throw new Error('Handler is empty: ' + opt_comment);
+ }
+ return this.events_.shift();
 };

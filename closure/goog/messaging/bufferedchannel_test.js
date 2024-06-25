@@ -4,20 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.BufferedChannelTest');
 goog.setTestOnly();
 
-const AsyncMockControl = goog.require('goog.testing.async.MockControl');
-const BufferedChannel = goog.require('goog.messaging.BufferedChannel');
-const DebugConsole = goog.require('goog.debug.Console');
-const Level = goog.require('goog.log.Level');
-const MockClock = goog.require('goog.testing.MockClock');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const log = goog.require('goog.log');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockControl as AsyncMockControl } from '../testing/async/mockcontrol.js';
+import { BufferedChannel } from './bufferedchannel.js';
+import { Console as DebugConsole } from '../debug/console.js';
+import * as googLog from '../log/log.js';
+import * as log from '../log/log.js';
+const Level = googLog.Level;
+import { MockClock } from '../testing/mockclock.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let clock;
 const messages = [

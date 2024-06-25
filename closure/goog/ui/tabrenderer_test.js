@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TabRendererTest');
 goog.setTestOnly();
 
-const Role = goog.require('goog.a11y.aria.Role');
-const TabRenderer = goog.require('goog.ui.TabRenderer');
-const UiTab = goog.require('goog.ui.Tab');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { Role } from '../a11y/aria/roles.js';
+import { TabRenderer } from './tabrenderer.js';
+import { Tab as UiTab } from './tab.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
 
 let sandbox;
 let renderer;

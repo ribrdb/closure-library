@@ -8,9 +8,9 @@
  * @fileoverview A wrapper for the HTML5 FileSystem object.
  */
 
-goog.provide('goog.fs.FileSystem');
+goog.declareModuleId('goog.fs.filesystem');
 
-goog.requireType('goog.fs.DirectoryEntry');
+goog.requireType('goog.fs.entry');
 
 
 
@@ -19,16 +19,16 @@ goog.requireType('goog.fs.DirectoryEntry');
  *
  * @interface
  */
-goog.fs.FileSystem = function() {};
+export function FileSystem() {}
 
 
 /**
  * @return {string} The name of the filesystem.
  */
-goog.fs.FileSystem.prototype.getName = function() {};
+FileSystem.prototype.getName = function() {};
 
 
 /**
  * @return {!goog.fs.DirectoryEntry} The root directory of the filesystem.
  */
-goog.fs.FileSystem.prototype.getRoot = function() {};
+FileSystem.prototype.getRoot = function() {};

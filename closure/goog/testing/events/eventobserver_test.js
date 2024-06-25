@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.events.EventObserverTest');
 goog.setTestOnly();
 
-const EventObserver = goog.require('goog.testing.events.EventObserver');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const googEvents = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventObserver } from './eventobserver.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { EventTarget as GoogEventTarget } from '../../events/eventtarget.js';
+import * as googEvents from '../../events/events.js';
+import { testSuite } from '../testsuite.js';
 
 // Return an event's type
 function getEventType(e) {

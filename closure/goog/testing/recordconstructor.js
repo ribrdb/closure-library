@@ -25,11 +25,9 @@
  * </pre>
  */
 
-goog.module('goog.testing.recordConstructor');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly('goog.testing.recordConstructor');
 
-const recordFunction = goog.require('goog.testing.recordFunction');
+import { recordFunction } from './recordfunction.js';
 
 /**
  * Same as {@link goog.testing.recordFunction} but the recorded function will
@@ -50,4 +48,4 @@ function recordConstructor(ctor) {
   return recordedConstructor;
 }
 
-exports = recordConstructor;
+export { recordConstructor };

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.PbStreamParserTest');
 goog.setTestOnly();
 
-const PbStreamParser = goog.require('goog.net.streams.PbStreamParser');
-const asserts = goog.require('goog.testing.asserts');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PbStreamParser } from './pbstreamparser.js';
+import * as asserts from '../../testing/asserts.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 // clang-format off
 const testMessage1 = {

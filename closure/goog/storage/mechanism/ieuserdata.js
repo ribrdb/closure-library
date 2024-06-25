@@ -20,15 +20,14 @@
 // constructor at all. You can run the conversion tool yourself to see what it
 // does on this file: blaze run //javascript/refactoring/es6_classes:convert.
 
-goog.provide('goog.storage.mechanism.IEUserData');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.iter');
-goog.require('goog.iter.Iterator');
-goog.require('goog.storage.mechanism.ErrorCode');
-goog.require('goog.storage.mechanism.IterableMechanism');
-goog.require('goog.structs.Map');
-goog.require('goog.userAgent');
+import * as iter from '../../iter/iter.js';
+import { Iterator } from '../../iter/iter.js';
+import { ErrorCode } from './errorcode.js';
+import { IterableMechanism } from './iterablemechanism.js';
+import { Map } from '../../structs/map.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 
 
@@ -39,11 +38,10 @@ goog.require('goog.userAgent');
  * @param {string=} opt_storageNodeId The ID of the associated HTML element,
  *     one will be created if not provided.
  * @constructor
- * @extends {goog.storage.mechanism.IterableMechanism}
+ * @extends {IterableMechanism}
  * @final
  */
-goog.storage.mechanism.IEUserData = function(storageKey, opt_storageNodeId) {
-  'use strict';
+export function IEUserData(storageKey, opt_storageNodeId) {
   /**
    * The key to store the data under.
    *
@@ -58,17 +56,17 @@ goog.storage.mechanism.IEUserData = function(storageKey, opt_storageNodeId) {
    */
   this.storageNode_ = null;
 
-  goog.storage.mechanism.IEUserData.base(this, 'constructor');
+  IEUserData.base(this, 'constructor');
 
   // Tested on IE6, IE7 and IE8. It seems that IE9 introduces some security
   // features which make persistent (loaded) node attributes invisible from
   // JavaScript.
-  if (goog.userAgent.IE && !goog.userAgent.isDocumentModeOrHigher(9)) {
-    if (!goog.storage.mechanism.IEUserData.storageMap_) {
-      goog.storage.mechanism.IEUserData.storageMap_ = new goog.structs.Map();
+  if (userAgent.IE && !userAgent.isDocumentModeOrHigher(9)) {
+    if (!IEUserData.storageMap_) {
+      IEUserData.storageMap_ = new Map();
     }
     this.storageNode_ = /** @type {Element} */ (
-        goog.storage.mechanism.IEUserData.storageMap_.get(storageKey));
+        IEUserData.storageMap_.get(storageKey));
     if (!this.storageNode_) {
       if (opt_storageNodeId) {
         this.storageNode_ = document.getElementById(opt_storageNodeId);
@@ -78,7 +76,7 @@ goog.storage.mechanism.IEUserData = function(storageKey, opt_storageNodeId) {
         this.storageNode_['addBehavior']('#default#userData');
         document.body.appendChild(this.storageNode_);
       }
-      goog.storage.mechanism.IEUserData.storageMap_.set(
+      IEUserData.storageMap_.set(
           storageKey, this.storageNode_);
     }
 
@@ -90,10 +88,10 @@ goog.storage.mechanism.IEUserData = function(storageKey, opt_storageNodeId) {
       this.storageNode_ = null;
     }
   }
-};
+}
 goog.inherits(
-    goog.storage.mechanism.IEUserData,
-    goog.storage.mechanism.IterableMechanism);
+    IEUserData,
+    IterableMechanism);
 
 
 /**
@@ -103,7 +101,7 @@ goog.inherits(
  * @type {!Object}
  * @const
  */
-goog.storage.mechanism.IEUserData.ENCODE_MAP = {
+IEUserData.ENCODE_MAP = {
   '.': '.2E',
   '!': '.21',
   '~': '.7E',
@@ -118,10 +116,10 @@ goog.storage.mechanism.IEUserData.ENCODE_MAP = {
 /**
  * Global storageKey to storageNode map, so we save on reloading the storage.
  *
- * @type {?goog.structs.Map}
+ * @type {?Map}
  * @private
  */
-goog.storage.mechanism.IEUserData.storageMap_ = null;
+IEUserData.storageMap_ = null;
 
 
 /**
@@ -136,12 +134,10 @@ goog.storage.mechanism.IEUserData.storageMap_ = null;
  * @return {string} The encoded key.
  * @private
  */
-goog.storage.mechanism.IEUserData.encodeKey_ = function(key) {
-  'use strict';
+IEUserData.encodeKey_ = function(key) {
   // encodeURIComponent leaves - _ . ! ~ * ' ( ) unencoded.
   return '_' + encodeURIComponent(key).replace(/[.!~*'()%]/g, function(c) {
-    'use strict';
-    return goog.storage.mechanism.IEUserData.ENCODE_MAP[c];
+    return IEUserData.ENCODE_MAP[c];
   });
 };
 
@@ -154,8 +150,7 @@ goog.storage.mechanism.IEUserData.encodeKey_ = function(key) {
  * @return {string} The decoded key.
  * @private
  */
-goog.storage.mechanism.IEUserData.decodeKey_ = function(key) {
-  'use strict';
+IEUserData.decodeKey_ = function(key) {
   return decodeURIComponent(key.replace(/\./g, '%')).slice(1);
 };
 
@@ -165,80 +160,73 @@ goog.storage.mechanism.IEUserData.decodeKey_ = function(key) {
  *
  * @return {boolean} True if the mechanism is available.
  */
-goog.storage.mechanism.IEUserData.prototype.isAvailable = function() {
-  'use strict';
+IEUserData.prototype.isAvailable = function() {
   return !!this.storageNode_;
 };
 
 
 /** @override */
-goog.storage.mechanism.IEUserData.prototype.set = function(key, value) {
-  'use strict';
+IEUserData.prototype.set = function(key, value) {
   this.storageNode_.setAttribute(
-      goog.storage.mechanism.IEUserData.encodeKey_(key), value);
+      IEUserData.encodeKey_(key), value);
   this.saveNode_();
 };
 
 
 /** @override */
-goog.storage.mechanism.IEUserData.prototype.get = function(key) {
-  'use strict';
+IEUserData.prototype.get = function(key) {
   // According to Microsoft, values can be strings, numbers or booleans. Since
   // we only save strings, any other type is a storage error. If we returned
   // nulls for such keys, i.e., treated them as non-existent, this would lead
   // to a paradox where a key exists, but it does not when it is retrieved.
   // http://msdn.microsoft.com/en-us/library/ms531348(v=vs.85).aspx
   var value = this.storageNode_.getAttribute(
-      goog.storage.mechanism.IEUserData.encodeKey_(key));
+      IEUserData.encodeKey_(key));
   if (typeof value !== 'string' && value !== null) {
-    throw goog.storage.mechanism.ErrorCode.INVALID_VALUE;
+    throw ErrorCode.INVALID_VALUE;
   }
   return value;
 };
 
 
 /** @override */
-goog.storage.mechanism.IEUserData.prototype.remove = function(key) {
-  'use strict';
+IEUserData.prototype.remove = function(key) {
   this.storageNode_.removeAttribute(
-      goog.storage.mechanism.IEUserData.encodeKey_(key));
+      IEUserData.encodeKey_(key));
   this.saveNode_();
 };
 
 
 /** @override */
-goog.storage.mechanism.IEUserData.prototype.getCount = function() {
-  'use strict';
+IEUserData.prototype.getCount = function() {
   return this.getNode_().attributes.length;
 };
 
 
 /** @override */
-goog.storage.mechanism.IEUserData.prototype.__iterator__ = function(opt_keys) {
-  'use strict';
+IEUserData.prototype.__iterator__ = function(opt_keys) {
   var i = 0;
   var attributes = this.getNode_().attributes;
-  var newIter = new goog.iter.Iterator();
+  var newIter = new Iterator();
   /**
    * @return {!IIterableResult<string>}
    * @override
    */
   newIter.next = function() {
-    'use strict';
     if (i >= attributes.length) {
-      return goog.iter.ES6_ITERATOR_DONE;
+      return iter.ES6_ITERATOR_DONE;
     }
-    var item = goog.asserts.assert(attributes[i++]);
+    var item = asserts.assert(attributes[i++]);
     if (opt_keys) {
-      return goog.iter.createEs6IteratorYield(
-          goog.storage.mechanism.IEUserData.decodeKey_(item.nodeName));
+      return iter.createEs6IteratorYield(
+          IEUserData.decodeKey_(item.nodeName));
     }
     var value = item.nodeValue;
     // The value must exist and be a string, otherwise it is a storage error.
     if (typeof value !== 'string') {
-      throw goog.storage.mechanism.ErrorCode.INVALID_VALUE;
+      throw ErrorCode.INVALID_VALUE;
     }
-    return goog.iter.createEs6IteratorYield(value);
+    return iter.createEs6IteratorYield(value);
   };
 
   return newIter;
@@ -246,8 +234,7 @@ goog.storage.mechanism.IEUserData.prototype.__iterator__ = function(opt_keys) {
 
 
 /** @override */
-goog.storage.mechanism.IEUserData.prototype.clear = function() {
-  'use strict';
+IEUserData.prototype.clear = function() {
   var node = this.getNode_();
   for (var left = node.attributes.length; left > 0; left--) {
     node.removeAttribute(node.attributes[left - 1].nodeName);
@@ -261,8 +248,7 @@ goog.storage.mechanism.IEUserData.prototype.clear = function() {
  *
  * @private
  */
-goog.storage.mechanism.IEUserData.prototype.loadNode_ = function() {
-  'use strict';
+IEUserData.prototype.loadNode_ = function() {
   // This is a special IE-only method on Elements letting us persist data.
   this.storageNode_['load'](this.storageKey_);
 };
@@ -273,15 +259,14 @@ goog.storage.mechanism.IEUserData.prototype.loadNode_ = function() {
  *
  * @private
  */
-goog.storage.mechanism.IEUserData.prototype.saveNode_ = function() {
-  'use strict';
+IEUserData.prototype.saveNode_ = function() {
   try {
     // This is a special IE-only method on Elements letting us persist data.
     // Do not try to assign this.storageNode_['save'] to a variable, it does
     // not work. May throw an exception when the quota is exceeded.
     this.storageNode_['save'](this.storageKey_);
   } catch (e) {
-    throw goog.storage.mechanism.ErrorCode.QUOTA_EXCEEDED;
+    throw ErrorCode.QUOTA_EXCEEDED;
   }
 };
 
@@ -292,8 +277,7 @@ goog.storage.mechanism.IEUserData.prototype.saveNode_ = function() {
  * @return {!Element} Storage DOM Element.
  * @private
  */
-goog.storage.mechanism.IEUserData.prototype.getNode_ = function() {
-  'use strict';
+IEUserData.prototype.getNode_ = function() {
   // This is a special IE-only property letting us browse persistent data.
   var doc = /** @type {Document} */ (this.storageNode_['XMLDocument']);
   return doc.documentElement;

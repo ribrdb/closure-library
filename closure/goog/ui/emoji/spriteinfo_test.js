@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.emoji.SpriteInfoTest');
 goog.setTestOnly();
 
-const SpriteInfo = goog.require('goog.ui.emoji.SpriteInfo');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SpriteInfo } from './spriteinfo.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testGetCssValues() {

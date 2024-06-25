@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.RichTextSpellCheckerTest');
 goog.setTestOnly();
 
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const Range = goog.require('goog.dom.Range');
-const RichTextSpellChecker = goog.require('goog.ui.RichTextSpellChecker');
-const SpellCheck = goog.require('goog.spell.SpellCheck');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const events = goog.require('goog.testing.events');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { KeyCodes } from '../events/keycodes.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as Range from '../dom/range.js';
+import { RichTextSpellChecker } from './richtextspellchecker.js';
+import { SpellCheck } from '../spell/spellcheck.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as events from '../testing/events/events.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const VOCABULARY = ['test', 'words', 'a', 'few'];
 const SUGGESTIONS = ['foo', 'bar'];

@@ -8,7 +8,6 @@
  * @fileoverview
  * @suppress {missingRequire} Swapping using fully qualified name
  */
-goog.module('goog.i18n.NumberFormatTest');
 goog.setTestOnly();
 
 // This tests in both polyfill and native ECMAScript mode for
@@ -39,45 +38,50 @@ if (Intl.NumberFormat) {
   }
 }
 
-const CompactNumberFormatSymbols_de = goog.require('goog.i18n.CompactNumberFormatSymbols_de');
-const CompactNumberFormatSymbols_en = goog.require('goog.i18n.CompactNumberFormatSymbols_en');
-const CompactNumberFormatSymbols_fr = goog.require('goog.i18n.CompactNumberFormatSymbols_fr');
-const CompactNumberFormatSymbols_sw = goog.require('goog.i18n.CompactNumberFormatSymbols_sw');
-const CompactNumberFormatSymbols_sw_KE = goog.require('goog.i18n.CompactNumberFormatSymbols_sw_KE');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const NumberFormat = goog.require('goog.i18n.NumberFormat');
-/** @suppress {extraRequire} */
-const NumberFormatSymbols = goog.require('goog.i18n.NumberFormatSymbols');
-const NumberFormatSymbols_ar = goog.require('goog.i18n.NumberFormatSymbols_ar');
-const NumberFormatSymbols_ar_EG = goog.require('goog.i18n.NumberFormatSymbols_ar_EG');
-const NumberFormatSymbols_ar_EG_u_nu_latn = goog.require('goog.i18n.NumberFormatSymbols_ar_EG_u_nu_latn');
-const NumberFormatSymbols_bn = goog.require('goog.i18n.NumberFormatSymbols_bn');
-const NumberFormatSymbols_de = goog.require('goog.i18n.NumberFormatSymbols_de');
-const NumberFormatSymbols_en = goog.require('goog.i18n.NumberFormatSymbols_en');
-const NumberFormatSymbols_en_AU = goog.require('goog.i18n.NumberFormatSymbols_en_AU');
-const NumberFormatSymbols_en_CA = goog.require('goog.i18n.NumberFormatSymbols_en_CA');
-const NumberFormatSymbols_en_US = goog.require('goog.i18n.NumberFormatSymbols_en_US');
-const NumberFormatSymbols_fa = goog.require('goog.i18n.NumberFormatSymbols_fa');
-const NumberFormatSymbols_ff_Adlm = goog.require('goog.i18n.NumberFormatSymbols_ff_Adlm');
-const NumberFormatSymbols_fi = goog.require('goog.i18n.NumberFormatSymbols_fi');
-const NumberFormatSymbols_fr = goog.require('goog.i18n.NumberFormatSymbols_fr');
-const NumberFormatSymbols_ml = goog.require('goog.i18n.NumberFormatSymbols_ml');
-const NumberFormatSymbols_mr = goog.require('goog.i18n.NumberFormatSymbols_mr');
-const NumberFormatSymbols_my = goog.require('goog.i18n.NumberFormatSymbols_my');
-const NumberFormatSymbols_ne = goog.require('goog.i18n.NumberFormatSymbols_ne');
-const NumberFormatSymbols_pl = goog.require('goog.i18n.NumberFormatSymbols_pl');
-const NumberFormatSymbols_ro = goog.require('goog.i18n.NumberFormatSymbols_ro');
-const NumberFormatSymbols_sw = goog.require('goog.i18n.NumberFormatSymbols_sw');
-const NumberFormatSymbols_sw_KE = goog.require('goog.i18n.NumberFormatSymbols_sw_KE');
+import {
+  CompactNumberFormatSymbols_de,
+  CompactNumberFormatSymbols_en,
+  CompactNumberFormatSymbols_fr,
+  CompactNumberFormatSymbols_sw,
+} from './compactnumberformatsymbols.js';
+
+import { CompactNumberFormatSymbols_sw_KE } from './compactnumberformatsymbolsext.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { NumberFormat } from './numberformat.js';
 
 /** @suppress {extraRequire} */
-const NumberFormatSymbols_u_nu_latn = goog.require('goog.i18n.NumberFormatSymbols_u_nu_latn');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const googString = goog.require('goog.string');
-const isVersion = goog.require('goog.userAgent.product.isVersion');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+/** @suppress {extraRequire} */
+import {
+  NumberFormatSymbols,
+  NumberFormatSymbols_ar,
+  NumberFormatSymbols_ar_EG,
+  NumberFormatSymbols_ar_EG_u_nu_latn,
+  NumberFormatSymbols_bn,
+  NumberFormatSymbols_de,
+  NumberFormatSymbols_en,
+  NumberFormatSymbols_en_AU,
+  NumberFormatSymbols_en_CA,
+  NumberFormatSymbols_en_US,
+  NumberFormatSymbols_fa,
+  NumberFormatSymbols_fi,
+  NumberFormatSymbols_fr,
+  NumberFormatSymbols_ml,
+  NumberFormatSymbols_mr,
+  NumberFormatSymbols_my,
+  NumberFormatSymbols_ne,
+  NumberFormatSymbols_pl,
+  NumberFormatSymbols_ro,
+  NumberFormatSymbols_sw,
+  NumberFormatSymbols_u_nu_latn,
+} from './numberformatsymbols.js';
+
+import { NumberFormatSymbols_ff_Adlm, NumberFormatSymbols_sw_KE } from './numberformatsymbolsext.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as googString from '../string/string.js';
+import { isVersion } from '../useragent/product_isversion.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let expectedFailures;
 

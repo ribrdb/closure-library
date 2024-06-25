@@ -4,17 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.demos.editor.HelloWorldDialogTest');
 goog.setTestOnly('goog.demos.editor.HelloWorldDialogTest');
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.ui.editor.AbstractDialog.EventType');
-const HelloWorldDialog = goog.require('goog.demos.editor.HelloWorldDialog');
-const LooseMock = goog.require('goog.testing.LooseMock');
-const googTestingEvents = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+import { DomHelper } from '../../dom/dom.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
+const EventType = AbstractDialog.EventType;
+import { HelloWorldDialog } from './helloworlddialog.js';
+import { LooseMock } from '../../testing/loosemock.js';
+import * as googTestingEvents from '../../testing/events/events.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let dialog;
 let mockOkHandler;

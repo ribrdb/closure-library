@@ -6,23 +6,22 @@
 
 /** @fileoverview Unit tests for HTML Sanitizer */
 
-goog.module('goog.html.HtmlSanitizerTest');
 goog.setTestOnly();
 
-const Builder = goog.require('goog.html.sanitizer.HtmlSanitizer.Builder');
-const Const = goog.require('goog.string.Const');
-const HtmlSanitizer = goog.require('goog.html.sanitizer.HtmlSanitizer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TagWhitelist = goog.require('goog.html.sanitizer.TagWhitelist');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import { HtmlSanitizer as sanitizerHtmlSanitizer, HtmlSanitizer } from './htmlsanitizer.js';
+const Builder = sanitizerHtmlSanitizer.Builder;
+import { Const } from '../../string/const.js';
+import { SafeHtml } from '../safehtml.js';
+import { SafeUrl } from '../safeurl.js';
+import { TagWhitelist } from './tagwhitelist.js';
+import * as dom from '../../dom/dom.js';
+import * as functions from '../../functions/functions.js';
+import * as googArray from '../../array/array.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testing from '../testing.js';
+import * as testingDom from '../../testing/dom.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 const justification = Const.from('test');
 

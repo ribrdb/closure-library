@@ -15,10 +15,9 @@
  */
 
 
-goog.provide('goog.structs');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.object');
+import object from '../object/object.js';
 
 
 // We treat an object as a dictionary if it has getKeys or it is an object that
@@ -30,16 +29,15 @@ goog.require('goog.object');
  * @param {Object} col The collection-like object.
  * @return {number} The number of values in the collection-like object.
  */
-goog.structs.getCount = function(col) {
-  'use strict';
+export function getCount(col) {
   if (col.getCount && typeof col.getCount == 'function') {
     return col.getCount();
   }
   if (goog.isArrayLike(col) || typeof col === 'string') {
     return col.length;
   }
-  return goog.object.getCount(col);
-};
+  return object.getCount(col);
+}
 
 
 /**
@@ -47,8 +45,7 @@ goog.structs.getCount = function(col) {
  * @param {Object} col The collection-like object.
  * @return {!Array<?>} The values in the collection-like object.
  */
-goog.structs.getValues = function(col) {
-  'use strict';
+export function getValues(col) {
   if (col.getValues && typeof col.getValues == 'function') {
     return col.getValues();
   }
@@ -70,8 +67,8 @@ goog.structs.getValues = function(col) {
     }
     return rv;
   }
-  return goog.object.getValues(col);
-};
+  return object.getValues(col);
+}
 
 
 /**
@@ -80,8 +77,7 @@ goog.structs.getValues = function(col) {
  * @param {Object} col The collection-like object.
  * @return {!Array|undefined} The keys in the collection.
  */
-goog.structs.getKeys = function(col) {
-  'use strict';
+export function getKeys(col) {
   if (col.getKeys && typeof col.getKeys == 'function') {
     return col.getKeys();
   }
@@ -96,7 +92,7 @@ goog.structs.getKeys = function(col) {
   if (typeof Map !== 'undefined' && col instanceof Map) {
     return Array.from(col.keys());
   }
-  // Unlike the native Set, goog.structs.Set does not expose keys as the values.
+  /* Unlike the native Set, Set does not expose keys as the values.*/
   if (typeof Set !== 'undefined' && col instanceof Set) {
     return undefined;
   }
@@ -109,8 +105,8 @@ goog.structs.getKeys = function(col) {
     return rv;
   }
 
-  return goog.object.getKeys(col);
-};
+  return object.getKeys(col);
+}
 
 
 /**
@@ -120,8 +116,7 @@ goog.structs.getKeys = function(col) {
  * @param {*} val The value to check for.
  * @return {boolean} True if the map contains the value.
  */
-goog.structs.contains = function(col, val) {
-  'use strict';
+export function contains(col, val) {
   if (col.contains && typeof col.contains == 'function') {
     return col.contains(val);
   }
@@ -129,10 +124,10 @@ goog.structs.contains = function(col, val) {
     return col.containsValue(val);
   }
   if (goog.isArrayLike(col) || typeof col === 'string') {
-    return goog.array.contains(/** @type {!Array<?>} */ (col), val);
+    return array.contains(/** @type {!Array<?>} */ (col), val);
   }
-  return goog.object.containsValue(col, val);
-};
+  return object.containsValue(col, val);
+}
 
 
 /**
@@ -140,8 +135,7 @@ goog.structs.contains = function(col, val) {
  * @param {Object} col The collection-like object.
  * @return {boolean} True if empty.
  */
-goog.structs.isEmpty = function(col) {
-  'use strict';
+export function isEmpty(col) {
   if (col.isEmpty && typeof col.isEmpty == 'function') {
     return col.isEmpty();
   }
@@ -153,8 +147,8 @@ goog.structs.isEmpty = function(col) {
   if (goog.isArrayLike(col) || typeof col === 'string') {
     return /** @type {!Array<?>} */ (col).length === 0;
   }
-  return goog.object.isEmpty(col);
-};
+  return object.isEmpty(col);
+}
 
 
 /**
@@ -162,17 +156,16 @@ goog.structs.isEmpty = function(col) {
  * @param {Object} col The collection-like object.
  * @return {void}
  */
-goog.structs.clear = function(col) {
-  'use strict';
+export function clear(col) {
   // NOTE(arv): This should not contain strings because strings are immutable
   if (col.clear && typeof col.clear == 'function') {
     col.clear();
   } else if (goog.isArrayLike(col)) {
-    goog.array.clear(/** @type {IArrayLike<?>} */ (col));
+    array.clear(/** @type {IArrayLike<?>} */ (col));
   } else {
-    goog.object.clear(col);
+    object.clear(col);
   }
-};
+}
 
 
 /**
@@ -191,21 +184,20 @@ goog.structs.clear = function(col) {
  * @deprecated Use a more specific method, e.g. native Array.prototype.forEach,
  *     or for-of.
  */
-goog.structs.forEach = function(col, f, opt_obj) {
-  'use strict';
+export function forEach(col, f, opt_obj) {
   if (col.forEach && typeof col.forEach == 'function') {
     col.forEach(f, opt_obj);
   } else if (goog.isArrayLike(col) || typeof col === 'string') {
     Array.prototype.forEach.call(/** @type {!Array<?>} */ (col), f, opt_obj);
   } else {
-    var keys = goog.structs.getKeys(col);
-    var values = goog.structs.getValues(col);
+    var keys = getKeys(col);
+    var values = getValues(col);
     var l = values.length;
     for (var i = 0; i < l; i++) {
       f.call(/** @type {?} */ (opt_obj), values[i], keys && keys[i], col);
     }
   }
-};
+}
 
 
 /**
@@ -226,8 +218,7 @@ goog.structs.forEach = function(col, f, opt_obj) {
  *     has keys and values a plain old JS object is returned.
  * @template T,S
  */
-goog.structs.filter = function(col, f, opt_obj) {
-  'use strict';
+export function filter(col, f, opt_obj) {
   if (typeof col.filter == 'function') {
     return col.filter(f, opt_obj);
   }
@@ -237,8 +228,8 @@ goog.structs.filter = function(col, f, opt_obj) {
   }
 
   var rv;
-  var keys = goog.structs.getKeys(col);
-  var values = goog.structs.getValues(col);
+  var keys = getKeys(col);
+  var values = getValues(col);
   var l = values.length;
   if (keys) {
     rv = {};
@@ -259,7 +250,7 @@ goog.structs.filter = function(col, f, opt_obj) {
     }
   }
   return rv;
-};
+}
 
 
 /**
@@ -278,8 +269,7 @@ goog.structs.filter = function(col, f, opt_obj) {
  *     values a plain old JS object is returned.
  * @template T,S,V
  */
-goog.structs.map = function(col, f, opt_obj) {
-  'use strict';
+export function map(col, f, opt_obj) {
   if (typeof col.map == 'function') {
     return col.map(f, opt_obj);
   }
@@ -288,8 +278,8 @@ goog.structs.map = function(col, f, opt_obj) {
   }
 
   var rv;
-  var keys = goog.structs.getKeys(col);
-  var values = goog.structs.getValues(col);
+  var keys = getKeys(col);
+  var values = getValues(col);
   var l = values.length;
   if (keys) {
     rv = {};
@@ -306,7 +296,7 @@ goog.structs.map = function(col, f, opt_obj) {
     }
   }
   return rv;
-};
+}
 
 
 /**
@@ -323,8 +313,7 @@ goog.structs.map = function(col, f, opt_obj) {
  * @return {boolean} True if any value passes the test.
  * @template T,S
  */
-goog.structs.some = function(col, f, opt_obj) {
-  'use strict';
+export function some(col, f, opt_obj) {
   if (typeof col.some == 'function') {
     return col.some(f, opt_obj);
   }
@@ -332,8 +321,8 @@ goog.structs.some = function(col, f, opt_obj) {
     return Array.prototype.some.call(
         /** @type {!Array<?>} */ (col), f, opt_obj);
   }
-  var keys = goog.structs.getKeys(col);
-  var values = goog.structs.getValues(col);
+  var keys = getKeys(col);
+  var values = getValues(col);
   var l = values.length;
   for (var i = 0; i < l; i++) {
     if (f.call(/** @type {?} */ (opt_obj), values[i], keys && keys[i], col)) {
@@ -341,7 +330,7 @@ goog.structs.some = function(col, f, opt_obj) {
     }
   }
   return false;
-};
+}
 
 
 /**
@@ -359,8 +348,7 @@ goog.structs.some = function(col, f, opt_obj) {
  * @return {boolean} True if all key-value pairs pass the test.
  * @template T,S
  */
-goog.structs.every = function(col, f, opt_obj) {
-  'use strict';
+export function every(col, f, opt_obj) {
   if (typeof col.every == 'function') {
     return col.every(f, opt_obj);
   }
@@ -368,8 +356,8 @@ goog.structs.every = function(col, f, opt_obj) {
     return Array.prototype.every.call(
         /** @type {!Array<?>} */ (col), f, opt_obj);
   }
-  var keys = goog.structs.getKeys(col);
-  var values = goog.structs.getValues(col);
+  var keys = getKeys(col);
+  var values = getValues(col);
   var l = values.length;
   for (var i = 0; i < l; i++) {
     if (!f.call(/** @type {?} */ (opt_obj), values[i], keys && keys[i], col)) {
@@ -377,4 +365,4 @@ goog.structs.every = function(col, f, opt_obj) {
     }
   }
   return true;
-};
+}

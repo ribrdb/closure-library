@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.uri');
+import { Const } from '../string/const.js';
 
-const Const = goog.require('goog.string.Const');
-const TagName = goog.require('goog.dom.TagName');
-const uncheckedconversions = goog.require('goog.html.uncheckedconversions');
-const {createElement} = goog.require('goog.dom');
-const {setAnchorHref} = goog.require('goog.dom.safe');
+import { TagName } from './tagname.js';
+import * as uncheckedconversions from '../html/uncheckedconversions.js';
+import { createElement } from './dom.js';
+import { setAnchorHref } from './safe.js';
 
 /**
  * Normalizes a URL by assigning it to an anchor element and reading back href.
@@ -31,7 +30,7 @@ function normalizeUri(uri) {
   setAnchorHref(anchor, safeUrl);
   return anchor.href;
 }
-exports.normalizeUri = normalizeUri;
+export { normalizeUri };
 
 /**
  * Gets the href property of an anchor element, suppressing exceptions coming
@@ -50,4 +49,4 @@ function getHref(element) {
     return null;
   }
 }
-exports.getHref = getHref;
+export { getHref };

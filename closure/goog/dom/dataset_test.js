@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.datasetTest');
 goog.setTestOnly();
 
-const dataset = goog.require('goog.dom.dataset');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as dataset from './dataset.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const $ = dom.getElement;
 

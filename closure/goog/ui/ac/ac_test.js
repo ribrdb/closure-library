@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.acTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const NodeType = goog.require('goog.dom.NodeType');
-const ac = goog.require('goog.ui.ac');
-const asserts = goog.require('goog.asserts');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const selection = goog.require('goog.dom.selection');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from '../../events/browserevent.js';
+import { EventType } from '../../events/eventtype.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { NodeType } from '../../dom/nodetype.js';
+import * as ac from './ac.js';
+import * as asserts from '../../asserts/asserts.js';
+import * as classlist from '../../dom/classlist.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import * as selection from '../../dom/selection.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingEvents from '../../testing/events/events.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let autocomplete;
 const data = ['ab', 'aab', 'aaab'];

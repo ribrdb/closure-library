@@ -9,32 +9,28 @@
  * allow the user to select an row.
  */
 
-goog.provide('goog.ui.ac.Renderer');
-goog.provide('goog.ui.ac.Renderer.CustomRenderer');
+import * as aria from '../../a11y/aria/aria.js';
 
-goog.require('goog.a11y.aria');
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.a11y.aria.State');
-goog.require('goog.asserts');
-goog.require('goog.dispose');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.fx.dom.FadeInAndShow');
-goog.require('goog.fx.dom.FadeOutAndHide');
-goog.require('goog.positioning');
-goog.require('goog.positioning.Corner');
-goog.require('goog.positioning.Overflow');
-goog.require('goog.string');
-goog.require('goog.style');
-goog.require('goog.ui.IdGenerator');
-goog.require('goog.ui.ac.AutoComplete');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.fx.Animation');
+import { Role } from '../../a11y/aria/roles.js';
+import { State } from '../../a11y/aria/attributes.js';
+import * as asserts from '../../asserts/asserts.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as dom from '../../dom/dom.js';
+import { NodeType } from '../../dom/nodetype.js';
+import { TagName } from '../../dom/tagname.js';
+import * as classlist from '../../dom/classlist.js';
+import * as events from '../../events/events.js';
+import { EventTarget } from '../../events/eventtarget.js';
+import { EventType } from '../../events/eventtype.js';
+import { FadeInAndShow, FadeOutAndHide } from '../../fx/dom.js';
+import * as positioning from '../../positioning/positioning.js';
+import { Corner, Overflow } from '../../positioning/positioning.js';
+import * as string from '../../string/string.js';
+import * as style from '../../style/style.js';
+import { IdGenerator } from '../idgenerator.js';
+import { AutoComplete } from './autocomplete.js';
+goog.requireType('goog.events.event');
+goog.requireType('goog.fx.animation');
 
 
 
@@ -43,7 +39,7 @@ goog.requireType('goog.fx.Animation');
  *
  * @constructor
  * @param {Element=} opt_parentNode optional reference to the parent element
- *     that will hold the autocomplete elements. goog.dom.getDocument().body
+ *     that will hold the autocomplete elements. dom.getDocument().body
  *     will be used if this is null.
  * @param {?({renderRow}|{render})=} opt_customRenderer Custom full renderer to
  *     render each row. Should be something with a renderRow or render method.
@@ -53,28 +49,30 @@ goog.requireType('goog.fx.Animation');
  *     highlighting should be applied to each row of data. Standard highlighting
  *     bolds every matching substring for a given token in each row. True by
  *     default.
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @suppress {underscore}
  */
-goog.ui.ac.Renderer = function(
-    opt_parentNode, opt_customRenderer, opt_rightAlign,
-    opt_useStandardHighlighting) {
-  'use strict';
-  goog.ui.ac.Renderer.base(this, 'constructor');
+export function Renderer(
+  opt_parentNode,
+  opt_customRenderer,
+  opt_rightAlign,
+  opt_useStandardHighlighting
+) {
+  Renderer.base(this, 'constructor');
 
   /**
    * Reference to the parent element that will hold the autocomplete elements
    * @type {Element}
    * @private
    */
-  this.parent_ = opt_parentNode || goog.dom.getDocument().body;
+  this.parent_ = opt_parentNode || dom.getDocument().body;
 
   /**
-   * Dom helper for the parent element's document.
-   * @type {goog.dom.DomHelper}
-   * @private
-   */
-  this.dom_ = goog.dom.getDomHelper(this.parent_);
+     * Dom helper for the parent element's document.
+     * @type {dom.DomHelper}
+     * @private
+     */
+  this.dom_ = dom.getDomHelper(this.parent_);
 
   /**
    * Whether to reposition the autocomplete UI below the target node
@@ -241,8 +239,8 @@ goog.ui.ac.Renderer = function(
    * @type {goog.fx.Animation|undefined}
    */
   this.animation_;
-};
-goog.inherits(goog.ui.ac.Renderer, goog.events.EventTarget);
+}
+goog.inherits(Renderer, EventTarget);
 
 
 /**
@@ -250,28 +248,28 @@ goog.inherits(goog.ui.ac.Renderer, goog.events.EventTarget);
  * @type {Element}
  * @private
  */
-goog.ui.ac.Renderer.prototype.anchorElement_;
+Renderer.prototype.anchorElement_;
 
 
 /**
  * The anchor element to position the rendered autocompleter against.
  * @protected {Element|undefined}
  */
-goog.ui.ac.Renderer.prototype.target_;
+Renderer.prototype.target_;
 
 
 /**
  * The element on which to base the width of the autocomplete.
  * @protected {Node}
  */
-goog.ui.ac.Renderer.prototype.widthProvider_;
+Renderer.prototype.widthProvider_;
 
 
 /**
  * The element on which to base the max width of the autocomplete.
  * @protected {!Node|undefined}
  */
-goog.ui.ac.Renderer.prototype.maxWidthProvider_;
+Renderer.prototype.maxWidthProvider_;
 
 
 /**
@@ -279,14 +277,14 @@ goog.ui.ac.Renderer.prototype.maxWidthProvider_;
  * dropdown width.
  * @private {number}
  */
-goog.ui.ac.Renderer.prototype.borderWidth_ = 0;
+Renderer.prototype.borderWidth_ = 0;
 
 
 /**
  * A flag used to make sure we highlight only one match in the rendered row.
  * @private {boolean}
  */
-goog.ui.ac.Renderer.prototype.wasHighlightedAtLeastOnce_;
+Renderer.prototype.wasHighlightedAtLeastOnce_;
 
 
 /**
@@ -294,15 +292,14 @@ goog.ui.ac.Renderer.prototype.wasHighlightedAtLeastOnce_;
  * @type {number}
  * @const
  */
-goog.ui.ac.Renderer.DELAY_BEFORE_MOUSEOVER = 300;
+Renderer.DELAY_BEFORE_MOUSEOVER = 300;
 
 
 /**
  * Gets the renderer's element.
  * @return {Element} The  main element that controls the rendered autocomplete.
  */
-goog.ui.ac.Renderer.prototype.getElement = function() {
-  'use strict';
+Renderer.prototype.getElement = function() {
   return this.element_;
 };
 
@@ -316,7 +313,7 @@ goog.ui.ac.Renderer.prototype.getElement = function() {
  * @param {!Node=} maxWidthProvider The element whose width should be used
  *     as the autocomplete's max width.
  */
-goog.ui.ac.Renderer.prototype.setWidthProvider = function(
+Renderer.prototype.setWidthProvider = function(
     widthProvider, opt_borderWidth, maxWidthProvider = undefined) {
   this.widthProvider_ = widthProvider;
   if (opt_borderWidth) {
@@ -332,8 +329,7 @@ goog.ui.ac.Renderer.prototype.setWidthProvider = function(
  * Set whether to align autocomplete to top of target element
  * @param {boolean} align If true, align to top.
  */
-goog.ui.ac.Renderer.prototype.setTopAlign = function(align) {
-  'use strict';
+Renderer.prototype.setTopAlign = function(align) {
   this.topAlign_ = align;
 };
 
@@ -342,8 +338,7 @@ goog.ui.ac.Renderer.prototype.setTopAlign = function(align) {
  * @return {boolean} Whether we should be aligning to the top of
  *     the target element.
  */
-goog.ui.ac.Renderer.prototype.getTopAlign = function() {
-  'use strict';
+Renderer.prototype.getTopAlign = function() {
   return this.topAlign_;
 };
 
@@ -352,8 +347,7 @@ goog.ui.ac.Renderer.prototype.getTopAlign = function() {
  * Set whether to align autocomplete to the right of the target element.
  * @param {boolean} align If true, align to right.
  */
-goog.ui.ac.Renderer.prototype.setRightAlign = function(align) {
-  'use strict';
+Renderer.prototype.setRightAlign = function(align) {
   this.rightAlign_ = align;
 };
 
@@ -361,8 +355,7 @@ goog.ui.ac.Renderer.prototype.setRightAlign = function(align) {
 /**
  * @return {boolean} Whether the autocomplete menu should be right aligned.
  */
-goog.ui.ac.Renderer.prototype.getRightAlign = function() {
-  'use strict';
+Renderer.prototype.getRightAlign = function() {
   return this.rightAlign_;
 };
 
@@ -372,8 +365,7 @@ goog.ui.ac.Renderer.prototype.getRightAlign = function() {
  *     past the bottom of the screen and instead show a scrollbar on the
  *     dropdown.
  */
-goog.ui.ac.Renderer.prototype.setShowScrollbarsIfTooLarge = function(show) {
-  'use strict';
+Renderer.prototype.setShowScrollbarsIfTooLarge = function(show) {
   this.showScrollbarsIfTooLarge_ = show;
 };
 
@@ -382,9 +374,8 @@ goog.ui.ac.Renderer.prototype.setShowScrollbarsIfTooLarge = function(show) {
  * Set whether or not standard highlighting should be used when rendering rows.
  * @param {boolean} useStandardHighlighting true if standard highlighting used.
  */
-goog.ui.ac.Renderer.prototype.setUseStandardHighlighting = function(
+Renderer.prototype.setUseStandardHighlighting = function(
     useStandardHighlighting) {
-  'use strict';
   this.useStandardHighlighting_ = useStandardHighlighting;
 };
 
@@ -394,9 +385,8 @@ goog.ui.ac.Renderer.prototype.setUseStandardHighlighting = function(
  *     higlighted only when the token matches text at a whole-word boundary.
  *     True by default.
  */
-goog.ui.ac.Renderer.prototype.setMatchWordBoundary = function(
+Renderer.prototype.setMatchWordBoundary = function(
     matchWordBoundary) {
-  'use strict';
   this.matchWordBoundary_ = matchWordBoundary;
 };
 
@@ -407,9 +397,8 @@ goog.ui.ac.Renderer.prototype.setMatchWordBoundary = function(
  * @param {boolean} highlightAllTokens Whether to highlight all matching tokens
  *     rather than just the first.
  */
-goog.ui.ac.Renderer.prototype.setHighlightAllTokens = function(
+Renderer.prototype.setHighlightAllTokens = function(
     highlightAllTokens) {
-  'use strict';
   this.highlightAllTokens_ = highlightAllTokens;
 };
 
@@ -420,8 +409,7 @@ goog.ui.ac.Renderer.prototype.setHighlightAllTokens = function(
  * @param {number} duration Duration (in msec) of the fade animation (or 0 for
  *     no animation).
  */
-goog.ui.ac.Renderer.prototype.setMenuFadeDuration = function(duration) {
-  'use strict';
+Renderer.prototype.setMenuFadeDuration = function(duration) {
   this.menuFadeDuration_ = duration;
 };
 
@@ -430,8 +418,7 @@ goog.ui.ac.Renderer.prototype.setMenuFadeDuration = function(duration) {
  * Sets the anchor element for the subsequent call to renderRows.
  * @param {Element} anchor The anchor element.
  */
-goog.ui.ac.Renderer.prototype.setAnchorElement = function(anchor) {
-  'use strict';
+Renderer.prototype.setAnchorElement = function(anchor) {
   this.anchorElement_ = anchor;
 };
 
@@ -440,8 +427,7 @@ goog.ui.ac.Renderer.prototype.setAnchorElement = function(anchor) {
  * @return {Element} The anchor element.
  * @protected
  */
-goog.ui.ac.Renderer.prototype.getAnchorElement = function() {
-  'use strict';
+Renderer.prototype.getAnchorElement = function() {
   return this.anchorElement_;
 };
 
@@ -454,8 +440,7 @@ goog.ui.ac.Renderer.prototype.getAnchorElement = function() {
  * @param {Element=} opt_target Current HTML node, will position popup beneath
  *     this node.
  */
-goog.ui.ac.Renderer.prototype.renderRows = function(rows, token, opt_target) {
-  'use strict';
+Renderer.prototype.renderRows = function(rows, token, opt_target) {
   this.token_ = token;
   this.rows_ = rows;
   this.hilitedRow_ = -1;
@@ -469,19 +454,18 @@ goog.ui.ac.Renderer.prototype.renderRows = function(rows, token, opt_target) {
 /**
  * Hide the object.
  */
-goog.ui.ac.Renderer.prototype.dismiss = function() {
-  'use strict';
+Renderer.prototype.dismiss = function() {
   if (this.visible_) {
     this.visible_ = false;
     this.toggleAriaMarkup_(false /* isShown */);
 
     if (this.menuFadeDuration_ > 0) {
-      goog.dispose(this.animation_);
+      dispose(this.animation_);
       this.animation_ =
-          new goog.fx.dom.FadeOutAndHide(this.element_, this.menuFadeDuration_);
+          new FadeOutAndHide(this.element_, this.menuFadeDuration_);
       this.animation_.play();
     } else {
-      goog.style.setElementShown(this.element_, false);
+      style.setElementShown(this.element_, false);
     }
   }
 };
@@ -490,19 +474,18 @@ goog.ui.ac.Renderer.prototype.dismiss = function() {
 /**
  * Show the object.
  */
-goog.ui.ac.Renderer.prototype.show = function() {
-  'use strict';
+Renderer.prototype.show = function() {
   if (!this.visible_) {
     this.visible_ = true;
     this.toggleAriaMarkup_(true /* isShown */);
 
     if (this.menuFadeDuration_ > 0) {
-      goog.dispose(this.animation_);
+      dispose(this.animation_);
       this.animation_ =
-          new goog.fx.dom.FadeInAndShow(this.element_, this.menuFadeDuration_);
+          new FadeInAndShow(this.element_, this.menuFadeDuration_);
       this.animation_.play();
     } else {
-      goog.style.setElementShown(this.element_, true);
+      style.setElementShown(this.element_, true);
     }
   }
 };
@@ -514,23 +497,22 @@ goog.ui.ac.Renderer.prototype.show = function() {
  * @param {boolean} isShown Whether the menu is being shown.
  * @private
  */
-goog.ui.ac.Renderer.prototype.toggleAriaMarkup_ = function(isShown) {
-  'use strict';
+Renderer.prototype.toggleAriaMarkup_ = function(isShown) {
   if (!this.target_) {
     return;
   }
 
-  goog.a11y.aria.setState(this.target_, goog.a11y.aria.State.HASPOPUP, isShown);
-  goog.a11y.aria.setState(
-      goog.asserts.assert(this.element_), goog.a11y.aria.State.EXPANDED,
+  aria.setState(this.target_, State.HASPOPUP, isShown);
+  aria.setState(
+      asserts.assert(this.element_), State.EXPANDED,
       isShown);
-  goog.a11y.aria.setState(this.target_, goog.a11y.aria.State.EXPANDED, isShown);
+  aria.setState(this.target_, State.EXPANDED, isShown);
   if (isShown) {
-    goog.a11y.aria.setState(
-        this.target_, goog.a11y.aria.State.OWNS, this.element_.id);
+    aria.setState(
+        this.target_, State.OWNS, this.element_.id);
   } else {
-    goog.a11y.aria.removeState(this.target_, goog.a11y.aria.State.OWNS);
-    goog.a11y.aria.setActiveDescendant(this.target_, null);
+    aria.removeState(this.target_, State.OWNS);
+    aria.setActiveDescendant(this.target_, null);
   }
 };
 
@@ -538,8 +520,7 @@ goog.ui.ac.Renderer.prototype.toggleAriaMarkup_ = function(isShown) {
 /**
  * @return {boolean} True if the object is visible.
  */
-goog.ui.ac.Renderer.prototype.isVisible = function() {
-  'use strict';
+Renderer.prototype.isVisible = function() {
   return this.visible_;
 };
 
@@ -549,16 +530,15 @@ goog.ui.ac.Renderer.prototype.isVisible = function() {
  * @param {number} index Index of the item to highlight.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.Renderer.prototype.hiliteRow = function(index) {
-  'use strict';
+Renderer.prototype.hiliteRow = function(index) {
   var row =
       index >= 0 && index < this.rows_.length ? this.rows_[index] : undefined;
   var rowDiv = index >= 0 && index < this.rowDivs_.length ?
       this.rowDivs_[index] :
       undefined;
 
-  var evtObj = /** @lends {goog.events.Event.prototype} */ ({
-    type: goog.ui.ac.AutoComplete.EventType.ROW_HILITE,
+  var evtObj = /** @lends {events.Event.prototype} */ ({
+    type: AutoComplete.EventType.ROW_HILITE,
     rowNode: rowDiv,
     row: row ? row.data : null
   });
@@ -566,12 +546,12 @@ goog.ui.ac.Renderer.prototype.hiliteRow = function(index) {
     this.hiliteNone();
     this.hilitedRow_ = index;
     if (rowDiv) {
-      goog.dom.classlist.addAll(
+      classlist.addAll(
           rowDiv, [this.activeClassName, this.legacyActiveClassName_]);
       if (this.target_) {
-        goog.a11y.aria.setActiveDescendant(this.target_, rowDiv);
+        aria.setActiveDescendant(this.target_, rowDiv);
       }
-      goog.style.scrollIntoContainerView(rowDiv, this.element_);
+      style.scrollIntoContainerView(rowDiv, this.element_);
     }
   }
 };
@@ -580,11 +560,10 @@ goog.ui.ac.Renderer.prototype.hiliteRow = function(index) {
 /**
  * Removes the 'active' class from the currently selected row.
  */
-goog.ui.ac.Renderer.prototype.hiliteNone = function() {
-  'use strict';
+Renderer.prototype.hiliteNone = function() {
   if (this.hilitedRow_ >= 0) {
-    goog.dom.classlist.removeAll(
-        goog.asserts.assert(this.rowDivs_[this.hilitedRow_]),
+    classlist.removeAll(
+        asserts.assert(this.rowDivs_[this.hilitedRow_]),
         [this.activeClassName, this.legacyActiveClassName_]);
   }
 };
@@ -596,8 +575,7 @@ goog.ui.ac.Renderer.prototype.hiliteNone = function() {
  *     hilited.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.Renderer.prototype.hiliteId = function(id) {
-  'use strict';
+Renderer.prototype.hiliteId = function(id) {
   if (id == -1) {
     this.hiliteRow(-1);
   } else {
@@ -617,12 +595,11 @@ goog.ui.ac.Renderer.prototype.hiliteId = function(id) {
  * @param {Element} elem The container element.
  * @private
  */
-goog.ui.ac.Renderer.prototype.setMenuClasses_ = function(elem) {
-  'use strict';
-  goog.asserts.assert(elem);
+Renderer.prototype.setMenuClasses_ = function(elem) {
+  asserts.assert(elem);
   // Legacy clients may set the renderer's className to a space-separated list
   // or even have a trailing space.
-  goog.dom.classlist.addAll(elem, goog.string.trim(this.className).split(' '));
+  classlist.addAll(elem, string.trim(this.className).split(' '));
 };
 
 
@@ -631,11 +608,10 @@ goog.ui.ac.Renderer.prototype.setMenuClasses_ = function(elem) {
  * to the parent.
  * @private
  */
-goog.ui.ac.Renderer.prototype.maybeCreateElement_ = function() {
-  'use strict';
+Renderer.prototype.maybeCreateElement_ = function() {
   if (!this.element_) {
     // Make element and add it to the parent
-    var el = this.dom_.createDom(goog.dom.TagName.DIV, {style: 'display:none'});
+    var el = this.dom_.createDom(TagName.DIV, {style: 'display:none'});
     if (this.showScrollbarsIfTooLarge_) {
       // Make sure that the dropdown will get scrollbars if it isn't large
       // enough to show all rows.
@@ -643,20 +619,20 @@ goog.ui.ac.Renderer.prototype.maybeCreateElement_ = function() {
     }
     this.element_ = el;
     this.setMenuClasses_(el);
-    goog.a11y.aria.setRole(el, goog.a11y.aria.Role.LISTBOX);
+    aria.setRole(el, Role.LISTBOX);
 
-    el.id = goog.ui.IdGenerator.getInstance().getNextUniqueId();
+    el.id = IdGenerator.getInstance().getNextUniqueId();
 
     this.dom_.appendChild(this.parent_, el);
 
     // Add this object as an event handler
-    goog.events.listen(
-        el, goog.events.EventType.CLICK, this.handleClick_, false, this);
-    goog.events.listen(
-        el, goog.events.EventType.MOUSEDOWN, this.handleMouseDown_, false,
+    events.listen(
+        el, EventType.CLICK, this.handleClick_, false, this);
+    events.listen(
+        el, EventType.MOUSEDOWN, this.handleMouseDown_, false,
         this);
-    goog.events.listen(
-        el, goog.events.EventType.MOUSEOVER, this.handleMouseOver_, false,
+    events.listen(
+        el, EventType.MOUSEOVER, this.handleMouseOver_, false,
         this);
   }
 };
@@ -667,8 +643,7 @@ goog.ui.ac.Renderer.prototype.maybeCreateElement_ = function() {
  * down.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.Renderer.prototype.redraw = function() {
-  'use strict';
+Renderer.prototype.redraw = function() {
   // Create the element if it doesn't yet exist
   this.maybeCreateElement_();
 
@@ -700,7 +675,6 @@ goog.ui.ac.Renderer.prototype.redraw = function() {
   } else {
     var curRow = null;
     this.rows_.forEach(function(row) {
-      'use strict';
       row = this.renderRowHtml(row, this.token_);
       if (this.topAlign_) {
         // Aligned with top of target = best match at bottom
@@ -724,20 +698,19 @@ goog.ui.ac.Renderer.prototype.redraw = function() {
 
   // Make the autocompleter unselectable, so that it
   // doesn't steal focus from the input field when clicked.
-  goog.style.setUnselectable(this.element_, true);
+  style.setUnselectable(this.element_, true);
 };
 
 
 /**
- * @return {goog.positioning.Corner} The anchor corner to position the popup at.
+ * @return {Corner} The anchor corner to position the popup at.
  * @protected
  */
-goog.ui.ac.Renderer.prototype.getAnchorCorner = function() {
-  'use strict';
-  var anchorCorner = this.rightAlign_ ? goog.positioning.Corner.BOTTOM_RIGHT :
-                                        goog.positioning.Corner.BOTTOM_LEFT;
+Renderer.prototype.getAnchorCorner = function() {
+  var anchorCorner = this.rightAlign_ ? Corner.BOTTOM_RIGHT :
+                                        Corner.BOTTOM_LEFT;
   if (this.topAlign_) {
-    anchorCorner = goog.positioning.flipCornerVertical(anchorCorner);
+    anchorCorner = positioning.flipCornerVertical(anchorCorner);
   }
   return anchorCorner;
 };
@@ -747,13 +720,12 @@ goog.ui.ac.Renderer.prototype.getAnchorCorner = function() {
  * Repositions the auto complete popup relative to the location node, if it
  * exists and the auto position has been set.
  */
-goog.ui.ac.Renderer.prototype.reposition = function() {
-  'use strict';
+Renderer.prototype.reposition = function() {
   if (this.target_ && this.reposition_) {
     var anchorElement = this.anchorElement_ || this.target_;
     var anchorCorner = this.getAnchorCorner();
 
-    var overflowMode = goog.positioning.Overflow.ADJUST_X_EXCEPT_OFFSCREEN;
+    var overflowMode = Overflow.ADJUST_X_EXCEPT_OFFSCREEN;
     if (this.showScrollbarsIfTooLarge_) {
       // positionAtAnchor will set the height of this.element_ when it runs
       // (because of RESIZE_HEIGHT), and it will never increase it relative to
@@ -763,12 +735,12 @@ goog.ui.ac.Renderer.prototype.reposition = function() {
       // positionAtAnchor, so it is free to set the height as large as it
       // chooses.
       this.element_.style.height = '';
-      overflowMode |= goog.positioning.Overflow.RESIZE_HEIGHT;
+      overflowMode |= Overflow.RESIZE_HEIGHT;
     }
 
-    goog.positioning.positionAtAnchor(
+    positioning.positionAtAnchor(
         anchorElement, anchorCorner, this.element_,
-        goog.positioning.flipCornerVertical(anchorCorner), null, null,
+        positioning.flipCornerVertical(anchorCorner), null, null,
         overflowMode);
 
     if (this.topAlign_) {
@@ -785,8 +757,7 @@ goog.ui.ac.Renderer.prototype.reposition = function() {
  * drop down.
  * @param {boolean} auto Whether to autoposition the drop down.
  */
-goog.ui.ac.Renderer.prototype.setAutoPosition = function(auto) {
-  'use strict';
+Renderer.prototype.setAutoPosition = function(auto) {
   this.reposition_ = auto;
 };
 
@@ -795,8 +766,7 @@ goog.ui.ac.Renderer.prototype.setAutoPosition = function(auto) {
  * @return {boolean} Whether the drop down will be autopositioned.
  * @protected
  */
-goog.ui.ac.Renderer.prototype.getAutoPosition = function() {
-  'use strict';
+Renderer.prototype.getAutoPosition = function() {
   return this.reposition_;
 };
 
@@ -805,8 +775,7 @@ goog.ui.ac.Renderer.prototype.getAutoPosition = function() {
  * @return {Element} The target element.
  * @protected
  */
-goog.ui.ac.Renderer.prototype.getTarget = function() {
-  'use strict';
+Renderer.prototype.getTarget = function() {
   return this.target_ || null;
 };
 
@@ -816,27 +785,26 @@ goog.ui.ac.Renderer.prototype.getTarget = function() {
  * @override
  * @protected
  */
-goog.ui.ac.Renderer.prototype.disposeInternal = function() {
-  'use strict';
+Renderer.prototype.disposeInternal = function() {
   if (this.element_) {
-    goog.events.unlisten(
-        this.element_, goog.events.EventType.CLICK, this.handleClick_, false,
+    events.unlisten(
+        this.element_, EventType.CLICK, this.handleClick_, false,
         this);
-    goog.events.unlisten(
-        this.element_, goog.events.EventType.MOUSEDOWN, this.handleMouseDown_,
+    events.unlisten(
+        this.element_, EventType.MOUSEDOWN, this.handleMouseDown_,
         false, this);
-    goog.events.unlisten(
-        this.element_, goog.events.EventType.MOUSEOVER, this.handleMouseOver_,
+    events.unlisten(
+        this.element_, EventType.MOUSEOVER, this.handleMouseOver_,
         false, this);
     this.dom_.removeNode(this.element_);
     this.element_ = null;
     this.visible_ = false;
   }
 
-  goog.dispose(this.animation_);
+  dispose(this.animation_);
   this.parent_ = null;
 
-  goog.ui.ac.Renderer.base(this, 'disposeInternal');
+  Renderer.base(this, 'disposeInternal');
 };
 
 
@@ -851,9 +819,8 @@ goog.ui.ac.Renderer.prototype.disposeInternal = function() {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.Renderer.prototype.renderRowContents_ = function(row, token, node) {
-  'use strict';
-  goog.dom.setTextContent(node, row.data.toString());
+Renderer.prototype.renderRowContents_ = function(row, token, node) {
+  dom.setTextContent(node, row.data.toString());
 };
 
 
@@ -870,9 +837,8 @@ goog.ui.ac.Renderer.prototype.renderRowContents_ = function(row, token, node) {
  *     word, in whatever order and however many times, will be highlighted.
  * @private
  */
-goog.ui.ac.Renderer.prototype.startHiliteMatchingText_ = function(
+Renderer.prototype.startHiliteMatchingText_ = function(
     node, tokenOrArray) {
-  'use strict';
   this.wasHighlightedAtLeastOnce_ = false;
   this.hiliteMatchingText_(node, tokenOrArray);
 };
@@ -884,14 +850,13 @@ goog.ui.ac.Renderer.prototype.startHiliteMatchingText_ = function(
  *     to match.
  * @private
  */
-goog.ui.ac.Renderer.prototype.hiliteMatchingText_ = function(
+Renderer.prototype.hiliteMatchingText_ = function(
     node, tokenOrArray) {
-  'use strict';
   if (!this.highlightAllTokens_ && this.wasHighlightedAtLeastOnce_) {
     return;
   }
 
-  if (node.nodeType == goog.dom.NodeType.TEXT) {
+  if (node.nodeType == NodeType.TEXT) {
     var rest = null;
     if (Array.isArray(tokenOrArray) && tokenOrArray.length > 1 &&
         !this.highlightAllTokens_) {
@@ -947,7 +912,7 @@ goog.ui.ac.Renderer.prototype.hiliteMatchingText_ = function(
         var idx = 2 * i;
 
         node.nodeValue = textNodes[idx];
-        var boldTag = this.dom_.createElement(goog.dom.TagName.B);
+        var boldTag = this.dom_.createElement(TagName.B);
         boldTag.className = this.highlightedClassName;
         this.dom_.appendChild(
             boldTag, this.dom_.createTextNode(textNodes[idx + 1]));
@@ -984,8 +949,7 @@ goog.ui.ac.Renderer.prototype.hiliteMatchingText_ = function(
  * @return {string} The regex-ready token.
  * @private
  */
-goog.ui.ac.Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
-  'use strict';
+Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
   var token = '';
 
   if (!tokenOrArray) {
@@ -995,8 +959,7 @@ goog.ui.ac.Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
   if (Array.isArray(tokenOrArray)) {
     // Remove invalid tokens from the array, which may leave us with nothing.
     tokenOrArray = tokenOrArray.filter(function(str) {
-      'use strict';
-      return !goog.string.isEmptyOrWhitespace(goog.string.makeSafe(str));
+      return !string.isEmptyOrWhitespace(string.makeSafe(str));
     });
   }
 
@@ -1004,14 +967,14 @@ goog.ui.ac.Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
   // will match on any of them.
   if (this.highlightAllTokens_) {
     if (Array.isArray(tokenOrArray)) {
-      var tokenArray = tokenOrArray.map(goog.string.regExpEscape);
+      var tokenArray = tokenOrArray.map(string.regExpEscape);
       token = tokenArray.join('|');
     } else {
       // Remove excess whitespace from the string so bars will separate valid
       // tokens in the regular expression.
-      token = goog.string.collapseWhitespace(tokenOrArray);
+      token = string.collapseWhitespace(tokenOrArray);
 
-      token = goog.string.regExpEscape(token);
+      token = string.regExpEscape(token);
       token = token.replace(/ /g, '|');
     }
   } else {
@@ -1022,7 +985,7 @@ goog.ui.ac.Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
     // tokens in the array, but only accept the first match.
     if (Array.isArray(tokenOrArray)) {
       token = tokenOrArray.length > 0 ?
-          goog.string.regExpEscape(tokenOrArray[0]) :
+          string.regExpEscape(tokenOrArray[0]) :
           '';
     } else {
       // For the single-match string token, we refuse to match anything if
@@ -1031,7 +994,7 @@ goog.ui.ac.Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
       // goog.string.isEmptyOrWhitespace(goog.string.makeSafe(tokenOrArray))
       // case.)
       if (!/^\W/.test(tokenOrArray)) {
-        token = goog.string.regExpEscape(tokenOrArray);
+        token = string.regExpEscape(tokenOrArray);
       }
     }
   }
@@ -1049,14 +1012,13 @@ goog.ui.ac.Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
  * @return {!Element} An element with the rendered HTML.
  * @suppress {strictMissingProperties} this.customRenderer_ and renderRow
  */
-goog.ui.ac.Renderer.prototype.renderRowHtml = function(row, token) {
-  'use strict';
+Renderer.prototype.renderRowHtml = function(row, token) {
   // Create and return the element.
-  var elem = this.dom_.createDom(goog.dom.TagName.DIV, {
+  var elem = this.dom_.createDom(TagName.DIV, {
     className: this.rowClassName,
-    id: goog.ui.IdGenerator.getInstance().getNextUniqueId()
+    id: IdGenerator.getInstance().getNextUniqueId()
   });
-  goog.a11y.aria.setRole(elem, goog.a11y.aria.Role.OPTION);
+  aria.setRole(elem, Role.OPTION);
   if (this.customRenderer_ && this.customRenderer_.renderRow) {
     this.customRenderer_.renderRow(row, token, elem);
   } else {
@@ -1067,7 +1029,7 @@ goog.ui.ac.Renderer.prototype.renderRowHtml = function(row, token) {
     this.startHiliteMatchingText_(elem, token);
   }
 
-  goog.dom.classlist.add(elem, this.rowClassName);
+  classlist.add(elem, this.rowClassName);
   this.rowDivs_.push(elem);
   return elem;
 };
@@ -1081,10 +1043,9 @@ goog.ui.ac.Renderer.prototype.renderRowHtml = function(row, token) {
  * @return {number} Index corresponding to event target.
  * @private
  */
-goog.ui.ac.Renderer.prototype.getRowFromEventTarget_ = function(et) {
-  'use strict';
+Renderer.prototype.getRowFromEventTarget_ = function(et) {
   while (et && et != this.element_ &&
-         !goog.dom.classlist.contains(et, this.rowClassName)) {
+         !classlist.contains(et, this.rowClassName)) {
     et = /** @type {Element} */ (et.parentNode);
   }
   return et ? this.rowDivs_.indexOf(et) : -1;
@@ -1094,16 +1055,15 @@ goog.ui.ac.Renderer.prototype.getRowFromEventTarget_ = function(et) {
 /**
  * Handle the click events.  These are redirected to the AutoComplete object
  * which then makes a callback to select the correct row.
- * @param {goog.events.Event} e Browser event object.
+ * @param {events.Event} e Browser event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.Renderer.prototype.handleClick_ = function(e) {
-  'use strict';
+Renderer.prototype.handleClick_ = function(e) {
   var index = this.getRowFromEventTarget_(/** @type {Element} */ (e.target));
   if (index >= 0) {
-    this.dispatchEvent(/** @lends {goog.events.Event.prototype} */ ({
-      type: goog.ui.ac.AutoComplete.EventType.SELECT,
+    this.dispatchEvent(/** @lends {events.Event.prototype} */ ({
+      type: AutoComplete.EventType.SELECT,
       row: this.rows_[index].id
     }));
   }
@@ -1113,11 +1073,10 @@ goog.ui.ac.Renderer.prototype.handleClick_ = function(e) {
 
 /**
  * Handle the mousedown event and prevent the AC from losing focus.
- * @param {goog.events.Event} e Browser event object.
+ * @param {events.Event} e Browser event object.
  * @private
  */
-goog.ui.ac.Renderer.prototype.handleMouseDown_ = function(e) {
-  'use strict';
+Renderer.prototype.handleMouseDown_ = function(e) {
   e.stopPropagation();
   e.preventDefault();
 };
@@ -1128,21 +1087,20 @@ goog.ui.ac.Renderer.prototype.handleMouseDown_ = function(e) {
  * which then makes a callback to set the correctly highlighted row.  This is
  * because the AutoComplete can move the focus as well, and there is no sense
  * duplicating the code
- * @param {goog.events.Event} e Browser event object.
+ * @param {events.Event} e Browser event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.Renderer.prototype.handleMouseOver_ = function(e) {
-  'use strict';
+Renderer.prototype.handleMouseOver_ = function(e) {
   var index = this.getRowFromEventTarget_(/** @type {Element} */ (e.target));
   if (index >= 0) {
     if ((goog.now() - this.startRenderingRows_) <
-        goog.ui.ac.Renderer.DELAY_BEFORE_MOUSEOVER) {
+        Renderer.DELAY_BEFORE_MOUSEOVER) {
       return;
     }
 
     this.dispatchEvent({
-      type: goog.ui.ac.AutoComplete.EventType.HILITE,
+      type: AutoComplete.EventType.HILITE,
       row: this.rows_[index].id
     });
   }
@@ -1155,7 +1113,7 @@ goog.ui.ac.Renderer.prototype.handleMouseOver_ = function(e) {
  * Extending classes should override the render function.
  * @constructor
  */
-goog.ui.ac.Renderer.CustomRenderer = function() {};
+Renderer.CustomRenderer = function() {};
 
 
 /**
@@ -1165,15 +1123,15 @@ goog.ui.ac.Renderer.CustomRenderer = function() {};
  *
  * The function expects the following parameters:
  *
- * renderer, goog.ui.ac.Renderer: The autocomplete renderer.
+ * renderer, Renderer: The autocomplete renderer.
  * element, Element: The main element that controls the rendered autocomplete.
  * rows, Array: The current set of rows being displayed.
  * token, string: The current token that has been entered. *
  *
- * @type {function(goog.ui.ac.Renderer, Element, Array, string)|
+ * @type {function(Renderer, Element, Array, string)|
  *        null|undefined}
  */
-goog.ui.ac.Renderer.CustomRenderer.prototype.render = function(
+Renderer.CustomRenderer.prototype.render = function(
     renderer, element, rows, token) {};
 
 
@@ -1183,5 +1141,5 @@ goog.ui.ac.Renderer.CustomRenderer.prototype.render = function(
  * @param {string} token Token to highlight.
  * @param {Node} node The node to render into.
  */
-goog.ui.ac.Renderer.CustomRenderer.prototype.renderRow = function(
+Renderer.CustomRenderer.prototype.renderRow = function(
     row, token, node) {};

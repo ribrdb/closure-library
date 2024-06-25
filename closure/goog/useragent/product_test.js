@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.userAgent.productTest');
 goog.setTestOnly();
 
-const MockUserAgent = goog.require('goog.testing.MockUserAgent');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const googArray = goog.require('goog.array');
-const googUserAgent = goog.require('goog.userAgent');
-const isVersion = goog.require('goog.userAgent.product.isVersion');
-const product = goog.require('goog.userAgent.product');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgentTestUtil = goog.require('goog.userAgentTestUtil');
+import { MockUserAgent } from '../testing/mockuseragent.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as googArray from '../array/array.js';
+import * as googUserAgent from './useragent.js';
+import { isVersion } from './product_isversion.js';
+import * as product from './product.js';
+import { testAgents } from '../labs/useragent/test_agents.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgentTestUtil from './useragenttestutil.js';
 
 let mockAgent;
 let replacer;

@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.LoremIpsumTest');
 goog.setTestOnly();
 
-const Command = goog.require('goog.editor.Command');
-const Field = goog.require('goog.editor.Field');
-const LoremIpsum = goog.require('goog.editor.plugins.LoremIpsum');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const Unicode = goog.require('goog.string.Unicode');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Command } from '../command.js';
+import { Field } from '../field.js';
+import { LoremIpsum } from './loremipsum.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { Unicode } from '../../string/string.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let FIELD;
 let PLUGIN;

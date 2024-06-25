@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.SpacesTabHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Range = goog.require('goog.dom.Range');
-const SpacesTabHandler = goog.require('goog.editor.plugins.SpacesTabHandler');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserEvent } from '../../events/browserevent.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import * as Range from '../../dom/range.js';
+import { SpacesTabHandler } from './spacestabhandler.js';
+import { StrictMock } from '../../testing/strictmock.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as functions from '../../functions/functions.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let field;
 let editableField;

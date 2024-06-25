@@ -4,24 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.FilteredMenuTest');
 goog.setTestOnly();
 
-const AutoCompleteValues = goog.require('goog.a11y.aria.AutoCompleteValues');
-const EventType = goog.require('goog.events.EventType');
-const FilteredMenu = goog.require('goog.ui.FilteredMenu');
-const GoogRect = goog.require('goog.math.Rect');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MenuItem = goog.require('goog.ui.MenuItem');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const transform = goog.require('goog.style.transform');
+import { AutoCompleteValues, State } from '../a11y/aria/attributes.js';
+import { EventType } from '../events/eventtype.js';
+import { FilteredMenu } from './filteredmenu.js';
+import { Rect as GoogRect } from '../math/rect.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { MenuItem } from './menuitem.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
+import * as transform from '../style/transform.js';
 
 
 let sandbox;

@@ -9,26 +9,25 @@
  * Private methods are accessed for test purposes.
  */
 
-goog.module('goog.labs.net.webChannel.webChannelBaseTransportTest');
 goog.setTestOnly();
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const ChannelRequest = goog.require('goog.labs.net.webChannel.ChannelRequest');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Timer = goog.require('goog.Timer');
-const WebChannel = goog.require('goog.net.WebChannel');
-const WebChannelBase = goog.require('goog.labs.net.webChannel.WebChannelBase');
-const WebChannelBaseTransport = goog.require('goog.labs.net.webChannel.WebChannelBaseTransport');
-const Wire = goog.require('goog.labs.net.webChannel.Wire');
-const XhrIo = goog.require('goog.net.XhrIo');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googJson = goog.require('goog.json');
-const testSuite = goog.require('goog.testing.testSuite');
-const AnythingMatcher = goog.require('goog.labs.testing.AnythingMatcher');
-const {atMost, times} = goog.require('goog.labs.mock.verification');
-const {mock, mockFunction, verify} = goog.require('goog.labs.mock');
+import { ArgumentMatcher } from '../../../testing/mockmatchers.js';
+import { ChannelRequest } from './channelrequest.js';
+import { PropertyReplacer } from '../../../testing/propertyreplacer.js';
+import { Timer } from '../../../timer/timer.js';
+import { WebChannel } from '../webchannel.js';
+import { WebChannelBase } from './webchannelbase.js';
+import { WebChannelBaseTransport } from './webchannelbasetransport.js';
+import { Wire } from './wire.js';
+import { XhrIo } from '../../../net/xhrio.js';
+import { dispose } from '../../../disposable/dispose.js';
+import * as events from '../../../events/events.js';
+import * as functions from '../../../functions/functions.js';
+import * as googJson from '../../../json/json.js';
+import { testSuite } from '../../../testing/testsuite.js';
+import { AnythingMatcher } from '../../testing/matchers.js';
+import { atMost, times } from '../../mock/verificationmode.js';
+import { mock, mockFunction, verify } from '../../mock/mock.js';
 const {anything} = AnythingMatcher;
 
 let webChannel;

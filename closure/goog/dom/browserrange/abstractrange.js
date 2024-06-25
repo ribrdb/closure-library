@@ -7,25 +7,25 @@
 /**
  * @fileoverview Definition of the browser range interface.
  *
- * DO NOT USE THIS FILE DIRECTLY.  Use goog.dom.Range instead.
+ * DO NOT USE THIS FILE DIRECTLY.  Use dom.Range instead.
  */
 
 
-goog.provide('goog.dom.browserrange.AbstractRange');
+goog.declareModuleId('goog.dom.browserrange.abstractrange');
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.RangeEndpoint');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.TextRangeIterator');
-goog.require('goog.iter');
-goog.require('goog.math.Coordinate');
-goog.require('goog.string');
-goog.require('goog.string.StringBuffer');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.RangeIterator');
+import * as array from '../../array/array.js';
+import * as asserts from '../../asserts/asserts.js';
+import * as dom from '../dom.js';
+import { NodeType } from '../nodetype.js';
+import { RangeEndpoint } from '../rangeendpoint.js';
+import { TagName } from '../tagname.js';
+import { TextRangeIterator } from '../textrangeiterator.js';
+import * as iter from '../../iter/iter.js';
+import { Coordinate } from '../../math/coordinate.js';
+import * as string from '../../string/string.js';
+import { StringBuffer } from '../../string/stringbuffer.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -33,13 +33,13 @@ goog.requireType('goog.dom.RangeIterator');
  * The constructor for abstract ranges.  Don't call this from subclasses.
  * @constructor
  */
-goog.dom.browserrange.AbstractRange = function() {};
+export function AbstractRange() {}
 
 
 /**
- * @return {goog.dom.browserrange.AbstractRange} A clone of this range.
+ * @return {AbstractRange} A clone of this range.
  */
-goog.dom.browserrange.AbstractRange.prototype.clone = goog.abstractMethod;
+AbstractRange.prototype.clone = goog.abstractMethod;
 
 
 /**
@@ -48,7 +48,7 @@ goog.dom.browserrange.AbstractRange.prototype.clone = goog.abstractMethod;
  * the functionality you need rather than just using the native range.
  * @return {Range|TextRange} The browser native range object.
  */
-goog.dom.browserrange.AbstractRange.prototype.getBrowserRange =
+AbstractRange.prototype.getBrowserRange =
     goog.abstractMethod;
 
 
@@ -56,7 +56,7 @@ goog.dom.browserrange.AbstractRange.prototype.getBrowserRange =
  * Returns the deepest node in the tree that contains the entire range.
  * @return {Node} The deepest node that contains the entire range.
  */
-goog.dom.browserrange.AbstractRange.prototype.getContainer =
+AbstractRange.prototype.getContainer =
     goog.abstractMethod;
 
 
@@ -64,7 +64,7 @@ goog.dom.browserrange.AbstractRange.prototype.getContainer =
  * Returns the node the range starts in.
  * @return {Node} The element or text node the range starts in.
  */
-goog.dom.browserrange.AbstractRange.prototype.getStartNode =
+AbstractRange.prototype.getStartNode =
     goog.abstractMethod;
 
 
@@ -74,17 +74,16 @@ goog.dom.browserrange.AbstractRange.prototype.getStartNode =
  *     nodes, this is an offset into the node value.  For elements, this is
  *     an offset into the childNodes array.
  */
-goog.dom.browserrange.AbstractRange.prototype.getStartOffset =
+AbstractRange.prototype.getStartOffset =
     goog.abstractMethod;
 
 
 /**
- * @return {goog.math.Coordinate} The coordinate of the selection start node
+ * @return {Coordinate} The coordinate of the selection start node
  *     and offset.
  */
-goog.dom.browserrange.AbstractRange.prototype.getStartPosition = function() {
-  'use strict';
-  return this.getPosition_(true);
+AbstractRange.prototype.getStartPosition = function() {
+ return this.getPosition_(true);
 };
 
 
@@ -92,7 +91,7 @@ goog.dom.browserrange.AbstractRange.prototype.getStartPosition = function() {
  * Returns the node the range ends in.
  * @return {Node} The element or text node the range ends in.
  */
-goog.dom.browserrange.AbstractRange.prototype.getEndNode = goog.abstractMethod;
+AbstractRange.prototype.getEndNode = goog.abstractMethod;
 
 
 /**
@@ -101,39 +100,37 @@ goog.dom.browserrange.AbstractRange.prototype.getEndNode = goog.abstractMethod;
  *     nodes, this is an offset into the node value.  For elements, this is
  *     an offset into the childNodes array.
  */
-goog.dom.browserrange.AbstractRange.prototype.getEndOffset =
+AbstractRange.prototype.getEndOffset =
     goog.abstractMethod;
 
 
 /**
- * @return {goog.math.Coordinate} The coordinate of the selection end node
+ * @return {Coordinate} The coordinate of the selection end node
  *     and offset.
  */
-goog.dom.browserrange.AbstractRange.prototype.getEndPosition = function() {
-  'use strict';
-  return this.getPosition_(false);
+AbstractRange.prototype.getEndPosition = function() {
+ return this.getPosition_(false);
 };
 
 
 /**
  * @param {boolean} start Whether to get the position of the start or end.
- * @return {goog.math.Coordinate} The coordinate of the selection point.
+ * @return {Coordinate} The coordinate of the selection point.
  * @private
  * @suppress {missingProperties} circular definitions
  */
-goog.dom.browserrange.AbstractRange.prototype.getPosition_ = function(start) {
-  'use strict';
-  goog.asserts.assert(
-      this.range_.getClientRects,
-      'Getting selection coordinates is not supported.');
+AbstractRange.prototype.getPosition_ = function(start) {
+ asserts.assert(
+     this.range_.getClientRects,
+     'Getting selection coordinates is not supported.');
 
-  var rects = this.range_.getClientRects();
-  if (rects.length) {
-    var r = start ? rects[0] : goog.array.peek(rects);
-    return new goog.math.Coordinate(
-        start ? r.left : r.right, start ? r.top : r.bottom);
-  }
-  return null;
+ var rects = this.range_.getClientRects();
+ if (rects.length) {
+   var r = start ? rects[0] : array.peek(rects);
+   return new Coordinate(
+       start ? r.left : r.right, start ? r.top : r.bottom);
+ }
+ return null;
 };
 
 
@@ -141,58 +138,57 @@ goog.dom.browserrange.AbstractRange.prototype.getPosition_ = function(start) {
  * Compares one endpoint of this range with the endpoint of another browser
  * native range object.
  * @param {Range|TextRange} range The browser native range to compare against.
- * @param {goog.dom.RangeEndpoint} thisEndpoint The endpoint of this range
+ * @param {RangeEndpoint} thisEndpoint The endpoint of this range
  *     to compare with.
- * @param {goog.dom.RangeEndpoint} otherEndpoint The endpoint of the other
+ * @param {RangeEndpoint} otherEndpoint The endpoint of the other
  *     range to compare with.
  * @return {number} 0 if the endpoints are equal, negative if this range
  *     endpoint comes before the other range endpoint, and positive otherwise.
  */
-goog.dom.browserrange.AbstractRange.prototype.compareBrowserRangeEndpoints =
+AbstractRange.prototype.compareBrowserRangeEndpoints =
     goog.abstractMethod;
 
 
 /**
  * Tests if this range contains the given range.
- * @param {goog.dom.browserrange.AbstractRange} abstractRange The range to test.
+ * @param {AbstractRange} abstractRange The range to test.
  * @param {boolean=} opt_allowPartial If not set or false, the range must be
  *     entirely contained in the selection for this function to return true.
  * @return {boolean} Whether this range contains the given range.
  */
-goog.dom.browserrange.AbstractRange.prototype.containsRange = function(
+AbstractRange.prototype.containsRange = function(
     abstractRange, opt_allowPartial) {
-  'use strict';
-  // IE sometimes misreports the boundaries for collapsed ranges. So if the
-  // other range is collapsed, make sure the whole range is contained. This is
-  // logically equivalent, and works around IE's bug.
-  var checkPartial = opt_allowPartial && !abstractRange.isCollapsed();
+ // IE sometimes misreports the boundaries for collapsed ranges. So if the
+ // other range is collapsed, make sure the whole range is contained. This is
+ // logically equivalent, and works around IE's bug.
+ var checkPartial = opt_allowPartial && !abstractRange.isCollapsed();
 
-  var range = abstractRange.getBrowserRange();
-  var start = goog.dom.RangeEndpoint.START, end = goog.dom.RangeEndpoint.END;
+ var range = abstractRange.getBrowserRange();
+ var start = RangeEndpoint.START, end = RangeEndpoint.END;
 
-  try {
-    if (checkPartial) {
-      // There are two ways to not overlap.  Being before, and being after.
-      // Before is represented by this.end before range.start: comparison < 0.
-      // After is represented by this.start after range.end: comparison > 0.
-      // The below is the negation of not overlapping.
-      return this.compareBrowserRangeEndpoints(range, end, start) >= 0 &&
-          this.compareBrowserRangeEndpoints(range, start, end) <= 0;
+ try {
+   if (checkPartial) {
+     // There are two ways to not overlap.  Being before, and being after.
+     // Before is represented by this.end before range.start: comparison < 0.
+     // After is represented by this.start after range.end: comparison > 0.
+     // The below is the negation of not overlapping.
+     return this.compareBrowserRangeEndpoints(range, end, start) >= 0 &&
+         this.compareBrowserRangeEndpoints(range, start, end) <= 0;
 
-    } else {
-      // Return true if this range bounds the parameter range from both sides.
-      return this.compareBrowserRangeEndpoints(range, end, end) >= 0 &&
-          this.compareBrowserRangeEndpoints(range, start, start) <= 0;
-    }
-  } catch (e) {
-    if (!goog.userAgent.IE) {
-      throw e;
-    }
-    // IE sometimes throws exceptions when one range is invalid, i.e. points
-    // to a node that has been removed from the document.  Return false in this
-    // case.
-    return false;
-  }
+   } else {
+     // Return true if this range bounds the parameter range from both sides.
+     return this.compareBrowserRangeEndpoints(range, end, end) >= 0 &&
+         this.compareBrowserRangeEndpoints(range, start, start) <= 0;
+   }
+ } catch (e) {
+   if (!userAgent.IE) {
+     throw e;
+   }
+   // IE sometimes throws exceptions when one range is invalid, i.e. points
+   // to a node that has been removed from the document.  Return false in this
+   // case.
+   return false;
+ }
 };
 
 
@@ -203,15 +199,14 @@ goog.dom.browserrange.AbstractRange.prototype.containsRange = function(
  *     entirely contained in the selection for this function to return true.
  * @return {boolean} Whether this range contains the given node.
  * @suppress {missingRequire,missingProperties} Cannot depend on
- *     goog.dom.browserrange because it creates a circular dependency.
+ *     dom.browserrange because it creates a circular dependency.
  */
-goog.dom.browserrange.AbstractRange.prototype.containsNode = function(
+AbstractRange.prototype.containsNode = function(
     node, opt_allowPartial) {
-  'use strict';
-  /** @suppress {missingRequire} Circular dep with browserrange */
-  return this.containsRange(
-      goog.dom.browserrange.createRangeFromNodeContents(node),
-      opt_allowPartial);
+ /** @suppress {missingRequire} Circular dep with browserrange */
+ return this.containsRange(
+     dom.browserrange.createRangeFromNodeContents(node),
+     opt_allowPartial);
 };
 
 
@@ -219,13 +214,13 @@ goog.dom.browserrange.AbstractRange.prototype.containsNode = function(
  * Tests if the selection is collapsed - i.e. is just a caret.
  * @return {boolean} Whether the range is collapsed.
  */
-goog.dom.browserrange.AbstractRange.prototype.isCollapsed = goog.abstractMethod;
+AbstractRange.prototype.isCollapsed = goog.abstractMethod;
 
 
 /**
  * @return {string} The text content of the range.
  */
-goog.dom.browserrange.AbstractRange.prototype.getText = goog.abstractMethod;
+AbstractRange.prototype.getText = goog.abstractMethod;
 
 
 /**
@@ -234,42 +229,40 @@ goog.dom.browserrange.AbstractRange.prototype.getText = goog.abstractMethod;
  *     containing elements.
  * @suppress {missingProperties}
  */
-goog.dom.browserrange.AbstractRange.prototype.getHtmlFragment = function() {
-  'use strict';
-  var output = new goog.string.StringBuffer();
-  goog.iter.forEach(this, function(node, ignore, it) {
-    'use strict';
-    if (node.nodeType == goog.dom.NodeType.TEXT) {
-      output.append(
-          goog.string.htmlEscape(
-              node.nodeValue.substring(
-                  it.getStartTextOffset(), it.getEndTextOffset())));
-    } else if (node.nodeType == goog.dom.NodeType.ELEMENT) {
-      if (it.isEndTag()) {
-        if (goog.dom.canHaveChildren(node)) {
-          output.append('</' + node.tagName + '>');
-        }
+AbstractRange.prototype.getHtmlFragment = function() {
+ var output = new StringBuffer();
+ iter.forEach(this, function(node, ignore, it) {
+  if (node.nodeType == NodeType.TEXT) {
+    output.append(
+        string.htmlEscape(
+            node.nodeValue.substring(
+                it.getStartTextOffset(), it.getEndTextOffset())));
+  } else if (node.nodeType == NodeType.ELEMENT) {
+    if (it.isEndTag()) {
+      if (dom.canHaveChildren(node)) {
+        output.append('</' + node.tagName + '>');
+      }
+    } else {
+      var shallow = node.cloneNode(false);
+      var html = dom.getOuterHtml(shallow);
+      if (userAgent.IE && node.tagName == TagName.LI) {
+        // For an LI, IE just returns "<li>" with no closing tag
+        output.append(html);
       } else {
-        var shallow = node.cloneNode(false);
-        var html = goog.dom.getOuterHtml(shallow);
-        if (goog.userAgent.IE && node.tagName == goog.dom.TagName.LI) {
-          // For an LI, IE just returns "<li>" with no closing tag
-          output.append(html);
-        } else {
-          var index = html.lastIndexOf('<');
-          // if index is -1, then this appends nothing.
-          // if index is 0, then the entire HTML content should be added.
-          // if the index is > 0, then only the portion of the html before the
-          // last open tag is appended.
-          if (index !== -1) {
-            output.append(index > 0 ? html.slice(0, index) : html);
-          }
+        var index = html.lastIndexOf('<');
+        // if index is -1, then this appends nothing.
+        // if index is 0, then the entire HTML content should be added.
+        // if the index is > 0, then only the portion of the html before the
+        // last open tag is appended.
+        if (index !== -1) {
+          output.append(index > 0 ? html.slice(0, index) : html);
         }
       }
     }
-  }, this);
+  }
+ }, this);
 
-  return output.toString();
+ return output.toString();
 };
 
 
@@ -279,7 +272,7 @@ goog.dom.browserrange.AbstractRange.prototype.getHtmlFragment = function() {
  * @return {string} Valid HTML of the range, including context containing
  *     elements.
  */
-goog.dom.browserrange.AbstractRange.prototype.getValidHtml =
+AbstractRange.prototype.getValidHtml =
     goog.abstractMethod;
 
 
@@ -287,14 +280,13 @@ goog.dom.browserrange.AbstractRange.prototype.getValidHtml =
  * Returns a RangeIterator over the contents of the range.  Regardless of the
  * direction of the range, the iterator will move in document order.
  * @param {boolean=} opt_keys Unused for this iterator.
- * @return {!goog.dom.RangeIterator} An iterator over tags in the range.
+ * @return {!dom.RangeIterator} An iterator over tags in the range.
  */
-goog.dom.browserrange.AbstractRange.prototype.__iterator__ = function(
+AbstractRange.prototype.__iterator__ = function(
     opt_keys) {
-  'use strict';
-  return new goog.dom.TextRangeIterator(
-      this.getStartNode(), this.getStartOffset(), this.getEndNode(),
-      this.getEndOffset());
+ return new TextRangeIterator(
+     this.getStartNode(), this.getStartOffset(), this.getEndNode(),
+     this.getEndOffset());
 };
 
 
@@ -306,7 +298,7 @@ goog.dom.browserrange.AbstractRange.prototype.__iterator__ = function(
  * @param {boolean=} opt_reverse Whether to select the range in reverse,
  *     if possible.
  */
-goog.dom.browserrange.AbstractRange.prototype.select = goog.abstractMethod;
+AbstractRange.prototype.select = goog.abstractMethod;
 
 
 /**
@@ -315,7 +307,7 @@ goog.dom.browserrange.AbstractRange.prototype.select = goog.abstractMethod;
  * across browsers.  For instance, IE sometimes creates extra text nodes that
  * a W3C browser does not.  That behavior is corrected for.
  */
-goog.dom.browserrange.AbstractRange.prototype.removeContents =
+AbstractRange.prototype.removeContents =
     goog.abstractMethod;
 
 
@@ -329,7 +321,7 @@ goog.dom.browserrange.AbstractRange.prototype.removeContents =
  * @return {Element} The surrounding element (same as the argument on Mozilla,
  *    but not on IE), or null if unsuccessful.
  */
-goog.dom.browserrange.AbstractRange.prototype.surroundContents =
+AbstractRange.prototype.surroundContents =
     goog.abstractMethod;
 
 
@@ -341,7 +333,7 @@ goog.dom.browserrange.AbstractRange.prototype.surroundContents =
  * @return {Node} The node added to the document.  This may be different
  *     than the node parameter because on IE we have to clone it.
  */
-goog.dom.browserrange.AbstractRange.prototype.insertNode = goog.abstractMethod;
+AbstractRange.prototype.insertNode = goog.abstractMethod;
 
 
 /**
@@ -350,7 +342,7 @@ goog.dom.browserrange.AbstractRange.prototype.insertNode = goog.abstractMethod;
  * @param {Element} startNode The node to insert at the start.
  * @param {Element} endNode The node to insert at the end.
  */
-goog.dom.browserrange.AbstractRange.prototype.surroundWithNodes =
+AbstractRange.prototype.surroundWithNodes =
     goog.abstractMethod;
 
 
@@ -358,4 +350,4 @@ goog.dom.browserrange.AbstractRange.prototype.surroundWithNodes =
  * Collapses the range to one of its boundary points.
  * @param {boolean} toStart Whether to collapse to the start of the range.
  */
-goog.dom.browserrange.AbstractRange.prototype.collapse = goog.abstractMethod;
+AbstractRange.prototype.collapse = goog.abstractMethod;

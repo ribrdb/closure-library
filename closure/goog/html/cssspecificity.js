@@ -6,10 +6,6 @@
 
 /** @fileoverview Calculator for specificity of CSS selectors. */
 
-goog.module('goog.html.CssSpecificity');
-goog.module.declareLegacyNamespace();
-
-
 /**
  * Cached mapping from selectors to specificities.
  * @type {!Object<string, !Array<number>>}
@@ -156,6 +152,6 @@ function calculateSpecificity(selector) {
   return specificity;
 }
 
-exports = {
+export default {
   getSpecificity: getSpecificity
 };

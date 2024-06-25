@@ -23,12 +23,12 @@ importScripts('../../base.js');
 // The provide is necessary to stop the jscompiler from thinking this is an
 // entry point and adding it into the manifest incorrectly.
 goog.provide('goog.messaging.testdata.portnetwork_worker2');
-goog.require('goog.messaging.PortCaller');
-goog.require('goog.messaging.PortChannel');
+import { PortCaller } from '../portcaller.js';
+import { PortChannel } from '../portchannel.js';
 
 function startListening() {
   const caller =
-      new goog.messaging.PortCaller(new goog.messaging.PortChannel(self));
+      new PortCaller(new PortChannel(self));
 
   caller.dial('main').registerService('sendToFrame', function(msg) {
     'use strict';

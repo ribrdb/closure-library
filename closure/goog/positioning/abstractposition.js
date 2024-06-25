@@ -8,11 +8,11 @@
  * @fileoverview Abstract base class for positioning implementations.
  */
 
-goog.provide('goog.positioning.AbstractPosition');
+goog.declareModuleId('goog.positioning.abstractposition');
 
-goog.requireType('goog.math.Box');
-goog.requireType('goog.math.Size');
-goog.requireType('goog.positioning.Corner');
+goog.requireType('goog.math.box');
+goog.requireType('goog.math.size');
+goog.requireType('goog.positioning.positioning');
 
 
 
@@ -21,7 +21,7 @@ goog.requireType('goog.positioning.Corner');
  *
  * @constructor
  */
-goog.positioning.AbstractPosition = function() {};
+export function AbstractPosition() {}
 
 
 /**
@@ -34,5 +34,5 @@ goog.positioning.AbstractPosition = function() {};
  * @param {goog.math.Size=} opt_preferredSize PreferredSize of the
  *     movableElement.
  */
-goog.positioning.AbstractPosition.prototype.reposition = function(
+AbstractPosition.prototype.reposition = function(
     movableElement, corner, opt_margin, opt_preferredSize) {};

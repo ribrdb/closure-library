@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.CharPickerTest');
 goog.setTestOnly();
 
-const CharPicker = goog.require('goog.ui.CharPicker');
-const CharPickerData = goog.require('goog.i18n.CharPickerData');
-const EventType = goog.require('goog.events.EventType');
-const FlatButtonRenderer = goog.require('goog.ui.FlatButtonRenderer');
-const GoogEvent = goog.require('goog.events.Event');
-const MockControl = goog.require('goog.testing.MockControl');
-const NameFetcher = goog.require('goog.i18n.uChar.NameFetcher');
-const State = goog.require('goog.a11y.aria.State');
-const aria = goog.require('goog.a11y.aria');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CharPicker } from './charpicker.js';
+import { CharPickerData } from '../i18n/charpickerdata.js';
+import { EventType } from '../events/eventtype.js';
+import { FlatButtonRenderer } from './flatbuttonrenderer.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { NameFetcher } from '../i18n/uchar/namefetcher.js';
+import { State } from '../a11y/aria/attributes.js';
+import * as aria from '../a11y/aria/aria.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import * as mockmatchers from '../testing/mockmatchers.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let charPicker;
 let charPickerData;

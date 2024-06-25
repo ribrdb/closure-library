@@ -8,24 +8,22 @@
  * @fileoverview Definition of the PopupBase class.
  */
 
-goog.provide('goog.ui.PopupBase');
-goog.provide('goog.ui.PopupBase.EventType');
-goog.provide('goog.ui.PopupBase.Type');
+goog.declareModuleId('goog.ui.popupbase');
 
-goog.require('goog.Timer');
-goog.require('goog.array');
-goog.require('goog.dispose');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.events');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.fx.Transition');
-goog.require('goog.style');
-goog.require('goog.userAgent');
-goog.requireType('goog.events.BrowserEvent');
+import { Timer } from '../timer/timer.js';
+import * as array from '../array/array.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../events/events.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { Transition } from '../fx/transition.js';
+import * as style from '../style/style.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.events.browserevent');
 
 
 
@@ -35,34 +33,33 @@ goog.requireType('goog.events.BrowserEvent');
  * if the user clicks outside the popup or the popup loses focus.
  *
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @param {Element=} opt_element A DOM element for the popup.
- * @param {goog.ui.PopupBase.Type=} opt_type Type of popup.
+ * @param {PopupBase.Type=} opt_type Type of popup.
  */
-goog.ui.PopupBase = function(opt_element, opt_type) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function PopupBase(opt_element, opt_type) {
+  EventTarget.call(this);
 
   /**
-   * An event handler to manage the events easily
-   * @type {goog.events.EventHandler<!goog.ui.PopupBase>}
-   * @private
-   */
-  this.handler_ = new goog.events.EventHandler(this);
+       * An event handler to manage the events easily
+       * @type {EventHandler<!PopupBase>}
+       * @private
+       */
+  this.handler_ = new EventHandler(this);
 
   this.setElement(opt_element || null);
   if (opt_type) {
     this.setType(opt_type);
   }
-};
-goog.inherits(goog.ui.PopupBase, goog.events.EventTarget);
+}
+goog.inherits(PopupBase, EventTarget);
 
 
 /**
  * Constants for type of Popup
  * @enum {string}
  */
-goog.ui.PopupBase.Type = {
+PopupBase.Type = {
   TOGGLE_DISPLAY: 'toggle_display',
   MOVE_OFFSCREEN: 'move_offscreen'
 };
@@ -73,7 +70,7 @@ goog.ui.PopupBase.Type = {
  * @type {?Element}
  * @private
  */
-goog.ui.PopupBase.prototype.element_ = null;
+PopupBase.prototype.element_ = null;
 
 
 /**
@@ -82,7 +79,7 @@ goog.ui.PopupBase.prototype.element_ = null;
  * @type {boolean}
  * @private
  */
-goog.ui.PopupBase.prototype.autoHide_ = true;
+PopupBase.prototype.autoHide_ = true;
 
 
 /**
@@ -90,7 +87,7 @@ goog.ui.PopupBase.prototype.autoHide_ = true;
  * @type {?Array<?Element>}
  * @private
  */
-goog.ui.PopupBase.prototype.autoHidePartners_ = null;
+PopupBase.prototype.autoHidePartners_ = null;
 
 
 /**
@@ -101,7 +98,7 @@ goog.ui.PopupBase.prototype.autoHidePartners_ = null;
  * @type {?Element}
  * @private
  */
-goog.ui.PopupBase.prototype.autoHideRegion_ = null;
+PopupBase.prototype.autoHideRegion_ = null;
 
 
 /**
@@ -109,7 +106,7 @@ goog.ui.PopupBase.prototype.autoHideRegion_ = null;
  * @type {boolean}
  * @private
  */
-goog.ui.PopupBase.prototype.isVisible_ = false;
+PopupBase.prototype.isVisible_ = false;
 
 
 /**
@@ -120,7 +117,7 @@ goog.ui.PopupBase.prototype.isVisible_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.PopupBase.prototype.shouldHideAsync_ = false;
+PopupBase.prototype.shouldHideAsync_ = false;
 
 
 /**
@@ -128,7 +125,7 @@ goog.ui.PopupBase.prototype.shouldHideAsync_ = false;
  * @type {number}
  * @private
  */
-goog.ui.PopupBase.prototype.lastShowTime_ = -1;
+PopupBase.prototype.lastShowTime_ = -1;
 
 
 /**
@@ -136,7 +133,7 @@ goog.ui.PopupBase.prototype.lastShowTime_ = -1;
  * @type {number}
  * @private
  */
-goog.ui.PopupBase.prototype.lastHideTime_ = -1;
+PopupBase.prototype.lastHideTime_ = -1;
 
 
 /**
@@ -144,7 +141,7 @@ goog.ui.PopupBase.prototype.lastHideTime_ = -1;
  * @type {boolean}
  * @private
  */
-goog.ui.PopupBase.prototype.hideOnEscape_ = false;
+PopupBase.prototype.hideOnEscape_ = false;
 
 
 /**
@@ -152,31 +149,31 @@ goog.ui.PopupBase.prototype.hideOnEscape_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.PopupBase.prototype.enableCrossIframeDismissal_ = true;
+PopupBase.prototype.enableCrossIframeDismissal_ = true;
 
 
 /**
  * The type of popup
- * @type {goog.ui.PopupBase.Type}
+ * @type {PopupBase.Type}
  * @private
  */
-goog.ui.PopupBase.prototype.type_ = goog.ui.PopupBase.Type.TOGGLE_DISPLAY;
+PopupBase.prototype.type_ = PopupBase.Type.TOGGLE_DISPLAY;
 
 
 /**
  * Transition to play on showing the popup.
- * @type {goog.fx.Transition|undefined}
+ * @type {Transition|undefined}
  * @private
  */
-goog.ui.PopupBase.prototype.showTransition_;
+PopupBase.prototype.showTransition_;
 
 
 /**
  * Transition to play on hiding the popup.
- * @type {goog.fx.Transition|undefined}
+ * @type {Transition|undefined}
  * @private
  */
-goog.ui.PopupBase.prototype.hideTransition_;
+PopupBase.prototype.hideTransition_;
 
 
 /**
@@ -184,7 +181,7 @@ goog.ui.PopupBase.prototype.hideTransition_;
  *
  * @enum {string}
  */
-goog.ui.PopupBase.EventType = {
+PopupBase.EventType = {
   BEFORE_SHOW: 'beforeshow',
   SHOW: 'show',
   BEFORE_HIDE: 'beforehide',
@@ -207,14 +204,13 @@ goog.ui.PopupBase.EventType = {
  *
  * @type {number}
  */
-goog.ui.PopupBase.DEBOUNCE_DELAY_MS = 150;
+PopupBase.DEBOUNCE_DELAY_MS = 150;
 
 
 /**
- * @return {goog.ui.PopupBase.Type} The type of popup this is.
+ * @return {PopupBase.Type} The type of popup this is.
  */
-goog.ui.PopupBase.prototype.getType = function() {
-  'use strict';
+PopupBase.prototype.getType = function() {
   return this.type_;
 };
 
@@ -222,10 +218,9 @@ goog.ui.PopupBase.prototype.getType = function() {
 /**
  * Specifies the type of popup to use.
  *
- * @param {goog.ui.PopupBase.Type} type Type of popup.
+ * @param {PopupBase.Type} type Type of popup.
  */
-goog.ui.PopupBase.prototype.setType = function(type) {
-  'use strict';
+PopupBase.prototype.setType = function(type) {
   this.type_ = type;
 };
 
@@ -235,8 +230,7 @@ goog.ui.PopupBase.prototype.setType = function(type) {
  * instead of synchronously.
  * @return {boolean} Whether to hide async.
  */
-goog.ui.PopupBase.prototype.shouldHideAsync = function() {
-  'use strict';
+PopupBase.prototype.shouldHideAsync = function() {
   return this.shouldHideAsync_;
 };
 
@@ -246,8 +240,7 @@ goog.ui.PopupBase.prototype.shouldHideAsync = function() {
  * instead of synchronously.
  * @param {boolean} b Whether to hide async.
  */
-goog.ui.PopupBase.prototype.setShouldHideAsync = function(b) {
-  'use strict';
+PopupBase.prototype.setShouldHideAsync = function(b) {
   this.shouldHideAsync_ = b;
 };
 
@@ -257,8 +250,7 @@ goog.ui.PopupBase.prototype.setShouldHideAsync = function(b) {
  *
  * @return {Element} The popup element.
  */
-goog.ui.PopupBase.prototype.getElement = function() {
-  'use strict';
+PopupBase.prototype.getElement = function() {
   return this.element_;
 };
 
@@ -268,8 +260,7 @@ goog.ui.PopupBase.prototype.getElement = function() {
  *
  * @param {Element} elt A DOM element for the popup.
  */
-goog.ui.PopupBase.prototype.setElement = function(elt) {
-  'use strict';
+PopupBase.prototype.setElement = function(elt) {
   this.ensureNotVisible_();
   this.element_ = elt;
 };
@@ -280,8 +271,7 @@ goog.ui.PopupBase.prototype.setElement = function(elt) {
  * it.
  * @return {boolean} Whether the Popup autohides on an external click.
  */
-goog.ui.PopupBase.prototype.getAutoHide = function() {
-  'use strict';
+PopupBase.prototype.getAutoHide = function() {
   return this.autoHide_;
 };
 
@@ -290,8 +280,7 @@ goog.ui.PopupBase.prototype.getAutoHide = function() {
  * Sets whether the Popup dismisses itself when the user clicks outside of it.
  * @param {boolean} autoHide Whether to autohide on an external click.
  */
-goog.ui.PopupBase.prototype.setAutoHide = function(autoHide) {
-  'use strict';
+PopupBase.prototype.setAutoHide = function(autoHide) {
   this.ensureNotVisible_();
   this.autoHide_ = autoHide;
 };
@@ -302,13 +291,12 @@ goog.ui.PopupBase.prototype.setAutoHide = function(autoHide) {
  * set to autoHide.
  * @param {!Element} partner The auto hide partner element.
  */
-goog.ui.PopupBase.prototype.addAutoHidePartner = function(partner) {
-  'use strict';
+PopupBase.prototype.addAutoHidePartner = function(partner) {
   if (!this.autoHidePartners_) {
     this.autoHidePartners_ = [];
   }
 
-  goog.array.insert(this.autoHidePartners_, partner);
+  array.insert(this.autoHidePartners_, partner);
 };
 
 
@@ -316,10 +304,9 @@ goog.ui.PopupBase.prototype.addAutoHidePartner = function(partner) {
  * Removes a previously registered auto hide partner.
  * @param {!Element} partner The auto hide partner element.
  */
-goog.ui.PopupBase.prototype.removeAutoHidePartner = function(partner) {
-  'use strict';
+PopupBase.prototype.removeAutoHidePartner = function(partner) {
   if (this.autoHidePartners_) {
-    goog.array.remove(this.autoHidePartners_, partner);
+    array.remove(this.autoHidePartners_, partner);
   }
 };
 
@@ -327,8 +314,7 @@ goog.ui.PopupBase.prototype.removeAutoHidePartner = function(partner) {
 /**
  * @return {boolean} Whether the Popup autohides on the escape key.
  */
-goog.ui.PopupBase.prototype.getHideOnEscape = function() {
-  'use strict';
+PopupBase.prototype.getHideOnEscape = function() {
   return this.hideOnEscape_;
 };
 
@@ -337,8 +323,7 @@ goog.ui.PopupBase.prototype.getHideOnEscape = function() {
  * Sets whether the Popup dismisses itself on the escape key.
  * @param {boolean} hideOnEscape Whether to autohide on the escape key.
  */
-goog.ui.PopupBase.prototype.setHideOnEscape = function(hideOnEscape) {
-  'use strict';
+PopupBase.prototype.setHideOnEscape = function(hideOnEscape) {
   this.ensureNotVisible_();
   this.hideOnEscape_ = hideOnEscape;
 };
@@ -347,8 +332,7 @@ goog.ui.PopupBase.prototype.setHideOnEscape = function(hideOnEscape) {
 /**
  * @return {boolean} Whether cross iframe dismissal is enabled.
  */
-goog.ui.PopupBase.prototype.getEnableCrossIframeDismissal = function() {
-  'use strict';
+PopupBase.prototype.getEnableCrossIframeDismissal = function() {
   return this.enableCrossIframeDismissal_;
 };
 
@@ -358,8 +342,7 @@ goog.ui.PopupBase.prototype.getEnableCrossIframeDismissal = function() {
  * cases it should be disabled, because it can cause spurious
  * @param {boolean} enable Whether to enable cross iframe dismissal.
  */
-goog.ui.PopupBase.prototype.setEnableCrossIframeDismissal = function(enable) {
-  'use strict';
+PopupBase.prototype.setEnableCrossIframeDismissal = function(enable) {
   this.enableCrossIframeDismissal_ = enable;
 };
 
@@ -370,8 +353,7 @@ goog.ui.PopupBase.prototype.setEnableCrossIframeDismissal = function(enable) {
  * @return {Element} The DOM element for autohide, or null if it hasn't been
  *     set.
  */
-goog.ui.PopupBase.prototype.getAutoHideRegion = function() {
-  'use strict';
+PopupBase.prototype.getAutoHideRegion = function() {
   return this.autoHideRegion_;
 };
 
@@ -381,22 +363,20 @@ goog.ui.PopupBase.prototype.getAutoHideRegion = function() {
  * clicks.
  * @param {Element} element The DOM element for autohide.
  */
-goog.ui.PopupBase.prototype.setAutoHideRegion = function(element) {
-  'use strict';
+PopupBase.prototype.setAutoHideRegion = function(element) {
   this.autoHideRegion_ = element;
 };
 
 
 /**
  * Sets transition animation on showing and hiding the popup.
- * @param {goog.fx.Transition=} opt_showTransition Transition to play on
+ * @param {Transition=} opt_showTransition Transition to play on
  *     showing the popup.
- * @param {goog.fx.Transition=} opt_hideTransition Transition to play on
+ * @param {Transition=} opt_hideTransition Transition to play on
  *     hiding the popup.
  */
-goog.ui.PopupBase.prototype.setTransition = function(
+PopupBase.prototype.setTransition = function(
     opt_showTransition, opt_hideTransition) {
-  'use strict';
   this.showTransition_ = opt_showTransition;
   this.hideTransition_ = opt_hideTransition;
 };
@@ -408,8 +388,7 @@ goog.ui.PopupBase.prototype.setTransition = function(
  * @return {number} time in ms since epoch when the popup was last shown, or
  * -1 if the popup was never shown.
  */
-goog.ui.PopupBase.prototype.getLastShowTime = function() {
-  'use strict';
+PopupBase.prototype.getLastShowTime = function() {
   return this.lastShowTime_;
 };
 
@@ -420,8 +399,7 @@ goog.ui.PopupBase.prototype.getLastShowTime = function() {
  * @return {number} time in ms since epoch when the popup was last hidden, or
  * -1 if the popup was never hidden or is currently showing.
  */
-goog.ui.PopupBase.prototype.getLastHideTime = function() {
-  'use strict';
+PopupBase.prototype.getLastHideTime = function() {
   return this.lastHideTime_;
 };
 
@@ -431,13 +409,12 @@ goog.ui.PopupBase.prototype.getLastHideTime = function() {
  * this handler are removed when the tooltip is hidden. Therefore,
  * the recommended usage of this handler is to listen on events in
  * {@link #onShow}.
- * @return {goog.events.EventHandler<T>} Event handler for this popup.
+ * @return {EventHandler<T>} Event handler for this popup.
  * @protected
  * @this {T}
  * @template T
  */
-goog.ui.PopupBase.prototype.getHandler = function() {
-  'use strict';
+PopupBase.prototype.getHandler = function() {
   // As the template type is unbounded, narrow the "this" type
   var self = /** @type {!goog.ui.PopupBase} */ (this);
 
@@ -449,8 +426,7 @@ goog.ui.PopupBase.prototype.getHandler = function() {
  * Helper to throw exception if the popup is showing.
  * @private
  */
-goog.ui.PopupBase.prototype.ensureNotVisible_ = function() {
-  'use strict';
+PopupBase.prototype.ensureNotVisible_ = function() {
   if (this.isVisible_) {
     throw new Error('Can not change this state of the popup while showing.');
   }
@@ -462,8 +438,7 @@ goog.ui.PopupBase.prototype.ensureNotVisible_ = function() {
  *
  * @return {boolean} whether the popup is currently visible.
  */
-goog.ui.PopupBase.prototype.isVisible = function() {
-  'use strict';
+PopupBase.prototype.isVisible = function() {
   return this.isVisible_;
 };
 
@@ -487,10 +462,9 @@ goog.ui.PopupBase.prototype.isVisible = function() {
  * @return {boolean} Whether the popup is currently visible or was visible
  *     within about 150 ms ago.
  */
-goog.ui.PopupBase.prototype.isOrWasRecentlyVisible = function() {
-  'use strict';
+PopupBase.prototype.isOrWasRecentlyVisible = function() {
   return this.isVisible_ ||
-      (Date.now() - this.lastHideTime_ < goog.ui.PopupBase.DEBOUNCE_DELAY_MS);
+      (Date.now() - this.lastHideTime_ < PopupBase.DEBOUNCE_DELAY_MS);
 };
 
 
@@ -501,8 +475,7 @@ goog.ui.PopupBase.prototype.isOrWasRecentlyVisible = function() {
  *
  * @param {boolean} visible Desired visibility state.
  */
-goog.ui.PopupBase.prototype.setVisible = function(visible) {
-  'use strict';
+PopupBase.prototype.setVisible = function(visible) {
   // Make sure that any currently running transition is stopped.
   if (this.showTransition_) this.showTransition_.stop();
   if (this.hideTransition_) this.hideTransition_.stop();
@@ -519,15 +492,14 @@ goog.ui.PopupBase.prototype.setVisible = function(visible) {
  * Repositions the popup according to the current state.
  * Should be overriden by subclases.
  */
-goog.ui.PopupBase.prototype.reposition = function() {};
+PopupBase.prototype.reposition = function() {};
 
 
 /**
  * Does the work to show the popup.
  * @private
  */
-goog.ui.PopupBase.prototype.show_ = function() {
-  'use strict';
+PopupBase.prototype.show_ = function() {
   // Ignore call if we are already showing.
   if (this.isVisible_) {
     return;
@@ -549,7 +521,7 @@ goog.ui.PopupBase.prototype.show_ = function() {
   // viewport calculation.
   this.reposition();
 
-  var doc = goog.dom.getOwnerDocument(this.element_);
+  var doc = dom.getOwnerDocument(this.element_);
 
   if (this.hideOnEscape_) {
     // Handle the escape keys.  Listen in the capture phase so that we can
@@ -557,7 +529,7 @@ goog.ui.PopupBase.prototype.show_ = function() {
     // if there is a popup within a dialog box, we want the popup to be
     // dismissed first, rather than the dialog.
     this.handler_.listen(
-        doc, goog.events.EventType.KEYDOWN, this.onDocumentKeyDown_, true);
+        doc, EventType.KEYDOWN, this.onDocumentKeyDown_, true);
   }
 
   // Set up event handlers.
@@ -565,9 +537,9 @@ goog.ui.PopupBase.prototype.show_ = function() {
     // Even if the popup is not in the focused document, we want to
     // close it on mousedowns in the document it's in.
     this.handler_.listen(
-        doc, goog.events.EventType.MOUSEDOWN, this.onDocumentMouseDown_, true);
+        doc, EventType.MOUSEDOWN, this.onDocumentMouseDown_, true);
 
-    if (goog.userAgent.IE) {
+    if (userAgent.IE) {
       // We want to know about deactivates/mousedowns on the document with focus
       // The top-level document won't get a deactivate event if the focus is
       // in an iframe and the deactivate fires within that iframe.
@@ -583,10 +555,10 @@ goog.ui.PopupBase.prototype.show_ = function() {
         // may have to do with loading a popup within a hidden iframe.
       }
       while (activeElement &&
-             activeElement.nodeName == goog.dom.TagName.IFRAME) {
+             activeElement.nodeName == TagName.IFRAME) {
 
         try {
-          var tempDoc = goog.dom.getFrameContentDocument(activeElement);
+          var tempDoc = dom.getFrameContentDocument(activeElement);
         } catch (e) {
           // The frame is on a different domain that its parent document
           // This way, we grab the lowest-level document object we can get
@@ -600,24 +572,24 @@ goog.ui.PopupBase.prototype.show_ = function() {
       // Handle mousedowns in the focused document in case the user clicks
       // on the activeElement (in which case the popup should hide).
       this.handler_.listen(
-          doc, goog.events.EventType.MOUSEDOWN, this.onDocumentMouseDown_,
+          doc, EventType.MOUSEDOWN, this.onDocumentMouseDown_,
           true);
 
       // If the active element inside the focused document changes, then
       // we probably need to hide the popup.
       this.handler_.listen(
-          doc, goog.events.EventType.DEACTIVATE, this.onDocumentBlur_);
+          doc, EventType.DEACTIVATE, this.onDocumentBlur_);
 
     } else {
       this.handler_.listen(
-          doc, goog.events.EventType.BLUR, this.onDocumentBlur_);
+          doc, EventType.BLUR, this.onDocumentBlur_);
     }
   }
 
   // Make the popup visible.
-  if (this.type_ == goog.ui.PopupBase.Type.TOGGLE_DISPLAY) {
+  if (this.type_ == PopupBase.Type.TOGGLE_DISPLAY) {
     this.showPopupElement();
-  } else if (this.type_ == goog.ui.PopupBase.Type.MOVE_OFFSCREEN) {
+  } else if (this.type_ == PopupBase.Type.MOVE_OFFSCREEN) {
     this.reposition();
   }
   this.isVisible_ = true;
@@ -628,9 +600,9 @@ goog.ui.PopupBase.prototype.show_ = function() {
   // If there is transition to play, we play it and fire SHOW event after
   // the transition is over.
   if (this.showTransition_) {
-    goog.events.listenOnce(
-        /** @type {!goog.events.EventTarget} */ (this.showTransition_),
-        goog.fx.Transition.EventType.END, this.onShow, false, this);
+    events.listenOnce(
+        /** @type {!EventTarget} */ (this.showTransition_),
+        Transition.EventType.END, this.onShow, false, this);
     this.showTransition_.play();
   } else {
     // Notify derived classes and handlers.
@@ -646,8 +618,7 @@ goog.ui.PopupBase.prototype.show_ = function() {
  * @return {boolean} Whether the popup was hidden and not cancelled.
  * @private
  */
-goog.ui.PopupBase.prototype.hide_ = function(opt_target) {
-  'use strict';
+PopupBase.prototype.hide_ = function(opt_target) {
   // Give derived classes and handlers a chance to cancel hiding.
   if (!this.isVisible_ || !this.onBeforeHide(opt_target)) {
     return false;
@@ -665,9 +636,9 @@ goog.ui.PopupBase.prototype.hide_ = function(opt_target) {
   // If there is transition to play, we play it and only hide the element
   // (and fire HIDE event) after the transition is over.
   if (this.hideTransition_) {
-    goog.events.listenOnce(
-        /** @type {!goog.events.EventTarget} */ (this.hideTransition_),
-        goog.fx.Transition.EventType.END,
+    events.listenOnce(
+        /** @type {!EventTarget} */ (this.hideTransition_),
+        Transition.EventType.END,
         goog.partial(this.continueHidingPopup_, opt_target), false, this);
     this.hideTransition_.play();
   } else {
@@ -684,16 +655,15 @@ goog.ui.PopupBase.prototype.hide_ = function(opt_target) {
  * @param {?Node=} opt_target Target of the event causing the hide.
  * @private
  */
-goog.ui.PopupBase.prototype.continueHidingPopup_ = function(opt_target) {
-  'use strict';
+PopupBase.prototype.continueHidingPopup_ = function(opt_target) {
   // Hide the popup.
-  if (this.type_ == goog.ui.PopupBase.Type.TOGGLE_DISPLAY) {
+  if (this.type_ == PopupBase.Type.TOGGLE_DISPLAY) {
     if (this.shouldHideAsync_) {
-      goog.Timer.callOnce(this.hidePopupElement, 0, this);
+      Timer.callOnce(this.hidePopupElement, 0, this);
     } else {
       this.hidePopupElement();
     }
-  } else if (this.type_ == goog.ui.PopupBase.Type.MOVE_OFFSCREEN) {
+  } else if (this.type_ == PopupBase.Type.MOVE_OFFSCREEN) {
     this.moveOffscreen_();
   }
 
@@ -706,10 +676,9 @@ goog.ui.PopupBase.prototype.continueHidingPopup_ = function(opt_target) {
  * Shows the popup element.
  * @protected
  */
-goog.ui.PopupBase.prototype.showPopupElement = function() {
-  'use strict';
+PopupBase.prototype.showPopupElement = function() {
   this.element_.style.visibility = 'visible';
-  goog.style.setElementShown(this.element_, true);
+  style.setElementShown(this.element_, true);
 };
 
 
@@ -717,10 +686,9 @@ goog.ui.PopupBase.prototype.showPopupElement = function() {
  * Hides the popup element.
  * @protected
  */
-goog.ui.PopupBase.prototype.hidePopupElement = function() {
-  'use strict';
+PopupBase.prototype.hidePopupElement = function() {
   this.element_.style.visibility = 'hidden';
-  goog.style.setElementShown(this.element_, false);
+  style.setElementShown(this.element_, false);
 };
 
 
@@ -729,8 +697,7 @@ goog.ui.PopupBase.prototype.hidePopupElement = function() {
  *
  * @private
  */
-goog.ui.PopupBase.prototype.moveOffscreen_ = function() {
-  'use strict';
+PopupBase.prototype.moveOffscreen_ = function() {
   this.element_.style.top = '-10000px';
 };
 
@@ -743,9 +710,8 @@ goog.ui.PopupBase.prototype.moveOffscreen_ = function() {
  *     if any of the handlers returns false this will also return false.
  * @protected
  */
-goog.ui.PopupBase.prototype.onBeforeShow = function() {
-  'use strict';
-  return this.dispatchEvent(goog.ui.PopupBase.EventType.BEFORE_SHOW);
+PopupBase.prototype.onBeforeShow = function() {
+  return this.dispatchEvent(PopupBase.EventType.BEFORE_SHOW);
 };
 
 
@@ -754,9 +720,8 @@ goog.ui.PopupBase.prototype.onBeforeShow = function() {
  * event but should make sure to call the parent class method.
  * @protected
  */
-goog.ui.PopupBase.prototype.onShow = function() {
-  'use strict';
-  this.dispatchEvent(goog.ui.PopupBase.EventType.SHOW);
+PopupBase.prototype.onShow = function() {
+  this.dispatchEvent(PopupBase.EventType.SHOW);
 };
 
 
@@ -769,10 +734,9 @@ goog.ui.PopupBase.prototype.onShow = function() {
  *     if any of the handlers returns false this will also return false.
  * @protected
  */
-goog.ui.PopupBase.prototype.onBeforeHide = function(opt_target) {
-  'use strict';
+PopupBase.prototype.onBeforeHide = function(opt_target) {
   return this.dispatchEvent(
-      {type: goog.ui.PopupBase.EventType.BEFORE_HIDE, target: opt_target});
+      {type: PopupBase.EventType.BEFORE_HIDE, target: opt_target});
 };
 
 
@@ -782,10 +746,9 @@ goog.ui.PopupBase.prototype.onBeforeHide = function(opt_target) {
  * @param {?Node=} opt_target Target of the event causing the hide.
  * @protected
  */
-goog.ui.PopupBase.prototype.onHide = function(opt_target) {
-  'use strict';
+PopupBase.prototype.onHide = function(opt_target) {
   this.dispatchEvent(
-      {type: goog.ui.PopupBase.EventType.HIDE, target: opt_target});
+      {type: PopupBase.EventType.HIDE, target: opt_target});
 };
 
 
@@ -793,14 +756,13 @@ goog.ui.PopupBase.prototype.onHide = function(opt_target) {
  * Mouse down handler for the document on capture phase. Used to hide the
  * popup for auto-hide mode.
  *
- * @param {goog.events.BrowserEvent} e The event object.
+ * @param {events.BrowserEvent} e The event object.
  * @private
  */
-goog.ui.PopupBase.prototype.onDocumentMouseDown_ = function(e) {
-  'use strict';
+PopupBase.prototype.onDocumentMouseDown_ = function(e) {
   var target = e.target;
 
-  if (!goog.dom.contains(this.element_, target) &&
+  if (!dom.contains(this.element_, target) &&
       !this.isOrWithinAutoHidePartner_(target) &&
       this.isWithinAutoHideRegion_(target) && !this.shouldDebounce_()) {
     // Mouse click was outside popup and partners, so hide.
@@ -812,12 +774,11 @@ goog.ui.PopupBase.prototype.onDocumentMouseDown_ = function(e) {
 /**
  * Handles key-downs on the document to handle the escape key.
  *
- * @param {goog.events.BrowserEvent} e The event object.
+ * @param {events.BrowserEvent} e The event object.
  * @private
  */
-goog.ui.PopupBase.prototype.onDocumentKeyDown_ = function(e) {
-  'use strict';
-  if (e.keyCode == goog.events.KeyCodes.ESC) {
+PopupBase.prototype.onDocumentKeyDown_ = function(e) {
+  if (e.keyCode == KeyCodes.ESC) {
     if (this.hide_(e.target)) {
       // Eat the escape key, but only if this popup was actually closed.
       e.preventDefault();
@@ -831,16 +792,15 @@ goog.ui.PopupBase.prototype.onDocumentKeyDown_ = function(e) {
  * Deactivate handler(IE) and blur handler (other browsers) for document.
  * Used to hide the popup for auto-hide mode.
  *
- * @param {goog.events.BrowserEvent} e The event object.
+ * @param {events.BrowserEvent} e The event object.
  * @private
  */
-goog.ui.PopupBase.prototype.onDocumentBlur_ = function(e) {
-  'use strict';
+PopupBase.prototype.onDocumentBlur_ = function(e) {
   if (!this.enableCrossIframeDismissal_) {
     return;
   }
 
-  var doc = goog.dom.getOwnerDocument(this.element_);
+  var doc = dom.getOwnerDocument(this.element_);
 
   // Ignore blur events if either the active element is still inside the popup
   // or one of its partner elements, or if there is no longer an active element.
@@ -848,8 +808,8 @@ goog.ui.PopupBase.prototype.onDocumentBlur_ = function(e) {
   // itself before losing tabIndex.
   if (typeof document.activeElement != 'undefined') {
     var activeElement = doc.activeElement;
-    if (!activeElement || goog.dom.contains(this.element_, activeElement) ||
-        activeElement.tagName == goog.dom.TagName.BODY) {
+    if (!activeElement || dom.contains(this.element_, activeElement) ||
+        activeElement.tagName == TagName.BODY) {
       return;
     }
 
@@ -883,11 +843,9 @@ goog.ui.PopupBase.prototype.onDocumentBlur_ = function(e) {
  *     partners or is a child of an auto hide partner.
  * @private
  */
-goog.ui.PopupBase.prototype.isOrWithinAutoHidePartner_ = function(element) {
-  'use strict';
-  return goog.array.some(this.autoHidePartners_ || [], function(partner) {
-    'use strict';
-    return element === partner || goog.dom.contains(partner, element);
+PopupBase.prototype.isOrWithinAutoHidePartner_ = function(element) {
+  return array.some(this.autoHidePartners_ || [], function(partner) {
+    return element === partner || dom.contains(partner, element);
   });
 };
 
@@ -899,10 +857,9 @@ goog.ui.PopupBase.prototype.isOrWithinAutoHidePartner_ = function(element) {
  *     entire document.
  * @private
  */
-goog.ui.PopupBase.prototype.isWithinAutoHideRegion_ = function(element) {
-  'use strict';
+PopupBase.prototype.isWithinAutoHideRegion_ = function(element) {
   return this.autoHideRegion_ ?
-      goog.dom.contains(this.autoHideRegion_, element) :
+      dom.contains(this.autoHideRegion_, element) :
       true;
 };
 
@@ -912,19 +869,17 @@ goog.ui.PopupBase.prototype.isWithinAutoHideRegion_ = function(element) {
  *     delay.
  * @private
  */
-goog.ui.PopupBase.prototype.shouldDebounce_ = function() {
-  'use strict';
-  return Date.now() - this.lastShowTime_ < goog.ui.PopupBase.DEBOUNCE_DELAY_MS;
+PopupBase.prototype.shouldDebounce_ = function() {
+  return Date.now() - this.lastShowTime_ < PopupBase.DEBOUNCE_DELAY_MS;
 };
 
 
 /** @override */
-goog.ui.PopupBase.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.PopupBase.base(this, 'disposeInternal');
+PopupBase.prototype.disposeInternal = function() {
+  PopupBase.base(this, 'disposeInternal');
   this.handler_.dispose();
-  goog.dispose(this.showTransition_);
-  goog.dispose(this.hideTransition_);
+  dispose(this.showTransition_);
+  dispose(this.hideTransition_);
   delete this.element_;
   delete this.handler_;
   delete this.autoHidePartners_;

@@ -13,10 +13,7 @@
  * This is auto-generated code. Do not manually edit!
  */
 
-goog.module('goog.a11y.aria.datatables');
-goog.module.declareLegacyNamespace();
-
-const State = goog.require('goog.a11y.aria.State');
+import { State } from './attributes.js';
 
 
 /**
@@ -35,7 +32,7 @@ let defaultStateValueMap;
  * @return {!Object<!State|string, string|boolean|number>}
  *      The names for each of the notification methods.
  */
-exports.getDefaultValuesMap = function() {
+export let getDefaultValuesMap = function() {
   if (!defaultStateValueMap) {
     defaultStateValueMap = {
       [State.ATOMIC]: false,

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.DragScrollSupportTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const DragScrollSupport = goog.require('goog.fx.DragScrollSupport');
-const GoogRect = goog.require('goog.math.Rect');
-const MockClock = goog.require('goog.testing.MockClock');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Coordinate } from '../math/coordinate.js';
+import { DragScrollSupport } from './dragscrollsupport.js';
+import { Rect as GoogRect } from '../math/rect.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as events from '../testing/events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let vContainerDiv;
 let vContentDiv;

@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.DebugWindowTest');
 goog.setTestOnly();
 
-const DebugWindow = goog.require('goog.debug.DebugWindow');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DebugWindow } from './debugwindow.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   /** @suppress {visibility} suppression added to enable type checking */

@@ -11,7 +11,7 @@
  * @see ../demos/popupemojipicker.html or emojipicker_test.html for examples
  * of how to use this class.
  */
-goog.provide('goog.ui.emoji.SpriteInfo');
+goog.declareModuleId('goog.ui.emoji.spriteinfo');
 
 
 
@@ -32,28 +32,33 @@ goog.provide('goog.ui.emoji.SpriteInfo');
  * @constructor
  * @final
  */
-goog.ui.emoji.SpriteInfo = function(
-    cssClass, opt_url, opt_width, opt_height, opt_xOffset, opt_yOffset,
-    opt_animated) {
-  'use strict';
-  if (cssClass != null) {
-    this.cssClass_ = cssClass;
-  } else {
-    if (opt_url == undefined || opt_width === undefined ||
-        opt_height === undefined || opt_xOffset == undefined ||
-        opt_yOffset === undefined) {
-      throw new Error('Sprite info is not fully specified');
-    }
+export function SpriteInfo(
+ cssClass,
+ opt_url,
+ opt_width,
+ opt_height,
+ opt_xOffset,
+ opt_yOffset,
+ opt_animated
+) {
+ if (cssClass != null) {
+   this.cssClass_ = cssClass;
+ } else {
+   if (opt_url == undefined || opt_width === undefined ||
+       opt_height === undefined || opt_xOffset == undefined ||
+       opt_yOffset === undefined) {
+     throw new Error('Sprite info is not fully specified');
+   }
 
-    this.url_ = opt_url;
-    this.width_ = opt_width;
-    this.height_ = opt_height;
-    this.xOffset_ = opt_xOffset;
-    this.yOffset_ = opt_yOffset;
-  }
+   this.url_ = opt_url;
+   this.width_ = opt_width;
+   this.height_ = opt_height;
+   this.xOffset_ = opt_xOffset;
+   this.yOffset_ = opt_yOffset;
+ }
 
-  this.animated_ = !!opt_animated;
-};
+ this.animated_ = !!opt_animated;
+}
 
 
 /**
@@ -61,7 +66,7 @@ goog.ui.emoji.SpriteInfo = function(
  * @type {string}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.cssClass_;
+SpriteInfo.prototype.cssClass_;
 
 
 /**
@@ -69,7 +74,7 @@ goog.ui.emoji.SpriteInfo.prototype.cssClass_;
  * @type {string|undefined}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.url_;
+SpriteInfo.prototype.url_;
 
 
 /**
@@ -77,7 +82,7 @@ goog.ui.emoji.SpriteInfo.prototype.url_;
  * @type {number|undefined}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.width_;
+SpriteInfo.prototype.width_;
 
 
 /**
@@ -85,7 +90,7 @@ goog.ui.emoji.SpriteInfo.prototype.width_;
  * @type {number|undefined}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.height_;
+SpriteInfo.prototype.height_;
 
 
 /**
@@ -93,7 +98,7 @@ goog.ui.emoji.SpriteInfo.prototype.height_;
  * @type {number|undefined}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.xOffset_;
+SpriteInfo.prototype.xOffset_;
 
 
 /**
@@ -101,7 +106,7 @@ goog.ui.emoji.SpriteInfo.prototype.xOffset_;
  * @type {number|undefined}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.yOffset_;
+SpriteInfo.prototype.yOffset_;
 
 
 /**
@@ -109,7 +114,7 @@ goog.ui.emoji.SpriteInfo.prototype.yOffset_;
  * @type {boolean}
  * @private
  */
-goog.ui.emoji.SpriteInfo.prototype.animated_;
+SpriteInfo.prototype.animated_;
 
 
 /**
@@ -117,9 +122,8 @@ goog.ui.emoji.SpriteInfo.prototype.animated_;
  * @return {?string} Name of the CSS class to properly display the sprited
  *     image.
  */
-goog.ui.emoji.SpriteInfo.prototype.getCssClass = function() {
-  'use strict';
-  return this.cssClass_ || null;
+SpriteInfo.prototype.getCssClass = function() {
+ return this.cssClass_ || null;
 };
 
 
@@ -127,9 +131,8 @@ goog.ui.emoji.SpriteInfo.prototype.getCssClass = function() {
  * Returns the url of the sprite image.
  * @return {?string} Url of the sprite image.
  */
-goog.ui.emoji.SpriteInfo.prototype.getUrl = function() {
-  'use strict';
-  return this.url_ || null;
+SpriteInfo.prototype.getUrl = function() {
+ return this.url_ || null;
 };
 
 
@@ -137,9 +140,8 @@ goog.ui.emoji.SpriteInfo.prototype.getUrl = function() {
  * Returns whether the emoji specified by this sprite is animated.
  * @return {boolean} Whether the emoji is animated.
  */
-goog.ui.emoji.SpriteInfo.prototype.isAnimated = function() {
-  'use strict';
-  return this.animated_;
+SpriteInfo.prototype.isAnimated = function() {
+ return this.animated_;
 };
 
 
@@ -147,9 +149,8 @@ goog.ui.emoji.SpriteInfo.prototype.isAnimated = function() {
  * Returns the width of the image being sprited, appropriate for a CSS value.
  * @return {string} The width of the image being sprited.
  */
-goog.ui.emoji.SpriteInfo.prototype.getWidthCssValue = function() {
-  'use strict';
-  return goog.ui.emoji.SpriteInfo.getCssPixelValue_(this.width_);
+SpriteInfo.prototype.getWidthCssValue = function() {
+ return SpriteInfo.getCssPixelValue_(this.width_);
 };
 
 
@@ -157,9 +158,8 @@ goog.ui.emoji.SpriteInfo.prototype.getWidthCssValue = function() {
  * Returns the height of the image being sprited, appropriate for a CSS value.
  * @return {string} The height of the image being sprited.
  */
-goog.ui.emoji.SpriteInfo.prototype.getHeightCssValue = function() {
-  'use strict';
-  return goog.ui.emoji.SpriteInfo.getCssPixelValue_(this.height_);
+SpriteInfo.prototype.getHeightCssValue = function() {
+ return SpriteInfo.getCssPixelValue_(this.height_);
 };
 
 
@@ -168,9 +168,8 @@ goog.ui.emoji.SpriteInfo.prototype.getHeightCssValue = function() {
  * appropriate for a CSS value.
  * @return {string} The x offset of the image being sprited within the sprite.
  */
-goog.ui.emoji.SpriteInfo.prototype.getXOffsetCssValue = function() {
-  'use strict';
-  return goog.ui.emoji.SpriteInfo.getOffsetCssValue_(this.xOffset_);
+SpriteInfo.prototype.getXOffsetCssValue = function() {
+ return SpriteInfo.getOffsetCssValue_(this.xOffset_);
 };
 
 
@@ -179,9 +178,8 @@ goog.ui.emoji.SpriteInfo.prototype.getXOffsetCssValue = function() {
  * appropriate for a CSS value.
  * @return {string} The y offset of the image being sprited within the sprite.
  */
-goog.ui.emoji.SpriteInfo.prototype.getYOffsetCssValue = function() {
-  'use strict';
-  return goog.ui.emoji.SpriteInfo.getOffsetCssValue_(this.yOffset_);
+SpriteInfo.prototype.getYOffsetCssValue = function() {
+ return SpriteInfo.getOffsetCssValue_(this.yOffset_);
 };
 
 
@@ -194,9 +192,8 @@ goog.ui.emoji.SpriteInfo.prototype.getYOffsetCssValue = function() {
  * @return {string} A string appropriate for use as a CSS value.
  * @private
  */
-goog.ui.emoji.SpriteInfo.getCssPixelValue_ = function(value) {
-  'use strict';
-  return !value ? '0' : value + 'px';
+SpriteInfo.getCssPixelValue_ = function(value) {
+ return !value ? '0' : value + 'px';
 };
 
 
@@ -208,8 +205,7 @@ goog.ui.emoji.SpriteInfo.getCssPixelValue_ = function(value) {
  * @return {string} A string appropriate for use as a CSS value.
  * @private
  */
-goog.ui.emoji.SpriteInfo.getOffsetCssValue_ = function(posOffset) {
-  'use strict';
-  const offset = goog.ui.emoji.SpriteInfo.getCssPixelValue_(posOffset);
-  return offset == '0' ? offset : '-' + offset;
+SpriteInfo.getOffsetCssValue_ = function(posOffset) {
+ const offset = SpriteInfo.getCssPixelValue_(posOffset);
+ return offset == '0' ? offset : '-' + offset;
 };

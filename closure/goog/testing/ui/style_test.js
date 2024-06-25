@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.ui.styleTest');
 goog.setTestOnly();
 
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.testing.ui.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as dom from '../../dom/dom.js';
+import style from './style.js';
+import { testSuite } from '../testsuite.js';
 
 // Write iFrame tag to load reference FastUI markup. Then, our tests will
 // compare the generated markup to the reference markup.

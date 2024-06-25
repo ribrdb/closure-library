@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.RespondingChannelTest');
 goog.setTestOnly();
 
-const GoogPromise = goog.require('goog.Promise');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const RespondingChannel = goog.require('goog.messaging.RespondingChannel');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { RespondingChannel } from './respondingchannel.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const CH1_REQUEST = {
   'request': 'quux1'

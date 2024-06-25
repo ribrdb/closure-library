@@ -9,13 +9,13 @@
  * persistence mechanism.
  */
 
-goog.module('goog.storage.mechanism.IterableMechanism');
-goog.module.declareLegacyNamespace();
+goog.declareModuleId('goog.storage.mechanism.IterableMechanism');
 
-const Mechanism = goog.require('goog.storage.mechanism.Mechanism');
-const {Iterator: GoogIterator} = goog.require('goog.iter');
-const {ShimIterable} = goog.require('goog.iter.es6');
-const {assertString} = goog.require('goog.asserts');
+import { Mechanism } from './mechanism.js';
+import { Iterator as GoogIterator } from '../../iter/iter.js';
+import es6 from '../../iter/es6.js';
+const {ShimIterable} = es6;
+import { assertString } from '../../asserts/asserts.js';
 
 
 
@@ -90,4 +90,4 @@ IterableMechanism.prototype.clear = function() {
   }
 };
 
-exports = IterableMechanism;
+export { IterableMechanism };

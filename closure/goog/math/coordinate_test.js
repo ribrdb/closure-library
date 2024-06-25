@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.CoordinateTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Coordinate } from './coordinate.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testCoordinate1() {

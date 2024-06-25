@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.LinkShortcutPluginTest');
 goog.setTestOnly();
 
-const BasicTextFormatter = goog.require('goog.editor.plugins.BasicTextFormatter');
-const Field = goog.require('goog.editor.Field');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const LinkBubble = goog.require('goog.editor.plugins.LinkBubble');
-const LinkShortcutPlugin = goog.require('goog.editor.plugins.LinkShortcutPlugin');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { BasicTextFormatter } from './basictextformatter.js';
+import { Field } from '../field.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { LinkBubble } from './linkbubble.js';
+import { LinkShortcutPlugin } from './linkshortcutplugin.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { TagName } from '../../dom/tagname.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../testing/events/events.js';
+import * as product from '../../useragent/product.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingDom from '../../testing/dom.js';
 
 let propertyReplacer;
 

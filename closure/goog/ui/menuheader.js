@@ -9,49 +9,47 @@
  * @see goog.ui.Menu
  */
 
-goog.provide('goog.ui.MenuHeader');
+goog.declareModuleId('goog.ui.menuheader');
 
-goog.require('goog.ui.Component');
-goog.require('goog.ui.Control');
-goog.require('goog.ui.MenuHeaderRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.ui.ControlContent');
+import { Component } from './component.js';
+import { Control } from './control.js';
+import { MenuHeaderRenderer } from './menuheaderrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
  * Class representing a menu header.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to
+ * @param {ControlContent} content Text caption or DOM structure to
  *     display as the content of the item (use to add icons or styling to
  *     menus).
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper used for
  *     document interactions.
- * @param {goog.ui.MenuHeaderRenderer=} opt_renderer Optional renderer.
+ * @param {MenuHeaderRenderer=} opt_renderer Optional renderer.
  * @constructor
- * @extends {goog.ui.Control}
+ * @extends {Control}
  */
-goog.ui.MenuHeader = function(content, opt_domHelper, opt_renderer) {
-  'use strict';
-  goog.ui.Control.call(
-      this, content, opt_renderer || goog.ui.MenuHeaderRenderer.getInstance(),
-      opt_domHelper);
+export function MenuHeader(content, opt_domHelper, opt_renderer) {
+ Control.call(
+     this, content, opt_renderer || MenuHeaderRenderer.getInstance(),
+     opt_domHelper);
 
-  this.setSupportedState(goog.ui.Component.State.DISABLED, false);
-  this.setSupportedState(goog.ui.Component.State.HOVER, false);
-  this.setSupportedState(goog.ui.Component.State.ACTIVE, false);
-  this.setSupportedState(goog.ui.Component.State.FOCUSED, false);
+ this.setSupportedState(Component.State.DISABLED, false);
+ this.setSupportedState(Component.State.HOVER, false);
+ this.setSupportedState(Component.State.ACTIVE, false);
+ this.setSupportedState(Component.State.FOCUSED, false);
 
-  // Headers are always considered disabled.
-  this.setStateInternal(goog.ui.Component.State.DISABLED);
-};
-goog.inherits(goog.ui.MenuHeader, goog.ui.Control);
+ // Headers are always considered disabled.
+ this.setStateInternal(Component.State.DISABLED);
+}
+goog.inherits(MenuHeader, Control);
 
 
-// Register a decorator factory function for goog.ui.MenuHeaders.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.MenuHeaderRenderer.CSS_CLASS, function() {
-      'use strict';
-      // MenuHeader defaults to using MenuHeaderRenderer.
-      return new goog.ui.MenuHeader(null);
-    });
+/* Register a decorator factory function for MenuHeaders.*/
+registry.setDecoratorByClassName(
+    MenuHeaderRenderer.CSS_CLASS, function() {
+ // MenuHeader defaults to using MenuHeaderRenderer.
+ return new MenuHeader(null);
+});

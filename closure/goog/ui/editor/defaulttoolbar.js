@@ -10,38 +10,36 @@
  * @see ../../demos/editor/editor.html
  */
 
-goog.provide('goog.ui.editor.ButtonDescriptor');
-goog.provide('goog.ui.editor.DefaultToolbar');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.editor.Command');
-goog.require('goog.style');
-goog.require('goog.ui.editor.ToolbarFactory');
-goog.require('goog.ui.editor.messages');
-goog.require('goog.userAgent');
-goog.requireType('goog.ui.Button');
-goog.requireType('goog.ui.ButtonRenderer');
-goog.requireType('goog.ui.ColorMenuButtonRenderer');
-goog.requireType('goog.ui.Control');
-goog.requireType('goog.ui.ControlContent');
-goog.requireType('goog.ui.MenuButtonRenderer');
-goog.requireType('goog.ui.MenuItem');
-goog.requireType('goog.ui.Select');
-goog.requireType('goog.ui.Toolbar');
-goog.requireType('goog.ui.ToolbarColorMenuButton');
+import * as dom from '../../dom/dom.js';
+import { TagName } from '../../dom/tagname.js';
+import * as classlist from '../../dom/classlist.js';
+import { Command } from '../../editor/command.js';
+import * as style from '../../style/style.js';
+import * as ToolbarFactory from './toolbarfactory.js';
+import * as messages from './messages.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.ui.button');
+goog.requireType('goog.ui.buttonrenderer');
+goog.requireType('goog.ui.colormenubuttonrenderer');
+goog.requireType('goog.ui.control');
+goog.requireType('goog.ui.controlcontent');
+goog.requireType('goog.ui.menubuttonrenderer');
+goog.requireType('goog.ui.menuitem');
+goog.requireType('goog.ui.select');
+goog.requireType('goog.ui.toolbar');
+goog.requireType('goog.ui.toolbarcolormenubutton');
 
 // Font menu creation.
 
 
 /** @desc Font menu item caption for the default sans-serif font. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_NORMAL = goog.getMsg('Normal');
+MSG_FONT_NORMAL = goog.getMsg('Normal');
 
 
 /** @desc Font menu item caption for the default serif font. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_NORMAL_SERIF =
+MSG_FONT_NORMAL_SERIF =
     goog.getMsg('Normal / serif');
 
 
@@ -56,13 +54,13 @@ goog.ui.editor.DefaultToolbar.MSG_FONT_NORMAL_SERIF =
  * @type {!Array<{caption:string, value:string}>}
  * @private
  */
-goog.ui.editor.DefaultToolbar.FONTS_ = [
+var FONTS_ = [
   {
-    caption: goog.ui.editor.DefaultToolbar.MSG_FONT_NORMAL,
+    caption: MSG_FONT_NORMAL,
     value: 'arial,sans-serif'
   },
   {
-    caption: goog.ui.editor.DefaultToolbar.MSG_FONT_NORMAL_SERIF,
+    caption: MSG_FONT_NORMAL_SERIF,
     value: 'times new roman,serif'
   },
   {caption: 'Courier New', value: 'courier new,monospace'},
@@ -78,7 +76,7 @@ goog.ui.editor.DefaultToolbar.FONTS_ = [
  * @type {!Object<!Array<{caption:string, value:string}>>}
  * @private
  */
-goog.ui.editor.DefaultToolbar.I18N_FONTS_ = {
+var I18N_FONTS_ = {
   'ja': [
     {
       caption: '\uff2d\uff33 \uff30\u30b4\u30b7\u30c3\u30af',
@@ -111,7 +109,7 @@ goog.ui.editor.DefaultToolbar.I18N_FONTS_ = {
  * @type {string}
  * @private
  */
-goog.ui.editor.DefaultToolbar.locale_ = 'en-us';
+var locale_ = 'en-us';
 
 
 /**
@@ -120,56 +118,54 @@ goog.ui.editor.DefaultToolbar.locale_ = 'en-us';
  * before font name menu is created.
  * @param {string} locale Locale to use for the toolbar font names.
  */
-goog.ui.editor.DefaultToolbar.setLocale = function(locale) {
-  'use strict';
-  goog.ui.editor.DefaultToolbar.locale_ = locale;
-};
+export function setLocale(locale) {
+  locale_ = locale;
+}
 
 
 /**
  * Initializes the given font menu button by adding default fonts to the menu.
- * If goog.ui.editor.DefaultToolbar.setLocale was called to specify a locale
+ * If setLocale was called to specify a locale
  * for which locale-specific default fonts exist, those are added before
  * common fonts.
  * @param {!goog.ui.Select} button Font menu button.
  */
-goog.ui.editor.DefaultToolbar.addDefaultFonts = function(button) {
-  'use strict';
+export function addDefaultFonts(button) {
   // Normalize locale to lowercase, with a hyphen (see bug 1036165).
   const locale =
-      goog.ui.editor.DefaultToolbar.locale_.replace(/_/, '-').toLowerCase();
+      locale_.replace(/_/, '-').toLowerCase();
   // Add locale-specific default fonts, if any.
   let fontlist = [];
 
-  if (locale in goog.ui.editor.DefaultToolbar.I18N_FONTS_) {
-    fontlist = goog.ui.editor.DefaultToolbar.I18N_FONTS_[locale];
+  if (locale in I18N_FONTS_) {
+    fontlist = I18N_FONTS_[locale];
   }
   if (fontlist.length) {
-    goog.ui.editor.ToolbarFactory.addFonts(button, fontlist);
+    ToolbarFactory.addFonts(button, fontlist);
   }
   // Add locale-independent default fonts.
-  goog.ui.editor.ToolbarFactory.addFonts(
-      button, goog.ui.editor.DefaultToolbar.FONTS_);
-};
+  ToolbarFactory.addFonts(
+      button, FONTS_);
+}
 
 
 // Font size menu creation.
 
 
 /** @desc Font size menu item caption for the 'Small' size. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_SMALL = goog.getMsg('Small');
+MSG_FONT_SIZE_SMALL = goog.getMsg('Small');
 
 
 /** @desc Font size menu item caption for the 'Normal' size. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_NORMAL = goog.getMsg('Normal');
+MSG_FONT_SIZE_NORMAL = goog.getMsg('Normal');
 
 
 /** @desc Font size menu item caption for the 'Large' size. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_LARGE = goog.getMsg('Large');
+MSG_FONT_SIZE_LARGE = goog.getMsg('Large');
 
 
 /** @desc Font size menu item caption for the 'Huge' size. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_HUGE = goog.getMsg('Huge');
+MSG_FONT_SIZE_HUGE = goog.getMsg('Huge');
 
 
 /**
@@ -181,11 +177,11 @@ goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_HUGE = goog.getMsg('Huge');
  * @type {!Array<{caption:string, value:number}>}
  * @private
  */
-goog.ui.editor.DefaultToolbar.FONT_SIZES_ = [
-  {caption: goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_SMALL, value: 1},
-  {caption: goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_NORMAL, value: 2},
-  {caption: goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_LARGE, value: 4},
-  {caption: goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_HUGE, value: 6}
+var FONT_SIZES_ = [
+  {caption: MSG_FONT_SIZE_SMALL, value: 1},
+  {caption: MSG_FONT_SIZE_NORMAL, value: 2},
+  {caption: MSG_FONT_SIZE_LARGE, value: 4},
+  {caption: MSG_FONT_SIZE_HUGE, value: 6}
 ];
 
 
@@ -194,59 +190,58 @@ goog.ui.editor.DefaultToolbar.FONT_SIZES_ = [
  * it.
  * @param {!goog.ui.Select} button Font size menu button.
  */
-goog.ui.editor.DefaultToolbar.addDefaultFontSizes = function(button) {
-  'use strict';
-  goog.ui.editor.ToolbarFactory.addFontSizes(
-      button, goog.ui.editor.DefaultToolbar.FONT_SIZES_);
-};
+export function addDefaultFontSizes(button) {
+  ToolbarFactory.addFontSizes(
+      button, FONT_SIZES_);
+}
 
 
 // Header format menu creation.
 
 
 /** @desc Caption for "Heading" block format option. */
-goog.ui.editor.DefaultToolbar.MSG_FORMAT_HEADING = goog.getMsg('Heading');
+MSG_FORMAT_HEADING = goog.getMsg('Heading');
 
 
 /** @desc Caption for "Subheading" block format option. */
-goog.ui.editor.DefaultToolbar.MSG_FORMAT_SUBHEADING = goog.getMsg('Subheading');
+MSG_FORMAT_SUBHEADING = goog.getMsg('Subheading');
 
 
 /** @desc Caption for "Minor heading" block format option. */
-goog.ui.editor.DefaultToolbar.MSG_FORMAT_MINOR_HEADING =
+MSG_FORMAT_MINOR_HEADING =
     goog.getMsg('Minor heading');
 
 
 /** @desc Caption for "Normal" block format option. */
-goog.ui.editor.DefaultToolbar.MSG_FORMAT_NORMAL = goog.getMsg('Normal');
+MSG_FORMAT_NORMAL = goog.getMsg('Normal');
 
 
 /**
  * Format option descriptors, each with the following attributes:
  * <ul>
  *   <li>`caption` - Caption to show in the menu (e.g. 'Minor heading')
- *   <li>`command` - Corresponding {@link goog.dom.TagName} (e.g.
+ *   <li>`command` - Corresponding {@link TagName} (e.g.
  *       'H4')
  * </ul>
- * @type {!Array<{caption: string, command: !goog.dom.TagName}>}
+ * @type {!Array<{caption: string, command: !TagName}>}
  * @private
  */
-goog.ui.editor.DefaultToolbar.FORMAT_OPTIONS_ = [
+var FORMAT_OPTIONS_ = [
   {
-    caption: goog.ui.editor.DefaultToolbar.MSG_FORMAT_HEADING,
-    command: goog.dom.TagName.H2
+    caption: MSG_FORMAT_HEADING,
+    command: TagName.H2
   },
   {
-    caption: goog.ui.editor.DefaultToolbar.MSG_FORMAT_SUBHEADING,
-    command: goog.dom.TagName.H3
+    caption: MSG_FORMAT_SUBHEADING,
+    command: TagName.H3
   },
   {
-    caption: goog.ui.editor.DefaultToolbar.MSG_FORMAT_MINOR_HEADING,
-    command: goog.dom.TagName.H4
+    caption: MSG_FORMAT_MINOR_HEADING,
+    command: TagName.H4
   },
   {
-    caption: goog.ui.editor.DefaultToolbar.MSG_FORMAT_NORMAL,
-    command: goog.dom.TagName.P
+    caption: MSG_FORMAT_NORMAL,
+    command: TagName.P
   }
 ];
 
@@ -256,11 +251,10 @@ goog.ui.editor.DefaultToolbar.FORMAT_OPTIONS_ = [
  * options to the menu.
  * @param {!goog.ui.Select} button "Format block" menu button.
  */
-goog.ui.editor.DefaultToolbar.addDefaultFormatOptions = function(button) {
-  'use strict';
-  goog.ui.editor.ToolbarFactory.addFormatOptions(
-      button, goog.ui.editor.DefaultToolbar.FORMAT_OPTIONS_);
-};
+export function addDefaultFormatOptions(button) {
+  ToolbarFactory.addFormatOptions(
+      button, FORMAT_OPTIONS_);
+}
 
 
 /**
@@ -272,28 +266,26 @@ goog.ui.editor.DefaultToolbar.addDefaultFormatOptions = function(button) {
  *     element.
  * @return {!goog.ui.Toolbar} Default editor toolbar, rendered into the given
  *     parent element.
- * @see goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS
+ * @see DEFAULT_BUTTONS
  */
-goog.ui.editor.DefaultToolbar.makeDefaultToolbar = function(
-    elem, opt_isRightToLeft) {
-  'use strict';
-  const isRightToLeft = opt_isRightToLeft || goog.style.isRightToLeft(elem);
+export function makeDefaultToolbar(elem, opt_isRightToLeft) {
+  const isRightToLeft = opt_isRightToLeft || style.isRightToLeft(elem);
   const buttons = isRightToLeft ?
-      goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS_RTL :
-      goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS;
-  return goog.ui.editor.DefaultToolbar.makeToolbar(
+      DEFAULT_BUTTONS_RTL :
+      DEFAULT_BUTTONS;
+  return makeToolbar(
       buttons, elem, opt_isRightToLeft);
-};
+}
 
 
 /**
  * Creates a {@link goog.ui.Toolbar} containing the specified set of
  * toolbar buttons, and renders it into the given parent element.  Each
  * item in the `items` array must either be a
- * {@link goog.editor.Command} (to create a built-in button) or a subclass
+ * {@link Command} (to create a built-in button) or a subclass
  * of {@link goog.ui.Control} (to create a custom control).
  * @param {!Array<string|goog.ui.Control>} items Toolbar items; each must
- *     be a {@link goog.editor.Command} or a {@link goog.ui.Control}.
+ *     be a {@link Command} or a {@link goog.ui.Control}.
  * @param {!Element} elem Toolbar parent element.
  * @param {boolean=} opt_isRightToLeft Whether the editor chrome is
  *     right-to-left; defaults to the directionality of the toolbar parent
@@ -301,15 +293,13 @@ goog.ui.editor.DefaultToolbar.makeDefaultToolbar = function(
  * @return {!goog.ui.Toolbar} Editor toolbar, rendered into the given parent
  *     element.
  */
-goog.ui.editor.DefaultToolbar.makeToolbar = function(
-    items, elem, opt_isRightToLeft) {
-  'use strict';
-  const domHelper = goog.dom.getDomHelper(elem);
+export function makeToolbar(items, elem, opt_isRightToLeft) {
+  const domHelper = dom.getDomHelper(elem);
   const controls = [];
 
   for (let i = 0, button; button = items[i]; i++) {
     if (typeof button === 'string') {
-      button = goog.ui.editor.DefaultToolbar.makeBuiltInToolbarButton(
+      button = makeBuiltInToolbarButton(
           button, domHelper);
     }
     if (button) {
@@ -317,40 +307,38 @@ goog.ui.editor.DefaultToolbar.makeToolbar = function(
     }
   }
 
-  return goog.ui.editor.ToolbarFactory.makeToolbar(
+  return ToolbarFactory.makeToolbar(
       controls, elem, opt_isRightToLeft);
-};
+}
 
 
 /**
  * Creates an instance of a subclass of {@link goog.ui.Button} for the given
- * {@link goog.editor.Command}, or null if no built-in button exists for the
+ * {@link Command}, or null if no built-in button exists for the
  * command.  Note that this function is only intended to create built-in
  * buttons; please don't try to hack it!
  * @param {string} command Editor command ID.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {goog.ui.Button} Toolbar button (null if no built-in button exists
  *     for the command).
  */
-goog.ui.editor.DefaultToolbar.makeBuiltInToolbarButton = function(
-    command, opt_domHelper) {
-  'use strict';
+export function makeBuiltInToolbarButton(command, opt_domHelper) {
   let button = null;
-  const descriptor = goog.ui.editor.DefaultToolbar.buttons_[command];
+  const descriptor = buttons_[command];
   if (descriptor) {
     // Default the factory method to makeToggleButton, since most built-in
     // toolbar buttons are toggle buttons. See also
-    // goog.ui.editor.DefaultToolbar.button_list_.
+    /* button_list_.*/
     /** @type {!Function} */
     const factory =
-        descriptor.factory || goog.ui.editor.ToolbarFactory.makeToggleButton;
+        descriptor.factory || ToolbarFactory.makeToggleButton;
     const id = descriptor.command;
     const tooltip = descriptor.tooltip;
     const caption = descriptor.caption;
     const classNames = descriptor.classes;
     // Default the DOM helper to the one for the current document.
-    const domHelper = opt_domHelper || goog.dom.getDomHelper();
+    const domHelper = opt_domHelper || dom.getDomHelper();
     // Instantiate the button based on the descriptor.
     button = factory(id, tooltip, caption, classNames, null, domHelper);
     // If this button's state should be queried when updating the toolbar,
@@ -360,20 +348,20 @@ goog.ui.editor.DefaultToolbar.makeBuiltInToolbarButton = function(
     }
   }
   return button;
-};
+}
 
 
 /**
  * A set of built-in buttons to display in the default editor toolbar.
  * @type {!Array<string>}
  */
-goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS = [
-  goog.editor.Command.IMAGE, goog.editor.Command.LINK, goog.editor.Command.BOLD,
-  goog.editor.Command.ITALIC, goog.editor.Command.UNORDERED_LIST,
-  goog.editor.Command.FONT_COLOR, goog.editor.Command.FONT_FACE,
-  goog.editor.Command.FONT_SIZE, goog.editor.Command.JUSTIFY_LEFT,
-  goog.editor.Command.JUSTIFY_CENTER, goog.editor.Command.JUSTIFY_RIGHT,
-  goog.editor.Command.EDIT_HTML
+export var DEFAULT_BUTTONS = [
+  Command.IMAGE, Command.LINK, Command.BOLD,
+  Command.ITALIC, Command.UNORDERED_LIST,
+  Command.FONT_COLOR, Command.FONT_FACE,
+  Command.FONT_SIZE, Command.JUSTIFY_LEFT,
+  Command.JUSTIFY_CENTER, Command.JUSTIFY_RIGHT,
+  Command.EDIT_HTML
 ];
 
 
@@ -382,14 +370,14 @@ goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS = [
  * the editor chrome is right-to-left (BiDi mode only).
  * @type {!Array<string>}
  */
-goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS_RTL = [
-  goog.editor.Command.IMAGE, goog.editor.Command.LINK, goog.editor.Command.BOLD,
-  goog.editor.Command.ITALIC, goog.editor.Command.UNORDERED_LIST,
-  goog.editor.Command.FONT_COLOR, goog.editor.Command.FONT_FACE,
-  goog.editor.Command.FONT_SIZE, goog.editor.Command.JUSTIFY_RIGHT,
-  goog.editor.Command.JUSTIFY_CENTER, goog.editor.Command.JUSTIFY_LEFT,
-  goog.editor.Command.DIR_RTL, goog.editor.Command.DIR_LTR,
-  goog.editor.Command.EDIT_HTML
+export var DEFAULT_BUTTONS_RTL = [
+  Command.IMAGE, Command.LINK, Command.BOLD,
+  Command.ITALIC, Command.UNORDERED_LIST,
+  Command.FONT_COLOR, Command.FONT_FACE,
+  Command.FONT_SIZE, Command.JUSTIFY_RIGHT,
+  Command.JUSTIFY_CENTER, Command.JUSTIFY_LEFT,
+  Command.DIR_RTL, Command.DIR_LTR,
+  Command.EDIT_HTML
 ];
 
 
@@ -397,7 +385,7 @@ goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS_RTL = [
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element.  This button
  * is designed to be used as the RTL button.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -405,38 +393,35 @@ goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS_RTL = [
  *     element.
  * @param {goog.ui.ButtonRenderer=} opt_renderer Button renderer; defaults to
  *     {@link goog.ui.ToolbarButtonRenderer} if unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.rtlButtonFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeToggleButton(
+function rtlButtonFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeToggleButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
   button.updateFromValue = function(value) {
-    'use strict';
     // Enable/disable right-to-left text editing mode in the toolbar.
     const isRtl = !!value;
     // Enable/disable a marker class on the toolbar's root element; the rest is
     // done using CSS scoping in editortoolbar.css.  This changes
     // direction-senitive toolbar icons (like indent/outdent)
-    goog.dom.classlist.enable(
-        goog.asserts.assert(button.getParent().getElement()),
+    classlist.enable(
+        asserts.assert(button.getParent().getElement()),
         goog.getCssName('tr-rtl-mode'), isRtl);
     button.setChecked(isRtl);
   };
   return button;
-};
+}
 
 
 /**
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element.  Designed to
  * be used to create undo and redo buttons.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -444,30 +429,27 @@ goog.ui.editor.DefaultToolbar.rtlButtonFactory_ = function(
  *     element.
  * @param {goog.ui.ButtonRenderer=} opt_renderer Button renderer; defaults to
  *     {@link goog.ui.ToolbarButtonRenderer} if unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.undoRedoButtonFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeButton(
+function undoRedoButtonFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
   button.updateFromValue = function(value) {
-    'use strict';
     button.setEnabled(value);
   };
   return button;
-};
+}
 
 
 /**
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element.  Used to create
  * a font face button, filled with default fonts.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -475,27 +457,24 @@ goog.ui.editor.DefaultToolbar.undoRedoButtonFactory_ = function(
  *     element.
  * @param {goog.ui.MenuButtonRenderer=} opt_renderer Button renderer; defaults
  *     to {@link goog.ui.ToolbarMenuButtonRenderer} if unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.fontFaceFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeSelectButton(
+function fontFaceFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeSelectButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
-  goog.ui.editor.DefaultToolbar.addDefaultFonts(button);
-  button.setDefaultCaption(goog.ui.editor.DefaultToolbar.MSG_FONT_NORMAL);
+  addDefaultFonts(button);
+  button.setDefaultCaption(MSG_FONT_NORMAL);
   // Font options don't have keyboard accelerators.
-  goog.dom.classlist.add(
-      goog.asserts.assert(button.getMenu().getContentElement()),
+  classlist.add(
+      asserts.assert(button.getMenu().getContentElement()),
       goog.getCssName('goog-menu-noaccel'));
 
   // How to update this button's state.
   button.updateFromValue = function(value) {
-    'use strict';
     // Normalize value to null or a non-empty string (sometimes we get
     // the empty string, sometimes we get false...), extract the substring
     // up to the first comma to get the primary font name, and normalize
@@ -505,7 +484,7 @@ goog.ui.editor.DefaultToolbar.fontFaceFactory_ = function(
     let item = null;
     if (value && value.length > 0) {
       item = /** @type {goog.ui.MenuItem} */ (button.getMenu().getChild(
-          goog.ui.editor.ToolbarFactory.getPrimaryFont(value)));
+          ToolbarFactory.getPrimaryFont(value)));
     }
     const selectedItem = button.getSelectedItem();
     if (item != selectedItem) {
@@ -513,14 +492,14 @@ goog.ui.editor.DefaultToolbar.fontFaceFactory_ = function(
     }
   };
   return button;
-};
+}
 
 
 /**
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element. Use to create a
  * font size button, filled with default font sizes.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -528,32 +507,29 @@ goog.ui.editor.DefaultToolbar.fontFaceFactory_ = function(
  *     element.
  * @param {goog.ui.MenuButtonRenderer=} opt_renderer Button renderer; defaults
  *     to {@link goog.ui.ToolbarMebuButtonRenderer} if unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.fontSizeFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeSelectButton(
+function fontSizeFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeSelectButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
-  goog.ui.editor.DefaultToolbar.addDefaultFontSizes(button);
-  button.setDefaultCaption(goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_NORMAL);
+  addDefaultFontSizes(button);
+  button.setDefaultCaption(MSG_FONT_SIZE_NORMAL);
   // Font size options don't have keyboard accelerators.
-  goog.dom.classlist.add(
-      goog.asserts.assert(button.getMenu().getContentElement()),
+  classlist.add(
+      asserts.assert(button.getMenu().getContentElement()),
       goog.getCssName('goog-menu-noaccel'));
   // How to update this button's state.
   button.updateFromValue = function(value) {
-    'use strict';
     // Webkit pre-534.7 returns a string like '32px' instead of the equivalent
     // integer, so normalize that first.
     // NOTE(user): Gecko returns "6" so can't just normalize all
     // strings, only ones ending in "px".
-    if (typeof value === 'string' && goog.style.getLengthUnits(value) == 'px') {
-      value = goog.ui.editor.ToolbarFactory.getLegacySizeFromPx(
+    if (typeof value === 'string' && style.getLengthUnits(value) == 'px') {
+      value = ToolbarFactory.getLegacySizeFromPx(
           parseInt(value, 10));
     }
     // Normalize value to null or a positive integer (sometimes we get
@@ -565,7 +541,7 @@ goog.ui.editor.DefaultToolbar.fontSizeFactory_ = function(
     }
   };
   return button;
-};
+}
 
 
 /**
@@ -575,12 +551,11 @@ goog.ui.editor.DefaultToolbar.fontSizeFactory_ = function(
  * @param {number} color Color value to update to.
  * @private
  */
-goog.ui.editor.DefaultToolbar.colorUpdateFromValue_ = function(button, color) {
-  'use strict';
+function colorUpdateFromValue_(button, color) {
   let value = color;
 
   try {
-    if (goog.userAgent.IE) {
+    if (userAgent.IE) {
       // IE returns a number that, converted to hex, is a BGR color.
       // Convert from decimal to BGR to RGB.
       const hex = '000000' + value.toString(16);
@@ -594,14 +569,14 @@ goog.ui.editor.DefaultToolbar.colorUpdateFromValue_ = function(button, color) {
   } catch (ex) {
     // TODO(attila): Find out when/why this happens.
   }
-};
+}
 
 
 /**
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element. Use to create
  * a font color button.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -610,31 +585,29 @@ goog.ui.editor.DefaultToolbar.colorUpdateFromValue_ = function(button, color) {
  * @param {goog.ui.ColorMenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to {@link goog.ui.ToolbarColorMenuButtonRenderer} if
  *     unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.fontColorFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeColorMenuButton(
+function fontColorFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeColorMenuButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
   // Initialize default foreground color.
   button.setSelectedColor('#000');
   button.updateFromValue = goog.partial(
-      goog.ui.editor.DefaultToolbar.colorUpdateFromValue_,
+      colorUpdateFromValue_,
       /** @type {!goog.ui.ToolbarColorMenuButton} */ (button));
   return button;
-};
+}
 
 
 /**
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element. Use to create
  * a font background color button.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -643,31 +616,29 @@ goog.ui.editor.DefaultToolbar.fontColorFactory_ = function(
  * @param {goog.ui.ColorMenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to {@link goog.ui.ToolbarColorMenuButtonRenderer} if
  *     unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.backgroundColorFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeColorMenuButton(
+function backgroundColorFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeColorMenuButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
   // Initialize default background color.
   button.setSelectedColor('#FFF');
   button.updateFromValue = goog.partial(
-      goog.ui.editor.DefaultToolbar.colorUpdateFromValue_,
+      colorUpdateFromValue_,
       /** @type {!goog.ui.ToolbarColorMenuButton} */ (button));
   return button;
-};
+}
 
 
 /**
  * Creates a toolbar button with the given ID, tooltip, and caption.  Applies
  * any custom CSS class names to the button's caption element. Use to create
  * the format menu, prefilled with default formats.
- * @param {string} id Button ID; must equal a {@link goog.editor.Command} for
+ * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
  * @param {goog.ui.ControlContent} caption Button caption.
@@ -676,26 +647,23 @@ goog.ui.editor.DefaultToolbar.backgroundColorFactory_ = function(
  * @param {goog.ui.MenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to
  *     {@link goog.ui.ToolbarMenuButtonRenderer} if unspecified.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for DOM
+ * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
  * @return {!goog.ui.Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.editor.DefaultToolbar.formatBlockFactory_ = function(
-    id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
-  'use strict';
-  const button = goog.ui.editor.ToolbarFactory.makeSelectButton(
+function formatBlockFactory_(id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper) {
+  const button = ToolbarFactory.makeSelectButton(
       id, tooltip, caption, opt_classNames, opt_renderer, opt_domHelper);
-  goog.ui.editor.DefaultToolbar.addDefaultFormatOptions(button);
-  button.setDefaultCaption(goog.ui.editor.DefaultToolbar.MSG_FORMAT_NORMAL);
+  addDefaultFormatOptions(button);
+  button.setDefaultCaption(MSG_FORMAT_NORMAL);
   // Format options don't have keyboard accelerators.
-  goog.dom.classlist.add(
-      goog.asserts.assert(button.getMenu().getContentElement()),
+  classlist.add(
+      asserts.assert(button.getMenu().getContentElement()),
       goog.getCssName('goog-menu-noaccel'));
   // How to update this button.
   button.updateFromValue = function(value) {
-    'use strict';
     // Normalize value to null or a nonempty string (sometimes we get
     // the empty string, sometimes we get false...)
     value = value && value.length > 0 ? value : null;
@@ -704,144 +672,144 @@ goog.ui.editor.DefaultToolbar.formatBlockFactory_ = function(
     }
   };
   return button;
-};
+}
 
 
 // Messages used for tooltips and captions.
 
 
 /** @desc Format menu tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_FORMAT_BLOCK_TITLE = goog.getMsg('Format');
+MSG_FORMAT_BLOCK_TITLE = goog.getMsg('Format');
 
 
 /** @desc Format menu caption. */
-goog.ui.editor.DefaultToolbar.MSG_FORMAT_BLOCK_CAPTION = goog.getMsg('Format');
+MSG_FORMAT_BLOCK_CAPTION = goog.getMsg('Format');
 
 
 /** @desc Undo button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_UNDO_TITLE = goog.getMsg('Undo');
+MSG_UNDO_TITLE = goog.getMsg('Undo');
 
 
 /** @desc Redo button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_REDO_TITLE = goog.getMsg('Redo');
+MSG_REDO_TITLE = goog.getMsg('Redo');
 
 
 /** @desc Font menu tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_FACE_TITLE = goog.getMsg('Font');
+MSG_FONT_FACE_TITLE = goog.getMsg('Font');
 
 
 /** @desc Font size menu tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_TITLE = goog.getMsg('Font size');
+MSG_FONT_SIZE_TITLE = goog.getMsg('Font size');
 
 
 /** @desc Text foreground color menu tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_FONT_COLOR_TITLE = goog.getMsg('Text color');
+MSG_FONT_COLOR_TITLE = goog.getMsg('Text color');
 
 
 /** @desc Bold button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_BOLD_TITLE = goog.getMsg('Bold');
+MSG_BOLD_TITLE = goog.getMsg('Bold');
 
 
 /** @desc Italic button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_ITALIC_TITLE = goog.getMsg('Italic');
+MSG_ITALIC_TITLE = goog.getMsg('Italic');
 
 
 /** @desc Underline button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_UNDERLINE_TITLE = goog.getMsg('Underline');
+MSG_UNDERLINE_TITLE = goog.getMsg('Underline');
 
 
 /** @desc Text background color menu tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_BACKGROUND_COLOR_TITLE =
+MSG_BACKGROUND_COLOR_TITLE =
     goog.getMsg('Text background color');
 
 
 /** @desc Link button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_LINK_TITLE =
+MSG_LINK_TITLE =
     goog.getMsg('Add or remove link');
 
 
 /** @desc Numbered list button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_ORDERED_LIST_TITLE =
+MSG_ORDERED_LIST_TITLE =
     goog.getMsg('Numbered list');
 
 
 /** @desc Bullet list button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_UNORDERED_LIST_TITLE =
+MSG_UNORDERED_LIST_TITLE =
     goog.getMsg('Bullet list');
 
 
 /** @desc Outdent button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_OUTDENT_TITLE =
+MSG_OUTDENT_TITLE =
     goog.getMsg('Decrease indent');
 
 
 /** @desc Indent button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_INDENT_TITLE = goog.getMsg('Increase indent');
+MSG_INDENT_TITLE = goog.getMsg('Increase indent');
 
 
 /** @desc Align left button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_ALIGN_LEFT_TITLE = goog.getMsg('Align left');
+MSG_ALIGN_LEFT_TITLE = goog.getMsg('Align left');
 
 
 /** @desc Align center button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_ALIGN_CENTER_TITLE =
+MSG_ALIGN_CENTER_TITLE =
     goog.getMsg('Align center');
 
 
 /** @desc Align right button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_ALIGN_RIGHT_TITLE =
+MSG_ALIGN_RIGHT_TITLE =
     goog.getMsg('Align right');
 
 
 /** @desc Justify button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_JUSTIFY_TITLE = goog.getMsg('Justify');
+MSG_JUSTIFY_TITLE = goog.getMsg('Justify');
 
 
 /** @desc Remove formatting button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_REMOVE_FORMAT_TITLE =
+MSG_REMOVE_FORMAT_TITLE =
     goog.getMsg('Remove formatting');
 
 
 /** @desc Insert image button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_IMAGE_TITLE = goog.getMsg('Insert image');
+MSG_IMAGE_TITLE = goog.getMsg('Insert image');
 
 
 /** @desc Strike through button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_STRIKE_THROUGH_TITLE =
+MSG_STRIKE_THROUGH_TITLE =
     goog.getMsg('Strikethrough');
 
 
 /** @desc Left-to-right button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_DIR_LTR_TITLE = goog.getMsg('Left-to-right');
+MSG_DIR_LTR_TITLE = goog.getMsg('Left-to-right');
 
 
 /** @desc Right-to-left button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_DIR_RTL_TITLE = goog.getMsg('Right-to-left');
+MSG_DIR_RTL_TITLE = goog.getMsg('Right-to-left');
 
 
 /** @desc Blockquote button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_BLOCKQUOTE_TITLE = goog.getMsg('Quote');
+MSG_BLOCKQUOTE_TITLE = goog.getMsg('Quote');
 
 
 /** @desc Edit HTML button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_EDIT_HTML_TITLE =
+MSG_EDIT_HTML_TITLE =
     goog.getMsg('Edit HTML source');
 
 
 /** @desc Subscript button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_SUBSCRIPT = goog.getMsg('Subscript');
+MSG_SUBSCRIPT = goog.getMsg('Subscript');
 
 
 /** @desc Superscript button tooltip. */
-goog.ui.editor.DefaultToolbar.MSG_SUPERSCRIPT = goog.getMsg('Superscript');
+MSG_SUPERSCRIPT = goog.getMsg('Superscript');
 
 
 /** @desc Edit HTML button caption. */
-goog.ui.editor.DefaultToolbar.MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
+MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
 
 
 /**
- * Map of `goog.editor.Command`s to toolbar button descriptor objects,
+ * Map of `Command`s to toolbar button descriptor objects,
  * each of which has the following attributes:
  * <ul>
  *   <li>`command` - The command corresponding to the
@@ -861,7 +829,7 @@ goog.ui.editor.DefaultToolbar.MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
  *       `classes` as arguments, and must return an instance of
  *       {@link goog.ui.Button} or an appropriate subclass (optional); if
  *       unspecified, defaults to
- *       {@link goog.ui.editor.DefaultToolbar.makeToggleButton},
+ *       {@link makeToggleButton},
  *       since most built-in toolbar buttons are toggle buttons
  *   <li>(@code queryable} - Whether the button's state should be queried
  *       when updating the toolbar (optional).
@@ -869,9 +837,9 @@ goog.ui.editor.DefaultToolbar.MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
  * Note that this object is only used for creating toolbar buttons for
  * built-in editor commands; custom buttons aren't listed here.  Please don't
  * try to hack this!
- * @private {!Object<string, !goog.ui.editor.ButtonDescriptor>}.
+ * @private {!Object<string, !ButtonDescriptor>}.
  */
-goog.ui.editor.DefaultToolbar.buttons_ = {};
+var buttons_ = {};
 
 
 /**
@@ -883,220 +851,258 @@ goog.ui.editor.DefaultToolbar.buttons_ = {};
  *   factory: (undefined|!Function),
  *   queryable:(undefined|boolean)}}
  */
-goog.ui.editor.ButtonDescriptor;
+export var ButtonDescriptor;
 
 
 /**
  * Built-in toolbar button descriptors.  See
- * {@link goog.ui.editor.DefaultToolbar.buttons_} for details on button
+ * {@link buttons_} for details on button
  * descriptor objects.  This array is processed at JS parse time; each item is
- * inserted into {@link goog.ui.editor.DefaultToolbar.buttons_}, and the array
+ * inserted into {@link buttons_}, and the array
  * itself is deleted and (hopefully) garbage-collected.
- * @private {Array<!goog.ui.editor.ButtonDescriptor>}
+ * @private {Array<!ButtonDescriptor>}
  */
-goog.ui.editor.DefaultToolbar.button_list_ = [
+var button_list_ = [
   {
-    command: goog.editor.Command.UNDO,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_UNDO_TITLE,
+    command: Command.UNDO,
+    tooltip: MSG_UNDO_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-undo'),
-    factory: goog.ui.editor.DefaultToolbar.undoRedoButtonFactory_,
+    factory: undoRedoButtonFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.REDO,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_REDO_TITLE,
+    command: Command.REDO,
+    tooltip: MSG_REDO_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-redo'),
-    factory: goog.ui.editor.DefaultToolbar.undoRedoButtonFactory_,
+    factory: undoRedoButtonFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.FONT_FACE,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_FONT_FACE_TITLE,
+    command: Command.FONT_FACE,
+    tooltip: MSG_FONT_FACE_TITLE,
     classes: goog.getCssName('tr-fontName'),
-    factory: goog.ui.editor.DefaultToolbar.fontFaceFactory_,
+    factory: fontFaceFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.FONT_SIZE,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_FONT_SIZE_TITLE,
+    command: Command.FONT_SIZE,
+    tooltip: MSG_FONT_SIZE_TITLE,
     classes: goog.getCssName('tr-fontSize'),
-    factory: goog.ui.editor.DefaultToolbar.fontSizeFactory_,
+    factory: fontSizeFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.BOLD,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_BOLD_TITLE,
+    command: Command.BOLD,
+    tooltip: MSG_BOLD_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-bold'),
     queryable: true
   },
   {
-    command: goog.editor.Command.ITALIC,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_ITALIC_TITLE,
+    command: Command.ITALIC,
+    tooltip: MSG_ITALIC_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-italic'),
     queryable: true
   },
   {
-    command: goog.editor.Command.UNDERLINE,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_UNDERLINE_TITLE,
+    command: Command.UNDERLINE,
+    tooltip: MSG_UNDERLINE_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-underline'),
     queryable: true
   },
   {
-    command: goog.editor.Command.FONT_COLOR,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_FONT_COLOR_TITLE,
+    command: Command.FONT_COLOR,
+    tooltip: MSG_FONT_COLOR_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-foreColor'),
-    factory: goog.ui.editor.DefaultToolbar.fontColorFactory_,
+    factory: fontColorFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.BACKGROUND_COLOR,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_BACKGROUND_COLOR_TITLE,
+    command: Command.BACKGROUND_COLOR,
+    tooltip: MSG_BACKGROUND_COLOR_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-backColor'),
-    factory: goog.ui.editor.DefaultToolbar.backgroundColorFactory_,
+    factory: backgroundColorFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.LINK,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_LINK_TITLE,
-    caption: goog.ui.editor.messages.MSG_LINK_CAPTION,
+    command: Command.LINK,
+    tooltip: MSG_LINK_TITLE,
+    caption: messages.MSG_LINK_CAPTION,
     classes: goog.getCssName('tr-link'),
     queryable: true
   },
   {
-    command: goog.editor.Command.ORDERED_LIST,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_ORDERED_LIST_TITLE,
+    command: Command.ORDERED_LIST,
+    tooltip: MSG_ORDERED_LIST_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' +
         goog.getCssName('tr-insertOrderedList'),
     queryable: true
   },
   {
-    command: goog.editor.Command.UNORDERED_LIST,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_UNORDERED_LIST_TITLE,
+    command: Command.UNORDERED_LIST,
+    tooltip: MSG_UNORDERED_LIST_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' +
         goog.getCssName('tr-insertUnorderedList'),
     queryable: true
   },
   {
-    command: goog.editor.Command.OUTDENT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_OUTDENT_TITLE,
+    command: Command.OUTDENT,
+    tooltip: MSG_OUTDENT_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-outdent'),
-    factory: goog.ui.editor.ToolbarFactory.makeButton
+    factory: ToolbarFactory.makeButton
   },
   {
-    command: goog.editor.Command.INDENT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_INDENT_TITLE,
+    command: Command.INDENT,
+    tooltip: MSG_INDENT_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-indent'),
-    factory: goog.ui.editor.ToolbarFactory.makeButton
+    factory: ToolbarFactory.makeButton
   },
   {
-    command: goog.editor.Command.JUSTIFY_LEFT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_ALIGN_LEFT_TITLE,
+    command: Command.JUSTIFY_LEFT,
+    tooltip: MSG_ALIGN_LEFT_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-justifyLeft'),
     queryable: true
   },
   {
-    command: goog.editor.Command.JUSTIFY_CENTER,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_ALIGN_CENTER_TITLE,
+    command: Command.JUSTIFY_CENTER,
+    tooltip: MSG_ALIGN_CENTER_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-justifyCenter'),
     queryable: true
   },
   {
-    command: goog.editor.Command.JUSTIFY_RIGHT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_ALIGN_RIGHT_TITLE,
+    command: Command.JUSTIFY_RIGHT,
+    tooltip: MSG_ALIGN_RIGHT_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-justifyRight'),
     queryable: true
   },
   {
-    command: goog.editor.Command.JUSTIFY_FULL,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_JUSTIFY_TITLE,
+    command: Command.JUSTIFY_FULL,
+    tooltip: MSG_JUSTIFY_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-justifyFull'),
     queryable: true
   },
   {
-    command: goog.editor.Command.REMOVE_FORMAT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_REMOVE_FORMAT_TITLE,
+    command: Command.REMOVE_FORMAT,
+    tooltip: MSG_REMOVE_FORMAT_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-removeFormat'),
-    factory: goog.ui.editor.ToolbarFactory.makeButton
+    factory: ToolbarFactory.makeButton
   },
   {
-    command: goog.editor.Command.IMAGE,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_IMAGE_TITLE,
+    command: Command.IMAGE,
+    tooltip: MSG_IMAGE_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-image'),
-    factory: goog.ui.editor.ToolbarFactory.makeButton
+    factory: ToolbarFactory.makeButton
   },
   {
-    command: goog.editor.Command.STRIKE_THROUGH,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_STRIKE_THROUGH_TITLE,
+    command: Command.STRIKE_THROUGH,
+    tooltip: MSG_STRIKE_THROUGH_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-strikeThrough'),
     queryable: true
   },
   {
-    command: goog.editor.Command.SUBSCRIPT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_SUBSCRIPT,
+    command: Command.SUBSCRIPT,
+    tooltip: MSG_SUBSCRIPT,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-subscript'),
     queryable: true
   },
   {
-    command: goog.editor.Command.SUPERSCRIPT,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_SUPERSCRIPT,
+    command: Command.SUPERSCRIPT,
+    tooltip: MSG_SUPERSCRIPT,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-superscript'),
     queryable: true
   },
   {
-    command: goog.editor.Command.DIR_LTR,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_DIR_LTR_TITLE,
+    command: Command.DIR_LTR,
+    tooltip: MSG_DIR_LTR_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-ltr'),
     queryable: true
   },
   {
-    command: goog.editor.Command.DIR_RTL,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_DIR_RTL_TITLE,
+    command: Command.DIR_RTL,
+    tooltip: MSG_DIR_RTL_TITLE,
     classes: goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-rtl'),
-    factory: goog.ui.editor.DefaultToolbar.rtlButtonFactory_,
+    factory: rtlButtonFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.BLOCKQUOTE,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_BLOCKQUOTE_TITLE,
+    command: Command.BLOCKQUOTE,
+    tooltip: MSG_BLOCKQUOTE_TITLE,
     classes:
         goog.getCssName('tr-icon') + ' ' + goog.getCssName('tr-BLOCKQUOTE'),
     queryable: true
   },
   {
-    command: goog.editor.Command.FORMAT_BLOCK,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_FORMAT_BLOCK_TITLE,
-    caption: goog.ui.editor.DefaultToolbar.MSG_FORMAT_BLOCK_CAPTION,
+    command: Command.FORMAT_BLOCK,
+    tooltip: MSG_FORMAT_BLOCK_TITLE,
+    caption: MSG_FORMAT_BLOCK_CAPTION,
     classes: goog.getCssName('tr-formatBlock'),
-    factory: goog.ui.editor.DefaultToolbar.formatBlockFactory_,
+    factory: formatBlockFactory_,
     queryable: true
   },
   {
-    command: goog.editor.Command.EDIT_HTML,
-    tooltip: goog.ui.editor.DefaultToolbar.MSG_EDIT_HTML_TITLE,
-    caption: goog.ui.editor.DefaultToolbar.MSG_EDIT_HTML_CAPTION,
+    command: Command.EDIT_HTML,
+    tooltip: MSG_EDIT_HTML_TITLE,
+    caption: MSG_EDIT_HTML_CAPTION,
     classes: goog.getCssName('tr-editHtml'),
-    factory: goog.ui.editor.ToolbarFactory.makeButton
+    factory: ToolbarFactory.makeButton
   }
 ];
 
 
 (function() {
-'use strict';
-// Create the goog.ui.editor.DefaultToolbar.buttons_ map from
-// goog.ui.editor.DefaultToolbar.button_list_.
-for (let i = 0, button; button = goog.ui.editor.DefaultToolbar.button_list_[i];
-     i++) {
-  goog.ui.editor.DefaultToolbar.buttons_[button.command] = button;
-}
+  /* Create the buttons_ map from*/
+  /* button_list_.*/
+  for (let i = 0, button; button = button_list_[i]; i++) {
+    buttons_[button.command] = button;
+  }
 
-// goog.ui.editor.DefaultToolbar.button_list_ is no longer needed
-// once the map is ready.
-goog.ui.editor.DefaultToolbar.button_list_ = null;
+  /* button_list_ is no longer needed*/
+  // once the map is ready.
+  button_list_ = null;
 })();
+export var MSG_FONT_NORMAL;
+export var MSG_FONT_NORMAL_SERIF;
+export var MSG_FONT_SIZE_SMALL;
+export var MSG_FONT_SIZE_NORMAL;
+export var MSG_FONT_SIZE_LARGE;
+export var MSG_FONT_SIZE_HUGE;
+export var MSG_FORMAT_HEADING;
+export var MSG_FORMAT_SUBHEADING;
+export var MSG_FORMAT_MINOR_HEADING;
+export var MSG_FORMAT_NORMAL;
+export var MSG_FORMAT_BLOCK_TITLE;
+export var MSG_FORMAT_BLOCK_CAPTION;
+export var MSG_UNDO_TITLE;
+export var MSG_REDO_TITLE;
+export var MSG_FONT_FACE_TITLE;
+export var MSG_FONT_SIZE_TITLE;
+export var MSG_FONT_COLOR_TITLE;
+export var MSG_BOLD_TITLE;
+export var MSG_ITALIC_TITLE;
+export var MSG_UNDERLINE_TITLE;
+export var MSG_BACKGROUND_COLOR_TITLE;
+export var MSG_LINK_TITLE;
+export var MSG_ORDERED_LIST_TITLE;
+export var MSG_UNORDERED_LIST_TITLE;
+export var MSG_OUTDENT_TITLE;
+export var MSG_INDENT_TITLE;
+export var MSG_ALIGN_LEFT_TITLE;
+export var MSG_ALIGN_CENTER_TITLE;
+export var MSG_ALIGN_RIGHT_TITLE;
+export var MSG_JUSTIFY_TITLE;
+export var MSG_REMOVE_FORMAT_TITLE;
+export var MSG_IMAGE_TITLE;
+export var MSG_STRIKE_THROUGH_TITLE;
+export var MSG_DIR_LTR_TITLE;
+export var MSG_DIR_RTL_TITLE;
+export var MSG_BLOCKQUOTE_TITLE;
+export var MSG_EDIT_HTML_TITLE;
+export var MSG_SUBSCRIPT;
+export var MSG_SUPERSCRIPT;
+export var MSG_EDIT_HTML_CAPTION;

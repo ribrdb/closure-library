@@ -9,20 +9,23 @@
  * @suppress {missingRequire} Swapping using fully qualified name
  */
 
-goog.module('goog.i18n.RelativeDateTimeFormatTest');
 goog.setTestOnly('goog.i18n.RelativeDateTimeFormatTest');
 
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const NumberFormatSymbols_ar_EG = goog.require('goog.i18n.NumberFormatSymbols_ar_EG');
-const NumberFormatSymbols_en = goog.require('goog.i18n.NumberFormatSymbols_en');
-const NumberFormatSymbols_es = goog.require('goog.i18n.NumberFormatSymbols_es');
-const NumberFormatSymbols_fa = goog.require('goog.i18n.NumberFormatSymbols_fa');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const RelativeDateTimeFormat = goog.require('goog.i18n.RelativeDateTimeFormat');
-const assertI18n = goog.require('goog.testing.i18n.asserts');
-const relativeDateTimeSymbols = goog.require('goog.i18n.relativeDateTimeSymbols');
-const relativeDateTimeSymbolsExt = goog.require('goog.i18n.relativeDateTimeSymbolsExt');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as LocaleFeature from './localefeature.js';
+
+import {
+  NumberFormatSymbols_ar_EG,
+  NumberFormatSymbols_en,
+  NumberFormatSymbols_es,
+  NumberFormatSymbols_fa,
+} from './numberformatsymbols.js';
+
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { RelativeDateTimeFormat } from './relativedatetimeformat.js';
+import * as assertI18n from '../testing/i18n/asserts.js';
+import * as relativeDateTimeSymbols from './relativedatetimesymbols.js';
+import * as relativeDateTimeSymbolsExt from './relativedatetimesymbolsext.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** @suppress {visibility} suppression added to enable type checking */
 const Plurals_en = goog.i18n.pluralRules.enSelect_;

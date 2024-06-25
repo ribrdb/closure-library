@@ -8,16 +8,14 @@
  * @fileoverview An example of how to write a dialog plugin.
  */
 
-goog.provide('goog.demos.editor.HelloWorldDialogPlugin');
-goog.provide('goog.demos.editor.HelloWorldDialogPlugin.Command');
+import { HelloWorldDialog } from './helloworlddialog.js';
 
-goog.require('goog.demos.editor.HelloWorldDialog');
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.plugins.AbstractDialogPlugin');
-goog.require('goog.editor.range');
-goog.require('goog.functions');
-goog.require('goog.ui.editor.AbstractDialog');
-goog.requireType('goog.dom.DomHelper');
+import { TagName } from '../../dom/tagname.js';
+import { AbstractDialogPlugin } from '../../editor/plugins/abstractdialogplugin.js';
+import * as editorRange from '../../editor/range.js';
+import * as functions from '../../functions/functions.js';
+import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
+goog.requireType('goog.dom.dom');
 
 
 // *** Public interface ***************************************************** //
@@ -29,58 +27,57 @@ goog.requireType('goog.dom.DomHelper');
  * @final
  * @unrestricted
  */
-goog.demos.editor.HelloWorldDialogPlugin =
-    class extends goog.editor.plugins.AbstractDialogPlugin {
-  constructor() {
-    super(goog.demos.editor.HelloWorldDialogPlugin.Command.HELLO_WORLD_DIALOG);
-  }
+export class HelloWorldDialogPlugin extends AbstractDialogPlugin {
+constructor() {
+super(HelloWorldDialogPlugin.Command.HELLO_WORLD_DIALOG);
+}
 
-  /**
-   * Creates a new instance of the dialog and registers for the relevant events.
-   * @param {goog.dom.DomHelper} dialogDomHelper The dom helper to be used to
-   *     create the dialog.
-   * @return {!goog.demos.editor.HelloWorldDialog} The dialog.
-   * @override
-   * @protected
-   */
-  createDialog(dialogDomHelper) {
-    const dialog = new goog.demos.editor.HelloWorldDialog(dialogDomHelper);
-    dialog.addEventListener(
-        goog.ui.editor.AbstractDialog.EventType.OK, this.handleOk_, false,
-        this);
-    return dialog;
-  }
+/**
+* Creates a new instance of the dialog and registers for the relevant events.
+* @param {goog.dom.DomHelper} dialogDomHelper The dom helper to be used to
+*     create the dialog.
+* @return {!HelloWorldDialog} The dialog.
+* @override
+* @protected
+*/
+createDialog(dialogDomHelper) {
+const dialog = new HelloWorldDialog(dialogDomHelper);
+dialog.addEventListener(
+    AbstractDialog.EventType.OK, this.handleOk_, false,
+    this);
+return dialog;
+}
 
-  /**
-   * Handles the OK event from the dialog by inserting the hello world message
-   * into the field.
-   * @param {goog.demos.editor.HelloWorldDialog.OkEvent} e OK event object.
-   * @private
-   */
-  handleOk_(e) {
-    // First restore the selection so we can manipulate the field's content
-    // according to what was selected.
-    this.restoreOriginalSelection();
+/**
+* Handles the OK event from the dialog by inserting the hello world message
+* into the field.
+* @param {HelloWorldDialog.OkEvent} e OK event object.
+* @private
+*/
+handleOk_(e) {
+// First restore the selection so we can manipulate the field's content
+// according to what was selected.
+this.restoreOriginalSelection();
 
-    // Notify listeners that the field's contents are about to change.
-    this.getFieldObject().dispatchBeforeChange();
+// Notify listeners that the field's contents are about to change.
+this.getFieldObject().dispatchBeforeChange();
 
-    // Now we can clear out what was previously selected (if anything).
-    const range = this.getFieldObject().getRange();
-    range.removeContents();
-    // And replace it with a span containing our hello world message.
-    let createdNode = this.getFieldDomHelper().createDom(
-        goog.dom.TagName.SPAN, null, e.message);
-    createdNode = range.insertNode(createdNode, false);
-    // Place the cursor at the end of the new text node (false == to the right).
-    goog.editor.range.placeCursorNextTo(createdNode, false);
+// Now we can clear out what was previously selected (if anything).
+const range = this.getFieldObject().getRange();
+range.removeContents();
+// And replace it with a span containing our hello world message.
+let createdNode = this.getFieldDomHelper().createDom(
+    TagName.SPAN, null, e.message);
+createdNode = range.insertNode(createdNode, false);
+// Place the cursor at the end of the new text node (false == to the right).
+editorRange.placeCursorNextTo(createdNode, false);
 
-    // Notify listeners that the field's selection has changed.
-    this.getFieldObject().dispatchSelectionChangeEvent();
-    // Notify listeners that the field's contents have changed.
-    this.getFieldObject().dispatchChange();
-  }
-};
+// Notify listeners that the field's selection has changed.
+this.getFieldObject().dispatchSelectionChangeEvent();
+// Notify listeners that the field's contents have changed.
+this.getFieldObject().dispatchChange();
+}
+}
 
 
 
@@ -88,14 +85,14 @@ goog.demos.editor.HelloWorldDialogPlugin =
  * Commands implemented by this plugin.
  * @enum {string}
  */
-goog.demos.editor.HelloWorldDialogPlugin.Command = {
+HelloWorldDialogPlugin.Command = {
   HELLO_WORLD_DIALOG: 'helloWorldDialog'
 };
 
 
 /** @override */
-goog.demos.editor.HelloWorldDialogPlugin.prototype.getTrogClassId =
-    goog.functions.constant('HelloWorldDialog');
+HelloWorldDialogPlugin.prototype.getTrogClassId =
+    functions.constant('HelloWorldDialog');
 
 
 // *** Protected interface ************************************************** //

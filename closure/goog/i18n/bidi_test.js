@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.bidiTest');
 goog.setTestOnly();
 
-const Dir = goog.require('goog.i18n.bidi.Dir');
-const bidi = goog.require('goog.i18n.bidi');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as bidi from './bidi.js';
+import { Dir } from './bidi.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const LRE = '\u202A';
 const RLE = '\u202B';

@@ -21,7 +21,7 @@
  * </div>
  * <script>
  *
- * var menu = new goog.ui.Menu();
+ * var menu = new Menu();
  * menu.decorate(goog.dom.getElement('menu'));
  *
  * TESTED=FireFox 2.0, IE6, Opera 9, Chrome.
@@ -33,27 +33,24 @@
  * @see ../demos/menus.html
  */
 
-goog.provide('goog.ui.Menu');
-goog.provide('goog.ui.Menu.EventType');
+goog.declareModuleId('goog.ui.menu');
 
-goog.require('goog.dom.TagName');
-goog.require('goog.math.Coordinate');
-goog.require('goog.string');
-goog.require('goog.style');
-goog.require('goog.ui.Component.EventType');
-goog.require('goog.ui.Component.State');
-goog.require('goog.ui.Container');
-goog.require('goog.ui.Container.Orientation');
-goog.require('goog.ui.MenuHeader');
-goog.require('goog.ui.MenuItem');
-goog.require('goog.ui.MenuRenderer');
-goog.require('goog.ui.MenuSeparator');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.Event');
+import { TagName } from '../dom/tagname.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as string from '../string/string.js';
+import * as style from '../style/style.js';
+import { Component, Component as uiComponent } from './component.js';
+import { Container, Container as uiContainer } from './container.js';
+import { MenuHeader } from './menuheader.js';
+import { MenuItem } from './menuitem.js';
+import { MenuRenderer } from './menurenderer.js';
+import { MenuSeparator } from './menuseparator.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.event');
 
 // The dependencies MenuHeader, MenuItem, and MenuSeparator are implicit.
 // There are no references in the code, but we need to load these
-// classes before goog.ui.Menu.
+/* classes before Menu.*/
 
 
 
@@ -61,23 +58,22 @@ goog.requireType('goog.events.Event');
 /**
  * A basic menu class.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
- * @param {goog.ui.MenuRenderer=} opt_renderer Renderer used to render or
- *     decorate the container; defaults to {@link goog.ui.MenuRenderer}.
+ * @param {MenuRenderer=} opt_renderer Renderer used to render or
+ *     decorate the container; defaults to {@link MenuRenderer}.
  * @constructor
- * @extends {goog.ui.Container}
+ * @extends {Container}
  */
-goog.ui.Menu = function(opt_domHelper, opt_renderer) {
-  'use strict';
-  goog.ui.Container.call(
-      this, goog.ui.Container.Orientation.VERTICAL,
-      opt_renderer || goog.ui.MenuRenderer.getInstance(), opt_domHelper);
+export function Menu(opt_domHelper, opt_renderer) {
+  uiContainer.call(
+      this, uiContainer.Orientation.VERTICAL,
+      opt_renderer || MenuRenderer.getInstance(), opt_domHelper);
 
   // Unlike Containers, Menus aren't keyboard-accessible by default.  This line
   // preserves backwards compatibility with code that depends on menus not
-  // receiving focus - e.g. `goog.ui.MenuButton`.
+  /* receiving focus - e.g. `MenuButton`.*/
   this.setFocusable(false);
-};
-goog.inherits(goog.ui.Menu, goog.ui.Container);
+}
+goog.inherits(Menu, uiContainer);
 
 
 // TODO(robbyw): Remove this and all references to it.
@@ -85,20 +81,20 @@ goog.inherits(goog.ui.Menu, goog.ui.Container);
 /**
  * Event types dispatched by the menu.
  * @enum {string}
- * @deprecated Use goog.ui.Component.EventType.
+ * @deprecated Use Component.EventType.
  */
-goog.ui.Menu.EventType = {
+Menu.EventType = {
   /** Dispatched before the menu becomes visible */
-  BEFORE_SHOW: goog.ui.Component.EventType.BEFORE_SHOW,
+  BEFORE_SHOW: uiComponent.EventType.BEFORE_SHOW,
 
   /** Dispatched when the menu is shown */
-  SHOW: goog.ui.Component.EventType.SHOW,
+  SHOW: uiComponent.EventType.SHOW,
 
   /** Dispatched before the menu becomes hidden */
-  BEFORE_HIDE: goog.ui.Component.EventType.HIDE,
+  BEFORE_HIDE: uiComponent.EventType.HIDE,
 
   /** Dispatched when the menu is hidden */
-  HIDE: goog.ui.Component.EventType.HIDE
+  HIDE: uiComponent.EventType.HIDE
 };
 
 
@@ -106,9 +102,9 @@ goog.ui.Menu.EventType = {
 /**
  * CSS class for menus.
  * @type {string}
- * @deprecated Use goog.ui.MenuRenderer.CSS_CLASS.
+ * @deprecated Use MenuRenderer.CSS_CLASS.
  */
-goog.ui.Menu.CSS_CLASS = goog.ui.MenuRenderer.CSS_CLASS;
+Menu.CSS_CLASS = MenuRenderer.CSS_CLASS;
 
 
 /**
@@ -116,9 +112,9 @@ goog.ui.Menu.CSS_CLASS = goog.ui.MenuRenderer.CSS_CLASS;
  * Used to prevent the consequent mouseup event due to a simple click from
  * activating a menu item immediately. Considered protected; should only be used
  * within this package or by subclasses.
- * @type {goog.math.Coordinate|undefined}
+ * @type {Coordinate|undefined}
  */
-goog.ui.Menu.prototype.openingCoords;
+Menu.prototype.openingCoords;
 
 
 /**
@@ -127,7 +123,7 @@ goog.ui.Menu.prototype.openingCoords;
  * @type {boolean}
  * @private
  */
-goog.ui.Menu.prototype.allowAutoFocus_ = true;
+Menu.prototype.allowAutoFocus_ = true;
 
 
 /**
@@ -136,7 +132,7 @@ goog.ui.Menu.prototype.allowAutoFocus_ = true;
  * @type {boolean}
  * @private
  */
-goog.ui.Menu.prototype.allowHighlightDisabled_ = false;
+Menu.prototype.allowHighlightDisabled_ = false;
 
 
 /**
@@ -147,8 +143,7 @@ goog.ui.Menu.prototype.allowHighlightDisabled_ = false;
  * @protected
  * @deprecated Use getRenderer().getCssClass().
  */
-goog.ui.Menu.prototype.getCssClass = function() {
-  'use strict';
+Menu.prototype.getCssClass = function() {
   return this.getRenderer().getCssClass();
 };
 
@@ -162,8 +157,7 @@ goog.ui.Menu.prototype.getCssClass = function() {
  *     the menu.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.Menu.prototype.containsElement = function(element) {
-  'use strict';
+Menu.prototype.containsElement = function(element) {
   if (this.getRenderer().containsElement(this, element)) {
     return true;
   }
@@ -182,38 +176,35 @@ goog.ui.Menu.prototype.containsElement = function(element) {
 
 /**
  * Adds a new menu item at the end of the menu.
- * @param {goog.ui.MenuHeader|goog.ui.MenuItem|goog.ui.MenuSeparator} item Menu
+ * @param {MenuHeader|MenuItem|MenuSeparator} item Menu
  *     item to add to the menu.
  * @deprecated Use {@link #addChild} instead, with true for the second argument.
  */
-goog.ui.Menu.prototype.addItem = function(item) {
-  'use strict';
+Menu.prototype.addItem = function(item) {
   this.addChild(item, true);
 };
 
 
 /**
  * Adds a new menu item at a specific index in the menu.
- * @param {goog.ui.MenuHeader|goog.ui.MenuItem|goog.ui.MenuSeparator} item Menu
+ * @param {MenuHeader|MenuItem|MenuSeparator} item Menu
  *     item to add to the menu.
  * @param {number} n Index at which to insert the menu item.
  * @deprecated Use {@link #addChildAt} instead, with true for the third
  *     argument.
  */
-goog.ui.Menu.prototype.addItemAt = function(item, n) {
-  'use strict';
+Menu.prototype.addItemAt = function(item, n) {
   this.addChildAt(item, n, true);
 };
 
 
 /**
  * Removes an item from the menu and disposes of it.
- * @param {goog.ui.MenuHeader|goog.ui.MenuItem|goog.ui.MenuSeparator} item The
+ * @param {MenuHeader|MenuItem|MenuSeparator} item The
  *     menu item to remove.
  * @deprecated Use {@link #removeChild} instead.
  */
-goog.ui.Menu.prototype.removeItem = function(item) {
-  'use strict';
+Menu.prototype.removeItem = function(item) {
   var removedChild = this.removeChild(item, true);
   if (removedChild) {
     removedChild.dispose();
@@ -226,8 +217,7 @@ goog.ui.Menu.prototype.removeItem = function(item) {
  * @param {number} n Index of item.
  * @deprecated Use {@link #removeChildAt} instead.
  */
-goog.ui.Menu.prototype.removeItemAt = function(n) {
-  'use strict';
+Menu.prototype.removeItemAt = function(n) {
   var removedChild = this.removeChildAt(n, true);
   if (removedChild) {
     removedChild.dispose();
@@ -238,13 +228,14 @@ goog.ui.Menu.prototype.removeItemAt = function(n) {
 /**
  * Returns a reference to the menu item at a given index.
  * @param {number} n Index of menu item.
- * @return {goog.ui.MenuHeader|goog.ui.MenuItem|goog.ui.MenuSeparator|null}
+ * @return {MenuHeader|MenuItem|MenuSeparator|null}
  *     Reference to the menu item.
  * @deprecated Use {@link #getChildAt} instead.
  */
-goog.ui.Menu.prototype.getItemAt = function(n) {
-  'use strict';
-  return /** @type {goog.ui.MenuItem?} */ (this.getChildAt(n));
+Menu.prototype.getItemAt = function(n) {
+  return (
+    /** @type {MenuItem?} */ (this.getChildAt(n))
+  );
 };
 
 
@@ -253,24 +244,21 @@ goog.ui.Menu.prototype.getItemAt = function(n) {
  * @return {number} The number of items in the menu.
  * @deprecated Use {@link #getChildCount} instead.
  */
-goog.ui.Menu.prototype.getItemCount = function() {
-  'use strict';
+Menu.prototype.getItemCount = function() {
   return this.getChildCount();
 };
 
 
 /**
  * Returns an array containing the menu items contained in the menu.
- * @return {!Array<goog.ui.MenuItem>} An array of menu items.
+ * @return {!Array<MenuItem>} An array of menu items.
  * @deprecated Use getChildAt, forEachChild, and getChildCount.
  */
-goog.ui.Menu.prototype.getItems = function() {
-  'use strict';
+Menu.prototype.getItems = function() {
   // TODO(user): Remove reference to getItems and instead use getChildAt,
   // forEachChild, and getChildCount
   var children = [];
   this.forEachChild(function(child) {
-    'use strict';
     children.push(child);
   });
   return children;
@@ -279,32 +267,30 @@ goog.ui.Menu.prototype.getItems = function() {
 
 /**
  * Sets the position of the menu relative to the view port.
- * @param {number|goog.math.Coordinate} x Left position or coordinate obj.
+ * @param {number|Coordinate} x Left position or coordinate obj.
  * @param {number=} opt_y Top position.
  */
-goog.ui.Menu.prototype.setPosition = function(x, opt_y) {
-  'use strict';
+Menu.prototype.setPosition = function(x, opt_y) {
   // NOTE(user): It is necessary to temporarily set the display from none, so
   // that the position gets set correctly.
   var visible = this.isVisible();
   if (!visible) {
-    goog.style.setElementShown(this.getElement(), true);
+    style.setElementShown(this.getElement(), true);
   }
-  goog.style.setPageOffset(this.getElement(), x, opt_y);
+  style.setPageOffset(this.getElement(), x, opt_y);
   if (!visible) {
-    goog.style.setElementShown(this.getElement(), false);
+    style.setElementShown(this.getElement(), false);
   }
 };
 
 
 /**
  * Gets the page offset of the menu, or null if the menu isn't visible
- * @return {goog.math.Coordinate?} Object holding the x-y coordinates of the
+ * @return {Coordinate?} Object holding the x-y coordinates of the
  *     menu or null if the menu is not visible.
  */
-goog.ui.Menu.prototype.getPosition = function() {
-  'use strict';
-  return this.isVisible() ? goog.style.getPageOffset(this.getElement()) : null;
+Menu.prototype.getPosition = function() {
+  return this.isVisible() ? style.getPageOffset(this.getElement()) : null;
 };
 
 
@@ -314,8 +300,7 @@ goog.ui.Menu.prototype.getPosition = function() {
  * @param {boolean} allow Whether the menu can automatically move focus to its
  *     key event target when it is set to visible.
  */
-goog.ui.Menu.prototype.setAllowAutoFocus = function(allow) {
-  'use strict';
+Menu.prototype.setAllowAutoFocus = function(allow) {
   this.allowAutoFocus_ = allow;
   if (allow) {
     this.setFocusable(true);
@@ -327,8 +312,7 @@ goog.ui.Menu.prototype.setAllowAutoFocus = function(allow) {
  * @return {boolean} Whether the menu can automatically move focus to its key
  *     event target when it is set to visible.
  */
-goog.ui.Menu.prototype.getAllowAutoFocus = function() {
-  'use strict';
+Menu.prototype.getAllowAutoFocus = function() {
   return this.allowAutoFocus_;
 };
 
@@ -339,8 +323,7 @@ goog.ui.Menu.prototype.getAllowAutoFocus = function() {
  * @param {boolean} allow Whether the menu will highlight disabled menu items or
  *     skip to the next active item.
  */
-goog.ui.Menu.prototype.setAllowHighlightDisabled = function(allow) {
-  'use strict';
+Menu.prototype.setAllowHighlightDisabled = function(allow) {
   this.allowHighlightDisabled_ = allow;
 };
 
@@ -349,8 +332,7 @@ goog.ui.Menu.prototype.setAllowHighlightDisabled = function(allow) {
  * @return {boolean} Whether the menu will highlight disabled menu items or skip
  *     to the next active item.
  */
-goog.ui.Menu.prototype.getAllowHighlightDisabled = function() {
-  'use strict';
+Menu.prototype.getAllowHighlightDisabled = function() {
   return this.allowHighlightDisabled_;
 };
 
@@ -363,17 +345,16 @@ goog.ui.Menu.prototype.getAllowHighlightDisabled = function() {
  * @param {goog.events.Event=} opt_e Mousedown event that caused this menu to
  *     be made visible (ignored if show is false).
  */
-goog.ui.Menu.prototype.setVisible = function(show, opt_force, opt_e) {
-  'use strict';
+Menu.prototype.setVisible = function(show, opt_force, opt_e) {
   var visibilityChanged =
-      goog.ui.Menu.superClass_.setVisible.call(this, show, opt_force);
+      Menu.superClass_.setVisible.call(this, show, opt_force);
   if (visibilityChanged && show && this.isInDocument() &&
       this.allowAutoFocus_) {
     this.getKeyEventTarget().focus();
   }
   if (show && opt_e && typeof opt_e.clientX === 'number') {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-    this.openingCoords = new goog.math.Coordinate(opt_e.clientX, opt_e.clientY);
+    this.openingCoords = new Coordinate(opt_e.clientX, opt_e.clientY);
   } else {
     this.openingCoords = null;
   }
@@ -382,13 +363,12 @@ goog.ui.Menu.prototype.setVisible = function(show, opt_force, opt_e) {
 
 
 /** @override */
-goog.ui.Menu.prototype.handleEnterItem = function(e) {
-  'use strict';
+Menu.prototype.handleEnterItem = function(e) {
   if (this.allowAutoFocus_) {
     this.getKeyEventTarget().focus();
   }
 
-  return goog.ui.Menu.superClass_.handleEnterItem.call(this, e);
+  return Menu.superClass_.handleEnterItem.call(this, e);
 };
 
 
@@ -398,11 +378,9 @@ goog.ui.Menu.prototype.handleEnterItem = function(e) {
  * @param {string} charStr The prefix to match.
  * @return {boolean} Whether a matching prefix was found.
  */
-goog.ui.Menu.prototype.highlightNextPrefix = function(charStr) {
-  'use strict';
-  var re = new RegExp('^' + goog.string.regExpEscape(charStr), 'i');
+Menu.prototype.highlightNextPrefix = function(charStr) {
+  var re = new RegExp('^' + string.regExpEscape(charStr), 'i');
   return this.highlightHelper(function(index, max) {
-    'use strict';
     // Index is >= -1 because it is set to -1 when nothing is selected.
     var start = index < 0 ? 0 : index;
     var wrapped = false;
@@ -429,30 +407,26 @@ goog.ui.Menu.prototype.highlightNextPrefix = function(charStr) {
 
 
 /** @override */
-goog.ui.Menu.prototype.canHighlightItem = function(item) {
-  'use strict';
+Menu.prototype.canHighlightItem = function(item) {
   return (this.allowHighlightDisabled_ || item.isEnabled()) &&
-      item.isVisible() && item.isSupportedState(goog.ui.Component.State.HOVER);
+      item.isVisible() && item.isSupportedState(uiComponent.State.HOVER);
 };
 
 
 /** @override */
-goog.ui.Menu.prototype.decorateInternal = function(element) {
-  'use strict';
+Menu.prototype.decorateInternal = function(element) {
   this.decorateContent(element);
-  goog.ui.Menu.superClass_.decorateInternal.call(this, element);
+  Menu.superClass_.decorateInternal.call(this, element);
 };
 
 
 /** @override */
-goog.ui.Menu.prototype.handleKeyEventInternal = function(e) {
-  'use strict';
-  var handled = goog.ui.Menu.base(this, 'handleKeyEventInternal', e);
+Menu.prototype.handleKeyEventInternal = function(e) {
+  var handled = Menu.base(this, 'handleKeyEventInternal', e);
   if (!handled) {
     // Loop through all child components, and for each menu item call its
     // key event handler so that keyboard mnemonics can be handled.
     this.forEachChild(function(menuItem) {
-      'use strict';
       if (!handled && menuItem.getMnemonic &&
           menuItem.getMnemonic() == e.keyCode) {
         if (this.isEnabled()) {
@@ -469,15 +443,14 @@ goog.ui.Menu.prototype.handleKeyEventInternal = function(e) {
 
 
 /** @override */
-goog.ui.Menu.prototype.setHighlightedIndex = function(index) {
-  'use strict';
-  goog.ui.Menu.base(this, 'setHighlightedIndex', index);
+Menu.prototype.setHighlightedIndex = function(index) {
+  Menu.base(this, 'setHighlightedIndex', index);
 
   // Bring the highlighted item into view. This has no effect if the menu is not
   // scrollable.
   var child = this.getChildAt(index);
   if (child) {
-    goog.style.scrollIntoContainerView(child.getElement(), this.getElement());
+    style.scrollIntoContainerView(child.getElement(), this.getElement());
   }
 };
 
@@ -488,11 +461,10 @@ goog.ui.Menu.prototype.setHighlightedIndex = function(index) {
  * @param {Element} element Element to decorate.
  * @protected
  */
-goog.ui.Menu.prototype.decorateContent = function(element) {
-  'use strict';
+Menu.prototype.decorateContent = function(element) {
   var renderer = this.getRenderer();
   var contentElements = this.getDomHelper().getElementsByTagNameAndClass(
-      goog.dom.TagName.DIV, goog.getCssName(renderer.getCssClass(), 'content'),
+      TagName.DIV, goog.getCssName(renderer.getCssClass(), 'content'),
       element);
 
   // Some versions of IE do not like it when you access this nodeList

@@ -8,15 +8,14 @@
  * Tests for `ClientPosition`
  */
 
-goog.module('goog.positioning.clientPositionTest');
 goog.setTestOnly();
 
-const ClientPosition = goog.require('goog.positioning.ClientPosition');
-const Corner = goog.require('goog.positioning.Corner');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ClientPosition } from './clientposition.js';
+import { Corner } from './positioning.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Prefabricated popup element for convenient. This is created during

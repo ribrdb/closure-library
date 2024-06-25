@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.Vec3Test');
 goog.setTestOnly();
 
-const Coordinate3 = goog.require('goog.math.Coordinate3');
-const Vec3 = goog.require('goog.math.Vec3');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Coordinate3 } from './coordinate3.js';
+import { Vec3 } from './vec3.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function assertVec3Equals(a, b) {
   assertTrue(`${b} should be equal to ${a}`, Vec3.equals(a, b));

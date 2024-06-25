@@ -9,13 +9,12 @@
  * all known common MapLike implementations they correctly implement the
  * necessary public API for use with these functions.
  */
-goog.module('goog.collections.mapsTest');
 goog.setTestOnly('goog.collections.mapsTest');
 
-const StructsMap = goog.require('goog.structs.Map');
-const googIter = goog.require('goog.iter');
-const maps = goog.require('goog.collections.maps');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Map as StructsMap } from '../structs/map.js';
+import * as googIter from '../iter/iter.js';
+import * as maps from './maps.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 /**

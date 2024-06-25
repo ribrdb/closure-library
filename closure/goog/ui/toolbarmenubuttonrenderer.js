@@ -8,24 +8,21 @@
  * @fileoverview A toolbar menu button renderer.
  */
 
-goog.provide('goog.ui.ToolbarMenuButtonRenderer');
-
-goog.require('goog.ui.MenuButtonRenderer');
+import { MenuButtonRenderer } from './menubuttonrenderer.js';
 
 
 
 /**
  * Toolbar-specific renderer for {@link goog.ui.MenuButton}s, based on {@link
- * goog.ui.MenuButtonRenderer}.
+ * MenuButtonRenderer}.
  * @constructor
- * @extends {goog.ui.MenuButtonRenderer}
+ * @extends {MenuButtonRenderer}
  */
-goog.ui.ToolbarMenuButtonRenderer = function() {
-  'use strict';
-  goog.ui.MenuButtonRenderer.call(this);
-};
-goog.inherits(goog.ui.ToolbarMenuButtonRenderer, goog.ui.MenuButtonRenderer);
-goog.addSingletonGetter(goog.ui.ToolbarMenuButtonRenderer);
+export function ToolbarMenuButtonRenderer() {
+ MenuButtonRenderer.call(this);
+}
+goog.inherits(ToolbarMenuButtonRenderer, MenuButtonRenderer);
+goog.addSingletonGetter(ToolbarMenuButtonRenderer);
 
 
 /**
@@ -33,7 +30,7 @@ goog.addSingletonGetter(goog.ui.ToolbarMenuButtonRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.ToolbarMenuButtonRenderer.CSS_CLASS =
+ToolbarMenuButtonRenderer.CSS_CLASS =
     goog.getCssName('goog-toolbar-menu-button');
 
 
@@ -43,7 +40,6 @@ goog.ui.ToolbarMenuButtonRenderer.CSS_CLASS =
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.ToolbarMenuButtonRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.ToolbarMenuButtonRenderer.CSS_CLASS;
+ToolbarMenuButtonRenderer.prototype.getCssClass = function() {
+ return ToolbarMenuButtonRenderer.CSS_CLASS;
 };

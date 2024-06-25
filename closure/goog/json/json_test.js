@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.jsonTest');
 goog.setTestOnly();
 
-const functions = goog.require('goog.functions');
-const googJson = goog.require('goog.json');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as functions from '../functions/functions.js';
+import * as googJson from './json.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 function allChars(start, end) {
   const sb = [];

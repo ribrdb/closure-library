@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TabPaneTest');
 goog.setTestOnly();
 
-const TabPane = goog.require('goog.ui.TabPane');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TabPane } from './tabpane.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let tabPane;
 let page1;

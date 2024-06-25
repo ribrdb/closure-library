@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.OnlineHandlerTest');
 goog.setTestOnly();
 
-const GoogEvent = goog.require('goog.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const NetworkStatusMonitor = goog.require('goog.net.NetworkStatusMonitor');
-const OnlineHandler = goog.require('goog.events.OnlineHandler');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Event as GoogEvent } from './event.js';
+import { MockClock } from '../testing/mockclock.js';
+import { NetworkStatusMonitor } from '../net/networkstatusmonitor.js';
+import { OnlineHandler } from './onlinehandler.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const stubs = new PropertyReplacer();
 const clock = new MockClock();

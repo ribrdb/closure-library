@@ -4,12 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.streams.liteTestCases');
 goog.setTestOnly();
 
-const {ReadableStream, ReadableStreamDefaultController, ReadableStreamUnderlyingSource} = goog.require('goog.streams.liteTypes');
+import {
+  ReadableStream,
+  ReadableStreamDefaultController,
+  ReadableStreamUnderlyingSource,
+} from './lite_types.js';
+
 /** @suppress {extraRequire} */
-goog.require('goog.testing.jsunit');
+import * as jsunit from '../testing/jsunit.js';
 
 class TestCases {
   /**
@@ -309,6 +313,6 @@ class TestCases {
   }
 }
 
-exports = {
+export default {
   TestCases,
 };

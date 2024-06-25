@@ -9,10 +9,9 @@
  * integer ranges and corresponding values.
  */
 
-goog.provide('goog.structs.InversionMap');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 
 
@@ -26,21 +25,20 @@ goog.require('goog.asserts');
  * @constructor
  * @template T
  */
-goog.structs.InversionMap = function(rangeArray, valueArray, opt_delta) {
-  'use strict';
+export function InversionMap(rangeArray, valueArray, opt_delta) {
   /**
    * @protected {?Array<number>}
    */
   this.rangeArray = null;
 
-  goog.asserts.assert(
+  asserts.assert(
       rangeArray.length == valueArray.length,
       'rangeArray and valueArray must have the same length.');
   this.storeInversion_(rangeArray, opt_delta);
 
   /** @protected {Array<T>} */
   this.values = valueArray;
-};
+}
 
 
 /**
@@ -53,9 +51,8 @@ goog.structs.InversionMap = function(rangeArray, valueArray, opt_delta) {
  * @param {boolean=} opt_delta If true, saves only delta from previous value.
  * @private
  */
-goog.structs.InversionMap.prototype.storeInversion_ = function(
+InversionMap.prototype.storeInversion_ = function(
     rangeArray, opt_delta) {
-  'use strict';
   this.rangeArray = rangeArray;
 
   for (var i = 1; i < rangeArray.length; i++) {
@@ -76,18 +73,17 @@ goog.structs.InversionMap.prototype.storeInversion_ = function(
  *     Length must be the same as rangeArray.
  * @param {boolean=} opt_delta If true, saves only delta from previous value.
  */
-goog.structs.InversionMap.prototype.spliceInversion = function(
+InversionMap.prototype.spliceInversion = function(
     rangeArray, valueArray, opt_delta) {
-  'use strict';
   // By building another inversion map, we build the arrays that we need
   // to splice in.
   var otherMap =
-      new goog.structs.InversionMap(rangeArray, valueArray, opt_delta);
+      new InversionMap(rangeArray, valueArray, opt_delta);
 
   // Figure out where to splice those arrays.
   var startRange = otherMap.rangeArray[0];
   var endRange =
-      /** @type {number} */ (goog.array.peek(otherMap.rangeArray));
+      /** @type {number} */ (array.peek(otherMap.rangeArray));
   var startSplice = this.getLeast(startRange);
   var endSplice = this.getLeast(endRange);
 
@@ -113,8 +109,7 @@ goog.structs.InversionMap.prototype.spliceInversion = function(
  *     from inversion map.
  * @return {T|null} Value retrieved from inversion map; null if not found.
  */
-goog.structs.InversionMap.prototype.at = function(intKey) {
-  'use strict';
+InversionMap.prototype.at = function(intKey) {
   var index = this.getLeast(intKey);
   if (index < 0) {
     return null;
@@ -130,8 +125,7 @@ goog.structs.InversionMap.prototype.at = function(intKey) {
  * @return {number} Largest index such that rangeArray[index] <= intKey.
  * @protected
  */
-goog.structs.InversionMap.prototype.getLeast = function(intKey) {
-  'use strict';
+InversionMap.prototype.getLeast = function(intKey) {
   var arr = this.rangeArray;
   var low = 0;
   var high = arr.length;

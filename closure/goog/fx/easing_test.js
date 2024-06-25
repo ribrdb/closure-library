@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.easingTest');
 goog.setTestOnly();
 
-const easing = goog.require('goog.fx.easing');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as easing from './easing.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testEaseIn() {

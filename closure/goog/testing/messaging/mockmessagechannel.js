@@ -11,36 +11,34 @@
 
 
 goog.setTestOnly('goog.testing.messaging.MockMessageChannel');
-goog.provide('goog.testing.messaging.MockMessageChannel');
 
-goog.require('goog.messaging.AbstractChannel');
-goog.require('goog.testing.MockControl');
-goog.require('goog.testing.asserts');
+import { AbstractChannel } from '../../messaging/abstractchannel.js';
+import { MockControl } from '../mockcontrol.js';
+import * as asserts from '../asserts.js';
 
 
 
 /**
  * Class for unit-testing code that communicates over a MessageChannel.
- * @param {goog.testing.MockControl} mockControl The mock control used to create
+ * @param {MockControl} mockControl The mock control used to create
  *   the method mock for #send.
- * @extends {goog.messaging.AbstractChannel}
+ * @extends {AbstractChannel}
  * @constructor
  * @final
  */
-goog.testing.messaging.MockMessageChannel = function(mockControl) {
-  'use strict';
-  goog.testing.messaging.MockMessageChannel.base(this, 'constructor');
+export function MockMessageChannel(mockControl) {
+ MockMessageChannel.base(this, 'constructor');
 
-  /**
-   * Whether the channel has been disposed.
-   * @type {boolean}
-   */
-  this.disposed = false;
+ /**
+  * Whether the channel has been disposed.
+  * @type {boolean}
+  */
+ this.disposed = false;
 
-  mockControl.createMethodMock(this, 'send');
-};
+ mockControl.createMethodMock(this, 'send');
+}
 goog.inherits(
-    goog.testing.messaging.MockMessageChannel, goog.messaging.AbstractChannel);
+    MockMessageChannel, AbstractChannel);
 
 
 /**
@@ -50,7 +48,7 @@ goog.inherits(
  * @param {string|!Object} payload The payload to send to the remote page.
  * @override
  */
-goog.testing.messaging.MockMessageChannel.prototype.send = function(
+MockMessageChannel.prototype.send = function(
     serviceName, payload) {};
 
 
@@ -58,9 +56,8 @@ goog.testing.messaging.MockMessageChannel.prototype.send = function(
  * Sets a flag indicating that this is disposed.
  * @override
  */
-goog.testing.messaging.MockMessageChannel.prototype.dispose = function() {
-  'use strict';
-  this.disposed = true;
+MockMessageChannel.prototype.dispose = function() {
+ this.disposed = true;
 };
 
 
@@ -69,8 +66,7 @@ goog.testing.messaging.MockMessageChannel.prototype.dispose = function() {
  * @param {string} serviceName The service to run.
  * @param {string|!Object} payload The argument to pass to the service.
  */
-goog.testing.messaging.MockMessageChannel.prototype.receive = function(
+MockMessageChannel.prototype.receive = function(
     serviceName, payload) {
-  'use strict';
-  this.deliver(serviceName, payload);
+ this.deliver(serviceName, payload);
 };

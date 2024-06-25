@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.vec.Vec4Test');
 goog.setTestOnly();
 
-const Vec4 = goog.require('goog.vec.Vec4');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as Vec4 from './vec4.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testDeprecatedConstructor() {

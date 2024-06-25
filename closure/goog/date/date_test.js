@@ -4,16 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dateTest');
 goog.setTestOnly();
 
-const DateDate = goog.require('goog.date.Date');
-const DateTime = goog.require('goog.date.DateTime');
-const Interval = goog.require('goog.date.Interval');
-const googRequiredGoogDate = goog.require('goog.date');
-const month = goog.require('goog.date.month');
-const testSuite = goog.require('goog.testing.testSuite');
-const weekDay = goog.require('goog.date.weekDay');
+import * as googRequiredGoogDate from './date.js';
+import { Date as DateDate, DateTime, Interval, month, weekDay } from './date.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 testSuite({

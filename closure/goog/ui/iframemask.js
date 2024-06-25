@@ -10,16 +10,15 @@
  */
 
 
-goog.provide('goog.ui.IframeMask');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.Timer');
-goog.require('goog.dom');
-goog.require('goog.dom.iframe');
-goog.require('goog.events.EventHandler');
-goog.require('goog.structs.Pool');
-goog.require('goog.style');
-goog.requireType('goog.events.EventTarget');
+import { Timer } from '../timer/timer.js';
+import * as dom from '../dom/dom.js';
+import * as domIframe from '../dom/iframe.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { Pool } from '../structs/pool.js';
+import * as style from '../style/style.js';
+goog.requireType('goog.events.eventtarget');
 
 
 
@@ -27,48 +26,47 @@ goog.requireType('goog.events.EventTarget');
  * Controller for an iframe mask. The mask is only valid in the current
  * document, or else the document of the given DOM helper.
  *
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper for the relevant
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper for the relevant
  *     document.
- * @param {goog.structs.Pool=} opt_iframePool An optional source of iframes.
+ * @param {Pool=} opt_iframePool An optional source of iframes.
  *     Iframes will be grabbed from the pool when they're needed and returned
  *     to the pool (but still attached to the DOM) when they're done.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  */
-goog.ui.IframeMask = function(opt_domHelper, opt_iframePool) {
-  'use strict';
-  goog.Disposable.call(this);
+export function IframeMask(opt_domHelper, opt_iframePool) {
+ Disposable.call(this);
 
-  /**
+ /**
    * The DOM helper for this document.
-   * @type {goog.dom.DomHelper}
+   * @type {dom.DomHelper}
    * @private
    */
-  this.dom_ = opt_domHelper || goog.dom.getDomHelper();
+ this.dom_ = opt_domHelper || dom.getDomHelper();
 
-  /**
-   * An Element to snap the mask to. If none is given, defaults to
-   * a full-screen iframe mask.
-   * @type {Element}
-   * @private
-   */
-  this.snapElement_ = this.dom_.getDocument().documentElement;
+ /**
+  * An Element to snap the mask to. If none is given, defaults to
+  * a full-screen iframe mask.
+  * @type {Element}
+  * @private
+  */
+ this.snapElement_ = this.dom_.getDocument().documentElement;
 
-  /**
-   * An event handler for listening to popups and the like.
-   * @type {goog.events.EventHandler<!goog.ui.IframeMask>}
-   * @private
-   */
-  this.handler_ = new goog.events.EventHandler(this);
+ /**
+     * An event handler for listening to popups and the like.
+     * @type {EventHandler<!IframeMask>}
+     * @private
+     */
+ this.handler_ = new EventHandler(this);
 
-  /**
+ /**
    * An iframe pool.
-   * @type {goog.structs.Pool|undefined}
+   * @type {Pool|undefined}
    * @private
    */
-  this.iframePool_ = opt_iframePool;
-};
-goog.inherits(goog.ui.IframeMask, goog.Disposable);
+ this.iframePool_ = opt_iframePool;
+}
+goog.inherits(IframeMask, Disposable);
 
 
 /**
@@ -76,7 +74,7 @@ goog.inherits(goog.ui.IframeMask, goog.Disposable);
  * @type {HTMLIFrameElement}
  * @private
  */
-goog.ui.IframeMask.prototype.iframe_;
+IframeMask.prototype.iframe_;
 
 
 /**
@@ -84,7 +82,7 @@ goog.ui.IframeMask.prototype.iframe_;
  * @type {number}
  * @private
  */
-goog.ui.IframeMask.prototype.zIndex_ = 1;
+IframeMask.prototype.zIndex_ = 1;
 
 
 /**
@@ -93,7 +91,7 @@ goog.ui.IframeMask.prototype.zIndex_ = 1;
  * @type {number}
  * @private
  */
-goog.ui.IframeMask.prototype.opacity_ = 0;
+IframeMask.prototype.opacity_ = 0;
 
 
 /**
@@ -101,20 +99,19 @@ goog.ui.IframeMask.prototype.opacity_ = 0;
  * @override
  * @protected
  */
-goog.ui.IframeMask.prototype.disposeInternal = function() {
-  'use strict';
-  if (this.iframePool_) {
-    this.iframePool_.releaseObject(
-        /** @type {HTMLIFrameElement} */ (this.iframe_));
-  } else {
-    goog.dom.removeNode(this.iframe_);
-  }
-  this.iframe_ = null;
+IframeMask.prototype.disposeInternal = function() {
+ if (this.iframePool_) {
+   this.iframePool_.releaseObject(
+       /** @type {HTMLIFrameElement} */ (this.iframe_));
+ } else {
+   dom.removeNode(this.iframe_);
+ }
+ this.iframe_ = null;
 
-  this.handler_.dispose();
-  this.handler_ = null;
+ this.handler_.dispose();
+ this.handler_ = null;
 
-  goog.ui.IframeMask.superClass_.disposeInternal.call(this);
+ IframeMask.superClass_.disposeInternal.call(this);
 };
 
 
@@ -123,22 +120,21 @@ goog.ui.IframeMask.prototype.disposeInternal = function() {
  * @type {string}
  * @private
  */
-goog.ui.IframeMask.HIDDEN_CSS_TEXT_ =
+IframeMask.HIDDEN_CSS_TEXT_ =
     'position:absolute;display:none;z-index:1';
 
 
 /**
  * Removes the mask from the screen.
  */
-goog.ui.IframeMask.prototype.hideMask = function() {
-  'use strict';
-  if (this.iframe_) {
-    this.iframe_.style.cssText = goog.ui.IframeMask.HIDDEN_CSS_TEXT_;
-    if (this.iframePool_) {
-      this.iframePool_.releaseObject(this.iframe_);
-      this.iframe_ = null;
-    }
-  }
+IframeMask.prototype.hideMask = function() {
+ if (this.iframe_) {
+   this.iframe_.style.cssText = IframeMask.HIDDEN_CSS_TEXT_;
+   if (this.iframePool_) {
+     this.iframePool_.releaseObject(this.iframe_);
+     this.iframe_ = null;
+   }
+ }
 };
 
 
@@ -148,34 +144,32 @@ goog.ui.IframeMask.prototype.hideMask = function() {
  * @return {!HTMLIFrameElement} The iframe.
  * @private
  */
-goog.ui.IframeMask.prototype.getIframe_ = function() {
-  'use strict';
-  if (!this.iframe_) {
-    this.iframe_ = this.iframePool_ ?
-        /** @type {HTMLIFrameElement} */ (this.iframePool_.getObject()) :
-                                         goog.dom.iframe.createBlank(this.dom_);
-    this.iframe_.style.cssText = goog.ui.IframeMask.HIDDEN_CSS_TEXT_;
-    this.dom_.getDocument().body.appendChild(this.iframe_);
-  }
-  return this.iframe_;
+IframeMask.prototype.getIframe_ = function() {
+ if (!this.iframe_) {
+   this.iframe_ = this.iframePool_ ?
+       /** @type {HTMLIFrameElement} */ (this.iframePool_.getObject()) :
+                                        domIframe.createBlank(this.dom_);
+   this.iframe_.style.cssText = IframeMask.HIDDEN_CSS_TEXT_;
+   this.dom_.getDocument().body.appendChild(this.iframe_);
+ }
+ return this.iframe_;
 };
 
 
 /**
  * Applies the iframe mask to the screen.
  */
-goog.ui.IframeMask.prototype.applyMask = function() {
-  'use strict';
-  var iframe = this.getIframe_();
-  var bounds = goog.style.getBounds(this.snapElement_);
-  iframe.style.cssText = 'position:absolute;' +
-      'left:' + bounds.left + 'px;' +
-      'top:' + bounds.top + 'px;' +
-      'width:' + bounds.width + 'px;' +
-      'height:' + bounds.height + 'px;' +
-      'z-index:' + this.zIndex_;
-  goog.style.setOpacity(iframe, this.opacity_);
-  iframe.style.display = 'block';
+IframeMask.prototype.applyMask = function() {
+ var iframe = this.getIframe_();
+ var bounds = style.getBounds(this.snapElement_);
+ iframe.style.cssText = 'position:absolute;' +
+     'left:' + bounds.left + 'px;' +
+     'top:' + bounds.top + 'px;' +
+     'width:' + bounds.width + 'px;' +
+     'height:' + bounds.height + 'px;' +
+     'z-index:' + this.zIndex_;
+ style.setOpacity(iframe, this.opacity_);
+ iframe.style.display = 'block';
 };
 
 
@@ -185,9 +179,8 @@ goog.ui.IframeMask.prototype.applyMask = function() {
  * @param {number} opacity A value between 0 and 1, with 1 being
  *     totally opaque.
  */
-goog.ui.IframeMask.prototype.setOpacity = function(opacity) {
-  'use strict';
-  this.opacity_ = opacity;
+IframeMask.prototype.setOpacity = function(opacity) {
+ this.opacity_ = opacity;
 };
 
 
@@ -196,9 +189,8 @@ goog.ui.IframeMask.prototype.setOpacity = function(opacity) {
  * is applied.
  * @param {number} zIndex A z-index value.
  */
-goog.ui.IframeMask.prototype.setZIndex = function(zIndex) {
-  'use strict';
-  this.zIndex_ = zIndex;
+IframeMask.prototype.setZIndex = function(zIndex) {
+ this.zIndex_ = zIndex;
 };
 
 
@@ -207,12 +199,11 @@ goog.ui.IframeMask.prototype.setZIndex = function(zIndex) {
  * @param {Element} snapElement The snap element, which the iframe will be
  *     "snapped" around.
  */
-goog.ui.IframeMask.prototype.setSnapElement = function(snapElement) {
-  'use strict';
-  this.snapElement_ = snapElement;
-  if (this.iframe_ && goog.style.isElementShown(this.iframe_)) {
-    this.applyMask();
-  }
+IframeMask.prototype.setSnapElement = function(snapElement) {
+ this.snapElement_ = snapElement;
+ if (this.iframe_ && style.isElementShown(this.iframe_)) {
+   this.applyMask();
+ }
 };
 
 
@@ -226,34 +217,30 @@ goog.ui.IframeMask.prototype.setSnapElement = function(snapElement) {
  *     automatically snap to this element. If no element is specified, it will
  *     use the default snap element.
  */
-goog.ui.IframeMask.prototype.listenOnTarget = function(
+IframeMask.prototype.listenOnTarget = function(
     target, showEvent, hideEvent, opt_snapElement) {
-  'use strict';
-  var timerKey;
-  this.handler_.listen(target, showEvent, function() {
-    'use strict';
-    if (opt_snapElement) {
-      this.setSnapElement(opt_snapElement);
-    }
-    // Check out the iframe asynchronously, so we don't block the SHOW
-    // event and cause a bounce.
-    timerKey = goog.Timer.callOnce(this.applyMask, 0, this);
-  });
-  this.handler_.listen(target, hideEvent, function() {
-    'use strict';
-    if (timerKey) {
-      goog.Timer.clear(timerKey);
-      timerKey = null;
-    }
-    this.hideMask();
-  });
+ var timerKey;
+ this.handler_.listen(target, showEvent, function() {
+  if (opt_snapElement) {
+    this.setSnapElement(opt_snapElement);
+  }
+  // Check out the iframe asynchronously, so we don't block the SHOW
+  // event and cause a bounce.
+  timerKey = Timer.callOnce(this.applyMask, 0, this);
+ });
+ this.handler_.listen(target, hideEvent, function() {
+  if (timerKey) {
+    Timer.clear(timerKey);
+    timerKey = null;
+  }
+  this.hideMask();
+ });
 };
 
 
 /**
  * Removes all handlers attached by listenOnTarget.
  */
-goog.ui.IframeMask.prototype.removeHandlers = function() {
-  'use strict';
-  this.handler_.removeAll();
+IframeMask.prototype.removeHandlers = function() {
+ this.handler_.removeAll();
 };

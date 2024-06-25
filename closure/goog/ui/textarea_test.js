@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TextareaTest');
 goog.setTestOnly();
 
-const EventObserver = goog.require('goog.testing.events.EventObserver');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Textarea = goog.require('goog.ui.Textarea');
-const TextareaRenderer = goog.require('goog.ui.TextareaRenderer');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const product = goog.require('goog.userAgent.product');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { EventObserver } from '../testing/events/eventobserver.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { Textarea } from './textarea.js';
+import { TextareaRenderer } from './textarearenderer.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as product from '../useragent/product.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let sandbox;
 let textarea;

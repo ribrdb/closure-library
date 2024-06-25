@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.IdleTimerTest');
 goog.setTestOnly();
 
-const IdleTimer = goog.require('goog.ui.IdleTimer');
-const MockActivityMonitor = goog.require('goog.ui.MockActivityMonitor');
-const MockClock = goog.require('goog.testing.MockClock');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { IdleTimer } from './idletimer.js';
+import { MockActivityMonitor } from './mockactivitymonitor.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let clock;
 

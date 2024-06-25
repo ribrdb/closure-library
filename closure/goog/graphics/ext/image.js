@@ -10,10 +10,9 @@
  */
 
 
-goog.provide('goog.graphics.ext.Image');
+import { Element } from './element.js';
 
-goog.require('goog.graphics.ext.Element');
-goog.requireType('goog.graphics.ext.Group');
+goog.requireType('goog.graphics.ext.group');
 
 
 
@@ -22,18 +21,17 @@ goog.requireType('goog.graphics.ext.Group');
  * @param {goog.graphics.ext.Group} group Parent for this element.
  * @param {string} src The path to the image to display.
  * @constructor
- * @extends {goog.graphics.ext.Element}
+ * @extends {Element}
  * @final
  */
-goog.graphics.ext.Image = function(group, src) {
-  'use strict';
-  // Initialize with some stock values.
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  const wrapper = group.getGraphicsImplementation().drawImage(
-      0, 0, 1, 1, src, group.getWrapper());
-  goog.graphics.ext.Element.call(this, group, wrapper);
-};
-goog.inherits(goog.graphics.ext.Image, goog.graphics.ext.Element);
+export function Image(group, src) {
+ // Initialize with some stock values.
+ /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+ const wrapper = group.getGraphicsImplementation().drawImage(
+     0, 0, 1, 1, src, group.getWrapper());
+ Element.call(this, group, wrapper);
+}
+goog.inherits(Image, Element);
 
 
 /**
@@ -42,12 +40,11 @@ goog.inherits(goog.graphics.ext.Image, goog.graphics.ext.Element);
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.Image.prototype.redraw = function() {
-  'use strict';
-  goog.graphics.ext.Image.superClass_.redraw.call(this);
+Image.prototype.redraw = function() {
+ Image.superClass_.redraw.call(this);
 
-  // Our position is already handled bu transform_.
-  this.getWrapper().setSize(this.getWidth(), this.getHeight());
+ // Our position is already handled bu transform_.
+ this.getWrapper().setSize(this.getWidth(), this.getHeight());
 };
 
 
@@ -56,7 +53,6 @@ goog.graphics.ext.Image.prototype.redraw = function() {
  * @param {string} src  Source of the image.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.Image.prototype.setSource = function(src) {
-  'use strict';
-  this.getWrapper().setSource(src);
+Image.prototype.setSource = function(src) {
+ this.getWrapper().setSource(src);
 };

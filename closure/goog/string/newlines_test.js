@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for goog.string. */
 
-goog.module('goog.string.newlinesTest');
 goog.setTestOnly();
 
-const newlines = goog.require('goog.string.newlines');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as newlines from './newlines.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // test for goog.string.splitLines
 

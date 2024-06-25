@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fsTest');
 goog.setTestOnly();
 
-const FsBlob = goog.require('goog.testing.fs.Blob');
-const fs = goog.require('goog.testing.fs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Blob as FsBlob } from './blob.js';
+import * as fs from './fs.js';
+import { testSuite } from '../testsuite.js';
 
 testSuite({
   testObjectUrls() {

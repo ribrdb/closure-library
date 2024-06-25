@@ -8,7 +8,7 @@
  * @fileoverview Class to encapsulate an editable field that blends into the
  * style of the page and never uses an iframe.  The field's height can be
  * controlled by CSS styles like min-height, max-height, and overflow.  This is
- * a goog.editor.Field, but overrides everything iframe related to use
+ * a Field, but overrides everything iframe related to use
  * contentEditable divs.  This is essentially a much lighter alternative to
  * goog.editor.SeamlessField, but only works in Firefox 3+, and only works
  * *well* in Firefox 12+ due to
@@ -16,11 +16,10 @@
  */
 
 
-goog.provide('goog.editor.ContentEditableField');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.editor.Field');
-goog.require('goog.log');
+import { Field } from './field.js';
+import * as log from '../log/log.js';
 
 
 
@@ -35,61 +34,57 @@ goog.require('goog.log');
  * @param {Document=} opt_doc The document that the element with the given
  *     id can be found in.
  * @constructor
- * @extends {goog.editor.Field}
+ * @extends {Field}
  */
-goog.editor.ContentEditableField = function(id, opt_doc) {
-  'use strict';
-  goog.editor.Field.call(this, id, opt_doc);
-};
-goog.inherits(goog.editor.ContentEditableField, goog.editor.Field);
+export function ContentEditableField(id, opt_doc) {
+ Field.call(this, id, opt_doc);
+}
+goog.inherits(ContentEditableField, Field);
 
 
 /**
  * @override
  */
-goog.editor.ContentEditableField.prototype.logger =
-    goog.log.getLogger('goog.editor.ContentEditableField');
+ContentEditableField.prototype.logger =
+    log.getLogger('goog.editor.ContentEditableField');
 
 
 /** @override */
-goog.editor.ContentEditableField.prototype.usesIframe = function() {
-  'use strict';
-  // Never uses an iframe in any browser.
-  return false;
+ContentEditableField.prototype.usesIframe = function() {
+ // Never uses an iframe in any browser.
+ return false;
 };
 
 
 // Overridden to improve dead code elimination only.
 /** @override */
-goog.editor.ContentEditableField.prototype.turnOnDesignModeGecko =
+ContentEditableField.prototype.turnOnDesignModeGecko =
     function() {};
 
 
 /** @override */
-goog.editor.ContentEditableField.prototype.installStyles = function() {
-  'use strict';
-  goog.asserts.assert(
-      !this.cssStyles.getTypedStringValue(),
-      'ContentEditableField does not support CSS styles; instead just write ' +
-          'plain old CSS on the main page.');
+ContentEditableField.prototype.installStyles = function() {
+ asserts.assert(
+     !this.cssStyles.getTypedStringValue(),
+     'ContentEditableField does not support CSS styles; instead just write ' +
+         'plain old CSS on the main page.');
 };
 
 
 /** @override */
-goog.editor.ContentEditableField.prototype.makeEditableInternal = function(
+ContentEditableField.prototype.makeEditableInternal = function(
     opt_iframeSrc) {
-  'use strict';
-  var field = this.getOriginalElement();
-  if (field) {
-    this.setupFieldObject(field);
-    // TODO(gboyer): Allow clients/plugins to override with 'plaintext-only'
-    // for WebKit.
-    field.contentEditable = true;
+ var field = this.getOriginalElement();
+ if (field) {
+   this.setupFieldObject(field);
+   // TODO(gboyer): Allow clients/plugins to override with 'plaintext-only'
+   // for WebKit.
+   field.contentEditable = true;
 
-    this.injectContents(field.innerHTML, field);
+   this.injectContents(field.innerHTML, field);
 
-    this.handleFieldLoad();
-  }
+   this.handleFieldLoad();
+ }
 };
 
 
@@ -99,4 +94,4 @@ goog.editor.ContentEditableField.prototype.makeEditableInternal = function(
  * ContentEditableField does not make any changes to the DOM when it is made
  * editable other than setting contentEditable to true.
  */
-goog.editor.ContentEditableField.prototype.restoreDom = function() {};
+ContentEditableField.prototype.restoreDom = function() {};

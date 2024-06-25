@@ -10,11 +10,9 @@
  * @see ../demos/useragent.html
  */
 
-goog.module('goog.userAgent.adobeReader');
-goog.module.declareLegacyNamespace();
+import * as googString from '../string/string.js';
 
-var googString = goog.require('goog.string');
-var userAgent = goog.require('goog.userAgent');
+import * as userAgent from './useragent.js';
 
 
 var version = '';
@@ -53,7 +51,7 @@ if (userAgent.IE) {
  * Whether we detect the user has the Adobe Reader browser plugin installed.
  * @type {boolean}
  */
-exports.HAS_READER = !!version;
+export let HAS_READER = !!version;
 
 
 /**
@@ -61,7 +59,7 @@ exports.HAS_READER = !!version;
  * will all be reported as '7'.
  * @type {string}
  */
-exports.VERSION = version;
+export { version as VERSION };
 
 
 /**
@@ -74,5 +72,4 @@ exports.VERSION = version;
  *
  * @type {boolean}
  */
-exports.SILENT_PRINT =
-    userAgent.WINDOWS && googString.compareVersions(version, '6') >= 0;
+export let SILENT_PRINT = userAgent.WINDOWS && googString.compareVersions(version, '6') >= 0;

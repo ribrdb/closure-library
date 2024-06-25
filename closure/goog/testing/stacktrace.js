@@ -9,8 +9,6 @@
  */
 
 goog.setTestOnly('goog.testing.stacktrace');
-goog.provide('goog.testing.stacktrace');
-goog.provide('goog.testing.stacktrace.Frame');
 
 
 
@@ -19,7 +17,7 @@ goog.provide('goog.testing.stacktrace.Frame');
  * @final
  * @unrestricted
  */
-goog.testing.stacktrace.Frame = class {
+export class Frame {
   /**
    * @param {string} context Context object, empty in case of global functions
    *     or if the browser doesn't provide this information.
@@ -31,7 +29,6 @@ goog.testing.stacktrace.Frame = class {
    *     column number separated by colons.
    */
   constructor(context, name, alias, path) {
-    'use strict';
     this.context_ = context;
     this.name_ = name;
     this.alias_ = alias;
@@ -43,7 +40,6 @@ goog.testing.stacktrace.Frame = class {
    *     anonymous and the object field which it's assigned to is unknown.
    */
   getName() {
-    'use strict';
     return this.name_;
   }
 
@@ -51,7 +47,6 @@ goog.testing.stacktrace.Frame = class {
    * @return {boolean} Whether the stack frame contains an anonymous function.
    */
   isAnonymous() {
-    'use strict';
     return !this.name_ || this.context_ == '[object Object]';
   }
 
@@ -60,9 +55,8 @@ goog.testing.stacktrace.Frame = class {
    * @return {string} Pretty printed stack frame.
    */
   toCanonicalString() {
-    'use strict';
-    const htmlEscape = goog.testing.stacktrace.htmlEscape_;
-    const deobfuscate = goog.testing.stacktrace.maybeDeobfuscateFunctionName_;
+    const htmlEscape = htmlEscape_;
+    const deobfuscate = maybeDeobfuscateFunctionName_;
 
     const canonical = [
       this.context_ ? htmlEscape(this.context_) + '.' : '',
@@ -76,7 +70,7 @@ goog.testing.stacktrace.Frame = class {
     }
     return canonical.join('');
   }
-};
+}
 
 
 
@@ -85,7 +79,7 @@ goog.testing.stacktrace.Frame = class {
  * @private {number}
  * @const
  */
-goog.testing.stacktrace.MAX_DEPTH_ = 20;
+var MAX_DEPTH_ = 20;
 
 
 /**
@@ -97,7 +91,7 @@ goog.testing.stacktrace.MAX_DEPTH_ = 20;
  * @private {number}
  * @const
  */
-goog.testing.stacktrace.MAX_FIREFOX_FRAMESTRING_LENGTH_ = 500000;
+var MAX_FIREFOX_FRAMESTRING_LENGTH_ = 500000;
 
 
 /**
@@ -106,7 +100,7 @@ goog.testing.stacktrace.MAX_FIREFOX_FRAMESTRING_LENGTH_ = 500000;
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.IDENTIFIER_PATTERN_ = '[a-zA-Z_$][\\w$]*';
+var IDENTIFIER_PATTERN_ = '[a-zA-Z_$][\\w$]*';
 
 
 /**
@@ -114,8 +108,7 @@ goog.testing.stacktrace.IDENTIFIER_PATTERN_ = '[a-zA-Z_$][\\w$]*';
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.V8_ALIAS_PATTERN_ =
-    '(?: \\[as (' + goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')\\])?';
+var V8_ALIAS_PATTERN_ = '(?: \\[as (' + IDENTIFIER_PATTERN_ + ')\\])?';
 
 
 /**
@@ -125,10 +118,9 @@ goog.testing.stacktrace.V8_ALIAS_PATTERN_ =
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.V8_CONTEXT_PATTERN_ =
-    '(?:((?:new )?(?:\\[object Object\\]|' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + '(?:\\.' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')*))\\.)?';
+var V8_CONTEXT_PATTERN_ = '(?:((?:new )?(?:\\[object Object\\]|' +
+IDENTIFIER_PATTERN_ + '(?:\\.' +
+IDENTIFIER_PATTERN_ + ')*))\\.)?';
 
 
 /**
@@ -137,9 +129,8 @@ goog.testing.stacktrace.V8_CONTEXT_PATTERN_ =
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.V8_FUNCTION_NAME_PATTERN_ =
-    '(?:new )?(?:' + goog.testing.stacktrace.IDENTIFIER_PATTERN_ +
-    '|<anonymous>)';
+var V8_FUNCTION_NAME_PATTERN_ = '(?:new )?(?:' + IDENTIFIER_PATTERN_ +
+'|<anonymous>)';
 
 
 /**
@@ -148,10 +139,10 @@ goog.testing.stacktrace.V8_FUNCTION_NAME_PATTERN_ =
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.V8_FUNCTION_CALL_PATTERN_ = ' ' +
-    goog.testing.stacktrace.V8_CONTEXT_PATTERN_ + '(' +
-    goog.testing.stacktrace.V8_FUNCTION_NAME_PATTERN_ + ')' +
-    goog.testing.stacktrace.V8_ALIAS_PATTERN_;
+var V8_FUNCTION_CALL_PATTERN_ = ' ' +
+    V8_CONTEXT_PATTERN_ + '(' +
+    V8_FUNCTION_NAME_PATTERN_ + ')' +
+    V8_ALIAS_PATTERN_;
 
 
 /**
@@ -159,8 +150,7 @@ goog.testing.stacktrace.V8_FUNCTION_CALL_PATTERN_ = ' ' +
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.URL_PATTERN_ =
-    '((?:http|https|file)://[^\\s)]+|javascript:.*)';
+var URL_PATTERN_ = '((?:http|https|file)://[^\\s)]+|javascript:.*)';
 
 
 /**
@@ -169,7 +159,7 @@ goog.testing.stacktrace.URL_PATTERN_ =
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.CHROME_URL_PATTERN_ = ' (?:' +
+var CHROME_URL_PATTERN_ = ' (?:' +
     '\\(unknown source\\)' +
     '|' +
     '\\(native\\)' +
@@ -184,10 +174,10 @@ goog.testing.stacktrace.CHROME_URL_PATTERN_ = ' (?:' +
  * @private {!RegExp}
  * @const
  */
-goog.testing.stacktrace.V8_STACK_FRAME_REGEXP_ = new RegExp(
+var V8_STACK_FRAME_REGEXP_ = new RegExp(
     '^    at' +
-    '(?:' + goog.testing.stacktrace.V8_FUNCTION_CALL_PATTERN_ + ')?' +
-    goog.testing.stacktrace.CHROME_URL_PATTERN_ + '$');
+    '(?:' + V8_FUNCTION_CALL_PATTERN_ + ')?' +
+    CHROME_URL_PATTERN_ + '$');
 
 
 /**
@@ -201,9 +191,9 @@ goog.testing.stacktrace.V8_STACK_FRAME_REGEXP_ = new RegExp(
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.FIREFOX_FUNCTION_CALL_PATTERN_ = '(' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + '(?:\\.' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')*' +
+var FIREFOX_FUNCTION_CALL_PATTERN_ = '(' +
+    IDENTIFIER_PATTERN_ + '(?:\\.' +
+    IDENTIFIER_PATTERN_ + ')*' +
     ')?' +
     '(\\(.*\\))?@';
 
@@ -213,9 +203,9 @@ goog.testing.stacktrace.FIREFOX_FUNCTION_CALL_PATTERN_ = '(' +
  * @private {!RegExp}
  * @const
  */
-goog.testing.stacktrace.FIREFOX_STACK_FRAME_REGEXP_ = new RegExp(
-    '^' + goog.testing.stacktrace.FIREFOX_FUNCTION_CALL_PATTERN_ + '(?::0|' +
-    goog.testing.stacktrace.URL_PATTERN_ + ')$');
+var FIREFOX_STACK_FRAME_REGEXP_ = new RegExp(
+    '^' + FIREFOX_FUNCTION_CALL_PATTERN_ + '(?::0|' +
+    URL_PATTERN_ + ')$');
 
 
 /**
@@ -224,11 +214,10 @@ goog.testing.stacktrace.FIREFOX_STACK_FRAME_REGEXP_ = new RegExp(
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.OPERA_ANONYMOUS_FUNCTION_NAME_PATTERN_ =
-    '<anonymous function(?:\\: ' +
-    '(?:(' + goog.testing.stacktrace.IDENTIFIER_PATTERN_ + '(?:\\.' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')*)\\.)?' +
-    '(' + goog.testing.stacktrace.IDENTIFIER_PATTERN_ + '))?>';
+var OPERA_ANONYMOUS_FUNCTION_NAME_PATTERN_ = '<anonymous function(?:\\: ' +
+'(?:(' + IDENTIFIER_PATTERN_ + '(?:\\.' +
+IDENTIFIER_PATTERN_ + ')*)\\.)?' +
+'(' + IDENTIFIER_PATTERN_ + '))?>';
 
 
 /**
@@ -239,22 +228,22 @@ goog.testing.stacktrace.OPERA_ANONYMOUS_FUNCTION_NAME_PATTERN_ =
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.OPERA_FUNCTION_CALL_PATTERN_ = '(?:(?:(' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')|' +
-    goog.testing.stacktrace.OPERA_ANONYMOUS_FUNCTION_NAME_PATTERN_ +
+var OPERA_FUNCTION_CALL_PATTERN_ = '(?:(?:(' +
+    IDENTIFIER_PATTERN_ + ')|' +
+    OPERA_ANONYMOUS_FUNCTION_NAME_PATTERN_ +
     ')(\\(.*\\)))?@';
 
 
 /**
  * Regular expression for parsing on stack frame in Opera 11.68 - 12.17.
  * Newer versions of Opera use V8 and stack frames should match against
- * goog.testing.stacktrace.V8_STACK_FRAME_REGEXP_.
+ * V8_STACK_FRAME_REGEXP_.
  * @private {!RegExp}
  * @const
  */
-goog.testing.stacktrace.OPERA_STACK_FRAME_REGEXP_ = new RegExp(
-    '^' + goog.testing.stacktrace.OPERA_FUNCTION_CALL_PATTERN_ +
-    goog.testing.stacktrace.URL_PATTERN_ + '?$');
+var OPERA_STACK_FRAME_REGEXP_ = new RegExp(
+    '^' + OPERA_FUNCTION_CALL_PATTERN_ +
+    URL_PATTERN_ + '?$');
 
 
 /**
@@ -262,8 +251,8 @@ goog.testing.stacktrace.OPERA_STACK_FRAME_REGEXP_ = new RegExp(
  * @private {!RegExp}
  * @const
  */
-goog.testing.stacktrace.FUNCTION_SOURCE_REGEXP_ = new RegExp(
-    '^function (' + goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')');
+var FUNCTION_SOURCE_REGEXP_ = new RegExp(
+    '^function (' + IDENTIFIER_PATTERN_ + ')');
 
 
 /**
@@ -272,9 +261,9 @@ goog.testing.stacktrace.FUNCTION_SOURCE_REGEXP_ = new RegExp(
  * @private {string}
  * @const
  */
-goog.testing.stacktrace.IE_FUNCTION_CALL_PATTERN_ = '(' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + '(?:\\.' +
-    goog.testing.stacktrace.IDENTIFIER_PATTERN_ + ')*' +
+var IE_FUNCTION_CALL_PATTERN_ = '(' +
+    IDENTIFIER_PATTERN_ + '(?:\\.' +
+    IDENTIFIER_PATTERN_ + ')*' +
     '(?:\\s+\\w+)*)';
 
 
@@ -283,35 +272,34 @@ goog.testing.stacktrace.IE_FUNCTION_CALL_PATTERN_ = '(' +
  * @private {!RegExp}
  * @const
  */
-goog.testing.stacktrace.IE_STACK_FRAME_REGEXP_ = new RegExp(
-    '^   at ' + goog.testing.stacktrace.IE_FUNCTION_CALL_PATTERN_ + '\\s*\\(' +
+var IE_STACK_FRAME_REGEXP_ = new RegExp(
+    '^   at ' + IE_FUNCTION_CALL_PATTERN_ + '\\s*\\(' +
     '(' +
     'eval code:[^)]*' +
     '|' +
     'Unknown script code:[^)]*' +
-    '|' + goog.testing.stacktrace.URL_PATTERN_ + ')\\)?$');
+    '|' + URL_PATTERN_ + ')\\)?$');
 
 
 /**
  * Creates a stack trace by following the call chain. Based on
  * {@link goog.debug.getStacktrace}.
- * @return {!Array<!goog.testing.stacktrace.Frame>} Stack frames.
+ * @return {!Array<!Frame>} Stack frames.
  * @private
  * @suppress {es5Strict}
  */
-goog.testing.stacktrace.followCallChain_ = function() {
-  'use strict';
+function followCallChain_() {
   const frames = [];
   let fn = arguments.callee.caller;
   let depth = 0;
 
-  while (fn && depth < goog.testing.stacktrace.MAX_DEPTH_) {
+  while (fn && depth < MAX_DEPTH_) {
     const fnString = Function.prototype.toString.call(fn);
     const match =
-        fnString.match(goog.testing.stacktrace.FUNCTION_SOURCE_REGEXP_);
+        fnString.match(FUNCTION_SOURCE_REGEXP_);
     const functionName = match ? match[1] : '';
 
-    frames.push(new goog.testing.stacktrace.Frame('', functionName, '', ''));
+    frames.push(new Frame('', functionName, '', ''));
 
 
     try {
@@ -323,51 +311,50 @@ goog.testing.stacktrace.followCallChain_ = function() {
   }
 
   return frames;
-};
+}
 
 
 /**
  * Parses one stack frame.
  * @param {string} frameStr The stack frame as string.
- * @return {goog.testing.stacktrace.Frame} Stack frame object or null if the
+ * @return {Frame} Stack frame object or null if the
  *     parsing failed.
  * @private
  */
-goog.testing.stacktrace.parseStackFrame_ = function(frameStr) {
-  'use strict';
+function parseStackFrame_(frameStr) {
   // This match includes newer versions of Opera (15+).
-  let m = frameStr.match(goog.testing.stacktrace.V8_STACK_FRAME_REGEXP_);
+  let m = frameStr.match(V8_STACK_FRAME_REGEXP_);
   if (m) {
-    return new goog.testing.stacktrace.Frame(
+    return new Frame(
         m[1] || '', m[2] || '', m[3] || '', m[4] || m[5] || m[6] || '');
   }
 
   // TODO(johnlenz): remove this.  It seems like if this was useful it would
   // need to be before the V8 check.
   if (frameStr.length >
-      goog.testing.stacktrace.MAX_FIREFOX_FRAMESTRING_LENGTH_) {
+      MAX_FIREFOX_FRAMESTRING_LENGTH_) {
     return null;
   }
 
-  m = frameStr.match(goog.testing.stacktrace.FIREFOX_STACK_FRAME_REGEXP_);
+  m = frameStr.match(FIREFOX_STACK_FRAME_REGEXP_);
   if (m) {
-    return new goog.testing.stacktrace.Frame('', m[1] || '', '', m[3] || '');
+    return new Frame('', m[1] || '', '', m[3] || '');
   }
 
   // Match against Presto Opera 11.68 - 12.17.
-  m = frameStr.match(goog.testing.stacktrace.OPERA_STACK_FRAME_REGEXP_);
+  m = frameStr.match(OPERA_STACK_FRAME_REGEXP_);
   if (m) {
-    return new goog.testing.stacktrace.Frame(
+    return new Frame(
         m[2] || '', m[1] || m[3] || '', '', m[5] || '');
   }
 
-  m = frameStr.match(goog.testing.stacktrace.IE_STACK_FRAME_REGEXP_);
+  m = frameStr.match(IE_STACK_FRAME_REGEXP_);
   if (m) {
-    return new goog.testing.stacktrace.Frame('', m[1] || '', '', m[2] || '');
+    return new Frame('', m[1] || '', '', m[2] || '');
   }
 
   return null;
-};
+}
 
 
 /**
@@ -375,17 +362,16 @@ goog.testing.stacktrace.parseStackFrame_ = function(frameStr) {
  * @type {function(string): string}
  * @private
  */
-goog.testing.stacktrace.deobfuscateFunctionName_;
+var deobfuscateFunctionName_;
 
 
 /**
  * Sets function to deobfuscate function names.
  * @param {function(string): string} fn function to deobfuscate function names.
  */
-goog.testing.stacktrace.setDeobfuscateFunctionName = function(fn) {
-  'use strict';
-  goog.testing.stacktrace.deobfuscateFunctionName_ = fn;
-};
+export function setDeobfuscateFunctionName(fn) {
+  deobfuscateFunctionName_ = fn;
+}
 
 
 /**
@@ -396,12 +382,11 @@ goog.testing.stacktrace.setDeobfuscateFunctionName = function(fn) {
  * @return {string} The deobfuscated function name.
  * @private
  */
-goog.testing.stacktrace.maybeDeobfuscateFunctionName_ = function(name) {
-  'use strict';
-  return goog.testing.stacktrace.deobfuscateFunctionName_ ?
-      goog.testing.stacktrace.deobfuscateFunctionName_(name) :
+function maybeDeobfuscateFunctionName_(name) {
+  return deobfuscateFunctionName_ ?
+      deobfuscateFunctionName_(name) :
       name;
-};
+}
 
 
 /**
@@ -410,24 +395,22 @@ goog.testing.stacktrace.maybeDeobfuscateFunctionName_ = function(name) {
  * @return {string} Escaped text.
  * @private
  */
-goog.testing.stacktrace.htmlEscape_ = function(text) {
-  'use strict';
+function htmlEscape_(text) {
   return text.replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
-};
+}
 
 
 /**
  * Converts the stack frames into canonical format. Chops the beginning and the
  * end of it which come from the testing environment, not from the test itself.
- * @param {!Array<goog.testing.stacktrace.Frame>} frames The frames.
+ * @param {!Array<Frame>} frames The frames.
  * @return {string} Canonical, pretty printed stack trace.
  * @private
  */
-goog.testing.stacktrace.framesToString_ = function(frames) {
-  'use strict';
+function framesToString_(frames) {
   // Removes the anonymous calls from the end of the stack trace (they come
   // from testrunner.js, testcase.js and asserts.js), so the stack trace will
   // end with the test... method.
@@ -458,25 +441,24 @@ goog.testing.stacktrace.framesToString_ = function(frames) {
     canonical.push('\n');
   }
   return canonical.join('');
-};
+}
 
 
 /**
  * Parses the browser's native stack trace.
  * @param {string} stack Stack trace.
- * @return {!Array<goog.testing.stacktrace.Frame>} Stack frames. The
+ * @return {!Array<Frame>} Stack frames. The
  *     unrecognized frames will be nulled out.
  * @private
  */
-goog.testing.stacktrace.parse_ = function(stack) {
-  'use strict';
+function parse_(stack) {
   const lines = stack.replace(/\s*$/, '').split('\n');
   const frames = [];
   for (let i = 0; i < lines.length; i++) {
-    frames.push(goog.testing.stacktrace.parseStackFrame_(lines[i]));
+    frames.push(parseStackFrame_(lines[i]));
   }
   return frames;
-};
+}
 
 
 /**
@@ -484,11 +466,10 @@ goog.testing.stacktrace.parse_ = function(stack) {
  * @param {string} stack Browser-specific stack trace.
  * @return {string} Same stack trace in common format.
  */
-goog.testing.stacktrace.canonicalize = function(stack) {
-  'use strict';
-  const frames = goog.testing.stacktrace.parse_(stack);
-  return goog.testing.stacktrace.framesToString_(frames);
-};
+export function canonicalize(stack) {
+  const frames = parse_(stack);
+  return framesToString_(frames);
+}
 
 
 /**
@@ -496,8 +477,7 @@ goog.testing.stacktrace.canonicalize = function(stack) {
  * @return {string|!Array<!CallSite>}
  * @private
  */
-goog.testing.stacktrace.getNativeStack_ = function() {
-  'use strict';
+function getNativeStack_() {
   const tmpError = new Error();
   if (tmpError.stack) {
     return tmpError.stack;
@@ -513,38 +493,36 @@ goog.testing.stacktrace.getNativeStack_ = function() {
     return e.stack;
   }
   return '';
-};
+}
 
 
 /**
  * Gets the native stack trace if available otherwise follows the call chain.
  * @return {string} The stack trace in canonical format.
  */
-goog.testing.stacktrace.get = function() {
-  'use strict';
-  const stack = goog.testing.stacktrace.getNativeStack_();
+export function get() {
+  const stack = getNativeStack_();
   let frames;
   if (!stack) {
-    frames = goog.testing.stacktrace.followCallChain_();
+    frames = followCallChain_();
   } else if (Array.isArray(stack)) {
-    frames = goog.testing.stacktrace.callSitesToFrames_(stack);
+    frames = callSitesToFrames_(stack);
   } else {
-    frames = goog.testing.stacktrace.parse_(stack);
+    frames = parse_(stack);
   }
-  return goog.testing.stacktrace.framesToString_(frames);
-};
+  return framesToString_(frames);
+}
 
 
 /**
  * Converts an array of CallSite (elements of a stack trace in V8) to an array
  * of Frames.
  * @param {!Array<!CallSite>} stack The stack as an array of CallSites.
- * @return {!Array<!goog.testing.stacktrace.Frame>} The stack as an array of
+ * @return {!Array<!Frame>} The stack as an array of
  *     Frames.
  * @private
  */
-goog.testing.stacktrace.callSitesToFrames_ = function(stack) {
-  'use strict';
+function callSitesToFrames_(stack) {
   const frames = [];
   for (let i = 0; i < stack.length; i++) {
     const callSite = stack[i];
@@ -553,12 +531,12 @@ goog.testing.stacktrace.callSitesToFrames_ = function(stack) {
     const path = fileName ? fileName + ':' + callSite.getLineNumber() + ':' +
             callSite.getColumnNumber() :
                             'unknown';
-    frames.push(new goog.testing.stacktrace.Frame('', functionName, '', path));
+    frames.push(new Frame('', functionName, '', path));
   }
   return frames;
-};
+}
 
 
 goog.exportSymbol(
     'setDeobfuscateFunctionName',
-    goog.testing.stacktrace.setDeobfuscateFunctionName);
+    setDeobfuscateFunctionName);

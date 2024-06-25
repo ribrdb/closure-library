@@ -10,7 +10,6 @@
  */
 
 goog.setTestOnly('goog.testing.ObjectPropertyString');
-goog.provide('goog.testing.ObjectPropertyString');
 
 
 
@@ -25,40 +24,37 @@ goog.provide('goog.testing.ObjectPropertyString');
  * @final
  * @deprecated Use goog.reflect.objectProperty instead.
  */
-goog.testing.ObjectPropertyString = function(object, propertyString) {
-  'use strict';
-  this.object_ = object;
-  this.propertyString_ = /** @type {string} */ (propertyString);
-};
+export function ObjectPropertyString(object, propertyString) {
+ this.object_ = object;
+ this.propertyString_ = /** @type {string} */ (propertyString);
+}
 
 
 /**
  * @type {Object}
  * @private
  */
-goog.testing.ObjectPropertyString.prototype.object_;
+ObjectPropertyString.prototype.object_;
 
 
 /**
  * @type {string}
  * @private
  */
-goog.testing.ObjectPropertyString.prototype.propertyString_;
+ObjectPropertyString.prototype.propertyString_;
 
 
 /**
  * @return {Object} The object.
  */
-goog.testing.ObjectPropertyString.prototype.getObject = function() {
-  'use strict';
-  return this.object_;
+ObjectPropertyString.prototype.getObject = function() {
+ return this.object_;
 };
 
 
 /**
  * @return {string} The property string.
  */
-goog.testing.ObjectPropertyString.prototype.getPropertyString = function() {
-  'use strict';
-  return this.propertyString_;
+ObjectPropertyString.prototype.getPropertyString = function() {
+ return this.propertyString_;
 };

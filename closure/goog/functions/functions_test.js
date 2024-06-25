@@ -6,14 +6,13 @@
 
 /** @fileoverview Unit tests for functions. */
 
-goog.module('goog.functionsTest');
 goog.setTestOnly();
 
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as functions from './functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const fTrue = makeCallOrderLogger('fTrue', true);
 const gFalse = makeCallOrderLogger('gFalse', false);

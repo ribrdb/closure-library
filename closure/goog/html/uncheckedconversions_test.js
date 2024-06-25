@@ -6,18 +6,17 @@
 
 /** @fileoverview Unit tests for uncheckedconversions. */
 
-goog.module('goog.html.uncheckedconversionsTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeScript = goog.require('goog.html.SafeScript');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const testSuite = goog.require('goog.testing.testSuite');
-const uncheckedconversions = goog.require('goog.html.uncheckedconversions');
+import { Const } from '../string/const.js';
+import { SafeHtml } from './safehtml.js';
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as uncheckedconversions from './uncheckedconversions.js';
 
 testSuite({
   testSafeHtmlFromStringKnownToSatisfyTypeContract_ok() {

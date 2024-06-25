@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.MenuItemTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Coordinate = goog.require('goog.math.Coordinate');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MenuItem = goog.require('goog.ui.MenuItem');
-const MenuItemRenderer = goog.require('goog.ui.MenuItemRenderer');
-const NodeType = goog.require('goog.dom.NodeType');
-const Role = goog.require('goog.a11y.aria.Role');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const googArray = goog.require('goog.array');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
+import { Component } from './component.js';
+import { Coordinate } from '../math/coordinate.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { MenuItem } from './menuitem.js';
+import { MenuItemRenderer } from './menuitemrenderer.js';
+import { NodeType } from '../dom/nodetype.js';
+import { Role } from '../a11y/aria/roles.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import * as googArray from '../array/array.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
 
 let sandbox;
 let item;

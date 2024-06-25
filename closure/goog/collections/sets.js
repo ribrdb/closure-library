@@ -10,9 +10,7 @@
  * See design doc at go/closure-es6-set
  */
 
-goog.module('goog.collections.sets');
-
-const iters = goog.require('goog.collections.iters');
+import * as iters from './iters.js';
 
 // Note: Set operations are being proposed for EcmaScript. See proposal here:
 // https://github.com/tc39/proposal-set-methods
@@ -53,7 +51,7 @@ class SetLike {
    */
   has(val) {};
 }
-exports.SetLike = SetLike;
+export { SetLike };
 
 /**
  * Creates a new ES6 Set containing the elements that appear in both given
@@ -64,7 +62,7 @@ exports.SetLike = SetLike;
  * @returns {!Set<T>}
  * @template T
  */
-exports.intersection = function(a, b) {
+export let intersection = function(a, b) {
   return new Set(iters.filter(b, elem => a.has(elem)));
 };
 
@@ -77,7 +75,7 @@ exports.intersection = function(a, b) {
  * @return {!Set<T>}
  * @template T
  */
-exports.union = function(a, b) {
+export let union = function(a, b) {
   const set = new Set(a);
   iters.forEach(b[Symbol.iterator](), elem => set.add(elem));
   return set;
@@ -93,7 +91,7 @@ exports.union = function(a, b) {
  * @return {!Set<T>}
  * @template T
  */
-exports.difference = function(a, b) {
+export let difference = function(a, b) {
   const set = new Set(a);
   iters.forEach(b[Symbol.iterator](), elem => set.delete(elem));
   return set;
@@ -110,7 +108,7 @@ exports.difference = function(a, b) {
  */
 // TODO(nnaze): Consider widening the type of b per discussion in
 // https://github.com/tc39/proposal-set-methods/issues/56
-exports.symmetricDifference = function(a, b) {
+export let symmetricDifference = function(a, b) {
   const newSet = new Set(a);
   for (const elem of b) {
     if (a.has(elem)) {
@@ -128,7 +126,7 @@ exports.symmetricDifference = function(a, b) {
  * @param {!Iterable<T>} col A collection containing items to add.
  * @template T
  */
-exports.addAll = function(set, col) {
+export let addAll = function(set, col) {
   for (const elem of col) {
     set.add(elem);
   }
@@ -140,7 +138,7 @@ exports.addAll = function(set, col) {
  * @param {!Iterable<T>} col A collection containing the elements to remove.
  * @template T
  */
-exports.removeAll = function(set, col) {
+export let removeAll = function(set, col) {
   for (const elem of col) {
     set.delete(elem);
   }
@@ -154,7 +152,7 @@ exports.removeAll = function(set, col) {
  *     given collection, false otherwise.
  * @template T
  */
-exports.hasAll = function(set, col) {
+export let hasAll = function(set, col) {
   for (const elem of col) {
     if (!set.has(elem)) return false;
   }
@@ -171,12 +169,12 @@ exports.hasAll = function(set, col) {
  *     all the elements in the given collection, false otherwise.
  * @template T
  */
-exports.equals = function(set, col) {
+export let equals = function(set, col) {
   const colSize = Array.isArray(col) ? col.length : col.size;
   if (set.size !== colSize) {
     return false;
   }
-  return exports.isSubsetOf(set, col);
+  return isSubsetOf(set, col);
 };
 
 /**
@@ -189,7 +187,7 @@ exports.equals = function(set, col) {
  *     otherwise.
  * @template T
  */
-exports.isSubsetOf = function(set, col) {
+export let isSubsetOf = function(set, col) {
   if (Array.isArray(col) && set.size > col.length) return false;
   const colSet = Array.isArray(col) ? new Set(col) : col;
   if (set.size > colSet.size) {

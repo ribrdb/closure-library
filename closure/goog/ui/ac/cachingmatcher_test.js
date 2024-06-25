@@ -9,13 +9,12 @@
  * @suppress {missingRequire} Stubbing goog.async.Throttle
  */
 
-goog.module('goog.ui.ac.CachingMatcherTest');
 goog.setTestOnly();
 
-const CachingMatcher = goog.require('goog.ui.ac.CachingMatcher');
-const MockControl = goog.require('goog.testing.MockControl');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CachingMatcher } from './cachingmatcher.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import * as mockmatchers from '../../testing/mockmatchers.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let ignoreArgument = mockmatchers.ignoreArgument;
 

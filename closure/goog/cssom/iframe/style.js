@@ -37,17 +37,16 @@
  */
 
 
-goog.provide('goog.cssom.iframe.style');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.cssom');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.string');
-goog.require('goog.style');
-goog.require('goog.userAgent');
+import * as cssom from '../cssom.js';
+import * as dom from '../../dom/dom.js';
+import { NodeType } from '../../dom/nodetype.js';
+import { TagName } from '../../dom/tagname.js';
+import * as classlist from '../../dom/classlist.js';
+import * as string from '../../string/string.js';
+import * as style from '../../style/style.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 
 /**
@@ -55,8 +54,7 @@ goog.require('goog.userAgent');
  * @type {RegExp}
  * @private
  */
-goog.cssom.iframe.style.selectorPartAnchorRegex_ =
-    /a(:(link|visited|active|hover))?/;
+var selectorPartAnchorRegex_ = /a(:(link|visited|active|hover))?/;
 
 
 /**
@@ -64,7 +62,7 @@ goog.cssom.iframe.style.selectorPartAnchorRegex_ =
  * @type {string}
  * @private
  */
-goog.cssom.iframe.style.SELECTOR_DELIMITER_ = ',';
+var SELECTOR_DELIMITER_ = ',';
 
 
 /**
@@ -72,7 +70,7 @@ goog.cssom.iframe.style.SELECTOR_DELIMITER_ = ',';
  * @type {string}
  * @private
  */
-goog.cssom.iframe.style.SELECTOR_PART_DELIMITER_ = ' ';
+var SELECTOR_PART_DELIMITER_ = ' ';
 
 
 /**
@@ -80,7 +78,7 @@ goog.cssom.iframe.style.SELECTOR_PART_DELIMITER_ = ' ';
  * @type {string}
  * @private
  */
-goog.cssom.iframe.style.DECLARATION_START_DELIMITER_ = '{';
+var DECLARATION_START_DELIMITER_ = '{';
 
 
 /**
@@ -88,7 +86,7 @@ goog.cssom.iframe.style.DECLARATION_START_DELIMITER_ = '{';
  * @type {string}
  * @private
  */
-goog.cssom.iframe.style.DECLARATION_END_DELIMITER_ = '}\n';
+var DECLARATION_END_DELIMITER_ = '}\n';
 
 
 
@@ -98,8 +96,7 @@ goog.cssom.iframe.style.DECLARATION_END_DELIMITER_ = '}\n';
  * @constructor
  * @private
  */
-goog.cssom.iframe.style.CssRuleSet_ = function() {
-  'use strict';
+function CssRuleSet_() {
   /**
    * Text of the declarations inside the rule set.
    * For example: 'font-family: Arial; color: red;'
@@ -108,12 +105,12 @@ goog.cssom.iframe.style.CssRuleSet_ = function() {
   this.declarationText = '';
 
   /**
-   * Array of CssSelector objects, one for each selector.
-   * Example: [h1, h2]
-   * @type {Array<goog.cssom.iframe.style.CssSelector_>}
-   */
+     * Array of CssSelector objects, one for each selector.
+     * Example: [h1, h2]
+     * @type {Array<CssSelector_>}
+     */
   this.selectors = [];
-};
+}
 
 
 /**
@@ -124,9 +121,8 @@ goog.cssom.iframe.style.CssRuleSet_ = function() {
  *     `CSSStyleRule` and `CSSFontFaceRule` objects.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.cssom.iframe.style.CssRuleSet_.prototype.initializeFromCssRule = function(
+CssRuleSet_.prototype.initializeFromCssRule = function(
     cssRule) {
-  'use strict';
   var ruleStyle = cssRule.style;  // Cache object for performance.
   if (!ruleStyle) {
     return false;
@@ -142,7 +138,7 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.initializeFromCssRule = function(
     // always tacking on an empty comment to force comments to be closed
     // We used to check for a troublesome open comment using a regular
     // expression, but it's faster not to check and always do this.
-    if (goog.userAgent.IE) {
+    if (userAgent.IE) {
       declarations += '/* */';
     }
   } else if (cssRule.cssText) {
@@ -169,15 +165,14 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.initializeFromCssRule = function(
  * selectors) and loads the results into this.selectors.
  * @param {string} selectorsString String containing selectors.
  */
-goog.cssom.iframe.style.CssRuleSet_.prototype.setSelectorsFromString = function(
+CssRuleSet_.prototype.setSelectorsFromString = function(
     selectorsString) {
-  'use strict';
   this.selectors = [];
   var selectors = selectorsString.split(/,\s*/gm);
   for (var i = 0; i < selectors.length; i++) {
     var selector = selectors[i];
     if (selector.length > 0) {
-      this.selectors.push(new goog.cssom.iframe.style.CssSelector_(selector));
+      this.selectors.push(new CssSelector_(selector));
     }
   }
 };
@@ -185,12 +180,11 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.setSelectorsFromString = function(
 
 /**
  * Make a copy of this ruleset.
- * @return {!goog.cssom.iframe.style.CssRuleSet_} A new CssRuleSet containing
+ * @return {!CssRuleSet_} A new CssRuleSet containing
  *     the same data as this one.
  */
-goog.cssom.iframe.style.CssRuleSet_.prototype.clone = function() {
-  'use strict';
-  var newRuleSet = new goog.cssom.iframe.style.CssRuleSet_();
+CssRuleSet_.prototype.clone = function() {
+  var newRuleSet = new CssRuleSet_();
   newRuleSet.selectors = this.selectors.concat();
   newRuleSet.declarationText = this.declarationText;
   return newRuleSet;
@@ -204,20 +198,19 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.clone = function() {
  * @param {boolean=} opt_important Whether !important should be added to each
  *     declaration.
  */
-goog.cssom.iframe.style.CssRuleSet_.prototype.setDeclarationTextFromObject =
+CssRuleSet_.prototype.setDeclarationTextFromObject =
     function(sourceObject, opt_important) {
-  'use strict';
-  var stringParts = [];
-  // TODO(user): for ... in is costly in IE6 (extra garbage collection).
-  for (var prop in sourceObject) {
-    var value = sourceObject[prop];
-    if (value) {
-      stringParts.push(
-          prop, ':', value, (opt_important ? ' !important' : ''), ';');
-    }
-  }
-  this.declarationText = stringParts.join('');
-};
+      var stringParts = [];
+      // TODO(user): for ... in is costly in IE6 (extra garbage collection).
+      for (var prop in sourceObject) {
+        var value = sourceObject[prop];
+        if (value) {
+          stringParts.push(
+              prop, ':', value, (opt_important ? ' !important' : ''), ';');
+        }
+      }
+      this.declarationText = stringParts.join('');
+    };
 
 
 /**
@@ -226,8 +219,7 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.setDeclarationTextFromObject =
  * of this ruleset.
  * @param {Array<string>} array The array to which to append strings.
  */
-goog.cssom.iframe.style.CssRuleSet_.prototype.writeToArray = function(array) {
-  'use strict';
+CssRuleSet_.prototype.writeToArray = function(array) {
   var selectorCount = this.selectors.length;
   var matchesAnchorTag = false;
   for (var i = 0; i < selectorCount; i++) {
@@ -236,20 +228,20 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.writeToArray = function(array) {
     for (var j = 0; j < partCount; j++) {
       array.push(
           selectorParts[j].inputString_,
-          goog.cssom.iframe.style.SELECTOR_PART_DELIMITER_);
+          SELECTOR_PART_DELIMITER_);
     }
     if (i < (selectorCount - 1)) {
-      array.push(goog.cssom.iframe.style.SELECTOR_DELIMITER_);
+      array.push(SELECTOR_DELIMITER_);
     }
   }
   var declarationText = this.declarationText;
   if (matchesAnchorTag) {
     declarationText =
-        goog.cssom.iframe.style.makeColorRuleImportant_(declarationText);
+        makeColorRuleImportant_(declarationText);
   }
   array.push(
-      goog.cssom.iframe.style.DECLARATION_START_DELIMITER_, declarationText,
-      goog.cssom.iframe.style.DECLARATION_END_DELIMITER_);
+      DECLARATION_START_DELIMITER_, declarationText,
+      DECLARATION_END_DELIMITER_);
 };
 
 
@@ -258,8 +250,7 @@ goog.cssom.iframe.style.CssRuleSet_.prototype.writeToArray = function(array) {
  * @type {RegExp}
  * @private
  */
-goog.cssom.iframe.style.colorImportantReplaceRegex_ =
-    /(^|;|{)\s*color:([^;]+);/g;
+var colorImportantReplaceRegex_ = /(^|;|{)\s*color:([^;]+);/g;
 
 
 /**
@@ -268,13 +259,12 @@ goog.cssom.iframe.style.colorImportantReplaceRegex_ =
  * @return {string} Text with !important added to the color: rule if found.
  * @private
  */
-goog.cssom.iframe.style.makeColorRuleImportant_ = function(cssText) {
-  'use strict';
+function makeColorRuleImportant_(cssText) {
   // Replace to insert a "! important" string.
   return cssText.replace(
-      goog.cssom.iframe.style.colorImportantReplaceRegex_,
+      colorImportantReplaceRegex_,
       '$1 color: $2 ! important; ');
-};
+}
 
 
 
@@ -292,9 +282,8 @@ goog.cssom.iframe.style.makeColorRuleImportant_ = function(cssText) {
  * @constructor
  * @private
  */
-goog.cssom.iframe.style.CssSelector_ = function(opt_selectorString) {
-  'use strict';
-  /** @type {!Array<!goog.cssom.iframe.style.CssSelectorPart_>|undefined} */
+function CssSelector_(opt_selectorString) {
+  /** @type {!Array<!CssSelectorPart_>|undefined} */
   this.parts;
 
   /**
@@ -307,7 +296,7 @@ goog.cssom.iframe.style.CssSelector_ = function(opt_selectorString) {
   if (opt_selectorString) {
     this.setPartsFromString_(opt_selectorString);
   }
-};
+}
 
 
 /**
@@ -315,9 +304,8 @@ goog.cssom.iframe.style.CssSelector_ = function(opt_selectorString) {
  * @param {string} selectorString A string containing a CSS selector.
  * @private
  */
-goog.cssom.iframe.style.CssSelector_.prototype.setPartsFromString_ = function(
+CssSelector_.prototype.setPartsFromString_ = function(
     selectorString) {
-  'use strict';
   var parts = [];
   var selectorPartStrings = selectorString.split(/\s+/gm);
   for (var i = 0; i < selectorPartStrings.length; i++) {
@@ -325,7 +313,7 @@ goog.cssom.iframe.style.CssSelector_.prototype.setPartsFromString_ = function(
       continue;  // Skip empty strings.
     }
     var part =
-        new goog.cssom.iframe.style.CssSelectorPart_(selectorPartStrings[i]);
+        new CssSelectorPart_(selectorPartStrings[i]);
     parts.push(part);
   }
   this.parts = parts;
@@ -345,14 +333,13 @@ goog.cssom.iframe.style.CssSelector_.prototype.setPartsFromString_ = function(
  * indicating that the element at index 4 matched
  * the css selector at index 1.
  * </p>
- * @param {goog.cssom.iframe.style.NodeAncestry_} elementAncestry Object
+ * @param {NodeAncestry_} elementAncestry Object
  *     representing an element and its ancestors.
  * @return {Object} Object with the properties elementIndex and
  *     selectorPartIndex, or null if there was no match.
  */
-goog.cssom.iframe.style.CssSelector_.prototype.matchElementAncestry = function(
+CssSelector_.prototype.matchElementAncestry = function(
     elementAncestry) {
-  'use strict';
   var ancestryUid = elementAncestry.uid;
   if (this.ancestryMatchCache_[ancestryUid]) {
     return this.ancestryMatchCache_[ancestryUid];
@@ -399,11 +386,10 @@ goog.cssom.iframe.style.CssSelector_.prototype.matchElementAncestry = function(
  * @constructor
  * @private
  */
-goog.cssom.iframe.style.CssSelectorPart_ = function(selectorPartString) {
-  'use strict';
+function CssSelectorPart_(selectorPartString) {
   // Only one CssSelectorPart instance should exist for a given string.
   var cacheEntry =
-      goog.cssom.iframe.style.CssSelectorPart_.instances_[selectorPartString];
+      CssSelectorPart_.instances_[selectorPartString];
   if (cacheEntry) {
     return cacheEntry;
   }
@@ -430,9 +416,9 @@ goog.cssom.iframe.style.CssSelectorPart_ = function(selectorPartString) {
   this.inputString_ = selectorPartString;
   this.matchProperties_ = properties;
   this.testedElements_ = {};
-  goog.cssom.iframe.style.CssSelectorPart_.instances_[selectorPartString] =
+  CssSelectorPart_.instances_[selectorPartString] =
       this;
-};
+}
 
 
 /**
@@ -440,7 +426,7 @@ goog.cssom.iframe.style.CssSelectorPart_ = function(selectorPartString) {
  * @type {Object}
  * @private
  */
-goog.cssom.iframe.style.CssSelectorPart_.instances_ = {};
+CssSelectorPart_.instances_ = {};
 
 
 /**
@@ -449,9 +435,8 @@ goog.cssom.iframe.style.CssSelectorPart_.instances_ = {};
  * @return {boolean} Whether the element matched.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.cssom.iframe.style.CssSelectorPart_.prototype.testElement = function(
+CssSelectorPart_.prototype.testElement = function(
     elementInfo) {
-  'use strict';
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
   var elementUid = elementInfo.uid;
   var cachedMatch = this.testedElements_[elementUid];
@@ -487,13 +472,12 @@ goog.cssom.iframe.style.CssSelectorPart_.prototype.testElement = function(
  * @constructor
  * @private
  */
-goog.cssom.iframe.style.NodeAncestry_ = function(el) {
-  'use strict';
+function NodeAncestry_(el) {
   var node = el;
   var nodeUid = goog.getUid(node);
 
   // Return an existing object from the cache if one exits for this node.
-  var ancestry = goog.cssom.iframe.style.NodeAncestry_.instances_[nodeUid];
+  var ancestry = NodeAncestry_.instances_[nodeUid];
   if (ancestry) {
     return ancestry;
   }
@@ -507,7 +491,7 @@ goog.cssom.iframe.style.NodeAncestry_ = function(el) {
     var className = node.className;
     var classNamesLookup = {};
     if (className) {
-      var classNames = goog.dom.classlist.get(goog.asserts.assertElement(node));
+      var classNames = classlist.get(asserts.assertElement(node));
       for (var i = 0; i < classNames.length; i++) {
         classNamesLookup[classNames[i]] = 1;
       }
@@ -524,15 +508,15 @@ goog.cssom.iframe.style.NodeAncestry_ = function(el) {
   this.nodes = nodes;
 
   this.uid = goog.getUid(this);
-  goog.cssom.iframe.style.NodeAncestry_.instances_[nodeUid] = this;
-};
+  NodeAncestry_.instances_[nodeUid] = this;
+}
 
 
 /**
  * Object for caching existing NodeAncestry instances.
  * @private
  */
-goog.cssom.iframe.style.NodeAncestry_.instances_ = {};
+NodeAncestry_.instances_ = {};
 
 
 /**
@@ -540,28 +524,26 @@ goog.cssom.iframe.style.NodeAncestry_.instances_ = {};
  * the structure or class/id attributes of your document and you want
  * to recalculate the currently applied CSS rules.
  */
-goog.cssom.iframe.style.resetDomCache = function() {
-  'use strict';
-  goog.cssom.iframe.style.NodeAncestry_.instances_ = {};
+resetDomCache = function() {
+  NodeAncestry_.instances_ = {};
 };
 
 
 /**
  * Inspects a document and returns all active rule sets
  * @param {Document} doc The document from which to read CSS rules.
- * @return {!Array<goog.cssom.iframe.style.CssRuleSet_>} An array of CssRuleSet
+ * @return {!Array<CssRuleSet_>} An array of CssRuleSet
  *     objects representing all the active rule sets in the document.
  * @private
  */
-goog.cssom.iframe.style.getRuleSetsFromDocument_ = function(doc) {
-  'use strict';
+function getRuleSetsFromDocument_(doc) {
   var ruleSets = [];
-  var styleSheets = goog.cssom.getAllCssStyleSheets(doc.styleSheets);
+  var styleSheets = cssom.getAllCssStyleSheets(doc.styleSheets);
   for (var i = 0, styleSheet; styleSheet = styleSheets[i]; i++) {
-    var domRuleSets = goog.cssom.getCssRulesFromStyleSheet(styleSheet);
+    var domRuleSets = cssom.getCssRulesFromStyleSheet(styleSheet);
     if (domRuleSets && domRuleSets.length) {
       for (var j = 0, n = domRuleSets.length; j < n; j++) {
-        var ruleSet = new goog.cssom.iframe.style.CssRuleSet_();
+        var ruleSet = new CssRuleSet_();
         if (ruleSet.initializeFromCssRule(domRuleSets[j])) {
           ruleSets.push(ruleSet);
         }
@@ -569,7 +551,7 @@ goog.cssom.iframe.style.getRuleSetsFromDocument_ = function(doc) {
     }
   }
   return ruleSets;
-};
+}
 
 
 /**
@@ -579,15 +561,15 @@ goog.cssom.iframe.style.getRuleSetsFromDocument_ = function(doc) {
  * @const
  * @private
  */
-goog.cssom.iframe.style.ruleSetCache_ = {};
+var ruleSetCache_ = {};
 
 
 /**
  * Cache of ruleset objects keyed by document unique ID.
- * @const {!Object<number,!Array<!goog.cssom.iframe.style.CssRuleSet_>>}
+ * @const {!Object<number,!Array<!CssRuleSet_>>}
  * @private
  */
-goog.cssom.iframe.style.ruleSetCache_.cache_ = {};
+ruleSetCache_.cache_ = {};
 
 
 /**
@@ -595,11 +577,10 @@ goog.cssom.iframe.style.ruleSetCache_.cache_ = {};
  * has rulesets for this document the cached version will be replaced.
  * @param {Document} doc The document from which to load rulesets.
  */
-goog.cssom.iframe.style.ruleSetCache_.loadRuleSetsForDocument = function(doc) {
-  'use strict';
+ruleSetCache_.loadRuleSetsForDocument = function(doc) {
   var docUid = goog.getUid(doc);
-  goog.cssom.iframe.style.ruleSetCache_.cache_[docUid] =
-      goog.cssom.iframe.style.getRuleSetsFromDocument_(doc);
+  ruleSetCache_.cache_[docUid] =
+      getRuleSetsFromDocument_(doc);
 };
 
 
@@ -607,15 +588,14 @@ goog.cssom.iframe.style.ruleSetCache_.loadRuleSetsForDocument = function(doc) {
  * Retrieves the array of css rulesets for this document. A cached
  * version will be used when possible.
  * @param {Document} doc The document for which to get rulesets.
- * @return {!Array<goog.cssom.iframe.style.CssRuleSet_>} An array of CssRuleSet
+ * @return {!Array<CssRuleSet_>} An array of CssRuleSet
  *     objects representing the css rule sets in the supplied document.
  */
-goog.cssom.iframe.style.ruleSetCache_.getRuleSetsForDocument = function(doc) {
-  'use strict';
+ruleSetCache_.getRuleSetsForDocument = function(doc) {
   var docUid = goog.getUid(doc);
-  var cache = goog.cssom.iframe.style.ruleSetCache_.cache_;
+  var cache = ruleSetCache_.cache_;
   if (!cache[docUid]) {
-    goog.cssom.iframe.style.ruleSetCache_.loadRuleSetsForDocument(doc);
+    ruleSetCache_.loadRuleSetsForDocument(doc);
   }
   // Build a cloned copy of rulesets array, so if object in the returned array
   // get modified future calls will still return the original unmodified
@@ -635,7 +615,7 @@ goog.cssom.iframe.style.ruleSetCache_.getRuleSetsForDocument = function(doc) {
  * @type {Array<string>}
  * @private
  */
-goog.cssom.iframe.style.inheritedProperties_ = [
+var inheritedProperties_ = [
   'color',
   'visibility',
   'quotes',
@@ -667,7 +647,7 @@ goog.cssom.iframe.style.inheritedProperties_ = [
  * @type {Array<string>}
  * @private
  */
-goog.cssom.iframe.style.textProperties_ = [
+var textProperties_ = [
   'font-family', 'font-size', 'font-weight', 'font-variant', 'font-style',
   'color', 'text-align', 'text-decoration', 'text-indent', 'text-transform',
   'letter-spacing', 'white-space', 'word-spacing'
@@ -689,22 +669,20 @@ goog.cssom.iframe.style.textProperties_ = [
  *     and/or background-image set should be copied.
  * @return {string} String containing all CSS rules present in the original
  *     document, with modified selectors.
- * @see goog.cssom.iframe.style.getBackgroundContext.
+ * @see getBackgroundContext.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.cssom.iframe.style.getElementContext = function(
-    element, opt_forceRuleSetCacheUpdate, opt_copyBackgroundContext) {
-  'use strict';
+export function getElementContext(element, opt_forceRuleSetCacheUpdate, opt_copyBackgroundContext) {
   var sourceDocument = element.ownerDocument;
   if (opt_forceRuleSetCacheUpdate) {
-    goog.cssom.iframe.style.ruleSetCache_.loadRuleSetsForDocument(
+    ruleSetCache_.loadRuleSetsForDocument(
         sourceDocument);
   }
-  var ruleSets = goog.cssom.iframe.style.ruleSetCache_.getRuleSetsForDocument(
+  var ruleSets = ruleSetCache_.getRuleSetsForDocument(
       sourceDocument);
 
-  var elementAncestry = new goog.cssom.iframe.style.NodeAncestry_(element);
-  var bodySelectorPart = new goog.cssom.iframe.style.CssSelectorPart_('body');
+  var elementAncestry = new NodeAncestry_(element);
+  var bodySelectorPart = new CssSelectorPart_('body');
 
   for (var i = 0; i < ruleSets.length; i++) {
     var ruleSet = ruleSets[i];
@@ -734,7 +712,7 @@ goog.cssom.iframe.style.getElementContext = function(
           // element with 'body' so it will continue to match.
           var selectorPartsCopy = selectorParts.concat();
           selectorPartsCopy.splice(0, ruleIndex + 1, bodySelectorPart);
-          selectorCopy = new goog.cssom.iframe.style.CssSelector_();
+          selectorCopy = new CssSelector_();
           selectorCopy.parts = selectorPartsCopy;
           selectors.push(selectorCopy);
         } else if (ruleIndex > 0 && ruleIndex == lastSelectorPartIndex) {
@@ -745,7 +723,7 @@ goog.cssom.iframe.style.getElementContext = function(
           // Example DOM structure: body > div.funky > ul > li#editme
           // Example CSS selector: .funky ul
           // New CSS selector: body ul
-          selectorCopy = new goog.cssom.iframe.style.CssSelector_();
+          selectorCopy = new CssSelector_();
           selectorCopy.parts =
               [bodySelectorPart, selectorParts[lastSelectorPartIndex]];
           selectors.push(selectorCopy);
@@ -756,24 +734,24 @@ goog.cssom.iframe.style.getElementContext = function(
 
   // Insert a new ruleset, setting the current inheritable styles of this
   // element as the defaults for everything under in the frame.
-  var defaultPropertiesRuleSet = new goog.cssom.iframe.style.CssRuleSet_();
-  var computedStyle = goog.cssom.iframe.style.getComputedStyleObject_(element);
+  var defaultPropertiesRuleSet = new CssRuleSet_();
+  var computedStyle = getComputedStyleObject_(element);
 
   // Copy inheritable styles so they are applied to everything under HTML.
-  var htmlSelector = new goog.cssom.iframe.style.CssSelector_();
-  htmlSelector.parts = [new goog.cssom.iframe.style.CssSelectorPart_('html')];
+  var htmlSelector = new CssSelector_();
+  htmlSelector.parts = [new CssSelectorPart_('html')];
   defaultPropertiesRuleSet.selectors = [htmlSelector];
   var defaultProperties = {};
-  for (var i = 0, prop; prop = goog.cssom.iframe.style.inheritedProperties_[i];
+  for (var i = 0, prop; prop = inheritedProperties_[i];
        i++) {
-    defaultProperties[prop] = computedStyle[goog.string.toCamelCase(prop)];
+    defaultProperties[prop] = computedStyle[string.toCamelCase(prop)];
   }
   defaultPropertiesRuleSet.setDeclarationTextFromObject(defaultProperties);
   ruleSets.push(defaultPropertiesRuleSet);
 
-  var bodyRuleSet = new goog.cssom.iframe.style.CssRuleSet_();
-  var bodySelector = new goog.cssom.iframe.style.CssSelector_();
-  bodySelector.parts = [new goog.cssom.iframe.style.CssSelectorPart_('body')];
+  var bodyRuleSet = new CssRuleSet_();
+  var bodySelector = new CssSelector_();
+  bodySelector.parts = [new CssSelectorPart_('body')];
   // Core set of sane property values for BODY, to prevent copied
   // styles from completely breaking the display.
   var bodyProperties = {
@@ -786,18 +764,18 @@ goog.cssom.iframe.style.getElementContext = function(
   };
   // Text formatting property values, to keep text nodes directly under BODY
   // looking right.
-  for (i = 0; prop = goog.cssom.iframe.style.textProperties_[i]; i++) {
-    bodyProperties[prop] = computedStyle[goog.string.toCamelCase(prop)];
+  for (i = 0; prop = textProperties_[i]; i++) {
+    bodyProperties[prop] = computedStyle[string.toCamelCase(prop)];
   }
   if (opt_copyBackgroundContext &&
-      goog.cssom.iframe.style.isTransparentValue_(
+      isTransparentValue_(
           computedStyle['backgroundColor'])) {
     // opt_useAncestorBackgroundRules means that, if the original element
     // has a transparent background, background properties rules should be
     // added to explicitly make the body have the same background appearance
     // as in the original element, even if its positioned somewhere else
     // in the DOM.
-    var bgProperties = goog.cssom.iframe.style.getBackgroundContext(element);
+    var bgProperties = getBackgroundContext(element);
     bodyProperties['background-color'] = bgProperties['backgroundColor'];
     var elementBgImage = computedStyle['backgroundImage'];
     if (!elementBgImage || elementBgImage == 'none') {
@@ -819,7 +797,7 @@ goog.cssom.iframe.style.getElementContext = function(
     ruleSets[i].writeToArray(ruleSetStrings);
   }
   return ruleSetStrings.join('');
-};
+}
 
 
 /**
@@ -828,10 +806,9 @@ goog.cssom.iframe.style.getElementContext = function(
  * @return {boolean} Whether the value is transparent.
  * @private
  */
-goog.cssom.iframe.style.isTransparentValue_ = function(colorValue) {
-  'use strict';
+function isTransparentValue_(colorValue) {
   return colorValue == 'transparent' || colorValue == 'rgba(0, 0, 0, 0)';
-};
+}
 
 
 /**
@@ -844,16 +821,15 @@ goog.cssom.iframe.style.isTransparentValue_ = function(colorValue) {
  * @return {!Object} Object containing style properties and values.
  * @private
  */
-goog.cssom.iframe.style.getComputedStyleObject_ = function(element) {
-  'use strict';
+function getComputedStyleObject_(element) {
   // Return an object containing the element's computedStyle/currentStyle.
   // The resulting object can be re-used to read multiple properties, which
   // is faster than calling goog.style.getComputedStyle every time.
   return element.currentStyle ||
-      goog.dom.getOwnerDocument(element).defaultView.getComputedStyle(
+      dom.getOwnerDocument(element).defaultView.getComputedStyle(
           element, '') ||
       {};
-};
+}
 
 
 /**
@@ -861,7 +837,7 @@ goog.cssom.iframe.style.getComputedStyleObject_ = function(element) {
  * @private
  * @type {RegExp}
  */
-goog.cssom.iframe.style.valueWithUnitsRegEx_ = /^(-?)([0-9]+)([a-z]*|%)/;
+var valueWithUnitsRegEx_ = /^(-?)([0-9]+)([a-z]*|%)/;
 
 
 /**
@@ -871,8 +847,7 @@ goog.cssom.iframe.style.valueWithUnitsRegEx_ = /^(-?)([0-9]+)([a-z]*|%)/;
  * @return {Array<string>} The background-position values in the order [x, y].
  * @private
  */
-goog.cssom.iframe.style.getBackgroundXYValues_ = function(styleObject) {
-  'use strict';
+function getBackgroundXYValues_(styleObject) {
   // Gecko only has backgroundPosition, containing both values.
   // IE has only backgroundPositionX/backgroundPositionY.
   // WebKit has both.
@@ -883,7 +858,7 @@ goog.cssom.iframe.style.getBackgroundXYValues_ = function(styleObject) {
   } else {
     return (styleObject['backgroundPosition'] || '0 0').split(' ');
   }
-};
+}
 
 
 /**
@@ -900,8 +875,7 @@ goog.cssom.iframe.style.getBackgroundXYValues_ = function(styleObject) {
  * @param {Element} element The element from which to copy background styles.
  * @return {!Object} Object containing background* properties.
  */
-goog.cssom.iframe.style.getBackgroundContext = function(element) {
-  'use strict';
+export function getBackgroundContext(element) {
   var propertyValues = {'backgroundImage': 'none'};
   var ancestor = element;
   /** @type {!Window|undefined} */
@@ -914,12 +888,12 @@ goog.cssom.iframe.style.getBackgroundContext = function(element) {
   // (This implementation is not sophisticated enough to handle opacity,
   // or multple layered partially-transparent background images.)
   while ((ancestor = /** @type {!Element} */ (ancestor.parentNode)) &&
-         ancestor.nodeType == goog.dom.NodeType.ELEMENT) {
+         ancestor.nodeType == NodeType.ELEMENT) {
     var computedStyle =
-        goog.cssom.iframe.style.getComputedStyleObject_(ancestor);
+        getComputedStyleObject_(ancestor);
     // Copy background color if a non-transparent value is found.
     var backgroundColorValue = computedStyle['backgroundColor'];
-    if (!goog.cssom.iframe.style.isTransparentValue_(backgroundColorValue)) {
+    if (!isTransparentValue_(backgroundColorValue)) {
       propertyValues['backgroundColor'] = backgroundColorValue;
     }
     // If a background image value is found, copy background-image,
@@ -934,18 +908,18 @@ goog.cssom.iframe.style.getBackgroundContext = function(element) {
       var relativePosition;
       if (currentIframeWindow) {
         relativePosition =
-            goog.style.getFramedPageOffset(element, currentIframeWindow);
+            style.getFramedPageOffset(element, currentIframeWindow);
         var frameElement = currentIframeWindow.frameElement;
-        var iframeRelativePosition = goog.style.getRelativePosition(
+        var iframeRelativePosition = style.getRelativePosition(
             /** @type {!Element} */ (frameElement), ancestor);
-        var iframeBorders = goog.style.getBorderBox(frameElement);
+        var iframeBorders = style.getBorderBox(frameElement);
         relativePosition.x += iframeRelativePosition.x + iframeBorders.left;
         relativePosition.y += iframeRelativePosition.y + iframeBorders.top;
       } else {
-        relativePosition = goog.style.getRelativePosition(element, ancestor);
+        relativePosition = style.getRelativePosition(element, ancestor);
       }
       var backgroundXYValues =
-          goog.cssom.iframe.style.getBackgroundXYValues_(computedStyle);
+          getBackgroundXYValues_(computedStyle);
       // Parse background-repeat-* values in the form "10px", and adjust them.
       for (var i = 0; i < 2; i++) {
         var positionValue = backgroundXYValues[i];
@@ -953,7 +927,7 @@ goog.cssom.iframe.style.getBackgroundContext = function(element) {
         var positionProperty = 'backgroundPosition' + coordinate;
         // relative position to its ancestor.
         var positionValueParts =
-            goog.cssom.iframe.style.valueWithUnitsRegEx_.exec(positionValue);
+            valueWithUnitsRegEx_.exec(positionValue);
         if (positionValueParts) {
           var value =
               parseInt(positionValueParts[1] + positionValueParts[2], 10);
@@ -976,9 +950,9 @@ goog.cssom.iframe.style.getBackgroundContext = function(element) {
     if (propertyValues['backgroundColor']) {
       break;
     }
-    if (ancestor.tagName == goog.dom.TagName.HTML) {
+    if (ancestor.tagName == TagName.HTML) {
       try {
-        currentIframeWindow = goog.dom.getWindow(
+        currentIframeWindow = dom.getWindow(
             /** @type {Document} */ (ancestor.parentNode));
         // This could theoretically throw a security exception if the parent
         // iframe is in a different domain.
@@ -994,4 +968,5 @@ goog.cssom.iframe.style.getBackgroundContext = function(element) {
     }
   }
   return propertyValues;
-};
+}
+export var resetDomCache;

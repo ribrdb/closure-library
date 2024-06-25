@@ -13,7 +13,7 @@
  * or outside of iframes) or web workers. Each context has a unique name, and
  * each one can communicate with any of the others in the same network. This
  * communication takes place through a {@link goog.messaging.PortChannel} that
- * is retrieved via {#link goog.messaging.PortNetwork#dial}.
+ * is retrieved via {#link PortNetwork#dial}.
  *
  * One context (usually the main page) has a
  * {@link goog.messaging.PortOperator}, which is in charge of connecting each
@@ -21,15 +21,13 @@
  * {@link goog.messaging.PortCaller}s which connect to the operator.
  */
 
-goog.provide('goog.messaging.PortNetwork');
-
-goog.requireType('goog.messaging.MessageChannel');
+goog.requireType('goog.messaging.messagechannel');
 
 
 /**
  * @interface
  */
-goog.messaging.PortNetwork = function() {};
+export function PortNetwork() {}
 
 
 /**
@@ -47,7 +45,7 @@ goog.messaging.PortNetwork = function() {};
  *     decorator around a PortChannel, so it's safe to send {@link MessagePorts}
  *     across it. This will be disposed along with the PortNetwork.
  */
-goog.messaging.PortNetwork.prototype.dial = function(name) {};
+PortNetwork.prototype.dial = function(name) {};
 
 
 /**
@@ -57,7 +55,7 @@ goog.messaging.PortNetwork.prototype.dial = function(name) {};
  * @type {string}
  * @const
  */
-goog.messaging.PortNetwork.REQUEST_CONNECTION_SERVICE = 'requestConnection';
+PortNetwork.REQUEST_CONNECTION_SERVICE = 'requestConnection';
 
 
 /**
@@ -67,4 +65,4 @@ goog.messaging.PortNetwork.REQUEST_CONNECTION_SERVICE = 'requestConnection';
  * @type {string}
  * @const
  */
-goog.messaging.PortNetwork.GRANT_CONNECTION_SERVICE = 'grantConnection';
+PortNetwork.GRANT_CONNECTION_SERVICE = 'grantConnection';

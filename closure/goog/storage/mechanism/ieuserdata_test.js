@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.mechanism.IEUserDataTest');
 goog.setTestOnly();
 
-const IEUserData = goog.require('goog.storage.mechanism.IEUserData');
-const iterableMechanismTests = goog.require('goog.storage.mechanism.iterableMechanismTests');
-const mechanismSeparationTests = goog.require('goog.storage.mechanism.mechanismSeparationTests');
-const mechanismSharingTests = goog.require('goog.storage.mechanism.mechanismSharingTests');
-const mechanismTests = goog.require('goog.storage.mechanism.mechanismTests');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { IEUserData } from './ieuserdata.js';
+import * as iterableMechanismTests from './iterablemechanismtests.js';
+import * as mechanismSeparationTests from './mechanismseparationtests.js';
+import * as mechanismSharingTests from './mechanismsharingtests.js';
+import * as mechanismTests from './mechanismtests.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let mechanism;
 let minimumQuota;

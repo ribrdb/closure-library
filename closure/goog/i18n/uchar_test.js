@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.uCharTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const uChar = goog.require('goog.i18n.uChar');
+import { testSuite } from '../testing/testsuite.js';
+import * as uChar from './uchar.js';
 
 testSuite({
   testToHexString() {

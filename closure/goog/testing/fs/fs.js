@@ -11,17 +11,19 @@
  */
 
 goog.setTestOnly('goog.testing.fs');
-goog.provide('goog.testing.fs');
 
-goog.require('goog.Timer');
-goog.require('goog.async.Deferred');
+import { Timer } from '../../timer/timer.js';
+import { Deferred } from '../../../../third_party/closure/goog/mochikit/async/deferred.js';
+
 /** @suppress {extraRequire} used in mocking */
-goog.require('goog.fs');
+import * as googFs from '../../fs/fs.js';
+
 /** @suppress {extraRequire} used in mocking */
-goog.require('goog.fs.url');
-goog.require('goog.testing.PropertyReplacer');
-goog.require('goog.testing.fs.Blob');
-goog.require('goog.testing.fs.FileSystem');
+import * as googFsUrl from '../../fs/url.js';
+
+import { PropertyReplacer } from '../propertyreplacer.js';
+import { Blob } from './blob.js';
+import { FileSystem } from './filesystem.js';
 
 
 /**
@@ -29,16 +31,15 @@ goog.require('goog.testing.fs.FileSystem');
  * temporary and persistent filesystems.
  *
  * @param {number} size Ignored.
- * @return {!goog.async.Deferred} The deferred
- *     {@link goog.testing.fs.FileSystem}.
+ * @return {!Deferred} The deferred
+ *     {@link FileSystem}.
  */
-goog.testing.fs.getTemporary = function(size) {
-  'use strict';
-  const d = new goog.async.Deferred();
-  goog.Timer.callOnce(
-      goog.bind(d.callback, d, new goog.testing.fs.FileSystem()));
-  return d;
-};
+export function getTemporary(size) {
+ const d = new Deferred();
+ Timer.callOnce(
+     goog.bind(d.callback, d, new FileSystem()));
+ return d;
+}
 
 
 /**
@@ -46,13 +47,12 @@ goog.testing.fs.getTemporary = function(size) {
  * temporary and persistent filesystems.
  *
  * @param {number} size Ignored.
- * @return {!goog.async.Deferred} The deferred
- *     {@link goog.testing.fs.FileSystem}.
+ * @return {!Deferred} The deferred
+ *     {@link FileSystem}.
  */
-goog.testing.fs.getPersistent = function(size) {
-  'use strict';
-  return goog.testing.fs.getTemporary(size);
-};
+export function getPersistent(size) {
+ return getTemporary(size);
+}
 
 
 /**
@@ -60,22 +60,21 @@ goog.testing.fs.getPersistent = function(size) {
  * @type {!Object<boolean>}
  * @private
  */
-goog.testing.fs.objectUrls_ = {};
+var objectUrls_ = {};
 
 
 /**
  * Create a fake object URL for a given fake blob. This can be used as a real
  * URL, and it can be created and revoked normally.
  *
- * @param {!goog.testing.fs.Blob} blob The blob for which to create the URL.
+ * @param {!Blob} blob The blob for which to create the URL.
  * @return {string} The URL.
  */
-goog.testing.fs.createObjectUrl = function(blob) {
-  'use strict';
-  const url = blob.toDataUrl();
-  goog.testing.fs.objectUrls_[url] = true;
-  return url;
-};
+export function createObjectUrl(blob) {
+ const url = blob.toDataUrl();
+ objectUrls_[url] = true;
+ return url;
+}
 
 
 /**
@@ -83,53 +82,49 @@ goog.testing.fs.createObjectUrl = function(blob) {
  *
  * @param {string} url The URL to revoke.
  */
-goog.testing.fs.revokeObjectUrl = function(url) {
-  'use strict';
-  delete goog.testing.fs.objectUrls_[url];
-};
+export function revokeObjectUrl(url) {
+ delete objectUrls_[url];
+}
 
 
 /**
  * Return whether or not a URL has been granted for the given blob.
  *
- * @param {!goog.testing.fs.Blob} blob The blob to check.
+ * @param {!Blob} blob The blob to check.
  * @return {boolean} Whether a URL has been granted.
  */
-goog.testing.fs.isObjectUrlGranted = function(blob) {
-  'use strict';
-  return (blob.toDataUrl()) in goog.testing.fs.objectUrls_;
-};
+export function isObjectUrlGranted(blob) {
+ return (blob.toDataUrl()) in objectUrls_;
+}
 
 
 /**
  * Concatenates one or more values together and converts them to a fake blob.
  *
- * @param {...(string|!goog.testing.fs.Blob)} var_args The values that will make
+ * @param {...(string|!Blob)} var_args The values that will make
  *     up the resulting blob.
- * @return {!goog.testing.fs.Blob} The blob.
+ * @return {!Blob} The blob.
  */
-goog.testing.fs.getBlob = function(var_args) {
-  'use strict';
-  return new goog.testing.fs.Blob(
-      Array.prototype.map.call(arguments, String).join(''));
-};
+export function getBlob(var_args) {
+ return new Blob(
+     Array.prototype.map.call(arguments, String).join(''));
+}
 
 
 /**
  * Creates a blob with the given properties.
  * See https://developer.mozilla.org/en-US/docs/Web/API/Blob for more details.
  *
- * @param {Array<string|!goog.testing.fs.Blob>} parts
+ * @param {Array<string|!Blob>} parts
  *     The values that will make up the resulting blob.
  * @param {string=} opt_type The MIME type of the Blob.
  * @param {string=} opt_endings Specifies how strings containing newlines are to
  *     be written out.
- * @return {!goog.testing.fs.Blob} The blob.
+ * @return {!Blob} The blob.
  */
-goog.testing.fs.getBlobWithProperties = function(parts, opt_type, opt_endings) {
-  'use strict';
-  return new goog.testing.fs.Blob(parts.map(String).join(''), opt_type);
-};
+export function getBlobWithProperties(parts, opt_type, opt_endings) {
+ return new Blob(parts.map(String).join(''), opt_type);
+}
 
 
 /**
@@ -139,40 +134,37 @@ goog.testing.fs.getBlobWithProperties = function(parts, opt_type, opt_endings) {
  * are always clamped to blob range. If end is omitted, all the data till
  * the end of the blob is taken.
  *
- * @param {!goog.testing.fs.Blob} testBlob The blob to slice.
+ * @param {!Blob} testBlob The blob to slice.
  * @param {number} start Index of the starting byte.
  * @param {number=} opt_end Index of the ending byte.
- * @return {!goog.testing.fs.Blob} The new blob or null if not supported.
+ * @return {!Blob} The new blob or null if not supported.
  */
-goog.testing.fs.sliceBlob = function(testBlob, start, opt_end) {
-  'use strict';
-  return testBlob.slice(start, opt_end);
-};
+export function sliceBlob(testBlob, start, opt_end) {
+ return testBlob.slice(start, opt_end);
+}
 
 
 /**
- * Installs goog.testing.fs in place of the standard goog.fs. After calling
- * this, code that uses goog.fs should work without issue using goog.testing.fs.
+ * Installs goog.testing.fs in place of the standard googFs. After calling
+ * this, code that uses googFs should work without issue using 
  *
- * @param {!goog.testing.PropertyReplacer} stubs The property replacer for
- *     stubbing out the original goog.fs functions.
+ * @param {!PropertyReplacer} stubs The property replacer for
+ *     stubbing out the original googFs functions.
  */
-goog.testing.fs.install = function(stubs) {
-  'use strict';
-  // Prevent warnings that goog.fs may get optimized away. It's true this is
-  // unsafe in compiled code, but it's only meant for tests.
-  const fs = goog.getObjectByName('goog.fs');
-  const fsUrl = goog.getObjectByName('goog.fs.url');
-  stubs.replace(fs, 'getTemporary', goog.testing.fs.getTemporary);
-  stubs.replace(fs, 'getPersistent', goog.testing.fs.getPersistent);
-  stubs.replace(fsUrl, 'createObjectUrl', goog.testing.fs.createObjectUrl);
-  stubs.replace(fsUrl, 'revokeObjectUrl', goog.testing.fs.revokeObjectUrl);
-  stubs.replace(fsUrl, 'browserSupportsObjectUrls', function() {
-    'use strict';
-    return true;
-  });
-  const fsBlob = goog.getObjectByName('goog.fs.blob');
-  stubs.replace(fsBlob, 'getBlob', goog.testing.fs.getBlob);
-  stubs.replace(
-      fsBlob, 'getBlobWithProperties', goog.testing.fs.getBlobWithProperties);
-};
+export function install(stubs) {
+ // Prevent warnings that goog.fs may get optimized away. It's true this is
+ // unsafe in compiled code, but it's only meant for tests.
+ const fs = goog.getObjectByName('goog.fs');
+ const fsUrl = goog.getObjectByName('goog.fs.url');
+ stubs.replace(fs, 'getTemporary', getTemporary);
+ stubs.replace(fs, 'getPersistent', getPersistent);
+ stubs.replace(fsUrl, 'createObjectUrl', createObjectUrl);
+ stubs.replace(fsUrl, 'revokeObjectUrl', revokeObjectUrl);
+ stubs.replace(fsUrl, 'browserSupportsObjectUrls', function() {
+  return true;
+ });
+ const fsBlob = goog.getObjectByName('goog.fs.blob');
+ stubs.replace(fsBlob, 'getBlob', getBlob);
+ stubs.replace(
+     fsBlob, 'getBlobWithProperties', getBlobWithProperties);
+}

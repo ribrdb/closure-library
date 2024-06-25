@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TableSorterTest');
 goog.setTestOnly();
 
-const TableSorter = goog.require('goog.ui.TableSorter');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TableSorter } from './tablesorter.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let oldHtml;
 let alphaHeader;

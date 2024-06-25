@@ -8,28 +8,26 @@
  * @fileoverview Renderer for {@link goog.ui.MenuSeparator}s.
  */
 
-goog.provide('goog.ui.MenuSeparatorRenderer');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.ui.ControlRenderer');
-goog.requireType('goog.ui.Control');
-goog.requireType('goog.ui.ControlContent');
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import { ControlRenderer } from './controlrenderer.js';
+goog.requireType('goog.ui.control');
+goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
  * Renderer for menu separators.
  * @constructor
- * @extends {goog.ui.ControlRenderer}
+ * @extends {ControlRenderer}
  */
-goog.ui.MenuSeparatorRenderer = function() {
-  'use strict';
-  goog.ui.ControlRenderer.call(this);
-};
-goog.inherits(goog.ui.MenuSeparatorRenderer, goog.ui.ControlRenderer);
-goog.addSingletonGetter(goog.ui.MenuSeparatorRenderer);
+export function MenuSeparatorRenderer() {
+ ControlRenderer.call(this);
+}
+goog.inherits(MenuSeparatorRenderer, ControlRenderer);
+goog.addSingletonGetter(MenuSeparatorRenderer);
 
 
 /**
@@ -37,62 +35,60 @@ goog.addSingletonGetter(goog.ui.MenuSeparatorRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.MenuSeparatorRenderer.CSS_CLASS = goog.getCssName('goog-menuseparator');
+MenuSeparatorRenderer.CSS_CLASS = goog.getCssName('goog-menuseparator');
 
 
 /**
  * Returns an empty, styled menu separator DIV.  Overrides {@link
- * goog.ui.ControlRenderer#createDom}.
+ * ControlRenderer#createDom}.
  * @param {goog.ui.Control} separator goog.ui.Separator to render.
  * @return {!Element} Root element for the separator.
  * @override
  */
-goog.ui.MenuSeparatorRenderer.prototype.createDom = function(separator) {
-  'use strict';
-  return separator.getDomHelper().createDom(
-      goog.dom.TagName.DIV, this.getCssClass());
+MenuSeparatorRenderer.prototype.createDom = function(separator) {
+ return separator.getDomHelper().createDom(
+     TagName.DIV, this.getCssClass());
 };
 
 
 /**
  * Takes an existing element, and decorates it with the separator.  Overrides
- * {@link goog.ui.ControlRenderer#decorate}.
+ * {@link ControlRenderer#decorate}.
  * @param {goog.ui.Control} separator goog.ui.MenuSeparator to decorate the
  *     element.
  * @param {Element} element Element to decorate.
  * @return {!Element} Decorated element.
  * @override
  */
-goog.ui.MenuSeparatorRenderer.prototype.decorate = function(
+MenuSeparatorRenderer.prototype.decorate = function(
     separator, element) {
-  'use strict';
-  // Normally handled in the superclass. But we don't call the superclass.
-  if (element.id) {
-    separator.setId(element.id);
-  }
+ // Normally handled in the superclass. But we don't call the superclass.
+ if (element.id) {
+   separator.setId(element.id);
+ }
 
-  if (element.tagName == goog.dom.TagName.HR) {
-    // Replace HR with separator.
-    var hr = element;
-    element = this.createDom(separator);
-    goog.dom.insertSiblingBefore(element, hr);
-    goog.dom.removeNode(hr);
-  } else {
-    goog.dom.classlist.add(element, this.getCssClass());
-  }
-  return element;
+ if (element.tagName == TagName.HR) {
+   // Replace HR with separator.
+   var hr = element;
+   element = this.createDom(separator);
+   dom.insertSiblingBefore(element, hr);
+   dom.removeNode(hr);
+ } else {
+   classlist.add(element, this.getCssClass());
+ }
+ return element;
 };
 
 
 /**
- * Overrides {@link goog.ui.ControlRenderer#setContent} to do nothing, since
+ * Overrides {@link ControlRenderer#setContent} to do nothing, since
  * separators are empty.
  * @param {Element} separator The separator's root element.
  * @param {goog.ui.ControlContent} content Text caption or DOM structure to be
  *    set as the separators's content (ignored).
  * @override
  */
-goog.ui.MenuSeparatorRenderer.prototype.setContent = function(
+MenuSeparatorRenderer.prototype.setContent = function(
     separator, content) {
   // Do nothing.  Separators are empty.
 };
@@ -104,7 +100,6 @@ goog.ui.MenuSeparatorRenderer.prototype.setContent = function(
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.MenuSeparatorRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.MenuSeparatorRenderer.CSS_CLASS;
+MenuSeparatorRenderer.prototype.getCssClass = function() {
+ return MenuSeparatorRenderer.CSS_CLASS;
 };

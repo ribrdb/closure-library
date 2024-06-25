@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.KeyboardShortcutHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyboardShortcutHandler = goog.require('goog.ui.KeyboardShortcutHandler');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from '../events/browserevent.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyboardShortcutHandler } from './keyboardshortcuthandler.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { StrictMock } from '../testing/strictmock.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
+import * as userAgent from '../useragent/useragent.js';
 
 const Modifiers = KeyboardShortcutHandler.Modifiers;
 

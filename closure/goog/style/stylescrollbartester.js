@@ -8,12 +8,11 @@
  * @fileoverview Shared unit tests for scrollbar measurement.
  */
 
-goog.provide('goog.styleScrollbarTester');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.style');
-goog.require('goog.testing.asserts');
+import { TagName } from '../dom/tagname.js';
+import * as style from './style.js';
+import * as asserts from '../testing/asserts.js';
 goog.setTestOnly('goog.styleScrollbarTester');
 
 
@@ -22,29 +21,29 @@ goog.setTestOnly('goog.styleScrollbarTester');
  * id 'test-scrollbarwidth' in the page.
  */
 function testScrollbarWidth() {
-  var width = goog.style.getScrollbarWidth();
+  var width = style.getScrollbarWidth();
   assertTrue(width > 0);
 
-  var outer = goog.dom.getElement('test-scrollbarwidth');
-  var inner = goog.dom.getElementsByTagNameAndClass(
-      goog.dom.TagName.DIV, null, outer)[0];
+  var outer = dom.getElement('test-scrollbarwidth');
+  var inner = dom.getElementsByTagNameAndClass(
+      TagName.DIV, null, outer)[0];
   assertTrue('should have a scroll bar', hasVerticalScroll(outer));
   assertTrue('should have a scroll bar', hasHorizontalScroll(outer));
 
   // Get the inner div absolute width
-  goog.style.setStyle(outer, 'width', '100%');
+  style.setStyle(outer, 'width', '100%');
   assertTrue('should have a scroll bar', hasVerticalScroll(outer));
   assertFalse('should not have a scroll bar', hasHorizontalScroll(outer));
   var innerAbsoluteWidth = inner.offsetWidth;
 
   // Leave the vertical scroll and remove the horizontal by using the scroll
   // bar width calculation.
-  goog.style.setStyle(outer, 'width', (innerAbsoluteWidth + width) + 'px');
+  style.setStyle(outer, 'width', (innerAbsoluteWidth + width) + 'px');
   assertTrue('should have a scroll bar', hasVerticalScroll(outer));
   assertFalse('should not have a scroll bar', hasHorizontalScroll(outer));
 
   // verify by adding 1 more pixel (brings back the vertical scroll bar).
-  goog.style.setStyle(outer, 'width', (innerAbsoluteWidth + width - 1) + 'px');
+  style.setStyle(outer, 'width', (innerAbsoluteWidth + width - 1) + 'px');
   assertTrue('should have a scroll bar', hasVerticalScroll(outer));
   assertTrue('should have a scroll bar', hasHorizontalScroll(outer));
 }

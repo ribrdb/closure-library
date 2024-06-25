@@ -9,12 +9,10 @@
  * @fileoverview Represents a path used with a Graphics implementation.
  */
 
-goog.provide('goog.math.Path');
-goog.provide('goog.math.Path.Segment');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.math');
-goog.require('goog.math.AffineTransform');
+import * as math from './math.js';
+import { AffineTransform } from './affinetransform.js';
 
 
 
@@ -30,12 +28,11 @@ goog.require('goog.math.AffineTransform');
  * @constructor
  * @final
  */
-goog.math.Path = function() {
-  'use strict';
+export function Path() {
   /**
-   * The segment types that constitute this path.
-   * @private {!Array<goog.math.Path.Segment>}
-   */
+     * The segment types that constitute this path.
+     * @private {!Array<Path.Segment>}
+     */
   this.segments_ = [];
 
   /**
@@ -73,14 +70,14 @@ goog.math.Path = function() {
    * @private
    */
   this.simple_ = true;
-};
+}
 
 
 /**
  * Path segment types.
  * @enum {number}
  */
-goog.math.Path.Segment = {
+Path.Segment = {
   MOVETO: 0,
   LINETO: 1,
   CURVETO: 2,
@@ -94,14 +91,13 @@ goog.math.Path.Segment = {
  * @type {!Array<number>}
  * @private
  */
-goog.math.Path.segmentArgCounts_ = (function() {
-  'use strict';
+Path.segmentArgCounts_ = (function() {
   var counts = [];
-  counts[goog.math.Path.Segment.MOVETO] = 2;
-  counts[goog.math.Path.Segment.LINETO] = 2;
-  counts[goog.math.Path.Segment.CURVETO] = 6;
-  counts[goog.math.Path.Segment.ARCTO] = 6;
-  counts[goog.math.Path.Segment.CLOSE] = 0;
+  counts[Path.Segment.MOVETO] = 2;
+  counts[Path.Segment.LINETO] = 2;
+  counts[Path.Segment.CURVETO] = 6;
+  counts[Path.Segment.ARCTO] = 6;
+  counts[Path.Segment.CLOSE] = 0;
   return counts;
 })();
 
@@ -113,8 +109,7 @@ goog.math.Path.segmentArgCounts_ = (function() {
  * reflected in the Path object.
  * @return {!Array<number>}
  */
-goog.math.Path.prototype.getSegmentTypes = function() {
-  'use strict';
+Path.prototype.getSegmentTypes = function() {
   return this.segments_.concat();
 };
 
@@ -125,8 +120,7 @@ goog.math.Path.prototype.getSegmentTypes = function() {
  * in the Path object.
  * @return {!Array<number>}
  */
-goog.math.Path.prototype.getSegmentCounts = function() {
-  'use strict';
+Path.prototype.getSegmentCounts = function() {
   return this.count_.concat();
 };
 
@@ -137,8 +131,7 @@ goog.math.Path.prototype.getSegmentCounts = function() {
  * Path object.
  * @return {!Array<number>}
  */
-goog.math.Path.prototype.getSegmentArgs = function() {
-  'use strict';
+Path.prototype.getSegmentArgs = function() {
   return this.arguments_.concat();
 };
 
@@ -149,20 +142,18 @@ goog.math.Path.prototype.getSegmentArgs = function() {
  * @param {number} segment The segment type.
  * @return {number} The number of points.
  */
-goog.math.Path.getSegmentCount = function(segment) {
-  'use strict';
-  return goog.math.Path.segmentArgCounts_[segment];
+Path.getSegmentCount = function(segment) {
+  return Path.segmentArgCounts_[segment];
 };
 
 
 /**
  * Appends another path to the end of this path.
  *
- * @param {!goog.math.Path} path The path to append.
- * @return {!goog.math.Path} This path.
+ * @param {!Path} path The path to append.
+ * @return {!Path} This path.
  */
-goog.math.Path.prototype.appendPath = function(path) {
-  'use strict';
+Path.prototype.appendPath = function(path) {
   if (path.currentPoint_) {
     Array.prototype.push.apply(this.segments_, path.segments_);
     Array.prototype.push.apply(this.count_, path.count_);
@@ -178,10 +169,9 @@ goog.math.Path.prototype.appendPath = function(path) {
 /**
  * Clears the path.
  *
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.clear = function() {
-  'use strict';
+Path.prototype.clear = function() {
   this.segments_.length = 0;
   this.count_.length = 0;
   this.arguments_.length = 0;
@@ -198,14 +188,13 @@ goog.math.Path.prototype.clear = function() {
  *
  * @param {number} x X coordinate of destination point.
  * @param {number} y Y coordinate of destination point.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.moveTo = function(x, y) {
-  'use strict';
-  if (goog.array.peek(this.segments_) == goog.math.Path.Segment.MOVETO) {
+Path.prototype.moveTo = function(x, y) {
+  if (array.peek(this.segments_) == Path.Segment.MOVETO) {
     this.arguments_.length -= 2;
   } else {
-    this.segments_.push(goog.math.Path.Segment.MOVETO);
+    this.segments_.push(Path.Segment.MOVETO);
     this.count_.push(1);
   }
   this.arguments_.push(x, y);
@@ -219,10 +208,9 @@ goog.math.Path.prototype.moveTo = function(x, y) {
  *
  * @param {...number} var_args The coordinates of each destination point as x, y
  *     value pairs.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.lineTo = function(var_args) {
-  'use strict';
+Path.prototype.lineTo = function(var_args) {
   return this.lineTo_(arguments);
 };
 
@@ -232,10 +220,9 @@ goog.math.Path.prototype.lineTo = function(var_args) {
  *
  * @param {!Array<number>} coordinates The coordinates of each
  *     destination point as x, y value pairs.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.lineToFromArray = function(coordinates) {
-  'use strict';
+Path.prototype.lineToFromArray = function(coordinates) {
   return this.lineTo_(coordinates);
 };
 
@@ -245,17 +232,16 @@ goog.math.Path.prototype.lineToFromArray = function(coordinates) {
  *
  * @param {!Array<number>|Arguments} coordinates The coordinates of each
  *     destination point as x, y value pairs.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  * @private
  */
-goog.math.Path.prototype.lineTo_ = function(coordinates) {
-  'use strict';
-  var lastSegment = goog.array.peek(this.segments_);
+Path.prototype.lineTo_ = function(coordinates) {
+  var lastSegment = array.peek(this.segments_);
   if (lastSegment == null) {
     throw new Error('Path cannot start with lineTo');
   }
-  if (lastSegment != goog.math.Path.Segment.LINETO) {
-    this.segments_.push(goog.math.Path.Segment.LINETO);
+  if (lastSegment != Path.Segment.LINETO) {
+    this.segments_.push(Path.Segment.LINETO);
     this.count_.push(0);
   }
   for (var i = 0; i < coordinates.length; i += 2) {
@@ -277,10 +263,9 @@ goog.math.Path.prototype.lineTo_ = function(coordinates) {
  * @param {...number} var_args The coordinates specifying each curve in sets of
  *     6 points: {@code [x1, y1]} the first control point, {@code [x2, y2]} the
  *     second control point and {@code [x, y]} the end point.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.curveTo = function(var_args) {
-  'use strict';
+Path.prototype.curveTo = function(var_args) {
   return this.curveTo_(arguments);
 };
 
@@ -294,10 +279,9 @@ goog.math.Path.prototype.curveTo = function(var_args) {
  *     each curve in sets of 6 points: {@code [x1, y1]} the first control point,
  *     {@code [x2, y2]} the second control point and {@code [x, y]} the end
  *     point.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.curveToFromArray = function(coordinates) {
-  'use strict';
+Path.prototype.curveToFromArray = function(coordinates) {
   return this.curveTo_(coordinates);
 };
 
@@ -311,17 +295,16 @@ goog.math.Path.prototype.curveToFromArray = function(coordinates) {
  *     each curve in sets of 6 points: {@code [x1, y1]} the first control point,
  *     {@code [x2, y2]} the second control point and {@code [x, y]} the end
  *     point.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  * @private
  */
-goog.math.Path.prototype.curveTo_ = function(coordinates) {
-  'use strict';
-  var lastSegment = goog.array.peek(this.segments_);
+Path.prototype.curveTo_ = function(coordinates) {
+  var lastSegment = array.peek(this.segments_);
   if (lastSegment == null) {
     throw new Error('Path cannot start with curve');
   }
-  if (lastSegment != goog.math.Path.Segment.CURVETO) {
-    this.segments_.push(goog.math.Path.Segment.CURVETO);
+  if (lastSegment != Path.Segment.CURVETO) {
+    this.segments_.push(Path.Segment.CURVETO);
     this.count_.push(0);
   }
   for (var i = 0; i < coordinates.length; i += 6) {
@@ -341,16 +324,15 @@ goog.math.Path.prototype.curveTo_ = function(coordinates) {
  * Adds a path command to close the path by connecting the
  * last point to the first point.
  *
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.close = function() {
-  'use strict';
-  var lastSegment = goog.array.peek(this.segments_);
+Path.prototype.close = function() {
+  var lastSegment = array.peek(this.segments_);
   if (lastSegment == null) {
     throw new Error('Path cannot start with close');
   }
-  if (lastSegment != goog.math.Path.Segment.CLOSE) {
-    this.segments_.push(goog.math.Path.Segment.CLOSE);
+  if (lastSegment != Path.Segment.CLOSE) {
+    this.segments_.push(Path.Segment.CLOSE);
     this.count_.push(1);
     this.currentPoint_ = this.closePoint_;
   }
@@ -373,14 +355,13 @@ goog.math.Path.prototype.close = function() {
  * @param {number} extent The span of the arc in degrees.
  * @param {boolean} connect If true, the starting point of the arc is connected
  *     to the current point.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  * @deprecated Use `arcTo` or `arcToAsCurves` instead.
  */
-goog.math.Path.prototype.arc = function(
+Path.prototype.arc = function(
     cx, cy, rx, ry, fromAngle, extent, connect) {
-  'use strict';
-  var startX = cx + goog.math.angleDx(fromAngle, rx);
-  var startY = cy + goog.math.angleDy(fromAngle, ry);
+  var startX = cx + math.angleDx(fromAngle, rx);
+  var startY = cy + math.angleDy(fromAngle, ry);
   if (connect) {
     if (!this.currentPoint_ || startX != this.currentPoint_[0] ||
         startY != this.currentPoint_[1]) {
@@ -406,15 +387,14 @@ goog.math.Path.prototype.arc = function(
  * @param {number} fromAngle Starting angle measured in degrees from the
  *     positive x-axis.
  * @param {number} extent The span of the arc in degrees.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.arcTo = function(rx, ry, fromAngle, extent) {
-  'use strict';
-  var cx = this.currentPoint_[0] - goog.math.angleDx(fromAngle, rx);
-  var cy = this.currentPoint_[1] - goog.math.angleDy(fromAngle, ry);
-  var ex = cx + goog.math.angleDx(fromAngle + extent, rx);
-  var ey = cy + goog.math.angleDy(fromAngle + extent, ry);
-  this.segments_.push(goog.math.Path.Segment.ARCTO);
+Path.prototype.arcTo = function(rx, ry, fromAngle, extent) {
+  var cx = this.currentPoint_[0] - math.angleDx(fromAngle, rx);
+  var cy = this.currentPoint_[1] - math.angleDy(fromAngle, ry);
+  var ex = cx + math.angleDx(fromAngle + extent, rx);
+  var ey = cy + math.angleDy(fromAngle + extent, ry);
+  this.segments_.push(Path.Segment.ARCTO);
   this.count_.push(1);
   this.arguments_.push(rx, ry, fromAngle, extent, ex, ey);
   this.simple_ = false;
@@ -433,16 +413,15 @@ goog.math.Path.prototype.arcTo = function(rx, ry, fromAngle, extent) {
  * @param {number} fromAngle Starting angle measured in degrees from the
  *     positive x-axis.
  * @param {number} extent The span of the arc in degrees.
- * @return {!goog.math.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.arcToAsCurves = function(rx, ry, fromAngle, extent) {
-  'use strict';
-  var cx = this.currentPoint_[0] - goog.math.angleDx(fromAngle, rx);
-  var cy = this.currentPoint_[1] - goog.math.angleDy(fromAngle, ry);
-  var extentRad = goog.math.toRadians(extent);
+Path.prototype.arcToAsCurves = function(rx, ry, fromAngle, extent) {
+  var cx = this.currentPoint_[0] - math.angleDx(fromAngle, rx);
+  var cy = this.currentPoint_[1] - math.angleDy(fromAngle, ry);
+  var extentRad = math.toRadians(extent);
   var arcSegs = Math.ceil(Math.abs(extentRad) / Math.PI * 2);
   var inc = extentRad / arcSegs;
-  var angle = goog.math.toRadians(fromAngle);
+  var angle = math.toRadians(fromAngle);
   for (var j = 0; j < arcSegs; j++) {
     var relX = Math.cos(angle);
     var relY = Math.sin(angle);
@@ -472,16 +451,15 @@ goog.math.Path.prototype.arcToAsCurves = function(rx, ry, fromAngle, extent) {
  * As a convenience the `ARCTO` segment also includes the end point as the
  * last two arguments: {@code rx, ry, fromAngle, extent, x, y}.
  *
- * @param {function(!goog.math.Path.Segment, !Array<number>)} callback
+ * @param {function(!Path.Segment, !Array<number>)} callback
  *     The function to call with each path segment.
  */
-goog.math.Path.prototype.forEachSegment = function(callback) {
-  'use strict';
+Path.prototype.forEachSegment = function(callback) {
   var points = this.arguments_;
   var index = 0;
   for (var i = 0, length = this.segments_.length; i < length; i++) {
     var seg = this.segments_[i];
-    var n = goog.math.Path.segmentArgCounts_[seg] * this.count_[i];
+    var n = Path.segmentArgCounts_[seg] * this.count_[i];
     callback(seg, points.slice(index, index + n));
     index += n;
   }
@@ -494,18 +472,16 @@ goog.math.Path.prototype.forEachSegment = function(callback) {
  * @return {Array<number>?} An array containing the ending coordinates of the
  *     path of the form {@code [x, y]}.
  */
-goog.math.Path.prototype.getCurrentPoint = function() {
-  'use strict';
+Path.prototype.getCurrentPoint = function() {
   return this.currentPoint_ && this.currentPoint_.concat();
 };
 
 
 /**
- * @return {!goog.math.Path} A copy of this path.
+ * @return {!Path} A copy of this path.
  */
-goog.math.Path.prototype.clone = function() {
-  'use strict';
-  var path = new goog.math.Path();
+Path.prototype.clone = function() {
+  var path = new Path();
   path.segments_ = this.segments_.concat();
   path.count_ = this.count_.concat();
   path.arguments_ = this.arguments_.concat();
@@ -522,24 +498,22 @@ goog.math.Path.prototype.clone = function() {
  *
  * @return {boolean} True if the path contains no arcs.
  */
-goog.math.Path.prototype.isSimple = function() {
-  'use strict';
+Path.prototype.isSimple = function() {
   return this.simple_;
 };
 
 
 /**
  * A map from segment type to the path function to call to simplify a path.
- * @private {!Object<goog.math.Path.Segment, function(this: goog.math.Path)>}
+ * @private {!Object<Path.Segment, function(this: Path)>}
  */
-goog.math.Path.simplifySegmentMap_ = (function() {
-  'use strict';
+Path.simplifySegmentMap_ = (function() {
   var map = {};
-  map[goog.math.Path.Segment.MOVETO] = goog.math.Path.prototype.moveTo;
-  map[goog.math.Path.Segment.LINETO] = goog.math.Path.prototype.lineTo;
-  map[goog.math.Path.Segment.CLOSE] = goog.math.Path.prototype.close;
-  map[goog.math.Path.Segment.CURVETO] = goog.math.Path.prototype.curveTo;
-  map[goog.math.Path.Segment.ARCTO] = goog.math.Path.prototype.arcToAsCurves;
+  map[Path.Segment.MOVETO] = Path.prototype.moveTo;
+  map[Path.Segment.LINETO] = Path.prototype.lineTo;
+  map[Path.Segment.CLOSE] = Path.prototype.close;
+  map[Path.Segment.CURVETO] = Path.prototype.curveTo;
+  map[Path.Segment.ARCTO] = Path.prototype.arcToAsCurves;
   return map;
 })();
 
@@ -549,18 +523,16 @@ goog.math.Path.simplifySegmentMap_ = (function() {
  * `arcToAsCurves`. The resulting path is simplified and can
  * be transformed.
  *
- * @param {!goog.math.Path} src The path to simplify.
- * @return {!goog.math.Path} A new simplified path.
+ * @param {!Path} src The path to simplify.
+ * @return {!Path} A new simplified path.
  */
-goog.math.Path.createSimplifiedPath = function(src) {
-  'use strict';
+Path.createSimplifiedPath = function(src) {
   if (src.isSimple()) {
     return src.clone();
   }
-  var path = new goog.math.Path();
+  var path = new Path();
   src.forEachSegment(function(segment, args) {
-    'use strict';
-    goog.math.Path.simplifySegmentMap_[segment].apply(path, args);
+    Path.simplifySegmentMap_[segment].apply(path, args);
   });
   return path;
 };
@@ -571,12 +543,11 @@ goog.math.Path.createSimplifiedPath = function(src) {
  * Creates a transformed copy of this path. The path is simplified
  * {@see #createSimplifiedPath} prior to transformation.
  *
- * @param {!goog.math.AffineTransform} tx The transformation to perform.
- * @return {!goog.math.Path} A new, transformed path.
+ * @param {!AffineTransform} tx The transformation to perform.
+ * @return {!Path} A new, transformed path.
  */
-goog.math.Path.prototype.createTransformedPath = function(tx) {
-  'use strict';
-  var path = goog.math.Path.createSimplifiedPath(this);
+Path.prototype.createTransformedPath = function(tx) {
+  var path = Path.createSimplifiedPath(this);
   path.transform(tx);
   return path;
 };
@@ -586,11 +557,10 @@ goog.math.Path.prototype.createTransformedPath = function(tx) {
  * Transforms the path. Only simple paths are transformable. Attempting
  * to transform a non-simple path will throw an error.
  *
- * @param {!goog.math.AffineTransform} tx The transformation to perform.
- * @return {!goog.math.Path} The path itself.
+ * @param {!AffineTransform} tx The transformation to perform.
+ * @return {!Path} The path itself.
  */
-goog.math.Path.prototype.transform = function(tx) {
-  'use strict';
+Path.prototype.transform = function(tx) {
   if (!this.isSimple()) {
     throw new Error('Non-simple path');
   }
@@ -609,7 +579,6 @@ goog.math.Path.prototype.transform = function(tx) {
 /**
  * @return {boolean} Whether the path is empty.
  */
-goog.math.Path.prototype.isEmpty = function() {
-  'use strict';
+Path.prototype.isEmpty = function() {
   return this.segments_.length == 0;
 };

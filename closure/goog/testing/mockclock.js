@@ -1,3 +1,4 @@
+goog.declareModuleId('goog.testing.mockclock');
 /**
  * @license
  * Copyright The Closure Library Authors.
@@ -13,18 +14,19 @@
  */
 
 goog.setTestOnly('goog.testing.MockClock');
-goog.provide('goog.testing.MockClock');
 
-goog.require('goog.Disposable');
+import { Disposable } from '../disposable/disposable.js';
+
 /** @suppress {extraRequire} */
-goog.require('goog.Promise');
-goog.require('goog.Thenable');
-goog.require('goog.asserts');
-goog.require('goog.async.nextTick');
-goog.require('goog.async.run');
-goog.require('goog.testing.PropertyReplacer');
-goog.require('goog.testing.events');
-goog.require('goog.testing.events.Event');
+import { Promise as googPromise } from '../promise/promise.js';
+
+import { Thenable } from '../promise/thenable.js';
+import * as asserts from '../asserts/asserts.js';
+import { nextTick } from '../async/nexttick.js';
+import { run } from '../async/run.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import * as events from './events/events.js';
+import { Event } from './events/events.js';
 
 
 
@@ -49,22 +51,21 @@ goog.require('goog.testing.events.Event');
  *
  * @param {boolean=} opt_autoInstall Install the MockClock at construction time.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @final
  */
-goog.testing.MockClock = function(opt_autoInstall) {
-  'use strict';
-  goog.Disposable.call(this);
+export function MockClock(opt_autoInstall) {
+  Disposable.call(this);
   /**
-   * Reverse-order queue of timers to fire.
-   *
-   * The last item of the queue is popped off.  Insertion happens from the
-   * right.  For example, the expiration times for each element of the queue
-   * might be in the order 300, 200, 200.
-   *
-   * @type {?Array<!goog.testing.MockClock.QueueObjType_>}
-   * @private
-   */
+     * Reverse-order queue of timers to fire.
+     *
+     * The last item of the queue is popped off.  Insertion happens from the
+     * right.  For example, the expiration times for each element of the queue
+     * might be in the order 300, 200, 200.
+     *
+     * @type {?Array<!MockClock.QueueObjType_>}
+     * @private
+     */
   this.queue_ = [];
 
   /**
@@ -88,8 +89,8 @@ goog.testing.MockClock = function(opt_autoInstall) {
   if (opt_autoInstall) {
     this.install();
   }
-};
-goog.inherits(goog.testing.MockClock, goog.Disposable);
+}
+goog.inherits(MockClock, Disposable);
 
 
 /**
@@ -98,7 +99,7 @@ goog.inherits(goog.testing.MockClock, goog.Disposable);
  *    runAtMillis: number, funcToCall: !Function, recurring: boolean}}
  * @private
  */
-goog.testing.MockClock.QueueObjType_;
+MockClock.QueueObjType_;
 
 /**
  * Default wait timeout for mocking requestAnimationFrame (in milliseconds).
@@ -106,7 +107,7 @@ goog.testing.MockClock.QueueObjType_;
  * @type {number}
  * @const
  */
-goog.testing.MockClock.REQUEST_ANIMATION_FRAME_TIMEOUT = 20;
+MockClock.REQUEST_ANIMATION_FRAME_TIMEOUT = 20;
 
 
 /**
@@ -114,7 +115,7 @@ goog.testing.MockClock.REQUEST_ANIMATION_FRAME_TIMEOUT = 20;
  * MockClock instances.
  * @public {number}
  */
-goog.testing.MockClock.nextId = Math.round(Math.random() * 10000);
+MockClock.nextId = Math.round(Math.random() * 10000);
 
 
 /**
@@ -123,7 +124,7 @@ goog.testing.MockClock.nextId = Math.round(Math.random() * 10000);
  * @type {number}
  * @private
  */
-goog.testing.MockClock.prototype.timeoutsMade_ = 0;
+MockClock.prototype.timeoutsMade_ = 0;
 
 
 /**
@@ -132,16 +133,16 @@ goog.testing.MockClock.prototype.timeoutsMade_ = 0;
  * @type {number}
  * @private
  */
-goog.testing.MockClock.prototype.callbacksTriggered_ = 0;
+MockClock.prototype.callbacksTriggered_ = 0;
 
 
 /**
  * PropertyReplacer instance which overwrites and resets setTimeout,
  * setInterval, etc. or null if the MockClock is not installed.
- * @type {?goog.testing.PropertyReplacer}
+ * @type {?PropertyReplacer}
  * @private
  */
-goog.testing.MockClock.prototype.replacer_ = null;
+MockClock.prototype.replacer_ = null;
 
 
 /**
@@ -149,7 +150,7 @@ goog.testing.MockClock.prototype.replacer_ = null;
  * @type {number}
  * @private
  */
-goog.testing.MockClock.prototype.nowMillis_ = 0;
+MockClock.prototype.nowMillis_ = 0;
 
 
 /**
@@ -160,18 +161,18 @@ goog.testing.MockClock.prototype.nowMillis_ = 0;
  * @type {number}
  * @private
  */
-goog.testing.MockClock.prototype.timeoutDelay_ = 0;
+MockClock.prototype.timeoutDelay_ = 0;
 
 
 /**
  * Whether the MockClock is allowed to use synchronous ticks.
  *
- * When this is true, MockClock will patch goog.async.run upon installation so
+ * When this is true, MockClock will patch run upon installation so
  * that GoogPromises can be resolved synchronously.
  * @type {boolean}
  * @private
  */
-goog.testing.MockClock.prototype.isSynchronous_ = true;
+MockClock.prototype.isSynchronous_ = true;
 
 
 /**
@@ -185,10 +186,10 @@ goog.testing.MockClock.prototype.isSynchronous_ = true;
  * Async-only MockClocks will always use the default async scheduler and will
  * never reset the async queue when uninstalled.
  *
- * @return {!goog.testing.MockClock}
+ * @return {!MockClock}
  */
-goog.testing.MockClock.createAsyncMockClock = function() {
-  const clock = new goog.testing.MockClock();
+MockClock.createAsyncMockClock = function() {
+  const clock = new MockClock();
   clock.isSynchronous_ = false;
   return clock;
 };
@@ -197,20 +198,19 @@ goog.testing.MockClock.createAsyncMockClock = function() {
  * The real set timeout for reference.
  * @const @private {!Function}
  */
-goog.testing.MockClock.REAL_SETTIMEOUT_ = goog.global.setTimeout;
+MockClock.REAL_SETTIMEOUT_ = goog.global.setTimeout;
 
 
 /** @private {function():number} */
-goog.testing.MockClock.prototype.oldGoogNow_;
+MockClock.prototype.oldGoogNow_;
 
 /**
  * Installs the MockClock by overriding the global object's implementation of
  * setTimeout, setInterval, clearTimeout and clearInterval.
  */
-goog.testing.MockClock.prototype.install = function() {
-  'use strict';
+MockClock.prototype.install = function() {
   if (!this.replacer_) {
-    if (goog.testing.MockClock.REAL_SETTIMEOUT_ !== goog.global.setTimeout) {
+    if (MockClock.REAL_SETTIMEOUT_ !== goog.global.setTimeout) {
       if (typeof console !== 'undefined' && console.warn) {
         console.warn(
             'Non default setTimeout detected. ' +
@@ -220,7 +220,7 @@ goog.testing.MockClock.prototype.install = function() {
       }
     }
 
-    var r = this.replacer_ = new goog.testing.PropertyReplacer();
+    var r = this.replacer_ = new PropertyReplacer();
     r.set(goog.global, 'setTimeout', goog.bind(this.setTimeout_, this));
     r.set(goog.global, 'setInterval', goog.bind(this.setInterval_, this));
     r.set(goog.global, 'clearTimeout', goog.bind(this.clearTimeout_, this));
@@ -233,7 +233,7 @@ goog.testing.MockClock.prototype.install = function() {
     // implementation uses local caching which makes stubbing the browser
     // natives not feasible. Stub it directly instead.
     r.set(
-        goog.async.nextTick, 'nextTickImpl',
+        nextTick, 'nextTickImpl',
         goog.bind(this.setImmediate_, this));
     // setImmediate is a deprecated API that does not exist in most browsers.
     // Set it in the browser supports it.
@@ -251,15 +251,15 @@ goog.testing.MockClock.prototype.install = function() {
       // next time the MockClock is ticked. Note that we test for the presence
       // of goog.async.run.forceNextTick to be resilient to the case where
       // tests replace goog.async.run directly.
-      goog.async.run.forceNextTick &&
-          goog.async.run.forceNextTick(goog.testing.MockClock.REAL_SETTIMEOUT_);
+      run.forceNextTick &&
+          run.forceNextTick(MockClock.REAL_SETTIMEOUT_);
     } else {
       // Reset the scheduler in case a synchronous MockClock was previously
       // installed. Otherwise goog.Promise resolution and other work scheduled
       // with goog.async.run would be executed synchronously when ticking the
       // clock.
-      goog.async.run.resetSchedulerForTest &&
-          goog.async.run.resetSchedulerForTest();
+      run.resetSchedulerForTest &&
+          run.resetSchedulerForTest();
     }
 
     // Replace the requestAnimationFrame functions.
@@ -277,8 +277,7 @@ goog.testing.MockClock.prototype.install = function() {
  * mocked. See b/141619890.
  * @deprecated
  */
-goog.testing.MockClock.prototype.unmockDateNow = function() {
-  'use strict';
+MockClock.prototype.unmockDateNow = function() {
   this.unmockDateNow_ = true;
   if (this.replacer_) {
     try {
@@ -294,8 +293,7 @@ goog.testing.MockClock.prototype.unmockDateNow = function() {
  * Installs the mocks for requestAnimationFrame and cancelRequestAnimationFrame.
  * @private
  */
-goog.testing.MockClock.prototype.replaceRequestAnimationFrame_ = function() {
-  'use strict';
+MockClock.prototype.replaceRequestAnimationFrame_ = function() {
   var r = this.replacer_;
   var requestFuncs = [
     'requestAnimationFrame', 'webkitRequestAnimationFrame',
@@ -333,13 +331,12 @@ goog.testing.MockClock.prototype.replaceRequestAnimationFrame_ = function() {
  *
  * @param {boolean=} resetScheduler By default, a synchronous MockClock
  *     will not restore default goog.async behavior upon uninstallation and
- *     clear any pending async work. This can leave goog.Promises in a state
+ *     clear any pending async work. This can leave googPromises in a state
  *     where callbacks can never be executed. Set this flag to restore original
  *     scheduling behavior and retain the async queue. This argument is ignored
  *     for an async-only MockClock.
  */
-goog.testing.MockClock.prototype.uninstall = function(resetScheduler) {
-  'use strict';
+MockClock.prototype.uninstall = function(resetScheduler) {
   if (this.replacer_) {
     this.replacer_.reset();
     this.replacer_ = null;
@@ -352,8 +349,8 @@ goog.testing.MockClock.prototype.uninstall = function(resetScheduler) {
     if (resetScheduler) {
       // Check for presence of resetScheduler in case users have replaced
       // goog.async.run.
-      goog.async.run.resetSchedulerForTest &&
-          goog.async.run.resetSchedulerForTest();
+      run.resetSchedulerForTest &&
+          run.resetSchedulerForTest();
     } else {
       // If the overridden scheduler is not reset, then clear the work queue.
       // This prevents any pending goog.Promise resolution or other work
@@ -365,12 +362,11 @@ goog.testing.MockClock.prototype.uninstall = function(resetScheduler) {
 
 
 /** @override */
-goog.testing.MockClock.prototype.disposeInternal = function() {
-  'use strict';
+MockClock.prototype.disposeInternal = function() {
   this.uninstall();
   this.queue_ = null;
   this.deletedKeys_ = null;
-  goog.testing.MockClock.superClass_.disposeInternal.call(this);
+  MockClock.superClass_.disposeInternal.call(this);
 };
 
 
@@ -379,12 +375,11 @@ goog.testing.MockClock.prototype.disposeInternal = function() {
  * the fake timer count.
  * @param {boolean=} retainAsyncQueue By default, a synchronous MockClock
  *     will clear any pending async work when reset. This can leave
- *     goog.Promises in a state where callbacks can never be executed. Set this
+ *     googPromises in a state where callbacks can never be executed. Set this
  *     flag to restore original scheduling behavior and retain the async queue.
  *     This argument is ignored for an async-only MockClock.
  */
-goog.testing.MockClock.prototype.reset = function(retainAsyncQueue) {
-  'use strict';
+MockClock.prototype.reset = function(retainAsyncQueue) {
   this.queue_ = [];
   this.deletedKeys_ = {};
   this.nowMillis_ = 0;
@@ -405,15 +400,14 @@ goog.testing.MockClock.prototype.reset = function(retainAsyncQueue) {
  * Resets the async queue when a synchronous MockClock resets.
  * @private
  */
-goog.testing.MockClock.prototype.resetAsyncQueue_ = function() {
-  'use strict';
+MockClock.prototype.resetAsyncQueue_ = function() {
   // Synchronous MockClock should reset the async queue so that pending tasks
   // are not executed the next time the call stack is emptied.
-  goog.asserts.assert(
+  asserts.assert(
       this.isSynchronous_,
       'Async queue cannot be reset on async-only async MockClock.');
 
-  goog.async.run.resetQueue();
+  run.resetQueue();
 };
 
 
@@ -422,8 +416,7 @@ goog.testing.MockClock.prototype.resetAsyncQueue_ = function() {
  * it actually fires.
  * @param {number} delay The delay in milliseconds.  May be negative.
  */
-goog.testing.MockClock.prototype.setTimeoutDelay = function(delay) {
-  'use strict';
+MockClock.prototype.setTimeoutDelay = function(delay) {
   this.timeoutDelay_ = delay;
 };
 
@@ -433,8 +426,7 @@ goog.testing.MockClock.prototype.setTimeoutDelay = function(delay) {
  *     scheduled to fire and when it actually fires, in milliseconds.  May
  *     be negative.
  */
-goog.testing.MockClock.prototype.getTimeoutDelay = function() {
-  'use strict';
+MockClock.prototype.getTimeoutDelay = function() {
   return this.timeoutDelay_;
 };
 
@@ -446,9 +438,8 @@ goog.testing.MockClock.prototype.getTimeoutDelay = function() {
  *     If not specified, clock ticks 1 millisecond.
  * @return {number} Current mock time in milliseconds.
  */
-goog.testing.MockClock.prototype.tick = function(opt_millis) {
-  'use strict';
-  goog.asserts.assert(
+MockClock.prototype.tick = function(opt_millis) {
+  asserts.assert(
       this.isSynchronous_,
       'Async MockClock does not support tick. Use tickAsync() instead.');
   if (typeof opt_millis != 'number') {
@@ -472,10 +463,10 @@ goog.testing.MockClock.prototype.tick = function(opt_millis) {
  * rejected, it throws the rejection as an exception. If the promise is not
  * resolved at all, throws an exception.
  * Also ticks the general clock by the specified amount.
- * Only works with goog.Thenable, hence goog.Promise. Does NOT work with native
+ * Only works with Thenable, hence googPromise. Does NOT work with native
  * browser promises.
  *
- * @param {!goog.Thenable<T>} promise A promise that should be resolved after
+ * @param {!Thenable<T>} promise A promise that should be resolved after
  *     the mockClock is ticked for the given opt_millis.
  * @param {number=} opt_millis Number of milliseconds to increment the counter.
  *     If not specified, clock ticks 1 millisecond.
@@ -485,12 +476,11 @@ goog.testing.MockClock.prototype.tick = function(opt_millis) {
  * @deprecated Treating Promises as synchronous values is incompatible with
  *     native promises and async functions. More generally, this code relies on
  *     promises "pumped" by setTimeout which is not done in production code,
- *     even for goog.Promise and results unnatural timing between resolved
+ *     even for googPromise and results unnatural timing between resolved
  *     promises callback and setTimeout/setInterval callbacks in tests.
  */
-goog.testing.MockClock.prototype.tickPromise = function(promise, opt_millis) {
-  'use strict';
-  goog.asserts.assert(
+MockClock.prototype.tickPromise = function(promise, opt_millis) {
+  asserts.assert(
       this.isSynchronous_, 'Async MockClock does not support tickPromise.');
 
   let value;
@@ -498,12 +488,10 @@ goog.testing.MockClock.prototype.tickPromise = function(promise, opt_millis) {
   let resolved = false;
   promise.then(
       function(v) {
-        'use strict';
         value = v;
         resolved = true;
       },
       function(e) {
-        'use strict';
         error = e;
         resolved = true;
       });
@@ -523,8 +511,7 @@ goog.testing.MockClock.prototype.tickPromise = function(promise, opt_millis) {
  * @return {number} The number of timeouts or intervals that have been
  * scheduled. A setInterval call is only counted once.
  */
-goog.testing.MockClock.prototype.getTimeoutsMade = function() {
-  'use strict';
+MockClock.prototype.getTimeoutsMade = function() {
   return this.timeoutsMade_;
 };
 
@@ -533,8 +520,7 @@ goog.testing.MockClock.prototype.getTimeoutsMade = function() {
  * @return {number} The number of timeout or interval callbacks that have been
  * triggered. For setInterval, each callback is counted separately.
  */
-goog.testing.MockClock.prototype.getCallbacksTriggered = function() {
-  'use strict';
+MockClock.prototype.getCallbacksTriggered = function() {
   return this.callbacksTriggered_;
 };
 
@@ -542,8 +528,7 @@ goog.testing.MockClock.prototype.getCallbacksTriggered = function() {
 /**
  * @return {number} The MockClock's current time in milliseconds.
  */
-goog.testing.MockClock.prototype.getCurrentTime = function() {
-  'use strict';
+MockClock.prototype.getCurrentTime = function() {
   return this.nowMillis_;
 };
 
@@ -557,10 +542,9 @@ goog.testing.MockClock.prototype.getCurrentTime = function() {
  *     provided timeoutKey represents a timeout that has been set and not
  *     cleared.
  */
-goog.testing.MockClock.prototype.isTimeoutSet = function(timeoutKey) {
-  'use strict';
-  return timeoutKey < goog.testing.MockClock.nextId &&
-      timeoutKey >= goog.testing.MockClock.nextId - this.timeoutsMade_ &&
+MockClock.prototype.isTimeoutSet = function(timeoutKey) {
+  return timeoutKey < MockClock.nextId &&
+      timeoutKey >= MockClock.nextId - this.timeoutsMade_ &&
       !this.deletedKeys_[timeoutKey];
 };
 
@@ -572,7 +556,7 @@ goog.testing.MockClock.prototype.isTimeoutSet = function(timeoutKey) {
  * asynchronously.
  * @return {boolean}
  */
-goog.testing.MockClock.prototype.isSynchronous = function() {
+MockClock.prototype.isSynchronous = function() {
   return this.isSynchronous_;
 };
 
@@ -583,8 +567,7 @@ goog.testing.MockClock.prototype.isSynchronous = function() {
  * @param {number} endTime The latest time in the range, in milliseconds.
  * @private
  */
-goog.testing.MockClock.prototype.runFunctionsWithinRange_ = function(endTime) {
-  'use strict';
+MockClock.prototype.runFunctionsWithinRange_ = function(endTime) {
   // Repeatedly pop off the last item since the queue is always sorted.
   while (this.hasQueuedEntriesBefore_(endTime)) {
     this.runNextQueuedTimeout_();
@@ -599,7 +582,7 @@ goog.testing.MockClock.prototype.runFunctionsWithinRange_ = function(endTime) {
  *     If not specified, clock ticks 1 millisecond.
  * @return {!Promise<number>} Current mock time in milliseconds.
  */
-goog.testing.MockClock.prototype.tickAsync = async function(millis = 1) {
+MockClock.prototype.tickAsync = async function(millis = 1) {
   if (millis < 0) {
     throw new Error(`Time cannot go backwards (cannot tick by ${millis})`);
   }
@@ -615,17 +598,17 @@ goog.testing.MockClock.prototype.tickAsync = async function(millis = 1) {
  * Asynchronously increments the MockClock's time by a given number of
  * milliseconds, returning the settled promise value.
  * @param {number} millis Number of milliseconds to increment the counter.
- * @param {!goog.Thenable<T>} promise A promise that should be resolved after
+ * @param {!Thenable<T>} promise A promise that should be resolved after
  *     the mockClock is ticked for the given opt_millis.
  * @return {!Promise<T>} Resolved promise value.
- * @throws {!goog.asserts.AssertionError} when the promise is not resolved after
+ * @throws {!asserts.AssertionError} when the promise is not resolved after
  *     ticking.
  * @throws {*} when the promise is rejected.
  * @template T
  */
-goog.testing.MockClock.prototype.tickAsyncMustSettlePromise =
+MockClock.prototype.tickAsyncMustSettlePromise =
     async function(millis, promise) {
-  goog.asserts.assert(
+  asserts.assert(
       !this.isSynchronous_,
       'Synchronous MockClock does not support tickAsyncMustSettlePromise.');
 
@@ -642,7 +625,7 @@ goog.testing.MockClock.prototype.tickAsyncMustSettlePromise =
         error = e;
       });
   await this.tickAsync(millis);
-  goog.asserts.assert(
+  asserts.assert(
       settled, 'Promise was expected to be resolved after mock clock tick.');
   if (error !== undefined) {
     throw error;
@@ -670,8 +653,8 @@ goog.testing.MockClock.prototype.tickAsyncMustSettlePromise =
  * @param {!Date} newDate The new timestamp to set the clock to.
  * @return {!Promise}
  */
-goog.testing.MockClock.prototype.doTimeWarpAsync = async function(newDate) {
-  goog.asserts.assertInstanceof(
+MockClock.prototype.doTimeWarpAsync = async function(newDate) {
+  asserts.assertInstanceof(
       newDate, Date,
       'doTimeWarpAsync() only accepts dates.  Use tickAsync() instead.');
   if (+newDate < this.nowMillis_) {
@@ -692,19 +675,18 @@ goog.testing.MockClock.prototype.doTimeWarpAsync = async function(newDate) {
  * @return {!Promise}
  * @private
  */
-goog.testing.MockClock.prototype.runFunctionsWithinRangeAsync_ =
+MockClock.prototype.runFunctionsWithinRangeAsync_ =
     async function(endTime) {
-  'use strict';
-  // Let native promises set timers before we start ticking.
-  await goog.testing.MockClock.flushMicroTasks_();
+      // Let native promises set timers before we start ticking.
+      await MockClock.flushMicroTasks_();
 
-  // Repeatedly pop off the last item since the queue is always sorted.
-  while (this.hasQueuedEntriesBefore_(endTime)) {
-    if (this.runNextQueuedTimeout_()) {
-      await goog.testing.MockClock.flushMicroTasks_();
-    }
-  }
-};
+      // Repeatedly pop off the last item since the queue is always sorted.
+      while (this.hasQueuedEntriesBefore_(endTime)) {
+        if (this.runNextQueuedTimeout_()) {
+          await MockClock.flushMicroTasks_();
+        }
+      }
+    };
 
 
 /**
@@ -720,8 +702,7 @@ goog.testing.MockClock.prototype.runFunctionsWithinRangeAsync_ =
  * best option.
  * @private
  */
-goog.testing.MockClock.flushMicroTasks_ = async function() {
-  'use strict';
+MockClock.flushMicroTasks_ = async function() {
   for (var i = 0; i < 50; i++) {
     await Promise.resolve();
   }
@@ -733,8 +714,7 @@ goog.testing.MockClock.flushMicroTasks_ = async function() {
  * @return {boolean}
  * @private
  */
-goog.testing.MockClock.prototype.hasQueuedEntriesBefore_ = function(endTime) {
-  'use strict';
+MockClock.prototype.hasQueuedEntriesBefore_ = function(endTime) {
   var adjustedEndTime = endTime - this.timeoutDelay_;
   return !!this.queue_ && !!this.queue_.length &&
       this.queue_[this.queue_.length - 1].runAtMillis <= adjustedEndTime;
@@ -746,8 +726,7 @@ goog.testing.MockClock.prototype.hasQueuedEntriesBefore_ = function(endTime) {
  * @return {boolean} False if the timeout was cancelled (and nothing happened).
  * @private
  */
-goog.testing.MockClock.prototype.runNextQueuedTimeout_ = function() {
-  'use strict';
+MockClock.prototype.runNextQueuedTimeout_ = function() {
   var timeout = this.queue_.pop();
 
   if (timeout.timeoutKey in this.deletedKeys_) return false;
@@ -775,16 +754,15 @@ goog.testing.MockClock.prototype.runNextQueuedTimeout_ = function() {
  * @param {boolean} recurring Whether to function call should recur.
  * @private
  */
-goog.testing.MockClock.prototype.scheduleFunction_ = function(
+MockClock.prototype.scheduleFunction_ = function(
     timeoutKey, funcToCall, millis, recurring) {
-  'use strict';
   if (typeof funcToCall !== 'function') {
     // Early error for debuggability rather than dying in the next .tick()
     throw new TypeError(
         'The provided callback must be a function, not a ' + typeof funcToCall);
   }
 
-  var /** !goog.testing.MockClock.QueueObjType_ */ timeout = {
+  var /** !MockClock.QueueObjType_ */ timeout = {
     runAtMillis: this.nowMillis_ + millis,
     funcToCall: funcToCall,
     recurring: recurring,
@@ -792,7 +770,7 @@ goog.testing.MockClock.prototype.scheduleFunction_ = function(
     millis: millis
   };
 
-  goog.testing.MockClock.insert_(timeout, goog.asserts.assert(this.queue_));
+  MockClock.insert_(timeout, asserts.assert(this.queue_));
 };
 
 
@@ -802,14 +780,13 @@ goog.testing.MockClock.prototype.scheduleFunction_ = function(
  * Later-inserted duplicates appear at lower indices.  For example, the
  * asterisk in (5,4,*,3,2,1) would be the insertion point for 3.
  *
- * @param {!goog.testing.MockClock.QueueObjType_} timeout The timeout to insert,
+ * @param {!MockClock.QueueObjType_} timeout The timeout to insert,
  *     with numerical runAtMillis property.
- * @param {!Array<!goog.testing.MockClock.QueueObjType_>} queue The queue to
+ * @param {!Array<!MockClock.QueueObjType_>} queue The queue to
  *     insert into, with each element having a numerical runAtMillis property.
  * @private
  */
-goog.testing.MockClock.insert_ = function(timeout, queue) {
-  'use strict';
+MockClock.insert_ = function(timeout, queue) {
   // Although insertion of N items is quadratic, requiring goog.structs.Heap
   // from a unit test will make tests more prone to breakage.  Since unit
   // tests are normally small, scalability is not a primary issue.
@@ -840,7 +817,7 @@ goog.testing.MockClock.insert_ = function(timeout, queue) {
  * @type {number}
  * @private
  */
-goog.testing.MockClock.MAX_INT_ = 2147483647;
+MockClock.MAX_INT_ = 2147483647;
 
 
 /**
@@ -851,11 +828,10 @@ goog.testing.MockClock.MAX_INT_ = 2147483647;
  * @return {number} The number of timeouts created.
  * @private
  */
-goog.testing.MockClock.prototype.setTimeout_ = function(
+MockClock.prototype.setTimeout_ = function(
     funcToCall, opt_millis) {
-  'use strict';
   var millis = opt_millis || 0;
-  if (millis > goog.testing.MockClock.MAX_INT_) {
+  if (millis > MockClock.MAX_INT_) {
     throw new Error(
         'Bad timeout value: ' + millis + '.  Timeouts over MAX_INT ' +
         '(24.8 days) cause timeouts to be fired ' +
@@ -863,8 +839,8 @@ goog.testing.MockClock.prototype.setTimeout_ = function(
   }
   this.timeoutsMade_++;
   this.scheduleFunction_(
-      goog.testing.MockClock.nextId, funcToCall, millis, false);
-  return goog.testing.MockClock.nextId++;
+      MockClock.nextId, funcToCall, millis, false);
+  return MockClock.nextId++;
 };
 
 
@@ -876,14 +852,13 @@ goog.testing.MockClock.prototype.setTimeout_ = function(
  * @return {number} The number of timeouts created.
  * @private
  */
-goog.testing.MockClock.prototype.setInterval_ = function(
+MockClock.prototype.setInterval_ = function(
     funcToCall, opt_millis) {
-  'use strict';
   var millis = opt_millis || 0;
   this.timeoutsMade_++;
   this.scheduleFunction_(
-      goog.testing.MockClock.nextId, funcToCall, millis, true);
-  return goog.testing.MockClock.nextId++;
+      MockClock.nextId, funcToCall, millis, true);
+  return MockClock.nextId++;
 };
 
 
@@ -894,18 +869,16 @@ goog.testing.MockClock.prototype.setInterval_ = function(
  * @return {number} The number of timeouts created.
  * @private
  */
-goog.testing.MockClock.prototype.requestAnimationFrame_ = function(funcToCall) {
-  'use strict';
+MockClock.prototype.requestAnimationFrame_ = function(funcToCall) {
   return this.setTimeout_(goog.bind(function() {
-    'use strict';
     if (funcToCall) {
       funcToCall(this.getCurrentTime());
     } else if (goog.global.mozRequestAnimationFrame) {
-      var event = new goog.testing.events.Event('MozBeforePaint', goog.global);
+      var event = new Event('MozBeforePaint', goog.global);
       event['timeStamp'] = this.getCurrentTime();
-      goog.testing.events.fireBrowserEvent(event);
+      events.fireBrowserEvent(event);
     }
-  }, this), goog.testing.MockClock.REQUEST_ANIMATION_FRAME_TIMEOUT);
+  }, this), MockClock.REQUEST_ANIMATION_FRAME_TIMEOUT);
 };
 
 
@@ -917,8 +890,7 @@ goog.testing.MockClock.prototype.requestAnimationFrame_ = function(funcToCall) {
  * @return {number} The number of timeouts created.
  * @private
  */
-goog.testing.MockClock.prototype.setImmediate_ = function(funcToCall) {
-  'use strict';
+MockClock.prototype.setImmediate_ = function(funcToCall) {
   return this.setTimeout_(funcToCall, 0);
 };
 
@@ -929,8 +901,7 @@ goog.testing.MockClock.prototype.setImmediate_ = function(funcToCall) {
  * @param {number} timeoutKey The timeout key to clear.
  * @private
  */
-goog.testing.MockClock.prototype.clearTimeout_ = function(timeoutKey) {
-  'use strict';
+MockClock.prototype.clearTimeout_ = function(timeoutKey) {
   // Some common libraries register static state with timers.
   // This is bad. It leads to all sorts of crazy test problems where
   // 1) Test A sets up a new mock clock and a static timer.
@@ -954,8 +925,7 @@ goog.testing.MockClock.prototype.clearTimeout_ = function(timeoutKey) {
  * @param {number} timeoutKey The interval key to clear.
  * @private
  */
-goog.testing.MockClock.prototype.clearInterval_ = function(timeoutKey) {
-  'use strict';
+MockClock.prototype.clearInterval_ = function(timeoutKey) {
   this.clearTimeout_(timeoutKey);
 };
 
@@ -966,8 +936,7 @@ goog.testing.MockClock.prototype.clearInterval_ = function(timeoutKey) {
  * @param {number} timeoutKey The requestAnimationFrame key to clear.
  * @private
  */
-goog.testing.MockClock.prototype.cancelRequestAnimationFrame_ = function(
+MockClock.prototype.cancelRequestAnimationFrame_ = function(
     timeoutKey) {
-  'use strict';
   this.clearTimeout_(timeoutKey);
 };

@@ -11,24 +11,23 @@
  * TODO(xtof): Link to document stating type contract.
  */
 
-goog.module('goog.html.SafeHtml');
-goog.module.declareLegacyNamespace();
+goog.declareModuleId('goog.html.SafeHtml');
 
-const Const = goog.require('goog.string.Const');
-const SafeScript = goog.require('goog.html.SafeScript');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const TypedString = goog.require('goog.string.TypedString');
-const asserts = goog.require('goog.asserts');
-const browser = goog.require('goog.labs.userAgent.browser');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const internal = goog.require('goog.string.internal');
-const tags = goog.require('goog.dom.tags');
-const trustedtypes = goog.require('goog.html.trustedtypes');
+import { Const } from '../string/const.js';
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TagName } from '../dom/tagname.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import { TypedString } from '../string/typedstring.js';
+import * as asserts from '../asserts/asserts.js';
+import * as browser from '../labs/useragent/browser.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import * as internal from '../string/internal.js';
+import * as tags from '../dom/tags.js';
+import * as trustedtypes from './trustedtypes.js';
 
 
 /**
@@ -1013,4 +1012,4 @@ SafeHtml.BR = /** @type {!SafeHtml} */ ({
 }.valueOf());
 
 
-exports = SafeHtml;
+export { SafeHtml };

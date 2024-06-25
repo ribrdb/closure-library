@@ -5,13 +5,13 @@
  */
 
 /**
- * @fileoverview Definition of the goog.events.EventWrapper interface.
+ * @fileoverview Definition of the EventWrapper interface.
  */
 
-goog.provide('goog.events.EventWrapper');
+goog.declareModuleId('goog.events.eventwrapper');
 
-goog.requireType('goog.events.EventHandler');
-goog.requireType('goog.events.ListenableType');
+goog.requireType('goog.events.eventhandler');
+goog.requireType('goog.events.events');
 
 
 
@@ -19,7 +19,7 @@ goog.requireType('goog.events.ListenableType');
  * Interface for event wrappers.
  * @interface
  */
-goog.events.EventWrapper = function() {};
+export function EventWrapper() {}
 
 
 /**
@@ -36,12 +36,12 @@ goog.events.EventWrapper = function() {};
  * @param {goog.events.EventHandler=} opt_eventHandler Event handler to add
  *     listener to.
  */
-goog.events.EventWrapper.prototype.listen = function(
+EventWrapper.prototype.listen = function(
     src, listener, opt_capt, opt_scope, opt_eventHandler) {};
 
 
 /**
- * Removes an event listener added using goog.events.EventWrapper.listen.
+ * Removes an event listener added using EventWrapper.listen.
  *
  * @param {goog.events.ListenableType} src The node to remove listener from.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener Callback
@@ -52,5 +52,5 @@ goog.events.EventWrapper.prototype.listen = function(
  * @param {goog.events.EventHandler=} opt_eventHandler Event handler to remove
  *     listener from.
  */
-goog.events.EventWrapper.prototype.unlisten = function(
+EventWrapper.prototype.unlisten = function(
     src, listener, opt_capt, opt_scope, opt_eventHandler) {};

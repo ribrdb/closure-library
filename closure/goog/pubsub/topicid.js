@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.pubsub.TopicId');
+goog.declareModuleId('goog.pubsub.topicid');
 
 
 
@@ -14,8 +14,8 @@ goog.provide('goog.pubsub.TopicId');
  *
  * Typical usage for a publisher:
  * <code>
- *   /** @type {!goog.pubsub.TopicId<!zorg.State>}
- *   zorg.TopicId.STATE_CHANGE = new goog.pubsub.TopicId(
+ *   /** @type {!TopicId<!zorg.State>}
+ *   zorg.TopicId.STATE_CHANGE = new TopicId(
  *       goog.events.getUniqueId('state-change'));
  *
  *   // Compiler enforces that these types are correct.
@@ -38,18 +38,16 @@ goog.provide('goog.pubsub.TopicId');
  * @final
  * @struct
  */
-goog.pubsub.TopicId = function(topicId) {
-  'use strict';
-  /**
-   * @const
-   * @private
-   */
-  this.topicId_ = topicId;
-};
+export function TopicId(topicId) {
+ /**
+  * @const
+  * @private
+  */
+ this.topicId_ = topicId;
+}
 
 
 /** @override */
-goog.pubsub.TopicId.prototype.toString = function() {
-  'use strict';
-  return this.topicId_;
+TopicId.prototype.toString = function() {
+ return this.topicId_;
 };

@@ -5,35 +5,33 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.Button}s in App style. This
+ * @fileoverview Renderer for {@link Button}s in App style. This
  * type of button is typically used for an application's "primary action," eg
  * in Gmail, it's "Compose," in Calendar, it's "Create Event".
  */
 
-goog.provide('goog.ui.style.app.PrimaryActionButtonRenderer');
+import { Button } from '../../button.js';
 
-goog.require('goog.ui.Button');
-goog.require('goog.ui.registry');
-goog.require('goog.ui.style.app.ButtonRenderer');
+import * as registry from '../../registry.js';
+import { ButtonRenderer } from './buttonrenderer.js';
 
 
 
 /**
- * Custom renderer for {@link goog.ui.Button}s. This renderer supports the
+ * Custom renderer for {@link Button}s. This renderer supports the
  * "primary action" style for buttons.
  *
  * @constructor
- * @extends {goog.ui.style.app.ButtonRenderer}
+ * @extends {ButtonRenderer}
  * @final
  */
-goog.ui.style.app.PrimaryActionButtonRenderer = function() {
-  'use strict';
-  goog.ui.style.app.ButtonRenderer.call(this);
-};
+export function PrimaryActionButtonRenderer() {
+ ButtonRenderer.call(this);
+}
 goog.inherits(
-    goog.ui.style.app.PrimaryActionButtonRenderer,
-    goog.ui.style.app.ButtonRenderer);
-goog.addSingletonGetter(goog.ui.style.app.PrimaryActionButtonRenderer);
+    PrimaryActionButtonRenderer,
+    ButtonRenderer);
+goog.addSingletonGetter(PrimaryActionButtonRenderer);
 
 
 /**
@@ -41,7 +39,7 @@ goog.addSingletonGetter(goog.ui.style.app.PrimaryActionButtonRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.style.app.PrimaryActionButtonRenderer.CSS_CLASS =
+PrimaryActionButtonRenderer.CSS_CLASS =
     'goog-primaryactionbutton';
 
 
@@ -51,7 +49,7 @@ goog.ui.style.app.PrimaryActionButtonRenderer.CSS_CLASS =
  * selector support.
  * @type {!Array<Array<string>>}
  */
-goog.ui.style.app.PrimaryActionButtonRenderer.IE6_CLASS_COMBINATIONS = [
+PrimaryActionButtonRenderer.IE6_CLASS_COMBINATIONS = [
   ['goog-button-base-disabled', 'goog-primaryactionbutton'],
   ['goog-button-base-focused', 'goog-primaryactionbutton'],
   ['goog-button-base-hover', 'goog-primaryactionbutton']
@@ -59,26 +57,23 @@ goog.ui.style.app.PrimaryActionButtonRenderer.IE6_CLASS_COMBINATIONS = [
 
 
 /** @override */
-goog.ui.style.app.PrimaryActionButtonRenderer.prototype.getCssClass =
+PrimaryActionButtonRenderer.prototype.getCssClass =
     function() {
-  'use strict';
-  return goog.ui.style.app.PrimaryActionButtonRenderer.CSS_CLASS;
-};
+     return PrimaryActionButtonRenderer.CSS_CLASS;
+    };
 
 
 /** @override */
-goog.ui.style.app.PrimaryActionButtonRenderer.prototype
+PrimaryActionButtonRenderer.prototype
     .getIe6ClassCombinations = function() {
-  'use strict';
-  return goog.ui.style.app.PrimaryActionButtonRenderer.IE6_CLASS_COMBINATIONS;
+ return PrimaryActionButtonRenderer.IE6_CLASS_COMBINATIONS;
 };
 
 
 // Register a decorator factory function for
-// goog.ui.style.app.PrimaryActionButtonRenderer.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.style.app.PrimaryActionButtonRenderer.CSS_CLASS, function() {
-      'use strict';
-      return new goog.ui.Button(
-          null, goog.ui.style.app.PrimaryActionButtonRenderer.getInstance());
-    });
+/* PrimaryActionButtonRenderer.*/
+registry.setDecoratorByClassName(
+    PrimaryActionButtonRenderer.CSS_CLASS, function() {
+ return new Button(
+     null, PrimaryActionButtonRenderer.getInstance());
+});

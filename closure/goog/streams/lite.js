@@ -8,12 +8,19 @@
  * @fileoverview A lite polyfill of the ReadableStream native API with a subset
  * of methods supported.
  */
-goog.module('goog.streams.lite');
+import liteImpl from './lite_impl.js';
 
-const liteImpl = goog.require('goog.streams.liteImpl');
-const liteNativeImpl = goog.require('goog.streams.liteNativeImpl');
-const {ReadableStream, ReadableStreamDefaultController, ReadableStreamDefaultReader, ReadableStreamUnderlyingSource} = goog.require('goog.streams.liteTypes');
-const {USE_NATIVE_IMPLEMENTATION} = goog.require('goog.streams.defines');
+import liteNativeImpl from './lite_native_impl.js';
+
+import {
+  ReadableStream,
+  ReadableStreamDefaultController,
+  ReadableStreamDefaultReader,
+  ReadableStreamUnderlyingSource,
+} from './lite_types.js';
+
+import defines from './defines.js';
+const {USE_NATIVE_IMPLEMENTATION} = defines;
 
 /**
  * Creates and returns a new ReadableStream.
@@ -34,7 +41,7 @@ function newReadableStream(underlyingSource) {
   }
 }
 
-exports = {
+export default {
   ReadableStream,
   ReadableStreamDefaultController,
   ReadableStreamDefaultReader,

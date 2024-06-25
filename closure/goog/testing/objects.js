@@ -8,10 +8,9 @@
  * @fileoverview Testing utilities for generic objects.
  */
 
-goog.module('goog.testing.objects');
 goog.setTestOnly('goog.testing.objects');
 
-const asserts = goog.require('goog.testing.asserts');
+import * as asserts from './asserts.js';
 
 /**
  * Asserts that the given object has a transitive reference on the given value.
@@ -78,7 +77,7 @@ function searchForReference(object, needle) {
   return null;
 }
 
-exports = {
+export default {
   assertDoesNotRetainReference,
   assertRetainsReference,
 };

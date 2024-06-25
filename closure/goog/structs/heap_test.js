@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.HeapTest');
 goog.setTestOnly();
 
-const Heap = goog.require('goog.structs.Heap');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Heap } from './heap.js';
+import * as structs from './structs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Constructs a heap from key-value pairs passed as arguments

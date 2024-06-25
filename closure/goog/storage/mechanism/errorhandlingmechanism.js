@@ -8,53 +8,49 @@
  * @fileoverview Wraps a storage mechanism with a custom error handler.
  */
 
-goog.provide('goog.storage.mechanism.ErrorHandlingMechanism');
-
-goog.require('goog.storage.mechanism.Mechanism');
+import { Mechanism } from './mechanism.js';
 
 
 
 /**
  * Wraps a storage mechanism with a custom error handler.
  *
- * @param {!goog.storage.mechanism.Mechanism} mechanism Underlying storage
+ * @param {!Mechanism} mechanism Underlying storage
  *     mechanism.
- * @param {goog.storage.mechanism.ErrorHandlingMechanism.ErrorHandler}
+ * @param {ErrorHandlingMechanism.ErrorHandler}
  *     errorHandler An error handler.
  * @constructor
  * @struct
- * @extends {goog.storage.mechanism.Mechanism}
+ * @extends {Mechanism}
  * @final
  */
-goog.storage.mechanism.ErrorHandlingMechanism = function(
-    mechanism, errorHandler) {
-  'use strict';
-  goog.storage.mechanism.ErrorHandlingMechanism.base(this, 'constructor');
+export function ErrorHandlingMechanism(mechanism, errorHandler) {
+  ErrorHandlingMechanism.base(this, 'constructor');
 
   /**
-   * The mechanism to be wrapped.
-   * @type {!goog.storage.mechanism.Mechanism}
-   * @private
-   */
+     * The mechanism to be wrapped.
+     * @type {!Mechanism}
+     * @private
+     */
   this.mechanism_ = mechanism;
 
   /**
-   * The error handler.
-   * @type {goog.storage.mechanism.ErrorHandlingMechanism.ErrorHandler}
-   * @private
-   */
+     * The error handler.
+     * @type {ErrorHandlingMechanism.ErrorHandler}
+     * @private
+     */
   this.errorHandler_ = errorHandler;
-};
+}
 goog.inherits(
-    goog.storage.mechanism.ErrorHandlingMechanism,
-    goog.storage.mechanism.Mechanism);
+    ErrorHandlingMechanism,
+    Mechanism);
 
 
 /**
  * Valid storage mechanism operations.
  * @enum {string}
  */
-goog.storage.mechanism.ErrorHandlingMechanism.Operation = {
+ErrorHandlingMechanism.Operation = {
   SET: 'set',
   GET: 'get',
   REMOVE: 'remove'
@@ -75,47 +71,44 @@ goog.storage.mechanism.ErrorHandlingMechanism.Operation = {
  *
  * @typedef {function(
  *   (!Error|string),
- *   goog.storage.mechanism.ErrorHandlingMechanism.Operation,
+ *   ErrorHandlingMechanism.Operation,
  *   string,
  *   *=)}
  */
-goog.storage.mechanism.ErrorHandlingMechanism.ErrorHandler;
+ErrorHandlingMechanism.ErrorHandler;
 
 
 /** @override */
-goog.storage.mechanism.ErrorHandlingMechanism.prototype.set = function(
+ErrorHandlingMechanism.prototype.set = function(
     key, value) {
-  'use strict';
   try {
     this.mechanism_.set(key, value);
   } catch (e) {
     this.errorHandler_(
-        e, goog.storage.mechanism.ErrorHandlingMechanism.Operation.SET, key,
+        e, ErrorHandlingMechanism.Operation.SET, key,
         value);
   }
 };
 
 
 /** @override */
-goog.storage.mechanism.ErrorHandlingMechanism.prototype.get = function(key) {
-  'use strict';
+ErrorHandlingMechanism.prototype.get = function(key) {
   try {
     return this.mechanism_.get(key);
   } catch (e) {
     this.errorHandler_(
-        e, goog.storage.mechanism.ErrorHandlingMechanism.Operation.GET, key);
+        e, ErrorHandlingMechanism.Operation.GET, key);
     return null;
   }
 };
 
 
 /** @override */
-goog.storage.mechanism.ErrorHandlingMechanism.prototype.remove = function(key) {
-  'use strict';
+ErrorHandlingMechanism.prototype.remove = function(key) {
   try {
     this.mechanism_.remove(key);
   } catch (e) {
     this.errorHandler_(
-        e, goog.storage.mechanism.ErrorHandlingMechanism.Operation.REMOVE, key);
+        e, ErrorHandlingMechanism.Operation.REMOVE, key);
   }
 };

@@ -10,11 +10,10 @@
  * code.
  */
 
-goog.provide('goog.dom.textAssert');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
+import * as dom from './dom.js';
+import { TagName } from './tagname.js';
 
 /**
  * Assert that the string is plain text that does not have HTML, i.e. not
@@ -26,14 +25,13 @@ goog.require('goog.dom.TagName');
  * @param {string} text
  * @return {string}
  */
-goog.dom.textAssert.assertHtmlFree = function(text) {
-  'use strict';
-  if (goog.asserts.ENABLE_ASSERTS) {
-    var elmt = goog.dom.createElement(goog.dom.TagName.BODY);
-    elmt.textContent = text;
-    goog.asserts.assert(
-        elmt.innerHTML == elmt.textContent,
-        'String has HTML original: %s, escaped: %s', text, elmt.innerHTML);
-  }
-  return text;
-};
+export function assertHtmlFree(text) {
+ if (asserts.ENABLE_ASSERTS) {
+   var elmt = dom.createElement(TagName.BODY);
+   elmt.textContent = text;
+   asserts.assert(
+       elmt.innerHTML == elmt.textContent,
+       'String has HTML original: %s, escaped: %s', text, elmt.innerHTML);
+ }
+ return text;
+}

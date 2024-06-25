@@ -8,28 +8,26 @@
  * @fileoverview Renderer for {@link goog.ui.menuBar}.
  */
 
-goog.provide('goog.ui.MenuBarRenderer');
+import { Role } from '../a11y/aria/roles.js';
 
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.ui.Container');
-goog.require('goog.ui.ContainerRenderer');
+import { Container } from './container.js';
+import { ContainerRenderer } from './containerrenderer.js';
 
 
 
 /**
  * Default renderer for {@link goog.ui.menuBar}s, based on {@link
- * goog.ui.ContainerRenderer}.
+ * ContainerRenderer}.
  * @constructor
- * @extends {goog.ui.ContainerRenderer}
+ * @extends {ContainerRenderer}
  * @final
  */
-goog.ui.MenuBarRenderer = function() {
-  'use strict';
-  goog.ui.MenuBarRenderer.base(
-      this, 'constructor', goog.a11y.aria.Role.MENUBAR);
-};
-goog.inherits(goog.ui.MenuBarRenderer, goog.ui.ContainerRenderer);
-goog.addSingletonGetter(goog.ui.MenuBarRenderer);
+export function MenuBarRenderer() {
+ MenuBarRenderer.base(
+     this, 'constructor', Role.MENUBAR);
+}
+goog.inherits(MenuBarRenderer, ContainerRenderer);
+goog.addSingletonGetter(MenuBarRenderer);
 
 
 /**
@@ -37,26 +35,24 @@ goog.addSingletonGetter(goog.ui.MenuBarRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.MenuBarRenderer.CSS_CLASS = goog.getCssName('goog-menubar');
+MenuBarRenderer.CSS_CLASS = goog.getCssName('goog-menubar');
 
 
 /**
  * @override
  */
-goog.ui.MenuBarRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.MenuBarRenderer.CSS_CLASS;
+MenuBarRenderer.prototype.getCssClass = function() {
+ return MenuBarRenderer.CSS_CLASS;
 };
 
 
 /**
  * Returns the default orientation of containers rendered or decorated by this
  * renderer.  This implementation returns `HORIZONTAL`.
- * @return {!goog.ui.Container.Orientation} Default orientation for containers
+ * @return {!Container.Orientation} Default orientation for containers
  *     created or decorated by this renderer.
  * @override
  */
-goog.ui.MenuBarRenderer.prototype.getDefaultOrientation = function() {
-  'use strict';
-  return goog.ui.Container.Orientation.HORIZONTAL;
+MenuBarRenderer.prototype.getDefaultOrientation = function() {
+ return Container.Orientation.HORIZONTAL;
 };

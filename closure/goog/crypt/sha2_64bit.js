@@ -14,12 +14,11 @@
  * Yue Zhang (zysxqn@).
  */
 
-goog.provide('goog.crypt.Sha2_64bit');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.crypt.Hash');
-goog.require('goog.math.Long');
+import * as asserts from '../asserts/asserts.js';
+import { Hash } from './hash.js';
+import { Long } from '../math/long.js';
 
 
 
@@ -31,18 +30,17 @@ goog.require('goog.math.Long');
  * @param {number} numHashBlocks The size of the output in 16-byte blocks
  * @param {!Array<number>} initHashBlocks The hash-specific initialization
  *     vector, as a sequence of sixteen 32-bit numbers.
- * @extends {goog.crypt.Hash}
+ * @extends {Hash}
  * @struct
  */
-goog.crypt.Sha2_64bit = function(numHashBlocks, initHashBlocks) {
-  'use strict';
-  goog.crypt.Sha2_64bit.base(this, 'constructor');
+export function Sha2_64bit(numHashBlocks, initHashBlocks) {
+  Sha2_64bit.base(this, 'constructor');
 
   /**
    * The number of bytes that are digested in each pass of this hasher.
    * @const {number}
    */
-  this.blockSize = goog.crypt.Sha2_64bit.BLOCK_SIZE_;
+  this.blockSize = Sha2_64bit.BLOCK_SIZE_;
 
   /**
    * A chunk holding the currently processed message bytes. Once the chunk has
@@ -65,10 +63,10 @@ goog.crypt.Sha2_64bit = function(numHashBlocks, initHashBlocks) {
   this.total_ = 0;
 
   /**
-   * Holds the previous values of accumulated hash a-h in the
-   * `computeChunk_` function.
-   * @private {!Array<!goog.math.Long>}
-   */
+     * Holds the previous values of accumulated hash a-h in the
+     * `computeChunk_` function.
+     * @private {!Array<!Long>}
+     */
   this.hash_ = [];
 
   /**
@@ -79,21 +77,21 @@ goog.crypt.Sha2_64bit = function(numHashBlocks, initHashBlocks) {
   this.numHashBlocks_ = numHashBlocks;
 
   /**
-   * Temporary array used in chunk computation.  Allocate here as a
-   * member rather than as a local within computeChunk_() as a
-   * performance optimization to reduce the number of allocations and
-   * reduce garbage collection.
-   * @type {!Array<!goog.math.Long>}
-   * @private
-   */
+     * Temporary array used in chunk computation.  Allocate here as a
+     * member rather than as a local within computeChunk_() as a
+     * performance optimization to reduce the number of allocations and
+     * reduce garbage collection.
+     * @type {!Array<!Long>}
+     * @private
+     */
   this.w_ = [];
 
   /**
-   * The value to which `this.hash_` should be reset when this
-   * Hasher is reset.
-   * @private @const {!Array<!goog.math.Long>}
-   */
-  this.initHashBlocks_ = goog.crypt.Sha2_64bit.toLongArray_(initHashBlocks);
+     * The value to which `this.hash_` should be reset when this
+     * Hasher is reset.
+     * @private @const {!Array<!Long>}
+     */
+  this.initHashBlocks_ = Sha2_64bit.toLongArray_(initHashBlocks);
 
   /**
    * If true, we have taken the digest from this hasher, but we have not
@@ -104,41 +102,39 @@ goog.crypt.Sha2_64bit = function(numHashBlocks, initHashBlocks) {
   this.needsReset_ = false;
 
   this.reset();
-};
-goog.inherits(goog.crypt.Sha2_64bit, goog.crypt.Hash);
+}
+goog.inherits(Sha2_64bit, Hash);
 
 
 /**
  * The number of bytes that are digested in each pass of this hasher.
  * @private @const {number}
  */
-goog.crypt.Sha2_64bit.BLOCK_SIZE_ = 1024 / 8;
+Sha2_64bit.BLOCK_SIZE_ = 1024 / 8;
 
 
 /**
  * Contains data needed to pad messages less than `blocksize` bytes.
  * @private {!Array<number>}
  */
-goog.crypt.Sha2_64bit.PADDING_ = [].concat(
-    [0x80], goog.array.repeat(0, goog.crypt.Sha2_64bit.BLOCK_SIZE_ - 1));
+Sha2_64bit.PADDING_ = [].concat(
+    [0x80], array.repeat(0, Sha2_64bit.BLOCK_SIZE_ - 1));
 
 
 /**
  * Resets this hash function.
  * @override
  */
-goog.crypt.Sha2_64bit.prototype.reset = function() {
-  'use strict';
+Sha2_64bit.prototype.reset = function() {
   this.chunkBytes_ = 0;
   this.total_ = 0;
-  this.hash_ = goog.array.clone(this.initHashBlocks_);
+  this.hash_ = array.clone(this.initHashBlocks_);
   this.needsReset_ = false;
 };
 
 
 /** @override */
-goog.crypt.Sha2_64bit.prototype.update = function(message, opt_length) {
-  'use strict';
+Sha2_64bit.prototype.update = function(message, opt_length) {
   var length = (opt_length !== undefined) ? opt_length : message.length;
 
   // Make sure this hasher is usable.
@@ -193,8 +189,7 @@ goog.crypt.Sha2_64bit.prototype.update = function(message, opt_length) {
 
 
 /** @override */
-goog.crypt.Sha2_64bit.prototype.digest = function() {
-  'use strict';
+Sha2_64bit.prototype.digest = function() {
   if (this.needsReset_) {
     throw new Error('this hasher needs to be reset');
   }
@@ -202,11 +197,11 @@ goog.crypt.Sha2_64bit.prototype.digest = function() {
 
   // Append pad 0x80 0x00* until this.chunkBytes_ == 112
   if (this.chunkBytes_ < 112) {
-    this.update(goog.crypt.Sha2_64bit.PADDING_, 112 - this.chunkBytes_);
+    this.update(Sha2_64bit.PADDING_, 112 - this.chunkBytes_);
   } else {
     // the rest of this block, plus 112 bytes of next block
     this.update(
-        goog.crypt.Sha2_64bit.PADDING_,
+        Sha2_64bit.PADDING_,
         this.blockSize - this.chunkBytes_ + 112);
   }
 
@@ -242,16 +237,15 @@ goog.crypt.Sha2_64bit.prototype.digest = function() {
  * Updates this hash by processing the 1024-bit message chunk in this.chunk_.
  * @private
  */
-goog.crypt.Sha2_64bit.prototype.computeChunk_ = function() {
-  'use strict';
+Sha2_64bit.prototype.computeChunk_ = function() {
   var chunk = this.chunk_;
-  var K_ = goog.crypt.Sha2_64bit.K_;
+  var K_ = Sha2_64bit.K_;
 
   // Divide the chunk into 16 64-bit-words.
   var w = this.w_;
   for (var i = 0; i < 16; i++) {
     var offset = i * 8;
-    w[i] = new goog.math.Long(
+    w[i] = new Long(
         (chunk[offset + 4] << 24) | (chunk[offset + 5] << 16) |
             (chunk[offset + 6] << 8) | (chunk[offset + 7]),
         (chunk[offset] << 24) | (chunk[offset + 1] << 16) |
@@ -306,11 +300,10 @@ goog.crypt.Sha2_64bit.prototype.computeChunk_ = function() {
  * rotateRight(value, 1) ^ rotateRight(value, 8) ^ (value >>> 7)
  *
  * @private
- * @param {!goog.math.Long} value
- * @return {!goog.math.Long}
+ * @param {!Long} value
+ * @return {!Long}
  */
-goog.crypt.Sha2_64bit.prototype.sigma0_ = function(value) {
-  'use strict';
+Sha2_64bit.prototype.sigma0_ = function(value) {
   var valueLow = value.getLowBits();
   var valueHigh = value.getHighBits();
   // Implementation note: We purposely do not use the shift operations defined
@@ -320,7 +313,7 @@ goog.crypt.Sha2_64bit.prototype.sigma0_ = function(value) {
       (valueHigh << 24) ^ (valueLow >>> 7) ^ (valueHigh << 25);
   var high = (valueHigh >>> 1) ^ (valueLow << 31) ^ (valueHigh >>> 8) ^
       (valueLow << 24) ^ (valueHigh >>> 7);
-  return new goog.math.Long(low, high);
+  return new Long(low, high);
 };
 
 
@@ -329,11 +322,10 @@ goog.crypt.Sha2_64bit.prototype.sigma0_ = function(value) {
  * rotateRight(value, 19) ^ rotateRight(value, 61) ^ (value >>> 6)
  *
  * @private
- * @param {!goog.math.Long} value
- * @return {!goog.math.Long}
+ * @param {!Long} value
+ * @return {!Long}
  */
-goog.crypt.Sha2_64bit.prototype.sigma1_ = function(value) {
-  'use strict';
+Sha2_64bit.prototype.sigma1_ = function(value) {
   var valueLow = value.getLowBits();
   var valueHigh = value.getHighBits();
   // Implementation note:  See _sigma0() above
@@ -341,7 +333,7 @@ goog.crypt.Sha2_64bit.prototype.sigma1_ = function(value) {
       (valueLow << 3) ^ (valueLow >>> 6) ^ (valueHigh << 26);
   var high = (valueHigh >>> 19) ^ (valueLow << 13) ^ (valueLow >>> 29) ^
       (valueHigh << 3) ^ (valueHigh >>> 6);
-  return new goog.math.Long(low, high);
+  return new Long(low, high);
 };
 
 
@@ -350,11 +342,10 @@ goog.crypt.Sha2_64bit.prototype.sigma1_ = function(value) {
  * rotateRight(value, 28) ^ rotateRight(value, 34) ^ rotateRight(value, 39)
  *
  * @private
- * @param {!goog.math.Long} value
- * @return {!goog.math.Long}
+ * @param {!Long} value
+ * @return {!Long}
  */
-goog.crypt.Sha2_64bit.prototype.Sigma0_ = function(value) {
-  'use strict';
+Sha2_64bit.prototype.Sigma0_ = function(value) {
   var valueLow = value.getLowBits();
   var valueHigh = value.getHighBits();
   // Implementation note:  See _sigma0() above
@@ -362,7 +353,7 @@ goog.crypt.Sha2_64bit.prototype.Sigma0_ = function(value) {
       (valueLow << 30) ^ (valueHigh >>> 7) ^ (valueLow << 25);
   var high = (valueHigh >>> 28) ^ (valueLow << 4) ^ (valueLow >>> 2) ^
       (valueHigh << 30) ^ (valueLow >>> 7) ^ (valueHigh << 25);
-  return new goog.math.Long(low, high);
+  return new Long(low, high);
 };
 
 
@@ -371,11 +362,10 @@ goog.crypt.Sha2_64bit.prototype.Sigma0_ = function(value) {
  * rotateRight(value, 14) ^ rotateRight(value, 18) ^ rotateRight(value, 41)
  *
  * @private
- * @param {!goog.math.Long} value
- * @return {!goog.math.Long}
+ * @param {!Long} value
+ * @return {!Long}
  */
-goog.crypt.Sha2_64bit.prototype.Sigma1_ = function(value) {
-  'use strict';
+Sha2_64bit.prototype.Sigma1_ = function(value) {
   var valueLow = value.getLowBits();
   var valueHigh = value.getHighBits();
   // Implementation note:  See _sigma0() above
@@ -383,7 +373,7 @@ goog.crypt.Sha2_64bit.prototype.Sigma1_ = function(value) {
       (valueHigh << 14) ^ (valueHigh >>> 9) ^ (valueLow << 23);
   var high = (valueHigh >>> 14) ^ (valueLow << 18) ^ (valueHigh >>> 18) ^
       (valueLow << 14) ^ (valueLow >>> 9) ^ (valueHigh << 23);
-  return new goog.math.Long(low, high);
+  return new Long(low, high);
 };
 
 
@@ -394,16 +384,15 @@ goog.crypt.Sha2_64bit.prototype.Sigma1_ = function(value) {
  * `one` if the bit is set or `two` if the bit is not set.
  *
  * @private
- * @param {!goog.math.Long} value
- * @param {!goog.math.Long} one
- * @param {!goog.math.Long} two
- * @return {!goog.math.Long}
+ * @param {!Long} value
+ * @param {!Long} one
+ * @param {!Long} two
+ * @return {!Long}
  */
-goog.crypt.Sha2_64bit.prototype.choose_ = function(value, one, two) {
-  'use strict';
+Sha2_64bit.prototype.choose_ = function(value, one, two) {
   var valueLow = value.getLowBits();
   var valueHigh = value.getHighBits();
-  return new goog.math.Long(
+  return new Long(
       (valueLow & one.getLowBits()) | (~valueLow & two.getLowBits()),
       (valueHigh & one.getHighBits()) | (~valueHigh & two.getHighBits()));
 };
@@ -415,14 +404,13 @@ goog.crypt.Sha2_64bit.prototype.choose_ = function(value, one, two) {
  * of its three arguments.
  *
  * @private
- * @param {!goog.math.Long} one
- * @param {!goog.math.Long} two
- * @param {!goog.math.Long} three
- * @return {!goog.math.Long}
+ * @param {!Long} one
+ * @param {!Long} two
+ * @param {!Long} three
+ * @return {!Long}
  */
-goog.crypt.Sha2_64bit.prototype.majority_ = function(one, two, three) {
-  'use strict';
-  return new goog.math.Long(
+Sha2_64bit.prototype.majority_ = function(one, two, three) {
+  return new Long(
       (one.getLowBits() & two.getLowBits()) |
           (two.getLowBits() & three.getLowBits()) |
           (one.getLowBits() & three.getLowBits()),
@@ -433,16 +421,15 @@ goog.crypt.Sha2_64bit.prototype.majority_ = function(one, two, three) {
 
 
 /**
- * Adds two or more goog.math.Long values.
+ * Adds two or more Long values.
  *
  * @private
- * @param {!goog.math.Long} one first summand
- * @param {!goog.math.Long} two second summand
- * @param {...goog.math.Long} var_args more arguments to sum
- * @return {!goog.math.Long} The resulting sum.
+ * @param {!Long} one first summand
+ * @param {!Long} two second summand
+ * @param {...Long} var_args more arguments to sum
+ * @return {!Long} The resulting sum.
  */
-goog.crypt.Sha2_64bit.prototype.sum_ = function(one, two, var_args) {
-  'use strict';
+Sha2_64bit.prototype.sum_ = function(one, two, var_args) {
   // The low bits may be signed, but they represent a 32-bit unsigned quantity.
   // We must be careful to normalize them.
   // This doesn't matter for the high bits.
@@ -467,26 +454,25 @@ goog.crypt.Sha2_64bit.prototype.sum_ = function(one, two, var_args) {
   // should be added to high.  We don't actually need to modify low or
   // normalize high because the goog.math.Long constructor already does that.
   high += Math.floor(low / 0x100000000);
-  return new goog.math.Long(low, high);
+  return new Long(low, high);
 };
 
 
 /**
- * Converts an array of 32-bit integers into an array of goog.math.Long
+ * Converts an array of 32-bit integers into an array of Long
  * elements.
  *
  * @private
  * @param {!Array<number>} values An array of 32-bit numbers.  Its length
  *     must be even.  Each pair of numbers represents a 64-bit integer
  *     in big-endian order
- * @return {!Array<!goog.math.Long>}
+ * @return {!Array<!Long>}
  */
-goog.crypt.Sha2_64bit.toLongArray_ = function(values) {
-  'use strict';
-  goog.asserts.assert(values.length % 2 == 0);
+Sha2_64bit.toLongArray_ = function(values) {
+  asserts.assert(values.length % 2 == 0);
   var result = [];
   for (var i = 0; i < values.length; i += 2) {
-    result.push(new goog.math.Long(values[i + 1], values[i]));
+    result.push(new Long(values[i + 1], values[i]));
   }
   return result;
 };
@@ -498,9 +484,9 @@ goog.crypt.Sha2_64bit.toLongArray_ = function(values) {
  * These values are from Section 4.2.3 of
  * http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf
  * @const
- * @private {!Array<!goog.math.Long>}
+ * @private {!Array<!Long>}
  */
-goog.crypt.Sha2_64bit.K_ = goog.crypt.Sha2_64bit.toLongArray_([
+Sha2_64bit.K_ = Sha2_64bit.toLongArray_([
   0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd, 0xb5c0fbcf, 0xec4d3b2f,
   0xe9b5dba5, 0x8189dbbc, 0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019,
   0x923f82a4, 0xaf194f9b, 0xab1c5ed5, 0xda6d8118, 0xd807aa98, 0xa3030242,

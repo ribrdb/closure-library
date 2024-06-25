@@ -10,7 +10,7 @@
  * as defined by W3C ARIA standard: http://www.w3.org/TR/wai-aria/.
  */
 
-goog.provide('goog.a11y.aria.Role');
+goog.declareModuleId('goog.a11y.aria.roles');
 
 
 /**
@@ -18,7 +18,7 @@ goog.provide('goog.a11y.aria.Role');
  * @enum {string}
  * @suppress {lintChecks} TODO b/304590658 - re-enable this during the cleanup
  */
-goog.a11y.aria.Role = {
+export var Role = {
   // ARIA role for an alert element that doesn't need to be explicitly closed.
   ALERT: 'alert',
 

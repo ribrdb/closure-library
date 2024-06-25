@@ -3,11 +3,10 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.Thenable');
-goog.module.declareLegacyNamespace();
+goog.declareModuleId('goog.Thenable');
 
 /** @suppress {extraRequire} used in complex type */
-const GoogPromise = goog.requireType('goog.Promise');  // for the type reference.
+const GoogPromise = goog.requireType('goog.promise.promise');  // for the type reference.
 
 /**
  * Provides a more strict interface for Thenables in terms of
@@ -114,4 +113,4 @@ Thenable.isImplementedBy = function(object) {
   }
 };
 
-exports = Thenable;
+export { Thenable };

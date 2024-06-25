@@ -10,22 +10,22 @@
  * @see ../demos/viewportsizemonitor.html
  */
 
-goog.provide('goog.dom.ViewportSizeMonitor');
+goog.declareModuleId('goog.dom.viewportsizemonitor');
 
-goog.require('goog.dispose');
-goog.require('goog.dom');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.math.Size');
-goog.requireType('goog.events.Event');
+import { dispose } from '../disposable/dispose.js';
+import * as dom from './dom.js';
+import * as events from '../events/events.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../events/eventtype.js';
+import { Size } from '../math/size.js';
+goog.requireType('goog.events.event');
 
 
 
 /**
  * This class can be used to monitor changes in the viewport size.  Instances
- * dispatch a {@link goog.events.EventType.RESIZE} event when the viewport size
- * changes.  Handlers can call {@link goog.dom.ViewportSizeMonitor#getSize} to
+ * dispatch a {@link EventType.RESIZE} event when the viewport size
+ * changes.  Handlers can call {@link ViewportSizeMonitor#getSize} to
  * get the new viewport size.
  *
  * Use this class if you want to execute resize/reflow logic each time the
@@ -37,8 +37,8 @@ goog.requireType('goog.events.Event');
  *
  * Example usage:
  *  <pre>
- *    var vsm = new goog.dom.ViewportSizeMonitor();
- *    goog.events.listen(vsm, goog.events.EventType.RESIZE, function(e) {
+ *    var vsm = new ViewportSizeMonitor();
+ *    events.listen(vsm, EventType.RESIZE, function(e) {
  *      alert('Viewport size changed to ' + vsm.getSize());
  *    });
  *  </pre>
@@ -48,34 +48,33 @@ goog.requireType('goog.events.Event');
  * @param {Window=} opt_window The window to monitor; defaults to the window in
  *    which this code is executing.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.dom.ViewportSizeMonitor = function(opt_window) {
-  'use strict';
-  goog.dom.ViewportSizeMonitor.base(this, 'constructor');
+export function ViewportSizeMonitor(opt_window) {
+ ViewportSizeMonitor.base(this, 'constructor');
 
-  /**
-   * The window to monitor. Defaults to the window in which the code is running.
-   * @private {Window}
-   */
-  this.window_ = opt_window || window;
+ /**
+  * The window to monitor. Defaults to the window in which the code is running.
+  * @private {Window}
+  */
+ this.window_ = opt_window || window;
 
-  /**
+ /**
    * Event listener key for window the window resize handler, as returned by
-   * {@link goog.events.listen}.
-   * @private {goog.events.Key}
+   * {@link events.listen}.
+   * @private {events.Key}
    */
-  this.listenerKey_ = goog.events.listen(
-      this.window_, goog.events.EventType.RESIZE, this.handleResize_, false,
-      this);
+ this.listenerKey_ = events.listen(
+     this.window_, EventType.RESIZE, this.handleResize_, false,
+     this);
 
-  /**
+ /**
    * The most recently recorded size of the viewport, in pixels.
-   * @private {goog.math.Size}
+   * @private {Size}
    */
-  this.size_ = goog.dom.getViewportSize(this.window_);
-};
-goog.inherits(goog.dom.ViewportSizeMonitor, goog.events.EventTarget);
+ this.size_ = dom.getViewportSize(this.window_);
+}
+goog.inherits(ViewportSizeMonitor, EventTarget);
 
 
 /**
@@ -84,16 +83,15 @@ goog.inherits(goog.dom.ViewportSizeMonitor, goog.events.EventTarget);
  * multiple spooling monitors for a window.
  * @param {Window=} opt_window The window to monitor; defaults to the window in
  *     which this code is executing.
- * @return {!goog.dom.ViewportSizeMonitor} Monitor for the given window.
+ * @return {!ViewportSizeMonitor} Monitor for the given window.
  */
-goog.dom.ViewportSizeMonitor.getInstanceForWindow = function(opt_window) {
-  'use strict';
-  var currentWindow = opt_window || window;
-  var uid = goog.getUid(currentWindow);
+ViewportSizeMonitor.getInstanceForWindow = function(opt_window) {
+ var currentWindow = opt_window || window;
+ var uid = goog.getUid(currentWindow);
 
-  return goog.dom.ViewportSizeMonitor.windowInstanceMap_[uid] =
-             goog.dom.ViewportSizeMonitor.windowInstanceMap_[uid] ||
-      new goog.dom.ViewportSizeMonitor(currentWindow);
+ return ViewportSizeMonitor.windowInstanceMap_[uid] =
+            ViewportSizeMonitor.windowInstanceMap_[uid] ||
+     new ViewportSizeMonitor(currentWindow);
 };
 
 
@@ -103,63 +101,59 @@ goog.dom.ViewportSizeMonitor.getInstanceForWindow = function(opt_window) {
  * @param {Window=} opt_window The window whose monitor should be removed;
  *     defaults to the window in which this code is executing.
  */
-goog.dom.ViewportSizeMonitor.removeInstanceForWindow = function(opt_window) {
-  'use strict';
-  var uid = goog.getUid(opt_window || window);
+ViewportSizeMonitor.removeInstanceForWindow = function(opt_window) {
+ var uid = goog.getUid(opt_window || window);
 
-  goog.dispose(goog.dom.ViewportSizeMonitor.windowInstanceMap_[uid]);
-  delete goog.dom.ViewportSizeMonitor.windowInstanceMap_[uid];
+ dispose(ViewportSizeMonitor.windowInstanceMap_[uid]);
+ delete ViewportSizeMonitor.windowInstanceMap_[uid];
 };
 
 
 /**
  * Map of window hash code to viewport size monitor for that window, if
  * created.
- * @type {Object<number,goog.dom.ViewportSizeMonitor>}
+ * @type {Object<number,ViewportSizeMonitor>}
  * @private
  */
-goog.dom.ViewportSizeMonitor.windowInstanceMap_ = {};
+ViewportSizeMonitor.windowInstanceMap_ = {};
 
 
 /**
  * Returns the most recently recorded size of the viewport, in pixels.  May
  * return null if no window resize event has been handled yet.
- * @return {goog.math.Size} The viewport dimensions, in pixels.
+ * @return {Size} The viewport dimensions, in pixels.
  */
-goog.dom.ViewportSizeMonitor.prototype.getSize = function() {
-  'use strict';
-  // Return a clone instead of the original to preserve encapsulation.
-  return this.size_ ? this.size_.clone() : null;
+ViewportSizeMonitor.prototype.getSize = function() {
+ // Return a clone instead of the original to preserve encapsulation.
+ return this.size_ ? this.size_.clone() : null;
 };
 
 
 /** @override */
-goog.dom.ViewportSizeMonitor.prototype.disposeInternal = function() {
-  'use strict';
-  goog.dom.ViewportSizeMonitor.superClass_.disposeInternal.call(this);
+ViewportSizeMonitor.prototype.disposeInternal = function() {
+ ViewportSizeMonitor.superClass_.disposeInternal.call(this);
 
-  if (this.listenerKey_) {
-    goog.events.unlistenByKey(this.listenerKey_);
-    this.listenerKey_ = null;
-  }
+ if (this.listenerKey_) {
+   events.unlistenByKey(this.listenerKey_);
+   this.listenerKey_ = null;
+ }
 
-  this.window_ = null;
-  this.size_ = null;
+ this.window_ = null;
+ this.size_ = null;
 };
 
 
 /**
  * Handles window resize events by measuring the dimensions of the
- * viewport and dispatching a {@link goog.events.EventType.RESIZE} event if the
+ * viewport and dispatching a {@link EventType.RESIZE} event if the
  * current dimensions are different from the previous ones.
- * @param {goog.events.Event} event The window resize event to handle.
+ * @param {events.Event} event The window resize event to handle.
  * @private
  */
-goog.dom.ViewportSizeMonitor.prototype.handleResize_ = function(event) {
-  'use strict';
-  var size = goog.dom.getViewportSize(this.window_);
-  if (!goog.math.Size.equals(size, this.size_)) {
-    this.size_ = size;
-    this.dispatchEvent(goog.events.EventType.RESIZE);
-  }
+ViewportSizeMonitor.prototype.handleResize_ = function(event) {
+ var size = dom.getViewportSize(this.window_);
+ if (!Size.equals(size, this.size_)) {
+   this.size_ = size;
+   this.dispatchEvent(EventType.RESIZE);
+ }
 };

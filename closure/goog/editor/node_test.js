@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.nodeTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const NodeType = goog.require('goog.dom.NodeType');
-const TagName = goog.require('goog.dom.TagName');
-const editorNode = goog.require('goog.editor.node');
-const googArray = goog.require('goog.array');
-const googDom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { NodeType } from '../dom/nodetype.js';
+import { TagName } from '../dom/tagname.js';
+import * as editorNode from './node.js';
+import * as googArray from '../array/array.js';
+import * as googDom from '../dom/dom.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let expectedFailures;
 let parentNode;

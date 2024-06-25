@@ -10,10 +10,9 @@
  */
 
 
-goog.provide('goog.graphics.ext.Rectangle');
+import { StrokeAndFillElement } from './strokeandfillelement.js';
 
-goog.require('goog.graphics.ext.StrokeAndFillElement');
-goog.requireType('goog.graphics.ext.Group');
+goog.requireType('goog.graphics.ext.group');
 
 
 
@@ -21,18 +20,17 @@ goog.requireType('goog.graphics.ext.Group');
  * Wrapper for a graphics rectangle element.
  * @param {goog.graphics.ext.Group} group Parent for this element.
  * @constructor
- * @extends {goog.graphics.ext.StrokeAndFillElement}
+ * @extends {StrokeAndFillElement}
  * @final
  */
-goog.graphics.ext.Rectangle = function(group) {
-  'use strict';
-  // Initialize with some stock values.
-  const wrapper = group.getGraphicsImplementation().drawRect(
-      0, 0, 1, 1, null, null, group.getWrapper());
-  goog.graphics.ext.StrokeAndFillElement.call(this, group, wrapper);
-};
+export function Rectangle(group) {
+ // Initialize with some stock values.
+ const wrapper = group.getGraphicsImplementation().drawRect(
+     0, 0, 1, 1, null, null, group.getWrapper());
+ StrokeAndFillElement.call(this, group, wrapper);
+}
 goog.inherits(
-    goog.graphics.ext.Rectangle, goog.graphics.ext.StrokeAndFillElement);
+    Rectangle, StrokeAndFillElement);
 
 
 /**
@@ -41,10 +39,9 @@ goog.inherits(
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.Rectangle.prototype.redraw = function() {
-  'use strict';
-  goog.graphics.ext.Rectangle.superClass_.redraw.call(this);
+Rectangle.prototype.redraw = function() {
+ Rectangle.superClass_.redraw.call(this);
 
-  // Our position is already handled by transform_.
-  this.getWrapper().setSize(this.getWidth(), this.getHeight());
+ // Our position is already handled by transform_.
+ this.getWrapper().setSize(this.getWidth(), this.getHeight());
 };

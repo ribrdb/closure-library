@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.Arc4Test');
 goog.setTestOnly();
 
-const Arc4 = goog.require('goog.crypt.Arc4');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Arc4 } from './arc4.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testEncryptionDecryption() {

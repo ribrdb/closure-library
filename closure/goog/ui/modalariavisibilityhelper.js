@@ -9,11 +9,10 @@
  * visibility of the rest of the page.
  */
 
-goog.provide('goog.ui.ModalAriaVisibilityHelper');
+import * as aria from '../a11y/aria/aria.js';
 
-goog.require('goog.a11y.aria');
-goog.require('goog.a11y.aria.State');
-goog.requireType('goog.dom.DomHelper');
+import { State } from '../a11y/aria/attributes.js';
+goog.requireType('goog.dom.dom');
 
 
 
@@ -29,8 +28,7 @@ goog.requireType('goog.dom.DomHelper');
  * @param {!goog.dom.DomHelper} domHelper DomHelper for the page.
  * @constructor
  */
-goog.ui.ModalAriaVisibilityHelper = function(element, domHelper) {
-  'use strict';
+export function ModalAriaVisibilityHelper(element, domHelper) {
   /**
    * @private {!Element}
    */
@@ -40,7 +38,7 @@ goog.ui.ModalAriaVisibilityHelper = function(element, domHelper) {
    * @private {!goog.dom.DomHelper}
    */
   this.dom_ = domHelper;
-};
+}
 
 
 /**
@@ -48,7 +46,7 @@ goog.ui.ModalAriaVisibilityHelper = function(element, domHelper) {
  * @type {Array<!Element>}
  * @private
  */
-goog.ui.ModalAriaVisibilityHelper.prototype.hiddenElements_;
+ModalAriaVisibilityHelper.prototype.hiddenElements_;
 
 
 /**
@@ -56,9 +54,8 @@ goog.ui.ModalAriaVisibilityHelper.prototype.hiddenElements_;
  * Top-level elements with an explicit aria-hidden state are not altered.
  * @param {boolean} hide Whether to hide or show the rest of the page.
  */
-goog.ui.ModalAriaVisibilityHelper.prototype.setBackgroundVisibility = function(
+ModalAriaVisibilityHelper.prototype.setBackgroundVisibility = function(
     hide) {
-  'use strict';
   if (hide) {
     if (!this.hiddenElements_) {
       this.hiddenElements_ = [];
@@ -67,15 +64,15 @@ goog.ui.ModalAriaVisibilityHelper.prototype.setBackgroundVisibility = function(
     for (var i = 0; i < topLevelChildren.length; i++) {
       var child = topLevelChildren[i];
       if (child != this.element_ &&
-          !goog.a11y.aria.getState(child, goog.a11y.aria.State.HIDDEN)) {
-        goog.a11y.aria.setState(child, goog.a11y.aria.State.HIDDEN, true);
+          !aria.getState(child, State.HIDDEN)) {
+        aria.setState(child, State.HIDDEN, true);
         this.hiddenElements_.push(child);
       }
     }
   } else if (this.hiddenElements_) {
     for (var i = 0; i < this.hiddenElements_.length; i++) {
-      goog.a11y.aria.removeState(
-          this.hiddenElements_[i], goog.a11y.aria.State.HIDDEN);
+      aria.removeState(
+          this.hiddenElements_[i], State.HIDDEN);
     }
     this.hiddenElements_ = null;
   }

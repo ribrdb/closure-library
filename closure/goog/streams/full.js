@@ -7,12 +7,13 @@
 /**
  * @fileoverview A full ponyfill of the ReadableStream native API.
  */
-goog.module('goog.streams.full');
+import fullImpl from './full_impl.js';
 
-const fullImpl = goog.require('goog.streams.fullImpl');
-const fullNativeImpl = goog.require('goog.streams.fullNativeImpl');
-const {ReadableStream, ReadableStreamAsyncIterator, ReadableStreamDefaultController, ReadableStreamDefaultReader, ReadableStreamStrategy, ReadableStreamUnderlyingSource} = goog.require('goog.streams.fullTypes');
-const {USE_NATIVE_IMPLEMENTATION} = goog.require('goog.streams.defines');
+import fullNativeImpl from './full_native_impl.js';
+import fullTypes from './full_types.js';
+const {ReadableStream, ReadableStreamAsyncIterator, ReadableStreamDefaultController, ReadableStreamDefaultReader, ReadableStreamStrategy, ReadableStreamUnderlyingSource} = fullTypes;
+import defines from './defines.js';
+const {USE_NATIVE_IMPLEMENTATION} = defines;
 
 /**
  * Creates and returns a new ReadableStream.
@@ -34,7 +35,7 @@ function newReadableStream(underlyingSource = {}, strategy = {}) {
   }
 }
 
-exports = {
+export default {
   ReadableStream,
   ReadableStreamAsyncIterator,
   ReadableStreamDefaultController,

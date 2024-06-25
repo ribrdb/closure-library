@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.userAgent.keyboardTest');
 goog.setTestOnly();
 
-const MockUserAgent = goog.require('goog.testing.MockUserAgent');
-const keyboard = goog.require('goog.userAgent.keyboard');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgentTestUtil = goog.require('goog.userAgentTestUtil');
-const util = goog.require('goog.labs.userAgent.util');
+import { MockUserAgent } from '../testing/mockuseragent.js';
+import * as keyboard from './keyboard.js';
+import { testAgents } from '../labs/useragent/test_agents.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgentTestUtil from './useragenttestutil.js';
+import util from '../labs/useragent/util.js';
 
 let mockAgent;
 

@@ -4,22 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.a11y.aria.AnnouncerTest');
 goog.setTestOnly();
 
-const Announcer = goog.require('goog.a11y.aria.Announcer');
-const LivePriority = goog.require('goog.a11y.aria.LivePriority');
-const MockClock = goog.require('goog.testing.MockClock');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const asserts = goog.require('goog.asserts');
-const googArray = goog.require('goog.array');
-const googDispose = goog.require('goog.dispose');
-const googDom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const iframe = goog.require('goog.dom.iframe');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Announcer } from './announcer.js';
+import { LivePriority, State } from './attributes.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { TagName } from '../../dom/tagname.js';
+import * as aria from './aria.js';
+import * as asserts from '../../asserts/asserts.js';
+import * as googArray from '../../array/array.js';
+import { dispose as googDispose } from '../../disposable/dispose.js';
+import * as googDom from '../../dom/dom.js';
+import * as googString from '../../string/string.js';
+import * as iframe from '../../dom/iframe.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let sandbox;
 let someDiv;

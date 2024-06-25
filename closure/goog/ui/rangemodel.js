@@ -16,58 +16,56 @@
  * Based on http://webfx.eae.net/dhtml/slider/js/range.js
  */
 
-goog.provide('goog.ui.RangeModel');
+import { EventTarget } from '../events/eventtarget.js';
 
-goog.require('goog.events.EventTarget');
-goog.require('goog.ui.Component');
+import { Component } from './component.js';
 
 
 
 /**
  * Creates a range model
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @constructor
  */
-goog.ui.RangeModel = function() {
-  'use strict';
-  goog.events.EventTarget.call(this);
-};
-goog.inherits(goog.ui.RangeModel, goog.events.EventTarget);
+export function RangeModel() {
+  EventTarget.call(this);
+}
+goog.inherits(RangeModel, EventTarget);
 
 
 /**
  * @type {number}
  * @private
  */
-goog.ui.RangeModel.prototype.value_ = 0;
+RangeModel.prototype.value_ = 0;
 
 
 /**
  * @type {number}
  * @private
  */
-goog.ui.RangeModel.prototype.minimum_ = 0;
+RangeModel.prototype.minimum_ = 0;
 
 
 /**
  * @type {number}
  * @private
  */
-goog.ui.RangeModel.prototype.maximum_ = 100;
+RangeModel.prototype.maximum_ = 100;
 
 
 /**
  * @type {number}
  * @private
  */
-goog.ui.RangeModel.prototype.extent_ = 0;
+RangeModel.prototype.extent_ = 0;
 
 
 /**
  * @type {?number}
  * @private
  */
-goog.ui.RangeModel.prototype.step_ = 1;
+RangeModel.prototype.step_ = 1;
 
 
 /**
@@ -76,7 +74,7 @@ goog.ui.RangeModel.prototype.step_ = 1;
  * @type {boolean}
  * @private
  */
-goog.ui.RangeModel.prototype.isChanging_ = false;
+RangeModel.prototype.isChanging_ = false;
 
 
 /**
@@ -84,7 +82,7 @@ goog.ui.RangeModel.prototype.isChanging_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.RangeModel.prototype.mute_ = false;
+RangeModel.prototype.mute_ = false;
 
 
 /**
@@ -92,8 +90,7 @@ goog.ui.RangeModel.prototype.mute_ = false;
  * @param {boolean} muteValue Whether or not to mute the range, i.e.,
  *     suppress any CHANGE events.
  */
-goog.ui.RangeModel.prototype.setMute = function(muteValue) {
-  'use strict';
+RangeModel.prototype.setMute = function(muteValue) {
   this.mute_ = muteValue;
 };
 
@@ -102,8 +99,7 @@ goog.ui.RangeModel.prototype.setMute = function(muteValue) {
  * Sets the value.
  * @param {number} value The new value.
  */
-goog.ui.RangeModel.prototype.setValue = function(value) {
-  'use strict';
+RangeModel.prototype.setValue = function(value) {
   value = this.roundToStepWithMin(value);
   if (this.value_ != value) {
     if (value + this.extent_ > this.maximum_) {
@@ -114,7 +110,7 @@ goog.ui.RangeModel.prototype.setValue = function(value) {
       this.value_ = value;
     }
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(goog.ui.Component.EventType.CHANGE);
+      this.dispatchEvent(Component.EventType.CHANGE);
     }
   }
 };
@@ -123,8 +119,7 @@ goog.ui.RangeModel.prototype.setValue = function(value) {
 /**
  * @return {number} the current value.
  */
-goog.ui.RangeModel.prototype.getValue = function() {
-  'use strict';
+RangeModel.prototype.getValue = function() {
   return this.roundToStepWithMin(this.value_);
 };
 
@@ -133,8 +128,7 @@ goog.ui.RangeModel.prototype.getValue = function() {
  * Sets the extent. The extent is the 'size' of the value.
  * @param {number} extent The new extent.
  */
-goog.ui.RangeModel.prototype.setExtent = function(extent) {
-  'use strict';
+RangeModel.prototype.setExtent = function(extent) {
   extent = this.roundToStepWithMin(extent);
   if (this.extent_ != extent) {
     if (extent < 0) {
@@ -145,7 +139,7 @@ goog.ui.RangeModel.prototype.setExtent = function(extent) {
       this.extent_ = extent;
     }
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(goog.ui.Component.EventType.CHANGE);
+      this.dispatchEvent(Component.EventType.CHANGE);
     }
   }
 };
@@ -154,8 +148,7 @@ goog.ui.RangeModel.prototype.setExtent = function(extent) {
 /**
  * @return {number} The extent for the range model.
  */
-goog.ui.RangeModel.prototype.getExtent = function() {
-  'use strict';
+RangeModel.prototype.getExtent = function() {
   return this.roundToStep(this.extent_);
 };
 
@@ -164,8 +157,7 @@ goog.ui.RangeModel.prototype.getExtent = function() {
  * Sets the minimum
  * @param {number} minimum The new minimum.
  */
-goog.ui.RangeModel.prototype.setMinimum = function(minimum) {
-  'use strict';
+RangeModel.prototype.setMinimum = function(minimum) {
   // Don't round minimum because it is the base
   if (this.minimum_ != minimum) {
     var oldIsChanging = this.isChanging_;
@@ -188,7 +180,7 @@ goog.ui.RangeModel.prototype.setMinimum = function(minimum) {
 
     this.isChanging_ = oldIsChanging;
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(goog.ui.Component.EventType.CHANGE);
+      this.dispatchEvent(Component.EventType.CHANGE);
     }
   }
 };
@@ -197,8 +189,7 @@ goog.ui.RangeModel.prototype.setMinimum = function(minimum) {
 /**
  * @return {number} The minimum value for the range model.
  */
-goog.ui.RangeModel.prototype.getMinimum = function() {
-  'use strict';
+RangeModel.prototype.getMinimum = function() {
   return this.roundToStepWithMin(this.minimum_);
 };
 
@@ -207,8 +198,7 @@ goog.ui.RangeModel.prototype.getMinimum = function() {
  * Sets the maximum
  * @param {number} maximum The new maximum.
  */
-goog.ui.RangeModel.prototype.setMaximum = function(maximum) {
-  'use strict';
+RangeModel.prototype.setMaximum = function(maximum) {
   maximum = this.roundToStepWithMin(maximum);
   if (this.maximum_ != maximum) {
     var oldIsChanging = this.isChanging_;
@@ -230,7 +220,7 @@ goog.ui.RangeModel.prototype.setMaximum = function(maximum) {
 
     this.isChanging_ = oldIsChanging;
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(goog.ui.Component.EventType.CHANGE);
+      this.dispatchEvent(Component.EventType.CHANGE);
     }
   }
 };
@@ -239,8 +229,7 @@ goog.ui.RangeModel.prototype.setMaximum = function(maximum) {
 /**
  * @return {number} The maximimum value for the range model.
  */
-goog.ui.RangeModel.prototype.getMaximum = function() {
-  'use strict';
+RangeModel.prototype.getMaximum = function() {
   return this.roundToStepWithMin(this.maximum_);
 };
 
@@ -250,8 +239,7 @@ goog.ui.RangeModel.prototype.getMaximum = function() {
  * value.
  * @return {?number} The maximimum value for the range model.
  */
-goog.ui.RangeModel.prototype.getStep = function() {
-  'use strict';
+RangeModel.prototype.getStep = function() {
   return this.step_;
 };
 
@@ -260,8 +248,7 @@ goog.ui.RangeModel.prototype.getStep = function() {
  * Sets the step. The step value is used to determine how to round the value.
  * @param {?number} step  The step size.
  */
-goog.ui.RangeModel.prototype.setStep = function(step) {
-  'use strict';
+RangeModel.prototype.setStep = function(step) {
   if (this.step_ != step) {
     this.step_ = step;
 
@@ -275,7 +262,7 @@ goog.ui.RangeModel.prototype.setStep = function(step) {
 
     this.isChanging_ = oldIsChanging;
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(goog.ui.Component.EventType.CHANGE);
+      this.dispatchEvent(Component.EventType.CHANGE);
     }
   }
 };
@@ -286,8 +273,7 @@ goog.ui.RangeModel.prototype.setStep = function(step) {
  * @param {number} value  The number to round.
  * @return {number} The number rounded to the closest step.
  */
-goog.ui.RangeModel.prototype.roundToStepWithMin = function(value) {
-  'use strict';
+RangeModel.prototype.roundToStepWithMin = function(value) {
   if (this.step_ == null) return value;
   return this.minimum_ +
       Math.round((value - this.minimum_) / this.step_) * this.step_;
@@ -299,8 +285,7 @@ goog.ui.RangeModel.prototype.roundToStepWithMin = function(value) {
  * @param {number} value  The number to round.
  * @return {number} The number rounded to the closest step.
  */
-goog.ui.RangeModel.prototype.roundToStep = function(value) {
-  'use strict';
+RangeModel.prototype.roundToStep = function(value) {
   if (this.step_ == null) return value;
   return Math.round(value / this.step_) * this.step_;
 };

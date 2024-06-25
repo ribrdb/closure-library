@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.module.ModuleInfoTest');
 goog.setTestOnly();
 
-const BaseModule = goog.require('goog.module.BaseModule');
-const MockClock = goog.require('goog.testing.MockClock');
-const ModuleInfo = goog.require('goog.module.ModuleInfo');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BaseModule } from './basemodule.js';
+import { MockClock } from '../testing/mockclock.js';
+import { ModuleInfo } from './moduleinfo.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockClock;
 

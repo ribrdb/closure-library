@@ -8,11 +8,10 @@
  * @fileoverview A lite polyfill of the ReadableStream native API with a subset
  * of methods supported.
  */
-goog.module('goog.streams.liteImpl');
+import { NativeResolver } from '../promise/nativeresolver.js';
 
-const NativeResolver = goog.require('goog.promise.NativeResolver');
-const liteTypes = goog.require('goog.streams.liteTypes');
-const {assert, assertFunction} = goog.require('goog.asserts');
+import * as liteTypes from './lite_types.js';
+import { assert, assertFunction } from '../asserts/asserts.js';
 
 /**
  * The lite implementation of ReadableStream.
@@ -519,7 +518,7 @@ class Queue {
   }
 }
 
-exports = {
+export default {
   Queue,
   ReadableStream,
   ReadableStreamDefaultController,

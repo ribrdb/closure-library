@@ -9,14 +9,7 @@
  */
 
 
-goog.provide('goog.net.EventType');
-
-
-/**
- * Event names for network events
- * @enum {string}
- */
-goog.net.EventType = {
+EventType = {
   COMPLETE: 'complete',
   SUCCESS: 'success',
   ERROR: 'error',
@@ -32,3 +25,4 @@ goog.net.EventType = {
   DOWNLOAD_PROGRESS: 'downloadprogress',
   UPLOAD_PROGRESS: 'uploadprogress',
 };
+export var EventType;

@@ -9,33 +9,31 @@
  * namespaces using a prefix in the global namespace.
  */
 
-goog.provide('goog.storage.mechanism.PrefixedMechanism');
+import * as iter from '../../iter/iter.js';
 
-goog.require('goog.iter');
-goog.require('goog.iter.Iterator');
-goog.require('goog.storage.mechanism.IterableMechanism');
+import { Iterator } from '../../iter/iter.js';
+import { IterableMechanism } from './iterablemechanism.js';
 
 
 
 /**
  * Wraps an iterable storage mechanism and creates artificial namespaces.
  *
- * @param {!goog.storage.mechanism.IterableMechanism} mechanism Underlying
+ * @param {!IterableMechanism} mechanism Underlying
  *     iterable storage mechanism.
  * @param {string} prefix Prefix for creating an artificial namespace.
  * @constructor
  * @struct
- * @extends {goog.storage.mechanism.IterableMechanism}
+ * @extends {IterableMechanism}
  * @final
  */
-goog.storage.mechanism.PrefixedMechanism = function(mechanism, prefix) {
-  'use strict';
-  goog.storage.mechanism.PrefixedMechanism.base(this, 'constructor');
+export function PrefixedMechanism(mechanism, prefix) {
+  PrefixedMechanism.base(this, 'constructor');
   /**
-   * The mechanism to be prefixed.
-   *
-   * @private {goog.storage.mechanism.IterableMechanism}
-   */
+     * The mechanism to be prefixed.
+     *
+     * @private {IterableMechanism}
+     */
   this.mechanism_ = mechanism;
 
   /**
@@ -44,46 +42,41 @@ goog.storage.mechanism.PrefixedMechanism = function(mechanism, prefix) {
    * @private {string}
    */
   this.prefix_ = prefix + '::';
-};
+}
 goog.inherits(
-    goog.storage.mechanism.PrefixedMechanism,
-    goog.storage.mechanism.IterableMechanism);
+    PrefixedMechanism,
+    IterableMechanism);
 
 
 /** @override */
-goog.storage.mechanism.PrefixedMechanism.prototype.set = function(key, value) {
-  'use strict';
+PrefixedMechanism.prototype.set = function(key, value) {
   this.mechanism_.set(this.prefix_ + key, value);
 };
 
 
 /** @override */
-goog.storage.mechanism.PrefixedMechanism.prototype.get = function(key) {
-  'use strict';
+PrefixedMechanism.prototype.get = function(key) {
   return this.mechanism_.get(this.prefix_ + key);
 };
 
 
 /** @override */
-goog.storage.mechanism.PrefixedMechanism.prototype.remove = function(key) {
-  'use strict';
+PrefixedMechanism.prototype.remove = function(key) {
   this.mechanism_.remove(this.prefix_ + key);
 };
 
 
 /** @override */
-goog.storage.mechanism.PrefixedMechanism.prototype.__iterator__ = function(
+PrefixedMechanism.prototype.__iterator__ = function(
     opt_keys) {
-  'use strict';
   const subIter = this.mechanism_[Symbol.iterator]();
   const selfObj = this;
-  const newIter = new goog.iter.Iterator();
+  const newIter = new Iterator();
   /**
    * @return {!IIterableResult<string>}
    * @override
    */
   newIter.next = function() {
-    'use strict';
     let key;
     let it = subIter.next();
     if (it.done) return it;
@@ -93,7 +86,7 @@ goog.storage.mechanism.PrefixedMechanism.prototype.__iterator__ = function(
       if (it.done) return it;
       key = it.value;
     }
-    return goog.iter.createEs6IteratorYield(
+    return iter.createEs6IteratorYield(
         /** @type {string} */ (
             opt_keys ? key.slice(selfObj.prefix_.length) :
                        selfObj.mechanism_.get(key)));

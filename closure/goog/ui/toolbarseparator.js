@@ -8,39 +8,36 @@
  * @fileoverview A toolbar separator control.
  */
 
-goog.provide('goog.ui.ToolbarSeparator');
+import { Separator } from './separator.js';
 
-goog.require('goog.ui.Separator');
-goog.require('goog.ui.ToolbarSeparatorRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.dom.DomHelper');
+import { ToolbarSeparatorRenderer } from './toolbarseparatorrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.dom.dom');
 
 
 
 /**
  * A separator control for a toolbar.
  *
- * @param {goog.ui.ToolbarSeparatorRenderer=} opt_renderer Renderer to render or
+ * @param {ToolbarSeparatorRenderer=} opt_renderer Renderer to render or
  *    decorate the separator; defaults to
- *     {@link goog.ui.ToolbarSeparatorRenderer}.
+ *     {@link ToolbarSeparatorRenderer}.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *    document interaction.
  * @constructor
- * @extends {goog.ui.Separator}
+ * @extends {Separator}
  * @final
  */
-goog.ui.ToolbarSeparator = function(opt_renderer, opt_domHelper) {
-  'use strict';
-  goog.ui.Separator.call(
-      this, opt_renderer || goog.ui.ToolbarSeparatorRenderer.getInstance(),
-      opt_domHelper);
-};
-goog.inherits(goog.ui.ToolbarSeparator, goog.ui.Separator);
+export function ToolbarSeparator(opt_renderer, opt_domHelper) {
+ Separator.call(
+     this, opt_renderer || ToolbarSeparatorRenderer.getInstance(),
+     opt_domHelper);
+}
+goog.inherits(ToolbarSeparator, Separator);
 
 
 // Registers a decorator factory function for toolbar separators.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.ToolbarSeparatorRenderer.CSS_CLASS, function() {
-      'use strict';
-      return new goog.ui.ToolbarSeparator();
-    });
+registry.setDecoratorByClassName(
+    ToolbarSeparatorRenderer.CSS_CLASS, function() {
+ return new ToolbarSeparator();
+});

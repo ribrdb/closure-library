@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.pathsTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const dom = goog.require('goog.dom');
-const googGraphics = goog.require('goog.graphics');
-const paths = goog.require('goog.graphics.paths');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Coordinate } from '../math/coordinate.js';
+import * as dom from '../dom/dom.js';
+import * as googGraphics from './graphics.js';
+import * as paths from './paths.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // The purpose of this test is less about the actual unit test, and
 // more for drawing demos of shapes.

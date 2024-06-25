@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.currencyTest');
 goog.setTestOnly();
 
-const NumberFormat = goog.require('goog.i18n.NumberFormat');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const currency = goog.require('goog.i18n.currency');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { NumberFormat } from './numberformat.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as currency from './currency.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const RawCurrencyInfo = currency.CurrencyInfo;
 let CurrencyInfo = RawCurrencyInfo;

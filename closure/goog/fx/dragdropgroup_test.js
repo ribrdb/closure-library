@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.DragDropGroupTest');
 goog.setTestOnly();
 
-const DragDropGroup = goog.require('goog.fx.DragDropGroup');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DragDropGroup } from './dragdropgroup.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let s1;
 let s2;

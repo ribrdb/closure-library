@@ -11,66 +11,63 @@
  * @see ../demos/filedrophandler.html
  */
 
-goog.provide('goog.events.FileDropHandler');
-goog.provide('goog.events.FileDropHandler.EventType');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.dom');
-goog.require('goog.events.BrowserEvent');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.log');
-goog.require('goog.log.Level');
+import * as dom from '../dom/dom.js';
+import { BrowserEvent } from './browserevent.js';
+import { EventHandler } from './eventhandler.js';
+import { EventTarget } from './eventtarget.js';
+import { EventType } from './eventtype.js';
+import * as log from '../log/log.js';
+import * as googLog from '../log/log.js';
 
 
 
 /**
  * A files drag and drop event detector. Gets an `element` as parameter
- * and fires `goog.events.FileDropHandler.EventType.DROP` event when files
+ * and fires `FileDropHandler.EventType.DROP` event when files
  * are dropped in the `element`.
  *
  * @param {Element|Document} element The element or document to listen on.
  * @param {boolean=} opt_preventDropOutside Whether to prevent a drop on the
  *     area outside the `element`. Default false.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @final
  */
-goog.events.FileDropHandler = function(element, opt_preventDropOutside) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function FileDropHandler(element, opt_preventDropOutside) {
+  EventTarget.call(this);
 
   /**
-   * Handler for drag/drop events.
-   * @type {!goog.events.EventHandler<!goog.events.FileDropHandler>}
-   * @private
-   */
-  this.eventHandler_ = new goog.events.EventHandler(this);
+       * Handler for drag/drop events.
+       * @type {!EventHandler<!FileDropHandler>}
+       * @private
+       */
+  this.eventHandler_ = new EventHandler(this);
 
   var doc = element;
   if (opt_preventDropOutside) {
-    doc = goog.dom.getOwnerDocument(element);
+    doc = dom.getOwnerDocument(element);
   }
 
   // Add dragenter listener to the owner document of the element.
   this.eventHandler_.listen(
-      doc, goog.events.EventType.DRAGENTER, this.onDocDragEnter_);
+      doc, EventType.DRAGENTER, this.onDocDragEnter_);
 
   // Add dragover listener to the owner document of the element only if the
   // document is not the element itself.
   if (doc != element) {
     this.eventHandler_.listen(
-        doc, goog.events.EventType.DRAGOVER, this.onDocDragOver_);
+        doc, EventType.DRAGOVER, this.onDocDragOver_);
   }
 
   // Add dragover and drop listeners to the element.
   this.eventHandler_.listen(
-      element, goog.events.EventType.DRAGOVER, this.onElemDragOver_);
+      element, EventType.DRAGOVER, this.onElemDragOver_);
   this.eventHandler_.listen(
-      element, goog.events.EventType.DROP, this.onElemDrop_);
-};
-goog.inherits(goog.events.FileDropHandler, goog.events.EventTarget);
+      element, EventType.DROP, this.onElemDrop_);
+}
+goog.inherits(FileDropHandler, EventTarget);
 
 
 /**
@@ -86,87 +83,83 @@ goog.inherits(goog.events.FileDropHandler, goog.events.EventTarget);
  * @private
  * @type {boolean}
  */
-goog.events.FileDropHandler.prototype.dndContainsFiles_ = false;
+FileDropHandler.prototype.dndContainsFiles_ = false;
 
 
 /**
  * A logger, used to help us debug the algorithm.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.events.FileDropHandler.prototype.logger_ =
-    goog.log.getLogger('goog.events.FileDropHandler');
+FileDropHandler.prototype.logger_ =
+    googLog.getLogger('goog.events.FileDropHandler');
 
 
 /**
  * The types of events fired by this class.
  * @enum {string}
  */
-goog.events.FileDropHandler.EventType = {
-  DROP: goog.events.EventType.DROP
+FileDropHandler.EventType = {
+  DROP: EventType.DROP
 };
 
 
 /** @override */
-goog.events.FileDropHandler.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.FileDropHandler.superClass_.disposeInternal.call(this);
+FileDropHandler.prototype.disposeInternal = function() {
+  FileDropHandler.superClass_.disposeInternal.call(this);
   this.eventHandler_.dispose();
 };
 
 
 /**
  * Dispatches the DROP event.
- * @param {goog.events.BrowserEvent} e The underlying browser event.
+ * @param {BrowserEvent} e The underlying browser event.
  * @private
  */
-goog.events.FileDropHandler.prototype.dispatch_ = function(e) {
-  'use strict';
-  goog.log.fine(this.logger_, 'Firing DROP event...');
-  var event = new goog.events.BrowserEvent(e.getBrowserEvent());
-  event.type = goog.events.FileDropHandler.EventType.DROP;
+FileDropHandler.prototype.dispatch_ = function(e) {
+  googLog.fine(this.logger_, 'Firing DROP event...');
+  var event = new BrowserEvent(e.getBrowserEvent());
+  event.type = FileDropHandler.EventType.DROP;
   this.dispatchEvent(event);
 };
 
 
 /**
  * Handles dragenter on the document.
- * @param {goog.events.BrowserEvent} e The dragenter event.
+ * @param {BrowserEvent} e The dragenter event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.FileDropHandler.prototype.onDocDragEnter_ = function(e) {
-  'use strict';
-  goog.log.log(
-      this.logger_, goog.log.Level.FINER,
+FileDropHandler.prototype.onDocDragEnter_ = function(e) {
+  googLog.log(
+      this.logger_, googLog.Level.FINER,
       '"' + e.target.id + '" (' + e.target + ') dispatched: ' + e.type);
   var dt = e.getBrowserEvent().dataTransfer;
   // Check whether the drag event contains files.
   this.dndContainsFiles_ = !!(
-      dt && ((dt.types && (goog.array.contains(dt.types, 'Files') ||
-                           goog.array.contains(dt.types, 'public.file-url'))) ||
+      dt && ((dt.types && (array.contains(dt.types, 'Files') ||
+                           array.contains(dt.types, 'public.file-url'))) ||
              (dt.files && dt.files.length > 0)));
   // If it does
   if (this.dndContainsFiles_) {
     // Prevent default actions.
     e.preventDefault();
   }
-  goog.log.log(
-      this.logger_, goog.log.Level.FINER,
+  googLog.log(
+      this.logger_, googLog.Level.FINER,
       'dndContainsFiles_: ' + this.dndContainsFiles_);
 };
 
 
 /**
  * Handles dragging something over the document.
- * @param {goog.events.BrowserEvent} e The dragover event.
+ * @param {BrowserEvent} e The dragover event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.FileDropHandler.prototype.onDocDragOver_ = function(e) {
-  'use strict';
-  goog.log.log(
-      this.logger_, goog.log.Level.FINEST,
+FileDropHandler.prototype.onDocDragOver_ = function(e) {
+  googLog.log(
+      this.logger_, googLog.Level.FINEST,
       '"' + e.target.id + '" (' + e.target + ') dispatched: ' + e.type);
   if (this.dndContainsFiles_) {
     // Prevent default actions.
@@ -180,14 +173,13 @@ goog.events.FileDropHandler.prototype.onDocDragOver_ = function(e) {
 
 /**
  * Handles dragging something over the element (drop zone).
- * @param {goog.events.BrowserEvent} e The dragover event.
+ * @param {BrowserEvent} e The dragover event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.FileDropHandler.prototype.onElemDragOver_ = function(e) {
-  'use strict';
-  goog.log.log(
-      this.logger_, goog.log.Level.FINEST,
+FileDropHandler.prototype.onElemDragOver_ = function(e) {
+  googLog.log(
+      this.logger_, googLog.Level.FINEST,
       '"' + e.target.id + '" (' + e.target + ') dispatched: ' + e.type);
   if (this.dndContainsFiles_) {
     // Prevent default actions and stop the event from propagating further to
@@ -211,14 +203,13 @@ goog.events.FileDropHandler.prototype.onElemDragOver_ = function(e) {
 
 /**
  * Handles dropping something onto the element (drop zone).
- * @param {goog.events.BrowserEvent} e The drop event.
+ * @param {BrowserEvent} e The drop event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.FileDropHandler.prototype.onElemDrop_ = function(e) {
-  'use strict';
-  goog.log.log(
-      this.logger_, goog.log.Level.FINER,
+FileDropHandler.prototype.onElemDrop_ = function(e) {
+  googLog.log(
+      this.logger_, googLog.Level.FINER,
       '"' + e.target.id + '" (' + e.target + ') dispatched: ' + e.type);
   // If the drag and drop event contains files.
   if (this.dndContainsFiles_) {

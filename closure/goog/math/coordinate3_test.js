@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.Coordinate3Test');
 goog.setTestOnly();
 
-const Coordinate3 = goog.require('goog.math.Coordinate3');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Coordinate3 } from './coordinate3.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function assertCoordinate3Equals(a, b) {
   assertTrue(`${b} should be equal to ${a}`, Coordinate3.equals(a, b));

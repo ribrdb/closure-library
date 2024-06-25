@@ -4,19 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.ErrorHandlerAsyncTest');
 goog.setTestOnly();
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const GoogPromise = goog.require('goog.Promise');
-const Resolver = goog.require('goog.promise.Resolver');
-const SafeScript = goog.require('goog.html.SafeScript');
-const TagName = goog.require('goog.dom.TagName');
+import { ErrorHandler } from './errorhandler.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { Resolver } from '../promise/resolver.js';
+import { SafeScript } from '../html/safescript.js';
+import { TagName } from '../dom/tagname.js';
+
 // const TestCase = goog.require('goog.testing.TestCase');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const {getDomHelper} = goog.require('goog.dom');
-const {newSafeScriptForTest} = goog.require('goog.html.testing');
+import { testSuite } from '../testing/testsuite.js';
+
+import * as userAgent from '../useragent/useragent.js';
+import { getDomHelper } from '../dom/dom.js';
+import { newSafeScriptForTest } from '../html/testing.js';
 
 /** @type {!Resolver} */
 let resolver;

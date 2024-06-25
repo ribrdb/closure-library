@@ -6,14 +6,13 @@
 
 /** @fileoverview Unit tests for SafeStyleSheet and its builders. */
 
-goog.module('goog.html.safeStyleSheetTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Const } from '../string/const.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * @param {string} expected

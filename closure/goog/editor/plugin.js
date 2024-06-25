@@ -5,22 +5,20 @@
  */
 
 /**
- * @fileoverview Aliases `goog.editor.PluginImpl`.
+ * @fileoverview Aliases `PluginImpl`.
  *
- * This is done to create a target for `goog.editor.PluginImpl` that also pulls
- * in `goog.editor.Field` without creating a cycle. Doing so allows downstream
- * targets to depend only on `goog.editor.Plugin` without js_library complaining
+ * This is done to create a target for `PluginImpl` that also pulls
+ * in `Field` without creating a cycle. Doing so allows downstream
+ * targets to depend only on `Plugin` without js_library complaining
  * about unfullfilled forward declarations.
  */
 
-goog.provide('goog.editor.Plugin');
+import { Field } from './field.js';
 
-/** @suppress {extraRequire} This is the whole point. */
-goog.require('goog.editor.Field');
-goog.require('goog.editor.PluginImpl');
+import { PluginImpl } from './plugin_impl.js';
 
 /**
  * @constructor
- * @extends {goog.editor.PluginImpl}
+ * @extends {PluginImpl}
  */
-goog.editor.Plugin = goog.editor.PluginImpl;
+export var Plugin = PluginImpl;

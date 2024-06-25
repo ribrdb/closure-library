@@ -11,11 +11,10 @@
  * a remote database option.
  */
 
-goog.provide('goog.i18n.uChar.LocalNameFetcher');
+import { NameFetcher } from './namefetcher.js';
 
-goog.require('goog.i18n.uChar.NameFetcher');
-goog.require('goog.i18n.uCharNames');
-goog.require('goog.log');
+import * as uCharNames from '../ucharnames.js';
+import * as log from '../../log/log.js';
 
 
 
@@ -25,43 +24,41 @@ goog.require('goog.log');
  * invisible characters. See the goog.i18n.uChar class for more details.
  *
  * @constructor
- * @implements {goog.i18n.uChar.NameFetcher}
+ * @implements {NameFetcher}
  * @final
  */
-goog.i18n.uChar.LocalNameFetcher = function() {};
+export function LocalNameFetcher() {}
 
 
 /**
  * A reference to the LocalNameFetcher logger.
  *
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.i18n.uChar.LocalNameFetcher.logger_ =
-    goog.log.getLogger('goog.i18n.uChar.LocalNameFetcher');
+LocalNameFetcher.logger_ =
+    log.getLogger('goog.i18n.uChar.LocalNameFetcher');
 
 
 /** @override */
-goog.i18n.uChar.LocalNameFetcher.prototype.prefetch = function(character) {};
+LocalNameFetcher.prototype.prefetch = function(character) {};
 
 
 /** @override */
-goog.i18n.uChar.LocalNameFetcher.prototype.getName = function(
+LocalNameFetcher.prototype.getName = function(
     character, callback) {
-  'use strict';
-  const localName = goog.i18n.uCharNames.toName(character);
-  if (!localName) {
-    goog.log.warning(
-        goog.i18n.uChar.LocalNameFetcher.logger_,
-        'No local name defined for character ' + character);
-  }
-  callback(localName);
+ const localName = uCharNames.toName(character);
+ if (!localName) {
+   log.warning(
+       LocalNameFetcher.logger_,
+       'No local name defined for character ' + character);
+ }
+ callback(localName);
 };
 
 
 /** @override */
-goog.i18n.uChar.LocalNameFetcher.prototype.isNameAvailable = function(
+LocalNameFetcher.prototype.isNameAvailable = function(
     character) {
-  'use strict';
-  return !!goog.i18n.uCharNames.toName(character);
+ return !!uCharNames.toName(character);
 };

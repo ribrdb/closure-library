@@ -4,15 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.proto2.MessageTest');
 goog.setTestOnly();
 
-const NestedEnum = goog.require('proto2.TestAllTypes.NestedEnum');
-const NestedMessage = goog.require('proto2.TestAllTypes.NestedMessage');
-const OptionalGroup = goog.require('proto2.TestAllTypes.OptionalGroup');
-const RepeatedGroup = goog.require('proto2.TestAllTypes.RepeatedGroup');
-const TestAllTypes = goog.require('proto2.TestAllTypes');
-const testSuite = goog.require('goog.testing.testSuite');
+import {
+    TestAllTypes as proto2TestAllTypes,
+    TestAllTypes as proto2TestAllTypes_0,
+    TestAllTypes as proto2TestAllTypes_0_1,
+    TestAllTypes as proto2TestAllTypes_0_1_2,
+    TestAllTypes,
+} from './test.pb.js';
+
+const NestedEnum = proto2TestAllTypes.NestedEnum;
+const NestedMessage = proto2TestAllTypes_0.NestedMessage;
+const OptionalGroup = proto2TestAllTypes_0_1.OptionalGroup;
+const RepeatedGroup = proto2TestAllTypes_0_1_2.RepeatedGroup;
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   setUp() {},

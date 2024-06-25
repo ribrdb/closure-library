@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.promise.NativeResolver');
-
 /**
  * Creates a new JavaScript native Promise and captures its resolve and reject
  * callbacks. The promise, resolve, and reject are available as properties
@@ -27,4 +25,4 @@ class NativeResolver {
   }
 }
 
-exports = NativeResolver;
+export { NativeResolver };

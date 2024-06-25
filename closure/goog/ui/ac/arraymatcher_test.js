@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ac.ArrayMatcherTest');
 goog.setTestOnly();
 
-const ArrayMatcher = goog.require('goog.ui.ac.ArrayMatcher');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ArrayMatcher } from './arraymatcher.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testRequestingRows() {

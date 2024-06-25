@@ -10,9 +10,8 @@
  */
 
 goog.setTestOnly('goog.testing.MockRandom');
-goog.provide('goog.testing.MockRandom');
 
-goog.require('goog.Disposable');
+import { Disposable } from '../disposable/disposable.js';
 
 
 
@@ -23,13 +22,12 @@ goog.require('goog.Disposable');
  *     object will modify this array.
  * @param {boolean=} opt_install Whether to install the MockRandom at
  *     construction time.
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @constructor
  * @final
  */
-goog.testing.MockRandom = function(sequence, opt_install) {
-  'use strict';
-  goog.Disposable.call(this);
+export function MockRandom(sequence, opt_install) {
+  Disposable.call(this);
 
   /**
    * The sequence of numbers to be returned by calls to random()
@@ -56,8 +54,8 @@ goog.testing.MockRandom = function(sequence, opt_install) {
   if (opt_install) {
     this.install();
   }
-};
-goog.inherits(goog.testing.MockRandom, goog.Disposable);
+}
+goog.inherits(MockRandom, Disposable);
 
 
 /**
@@ -65,14 +63,13 @@ goog.inherits(goog.testing.MockRandom, goog.Disposable);
  * @type {boolean}
  * @private
  */
-goog.testing.MockRandom.prototype.installed_;
+MockRandom.prototype.installed_;
 
 
 /**
  * Installs this MockRandom as the system number generator.
  */
-goog.testing.MockRandom.prototype.install = function() {
-  'use strict';
+MockRandom.prototype.install = function() {
   if (!this.installed_) {
     Math.random = goog.bind(this.random, this);
     this.installed_ = true;
@@ -86,8 +83,7 @@ goog.testing.MockRandom.prototype.install = function() {
  *     `this.strictlyFromSequence_` is true, in which case an error will
  *     be thrown.
  */
-goog.testing.MockRandom.prototype.random = function() {
-  'use strict';
+MockRandom.prototype.random = function() {
   if (this.hasMoreValues()) {
     return this.sequence_.shift();
   }
@@ -101,8 +97,7 @@ goog.testing.MockRandom.prototype.random = function() {
 /**
  * @return {boolean} Whether there are more numbers left in the sequence.
  */
-goog.testing.MockRandom.prototype.hasMoreValues = function() {
-  'use strict';
+MockRandom.prototype.hasMoreValues = function() {
   return this.sequence_.length > 0;
 };
 
@@ -111,8 +106,7 @@ goog.testing.MockRandom.prototype.hasMoreValues = function() {
  * Injects new numbers into the beginning of the sequence.
  * @param {!Array<number>|number} values Number or array of numbers to inject.
  */
-goog.testing.MockRandom.prototype.inject = function(values) {
-  'use strict';
+MockRandom.prototype.inject = function(values) {
   if (Array.isArray(values)) {
     this.sequence_ = values.concat(this.sequence_);
   } else {
@@ -124,8 +118,7 @@ goog.testing.MockRandom.prototype.inject = function(values) {
 /**
  * Uninstalls the MockRandom.
  */
-goog.testing.MockRandom.prototype.uninstall = function() {
-  'use strict';
+MockRandom.prototype.uninstall = function() {
   if (this.installed_) {
     Math.random = this.mathRandom_;
     this.installed_ = false;
@@ -134,12 +127,11 @@ goog.testing.MockRandom.prototype.uninstall = function() {
 
 
 /** @override */
-goog.testing.MockRandom.prototype.disposeInternal = function() {
-  'use strict';
+MockRandom.prototype.disposeInternal = function() {
   this.uninstall();
   delete this.sequence_;
   delete this.mathRandom_;
-  goog.testing.MockRandom.superClass_.disposeInternal.call(this);
+  MockRandom.superClass_.disposeInternal.call(this);
 };
 
 
@@ -147,8 +139,7 @@ goog.testing.MockRandom.prototype.disposeInternal = function() {
  * @param {boolean} strictlyFromSequence Whether to throw an exception when
  *     Math.random() is called when there is nothing left in the sequence.
  */
-goog.testing.MockRandom.prototype.setStrictlyFromSequence = function(
+MockRandom.prototype.setStrictlyFromSequence = function(
     strictlyFromSequence) {
-  'use strict';
   this.strictlyFromSequence_ = strictlyFromSequence;
 };

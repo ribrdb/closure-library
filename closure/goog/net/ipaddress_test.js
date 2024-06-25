@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.IpAddressTest');
 goog.setTestOnly();
 
-const Integer = goog.require('goog.math.Integer');
-const testSuite = goog.require('goog.testing.testSuite');
-const {IpAddress, Ipv4Address, Ipv6Address} = goog.require('goog.net.ipaddress');
+import { Integer } from '../math/integer.js';
+import { testSuite } from '../testing/testsuite.js';
+import { IpAddress, Ipv4Address, Ipv6Address } from './ipaddress.js';
 
 testSuite({
   testInvalidStrings() {

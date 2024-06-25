@@ -11,15 +11,14 @@
 //                                                                           //
 ////////////////////////// NOTE ABOUT EDITING THIS FILE ///////////////////////
 
-goog.module('goog.vec.mat4dTest');
 goog.setTestOnly();
 
-const Quaternion = goog.require('goog.vec.Quaternion');
-const mat4d = goog.require('goog.vec.mat4d');
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
-const vec3d = goog.require('goog.vec.vec3d');
-const vec4d = goog.require('goog.vec.vec4d');
+import * as Quaternion from './quaternion.js';
+import * as mat4d from './mat4d.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
+import * as vec3d from './vec3d.js';
+import * as vec4d from './vec4d.js';
 
 const randommat4d = mat4d.setFromValues(
     mat4d.create(), 0.8025078773498535, 0.7559120655059814, 0.15274643898010254,

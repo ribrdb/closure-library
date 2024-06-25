@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.windowTest');
 goog.setTestOnly();
 
-const GoogPromise = goog.require('goog.Promise');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TagName = goog.require('goog.dom.TagName');
-const TestCase = goog.require('goog.testing.TestCase');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dom = goog.require('goog.dom');
-const engine = goog.require('goog.labs.userAgent.engine');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googString = goog.require('goog.string');
-const googWindow = goog.require('goog.window');
-const platform = goog.require('goog.labs.userAgent.platform');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeUrl } from '../html/safeurl.js';
+import { TagName } from '../dom/tagname.js';
+import { TestCase } from '../testing/testcase.js';
+import * as browser from '../labs/useragent/browser.js';
+import * as dom from '../dom/dom.js';
+import engine from '../labs/useragent/engine.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as googString from '../string/string.js';
+import * as googWindow from './window.js';
+import platform from '../labs/useragent/platform.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const REDIRECT_URL_PREFIX = 'window_test.html?runTests=';
 const WIN_LOAD_TRY_TIMEOUT = 100;

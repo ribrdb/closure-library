@@ -6,22 +6,21 @@
 
 /** @fileoverview Unit tests for SafeHtml and its builders. */
 
-goog.module('goog.html.safeHtmlTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeScript = goog.require('goog.html.SafeScript');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const browser = goog.require('goog.labs.userAgent.browser');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const trustedtypes = goog.require('goog.html.trustedtypes');
+import { Const } from '../string/const.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeHtml } from './safehtml.js';
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import * as browser from '../labs/useragent/browser.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from './testing.js';
+import * as trustedtypes from './trustedtypes.js';
 
 const stubs = new PropertyReplacer();
 const policy = goog.createTrustedTypesPolicy('closure_test');

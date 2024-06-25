@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.PromiseTest');
 goog.setTestOnly();
 
-const GoogPromise = goog.require('goog.Promise');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const Thenable = goog.require('goog.Thenable');
-const Timer = goog.require('goog.Timer');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Promise as GoogPromise } from './promise.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TestCase } from '../testing/testcase.js';
+import { Thenable } from './thenable.js';
+import { Timer } from '../timer/timer.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // TODO(brenneman):
 // - Add tests for interoperability with native Promises where available.

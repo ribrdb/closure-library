@@ -6,59 +6,57 @@
 
 /**
  * @fileoverview A button control. This implementation extends {@link
- * goog.ui.Control}.
+ * Control}.
  *
  * @see ../demos/button.html
  */
 
-goog.provide('goog.ui.Button');
-goog.provide('goog.ui.Button.Side');
+goog.declareModuleId('goog.ui.button');
 
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.events.KeyHandler');
-goog.require('goog.ui.ButtonRenderer');
-goog.require('goog.ui.ButtonSide');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.Control');
-goog.require('goog.ui.NativeButtonRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.KeyEvent');
-goog.requireType('goog.ui.ControlContent');
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyHandler } from '../events/keyhandler.js';
+import { ButtonRenderer } from './buttonrenderer.js';
+import { ButtonSide } from './buttonside.js';
+import { Component } from './component.js';
+import { Control } from './control.js';
+import { NativeButtonRenderer } from './nativebuttonrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.keyevent');
+goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
  * A button control, rendered as a native browser button by default.
  *
- * @param {goog.ui.ControlContent=} opt_content Text caption or existing DOM
+ * @param {ControlContent=} opt_content Text caption or existing DOM
  *     structure to display as the button's caption (if any).
- * @param {goog.ui.ButtonRenderer=} opt_renderer Renderer used to render or
- *     decorate the button; defaults to {@link goog.ui.NativeButtonRenderer}.
+ * @param {ButtonRenderer=} opt_renderer Renderer used to render or
+ *     decorate the button; defaults to {@link NativeButtonRenderer}.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
- * @extends {goog.ui.Control}
+ * @extends {Control}
  */
-goog.ui.Button = function(opt_content, opt_renderer, opt_domHelper) {
-  'use strict';
-  goog.ui.Control.call(
-      this, opt_content,
-      opt_renderer || goog.ui.NativeButtonRenderer.getInstance(),
-      opt_domHelper);
-};
-goog.inherits(goog.ui.Button, goog.ui.Control);
+export function Button(opt_content, opt_renderer, opt_domHelper) {
+ Control.call(
+     this, opt_content,
+     opt_renderer || NativeButtonRenderer.getInstance(),
+     opt_domHelper);
+}
+goog.inherits(Button, Control);
 
 
 /**
- * Constants for button sides, see {@link goog.ui.Button.prototype.setCollapsed}
- * for details. Aliased from goog.ui.ButtonSide to support legacy users without
- * creating a circular dependency in {@link goog.ui.ButtonRenderer}.
+ * Constants for button sides, see {@link Button.prototype.setCollapsed}
+ * for details. Aliased from ButtonSide to support legacy users without
+ * creating a circular dependency in {@link ButtonRenderer}.
  * @enum {number}
- * @deprecated use {@link goog.ui.ButtonSide} instead.
+ * @deprecated use {@link ButtonSide} instead.
  */
-goog.ui.Button.Side = goog.ui.ButtonSide;
+Button.Side = ButtonSide;
 
 
 /**
@@ -66,7 +64,7 @@ goog.ui.Button.Side = goog.ui.ButtonSide;
  * @type {*}
  * @private
  */
-goog.ui.Button.prototype.value_;
+Button.prototype.value_;
 
 
 /**
@@ -74,19 +72,18 @@ goog.ui.Button.prototype.value_;
  * @type {string|undefined}
  * @private
  */
-goog.ui.Button.prototype.tooltip_;
+Button.prototype.tooltip_;
 
 
-// goog.ui.Button API implementation.
+/* Button API implementation.*/
 
 
 /**
  * Returns the value associated with the button.
  * @return {*} Button value (undefined if none).
  */
-goog.ui.Button.prototype.getValue = function() {
-  'use strict';
-  return this.value_;
+Button.prototype.getValue = function() {
+ return this.value_;
 };
 
 
@@ -94,11 +91,10 @@ goog.ui.Button.prototype.getValue = function() {
  * Sets the value associated with the button, and updates its DOM.
  * @param {*} value New button value.
  */
-goog.ui.Button.prototype.setValue = function(value) {
-  'use strict';
-  this.value_ = value;
-  var renderer = /** @type {!goog.ui.ButtonRenderer} */ (this.getRenderer());
-  renderer.setValue(this.getElement(), /** @type {string} */ (value));
+Button.prototype.setValue = function(value) {
+ this.value_ = value;
+ var renderer = /** @type {!ButtonRenderer} */ (this.getRenderer());
+ renderer.setValue(this.getElement(), /** @type {string} */ (value));
 };
 
 
@@ -109,9 +105,8 @@ goog.ui.Button.prototype.setValue = function(value) {
  * @param {*} value New button value.
  * @protected
  */
-goog.ui.Button.prototype.setValueInternal = function(value) {
-  'use strict';
-  this.value_ = value;
+Button.prototype.setValueInternal = function(value) {
+ this.value_ = value;
 };
 
 
@@ -119,9 +114,8 @@ goog.ui.Button.prototype.setValueInternal = function(value) {
  * Returns the tooltip for the button.
  * @return {string|undefined} Tooltip text (undefined if none).
  */
-goog.ui.Button.prototype.getTooltip = function() {
-  'use strict';
-  return this.tooltip_;
+Button.prototype.getTooltip = function() {
+ return this.tooltip_;
 };
 
 
@@ -130,10 +124,9 @@ goog.ui.Button.prototype.getTooltip = function() {
  * @param {string} tooltip New tooltip text.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.Button.prototype.setTooltip = function(tooltip) {
-  'use strict';
-  this.tooltip_ = tooltip;
-  this.getRenderer().setTooltip(this.getElement(), tooltip);
+Button.prototype.setTooltip = function(tooltip) {
+ this.tooltip_ = tooltip;
+ this.getRenderer().setTooltip(this.getElement(), tooltip);
 };
 
 
@@ -144,9 +137,8 @@ goog.ui.Button.prototype.setTooltip = function(tooltip) {
  * @param {string} tooltip New tooltip text.
  * @protected
  */
-goog.ui.Button.prototype.setTooltipInternal = function(tooltip) {
-  'use strict';
-  this.tooltip_ = tooltip;
+Button.prototype.setTooltipInternal = function(tooltip) {
+ this.tooltip_ = tooltip;
 };
 
 
@@ -154,13 +146,12 @@ goog.ui.Button.prototype.setTooltipInternal = function(tooltip) {
  * Collapses the border on one or both sides of the button, allowing it to be
  * combined with the adjancent button(s), forming a single UI componenet with
  * multiple targets.
- * @param {number} sides Bitmap of one or more {@link goog.ui.ButtonSide}s for
+ * @param {number} sides Bitmap of one or more {@link ButtonSide}s for
  *     which borders should be collapsed.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.Button.prototype.setCollapsed = function(sides) {
-  'use strict';
-  this.getRenderer().setCollapsed(this, sides);
+Button.prototype.setCollapsed = function(sides) {
+ this.getRenderer().setCollapsed(this, sides);
 };
 
 
@@ -168,25 +159,23 @@ goog.ui.Button.prototype.setCollapsed = function(sides) {
 
 
 /** @override */
-goog.ui.Button.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.Button.superClass_.disposeInternal.call(this);
-  delete this.value_;
-  delete this.tooltip_;
+Button.prototype.disposeInternal = function() {
+ Button.superClass_.disposeInternal.call(this);
+ delete this.value_;
+ delete this.tooltip_;
 };
 
 
 /** @override */
-goog.ui.Button.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.Button.superClass_.enterDocument.call(this);
-  if (this.isSupportedState(goog.ui.Component.State.FOCUSED)) {
-    var keyTarget = this.getKeyEventTarget();
-    if (keyTarget) {
-      this.getHandler().listen(
-          keyTarget, goog.events.EventType.KEYUP, this.handleKeyEventInternal);
-    }
-  }
+Button.prototype.enterDocument = function() {
+ Button.superClass_.enterDocument.call(this);
+ if (this.isSupportedState(Component.State.FOCUSED)) {
+   var keyTarget = this.getKeyEventTarget();
+   if (keyTarget) {
+     this.getHandler().listen(
+         keyTarget, EventType.KEYUP, this.handleKeyEventInternal);
+   }
+ }
 };
 
 
@@ -194,30 +183,28 @@ goog.ui.Button.prototype.enterDocument = function() {
  * Attempts to handle a keyboard event; returns true if the event was handled,
  * false otherwise.  If the button is enabled and the Enter/Space key was
  * pressed, handles the event by dispatching an `ACTION` event,
- * and returns true. Overrides {@link goog.ui.Control#handleKeyEventInternal}.
+ * and returns true. Overrides {@link Control#handleKeyEventInternal}.
  * @param {goog.events.KeyEvent} e Key event to handle.
  * @return {boolean} Whether the key event was handled.
  * @protected
  * @override
  */
-goog.ui.Button.prototype.handleKeyEventInternal = function(e) {
-  'use strict';
-  if (e.keyCode == goog.events.KeyCodes.ENTER &&
-          e.type == goog.events.KeyHandler.EventType.KEY ||
-      e.keyCode == goog.events.KeyCodes.SPACE &&
-          e.type == goog.events.EventType.KEYUP) {
-    return this.performActionInternal(e);
-  }
-  // Return true for space keypress (even though the event is handled on keyup)
-  // as preventDefault needs to be called up keypress to take effect in IE and
-  // WebKit.
-  return e.keyCode == goog.events.KeyCodes.SPACE;
+Button.prototype.handleKeyEventInternal = function(e) {
+ if (e.keyCode == KeyCodes.ENTER &&
+         e.type == KeyHandler.EventType.KEY ||
+     e.keyCode == KeyCodes.SPACE &&
+         e.type == EventType.KEYUP) {
+   return this.performActionInternal(e);
+ }
+ // Return true for space keypress (even though the event is handled on keyup)
+ // as preventDefault needs to be called up keypress to take effect in IE and
+ // WebKit.
+ return e.keyCode == KeyCodes.SPACE;
 };
 
 
-// Register a decorator factory function for goog.ui.Buttons.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.ButtonRenderer.CSS_CLASS, function() {
-      'use strict';
-      return new goog.ui.Button(null);
-    });
+/* Register a decorator factory function for Buttons.*/
+registry.setDecoratorByClassName(
+    ButtonRenderer.CSS_CLASS, function() {
+ return new Button(null);
+});

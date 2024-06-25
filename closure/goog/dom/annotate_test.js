@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.annotateTest');
 goog.setTestOnly();
 
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagName = goog.require('goog.dom.TagName');
-const annotate = goog.require('goog.dom.annotate');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SafeHtml } from '../html/safehtml.js';
+import { TagName } from './tagname.js';
+import * as annotate from './annotate.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const $ = dom.getElement;
 

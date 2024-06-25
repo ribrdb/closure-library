@@ -9,28 +9,25 @@
  */
 
 goog.setTestOnly('goog.testing.events.EventMatcher');
-goog.provide('goog.testing.events.EventMatcher');
 
-goog.require('goog.events.Event');
-goog.require('goog.testing.mockmatchers.ArgumentMatcher');
+import { Event } from '../../events/event.js';
+import { ArgumentMatcher } from '../mockmatchers.js';
 
 
 
 /**
- * A matcher that verifies that an argument is a `goog.events.Event` of a
+ * A matcher that verifies that an argument is a `Event` of a
  * particular type.
  * @param {string} type The single type the event argument must be of.
  * @constructor
- * @extends {goog.testing.mockmatchers.ArgumentMatcher}
+ * @extends {ArgumentMatcher}
  * @final
  */
-goog.testing.events.EventMatcher = function(type) {
-  'use strict';
-  goog.testing.mockmatchers.ArgumentMatcher.call(this, function(obj) {
-    'use strict';
-    return obj instanceof goog.events.Event && obj.type == type;
-  }, 'isEventOfType(' + type + ')');
-};
+export function EventMatcher(type) {
+ ArgumentMatcher.call(this, function(obj) {
+  return obj instanceof Event && obj.type == type;
+ }, 'isEventOfType(' + type + ')');
+}
 goog.inherits(
-    goog.testing.events.EventMatcher,
-    goog.testing.mockmatchers.ArgumentMatcher);
+    EventMatcher,
+    ArgumentMatcher);

@@ -1,3 +1,8 @@
+import * as dom from './dom.js';
+import { AbstractSavedCaretRange } from './savedrange.js';
+import { TagName } from './tagname.js';
+import * as string from '../string/string.js';
+import { TextRange } from './textrange.js';
 /**
  * @license
  * Copyright The Closure Library Authors.
@@ -9,79 +14,72 @@
  */
 
 
-goog.provide('goog.dom.SavedCaretRange');
+goog.declareModuleId('goog.dom.savedcaretrange');
 
-goog.require('goog.dom');
-goog.require('goog.dom.AbstractSavedCaretRange');
-goog.require('goog.dom.TagName');
-goog.require('goog.string');
-goog.requireType('goog.dom.AbstractRange');
+goog.requireType('goog.dom.abstractrange');
 
 
 /**
  * A struct for holding context about saved selections.
  * This can be used to preserve the selection and restore while the DOM is
- * manipulated, or through an asynchronous call. Use goog.dom.Range factory
- * methods to obtain an {@see goog.dom.AbstractRange} instance, and use
- * {@see goog.dom.AbstractRange#saveUsingCarets} to obtain a SavedCaretRange.
+ * manipulated, or through an asynchronous call. Use dom.Range factory
+ * methods to obtain an {@see dom.AbstractRange} instance, and use
+ * {@see dom.AbstractRange#saveUsingCarets} to obtain a SavedCaretRange.
  * For editor ranges under content-editable elements or design-mode iframes,
  * prefer using {@see goog.editor.range.saveUsingNormalizedCarets}.
- * @param {goog.dom.AbstractRange} range The range being saved.
+ * @param {dom.AbstractRange} range The range being saved.
  * @constructor
- * @extends {goog.dom.AbstractSavedCaretRange}
+ * @extends {AbstractSavedCaretRange}
  */
-goog.dom.SavedCaretRange = function(range) {
-  'use strict';
-  goog.dom.AbstractSavedCaretRange.call(this);
+export function SavedCaretRange(range) {
+ AbstractSavedCaretRange.call(this);
 
-  /**
-   * The DOM id of the caret at the start of the range.
-   * @type {string}
-   * @private
-   */
-  this.startCaretId_ = goog.string.createUniqueString();
+ /**
+  * The DOM id of the caret at the start of the range.
+  * @type {string}
+  * @private
+  */
+ this.startCaretId_ = string.createUniqueString();
 
-  /**
-   * The DOM id of the caret at the end of the range.
-   * @type {string}
-   * @private
-   */
-  this.endCaretId_ = goog.string.createUniqueString();
+ /**
+  * The DOM id of the caret at the end of the range.
+  * @type {string}
+  * @private
+  */
+ this.endCaretId_ = string.createUniqueString();
 
-  /**
-   * Whether the range is reversed (anchor at the end).
-   * @private {boolean}
-   */
-  this.reversed_ = range.isReversed();
+ /**
+  * Whether the range is reversed (anchor at the end).
+  * @private {boolean}
+  */
+ this.reversed_ = range.isReversed();
 
-  /**
+ /**
    * A DOM helper for storing the current document context.
-   * @type {goog.dom.DomHelper}
+   * @type {dom.DomHelper}
    * @private
    */
-  this.dom_ = goog.dom.getDomHelper(range.getDocument());
+ this.dom_ = dom.getDomHelper(range.getDocument());
 
-  range.surroundWithNodes(this.createCaret_(true), this.createCaret_(false));
-};
-goog.inherits(goog.dom.SavedCaretRange, goog.dom.AbstractSavedCaretRange);
+ range.surroundWithNodes(this.createCaret_(true), this.createCaret_(false));
+}
+goog.inherits(SavedCaretRange, AbstractSavedCaretRange);
 
 
 /**
  * Gets the range that this SavedCaretRage represents, without selecting it
  * or removing the carets from the DOM.
- * @return {goog.dom.AbstractRange?} An abstract range.
+ * @return {dom.AbstractRange?} An abstract range.
  * @override
  */
-goog.dom.SavedCaretRange.prototype.toAbstractRange = function() {
-  'use strict';
-  var range = null;
-  var startCaret = this.getCaret(true);
-  var endCaret = this.getCaret(false);
-  if (startCaret && endCaret) {
-    const TextRange = goog.module.get('goog.dom.TextRange');
-    range = TextRange.createFromNodes(startCaret, 0, endCaret, 0);
-  }
-  return range;
+SavedCaretRange.prototype.toAbstractRange = function() {
+ var range = null;
+ var startCaret = this.getCaret(true);
+ var endCaret = this.getCaret(false);
+ if (startCaret && endCaret) {
+  range = TextRange.createFromNodes(startCaret, 0, endCaret, 0);
+ }
+ return range;
 };
 
 
@@ -92,28 +90,26 @@ goog.dom.SavedCaretRange.prototype.toAbstractRange = function() {
  * @return {Element} The start or end caret in the given document.
  * @override
  */
-goog.dom.SavedCaretRange.prototype.getCaret = function(start) {
-  'use strict';
-  return this.dom_.getElement(start ? this.startCaretId_ : this.endCaretId_);
+SavedCaretRange.prototype.getCaret = function(start) {
+ return this.dom_.getElement(start ? this.startCaretId_ : this.endCaretId_);
 };
 
 
 /**
  * Removes the carets from the current restoration document.
- * @param {goog.dom.AbstractRange=} opt_range A range whose offsets have already
+ * @param {dom.AbstractRange=} opt_range A range whose offsets have already
  *     been adjusted for caret removal; it will be adjusted if it is also
  *     affected by post-removal operations, such as text node normalization.
- * @return {goog.dom.AbstractRange|undefined} The adjusted range, if opt_range
+ * @return {dom.AbstractRange|undefined} The adjusted range, if opt_range
  *     was provided.
  * @override
  */
-goog.dom.SavedCaretRange.prototype.removeCarets = function(opt_range) {
-  'use strict';
-  goog.dom.removeNode(this.getCaret(true));
-  goog.dom.removeNode(this.getCaret(false));
-  // This appears unused, but the range is sometimes adjusted in other
-  // implementations of AbstractSavedCaretRange.
-  return opt_range;
+SavedCaretRange.prototype.removeCarets = function(opt_range) {
+ dom.removeNode(this.getCaret(true));
+ dom.removeNode(this.getCaret(false));
+ // This appears unused, but the range is sometimes adjusted in other
+ // implementations of AbstractSavedCaretRange.
+ return opt_range;
 };
 
 
@@ -122,9 +118,8 @@ goog.dom.SavedCaretRange.prototype.removeCarets = function(opt_range) {
  * @param {!Document} doc An HTML document.
  * @override
  */
-goog.dom.SavedCaretRange.prototype.setRestorationDocument = function(doc) {
-  'use strict';
-  this.dom_.setDocument(doc);
+SavedCaretRange.prototype.setRestorationDocument = function(doc) {
+ this.dom_.setDocument(doc);
 };
 
 
@@ -133,41 +128,39 @@ goog.dom.SavedCaretRange.prototype.setRestorationDocument = function(doc) {
  * restoring the selection. If restore does not dispose this saved range, it may
  * only be restored a second time if innerHTML or some other mechanism is used
  * to restore the carets to the dom.
- * @return {goog.dom.AbstractRange?} Restored selection.
+ * @return {dom.AbstractRange?} Restored selection.
  * @override
  * @protected
  */
-goog.dom.SavedCaretRange.prototype.restoreInternal = function() {
-  'use strict';
-  var range = null;
-  var anchorCaret = this.getCaret(!this.reversed_);
-  var focusCaret = this.getCaret(this.reversed_);
-  if (anchorCaret && focusCaret) {
-    var anchorNode = anchorCaret.parentNode;
-    var anchorOffset =
-        Array.prototype.indexOf.call(anchorNode.childNodes, anchorCaret);
-    var focusNode = focusCaret.parentNode;
-    var focusOffset =
-        Array.prototype.indexOf.call(focusNode.childNodes, focusCaret);
-    if (focusNode == anchorNode) {
-      // Compensate for the start caret being removed.
-      if (this.reversed_) {
-        anchorOffset--;
-      } else {
-        focusOffset--;
-      }
+SavedCaretRange.prototype.restoreInternal = function() {
+ var range = null;
+ var anchorCaret = this.getCaret(!this.reversed_);
+ var focusCaret = this.getCaret(this.reversed_);
+ if (anchorCaret && focusCaret) {
+  var anchorNode = anchorCaret.parentNode;
+  var anchorOffset =
+      Array.prototype.indexOf.call(anchorNode.childNodes, anchorCaret);
+  var focusNode = focusCaret.parentNode;
+  var focusOffset =
+      Array.prototype.indexOf.call(focusNode.childNodes, focusCaret);
+  if (focusNode == anchorNode) {
+    // Compensate for the start caret being removed.
+    if (this.reversed_) {
+      anchorOffset--;
+    } else {
+      focusOffset--;
     }
-
-    const TextRange = goog.module.get('goog.dom.TextRange');
-    range = TextRange.createFromNodes(
-        anchorNode, anchorOffset, focusNode, focusOffset);
-    range = this.removeCarets(range);
-    range.select();
-  } else {
-    // If only one caret was found, remove it.
-    this.removeCarets();
   }
-  return range;
+
+  range = TextRange.createFromNodes(
+      anchorNode, anchorOffset, focusNode, focusOffset);
+  range = this.removeCarets(range);
+  range.select();
+ } else {
+   // If only one caret was found, remove it.
+   this.removeCarets();
+ }
+ return range;
 };
 
 
@@ -175,10 +168,9 @@ goog.dom.SavedCaretRange.prototype.restoreInternal = function() {
  * Dispose the saved range and remove the carets from the DOM.
  * @override
  */
-goog.dom.SavedCaretRange.prototype.disposeInternal = function() {
-  'use strict';
-  this.removeCarets();
-  this.dom_ = null;
+SavedCaretRange.prototype.disposeInternal = function() {
+ this.removeCarets();
+ this.dom_ = null;
 };
 
 
@@ -189,11 +181,10 @@ goog.dom.SavedCaretRange.prototype.disposeInternal = function() {
  * @return {!Element} The new caret element.
  * @private
  */
-goog.dom.SavedCaretRange.prototype.createCaret_ = function(start) {
-  'use strict';
-  return this.dom_.createDom(
-      goog.dom.TagName.SPAN,
-      {'id': start ? this.startCaretId_ : this.endCaretId_});
+SavedCaretRange.prototype.createCaret_ = function(start) {
+ return this.dom_.createDom(
+     TagName.SPAN,
+     {'id': start ? this.startCaretId_ : this.endCaretId_});
 };
 
 
@@ -201,7 +192,7 @@ goog.dom.SavedCaretRange.prototype.createCaret_ = function(start) {
  * A regex that will match all saved range carets in a string.
  * @type {RegExp}
  */
-goog.dom.SavedCaretRange.CARET_REGEX = /<span\s+id="?goog_\d+"?><\/span>/ig;
+SavedCaretRange.CARET_REGEX = /<span\s+id="?goog_\d+"?><\/span>/ig;
 
 
 /**
@@ -214,9 +205,8 @@ goog.dom.SavedCaretRange.CARET_REGEX = /<span\s+id="?goog_\d+"?><\/span>/ig;
  * @return {boolean} Whether two strings of html are equal, ignoring any
  *     saved carets.
  */
-goog.dom.SavedCaretRange.htmlEqual = function(str1, str2) {
-  'use strict';
-  return str1 == str2 ||
-      str1.replace(goog.dom.SavedCaretRange.CARET_REGEX, '') ==
-      str2.replace(goog.dom.SavedCaretRange.CARET_REGEX, '');
+SavedCaretRange.htmlEqual = function(str1, str2) {
+ return str1 == str2 ||
+     str1.replace(SavedCaretRange.CARET_REGEX, '') ==
+     str2.replace(SavedCaretRange.CARET_REGEX, '');
 };

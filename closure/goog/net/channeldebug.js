@@ -13,13 +13,13 @@
 /**
  * Namespace for BrowserChannel
  */
-goog.provide('goog.net.ChannelDebug');
+goog.declareModuleId('goog.net.channeldebug');
 
-goog.require('goog.json');
-goog.require('goog.log');
-goog.require('goog.log.Logger');
-goog.requireType('goog.Uri');
-goog.requireType('goog.net.XmlHttp.ReadyState');
+import * as json from '../json/json.js';
+import * as log from '../log/log.js';
+import * as googLog from '../log/log.js';
+goog.requireType('goog.uri.uri');
+goog.requireType('goog.net.xmlhttp');
 
 
 
@@ -28,23 +28,21 @@ goog.requireType('goog.net.XmlHttp.ReadyState');
  *
  * @constructor
  */
-goog.net.ChannelDebug = function() {
-  'use strict';
+export function ChannelDebug() {
   /**
-   * The logger instance.
-   * @const
-   * @private {?goog.log.Logger}
-   */
-  this.logger_ = goog.log.getLogger('goog.net.BrowserChannel');
-};
+     * The logger instance.
+     * @const
+     * @private {?log.Logger}
+     */
+  this.logger_ = googLog.getLogger('goog.net.BrowserChannel');
+}
 
 
 /**
  * Gets the logger used by this ChannelDebug.
- * @return {?goog.log.Logger} The logger used by this ChannelDebug.
+ * @return {?log.Logger} The logger used by this ChannelDebug.
  */
-goog.net.ChannelDebug.prototype.getLogger = function() {
-  'use strict';
+ChannelDebug.prototype.getLogger = function() {
   return this.logger_;
 };
 
@@ -53,8 +51,7 @@ goog.net.ChannelDebug.prototype.getLogger = function() {
  * Logs that the browser went offline during the lifetime of a request.
  * @param {goog.Uri} url The URL being requested.
  */
-goog.net.ChannelDebug.prototype.browserOfflineResponse = function(url) {
-  'use strict';
+ChannelDebug.prototype.browserOfflineResponse = function(url) {
   this.info('BROWSER_OFFLINE: ' + url);
 };
 
@@ -67,9 +64,8 @@ goog.net.ChannelDebug.prototype.browserOfflineResponse = function(url) {
  * @param {number} attempt Which attempt # the request was.
  * @param {?string} postData The data posted in the request.
  */
-goog.net.ChannelDebug.prototype.xmlHttpChannelRequest = function(
+ChannelDebug.prototype.xmlHttpChannelRequest = function(
     verb, uri, id, attempt, postData) {
-  'use strict';
   this.info(
       'XMLHTTP REQ (' + id + ') [attempt ' + attempt + ']: ' + verb + '\n' +
       uri + '\n' + this.maybeRedactPostData_(postData));
@@ -85,9 +81,8 @@ goog.net.ChannelDebug.prototype.xmlHttpChannelRequest = function(
  * @param {goog.net.XmlHttp.ReadyState} readyState The ready state.
  * @param {number} statusCode The HTTP status code.
  */
-goog.net.ChannelDebug.prototype.xmlHttpChannelResponseMetaData = function(
+ChannelDebug.prototype.xmlHttpChannelResponseMetaData = function(
     verb, uri, id, attempt, readyState, statusCode) {
-  'use strict';
   this.info(
       'XMLHTTP RESP (' + id + ') [ attempt ' + attempt + ']: ' + verb + '\n' +
       uri + '\n' + readyState + ' ' + statusCode);
@@ -100,9 +95,8 @@ goog.net.ChannelDebug.prototype.xmlHttpChannelResponseMetaData = function(
  * @param {?string} responseText The response text.
  * @param {?string=} opt_desc Optional request description.
  */
-goog.net.ChannelDebug.prototype.xmlHttpChannelResponseText = function(
+ChannelDebug.prototype.xmlHttpChannelResponseText = function(
     id, responseText, opt_desc) {
-  'use strict';
   this.info(
       'XMLHTTP TEXT (' + id + '): ' + this.redactResponse_(responseText) +
       (opt_desc ? ' ' + opt_desc : ''));
@@ -116,9 +110,8 @@ goog.net.ChannelDebug.prototype.xmlHttpChannelResponseText = function(
  * @param {string|number|undefined} id The request id.
  * @param {number} attempt Which attempt # the request was.
  */
-goog.net.ChannelDebug.prototype.tridentChannelRequest = function(
+ChannelDebug.prototype.tridentChannelRequest = function(
     verb, uri, id, attempt) {
-  'use strict';
   this.info(
       'TRIDENT REQ (' + id + ') [ attempt ' + attempt + ']: ' + verb + '\n' +
       uri);
@@ -130,9 +123,8 @@ goog.net.ChannelDebug.prototype.tridentChannelRequest = function(
  * @param {string|number|undefined} id The request id.
  * @param {string} responseText The response text.
  */
-goog.net.ChannelDebug.prototype.tridentChannelResponseText = function(
+ChannelDebug.prototype.tridentChannelResponseText = function(
     id, responseText) {
-  'use strict';
   this.info('TRIDENT TEXT (' + id + '): ' + this.redactResponse_(responseText));
 };
 
@@ -142,9 +134,8 @@ goog.net.ChannelDebug.prototype.tridentChannelResponseText = function(
  * @param {string|number|undefined} id The request id.
  * @param {boolean} successful Whether the request was successful.
  */
-goog.net.ChannelDebug.prototype.tridentChannelResponseDone = function(
+ChannelDebug.prototype.tridentChannelResponseDone = function(
     id, successful) {
-  'use strict';
   this.info('TRIDENT TEXT (' + id + '): ' + successful ? 'success' : 'failure');
 };
 
@@ -153,8 +144,7 @@ goog.net.ChannelDebug.prototype.tridentChannelResponseDone = function(
  * Logs a request timeout.
  * @param {goog.Uri} uri The uri that timed out.
  */
-goog.net.ChannelDebug.prototype.timeoutResponse = function(uri) {
-  'use strict';
+ChannelDebug.prototype.timeoutResponse = function(uri) {
   this.info('TIMEOUT: ' + uri);
 };
 
@@ -163,8 +153,7 @@ goog.net.ChannelDebug.prototype.timeoutResponse = function(uri) {
  * Logs a debug message.
  * @param {string} text The message.
  */
-goog.net.ChannelDebug.prototype.debug = function(text) {
-  'use strict';
+ChannelDebug.prototype.debug = function(text) {
   this.info(text);
 };
 
@@ -174,7 +163,7 @@ goog.net.ChannelDebug.prototype.debug = function(text) {
  * @param {!Error} e The error or error event.
  * @param {string=} msg The optional message, defaults to 'Exception'.
  */
-goog.net.ChannelDebug.prototype.dumpException = function(e, msg = 'Exception') {
+ChannelDebug.prototype.dumpException = function(e, msg = 'Exception') {
   this.severe(msg, e);
 };
 
@@ -183,9 +172,8 @@ goog.net.ChannelDebug.prototype.dumpException = function(e, msg = 'Exception') {
  * Logs an info message.
  * @param {string} text The message.
  */
-goog.net.ChannelDebug.prototype.info = function(text) {
-  'use strict';
-  goog.log.info(this.logger_, text);
+ChannelDebug.prototype.info = function(text) {
+  googLog.info(this.logger_, text);
 };
 
 
@@ -193,9 +181,8 @@ goog.net.ChannelDebug.prototype.info = function(text) {
  * Logs a warning message.
  * @param {string} text The message.
  */
-goog.net.ChannelDebug.prototype.warning = function(text) {
-  'use strict';
-  goog.log.warning(this.logger_, text);
+ChannelDebug.prototype.warning = function(text) {
+  googLog.warning(this.logger_, text);
 };
 
 
@@ -204,8 +191,8 @@ goog.net.ChannelDebug.prototype.warning = function(text) {
  * @param {string} text The message.
  * @param {!Error=} error An exception associated with the message.
  */
-goog.net.ChannelDebug.prototype.severe = function(text, error = undefined) {
-  goog.log.error(this.logger_, text, error);
+ChannelDebug.prototype.severe = function(text, error = undefined) {
+  googLog.error(this.logger_, text, error);
 };
 
 
@@ -217,11 +204,10 @@ goog.net.ChannelDebug.prototype.severe = function(text, error = undefined) {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.net.ChannelDebug.prototype.redactResponse_ = function(responseText) {
-  'use strict';
+ChannelDebug.prototype.redactResponse_ = function(responseText) {
   // first check if it's not JS - the only non-JS should be the magic cookie
   if (!responseText ||
-      responseText == goog.net.ChannelDebug.MAGIC_RESPONSE_COOKIE) {
+      responseText == ChannelDebug.MAGIC_RESPONSE_COOKIE) {
     return responseText;
   }
 
@@ -235,7 +221,7 @@ goog.net.ChannelDebug.prototype.redactResponse_ = function(responseText) {
       }
     }
 
-    return goog.json.serialize(responseArray);
+    return json.serialize(responseArray);
   } catch (e) {
     this.debug('Exception parsing expected JS array - probably was not JS');
     return responseText;
@@ -248,8 +234,7 @@ goog.net.ChannelDebug.prototype.redactResponse_ = function(responseText) {
  * @param {Array<?>} array The array to clean.
  * @private
  */
-goog.net.ChannelDebug.prototype.maybeRedactArray_ = function(array) {
-  'use strict';
+ChannelDebug.prototype.maybeRedactArray_ = function(array) {
   if (array.length < 2) {
     return;
   }
@@ -278,8 +263,7 @@ goog.net.ChannelDebug.prototype.maybeRedactArray_ = function(array) {
  * @return {?string} The data string with sensitive data replaced by 'redacted'.
  * @private
  */
-goog.net.ChannelDebug.prototype.maybeRedactPostData_ = function(data) {
-  'use strict';
+ChannelDebug.prototype.maybeRedactPostData_ = function(data) {
   if (!data) {
     return null;
   }
@@ -311,4 +295,4 @@ goog.net.ChannelDebug.prototype.maybeRedactPostData_ = function(data) {
  * Used only before version 8 of the protocol.
  * @const
  */
-goog.net.ChannelDebug.MAGIC_RESPONSE_COOKIE = 'y2f%';
+ChannelDebug.MAGIC_RESPONSE_COOKIE = 'y2f%';

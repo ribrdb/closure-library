@@ -4,27 +4,26 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.XhrIoTest');
 goog.setTestOnly('goog.net.XhrIoTest');
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const EventType = goog.require('goog.net.EventType');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const ReadyState = goog.require('goog.net.XmlHttp.ReadyState');
-const TestingNetXhrIo = goog.require('goog.testing.net.XhrIo');
-const Uri = goog.require('goog.Uri');
-const WrapperXmlHttpFactory = goog.require('goog.net.WrapperXmlHttpFactory');
-const XhrIo = goog.require('goog.net.XhrIo');
-const XmlHttp = goog.require('goog.net.XmlHttp');
-const entryPointRegistry = goog.require('goog.debug.entryPointRegistry');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const object = goog.require('goog.object');
-const product = goog.require('goog.userAgent.product');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const string = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandler } from '../debug/errorhandler.js';
+import { EventType } from './eventtype.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { XmlHttp as netXmlHttp, XmlHttp } from './xmlhttp.js';
+const ReadyState = netXmlHttp.ReadyState;
+import { XhrIo as TestingNetXhrIo } from '../testing/net/xhrio.js';
+import { Uri } from '../uri/uri.js';
+import { WrapperXmlHttpFactory } from './wrapperxmlhttpfactory.js';
+import { XhrIo } from './xhrio.js';
+import * as entryPointRegistry from '../debug/entrypointregistry.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import object from '../object/object.js';
+import * as product from '../useragent/product.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as string from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function MockXmlHttp() {
   /**

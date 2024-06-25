@@ -12,12 +12,11 @@
  * parsing (see {@link goog.net.streams.PbStreamParser}).
  */
 
-goog.module('goog.net.streams.Base64PbStreamParser');
+import { Base64StreamDecoder } from './base64streamdecoder.js';
 
-const Base64StreamDecoder = goog.require('goog.net.streams.Base64StreamDecoder');
-const PbStreamParser = goog.require('goog.net.streams.PbStreamParser');
-const StreamParser = goog.require('goog.net.streams.StreamParser');
-const asserts = goog.require('goog.asserts');
+import { PbStreamParser } from './pbstreamparser.js';
+import { StreamParser } from './streamparser.js';
+import * as asserts from '../../asserts/asserts.js';
 
 
 /**
@@ -108,4 +107,4 @@ Base64PbStreamParser.prototype.parse = function(input) {
 };
 
 
-exports = Base64PbStreamParser;
+export { Base64PbStreamParser };

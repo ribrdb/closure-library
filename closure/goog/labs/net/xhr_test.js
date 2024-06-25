@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.net.xhrTest');
 goog.setTestOnly('goog.labs.net.xhrTest');
 
-const DefaultXmlHttpFactory = goog.require('goog.net.DefaultXmlHttpFactory');
-const EventType = goog.require('goog.events.EventType');
-const GoogPromise = goog.require('goog.Promise');
-const MockClock = goog.require('goog.testing.MockClock');
-const TestCase = goog.require('goog.testing.TestCase');
-const WrapperXmlHttpFactory = goog.require('goog.net.WrapperXmlHttpFactory');
-const XhrLike = goog.require('goog.net.XhrLike');
-const XmlHttp = goog.require('goog.net.XmlHttp');
-const events = goog.require('goog.events');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const xhr = goog.require('goog.labs.net.xhr');
+import { DefaultXmlHttpFactory, XmlHttp } from '../../net/xmlhttp.js';
+import { EventType } from '../../events/eventtype.js';
+import { Promise as GoogPromise } from '../../promise/promise.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { TestCase } from '../../testing/testcase.js';
+import { WrapperXmlHttpFactory } from '../../net/wrapperxmlhttpfactory.js';
+import { XhrLike } from '../../net/xhrlike.js';
+import * as events from '../../events/events.js';
+import * as product from '../../useragent/product.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
+import * as xhr from './xhr.js';
+
 /** @suppress {extraRequire} Needed for G_testrunner */
-goog.require('goog.testing.jsunit');
+import * as jsunit from '../../testing/jsunit.js';
 
 /** Path to a small download target used for testing binary requests. */
 const TEST_IMAGE = 'testdata/cleardot.gif';

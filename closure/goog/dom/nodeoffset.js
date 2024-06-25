@@ -10,10 +10,9 @@
  * actual nodes.
  */
 
-goog.provide('goog.dom.NodeOffset');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.dom.TagName');
+import { TagName } from './tagname.js';
 
 
 
@@ -22,13 +21,12 @@ goog.require('goog.dom.TagName');
  * any similar DOM structure regardless of whether it is the same actual nodes.
  * @param {Node} node The node to get the offset for.
  * @param {Node} baseNode The node to calculate the offset from.
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @constructor
  * @final
  */
-goog.dom.NodeOffset = function(node, baseNode) {
-  'use strict';
-  goog.Disposable.call(this);
+export function NodeOffset(node, baseNode) {
+  Disposable.call(this);
 
   /**
    * A stack of childNode offsets.
@@ -44,7 +42,7 @@ goog.dom.NodeOffset = function(node, baseNode) {
    */
   this.nameStack_ = [];
 
-  while (node && node.nodeName != goog.dom.TagName.BODY && node != baseNode) {
+  while (node && node.nodeName != TagName.BODY && node != baseNode) {
     // Compute the sibling offset.
     var siblingOffset = 0;
     var sib = node.previousSibling;
@@ -57,16 +55,15 @@ goog.dom.NodeOffset = function(node, baseNode) {
 
     node = node.parentNode;
   }
-};
-goog.inherits(goog.dom.NodeOffset, goog.Disposable);
+}
+goog.inherits(NodeOffset, Disposable);
 
 
 /**
  * @return {string} A string representation of this object.
  * @override
  */
-goog.dom.NodeOffset.prototype.toString = function() {
-  'use strict';
+NodeOffset.prototype.toString = function() {
   var strs = [];
   var name;
   for (var i = 0; name = this.nameStack_[i]; i++) {
@@ -84,8 +81,7 @@ goog.dom.NodeOffset.prototype.toString = function() {
  *     same contents.
  * @return {Node} The node relative to baseNode, or null on failure.
  */
-goog.dom.NodeOffset.prototype.findTargetNode = function(baseNode) {
-  'use strict';
+NodeOffset.prototype.findTargetNode = function(baseNode) {
   var name;
   var curNode = baseNode;
   for (var i = 0; name = this.nameStack_[i]; ++i) {
@@ -101,8 +97,7 @@ goog.dom.NodeOffset.prototype.findTargetNode = function(baseNode) {
 
 
 /** @override */
-goog.dom.NodeOffset.prototype.disposeInternal = function() {
-  'use strict';
+NodeOffset.prototype.disposeInternal = function() {
   delete this.offsetStack_;
   delete this.nameStack_;
 };

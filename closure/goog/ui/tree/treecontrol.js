@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Definition of the goog.ui.tree.TreeControl class, which
+ * @fileoverview Definition of the TreeControl class, which
  * provides a way to view a hierarchical set of data.
  *
  *
@@ -15,40 +15,39 @@
  * @see ../../demos/tree/demo.html
  */
 
-goog.provide('goog.ui.tree.TreeControl');
+goog.declareModuleId('goog.ui.tree.treecontrol');
 
-goog.require('goog.a11y.aria');
-goog.require('goog.asserts');
-goog.require('goog.dom.classlist');
-goog.require('goog.events.EventType');
-goog.require('goog.events.FocusHandler');
-goog.require('goog.events.KeyHandler');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.log');
-goog.require('goog.ui.tree.BaseNode');
-goog.require('goog.ui.tree.TreeNode');
-goog.require('goog.ui.tree.TypeAhead');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.BrowserEvent');
+import * as aria from '../../a11y/aria/aria.js';
+import * as asserts from '../../asserts/asserts.js';
+import * as classlist from '../../dom/classlist.js';
+import { EventType } from '../../events/eventtype.js';
+import { FocusHandler } from '../../events/focushandler.js';
+import { KeyHandler } from '../../events/keyhandler.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import * as log from '../../log/log.js';
+import { BaseNode } from './basenode.js';
+import { TreeNode } from './treenode.js';
+import { TypeAhead } from './typeahead.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.browserevent');
 
 
 
 /**
  * This creates a TreeControl object. A tree control provides a way to
  * view a hierarchical set of data.
- * @param {string|!goog.html.SafeHtml} content The content of the node label.
+ * @param {string|!SafeHtml} content The content of the node label.
  *     Strings are treated as plain-text and will be HTML escaped.
  * @param {Object=} opt_config The configuration for the tree. See
- *    goog.ui.tree.TreeControl.defaultConfig. If not specified, a default config
+ *    TreeControl.defaultConfig. If not specified, a default config
  *    will be used.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
- * @extends {goog.ui.tree.BaseNode}
+ * @extends {BaseNode}
  */
-goog.ui.tree.TreeControl = function(content, opt_config, opt_domHelper) {
-  'use strict';
-  goog.ui.tree.BaseNode.call(this, content, opt_config, opt_domHelper);
+export function TreeControl(content, opt_config, opt_domHelper) {
+  BaseNode.call(this, content, opt_config, opt_domHelper);
 
   // The root is open and selected by default.
   this.setExpandedInternal(true);
@@ -57,28 +56,28 @@ goog.ui.tree.TreeControl = function(content, opt_config, opt_domHelper) {
   this.selectedItem_ = this;
 
   /**
-   * Used for typeahead support.
-   * @private {!goog.ui.tree.TypeAhead}
-   */
-  this.typeAhead_ = new goog.ui.tree.TypeAhead();
+     * Used for typeahead support.
+     * @private {!TypeAhead}
+     */
+  this.typeAhead_ = new TypeAhead();
 
   /**
-   * The object handling keyboard events.
-   * @private {?goog.events.KeyHandler}
-   */
+     * The object handling keyboard events.
+     * @private {?KeyHandler}
+     */
   this.keyHandler_ = null;
 
   /**
-   * The object handling focus events.
-   * @private {?goog.events.FocusHandler}
-   */
+     * The object handling focus events.
+     * @private {?FocusHandler}
+     */
   this.focusHandler_ = null;
 
   /**
-   * Logger
-   * @private {?goog.log.Logger}
-   */
-  this.logger_ = goog.log.getLogger('this');
+     * Logger
+     * @private {?log.Logger}
+     */
+  this.logger_ = log.getLogger('this');
 
   /**
    * Whether the tree is focused.
@@ -87,9 +86,9 @@ goog.ui.tree.TreeControl = function(content, opt_config, opt_domHelper) {
   this.focused_ = false;
 
   /**
-   * Child node that currently has focus.
-   * @private {?goog.ui.tree.BaseNode}
-   */
+     * Child node that currently has focus.
+     * @private {?BaseNode}
+     */
   this.focusedNode_ = null;
 
   /**
@@ -116,29 +115,27 @@ goog.ui.tree.TreeControl = function(content, opt_config, opt_domHelper) {
    */
   this.showRootLines_ = true;
 
-  if (goog.userAgent.IE) {
+  if (userAgent.IE) {
 
     try {
       // works since IE6SP1
       document.execCommand('BackgroundImageCache', false, true);
     } catch (e) {
-      goog.log.warning(this.logger_, 'Failed to enable background image cache');
+      log.warning(this.logger_, 'Failed to enable background image cache');
     }
   }
-};
-goog.inherits(goog.ui.tree.TreeControl, goog.ui.tree.BaseNode);
+}
+goog.inherits(TreeControl, BaseNode);
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.getTree = function() {
-  'use strict';
+TreeControl.prototype.getTree = function() {
   return this;
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.getDepth = function() {
-  'use strict';
+TreeControl.prototype.getDepth = function() {
   return 0;
 };
 
@@ -147,7 +144,7 @@ goog.ui.tree.TreeControl.prototype.getDepth = function() {
  * Expands the parent chain of this node so that it is visible.
  * @override
  */
-goog.ui.tree.TreeControl.prototype.reveal = function() {
+TreeControl.prototype.reveal = function() {
   // always expanded by default
   // needs to be overriden so that we don't try to reveal our parent
   // which is a generic component
@@ -159,11 +156,10 @@ goog.ui.tree.TreeControl.prototype.reveal = function() {
  * @param {!goog.events.BrowserEvent} e The browser event.
  * @private
  */
-goog.ui.tree.TreeControl.prototype.handleFocus_ = function(e) {
-  'use strict';
+TreeControl.prototype.handleFocus_ = function(e) {
   this.focused_ = true;
-  goog.dom.classlist.add(
-      goog.asserts.assert(this.getElement()), goog.getCssName('focused'));
+  classlist.add(
+      asserts.assert(this.getElement()), goog.getCssName('focused'));
 
   if (this.selectedItem_) {
     this.selectedItem_.select();
@@ -176,68 +172,61 @@ goog.ui.tree.TreeControl.prototype.handleFocus_ = function(e) {
  * @param {!goog.events.BrowserEvent} e The browser event.
  * @private
  */
-goog.ui.tree.TreeControl.prototype.handleBlur_ = function(e) {
-  'use strict';
+TreeControl.prototype.handleBlur_ = function(e) {
   this.focused_ = false;
-  goog.dom.classlist.remove(
-      goog.asserts.assert(this.getElement()), goog.getCssName('focused'));
+  classlist.remove(
+      asserts.assert(this.getElement()), goog.getCssName('focused'));
 };
 
 
 /**
  * @return {boolean} Whether the tree has keyboard focus.
  */
-goog.ui.tree.TreeControl.prototype.hasFocus = function() {
-  'use strict';
+TreeControl.prototype.hasFocus = function() {
   return this.focused_;
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.getExpanded = function() {
-  'use strict';
+TreeControl.prototype.getExpanded = function() {
   return !this.showRootNode_ ||
-      goog.ui.tree.TreeControl.superClass_.getExpanded.call(this);
+      TreeControl.superClass_.getExpanded.call(this);
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.setExpanded = function(expanded) {
-  'use strict';
+TreeControl.prototype.setExpanded = function(expanded) {
   if (!this.showRootNode_) {
     this.setExpandedInternal(expanded);
   } else {
-    goog.ui.tree.TreeControl.superClass_.setExpanded.call(this, expanded);
+    TreeControl.superClass_.setExpanded.call(this, expanded);
   }
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.getExpandIconSafeHtml = function() {
-  'use strict';
+TreeControl.prototype.getExpandIconSafeHtml = function() {
   // no expand icon for root element
-  return goog.html.SafeHtml.EMPTY;
+  return SafeHtml.EMPTY;
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.getIconElement = function() {
-  'use strict';
+TreeControl.prototype.getIconElement = function() {
   const el = this.getRowElement();
   return el ? /** @type {Element} */ (el.firstChild) : null;
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.getExpandIconElement = function() {
-  'use strict';
+TreeControl.prototype.getExpandIconElement = function() {
   // no expand icon for root element
   return null;
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.updateExpandIcon = function() {
+TreeControl.prototype.updateExpandIcon = function() {
   // no expand icon
 };
 
@@ -246,9 +235,8 @@ goog.ui.tree.TreeControl.prototype.updateExpandIcon = function() {
  * @override
  * @suppress {strictMissingProperties}
  */
-goog.ui.tree.TreeControl.prototype.getRowClassName = function() {
-  'use strict';
-  return goog.ui.tree.TreeControl.superClass_.getRowClassName.call(this) +
+TreeControl.prototype.getRowClassName = function() {
+  return TreeControl.superClass_.getRowClassName.call(this) +
       (this.showRootNode_ ? '' : ' ' + this.getConfig().cssHideRoot);
 };
 
@@ -259,8 +247,7 @@ goog.ui.tree.TreeControl.prototype.getRowClassName = function() {
  * @override
  * @suppress {strictMissingProperties}
  */
-goog.ui.tree.TreeControl.prototype.getCalculatedIconClass = function() {
-  'use strict';
+TreeControl.prototype.getCalculatedIconClass = function() {
   const expanded = this.getExpanded();
   const expandedIconClass = this.getExpandedIconClass();
   if (expanded && expandedIconClass) {
@@ -284,10 +271,9 @@ goog.ui.tree.TreeControl.prototype.getCalculatedIconClass = function() {
 
 /**
  * Sets the selected item.
- * @param {goog.ui.tree.BaseNode} node The item to select.
+ * @param {BaseNode} node The item to select.
  */
-goog.ui.tree.TreeControl.prototype.setSelectedItem = function(node) {
-  'use strict';
+TreeControl.prototype.setSelectedItem = function(node) {
   if (this.selectedItem_ == node) {
     return;
   }
@@ -307,16 +293,15 @@ goog.ui.tree.TreeControl.prototype.setSelectedItem = function(node) {
     }
   }
 
-  this.dispatchEvent(goog.events.EventType.CHANGE);
+  this.dispatchEvent(EventType.CHANGE);
 };
 
 
 /**
  * Returns the selected item.
- * @return {goog.ui.tree.BaseNode} The currently selected item.
+ * @return {BaseNode} The currently selected item.
  */
-goog.ui.tree.TreeControl.prototype.getSelectedItem = function() {
-  'use strict';
+TreeControl.prototype.getSelectedItem = function() {
   return this.selectedItem_;
 };
 
@@ -325,8 +310,7 @@ goog.ui.tree.TreeControl.prototype.getSelectedItem = function() {
  * Sets whether to show lines.
  * @param {boolean} b Whether to show lines.
  */
-goog.ui.tree.TreeControl.prototype.setShowLines = function(b) {
-  'use strict';
+TreeControl.prototype.setShowLines = function(b) {
   if (this.showLines_ != b) {
     this.showLines_ = b;
     if (this.isInDocument()) {
@@ -339,8 +323,7 @@ goog.ui.tree.TreeControl.prototype.setShowLines = function(b) {
 /**
  * @return {boolean} Whether to show lines.
  */
-goog.ui.tree.TreeControl.prototype.getShowLines = function() {
-  'use strict';
+TreeControl.prototype.getShowLines = function() {
   return this.showLines_;
 };
 
@@ -349,17 +332,16 @@ goog.ui.tree.TreeControl.prototype.getShowLines = function() {
  * Updates the lines after the tree has been drawn.
  * @private
  */
-goog.ui.tree.TreeControl.prototype.updateLinesAndExpandIcons_ = function() {
-  'use strict';
+TreeControl.prototype.updateLinesAndExpandIcons_ = function() {
   const tree = this;
   const showLines = tree.getShowLines();
   const showRootLines = tree.getShowRootLines();
 
   /**
-   * Recursively walk through all nodes and update the class names of the
-   * expand icon and the children element.
-   * @param {!goog.ui.tree.BaseNode} node
-   */
+     * Recursively walk through all nodes and update the class names of the
+     * expand icon and the children element.
+     * @param {!BaseNode} node
+     */
   function updateShowLines(node) {
     const childrenEl = node.getChildrenElement();
     if (childrenEl) {
@@ -385,8 +367,7 @@ goog.ui.tree.TreeControl.prototype.updateLinesAndExpandIcons_ = function() {
  * Sets whether to show root lines.
  * @param {boolean} b Whether to show root lines.
  */
-goog.ui.tree.TreeControl.prototype.setShowRootLines = function(b) {
-  'use strict';
+TreeControl.prototype.setShowRootLines = function(b) {
   if (this.showRootLines_ != b) {
     this.showRootLines_ = b;
     if (this.isInDocument()) {
@@ -399,8 +380,7 @@ goog.ui.tree.TreeControl.prototype.setShowRootLines = function(b) {
 /**
  * @return {boolean} Whether to show root lines.
  */
-goog.ui.tree.TreeControl.prototype.getShowRootLines = function() {
-  'use strict';
+TreeControl.prototype.getShowRootLines = function() {
   return this.showRootLines_;
 };
 
@@ -409,8 +389,7 @@ goog.ui.tree.TreeControl.prototype.getShowRootLines = function() {
  * Sets whether to show expand icons.
  * @param {boolean} b Whether to show expand icons.
  */
-goog.ui.tree.TreeControl.prototype.setShowExpandIcons = function(b) {
-  'use strict';
+TreeControl.prototype.setShowExpandIcons = function(b) {
   if (this.showExpandIcons_ != b) {
     this.showExpandIcons_ = b;
     if (this.isInDocument()) {
@@ -423,8 +402,7 @@ goog.ui.tree.TreeControl.prototype.setShowExpandIcons = function(b) {
 /**
  * @return {boolean} Whether to show expand icons.
  */
-goog.ui.tree.TreeControl.prototype.getShowExpandIcons = function() {
-  'use strict';
+TreeControl.prototype.getShowExpandIcons = function() {
   return this.showExpandIcons_;
 };
 
@@ -433,8 +411,7 @@ goog.ui.tree.TreeControl.prototype.getShowExpandIcons = function() {
  * Sets whether to show the root node.
  * @param {boolean} b Whether to show the root node.
  */
-goog.ui.tree.TreeControl.prototype.setShowRootNode = function(b) {
-  'use strict';
+TreeControl.prototype.setShowRootNode = function(b) {
   if (this.showRootNode_ != b) {
     this.showRootNode_ = b;
     if (this.isInDocument()) {
@@ -454,8 +431,7 @@ goog.ui.tree.TreeControl.prototype.setShowRootNode = function(b) {
 /**
  * @return {boolean} Whether to show the root node.
  */
-goog.ui.tree.TreeControl.prototype.getShowRootNode = function() {
-  'use strict';
+TreeControl.prototype.getShowRootNode = function() {
   return this.showRootNode_;
 };
 
@@ -465,21 +441,19 @@ goog.ui.tree.TreeControl.prototype.getShowRootNode = function() {
  * @protected
  * @override
  */
-goog.ui.tree.TreeControl.prototype.initAccessibility = function() {
-  'use strict';
-  goog.ui.tree.TreeControl.superClass_.initAccessibility.call(this);
+TreeControl.prototype.initAccessibility = function() {
+  TreeControl.superClass_.initAccessibility.call(this);
 
   const elt = this.getElement();
-  goog.asserts.assert(elt, 'The DOM element for the tree cannot be null.');
-  goog.a11y.aria.setRole(elt, 'tree');
-  goog.a11y.aria.setState(elt, 'labelledby', this.getLabelElement().id);
+  asserts.assert(elt, 'The DOM element for the tree cannot be null.');
+  aria.setRole(elt, 'tree');
+  aria.setState(elt, 'labelledby', this.getLabelElement().id);
 };
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.tree.TreeControl.superClass_.enterDocument.call(this);
+TreeControl.prototype.enterDocument = function() {
+  TreeControl.superClass_.enterDocument.call(this);
   const el = this.getElement();
   /** @suppress {strictMissingProperties} */
   el.className = this.getConfig().cssRoot;
@@ -490,9 +464,8 @@ goog.ui.tree.TreeControl.prototype.enterDocument = function() {
 
 
 /** @override */
-goog.ui.tree.TreeControl.prototype.exitDocument = function() {
-  'use strict';
-  goog.ui.tree.TreeControl.superClass_.exitDocument.call(this);
+TreeControl.prototype.exitDocument = function() {
+  TreeControl.superClass_.exitDocument.call(this);
   this.detachEvents_();
 };
 
@@ -502,21 +475,20 @@ goog.ui.tree.TreeControl.prototype.exitDocument = function() {
  * @private
  * @suppress {strictMissingProperties}
  */
-goog.ui.tree.TreeControl.prototype.attachEvents_ = function() {
-  'use strict';
+TreeControl.prototype.attachEvents_ = function() {
   const el = this.getElement();
   el.tabIndex = 0;
 
-  const kh = this.keyHandler_ = new goog.events.KeyHandler(el);
-  const fh = this.focusHandler_ = new goog.events.FocusHandler(el);
+  const kh = this.keyHandler_ = new KeyHandler(el);
+  const fh = this.focusHandler_ = new FocusHandler(el);
 
   this.getHandler()
-      .listen(fh, goog.events.FocusHandler.EventType.FOCUSOUT, this.handleBlur_)
-      .listen(fh, goog.events.FocusHandler.EventType.FOCUSIN, this.handleFocus_)
-      .listen(kh, goog.events.KeyHandler.EventType.KEY, this.handleKeyEvent)
-      .listen(el, goog.events.EventType.MOUSEDOWN, this.handleMouseEvent_)
-      .listen(el, goog.events.EventType.CLICK, this.handleMouseEvent_)
-      .listen(el, goog.events.EventType.DBLCLICK, this.handleMouseEvent_);
+      .listen(fh, FocusHandler.EventType.FOCUSOUT, this.handleBlur_)
+      .listen(fh, FocusHandler.EventType.FOCUSIN, this.handleFocus_)
+      .listen(kh, KeyHandler.EventType.KEY, this.handleKeyEvent)
+      .listen(el, EventType.MOUSEDOWN, this.handleMouseEvent_)
+      .listen(el, EventType.CLICK, this.handleMouseEvent_)
+      .listen(el, EventType.DBLCLICK, this.handleMouseEvent_);
 };
 
 
@@ -524,8 +496,7 @@ goog.ui.tree.TreeControl.prototype.attachEvents_ = function() {
  * Removes the event listeners from the tree.
  * @private
  */
-goog.ui.tree.TreeControl.prototype.detachEvents_ = function() {
-  'use strict';
+TreeControl.prototype.detachEvents_ = function() {
   this.keyHandler_.dispose();
   this.keyHandler_ = null;
   this.focusHandler_.dispose();
@@ -538,19 +509,18 @@ goog.ui.tree.TreeControl.prototype.detachEvents_ = function() {
  * @param {!goog.events.BrowserEvent} e The browser event.
  * @private
  */
-goog.ui.tree.TreeControl.prototype.handleMouseEvent_ = function(e) {
-  'use strict';
-  goog.log.fine(this.logger_, 'Received event ' + e.type);
+TreeControl.prototype.handleMouseEvent_ = function(e) {
+  log.fine(this.logger_, 'Received event ' + e.type);
   const node = this.getNodeFromEvent_(e);
   if (node) {
     switch (e.type) {
-      case goog.events.EventType.MOUSEDOWN:
+      case EventType.MOUSEDOWN:
         node.onMouseDown(e);
         break;
-      case goog.events.EventType.CLICK:
+      case EventType.CLICK:
         node.onClick_(e);
         break;
-      case goog.events.EventType.DBLCLICK:
+      case EventType.DBLCLICK:
         node.onDoubleClick_(e);
         break;
     }
@@ -563,8 +533,7 @@ goog.ui.tree.TreeControl.prototype.handleMouseEvent_ = function(e) {
  * @param {!goog.events.BrowserEvent} e The browser event.
  * @return {boolean} The handled value.
  */
-goog.ui.tree.TreeControl.prototype.handleKeyEvent = function(e) {
-  'use strict';
+TreeControl.prototype.handleKeyEvent = function(e) {
   let handled = false;
 
   // Handle typeahead and navigation keystrokes.
@@ -583,19 +552,18 @@ goog.ui.tree.TreeControl.prototype.handleKeyEvent = function(e) {
 /**
  * Finds the containing node given an event.
  * @param {!goog.events.BrowserEvent} e The browser event.
- * @return {goog.ui.tree.BaseNode} The containing node or null if no node is
+ * @return {BaseNode} The containing node or null if no node is
  *     found.
  * @private
  * @suppress {strictMissingProperties}
  */
-goog.ui.tree.TreeControl.prototype.getNodeFromEvent_ = function(e) {
-  'use strict';
+TreeControl.prototype.getNodeFromEvent_ = function(e) {
   // find the right node
   let node = null;
   let target = e.target;
   while (target != null) {
     const id = target.id;
-    node = goog.ui.tree.BaseNode.allNodes[id];
+    node = BaseNode.allNodes[id];
     if (node) {
       return node;
     }
@@ -613,12 +581,11 @@ goog.ui.tree.TreeControl.prototype.getNodeFromEvent_ = function(e) {
  * @param {string=} opt_content The content of the node label. Strings are
  *     treated as plain-text and will be HTML escaped. To set SafeHtml content,
  *     omit opt_content and call setSafeHtml on the resulting node.
- * @return {!goog.ui.tree.TreeNode} The new item.
+ * @return {!TreeNode} The new item.
  */
-goog.ui.tree.TreeControl.prototype.createNode = function(opt_content) {
-  'use strict';
-  return new goog.ui.tree.TreeNode(
-      opt_content || goog.html.SafeHtml.EMPTY, this.getConfig(),
+TreeControl.prototype.createNode = function(opt_content) {
+  return new TreeNode(
+      opt_content || SafeHtml.EMPTY, this.getConfig(),
       this.getDomHelper());
 };
 
@@ -626,11 +593,10 @@ goog.ui.tree.TreeControl.prototype.createNode = function(opt_content) {
 /**
  * Allows the caller to notify that the given node has been added or just had
  * been updated in the tree.
- * @param {goog.ui.tree.BaseNode} node New node being added or existing node
+ * @param {BaseNode} node New node being added or existing node
  *    that just had been updated.
  */
-goog.ui.tree.TreeControl.prototype.setNode = function(node) {
-  'use strict';
+TreeControl.prototype.setNode = function(node) {
   this.typeAhead_.setNodeInMap(node);
 };
 
@@ -638,10 +604,9 @@ goog.ui.tree.TreeControl.prototype.setNode = function(node) {
 /**
  * Allows the caller to notify that the given node is being removed from the
  * tree.
- * @param {goog.ui.tree.BaseNode} node Node being removed.
+ * @param {BaseNode} node Node being removed.
  */
-goog.ui.tree.TreeControl.prototype.removeNode = function(node) {
-  'use strict';
+TreeControl.prototype.removeNode = function(node) {
   this.typeAhead_.removeNodeFromMap(node);
 };
 
@@ -649,8 +614,7 @@ goog.ui.tree.TreeControl.prototype.removeNode = function(node) {
 /**
  * Clear the typeahead buffer.
  */
-goog.ui.tree.TreeControl.prototype.clearTypeAhead = function() {
-  'use strict';
+TreeControl.prototype.clearTypeAhead = function() {
   this.typeAhead_.clear();
 };
 
@@ -658,4 +622,4 @@ goog.ui.tree.TreeControl.prototype.clearTypeAhead = function() {
 /**
  * A default configuration for the tree.
  */
-goog.ui.tree.TreeControl.defaultConfig = goog.ui.tree.BaseNode.defaultConfig;
+TreeControl.defaultConfig = BaseNode.defaultConfig;

@@ -4,17 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.assertsTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const asserts = goog.require('goog.asserts');
-const dom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const reflect = goog.require('goog.reflect');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const {AssertionError} = goog.require('goog.asserts');
+import { TagName } from '../dom/tagname.js';
+import { AssertionError } from './asserts.js';
+import * as dom from '../dom/dom.js';
+import * as googString from '../string/string.js';
+import * as reflect from '../reflect/reflect.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /**
  * Test that the function throws an error with the given message.

@@ -4,17 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.AnimationQueueTest');
 goog.setTestOnly();
 
-const Animation = goog.require('goog.fx.Animation');
-const AnimationParallelQueue = goog.require('goog.fx.AnimationParallelQueue');
-const AnimationSerialQueue = goog.require('goog.fx.AnimationSerialQueue');
-const MockClock = goog.require('goog.testing.MockClock');
-const Transition = goog.require('goog.fx.Transition');
-const events = goog.require('goog.events');
-const fxAnim = goog.require('goog.fx.anim');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Animation } from './animation.js';
+import { AnimationParallelQueue, AnimationSerialQueue } from './animationqueue.js';
+import { MockClock } from '../testing/mockclock.js';
+import { Transition } from './transition.js';
+import * as events from '../events/events.js';
+import * as fxAnim from './anim/anim.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let clock;
 

@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.InversionMapTest');
 goog.setTestOnly();
 
-const InversionMap = goog.require('goog.structs.InversionMap');
-const testSuite = goog.require('goog.testing.testSuite');
+import { InversionMap } from './inversionmap.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function newAsciiMap() {
   return new InversionMap([0, 97, 98, 99, 100, 101, 120, 121, 122, 123], [

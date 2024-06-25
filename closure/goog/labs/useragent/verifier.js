@@ -9,9 +9,6 @@
  * TODO(johnlenz): delete this remove this file on the experiment is complete.
  */
 
-goog.module('goog.labs.useragent.verifier');
-goog.module.declareLegacyNamespace();
-
 /** @const */
 const NOT_IE = 0;
 
@@ -122,7 +119,7 @@ function getIEVersion(userAgent) {
   return NOT_IE;
 }
 
-exports = {
+export default {
   NOT_IE,
   detectIeVersionByBehavior,
   detectIeVersionByNavigator,

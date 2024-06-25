@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.media.YoutubeTest');
 goog.setTestOnly();
 
-const YoutubeModel = goog.require('goog.ui.media.YoutubeModel');
-const testSuite = goog.require('goog.testing.testSuite');
+import { YoutubeModel } from './youtube.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 const YOUTUBE_VIDEO_ID = 'dMH0bHeiRNg';
 const YOUTUBE_URL = `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`;

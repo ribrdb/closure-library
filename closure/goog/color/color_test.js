@@ -3,12 +3,11 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.colorTest');
 goog.setTestOnly();
 
-const googColor = goog.require('goog.color');
-const names = goog.require('goog.color.names');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as googColor from './color.js';
+import { names } from './names.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Tests accuracy of HSL to RGB conversion
 

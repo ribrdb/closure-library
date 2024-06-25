@@ -7,12 +7,10 @@
 /**
  * @fileoverview Additional asserts for testing ControlRenderers.
  */
-goog.module('goog.testing.ui.rendererasserts');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly();
 
-const ControlRenderer = goog.require('goog.ui.ControlRenderer');
-const asserts = goog.require('goog.testing.asserts');
+import { ControlRenderer } from '../../ui/controlrenderer.js';
+import * as asserts from '../asserts.js';
 
 /**
  * Assert that a control renderer constructor doesn't call getCssClass.
@@ -50,6 +48,6 @@ function assertNoGetCssClassCallsInConstructor(rendererClassUnderTest) {
       0, getCssClassCalls);
 }
 
-exports = {
+export default {
   assertNoGetCssClassCallsInConstructor,
 };

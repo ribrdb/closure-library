@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.mathTest');
 goog.setTestOnly();
 
-const googMath = goog.require('goog.math');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as googMath from './math.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testRandomInt() {

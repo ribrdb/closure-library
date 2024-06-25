@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.recordFunctionTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const functions = goog.require('goog.functions');
-const recordConstructor = goog.require('goog.testing.recordConstructor');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from './propertyreplacer.js';
+import * as functions from '../functions/functions.js';
+import { recordConstructor } from './recordconstructor.js';
+import { recordFunction } from './recordfunction.js';
+import { testSuite } from './testsuite.js';
 
 const stubs = new PropertyReplacer();
 

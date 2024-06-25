@@ -9,10 +9,9 @@
  * user agent values.
  */
 
-goog.module('goog.labs.userAgent.highEntropy.highEntropyValue');
+import util from '../util.js';
 
-const util = goog.require('goog.labs.userAgent.util');
-const {compareVersions} = goog.require('goog.string.internal');
+import { compareVersions } from '../../../string/internal.js';
 
 /**
  * Represents a value that can be asynchronously loaded.
@@ -33,7 +32,7 @@ class AsyncValue {
    */
   load() {}
 }
-exports.AsyncValue = AsyncValue;
+export { AsyncValue };
 
 /**
  * Represents a high-entropy value.
@@ -125,7 +124,7 @@ class HighEntropyValue {
     this.pending_ = false;
   }
 }
-exports.HighEntropyValue = HighEntropyValue;
+export { HighEntropyValue };
 
 /**
  * An object that wraps a version string.
@@ -161,4 +160,4 @@ class Version {
     return compareVersions(this.versionString_, version) >= 0;
   }
 }
-exports.Version = Version;
+export { Version };

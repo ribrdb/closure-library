@@ -11,12 +11,10 @@
  * sub-namespaces in goog.labs.userAgent (browser, platform, and device).
  */
 
-goog.module('goog.labs.userAgent.engine');
-goog.module.declareLegacyNamespace();
+import * as googArray from '../../array/array.js';
 
-const googArray = goog.require('goog.array');
-const googString = goog.require('goog.string.internal');
-const util = goog.require('goog.labs.userAgent.util');
+import * as googString from '../../string/internal.js';
+import util from './util.js';
 
 /**
  * @return {boolean} Whether the rendering engine is Presto.
@@ -134,7 +132,7 @@ function getVersionForKey(tuples, key) {
   return pair && pair[1] || '';
 }
 
-exports = {
+export default {
   getVersion,
   isEdge,
   isGecko,

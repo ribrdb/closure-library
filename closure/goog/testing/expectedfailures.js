@@ -9,19 +9,18 @@
  */
 
 goog.setTestOnly('goog.testing.ExpectedFailures');
-goog.provide('goog.testing.ExpectedFailures');
 
-goog.require('goog.asserts');
-goog.require('goog.debug.DivConsole');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.log');
-goog.require('goog.style');
-goog.require('goog.testing.JsUnitException');
-goog.require('goog.testing.TestCase');
-goog.require('goog.testing.asserts');
+import * as asserts from '../asserts/asserts.js';
+import { DivConsole } from '../debug/divconsole.js';
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../events/events.js';
+import { EventType } from '../events/eventtype.js';
+import * as log from '../log/log.js';
+import * as style from '../style/style.js';
+import { JsUnitException } from './jsunitexception.js';
+import { TestCase } from './testcase.js';
+import * as testingAsserts from './asserts.js';
 
 
 
@@ -30,7 +29,7 @@ goog.require('goog.testing.asserts');
  * mark tests that should be fixed on a given browser.
  *
  * <pre>
- * var expectedFailures = new goog.testing.ExpectedFailures();
+ * var expectedFailures = new ExpectedFailures();
  *
  * function tearDown() {
  *   expectedFailures.handleTearDown();
@@ -52,28 +51,27 @@ goog.require('goog.testing.asserts');
  * @constructor
  * @final
  */
-goog.testing.ExpectedFailures = function() {
-  'use strict';
-  goog.testing.ExpectedFailures.setUpConsole_();
+export function ExpectedFailures() {
+  ExpectedFailures.setUpConsole_();
   this.reset_();
-};
+}
 
 
 /**
  * The lazily created debugging console.
- * @type {goog.debug.DivConsole?}
+ * @type {DivConsole?}
  * @private
  */
-goog.testing.ExpectedFailures.console_ = null;
+ExpectedFailures.console_ = null;
 
 
 /**
  * Logger for the expected failures.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.testing.ExpectedFailures.prototype.logger_ =
-    goog.log.getLogger('goog.testing.ExpectedFailures');
+ExpectedFailures.prototype.logger_ =
+    log.getLogger('goog.testing.ExpectedFailures');
 
 
 /**
@@ -81,7 +79,7 @@ goog.testing.ExpectedFailures.prototype.logger_ =
  * @type {boolean}
  * @private
  */
-goog.testing.ExpectedFailures.prototype.expectingFailure_;
+ExpectedFailures.prototype.expectingFailure_;
 
 
 /**
@@ -89,7 +87,7 @@ goog.testing.ExpectedFailures.prototype.expectingFailure_;
  * @type {string}
  * @private
  */
-goog.testing.ExpectedFailures.prototype.failureMessage_;
+ExpectedFailures.prototype.failureMessage_;
 
 
 /**
@@ -97,45 +95,43 @@ goog.testing.ExpectedFailures.prototype.failureMessage_;
  * @type {Array<!Error>}
  * @private
  */
-goog.testing.ExpectedFailures.prototype.suppressedFailures_;
+ExpectedFailures.prototype.suppressedFailures_;
 
 
 /**
  * Sets up the debug console, if it isn't already set up.
  * @private
  */
-goog.testing.ExpectedFailures.setUpConsole_ = function() {
-  'use strict';
-  if (!goog.testing.ExpectedFailures.console_) {
-    var xButton = goog.dom.createDom(
-        goog.dom.TagName.DIV, {
+ExpectedFailures.setUpConsole_ = function() {
+  if (!ExpectedFailures.console_) {
+    var xButton = dom.createDom(
+        TagName.DIV, {
           'style': 'position: absolute; border-left:1px solid #333;' +
               'border-bottom:1px solid #333; right: 0; top: 0; width: 1em;' +
               'height: 1em; cursor: pointer; background-color: #cde;' +
               'text-align: center; color: black'
         },
         'X');
-    var div = goog.dom.createDom(
-        goog.dom.TagName.DIV, {
+    var div = dom.createDom(
+        TagName.DIV, {
           'style': 'position: absolute; border: 1px solid #333; right: 10px;' +
               'top : 10px; width: 400px; display: none'
         },
         xButton);
     document.body.appendChild(div);
-    goog.events.listen(xButton, goog.events.EventType.CLICK, function() {
-      'use strict';
-      goog.style.setElementShown(div, false);
+    events.listen(xButton, EventType.CLICK, function() {
+      style.setElementShown(div, false);
     });
 
-    goog.testing.ExpectedFailures.console_ = new goog.debug.DivConsole(div);
-    goog.log.addHandler(
-        goog.testing.ExpectedFailures.prototype.logger_,
-        goog.bind(goog.style.setElementShown, null, div, true));
-    goog.log.addHandler(
-        goog.testing.ExpectedFailures.prototype.logger_,
+    ExpectedFailures.console_ = new DivConsole(div);
+    log.addHandler(
+        ExpectedFailures.prototype.logger_,
+        goog.bind(style.setElementShown, null, div, true));
+    log.addHandler(
+        ExpectedFailures.prototype.logger_,
         goog.bind(
-            goog.testing.ExpectedFailures.console_.addLogRecord,
-            goog.testing.ExpectedFailures.console_));
+            ExpectedFailures.console_.addLogRecord,
+            ExpectedFailures.console_));
   }
 };
 
@@ -146,9 +142,8 @@ goog.testing.ExpectedFailures.setUpConsole_ = function() {
  * @param {boolean} condition Whether to expect failure.
  * @param {string=} opt_message Descriptive message of this expected failure.
  */
-goog.testing.ExpectedFailures.prototype.expectFailureFor = function(
+ExpectedFailures.prototype.expectFailureFor = function(
     condition, opt_message) {
-  'use strict';
   this.expectingFailure_ = this.expectingFailure_ || condition;
   if (condition) {
     this.failureMessage_ = this.failureMessage_ || opt_message || '';
@@ -161,9 +156,8 @@ goog.testing.ExpectedFailures.prototype.expectFailureFor = function(
  * @param {Object} ex The exception to check.
  * @return {boolean} Whether the exception was expected.
  */
-goog.testing.ExpectedFailures.prototype.isExceptionExpected = function(ex) {
-  'use strict';
-  return this.expectingFailure_ && ex instanceof goog.testing.JsUnitException;
+ExpectedFailures.prototype.isExceptionExpected = function(ex) {
+  return this.expectingFailure_ && ex instanceof JsUnitException;
 };
 
 
@@ -172,17 +166,16 @@ goog.testing.ExpectedFailures.prototype.isExceptionExpected = function(ex) {
  * expected.
  * @param {Error} ex The exception to handle.
  */
-goog.testing.ExpectedFailures.prototype.handleException = function(ex) {
-  'use strict';
+ExpectedFailures.prototype.handleException = function(ex) {
   if (this.isExceptionExpected(ex)) {
-    goog.asserts.assertInstanceof(ex, goog.testing.JsUnitException);
-    goog.log.info(
+    asserts.assertInstanceof(ex, JsUnitException);
+    log.info(
         this.logger_, 'Suppressing test failure in ' +
-            goog.testing.TestCase.currentTestName + ':' +
+            TestCase.currentTestName + ':' +
             (this.failureMessage_ ? '\n(' + this.failureMessage_ + ')' : ''),
         ex);
     this.suppressedFailures_.push(ex);
-    goog.testing.TestCase.invalidateAssertionException(ex);
+    TestCase.invalidateAssertionException(ex);
     return;
   }
 
@@ -198,8 +191,7 @@ goog.testing.ExpectedFailures.prototype.handleException = function(ex) {
  * @param {boolean=} opt_lenient Whether to ignore if the expected failures
  *     didn't occur.  In this case a warning will be logged in handleTearDown.
  */
-goog.testing.ExpectedFailures.prototype.run = function(func, opt_lenient) {
-  'use strict';
+ExpectedFailures.prototype.run = function(func, opt_lenient) {
   try {
     func();
   } catch (ex) {
@@ -217,10 +209,9 @@ goog.testing.ExpectedFailures.prototype.run = function(func, opt_lenient) {
  * @return {string} A warning describing an expected failure that didn't occur.
  * @private
  */
-goog.testing.ExpectedFailures.prototype.getExpectationMessage_ = function() {
-  'use strict';
+ExpectedFailures.prototype.getExpectationMessage_ = function() {
   return 'Expected a test failure in \'' +
-      goog.testing.TestCase.currentTestName + '\' but the test passed.';
+      TestCase.currentTestName + '\' but the test passed.';
 };
 
 
@@ -228,10 +219,9 @@ goog.testing.ExpectedFailures.prototype.getExpectationMessage_ = function() {
  * Handle the tearDown phase of a test, alerting the user if an expected test
  * was not suppressed.
  */
-goog.testing.ExpectedFailures.prototype.handleTearDown = function() {
-  'use strict';
+ExpectedFailures.prototype.handleTearDown = function() {
   if (this.expectingFailure_ && !this.suppressedFailures_.length) {
-    goog.log.warning(this.logger_, this.getExpectationMessage_());
+    log.warning(this.logger_, this.getExpectationMessage_());
   }
   this.reset_();
 };
@@ -241,8 +231,7 @@ goog.testing.ExpectedFailures.prototype.handleTearDown = function() {
  * Reset internal state.
  * @private
  */
-goog.testing.ExpectedFailures.prototype.reset_ = function() {
-  'use strict';
+ExpectedFailures.prototype.reset_ = function() {
   this.expectingFailure_ = false;
   this.failureMessage_ = '';
   this.suppressedFailures_ = [];

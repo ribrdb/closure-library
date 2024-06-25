@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.UndoRedoStateTest');
 goog.setTestOnly();
 
-const UndoRedoState = goog.require('goog.editor.plugins.UndoRedoState');
-const testSuite = goog.require('goog.testing.testSuite');
+import { UndoRedoState } from './undoredostate.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let asyncState;
 let syncState;

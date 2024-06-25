@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.CustomColorPaletteTest');
 goog.setTestOnly();
 
-const CustomColorPalette = goog.require('goog.ui.CustomColorPalette');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CustomColorPalette } from './customcolorpalette.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let samplePalette;
 

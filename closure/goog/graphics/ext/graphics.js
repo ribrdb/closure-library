@@ -19,16 +19,16 @@
 // constructor at all. You can run the conversion tool yourself to see what it
 // does on this file: blaze run //javascript/refactoring/es6_classes:convert.
 
-goog.provide('goog.graphics.ext.Graphics');
+goog.declareModuleId('goog.graphics.ext.graphics');
 
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.graphics');
-goog.require('goog.graphics.ext.Group');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.graphics.AbstractGraphics');
-goog.requireType('goog.math.Coordinate');
-goog.requireType('goog.math.Size');
+import * as events from '../../events/events.js';
+import { EventType } from '../../events/eventtype.js';
+import * as graphics from '../graphics.js';
+import { Group } from './group.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.graphics.abstractgraphics');
+goog.requireType('goog.math.coordinate');
+goog.requireType('goog.math.size');
 
 
 
@@ -49,42 +49,45 @@ goog.requireType('goog.math.Size');
  *     scenario should be favored.  NOTE: Setting to true may result in
  *     degradation of text support.
  * @constructor
- * @extends {goog.graphics.ext.Group}
+ * @extends {Group}
  * @final
  */
-goog.graphics.ext.Graphics = function(
-    width, height, opt_coordWidth, opt_coordHeight, opt_domHelper,
-    opt_isSimple) {
-  'use strict';
-  const surface = opt_isSimple ?
-      goog.graphics.createSimpleGraphics(
-          width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) :
-      goog.graphics.createGraphics(
-          width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
-  this.implementation_ = surface;
+export function Graphics(
+ width,
+ height,
+ opt_coordWidth,
+ opt_coordHeight,
+ opt_domHelper,
+ opt_isSimple
+) {
+ const surface = opt_isSimple ?
+     graphics.createSimpleGraphics(
+         width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) :
+     graphics.createGraphics(
+         width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
+ this.implementation_ = surface;
 
-  goog.graphics.ext.Group.call(this, null, surface.getCanvasElement());
+ Group.call(this, null, surface.getCanvasElement());
 
-  goog.events.listen(
-      surface, goog.events.EventType.RESIZE, this.updateChildren, false, this);
-};
-goog.inherits(goog.graphics.ext.Graphics, goog.graphics.ext.Group);
+ events.listen(
+     surface, EventType.RESIZE, this.updateChildren, false, this);
+}
+goog.inherits(Graphics, Group);
 
 
 /**
  * The root level graphics implementation.
- * @type {goog.graphics.AbstractGraphics}
+ * @type {graphics.AbstractGraphics}
  * @private
  */
-goog.graphics.ext.Graphics.prototype.implementation_;
+Graphics.prototype.implementation_;
 
 
 /**
- * @return {goog.graphics.AbstractGraphics} The graphics implementation layer.
+ * @return {graphics.AbstractGraphics} The graphics implementation layer.
  */
-goog.graphics.ext.Graphics.prototype.getImplementation = function() {
-  'use strict';
-  return this.implementation_;
+Graphics.prototype.getImplementation = function() {
+ return this.implementation_;
 };
 
 
@@ -93,21 +96,19 @@ goog.graphics.ext.Graphics.prototype.getImplementation = function() {
  * @param {number} coordWidth The coordinate width.
  * @param {number} coordHeight The coordinate height.
  */
-goog.graphics.ext.Graphics.prototype.setCoordSize = function(
+Graphics.prototype.setCoordSize = function(
     coordWidth, coordHeight) {
-  'use strict';
-  this.implementation_.setCoordSize(coordWidth, coordHeight);
-  goog.graphics.ext.Graphics.superClass_.setSize.call(
-      this, coordWidth, coordHeight);
+ this.implementation_.setCoordSize(coordWidth, coordHeight);
+ Graphics.superClass_.setSize.call(
+     this, coordWidth, coordHeight);
 };
 
 
 /**
  * @return {goog.math.Size} The coordinate size.
  */
-goog.graphics.ext.Graphics.prototype.getCoordSize = function() {
-  'use strict';
-  return this.implementation_.getCoordSize();
+Graphics.prototype.getCoordSize = function() {
+ return this.implementation_.getCoordSize();
 };
 
 
@@ -116,18 +117,16 @@ goog.graphics.ext.Graphics.prototype.getCoordSize = function() {
  * @param {number} left The coordinate system left bound.
  * @param {number} top The coordinate system top bound.
  */
-goog.graphics.ext.Graphics.prototype.setCoordOrigin = function(left, top) {
-  'use strict';
-  this.implementation_.setCoordOrigin(left, top);
+Graphics.prototype.setCoordOrigin = function(left, top) {
+ this.implementation_.setCoordOrigin(left, top);
 };
 
 
 /**
  * @return {!goog.math.Coordinate} The coordinate system position.
  */
-goog.graphics.ext.Graphics.prototype.getCoordOrigin = function() {
-  'use strict';
-  return this.implementation_.getCoordOrigin();
+Graphics.prototype.getCoordOrigin = function() {
+ return this.implementation_.getCoordOrigin();
 };
 
 
@@ -136,14 +135,13 @@ goog.graphics.ext.Graphics.prototype.getCoordOrigin = function() {
  * @param {number} pixelWidth The width in pixels.
  * @param {number} pixelHeight The height in pixels.
  */
-goog.graphics.ext.Graphics.prototype.setPixelSize = function(
+Graphics.prototype.setPixelSize = function(
     pixelWidth, pixelHeight) {
-  'use strict';
-  this.implementation_.setSize(pixelWidth, pixelHeight);
+ this.implementation_.setSize(pixelWidth, pixelHeight);
 
-  const coordSize = this.getCoordSize();
-  goog.graphics.ext.Graphics.superClass_.setSize.call(
-      this, coordSize.width, coordSize.height);
+ const coordSize = this.getCoordSize();
+ Graphics.superClass_.setSize.call(
+     this, coordSize.width, coordSize.height);
 };
 
 
@@ -153,9 +151,8 @@ goog.graphics.ext.Graphics.prototype.setPixelSize = function(
  *     specified in percentage points and the component not being in the
  *     document.
  */
-goog.graphics.ext.Graphics.prototype.getPixelSize = function() {
-  'use strict';
-  return this.implementation_.getPixelSize();
+Graphics.prototype.getPixelSize = function() {
+ return this.implementation_.getPixelSize();
 };
 
 
@@ -163,9 +160,8 @@ goog.graphics.ext.Graphics.prototype.getPixelSize = function() {
  * @return {number} The coordinate width of the canvas.
  * @override
  */
-goog.graphics.ext.Graphics.prototype.getWidth = function() {
-  'use strict';
-  return this.implementation_.getCoordSize().width;
+Graphics.prototype.getWidth = function() {
+ return this.implementation_.getCoordSize().width;
 };
 
 
@@ -173,9 +169,8 @@ goog.graphics.ext.Graphics.prototype.getWidth = function() {
  * @return {number} The coordinate width of the canvas.
  * @override
  */
-goog.graphics.ext.Graphics.prototype.getHeight = function() {
-  'use strict';
-  return this.implementation_.getCoordSize().height;
+Graphics.prototype.getHeight = function() {
+ return this.implementation_.getCoordSize().height;
 };
 
 
@@ -183,9 +178,8 @@ goog.graphics.ext.Graphics.prototype.getHeight = function() {
  * @return {number} Returns the number of pixels per unit in the x direction.
  * @override
  */
-goog.graphics.ext.Graphics.prototype.getPixelScaleX = function() {
-  'use strict';
-  return this.implementation_.getPixelScaleX();
+Graphics.prototype.getPixelScaleX = function() {
+ return this.implementation_.getPixelScaleX();
 };
 
 
@@ -193,18 +187,16 @@ goog.graphics.ext.Graphics.prototype.getPixelScaleX = function() {
  * @return {number} Returns the number of pixels per unit in the y direction.
  * @override
  */
-goog.graphics.ext.Graphics.prototype.getPixelScaleY = function() {
-  'use strict';
-  return this.implementation_.getPixelScaleY();
+Graphics.prototype.getPixelScaleY = function() {
+ return this.implementation_.getPixelScaleY();
 };
 
 
 /**
  * @return {Element} The root element of the graphics surface.
  */
-goog.graphics.ext.Graphics.prototype.getElement = function() {
-  'use strict';
-  return this.implementation_.getElement();
+Graphics.prototype.getElement = function() {
+ return this.implementation_.getElement();
 };
 
 
@@ -213,9 +205,8 @@ goog.graphics.ext.Graphics.prototype.getElement = function() {
  *
  * @param {Element} parentElement Parent element to render the component into.
  */
-goog.graphics.ext.Graphics.prototype.render = function(parentElement) {
-  'use strict';
-  this.implementation_.render(parentElement);
+Graphics.prototype.render = function(parentElement) {
+ this.implementation_.render(parentElement);
 };
 
 
@@ -223,7 +214,7 @@ goog.graphics.ext.Graphics.prototype.render = function(parentElement) {
  * Never transform a surface.
  * @override
  */
-goog.graphics.ext.Graphics.prototype.transform = function() {};
+Graphics.prototype.transform = function() {};
 
 
 /**
@@ -232,7 +223,6 @@ goog.graphics.ext.Graphics.prototype.transform = function() {};
  * @protected
  * @override
  */
-goog.graphics.ext.Graphics.prototype.redraw = function() {
-  'use strict';
-  this.transformChildren();
+Graphics.prototype.redraw = function() {
+ this.transformChildren();
 };

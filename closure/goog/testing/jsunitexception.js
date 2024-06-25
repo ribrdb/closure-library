@@ -4,10 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.testing.JsUnitException');
 goog.setTestOnly();
 
-goog.require('goog.testing.stacktrace');
+import * as stacktrace from './stacktrace.js';
 
 
 /**
@@ -17,24 +16,23 @@ goog.require('goog.testing.stacktrace');
  * @extends {Error}
  * @final
  */
-goog.testing.JsUnitException = function(comment, opt_message) {
-  'use strict';
+export function JsUnitException(comment, opt_message) {
   this.isJsUnitException = true;
   this.message =
-      goog.testing.JsUnitException.generateMessage(comment, opt_message);
-  this.stackTrace = goog.testing.stacktrace.get();
+      JsUnitException.generateMessage(comment, opt_message);
+  this.stackTrace = stacktrace.get();
   // These fields are for compatibility with jsUnitTestManager.
   this.comment = comment || null;
   this.jsUnitMessage = opt_message || '';
 
   // Ensure there is a stack trace.
   if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, goog.testing.JsUnitException);
+    Error.captureStackTrace(this, JsUnitException);
   } else {
     this.stack = new Error().stack || '';
   }
-};
-goog.inherits(goog.testing.JsUnitException, Error);
+}
+goog.inherits(JsUnitException, Error);
 
 /**
  * @param {string} comment A summary for the exception.
@@ -42,15 +40,13 @@ goog.inherits(goog.testing.JsUnitException, Error);
  * @return {string} Concatenated message
  * @package
  */
-goog.testing.JsUnitException.generateMessage = function(comment, opt_message) {
-  'use strict';
+JsUnitException.generateMessage = function(comment, opt_message) {
   return (comment || '') + (comment && opt_message ? '\n' : '') +
       (opt_message || '');
 };
 
 
 /** @override */
-goog.testing.JsUnitException.prototype.toString = function() {
-  'use strict';
+JsUnitException.prototype.toString = function() {
   return this.message || this.jsUnitMessage;
 };

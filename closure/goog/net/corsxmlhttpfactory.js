@@ -8,19 +8,17 @@
  * @fileoverview This file contain classes that add support for cross-domain XHR
  * requests (see http://www.w3.org/TR/cors/). Most modern browsers are able to
  * use a regular XMLHttpRequest for that, but IE 8 use XDomainRequest object
- * instead. This file provides an adapter from this object to a goog.net.XhrLike
+ * instead. This file provides an adapter from this object to a XhrLike
  * and a factory to allow using this with a goog.net.XhrIo instance.
  *
  * IE 7 and older versions are not supported (given that they do not support
  * CORS requests).
  */
-goog.provide('goog.net.CorsXmlHttpFactory');
-goog.provide('goog.net.IeCorsXhrAdapter');
+import { HttpStatus } from './httpstatus.js';
 
-goog.require('goog.net.HttpStatus');
-goog.require('goog.net.XhrLike');
-goog.require('goog.net.XmlHttp');
-goog.require('goog.net.XmlHttpFactory');
+import { XhrLike } from './xhrlike.js';
+import { XmlHttp } from './xmlhttp.js';
+import { XmlHttpFactory } from './xmlhttpfactory.js';
 
 
 
@@ -29,25 +27,23 @@ goog.require('goog.net.XmlHttpFactory');
  * This class should be instantiated and passed as the parameter of a
  * goog.net.XhrIo constructor to allow cross-domain requests in every browser.
  *
- * @extends {goog.net.XmlHttpFactory}
+ * @extends {XmlHttpFactory}
  * @constructor
  * @final
  */
-goog.net.CorsXmlHttpFactory = function() {
-  'use strict';
-  goog.net.XmlHttpFactory.call(this);
-};
-goog.inherits(goog.net.CorsXmlHttpFactory, goog.net.XmlHttpFactory);
+export function CorsXmlHttpFactory() {
+  XmlHttpFactory.call(this);
+}
+goog.inherits(CorsXmlHttpFactory, XmlHttpFactory);
 
 
 /** @override */
-goog.net.CorsXmlHttpFactory.prototype.createInstance = function() {
-  'use strict';
+CorsXmlHttpFactory.prototype.createInstance = function() {
   const xhr = new XMLHttpRequest();
   if (('withCredentials' in xhr)) {
     return xhr;
   } else if (typeof XDomainRequest != 'undefined') {
-    return new goog.net.IeCorsXhrAdapter();
+    return new IeCorsXhrAdapter();
   } else {
     throw new Error('Unsupported browser');
   }
@@ -55,8 +51,7 @@ goog.net.CorsXmlHttpFactory.prototype.createInstance = function() {
 
 
 /** @override */
-goog.net.CorsXmlHttpFactory.prototype.internalGetOptions = function() {
-  'use strict';
+CorsXmlHttpFactory.prototype.internalGetOptions = function() {
   return {};
 };
 
@@ -67,13 +62,12 @@ goog.net.CorsXmlHttpFactory.prototype.internalGetOptions = function() {
  * look like a standard XMLHttpRequest. This can be used instead of
  * XMLHttpRequest to support CORS.
  *
- * @implements {goog.net.XhrLike}
+ * @implements {XhrLike}
  * @constructor
  * @struct
  * @final
  */
-goog.net.IeCorsXhrAdapter = function() {
-  'use strict';
+export function IeCorsXhrAdapter() {
   /**
    * The underlying XDomainRequest used to make the HTTP request.
    * @type {!XDomainRequest}
@@ -85,7 +79,7 @@ goog.net.IeCorsXhrAdapter = function() {
    * The simulated ready state.
    * @type {number}
    */
-  this.readyState = goog.net.XmlHttp.ReadyState.UNINITIALIZED;
+  this.readyState = XmlHttp.ReadyState.UNINITIALIZED;
 
   /**
    * The simulated ready state change callback function.
@@ -125,7 +119,7 @@ goog.net.IeCorsXhrAdapter = function() {
   this.xdr_.onerror = goog.bind(this.handleError_, this);
   this.xdr_.onprogress = goog.bind(this.handleProgress_, this);
   this.xdr_.ontimeout = goog.bind(this.handleTimeout_, this);
-};
+}
 
 
 /**
@@ -139,8 +133,7 @@ goog.net.IeCorsXhrAdapter = function() {
  *     it to false will actually raise an exception.
  * @override
  */
-goog.net.IeCorsXhrAdapter.prototype.open = function(method, url, opt_async) {
-  'use strict';
+IeCorsXhrAdapter.prototype.open = function(method, url, opt_async) {
   if (opt_async != null && (!opt_async)) {
     throw new Error('Only async requests are supported.');
   }
@@ -156,8 +149,7 @@ goog.net.IeCorsXhrAdapter.prototype.open = function(method, url, opt_async) {
  *     supported by this implementation.
  * @override
  */
-goog.net.IeCorsXhrAdapter.prototype.send = function(opt_content) {
-  'use strict';
+IeCorsXhrAdapter.prototype.send = function(opt_content) {
   if (opt_content) {
     if (typeof opt_content == 'string') {
       this.xdr_.send(opt_content);
@@ -173,8 +165,7 @@ goog.net.IeCorsXhrAdapter.prototype.send = function(opt_content) {
 /**
  * @override
  */
-goog.net.IeCorsXhrAdapter.prototype.abort = function() {
-  'use strict';
+IeCorsXhrAdapter.prototype.abort = function() {
   this.xdr_.abort();
 };
 
@@ -186,7 +177,7 @@ goog.net.IeCorsXhrAdapter.prototype.abort = function() {
  * @param {string} value The value to set for the HTTP header. Ignored.
  * @override
  */
-goog.net.IeCorsXhrAdapter.prototype.setRequestHeader = function(key, value) {
+IeCorsXhrAdapter.prototype.setRequestHeader = function(key, value) {
   // Unsupported; ignore the header.
 };
 
@@ -202,8 +193,7 @@ goog.net.IeCorsXhrAdapter.prototype.setRequestHeader = function(key, value) {
  *     is not 'content-type' (case-insensitive).
  * @override
  */
-goog.net.IeCorsXhrAdapter.prototype.getResponseHeader = function(key) {
-  'use strict';
+IeCorsXhrAdapter.prototype.getResponseHeader = function(key) {
   if (key.toLowerCase() == 'content-type') {
     return this.xdr_.contentType;
   }
@@ -215,12 +205,11 @@ goog.net.IeCorsXhrAdapter.prototype.getResponseHeader = function(key) {
  * Handles a request that has fully loaded successfully.
  * @private
  */
-goog.net.IeCorsXhrAdapter.prototype.handleLoad_ = function() {
-  'use strict';
+IeCorsXhrAdapter.prototype.handleLoad_ = function() {
   // IE only calls onload if the status is 200, so the status code must be OK.
-  this.status = goog.net.HttpStatus.OK;
+  this.status = HttpStatus.OK;
   this.response = this.responseText = this.xdr_.responseText;
-  this.setReadyState_(goog.net.XmlHttp.ReadyState.COMPLETE);
+  this.setReadyState_(XmlHttp.ReadyState.COMPLETE);
 };
 
 
@@ -228,13 +217,12 @@ goog.net.IeCorsXhrAdapter.prototype.handleLoad_ = function() {
  * Handles a request that has failed to load.
  * @private
  */
-goog.net.IeCorsXhrAdapter.prototype.handleError_ = function() {
-  'use strict';
+IeCorsXhrAdapter.prototype.handleError_ = function() {
   // IE doesn't tell us what the status code actually is (other than the fact
   // that it is not 200), so simulate an INTERNAL_SERVER_ERROR.
-  this.status = goog.net.HttpStatus.INTERNAL_SERVER_ERROR;
+  this.status = HttpStatus.INTERNAL_SERVER_ERROR;
   this.response = this.responseText = '';
-  this.setReadyState_(goog.net.XmlHttp.ReadyState.COMPLETE);
+  this.setReadyState_(XmlHttp.ReadyState.COMPLETE);
 };
 
 
@@ -242,8 +230,7 @@ goog.net.IeCorsXhrAdapter.prototype.handleError_ = function() {
  * Handles a request that timed out.
  * @private
  */
-goog.net.IeCorsXhrAdapter.prototype.handleTimeout_ = function() {
-  'use strict';
+IeCorsXhrAdapter.prototype.handleTimeout_ = function() {
   this.handleError_();
 };
 
@@ -252,12 +239,11 @@ goog.net.IeCorsXhrAdapter.prototype.handleTimeout_ = function() {
  * Handles a request that is in the process of loading.
  * @private
  */
-goog.net.IeCorsXhrAdapter.prototype.handleProgress_ = function() {
-  'use strict';
+IeCorsXhrAdapter.prototype.handleProgress_ = function() {
   // IE only calls onprogress if the status is 200, so the status code must be
   // OK.
-  this.status = goog.net.HttpStatus.OK;
-  this.setReadyState_(goog.net.XmlHttp.ReadyState.LOADING);
+  this.status = HttpStatus.OK;
+  this.setReadyState_(XmlHttp.ReadyState.LOADING);
 };
 
 
@@ -267,8 +253,7 @@ goog.net.IeCorsXhrAdapter.prototype.handleProgress_ = function() {
  * @param {number} readyState The new ready state.
  * @private
  */
-goog.net.IeCorsXhrAdapter.prototype.setReadyState_ = function(readyState) {
-  'use strict';
+IeCorsXhrAdapter.prototype.setReadyState_ = function(readyState) {
   this.readyState = readyState;
   if (this.onreadystatechange) {
     this.onreadystatechange();
@@ -282,7 +267,6 @@ goog.net.IeCorsXhrAdapter.prototype.setReadyState_ = function(readyState) {
  * @return {string} The headers returned from the server.
  * @override
  */
-goog.net.IeCorsXhrAdapter.prototype.getAllResponseHeaders = function() {
-  'use strict';
+IeCorsXhrAdapter.prototype.getAllResponseHeaders = function() {
   return 'content-type: ' + this.xdr_.contentType;
 };

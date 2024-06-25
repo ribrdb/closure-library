@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.UndoRedoManagerTest');
 goog.setTestOnly();
 
-const StrictMock = goog.require('goog.testing.StrictMock');
-const UndoRedoManager = goog.require('goog.editor.plugins.UndoRedoManager');
-const UndoRedoState = goog.require('goog.editor.plugins.UndoRedoState');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { StrictMock } from '../../testing/strictmock.js';
+import { UndoRedoManager } from './undoredomanager.js';
+import { UndoRedoState } from './undoredostate.js';
+import * as events from '../../events/events.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let mockState1;
 let mockState2;

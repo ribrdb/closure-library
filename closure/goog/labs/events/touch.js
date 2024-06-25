@@ -9,13 +9,11 @@
  */
 
 
-goog.provide('goog.labs.events.touch');
-goog.provide('goog.labs.events.touch.TouchData');
+import * as array from '../../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.events.EventType');
-goog.require('goog.string');
+import * as asserts from '../../asserts/asserts.js';
+import { EventType } from '../../events/eventtype.js';
+import * as string from '../../string/string.js';
 
 
 /**
@@ -29,47 +27,46 @@ goog.require('goog.string');
  *   target: EventTarget
  * }}
  */
-goog.labs.events.touch.TouchData;
+export var TouchData;
 
 
 /**
  * Takes a mouse or touch event and returns the relevant geometry and target
  * data.
  * @param {!Event} e A mouse or touch event.
- * @return {!goog.labs.events.touch.TouchData}
+ * @return {!TouchData}
  */
-goog.labs.events.touch.getTouchData = function(e) {
-  'use strict';
-  let source = e;
-  goog.asserts.assert(
-      goog.string.startsWith(e.type, 'touch') ||
-          goog.string.startsWith(e.type, 'mouse'),
-      'Event must be mouse or touch event.');
+export function getTouchData(e) {
+ let source = e;
+ asserts.assert(
+     string.startsWith(e.type, 'touch') ||
+         string.startsWith(e.type, 'mouse'),
+     'Event must be mouse or touch event.');
 
-  if (goog.string.startsWith(e.type, 'touch')) {
-    goog.asserts.assert(
-        goog.array.contains(
-            [
-              goog.events.EventType.TOUCHCANCEL, goog.events.EventType.TOUCHEND,
-              goog.events.EventType.TOUCHMOVE, goog.events.EventType.TOUCHSTART
-            ],
-            e.type),
-        'Touch event not of valid type.');
+ if (string.startsWith(e.type, 'touch')) {
+   asserts.assert(
+       array.contains(
+           [
+             EventType.TOUCHCANCEL, EventType.TOUCHEND,
+             EventType.TOUCHMOVE, EventType.TOUCHSTART
+           ],
+           e.type),
+       'Touch event not of valid type.');
 
-    // If the event is end or cancel, take the first changed touch,
-    // otherwise the first target touch.
-    /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-    source = (e.type == goog.events.EventType.TOUCHEND ||
-              e.type == goog.events.EventType.TOUCHCANCEL) ?
-        e.changedTouches[0] :
-        e.targetTouches[0];
-  }
+   // If the event is end or cancel, take the first changed touch,
+   // otherwise the first target touch.
+   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+   source = (e.type == EventType.TOUCHEND ||
+             e.type == EventType.TOUCHCANCEL) ?
+       e.changedTouches[0] :
+       e.targetTouches[0];
+ }
 
-  return {
-    clientX: source['clientX'],
-    clientY: source['clientY'],
-    screenX: source['screenX'],
-    screenY: source['screenY'],
-    target: source['target']
-  };
-};
+ return {
+   clientX: source['clientX'],
+   clientY: source['clientY'],
+   screenX: source['screenX'],
+   screenY: source['screenY'],
+   target: source['target']
+ };
+}

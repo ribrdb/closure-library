@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.KeyEventTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const EventType = goog.require('goog.events.EventType');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyHandler = goog.require('goog.events.KeyHandler');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { EventType } from './eventtype.js';
+import { KeyCodes } from './keycodes.js';
+import { KeyHandler } from './keyhandler.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
+import * as userAgent from '../useragent/useragent.js';
 
 function assertIe8StyleKeyHandling() {
   let keyEvent;

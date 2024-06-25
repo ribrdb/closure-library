@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.SolidFillTest');
 goog.setTestOnly();
 
-const SolidFill = goog.require('goog.graphics.SolidFill');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SolidFill } from './solidfill.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testGetColor() {

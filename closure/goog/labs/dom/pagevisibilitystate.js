@@ -8,14 +8,11 @@
  * @fileoverview Page visibility states for PageVisiblityMonitor.
  */
 
-goog.module('goog.labs.dom.PageVisibilityState');
-goog.module.declareLegacyNamespace();
-
 /**
  * The different visibility states.
  * @enum {string}
  */
-exports = {
+export default {
   HIDDEN: 'hidden',
   VISIBLE: 'visible',
   PRERENDER: 'prerender',

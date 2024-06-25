@@ -9,27 +9,24 @@
  * @see ../demos/gauge.html
  */
 
-goog.module('goog.ui.Gauge');
-goog.module.declareLegacyNamespace();
-
-const AbstractGraphics = goog.requireType('goog.graphics.AbstractGraphics');
-const Animation = goog.require('goog.fx.Animation');
-const AnimationEvent = goog.requireType('goog.fx.AnimationEvent');
-const Component = goog.require('goog.ui.Component');
-const DomHelper = goog.requireType('goog.dom.DomHelper');
-const Font = goog.require('goog.graphics.Font');
-const GaugeTheme = goog.require('goog.ui.GaugeTheme');
-const GroupElement = goog.requireType('goog.graphics.GroupElement');
-const Path = goog.require('goog.graphics.Path');
-const SolidFill = goog.require('goog.graphics.SolidFill');
-const TagName = goog.require('goog.dom.TagName');
-const Transition = goog.require('goog.fx.Transition');
-const aria = goog.require('goog.a11y.aria');
-const asserts = goog.require('goog.asserts');
-const easing = goog.require('goog.fx.easing');
-const googEvents = goog.require('goog.events');
-const googGraphics = goog.require('goog.graphics');
-const googMath = goog.require('goog.math');
+const AbstractGraphics = goog.requireType('goog.graphics.abstractgraphics');
+import { Animation } from '../fx/animation.js';
+import { Component } from './component.js';
+import { Font } from '../graphics/font.js';
+import { GaugeTheme } from './gaugetheme.js';
+import { Path } from '../graphics/path.js';
+import { SolidFill } from '../graphics/solidfill.js';
+import { TagName } from '../dom/tagname.js';
+import { Transition } from '../fx/transition.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as asserts from '../asserts/asserts.js';
+import * as easing from '../fx/easing.js';
+import * as googEvents from '../events/events.js';
+import * as googGraphics from '../graphics/graphics.js';
+import * as googMath from '../math/math.js';
+const AnimationEvent = goog.requireType('goog.fx.animation');
+const DomHelper = goog.requireType('goog.dom.dom');
+const GroupElement = goog.requireType('goog.graphics.groupelement');
 
 /**
  * The radius of the entire gauge from the canvas size.
@@ -908,4 +905,4 @@ class Gauge extends Component {
   }
 }
 
-exports = Gauge;
+export { Gauge };

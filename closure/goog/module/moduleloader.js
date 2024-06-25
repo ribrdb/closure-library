@@ -18,32 +18,31 @@
  * until we are certain that script A is finished loading.
  */
 
-goog.module('goog.module.ModuleLoader');
+import { AbstractModuleLoader } from './abstractmoduleloader.js';
 
-const AbstractModuleLoader = goog.require('goog.module.AbstractModuleLoader');
-const BulkLoader = goog.require('goog.net.BulkLoader');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventId = goog.require('goog.events.EventId');
-const EventTarget = goog.require('goog.events.EventTarget');
-const EventType = goog.require('goog.net.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const ModuleInfo = goog.requireType('goog.module.ModuleInfo');
-const SafeScript = goog.require('goog.html.SafeScript');
-const TagName = goog.require('goog.dom.TagName');
-const Timer = goog.require('goog.Timer');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const asserts = goog.require('goog.asserts');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const jsloader = goog.require('goog.net.jsloader');
-const legacyconversions = goog.require('goog.html.legacyconversions');
-const log = goog.require('goog.log');
-const product = goog.require('goog.userAgent.product');
-const safe = goog.require('goog.dom.safe');
-const userAgent = goog.require('goog.userAgent');
+import { BulkLoader } from '../net/bulkloader.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventId } from '../events/eventid.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../net/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { SafeScript } from '../html/safescript.js';
+import { TagName } from '../dom/tagname.js';
+import { Timer } from '../timer/timer.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as asserts from '../asserts/asserts.js';
+import * as browser from '../labs/useragent/browser.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as googArray from '../array/array.js';
+import * as jsloader from '../net/jsloader.js';
+import * as legacyconversions from '../html/legacyconversions.js';
+import * as log from '../log/log.js';
+import * as product from '../useragent/product.js';
+import * as safe from '../dom/safe.js';
+import * as userAgent from '../useragent/useragent.js';
+const ModuleInfo = goog.requireType('goog.module.moduleinfo');
 
 /**
  * A class that loads JavaScript modules.
@@ -793,4 +792,4 @@ ModuleLoader.LoadStatus.createForIds_ = function(ids, moduleInfoMap) {
 };
 
 
-exports = ModuleLoader;
+export { ModuleLoader };

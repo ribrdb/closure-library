@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.TableEditorTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const Range = goog.require('goog.dom.Range');
-const TableEditor = goog.require('goog.editor.plugins.TableEditor');
-const TagName = goog.require('goog.dom.TagName');
-const TestCase = goog.require('goog.testing.TestCase');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const googObject = goog.require('goog.object');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { ExpectedFailures } from '../../testing/expectedfailures.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import * as Range from '../../dom/range.js';
+import { TableEditor } from './tableeditor.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestCase } from '../../testing/testcase.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import googObject from '../../object/object.js';
+import * as googString from '../../string/string.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let field;
 let plugin;

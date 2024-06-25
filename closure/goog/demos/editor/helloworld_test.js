@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.demos.editor.HelloWorldTest');
 goog.setTestOnly('goog.demos.editor.HelloWorldTest');
 
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const HelloWorld = goog.require('goog.demos.editor.HelloWorld');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const googDom = goog.require('goog.dom');
-const googUserAgent = goog.require('goog.userAgent');
-const testSuite = goog.require('goog.testing.testSuite');
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { HelloWorld } from './helloworld.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as googDom from '../../dom/dom.js';
+import * as googUserAgent from '../../useragent/useragent.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let FIELD;
 let plugin;

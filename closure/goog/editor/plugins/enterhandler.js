@@ -8,27 +8,26 @@
  * @fileoverview Plugin to handle enter keys.
  */
 
-goog.provide('goog.editor.plugins.EnterHandler');
+import * as dom from '../../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.NodeOffset');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.Range');
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.BrowserFeature');
-goog.require('goog.editor.Plugin');
-goog.require('goog.editor.node');
-goog.require('goog.editor.plugins.Blockquote');
-goog.require('goog.editor.range');
-goog.require('goog.editor.style');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.functions');
-goog.require('goog.object');
-goog.require('goog.string');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.AbstractRange');
-goog.requireType('goog.events.BrowserEvent');
-goog.requireType('goog.events.Event');
+import { NodeOffset } from '../../dom/nodeoffset.js';
+import { NodeType } from '../../dom/nodetype.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import { BrowserFeature } from '../browserfeature.js';
+import { Plugin } from '../plugin.js';
+import * as editorNode from '../node.js';
+import { Blockquote } from './blockquote.js';
+import * as editorRange from '../range.js';
+import * as style from '../style.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import * as functions from '../../functions/functions.js';
+import object from '../../object/object.js';
+import * as string from '../../string/string.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.dom.abstractrange');
+goog.requireType('goog.events.browserevent');
+goog.requireType('goog.events.event');
 
 
 
@@ -41,36 +40,33 @@ goog.requireType('goog.events.Event');
  * Firefox, the resulting HTML uses BR tags at the end of each line.
  *
  * @constructor
- * @extends {goog.editor.Plugin}
+ * @extends {Plugin}
  */
-goog.editor.plugins.EnterHandler = function() {
-  'use strict';
-  goog.editor.Plugin.call(this);
-};
-goog.inherits(goog.editor.plugins.EnterHandler, goog.editor.Plugin);
+export function EnterHandler() {
+  Plugin.call(this);
+}
+goog.inherits(EnterHandler, Plugin);
 
 
 /**
  * The type of block level tag to add on enter, for browsers that support
  * specifying the default block-level tag. Can be overriden by subclasses; must
  * be either DIV or P.
- * @type {!goog.dom.TagName}
+ * @type {!TagName}
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.tag = goog.dom.TagName.DIV;
+EnterHandler.prototype.tag = TagName.DIV;
 
 
 /** @override */
-goog.editor.plugins.EnterHandler.prototype.getTrogClassId = function() {
-  'use strict';
+EnterHandler.prototype.getTrogClassId = function() {
   return 'EnterHandler';
 };
 
 
 /** @override */
-goog.editor.plugins.EnterHandler.prototype.enable = function(fieldObject) {
-  'use strict';
-  goog.editor.plugins.EnterHandler.base(this, 'enable', fieldObject);
+EnterHandler.prototype.enable = function(fieldObject) {
+  EnterHandler.base(this, 'enable', fieldObject);
 };
 
 
@@ -83,11 +79,10 @@ goog.editor.plugins.EnterHandler.prototype.enable = function(fieldObject) {
  *    html is empty.
  * @override
  */
-goog.editor.plugins.EnterHandler.prototype.prepareContentsHtml = function(
+EnterHandler.prototype.prepareContentsHtml = function(
     html) {
-  'use strict';
-  if (!html || goog.string.isBreakingWhitespace(html)) {
-    return goog.editor.BrowserFeature.COLLAPSES_EMPTY_NODES ?
+  if (!html || string.isBreakingWhitespace(html)) {
+    return BrowserFeature.COLLAPSES_EMPTY_NODES ?
         this.getNonCollapsingBlankHtml() :
         '';
   }
@@ -101,23 +96,22 @@ goog.editor.plugins.EnterHandler.prototype.prepareContentsHtml = function(
  * @return {string} Blank html.
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.getNonCollapsingBlankHtml =
-    goog.functions.constant('<br>');
+EnterHandler.prototype.getNonCollapsingBlankHtml =
+    functions.constant('<br>');
 
 
 /**
  * Internal backspace handler.
  * @param {goog.events.Event} e The keypress event.
- * @param {goog.dom.AbstractRange} range The closure range object.
+ * @param {dom.AbstractRange} range The closure range object.
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.handleBackspaceInternal = function(
+EnterHandler.prototype.handleBackspaceInternal = function(
     e, range) {
-  'use strict';
   var field = this.getFieldObject().getElement();
   var container = range && range.getStartNode();
 
-  if (field.firstChild == container && goog.editor.node.isEmpty(container)) {
+  if (field.firstChild == container && editorNode.isEmpty(container)) {
     e.preventDefault();
     // TODO(user): I think we probably don't need to stopPropagation here
     e.stopPropagation();
@@ -132,41 +126,40 @@ goog.editor.plugins.EnterHandler.prototype.handleBackspaceInternal = function(
  *     manually inserting elements.
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.processParagraphTagsInternal =
+EnterHandler.prototype.processParagraphTagsInternal =
     function(e, split) {
-  'use strict';
-  // Force IE to turn the node we are leaving into a DIV.  If we do turn
-  // it into a DIV, the node IE creates in response to ENTER will also be
-  // a DIV.  If we don't, it will be a P.  We handle that case
-  // in handleKeyUpIE_
-  if (goog.userAgent.IE) {
-    this.ensureBlockIeOpera(goog.dom.TagName.DIV);
-  } else if (!split && goog.userAgent.WEBKIT) {
-    // WebKit duplicates a blockquote when the user hits enter. Let's cancel
-    // this and insert a BR instead, to make it more consistent with the other
-    // browsers.
-    var range = this.getFieldObject().getRange();
-    if (!range ||
-        !goog.editor.plugins.EnterHandler.isDirectlyInBlockquote(
-            range.getContainerElement())) {
-      return;
-    }
+      // Force IE to turn the node we are leaving into a DIV.  If we do turn
+      // it into a DIV, the node IE creates in response to ENTER will also be
+      // a DIV.  If we don't, it will be a P.  We handle that case
+      // in handleKeyUpIE_
+      if (userAgent.IE) {
+        this.ensureBlockIeOpera(TagName.DIV);
+      } else if (!split && userAgent.WEBKIT) {
+        // WebKit duplicates a blockquote when the user hits enter. Let's cancel
+        // this and insert a BR instead, to make it more consistent with the other
+        // browsers.
+        var range = this.getFieldObject().getRange();
+        if (!range ||
+            !EnterHandler.isDirectlyInBlockquote(
+                range.getContainerElement())) {
+          return;
+        }
 
-    var dh = this.getFieldDomHelper();
-    var br = dh.createElement(goog.dom.TagName.BR);
-    range.insertNode(br, true);
+        var dh = this.getFieldDomHelper();
+        var br = dh.createElement(TagName.BR);
+        range.insertNode(br, true);
 
-    // If the BR is at the end of a block element, Safari still thinks there is
-    // only one line instead of two, so we need to add another BR in that case.
-    if (goog.editor.node.isBlockTag(br.parentNode) &&
-        !goog.editor.node.skipEmptyTextNodes(br.nextSibling)) {
-      goog.dom.insertSiblingBefore(dh.createElement(goog.dom.TagName.BR), br);
-    }
+        // If the BR is at the end of a block element, Safari still thinks there is
+        // only one line instead of two, so we need to add another BR in that case.
+        if (editorNode.isBlockTag(br.parentNode) &&
+            !editorNode.skipEmptyTextNodes(br.nextSibling)) {
+          dom.insertSiblingBefore(dh.createElement(TagName.BR), br);
+        }
 
-    goog.editor.range.placeCursorNextTo(br, false);
-    e.preventDefault();
-  }
-};
+        editorRange.placeCursorNextTo(br, false);
+        e.preventDefault();
+      }
+    };
 
 
 /**
@@ -174,12 +167,13 @@ goog.editor.plugins.EnterHandler.prototype.processParagraphTagsInternal =
  * @param {Node} n The node.
  * @return {boolean} Whether the deepest block ancestor of n is a blockquote.
  */
-goog.editor.plugins.EnterHandler.isDirectlyInBlockquote = function(n) {
-  'use strict';
+EnterHandler.isDirectlyInBlockquote = function(n) {
   for (var current = n; current; current = current.parentNode) {
-    if (goog.editor.node.isBlockTag(current)) {
-      return /** @type {!Element} */ (current).tagName ==
-          goog.dom.TagName.BLOCKQUOTE;
+    if (editorNode.isBlockTag(current)) {
+      return (
+        /** @type {!Element} */ (current).tagName ==
+            TagName.BLOCKQUOTE
+      );
     }
   }
 
@@ -192,8 +186,7 @@ goog.editor.plugins.EnterHandler.isDirectlyInBlockquote = function(n) {
  * @param {goog.events.Event} e The keypress event.
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.handleDeleteGecko = function(e) {
-  'use strict';
+EnterHandler.prototype.handleDeleteGecko = function(e) {
   this.deleteBrGecko(e);
 };
 
@@ -210,18 +203,17 @@ goog.editor.plugins.EnterHandler.prototype.handleDeleteGecko = function(e) {
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.EnterHandler.prototype.deleteBrGecko = function(e) {
-  'use strict';
+EnterHandler.prototype.deleteBrGecko = function(e) {
   var range = this.getFieldObject().getRange();
   if (range.isCollapsed()) {
     var container = range.getEndNode();
-    if (container.nodeType == goog.dom.NodeType.ELEMENT) {
+    if (container.nodeType == NodeType.ELEMENT) {
       var nextNode = container.childNodes[range.getEndOffset()];
-      if (nextNode && nextNode.tagName == goog.dom.TagName.BR) {
+      if (nextNode && nextNode.tagName == TagName.BR) {
         // We want to retrieve the first non-whitespace previous sibling
         // as we could have added an empty text node below and want to
         // properly handle deleting a sequence of BR's.
-        var previousSibling = goog.editor.node.getPreviousSibling(nextNode);
+        var previousSibling = editorNode.getPreviousSibling(nextNode);
         var nextSibling = nextNode.nextSibling;
 
         container.removeChild(nextNode);
@@ -245,18 +237,18 @@ goog.editor.plugins.EnterHandler.prototype.deleteBrGecko = function(e) {
         // 2. If the BR doesn't have a previous sibling or the previous sibling
         //    is a block level element or a BR, we place the cursor at the
         //    beginning of the leftmost leaf of its next sibling.
-        if (nextSibling && goog.editor.node.isBlockTag(nextSibling)) {
+        if (nextSibling && editorNode.isBlockTag(nextSibling)) {
           if (previousSibling &&
-              !(previousSibling.tagName == goog.dom.TagName.BR ||
-                goog.editor.node.isBlockTag(previousSibling))) {
-            goog.dom.Range
+              !(previousSibling.tagName == TagName.BR ||
+                editorNode.isBlockTag(previousSibling))) {
+            Range
                 .createCaret(
                     previousSibling,
-                    goog.editor.node.getLength(previousSibling))
+                    editorNode.getLength(previousSibling))
                 .select();
           } else {
-            var leftMostLeaf = goog.editor.node.getLeftMostLeaf(nextSibling);
-            goog.dom.Range.createCaret(leftMostLeaf, 0).select();
+            var leftMostLeaf = editorNode.getLeftMostLeaf(nextSibling);
+            Range.createCaret(leftMostLeaf, 0).select();
           }
         }
       }
@@ -266,9 +258,8 @@ goog.editor.plugins.EnterHandler.prototype.deleteBrGecko = function(e) {
 
 
 /** @override */
-goog.editor.plugins.EnterHandler.prototype.handleKeyDown = function(e) {
-  'use strict';
-  if (goog.userAgent.GECKO) {
+EnterHandler.prototype.handleKeyDown = function(e) {
+  if (userAgent.GECKO) {
     // If a dialog doesn't have selectable field, Gecko grabs the event and
     // performs actions in editor window. This solves that problem and allows
     // the event to be passed on to proper handlers.
@@ -278,9 +269,9 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyDown = function(e) {
 
     // Firefox will allow the first node in an iframe to be deleted
     // on a backspace.  Disallow it if the node is empty.
-    if (e.keyCode == goog.events.KeyCodes.BACKSPACE) {
+    if (e.keyCode == KeyCodes.BACKSPACE) {
       this.handleBackspaceInternal(e, this.getFieldObject().getRange());
-    } else if (e.keyCode == goog.events.KeyCodes.DELETE) {
+    } else if (e.keyCode == KeyCodes.DELETE) {
       this.handleDeleteGecko(e);
     }
   }
@@ -290,12 +281,11 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyDown = function(e) {
 
 
 /** @override */
-goog.editor.plugins.EnterHandler.prototype.handleKeyPress = function(e) {
-  'use strict';
+EnterHandler.prototype.handleKeyPress = function(e) {
   // ENTER must be handled in keyPress as it requires a beforechange event,
   // which is fired in between keydown and keyup.
-  if (e.keyCode == goog.events.KeyCodes.ENTER) {
-    if (goog.userAgent.GECKO) {
+  if (e.keyCode == KeyCodes.ENTER) {
+    if (userAgent.GECKO) {
       if (!e.shiftKey) {
         // Behave similarly to IE's content editable return carriage:
         // If the shift key is down or specified by the application, insert a
@@ -309,7 +299,7 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyPress = function(e) {
       var cursorPosition = this.deleteCursorSelection_();
 
       var split = !!this.getFieldObject().execCommand(
-          goog.editor.plugins.Blockquote.SPLIT_COMMAND, cursorPosition);
+          Blockquote.SPLIT_COMMAND, cursorPosition);
       if (split) {
         // TODO(user): I think we probably don't need to stopPropagation here
         e.preventDefault();
@@ -318,7 +308,7 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyPress = function(e) {
 
       this.releasePositionObject_(cursorPosition);
 
-      if (goog.userAgent.WEBKIT) {
+      if (userAgent.WEBKIT) {
         this.handleEnterWebkitInternal(e);
       }
 
@@ -332,12 +322,11 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyPress = function(e) {
 
 
 /** @override */
-goog.editor.plugins.EnterHandler.prototype.handleKeyUp = function(e) {
-  'use strict';
+EnterHandler.prototype.handleKeyUp = function(e) {
   // If a dialog doesn't have selectable field, Gecko grabs the event and
   // performs actions in editor window. This solves that problem and allows
   // the event to be passed on to proper handlers.
-  if (goog.userAgent.GECKO && this.getFieldObject().inModalMode()) {
+  if (userAgent.GECKO && this.getFieldObject().inModalMode()) {
     return false;
   }
   this.handleKeyUpInternal(e);
@@ -351,10 +340,9 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyUp = function(e) {
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.EnterHandler.prototype.handleKeyUpInternal = function(e) {
-  'use strict';
-  if ((goog.userAgent.IE) && e.keyCode == goog.events.KeyCodes.ENTER) {
-    this.ensureBlockIeOpera(goog.dom.TagName.DIV, true);
+EnterHandler.prototype.handleKeyUpInternal = function(e) {
+  if ((userAgent.IE) && e.keyCode == KeyCodes.ENTER) {
+    this.ensureBlockIeOpera(TagName.DIV, true);
   }
 };
 
@@ -364,15 +352,14 @@ goog.editor.plugins.EnterHandler.prototype.handleKeyUpInternal = function(e) {
  * @param {goog.events.BrowserEvent} e The key event.
  * @private
  */
-goog.editor.plugins.EnterHandler.prototype.handleEnterGecko_ = function(e) {
-  'use strict';
+EnterHandler.prototype.handleEnterGecko_ = function(e) {
   // Retrieve whether the selection is collapsed before we delete it.
   var range = this.getFieldObject().getRange();
   var wasCollapsed = !range || range.isCollapsed();
   var cursorPosition = this.deleteCursorSelection_();
 
   var handled = this.getFieldObject().execCommand(
-      goog.editor.plugins.Blockquote.SPLIT_COMMAND, cursorPosition);
+      Blockquote.SPLIT_COMMAND, cursorPosition);
   if (handled) {
     // TODO(user): I think we probably don't need to stopPropagation here
     e.preventDefault();
@@ -391,7 +378,7 @@ goog.editor.plugins.EnterHandler.prototype.handleEnterGecko_ = function(e) {
  * @param {goog.events.BrowserEvent} e The key press event.
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.handleEnterWebkitInternal = function(
+EnterHandler.prototype.handleEnterWebkitInternal = function(
     e) {};
 
 
@@ -403,10 +390,10 @@ goog.editor.plugins.EnterHandler.prototype.handleEnterWebkitInternal = function(
  * @param {boolean} wasCollapsed Whether the selection was collapsed before
  *     the key press.  If it was not, code before this function has already
  *     cleared the contents of the selection.
- * @param {goog.dom.AbstractRange} range Object representing the selection.
+ * @param {dom.AbstractRange} range Object representing the selection.
  * @protected
  */
-goog.editor.plugins.EnterHandler.prototype.handleEnterAtCursorGeckoInternal =
+EnterHandler.prototype.handleEnterAtCursorGeckoInternal =
     function(e, wasCollapsed, range) {};
 
 
@@ -416,11 +403,11 @@ goog.editor.plugins.EnterHandler.prototype.handleEnterAtCursorGeckoInternal =
  * @type {Object}
  * @private
  */
-goog.editor.plugins.EnterHandler.DO_NOT_ENSURE_BLOCK_NODES_ =
-    goog.object.createSet(
-        goog.dom.TagName.LI, goog.dom.TagName.DIV, goog.dom.TagName.H1,
-        goog.dom.TagName.H2, goog.dom.TagName.H3, goog.dom.TagName.H4,
-        goog.dom.TagName.H5, goog.dom.TagName.H6);
+EnterHandler.DO_NOT_ENSURE_BLOCK_NODES_ =
+    object.createSet(
+        TagName.LI, TagName.DIV, TagName.H1,
+        TagName.H2, TagName.H3, TagName.H4,
+        TagName.H5, TagName.H6);
 
 
 /**
@@ -430,12 +417,11 @@ goog.editor.plugins.EnterHandler.DO_NOT_ENSURE_BLOCK_NODES_ =
  * @return {boolean} Whether this is an element that only contains a BR.
  * @protected
  */
-goog.editor.plugins.EnterHandler.isBrElem = function(node) {
-  'use strict';
-  return goog.editor.node.isEmpty(node) &&
-      goog.dom
+EnterHandler.isBrElem = function(node) {
+  return editorNode.isEmpty(node) &&
+      dom
           .getElementsByTagName(
-              goog.dom.TagName.BR, /** @type {!Element} */ (node))
+              TagName.BR, /** @type {!Element} */ (node))
           .length == 1;
 };
 
@@ -445,14 +431,14 @@ goog.editor.plugins.EnterHandler.isBrElem = function(node) {
  * Enter spacing. Call this when Enter is pressed if desired.
  *
  * We want to make sure the user is always inside of a block (or other nodes
- * listed in goog.editor.plugins.EnterHandler.IGNORE_ENSURE_BLOCK_NODES_).  We
+ * listed in EnterHandler.IGNORE_ENSURE_BLOCK_NODES_).  We
  * listen to keypress to force nodes that the user is leaving to turn into
  * blocks, but we also need to listen to keyup to force nodes that the user is
  * entering to turn into blocks.
  * Example:  html is: `<h2>foo[cursor]</h2>`, and the user hits enter.  We
  * don't want to format the h2, but we do want to format the P that is
  * created on enter.  The P node is not available until keyup.
- * @param {!goog.dom.TagName} tag The tag name to convert to.
+ * @param {!TagName} tag The tag name to convert to.
  * @param {boolean=} opt_keyUp Whether the function is being called on key up.
  *     When called on key up, the cursor is in the newly created node, so the
  *     semantics for when to change it to a block are different.  Specifically,
@@ -460,9 +446,8 @@ goog.editor.plugins.EnterHandler.isBrElem = function(node) {
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.EnterHandler.prototype.ensureBlockIeOpera = function(
+EnterHandler.prototype.ensureBlockIeOpera = function(
     tag, opt_keyUp) {
-  'use strict';
   var range = this.getFieldObject().getRange();
   var container = range.getContainer();
   var field = this.getFieldObject().getElement();
@@ -476,10 +461,10 @@ goog.editor.plugins.EnterHandler.prototype.ensureBlockIeOpera = function(
     // instead of done before and saved in a variable, so that it can be
     // short-circuited and avoid a weird IE edge case.
     if (nodeName == tag ||
-        (goog.editor.plugins.EnterHandler
+        (EnterHandler
              .DO_NOT_ENSURE_BLOCK_NODES_[nodeName] &&
          !(opt_keyUp &&
-           goog.editor.plugins.EnterHandler.isBrElem(container)))) {
+           EnterHandler.isBrElem(container)))) {
 
       return;
     }
@@ -499,8 +484,7 @@ goog.editor.plugins.EnterHandler.prototype.ensureBlockIeOpera = function(
  *    Should be passed to releasePositionObject_ when no longer in use.
  * @private
  */
-goog.editor.plugins.EnterHandler.prototype.deleteCursorSelection_ = function() {
-  'use strict';
+EnterHandler.prototype.deleteCursorSelection_ = function() {
   return this.deleteCursorSelectionW3C_();
 };
 
@@ -510,42 +494,39 @@ goog.editor.plugins.EnterHandler.prototype.deleteCursorSelection_ = function() {
  * @param {Node|Object} position The object returned by deleteCursorSelection_.
  * @private
  */
-goog.editor.plugins.EnterHandler.prototype.releasePositionObject_ = function(
-    position) {
-  'use strict';
-};
+EnterHandler.prototype.releasePositionObject_ = function(
+    position) {};
 
 
 /**
  * Delete the selection at the current cursor position, then returns the node
  * at the current position.
- * @return {!goog.editor.range.Point} The current cursor position. Note that
+ * @return {!editorRange.Point} The current cursor position. Note that
  *    unlike simulateEnterIE_, this should not be removed from the DOM.
  * @private
  */
-goog.editor.plugins.EnterHandler.prototype.deleteCursorSelectionW3C_ =
+EnterHandler.prototype.deleteCursorSelectionW3C_ =
     function() {
-  'use strict';
-  var range = this.getFieldObject().getRange();
+      var range = this.getFieldObject().getRange();
 
-  // Delete the current selection if it's is non-collapsed.
-  // Although this is redundant in FF, it's necessary for Safari
-  if (range && !range.isCollapsed()) {
-    var shouldDelete = true;
-    // Opera selects the <br> in an empty block if there is no text node
-    // preceding it. To preserve inline formatting when pressing [enter] inside
-    // an empty block, don't delete the selection if it only selects a <br> at
-    // the end of the block.
-    // TODO(user): Move this into goog.dom.Range. It should detect this state
-    // when creating a range from the window selection and fix it in the created
-    // range.
-    if (shouldDelete) {
-      goog.editor.plugins.EnterHandler.deleteW3cRange_(range);
-    }
-  }
+      // Delete the current selection if it's is non-collapsed.
+      // Although this is redundant in FF, it's necessary for Safari
+      if (range && !range.isCollapsed()) {
+        var shouldDelete = true;
+        // Opera selects the <br> in an empty block if there is no text node
+        // preceding it. To preserve inline formatting when pressing [enter] inside
+        // an empty block, don't delete the selection if it only selects a <br> at
+        // the end of the block.
+        // TODO(user): Move this into goog.dom.Range. It should detect this state
+        // when creating a range from the window selection and fix it in the created
+        // range.
+        if (shouldDelete) {
+          EnterHandler.deleteW3cRange_(range);
+        }
+      }
 
-  return goog.editor.range.getDeepEndPoint(range, true);
-};
+      return editorRange.getDeepEndPoint(range, true);
+    };
 
 /**
  * Checks Whether the selection range start from leftmost.
@@ -554,11 +535,10 @@ goog.editor.plugins.EnterHandler.prototype.deleteCursorSelectionW3C_ =
  * @return {boolean} Whether the selection range start from leftmost.
  * @private
  */
-goog.editor.plugins.EnterHandler.isNodeLeftMostChild_ = function(
+EnterHandler.isNodeLeftMostChild_ = function(
     node, baseNode) {
-  'use strict';
   let childNode = node;
-  while (childNode && childNode.nodeName != goog.dom.TagName.BODY &&
+  while (childNode && childNode.nodeName != TagName.BODY &&
          childNode != baseNode) {
     if (childNode.previousSibling) {
       return false;
@@ -570,44 +550,43 @@ goog.editor.plugins.EnterHandler.isNodeLeftMostChild_ = function(
 
 /**
  * Deletes the contents of the selection from the DOM.
- * @param {goog.dom.AbstractRange} range The range to remove contents from.
- * @return {goog.dom.AbstractRange} The resulting range. Used for testing.
+ * @param {dom.AbstractRange} range The range to remove contents from.
+ * @return {dom.AbstractRange} The resulting range. Used for testing.
  * @private
  */
-goog.editor.plugins.EnterHandler.deleteW3cRange_ = function(range) {
-  'use strict';
+EnterHandler.deleteW3cRange_ = function(range) {
   if (range && !range.isCollapsed()) {
     var reselect = true;
     var baseNode = range.getContainerElement();
-    var nodeOffset = new goog.dom.NodeOffset(range.getStartNode(), baseNode);
+    var nodeOffset = new NodeOffset(range.getStartNode(), baseNode);
     var rangeOffset = range.getStartOffset();
 
     // Whether the selection crosses no container boundaries.
     var isInOneContainer =
-        goog.editor.plugins.EnterHandler.isInOneContainerW3c_(range);
+        EnterHandler.isInOneContainerW3c_(range);
 
     // Whether the selection starts in a container.
     var isPartialStart = !isInOneContainer && range.getStartOffset() != 0;
     // Whether the selection ends in a container it doesn't fully select.
     var isPartialEnd = !isInOneContainer &&
-        goog.editor.plugins.EnterHandler.isPartialEndW3c_(range);
+        EnterHandler.isPartialEndW3c_(range);
 
     var isNodeLeftMostChild =
-        goog.editor.plugins.EnterHandler.isNodeLeftMostChild_(
+        EnterHandler.isNodeLeftMostChild_(
             range.getStartNode(), baseNode);
 
     // Remove The range contents, and ensure the correct content stays selected.
     range.removeContents();
     var node = nodeOffset.findTargetNode(baseNode);
     if (node) {
-      range = goog.dom.Range.createCaret(node, rangeOffset);
+      range = Range.createCaret(node, rangeOffset);
     } else {
       // when the node that would have been referenced has now been deleted and
       // there are no other nodes in the baseNode,  Thus need to set the caret
       // to the end of the base node. If selection range start from leftmost,
       // set the caret to the start of the base node.
       var pos = isNodeLeftMostChild ? 0 : baseNode.childNodes.length;
-      range = goog.dom.Range.createCaret(baseNode, pos);
+      range = Range.createCaret(baseNode, pos);
       reselect = false;
     }
     range.select();
@@ -615,11 +594,11 @@ goog.editor.plugins.EnterHandler.deleteW3cRange_ = function(range) {
     // If we just deleted everything from the container, add an nbsp
     // to the container, and leave the cursor inside of it
     if (isInOneContainer) {
-      var container = goog.editor.style.getContainer(range.getStartNode());
-      if (goog.editor.node.isEmpty(container, true)) {
+      var container = style.getContainer(range.getStartNode());
+      if (editorNode.isEmpty(container, true)) {
         var html = '&nbsp;';
-        goog.editor.node.replaceInnerHtml(container, html);
-        goog.editor.range.selectNodeStart(container.firstChild);
+        editorNode.replaceInnerHtml(container, html);
+        editorRange.selectNodeStart(container.firstChild);
         reselect = false;
       }
     }
@@ -638,18 +617,18 @@ goog.editor.plugins.EnterHandler.deleteW3cRange_ = function(range) {
        TODO(robbyw): Should we wrap the second div's contents in a span if they
                      have inline style?
       */
-      var rangeStart = goog.editor.style.getContainer(range.getStartNode());
-      var redundantContainer = goog.editor.node.getNextSibling(rangeStart);
+      var rangeStart = style.getContainer(range.getStartNode());
+      var redundantContainer = editorNode.getNextSibling(rangeStart);
       if (rangeStart && redundantContainer) {
-        goog.dom.append(rangeStart, redundantContainer.childNodes);
-        goog.dom.removeNode(redundantContainer);
+        dom.append(rangeStart, redundantContainer.childNodes);
+        dom.removeNode(redundantContainer);
       }
     }
 
     if (reselect) {
       // The contents of the original range are gone, so restore the cursor
       // position at the start of where the range once was.
-      range = goog.dom.Range.createCaret(
+      range = Range.createCaret(
           nodeOffset.findTargetNode(baseNode), rangeOffset);
       range.select();
     }
@@ -661,27 +640,26 @@ goog.editor.plugins.EnterHandler.deleteW3cRange_ = function(range) {
 
 /**
  * Checks whether the whole range is in a single block-level element.
- * @param {goog.dom.AbstractRange} range The range to check.
+ * @param {dom.AbstractRange} range The range to check.
  * @return {boolean} Whether the whole range is in a single block-level element.
  * @private
  */
-goog.editor.plugins.EnterHandler.isInOneContainerW3c_ = function(range) {
-  'use strict';
+EnterHandler.isInOneContainerW3c_ = function(range) {
   // Find the block element containing the start of the selection.
   var startContainer = range.getStartNode();
-  if (goog.editor.style.isContainer(startContainer)) {
+  if (style.isContainer(startContainer)) {
     startContainer =
         startContainer.childNodes[range.getStartOffset()] || startContainer;
   }
-  startContainer = goog.editor.style.getContainer(startContainer);
+  startContainer = style.getContainer(startContainer);
 
   // Find the block element containing the end of the selection.
   var endContainer = range.getEndNode();
-  if (goog.editor.style.isContainer(endContainer)) {
+  if (style.isContainer(endContainer)) {
     endContainer =
         endContainer.childNodes[range.getEndOffset()] || endContainer;
   }
-  endContainer = goog.editor.style.getContainer(endContainer);
+  endContainer = style.getContainer(endContainer);
 
   // Compare the two.
   return startContainer == endContainer;
@@ -691,13 +669,12 @@ goog.editor.plugins.EnterHandler.isInOneContainerW3c_ = function(range) {
 /**
  * Checks whether the end of the range is not at the end of a block-level
  * element.
- * @param {goog.dom.AbstractRange} range The range to check.
+ * @param {dom.AbstractRange} range The range to check.
  * @return {boolean} Whether the end of the range is not at the end of a
  *     block-level element.
  * @private
  */
-goog.editor.plugins.EnterHandler.isPartialEndW3c_ = function(range) {
-  'use strict';
+EnterHandler.isPartialEndW3c_ = function(range) {
   var endContainer = range.getEndNode();
   var endOffset = range.getEndOffset();
   // Since the range object is different for each browser,
@@ -706,7 +683,7 @@ goog.editor.plugins.EnterHandler.isPartialEndW3c_ = function(range) {
   while (endOffset === 0 && endContainer) {
     if (endContainer.previousSibling) {
       endContainer = endContainer.previousSibling;
-      endOffset = goog.editor.node.getLength(endContainer);
+      endOffset = editorNode.getLength(endContainer);
     } else if (endContainer.parentNode) {
       endContainer = endContainer.parentNode;
       endOffset = 0;
@@ -716,25 +693,25 @@ goog.editor.plugins.EnterHandler.isPartialEndW3c_ = function(range) {
   }
 
   var node = endContainer;
-  if (goog.editor.style.isContainer(node)) {
+  if (style.isContainer(node)) {
     var child = node.childNodes[endOffset];
     // Child is null when end offset is >= length, which indicates the entire
     // container is selected.  Otherwise, we also know the entire container
     // is selected if the selection ends at a new container.
     if (!child ||
-        child.nodeType == goog.dom.NodeType.ELEMENT &&
-            goog.editor.style.isContainer(child)) {
+        child.nodeType == NodeType.ELEMENT &&
+            style.isContainer(child)) {
       return false;
     }
   }
 
-  var container = goog.editor.style.getContainer(node);
+  var container = style.getContainer(node);
   while (container != node) {
-    if (goog.editor.node.getNextSibling(node)) {
+    if (editorNode.getNextSibling(node)) {
       return true;
     }
     node = node.parentNode;
   }
 
-  return endOffset != goog.editor.node.getLength(endContainer);
+  return endOffset != editorNode.getLength(endContainer);
 };

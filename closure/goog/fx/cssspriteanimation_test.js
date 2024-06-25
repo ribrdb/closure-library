@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.CssSpriteAnimationTest');
 goog.setTestOnly();
 
-const Box = goog.require('goog.math.Box');
-const CssSpriteAnimation = goog.require('goog.fx.CssSpriteAnimation');
-const MockClock = goog.require('goog.testing.MockClock');
-const Size = goog.require('goog.math.Size');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Box } from '../math/box.js';
+import { CssSpriteAnimation } from './cssspriteanimation.js';
+import { MockClock } from '../testing/mockclock.js';
+import { Size } from '../math/size.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let el;
 let size;

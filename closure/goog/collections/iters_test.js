@@ -8,12 +8,11 @@
  * @fileoverview Tests for goog.labs.iterable
  */
 
-goog.module('goog.collections.iters.iterableTest');
 goog.setTestOnly('goog.collections.iters.iterableTest');
 
-const iters = goog.require('goog.collections.iters');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as iters from './iters.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 /**

@@ -17,23 +17,20 @@
 // constructor at all. You can run the conversion tool yourself to see what it
 // does on this file: blaze run //javascript/refactoring/es6_classes:convert.
 
-goog.provide('goog.fs.DOMErrorLike');
-goog.provide('goog.fs.Error');
-goog.provide('goog.fs.Error.ErrorCode');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.debug.Error');
-goog.require('goog.object');
-goog.require('goog.string');
+import * as debugError from '../debug/error.js';
+import object from '../object/object.js';
+import * as string from '../string/string.js';
 
 /** @record */
-goog.fs.DOMErrorLike = function() {};
+export function DOMErrorLike() {}
 
 /** @type {string|undefined} */
-goog.fs.DOMErrorLike.prototype.name;
+DOMErrorLike.prototype.name;
 
-/** @type {!goog.fs.Error.ErrorCode|undefined} */
-goog.fs.DOMErrorLike.prototype.code;
+/** @type {!Error_.ErrorCode|undefined} */
+DOMErrorLike.prototype.code;
 
 
 
@@ -42,21 +39,20 @@ goog.fs.DOMErrorLike.prototype.code;
  * are less useful for identifying where errors come from, so this includes a
  * large amount of metadata in the message.
  *
- * @param {!DOMError|!goog.fs.DOMErrorLike} error
+ * @param {!DOMError|!DOMErrorLike} error
  * @param {string} action The action being undertaken when the error was raised.
  * @constructor
- * @extends {goog.debug.Error}
+ * @extends {debugError}
  * @final
  */
-goog.fs.Error = function(error, action) {
-  'use strict';
+function Error_(error, action) {
   /** @type {string} */
   this.name;
 
   /**
-   * @type {!goog.fs.Error.ErrorCode}
-   * @deprecated Use the 'name' or 'message' field instead.
-   */
+     * @type {!Error_.ErrorCode}
+     * @deprecated Use the 'name' or 'message' field instead.
+     */
   this.code;
 
   if (error.name !== undefined) {
@@ -64,18 +60,19 @@ goog.fs.Error = function(error, action) {
     // TODO(user): Remove warning suppression after JSCompiler stops
     // firing a spurious warning here.
     /** @suppress {deprecated} */
-    this.code = goog.fs.Error.getCodeFromName_(error.name);
+    this.code = Error_.getCodeFromName_(error.name);
   } else {
     const code =
-        /** @type {!goog.fs.Error.ErrorCode} */ (goog.asserts.assertNumber(
-            /** @type {!goog.fs.DOMErrorLike} */ (error).code));
+        /** @type {!goog.fs.Error.ErrorCode} */ (asserts.assertNumber(
+            /** @type {!DOMErrorLike} */ (error).code));
     this.code = code;
-    this.name = goog.fs.Error.getNameFromCode_(code);
+    this.name = Error_.getNameFromCode_(code);
   }
-  goog.fs.Error.base(
-      this, 'constructor', goog.string.subs('%s %s', this.name, action));
-};
-goog.inherits(goog.fs.Error, goog.debug.Error);
+  Error_.base(
+      this, 'constructor', string.subs('%s %s', this.name, action));
+}
+export { Error_ as Error };
+goog.inherits(Error_, debugError);
 
 
 /**
@@ -87,7 +84,7 @@ goog.inherits(goog.fs.Error, goog.debug.Error);
  * @see http://dev.w3.org/2009/dap/file-system/file-writer.html#definitions
  * @enum {string}
  */
-goog.fs.Error.ErrorName = {
+Error_.ErrorName = {
   ABORT: 'AbortError',
   ENCODING: 'EncodingError',
   INVALID_MODIFICATION: 'InvalidModificationError',
@@ -110,7 +107,7 @@ goog.fs.Error.ErrorName = {
  * @enum {number}
  * @deprecated Use the 'name' or 'message' attribute instead.
  */
-goog.fs.Error.ErrorCode = {
+Error_.ErrorCode = {
   NOT_FOUND: 1,
   SECURITY: 2,
   ABORT: 3,
@@ -127,14 +124,12 @@ goog.fs.Error.ErrorCode = {
 
 
 /**
- * @param {goog.fs.Error.ErrorCode|undefined} code
+ * @param {Error_.ErrorCode|undefined} code
  * @return {string} name
  * @private
  */
-goog.fs.Error.getNameFromCode_ = function(code) {
-  'use strict';
-  const name = goog.object.findKey(goog.fs.Error.NameToCodeMap_, function(c) {
-    'use strict';
+Error_.getNameFromCode_ = function(code) {
+  const name = object.findKey(Error_.NameToCodeMap_, function(c) {
     return code == c;
   });
   if (name === undefined) {
@@ -147,35 +142,34 @@ goog.fs.Error.getNameFromCode_ = function(code) {
 /**
  * Returns the code that corresponds to the given name.
  * @param {string} name
- * @return {goog.fs.Error.ErrorCode} code
+ * @return {Error_.ErrorCode} code
  * @private
  */
-goog.fs.Error.getCodeFromName_ = function(name) {
-  'use strict';
-  return goog.fs.Error.NameToCodeMap_[name];
+Error_.getCodeFromName_ = function(name) {
+  return Error_.NameToCodeMap_[name];
 };
 
 
 /**
  * Mapping from error names to values from the ErrorCode enum.
  * @see http://www.w3.org/TR/file-system-api/#definitions.
- * @private {!Object<string, goog.fs.Error.ErrorCode>}
+ * @private {!Object<string, Error_.ErrorCode>}
  */
-goog.fs.Error.NameToCodeMap_ = {
-  [goog.fs.Error.ErrorName.ABORT]: goog.fs.Error.ErrorCode.ABORT,
-  [goog.fs.Error.ErrorName.ENCODING]: goog.fs.Error.ErrorCode.ENCODING,
-  [goog.fs.Error.ErrorName.INVALID_MODIFICATION]:
-      goog.fs.Error.ErrorCode.INVALID_MODIFICATION,
-  [goog.fs.Error.ErrorName.INVALID_STATE]:
-      goog.fs.Error.ErrorCode.INVALID_STATE,
-  [goog.fs.Error.ErrorName.NOT_FOUND]: goog.fs.Error.ErrorCode.NOT_FOUND,
-  [goog.fs.Error.ErrorName.NOT_READABLE]: goog.fs.Error.ErrorCode.NOT_READABLE,
-  [goog.fs.Error.ErrorName.NO_MODIFICATION_ALLOWED]:
-      goog.fs.Error.ErrorCode.NO_MODIFICATION_ALLOWED,
-  [goog.fs.Error.ErrorName.PATH_EXISTS]: goog.fs.Error.ErrorCode.PATH_EXISTS,
-  [goog.fs.Error.ErrorName.QUOTA_EXCEEDED]:
-      goog.fs.Error.ErrorCode.QUOTA_EXCEEDED,
-  [goog.fs.Error.ErrorName.SECURITY]: goog.fs.Error.ErrorCode.SECURITY,
-  [goog.fs.Error.ErrorName.SYNTAX]: goog.fs.Error.ErrorCode.SYNTAX,
-  [goog.fs.Error.ErrorName.TYPE_MISMATCH]: goog.fs.Error.ErrorCode.TYPE_MISMATCH
+Error_.NameToCodeMap_ = {
+  [Error_.ErrorName.ABORT]: Error_.ErrorCode.ABORT,
+  [Error_.ErrorName.ENCODING]: Error_.ErrorCode.ENCODING,
+  [Error_.ErrorName.INVALID_MODIFICATION]:
+      Error_.ErrorCode.INVALID_MODIFICATION,
+  [Error_.ErrorName.INVALID_STATE]:
+      Error_.ErrorCode.INVALID_STATE,
+  [Error_.ErrorName.NOT_FOUND]: Error_.ErrorCode.NOT_FOUND,
+  [Error_.ErrorName.NOT_READABLE]: Error_.ErrorCode.NOT_READABLE,
+  [Error_.ErrorName.NO_MODIFICATION_ALLOWED]:
+      Error_.ErrorCode.NO_MODIFICATION_ALLOWED,
+  [Error_.ErrorName.PATH_EXISTS]: Error_.ErrorCode.PATH_EXISTS,
+  [Error_.ErrorName.QUOTA_EXCEEDED]:
+      Error_.ErrorCode.QUOTA_EXCEEDED,
+  [Error_.ErrorName.SECURITY]: Error_.ErrorCode.SECURITY,
+  [Error_.ErrorName.SYNTAX]: Error_.ErrorCode.SYNTAX,
+  [Error_.ErrorName.TYPE_MISMATCH]: Error_.ErrorCode.TYPE_MISMATCH
 };

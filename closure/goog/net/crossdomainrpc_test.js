@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.CrossDomainRpcTest');
 goog.setTestOnly();
 
-const CrossDomainRpc = goog.require('goog.net.CrossDomainRpc');
-const GoogPromise = goog.require('goog.Promise');
-const TestCase = goog.require('goog.testing.TestCase');
-const log = goog.require('goog.log');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { CrossDomainRpc } from './crossdomainrpc.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { TestCase } from '../testing/testcase.js';
+import * as log from '../log/log.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 function print(o) {
   if (Object.prototype.toSource) {

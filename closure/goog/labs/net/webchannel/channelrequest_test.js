@@ -6,20 +6,19 @@
 
 /** @fileoverview Unit tests for ChannelRequest. */
 
-goog.module('goog.labs.net.webChannel.channelRequestTest');
 goog.setTestOnly();
 
-const ChannelRequest = goog.require('goog.labs.net.webChannel.ChannelRequest');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const ServerReachability = goog.require('goog.labs.net.webChannel.requestStats.ServerReachability');
-const Uri = goog.require('goog.Uri');
-const WebChannelDebug = goog.require('goog.labs.net.webChannel.WebChannelDebug');
-const XhrIo = goog.require('goog.testing.net.XhrIo');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const requestStats = goog.require('goog.labs.net.webChannel.requestStats');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ChannelRequest } from './channelrequest.js';
+import { MockClock } from '../../../testing/mockclock.js';
+import { PropertyReplacer } from '../../../testing/propertyreplacer.js';
+import * as requestStats from './requeststats.js';
+import { ServerReachability } from './requeststats.js';
+import { Uri } from '../../../uri/uri.js';
+import { WebChannelDebug } from './webchanneldebug.js';
+import { XhrIo } from '../../../testing/net/xhrio.js';
+import * as functions from '../../../functions/functions.js';
+import { recordFunction } from '../../../testing/recordfunction.js';
+import { testSuite } from '../../../testing/testsuite.js';
 
 let channelRequest;
 let mockChannel;

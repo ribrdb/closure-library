@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.deepFreezeTest');
 goog.setTestOnly();
 
-const asserts = goog.require('goog.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
-const {deepFreeze} = goog.require('goog.debug.deepFreeze');
+import * as asserts from '../asserts/asserts.js';
+import { testSuite } from '../testing/testsuite.js';
+import debugDeepFreeze from './deepfreeze.js';
+const {deepFreeze} = debugDeepFreeze;
 
 testSuite({
   testDeepFreeze: {

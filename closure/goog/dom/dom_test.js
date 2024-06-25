@@ -9,27 +9,28 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.dom.dom_test');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const InputType = goog.require('goog.dom.InputType');
-const NodeType = goog.require('goog.dom.NodeType');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TagName = goog.require('goog.dom.TagName');
-const Unicode = goog.require('goog.string.Unicode');
-const asserts = goog.require('goog.asserts');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const googDom = goog.require('goog.dom');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
+import { Const } from '../string/const.js';
+import * as googDom from './dom.js';
+import { DomHelper } from './dom.js';
+import { InputType } from './inputtype.js';
+import { NodeType } from './nodetype.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeUrl } from '../html/safeurl.js';
+import { TagName } from './tagname.js';
+import { Unicode } from '../string/string.js';
+import * as asserts from '../asserts/asserts.js';
+import * as functions from '../functions/functions.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
+
 /** @suppress {extraRequire} */
-const testingAsserts = goog.require('goog.testing.asserts');
-const userAgent = goog.require('goog.userAgent');
+import * as testingAsserts from '../testing/asserts.js';
+
+import * as userAgent from '../useragent/useragent.js';
 
 const $ = googDom.getElement;
 

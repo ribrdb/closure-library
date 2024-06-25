@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.DeferredChannelTest');
 goog.setTestOnly();
 
-const AsyncMockControl = goog.require('goog.testing.async.MockControl');
-const Deferred = goog.require('goog.async.Deferred');
-const DeferredChannel = goog.require('goog.messaging.DeferredChannel');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockControl as AsyncMockControl } from '../testing/async/mockcontrol.js';
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import { DeferredChannel } from './deferredchannel.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let asyncMockControl;
 let mockControl;

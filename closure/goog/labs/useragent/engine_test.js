@@ -6,13 +6,12 @@
 
 /** @fileoverview Unit tests for engine. */
 
-goog.module('goog.labs.userAgent.engineTest');
 goog.setTestOnly();
 
-const engine = goog.require('goog.labs.userAgent.engine');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const util = goog.require('goog.labs.userAgent.util');
+import engine from './engine.js';
+import { testAgents } from './test_agents.js';
+import { testSuite } from '../../testing/testsuite.js';
+import util from './util.js';
 
 function assertVersion(version) {
   assertEquals(version, engine.getVersion());

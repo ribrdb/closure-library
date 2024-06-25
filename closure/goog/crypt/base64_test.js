@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.base64Test');
 goog.setTestOnly();
 
-const base64 = goog.require('goog.crypt.base64');
-const crypt = goog.require('goog.crypt');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as base64 from './base64.js';
+import * as crypt from './crypt.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const SUPPORT_TYPED_ARRAY = typeof Uint8Array === 'function';
 

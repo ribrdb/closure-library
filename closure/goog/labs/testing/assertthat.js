@@ -9,11 +9,8 @@
  * matcher's matches method to test if a matcher matches assertThat's arguments.
  */
 
-goog.module('goog.labs.testing.assertThat');
-goog.module.declareLegacyNamespace();
-
-const Matcher = goog.requireType('goog.labs.testing.Matcher');
-const MatcherError = goog.require('goog.labs.testing.MatcherError');
+const Matcher = goog.requireType('goog.labs.testing.matcher');
+import { MatcherError } from './matchererror.js';
 
 /**
  * Asserts that the actual value evaluated by the matcher is true.
@@ -33,4 +30,4 @@ function assertThat(actual, matcher, opt_reason) {
   }
 }
 
-exports = assertThat;
+export { assertThat };

@@ -11,15 +11,7 @@
  */
 
 // clang-format off
-goog.provide('goog.i18n.CharPickerData');
-
-
-
-/**
- * Object holding two level character organization and character listing.
- * @constructor
- */
-goog.i18n.CharPickerData = function() {};
+CharPickerData = function() {};
 
 
 /**
@@ -30,7 +22,7 @@ goog.i18n.CharPickerData = function() {};
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SYMBOL = goog.getMsg('Symbol');
+CharPickerData.MSG_CP_SYMBOL = goog.getMsg('Symbol');
 
 
 /**
@@ -41,7 +33,7 @@ goog.i18n.CharPickerData.MSG_CP_SYMBOL = goog.getMsg('Symbol');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ARROWS = goog.getMsg('Arrows');
+CharPickerData.MSG_CP_ARROWS = goog.getMsg('Arrows');
 
 
 /**
@@ -52,7 +44,7 @@ goog.i18n.CharPickerData.MSG_CP_ARROWS = goog.getMsg('Arrows');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BRAILLE = goog.getMsg('Braille');
+CharPickerData.MSG_CP_BRAILLE = goog.getMsg('Braille');
 
 
 /**
@@ -63,7 +55,7 @@ goog.i18n.CharPickerData.MSG_CP_BRAILLE = goog.getMsg('Braille');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CONTROL_PICTURES =
+CharPickerData.MSG_CP_CONTROL_PICTURES =
     goog.getMsg('Control Pictures');
 
 
@@ -75,7 +67,7 @@ goog.i18n.CharPickerData.MSG_CP_CONTROL_PICTURES =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CURRENCY = goog.getMsg('Currency');
+CharPickerData.MSG_CP_CURRENCY = goog.getMsg('Currency');
 
 
 /**
@@ -86,7 +78,7 @@ goog.i18n.CharPickerData.MSG_CP_CURRENCY = goog.getMsg('Currency');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_EMOTICONS = goog.getMsg('Emoticons');
+CharPickerData.MSG_CP_EMOTICONS = goog.getMsg('Emoticons');
 
 
 /**
@@ -97,7 +89,7 @@ goog.i18n.CharPickerData.MSG_CP_EMOTICONS = goog.getMsg('Emoticons');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GAME_PIECES = goog.getMsg('Game Pieces');
+CharPickerData.MSG_CP_GAME_PIECES = goog.getMsg('Game Pieces');
 
 
 /**
@@ -108,7 +100,7 @@ goog.i18n.CharPickerData.MSG_CP_GAME_PIECES = goog.getMsg('Game Pieces');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL =
+CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL =
     goog.getMsg('Gender and Genealogical');
 
 
@@ -120,7 +112,7 @@ goog.i18n.CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GEOMETRIC_SHAPES =
+CharPickerData.MSG_CP_GEOMETRIC_SHAPES =
     goog.getMsg('Geometric Shapes');
 
 
@@ -132,7 +124,7 @@ goog.i18n.CharPickerData.MSG_CP_GEOMETRIC_SHAPES =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KEYBOARD_AND_UI =
+CharPickerData.MSG_CP_KEYBOARD_AND_UI =
     goog.getMsg('Keyboard and UI');
 
 
@@ -144,7 +136,7 @@ goog.i18n.CharPickerData.MSG_CP_KEYBOARD_AND_UI =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT =
+CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT =
     goog.getMsg('Latin 1 Supplement');
 
 
@@ -156,7 +148,7 @@ goog.i18n.CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MATH = goog.getMsg('Math');
+CharPickerData.MSG_CP_MATH = goog.getMsg('Math');
 
 
 /**
@@ -167,7 +159,7 @@ goog.i18n.CharPickerData.MSG_CP_MATH = goog.getMsg('Math');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MATH_ALPHANUMERIC =
+CharPickerData.MSG_CP_MATH_ALPHANUMERIC =
     goog.getMsg('Math Alphanumeric');
 
 
@@ -179,7 +171,7 @@ goog.i18n.CharPickerData.MSG_CP_MATH_ALPHANUMERIC =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MISCELLANEOUS = goog.getMsg('Miscellaneous');
+CharPickerData.MSG_CP_MISCELLANEOUS = goog.getMsg('Miscellaneous');
 
 
 /**
@@ -190,7 +182,7 @@ goog.i18n.CharPickerData.MSG_CP_MISCELLANEOUS = goog.getMsg('Miscellaneous');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MUSICAL = goog.getMsg('Musical');
+CharPickerData.MSG_CP_MUSICAL = goog.getMsg('Musical');
 
 
 /**
@@ -201,7 +193,7 @@ goog.i18n.CharPickerData.MSG_CP_MUSICAL = goog.getMsg('Musical');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_STARS_ASTERISKS =
+CharPickerData.MSG_CP_STARS_ASTERISKS =
     goog.getMsg('Stars/Asterisks');
 
 
@@ -213,7 +205,7 @@ goog.i18n.CharPickerData.MSG_CP_STARS_ASTERISKS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SUBSCRIPT = goog.getMsg('Subscript');
+CharPickerData.MSG_CP_SUBSCRIPT = goog.getMsg('Subscript');
 
 
 /**
@@ -224,7 +216,7 @@ goog.i18n.CharPickerData.MSG_CP_SUBSCRIPT = goog.getMsg('Subscript');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SUPERSCRIPT = goog.getMsg('Superscript');
+CharPickerData.MSG_CP_SUPERSCRIPT = goog.getMsg('Superscript');
 
 
 /**
@@ -235,7 +227,7 @@ goog.i18n.CharPickerData.MSG_CP_SUPERSCRIPT = goog.getMsg('Superscript');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TECHNICAL = goog.getMsg('Technical');
+CharPickerData.MSG_CP_TECHNICAL = goog.getMsg('Technical');
 
 
 /**
@@ -246,7 +238,7 @@ goog.i18n.CharPickerData.MSG_CP_TECHNICAL = goog.getMsg('Technical');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TRANSPORT_AND_MAP =
+CharPickerData.MSG_CP_TRANSPORT_AND_MAP =
     goog.getMsg('Transport And Map');
 
 
@@ -258,7 +250,7 @@ goog.i18n.CharPickerData.MSG_CP_TRANSPORT_AND_MAP =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL =
+CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL =
     goog.getMsg('Weather and Astrological');
 
 
@@ -270,7 +262,7 @@ goog.i18n.CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING =
+CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING =
     goog.getMsg('Yijing / Tai Xuan Jing');
 
 
@@ -282,7 +274,7 @@ goog.i18n.CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HISTORIC = goog.getMsg('Historic');
+CharPickerData.MSG_CP_HISTORIC = goog.getMsg('Historic');
 
 
 /**
@@ -293,7 +285,7 @@ goog.i18n.CharPickerData.MSG_CP_HISTORIC = goog.getMsg('Historic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY = goog.getMsg('Compatibility');
+CharPickerData.MSG_CP_COMPATIBILITY = goog.getMsg('Compatibility');
 
 
 /**
@@ -304,7 +296,7 @@ goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY = goog.getMsg('Compatibility');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_EMOJI = goog.getMsg('Emoji');
+CharPickerData.MSG_CP_EMOJI = goog.getMsg('Emoji');
 
 
 /**
@@ -315,7 +307,7 @@ goog.i18n.CharPickerData.MSG_CP_EMOJI = goog.getMsg('Emoji');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS =
+CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS =
     goog.getMsg('People and Emotions');
 
 
@@ -327,7 +319,7 @@ goog.i18n.CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD =
+CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD =
     goog.getMsg('Animals, Plants and Food');
 
 
@@ -339,7 +331,7 @@ goog.i18n.CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OBJECTS = goog.getMsg('Objects');
+CharPickerData.MSG_CP_OBJECTS = goog.getMsg('Objects');
 
 
 /**
@@ -350,7 +342,7 @@ goog.i18n.CharPickerData.MSG_CP_OBJECTS = goog.getMsg('Objects');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES =
+CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES =
     goog.getMsg('Sports, Celebrations and Activities');
 
 
@@ -362,7 +354,7 @@ goog.i18n.CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE =
+CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE =
     goog.getMsg('Transport, Maps and Signage');
 
 
@@ -374,7 +366,7 @@ goog.i18n.CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS =
+CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS =
     goog.getMsg('Weather, Scenes and Zodiac signs');
 
 
@@ -386,7 +378,7 @@ goog.i18n.CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ENCLOSED = goog.getMsg('Enclosed');
+CharPickerData.MSG_CP_ENCLOSED = goog.getMsg('Enclosed');
 
 
 /**
@@ -397,7 +389,7 @@ goog.i18n.CharPickerData.MSG_CP_ENCLOSED = goog.getMsg('Enclosed');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MARKS = goog.getMsg('Marks');
+CharPickerData.MSG_CP_MARKS = goog.getMsg('Marks');
 
 
 /**
@@ -408,7 +400,7 @@ goog.i18n.CharPickerData.MSG_CP_MARKS = goog.getMsg('Marks');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SYMBOLS = goog.getMsg('Symbols');
+CharPickerData.MSG_CP_SYMBOLS = goog.getMsg('Symbols');
 
 
 /**
@@ -419,7 +411,7 @@ goog.i18n.CharPickerData.MSG_CP_SYMBOLS = goog.getMsg('Symbols');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PUNCTUATION = goog.getMsg('Punctuation');
+CharPickerData.MSG_CP_PUNCTUATION = goog.getMsg('Punctuation');
 
 
 /**
@@ -430,7 +422,7 @@ goog.i18n.CharPickerData.MSG_CP_PUNCTUATION = goog.getMsg('Punctuation');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ASCII_BASED = goog.getMsg('ASCII Based');
+CharPickerData.MSG_CP_ASCII_BASED = goog.getMsg('ASCII Based');
 
 
 /**
@@ -441,7 +433,7 @@ goog.i18n.CharPickerData.MSG_CP_ASCII_BASED = goog.getMsg('ASCII Based');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_DASH_CONNECTOR = goog.getMsg('Dash/Connector');
+CharPickerData.MSG_CP_DASH_CONNECTOR = goog.getMsg('Dash/Connector');
 
 
 /**
@@ -452,7 +444,7 @@ goog.i18n.CharPickerData.MSG_CP_DASH_CONNECTOR = goog.getMsg('Dash/Connector');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OTHER = goog.getMsg('Other');
+CharPickerData.MSG_CP_OTHER = goog.getMsg('Other');
 
 
 /**
@@ -463,7 +455,7 @@ goog.i18n.CharPickerData.MSG_CP_OTHER = goog.getMsg('Other');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PAIRED = goog.getMsg('Paired');
+CharPickerData.MSG_CP_PAIRED = goog.getMsg('Paired');
 
 
 /**
@@ -474,7 +466,7 @@ goog.i18n.CharPickerData.MSG_CP_PAIRED = goog.getMsg('Paired');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_NUMBER = goog.getMsg('Number');
+CharPickerData.MSG_CP_NUMBER = goog.getMsg('Number');
 
 
 /**
@@ -485,7 +477,7 @@ goog.i18n.CharPickerData.MSG_CP_NUMBER = goog.getMsg('Number');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_DECIMAL = goog.getMsg('Decimal');
+CharPickerData.MSG_CP_DECIMAL = goog.getMsg('Decimal');
 
 
 /**
@@ -496,7 +488,7 @@ goog.i18n.CharPickerData.MSG_CP_DECIMAL = goog.getMsg('Decimal');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ENCLOSED_DOTTED =
+CharPickerData.MSG_CP_ENCLOSED_DOTTED =
     goog.getMsg('Enclosed/Dotted');
 
 
@@ -508,7 +500,7 @@ goog.i18n.CharPickerData.MSG_CP_ENCLOSED_DOTTED =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_FRACTIONS_RELATED =
+CharPickerData.MSG_CP_FRACTIONS_RELATED =
     goog.getMsg('Fractions/Related');
 
 
@@ -520,7 +512,7 @@ goog.i18n.CharPickerData.MSG_CP_FRACTIONS_RELATED =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_FORMAT_WHITESPACE =
+CharPickerData.MSG_CP_FORMAT_WHITESPACE =
     goog.getMsg('Format & Whitespace');
 
 
@@ -532,7 +524,7 @@ goog.i18n.CharPickerData.MSG_CP_FORMAT_WHITESPACE =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_FORMAT = goog.getMsg('Format');
+CharPickerData.MSG_CP_FORMAT = goog.getMsg('Format');
 
 
 /**
@@ -543,7 +535,7 @@ goog.i18n.CharPickerData.MSG_CP_FORMAT = goog.getMsg('Format');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_VARIATION_SELECTOR =
+CharPickerData.MSG_CP_VARIATION_SELECTOR =
     goog.getMsg('Variation Selector');
 
 
@@ -555,7 +547,7 @@ goog.i18n.CharPickerData.MSG_CP_VARIATION_SELECTOR =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_WHITESPACE = goog.getMsg('Whitespace');
+CharPickerData.MSG_CP_WHITESPACE = goog.getMsg('Whitespace');
 
 
 /**
@@ -566,7 +558,7 @@ goog.i18n.CharPickerData.MSG_CP_WHITESPACE = goog.getMsg('Whitespace');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MODIFIER = goog.getMsg('Modifier');
+CharPickerData.MSG_CP_MODIFIER = goog.getMsg('Modifier');
 
 
 /**
@@ -577,7 +569,7 @@ goog.i18n.CharPickerData.MSG_CP_MODIFIER = goog.getMsg('Modifier');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ENCLOSING = goog.getMsg('Enclosing');
+CharPickerData.MSG_CP_ENCLOSING = goog.getMsg('Enclosing');
 
 
 /**
@@ -588,7 +580,7 @@ goog.i18n.CharPickerData.MSG_CP_ENCLOSING = goog.getMsg('Enclosing');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_NONSPACING = goog.getMsg('Nonspacing');
+CharPickerData.MSG_CP_NONSPACING = goog.getMsg('Nonspacing');
 
 
 /**
@@ -599,7 +591,7 @@ goog.i18n.CharPickerData.MSG_CP_NONSPACING = goog.getMsg('Nonspacing');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SPACING = goog.getMsg('Spacing');
+CharPickerData.MSG_CP_SPACING = goog.getMsg('Spacing');
 
 
 /**
@@ -610,7 +602,7 @@ goog.i18n.CharPickerData.MSG_CP_SPACING = goog.getMsg('Spacing');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LATIN = goog.getMsg('Latin');
+CharPickerData.MSG_CP_LATIN = goog.getMsg('Latin');
 
 
 /**
@@ -621,7 +613,7 @@ goog.i18n.CharPickerData.MSG_CP_LATIN = goog.getMsg('Latin');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_COMMON = goog.getMsg('Common');
+CharPickerData.MSG_CP_COMMON = goog.getMsg('Common');
 
 
 /**
@@ -632,7 +624,7 @@ goog.i18n.CharPickerData.MSG_CP_COMMON = goog.getMsg('Common');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_FLIPPED_MIRRORED =
+CharPickerData.MSG_CP_FLIPPED_MIRRORED =
     goog.getMsg('Flipped/Mirrored');
 
 
@@ -644,7 +636,7 @@ goog.i18n.CharPickerData.MSG_CP_FLIPPED_MIRRORED =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PHONETICS_IPA = goog.getMsg('Phonetics (IPA)');
+CharPickerData.MSG_CP_PHONETICS_IPA = goog.getMsg('Phonetics (IPA)');
 
 
 /**
@@ -655,7 +647,7 @@ goog.i18n.CharPickerData.MSG_CP_PHONETICS_IPA = goog.getMsg('Phonetics (IPA)');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PHONETICS_X_IPA =
+CharPickerData.MSG_CP_PHONETICS_X_IPA =
     goog.getMsg('Phonetics (X-IPA)');
 
 
@@ -667,7 +659,7 @@ goog.i18n.CharPickerData.MSG_CP_PHONETICS_X_IPA =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS =
+CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS =
     goog.getMsg('Other European Scripts');
 
 
@@ -679,7 +671,7 @@ goog.i18n.CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ARMENIAN = goog.getMsg('Armenian');
+CharPickerData.MSG_CP_ARMENIAN = goog.getMsg('Armenian');
 
 
 /**
@@ -690,7 +682,7 @@ goog.i18n.CharPickerData.MSG_CP_ARMENIAN = goog.getMsg('Armenian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CYRILLIC = goog.getMsg('Cyrillic');
+CharPickerData.MSG_CP_CYRILLIC = goog.getMsg('Cyrillic');
 
 
 /**
@@ -701,7 +693,7 @@ goog.i18n.CharPickerData.MSG_CP_CYRILLIC = goog.getMsg('Cyrillic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GEORGIAN = goog.getMsg('Georgian');
+CharPickerData.MSG_CP_GEORGIAN = goog.getMsg('Georgian');
 
 
 /**
@@ -712,7 +704,7 @@ goog.i18n.CharPickerData.MSG_CP_GEORGIAN = goog.getMsg('Georgian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GREEK = goog.getMsg('Greek');
+CharPickerData.MSG_CP_GREEK = goog.getMsg('Greek');
 
 
 /**
@@ -723,7 +715,7 @@ goog.i18n.CharPickerData.MSG_CP_GREEK = goog.getMsg('Greek');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CYPRIOT = goog.getMsg('Cypriot');
+CharPickerData.MSG_CP_CYPRIOT = goog.getMsg('Cypriot');
 
 
 /**
@@ -734,7 +726,7 @@ goog.i18n.CharPickerData.MSG_CP_CYPRIOT = goog.getMsg('Cypriot');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GLAGOLITIC = goog.getMsg('Glagolitic');
+CharPickerData.MSG_CP_GLAGOLITIC = goog.getMsg('Glagolitic');
 
 
 /**
@@ -745,7 +737,7 @@ goog.i18n.CharPickerData.MSG_CP_GLAGOLITIC = goog.getMsg('Glagolitic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GOTHIC = goog.getMsg('Gothic');
+CharPickerData.MSG_CP_GOTHIC = goog.getMsg('Gothic');
 
 
 /**
@@ -756,7 +748,7 @@ goog.i18n.CharPickerData.MSG_CP_GOTHIC = goog.getMsg('Gothic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LINEAR_B = goog.getMsg('Linear B');
+CharPickerData.MSG_CP_LINEAR_B = goog.getMsg('Linear B');
 
 
 /**
@@ -767,7 +759,7 @@ goog.i18n.CharPickerData.MSG_CP_LINEAR_B = goog.getMsg('Linear B');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OGHAM = goog.getMsg('Ogham');
+CharPickerData.MSG_CP_OGHAM = goog.getMsg('Ogham');
 
 
 /**
@@ -778,7 +770,7 @@ goog.i18n.CharPickerData.MSG_CP_OGHAM = goog.getMsg('Ogham');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OLD_ITALIC = goog.getMsg('Old Italic');
+CharPickerData.MSG_CP_OLD_ITALIC = goog.getMsg('Old Italic');
 
 
 /**
@@ -789,7 +781,7 @@ goog.i18n.CharPickerData.MSG_CP_OLD_ITALIC = goog.getMsg('Old Italic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_RUNIC = goog.getMsg('Runic');
+CharPickerData.MSG_CP_RUNIC = goog.getMsg('Runic');
 
 
 /**
@@ -800,7 +792,7 @@ goog.i18n.CharPickerData.MSG_CP_RUNIC = goog.getMsg('Runic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SHAVIAN = goog.getMsg('Shavian');
+CharPickerData.MSG_CP_SHAVIAN = goog.getMsg('Shavian');
 
 
 /**
@@ -811,7 +803,7 @@ goog.i18n.CharPickerData.MSG_CP_SHAVIAN = goog.getMsg('Shavian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_AMERICAN_SCRIPTS =
+CharPickerData.MSG_CP_AMERICAN_SCRIPTS =
     goog.getMsg('American Scripts');
 
 
@@ -823,7 +815,7 @@ goog.i18n.CharPickerData.MSG_CP_AMERICAN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CANADIAN_ABORIGINAL =
+CharPickerData.MSG_CP_CANADIAN_ABORIGINAL =
     goog.getMsg('Canadian Aboriginal');
 
 
@@ -835,7 +827,7 @@ goog.i18n.CharPickerData.MSG_CP_CANADIAN_ABORIGINAL =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CHEROKEE = goog.getMsg('Cherokee');
+CharPickerData.MSG_CP_CHEROKEE = goog.getMsg('Cherokee');
 
 
 /**
@@ -846,7 +838,7 @@ goog.i18n.CharPickerData.MSG_CP_CHEROKEE = goog.getMsg('Cherokee');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_DESERET = goog.getMsg('Deseret');
+CharPickerData.MSG_CP_DESERET = goog.getMsg('Deseret');
 
 
 /**
@@ -857,7 +849,7 @@ goog.i18n.CharPickerData.MSG_CP_DESERET = goog.getMsg('Deseret');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_AFRICAN_SCRIPTS =
+CharPickerData.MSG_CP_AFRICAN_SCRIPTS =
     goog.getMsg('African Scripts');
 
 
@@ -869,7 +861,7 @@ goog.i18n.CharPickerData.MSG_CP_AFRICAN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS =
+CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS =
     goog.getMsg('Egyptian Hieroglyphs');
 
 
@@ -881,7 +873,7 @@ goog.i18n.CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ETHIOPIC = goog.getMsg('Ethiopic');
+CharPickerData.MSG_CP_ETHIOPIC = goog.getMsg('Ethiopic');
 
 
 /**
@@ -892,7 +884,7 @@ goog.i18n.CharPickerData.MSG_CP_ETHIOPIC = goog.getMsg('Ethiopic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MEROITIC_CURSIVE =
+CharPickerData.MSG_CP_MEROITIC_CURSIVE =
     goog.getMsg('Meroitic Cursive');
 
 
@@ -904,7 +896,7 @@ goog.i18n.CharPickerData.MSG_CP_MEROITIC_CURSIVE =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS =
+CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS =
     goog.getMsg('Meroitic Hieroglyphs');
 
 
@@ -916,7 +908,7 @@ goog.i18n.CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_NKO = goog.getMsg('Nko');
+CharPickerData.MSG_CP_NKO = goog.getMsg('Nko');
 
 
 /**
@@ -927,7 +919,7 @@ goog.i18n.CharPickerData.MSG_CP_NKO = goog.getMsg('Nko');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TIFINAGH = goog.getMsg('Tifinagh');
+CharPickerData.MSG_CP_TIFINAGH = goog.getMsg('Tifinagh');
 
 
 /**
@@ -938,7 +930,7 @@ goog.i18n.CharPickerData.MSG_CP_TIFINAGH = goog.getMsg('Tifinagh');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_VAI = goog.getMsg('Vai');
+CharPickerData.MSG_CP_VAI = goog.getMsg('Vai');
 
 
 /**
@@ -949,7 +941,7 @@ goog.i18n.CharPickerData.MSG_CP_VAI = goog.getMsg('Vai');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BAMUM = goog.getMsg('Bamum');
+CharPickerData.MSG_CP_BAMUM = goog.getMsg('Bamum');
 
 
 /**
@@ -960,7 +952,7 @@ goog.i18n.CharPickerData.MSG_CP_BAMUM = goog.getMsg('Bamum');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_COPTIC = goog.getMsg('Coptic');
+CharPickerData.MSG_CP_COPTIC = goog.getMsg('Coptic');
 
 
 /**
@@ -971,7 +963,7 @@ goog.i18n.CharPickerData.MSG_CP_COPTIC = goog.getMsg('Coptic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OSMANYA = goog.getMsg('Osmanya');
+CharPickerData.MSG_CP_OSMANYA = goog.getMsg('Osmanya');
 
 
 /**
@@ -982,7 +974,7 @@ goog.i18n.CharPickerData.MSG_CP_OSMANYA = goog.getMsg('Osmanya');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS =
+CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS =
     goog.getMsg('Middle Eastern Scripts');
 
 
@@ -994,7 +986,7 @@ goog.i18n.CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ARABIC = goog.getMsg('Arabic');
+CharPickerData.MSG_CP_ARABIC = goog.getMsg('Arabic');
 
 
 /**
@@ -1005,7 +997,7 @@ goog.i18n.CharPickerData.MSG_CP_ARABIC = goog.getMsg('Arabic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HEBREW = goog.getMsg('Hebrew');
+CharPickerData.MSG_CP_HEBREW = goog.getMsg('Hebrew');
 
 
 /**
@@ -1016,7 +1008,7 @@ goog.i18n.CharPickerData.MSG_CP_HEBREW = goog.getMsg('Hebrew');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_IMPERIAL_ARAMAIC =
+CharPickerData.MSG_CP_IMPERIAL_ARAMAIC =
     goog.getMsg('Imperial Aramaic');
 
 
@@ -1028,7 +1020,7 @@ goog.i18n.CharPickerData.MSG_CP_IMPERIAL_ARAMAIC =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI =
+CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI =
     goog.getMsg('Inscriptional Pahlavi');
 
 
@@ -1040,7 +1032,7 @@ goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN =
+CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN =
     goog.getMsg('Inscriptional Parthian');
 
 
@@ -1052,7 +1044,7 @@ goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MANDAIC = goog.getMsg('Mandaic');
+CharPickerData.MSG_CP_MANDAIC = goog.getMsg('Mandaic');
 
 
 /**
@@ -1063,7 +1055,7 @@ goog.i18n.CharPickerData.MSG_CP_MANDAIC = goog.getMsg('Mandaic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN =
+CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN =
     goog.getMsg('Old South Arabian');
 
 
@@ -1075,7 +1067,7 @@ goog.i18n.CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SAMARITAN = goog.getMsg('Samaritan');
+CharPickerData.MSG_CP_SAMARITAN = goog.getMsg('Samaritan');
 
 
 /**
@@ -1086,7 +1078,7 @@ goog.i18n.CharPickerData.MSG_CP_SAMARITAN = goog.getMsg('Samaritan');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SYRIAC = goog.getMsg('Syriac');
+CharPickerData.MSG_CP_SYRIAC = goog.getMsg('Syriac');
 
 
 /**
@@ -1097,7 +1089,7 @@ goog.i18n.CharPickerData.MSG_CP_SYRIAC = goog.getMsg('Syriac');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_AVESTAN = goog.getMsg('Avestan');
+CharPickerData.MSG_CP_AVESTAN = goog.getMsg('Avestan');
 
 
 /**
@@ -1108,7 +1100,7 @@ goog.i18n.CharPickerData.MSG_CP_AVESTAN = goog.getMsg('Avestan');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CARIAN = goog.getMsg('Carian');
+CharPickerData.MSG_CP_CARIAN = goog.getMsg('Carian');
 
 
 /**
@@ -1119,7 +1111,7 @@ goog.i18n.CharPickerData.MSG_CP_CARIAN = goog.getMsg('Carian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CUNEIFORM = goog.getMsg('Cuneiform');
+CharPickerData.MSG_CP_CUNEIFORM = goog.getMsg('Cuneiform');
 
 
 /**
@@ -1130,7 +1122,7 @@ goog.i18n.CharPickerData.MSG_CP_CUNEIFORM = goog.getMsg('Cuneiform');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LYCIAN = goog.getMsg('Lycian');
+CharPickerData.MSG_CP_LYCIAN = goog.getMsg('Lycian');
 
 
 /**
@@ -1141,7 +1133,7 @@ goog.i18n.CharPickerData.MSG_CP_LYCIAN = goog.getMsg('Lycian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LYDIAN = goog.getMsg('Lydian');
+CharPickerData.MSG_CP_LYDIAN = goog.getMsg('Lydian');
 
 
 /**
@@ -1152,7 +1144,7 @@ goog.i18n.CharPickerData.MSG_CP_LYDIAN = goog.getMsg('Lydian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OLD_PERSIAN = goog.getMsg('Old Persian');
+CharPickerData.MSG_CP_OLD_PERSIAN = goog.getMsg('Old Persian');
 
 
 /**
@@ -1163,7 +1155,7 @@ goog.i18n.CharPickerData.MSG_CP_OLD_PERSIAN = goog.getMsg('Old Persian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PHOENICIAN = goog.getMsg('Phoenician');
+CharPickerData.MSG_CP_PHOENICIAN = goog.getMsg('Phoenician');
 
 
 /**
@@ -1174,7 +1166,7 @@ goog.i18n.CharPickerData.MSG_CP_PHOENICIAN = goog.getMsg('Phoenician');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_UGARITIC = goog.getMsg('Ugaritic');
+CharPickerData.MSG_CP_UGARITIC = goog.getMsg('Ugaritic');
 
 
 /**
@@ -1185,7 +1177,7 @@ goog.i18n.CharPickerData.MSG_CP_UGARITIC = goog.getMsg('Ugaritic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS =
+CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS =
     goog.getMsg('South Asian Scripts');
 
 
@@ -1197,7 +1189,7 @@ goog.i18n.CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BENGALI = goog.getMsg('Bengali');
+CharPickerData.MSG_CP_BENGALI = goog.getMsg('Bengali');
 
 
 /**
@@ -1208,7 +1200,7 @@ goog.i18n.CharPickerData.MSG_CP_BENGALI = goog.getMsg('Bengali');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CHAKMA = goog.getMsg('Chakma');
+CharPickerData.MSG_CP_CHAKMA = goog.getMsg('Chakma');
 
 
 /**
@@ -1219,7 +1211,7 @@ goog.i18n.CharPickerData.MSG_CP_CHAKMA = goog.getMsg('Chakma');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_DEVANAGARI = goog.getMsg('Devanagari');
+CharPickerData.MSG_CP_DEVANAGARI = goog.getMsg('Devanagari');
 
 
 /**
@@ -1230,7 +1222,7 @@ goog.i18n.CharPickerData.MSG_CP_DEVANAGARI = goog.getMsg('Devanagari');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GUJARATI = goog.getMsg('Gujarati');
+CharPickerData.MSG_CP_GUJARATI = goog.getMsg('Gujarati');
 
 
 /**
@@ -1241,7 +1233,7 @@ goog.i18n.CharPickerData.MSG_CP_GUJARATI = goog.getMsg('Gujarati');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_GURMUKHI = goog.getMsg('Gurmukhi');
+CharPickerData.MSG_CP_GURMUKHI = goog.getMsg('Gurmukhi');
 
 
 /**
@@ -1252,7 +1244,7 @@ goog.i18n.CharPickerData.MSG_CP_GURMUKHI = goog.getMsg('Gurmukhi');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KANNADA = goog.getMsg('Kannada');
+CharPickerData.MSG_CP_KANNADA = goog.getMsg('Kannada');
 
 
 /**
@@ -1263,7 +1255,7 @@ goog.i18n.CharPickerData.MSG_CP_KANNADA = goog.getMsg('Kannada');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LEPCHA = goog.getMsg('Lepcha');
+CharPickerData.MSG_CP_LEPCHA = goog.getMsg('Lepcha');
 
 
 /**
@@ -1274,7 +1266,7 @@ goog.i18n.CharPickerData.MSG_CP_LEPCHA = goog.getMsg('Lepcha');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LIMBU = goog.getMsg('Limbu');
+CharPickerData.MSG_CP_LIMBU = goog.getMsg('Limbu');
 
 
 /**
@@ -1285,7 +1277,7 @@ goog.i18n.CharPickerData.MSG_CP_LIMBU = goog.getMsg('Limbu');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MALAYALAM = goog.getMsg('Malayalam');
+CharPickerData.MSG_CP_MALAYALAM = goog.getMsg('Malayalam');
 
 
 /**
@@ -1296,7 +1288,7 @@ goog.i18n.CharPickerData.MSG_CP_MALAYALAM = goog.getMsg('Malayalam');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MEETEI_MAYEK = goog.getMsg('Meetei Mayek');
+CharPickerData.MSG_CP_MEETEI_MAYEK = goog.getMsg('Meetei Mayek');
 
 
 /**
@@ -1307,7 +1299,7 @@ goog.i18n.CharPickerData.MSG_CP_MEETEI_MAYEK = goog.getMsg('Meetei Mayek');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OL_CHIKI = goog.getMsg('Ol Chiki');
+CharPickerData.MSG_CP_OL_CHIKI = goog.getMsg('Ol Chiki');
 
 
 /**
@@ -1318,7 +1310,7 @@ goog.i18n.CharPickerData.MSG_CP_OL_CHIKI = goog.getMsg('Ol Chiki');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_ORIYA = goog.getMsg('Oriya');
+CharPickerData.MSG_CP_ORIYA = goog.getMsg('Oriya');
 
 
 /**
@@ -1329,7 +1321,7 @@ goog.i18n.CharPickerData.MSG_CP_ORIYA = goog.getMsg('Oriya');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SAURASHTRA = goog.getMsg('Saurashtra');
+CharPickerData.MSG_CP_SAURASHTRA = goog.getMsg('Saurashtra');
 
 
 /**
@@ -1340,7 +1332,7 @@ goog.i18n.CharPickerData.MSG_CP_SAURASHTRA = goog.getMsg('Saurashtra');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SINHALA = goog.getMsg('Sinhala');
+CharPickerData.MSG_CP_SINHALA = goog.getMsg('Sinhala');
 
 
 /**
@@ -1351,7 +1343,7 @@ goog.i18n.CharPickerData.MSG_CP_SINHALA = goog.getMsg('Sinhala');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SORA_SOMPENG = goog.getMsg('Sora Sompeng');
+CharPickerData.MSG_CP_SORA_SOMPENG = goog.getMsg('Sora Sompeng');
 
 
 /**
@@ -1362,7 +1354,7 @@ goog.i18n.CharPickerData.MSG_CP_SORA_SOMPENG = goog.getMsg('Sora Sompeng');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAMIL = goog.getMsg('Tamil');
+CharPickerData.MSG_CP_TAMIL = goog.getMsg('Tamil');
 
 
 /**
@@ -1373,7 +1365,7 @@ goog.i18n.CharPickerData.MSG_CP_TAMIL = goog.getMsg('Tamil');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TELUGU = goog.getMsg('Telugu');
+CharPickerData.MSG_CP_TELUGU = goog.getMsg('Telugu');
 
 
 /**
@@ -1384,7 +1376,7 @@ goog.i18n.CharPickerData.MSG_CP_TELUGU = goog.getMsg('Telugu');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_THAANA = goog.getMsg('Thaana');
+CharPickerData.MSG_CP_THAANA = goog.getMsg('Thaana');
 
 
 /**
@@ -1395,7 +1387,7 @@ goog.i18n.CharPickerData.MSG_CP_THAANA = goog.getMsg('Thaana');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TIBETAN = goog.getMsg('Tibetan');
+CharPickerData.MSG_CP_TIBETAN = goog.getMsg('Tibetan');
 
 
 /**
@@ -1406,7 +1398,7 @@ goog.i18n.CharPickerData.MSG_CP_TIBETAN = goog.getMsg('Tibetan');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BRAHMI = goog.getMsg('Brahmi');
+CharPickerData.MSG_CP_BRAHMI = goog.getMsg('Brahmi');
 
 
 /**
@@ -1417,7 +1409,7 @@ goog.i18n.CharPickerData.MSG_CP_BRAHMI = goog.getMsg('Brahmi');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KAITHI = goog.getMsg('Kaithi');
+CharPickerData.MSG_CP_KAITHI = goog.getMsg('Kaithi');
 
 
 /**
@@ -1428,7 +1420,7 @@ goog.i18n.CharPickerData.MSG_CP_KAITHI = goog.getMsg('Kaithi');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KHAROSHTHI = goog.getMsg('Kharoshthi');
+CharPickerData.MSG_CP_KHAROSHTHI = goog.getMsg('Kharoshthi');
 
 
 /**
@@ -1439,7 +1431,7 @@ goog.i18n.CharPickerData.MSG_CP_KHAROSHTHI = goog.getMsg('Kharoshthi');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SHARADA = goog.getMsg('Sharada');
+CharPickerData.MSG_CP_SHARADA = goog.getMsg('Sharada');
 
 
 /**
@@ -1450,7 +1442,7 @@ goog.i18n.CharPickerData.MSG_CP_SHARADA = goog.getMsg('Sharada');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SYLOTI_NAGRI = goog.getMsg('Syloti Nagri');
+CharPickerData.MSG_CP_SYLOTI_NAGRI = goog.getMsg('Syloti Nagri');
 
 
 /**
@@ -1461,7 +1453,7 @@ goog.i18n.CharPickerData.MSG_CP_SYLOTI_NAGRI = goog.getMsg('Syloti Nagri');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAKRI = goog.getMsg('Takri');
+CharPickerData.MSG_CP_TAKRI = goog.getMsg('Takri');
 
 
 /**
@@ -1472,7 +1464,7 @@ goog.i18n.CharPickerData.MSG_CP_TAKRI = goog.getMsg('Takri');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS =
+CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS =
     goog.getMsg('Southeast Asian Scripts');
 
 
@@ -1484,7 +1476,7 @@ goog.i18n.CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BALINESE = goog.getMsg('Balinese');
+CharPickerData.MSG_CP_BALINESE = goog.getMsg('Balinese');
 
 
 /**
@@ -1495,7 +1487,7 @@ goog.i18n.CharPickerData.MSG_CP_BALINESE = goog.getMsg('Balinese');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BATAK = goog.getMsg('Batak');
+CharPickerData.MSG_CP_BATAK = goog.getMsg('Batak');
 
 
 /**
@@ -1506,7 +1498,7 @@ goog.i18n.CharPickerData.MSG_CP_BATAK = goog.getMsg('Batak');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CHAM = goog.getMsg('Cham');
+CharPickerData.MSG_CP_CHAM = goog.getMsg('Cham');
 
 
 /**
@@ -1517,7 +1509,7 @@ goog.i18n.CharPickerData.MSG_CP_CHAM = goog.getMsg('Cham');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_JAVANESE = goog.getMsg('Javanese');
+CharPickerData.MSG_CP_JAVANESE = goog.getMsg('Javanese');
 
 
 /**
@@ -1528,7 +1520,7 @@ goog.i18n.CharPickerData.MSG_CP_JAVANESE = goog.getMsg('Javanese');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KAYAH_LI = goog.getMsg('Kayah Li');
+CharPickerData.MSG_CP_KAYAH_LI = goog.getMsg('Kayah Li');
 
 
 /**
@@ -1539,7 +1531,7 @@ goog.i18n.CharPickerData.MSG_CP_KAYAH_LI = goog.getMsg('Kayah Li');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KHMER = goog.getMsg('Khmer');
+CharPickerData.MSG_CP_KHMER = goog.getMsg('Khmer');
 
 
 /**
@@ -1550,7 +1542,7 @@ goog.i18n.CharPickerData.MSG_CP_KHMER = goog.getMsg('Khmer');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LAO = goog.getMsg('Lao');
+CharPickerData.MSG_CP_LAO = goog.getMsg('Lao');
 
 
 /**
@@ -1561,7 +1553,7 @@ goog.i18n.CharPickerData.MSG_CP_LAO = goog.getMsg('Lao');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MYANMAR = goog.getMsg('Myanmar');
+CharPickerData.MSG_CP_MYANMAR = goog.getMsg('Myanmar');
 
 
 /**
@@ -1572,7 +1564,7 @@ goog.i18n.CharPickerData.MSG_CP_MYANMAR = goog.getMsg('Myanmar');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_NEW_TAI_LUE = goog.getMsg('New Tai Lue');
+CharPickerData.MSG_CP_NEW_TAI_LUE = goog.getMsg('New Tai Lue');
 
 
 /**
@@ -1583,7 +1575,7 @@ goog.i18n.CharPickerData.MSG_CP_NEW_TAI_LUE = goog.getMsg('New Tai Lue');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAI_LE = goog.getMsg('Tai Le');
+CharPickerData.MSG_CP_TAI_LE = goog.getMsg('Tai Le');
 
 
 /**
@@ -1594,7 +1586,7 @@ goog.i18n.CharPickerData.MSG_CP_TAI_LE = goog.getMsg('Tai Le');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAI_THAM = goog.getMsg('Tai Tham');
+CharPickerData.MSG_CP_TAI_THAM = goog.getMsg('Tai Tham');
 
 
 /**
@@ -1605,7 +1597,7 @@ goog.i18n.CharPickerData.MSG_CP_TAI_THAM = goog.getMsg('Tai Tham');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAI_VIET = goog.getMsg('Tai Viet');
+CharPickerData.MSG_CP_TAI_VIET = goog.getMsg('Tai Viet');
 
 
 /**
@@ -1616,7 +1608,7 @@ goog.i18n.CharPickerData.MSG_CP_TAI_VIET = goog.getMsg('Tai Viet');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_THAI = goog.getMsg('Thai');
+CharPickerData.MSG_CP_THAI = goog.getMsg('Thai');
 
 
 /**
@@ -1627,7 +1619,7 @@ goog.i18n.CharPickerData.MSG_CP_THAI = goog.getMsg('Thai');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BUGINESE = goog.getMsg('Buginese');
+CharPickerData.MSG_CP_BUGINESE = goog.getMsg('Buginese');
 
 
 /**
@@ -1638,7 +1630,7 @@ goog.i18n.CharPickerData.MSG_CP_BUGINESE = goog.getMsg('Buginese');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BUHID = goog.getMsg('Buhid');
+CharPickerData.MSG_CP_BUHID = goog.getMsg('Buhid');
 
 
 /**
@@ -1649,7 +1641,7 @@ goog.i18n.CharPickerData.MSG_CP_BUHID = goog.getMsg('Buhid');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HANUNOO = goog.getMsg('Hanunoo');
+CharPickerData.MSG_CP_HANUNOO = goog.getMsg('Hanunoo');
 
 
 /**
@@ -1660,7 +1652,7 @@ goog.i18n.CharPickerData.MSG_CP_HANUNOO = goog.getMsg('Hanunoo');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_REJANG = goog.getMsg('Rejang');
+CharPickerData.MSG_CP_REJANG = goog.getMsg('Rejang');
 
 
 /**
@@ -1671,7 +1663,7 @@ goog.i18n.CharPickerData.MSG_CP_REJANG = goog.getMsg('Rejang');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_SUNDANESE = goog.getMsg('Sundanese');
+CharPickerData.MSG_CP_SUNDANESE = goog.getMsg('Sundanese');
 
 
 /**
@@ -1682,7 +1674,7 @@ goog.i18n.CharPickerData.MSG_CP_SUNDANESE = goog.getMsg('Sundanese');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAGALOG = goog.getMsg('Tagalog');
+CharPickerData.MSG_CP_TAGALOG = goog.getMsg('Tagalog');
 
 
 /**
@@ -1693,7 +1685,7 @@ goog.i18n.CharPickerData.MSG_CP_TAGALOG = goog.getMsg('Tagalog');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_TAGBANWA = goog.getMsg('Tagbanwa');
+CharPickerData.MSG_CP_TAGBANWA = goog.getMsg('Tagbanwa');
 
 
 /**
@@ -1704,7 +1696,7 @@ goog.i18n.CharPickerData.MSG_CP_TAGBANWA = goog.getMsg('Tagbanwa');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HANGUL = goog.getMsg('Hangul');
+CharPickerData.MSG_CP_HANGUL = goog.getMsg('Hangul');
 
 
 /**
@@ -1715,7 +1707,7 @@ goog.i18n.CharPickerData.MSG_CP_HANGUL = goog.getMsg('Hangul');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS =
+CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS =
     goog.getMsg('Other East Asian Scripts');
 
 
@@ -1727,7 +1719,7 @@ goog.i18n.CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_BOPOMOFO = goog.getMsg('Bopomofo');
+CharPickerData.MSG_CP_BOPOMOFO = goog.getMsg('Bopomofo');
 
 
 /**
@@ -1738,7 +1730,7 @@ goog.i18n.CharPickerData.MSG_CP_BOPOMOFO = goog.getMsg('Bopomofo');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HIRAGANA = goog.getMsg('Hiragana');
+CharPickerData.MSG_CP_HIRAGANA = goog.getMsg('Hiragana');
 
 
 /**
@@ -1749,7 +1741,7 @@ goog.i18n.CharPickerData.MSG_CP_HIRAGANA = goog.getMsg('Hiragana');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_KATAKANA = goog.getMsg('Katakana');
+CharPickerData.MSG_CP_KATAKANA = goog.getMsg('Katakana');
 
 
 /**
@@ -1760,7 +1752,7 @@ goog.i18n.CharPickerData.MSG_CP_KATAKANA = goog.getMsg('Katakana');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LISU = goog.getMsg('Lisu');
+CharPickerData.MSG_CP_LISU = goog.getMsg('Lisu');
 
 
 /**
@@ -1771,7 +1763,7 @@ goog.i18n.CharPickerData.MSG_CP_LISU = goog.getMsg('Lisu');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MIAO = goog.getMsg('Miao');
+CharPickerData.MSG_CP_MIAO = goog.getMsg('Miao');
 
 
 /**
@@ -1782,7 +1774,7 @@ goog.i18n.CharPickerData.MSG_CP_MIAO = goog.getMsg('Miao');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_MONGOLIAN = goog.getMsg('Mongolian');
+CharPickerData.MSG_CP_MONGOLIAN = goog.getMsg('Mongolian');
 
 
 /**
@@ -1793,7 +1785,7 @@ goog.i18n.CharPickerData.MSG_CP_MONGOLIAN = goog.getMsg('Mongolian');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_OLD_TURKIC = goog.getMsg('Old Turkic');
+CharPickerData.MSG_CP_OLD_TURKIC = goog.getMsg('Old Turkic');
 
 
 /**
@@ -1804,7 +1796,7 @@ goog.i18n.CharPickerData.MSG_CP_OLD_TURKIC = goog.getMsg('Old Turkic');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_PHAGS_PA = goog.getMsg('Phags Pa');
+CharPickerData.MSG_CP_PHAGS_PA = goog.getMsg('Phags Pa');
 
 
 /**
@@ -1815,7 +1807,7 @@ goog.i18n.CharPickerData.MSG_CP_PHAGS_PA = goog.getMsg('Phags Pa');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_YI = goog.getMsg('Yi');
+CharPickerData.MSG_CP_YI = goog.getMsg('Yi');
 
 
 /**
@@ -1826,7 +1818,7 @@ goog.i18n.CharPickerData.MSG_CP_YI = goog.getMsg('Yi');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS =
     goog.getMsg('Han 1-Stroke Radicals');
 
 
@@ -1838,7 +1830,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_LESS_COMMON = goog.getMsg('Less Common');
+CharPickerData.MSG_CP_LESS_COMMON = goog.getMsg('Less Common');
 
 
 /**
@@ -1849,7 +1841,7 @@ goog.i18n.CharPickerData.MSG_CP_LESS_COMMON = goog.getMsg('Less Common');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS =
     goog.getMsg('Han 2-Stroke Radicals');
 
 
@@ -1861,7 +1853,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS =
     goog.getMsg('Han 3-Stroke Radicals');
 
 
@@ -1873,7 +1865,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS =
     goog.getMsg('Han 4-Stroke Radicals');
 
 
@@ -1885,7 +1877,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS =
     goog.getMsg('Han 5-Stroke Radicals');
 
 
@@ -1897,7 +1889,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS =
     goog.getMsg('Han 6-Stroke Radicals');
 
 
@@ -1909,7 +1901,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS =
     goog.getMsg('Han 7-Stroke Radicals');
 
 
@@ -1921,7 +1913,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS =
     goog.getMsg('Han 8-Stroke Radicals');
 
 
@@ -1933,7 +1925,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS =
     goog.getMsg('Han 9-Stroke Radicals');
 
 
@@ -1945,7 +1937,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS =
     goog.getMsg('Han 10-Stroke Radicals');
 
 
@@ -1957,7 +1949,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS =
+CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS =
     goog.getMsg('Han 11..17-Stroke Radicals');
 
 
@@ -1969,7 +1961,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS =
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_HAN_OTHER = goog.getMsg('Han - Other');
+CharPickerData.MSG_CP_HAN_OTHER = goog.getMsg('Han - Other');
 
 
 /**
@@ -1980,7 +1972,7 @@ goog.i18n.CharPickerData.MSG_CP_HAN_OTHER = goog.getMsg('Han - Other');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_CJK_STROKES = goog.getMsg('CJK Strokes');
+CharPickerData.MSG_CP_CJK_STROKES = goog.getMsg('CJK Strokes');
 
 
 /**
@@ -1991,7 +1983,7 @@ goog.i18n.CharPickerData.MSG_CP_CJK_STROKES = goog.getMsg('CJK Strokes');
  *   docs/fileview?id=0B8NbxddKsFtwYjExMGJjNzgtYjkzOS00NjdiLTlmOGQtOGVhZDkyZDU5YjM4.
  * @type {string}
  */
-goog.i18n.CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION =
+CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION =
     goog.getMsg('Ideographic Description');
 
 
@@ -1999,78 +1991,78 @@ goog.i18n.CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION =
  * Top catagory names of character organization.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.prototype.categories = [
-  goog.i18n.CharPickerData.MSG_CP_SYMBOL,
-  goog.i18n.CharPickerData.MSG_CP_EMOJI,
-  goog.i18n.CharPickerData.MSG_CP_PUNCTUATION,
-  goog.i18n.CharPickerData.MSG_CP_NUMBER,
-  goog.i18n.CharPickerData.MSG_CP_FORMAT_WHITESPACE,
-  goog.i18n.CharPickerData.MSG_CP_MODIFIER,
-  goog.i18n.CharPickerData.MSG_CP_LATIN,
-  goog.i18n.CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_AMERICAN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_AFRICAN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_HANGUL,
-  goog.i18n.CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS,
-  goog.i18n.CharPickerData.MSG_CP_HAN_OTHER
+CharPickerData.prototype.categories = [
+  CharPickerData.MSG_CP_SYMBOL,
+  CharPickerData.MSG_CP_EMOJI,
+  CharPickerData.MSG_CP_PUNCTUATION,
+  CharPickerData.MSG_CP_NUMBER,
+  CharPickerData.MSG_CP_FORMAT_WHITESPACE,
+  CharPickerData.MSG_CP_MODIFIER,
+  CharPickerData.MSG_CP_LATIN,
+  CharPickerData.MSG_CP_OTHER_EUROPEAN_SCRIPTS,
+  CharPickerData.MSG_CP_AMERICAN_SCRIPTS,
+  CharPickerData.MSG_CP_AFRICAN_SCRIPTS,
+  CharPickerData.MSG_CP_MIDDLE_EASTERN_SCRIPTS,
+  CharPickerData.MSG_CP_SOUTH_ASIAN_SCRIPTS,
+  CharPickerData.MSG_CP_SOUTHEAST_ASIAN_SCRIPTS,
+  CharPickerData.MSG_CP_HANGUL,
+  CharPickerData.MSG_CP_OTHER_EAST_ASIAN_SCRIPTS,
+  CharPickerData.MSG_CP_HAN_1_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_2_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_3_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_4_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_5_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_6_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_7_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_8_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_9_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_10_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_11_17_STROKE_RADICALS,
+  CharPickerData.MSG_CP_HAN_OTHER
 ];
 
 
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SYMBOL = [
-  goog.i18n.CharPickerData.MSG_CP_ARROWS,
-  goog.i18n.CharPickerData.MSG_CP_BRAILLE,
-  goog.i18n.CharPickerData.MSG_CP_CONTROL_PICTURES,
-  goog.i18n.CharPickerData.MSG_CP_CURRENCY,
-  goog.i18n.CharPickerData.MSG_CP_EMOTICONS,
-  goog.i18n.CharPickerData.MSG_CP_GAME_PIECES,
-  goog.i18n.CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL,
-  goog.i18n.CharPickerData.MSG_CP_GEOMETRIC_SHAPES,
-  goog.i18n.CharPickerData.MSG_CP_KEYBOARD_AND_UI,
-  goog.i18n.CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT,
-  goog.i18n.CharPickerData.MSG_CP_MATH,
-  goog.i18n.CharPickerData.MSG_CP_MATH_ALPHANUMERIC,
-  goog.i18n.CharPickerData.MSG_CP_MISCELLANEOUS,
-  goog.i18n.CharPickerData.MSG_CP_MUSICAL,
-  goog.i18n.CharPickerData.MSG_CP_STARS_ASTERISKS,
-  goog.i18n.CharPickerData.MSG_CP_SUBSCRIPT,
-  goog.i18n.CharPickerData.MSG_CP_SUPERSCRIPT,
-  goog.i18n.CharPickerData.MSG_CP_TECHNICAL,
-  goog.i18n.CharPickerData.MSG_CP_TRANSPORT_AND_MAP,
-  goog.i18n.CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL,
-  goog.i18n.CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+CharPickerData.SUBCATEGORY_NAMES_OF_SYMBOL = [
+  CharPickerData.MSG_CP_ARROWS,
+  CharPickerData.MSG_CP_BRAILLE,
+  CharPickerData.MSG_CP_CONTROL_PICTURES,
+  CharPickerData.MSG_CP_CURRENCY,
+  CharPickerData.MSG_CP_EMOTICONS,
+  CharPickerData.MSG_CP_GAME_PIECES,
+  CharPickerData.MSG_CP_GENDER_AND_GENEALOGICAL,
+  CharPickerData.MSG_CP_GEOMETRIC_SHAPES,
+  CharPickerData.MSG_CP_KEYBOARD_AND_UI,
+  CharPickerData.MSG_CP_LATIN_1_SUPPLEMENT,
+  CharPickerData.MSG_CP_MATH,
+  CharPickerData.MSG_CP_MATH_ALPHANUMERIC,
+  CharPickerData.MSG_CP_MISCELLANEOUS,
+  CharPickerData.MSG_CP_MUSICAL,
+  CharPickerData.MSG_CP_STARS_ASTERISKS,
+  CharPickerData.MSG_CP_SUBSCRIPT,
+  CharPickerData.MSG_CP_SUPERSCRIPT,
+  CharPickerData.MSG_CP_TECHNICAL,
+  CharPickerData.MSG_CP_TRANSPORT_AND_MAP,
+  CharPickerData.MSG_CP_WEATHER_AND_ASTROLOGICAL,
+  CharPickerData.MSG_CP_YIJING_TAI_XUAN_JING,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_SYMBOL = [
+CharPickerData.CHARLIST_OF_SYMBOL = [
   '2>807AnTMm6e6HDk%`O728F1f4V1PNF2WF1G}58?]514M]Ol1%2l2^3X1U:1Un2Mb>$0MD-(068k11I3706:%MwiZ06',
   ';oA0FN',
   '(j90d3',
@@ -2100,30 +2092,30 @@ goog.i18n.CharPickerData.CHARLIST_OF_SYMBOL = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_EMOJI = [
-  goog.i18n.CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS,
-  goog.i18n.CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD,
-  goog.i18n.CharPickerData.MSG_CP_OBJECTS,
-  goog.i18n.CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES,
-  goog.i18n.CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE,
-  goog.i18n.CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS,
-  goog.i18n.CharPickerData.MSG_CP_ENCLOSED,
-  goog.i18n.CharPickerData.MSG_CP_MARKS,
-  goog.i18n.CharPickerData.MSG_CP_SYMBOLS
+CharPickerData.SUBCATEGORY_NAMES_OF_EMOJI = [
+  CharPickerData.MSG_CP_PEOPLE_AND_EMOTIONS,
+  CharPickerData.MSG_CP_ANIMALS_PLANTS_AND_FOOD,
+  CharPickerData.MSG_CP_OBJECTS,
+  CharPickerData.MSG_CP_SPORTS_CELEBRATIONS_AND_ACTIVITIES,
+  CharPickerData.MSG_CP_TRANSPORT_MAPS_AND_SIGNAGE,
+  CharPickerData.MSG_CP_WEATHER_SCENES_AND_ZODIAC_SIGNS,
+  CharPickerData.MSG_CP_ENCLOSED,
+  CharPickerData.MSG_CP_MARKS,
+  CharPickerData.MSG_CP_SYMBOLS
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_EMOJI = [
+CharPickerData.CHARLIST_OF_EMOJI = [
   '^6A0n2:IE]7Y>X18N1%1-28EOO8871G|%U-5W?',
   'I6A0A_X1c8N6eXBt5',
   ';O906PJG]m1C1Amew)X16:It1]2W68E8X168[8d68MP171P1!1372',
@@ -2139,27 +2131,27 @@ goog.i18n.CharPickerData.CHARLIST_OF_EMOJI = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_PUNCTUATION = [
-  goog.i18n.CharPickerData.MSG_CP_ASCII_BASED,
-  goog.i18n.CharPickerData.MSG_CP_DASH_CONNECTOR,
-  goog.i18n.CharPickerData.MSG_CP_OTHER,
-  goog.i18n.CharPickerData.MSG_CP_PAIRED,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+CharPickerData.SUBCATEGORY_NAMES_OF_PUNCTUATION = [
+  CharPickerData.MSG_CP_ASCII_BASED,
+  CharPickerData.MSG_CP_DASH_CONNECTOR,
+  CharPickerData.MSG_CP_OTHER,
+  CharPickerData.MSG_CP_PAIRED,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_PUNCTUATION = [
+CharPickerData.CHARLIST_OF_PUNCTUATION = [
   ':2M8EG886[6O6f2H6eP16u',
   '14f4gX80c%36%1gu30:26Q3t0XG',
   '(s70:<.MOEmEGGG8OEms88Iu3068G6n1!',
@@ -2172,27 +2164,27 @@ goog.i18n.CharPickerData.CHARLIST_OF_PUNCTUATION = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_NUMBER = [
-  goog.i18n.CharPickerData.MSG_CP_DECIMAL,
-  goog.i18n.CharPickerData.MSG_CP_ENCLOSED_DOTTED,
-  goog.i18n.CharPickerData.MSG_CP_FRACTIONS_RELATED,
-  goog.i18n.CharPickerData.MSG_CP_OTHER,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+CharPickerData.SUBCATEGORY_NAMES_OF_NUMBER = [
+  CharPickerData.MSG_CP_DECIMAL,
+  CharPickerData.MSG_CP_ENCLOSED_DOTTED,
+  CharPickerData.MSG_CP_FRACTIONS_RELATED,
+  CharPickerData.MSG_CP_OTHER,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_NUMBER = [
+CharPickerData.CHARLIST_OF_NUMBER = [
   'P4,]A6egh10,HC,1I,fb,%A,%A,%A,%A,%A,%A,%A,%A,XK,%A,X6,PP,X6,Q]10,f3,PR,vB,9F,m,nG,]K,m,A710Ocm,^SZ0,vz,f3,1I,%A,]a,AnQ0,vB,f5,9D,2Q10,5O60,',
   'gs90#7%4@1Pvt2g+20,%2s8N1]2,n3N1',
   '9G6eGEoX80Ocm,1IV1%3',
@@ -2205,26 +2197,26 @@ goog.i18n.CharPickerData.CHARLIST_OF_NUMBER = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_FORMAT_WHITESPACE = [
-  goog.i18n.CharPickerData.MSG_CP_FORMAT,
-  goog.i18n.CharPickerData.MSG_CP_VARIATION_SELECTOR,
-  goog.i18n.CharPickerData.MSG_CP_WHITESPACE,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+CharPickerData.SUBCATEGORY_NAMES_OF_FORMAT_WHITESPACE = [
+  CharPickerData.MSG_CP_FORMAT,
+  CharPickerData.MSG_CP_VARIATION_SELECTOR,
+  CharPickerData.MSG_CP_WHITESPACE,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE = [
+CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE = [
   'vF;Z10c12fHf4gh40;920UX2Uf4U8M2n#0Iej0MQi50sY)W9l8bk0AvME',
   ']=oY506%7E^$zA#LDF1AV1',
   'fEIH602920,H3P4wB40;#s0',
@@ -2236,26 +2228,26 @@ goog.i18n.CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MODIFIER = [
-  goog.i18n.CharPickerData.MSG_CP_ENCLOSING,
-  goog.i18n.CharPickerData.MSG_CP_NONSPACING,
-  goog.i18n.CharPickerData.MSG_CP_SPACING,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+CharPickerData.SUBCATEGORY_NAMES_OF_MODIFIER = [
+  CharPickerData.MSG_CP_ENCLOSING,
+  CharPickerData.MSG_CP_NONSPACING,
+  CharPickerData.MSG_CP_SPACING,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_MODIFIER = [
+CharPickerData.CHARLIST_OF_MODIFIER = [
   '(y80M8E',
   '%+#5GG,8t1(#60E8718kWm:I,H46v%71WO|oWQ1En1sGk%2MT_t0k',
   'f!!.M%3M91gz30(C30f1695E8?8l18d2X4N32D40XH',
@@ -2267,29 +2259,29 @@ goog.i18n.CharPickerData.CHARLIST_OF_MODIFIER = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_LATIN = [
-  goog.i18n.CharPickerData.MSG_CP_COMMON,
-  goog.i18n.CharPickerData.MSG_CP_ENCLOSED,
-  goog.i18n.CharPickerData.MSG_CP_FLIPPED_MIRRORED,
-  goog.i18n.CharPickerData.MSG_CP_OTHER,
-  goog.i18n.CharPickerData.MSG_CP_PHONETICS_IPA,
-  goog.i18n.CharPickerData.MSG_CP_PHONETICS_X_IPA,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+CharPickerData.SUBCATEGORY_NAMES_OF_LATIN = [
+  CharPickerData.MSG_CP_COMMON,
+  CharPickerData.MSG_CP_ENCLOSED,
+  CharPickerData.MSG_CP_FLIPPED_MIRRORED,
+  CharPickerData.MSG_CP_OTHER,
+  CharPickerData.MSG_CP_PHONETICS_IPA,
+  CharPickerData.MSG_CP_PHONETICS_X_IPA,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_LATIN = [
+CharPickerData.CHARLIST_OF_LATIN = [
   ':5N2mN2P6}18#28V1Gl1GcG|W68cGs8|GMGMG6G}1GWG6OU8GEOG6H168E11M.s$$6f16%2Mv3P168688uW.128$IN706126H26W6:16m6$6P16Gc916[878QAa06zph0696U8EOP3o2706',
   '^x90}6^yX1#28F5m-3:6N2',
   'X4X1m6OEWku8WGc88M8H6%1nFmu11916X16H3H1%4P3[8EOmeWW.euWM918HMH6%512]I1Q^+20f+.%2X8]cfBg*10I710P1681H]E^BZ01BE',
@@ -2304,51 +2296,51 @@ goog.i18n.CharPickerData.CHARLIST_OF_LATIN = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EUROPEAN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_ARMENIAN,
-  goog.i18n.CharPickerData.MSG_CP_CYRILLIC,
-  goog.i18n.CharPickerData.MSG_CP_GEORGIAN,
-  goog.i18n.CharPickerData.MSG_CP_GREEK,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_CYPRIOT,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_CYRILLIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_GEORGIAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_GLAGOLITIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_GOTHIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_GREEK,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_LINEAR_B,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_OGHAM,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_OLD_ITALIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_RUNIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_SHAVIAN,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_ARMENIAN,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_GREEK
+CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EUROPEAN_SCRIPTS = [
+  CharPickerData.MSG_CP_ARMENIAN,
+  CharPickerData.MSG_CP_CYRILLIC,
+  CharPickerData.MSG_CP_GEORGIAN,
+  CharPickerData.MSG_CP_GREEK,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_CYPRIOT,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_CYRILLIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_GEORGIAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_GLAGOLITIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_GOTHIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_GREEK,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_LINEAR_B,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_OGHAM,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_OLD_ITALIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_RUNIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_SHAVIAN,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_ARMENIAN,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_GREEK
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS = [
   '(W10V3Oc8V3G6W=4',
   '2510-BuNEKuvfE',
   '(e10o{20eG@2mMGEJ',
@@ -2372,25 +2364,25 @@ goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AMERICAN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_CANADIAN_ABORIGINAL,
-  goog.i18n.CharPickerData.MSG_CP_CHEROKEE,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_DESERET
+CharPickerData.SUBCATEGORY_NAMES_OF_AMERICAN_SCRIPTS = [
+  CharPickerData.MSG_CP_CANADIAN_ABORIGINAL,
+  CharPickerData.MSG_CP_CHEROKEE,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_DESERET
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS = [
   'YP507w]oN6',
   'wG50t7',
   ';(*0F7'
@@ -2400,36 +2392,36 @@ goog.i18n.CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AFRICAN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS,
-  goog.i18n.CharPickerData.MSG_CP_ETHIOPIC,
-  goog.i18n.CharPickerData.MSG_CP_MEROITIC_CURSIVE,
-  goog.i18n.CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS,
-  goog.i18n.CharPickerData.MSG_CP_NKO,
-  goog.i18n.CharPickerData.MSG_CP_TIFINAGH,
-  goog.i18n.CharPickerData.MSG_CP_VAI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_BAMUM,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_COPTIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_NKO,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_OSMANYA
+CharPickerData.SUBCATEGORY_NAMES_OF_AFRICAN_SCRIPTS = [
+  CharPickerData.MSG_CP_EGYPTIAN_HIEROGLYPHS,
+  CharPickerData.MSG_CP_ETHIOPIC,
+  CharPickerData.MSG_CP_MEROITIC_CURSIVE,
+  CharPickerData.MSG_CP_MEROITIC_HIEROGLYPHS,
+  CharPickerData.MSG_CP_NKO,
+  CharPickerData.MSG_CP_TIFINAGH,
+  CharPickerData.MSG_CP_VAI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_BAMUM,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_COPTIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_NKO,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_OSMANYA
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS = [
   ';Y[0}}N9',
   ';(40l68MGk88MGt38MG@28MGk88MGN18758MG}5el2ON2(;60}1.k8k8k8k8k8k8k8kI8X0cGcGc.k8kDDe0E',
   '(L,072m6',
@@ -2447,56 +2439,56 @@ goog.i18n.CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MIDDLE_EASTERN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_ARABIC,
-  goog.i18n.CharPickerData.MSG_CP_HEBREW,
-  goog.i18n.CharPickerData.MSG_CP_IMPERIAL_ARAMAIC,
-  goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI,
-  goog.i18n.CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN,
-  goog.i18n.CharPickerData.MSG_CP_MANDAIC,
-  goog.i18n.CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN,
-  goog.i18n.CharPickerData.MSG_CP_SAMARITAN,
-  goog.i18n.CharPickerData.MSG_CP_SYRIAC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_ARABIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_AVESTAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_CARIAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_CUNEIFORM,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_HEBREW,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_LYCIAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_LYDIAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_OLD_PERSIAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_PHOENICIAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_SYRIAC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_UGARITIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_ARABIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_HEBREW
+CharPickerData.SUBCATEGORY_NAMES_OF_MIDDLE_EASTERN_SCRIPTS = [
+  CharPickerData.MSG_CP_ARABIC,
+  CharPickerData.MSG_CP_HEBREW,
+  CharPickerData.MSG_CP_IMPERIAL_ARAMAIC,
+  CharPickerData.MSG_CP_INSCRIPTIONAL_PAHLAVI,
+  CharPickerData.MSG_CP_INSCRIPTIONAL_PARTHIAN,
+  CharPickerData.MSG_CP_MANDAIC,
+  CharPickerData.MSG_CP_OLD_SOUTH_ARABIAN,
+  CharPickerData.MSG_CP_SAMARITAN,
+  CharPickerData.MSG_CP_SYRIAC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_ARABIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_AVESTAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_CARIAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_CUNEIFORM,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_HEBREW,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_LYCIAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_LYDIAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_OLD_PERSIAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_PHOENICIAN,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_SYRIAC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_UGARITIC,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_ARABIC,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_HEBREW
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS = [
   'op10U8,11Gl2m,]1F1O68W-18V6H2l1P774XQ8?^F60g2#0#2YVx06r##0vAry%0U]3[-1f11vV2QG$0V1',
   'oj108G91V2eUC6F1886A?$0',
   '(>+0@18!',
@@ -2525,65 +2517,65 @@ goog.i18n.CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTH_ASIAN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_BENGALI,
-  goog.i18n.CharPickerData.MSG_CP_CHAKMA,
-  goog.i18n.CharPickerData.MSG_CP_DEVANAGARI,
-  goog.i18n.CharPickerData.MSG_CP_GUJARATI,
-  goog.i18n.CharPickerData.MSG_CP_GURMUKHI,
-  goog.i18n.CharPickerData.MSG_CP_KANNADA,
-  goog.i18n.CharPickerData.MSG_CP_LEPCHA,
-  goog.i18n.CharPickerData.MSG_CP_LIMBU,
-  goog.i18n.CharPickerData.MSG_CP_MALAYALAM,
-  goog.i18n.CharPickerData.MSG_CP_MEETEI_MAYEK,
-  goog.i18n.CharPickerData.MSG_CP_OL_CHIKI,
-  goog.i18n.CharPickerData.MSG_CP_ORIYA,
-  goog.i18n.CharPickerData.MSG_CP_SAURASHTRA,
-  goog.i18n.CharPickerData.MSG_CP_SINHALA,
-  goog.i18n.CharPickerData.MSG_CP_SORA_SOMPENG,
-  goog.i18n.CharPickerData.MSG_CP_TAMIL,
-  goog.i18n.CharPickerData.MSG_CP_TELUGU,
-  goog.i18n.CharPickerData.MSG_CP_THAANA,
-  goog.i18n.CharPickerData.MSG_CP_TIBETAN,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_BRAHMI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_KAITHI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_KANNADA,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_KHAROSHTHI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_SHARADA,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_SYLOTI_NAGRI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_TAKRI,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_BENGALI,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_DEVANAGARI,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_GURMUKHI,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_ORIYA,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_TIBETAN
+CharPickerData.SUBCATEGORY_NAMES_OF_SOUTH_ASIAN_SCRIPTS = [
+  CharPickerData.MSG_CP_BENGALI,
+  CharPickerData.MSG_CP_CHAKMA,
+  CharPickerData.MSG_CP_DEVANAGARI,
+  CharPickerData.MSG_CP_GUJARATI,
+  CharPickerData.MSG_CP_GURMUKHI,
+  CharPickerData.MSG_CP_KANNADA,
+  CharPickerData.MSG_CP_LEPCHA,
+  CharPickerData.MSG_CP_LIMBU,
+  CharPickerData.MSG_CP_MALAYALAM,
+  CharPickerData.MSG_CP_MEETEI_MAYEK,
+  CharPickerData.MSG_CP_OL_CHIKI,
+  CharPickerData.MSG_CP_ORIYA,
+  CharPickerData.MSG_CP_SAURASHTRA,
+  CharPickerData.MSG_CP_SINHALA,
+  CharPickerData.MSG_CP_SORA_SOMPENG,
+  CharPickerData.MSG_CP_TAMIL,
+  CharPickerData.MSG_CP_TELUGU,
+  CharPickerData.MSG_CP_THAANA,
+  CharPickerData.MSG_CP_TIBETAN,
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_BRAHMI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_KAITHI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_KANNADA,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_KHAROSHTHI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_SHARADA,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_SYLOTI_NAGRI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_TAKRI,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_BENGALI,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_DEVANAGARI,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_GURMUKHI,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_ORIYA,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_TIBETAN
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS = [
   'gg206:2sG6G@18k8OMOf1n16W@1:*64[E958kG6GE.[6',
   'wH.0F3X1F146EP3F1',
   '(X20-4Ov1X16G718c8k9[6gMf0,DRg0M]4E8l18k[6H1YEg0l1',
@@ -2622,50 +2614,50 @@ goog.i18n.CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTHEAST_ASIAN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_BALINESE,
-  goog.i18n.CharPickerData.MSG_CP_BATAK,
-  goog.i18n.CharPickerData.MSG_CP_CHAM,
-  goog.i18n.CharPickerData.MSG_CP_JAVANESE,
-  goog.i18n.CharPickerData.MSG_CP_KAYAH_LI,
-  goog.i18n.CharPickerData.MSG_CP_KHMER,
-  goog.i18n.CharPickerData.MSG_CP_LAO,
-  goog.i18n.CharPickerData.MSG_CP_MYANMAR,
-  goog.i18n.CharPickerData.MSG_CP_NEW_TAI_LUE,
-  goog.i18n.CharPickerData.MSG_CP_TAI_LE,
-  goog.i18n.CharPickerData.MSG_CP_TAI_THAM,
-  goog.i18n.CharPickerData.MSG_CP_TAI_VIET,
-  goog.i18n.CharPickerData.MSG_CP_THAI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_BUGINESE,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_BUHID,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_HANUNOO,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_KHMER,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_REJANG,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_SUNDANESE,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_TAGALOG,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_TAGBANWA
+CharPickerData.SUBCATEGORY_NAMES_OF_SOUTHEAST_ASIAN_SCRIPTS = [
+  CharPickerData.MSG_CP_BALINESE,
+  CharPickerData.MSG_CP_BATAK,
+  CharPickerData.MSG_CP_CHAM,
+  CharPickerData.MSG_CP_JAVANESE,
+  CharPickerData.MSG_CP_KAYAH_LI,
+  CharPickerData.MSG_CP_KHMER,
+  CharPickerData.MSG_CP_LAO,
+  CharPickerData.MSG_CP_MYANMAR,
+  CharPickerData.MSG_CP_NEW_TAI_LUE,
+  CharPickerData.MSG_CP_TAI_LE,
+  CharPickerData.MSG_CP_TAI_THAM,
+  CharPickerData.MSG_CP_TAI_VIET,
+  CharPickerData.MSG_CP_THAI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_BUGINESE,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_BUHID,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_HANUNOO,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_KHMER,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_REJANG,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_SUNDANESE,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_TAGALOG,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_TAGBANWA
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS = [
   '(C70F4n1kWV2.!KBUP4d1f3!',
   '(T70V312MK2F1',
   'Q`i0t392E8sW,GM=4F191$6',
@@ -2693,11 +2685,11 @@ goog.i18n.CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL = [
-  goog.i18n.CharPickerData.MSG_CP_OTHER,
+CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL = [
+  CharPickerData.MSG_CP_OTHER,
   '\u1100',
   '\u1102',
   '\u1103',
@@ -2713,19 +2705,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL = [
   '\u1111',
   '\u1112',
   '\u1159',
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY
+  CharPickerData.MSG_CP_HISTORIC,
+  CharPickerData.MSG_CP_COMPATIBILITY
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HANGUL = [
+CharPickerData.CHARLIST_OF_HANGUL = [
   'AzC0M88,8F1X1mWMPqYyh0}1WV42BA06Tis06',
   ';gj0}}-I',
   '(zk0Vr',
@@ -2750,42 +2742,42 @@ goog.i18n.CharPickerData.CHARLIST_OF_HANGUL = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EAST_ASIAN_SCRIPTS = [
-  goog.i18n.CharPickerData.MSG_CP_BOPOMOFO,
-  goog.i18n.CharPickerData.MSG_CP_HIRAGANA,
-  goog.i18n.CharPickerData.MSG_CP_KATAKANA,
-  goog.i18n.CharPickerData.MSG_CP_LISU,
-  goog.i18n.CharPickerData.MSG_CP_MIAO,
-  goog.i18n.CharPickerData.MSG_CP_MONGOLIAN,
-  goog.i18n.CharPickerData.MSG_CP_OLD_TURKIC,
-  goog.i18n.CharPickerData.MSG_CP_PHAGS_PA,
-  goog.i18n.CharPickerData.MSG_CP_YI,
-  goog.i18n.CharPickerData.MSG_CP_HISTORIC + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_PHAGS_PA,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_BOPOMOFO,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_HIRAGANA,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_KATAKANA,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_PHAGS_PA,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
-      goog.i18n.CharPickerData.MSG_CP_YI
+CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EAST_ASIAN_SCRIPTS = [
+  CharPickerData.MSG_CP_BOPOMOFO,
+  CharPickerData.MSG_CP_HIRAGANA,
+  CharPickerData.MSG_CP_KATAKANA,
+  CharPickerData.MSG_CP_LISU,
+  CharPickerData.MSG_CP_MIAO,
+  CharPickerData.MSG_CP_MONGOLIAN,
+  CharPickerData.MSG_CP_OLD_TURKIC,
+  CharPickerData.MSG_CP_PHAGS_PA,
+  CharPickerData.MSG_CP_YI,
+  CharPickerData.MSG_CP_HISTORIC + ' - ' +
+      CharPickerData.MSG_CP_PHAGS_PA,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_BOPOMOFO,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_HIRAGANA,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_KATAKANA,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_PHAGS_PA,
+  CharPickerData.MSG_CP_COMPATIBILITY + ' - ' +
+      CharPickerData.MSG_CP_YI
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS = [
+CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS = [
   'AzC0M88,8F1X1mWM]Ht3XAV2I8s06+f(06^`B0M',
   'AzC0M88F2X1mWM8#7.H8fD6QCD1T0l065is0U196G6f8wqs0946',
   'AzC0M88F2X1mWM%8N8fD6n8V1I2D1L0l065is0U196:8Egqs0946',
@@ -2807,29 +2799,29 @@ goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_1_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_1_STROKE_RADICALS = [
   '\u4E00',
   '\u4E28',
   '\u4E36',
   '\u4E3F',
   '\u4E59',
   '\u4E85',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS = [
   'ItK0l3]1f7YL10',
   ';wK0M8!',
   'AyK0k8[',
@@ -2844,10 +2836,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS = [
   '\u4E8C',
   '\u4EA0',
   '\u4EBA',
@@ -2872,19 +2864,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS = [
   '\u53B6',
   '\u53C8',
   '\u8BA0',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS = [
   '^)K0M8N1',
   '(+K0N2',
   'A.K0lww)K0',
@@ -2917,10 +2909,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS = [
   '\u53E3',
   '\u56D7',
   '\u571F',
@@ -2957,19 +2949,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS = [
   '\u98DE',
   '\u9963',
   '\u9A6C',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS = [
   'IGM0dY8FM8tB',
   '^`M0d6^GJ0',
   'g3N0tZ8}48!Q#I0Ge',
@@ -3014,10 +3006,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS = [
   '\u5FC3',
   '\u6208',
   '\u6236',
@@ -3057,19 +3049,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS = [
   '\u8F66',
   '\u97E6',
   '\u98CE',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS = [
   'oSP0#q',
   'Y]P074',
   'o{P0-1',
@@ -3117,10 +3109,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS = [
   '\u7384',
   '\u7389',
   '\u74DC',
@@ -3148,19 +3140,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS = [
   '\u957F',
   '\u9E1F',
   '\u9F99',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS = [
   'QmU0U',
   '(mU0#U',
   'o@U0,',
@@ -3196,10 +3188,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS = [
   '\u7AF9',
   '\u7C73',
   '\u7CF8',
@@ -3231,19 +3223,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS = [
   '\u897E',
   '\u9875',
   '\u9F50',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS = [
   ';jW0NY',
   ';,N0YL70;<10}B',
   'Q4X0Vc',
@@ -3283,10 +3275,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS = [
   '\u5364',
   '\u898B',
   '\u89D2',
@@ -3309,19 +3301,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS = [
   '\u91C6',
   '\u91CC',
   '\u9F9F',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS = [
   'w4M0(<J0',
   '^Wa0?8#3',
   'Yda074QB50',
@@ -3352,10 +3344,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS = [
   '\u91D1',
   '\u9577',
   '\u9580',
@@ -3367,19 +3359,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS = [
   '\u975E',
   '\u9C7C',
   '\u9F7F',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS = [
   'wVS0(HA0-!o_20GG',
   'Ykd0s',
   'Ild0V9',
@@ -3399,10 +3391,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS = [
   '\u9762',
   '\u9769',
   '\u97CB',
@@ -3414,19 +3406,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS = [
   '\u98DF',
   '\u9996',
   '\u9999',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS = [
   '23e0k',
   'w3e0-8',
   'oCe0V2',
@@ -3446,10 +3438,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS = [
   '\u99AC',
   '\u9AA8',
   '\u9AD8',
@@ -3458,19 +3450,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS = [
   '\u9B2F',
   '\u9B32',
   '\u9B3C',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS = [
   'Que0VHQY106',
   'I@e0N4',
   'o_e0k',
@@ -3487,10 +3479,10 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS = [
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS = [
   '\u9B5A',
   '\u9CE5',
   '\u9E75',
@@ -3513,19 +3505,19 @@ goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS = [
   '\u9F8D',
   '\u9F9C',
   '\u9FA0',
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS = [
+CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS = [
   'Y7f0NQXWPh',
   'Qhf0dB87B8l59c',
   'w@f0!',
@@ -3556,26 +3548,26 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS = [
 /**
  * Names of subcategories. Each message this array is the
  * name for the corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`.
+ * `CharPickerData.subcategories`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_OTHER = [
-  goog.i18n.CharPickerData.MSG_CP_CJK_STROKES,
-  goog.i18n.CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION,
-  goog.i18n.CharPickerData.MSG_CP_OTHER,
-  goog.i18n.CharPickerData.MSG_CP_COMPATIBILITY,
-  goog.i18n.CharPickerData.MSG_CP_LESS_COMMON
+CharPickerData.SUBCATEGORY_NAMES_OF_HAN_OTHER = [
+  CharPickerData.MSG_CP_CJK_STROKES,
+  CharPickerData.MSG_CP_IDEOGRAPHIC_DESCRIPTION,
+  CharPickerData.MSG_CP_OTHER,
+  CharPickerData.MSG_CP_COMPATIBILITY,
+  CharPickerData.MSG_CP_LESS_COMMON
 ];
 
 
 /**
  * List of characters in base88 encoding scheme. Each base88 encoded
  * charater string represents corresponding subcategory specified in
- * `goog.i18n.CharPickerData.subcategories`. Encoding
+ * `CharPickerData.subcategories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<string>}
  */
-goog.i18n.CharPickerData.CHARLIST_OF_HAN_OTHER = [
+CharPickerData.CHARLIST_OF_HAN_OTHER = [
   'AQC0N28M8d7H%F3',
   'oxC0|',
   'AzC0M8|8}1mmWM2iT0o|O065ms0P3MH1',
@@ -3587,73 +3579,74 @@ goog.i18n.CharPickerData.CHARLIST_OF_HAN_OTHER = [
 /**
  * Subcategory names. Each subarray in this array is a list of subcategory
  * names for the corresponding category specified in
- * `goog.i18n.CharPickerData.categories`.
+ * `CharPickerData.categories`.
  * @type {!Array<!Array<string>>}
  */
-goog.i18n.CharPickerData.prototype.subcategories = [
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SYMBOL,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_EMOJI,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_PUNCTUATION,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_NUMBER,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_FORMAT_WHITESPACE,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MODIFIER,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_LATIN,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EUROPEAN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AMERICAN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_AFRICAN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_MIDDLE_EASTERN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTH_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_SOUTHEAST_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EAST_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_1_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS,
-  goog.i18n.CharPickerData.SUBCATEGORY_NAMES_OF_HAN_OTHER
+CharPickerData.prototype.subcategories = [
+  CharPickerData.SUBCATEGORY_NAMES_OF_SYMBOL,
+  CharPickerData.SUBCATEGORY_NAMES_OF_EMOJI,
+  CharPickerData.SUBCATEGORY_NAMES_OF_PUNCTUATION,
+  CharPickerData.SUBCATEGORY_NAMES_OF_NUMBER,
+  CharPickerData.SUBCATEGORY_NAMES_OF_FORMAT_WHITESPACE,
+  CharPickerData.SUBCATEGORY_NAMES_OF_MODIFIER,
+  CharPickerData.SUBCATEGORY_NAMES_OF_LATIN,
+  CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EUROPEAN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_AMERICAN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_AFRICAN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_MIDDLE_EASTERN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_SOUTH_ASIAN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_SOUTHEAST_ASIAN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HANGUL,
+  CharPickerData.SUBCATEGORY_NAMES_OF_OTHER_EAST_ASIAN_SCRIPTS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_1_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_2_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_3_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_4_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_5_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_6_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_7_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_8_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_9_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_10_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_11_17_STROKE_RADICALS,
+  CharPickerData.SUBCATEGORY_NAMES_OF_HAN_OTHER
 ];
 
 
 /**
  * Character lists in base88 encoding scheme. Each subarray is a list of
  * base88 encoded charater strings representing corresponding subcategory
- * specified in `goog.i18n.CharPickerData.categories`. Encoding
+ * specified in `CharPickerData.categories`. Encoding
  * scheme is described in `goog.i18n.CharListDecompressor`.
  * @type {!Array<!Array<string>>}
  */
-goog.i18n.CharPickerData.prototype.charList = [
-  goog.i18n.CharPickerData.CHARLIST_OF_SYMBOL,
-  goog.i18n.CharPickerData.CHARLIST_OF_EMOJI,
-  goog.i18n.CharPickerData.CHARLIST_OF_PUNCTUATION,
-  goog.i18n.CharPickerData.CHARLIST_OF_NUMBER,
-  goog.i18n.CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE,
-  goog.i18n.CharPickerData.CHARLIST_OF_MODIFIER,
-  goog.i18n.CharPickerData.CHARLIST_OF_LATIN,
-  goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HANGUL,
-  goog.i18n.CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS,
-  goog.i18n.CharPickerData.CHARLIST_OF_HAN_OTHER
+CharPickerData.prototype.charList = [
+  CharPickerData.CHARLIST_OF_SYMBOL,
+  CharPickerData.CHARLIST_OF_EMOJI,
+  CharPickerData.CHARLIST_OF_PUNCTUATION,
+  CharPickerData.CHARLIST_OF_NUMBER,
+  CharPickerData.CHARLIST_OF_FORMAT_WHITESPACE,
+  CharPickerData.CHARLIST_OF_MODIFIER,
+  CharPickerData.CHARLIST_OF_LATIN,
+  CharPickerData.CHARLIST_OF_OTHER_EUROPEAN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_AMERICAN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_AFRICAN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_MIDDLE_EASTERN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_SOUTH_ASIAN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_SOUTHEAST_ASIAN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_HANGUL,
+  CharPickerData.CHARLIST_OF_OTHER_EAST_ASIAN_SCRIPTS,
+  CharPickerData.CHARLIST_OF_HAN_1_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_2_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_3_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_4_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_5_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_6_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_7_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_8_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_9_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_10_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS,
+  CharPickerData.CHARLIST_OF_HAN_OTHER
 ];
+export var CharPickerData;

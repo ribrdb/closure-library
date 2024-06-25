@@ -11,13 +11,11 @@
  */
 
 goog.setTestOnly('goog.testing.PerformanceTimer');
-goog.provide('goog.testing.PerformanceTimer');
-goog.provide('goog.testing.PerformanceTimer.Task');
 
-goog.require('goog.Thenable');
-goog.require('goog.array');
-goog.require('goog.async.Deferred');
-goog.require('goog.math');
+import { Thenable } from '../promise/thenable.js';
+import * as array from '../array/array.js';
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import * as math from '../math/math.js';
 
 
 
@@ -31,8 +29,7 @@ goog.require('goog.math');
  *     test is to be aborted; defaults to 5 seconds (5,000ms).
  * @constructor
  */
-goog.testing.PerformanceTimer = function(opt_numSamples, opt_timeoutInterval) {
-  'use strict';
+export function PerformanceTimer(opt_numSamples, opt_timeoutInterval) {
   /**
    * Number of times the test function is to be run; defaults to 10.
    * @private {number}
@@ -52,7 +49,7 @@ goog.testing.PerformanceTimer = function(opt_numSamples, opt_timeoutInterval) {
    * @private {boolean}
    */
   this.discardOutliers_ = false;
-};
+}
 
 
 /**
@@ -62,8 +59,7 @@ goog.testing.PerformanceTimer = function(opt_numSamples, opt_timeoutInterval) {
  * @return {number}
  * @private
  */
-goog.testing.PerformanceTimer.now_ = function() {
-  'use strict';
+PerformanceTimer.now_ = function() {
   // goog.now is used in DEBUG mode to make the class easier to test.
   return !goog.DEBUG && window.performance && window.performance.now ?
       window.performance.now() :
@@ -74,8 +70,7 @@ goog.testing.PerformanceTimer.now_ = function() {
 /**
  * @return {number} The number of times the test function will be run.
  */
-goog.testing.PerformanceTimer.prototype.getNumSamples = function() {
-  'use strict';
+PerformanceTimer.prototype.getNumSamples = function() {
   return this.numSamples_;
 };
 
@@ -84,8 +79,7 @@ goog.testing.PerformanceTimer.prototype.getNumSamples = function() {
  * Sets the number of times the test function will be run.
  * @param {number} numSamples Number of times to run the test function.
  */
-goog.testing.PerformanceTimer.prototype.setNumSamples = function(numSamples) {
-  'use strict';
+PerformanceTimer.prototype.setNumSamples = function(numSamples) {
   this.numSamples_ = numSamples;
 };
 
@@ -93,8 +87,7 @@ goog.testing.PerformanceTimer.prototype.setNumSamples = function(numSamples) {
 /**
  * @return {number} The number of milliseconds after which the test times out.
  */
-goog.testing.PerformanceTimer.prototype.getTimeoutInterval = function() {
-  'use strict';
+PerformanceTimer.prototype.getTimeoutInterval = function() {
   return this.timeoutInterval_;
 };
 
@@ -103,9 +96,8 @@ goog.testing.PerformanceTimer.prototype.getTimeoutInterval = function() {
  * Sets the number of milliseconds after which the test times out.
  * @param {number} timeoutInterval Timeout interval in ms.
  */
-goog.testing.PerformanceTimer.prototype.setTimeoutInterval = function(
+PerformanceTimer.prototype.setTimeoutInterval = function(
     timeoutInterval) {
-  'use strict';
   this.timeoutInterval_ = timeoutInterval;
 };
 
@@ -115,8 +107,7 @@ goog.testing.PerformanceTimer.prototype.setTimeoutInterval = function(
  * stats.
  * @param {boolean} discard Whether to discard outlier values.
  */
-goog.testing.PerformanceTimer.prototype.setDiscardOutliers = function(discard) {
-  'use strict';
+PerformanceTimer.prototype.setDiscardOutliers = function(discard) {
   this.discardOutliers_ = discard;
 };
 
@@ -125,8 +116,7 @@ goog.testing.PerformanceTimer.prototype.setDiscardOutliers = function(discard) {
  * @return {boolean} Whether outlier values are discarded prior to computing
  *     stats.
  */
-goog.testing.PerformanceTimer.prototype.isDiscardOutliers = function() {
-  'use strict';
+PerformanceTimer.prototype.isDiscardOutliers = function() {
   return this.discardOutliers_;
 };
 
@@ -150,10 +140,9 @@ goog.testing.PerformanceTimer.prototype.isDiscardOutliers = function() {
  *     be measured.
  * @return {!Object} Object containing performance stats.
  */
-goog.testing.PerformanceTimer.prototype.run = function(testFn) {
-  'use strict';
-  return this.runTask(new goog.testing.PerformanceTimer.Task(
-      /** @type {goog.testing.PerformanceTimer.TestFunction} */ (testFn)));
+PerformanceTimer.prototype.run = function(testFn) {
+  return this.runTask(new PerformanceTimer.Task(
+      /** @type {PerformanceTimer.TestFunction} */ (testFn)));
 };
 
 
@@ -161,15 +150,14 @@ goog.testing.PerformanceTimer.prototype.run = function(testFn) {
  * Executes the test function of the specified task as described in
  * `run`. In addition, if specified, the set up and tear down functions of
  * the task are invoked before and after each invocation of the test function.
- * @see goog.testing.PerformanceTimer#run
- * @param {goog.testing.PerformanceTimer.Task} task A task describing the test
+ * @see PerformanceTimer#run
+ * @param {PerformanceTimer.Task} task A task describing the test
  *     function to invoke.
  * @return {!Object} Object containing performance stats.
  */
-goog.testing.PerformanceTimer.prototype.runTask = function(task) {
-  'use strict';
+PerformanceTimer.prototype.runTask = function(task) {
   var samples = [];
-  var testStart = goog.testing.PerformanceTimer.now_();
+  var testStart = PerformanceTimer.now_();
   var totalRunTime = 0;
 
   var testFn = task.getTest();
@@ -179,9 +167,9 @@ goog.testing.PerformanceTimer.prototype.runTask = function(task) {
   for (var i = 0; i < this.numSamples_ && totalRunTime <= this.timeoutInterval_;
        i++) {
     setUpFn();
-    var sampleStart = goog.testing.PerformanceTimer.now_();
+    var sampleStart = PerformanceTimer.now_();
     testFn();
-    var sampleEnd = goog.testing.PerformanceTimer.now_();
+    var sampleEnd = PerformanceTimer.now_();
     tearDownFn();
     samples[i] = sampleEnd - sampleStart;
     totalRunTime = sampleEnd - testStart;
@@ -194,19 +182,18 @@ goog.testing.PerformanceTimer.prototype.runTask = function(task) {
 /**
  * Finishes the run of a task by creating a result object from samples, in the
  * format described in `run`.
- * @see goog.testing.PerformanceTimer#run
+ * @see PerformanceTimer#run
  * @param {!Array<number>} samples The samples to analyze.
  * @return {!Object} Object containing performance stats.
  * @private
  */
-goog.testing.PerformanceTimer.prototype.finishTask_ = function(samples) {
-  'use strict';
+PerformanceTimer.prototype.finishTask_ = function(samples) {
   if (this.discardOutliers_ && samples.length > 2) {
-    goog.array.remove(samples, Math.min.apply(null, samples));
-    goog.array.remove(samples, Math.max.apply(null, samples));
+    array.remove(samples, Math.min.apply(null, samples));
+    array.remove(samples, Math.max.apply(null, samples));
   }
 
-  return goog.testing.PerformanceTimer.createResults(samples);
+  return PerformanceTimer.createResults(samples);
 };
 
 
@@ -216,16 +203,15 @@ goog.testing.PerformanceTimer.prototype.finishTask_ = function(samples) {
  * addition, if specified, the setUp and tearDown functions of the task are
  * invoked before and after each invocation of the test function. Note,
  * setUp/tearDown too may return Thenables for asynchronous execution.
- * @see goog.testing.PerformanceTimer#run
- * @param {goog.testing.PerformanceTimer.Task} task A task describing the test
+ * @see PerformanceTimer#run
+ * @param {PerformanceTimer.Task} task A task describing the test
  *     function to invoke.
- * @return {!goog.async.Deferred} The deferred result, eventually an object
+ * @return {!Deferred} The deferred result, eventually an object
  *     containing performance stats.
  */
-goog.testing.PerformanceTimer.prototype.runAsyncTask = function(task) {
-  'use strict';
+PerformanceTimer.prototype.runAsyncTask = function(task) {
   var samples = [];
-  var testStart = goog.testing.PerformanceTimer.now_();
+  var testStart = PerformanceTimer.now_();
 
   var testFn = task.getTest();
   var setUpFn = task.getSetUp();
@@ -234,7 +220,7 @@ goog.testing.PerformanceTimer.prototype.runAsyncTask = function(task) {
   // Note that this uses a separate code path from runTask() because
   // implementing runTask() in terms of runAsyncTask() could easily cause
   // a stack overflow if there are many iterations.
-  return goog.async.Deferred.fromPromise(this.runAsyncTaskSample_(
+  return Deferred.fromPromise(this.runAsyncTaskSample_(
       testFn, setUpFn, tearDownFn, samples, testStart));
 };
 
@@ -243,10 +229,10 @@ goog.testing.PerformanceTimer.prototype.runAsyncTask = function(task) {
  * Runs a task once, waits for the test function to complete asynchronously
  * and starts another run if not enough samples have been collected. Otherwise
  * finishes this task.
- * @param {goog.testing.PerformanceTimer.TestFunction} testFn The test function.
- * @param {goog.testing.PerformanceTimer.TestFunction} setUpFn The set up
+ * @param {PerformanceTimer.TestFunction} testFn The test function.
+ * @param {PerformanceTimer.TestFunction} setUpFn The set up
  *     function that will be called once before the test function is run.
- * @param {goog.testing.PerformanceTimer.TestFunction} tearDownFn The set up
+ * @param {PerformanceTimer.TestFunction} tearDownFn The set up
  *     function that will be called once after the test function completed.
  * @param {!Array<number>} samples The time samples from all runs of the test
  *     function so far.
@@ -254,9 +240,8 @@ goog.testing.PerformanceTimer.prototype.runAsyncTask = function(task) {
  * @return {!Promise} A promise that returns the completed performance stats.
  * @private
  */
-goog.testing.PerformanceTimer.prototype.runAsyncTaskSample_ = function(
+PerformanceTimer.prototype.runAsyncTaskSample_ = function(
     testFn, setUpFn, tearDownFn, samples, testStart) {
-  'use strict';
   const timer = this;
   let promise = Promise.resolve();
   let sampleStart;
@@ -264,25 +249,22 @@ goog.testing.PerformanceTimer.prototype.runAsyncTaskSample_ = function(
   for (let i = 0; i < timer.numSamples_; i++) {
     promise = promise.then(setUpFn)
                   .then(() => {
-                    'use strict';
-                    sampleStart = goog.testing.PerformanceTimer.now_();
-                  })
+      sampleStart = PerformanceTimer.now_();
+    })
                   .then(testFn)
                   .then(() => {
-                    'use strict';
-                    sampleEnd = goog.testing.PerformanceTimer.now_();
-                  })
+      sampleEnd = PerformanceTimer.now_();
+    })
                   .then(tearDownFn)
                   .then(() => {
-                    'use strict';
-                    samples.push(sampleEnd - sampleStart);
-                    const totalRunTime = sampleEnd - testStart;
-                    if (totalRunTime > timer.timeoutInterval_) {
-                      // If timeout is exceeded, bypass remaining samples via
-                      // errback.
-                      throw Error('PerformanceTimer.Timeout');
-                    }
-                  });
+      samples.push(sampleEnd - sampleStart);
+      const totalRunTime = sampleEnd - testStart;
+      if (totalRunTime > timer.timeoutInterval_) {
+        // If timeout is exceeded, bypass remaining samples via
+        // errback.
+        throw Error('PerformanceTimer.Timeout');
+      }
+    });
   }
   return promise
       .catch((err) => {
@@ -302,10 +284,8 @@ goog.testing.PerformanceTimer.prototype.runAsyncTaskSample_ = function(
  * @param {!Array<number>} samples
  * @return {number}
  */
-goog.testing.PerformanceTimer.median = function(samples) {
-  'use strict';
+PerformanceTimer.median = function(samples) {
   samples.sort(function(a, b) {
-    'use strict';
     return a - b;
   });
   let half = Math.floor(samples.length / 2);
@@ -323,16 +303,15 @@ goog.testing.PerformanceTimer.median = function(samples) {
  * @param {!Array<number>} samples The samples to analyze.
  * @return {!Object} Object containing performance stats.
  */
-goog.testing.PerformanceTimer.createResults = function(samples) {
-  'use strict';
+PerformanceTimer.createResults = function(samples) {
   return {
-    'average': goog.math.average.apply(null, samples),
+    'average': math.average.apply(null, samples),
     'count': samples.length,
-    'median': goog.testing.PerformanceTimer.median(samples),
+    'median': PerformanceTimer.median(samples),
     'maximum': Math.max.apply(null, samples),
     'minimum': Math.min.apply(null, samples),
-    'standardDeviation': goog.math.standardDeviation.apply(null, samples),
-    'total': goog.math.sum.apply(null, samples)
+    'standardDeviation': math.standardDeviation.apply(null, samples),
+    'total': math.sum.apply(null, samples)
   };
 };
 
@@ -341,10 +320,10 @@ goog.testing.PerformanceTimer.createResults = function(samples) {
  * A test function whose performance should be measured or a setUp/tearDown
  * function. It may optionally return a Thenable (e.g. a promise) to
  * for asynchronous execution using the runAsyncTask method.
- * @see goog.testing.PerformanceTimer#runAsyncTask
- * @typedef {function():(!goog.Thenable|undefined)}
+ * @see PerformanceTimer#runAsyncTask
+ * @typedef {function():(!Thenable|undefined)}
  */
-goog.testing.PerformanceTimer.TestFunction;
+PerformanceTimer.TestFunction;
 
 
 
@@ -352,18 +331,17 @@ goog.testing.PerformanceTimer.TestFunction;
  * A task for the performance timer to measure. Callers can specify optional
  * setUp and tearDown methods to control state before and after each run of the
  * test function.
- * @param {goog.testing.PerformanceTimer.TestFunction} test Test function whose
+ * @param {PerformanceTimer.TestFunction} test Test function whose
  *     performance is to be measured.
  * @constructor
  * @final
  */
-goog.testing.PerformanceTimer.Task = function(test) {
-  'use strict';
+PerformanceTimer.Task = function(test) {
   /**
-   * The test function to time.
-   * @type {goog.testing.PerformanceTimer.TestFunction}
-   * @private
-   */
+     * The test function to time.
+     * @type {PerformanceTimer.TestFunction}
+     * @private
+     */
   this.test_ = test;
 };
 
@@ -371,27 +349,26 @@ goog.testing.PerformanceTimer.Task = function(test) {
 /**
  * An optional set up function to run before each invocation of the test
  * function.
- * @type {goog.testing.PerformanceTimer.TestFunction}
+ * @type {PerformanceTimer.TestFunction}
  * @private
  */
-goog.testing.PerformanceTimer.Task.prototype.setUp_ = function() {};
+PerformanceTimer.Task.prototype.setUp_ = function() {};
 
 
 /**
  * An optional tear down function to run after each invocation of the test
  * function.
- * @type {goog.testing.PerformanceTimer.TestFunction}
+ * @type {PerformanceTimer.TestFunction}
  * @private
  */
-goog.testing.PerformanceTimer.Task.prototype.tearDown_ = function() {};
+PerformanceTimer.Task.prototype.tearDown_ = function() {};
 
 
 /**
- * @return {goog.testing.PerformanceTimer.TestFunction} The test function to
+ * @return {PerformanceTimer.TestFunction} The test function to
  *     time.
  */
-goog.testing.PerformanceTimer.Task.prototype.getTest = function() {
-  'use strict';
+PerformanceTimer.Task.prototype.getTest = function() {
   return this.test_;
 };
 
@@ -399,23 +376,21 @@ goog.testing.PerformanceTimer.Task.prototype.getTest = function() {
 /**
  * Specifies a set up function to be invoked before each invocation of the test
  * function.
- * @param {goog.testing.PerformanceTimer.TestFunction} setUp The set up
+ * @param {PerformanceTimer.TestFunction} setUp The set up
  *     function.
- * @return {!goog.testing.PerformanceTimer.Task} This task.
+ * @return {!PerformanceTimer.Task} This task.
  */
-goog.testing.PerformanceTimer.Task.prototype.withSetUp = function(setUp) {
-  'use strict';
+PerformanceTimer.Task.prototype.withSetUp = function(setUp) {
   this.setUp_ = setUp;
   return this;
 };
 
 
 /**
- * @return {goog.testing.PerformanceTimer.TestFunction} The set up function or
+ * @return {PerformanceTimer.TestFunction} The set up function or
  *     the default no-op function if none was specified.
  */
-goog.testing.PerformanceTimer.Task.prototype.getSetUp = function() {
-  'use strict';
+PerformanceTimer.Task.prototype.getSetUp = function() {
   return this.setUp_;
 };
 
@@ -423,22 +398,20 @@ goog.testing.PerformanceTimer.Task.prototype.getSetUp = function() {
 /**
  * Specifies a tear down function to be invoked after each invocation of the
  * test function.
- * @param {goog.testing.PerformanceTimer.TestFunction} tearDown The tear down
+ * @param {PerformanceTimer.TestFunction} tearDown The tear down
  *     function.
- * @return {!goog.testing.PerformanceTimer.Task} This task.
+ * @return {!PerformanceTimer.Task} This task.
  */
-goog.testing.PerformanceTimer.Task.prototype.withTearDown = function(tearDown) {
-  'use strict';
+PerformanceTimer.Task.prototype.withTearDown = function(tearDown) {
   this.tearDown_ = tearDown;
   return this;
 };
 
 
 /**
- * @return {goog.testing.PerformanceTimer.TestFunction} The tear down function
+ * @return {PerformanceTimer.TestFunction} The tear down function
  *     or the default no-op function if none was specified.
  */
-goog.testing.PerformanceTimer.Task.prototype.getTearDown = function() {
-  'use strict';
+PerformanceTimer.Task.prototype.getTearDown = function() {
   return this.tearDown_;
 };

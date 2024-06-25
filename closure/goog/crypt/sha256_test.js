@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.Sha256Test');
 goog.setTestOnly();
 
-const Sha256 = goog.require('goog.crypt.Sha256');
-const crypt = goog.require('goog.crypt');
-const hashTester = goog.require('goog.crypt.hashTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Sha256 } from './sha256.js';
+import * as crypt from './crypt.js';
+import * as hashTester from './hashtester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testBasicOperations() {

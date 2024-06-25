@@ -10,16 +10,15 @@
  * @see ../../demos/autocomplete-basic.html
  */
 
-goog.provide('goog.ui.ac.AutoComplete');
-goog.provide('goog.ui.ac.AutoComplete.EventType');
+goog.declareModuleId('goog.ui.ac.autocomplete');
 
-goog.require('goog.asserts');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.object');
-goog.require('goog.ui.ac.RenderOptions');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.ui.ac.InputHandler');
+import * as asserts from '../../asserts/asserts.js';
+import * as events from '../../events/events.js';
+import { EventTarget } from '../../events/eventtarget.js';
+import object from '../../object/object.js';
+import { RenderOptions } from './renderoptions.js';
+goog.requireType('goog.events.event');
+goog.requireType('goog.ui.ac.inputhandler');
 
 
 /**
@@ -30,7 +29,7 @@ goog.requireType('goog.ui.ac.InputHandler');
  *
  * @param {Object} matcher A data source and row matcher, implements
  *        <code>requestMatchingRows(token, maxMatches, matchCallback)</code>.
- * @param {goog.events.EventTarget} renderer An object that implements
+ * @param {EventTarget} renderer An object that implements
  *        <code>
  *          isVisible():boolean<br>
  *          renderRows(rows:Array, token:string, target:Element);<br>
@@ -45,22 +44,21 @@ goog.requireType('goog.ui.ac.InputHandler');
  *        </code>.
  *
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @suppress {underscore}
  */
-goog.ui.ac.AutoComplete = function(matcher, renderer, selectionHandler) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function AutoComplete(matcher, renderer, selectionHandler) {
+  EventTarget.call(this);
 
   /**
-   * A data-source which provides autocomplete suggestions.
-   *
-   * TODO(chrishenry): Tighten the type to !goog.ui.ac.AutoComplete.Matcher.
-   *
-   * @type {Object}
-   * @protected
-   * @suppress {underscore|visibility}
-   */
+     * A data-source which provides autocomplete suggestions.
+     *
+     * TODO(chrishenry): Tighten the type to !AutoComplete.Matcher.
+     *
+     * @type {Object}
+     * @protected
+     * @suppress {underscore|visibility}
+     */
   this.matcher_ = matcher;
 
   /**
@@ -76,19 +74,19 @@ goog.ui.ac.AutoComplete = function(matcher, renderer, selectionHandler) {
   this.selectionHandler_ = selectionHandler;
 
   /**
-   * A renderer to render/show/highlight/hide the autocomplete menu.
-   * @type {goog.events.EventTarget}
-   * @protected
-   * @suppress {underscore|visibility}
-   */
+     * A renderer to render/show/highlight/hide the autocomplete menu.
+     * @type {EventTarget}
+     * @protected
+     * @suppress {underscore|visibility}
+     */
   this.renderer_ = renderer;
-  goog.events.listen(
+  events.listen(
       renderer,
       [
-        goog.ui.ac.AutoComplete.EventType.HILITE,
-        goog.ui.ac.AutoComplete.EventType.SELECT,
-        goog.ui.ac.AutoComplete.EventType.CANCEL_DISMISS,
-        goog.ui.ac.AutoComplete.EventType.DISMISS
+        AutoComplete.EventType.HILITE,
+        AutoComplete.EventType.SELECT,
+        AutoComplete.EventType.CANCEL_DISMISS,
+        AutoComplete.EventType.DISMISS
       ],
       this.handleEvent, false, this);
 
@@ -152,8 +150,8 @@ goog.ui.ac.AutoComplete = function(matcher, renderer, selectionHandler) {
    * @private
    */
   this.inputToAnchorMap_ = {};
-};
-goog.inherits(goog.ui.ac.AutoComplete, goog.events.EventTarget);
+}
+goog.inherits(AutoComplete, EventTarget);
 
 
 /**
@@ -161,7 +159,7 @@ goog.inherits(goog.ui.ac.AutoComplete, goog.events.EventTarget);
  * @type {number}
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.maxMatches_ = 10;
+AutoComplete.prototype.maxMatches_ = 10;
 
 
 /**
@@ -169,7 +167,7 @@ goog.ui.ac.AutoComplete.prototype.maxMatches_ = 10;
  * @type {boolean}
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.autoHilite_ = true;
+AutoComplete.prototype.autoHilite_ = true;
 
 
 /**
@@ -177,7 +175,7 @@ goog.ui.ac.AutoComplete.prototype.autoHilite_ = true;
  * @type {boolean}
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.allowFreeSelect_ = false;
+AutoComplete.prototype.allowFreeSelect_ = false;
 
 
 /**
@@ -187,7 +185,7 @@ goog.ui.ac.AutoComplete.prototype.allowFreeSelect_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.wrap_ = false;
+AutoComplete.prototype.wrap_ = false;
 
 
 /**
@@ -195,14 +193,14 @@ goog.ui.ac.AutoComplete.prototype.wrap_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.triggerSuggestionsOnUpdate_ = false;
+AutoComplete.prototype.triggerSuggestionsOnUpdate_ = false;
 
 
 /**
  * Events associated with the autocomplete
  * @enum {string}
  */
-goog.ui.ac.AutoComplete.EventType = {
+AutoComplete.EventType = {
 
   /** A row has been highlighted by the renderer */
   ROW_HILITE: 'rowhilite',
@@ -246,16 +244,15 @@ goog.ui.ac.AutoComplete.EventType = {
  *   isRowDisabled:(!Function|undefined)
  * }}
  */
-goog.ui.ac.AutoComplete.Matcher;
+AutoComplete.Matcher;
 
 
 /**
  * @return {!Object} The data source providing the `autocomplete
  *     suggestions.
  */
-goog.ui.ac.AutoComplete.prototype.getMatcher = function() {
-  'use strict';
-  return goog.asserts.assert(this.matcher_);
+AutoComplete.prototype.getMatcher = function() {
+  return asserts.assert(this.matcher_);
 };
 
 
@@ -267,8 +264,7 @@ goog.ui.ac.AutoComplete.prototype.getMatcher = function() {
  * @param {!Object} matcher The matcher.
  * @protected
  */
-goog.ui.ac.AutoComplete.prototype.setMatcher = function(matcher) {
-  'use strict';
+AutoComplete.prototype.setMatcher = function(matcher) {
   this.matcher_ = matcher;
 };
 
@@ -279,19 +275,17 @@ goog.ui.ac.AutoComplete.prototype.setMatcher = function(matcher) {
  *     input DOM element with selected value.
  * @protected
  */
-goog.ui.ac.AutoComplete.prototype.getSelectionHandler = function() {
-  'use strict';
-  return goog.asserts.assert(this.selectionHandler_);
+AutoComplete.prototype.getSelectionHandler = function() {
+  return asserts.assert(this.selectionHandler_);
 };
 
 
 /**
- * @return {goog.events.EventTarget} The renderer that
+ * @return {EventTarget} The renderer that
  *     renders/shows/highlights/hides the autocomplete menu.
  *     See constructor documentation for the expected renderer API.
  */
-goog.ui.ac.AutoComplete.prototype.getRenderer = function() {
-  'use strict';
+AutoComplete.prototype.getRenderer = function() {
   return this.renderer_;
 };
 
@@ -302,11 +296,10 @@ goog.ui.ac.AutoComplete.prototype.getRenderer = function() {
  *
  * See constructor documentation for the expected renderer API.
  *
- * @param {goog.events.EventTarget} renderer The renderer.
+ * @param {EventTarget} renderer The renderer.
  * @protected
  */
-goog.ui.ac.AutoComplete.prototype.setRenderer = function(renderer) {
-  'use strict';
+AutoComplete.prototype.setRenderer = function(renderer) {
   this.renderer_ = renderer;
 };
 
@@ -315,8 +308,7 @@ goog.ui.ac.AutoComplete.prototype.setRenderer = function(renderer) {
  * @return {?string} The currently typed token used for completion.
  * @protected
  */
-goog.ui.ac.AutoComplete.prototype.getToken = function() {
-  'use strict';
+AutoComplete.prototype.getToken = function() {
   return this.token_;
 };
 
@@ -330,8 +322,7 @@ goog.ui.ac.AutoComplete.prototype.getToken = function() {
  * @param {?string} token The new token.
  * @protected
  */
-goog.ui.ac.AutoComplete.prototype.setTokenInternal = function(token) {
-  'use strict';
+AutoComplete.prototype.setTokenInternal = function(token) {
   this.token_ = token;
 };
 
@@ -342,8 +333,7 @@ goog.ui.ac.AutoComplete.prototype.setTokenInternal = function(token) {
  * @return {Object} The currently suggested item at the given index
  *     (or null if there is none).
  */
-goog.ui.ac.AutoComplete.prototype.getSuggestion = function(index) {
-  'use strict';
+AutoComplete.prototype.getSuggestion = function(index) {
   return this.rows_[index];
 };
 
@@ -351,17 +341,15 @@ goog.ui.ac.AutoComplete.prototype.getSuggestion = function(index) {
 /**
  * @return {!Array<?>} The current autocomplete suggestion items.
  */
-goog.ui.ac.AutoComplete.prototype.getAllSuggestions = function() {
-  'use strict';
-  return goog.asserts.assert(this.rows_);
+AutoComplete.prototype.getAllSuggestions = function() {
+  return asserts.assert(this.rows_);
 };
 
 
 /**
  * @return {number} The number of currently suggested items.
  */
-goog.ui.ac.AutoComplete.prototype.getSuggestionCount = function() {
-  'use strict';
+AutoComplete.prototype.getSuggestionCount = function() {
   return this.rows_.length;
 };
 
@@ -369,28 +357,26 @@ goog.ui.ac.AutoComplete.prototype.getSuggestionCount = function() {
 /**
  * @return {number} The id (not index!) of the currently highlighted row.
  */
-goog.ui.ac.AutoComplete.prototype.getHighlightedId = function() {
-  'use strict';
+AutoComplete.prototype.getHighlightedId = function() {
   return this.hiliteId_;
 };
 
 
 /**
  * Generic event handler that handles any events this object is listening to.
- * @param {goog.events.Event} e Event Object.
+ * @param {events.Event} e Event Object.
  * @suppress {missingProperties} e.row
  */
-goog.ui.ac.AutoComplete.prototype.handleEvent = function(e) {
-  'use strict';
+AutoComplete.prototype.handleEvent = function(e) {
   var matcher = /** @type {?goog.ui.ac.AutoComplete.Matcher} */ (this.matcher_);
 
   if (e.target == this.renderer_) {
     switch (e.type) {
-      case goog.ui.ac.AutoComplete.EventType.HILITE:
+      case AutoComplete.EventType.HILITE:
         this.hiliteId(/** @type {number} */ (e.row));
         break;
 
-      case goog.ui.ac.AutoComplete.EventType.SELECT:
+      case AutoComplete.EventType.SELECT:
         var rowDisabled = false;
 
         // e.row can be either a valid row id or empty.
@@ -415,11 +401,11 @@ goog.ui.ac.AutoComplete.prototype.handleEvent = function(e) {
         }
         break;
 
-      case goog.ui.ac.AutoComplete.EventType.CANCEL_DISMISS:
+      case AutoComplete.EventType.CANCEL_DISMISS:
         this.cancelDelayedDismiss();
         break;
 
-      case goog.ui.ac.AutoComplete.EventType.DISMISS:
+      case AutoComplete.EventType.DISMISS:
         this.dismissOnDelay();
         break;
     }
@@ -432,8 +418,7 @@ goog.ui.ac.AutoComplete.prototype.handleEvent = function(e) {
  *
  * @param {number} max Max number of matches.
  */
-goog.ui.ac.AutoComplete.prototype.setMaxMatches = function(max) {
-  'use strict';
+AutoComplete.prototype.setMaxMatches = function(max) {
   this.maxMatches_ = max;
 };
 
@@ -444,8 +429,7 @@ goog.ui.ac.AutoComplete.prototype.setMaxMatches = function(max) {
  * @param {boolean} autoHilite true iff the first row should be
  *      highlighted by default.
  */
-goog.ui.ac.AutoComplete.prototype.setAutoHilite = function(autoHilite) {
-  'use strict';
+AutoComplete.prototype.setAutoHilite = function(autoHilite) {
   this.autoHilite_ = autoHilite;
 };
 
@@ -455,9 +439,8 @@ goog.ui.ac.AutoComplete.prototype.setAutoHilite = function(autoHilite) {
  *
  * @param {boolean} allowFreeSelect true iff the up arrow can unhilite all rows.
  */
-goog.ui.ac.AutoComplete.prototype.setAllowFreeSelect = function(
+AutoComplete.prototype.setAllowFreeSelect = function(
     allowFreeSelect) {
-  'use strict';
   this.allowFreeSelect_ = allowFreeSelect;
 };
 
@@ -467,8 +450,7 @@ goog.ui.ac.AutoComplete.prototype.setAllowFreeSelect = function(
  *
  * @param {boolean} wrap true iff sections should wrap around the edges.
  */
-goog.ui.ac.AutoComplete.prototype.setWrap = function(wrap) {
-  'use strict';
+AutoComplete.prototype.setWrap = function(wrap) {
   this.wrap_ = wrap;
 };
 
@@ -480,9 +462,8 @@ goog.ui.ac.AutoComplete.prototype.setWrap = function(wrap) {
  * @param {boolean} triggerSuggestionsOnUpdate true iff completion should fetch
  *     new suggestions.
  */
-goog.ui.ac.AutoComplete.prototype.setTriggerSuggestionsOnUpdate = function(
+AutoComplete.prototype.setTriggerSuggestionsOnUpdate = function(
     triggerSuggestionsOnUpdate) {
-  'use strict';
   this.triggerSuggestionsOnUpdate_ = triggerSuggestionsOnUpdate;
 };
 
@@ -497,8 +478,7 @@ goog.ui.ac.AutoComplete.prototype.setTriggerSuggestionsOnUpdate = function(
  *     field.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.AutoComplete.prototype.setToken = function(token, opt_fullString) {
-  'use strict';
+AutoComplete.prototype.setToken = function(token, opt_fullString) {
   if (this.token_ == token) {
     return;
   }
@@ -515,8 +495,7 @@ goog.ui.ac.AutoComplete.prototype.setToken = function(token, opt_fullString) {
  * @return {Element} The current target HTML node for displaying autocomplete
  *     UI.
  */
-goog.ui.ac.AutoComplete.prototype.getTarget = function() {
-  'use strict';
+AutoComplete.prototype.getTarget = function() {
   return this.target_;
 };
 
@@ -530,8 +509,7 @@ goog.ui.ac.AutoComplete.prototype.getTarget = function() {
  * @param {Element} target The current target HTML node for displaying
  *     autocomplete UI.
  */
-goog.ui.ac.AutoComplete.prototype.setTarget = function(target) {
-  'use strict';
+AutoComplete.prototype.setTarget = function(target) {
   this.target_ = target;
 };
 
@@ -540,8 +518,7 @@ goog.ui.ac.AutoComplete.prototype.setTarget = function(target) {
  * @return {boolean} Whether the autocomplete's renderer is open.
  * @suppress {missingProperties}
  */
-goog.ui.ac.AutoComplete.prototype.isOpen = function() {
-  'use strict';
+AutoComplete.prototype.isOpen = function() {
   return this.renderer_.isVisible();
 };
 
@@ -550,8 +527,7 @@ goog.ui.ac.AutoComplete.prototype.isOpen = function() {
  * @return {number} Number of rows in the autocomplete.
  * @deprecated Use this.getSuggestionCount().
  */
-goog.ui.ac.AutoComplete.prototype.getRowCount = function() {
-  'use strict';
+AutoComplete.prototype.getRowCount = function() {
   return this.getSuggestionCount();
 };
 
@@ -561,8 +537,7 @@ goog.ui.ac.AutoComplete.prototype.getRowCount = function() {
  * Calls renderer.hiliteId() when there's something to do.
  * @return {boolean} Returns true on a successful hilite.
  */
-goog.ui.ac.AutoComplete.prototype.hiliteNext = function() {
-  'use strict';
+AutoComplete.prototype.hiliteNext = function() {
   var lastId = this.firstRowId_ + this.rows_.length - 1;
   var toHilite = this.hiliteId_;
   // Hilite the next row, skipping any disabled rows.
@@ -594,8 +569,7 @@ goog.ui.ac.AutoComplete.prototype.hiliteNext = function() {
  * renderer.hiliteId() when there's something to do.
  * @return {boolean} Returns true on a successful hilite.
  */
-goog.ui.ac.AutoComplete.prototype.hilitePrev = function() {
-  'use strict';
+AutoComplete.prototype.hilitePrev = function() {
   var lastId = this.firstRowId_ + this.rows_.length - 1;
   var toHilite = this.hiliteId_;
   // Hilite the previous row, skipping any disabled rows.
@@ -628,8 +602,7 @@ goog.ui.ac.AutoComplete.prototype.hilitePrev = function() {
  *     disabled.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.AutoComplete.prototype.hiliteId = function(id) {
-  'use strict';
+AutoComplete.prototype.hiliteId = function(id) {
   var index = this.getIndexOfId(id);
   var row = this.rows_[index];
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
@@ -650,8 +623,7 @@ goog.ui.ac.AutoComplete.prototype.hiliteId = function(id) {
  * @param {number} index The row's index.
  * @return {boolean} Whether the index was hilited.
  */
-goog.ui.ac.AutoComplete.prototype.hiliteIndex = function(index) {
-  'use strict';
+AutoComplete.prototype.hiliteIndex = function(index) {
   return this.hiliteId(this.getIdOfIndex_(index));
 };
 
@@ -662,8 +634,7 @@ goog.ui.ac.AutoComplete.prototype.hiliteIndex = function(index) {
  * @return {boolean} Whether there are any current matches.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.AutoComplete.prototype.selectHilited = function() {
-  'use strict';
+AutoComplete.prototype.selectHilited = function() {
   var index = this.getIndexOfId(this.hiliteId_);
   if (index != -1) {
     var selectedRow = this.rows_[index];
@@ -678,7 +649,7 @@ goog.ui.ac.AutoComplete.prototype.selectHilited = function() {
     }
     if (!suppressUpdate) {
       this.dispatchEvent({
-        type: goog.ui.ac.AutoComplete.EventType.UPDATE,
+        type: AutoComplete.EventType.UPDATE,
         row: selectedRow,
         index: index
       });
@@ -690,7 +661,7 @@ goog.ui.ac.AutoComplete.prototype.selectHilited = function() {
   } else {
     this.dismiss();
     this.dispatchEvent({
-      type: goog.ui.ac.AutoComplete.EventType.UPDATE,
+      type: AutoComplete.EventType.UPDATE,
       row: null,
       index: null
     });
@@ -703,8 +674,7 @@ goog.ui.ac.AutoComplete.prototype.selectHilited = function() {
  * Returns whether or not the autocomplete is open and has a highlighted row.
  * @return {boolean} Whether an autocomplete row is highlighted.
  */
-goog.ui.ac.AutoComplete.prototype.hasHighlight = function() {
-  'use strict';
+AutoComplete.prototype.hasHighlight = function() {
   return this.isOpen() && this.getIndexOfId(this.hiliteId_) != -1;
 };
 
@@ -714,8 +684,7 @@ goog.ui.ac.AutoComplete.prototype.hasHighlight = function() {
  * <code>renderer.dismiss()</code>
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.AutoComplete.prototype.dismiss = function() {
-  'use strict';
+AutoComplete.prototype.dismiss = function() {
   this.hiliteId_ = -1;
   this.token_ = null;
   this.firstRowId_ += this.rows_.length;
@@ -723,16 +692,15 @@ goog.ui.ac.AutoComplete.prototype.dismiss = function() {
   window.clearTimeout(this.dismissTimer_);
   this.dismissTimer_ = null;
   this.renderer_.dismiss();
-  this.dispatchEvent(goog.ui.ac.AutoComplete.EventType.SUGGESTIONS_UPDATE);
-  this.dispatchEvent(goog.ui.ac.AutoComplete.EventType.DISMISS);
+  this.dispatchEvent(AutoComplete.EventType.SUGGESTIONS_UPDATE);
+  this.dispatchEvent(AutoComplete.EventType.DISMISS);
 };
 
 
 /**
  * Call a dismiss after a delay, if there's already a dismiss active, ignore.
  */
-goog.ui.ac.AutoComplete.prototype.dismissOnDelay = function() {
-  'use strict';
+AutoComplete.prototype.dismissOnDelay = function() {
   if (!this.dismissTimer_) {
     this.dismissTimer_ = window.setTimeout(goog.bind(this.dismiss, this), 100);
   }
@@ -744,23 +712,21 @@ goog.ui.ac.AutoComplete.prototype.dismissOnDelay = function() {
  * @return {boolean} Whether a delayed dismiss was cancelled.
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.immediatelyCancelDelayedDismiss_ =
+AutoComplete.prototype.immediatelyCancelDelayedDismiss_ =
     function() {
-  'use strict';
-  if (this.dismissTimer_) {
-    window.clearTimeout(this.dismissTimer_);
-    this.dismissTimer_ = null;
-    return true;
-  }
-  return false;
-};
+      if (this.dismissTimer_) {
+        window.clearTimeout(this.dismissTimer_);
+        this.dismissTimer_ = null;
+        return true;
+      }
+      return false;
+    };
 
 
 /**
  * Cancel the active delayed dismiss if there is one.
  */
-goog.ui.ac.AutoComplete.prototype.cancelDelayedDismiss = function() {
-  'use strict';
+AutoComplete.prototype.cancelDelayedDismiss = function() {
   // Under certain circumstances a cancel event occurs immediately prior to a
   // delayedDismiss event that it should be cancelling. To handle this situation
   // properly, a timer is used to stop that event.
@@ -778,9 +744,8 @@ goog.ui.ac.AutoComplete.prototype.cancelDelayedDismiss = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.AutoComplete.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.ac.AutoComplete.superClass_.disposeInternal.call(this);
+AutoComplete.prototype.disposeInternal = function() {
+  AutoComplete.superClass_.disposeInternal.call(this);
   delete this.inputToAnchorMap_;
   this.renderer_.dispose();
   this.selectionHandler_.dispose();
@@ -804,14 +769,13 @@ goog.ui.ac.AutoComplete.prototype.disposeInternal = function() {
  *
  * @param {string} matchedToken Token that corresponds with the rows.
  * @param {!Array<?>} rows Set of data that match the given token.
- * @param {(boolean|goog.ui.ac.RenderOptions)=} opt_options If true,
+ * @param {(boolean|RenderOptions)=} opt_options If true,
  *     keeps the currently hilited (by index) element hilited. If false not.
  *     Otherwise a RenderOptions object.
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.matchListener_ = function(
+AutoComplete.prototype.matchListener_ = function(
     matchedToken, rows, opt_options) {
-  'use strict';
   if (this.token_ != matchedToken) {
     // Matcher's response token doesn't match current token.
     // This is probably an async response that came in after
@@ -826,13 +790,12 @@ goog.ui.ac.AutoComplete.prototype.matchListener_ = function(
 /**
  * Renders the rows and adds highlighting.
  * @param {!Array<?>} rows Set of data that match the given token.
- * @param {(boolean|goog.ui.ac.RenderOptions)=} opt_options If true,
+ * @param {(boolean|RenderOptions)=} opt_options If true,
  *     keeps the currently hilited (by index) element hilited. If false not.
  *     Otherwise a RenderOptions object.
  * @suppress {missingProperties}
  */
-goog.ui.ac.AutoComplete.prototype.renderRows = function(rows, opt_options) {
-  'use strict';
+AutoComplete.prototype.renderRows = function(rows, opt_options) {
   // The optional argument should be a RenderOptions object.  It can be a
   // boolean for backwards compatibility, defaulting to false.
   var optionsObj = goog.typeOf(opt_options) == 'object' && opt_options;
@@ -870,7 +833,7 @@ goog.ui.ac.AutoComplete.prototype.renderRows = function(rows, opt_options) {
       this.hiliteNext();
     }
   }
-  this.dispatchEvent(goog.ui.ac.AutoComplete.EventType.SUGGESTIONS_UPDATE);
+  this.dispatchEvent(AutoComplete.EventType.SUGGESTIONS_UPDATE);
 };
 
 
@@ -880,8 +843,7 @@ goog.ui.ac.AutoComplete.prototype.renderRows = function(rows, opt_options) {
  * @return {number} A valid index into rows_, or -1 if the id is invalid.
  * @protected
  */
-goog.ui.ac.AutoComplete.prototype.getIndexOfId = function(id) {
-  'use strict';
+AutoComplete.prototype.getIndexOfId = function(id) {
   var index = id - this.firstRowId_;
   if (index < 0 || index >= this.rows_.length) {
     return -1;
@@ -896,8 +858,7 @@ goog.ui.ac.AutoComplete.prototype.getIndexOfId = function(id) {
  * @return {number} The id that currently corresponds to that index.
  * @private
  */
-goog.ui.ac.AutoComplete.prototype.getIdOfIndex_ = function(index) {
-  'use strict';
+AutoComplete.prototype.getIdOfIndex_ = function(index) {
   return this.firstRowId_ + index;
 };
 
@@ -909,8 +870,7 @@ goog.ui.ac.AutoComplete.prototype.getIdOfIndex_ = function(index) {
  * @param {...Element} var_args Variable args: Input or text area elements to
  *     attach the autocomplete too.
  */
-goog.ui.ac.AutoComplete.prototype.attachInputs = function(var_args) {
-  'use strict';
+AutoComplete.prototype.attachInputs = function(var_args) {
   // Delegate to the input handler
   var inputHandler = /** @type {goog.ui.ac.InputHandler} */
       (this.selectionHandler_);
@@ -923,8 +883,7 @@ goog.ui.ac.AutoComplete.prototype.attachInputs = function(var_args) {
  * @param {...Element} var_args Variable args: Input or text area elements to
  *     detach from the autocomplete.
  */
-goog.ui.ac.AutoComplete.prototype.detachInputs = function(var_args) {
-  'use strict';
+AutoComplete.prototype.detachInputs = function(var_args) {
   // Delegate to the input handler
   var inputHandler = /** @type {goog.ui.ac.InputHandler} */
       (this.selectionHandler_);
@@ -932,8 +891,7 @@ goog.ui.ac.AutoComplete.prototype.detachInputs = function(var_args) {
 
   // Remove mapping from input to anchor if one exists.
   Array.prototype.forEach.call(arguments, function(input) {
-    'use strict';
-    goog.object.remove(this.inputToAnchorMap_, goog.getUid(input));
+    object.remove(this.inputToAnchorMap_, goog.getUid(input));
   }, this);
 };
 
@@ -947,9 +905,8 @@ goog.ui.ac.AutoComplete.prototype.detachInputs = function(var_args) {
  *     interface.
  * @param {Element} anchorElement The anchor element.
  */
-goog.ui.ac.AutoComplete.prototype.attachInputWithAnchor = function(
+AutoComplete.prototype.attachInputWithAnchor = function(
     inputElement, anchorElement) {
-  'use strict';
   this.inputToAnchorMap_[goog.getUid(inputElement)] = anchorElement;
   this.attachInputs(inputElement);
 };
@@ -959,8 +916,7 @@ goog.ui.ac.AutoComplete.prototype.attachInputWithAnchor = function(
  * Forces an update of the display.
  * @param {boolean=} opt_force Whether to force an update.
  */
-goog.ui.ac.AutoComplete.prototype.update = function(opt_force) {
-  'use strict';
+AutoComplete.prototype.update = function(opt_force) {
   var inputHandler = /** @type {goog.ui.ac.InputHandler} */
       (this.selectionHandler_);
   inputHandler.update(opt_force);

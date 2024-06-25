@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.CookieEditorTest');
 goog.setTestOnly();
 
-const CookieEditor = goog.require('goog.ui.CookieEditor');
-const Cookies = goog.require('goog.net.Cookies');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CookieEditor } from './cookieeditor.js';
+import { Cookies } from '../net/cookies.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const COOKIE_KEY = 'my_fabulous_cookie';
 const cookies = Cookies.getInstance();

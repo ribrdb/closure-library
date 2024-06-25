@@ -9,121 +9,112 @@
  * specified block level tag.
  */
 
-goog.provide('goog.editor.plugins.TagOnEnterHandler');
+import * as googDom from '../../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.Range');
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.Command');
-goog.require('goog.editor.node');
-goog.require('goog.editor.plugins.EnterHandler');
-goog.require('goog.editor.range');
-goog.require('goog.editor.style');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.functions');
-goog.require('goog.string.Unicode');
-goog.require('goog.style');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.AbstractRange');
+import { NodeType } from '../../dom/nodetype.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import { Command } from '../command.js';
+import * as editorNode from '../node.js';
+import { EnterHandler } from './enterhandler.js';
+import * as editorRange from '../range.js';
+import * as style from '../style.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import * as functions from '../../functions/functions.js';
+import { Unicode } from '../../string/string.js';
+import * as googStyle from '../../style/style.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.dom.abstractrange');
 
 
 
 /**
  * Plugin to handle enter keys. This subclass normalizes all browsers to use
  * the given block tag on enter.
- * @param {!goog.dom.TagName} tag The type of tag to add on enter.
+ * @param {!TagName} tag The type of tag to add on enter.
  * @constructor
- * @extends {goog.editor.plugins.EnterHandler}
+ * @extends {EnterHandler}
  */
-goog.editor.plugins.TagOnEnterHandler = function(tag) {
-  'use strict';
+export function TagOnEnterHandler(tag) {
   this.tag = tag;
 
-  goog.editor.plugins.EnterHandler.call(this);
-};
+  EnterHandler.call(this);
+}
 goog.inherits(
-    goog.editor.plugins.TagOnEnterHandler, goog.editor.plugins.EnterHandler);
+    TagOnEnterHandler, EnterHandler);
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.getTrogClassId = function() {
-  'use strict';
+TagOnEnterHandler.prototype.getTrogClassId = function() {
   return 'TagOnEnterHandler';
 };
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.getNonCollapsingBlankHtml =
+TagOnEnterHandler.prototype.getNonCollapsingBlankHtml =
     function() {
-  'use strict';
-  if (this.tag == goog.dom.TagName.P) {
-    return '<p>&nbsp;</p>';
-  } else if (this.tag == goog.dom.TagName.DIV) {
-    return '<div><br></div>';
-  }
-  return '<br>';
-};
+      if (this.tag == TagName.P) {
+        return '<p>&nbsp;</p>';
+      } else if (this.tag == TagName.DIV) {
+        return '<div><br></div>';
+      }
+      return '<br>';
+    };
 
 
 /**
  * This plugin is active on uneditable fields so it can provide a value for
- * queryCommandValue calls asking for goog.editor.Command.BLOCKQUOTE.
+ * queryCommandValue calls asking for Command.BLOCKQUOTE.
  * @return {boolean} True.
  * @override
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.activeOnUneditableFields =
-    goog.functions.TRUE;
+TagOnEnterHandler.prototype.activeOnUneditableFields =
+    functions.TRUE;
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.isSupportedCommand = function(
+TagOnEnterHandler.prototype.isSupportedCommand = function(
     command) {
-  'use strict';
-  return command == goog.editor.Command.DEFAULT_TAG;
+  return command == Command.DEFAULT_TAG;
 };
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.queryCommandValue = function(
+TagOnEnterHandler.prototype.queryCommandValue = function(
     command) {
-  'use strict';
-  return command == goog.editor.Command.DEFAULT_TAG ? String(this.tag) : null;
+  return command == Command.DEFAULT_TAG ? String(this.tag) : null;
 };
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.handleBackspaceInternal =
+TagOnEnterHandler.prototype.handleBackspaceInternal =
     function(e, range) {
-  'use strict';
-  goog.editor.plugins.TagOnEnterHandler.superClass_.handleBackspaceInternal
-      .call(this, e, range);
+      TagOnEnterHandler.superClass_.handleBackspaceInternal
+          .call(this, e, range);
 
-  if (goog.userAgent.GECKO) {
-    this.markBrToNotBeRemoved_(range, true);
-  }
-};
+      if (userAgent.GECKO) {
+        this.markBrToNotBeRemoved_(range, true);
+      }
+    };
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.processParagraphTagsInternal =
+TagOnEnterHandler.prototype.processParagraphTagsInternal =
     function(e, split) {
-  'use strict';
-  if (goog.userAgent.IE && this.tag != goog.dom.TagName.P) {
-    this.ensureBlockIeOpera(this.tag);
-  }
-};
+      if (userAgent.IE && this.tag != TagName.P) {
+        this.ensureBlockIeOpera(this.tag);
+      }
+    };
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.handleDeleteGecko = function(
+TagOnEnterHandler.prototype.handleDeleteGecko = function(
     e) {
-  'use strict';
   var range = this.getFieldObject().getRange();
   var container =
-      goog.editor.style.getContainer(range && range.getContainerElement());
+      style.getContainer(range && range.getContainerElement());
   if (this.getFieldObject().getElement().lastChild == container &&
-      goog.editor.plugins.EnterHandler.isBrElem(container)) {
+      EnterHandler.isBrElem(container)) {
     // Don't delete if it's the last node in the field and just has a BR.
     e.preventDefault();
     // TODO(user): I think we probably don't need to stopPropagation here
@@ -144,16 +135,15 @@ goog.editor.plugins.TagOnEnterHandler.prototype.handleDeleteGecko = function(
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.handleKeyUpInternal = function(
+TagOnEnterHandler.prototype.handleKeyUpInternal = function(
     e) {
-  'use strict';
-  if (goog.userAgent.GECKO) {
-    if (e.keyCode == goog.events.KeyCodes.DELETE) {
+  if (userAgent.GECKO) {
+    if (e.keyCode == KeyCodes.DELETE) {
       this.removeBrIfNecessary_(false);
-    } else if (e.keyCode == goog.events.KeyCodes.BACKSPACE) {
+    } else if (e.keyCode == KeyCodes.BACKSPACE) {
       this.removeBrIfNecessary_(true);
     }
-  } else if ((goog.userAgent.IE) && e.keyCode == goog.events.KeyCodes.ENTER) {
+  } else if ((userAgent.IE) && e.keyCode == KeyCodes.ENTER) {
     this.ensureBlockIeOpera(this.tag, true);
   }
   // Safari uses DIVs by default.
@@ -166,7 +156,7 @@ goog.editor.plugins.TagOnEnterHandler.prototype.handleKeyUpInternal = function(
  * @type {string}
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.BrOrNbspSurroundedWithWhiteSpace_ =
+TagOnEnterHandler.BrOrNbspSurroundedWithWhiteSpace_ =
     '[\t\n\r ]*(<br[^>]*\/?>|&nbsp;)[\t\n\r ]*';
 
 
@@ -176,9 +166,9 @@ goog.editor.plugins.TagOnEnterHandler.BrOrNbspSurroundedWithWhiteSpace_ =
  * @type {RegExp}
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.emptyLiRegExp_ = new RegExp(
+TagOnEnterHandler.emptyLiRegExp_ = new RegExp(
     '^' +
-    goog.editor.plugins.TagOnEnterHandler.BrOrNbspSurroundedWithWhiteSpace_ +
+    TagOnEnterHandler.BrOrNbspSurroundedWithWhiteSpace_ +
     '$');
 
 
@@ -189,62 +179,58 @@ goog.editor.plugins.TagOnEnterHandler.emptyLiRegExp_ = new RegExp(
  * @return {Element} Element containing the selection, after the wrapping.
   * @private
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.ensureNodeIsWrappedW3c_ =
+TagOnEnterHandler.prototype.ensureNodeIsWrappedW3c_ =
     function(node, container) {
-  'use strict';
-  if (container == this.getFieldObject().getElement()) {
-    // If the first block-level ancestor of cursor is the field,
-    // don't split the tree. Find all the text from the cursor
-    // to both block-level elements surrounding it (if they exist)
-    // and split the text into two elements.
-    // This is the IE contentEditable behavior.
+      if (container == this.getFieldObject().getElement()) {
+        // If the first block-level ancestor of cursor is the field,
+        // don't split the tree. Find all the text from the cursor
+        // to both block-level elements surrounding it (if they exist)
+        // and split the text into two elements.
+        // This is the IE contentEditable behavior.
 
-    // The easy way to do this is to wrap all the text in an element
-    // and then split the element as if the user had hit enter
-    // in the paragraph
+        // The easy way to do this is to wrap all the text in an element
+        // and then split the element as if the user had hit enter
+        // in the paragraph
 
-    // However, simply wrapping the text into an element creates problems
-    // if the text was already wrapped using some other element such as an
-    // anchor.  For example, wrapping the text of
-    //   <a href="">Text</a>
-    // would produce
-    //   <a href=""><p>Text</p></a>
-    // which is not what we want.  What we really want is
-    //   <p><a href="">Text</a></p>
-    // So we need to search for an ancestor of position.node to be wrapped.
-    // We do this by iterating up the hierarchy of postiion.node until we've
-    // reached the node that's just under the container.
-    var isChildOfFn = function(child) {
-      'use strict';
-      return container == child.parentNode;
+        // However, simply wrapping the text into an element creates problems
+        // if the text was already wrapped using some other element such as an
+        // anchor.  For example, wrapping the text of
+        //   <a href="">Text</a>
+        // would produce
+        //   <a href=""><p>Text</p></a>
+        // which is not what we want.  What we really want is
+        //   <p><a href="">Text</a></p>
+        // So we need to search for an ancestor of position.node to be wrapped.
+        // We do this by iterating up the hierarchy of postiion.node until we've
+        // reached the node that's just under the container.
+        var isChildOfFn = function(child) {
+          return container == child.parentNode;
+        };
+        var nodeToWrap = googDom.getAncestor(node, isChildOfFn, true);
+        container = TagOnEnterHandler.wrapInContainerW3c_(
+            String(this.tag), {node: nodeToWrap, offset: 0}, container);
+      }
+      return container;
     };
-    var nodeToWrap = goog.dom.getAncestor(node, isChildOfFn, true);
-    container = goog.editor.plugins.TagOnEnterHandler.wrapInContainerW3c_(
-        String(this.tag), {node: nodeToWrap, offset: 0}, container);
-  }
-  return container;
-};
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype.handleEnterWebkitInternal =
+TagOnEnterHandler.prototype.handleEnterWebkitInternal =
     function(e) {
-  'use strict';
-  if (this.tag == goog.dom.TagName.DIV) {
-    var range = this.getFieldObject().getRange();
-    var container = goog.editor.style.getContainer(range.getContainerElement());
+      if (this.tag == TagName.DIV) {
+        var range = this.getFieldObject().getRange();
+        var container = style.getContainer(range.getContainerElement());
 
-    var position = goog.editor.range.getDeepEndPoint(range, true);
-    container = this.ensureNodeIsWrappedW3c_(position.node, container);
-    goog.dom.Range.createCaret(position.node, position.offset).select();
-  }
-};
+        var position = editorRange.getDeepEndPoint(range, true);
+        container = this.ensureNodeIsWrappedW3c_(position.node, container);
+        Range.createCaret(position.node, position.offset).select();
+      }
+    };
 
 
 /** @override */
-goog.editor.plugins.TagOnEnterHandler.prototype
+TagOnEnterHandler.prototype
     .handleEnterAtCursorGeckoInternal = function(e, wasCollapsed, range) {
-  'use strict';
   // We use this because there are a few cases where FF default
   // implementation doesn't follow IE's:
   //   -Inserts BRs into empty elements instead of NBSP which has nasty
@@ -256,13 +242,13 @@ goog.editor.plugins.TagOnEnterHandler.prototype
   var li = null;
   if (wasCollapsed) {
     // Only break out of lists for collapsed selections.
-    li = goog.dom.getAncestorByTagNameAndClass(
-        range && range.getContainerElement(), goog.dom.TagName.LI);
+    li = googDom.getAncestorByTagNameAndClass(
+        range && range.getContainerElement(), TagName.LI);
   }
   var isEmptyLi =
       (li &&
        li.innerHTML.match(
-           goog.editor.plugins.TagOnEnterHandler.emptyLiRegExp_));
+           TagOnEnterHandler.emptyLiRegExp_));
   var elementAfterCursor = isEmptyLi ? this.breakOutOfEmptyListItemGecko_(li) :
                                        this.handleRegularEnterGecko_();
 
@@ -271,17 +257,17 @@ goog.editor.plugins.TagOnEnterHandler.prototype
   this.scrollCursorIntoViewGecko_(elementAfterCursor);
 
   // Fix for http://b/1991234 :
-  if (goog.editor.plugins.EnterHandler.isBrElem(elementAfterCursor)) {
+  if (EnterHandler.isBrElem(elementAfterCursor)) {
     // The first element in the new line is a line with just a BR and maybe some
     // whitespace.
     // Calling normalize() is needed because there might be empty text nodes
     // before BR and empty text nodes cause the cursor position bug in Firefox.
     // See http://b/5220858
     elementAfterCursor.normalize();
-    var br = goog.dom.getElementsByTagName(
-        goog.dom.TagName.BR, elementAfterCursor)[0];
+    var br = googDom.getElementsByTagName(
+        TagName.BR, elementAfterCursor)[0];
     if (br.previousSibling &&
-        br.previousSibling.nodeType == goog.dom.NodeType.TEXT) {
+        br.previousSibling.nodeType == NodeType.TEXT) {
       // If there is some whitespace before the BR, don't put the selection on
       // the BR, put it in the text node that's there, otherwise when you type
       // it will create adjacent text nodes.
@@ -289,7 +275,7 @@ goog.editor.plugins.TagOnEnterHandler.prototype
     }
   }
 
-  goog.editor.range.selectNodeStart(elementAfterCursor);
+  editorRange.selectNodeStart(elementAfterCursor);
 
   e.preventDefault();
   // TODO(user): I think we probably don't need to stopPropagation here
@@ -303,52 +289,51 @@ goog.editor.plugins.TagOnEnterHandler.prototype
  * @return {!Element} Element to put the cursor after.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.breakOutOfEmptyListItemGecko_ =
+TagOnEnterHandler.prototype.breakOutOfEmptyListItemGecko_ =
     function(li) {
-  'use strict';
-  // Do this as follows:
-  // 1. <ul>...<li>&nbsp;</li>...</ul>
-  // 2. <ul id='foo1'>...<li id='foo2'>&nbsp;</li>...</ul>
-  // 3. <ul id='foo1'>...</ul><p id='foo3'>&nbsp;</p><ul id='foo2'>...</ul>
-  // 4. <ul>...</ul><p>&nbsp;</p><ul>...</ul>
-  //
-  // There are a couple caveats to the above. If the UL is contained in
-  // a list, then the new node inserted is an LI, not a P.
-  // For an OL, it's all the same, except the tagname of course.
-  // Finally, it's possible that with the LI at the beginning or the end
-  // of the list that we'll end up with an empty list. So we special case
-  // those cases.
+      // Do this as follows:
+      // 1. <ul>...<li>&nbsp;</li>...</ul>
+      // 2. <ul id='foo1'>...<li id='foo2'>&nbsp;</li>...</ul>
+      // 3. <ul id='foo1'>...</ul><p id='foo3'>&nbsp;</p><ul id='foo2'>...</ul>
+      // 4. <ul>...</ul><p>&nbsp;</p><ul>...</ul>
+      //
+      // There are a couple caveats to the above. If the UL is contained in
+      // a list, then the new node inserted is an LI, not a P.
+      // For an OL, it's all the same, except the tagname of course.
+      // Finally, it's possible that with the LI at the beginning or the end
+      // of the list that we'll end up with an empty list. So we special case
+      // those cases.
 
-  var listNode = li.parentNode;
-  var grandparent = listNode.parentNode;
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  var inSubList = grandparent.tagName == goog.dom.TagName.OL ||
-      grandparent.tagName == goog.dom.TagName.UL;
+      var listNode = li.parentNode;
+      var grandparent = listNode.parentNode;
+      /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+      var inSubList = grandparent.tagName == TagName.OL ||
+          grandparent.tagName == TagName.UL;
 
-  // TODO(robbyw): Should we apply the list or list item styles to the new node?
-  var newNode = goog.dom.getDomHelper(li).createElement(
-      inSubList ? goog.dom.TagName.LI : this.tag);
+      // TODO(robbyw): Should we apply the list or list item styles to the new node?
+      var newNode = googDom.getDomHelper(li).createElement(
+          inSubList ? TagName.LI : this.tag);
 
-  if (!li.previousSibling) {
-    goog.dom.insertSiblingBefore(newNode, listNode);
-  } else {
-    if (li.nextSibling) {
-      var listClone = listNode.cloneNode(false);
-      while (li.nextSibling) {
-        listClone.appendChild(li.nextSibling);
+      if (!li.previousSibling) {
+        googDom.insertSiblingBefore(newNode, listNode);
+      } else {
+        if (li.nextSibling) {
+          var listClone = listNode.cloneNode(false);
+          while (li.nextSibling) {
+            listClone.appendChild(li.nextSibling);
+          }
+          googDom.insertSiblingAfter(listClone, listNode);
+        }
+        googDom.insertSiblingAfter(newNode, listNode);
       }
-      goog.dom.insertSiblingAfter(listClone, listNode);
-    }
-    goog.dom.insertSiblingAfter(newNode, listNode);
-  }
-  if (goog.editor.node.isEmpty(listNode)) {
-    goog.dom.removeNode(listNode);
-  }
-  goog.dom.removeNode(li);
-  newNode.textContent = '\xA0';
+      if (editorNode.isEmpty(listNode)) {
+        googDom.removeNode(listNode);
+      }
+      googDom.removeNode(li);
+      newNode.textContent = '\xA0';
 
-  return newNode;
-};
+      return newNode;
+    };
 
 
 /**
@@ -362,30 +347,29 @@ goog.editor.plugins.TagOnEnterHandler.prototype.breakOutOfEmptyListItemGecko_ =
  *     position.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.wrapInContainerW3c_ = function(
+TagOnEnterHandler.wrapInContainerW3c_ = function(
     nodeName, position, container) {
-  'use strict';
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
   var start = position.node;
   while (start.previousSibling &&
-         !goog.editor.style.isContainer(start.previousSibling)) {
+         !style.isContainer(start.previousSibling)) {
     start = start.previousSibling;
   }
 
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
   var end = position.node;
-  while (end.nextSibling && !goog.editor.style.isContainer(end.nextSibling)) {
+  while (end.nextSibling && !style.isContainer(end.nextSibling)) {
     end = end.nextSibling;
   }
 
   var para = container.ownerDocument.createElement(nodeName);
   while (start != end) {
     var newStart = start.nextSibling;
-    goog.dom.appendChild(para, start);
+    googDom.appendChild(para, start);
     start = newStart;
   }
   var nextSibling = end.nextSibling;
-  goog.dom.appendChild(para, end);
+  googDom.appendChild(para, end);
   container.insertBefore(para, nextSibling);
 
   return para;
@@ -398,28 +382,27 @@ goog.editor.plugins.TagOnEnterHandler.wrapInContainerW3c_ = function(
  * right before a BR and you delete that character, we don't want to
  * strip it. So we detect this case on keydown and mark the BR as not needing
  * removal.
- * @param {goog.dom.AbstractRange} range The closure range object.
+ * @param {googDom.AbstractRange} range The closure range object.
  * @param {boolean} isBackspace Whether this is handling the backspace key.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.markBrToNotBeRemoved_ =
+TagOnEnterHandler.prototype.markBrToNotBeRemoved_ =
     function(range, isBackspace) {
-  'use strict';
-  var focusNode = range.getFocusNode();
-  var focusOffset = range.getFocusOffset();
-  var newEndOffset = isBackspace ? focusOffset : focusOffset + 1;
+      var focusNode = range.getFocusNode();
+      var focusOffset = range.getFocusOffset();
+      var newEndOffset = isBackspace ? focusOffset : focusOffset + 1;
 
-  if (goog.editor.node.getLength(focusNode) == newEndOffset) {
-    var sibling = focusNode.nextSibling;
-    if (sibling && sibling.tagName == goog.dom.TagName.BR) {
-      /**
-       * @suppress {strictMissingProperties} Added to tighten compiler checks
-       */
-      this.brToKeep_ = sibling;
-    }
-  }
-};
+      if (editorNode.getLength(focusNode) == newEndOffset) {
+        var sibling = focusNode.nextSibling;
+        if (sibling && sibling.tagName == TagName.BR) {
+          /**
+           * @suppress {strictMissingProperties} Added to tighten compiler checks
+           */
+          this.brToKeep_ = sibling;
+        }
+      }
+    };
 
 
 /**
@@ -431,9 +414,8 @@ goog.editor.plugins.TagOnEnterHandler.prototype.markBrToNotBeRemoved_ =
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.removeBrIfNecessary_ = function(
+TagOnEnterHandler.prototype.removeBrIfNecessary_ = function(
     isBackSpace) {
-  'use strict';
   var range = this.getFieldObject().getRange();
   var focusNode = range.getFocusNode();
   var focusOffset = range.getFocusOffset();
@@ -455,21 +437,21 @@ goog.editor.plugins.TagOnEnterHandler.prototype.removeBrIfNecessary_ = function(
     sibling = focusNode.nextSibling;
   }
 
-  if (!sibling || sibling.tagName != goog.dom.TagName.BR ||
+  if (!sibling || sibling.tagName != TagName.BR ||
       this.brToKeep_ == sibling) {
     return;
   }
 
-  goog.dom.removeNode(sibling);
-  if (focusNode.nodeType == goog.dom.NodeType.TEXT) {
+  googDom.removeNode(sibling);
+  if (focusNode.nodeType == NodeType.TEXT) {
     // Sometimes firefox inserts extra whitespace. Do our best to deal.
     // This is buggy though.
     /** @type {!Text} */ (focusNode).data =
-        goog.editor.plugins.TagOnEnterHandler.trimTabsAndLineBreaks_(
+        TagOnEnterHandler.trimTabsAndLineBreaks_(
             focusNode.data);
     // When we strip whitespace, make sure that our cursor is still at
     // the end of the textnode.
-    goog.dom.Range
+    Range
         .createCaret(focusNode, Math.min(focusOffset, focusNode.length))
         .select();
   }
@@ -482,9 +464,8 @@ goog.editor.plugins.TagOnEnterHandler.prototype.removeBrIfNecessary_ = function(
  * @return {string} Trimmed string.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.trimTabsAndLineBreaks_ = function(
+TagOnEnterHandler.trimTabsAndLineBreaks_ = function(
     string) {
-  'use strict';
   return string.replace(/^[\t\n\r]|[\t\n\r]$/g, '');
 };
 
@@ -496,60 +477,59 @@ goog.editor.plugins.TagOnEnterHandler.trimTabsAndLineBreaks_ = function(
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.handleRegularEnterGecko_ =
+TagOnEnterHandler.prototype.handleRegularEnterGecko_ =
     function() {
-  'use strict';
-  var range = this.getFieldObject().getRange();
-  var container = goog.editor.style.getContainer(range.getContainerElement());
-  var newNode;
-  if (goog.editor.plugins.EnterHandler.isBrElem(container)) {
-    if (container.tagName == goog.dom.TagName.BODY) {
-      // If the field contains only a single BR, this code ensures we don't
-      // try to clone the body tag.
-      container = this.ensureNodeIsWrappedW3c_(
-          goog.dom.getElementsByTagName(goog.dom.TagName.BR, container)[0],
-          container);
-    }
+      var range = this.getFieldObject().getRange();
+      var container = style.getContainer(range.getContainerElement());
+      var newNode;
+      if (EnterHandler.isBrElem(container)) {
+        if (container.tagName == TagName.BODY) {
+          // If the field contains only a single BR, this code ensures we don't
+          // try to clone the body tag.
+          container = this.ensureNodeIsWrappedW3c_(
+              googDom.getElementsByTagName(TagName.BR, container)[0],
+              container);
+        }
 
-    newNode = container.cloneNode(true);
-    goog.dom.insertSiblingAfter(newNode, container);
-  } else {
-    if (!container.firstChild) {
-      container.textContent = '\xA0';
-    }
+        newNode = container.cloneNode(true);
+        googDom.insertSiblingAfter(newNode, container);
+      } else {
+        if (!container.firstChild) {
+          container.textContent = '\xA0';
+        }
 
-    var position = goog.editor.range.getDeepEndPoint(range, true);
-    container = this.ensureNodeIsWrappedW3c_(position.node, container);
+        var position = editorRange.getDeepEndPoint(range, true);
+        container = this.ensureNodeIsWrappedW3c_(position.node, container);
 
-    newNode = goog.editor.plugins.TagOnEnterHandler.splitDomAndAppend_(
-        position.node, position.offset, container);
+        newNode = TagOnEnterHandler.splitDomAndAppend_(
+            position.node, position.offset, container);
 
-    // If the left half and right half of the splitted node are anchors then
-    // that means the user pressed enter while the caret was inside
-    // an anchor tag and split it.  The left half is the first anchor
-    // found while traversing the right branch of container.  The right half
-    // is the first anchor found while traversing the left branch of newNode.
-    var leftAnchor =
-        goog.editor.plugins.TagOnEnterHandler.findAnchorInTraversal_(container);
-    var rightAnchor =
-        goog.editor.plugins.TagOnEnterHandler.findAnchorInTraversal_(
-            newNode, true);
-    if (leftAnchor && rightAnchor && leftAnchor.tagName == goog.dom.TagName.A &&
-        rightAnchor.tagName == goog.dom.TagName.A) {
-      // If the original anchor (left anchor) is now empty, that means
-      // the user pressed [Enter] at the beginning of the anchor,
-      // in which case we we
-      // want to replace that anchor with its child nodes
-      // Otherwise, we take the second half of the splitted text and break
-      // it out of the anchor.
-      var anchorToRemove = goog.editor.node.isEmpty(leftAnchor, false) ?
-          leftAnchor :
-          rightAnchor;
-      goog.dom.flattenElement(/** @type {!Element} */ (anchorToRemove));
-    }
-  }
-  return /** @type {!Element} */ (newNode);
-};
+        // If the left half and right half of the splitted node are anchors then
+        // that means the user pressed enter while the caret was inside
+        // an anchor tag and split it.  The left half is the first anchor
+        // found while traversing the right branch of container.  The right half
+        // is the first anchor found while traversing the left branch of newNode.
+        var leftAnchor =
+            TagOnEnterHandler.findAnchorInTraversal_(container);
+        var rightAnchor =
+            TagOnEnterHandler.findAnchorInTraversal_(
+                newNode, true);
+        if (leftAnchor && rightAnchor && leftAnchor.tagName == TagName.A &&
+            rightAnchor.tagName == TagName.A) {
+          // If the original anchor (left anchor) is now empty, that means
+          // the user pressed [Enter] at the beginning of the anchor,
+          // in which case we we
+          // want to replace that anchor with its child nodes
+          // Otherwise, we take the second half of the splitted text and break
+          // it out of the anchor.
+          var anchorToRemove = editorNode.isEmpty(leftAnchor, false) ?
+              leftAnchor :
+              rightAnchor;
+          googDom.flattenElement(/** @type {!Element} */ (anchorToRemove));
+        }
+      }
+      return /** @type {!Element} */ (newNode);
+    };
 
 
 /**
@@ -560,39 +540,38 @@ goog.editor.plugins.TagOnEnterHandler.prototype.handleRegularEnterGecko_ =
  *     CANNOT be a BR, as they do not have offsetHeight/offsetTop.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.prototype.scrollCursorIntoViewGecko_ =
+TagOnEnterHandler.prototype.scrollCursorIntoViewGecko_ =
     function(element) {
-  'use strict';
-  if (!this.getFieldObject().isFixedHeight()) {
-    return;  // Only need to scroll fixed height fields.
-  }
+      if (!this.getFieldObject().isFixedHeight()) {
+        return;  // Only need to scroll fixed height fields.
+      }
 
-  var field = this.getFieldObject().getElement();
+      var field = this.getFieldObject().getElement();
 
-  // Get the y position of the element we want to scroll to
-  var elementY = goog.style.getPageOffsetTop(element);
+      // Get the y position of the element we want to scroll to
+      var elementY = googStyle.getPageOffsetTop(element);
 
-  // Determine the height of that element, since we want the bottom of the
-  // element to be in view.
-  var bottomOfNode = elementY +
-      /** @type {!HTMLElement} */ (element).offsetHeight;
+      // Determine the height of that element, since we want the bottom of the
+      // element to be in view.
+      var bottomOfNode = elementY +
+          /** @type {!HTMLElement} */ (element).offsetHeight;
 
-  var dom = this.getFieldDomHelper();
-  var win = this.getFieldDomHelper().getWindow();
-  var scrollY = dom.getDocumentScroll().y;
-  var viewportHeight = goog.dom.getViewportSize(win).height;
+      var dom = this.getFieldDomHelper();
+      var win = this.getFieldDomHelper().getWindow();
+      var scrollY = dom.getDocumentScroll().y;
+      var viewportHeight = googDom.getViewportSize(win).height;
 
-  // If the botom of the element is outside the viewport, move it into view
-  if (bottomOfNode > viewportHeight + scrollY) {
-    // In standards mode, use the html element and not the body
-    if (field.tagName == goog.dom.TagName.BODY &&
-        goog.editor.node.isStandardsMode(field)) {
-      field = field.parentNode;
-    }
-    /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-    field.scrollTop = bottomOfNode - viewportHeight;
-  }
-};
+      // If the botom of the element is outside the viewport, move it into view
+      if (bottomOfNode > viewportHeight + scrollY) {
+        // In standards mode, use the html element and not the body
+        if (field.tagName == TagName.BODY &&
+            editorNode.isStandardsMode(field)) {
+          field = field.parentNode;
+        }
+        /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+        field.scrollTop = bottomOfNode - viewportHeight;
+      }
+    };
 
 
 /**
@@ -612,21 +591,20 @@ goog.editor.plugins.TagOnEnterHandler.prototype.scrollCursorIntoViewGecko_ =
  * @return {!Node} The node containing the second half of the tree.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.splitDom_ = function(
+TagOnEnterHandler.splitDom_ = function(
     positionNode, positionOffset, opt_root) {
-  'use strict';
   if (!opt_root) opt_root = positionNode.ownerDocument.body;
 
   // Split the node.
-  var textSplit = positionNode.nodeType == goog.dom.NodeType.TEXT;
+  var textSplit = positionNode.nodeType == NodeType.TEXT;
   /** @type {?Node} */
   var secondHalfOfSplitNode = null;
   if (textSplit) {
-    if (goog.userAgent.IE && positionOffset == positionNode.nodeValue.length) {
+    if (userAgent.IE && positionOffset == positionNode.nodeValue.length) {
       // Since splitText fails in IE at the end of a node, we split it manually.
       secondHalfOfSplitNode =
-          goog.dom.getDomHelper(positionNode).createTextNode('');
-      goog.dom.insertSiblingAfter(secondHalfOfSplitNode, positionNode);
+          googDom.getDomHelper(positionNode).createTextNode('');
+      googDom.insertSiblingAfter(secondHalfOfSplitNode, positionNode);
     } else {
       /**
        * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -649,7 +627,7 @@ goog.editor.plugins.TagOnEnterHandler.splitDom_ = function(
   }
 
   // Create second half of the tree.
-  var secondHalf = goog.editor.node.splitDomTreeAt(
+  var secondHalf = editorNode.splitDomTreeAt(
       positionNode, secondHalfOfSplitNode, opt_root);
 
   if (textSplit) {
@@ -658,16 +636,16 @@ goog.editor.plugins.TagOnEnterHandler.splitDom_ = function(
     // secondHalfOfSplitNode has a right sibling that isn't a text node,
     // then we can leave secondHalfOfSplitNode empty.
     secondHalfOfSplitNode =
-        goog.editor.plugins.TagOnEnterHandler.joinTextNodes_(
+        TagOnEnterHandler.joinTextNodes_(
             secondHalfOfSplitNode, true);
-    goog.editor.plugins.TagOnEnterHandler.replaceWhiteSpaceWithNbsp_(
+    TagOnEnterHandler.replaceWhiteSpaceWithNbsp_(
         secondHalfOfSplitNode, true, !!secondHalfOfSplitNode.nextSibling);
 
     // Join positionNode and its left text siblings together and then replace
     // trailing NonNbspWhiteSpace with a Nbsp.
-    var firstHalf = goog.editor.plugins.TagOnEnterHandler.joinTextNodes_(
+    var firstHalf = TagOnEnterHandler.joinTextNodes_(
         positionNode, false);
-    goog.editor.plugins.TagOnEnterHandler.replaceWhiteSpaceWithNbsp_(
+    TagOnEnterHandler.replaceWhiteSpaceWithNbsp_(
         firstHalf, false, false);
   }
 
@@ -691,12 +669,11 @@ goog.editor.plugins.TagOnEnterHandler.splitDom_ = function(
  * @return {!Node} The node containing the second half of the tree.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.splitDomAndAppend_ = function(
+TagOnEnterHandler.splitDomAndAppend_ = function(
     positionNode, positionOffset, node) {
-  'use strict';
-  var newNode = goog.editor.plugins.TagOnEnterHandler.splitDom_(
+  var newNode = TagOnEnterHandler.splitDom_(
       positionNode, positionOffset, node);
-  goog.dom.insertSiblingAfter(newNode, node);
+  googDom.insertSiblingAfter(newNode, node);
   return newNode;
 };
 
@@ -709,18 +686,17 @@ goog.editor.plugins.TagOnEnterHandler.splitDomAndAppend_ = function(
  * @return {Node} The joined text node.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.joinTextNodes_ = function(
+TagOnEnterHandler.joinTextNodes_ = function(
     node, moveForward) {
-  'use strict';
   if (node && node.nodeName == '#text') {
     var nextNodeFn = moveForward ? 'nextSibling' : 'previousSibling';
     var prevNodeFn = moveForward ? 'previousSibling' : 'nextSibling';
     var nodeValues = [node.nodeValue];
     while (node[nextNodeFn] &&
-           node[nextNodeFn].nodeType == goog.dom.NodeType.TEXT) {
+           node[nextNodeFn].nodeType == NodeType.TEXT) {
       node = node[nextNodeFn];
       nodeValues.push(node.nodeValue);
-      goog.dom.removeNode(node[prevNodeFn]);
+      googDom.removeNode(node[prevNodeFn]);
     }
     if (!moveForward) {
       nodeValues.reverse();
@@ -741,15 +717,14 @@ goog.editor.plugins.TagOnEnterHandler.joinTextNodes_ = function(
  *     text node.
  * @private
  */
-goog.editor.plugins.TagOnEnterHandler.replaceWhiteSpaceWithNbsp_ = function(
+TagOnEnterHandler.replaceWhiteSpaceWithNbsp_ = function(
     textNode, fromStart, isLeaveEmpty) {
-  'use strict';
   var regExp = fromStart ? /^[ \t\r\n]+/ : /[ \t\r\n]+$/;
   textNode.nodeValue =
-      textNode.nodeValue.replace(regExp, goog.string.Unicode.NBSP);
+      textNode.nodeValue.replace(regExp, Unicode.NBSP);
 
   if (!isLeaveEmpty && textNode.nodeValue == '') {
-    textNode.nodeValue = goog.string.Unicode.NBSP;
+    textNode.nodeValue = Unicode.NBSP;
   }
 };
 
@@ -765,11 +740,10 @@ goog.editor.plugins.TagOnEnterHandler.replaceWhiteSpaceWithNbsp_ = function(
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.TagOnEnterHandler.findAnchorInTraversal_ = function(
+TagOnEnterHandler.findAnchorInTraversal_ = function(
     node, opt_useFirstChild) {
-  'use strict';
   while ((node = opt_useFirstChild ? node.firstChild : node.lastChild) &&
-         node.tagName != goog.dom.TagName.A) {
+         node.tagName != TagName.A) {
     // Do nothing - advancement is handled in the condition.
   }
   return node;

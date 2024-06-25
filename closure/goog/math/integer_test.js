@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.IntegerTest');
 goog.setTestOnly();
 
-const Integer = goog.require('goog.math.Integer');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Integer } from './integer.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Interprets the given numbers as the bits of a 32-bit int.  In particular,
 // this takes care of the 32-bit being interpretted as the sign.

@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.messages_test');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {declareIcuTemplate} = goog.require('goog.i18n.messages');
+import { testSuite } from '../testing/testsuite.js';
+import messages from './messages.js';
+const {declareIcuTemplate} = messages;
 
 testSuite({
   testClosureStylePlaceholdersForbidden() {

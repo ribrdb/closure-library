@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Defines the goog.dom.InputType enum.  This enumerates all
+ * @fileoverview Defines the InputType enum.  This enumerates all
  * input element types (for INPUT, BUTTON, SELECT and TEXTAREA elements) in
  * either the W3C HTML 4.01 index of elements or the HTML5 draft specification.
  *
@@ -17,15 +17,7 @@
  * https://html.spec.whatwg.org/multipage/forms.html#dom-select-type
  * https://html.spec.whatwg.org/multipage/forms.html#dom-textarea-type
  */
-goog.provide('goog.dom.InputType');
-
-
-/**
- * Enum of all input types (for INPUT, BUTTON, SELECT and TEXTAREA elements)
- * specified by the W3C HTML4.01 and HTML5 specifications.
- * @enum {string}
- */
-goog.dom.InputType = {
+InputType = {
   BUTTON: 'button',
   CHECKBOX: 'checkbox',
   COLOR: 'color',
@@ -54,3 +46,4 @@ goog.dom.InputType = {
   URL: 'url',
   WEEK: 'week'
 };
+export var InputType;

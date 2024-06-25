@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.UndoRedoTest');
 goog.setTestOnly();
 
-const Field = goog.require('goog.editor.Field');
-const LoremIpsum = goog.require('goog.editor.plugins.LoremIpsum');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const UndoRedo = goog.require('goog.editor.plugins.UndoRedo');
-const browserrange = goog.require('goog.dom.browserrange');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Field } from '../field.js';
+import { LoremIpsum } from './loremipsum.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { StrictMock } from '../../testing/strictmock.js';
+import { UndoRedo } from './undoredo.js';
+import * as browserrange from '../../dom/browserrange/browserrange.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import * as functions from '../../functions/functions.js';
+import * as googArray from '../../array/array.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let mockEditableField;
 let editableField;

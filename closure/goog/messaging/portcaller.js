@@ -5,20 +5,19 @@
  */
 
 /**
- * @fileoverview The leaf node of a {@link goog.messaging.PortNetwork}. Callers
+ * @fileoverview The leaf node of a {@link PortNetwork}. Callers
  * connect to the operator, and request connections with other contexts from it.
  */
 
-goog.provide('goog.messaging.PortCaller');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.async.Deferred');
-goog.require('goog.dispose');
-goog.require('goog.messaging.DeferredChannel');
-goog.require('goog.messaging.PortChannel');
-goog.require('goog.messaging.PortNetwork');  // interface
-goog.require('goog.object');
-goog.requireType('goog.messaging.MessageChannel');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import { dispose } from '../disposable/dispose.js';
+import { DeferredChannel } from './deferredchannel.js';
+import { PortChannel } from './portchannel.js';
+import { PortNetwork } from './portnetwork.js';  // interface
+import object from '../object/object.js';
+goog.requireType('goog.messaging.messagechannel');
 
 
 
@@ -28,16 +27,15 @@ goog.requireType('goog.messaging.MessageChannel');
  * @param {!goog.messaging.MessageChannel} operatorPort The channel for
  *     communicating with the operator. The other side of this channel should be
  *     passed to {@link goog.messaging.PortOperator#addPort}. Must be either a
- *     {@link goog.messaging.PortChannel} or a decorator wrapping a PortChannel;
+ *     {@link PortChannel} or a decorator wrapping a PortChannel;
  *     in particular, it must be able to send and receive {@link MessagePort}s.
  * @constructor
- * @extends {goog.Disposable}
- * @implements {goog.messaging.PortNetwork}
+ * @extends {Disposable}
+ * @implements {PortNetwork}
  * @final
  */
-goog.messaging.PortCaller = function(operatorPort) {
-  'use strict';
-  goog.messaging.PortCaller.base(this, 'constructor');
+export function PortCaller(operatorPort) {
+  PortCaller.base(this, 'constructor');
 
   /**
    * The channel to the {@link goog.messaging.PortOperator} for this network.
@@ -48,49 +46,48 @@ goog.messaging.PortCaller = function(operatorPort) {
   this.operatorPort_ = operatorPort;
 
   /**
-   * The collection of channels for communicating with other contexts in the
-   * network. Each value can contain a {@link goog.aync.Deferred} and/or a
-   * {@link goog.messaging.MessageChannel}.
-   *
-   * If the value contains a Deferred, then the channel is a
-   * {@link goog.messaging.DeferredChannel} wrapping that Deferred. The Deferred
-   * will be resolved with a {@link goog.messaging.PortChannel} once we receive
-   * the appropriate port from the operator. This is the situation when this
-   * caller requests a connection to another context; the DeferredChannel is
-   * used to queue up messages until we receive the port from the operator.
-   *
-   * If the value does not contain a Deferred, then the channel is simply a
-   * {@link goog.messaging.PortChannel} communicating with the given context.
-   * This is the situation when this context received a port for the other
-   * context before it was requested.
-   *
-   * If a value exists for a given key, it must contain a channel, but it
-   * doesn't necessarily contain a Deferred.
-   *
-   * @type {!Object<{deferred: goog.async.Deferred,
-   *                  channel: !goog.messaging.MessageChannel}>}
-   * @private
-   */
+     * The collection of channels for communicating with other contexts in the
+     * network. Each value can contain a {@link goog.aync.Deferred} and/or a
+     * {@link goog.messaging.MessageChannel}.
+     *
+     * If the value contains a Deferred, then the channel is a
+     * {@link DeferredChannel} wrapping that Deferred. The Deferred
+     * will be resolved with a {@link PortChannel} once we receive
+     * the appropriate port from the operator. This is the situation when this
+     * caller requests a connection to another context; the DeferredChannel is
+     * used to queue up messages until we receive the port from the operator.
+     *
+     * If the value does not contain a Deferred, then the channel is simply a
+     * {@link PortChannel} communicating with the given context.
+     * This is the situation when this context received a port for the other
+     * context before it was requested.
+     *
+     * If a value exists for a given key, it must contain a channel, but it
+     * doesn't necessarily contain a Deferred.
+     *
+     * @type {!Object<{deferred: Deferred,
+     *                  channel: !goog.messaging.MessageChannel}>}
+     * @private
+     */
   this.connections_ = {};
 
   this.operatorPort_.registerService(
-      goog.messaging.PortNetwork.GRANT_CONNECTION_SERVICE,
+      PortNetwork.GRANT_CONNECTION_SERVICE,
       goog.bind(this.connectionGranted_, this), true /* opt_json */);
-};
-goog.inherits(goog.messaging.PortCaller, goog.Disposable);
+}
+goog.inherits(PortCaller, Disposable);
 
 
 /** @override */
-goog.messaging.PortCaller.prototype.dial = function(name) {
-  'use strict';
+PortCaller.prototype.dial = function(name) {
   if (name in this.connections_) {
     return this.connections_[name].channel;
   }
 
   this.operatorPort_.send(
-      goog.messaging.PortNetwork.REQUEST_CONNECTION_SERVICE, name);
-  const deferred = new goog.async.Deferred();
-  const channel = new goog.messaging.DeferredChannel(deferred);
+      PortNetwork.REQUEST_CONNECTION_SERVICE, name);
+  const deferred = new Deferred();
+  const channel = new DeferredChannel(deferred);
   this.connections_[name] = {deferred: deferred, channel: channel};
   return channel;
 };
@@ -112,8 +109,7 @@ goog.messaging.PortCaller.prototype.dial = function(name) {
  *     being connected and the port connecting the context.
  * @private
  */
-goog.messaging.PortCaller.prototype.connectionGranted_ = function(message) {
-  'use strict';
+PortCaller.prototype.connectionGranted_ = function(message) {
   const args = /** @type {{name: string, port: MessagePort}} */ (message);
   const port = args['port'];
   const entry = this.connections_[args['name']];
@@ -127,7 +123,7 @@ goog.messaging.PortCaller.prototype.connectionGranted_ = function(message) {
     throw new Error(args['message']);
   } else {
     port.start();
-    const channel = new goog.messaging.PortChannel(port);
+    const channel = new PortChannel(port);
     if (entry) {
       entry.deferred.callback(channel);
     } else {
@@ -138,11 +134,10 @@ goog.messaging.PortCaller.prototype.connectionGranted_ = function(message) {
 
 
 /** @override */
-goog.messaging.PortCaller.prototype.disposeInternal = function() {
-  'use strict';
-  goog.dispose(this.operatorPort_);
-  goog.object.forEach(this.connections_, goog.dispose);
+PortCaller.prototype.disposeInternal = function() {
+  dispose(this.operatorPort_);
+  object.forEach(this.connections_, dispose);
   delete this.operatorPort_;
   delete this.connections_;
-  goog.messaging.PortCaller.base(this, 'disposeInternal');
+  PortCaller.base(this, 'disposeInternal');
 };

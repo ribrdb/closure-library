@@ -38,16 +38,14 @@
  * [1]: https://developer.mozilla.org/en-US/docs/Web/API/URL
  * [2]: https://url.spec.whatwg.org/
  */
-goog.module('goog.url');
-goog.module.declareLegacyNamespace();
+import { Const as ConstString } from '../string/const.js';
 
-const ConstString = goog.require('goog.string.Const');
-const Tagname = goog.require('goog.dom.TagName');
-const safe = goog.require('goog.dom.safe');
-const uncheckedConversions = goog.require('goog.html.uncheckedconversions');
-const {assert} = goog.require('goog.asserts');
-const {concat: iterableConcat, map: iterableMap} = goog.require('goog.collections.iters');
-const {createElement} = goog.require('goog.dom');
+import { TagName as Tagname } from '../dom/tagname.js';
+import * as safe from '../dom/safe.js';
+import * as uncheckedConversions from '../html/uncheckedconversions.js';
+import { assert } from '../asserts/asserts.js';
+import { concat as iterableConcat, map as iterableMap } from '../collections/iters.js';
+import { createElement } from '../dom/dom.js';
 
 // Capture the native URL constructor before users have a chance to clobber it.
 /** @type {?typeof URL} */
@@ -77,7 +75,7 @@ const setUrlBaseForTesting = function(base) {
   urlBase = base;
 };
 
-exports.setUrlBaseForTesting = setUrlBaseForTesting;
+export { setUrlBaseForTesting };
 
 
 /**
@@ -145,7 +143,7 @@ class ReadonlySearchParams {
   toString() {};
 }
 
-exports.ReadonlySearchParams = ReadonlySearchParams;
+export { ReadonlySearchParams };
 
 /**
  * A polyfill implementation of ReadonlySearchParams that is only used in older
@@ -337,7 +335,7 @@ class UrlLike {
   toString() {};
 }
 
-exports.UrlLike = UrlLike;
+export { UrlLike };
 
 /**
  * This function is equivalent to 'new URL(href)' in newer browsers, and will
@@ -589,7 +587,7 @@ const resolveUrl = function(urlStr, baseStr) {
   }
 };
 
-exports.resolveUrl = resolveUrl;
+export { resolveUrl };
 
 /**
  * Browsers will canonicalize a URL if the scheme has a "canonical" port for it.
@@ -623,7 +621,7 @@ const getSearchParams = function(url) {
   return new SearchParamsImpl(url.search);
 };
 
-exports.getSearchParams = getSearchParams;
+export { getSearchParams };
 
 /**
  * Resolves the given relative URL string without requiring a specific base URL
@@ -639,7 +637,7 @@ const resolveRelativeUrl = function(relativeURL) {
   return resolveUrl(relativeURL, urlBase);
 };
 
-exports.resolveRelativeUrl = resolveRelativeUrl;
+export { resolveRelativeUrl };
 
 /**
  * @record
@@ -675,7 +673,7 @@ class UrlPrimitivePartsPartial {
   }
 }
 
-exports.UrlPrimitivePartsPartial = UrlPrimitivePartsPartial;
+export { UrlPrimitivePartsPartial };
 
 /**
  * Creates a new URL object from primitve parts, optionally allowing for some of
@@ -761,4 +759,4 @@ const createUrl = function(parts, base = undefined) {
   return resolveUrl(sb);
 };
 
-exports.createUrl = createUrl;
+export { createUrl };

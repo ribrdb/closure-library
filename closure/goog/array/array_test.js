@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.arrayTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as googArray from './array.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * @param {!IArrayLike<?>} expected

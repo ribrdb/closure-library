@@ -9,26 +9,25 @@
  * @suppress {const}
  */
 
-goog.module('goog.ui.ac.InputHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const InputHandler = goog.require('goog.ui.ac.InputHandler');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyHandler = goog.require('goog.events.KeyHandler');
-const MockClock = goog.require('goog.testing.MockClock');
-const Role = goog.require('goog.a11y.aria.Role');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const googObject = goog.require('goog.object');
-const selection = goog.require('goog.dom.selection');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from '../../events/browserevent.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { EventTarget as GoogEventTarget } from '../../events/eventtarget.js';
+import { InputHandler } from './inputhandler.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { KeyHandler } from '../../events/keyhandler.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { Role } from '../../a11y/aria/roles.js';
+import { State } from '../../a11y/aria/attributes.js';
+import { TagName } from '../../dom/tagname.js';
+import * as aria from '../../a11y/aria/aria.js';
+import * as dom from '../../dom/dom.js';
+import * as functions from '../../functions/functions.js';
+import googObject from '../../object/object.js';
+import * as selection from '../../dom/selection.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 /** Mock out the input element. */
 class MockElement extends GoogEventTarget {

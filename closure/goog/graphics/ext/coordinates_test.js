@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.ext.coordinatesTest');
 goog.setTestOnly();
 
-const coordinates = goog.require('goog.graphics.ext.coordinates');
-const graphics = goog.require('goog.graphics');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as coordinates from './coordinates.js';
+import * as graphics from '../graphics.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   /** @suppress {visibility} suppression added to enable type checking */

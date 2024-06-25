@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.BezierTest');
 goog.setTestOnly();
 
-const Bezier = goog.require('goog.math.Bezier');
-const Coordinate = goog.require('goog.math.Coordinate');
-const googMath = goog.require('goog.math');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Bezier } from './bezier.js';
+import { Coordinate } from './coordinate.js';
+import * as googMath from './math.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testEquals() {

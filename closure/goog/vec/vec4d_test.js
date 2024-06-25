@@ -11,11 +11,10 @@
 //                                                                           //
 ////////////////////////// NOTE ABOUT EDITING THIS FILE ///////////////////////
 
-goog.module('goog.vec.vec4dTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const vec4d = goog.require('goog.vec.vec4d');
+import { testSuite } from '../testing/testsuite.js';
+import * as vec4d from './vec4d.js';
 
 testSuite({
   testCreate() {

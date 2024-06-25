@@ -5,30 +5,28 @@
  */
 
 /**
- * @fileoverview An implementation of {@link goog.events.Listenable} that does
+ * @fileoverview An implementation of {@link Listenable} that does
  * not need to be disposed.
  */
 
-goog.provide('goog.labs.events.NonDisposableEventTarget');
+import * as array from '../../array/array.js';
 
-
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.events.Event');
-goog.require('goog.events.Listenable');
-goog.require('goog.events.ListenerMap');
-goog.require('goog.object');
+import * as asserts from '../../asserts/asserts.js';
+import { Event } from '../../events/event.js';
+import { Listenable } from '../../events/listenable.js';
+import { ListenerMap } from '../../events/listenermap.js';
+import object from '../../object/object.js';
 
 
 
 /**
- * An implementation of `goog.events.Listenable` with full W3C
+ * An implementation of `Listenable` with full W3C
  * EventTarget-like support (capture/bubble mechanism, stopping event
  * propagation, preventing default actions).
  *
  * You may subclass this class to turn your class into a Listenable.
  *
- * Unlike {@link goog.events.EventTarget}, this class does not implement
+ * Unlike {@link EventTarget}, this class does not implement
  * {@link goog.disposable.IDisposable}. Instances of this class that have had
  * It is not necessary to call {@link goog.dispose}
  * or {@link #removeAllListeners} in order for an instance of this class
@@ -42,7 +40,7 @@ goog.require('goog.object');
  *
  * Example usage:
  * <pre>
- *   var source = new goog.labs.events.NonDisposableEventTarget();
+ *   var source = new NonDisposableEventTarget();
  *   function handleEvent(e) {
  *     alert('Type: ' + e.type + '; Target: ' + e.target);
  *   }
@@ -52,22 +50,21 @@ goog.require('goog.object');
  *
  * TODO(user): Consider a more modern, less viral
  * (not based on inheritance) replacement of goog.Disposable, which will allow
- * goog.events.EventTarget to not be disposable.
+ * EventTarget to not be disposable.
  *
  * @constructor
- * @implements {goog.events.Listenable}
+ * @implements {Listenable}
  * @final
  */
-goog.labs.events.NonDisposableEventTarget = function() {
-  'use strict';
+export function NonDisposableEventTarget() {
   /**
-   * Maps of event type to an array of listeners.
-   * @private {!goog.events.ListenerMap}
-   */
-  this.eventTargetListeners_ = new goog.events.ListenerMap(this);
-};
-goog.events.Listenable.addImplementation(
-    goog.labs.events.NonDisposableEventTarget);
+     * Maps of event type to an array of listeners.
+     * @private {!ListenerMap}
+     */
+  this.eventTargetListeners_ = new ListenerMap(this);
+}
+Listenable.addImplementation(
+    NonDisposableEventTarget);
 
 
 /**
@@ -76,40 +73,37 @@ goog.events.Listenable.addImplementation(
  * @const {number}
  * @private
  */
-goog.labs.events.NonDisposableEventTarget.MAX_ANCESTORS_ = 1000;
+NonDisposableEventTarget.MAX_ANCESTORS_ = 1000;
 
 
 /**
  * Parent event target, used during event bubbling.
- * @private {?goog.events.Listenable}
+ * @private {?Listenable}
  */
-goog.labs.events.NonDisposableEventTarget.prototype.parentEventTarget_ = null;
+NonDisposableEventTarget.prototype.parentEventTarget_ = null;
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.getParentEventTarget =
+NonDisposableEventTarget.prototype.getParentEventTarget =
     function() {
-  'use strict';
-  return this.parentEventTarget_;
-};
+      return this.parentEventTarget_;
+    };
 
 
 /**
  * Sets the parent of this event target to use for capture/bubble
  * mechanism.
- * @param {goog.events.Listenable} parent Parent listenable (null if none).
+ * @param {Listenable} parent Parent listenable (null if none).
  */
-goog.labs.events.NonDisposableEventTarget.prototype.setParentEventTarget =
+NonDisposableEventTarget.prototype.setParentEventTarget =
     function(parent) {
-  'use strict';
-  this.parentEventTarget_ = parent;
-};
+      this.parentEventTarget_ = parent;
+    };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.dispatchEvent = function(
+NonDisposableEventTarget.prototype.dispatchEvent = function(
     e) {
-  'use strict';
   this.assertInitialized_();
   let ancestor = this.getParentEventTarget();
   let ancestorsTree;
@@ -119,22 +113,21 @@ goog.labs.events.NonDisposableEventTarget.prototype.dispatchEvent = function(
     let ancestorCount = 1;
     for (; ancestor; ancestor = ancestor.getParentEventTarget()) {
       ancestorsTree.push(ancestor);
-      goog.asserts.assert(
+      asserts.assert(
           (++ancestorCount <
-           goog.labs.events.NonDisposableEventTarget.MAX_ANCESTORS_),
+           NonDisposableEventTarget.MAX_ANCESTORS_),
           'infinite loop');
     }
   }
 
-  return goog.labs.events.NonDisposableEventTarget.dispatchEventInternal_(
+  return NonDisposableEventTarget.dispatchEventInternal_(
       this, e, ancestorsTree);
 };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.listen = function(
+NonDisposableEventTarget.prototype.listen = function(
     type, listener, opt_useCapture, opt_listenerScope) {
-  'use strict';
   this.assertInitialized_();
   return this.eventTargetListeners_.add(
       String(type), listener, false /* callOnce */, opt_useCapture,
@@ -143,9 +136,8 @@ goog.labs.events.NonDisposableEventTarget.prototype.listen = function(
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.listenOnce = function(
+NonDisposableEventTarget.prototype.listenOnce = function(
     type, listener, opt_useCapture, opt_listenerScope) {
-  'use strict';
   return this.eventTargetListeners_.add(
       String(type), listener, true /* callOnce */, opt_useCapture,
       opt_listenerScope);
@@ -153,34 +145,30 @@ goog.labs.events.NonDisposableEventTarget.prototype.listenOnce = function(
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.unlisten = function(
+NonDisposableEventTarget.prototype.unlisten = function(
     type, listener, opt_useCapture, opt_listenerScope) {
-  'use strict';
   return this.eventTargetListeners_.remove(
       String(type), listener, opt_useCapture, opt_listenerScope);
 };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.unlistenByKey = function(
+NonDisposableEventTarget.prototype.unlistenByKey = function(
     key) {
-  'use strict';
   return this.eventTargetListeners_.removeByKey(key);
 };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.removeAllListeners =
+NonDisposableEventTarget.prototype.removeAllListeners =
     function(opt_type) {
-  'use strict';
-  return this.eventTargetListeners_.removeAll(opt_type);
-};
+      return this.eventTargetListeners_.removeAll(opt_type);
+    };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.fireListeners = function(
+NonDisposableEventTarget.prototype.fireListeners = function(
     type, capture, eventObject) {
-  'use strict';
   // TODO(chrishenry): Original code avoids array creation when there
   // is no listener, so we do the same. If this optimization turns
   // out to be not required, we can replace this with
@@ -189,7 +177,7 @@ goog.labs.events.NonDisposableEventTarget.prototype.fireListeners = function(
   if (!listenerArray) {
     return true;
   }
-  listenerArray = goog.array.clone(listenerArray);
+  listenerArray = array.clone(listenerArray);
 
   let rv = true;
   for (let i = 0; i < listenerArray.length; ++i) {
@@ -212,26 +200,23 @@ goog.labs.events.NonDisposableEventTarget.prototype.fireListeners = function(
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.getListeners = function(
+NonDisposableEventTarget.prototype.getListeners = function(
     type, capture) {
-  'use strict';
   return this.eventTargetListeners_.getListeners(String(type), capture);
 };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.getListener = function(
+NonDisposableEventTarget.prototype.getListener = function(
     type, listener, capture, opt_listenerScope) {
-  'use strict';
   return this.eventTargetListeners_.getListener(
       String(type), listener, capture, opt_listenerScope);
 };
 
 
 /** @override */
-goog.labs.events.NonDisposableEventTarget.prototype.hasListener = function(
+NonDisposableEventTarget.prototype.hasListener = function(
     opt_type, opt_capture) {
-  'use strict';
   const id = (opt_type !== undefined) ? String(opt_type) : undefined;
   return this.eventTargetListeners_.hasListener(id, opt_capture);
 };
@@ -241,14 +226,13 @@ goog.labs.events.NonDisposableEventTarget.prototype.hasListener = function(
  * Asserts that the event target instance is initialized properly.
  * @private
  */
-goog.labs.events.NonDisposableEventTarget.prototype.assertInitialized_ =
+NonDisposableEventTarget.prototype.assertInitialized_ =
     function() {
-  'use strict';
-  goog.asserts.assert(
-      this.eventTargetListeners_,
-      'Event target is not initialized. Did you call the superclass ' +
-          '(goog.labs.events.NonDisposableEventTarget) constructor?');
-};
+      asserts.assert(
+          this.eventTargetListeners_,
+          'Event target is not initialized. Did you call the superclass ' +
+              '(goog.labs.events.NonDisposableEventTarget) constructor?');
+    };
 
 
 /**
@@ -257,8 +241,8 @@ goog.labs.events.NonDisposableEventTarget.prototype.assertInitialized_ =
  * TODO(chrishenry): Look for a way to reuse this logic in
  * goog.events, if possible.
  * @param {!Object} target The target to dispatch on.
- * @param {goog.events.Event|Object|string} e The event object.
- * @param {Array<goog.events.Listenable>=} opt_ancestorsTree The ancestors
+ * @param {Event|Object|string} e The event object.
+ * @param {Array<Listenable>=} opt_ancestorsTree The ancestors
  *     tree of the target, in reverse order from the closest ancestor
  *     to the root event target. May be null if the target has no ancestor.
  * @return {boolean} If anyone called preventDefault on the event object (or
@@ -266,19 +250,18 @@ goog.labs.events.NonDisposableEventTarget.prototype.assertInitialized_ =
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.labs.events.NonDisposableEventTarget.dispatchEventInternal_ = function(
+NonDisposableEventTarget.dispatchEventInternal_ = function(
     target, e, opt_ancestorsTree) {
-  'use strict';
   const type = e.type || /** @type {string} */ (e);
 
   // If accepting a string or object, create a custom event object so that
   // preventDefault and stopPropagation work with the event.
   if (typeof e === 'string') {
-    e = new goog.events.Event(e, target);
-  } else if (!(e instanceof goog.events.Event)) {
+    e = new Event(e, target);
+  } else if (!(e instanceof Event)) {
     const oldEvent = e;
-    e = new goog.events.Event(type, target);
-    goog.object.extend(e, oldEvent);
+    e = new Event(type, target);
+    object.extend(e, oldEvent);
   } else {
     e.target = e.target || target;
   }

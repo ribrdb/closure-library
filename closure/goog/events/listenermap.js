@@ -13,14 +13,13 @@
  *
  */
 
-goog.provide('goog.events.ListenerMap');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.events.Listener');
-goog.require('goog.object');
-goog.requireType('goog.events.EventId');
-goog.requireType('goog.events.Listenable');
-goog.requireType('goog.events.ListenableKey');
+import { Listener } from './listener.js';
+import object from '../object/object.js';
+goog.requireType('goog.events.eventid');
+goog.requireType('goog.events.listenable');
+goog.requireType('goog.events.listenablekey');
 
 
 
@@ -30,15 +29,14 @@ goog.requireType('goog.events.ListenableKey');
  * @constructor
  * @final
  */
-goog.events.ListenerMap = function(src) {
-  'use strict';
+export function ListenerMap(src) {
   /** @type {EventTarget|goog.events.Listenable} */
   this.src = src;
 
   /**
-   * Maps of event type to an array of listeners.
-   * @type {!Object<string, !Array<!goog.events.Listener>>}
-   */
+     * Maps of event type to an array of listeners.
+     * @type {!Object<string, !Array<!Listener>>}
+     */
   this.listeners = {};
 
   /**
@@ -46,15 +44,14 @@ goog.events.ListenerMap = function(src) {
    * @private {number}
    */
   this.typeCount_ = 0;
-};
+}
 
 
 /**
  * @return {number} The count of event types in this map that actually
  *     have registered listeners.
  */
-goog.events.ListenerMap.prototype.getTypeCount = function() {
-  'use strict';
+ListenerMap.prototype.getTypeCount = function() {
   return this.typeCount_;
 };
 
@@ -62,8 +59,7 @@ goog.events.ListenerMap.prototype.getTypeCount = function() {
 /**
  * @return {number} Total number of registered listeners.
  */
-goog.events.ListenerMap.prototype.getListenerCount = function() {
-  'use strict';
+ListenerMap.prototype.getListenerCount = function() {
   var count = 0;
   for (var type in this.listeners) {
     count += this.listeners[type].length;
@@ -90,9 +86,8 @@ goog.events.ListenerMap.prototype.getListenerCount = function() {
  *     listener.
  * @return {!goog.events.ListenableKey} Unique key for the listener.
  */
-goog.events.ListenerMap.prototype.add = function(
+ListenerMap.prototype.add = function(
     type, listener, callOnce, opt_useCapture, opt_listenerScope) {
-  'use strict';
   var typeStr = type.toString();
   var listenerArray = this.listeners[typeStr];
   if (!listenerArray) {
@@ -101,7 +96,7 @@ goog.events.ListenerMap.prototype.add = function(
   }
 
   var listenerObj;
-  var index = goog.events.ListenerMap.findListenerIndex_(
+  var index = ListenerMap.findListenerIndex_(
       listenerArray, listener, opt_useCapture, opt_listenerScope);
   if (index > -1) {
     listenerObj = listenerArray[index];
@@ -111,7 +106,7 @@ goog.events.ListenerMap.prototype.add = function(
       listenerObj.callOnce = false;
     }
   } else {
-    listenerObj = new goog.events.Listener(
+    listenerObj = new Listener(
         listener, null, this.src, typeStr, !!opt_useCapture, opt_listenerScope);
     listenerObj.callOnce = callOnce;
     listenerArray.push(listenerObj);
@@ -129,21 +124,20 @@ goog.events.ListenerMap.prototype.add = function(
  *     listener.
  * @return {boolean} Whether any listener was removed.
  */
-goog.events.ListenerMap.prototype.remove = function(
+ListenerMap.prototype.remove = function(
     type, listener, opt_useCapture, opt_listenerScope) {
-  'use strict';
   var typeStr = type.toString();
   if (!(typeStr in this.listeners)) {
     return false;
   }
 
   var listenerArray = this.listeners[typeStr];
-  var index = goog.events.ListenerMap.findListenerIndex_(
+  var index = ListenerMap.findListenerIndex_(
       listenerArray, listener, opt_useCapture, opt_listenerScope);
   if (index > -1) {
     var listenerObj = listenerArray[index];
     listenerObj.markAsRemoved();
-    goog.array.removeAt(listenerArray, index);
+    array.removeAt(listenerArray, index);
     if (listenerArray.length == 0) {
       delete this.listeners[typeStr];
       this.typeCount_--;
@@ -159,16 +153,15 @@ goog.events.ListenerMap.prototype.remove = function(
  * @param {!goog.events.ListenableKey} listener The listener to remove.
  * @return {boolean} Whether the listener is removed.
  */
-goog.events.ListenerMap.prototype.removeByKey = function(listener) {
-  'use strict';
+ListenerMap.prototype.removeByKey = function(listener) {
   var type = listener.type;
   if (!(type in this.listeners)) {
     return false;
   }
 
-  var removed = goog.array.remove(this.listeners[type], listener);
+  var removed = array.remove(this.listeners[type], listener);
   if (removed) {
-    /** @type {!goog.events.Listener} */ (listener).markAsRemoved();
+    /** @type {!Listener} */ (listener).markAsRemoved();
     if (this.listeners[type].length == 0) {
       delete this.listeners[type];
       this.typeCount_--;
@@ -184,8 +177,7 @@ goog.events.ListenerMap.prototype.removeByKey = function(listener) {
  * @param {string|!goog.events.EventId=} opt_type Type of event to remove.
  * @return {number} Number of listeners removed.
  */
-goog.events.ListenerMap.prototype.removeAll = function(opt_type) {
-  'use strict';
+ListenerMap.prototype.removeAll = function(opt_type) {
   var typeStr = opt_type && opt_type.toString();
   var count = 0;
   for (var type in this.listeners) {
@@ -212,8 +204,7 @@ goog.events.ListenerMap.prototype.removeAll = function(opt_type) {
  * @return {!Array<!goog.events.ListenableKey>} An array of matching
  *     listeners.
  */
-goog.events.ListenerMap.prototype.getListeners = function(type, capture) {
-  'use strict';
+ListenerMap.prototype.getListeners = function(type, capture) {
   var listenerArray = this.listeners[type.toString()];
   var rv = [];
   if (listenerArray) {
@@ -240,13 +231,12 @@ goog.events.ListenerMap.prototype.getListeners = function(type, capture) {
  *     listener.
  * @return {goog.events.ListenableKey} the found listener or null if not found.
  */
-goog.events.ListenerMap.prototype.getListener = function(
+ListenerMap.prototype.getListener = function(
     type, listener, capture, opt_listenerScope) {
-  'use strict';
   var listenerArray = this.listeners[type.toString()];
   var i = -1;
   if (listenerArray) {
-    i = goog.events.ListenerMap.findListenerIndex_(
+    i = ListenerMap.findListenerIndex_(
         listenerArray, listener, capture, opt_listenerScope);
   }
   return i > -1 ? listenerArray[i] : null;
@@ -263,15 +253,13 @@ goog.events.ListenerMap.prototype.getListener = function(
  * @return {boolean} Whether there is an active listener matching
  *     the requested type and/or capture phase.
  */
-goog.events.ListenerMap.prototype.hasListener = function(
+ListenerMap.prototype.hasListener = function(
     opt_type, opt_capture) {
-  'use strict';
   var hasType = (opt_type !== undefined);
   var typeStr = hasType ? opt_type.toString() : '';
   var hasCapture = (opt_capture !== undefined);
 
-  return goog.object.some(this.listeners, function(listenerArray, type) {
-    'use strict';
+  return object.some(this.listeners, function(listenerArray, type) {
     for (var i = 0; i < listenerArray.length; ++i) {
       if ((!hasType || listenerArray[i].type == typeStr) &&
           (!hasCapture || listenerArray[i].capture == opt_capture)) {
@@ -285,9 +273,9 @@ goog.events.ListenerMap.prototype.hasListener = function(
 
 
 /**
- * Finds the index of a matching goog.events.Listener in the given
+ * Finds the index of a matching Listener in the given
  * listenerArray.
- * @param {!Array<!goog.events.Listener>} listenerArray Array of listener.
+ * @param {!Array<!Listener>} listenerArray Array of listener.
  * @param {!Function} listener The listener function.
  * @param {boolean=} opt_useCapture The capture flag for the listener.
  * @param {Object=} opt_listenerScope The listener scope.
@@ -295,9 +283,8 @@ goog.events.ListenerMap.prototype.hasListener = function(
  *     listenerArray.
  * @private
  */
-goog.events.ListenerMap.findListenerIndex_ = function(
+ListenerMap.findListenerIndex_ = function(
     listenerArray, listener, opt_useCapture, opt_listenerScope) {
-  'use strict';
   for (var i = 0; i < listenerArray.length; ++i) {
     var listenerObj = listenerArray[i];
     if (!listenerObj.removed && listenerObj.listener == listener &&

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.FormatterTest');
 goog.setTestOnly();
 
-const HtmlFormatter = goog.require('goog.debug.formatter');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const testSuite = goog.require('goog.testing.testSuite');
-const {Level, LogRecord} = goog.require('goog.log');
+import * as HtmlFormatter from './formatter.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { testSuite } from '../testing/testsuite.js';
+import { Level, LogRecord } from '../log/log.js';
 
 const EXPECTED_RECORD_HTML_RE =
     '^prefix \\[.*?\\] \\[ &#160;.*?s\\] \\[loggerName\\] ' +

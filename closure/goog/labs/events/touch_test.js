@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for touch. */
 
-goog.module('goog.labs.events.touchTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const touch = goog.require('goog.labs.events.touch');
+import { testSuite } from '../../testing/testsuite.js';
+import * as touch from './touch.js';
 
 testSuite({
   testMouseEvent() {

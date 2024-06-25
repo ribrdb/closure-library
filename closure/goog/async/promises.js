@@ -8,9 +8,6 @@
  * @fileoverview Provides utility functions for promises.
  */
 
-goog.module('goog.async.promises');
-
-
 /**
  * Resolves when all promise values in the map resolve. The resolved value will
  * be a Map with the same keys as the input map, but with the resolved values of
@@ -31,7 +28,7 @@ goog.module('goog.async.promises');
  * @param {!Map<KEY, IN_VALUE>} promiseMap
  * @return {!Promise<!Map<KEY, OUT_VALUE>>}
  */
-exports.allMapValues = (promiseMap) => {
+export let allMapValues = (promiseMap) => {
   // Maps return keys and values in insertion order, so these will match each
   // other.
   const keys = Array.from(promiseMap.keys());

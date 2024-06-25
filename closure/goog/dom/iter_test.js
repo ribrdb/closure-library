@@ -4,16 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.iterTest');
 goog.setTestOnly();
 
-const AncestorIterator = goog.require('goog.dom.iter.AncestorIterator');
-const ChildIterator = goog.require('goog.dom.iter.ChildIterator');
-const NodeType = goog.require('goog.dom.NodeType');
-const SiblingIterator = goog.require('goog.dom.iter.SiblingIterator');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { AncestorIterator, ChildIterator, SiblingIterator } from './iter.js';
+import { NodeType } from './nodetype.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
 
 let test;
 let br;

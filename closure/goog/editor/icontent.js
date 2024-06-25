@@ -11,16 +11,13 @@
  * iframe-loading is a performance bottleneck.
  */
 
-goog.provide('goog.editor.icontent');
-goog.provide('goog.editor.icontent.FieldFormatInfo');
-goog.provide('goog.editor.icontent.FieldStyleInfo');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.safe');
-goog.require('goog.editor.BrowserFeature');
-goog.require('goog.html.legacyconversions');
-goog.require('goog.style');
-goog.require('goog.userAgent');
+import * as safe from '../dom/safe.js';
+import { BrowserFeature } from './browserfeature.js';
+import * as legacyconversions from '../html/legacyconversions.js';
+import * as googStyle from '../style/style.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
@@ -37,15 +34,13 @@ goog.require('goog.userAgent');
  * @constructor
  * @final
  */
-goog.editor.icontent.FieldFormatInfo = function(
-    fieldId, standards, blended, fixedHeight, opt_extraStyles) {
-  'use strict';
+export function FieldFormatInfo(fieldId, standards, blended, fixedHeight, opt_extraStyles) {
   this.fieldId_ = fieldId;
   this.standards_ = standards;
   this.blended_ = blended;
   this.fixedHeight_ = fixedHeight;
   this.extraStyles_ = opt_extraStyles || {};
-};
+}
 
 
 
@@ -57,11 +52,10 @@ goog.editor.icontent.FieldFormatInfo = function(
  * @constructor
  * @final
  */
-goog.editor.icontent.FieldStyleInfo = function(wrapper, css) {
-  'use strict';
+export function FieldStyleInfo(wrapper, css) {
   this.wrapper_ = wrapper;
   this.css_ = css;
-};
+}
 
 
 /**
@@ -69,35 +63,32 @@ goog.editor.icontent.FieldStyleInfo = function(wrapper, css) {
  * @type {boolean}
  * @private
  */
-goog.editor.icontent.useStandardsModeIframes_ = false;
+var useStandardsModeIframes_ = false;
 
 
 /**
  * Sets up goog.editor.icontent to always use standards-mode iframes.
  */
-goog.editor.icontent.forceStandardsModeIframes = function() {
-  'use strict';
-  goog.editor.icontent.useStandardsModeIframes_ = true;
+forceStandardsModeIframes = function() {
+  useStandardsModeIframes_ = true;
 };
 
 
 /**
  * Generate the initial iframe content.
- * @param {goog.editor.icontent.FieldFormatInfo} info Formatting info about
+ * @param {FieldFormatInfo} info Formatting info about
  *     the field.
  * @param {string} bodyHtml The HTML to insert as the iframe body.
- * @param {goog.editor.icontent.FieldStyleInfo?} style Style info about
+ * @param {FieldStyleInfo?} style Style info about
  *     the field, if needed.
  * @return {string} The initial IFRAME content HTML.
  * @private
  */
-goog.editor.icontent.getInitialIframeContent_ = function(
-    info, bodyHtml, style) {
-  'use strict';
+function getInitialIframeContent_(info, bodyHtml, style) {
   var html = [];
 
   if (info.blended_ && info.standards_ ||
-      goog.editor.icontent.useStandardsModeIframes_) {
+      useStandardsModeIframes_) {
     html.push('<!DOCTYPE HTML>');
   }
 
@@ -136,7 +127,7 @@ goog.editor.icontent.getInitialIframeContent_ = function(
 
   // Firefox blended needs to inherit all the css from the original page.
   // Firefox standards mode needs to set extra style for images.
-  if (goog.userAgent.GECKO && info.standards_) {
+  if (userAgent.GECKO && info.standards_) {
     // Standards mode will collapse broken images.  This means that they
     // can never be removed from the field.  This style forces the images
     // to render as a broken image icon, sized based on the width and height
@@ -152,7 +143,7 @@ goog.editor.icontent.getInitialIframeContent_ = function(
   // Hidefocus is needed to ensure that IE7 doesn't show the dotted, focus
   // border when you tab into the field.
   html.push('<body g_editable="true" hidefocus="true" ');
-  if (goog.editor.BrowserFeature.HAS_CONTENT_EDITABLE) {
+  if (BrowserFeature.HAS_CONTENT_EDITABLE) {
     html.push('contentEditable ');
   }
 
@@ -163,7 +154,7 @@ goog.editor.icontent.getInitialIframeContent_ = function(
   // always the body.
   html.push('" id="', info.fieldId_, '" style="min-width:0;');
 
-  if (goog.userAgent.GECKO && info.blended_) {
+  if (userAgent.GECKO && info.blended_) {
     // IMPORTANT: Apply the css from the body then all of the clearing
     // CSS to make sure the clearing CSS overrides (e.g. if the body
     // has a 3px margin, we want to make sure to override it with 0px.
@@ -201,21 +192,19 @@ goog.editor.icontent.getInitialIframeContent_ = function(
   html.push('">', bodyHtml, '</body></html>');
 
   return html.join('');
-};
+}
 
 
 /**
  * Write the initial iframe content in normal mode.
- * @param {goog.editor.icontent.FieldFormatInfo} info Formatting info about
+ * @param {FieldFormatInfo} info Formatting info about
  *     the field.
  * @param {string} bodyHtml The HTML to insert as the iframe body.
- * @param {goog.editor.icontent.FieldStyleInfo?} style Style info about
+ * @param {FieldStyleInfo?} style Style info about
  *     the field, if needed.
  * @param {HTMLIFrameElement} iframe The iframe.
  */
-goog.editor.icontent.writeNormalInitialBlendedIframe = function(
-    info, bodyHtml, style, iframe) {
-  'use strict';
+export function writeNormalInitialBlendedIframe(info, bodyHtml, style, iframe) {
   // Firefox blended needs to inherit all the css from the original page.
   // Firefox standards mode needs to set extra style for images.
   if (info.blended_) {
@@ -226,57 +215,54 @@ goog.editor.icontent.writeNormalInitialBlendedIframe = function(
     // scrollbars to appear inside the padding.
     //
     // To compensate, we set the iframe margins to offset the padding.
-    var paddingBox = goog.style.getPaddingBox(field);
+    var paddingBox = googStyle.getPaddingBox(field);
     if (paddingBox.top || paddingBox.left || paddingBox.right ||
         paddingBox.bottom) {
-      goog.style.setStyle(
+      googStyle.setStyle(
           iframe, 'margin', (-paddingBox.top) + 'px ' + (-paddingBox.right) +
               'px ' + (-paddingBox.bottom) + 'px ' + (-paddingBox.left) + 'px');
     }
   }
 
-  goog.editor.icontent.writeNormalInitialIframe(info, bodyHtml, style, iframe);
-};
+  writeNormalInitialIframe(info, bodyHtml, style, iframe);
+}
 
 
 /**
  * Write the initial iframe content in normal mode.
- * @param {goog.editor.icontent.FieldFormatInfo} info Formatting info about
+ * @param {FieldFormatInfo} info Formatting info about
  *     the field.
  * @param {string} bodyHtml The HTML to insert as the iframe body.
- * @param {goog.editor.icontent.FieldStyleInfo?} style Style info about
+ * @param {FieldStyleInfo?} style Style info about
  *     the field, if needed.
  * @param {HTMLIFrameElement} iframe The iframe.
  */
-goog.editor.icontent.writeNormalInitialIframe = function(
-    info, bodyHtml, style, iframe) {
-  'use strict';
+export function writeNormalInitialIframe(info, bodyHtml, style, iframe) {
   var html =
-      goog.editor.icontent.getInitialIframeContent_(info, bodyHtml, style);
+      getInitialIframeContent_(info, bodyHtml, style);
 
-  var doc = goog.dom.getFrameContentDocument(iframe);
+  var doc = dom.getFrameContentDocument(iframe);
   doc.open();
-  goog.dom.safe.documentWrite(
-      doc, goog.html.legacyconversions.safeHtmlFromString(html));
+  safe.documentWrite(
+      doc, legacyconversions.safeHtmlFromString(html));
   doc.close();
-};
+}
 
 
 /**
  * Write the initial iframe content in IE/HTTPS mode.
- * @param {goog.editor.icontent.FieldFormatInfo} info Formatting info about
+ * @param {FieldFormatInfo} info Formatting info about
  *     the field.
  * @param {Document} doc The iframe document.
  * @param {string} bodyHtml The HTML to insert as the iframe body.
  */
-goog.editor.icontent.writeHttpsInitialIframe = function(info, doc, bodyHtml) {
-  'use strict';
+export function writeHttpsInitialIframe(info, doc, bodyHtml) {
   var body = doc.body;
 
   // For HTTPS we already have a document with a doc type and a body element
   // and don't want to create a new history entry which can cause data loss if
   // the user clicks the back button.
-  if (goog.editor.BrowserFeature.HAS_CONTENT_EDITABLE) {
+  if (BrowserFeature.HAS_CONTENT_EDITABLE) {
     body.contentEditable = true;
   }
   body.className = 'editable';
@@ -284,7 +270,8 @@ goog.editor.icontent.writeHttpsInitialIframe = function(info, doc, bodyHtml) {
   body.hideFocus = true;
   body.id = info.fieldId_;
 
-  goog.style.setStyle(body, info.extraStyles_);
-  goog.dom.safe.setInnerHtml(
-      body, goog.html.legacyconversions.safeHtmlFromString(bodyHtml));
-};
+  googStyle.setStyle(body, info.extraStyles_);
+  safe.setInnerHtml(
+      body, legacyconversions.safeHtmlFromString(bodyHtml));
+}
+export var forceStandardsModeIframes;

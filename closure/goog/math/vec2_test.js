@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.Vec2Test');
 goog.setTestOnly();
 
-const Vec2 = goog.require('goog.math.Vec2');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Vec2 } from './vec2.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function assertVectorEquals(a, b) {
   assertTrue(`${b} should be equal to ${a}`, Vec2.equals(a, b));

@@ -15,23 +15,22 @@
  * unsupported by this class.
  */
 
-goog.provide('goog.messaging.PortChannel');
+import { Timer } from '../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.async.Deferred');
-goog.require('goog.debug');
-goog.require('goog.dispose');
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.json');
-goog.require('goog.log');
-goog.require('goog.messaging.AbstractChannel');
-goog.require('goog.messaging.DeferredChannel');
-goog.require('goog.object');
-goog.require('goog.string');
-goog.require('goog.userAgent');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.messaging.MessageChannel');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import * as debug from '../debug/debug.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from '../events/events.js';
+import { EventType } from '../events/eventtype.js';
+import * as json from '../json/json.js';
+import * as log from '../log/log.js';
+import { AbstractChannel } from './abstractchannel.js';
+import { DeferredChannel } from './deferredchannel.js';
+import object from '../object/object.js';
+import * as string from '../string/string.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.events.event');
+goog.requireType('goog.messaging.messagechannel');
 
 
 
@@ -41,7 +40,7 @@ goog.requireType('goog.messaging.MessageChannel');
  * {@link goog.messaging.MessageChannel} interface.
  *
  * This class can be used in conjunction with other communication on the port.
- * It sets {@link goog.messaging.PortChannel.FLAG} to true on all messages it
+ * It sets {@link PortChannel.FLAG} to true on all messages it
  * sends.
  *
  * @param {!MessagePort|!Worker} underlyingPort The message-passing
@@ -50,12 +49,11 @@ goog.requireType('goog.messaging.MessageChannel');
  *     disposed along with the PortChannel; this means terminating it if it's a
  *     worker or removing it from the DOM if it's an iframe.
  * @constructor
- * @extends {goog.messaging.AbstractChannel}
+ * @extends {AbstractChannel}
  * @final
  */
-goog.messaging.PortChannel = function(underlyingPort) {
-  'use strict';
-  goog.messaging.PortChannel.base(this, 'constructor');
+export function PortChannel(underlyingPort) {
+  PortChannel.base(this, 'constructor');
 
   /**
    * The wrapped message-passing entity.
@@ -65,14 +63,14 @@ goog.messaging.PortChannel = function(underlyingPort) {
   this.port_ = underlyingPort;
 
   /**
-   * The key for the event listener.
-   * @type {goog.events.Key}
-   * @private
-   */
-  this.listenerKey_ = goog.events.listen(
-      this.port_, goog.events.EventType.MESSAGE, this.deliver_, false, this);
-};
-goog.inherits(goog.messaging.PortChannel, goog.messaging.AbstractChannel);
+     * The key for the event listener.
+     * @type {events.Key}
+     * @private
+     */
+  this.listenerKey_ = events.listen(
+      this.port_, EventType.MESSAGE, this.deliver_, false, this);
+}
+goog.inherits(PortChannel, AbstractChannel);
 
 
 /**
@@ -87,27 +85,26 @@ goog.inherits(goog.messaging.PortChannel, goog.messaging.AbstractChannel);
  * @param {!Window} peerWindow The window object to communicate with.
  * @param {string} peerOrigin The expected origin of the window. See
  *     http://dev.w3.org/html5/postmsg/#dom-window-postmessage.
- * @param {goog.Timer=} opt_timer The timer that regulates how often the initial
+ * @param {Timer=} opt_timer The timer that regulates how often the initial
  *     connection message is attempted. This will be automatically disposed once
  *     the connection is established, or when the connection is cancelled.
- * @return {!goog.messaging.DeferredChannel} The PortChannel. Although this is
+ * @return {!DeferredChannel} The PortChannel. Although this is
  *     not actually an instance of the PortChannel class, it will behave like
  *     one in that MessagePorts may be sent across it. The DeferredChannel may
  *     be cancelled before a connection is established in order to abort the
  *     attempt to make a connection.
  */
-goog.messaging.PortChannel.forEmbeddedWindow = function(
+PortChannel.forEmbeddedWindow = function(
     peerWindow, peerOrigin, opt_timer) {
-  'use strict';
   if (peerOrigin == '*') {
-    return new goog.messaging.DeferredChannel(
-        goog.async.Deferred.fail(new Error('Invalid origin')));
+    return new DeferredChannel(
+        Deferred.fail(new Error('Invalid origin')));
   }
 
-  const timer = opt_timer || new goog.Timer(50);
+  const timer = opt_timer || new Timer(50);
 
-  const disposeTimer = goog.partial(goog.dispose, timer);
-  const deferred = new goog.async.Deferred(disposeTimer);
+  const disposeTimer = goog.partial(dispose, timer);
+  const deferred = new Deferred(disposeTimer);
   deferred.addBoth(disposeTimer);
 
   timer.start();
@@ -119,16 +116,14 @@ goog.messaging.PortChannel.forEmbeddedWindow = function(
   // ports that are not ultimately used to set up the channel will be garbage
   // collected (since there are no references in this context, and the remote
   // context hasn't seen them).
-  goog.events.listen(timer, goog.Timer.TICK, function() {
-    'use strict';
+  events.listen(timer, Timer.TICK, function() {
     const channel = new MessageChannel();
     const gotMessage = function(e) {
-      'use strict';
       channel.port1.removeEventListener(
-          goog.events.EventType.MESSAGE, gotMessage, true);
+          EventType.MESSAGE, gotMessage, true);
       // If the connection has been cancelled, don't create the channel.
       if (!timer.isDisposed()) {
-        deferred.callback(new goog.messaging.PortChannel(channel.port1));
+        deferred.callback(new PortChannel(channel.port1));
       }
     };
     channel.port1.start();
@@ -137,14 +132,14 @@ goog.messaging.PortChannel.forEmbeddedWindow = function(
     // these APIs anyway, so we don't need to worry about event API
     // compatibility.
     channel.port1.addEventListener(
-        goog.events.EventType.MESSAGE, gotMessage, true);
+        EventType.MESSAGE, gotMessage, true);
 
     const msg = {};
-    msg[goog.messaging.PortChannel.FLAG] = true;
+    msg[PortChannel.FLAG] = true;
     peerWindow.postMessage(msg, peerOrigin, [channel.port2]);
   });
 
-  return new goog.messaging.DeferredChannel(deferred);
+  return new DeferredChannel(deferred);
 };
 
 
@@ -163,23 +158,21 @@ goog.messaging.PortChannel.forEmbeddedWindow = function(
  *     not actually be an instance of the PortChannel class, it will behave like
  *     one in that MessagePorts may be sent across it.
  */
-goog.messaging.PortChannel.forGlobalWindow = function(peerOrigin) {
-  'use strict';
+PortChannel.forGlobalWindow = function(peerOrigin) {
   if (peerOrigin == '*') {
-    return new goog.messaging.DeferredChannel(
-        goog.async.Deferred.fail(new Error('Invalid origin')));
+    return new DeferredChannel(
+        Deferred.fail(new Error('Invalid origin')));
   }
 
-  const deferred = new goog.async.Deferred();
+  const deferred = new Deferred();
   // Wait for the external page to post a message containing the message port
   // which we'll use to set up the PortChannel. Ignore all other messages. Once
   // we receive the port, notify the other end and then set up the PortChannel.
   const key =
-      goog.events.listen(window, goog.events.EventType.MESSAGE, function(e) {
-        'use strict';
+      events.listen(window, EventType.MESSAGE, function(e) {
         const browserEvent = e.getBrowserEvent();
         const data = browserEvent.data;
-        if (!goog.isObject(data) || !data[goog.messaging.PortChannel.FLAG]) {
+        if (!goog.isObject(data) || !data[PortChannel.FLAG]) {
           return;
         }
 
@@ -193,10 +186,10 @@ goog.messaging.PortChannel.forGlobalWindow = function(peerOrigin) {
         port.postMessage({});
 
         port.start();
-        deferred.callback(new goog.messaging.PortChannel(port));
-        goog.events.unlistenByKey(key);
+        deferred.callback(new PortChannel(port));
+        events.unlistenByKey(key);
       });
-  return new goog.messaging.DeferredChannel(deferred);
+  return new DeferredChannel(deferred);
 };
 
 
@@ -205,7 +198,7 @@ goog.messaging.PortChannel.forGlobalWindow = function(peerOrigin) {
  * be handled by one on the other side.
  * @type {string}
  */
-goog.messaging.PortChannel.FLAG = '--goog.messaging.PortChannel';
+PortChannel.FLAG = '--goog.messaging.PortChannel';
 
 
 /**
@@ -218,18 +211,18 @@ goog.messaging.PortChannel.FLAG = '--goog.messaging.PortChannel';
  * @type {boolean}
  * @private
  */
-goog.messaging.PortChannel.REQUIRES_SERIALIZATION_ = goog.userAgent.WEBKIT &&
-    goog.string.compareVersions(goog.userAgent.VERSION, '533') < 0;
+PortChannel.REQUIRES_SERIALIZATION_ = userAgent.WEBKIT &&
+    string.compareVersions(userAgent.VERSION, '533') < 0;
 
 
 /**
  * Logger for this class.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @protected
  * @override
  */
-goog.messaging.PortChannel.prototype.logger =
-    goog.log.getLogger('goog.messaging.PortChannel');
+PortChannel.prototype.logger =
+    log.getLogger('goog.messaging.PortChannel');
 
 
 /**
@@ -249,15 +242,14 @@ goog.messaging.PortChannel.prototype.logger =
  * @param {string|!Object|!MessagePort} payload The value of the message. May
  *     contain MessagePorts or be a MessagePort.
  */
-goog.messaging.PortChannel.prototype.send = function(serviceName, payload) {
-  'use strict';
+PortChannel.prototype.send = function(serviceName, payload) {
   const ports = [];
   payload = this.extractPorts_(ports, payload);
   let message = {'serviceName': serviceName, 'payload': payload};
-  message[goog.messaging.PortChannel.FLAG] = true;
+  message[PortChannel.FLAG] = true;
 
-  if (goog.messaging.PortChannel.REQUIRES_SERIALIZATION_) {
-    message = goog.json.serialize(message);
+  if (PortChannel.REQUIRES_SERIALIZATION_) {
+    message = json.serialize(message);
   }
 
   // Avoid a type error by casting to unknown as the type checker doesn't
@@ -270,16 +262,15 @@ goog.messaging.PortChannel.prototype.send = function(serviceName, payload) {
  * Delivers a message to the appropriate service handler. If this message isn't
  * a GearsWorkerChannel message, it's ignored and passed on to other handlers.
  *
- * @param {goog.events.Event} e The event.
+ * @param {events.Event} e The event.
  * @private
  */
-goog.messaging.PortChannel.prototype.deliver_ = function(e) {
-  'use strict';
+PortChannel.prototype.deliver_ = function(e) {
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
   const browserEvent = e.getBrowserEvent();
   let data = browserEvent.data;
 
-  if (goog.messaging.PortChannel.REQUIRES_SERIALIZATION_) {
+  if (PortChannel.REQUIRES_SERIALIZATION_) {
     try {
       data = JSON.parse(data);
     } catch (error) {
@@ -288,7 +279,7 @@ goog.messaging.PortChannel.prototype.deliver_ = function(e) {
     }
   }
 
-  if (!goog.isObject(data) || !data[goog.messaging.PortChannel.FLAG]) {
+  if (!goog.isObject(data) || !data[PortChannel.FLAG]) {
     return;
   }
 
@@ -317,21 +308,20 @@ goog.messaging.PortChannel.prototype.deliver_ = function(e) {
  * @return {boolean} True if the message is valid, false otherwise.
  * @private
  */
-goog.messaging.PortChannel.prototype.validateMessage_ = function(data) {
-  'use strict';
+PortChannel.prototype.validateMessage_ = function(data) {
   if (!('serviceName' in data)) {
-    goog.log.warning(
+    log.warning(
         this.logger,
         'Message object doesn\'t contain service name: ' +
-            goog.debug.deepExpose(data));
+            debug.deepExpose(data));
     return false;
   }
 
   if (!('payload' in data)) {
-    goog.log.warning(
+    log.warning(
         this.logger,
         'Message object doesn\'t contain payload: ' +
-            goog.debug.deepExpose(data));
+            debug.deepExpose(data));
     return false;
   }
 
@@ -353,8 +343,7 @@ goog.messaging.PortChannel.prototype.validateMessage_ = function(data) {
  * @return {string|!Object} The message with ports extracted.
  * @private
  */
-goog.messaging.PortChannel.prototype.extractPorts_ = function(ports, message) {
-  'use strict';
+PortChannel.prototype.extractPorts_ = function(ports, message) {
   // Can't use instanceof here because MessagePort is undefined in workers
   if (message &&
       Object.prototype.toString.call(/** @type {!Object} */ (message)) ==
@@ -366,12 +355,11 @@ goog.messaging.PortChannel.prototype.extractPorts_ = function(ports, message) {
     // We want to compare the exact constructor here because we only want to
     // recurse into object literals, not native objects like Date.
   } else if (message && message.constructor == Object) {
-    return goog.object.map(
+    return object.map(
         /** @type {!Object} */ (message), function(val, key) {
-          'use strict';
-          val = this.extractPorts_(ports, val);
-          return key == '_port' ? {'type': 'escaped', 'val': val} : val;
-        }, this);
+      val = this.extractPorts_(ports, val);
+      return key == '_port' ? {'type': 'escaped', 'val': val} : val;
+    }, this);
   } else {
     return message;
   }
@@ -388,8 +376,7 @@ goog.messaging.PortChannel.prototype.extractPorts_ = function(ports, message) {
  * @return {string|!Object} The message with ports injected.
  * @private
  */
-goog.messaging.PortChannel.prototype.injectPorts_ = function(ports, message) {
-  'use strict';
+PortChannel.prototype.injectPorts_ = function(ports, message) {
   if (Array.isArray(message)) {
     return message.map(goog.bind(this.injectPorts_, this, ports));
   } else if (message && message.constructor == Object) {
@@ -397,8 +384,7 @@ goog.messaging.PortChannel.prototype.injectPorts_ = function(ports, message) {
     if (message['_port'] && message['_port']['type'] == 'real') {
       return /** @type {!MessagePort} */ (ports[message['_port']['index']]);
     }
-    return goog.object.map(message, function(val, key) {
-      'use strict';
+    return object.map(message, function(val, key) {
       return this.injectPorts_(ports, key == '_port' ? val['val'] : val);
     }, this);
   } else {
@@ -411,9 +397,8 @@ goog.messaging.PortChannel.prototype.injectPorts_ = function(ports, message) {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.messaging.PortChannel.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.unlistenByKey(this.listenerKey_);
+PortChannel.prototype.disposeInternal = function() {
+  events.unlistenByKey(this.listenerKey_);
   // Can't use instanceof here because MessagePort is undefined in workers and
   // in Firefox
   if (Object.prototype.toString.call(this.port_) == '[object MessagePort]') {
@@ -423,5 +408,5 @@ goog.messaging.PortChannel.prototype.disposeInternal = function() {
     this.port_.terminate();
   }
   delete this.port_;
-  goog.messaging.PortChannel.base(this, 'disposeInternal');
+  PortChannel.base(this, 'disposeInternal');
 };

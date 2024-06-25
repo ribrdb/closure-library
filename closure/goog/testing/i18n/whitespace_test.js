@@ -1,12 +1,11 @@
 /**
  * @fileoverview Tests for whitespace module functions.
  */
-goog.module('goog.testing.i18n.whitespace_test');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {assertEquals} = goog.require('goog.testing.asserts');
-const {removeWhitespace} = goog.require('goog.testing.i18n.whitespace');
+import { testSuite } from '../testsuite.js';
+import { assertEquals } from '../asserts.js';
+import { removeWhitespace } from './whitespace.js';
 
 testSuite({
   testWhitespaceNormalization() {

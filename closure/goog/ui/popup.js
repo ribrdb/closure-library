@@ -10,13 +10,12 @@
  * @see ../demos/popup.html
  */
 
-goog.provide('goog.ui.Popup');
+import { Box } from '../math/box.js';
 
-goog.require('goog.math.Box');
-goog.require('goog.positioning.AbstractPosition');
-goog.require('goog.positioning.Corner');
-goog.require('goog.style');
-goog.require('goog.ui.PopupBase');
+import { AbstractPosition } from '../positioning/abstractposition.js';
+import { Corner } from '../positioning/positioning.js';
+import * as style from '../style/style.js';
+import { PopupBase } from './popupbase.js';
 
 
 
@@ -31,48 +30,46 @@ goog.require('goog.ui.PopupBase');
  * which supports extending outside the edge of the brower window.
  *
  * @param {Element=} opt_element A DOM element for the popup.
- * @param {goog.positioning.AbstractPosition=} opt_position A positioning helper
+ * @param {AbstractPosition=} opt_position A positioning helper
  *     object.
  * @constructor
- * @extends {goog.ui.PopupBase}
+ * @extends {PopupBase}
  */
-goog.ui.Popup = function(opt_element, opt_position) {
-  'use strict';
+export function Popup(opt_element, opt_position) {
   /**
-   * Corner of the popup to used in the positioning algorithm.
-   *
-   * @type {goog.positioning.Corner}
-   * @private
-   */
-  this.popupCorner_ = goog.positioning.Corner.TOP_START;
+     * Corner of the popup to used in the positioning algorithm.
+     *
+     * @type {Corner}
+     * @private
+     */
+  this.popupCorner_ = Corner.TOP_START;
 
   /**
-   * Positioning helper object.
-   *
-   * @private {goog.positioning.AbstractPosition|undefined}
-   */
+     * Positioning helper object.
+     *
+     * @private {AbstractPosition|undefined}
+     */
   this.position_ = opt_position || undefined;
-  goog.ui.PopupBase.call(this, opt_element);
-};
-goog.inherits(goog.ui.Popup, goog.ui.PopupBase);
+  PopupBase.call(this, opt_element);
+}
+goog.inherits(Popup, PopupBase);
 
 
 /**
  * Margin for the popup used in positioning algorithms.
  *
- * @type {goog.math.Box|undefined}
+ * @type {Box|undefined}
  * @private
  */
-goog.ui.Popup.prototype.margin_;
+Popup.prototype.margin_;
 
 
 /**
  * Returns the corner of the popup to used in the positioning algorithm.
  *
- * @return {goog.positioning.Corner} The popup corner used for positioning.
+ * @return {Corner} The popup corner used for positioning.
  */
-goog.ui.Popup.prototype.getPinnedCorner = function() {
-  'use strict';
+Popup.prototype.getPinnedCorner = function() {
   return this.popupCorner_;
 };
 
@@ -80,11 +77,10 @@ goog.ui.Popup.prototype.getPinnedCorner = function() {
 /**
  * Sets the corner of the popup to used in the positioning algorithm.
  *
- * @param {goog.positioning.Corner} corner The popup corner used for
+ * @param {Corner} corner The popup corner used for
  *     positioning.
  */
-goog.ui.Popup.prototype.setPinnedCorner = function(corner) {
-  'use strict';
+Popup.prototype.setPinnedCorner = function(corner) {
   this.popupCorner_ = corner;
   if (this.isVisible()) {
     this.reposition();
@@ -93,11 +89,10 @@ goog.ui.Popup.prototype.setPinnedCorner = function(corner) {
 
 
 /**
- * @return {goog.positioning.AbstractPosition} The position helper object
+ * @return {AbstractPosition} The position helper object
  *     associated with the popup.
  */
-goog.ui.Popup.prototype.getPosition = function() {
-  'use strict';
+Popup.prototype.getPosition = function() {
   return this.position_ || null;
 };
 
@@ -105,10 +100,9 @@ goog.ui.Popup.prototype.getPosition = function() {
 /**
  * Sets the position helper object associated with the popup.
  *
- * @param {goog.positioning.AbstractPosition} position A position helper object.
+ * @param {AbstractPosition} position A position helper object.
  */
-goog.ui.Popup.prototype.setPosition = function(position) {
-  'use strict';
+Popup.prototype.setPosition = function(position) {
   this.position_ = position || undefined;
   if (this.isVisible()) {
     this.reposition();
@@ -119,10 +113,9 @@ goog.ui.Popup.prototype.setPosition = function(position) {
 /**
  * Returns the margin to place around the popup.
  *
- * @return {goog.math.Box?} The margin.
+ * @return {Box?} The margin.
  */
-goog.ui.Popup.prototype.getMargin = function() {
-  'use strict';
+Popup.prototype.getMargin = function() {
   return this.margin_ || null;
 };
 
@@ -130,18 +123,17 @@ goog.ui.Popup.prototype.getMargin = function() {
 /**
  * Sets the margin to place around the popup.
  *
- * @param {goog.math.Box|number|null} arg1 Top value or Box.
+ * @param {Box|number|null} arg1 Top value or Box.
  * @param {number=} opt_arg2 Right value.
  * @param {number=} opt_arg3 Bottom value.
  * @param {number=} opt_arg4 Left value.
  */
-goog.ui.Popup.prototype.setMargin = function(
+Popup.prototype.setMargin = function(
     arg1, opt_arg2, opt_arg3, opt_arg4) {
-  'use strict';
-  if (arg1 == null || arg1 instanceof goog.math.Box) {
+  if (arg1 == null || arg1 instanceof Box) {
     this.margin_ = arg1;
   } else {
-    this.margin_ = new goog.math.Box(
+    this.margin_ = new Box(
         arg1,
         /** @type {number} */ (opt_arg2),
         /** @type {number} */ (opt_arg3),
@@ -157,18 +149,17 @@ goog.ui.Popup.prototype.setMargin = function(
  * Repositions the popup according to the current state.
  * @override
  */
-goog.ui.Popup.prototype.reposition = function() {
-  'use strict';
+Popup.prototype.reposition = function() {
   if (!this.position_) {
     return;
   }
 
   var hideForPositioning = !this.isVisible() &&
-      this.getType() != goog.ui.PopupBase.Type.MOVE_OFFSCREEN;
+      this.getType() != PopupBase.Type.MOVE_OFFSCREEN;
   var el = this.getElement();
   if (hideForPositioning) {
     el.style.visibility = 'hidden';
-    goog.style.setElementShown(el, true);
+    style.setElementShown(el, true);
   }
 
   this.position_.reposition(el, this.popupCorner_, this.margin_);
@@ -178,6 +169,6 @@ goog.ui.Popup.prototype.reposition = function() {
     // method in PopupBase. Resetting it here causes flickering in some
     // situations, even if set to visible after the display property has been
     // set to none by the call below.
-    goog.style.setElementShown(el, false);
+    style.setElementShown(el, false);
   }
 };

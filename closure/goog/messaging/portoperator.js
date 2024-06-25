@@ -5,23 +5,22 @@
  */
 
 /**
- * @fileoverview The central node of a {@link goog.messaging.PortNetwork}. The
+ * @fileoverview The central node of a {@link PortNetwork}. The
  * operator is responsible for providing the two-way communication channels (via
  * {@link MessageChannel}s) between each pair of nodes in the network that need
  * to communicate with one another. Each network should have one and only one
  * operator.
  */
 
-goog.provide('goog.messaging.PortOperator');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.asserts');
-goog.require('goog.dispose');
-goog.require('goog.log');
-goog.require('goog.messaging.PortChannel');
-goog.require('goog.messaging.PortNetwork');  // interface
-goog.require('goog.object');
-goog.requireType('goog.messaging.MessageChannel');
+import * as asserts from '../asserts/asserts.js';
+import { dispose } from '../disposable/dispose.js';
+import * as log from '../log/log.js';
+import { PortChannel } from './portchannel.js';
+import { PortNetwork } from './portnetwork.js';  // interface
+import object from '../object/object.js';
+goog.requireType('goog.messaging.messagechannel');
 
 
 
@@ -30,61 +29,59 @@ goog.requireType('goog.messaging.MessageChannel');
  *
  * @param {string} name The name of this node.
  * @constructor
- * @extends {goog.Disposable}
- * @implements {goog.messaging.PortNetwork}
+ * @extends {Disposable}
+ * @implements {PortNetwork}
  * @final
  */
-goog.messaging.PortOperator = function(name) {
-  'use strict';
-  goog.messaging.PortOperator.base(this, 'constructor');
+export function PortOperator(name) {
+ PortOperator.base(this, 'constructor');
 
-  /**
+ /**
    * The collection of channels for communicating with other contexts in the
    * network. These are the channels that are returned to the user, as opposed
    * to the channels used for internal network communication. This is lazily
    * populated as the user requests communication with other contexts, or other
    * contexts request communication with the operator.
    *
-   * @type {!Object<!goog.messaging.PortChannel>}
+   * @type {!Object<!PortChannel>}
    * @private
    */
-  this.connections_ = {};
+ this.connections_ = {};
 
-  /**
-   * The collection of channels for internal network communication with other
-   * contexts. This is not lazily populated, and always contains entries for
-   * each member of the network.
-   *
-   * @type {!Object<!goog.messaging.MessageChannel>}
-   * @private
-   */
-  this.switchboard_ = {};
+ /**
+  * The collection of channels for internal network communication with other
+  * contexts. This is not lazily populated, and always contains entries for
+  * each member of the network.
+  *
+  * @type {!Object<!goog.messaging.MessageChannel>}
+  * @private
+  */
+ this.switchboard_ = {};
 
-  /**
-   * The name of the operator context.
-   *
-   * @type {string}
-   * @private
-   */
-  this.name_ = name;
-};
-goog.inherits(goog.messaging.PortOperator, goog.Disposable);
+ /**
+  * The name of the operator context.
+  *
+  * @type {string}
+  * @private
+  */
+ this.name_ = name;
+}
+goog.inherits(PortOperator, Disposable);
 
 
 /**
  * The logger for PortOperator.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.messaging.PortOperator.prototype.logger_ =
-    goog.log.getLogger('goog.messaging.PortOperator');
+PortOperator.prototype.logger_ =
+    log.getLogger('goog.messaging.PortOperator');
 
 
 /** @override */
-goog.messaging.PortOperator.prototype.dial = function(name) {
-  'use strict';
-  this.connectSelfToPort_(name);
-  return this.connections_[name];
+PortOperator.prototype.dial = function(name) {
+ this.connectSelfToPort_(name);
+ return this.connections_[name];
 };
 
 
@@ -94,16 +91,15 @@ goog.messaging.PortOperator.prototype.dial = function(name) {
  *
  * @param {string} name The name of the port to add.
  * @param {!goog.messaging.MessageChannel} port The port to add. Must be either
- *     a {@link goog.messaging.PortChannel} or a decorator wrapping a
+ *     a {@link PortChannel} or a decorator wrapping a
  *     PortChannel; in particular, it must be able to send and receive
  *     {@link MessagePort}s.
  */
-goog.messaging.PortOperator.prototype.addPort = function(name, port) {
-  'use strict';
-  this.switchboard_[name] = port;
-  port.registerService(
-      goog.messaging.PortNetwork.REQUEST_CONNECTION_SERVICE,
-      goog.bind(this.requestConnection_, this, name));
+PortOperator.prototype.addPort = function(name, port) {
+ this.switchboard_[name] = port;
+ port.registerService(
+     PortNetwork.REQUEST_CONNECTION_SERVICE,
+     goog.bind(this.requestConnection_, this, name));
 };
 
 
@@ -118,36 +114,35 @@ goog.messaging.PortOperator.prototype.addPort = function(name, port) {
  *     the connection is requested.
  * @private
  */
-goog.messaging.PortOperator.prototype.requestConnection_ = function(
+PortOperator.prototype.requestConnection_ = function(
     sourceName, message) {
-  'use strict';
-  const requestedName = /** @type {string} */ (message);
-  if (requestedName == this.name_) {
-    this.connectSelfToPort_(sourceName);
-    return;
-  }
+ const requestedName = /** @type {string} */ (message);
+ if (requestedName == this.name_) {
+   this.connectSelfToPort_(sourceName);
+   return;
+ }
 
-  const sourceChannel = this.switchboard_[sourceName];
-  const requestedChannel = this.switchboard_[requestedName];
+ const sourceChannel = this.switchboard_[sourceName];
+ const requestedChannel = this.switchboard_[requestedName];
 
-  goog.asserts.assert(sourceChannel != null);
-  if (!requestedChannel) {
-    const err = 'Port "' + sourceName + '" requested a connection to port "' +
-        requestedName + '", which doesn\'t exist';
-    goog.log.warning(this.logger_, err);
-    sourceChannel.send(
-        goog.messaging.PortNetwork.GRANT_CONNECTION_SERVICE,
-        {'success': false, 'message': err});
-    return;
-  }
+ asserts.assert(sourceChannel != null);
+ if (!requestedChannel) {
+   const err = 'Port "' + sourceName + '" requested a connection to port "' +
+       requestedName + '", which doesn\'t exist';
+   log.warning(this.logger_, err);
+   sourceChannel.send(
+       PortNetwork.GRANT_CONNECTION_SERVICE,
+       {'success': false, 'message': err});
+   return;
+ }
 
-  const messageChannel = new MessageChannel();
-  sourceChannel.send(
-      goog.messaging.PortNetwork.GRANT_CONNECTION_SERVICE,
-      {'success': true, 'name': requestedName, 'port': messageChannel.port1});
-  requestedChannel.send(
-      goog.messaging.PortNetwork.GRANT_CONNECTION_SERVICE,
-      {'success': true, 'name': sourceName, 'port': messageChannel.port2});
+ const messageChannel = new MessageChannel();
+ sourceChannel.send(
+     PortNetwork.GRANT_CONNECTION_SERVICE,
+     {'success': true, 'name': requestedName, 'port': messageChannel.port1});
+ requestedChannel.send(
+     PortNetwork.GRANT_CONNECTION_SERVICE,
+     {'success': true, 'name': sourceName, 'port': messageChannel.port2});
 };
 
 
@@ -159,35 +154,33 @@ goog.messaging.PortOperator.prototype.requestConnection_ = function(
  *     operator.
  * @private
  */
-goog.messaging.PortOperator.prototype.connectSelfToPort_ = function(
+PortOperator.prototype.connectSelfToPort_ = function(
     contextName) {
-  'use strict';
-  if (contextName in this.connections_) {
-    // We've already established a connection with this port.
-    return;
-  }
+ if (contextName in this.connections_) {
+   // We've already established a connection with this port.
+   return;
+ }
 
-  const contextChannel = this.switchboard_[contextName];
-  if (!contextChannel) {
-    throw new Error('Port "' + contextName + '" doesn\'t exist');
-  }
+ const contextChannel = this.switchboard_[contextName];
+ if (!contextChannel) {
+   throw new Error('Port "' + contextName + '" doesn\'t exist');
+ }
 
-  const messageChannel = new MessageChannel();
-  contextChannel.send(
-      goog.messaging.PortNetwork.GRANT_CONNECTION_SERVICE,
-      {'success': true, 'name': this.name_, 'port': messageChannel.port1});
-  messageChannel.port2.start();
-  this.connections_[contextName] =
-      new goog.messaging.PortChannel(messageChannel.port2);
+ const messageChannel = new MessageChannel();
+ contextChannel.send(
+     PortNetwork.GRANT_CONNECTION_SERVICE,
+     {'success': true, 'name': this.name_, 'port': messageChannel.port1});
+ messageChannel.port2.start();
+ this.connections_[contextName] =
+     new PortChannel(messageChannel.port2);
 };
 
 
 /** @override */
-goog.messaging.PortOperator.prototype.disposeInternal = function() {
-  'use strict';
-  goog.object.forEach(this.switchboard_, goog.dispose);
-  goog.object.forEach(this.connections_, goog.dispose);
-  delete this.switchboard_;
-  delete this.connections_;
-  goog.messaging.PortOperator.base(this, 'disposeInternal');
+PortOperator.prototype.disposeInternal = function() {
+ object.forEach(this.switchboard_, dispose);
+ object.forEach(this.connections_, dispose);
+ delete this.switchboard_;
+ delete this.connections_;
+ PortOperator.base(this, 'disposeInternal');
 };

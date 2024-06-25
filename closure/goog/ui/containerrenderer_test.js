@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ContainerRendererTest');
 goog.setTestOnly();
 
-const Container = goog.require('goog.ui.Container');
-const ContainerRenderer = goog.require('goog.ui.ContainerRenderer');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Container } from './container.js';
+import { ContainerRenderer } from './containerrenderer.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let renderer;
 let expectedFailures;

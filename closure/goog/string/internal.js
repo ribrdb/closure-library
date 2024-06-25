@@ -11,18 +11,7 @@
  */
 
 
-goog.provide('goog.string.internal');
-
-
-/**
- * Fast prefix-checker.
- * @param {string} str The string to check.
- * @param {string} prefix A string to look for at the start of `str`.
- * @return {boolean} True if `str` begins with `prefix`.
- * @see goog.string.startsWith
- */
-goog.string.internal.startsWith = function(str, prefix) {
-  'use strict';
+startsWith = function(str, prefix) {
   return str.lastIndexOf(prefix, 0) == 0;
 };
 
@@ -34,11 +23,10 @@ goog.string.internal.startsWith = function(str, prefix) {
  * @return {boolean} True if `str` ends with `suffix`.
  * @see goog.string.endsWith
  */
-goog.string.internal.endsWith = function(str, suffix) {
-  'use strict';
+export function endsWith(str, suffix) {
   const l = str.length - suffix.length;
   return l >= 0 && str.indexOf(suffix, l) == l;
-};
+}
 
 
 /**
@@ -49,12 +37,10 @@ goog.string.internal.endsWith = function(str, suffix) {
  *     case).
  * @see goog.string.caseInsensitiveStartsWith
  */
-goog.string.internal.caseInsensitiveStartsWith = function(str, prefix) {
-  'use strict';
-  return (
-      goog.string.internal.caseInsensitiveCompare(
-          prefix, str.slice(0, prefix.length)) == 0);
-};
+export function caseInsensitiveStartsWith(str, prefix) {
+  return (caseInsensitiveCompare(
+      prefix, str.slice(0, prefix.length)) == 0);
+}
 
 
 /**
@@ -65,12 +51,10 @@ goog.string.internal.caseInsensitiveStartsWith = function(str, prefix) {
  *     case).
  * @see goog.string.caseInsensitiveEndsWith
  */
-goog.string.internal.caseInsensitiveEndsWith = function(str, suffix) {
-  'use strict';
-  return (
-      goog.string.internal.caseInsensitiveCompare(
-          suffix, str.slice(str.length - suffix.length)) == 0);
-};
+export function caseInsensitiveEndsWith(str, suffix) {
+  return (caseInsensitiveCompare(
+      suffix, str.slice(str.length - suffix.length)) == 0);
+}
 
 
 /**
@@ -81,10 +65,9 @@ goog.string.internal.caseInsensitiveEndsWith = function(str, suffix) {
  *     ignoring case.
  * @see goog.string.caseInsensitiveEquals
  */
-goog.string.internal.caseInsensitiveEquals = function(str1, str2) {
-  'use strict';
+export function caseInsensitiveEquals(str1, str2) {
   return str1.toLowerCase() == str2.toLowerCase();
-};
+}
 
 
 /**
@@ -93,15 +76,14 @@ goog.string.internal.caseInsensitiveEquals = function(str1, str2) {
  * @return {boolean} Whether `str` is empty or whitespace only.
  * @see goog.string.isEmptyOrWhitespace
  */
-goog.string.internal.isEmptyOrWhitespace = function(str) {
-  'use strict';
+export function isEmptyOrWhitespace(str) {
   // testing length == 0 first is actually slower in all browsers (about the
   // same in Opera).
   // Since IE doesn't include non-breaking-space (0xa0) in their \s character
   // class (as required by section 7.2 of the ECMAScript spec), we explicitly
   // include it in the regexp to enforce consistent cross-browser behavior.
   return /^[\s\xa0]*$/.test(str);
-};
+}
 
 
 /**
@@ -109,20 +91,17 @@ goog.string.internal.isEmptyOrWhitespace = function(str) {
  * @param {string} str The string to trim.
  * @return {string} A trimmed copy of `str`.
  */
-goog.string.internal.trim =
-    (goog.TRUSTED_SITE && String.prototype.trim) ? function(str) {
-      'use strict';
-      return str.trim();
-    } : function(str) {
-      'use strict';
-      // Since IE doesn't include non-breaking-space (0xa0) in their \s
-      // character class (as required by section 7.2 of the ECMAScript spec),
-      // we explicitly include it in the regexp to enforce consistent
-      // cross-browser behavior.
-      // NOTE: We don't use String#replace because it might have side effects
-      // causing this function to not compile to 0 bytes.
-      return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(str)[1];
-    };
+export var trim = (goog.TRUSTED_SITE && String.prototype.trim) ? function(str) {
+  return str.trim();
+} : function(str) {
+  // Since IE doesn't include non-breaking-space (0xa0) in their \s
+  // character class (as required by section 7.2 of the ECMAScript spec),
+  // we explicitly include it in the regexp to enforce consistent
+  // cross-browser behavior.
+  // NOTE: We don't use String#replace because it might have side effects
+  // causing this function to not compile to 0 bytes.
+  return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(str)[1];
+};
 
 
 /**
@@ -136,8 +115,7 @@ goog.string.internal.trim =
  * @return {number} The comparator result, as described above.
  * @see goog.string.caseInsensitiveCompare
  */
-goog.string.internal.caseInsensitiveCompare = function(str1, str2) {
-  'use strict';
+export function caseInsensitiveCompare(str1, str2) {
   const test1 = String(str1).toLowerCase();
   const test2 = String(str2).toLowerCase();
 
@@ -148,7 +126,7 @@ goog.string.internal.caseInsensitiveCompare = function(str1, str2) {
   } else {
     return 1;
   }
-};
+}
 
 
 /**
@@ -158,10 +136,9 @@ goog.string.internal.caseInsensitiveCompare = function(str1, str2) {
  * @return {string} A copy of `str` with converted newlines.
  * @see goog.string.newLineToBr
  */
-goog.string.internal.newLineToBr = function(str, opt_xml) {
-  'use strict';
+export function newLineToBr(str, opt_xml) {
   return str.replace(/(\r\n|\r|\n)/g, opt_xml ? '<br />' : '<br>');
-};
+}
 
 
 /**
@@ -173,45 +150,43 @@ goog.string.internal.newLineToBr = function(str, opt_xml) {
  * @return {string} An escaped copy of `str`.
  * @see goog.string.htmlEscape
  */
-goog.string.internal.htmlEscape = function(
-    str, opt_isLikelyToContainHtmlChars) {
-  'use strict';
+export function htmlEscape(str, opt_isLikelyToContainHtmlChars) {
   if (opt_isLikelyToContainHtmlChars) {
-    str = str.replace(goog.string.internal.AMP_RE_, '&amp;')
-              .replace(goog.string.internal.LT_RE_, '&lt;')
-              .replace(goog.string.internal.GT_RE_, '&gt;')
-              .replace(goog.string.internal.QUOT_RE_, '&quot;')
-              .replace(goog.string.internal.SINGLE_QUOTE_RE_, '&#39;')
-              .replace(goog.string.internal.NULL_RE_, '&#0;');
+    str = str.replace(AMP_RE_, '&amp;')
+              .replace(LT_RE_, '&lt;')
+              .replace(GT_RE_, '&gt;')
+              .replace(QUOT_RE_, '&quot;')
+              .replace(SINGLE_QUOTE_RE_, '&#39;')
+              .replace(NULL_RE_, '&#0;');
     return str;
 
   } else {
     // quick test helps in the case when there are no chars to replace, in
     // worst case this makes barely a difference to the time taken
-    if (!goog.string.internal.ALL_RE_.test(str)) return str;
+    if (!ALL_RE_.test(str)) return str;
 
     // str.indexOf is faster than regex.test in this case
     if (str.indexOf('&') != -1) {
-      str = str.replace(goog.string.internal.AMP_RE_, '&amp;');
+      str = str.replace(AMP_RE_, '&amp;');
     }
     if (str.indexOf('<') != -1) {
-      str = str.replace(goog.string.internal.LT_RE_, '&lt;');
+      str = str.replace(LT_RE_, '&lt;');
     }
     if (str.indexOf('>') != -1) {
-      str = str.replace(goog.string.internal.GT_RE_, '&gt;');
+      str = str.replace(GT_RE_, '&gt;');
     }
     if (str.indexOf('"') != -1) {
-      str = str.replace(goog.string.internal.QUOT_RE_, '&quot;');
+      str = str.replace(QUOT_RE_, '&quot;');
     }
     if (str.indexOf('\'') != -1) {
-      str = str.replace(goog.string.internal.SINGLE_QUOTE_RE_, '&#39;');
+      str = str.replace(SINGLE_QUOTE_RE_, '&#39;');
     }
     if (str.indexOf('\x00') != -1) {
-      str = str.replace(goog.string.internal.NULL_RE_, '&#0;');
+      str = str.replace(NULL_RE_, '&#0;');
     }
     return str;
   }
-};
+}
 
 
 /**
@@ -219,7 +194,7 @@ goog.string.internal.htmlEscape = function(
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.AMP_RE_ = /&/g;
+var AMP_RE_ = /&/g;
 
 
 /**
@@ -227,7 +202,7 @@ goog.string.internal.AMP_RE_ = /&/g;
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.LT_RE_ = /</g;
+var LT_RE_ = /</g;
 
 
 /**
@@ -235,7 +210,7 @@ goog.string.internal.LT_RE_ = /</g;
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.GT_RE_ = />/g;
+var GT_RE_ = />/g;
 
 
 /**
@@ -243,7 +218,7 @@ goog.string.internal.GT_RE_ = />/g;
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.QUOT_RE_ = /"/g;
+var QUOT_RE_ = /"/g;
 
 
 /**
@@ -251,7 +226,7 @@ goog.string.internal.QUOT_RE_ = /"/g;
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.SINGLE_QUOTE_RE_ = /'/g;
+var SINGLE_QUOTE_RE_ = /'/g;
 
 
 /**
@@ -259,7 +234,7 @@ goog.string.internal.SINGLE_QUOTE_RE_ = /'/g;
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.NULL_RE_ = /\x00/g;
+var NULL_RE_ = /\x00/g;
 
 
 /**
@@ -267,7 +242,7 @@ goog.string.internal.NULL_RE_ = /\x00/g;
  * @const {!RegExp}
  * @private
  */
-goog.string.internal.ALL_RE_ = /[\x00&<>"']/;
+var ALL_RE_ = /[\x00&<>"']/;
 
 
 /**
@@ -278,12 +253,11 @@ goog.string.internal.ALL_RE_ = /[\x00&<>"']/;
  * @return {string} An escaped copy of `str`.
  * @see goog.string.whitespaceEscape
  */
-goog.string.internal.whitespaceEscape = function(str, opt_xml) {
-  'use strict';
+export function whitespaceEscape(str, opt_xml) {
   // This doesn't use goog.string.preserveSpaces for backwards compatibility.
-  return goog.string.internal.newLineToBr(
+  return newLineToBr(
       str.replace(/  /g, ' &#160;'), opt_xml);
-};
+}
 
 
 /**
@@ -293,10 +267,9 @@ goog.string.internal.whitespaceEscape = function(str, opt_xml) {
  * @return {boolean} Whether `str` contains `subString`.
  * @see goog.string.contains
  */
-goog.string.internal.contains = function(str, subString) {
-  'use strict';
+export function contains(str, subString) {
   return str.indexOf(subString) != -1;
-};
+}
 
 
 /**
@@ -306,11 +279,10 @@ goog.string.internal.contains = function(str, subString) {
  * @return {boolean} Whether `str` contains `subString`.
  * @see goog.string.caseInsensitiveContains
  */
-goog.string.internal.caseInsensitiveContains = function(str, subString) {
-  'use strict';
-  return goog.string.internal.contains(
+export function caseInsensitiveContains(str, subString) {
+  return contains(
       str.toLowerCase(), subString.toLowerCase());
-};
+}
 
 
 /**
@@ -324,13 +296,12 @@ goog.string.internal.caseInsensitiveContains = function(str, subString) {
  *                  -1 if `version2` is higher.
  * @see goog.string.compareVersions
  */
-goog.string.internal.compareVersions = function(version1, version2) {
-  'use strict';
+export function compareVersions(version1, version2) {
   let order = 0;
   // Trim leading and trailing whitespace and split the versions into
   // subversions.
-  const v1Subs = goog.string.internal.trim(String(version1)).split('.');
-  const v2Subs = goog.string.internal.trim(String(version2)).split('.');
+  const v1Subs = trim(String(version1)).split('.');
+  const v2Subs = trim(String(version2)).split('.');
   const subCount = Math.max(v1Subs.length, v2Subs.length);
 
   // Iterate over the subversions, as long as they appear to be equivalent.
@@ -358,10 +329,10 @@ goog.string.internal.compareVersions = function(version1, version2) {
       // precedence. Next, if the numbers are equal, a subversion without any
       // qualifier is always higher than a subversion with any qualifier. Next,
       // the qualifiers are compared as strings.
-      order = goog.string.internal.compareElements_(v1CompNum, v2CompNum) ||
-          goog.string.internal.compareElements_(
+      order = compareElements_(v1CompNum, v2CompNum) ||
+          compareElements_(
               v1Comp[2].length == 0, v2Comp[2].length == 0) ||
-          goog.string.internal.compareElements_(v1Comp[2], v2Comp[2]);
+          compareElements_(v1Comp[2], v2Comp[2]);
       // Stop as soon as an inequality is discovered.
 
       v1Sub = v1Comp[3];
@@ -370,7 +341,7 @@ goog.string.internal.compareVersions = function(version1, version2) {
   }
 
   return order;
-};
+}
 
 
 /**
@@ -384,12 +355,12 @@ goog.string.internal.compareVersions = function(version1, version2) {
  *                  -1 if `right` is higher.
  * @private
  */
-goog.string.internal.compareElements_ = function(left, right) {
-  'use strict';
+function compareElements_(left, right) {
   if (left < right) {
     return -1;
   } else if (left > right) {
     return 1;
   }
   return 0;
-};
+}
+export var startsWith;

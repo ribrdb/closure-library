@@ -13,52 +13,48 @@
  */
 
 
-goog.provide('goog.ui.BidiInput');
+import * as dom from '../dom/dom.js';
 
-
-goog.require('goog.dom');
-goog.require('goog.dom.InputType');
-goog.require('goog.dom.TagName');
-goog.require('goog.events');
-goog.require('goog.events.InputHandler');
-goog.require('goog.i18n.bidi');
-goog.require('goog.ui.Component');
+import { InputType } from '../dom/inputtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../events/events.js';
+import { InputHandler } from '../events/inputhandler.js';
+import * as bidi from '../i18n/bidi.js';
+import { Component } from './component.js';
 
 
 
 /**
  * Default implementation of BidiInput.
  *
- * @param {goog.dom.DomHelper=} opt_domHelper  Optional DOM helper.
+ * @param {dom.DomHelper=} opt_domHelper  Optional DOM helper.
  * @constructor
- * @extends {goog.ui.Component}
+ * @extends {Component}
  */
-goog.ui.BidiInput = function(opt_domHelper) {
-  'use strict';
-  goog.ui.Component.call(this, opt_domHelper);
-};
-goog.inherits(goog.ui.BidiInput, goog.ui.Component);
+export function BidiInput(opt_domHelper) {
+  Component.call(this, opt_domHelper);
+}
+goog.inherits(BidiInput, Component);
 
 
 /**
  * The input handler that provides the input event.
- * @type {goog.events.InputHandler?}
+ * @type {InputHandler?}
  * @private
  */
-goog.ui.BidiInput.prototype.inputHandler_ = null;
+BidiInput.prototype.inputHandler_ = null;
 
 
 /**
  * Decorates the given HTML element as a BidiInput. The HTML element can be an
  * input element with type='text', a textarea element, or any contenteditable.
- * Overrides {@link goog.ui.Component#decorateInternal}.  Considered protected.
+ * Overrides {@link Component#decorateInternal}.  Considered protected.
  * @param {Element} element  Element to decorate.
  * @protected
  * @override
  */
-goog.ui.BidiInput.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.BidiInput.superClass_.decorateInternal.call(this, element);
+BidiInput.prototype.decorateInternal = function(element) {
+  BidiInput.superClass_.decorateInternal.call(this, element);
   this.init_();
 };
 
@@ -67,9 +63,10 @@ goog.ui.BidiInput.prototype.decorateInternal = function(element) {
  * @return {?HTMLInputElement}
  * @override
  */
-goog.ui.BidiInput.prototype.getElement = function() {
-  return /** @type {?HTMLInputElement} */ (
-      goog.ui.BidiInput.superClass_.getElement.call(this));
+BidiInput.prototype.getElement = function() {
+  return (
+    /** @type {?HTMLInputElement} */ (BidiInput.superClass_.getElement.call(this))
+  );
 };
 
 
@@ -78,10 +75,9 @@ goog.ui.BidiInput.prototype.getElement = function() {
  * @protected
  * @override
  */
-goog.ui.BidiInput.prototype.createDom = function() {
-  'use strict';
+BidiInput.prototype.createDom = function() {
   this.setElementInternal(this.getDomHelper().createDom(
-      goog.dom.TagName.INPUT, {'type': goog.dom.InputType.TEXT}));
+      TagName.INPUT, {'type': InputType.TEXT}));
   this.init_();
 };
 
@@ -92,15 +88,14 @@ goog.ui.BidiInput.prototype.createDom = function() {
  * been created.
  * @private
  */
-goog.ui.BidiInput.prototype.init_ = function() {
-  'use strict';
+BidiInput.prototype.init_ = function() {
   // Set initial direction by current text
   this.setDirection_();
 
   // Listen to value change events
-  this.inputHandler_ = new goog.events.InputHandler(this.getElement());
-  goog.events.listen(
-      this.inputHandler_, goog.events.InputHandler.EventType.INPUT,
+  this.inputHandler_ = new InputHandler(this.getElement());
+  events.listen(
+      this.inputHandler_, InputHandler.EventType.INPUT,
       this.setDirection_, false, this);
 };
 
@@ -111,15 +106,14 @@ goog.ui.BidiInput.prototype.init_ = function() {
  * attribute so that the direction is inherited instead.
  * This method is called when the user changes the input element value, or
  * when a program changes the value using
- * {@link goog.ui.BidiInput#setValue}
+ * {@link BidiInput#setValue}
  * @private
  */
-goog.ui.BidiInput.prototype.setDirection_ = function() {
-  'use strict';
+BidiInput.prototype.setDirection_ = function() {
   var element = this.getElement();
   if (element) {
     var text = this.getValue();
-    goog.i18n.bidi.setElementDirByTextDirectionality(element, text);
+    bidi.setElementDirByTextDirectionality(element, text);
   }
 };
 
@@ -133,8 +127,7 @@ goog.ui.BidiInput.prototype.setDirection_ = function() {
  *     element).
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.BidiInput.prototype.getDirection = function() {
-  'use strict';
+BidiInput.prototype.getDirection = function() {
   var dir = this.getElement().dir;
   if (dir == '') {
     dir = null;
@@ -149,13 +142,12 @@ goog.ui.BidiInput.prototype.getDirection = function() {
  * @param {string} value  The Value to set in the underlying input field.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.BidiInput.prototype.setValue = function(value) {
-  'use strict';
+BidiInput.prototype.setValue = function(value) {
   var element = this.getElement();
   if (element.value != null) {
     element.value = value;
   } else {
-    goog.dom.setTextContent(element, value);
+    dom.setTextContent(element, value);
   }
   this.setDirection_();
 };
@@ -166,21 +158,19 @@ goog.ui.BidiInput.prototype.setValue = function(value) {
  * @return {string} Value of the underlying input field.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.BidiInput.prototype.getValue = function() {
-  'use strict';
+BidiInput.prototype.getValue = function() {
   var element = this.getElement();
   return element.value != null ? element.value :
-                                 goog.dom.getRawTextContent(element);
+                                 dom.getRawTextContent(element);
 };
 
 
 /** @override */
-goog.ui.BidiInput.prototype.disposeInternal = function() {
-  'use strict';
+BidiInput.prototype.disposeInternal = function() {
   if (this.inputHandler_) {
-    goog.events.removeAll(this.inputHandler_);
+    events.removeAll(this.inputHandler_);
     this.inputHandler_.dispose();
     this.inputHandler_ = null;
   }
-  goog.ui.BidiInput.base(this, 'disposeInternal');
+  BidiInput.base(this, 'disposeInternal');
 };

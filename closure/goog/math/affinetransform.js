@@ -11,77 +11,40 @@
  */
 
 
-goog.provide('goog.math.AffineTransform');
-
-
-
-/**
- * Creates a 2D affine transform. An affine transform performs a linear
- * mapping from 2D coordinates to other 2D coordinates that preserves the
- * "straightness" and "parallelness" of lines.
- *
- * Such a coordinate transformation can be represented by a 3 row by 3 column
- * matrix with an implied last row of [ 0 0 1 ]. This matrix transforms source
- * coordinates (x,y) into destination coordinates (x',y') by considering them
- * to be a column vector and multiplying the coordinate vector by the matrix
- * according to the following process:
- * <pre>
- *      [ x']   [  m00  m01  m02  ] [ x ]   [ m00x + m01y + m02 ]
- *      [ y'] = [  m10  m11  m12  ] [ y ] = [ m10x + m11y + m12 ]
- *      [ 1 ]   [   0    0    1   ] [ 1 ]   [         1         ]
- * </pre>
- *
- * This class is optimized for speed and minimizes calculations based on its
- * knowledge of the underlying matrix (as opposed to say simply performing
- * matrix multiplication).
- *
- * @param {number=} opt_m00 The m00 coordinate of the transform.
- * @param {number=} opt_m10 The m10 coordinate of the transform.
- * @param {number=} opt_m01 The m01 coordinate of the transform.
- * @param {number=} opt_m11 The m11 coordinate of the transform.
- * @param {number=} opt_m02 The m02 coordinate of the transform.
- * @param {number=} opt_m12 The m12 coordinate of the transform.
- * @struct
- * @constructor
- * @final
- */
-goog.math.AffineTransform = function(
+AffineTransform = function(
     opt_m00, opt_m10, opt_m01, opt_m11, opt_m02, opt_m12) {
-  'use strict';
-  if (arguments.length == 6) {
-    this.setTransform(
-        /** @type {number} */ (opt_m00),
-        /** @type {number} */ (opt_m10),
-        /** @type {number} */ (opt_m01),
-        /** @type {number} */ (opt_m11),
-        /** @type {number} */ (opt_m02),
-        /** @type {number} */ (opt_m12));
-  } else if (arguments.length != 0) {
-    throw new Error('Insufficient matrix parameters');
-  } else {
-    this.m00_ = this.m11_ = 1;
-    this.m10_ = this.m01_ = this.m02_ = this.m12_ = 0;
-  }
+ if (arguments.length == 6) {
+   this.setTransform(
+       /** @type {number} */ (opt_m00),
+       /** @type {number} */ (opt_m10),
+       /** @type {number} */ (opt_m01),
+       /** @type {number} */ (opt_m11),
+       /** @type {number} */ (opt_m02),
+       /** @type {number} */ (opt_m12));
+ } else if (arguments.length != 0) {
+   throw new Error('Insufficient matrix parameters');
+ } else {
+   this.m00_ = this.m11_ = 1;
+   this.m10_ = this.m01_ = this.m02_ = this.m12_ = 0;
+ }
 };
 
 
 /**
  * @return {boolean} Whether this transform is the identity transform.
  */
-goog.math.AffineTransform.prototype.isIdentity = function() {
-  'use strict';
-  return this.m00_ == 1 && this.m10_ == 0 && this.m01_ == 0 && this.m11_ == 1 &&
-      this.m02_ == 0 && this.m12_ == 0;
+AffineTransform.prototype.isIdentity = function() {
+ return this.m00_ == 1 && this.m10_ == 0 && this.m01_ == 0 && this.m11_ == 1 &&
+     this.m02_ == 0 && this.m12_ == 0;
 };
 
 
 /**
- * @return {!goog.math.AffineTransform} A copy of this transform.
+ * @return {!AffineTransform} A copy of this transform.
  */
-goog.math.AffineTransform.prototype.clone = function() {
-  'use strict';
-  return new goog.math.AffineTransform(
-      this.m00_, this.m10_, this.m01_, this.m11_, this.m02_, this.m12_);
+AffineTransform.prototype.clone = function() {
+ return new AffineTransform(
+     this.m00_, this.m10_, this.m01_, this.m11_, this.m02_, this.m12_);
 };
 
 
@@ -94,41 +57,39 @@ goog.math.AffineTransform.prototype.clone = function() {
  * @param {number} m11 The m11 coordinate of the transform.
  * @param {number} m02 The m02 coordinate of the transform.
  * @param {number} m12 The m12 coordinate of the transform.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.setTransform = function(
+AffineTransform.prototype.setTransform = function(
     m00, m10, m01, m11, m02, m12) {
-  'use strict';
-  if (typeof m00 !== 'number' || typeof m10 !== 'number' ||
-      typeof m01 !== 'number' || typeof m11 !== 'number' ||
-      typeof m02 !== 'number' || typeof m12 !== 'number') {
-    throw new Error('Invalid transform parameters');
-  }
-  this.m00_ = m00;
-  this.m10_ = m10;
-  this.m01_ = m01;
-  this.m11_ = m11;
-  this.m02_ = m02;
-  this.m12_ = m12;
-  return this;
+ if (typeof m00 !== 'number' || typeof m10 !== 'number' ||
+     typeof m01 !== 'number' || typeof m11 !== 'number' ||
+     typeof m02 !== 'number' || typeof m12 !== 'number') {
+   throw new Error('Invalid transform parameters');
+ }
+ this.m00_ = m00;
+ this.m10_ = m10;
+ this.m01_ = m01;
+ this.m11_ = m11;
+ this.m02_ = m02;
+ this.m12_ = m12;
+ return this;
 };
 
 
 /**
  * Sets this transform to be identical to the given transform.
  *
- * @param {!goog.math.AffineTransform} tx The transform to copy.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @param {!AffineTransform} tx The transform to copy.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.copyFrom = function(tx) {
-  'use strict';
-  this.m00_ = tx.m00_;
-  this.m10_ = tx.m10_;
-  this.m01_ = tx.m01_;
-  this.m11_ = tx.m11_;
-  this.m02_ = tx.m02_;
-  this.m12_ = tx.m12_;
-  return this;
+AffineTransform.prototype.copyFrom = function(tx) {
+ this.m00_ = tx.m00_;
+ this.m10_ = tx.m10_;
+ this.m01_ = tx.m01_;
+ this.m11_ = tx.m11_;
+ this.m02_ = tx.m02_;
+ this.m12_ = tx.m12_;
+ return this;
 };
 
 
@@ -137,15 +98,14 @@ goog.math.AffineTransform.prototype.copyFrom = function(tx) {
  *
  * @param {number} sx The x-axis scaling factor.
  * @param {number} sy The y-axis scaling factor.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.scale = function(sx, sy) {
-  'use strict';
-  this.m00_ *= sx;
-  this.m10_ *= sx;
-  this.m01_ *= sy;
-  this.m11_ *= sy;
-  return this;
+AffineTransform.prototype.scale = function(sx, sy) {
+ this.m00_ *= sx;
+ this.m10_ *= sx;
+ this.m01_ *= sy;
+ this.m11_ *= sy;
+ return this;
 };
 
 
@@ -161,17 +121,16 @@ goog.math.AffineTransform.prototype.scale = function(sx, sy) {
  *
  * @param {number} sx The x-axis scaling factor.
  * @param {number} sy The y-axis scaling factor.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.preScale = function(sx, sy) {
-  'use strict';
-  this.m00_ *= sx;
-  this.m01_ *= sx;
-  this.m02_ *= sx;
-  this.m10_ *= sy;
-  this.m11_ *= sy;
-  this.m12_ *= sy;
-  return this;
+AffineTransform.prototype.preScale = function(sx, sy) {
+ this.m00_ *= sx;
+ this.m01_ *= sx;
+ this.m02_ *= sx;
+ this.m10_ *= sy;
+ this.m11_ *= sy;
+ this.m12_ *= sy;
+ return this;
 };
 
 
@@ -180,13 +139,12 @@ goog.math.AffineTransform.prototype.preScale = function(sx, sy) {
  *
  * @param {number} dx The distance to translate in the x direction.
  * @param {number} dy The distance to translate in the y direction.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.translate = function(dx, dy) {
-  'use strict';
-  this.m02_ += dx * this.m00_ + dy * this.m01_;
-  this.m12_ += dx * this.m10_ + dy * this.m11_;
-  return this;
+AffineTransform.prototype.translate = function(dx, dy) {
+ this.m02_ += dx * this.m00_ + dy * this.m01_;
+ this.m12_ += dx * this.m10_ + dy * this.m11_;
+ return this;
 };
 
 
@@ -202,13 +160,12 @@ goog.math.AffineTransform.prototype.translate = function(dx, dy) {
  *
  * @param {number} dx The distance to translate in the x direction.
  * @param {number} dy The distance to translate in the y direction.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.preTranslate = function(dx, dy) {
-  'use strict';
-  this.m02_ += dx;
-  this.m12_ += dy;
-  return this;
+AffineTransform.prototype.preTranslate = function(dx, dy) {
+ this.m02_ += dx;
+ this.m12_ += dy;
+ return this;
 };
 
 
@@ -219,12 +176,11 @@ goog.math.AffineTransform.prototype.preTranslate = function(dx, dy) {
  * @param {number} theta The angle of rotation measured in radians.
  * @param {number} x The x coordinate of the anchor point.
  * @param {number} y The y coordinate of the anchor point.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.rotate = function(theta, x, y) {
-  'use strict';
-  return this.concatenate(
-      goog.math.AffineTransform.getRotateInstance(theta, x, y));
+AffineTransform.prototype.rotate = function(theta, x, y) {
+ return this.concatenate(
+     AffineTransform.getRotateInstance(theta, x, y));
 };
 
 
@@ -235,12 +191,11 @@ goog.math.AffineTransform.prototype.rotate = function(theta, x, y) {
  * @param {number} theta The angle of rotation measured in radians.
  * @param {number} x The x coordinate of the anchor point.
  * @param {number} y The y coordinate of the anchor point.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.preRotate = function(theta, x, y) {
-  'use strict';
-  return this.preConcatenate(
-      goog.math.AffineTransform.getRotateInstance(theta, x, y));
+AffineTransform.prototype.preRotate = function(theta, x, y) {
+ return this.preConcatenate(
+     AffineTransform.getRotateInstance(theta, x, y));
 };
 
 
@@ -249,17 +204,16 @@ goog.math.AffineTransform.prototype.preRotate = function(theta, x, y) {
  *
  * @param {number} shx The x shear factor.
  * @param {number} shy The y shear factor.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.shear = function(shx, shy) {
-  'use strict';
-  const m00 = this.m00_;
-  const m10 = this.m10_;
-  this.m00_ += shy * this.m01_;
-  this.m10_ += shy * this.m11_;
-  this.m01_ += shx * m00;
-  this.m11_ += shx * m10;
-  return this;
+AffineTransform.prototype.shear = function(shx, shy) {
+ const m00 = this.m00_;
+ const m10 = this.m10_;
+ this.m00_ += shy * this.m01_;
+ this.m10_ += shy * this.m11_;
+ this.m01_ += shx * m00;
+ this.m11_ += shx * m10;
+ return this;
 };
 
 
@@ -275,20 +229,19 @@ goog.math.AffineTransform.prototype.shear = function(shx, shy) {
  *
  * @param {number} shx The x shear factor.
  * @param {number} shy The y shear factor.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.preShear = function(shx, shy) {
-  'use strict';
-  const m00 = this.m00_;
-  const m01 = this.m01_;
-  const m02 = this.m02_;
-  this.m00_ += shx * this.m10_;
-  this.m01_ += shx * this.m11_;
-  this.m02_ += shx * this.m12_;
-  this.m10_ += shy * m00;
-  this.m11_ += shy * m01;
-  this.m12_ += shy * m02;
-  return this;
+AffineTransform.prototype.preShear = function(shx, shy) {
+ const m00 = this.m00_;
+ const m01 = this.m01_;
+ const m02 = this.m02_;
+ this.m00_ += shx * this.m10_;
+ this.m01_ += shx * this.m11_;
+ this.m02_ += shx * this.m12_;
+ this.m10_ += shy * m00;
+ this.m11_ += shy * m01;
+ this.m12_ += shy * m02;
+ return this;
 };
 
 
@@ -298,115 +251,106 @@ goog.math.AffineTransform.prototype.preShear = function(shx, shy) {
  *     "matrix(a,b,c,d,e,f)".
  * @override
  */
-goog.math.AffineTransform.prototype.toString = function() {
-  'use strict';
-  return 'matrix(' +
-      [this.m00_, this.m10_, this.m01_, this.m11_, this.m02_, this.m12_].join(
-          ',') +
-      ')';
+AffineTransform.prototype.toString = function() {
+ return 'matrix(' +
+     [this.m00_, this.m10_, this.m01_, this.m11_, this.m02_, this.m12_].join(
+         ',') +
+     ')';
 };
 
 
 /**
  * @return {number} The scaling factor in the x-direction (m00).
  */
-goog.math.AffineTransform.prototype.getScaleX = function() {
-  'use strict';
-  return this.m00_;
+AffineTransform.prototype.getScaleX = function() {
+ return this.m00_;
 };
 
 
 /**
  * @return {number} The scaling factor in the y-direction (m11).
  */
-goog.math.AffineTransform.prototype.getScaleY = function() {
-  'use strict';
-  return this.m11_;
+AffineTransform.prototype.getScaleY = function() {
+ return this.m11_;
 };
 
 
 /**
  * @return {number} The translation in the x-direction (m02).
  */
-goog.math.AffineTransform.prototype.getTranslateX = function() {
-  'use strict';
-  return this.m02_;
+AffineTransform.prototype.getTranslateX = function() {
+ return this.m02_;
 };
 
 
 /**
  * @return {number} The translation in the y-direction (m12).
  */
-goog.math.AffineTransform.prototype.getTranslateY = function() {
-  'use strict';
-  return this.m12_;
+AffineTransform.prototype.getTranslateY = function() {
+ return this.m12_;
 };
 
 
 /**
  * @return {number} The shear factor in the x-direction (m01).
  */
-goog.math.AffineTransform.prototype.getShearX = function() {
-  'use strict';
-  return this.m01_;
+AffineTransform.prototype.getShearX = function() {
+ return this.m01_;
 };
 
 
 /**
  * @return {number} The shear factor in the y-direction (m10).
  */
-goog.math.AffineTransform.prototype.getShearY = function() {
-  'use strict';
-  return this.m10_;
+AffineTransform.prototype.getShearY = function() {
+ return this.m10_;
 };
 
 
 /**
  * Concatenates an affine transform to this transform.
  *
- * @param {!goog.math.AffineTransform} tx The transform to concatenate.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @param {!AffineTransform} tx The transform to concatenate.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.concatenate = function(tx) {
-  'use strict';
-  let m0 = this.m00_;
-  let m1 = this.m01_;
-  this.m00_ = tx.m00_ * m0 + tx.m10_ * m1;
-  this.m01_ = tx.m01_ * m0 + tx.m11_ * m1;
-  this.m02_ += tx.m02_ * m0 + tx.m12_ * m1;
+AffineTransform.prototype.concatenate = function(tx) {
+ let m0 = this.m00_;
+ let m1 = this.m01_;
+ this.m00_ = tx.m00_ * m0 + tx.m10_ * m1;
+ this.m01_ = tx.m01_ * m0 + tx.m11_ * m1;
+ this.m02_ += tx.m02_ * m0 + tx.m12_ * m1;
 
-  m0 = this.m10_;
-  m1 = this.m11_;
-  this.m10_ = tx.m00_ * m0 + tx.m10_ * m1;
-  this.m11_ = tx.m01_ * m0 + tx.m11_ * m1;
-  this.m12_ += tx.m02_ * m0 + tx.m12_ * m1;
-  return this;
+ m0 = this.m10_;
+ m1 = this.m11_;
+ this.m10_ = tx.m00_ * m0 + tx.m10_ * m1;
+ this.m11_ = tx.m01_ * m0 + tx.m11_ * m1;
+ this.m12_ += tx.m02_ * m0 + tx.m12_ * m1;
+ return this;
 };
 
 
 /**
  * Pre-concatenates an affine transform to this transform.
  *
- * @param {!goog.math.AffineTransform} tx The transform to preconcatenate.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @param {!AffineTransform} tx The transform to preconcatenate.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.preConcatenate = function(tx) {
-  'use strict';
-  let m0 = this.m00_;
-  let m1 = this.m10_;
-  this.m00_ = tx.m00_ * m0 + tx.m01_ * m1;
-  this.m10_ = tx.m10_ * m0 + tx.m11_ * m1;
+AffineTransform.prototype.preConcatenate = function(tx) {
+ let m0 = this.m00_;
+ let m1 = this.m10_;
+ this.m00_ = tx.m00_ * m0 + tx.m01_ * m1;
+ this.m10_ = tx.m10_ * m0 + tx.m11_ * m1;
 
-  m0 = this.m01_;
-  m1 = this.m11_;
-  this.m01_ = tx.m00_ * m0 + tx.m01_ * m1;
-  this.m11_ = tx.m10_ * m0 + tx.m11_ * m1;
+ m0 = this.m01_;
+ m1 = this.m11_;
+ this.m01_ = tx.m00_ * m0 + tx.m01_ * m1;
+ this.m11_ = tx.m10_ * m0 + tx.m11_ * m1;
 
-  m0 = this.m02_;
-  m1 = this.m12_;
-  this.m02_ = tx.m00_ * m0 + tx.m01_ * m1 + tx.m02_;
-  this.m12_ = tx.m10_ * m0 + tx.m11_ * m1 + tx.m12_;
-  return this;
+ m0 = this.m02_;
+ m1 = this.m12_;
+ this.m02_ = tx.m00_ * m0 + tx.m01_ * m1 + tx.m02_;
+ this.m12_ = tx.m10_ * m0 + tx.m11_ * m1 + tx.m12_;
+ return this;
 };
 
 
@@ -423,27 +367,25 @@ goog.math.AffineTransform.prototype.preConcatenate = function(tx) {
  *     point in the destination array.
  * @param {number} numPts The number of points to transform.
  */
-goog.math.AffineTransform.prototype.transform = function(
+AffineTransform.prototype.transform = function(
     src, srcOff, dst, dstOff, numPts) {
-  'use strict';
-  let i = srcOff;
-  let j = dstOff;
-  const srcEnd = srcOff + 2 * numPts;
-  while (i < srcEnd) {
-    const x = src[i++];
-    const y = src[i++];
-    dst[j++] = x * this.m00_ + y * this.m01_ + this.m02_;
-    dst[j++] = x * this.m10_ + y * this.m11_ + this.m12_;
-  }
+ let i = srcOff;
+ let j = dstOff;
+ const srcEnd = srcOff + 2 * numPts;
+ while (i < srcEnd) {
+   const x = src[i++];
+   const y = src[i++];
+   dst[j++] = x * this.m00_ + y * this.m01_ + this.m02_;
+   dst[j++] = x * this.m10_ + y * this.m11_ + this.m12_;
+ }
 };
 
 
 /**
  * @return {number} The determinant of this transform.
  */
-goog.math.AffineTransform.prototype.getDeterminant = function() {
-  'use strict';
-  return this.m00_ * this.m11_ - this.m01_ * this.m10_;
+AffineTransform.prototype.getDeterminant = function() {
+ return this.m00_ * this.m11_ - this.m01_ * this.m10_;
 };
 
 
@@ -453,25 +395,23 @@ goog.math.AffineTransform.prototype.getDeterminant = function() {
  *
  * @return {boolean} Whether the transform is invertible.
  */
-goog.math.AffineTransform.prototype.isInvertible = function() {
-  'use strict';
-  const det = this.getDeterminant();
-  return isFinite(det) && isFinite(this.m02_) && isFinite(this.m12_) &&
-      det != 0;
+AffineTransform.prototype.isInvertible = function() {
+ const det = this.getDeterminant();
+ return isFinite(det) && isFinite(this.m02_) && isFinite(this.m12_) &&
+     det != 0;
 };
 
 
 /**
- * @return {!goog.math.AffineTransform} An AffineTransform object
+ * @return {!AffineTransform} An AffineTransform object
  *     representing the inverse transformation.
  */
-goog.math.AffineTransform.prototype.createInverse = function() {
-  'use strict';
-  const det = this.getDeterminant();
-  return new goog.math.AffineTransform(
-      this.m11_ / det, -this.m10_ / det, -this.m01_ / det, this.m00_ / det,
-      (this.m01_ * this.m12_ - this.m11_ * this.m02_) / det,
-      (this.m10_ * this.m02_ - this.m00_ * this.m12_) / det);
+AffineTransform.prototype.createInverse = function() {
+ const det = this.getDeterminant();
+ return new AffineTransform(
+     this.m11_ / det, -this.m10_ / det, -this.m01_ / det, this.m00_ / det,
+     (this.m01_ * this.m12_ - this.m11_ * this.m02_) / det,
+     (this.m10_ * this.m02_ - this.m00_ * this.m12_) / det);
 };
 
 
@@ -480,12 +420,11 @@ goog.math.AffineTransform.prototype.createInverse = function() {
  *
  * @param {number} sx The x-axis scaling factor.
  * @param {number} sy The y-axis scaling factor.
- * @return {!goog.math.AffineTransform} A transform representing a scaling
+ * @return {!AffineTransform} A transform representing a scaling
  *     transformation.
  */
-goog.math.AffineTransform.getScaleInstance = function(sx, sy) {
-  'use strict';
-  return new goog.math.AffineTransform().setToScale(sx, sy);
+AffineTransform.getScaleInstance = function(sx, sy) {
+ return new AffineTransform().setToScale(sx, sy);
 };
 
 
@@ -494,12 +433,11 @@ goog.math.AffineTransform.getScaleInstance = function(sx, sy) {
  *
  * @param {number} dx The distance to translate in the x direction.
  * @param {number} dy The distance to translate in the y direction.
- * @return {!goog.math.AffineTransform} A transform representing a
+ * @return {!AffineTransform} A transform representing a
  *     translation transformation.
  */
-goog.math.AffineTransform.getTranslateInstance = function(dx, dy) {
-  'use strict';
-  return new goog.math.AffineTransform().setToTranslation(dx, dy);
+AffineTransform.getTranslateInstance = function(dx, dy) {
+ return new AffineTransform().setToTranslation(dx, dy);
 };
 
 
@@ -508,12 +446,11 @@ goog.math.AffineTransform.getTranslateInstance = function(dx, dy) {
  *
  * @param {number} shx The x-axis shear factor.
  * @param {number} shy The y-axis shear factor.
- * @return {!goog.math.AffineTransform} A transform representing a shearing
+ * @return {!AffineTransform} A transform representing a shearing
  *     transformation.
  */
-goog.math.AffineTransform.getShearInstance = function(shx, shy) {
-  'use strict';
-  return new goog.math.AffineTransform().setToShear(shx, shy);
+AffineTransform.getShearInstance = function(shx, shy) {
+ return new AffineTransform().setToShear(shx, shy);
 };
 
 
@@ -523,12 +460,11 @@ goog.math.AffineTransform.getShearInstance = function(shx, shy) {
  * @param {number} theta The angle of rotation measured in radians.
  * @param {number} x The x coordinate of the anchor point.
  * @param {number} y The y coordinate of the anchor point.
- * @return {!goog.math.AffineTransform} A transform representing a rotation
+ * @return {!AffineTransform} A transform representing a rotation
  *     transformation.
  */
-goog.math.AffineTransform.getRotateInstance = function(theta, x, y) {
-  'use strict';
-  return new goog.math.AffineTransform().setToRotation(theta, x, y);
+AffineTransform.getRotateInstance = function(theta, x, y) {
+ return new AffineTransform().setToRotation(theta, x, y);
 };
 
 
@@ -537,11 +473,10 @@ goog.math.AffineTransform.getRotateInstance = function(theta, x, y) {
  *
  * @param {number} sx The x-axis scaling factor.
  * @param {number} sy The y-axis scaling factor.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.setToScale = function(sx, sy) {
-  'use strict';
-  return this.setTransform(sx, 0, 0, sy, 0, 0);
+AffineTransform.prototype.setToScale = function(sx, sy) {
+ return this.setTransform(sx, 0, 0, sy, 0, 0);
 };
 
 
@@ -550,11 +485,10 @@ goog.math.AffineTransform.prototype.setToScale = function(sx, sy) {
  *
  * @param {number} dx The distance to translate in the x direction.
  * @param {number} dy The distance to translate in the y direction.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.setToTranslation = function(dx, dy) {
-  'use strict';
-  return this.setTransform(1, 0, 0, 1, dx, dy);
+AffineTransform.prototype.setToTranslation = function(dx, dy) {
+ return this.setTransform(1, 0, 0, 1, dx, dy);
 };
 
 
@@ -563,11 +497,10 @@ goog.math.AffineTransform.prototype.setToTranslation = function(dx, dy) {
  *
  * @param {number} shx The x-axis shear factor.
  * @param {number} shy The y-axis shear factor.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.setToShear = function(shx, shy) {
-  'use strict';
-  return this.setTransform(1, shy, shx, 1, 0, 0);
+AffineTransform.prototype.setToShear = function(shx, shy) {
+ return this.setTransform(1, shy, shx, 1, 0, 0);
 };
 
 
@@ -577,31 +510,30 @@ goog.math.AffineTransform.prototype.setToShear = function(shx, shy) {
  * @param {number} theta The angle of rotation measured in radians.
  * @param {number} x The x coordinate of the anchor point.
  * @param {number} y The y coordinate of the anchor point.
- * @return {!goog.math.AffineTransform} This affine transform.
+ * @return {!AffineTransform} This affine transform.
  */
-goog.math.AffineTransform.prototype.setToRotation = function(theta, x, y) {
-  'use strict';
-  const cos = Math.cos(theta);
-  const sin = Math.sin(theta);
-  return this.setTransform(
-      cos, sin, -sin, cos, x - x * cos + y * sin, y - x * sin - y * cos);
+AffineTransform.prototype.setToRotation = function(theta, x, y) {
+ const cos = Math.cos(theta);
+ const sin = Math.sin(theta);
+ return this.setTransform(
+     cos, sin, -sin, cos, x - x * cos + y * sin, y - x * sin - y * cos);
 };
 
 
 /**
  * Compares two affine transforms for equality.
  *
- * @param {goog.math.AffineTransform} tx The other affine transform.
+ * @param {AffineTransform} tx The other affine transform.
  * @return {boolean} whether the two transforms are equal.
  */
-goog.math.AffineTransform.prototype.equals = function(tx) {
-  'use strict';
-  if (this === tx) {
-    return true;
-  }
-  if (!tx) {
-    return false;
-  }
-  return this.m00_ == tx.m00_ && this.m01_ == tx.m01_ && this.m02_ == tx.m02_ &&
-      this.m10_ == tx.m10_ && this.m11_ == tx.m11_ && this.m12_ == tx.m12_;
+AffineTransform.prototype.equals = function(tx) {
+ if (this === tx) {
+   return true;
+ }
+ if (!tx) {
+   return false;
+ }
+ return this.m00_ == tx.m00_ && this.m01_ == tx.m01_ && this.m02_ == tx.m02_ &&
+     this.m10_ == tx.m10_ && this.m11_ == tx.m11_ && this.m12_ == tx.m12_;
 };
+export var AffineTransform;

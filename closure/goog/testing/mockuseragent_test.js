@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockUserAgentTest');
 goog.setTestOnly();
 
-const MockUserAgent = goog.require('goog.testing.MockUserAgent');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { MockUserAgent } from './mockuseragent.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from './testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let mockUserAgent;
 

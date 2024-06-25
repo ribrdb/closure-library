@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ContainerScrollerTest');
 goog.setTestOnly();
 
-const Container = goog.require('goog.ui.Container');
-const ContainerScroller = goog.require('goog.ui.ContainerScroller');
-const MockClock = goog.require('goog.testing.MockClock');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Container } from './container.js';
+import { ContainerScroller } from './containerscroller.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let sandbox;
 let sandboxHtml;

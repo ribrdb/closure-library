@@ -4,14 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.date.UtcDateTimeTest');
 goog.setTestOnly();
 
-const Interval = goog.require('goog.date.Interval');
-const UtcDateTime = goog.require('goog.date.UtcDateTime');
-const month = goog.require('goog.date.month');
-const testSuite = goog.require('goog.testing.testSuite');
-const weekDay = goog.require('goog.date.weekDay');
+import { Interval, month, weekDay } from './date.js';
+import { UtcDateTime } from './utcdatetime.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   /** @suppress {checkTypes} suppression added to enable type checking */

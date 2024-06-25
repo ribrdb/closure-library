@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fs.integrationTest');
 goog.setTestOnly();
 
-const FsDirectoryEntry = goog.require('goog.fs.DirectoryEntry');
-const FsError = goog.require('goog.fs.Error');
-const FsFileSaver = goog.require('goog.fs.FileSaver');
-const GoogPromise = goog.require('goog.Promise');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Timer = goog.require('goog.Timer');
-const events = goog.require('goog.events');
-const googFsBlob = goog.require('goog.fs.blob');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingFs = goog.require('goog.testing.fs');
+import { DirectoryEntry as FsDirectoryEntry } from '../../fs/entry.js';
+import { Error as FsError } from '../../fs/error.js';
+import { FileSaver as FsFileSaver } from '../../fs/filesaver.js';
+import { Promise as GoogPromise } from '../../promise/promise.js';
+import { PropertyReplacer } from '../propertyreplacer.js';
+import { Timer } from '../../timer/timer.js';
+import * as events from '../../events/events.js';
+import * as googFsBlob from '../../fs/blob.js';
+import { testSuite } from '../testsuite.js';
+import * as testingFs from './fs.js';
 
 const TEST_DIR = 'goog-fs-test-dir';
 

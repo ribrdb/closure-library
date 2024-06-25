@@ -13,14 +13,7 @@
  * a TimeoutMode instance.
  */
 
-goog.provide('goog.labs.mock.timeout');
-goog.provide('goog.labs.mock.timeout.TimeoutMode');
-
-/**
- * Used to specify max timeout on waitAndVerify
- * @const
- */
-goog.labs.mock.timeout.TimeoutMode = class TimeoutMode {
+export class TimeoutMode {
   /**
    * @param {number} duration Timeout duration in milliseconds.
    */
@@ -31,13 +24,12 @@ goog.labs.mock.timeout.TimeoutMode = class TimeoutMode {
      */
     this.duration = duration;
   }
-};
+}
 
 /**
  * @param {number} duration Timeout duration in milliseconds.
- * @return {!goog.labs.mock.timeout.TimeoutMode}
+ * @return {!TimeoutMode}
  */
-goog.labs.mock.timeout.timeout = function(duration) {
-  'use strict';
-  return new goog.labs.mock.timeout.TimeoutMode(duration);
-};
+export function timeout(duration) {
+ return new TimeoutMode(duration);
+}

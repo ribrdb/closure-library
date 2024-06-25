@@ -10,14 +10,12 @@
  * TODO(xtof): Link to document stating type contract.
  */
 
-goog.module('goog.html.SafeStyle');
-goog.module.declareLegacyNamespace();
+import { Const } from '../string/const.js';
 
-const Const = goog.require('goog.string.Const');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TypedString = goog.require('goog.string.TypedString');
-const {AssertionError, assert, fail} = goog.require('goog.asserts');
-const {contains, endsWith} = goog.require('goog.string.internal');
+import { SafeUrl } from './safeurl.js';
+import { TypedString } from '../string/typedstring.js';
+import { AssertionError, assert, fail } from '../asserts/asserts.js';
+import { contains, endsWith } from '../string/internal.js';
 
 /**
  * Token used to ensure that object is created only from this file. No code
@@ -574,4 +572,4 @@ function sanitizeUrl(value) {
 }
 
 
-exports = SafeStyle;
+export { SafeStyle };

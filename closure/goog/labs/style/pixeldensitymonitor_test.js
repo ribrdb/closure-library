@@ -6,17 +6,16 @@
 
 /** @fileoverview Tests for PixelDensityMonitor. */
 
-goog.module('goog.labs.style.PixelDensityMonitorTest');
 goog.setTestOnly();
 
-const DomHelper = goog.require('goog.dom.DomHelper');
-const MockControl = goog.require('goog.testing.MockControl');
-const PixelDensityMonitor = goog.require('goog.labs.style.PixelDensityMonitor');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingRecordFunction = goog.require('goog.testing.recordFunction');
+import { DomHelper } from '../../dom/dom.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { PixelDensityMonitor } from './pixeldensitymonitor.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as events from '../../events/events.js';
+import * as googArray from '../../array/array.js';
+import { testSuite } from '../../testing/testsuite.js';
+import { recordFunction as testingRecordFunction } from '../../testing/recordfunction.js';
 
 let fakeWindow;
 let recordFunction;

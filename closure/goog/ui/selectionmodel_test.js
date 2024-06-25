@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.SelectionModelTest');
 goog.setTestOnly();
 
-const SelectionModel = goog.require('goog.ui.SelectionModel');
-const dispose = goog.require('goog.dispose');
-const googArray = goog.require('goog.array');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SelectionModel } from './selectionmodel.js';
+import { dispose } from '../disposable/dispose.js';
+import * as googArray from '../array/array.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let addedItem;
 let addedItems;

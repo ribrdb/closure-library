@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.SizeTest');
 goog.setTestOnly();
 
-const Size = goog.require('goog.math.Size');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Size } from './size.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testSize1() {

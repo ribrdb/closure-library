@@ -4,12 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.asserts.dom');
-goog.module.declareLegacyNamespace();
+import { TagName } from '../dom/tagname.js';
 
-const TagName = goog.require('goog.dom.TagName');
-const asserts = goog.require('goog.asserts');
-const element = goog.require('goog.dom.element');
+import * as asserts from './asserts.js';
+import element from '../dom/element.js';
 
 /**
  * Checks if the value is a DOM Element if goog.asserts.ENABLE_ASSERTS is true.
@@ -266,7 +264,7 @@ const debugStringForType = (value) => {
   }
 };
 
-exports = {
+export default {
   assertIsElement,
   assertIsHtmlElement,
   assertIsHtmlElementOfType,

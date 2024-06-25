@@ -8,17 +8,7 @@
  * @fileoverview Names for HTTP status codes
  */
 
-goog.provide('goog.net.HttpStatusName');
-
-
-/**
- * HTTP Status Code Names defined in RFC 2616, RFC 6585, and RFC 4918.
- * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
- * @see http://tools.ietf.org/html/rfc6585
- * @see https://tools.ietf.org/html/rfc4918
- * @type {!Object<number, string>}
- */
-goog.net.HttpStatusName = {
+HttpStatusName = {
   // Informational 1xx
   100: 'Continue',
   101: 'Switching Protocols',
@@ -79,3 +69,4 @@ goog.net.HttpStatusName = {
   507: 'Insufficient Storage',
   511: 'Network Authentication Required',
 };
+export var HttpStatusName;

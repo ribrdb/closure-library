@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.CorsXmlHttpFactoryTest');
 goog.setTestOnly();
 
-const CorsXmlHttpFactory = goog.require('goog.net.CorsXmlHttpFactory');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CorsXmlHttpFactory } from './corsxmlhttpfactory.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testBrowserSupport() {

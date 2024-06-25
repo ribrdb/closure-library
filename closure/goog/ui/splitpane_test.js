@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.SplitPaneTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Size = goog.require('goog.math.Size');
-const SplitPane = goog.require('goog.ui.SplitPane');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Component } from './component.js';
+import { Size } from '../math/size.js';
+import { SplitPane } from './splitpane.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let splitpane;
 let leftComponent;

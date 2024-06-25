@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.interpolator.Pchip1Test');
 goog.setTestOnly();
 
-const Pchip1 = goog.require('goog.math.interpolator.Pchip1');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Pchip1 } from './pchip1.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testSpline() {

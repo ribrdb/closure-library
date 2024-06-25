@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PopupBaseTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.events.EventType');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const PopupBase = goog.require('goog.ui.PopupBase');
-const TagName = goog.require('goog.dom.TagName');
-const Transition = goog.require('goog.fx.Transition');
-const css3 = goog.require('goog.fx.css3');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { EventType } from '../events/eventtype.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import * as testingEvents from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PopupBase } from './popupbase.js';
+import { TagName } from '../dom/tagname.js';
+import { Transition } from '../fx/transition.js';
+import * as css3 from '../fx/css3/fx.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let targetDiv;
 let popupDiv;

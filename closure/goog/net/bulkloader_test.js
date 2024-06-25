@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.BulkLoaderTest');
 goog.setTestOnly();
 
-const BulkLoader = goog.require('goog.net.BulkLoader');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.net.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BulkLoader } from './bulkloader.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventType } from './eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { MockClock } from '../testing/mockclock.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** Test interval between sending uri requests to the server. */
 const DELAY_INTERVAL_BETWEEN_URI_REQUESTS = 5;

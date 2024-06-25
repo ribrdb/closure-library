@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.mechanism.HTML5WebStorageTest');
 goog.setTestOnly('goog.storage.mechanism.HTML5WebStorageTest');
 
-const ErrorCode = goog.require('goog.storage.mechanism.ErrorCode');
-const HTML5WebStorage = goog.require('goog.storage.mechanism.HTML5WebStorage');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorCode } from './errorcode.js';
+import { HTML5WebStorage } from './html5webstorage.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 /**
  * A minimal WebStorage implementation that throws exceptions for disabled

@@ -4,22 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.XhrStreamReaderTest');
 goog.setTestOnly('goog.net.streams.XhrStreamReaderTest');
 
-const Base64PbStreamParser = goog.require('goog.net.streams.Base64PbStreamParser');
-const ErrorCode = goog.require('goog.net.ErrorCode');
-const HttpStatus = goog.require('goog.net.HttpStatus');
-const JsonStreamParser = goog.require('goog.net.streams.JsonStreamParser');
-const PbJsonStreamParser = goog.require('goog.net.streams.PbJsonStreamParser');
-const PbStreamParser = goog.require('goog.net.streams.PbStreamParser');
-const TestingNetXhrIo = goog.require('goog.testing.net.XhrIo');
-const XhrIo = goog.require('goog.net.XhrIo');
-const XmlHttp = goog.require('goog.net.XmlHttp');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const {XhrStreamReader, XhrStreamReaderStatus} = goog.require('goog.net.streams.xhrStreamReader');
-const {getStreamParser} = goog.require('goog.net.streams.streamParsers');
+import { Base64PbStreamParser } from './base64pbstreamparser.js';
+import { ErrorCode } from '../errorcode.js';
+import { HttpStatus } from '../httpstatus.js';
+import { JsonStreamParser } from './jsonstreamparser.js';
+import { PbJsonStreamParser } from './pbjsonstreamparser.js';
+import { PbStreamParser } from './pbstreamparser.js';
+import { XhrIo as TestingNetXhrIo } from '../../testing/net/xhrio.js';
+import { XhrIo } from '../xhrio.js';
+import { XmlHttp } from '../xmlhttp.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
+import xhrStreamReader from './xhrstreamreader.js';
+const {XhrStreamReader, XhrStreamReaderStatus} = xhrStreamReader;
+import streamParsers from './streamparsers.js';
+const {getStreamParser} = streamParsers;
 
 
 let xhrReader;

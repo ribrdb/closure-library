@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ToolbarColorMenuButtonRendererTest');
 goog.setTestOnly();
 
-const RendererHarness = goog.require('goog.testing.ui.RendererHarness');
-const ToolbarColorMenuButton = goog.require('goog.ui.ToolbarColorMenuButton');
-const ToolbarColorMenuButtonRenderer = goog.require('goog.ui.ToolbarColorMenuButtonRenderer');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { RendererHarness } from '../testing/ui/rendererharness.js';
+import { ToolbarColorMenuButton } from './toolbarcolormenubutton.js';
+import { ToolbarColorMenuButtonRenderer } from './toolbarcolormenubuttonrenderer.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let harness;
 

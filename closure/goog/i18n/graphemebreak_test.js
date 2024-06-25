@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.GraphemeBreakTest');
 goog.setTestOnly();
 
-const GraphemeBreak = goog.require('goog.i18n.GraphemeBreak');
-const testSuite = goog.require('goog.testing.testSuite');
-const uChar = goog.require('goog.i18n.uChar');
+import * as GraphemeBreak from './graphemebreak.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as uChar from './uchar.js';
 
 /** @const {function(number):?string} */
 const fromCharCode = uChar.fromCharCode;

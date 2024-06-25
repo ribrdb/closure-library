@@ -4,27 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.DragListGroupTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Coordinate = goog.require('goog.math.Coordinate');
-const DragListDirection = goog.require('goog.fx.DragListDirection');
-const DragListGroup = goog.require('goog.fx.DragListGroup');
-const DragListPermission = goog.require('goog.fx.DragListPermission');
-const Dragger = goog.require('goog.fx.Dragger');
-const EventType = goog.require('goog.events.EventType');
-const FxDragEvent = goog.require('goog.fx.DragEvent');
-const GoogEvent = goog.require('goog.events.Event');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { BrowserEvent } from '../events/browserevent.js';
+import { Coordinate } from '../math/coordinate.js';
+import { DragListDirection, DragListGroup, DragListPermission } from './draglistgroup.js';
+import { Dragger, DragEvent as FxDragEvent } from './dragger.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 /** @type {DragListGroup} */
 let dlg;

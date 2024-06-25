@@ -4,17 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.LoggerServerTest');
 goog.setTestOnly();
 
-const Level = goog.require('goog.log.Level');
-const Logger = goog.require('goog.log.Logger');
-const LoggerServer = goog.require('goog.messaging.LoggerServer');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const log = goog.require('goog.log');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as googLog from '../log/log.js';
+import * as googLog_0 from '../log/log.js';
+import * as log from '../log/log.js';
+const Level = googLog.Level;
+const Logger = googLog_0.Logger;
+import { LoggerServer } from './loggerserver.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockControl;
 let channel;

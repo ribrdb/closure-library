@@ -4,32 +4,31 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.LinkBubbleTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Command = goog.require('goog.editor.Command');
-const EventType = goog.require('goog.events.EventType');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const FunctionMock = goog.require('goog.testing.FunctionMock');
-const GoogEvent = goog.require('goog.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Link = goog.require('goog.editor.Link');
-const LinkBubble = goog.require('goog.editor.plugins.LinkBubble');
-const LivePriority = goog.require('goog.a11y.aria.LivePriority');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Range = goog.require('goog.dom.Range');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const googArray = goog.require('goog.array');
-const googString = goog.require('goog.string');
-const googWindow = goog.require('goog.window');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from '../../events/browserevent.js';
+import { Command } from '../command.js';
+import { EventType } from '../../events/eventtype.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { FunctionMock } from '../../testing/functionmock.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { Link } from '../link.js';
+import { LinkBubble } from './linkbubble.js';
+import { LivePriority } from '../../a11y/aria/attributes.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../testing/events/events.js';
+import * as googArray from '../../array/array.js';
+import * as googString from '../../string/string.js';
+import * as googWindow from '../../window/window.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let fieldDiv;
 let FIELDMOCK;

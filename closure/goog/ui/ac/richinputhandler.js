@@ -9,9 +9,7 @@
  * object and a text-input or textarea.
  */
 
-goog.provide('goog.ui.ac.RichInputHandler');
-
-goog.require('goog.ui.ac.InputHandler');
+import { InputHandler } from './inputhandler.js';
 
 
 
@@ -25,15 +23,13 @@ goog.require('goog.ui.ac.InputHandler');
  * @param {?number=} opt_throttleTime Number of milliseconds to throttle
  *     keyevents with (Default: 150).
  * @constructor
- * @extends {goog.ui.ac.InputHandler}
+ * @extends {InputHandler}
  */
-goog.ui.ac.RichInputHandler = function(
-    opt_separators, opt_literals, opt_multi, opt_throttleTime) {
-  'use strict';
-  goog.ui.ac.InputHandler.call(
-      this, opt_separators, opt_literals, opt_multi, opt_throttleTime);
-};
-goog.inherits(goog.ui.ac.RichInputHandler, goog.ui.ac.InputHandler);
+export function RichInputHandler(opt_separators, opt_literals, opt_multi, opt_throttleTime) {
+ InputHandler.call(
+     this, opt_separators, opt_literals, opt_multi, opt_throttleTime);
+}
+goog.inherits(RichInputHandler, InputHandler);
 
 
 /**
@@ -43,10 +39,9 @@ goog.inherits(goog.ui.ac.RichInputHandler, goog.ui.ac.InputHandler);
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.RichInputHandler.prototype.selectRow = function(row) {
-  'use strict';
-  var suppressUpdate =
-      goog.ui.ac.RichInputHandler.superClass_.selectRow.call(this, row);
-  row.select(this.ac_.getTarget());
-  return suppressUpdate;
+RichInputHandler.prototype.selectRow = function(row) {
+ var suppressUpdate =
+     RichInputHandler.superClass_.selectRow.call(this, row);
+ row.select(this.ac_.getTarget());
+ return suppressUpdate;
 };

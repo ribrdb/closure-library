@@ -4,14 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.decoratorMatcherTest');
 goog.setTestOnly();
 
-const MatcherError = goog.require('goog.labs.testing.MatcherError');
-const assertThat = goog.require('goog.labs.testing.assertThat');
+import { MatcherError } from './matchererror.js';
+import { assertThat } from './assertthat.js';
+
 /** @suppress {extraRequire} */
-const matchers = goog.require('goog.labs.testing');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as matchers from './matchers.js';
+
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testAnythingMatcher() {

@@ -7,13 +7,21 @@
 /**
  * @fileoverview Tests for the URL package.
  */
-goog.module('goog.urltest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.labs.userAgent.browser');
-const {UrlLike, createUrl, getSearchParams, resolveRelativeUrl, resolveUrl, setUrlBaseForTesting} = goog.require('goog.url');
-const {assertArrayEquals, raiseException} = goog.require('goog.testing.asserts');
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../labs/useragent/browser.js';
+
+import {
+  UrlLike,
+  createUrl,
+  getSearchParams,
+  resolveRelativeUrl,
+  resolveUrl,
+  setUrlBaseForTesting,
+} from './url.js';
+
+import { assertArrayEquals, raiseException } from '../testing/asserts.js';
 
 const COMPLIANT_BROWSER =
     userAgent.isChrome() || userAgent.isFirefox() || userAgent.isSafari();

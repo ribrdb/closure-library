@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.PortNetworkTest');
 goog.setTestOnly();
 
-const GoogPromise = goog.require('goog.Promise');
-const PortChannel = goog.require('goog.messaging.PortChannel');
-const PortOperator = goog.require('goog.messaging.PortOperator');
-const TestCase = goog.require('goog.testing.TestCase');
-const Timer = goog.require('goog.Timer');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { PortChannel } from './portchannel.js';
+import { PortOperator } from './portoperator.js';
+import { TestCase } from '../testing/testcase.js';
+import { Timer } from '../timer/timer.js';
+import * as browser from '../labs/useragent/browser.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let timer;
 

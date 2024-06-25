@@ -8,9 +8,7 @@
  * @fileoverview Support for declaring localizable messages.
  */
 
-goog.module('goog.i18n.messages');
-
-const {assert} = goog.require('goog.asserts');
+import { assert } from '../asserts/asserts.js';
 
 /**
  * Options bag type for `declareIcuTemplate()` options argument.
@@ -309,7 +307,7 @@ function gatherIcuPlaceholderNames(icuTemplate) {
 
 // TODO(bradfordcsmith): Add another method to this module that will serve to
 //     replace goog.getMsg(), so we can drop that method from base.js.
-exports = {
+export default {
   declareIcuTemplate,
   IcuTemplateOptions
 };

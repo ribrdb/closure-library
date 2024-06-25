@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.NodeIteratorTest');
 goog.setTestOnly();
 
-const DomNodeIterator = goog.require('goog.dom.NodeIterator');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { NodeIterator as DomNodeIterator } from './nodeiterator.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
 
 testSuite({
   testBasic() {

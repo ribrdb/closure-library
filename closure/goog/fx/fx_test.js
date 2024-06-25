@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fxTest');
 goog.setTestOnly();
 
-const Animation = goog.require('goog.fx.Animation');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const fxAnim = goog.require('goog.fx.anim');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Animation } from './animation.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as fxAnim from './anim/anim.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // TODO(arv): Add tests for the event dispatches.
 // TODO(arv): Add tests for the calculation of the coordinates.

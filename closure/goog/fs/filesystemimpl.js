@@ -5,13 +5,12 @@
  */
 
 /**
- * @fileoverview Concrete implementation of the goog.fs.FileSystem interface
+ * @fileoverview Concrete implementation of the FileSystem interface
  *     using an HTML FileSystem object.
  */
-goog.provide('goog.fs.FileSystemImpl');
+import { DirectoryEntryImpl } from './entryimpl.js';
 
-goog.require('goog.fs.DirectoryEntryImpl');
-goog.require('goog.fs.FileSystem');
+import { FileSystem } from './filesystem.js';
 
 
 
@@ -23,39 +22,35 @@ goog.require('goog.fs.FileSystem');
  *
  * @param {!FileSystem} fs The underlying FileSystem object.
  * @constructor
- * @implements {goog.fs.FileSystem}
+ * @implements {FileSystem}
  * @final
  */
-goog.fs.FileSystemImpl = function(fs) {
-  'use strict';
-  /**
-   * The underlying FileSystem object.
-   *
-   * @type {!FileSystem}
-   * @private
-   */
-  this.fs_ = fs;
+export function FileSystemImpl(fs) {
+ /**
+  * The underlying FileSystem object.
+  *
+  * @type {!FileSystem}
+  * @private
+  */
+ this.fs_ = fs;
+}
+
+
+/** @override */
+FileSystemImpl.prototype.getName = function() {
+ return this.fs_.name;
 };
 
 
 /** @override */
-goog.fs.FileSystemImpl.prototype.getName = function() {
-  'use strict';
-  return this.fs_.name;
-};
-
-
-/** @override */
-goog.fs.FileSystemImpl.prototype.getRoot = function() {
-  'use strict';
-  return new goog.fs.DirectoryEntryImpl(this, this.fs_.root);
+FileSystemImpl.prototype.getRoot = function() {
+ return new DirectoryEntryImpl(this, this.fs_.root);
 };
 
 
 /**
  * @return {!FileSystem} The underlying FileSystem object.
  */
-goog.fs.FileSystemImpl.prototype.getBrowserFileSystem = function() {
-  'use strict';
-  return this.fs_;
+FileSystemImpl.prototype.getBrowserFileSystem = function() {
+ return this.fs_;
 };

@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.eventsTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const EventType = goog.require('goog.events.EventType');
-const InputType = goog.require('goog.dom.InputType');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googString = goog.require('goog.string');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { Coordinate } from '../../math/coordinate.js';
+import { EventType } from '../../events/eventtype.js';
+import { InputType } from '../../dom/inputtype.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { PropertyReplacer } from '../propertyreplacer.js';
+import { TagName } from '../../dom/tagname.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import * as googString from '../../string/string.js';
+import { recordFunction } from '../recordfunction.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../testsuite.js';
+import * as testingEvents from './events.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let firedEventTypes;
 let firedEventCoordinates;

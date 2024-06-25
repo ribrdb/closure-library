@@ -14,16 +14,15 @@
 
 /** @fileoverview Unit tests for Closure's base.js's goog.module support. */
 
-goog.module('goog.baseModuleTest');
 goog.setTestOnly();
 
 // Used to test dynamic loading works, see testRequire*
-const Timer = goog.require('goog.Timer');
-const Replacer = goog.require('goog.testing.PropertyReplacer');
-const jsunit = goog.require('goog.testing.jsunit');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Timer } from './timer/timer.js';
 
-const testModule = goog.require('goog.test_module');
+import { PropertyReplacer as Replacer } from './testing/propertyreplacer.js';
+import * as jsunit from './testing/jsunit.js';
+import { testSuite } from './testing/testsuite.js';
+import * as testModule from './test_module.js';
 
 const stubs = new Replacer();
 

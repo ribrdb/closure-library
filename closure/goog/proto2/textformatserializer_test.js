@@ -9,13 +9,12 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.proto2.TextFormatSerializerTest');
 goog.setTestOnly();
 
-const ObjectSerializer = goog.require('goog.proto2.ObjectSerializer');
-const TestAllTypes = goog.require('proto2.TestAllTypes');
-const TextFormatSerializer = goog.require('goog.proto2.TextFormatSerializer');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ObjectSerializer } from './objectserializer.js';
+import { TestAllTypes } from './test.pb.js';
+import { TextFormatSerializer } from './textformatserializer.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Asserts that the given string value parses into the given set of tokens.

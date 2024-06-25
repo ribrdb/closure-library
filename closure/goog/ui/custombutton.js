@@ -5,50 +5,47 @@
  */
 
 /**
- * @fileoverview A button rendered via {@link goog.ui.CustomButtonRenderer}.
+ * @fileoverview A button rendered via {@link CustomButtonRenderer}.
  */
 
-goog.provide('goog.ui.CustomButton');
+import { Button } from './button.js';
 
-goog.require('goog.ui.Button');
-goog.require('goog.ui.CustomButtonRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.ui.ButtonRenderer');
-goog.requireType('goog.ui.ControlContent');
+import { CustomButtonRenderer } from './custombuttonrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.ui.buttonrenderer');
+goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
- * A custom button control.  Identical to {@link goog.ui.Button}, except it
- * defaults its renderer to {@link goog.ui.CustomButtonRenderer}.  One could
- * just as easily pass `goog.ui.CustomButtonRenderer.getInstance()` to
- * the {@link goog.ui.Button} constructor and get the same result.  Provided
+ * A custom button control.  Identical to {@link Button}, except it
+ * defaults its renderer to {@link CustomButtonRenderer}.  One could
+ * just as easily pass `CustomButtonRenderer.getInstance()` to
+ * the {@link Button} constructor and get the same result.  Provided
  * for convenience.
  *
  * @param {goog.ui.ControlContent} content Text caption or existing DOM
  *    structure to display as the button's caption.
- * @param {goog.ui.ButtonRenderer=} opt_renderer Optional renderer used to
+ * @param {ButtonRenderer=} opt_renderer Optional renderer used to
  *    render or decorate the button; defaults to
- *    {@link goog.ui.CustomButtonRenderer}.
+ *    {@link CustomButtonRenderer}.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *    document interaction.
  * @constructor
- * @extends {goog.ui.Button}
+ * @extends {Button}
  */
-goog.ui.CustomButton = function(content, opt_renderer, opt_domHelper) {
-  'use strict';
-  goog.ui.Button.call(
-      this, content, opt_renderer || goog.ui.CustomButtonRenderer.getInstance(),
-      opt_domHelper);
-};
-goog.inherits(goog.ui.CustomButton, goog.ui.Button);
+export function CustomButton(content, opt_renderer, opt_domHelper) {
+ Button.call(
+     this, content, opt_renderer || CustomButtonRenderer.getInstance(),
+     opt_domHelper);
+}
+goog.inherits(CustomButton, Button);
 
 
-// Register a decorator factory function for goog.ui.CustomButtons.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.CustomButtonRenderer.CSS_CLASS, function() {
-      'use strict';
-      // CustomButton defaults to using CustomButtonRenderer.
-      return new goog.ui.CustomButton(null);
-    });
+/* Register a decorator factory function for CustomButtons.*/
+registry.setDecoratorByClassName(
+    CustomButtonRenderer.CSS_CLASS, function() {
+ // CustomButton defaults to using CustomButtonRenderer.
+ return new CustomButton(null);
+});

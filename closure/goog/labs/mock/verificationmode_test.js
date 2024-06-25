@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.mock.VerificationModeTest');
 goog.setTestOnly('goog.labs.mock.VerificationModeTest');
 
-const testSuite = goog.require('goog.testing.testSuite');
-const verification = goog.require('goog.labs.mock.verification');
+import { testSuite } from '../../testing/testsuite.js';
+import * as verification from './verificationmode.js';
 
 const atLeast = verification.atLeast;
 const atMost = verification.atMost;

@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.PathTest');
 goog.setTestOnly();
 
-const AffineTransform = goog.require('goog.math.AffineTransform');
-const Path = goog.require('goog.math.Path');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AffineTransform } from './affinetransform.js';
+import { Path } from './path.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Array mapping numeric segment constant to a descriptive character.

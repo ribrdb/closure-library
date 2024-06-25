@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.style.style_document_scroll_test');
 goog.setTestOnly();
 
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as dom from '../dom/dom.js';
+import * as style from './style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const EPSILON = 2;
 let documentScroll;

@@ -6,13 +6,12 @@
 
 /** @fileoverview Unit tests for goog.html.trustedtypes package. */
 
-goog.module('goog.html.trustedtypesTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const trustedtypes = goog.require('goog.html.trustedtypes');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as trustedtypes from './trustedtypes.js';
 
 const stubs = new PropertyReplacer();
 

@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TabBarTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Container = goog.require('goog.ui.Container');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const TabBar = goog.require('goog.ui.TabBar');
-const TabBarRenderer = goog.require('goog.ui.TabBarRenderer');
-const UiTab = goog.require('goog.ui.Tab');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from './component.js';
+import { Container } from './container.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { TabBar } from './tabbar.js';
+import { TabBarRenderer } from './tabbarrenderer.js';
+import { Tab as UiTab } from './tab.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let sandbox;
 let tabBar;

@@ -9,12 +9,11 @@
  * server on the main page that prints them using standard logging mechanisms.
  */
 
-goog.provide('goog.messaging.LoggerClient');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.debug');
-goog.require('goog.log');
-goog.requireType('goog.messaging.MessageChannel');
+import * as debug from '../debug/debug.js';
+import * as log from '../log/log.js';
+goog.requireType('goog.messaging.messagechannel');
 
 
 /**
@@ -26,16 +25,15 @@ goog.requireType('goog.messaging.MessageChannel');
  *     send the log messages.
  * @param {string} serviceName The name of the logging service to use.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @final
  */
-goog.messaging.LoggerClient = function(channel, serviceName) {
-  'use strict';
-  if (goog.messaging.LoggerClient.instance_) {
-    return goog.messaging.LoggerClient.instance_;
+export function LoggerClient(channel, serviceName) {
+  if (LoggerClient.instance_) {
+    return LoggerClient.instance_;
   }
 
-  goog.messaging.LoggerClient.base(this, 'constructor');
+  LoggerClient.base(this, 'constructor');
 
   /**
    * The channel on which to send the log messages.
@@ -58,28 +56,27 @@ goog.messaging.LoggerClient = function(channel, serviceName) {
    * @private
    */
   this.publishHandler_ = goog.bind(this.sendLog_, this);
-  goog.log.addHandler(goog.log.getRootLogger(), this.publishHandler_);
+  log.addHandler(log.getRootLogger(), this.publishHandler_);
 
-  goog.messaging.LoggerClient.instance_ = this;
-};
-goog.inherits(goog.messaging.LoggerClient, goog.Disposable);
+  LoggerClient.instance_ = this;
+}
+goog.inherits(LoggerClient, Disposable);
 
 
 /**
  * The singleton instance, if any.
- * @type {?goog.messaging.LoggerClient}
+ * @type {?LoggerClient}
  * @private
  */
-goog.messaging.LoggerClient.instance_ = null;
+LoggerClient.instance_ = null;
 
 
 /**
  * Sends a log message through the channel.
- * @param {!goog.log.LogRecord} logRecord The log message.
+ * @param {!log.LogRecord} logRecord The log message.
  * @private
  */
-goog.messaging.LoggerClient.prototype.sendLog_ = function(logRecord) {
-  'use strict';
+LoggerClient.prototype.sendLog_ = function(logRecord) {
   var name = logRecord.getLoggerName();
   var level = logRecord.getLevel();
   var msg = logRecord.getMessage();
@@ -88,7 +85,7 @@ goog.messaging.LoggerClient.prototype.sendLog_ = function(logRecord) {
   var exception;
   if (originalException !== undefined) {
     var normalizedException =
-        goog.debug.normalizeErrorObject(originalException);
+        debug.normalizeErrorObject(originalException);
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     exception = {
       'name': normalizedException.name,
@@ -98,7 +95,7 @@ goog.messaging.LoggerClient.prototype.sendLog_ = function(logRecord) {
       // Normalized exceptions without a stack have 'stack' set to 'Not
       // available', so we check for the existence of 'stack' on the original
       // exception instead.
-      'stack': originalException.stack || goog.debug.getStacktrace(goog.log.log)
+      'stack': originalException.stack || debug.getStacktrace(log.log)
     };
 
     if (goog.isObject(originalException)) {
@@ -119,10 +116,9 @@ goog.messaging.LoggerClient.prototype.sendLog_ = function(logRecord) {
 
 
 /** @override */
-goog.messaging.LoggerClient.prototype.disposeInternal = function() {
-  'use strict';
-  goog.messaging.LoggerClient.base(this, 'disposeInternal');
-  goog.log.removeHandler(goog.log.getRootLogger(), this.publishHandler_);
+LoggerClient.prototype.disposeInternal = function() {
+  LoggerClient.base(this, 'disposeInternal');
+  log.removeHandler(log.getRootLogger(), this.publishHandler_);
   delete this.channel_;
-  goog.messaging.LoggerClient.instance_ = null;
+  LoggerClient.instance_ = null;
 };

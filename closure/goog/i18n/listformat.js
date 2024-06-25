@@ -11,12 +11,10 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat
  */
 
-goog.module('goog.i18n.listFormat');
-goog.module.declareLegacyNamespace();
+import { ListFormatSymbols as ListSymbols } from './listsymbols.js';
 
-const ListSymbols = goog.require('goog.i18n.ListFormatSymbols');
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const asserts = goog.require('goog.asserts');
+import * as LocaleFeature from './localefeature.js';
+import * as asserts from '../asserts/asserts.js';
 
 /**
  * Choices for options bag 'type' in ListFormat's constructor.
@@ -27,7 +25,7 @@ const ListFormatType = {
   OR: 'disjunction',
   UNIT: 'unit'
 };
-exports.ListFormatType = ListFormatType;
+export { ListFormatType };
 
 /**
  * Choices for options bag 'style' in ListFormat's constructor,
@@ -39,7 +37,7 @@ const ListFormatStyle = {
   SHORT: 'short',
   NARROW: 'narrow'
 };
-exports.ListFormatStyle = ListFormatStyle;
+export { ListFormatStyle };
 
 /**
  * Options bag parameter for constructor.
@@ -252,4 +250,4 @@ class ListFormat {
   }
 }
 
-exports.ListFormat = ListFormat;
+export { ListFormat };

@@ -10,27 +10,22 @@
  * @see ../demos/roundedpanel.html
  */
 
-goog.provide('goog.ui.BaseRoundedPanel');
-goog.provide('goog.ui.CssRoundedPanel');
-goog.provide('goog.ui.GraphicsRoundedPanel');
-goog.provide('goog.ui.RoundedPanel');
-goog.provide('goog.ui.RoundedPanel.Corner');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.graphics');
-goog.require('goog.graphics.Path');
-goog.require('goog.graphics.SolidFill');
-goog.require('goog.graphics.Stroke');
-goog.require('goog.math');
-goog.require('goog.math.Coordinate');
-goog.require('goog.style');
-goog.require('goog.ui.Component');
-goog.require('goog.userAgent');
-goog.requireType('goog.graphics.AbstractGraphics');
-goog.requireType('goog.math.Size');
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as graphics from '../graphics/graphics.js';
+import { Path } from '../graphics/path.js';
+import { SolidFill } from '../graphics/solidfill.js';
+import { Stroke } from '../graphics/stroke.js';
+import * as math from '../math/math.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as style from '../style/style.js';
+import { Component } from './component.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.graphics.abstractgraphics');
+goog.requireType('goog.math.size');
 
 
 /**
@@ -42,40 +37,44 @@ goog.requireType('goog.math.Size');
  * @param {number=} opt_corners The corners of the panel to be rounded. Any
  *     corners not specified will be rendered as square corners. Will default
  *     to all square corners if not specified.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
- * @return {!goog.ui.BaseRoundedPanel} An instance of a
- *     goog.ui.BaseRoundedPanel subclass.
+ * @return {!BaseRoundedPanel} An instance of a
+ *     BaseRoundedPanel subclass.
  * TODO(sdh): deprecate this class, which has <5 usages and only really
  *            matters for IE8, and then only stylistically.
  */
-goog.ui.RoundedPanel.create = function(
-    radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
-    opt_domHelper) {
-  'use strict';
+export function create(
+  radius,
+  borderWidth,
+  borderColor,
+  opt_backgroundColor,
+  opt_corners,
+  opt_domHelper
+) {
   // This variable checks for the presence of Safari 3.0+ or Gecko 1.9+,
   // which can leverage special CSS styles to create rounded corners.
   var isCssReady =
-      goog.userAgent.WEBKIT || goog.userAgent.GECKO || goog.userAgent.EDGE;
+      userAgent.WEBKIT || userAgent.GECKO || userAgent.EDGE;
 
   if (isCssReady) {
     // Safari 3.0+ and Firefox 3.0+ support this instance.
-    return new goog.ui.CssRoundedPanel(
+    return new CssRoundedPanel(
         radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
         opt_domHelper);
   } else {
-    return new goog.ui.GraphicsRoundedPanel(
+    return new GraphicsRoundedPanel(
         radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
         opt_domHelper);
   }
-};
+}
 
 
 /**
  * Enum for specifying which corners to render.
  * @enum {number}
  */
-goog.ui.RoundedPanel.Corner = {
+export var Corner = {
   NONE: 0,
   BOTTOM_LEFT: 2,
   TOP_LEFT: 4,
@@ -94,7 +93,7 @@ goog.ui.RoundedPanel.Corner = {
  * @enum {string}
  * @private
  */
-goog.ui.RoundedPanel.Classes_ = {
+var Classes_ = {
   BACKGROUND: goog.getCssName('goog-roundedpanel-background'),
   PANEL: goog.getCssName('goog-roundedpanel'),
   CONTENT: goog.getCssName('goog-roundedpanel-content')
@@ -104,7 +103,7 @@ goog.ui.RoundedPanel.Classes_ = {
 
 /**
  * Base class for the hierarchy of RoundedPanel classes. Do not
- * instantiate directly. Instead, call goog.ui.RoundedPanel.create().
+ * instantiate directly. Instead, call create().
  * The HTML structure for the RoundedPanel is:
  * <pre>
  * - div (Contains the background and content. Class name: goog-roundedpanel)
@@ -119,16 +118,20 @@ goog.ui.RoundedPanel.Classes_ = {
  * @param {number=} opt_corners The corners of the panel to be rounded. Any
  *     corners not specified will be rendered as square corners. Will default
  *     to all square corners if not specified.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
- * @extends {goog.ui.Component}
+ * @extends {Component}
  * @constructor
  */
-goog.ui.BaseRoundedPanel = function(
-    radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
-    opt_domHelper) {
-  'use strict';
-  goog.ui.Component.call(this, opt_domHelper);
+export function BaseRoundedPanel(
+  radius,
+  borderWidth,
+  borderColor,
+  opt_backgroundColor,
+  opt_corners,
+  opt_domHelper
+) {
+  Component.call(this, opt_domHelper);
 
   /**
    * The radius of the rounded corner(s), in pixels.
@@ -159,14 +162,14 @@ goog.ui.BaseRoundedPanel = function(
   this.backgroundColor_ = opt_backgroundColor || null;
 
   /**
-   * The corners of the panel to be rounded; defaults to
-   * goog.ui.RoundedPanel.Corner.NONE
-   * @type {number}
-   * @private
-   */
-  this.corners_ = opt_corners || goog.ui.RoundedPanel.Corner.NONE;
-};
-goog.inherits(goog.ui.BaseRoundedPanel, goog.ui.Component);
+     * The corners of the panel to be rounded; defaults to
+     * Corner.NONE
+     * @type {number}
+     * @private
+     */
+  this.corners_ = opt_corners || Corner.NONE;
+}
+goog.inherits(BaseRoundedPanel, Component);
 
 
 /**
@@ -174,7 +177,7 @@ goog.inherits(goog.ui.BaseRoundedPanel, goog.ui.Component);
  * @type {Element}
  * @private
  */
-goog.ui.BaseRoundedPanel.prototype.backgroundElement_;
+BaseRoundedPanel.prototype.backgroundElement_;
 
 
 /**
@@ -182,50 +185,48 @@ goog.ui.BaseRoundedPanel.prototype.backgroundElement_;
  * @type {Element}
  * @private
  */
-goog.ui.BaseRoundedPanel.prototype.contentElement_;
+BaseRoundedPanel.prototype.contentElement_;
 
 
 /**
  * This method performs all the necessary DOM manipulation to create the panel.
- * Overrides {@link goog.ui.Component#decorateInternal}.
+ * Overrides {@link Component#decorateInternal}.
  * @param {Element} element The element to decorate.
  * @protected
  * @override
  */
-goog.ui.BaseRoundedPanel.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.BaseRoundedPanel.superClass_.decorateInternal.call(this, element);
-  goog.dom.classlist.add(
-      goog.asserts.assert(this.getElement()),
-      goog.ui.RoundedPanel.Classes_.PANEL);
+BaseRoundedPanel.prototype.decorateInternal = function(element) {
+  BaseRoundedPanel.superClass_.decorateInternal.call(this, element);
+  classlist.add(
+      asserts.assert(this.getElement()),
+      Classes_.PANEL);
 
   // Create backgroundElement_, and add it to the DOM.
   this.backgroundElement_ =
-      this.getDomHelper().createElement(goog.dom.TagName.DIV);
-  this.backgroundElement_.className = goog.ui.RoundedPanel.Classes_.BACKGROUND;
+      this.getDomHelper().createElement(TagName.DIV);
+  this.backgroundElement_.className = Classes_.BACKGROUND;
   this.getElement().appendChild(this.backgroundElement_);
 
   // Set contentElement_ by finding a child node within element_ with the
   // proper class name. If none exists, create it and add it to the DOM.
-  this.contentElement_ = goog.dom.getElementsByTagNameAndClass(
-      null, goog.ui.RoundedPanel.Classes_.CONTENT, this.getElement())[0];
+  this.contentElement_ = dom.getElementsByTagNameAndClass(
+      null, Classes_.CONTENT, this.getElement())[0];
   if (!this.contentElement_) {
-    this.contentElement_ = this.getDomHelper().createDom(goog.dom.TagName.DIV);
-    this.contentElement_.className = goog.ui.RoundedPanel.Classes_.CONTENT;
+    this.contentElement_ = this.getDomHelper().createDom(TagName.DIV);
+    this.contentElement_.className = Classes_.CONTENT;
     this.getElement().appendChild(this.contentElement_);
   }
 };
 
 
 /** @override */
-goog.ui.BaseRoundedPanel.prototype.disposeInternal = function() {
-  'use strict';
+BaseRoundedPanel.prototype.disposeInternal = function() {
   if (this.backgroundElement_) {
     this.getDomHelper().removeNode(this.backgroundElement_);
     this.backgroundElement_ = null;
   }
   this.contentElement_ = null;
-  goog.ui.BaseRoundedPanel.superClass_.disposeInternal.call(this);
+  BaseRoundedPanel.superClass_.disposeInternal.call(this);
 };
 
 
@@ -234,8 +235,7 @@ goog.ui.BaseRoundedPanel.prototype.disposeInternal = function() {
  * @return {Element} The element containing the actual content (null if none).
  * @override
  */
-goog.ui.BaseRoundedPanel.prototype.getContentElement = function() {
-  'use strict';
+BaseRoundedPanel.prototype.getContentElement = function() {
   return this.contentElement_;
 };
 
@@ -244,7 +244,7 @@ goog.ui.BaseRoundedPanel.prototype.getContentElement = function() {
 /**
  * RoundedPanel class specifically for browsers that support CSS attributes
  * for elements with rounded borders (ex. Safari 3.0+, Firefox 3.0+). Do not
- * instantiate directly. Instead, call goog.ui.RoundedPanel.create().
+ * instantiate directly. Instead, call create().
  * @param {number} radius The radius of the rounded corner(s), in pixels.
  * @param {number} borderWidth The thickness of the border, in pixels.
  * @param {string} borderColor The border color of the panel.
@@ -252,33 +252,36 @@ goog.ui.BaseRoundedPanel.prototype.getContentElement = function() {
  * @param {number=} opt_corners The corners of the panel to be rounded. Any
  *     corners not specified will be rendered as square corners. Will
  *     default to all square corners if not specified.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
- * @extends {goog.ui.BaseRoundedPanel}
+ * @extends {BaseRoundedPanel}
  * @constructor
  * @final
  */
-goog.ui.CssRoundedPanel = function(
-    radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
-    opt_domHelper) {
-  'use strict';
-  goog.ui.BaseRoundedPanel.call(
+export function CssRoundedPanel(
+  radius,
+  borderWidth,
+  borderColor,
+  opt_backgroundColor,
+  opt_corners,
+  opt_domHelper
+) {
+  BaseRoundedPanel.call(
       this, radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
       opt_domHelper);
-};
-goog.inherits(goog.ui.CssRoundedPanel, goog.ui.BaseRoundedPanel);
+}
+goog.inherits(CssRoundedPanel, BaseRoundedPanel);
 
 
 /**
  * This method performs all the necessary DOM manipulation to create the panel.
- * Overrides {@link goog.ui.Component#decorateInternal}.
+ * Overrides {@link Component#decorateInternal}.
  * @param {Element} element The element to decorate.
  * @protected
  * @override
  */
-goog.ui.CssRoundedPanel.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.CssRoundedPanel.superClass_.decorateInternal.call(this, element);
+CssRoundedPanel.prototype.decorateInternal = function(element) {
+  CssRoundedPanel.superClass_.decorateInternal.call(this, element);
 
   // Set the border width and background color, if needed.
   this.backgroundElement_.style.border =
@@ -288,29 +291,29 @@ goog.ui.CssRoundedPanel.prototype.decorateInternal = function(element) {
   }
 
   // Set radii of the appropriate rounded corners.
-  if (this.corners_ == goog.ui.RoundedPanel.Corner.ALL) {
-    var styleName = this.getStyle_(goog.ui.RoundedPanel.Corner.ALL);
+  if (this.corners_ == Corner.ALL) {
+    var styleName = this.getStyle_(Corner.ALL);
     this.backgroundElement_.style[styleName] = this.radius_ + 'px';
   } else {
     var topLeftRadius =
-        this.corners_ & goog.ui.RoundedPanel.Corner.TOP_LEFT ? this.radius_ : 0;
-    var cornerStyle = this.getStyle_(goog.ui.RoundedPanel.Corner.TOP_LEFT);
+        this.corners_ & Corner.TOP_LEFT ? this.radius_ : 0;
+    var cornerStyle = this.getStyle_(Corner.TOP_LEFT);
     this.backgroundElement_.style[cornerStyle] = topLeftRadius + 'px';
-    var topRightRadius = this.corners_ & goog.ui.RoundedPanel.Corner.TOP_RIGHT ?
+    var topRightRadius = this.corners_ & Corner.TOP_RIGHT ?
         this.radius_ :
         0;
-    cornerStyle = this.getStyle_(goog.ui.RoundedPanel.Corner.TOP_RIGHT);
+    cornerStyle = this.getStyle_(Corner.TOP_RIGHT);
     this.backgroundElement_.style[cornerStyle] = topRightRadius + 'px';
     var bottomRightRadius =
-        this.corners_ & goog.ui.RoundedPanel.Corner.BOTTOM_RIGHT ?
+        this.corners_ & Corner.BOTTOM_RIGHT ?
         this.radius_ :
         0;
-    cornerStyle = this.getStyle_(goog.ui.RoundedPanel.Corner.BOTTOM_RIGHT);
+    cornerStyle = this.getStyle_(Corner.BOTTOM_RIGHT);
     this.backgroundElement_.style[cornerStyle] = bottomRightRadius + 'px';
     var bottomLeftRadius =
-        this.corners_ & goog.ui.RoundedPanel.Corner.BOTTOM_LEFT ? this.radius_ :
+        this.corners_ & Corner.BOTTOM_LEFT ? this.radius_ :
                                                                   0;
-    cornerStyle = this.getStyle_(goog.ui.RoundedPanel.Corner.BOTTOM_LEFT);
+    cornerStyle = this.getStyle_(Corner.BOTTOM_LEFT);
     this.backgroundElement_.style[cornerStyle] = bottomLeftRadius + 'px';
   }
 };
@@ -323,11 +326,10 @@ goog.ui.CssRoundedPanel.prototype.decorateInternal = function(element) {
  * @private
  * @return {string} The CSS style based on the specified corner.
  */
-goog.ui.CssRoundedPanel.prototype.getStyle_ = function(corner) {
-  'use strict';
+CssRoundedPanel.prototype.getStyle_ = function(corner) {
   // Determine the proper corner to work with.
   var cssCorner, suffixLeft, suffixRight;
-  if (goog.userAgent.WEBKIT) {
+  if (userAgent.WEBKIT) {
     suffixLeft = 'Left';
     suffixRight = 'Right';
   } else {
@@ -335,32 +337,32 @@ goog.ui.CssRoundedPanel.prototype.getStyle_ = function(corner) {
     suffixRight = 'right';
   }
   switch (corner) {
-    case goog.ui.RoundedPanel.Corner.ALL:
+    case Corner.ALL:
       cssCorner = '';
       break;
-    case goog.ui.RoundedPanel.Corner.TOP_LEFT:
+    case Corner.TOP_LEFT:
       cssCorner = 'Top' + suffixLeft;
       break;
-    case goog.ui.RoundedPanel.Corner.TOP_RIGHT:
+    case Corner.TOP_RIGHT:
       cssCorner = 'Top' + suffixRight;
       break;
-    case goog.ui.RoundedPanel.Corner.BOTTOM_LEFT:
+    case Corner.BOTTOM_LEFT:
       cssCorner = 'Bottom' + suffixLeft;
       break;
-    case goog.ui.RoundedPanel.Corner.BOTTOM_RIGHT:
+    case Corner.BOTTOM_RIGHT:
       cssCorner = 'Bottom' + suffixRight;
       break;
   }
 
-  return goog.userAgent.WEBKIT ? 'WebkitBorder' + cssCorner + 'Radius' :
+  return userAgent.WEBKIT ? 'WebkitBorder' + cssCorner + 'Radius' :
                                  'MozBorderRadius' + cssCorner;
 };
 
 
 
 /**
- * RoundedPanel class that uses goog.graphics to create the rounded corners.
- * Do not instantiate directly. Instead, call goog.ui.RoundedPanel.create().
+ * RoundedPanel class that uses graphics to create the rounded corners.
+ * Do not instantiate directly. Instead, call create().
  * @param {number} radius The radius of the rounded corner(s), in pixels.
  * @param {number} borderWidth The thickness of the border, in pixels.
  * @param {string} borderColor The border color of the panel.
@@ -368,40 +370,44 @@ goog.ui.CssRoundedPanel.prototype.getStyle_ = function(corner) {
  * @param {number=} opt_corners The corners of the panel to be rounded. Any
  *     corners not specified will be rendered as square corners. Will
  *     default to all square corners if not specified.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
- * @extends {goog.ui.BaseRoundedPanel}
+ * @extends {BaseRoundedPanel}
  * @constructor
  * @final
  */
-goog.ui.GraphicsRoundedPanel = function(
-    radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
-    opt_domHelper) {
-  'use strict';
-  goog.ui.BaseRoundedPanel.call(
+export function GraphicsRoundedPanel(
+  radius,
+  borderWidth,
+  borderColor,
+  opt_backgroundColor,
+  opt_corners,
+  opt_domHelper
+) {
+  BaseRoundedPanel.call(
       this, radius, borderWidth, borderColor, opt_backgroundColor, opt_corners,
       opt_domHelper);
-};
-goog.inherits(goog.ui.GraphicsRoundedPanel, goog.ui.BaseRoundedPanel);
+}
+goog.inherits(GraphicsRoundedPanel, BaseRoundedPanel);
 
 
 /**
  * A 4-element array containing the circle centers for the arcs in the
  * bottom-left, top-left, top-right, and bottom-right corners, respectively.
- * @type {Array<goog.math.Coordinate>}
+ * @type {Array<Coordinate>}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.arcCenters_;
+GraphicsRoundedPanel.prototype.arcCenters_;
 
 
 /**
  * A 4-element array containing the start coordinates for rendering the arcs
  * in the bottom-left, top-left, top-right, and bottom-right corners,
  * respectively.
- * @type {Array<goog.math.Coordinate>}
+ * @type {Array<Coordinate>}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.cornerStarts_;
+GraphicsRoundedPanel.prototype.cornerStarts_;
 
 
 /**
@@ -410,15 +416,15 @@ goog.ui.GraphicsRoundedPanel.prototype.cornerStarts_;
  * @type {Array<number>}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.endAngles_;
+GraphicsRoundedPanel.prototype.endAngles_;
 
 
 /**
  * Graphics object for rendering the background.
- * @type {goog.graphics.AbstractGraphics}
+ * @type {graphics.AbstractGraphics}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.graphics_;
+GraphicsRoundedPanel.prototype.graphics_;
 
 
 /**
@@ -427,7 +433,7 @@ goog.ui.GraphicsRoundedPanel.prototype.graphics_;
  * @type {Array<number>}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.radii_;
+GraphicsRoundedPanel.prototype.radii_;
 
 
 /**
@@ -436,7 +442,7 @@ goog.ui.GraphicsRoundedPanel.prototype.radii_;
  * @type {Array<number>}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.startAngles_;
+GraphicsRoundedPanel.prototype.startAngles_;
 
 
 /**
@@ -445,25 +451,24 @@ goog.ui.GraphicsRoundedPanel.prototype.startAngles_;
  * @type {number}
  * @private
  */
-goog.ui.GraphicsRoundedPanel.BORDER_WIDTH_FACTOR_ = 1 / 2;
+GraphicsRoundedPanel.BORDER_WIDTH_FACTOR_ = 1 / 2;
 
 
 /**
  * This method performs all the necessary DOM manipulation to create the panel.
- * Overrides {@link goog.ui.Component#decorateInternal}.
+ * Overrides {@link Component#decorateInternal}.
  * @param {Element} element The element to decorate.
  * @protected
  * @override
  */
-goog.ui.GraphicsRoundedPanel.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.GraphicsRoundedPanel.superClass_.decorateInternal.call(this, element);
+GraphicsRoundedPanel.prototype.decorateInternal = function(element) {
+  GraphicsRoundedPanel.superClass_.decorateInternal.call(this, element);
 
   // Calculate the points and angles for creating the rounded corners. Then
   // instantiate a Graphics object for drawing purposes.
-  var elementSize = goog.style.getSize(this.getElement());
+  var elementSize = style.getSize(this.getElement());
   this.calculateArcParameters_(elementSize);
-  this.graphics_ = goog.graphics.createGraphics(
+  this.graphics_ = graphics.createGraphics(
       /** @type {number} */ (elementSize.width),
       /** @type {number} */ (elementSize.height),
       /** @type {number} */ (elementSize.width),
@@ -472,7 +477,7 @@ goog.ui.GraphicsRoundedPanel.prototype.decorateInternal = function(element) {
 
   // Create the path, starting from the bottom-right corner, moving clockwise.
   // End with the top-right corner.
-  var path = new goog.graphics.Path();
+  var path = new Path();
   for (var i = 0; i < 4; i++) {
     if (this.radii_[i]) {
       // If radius > 0, draw an arc, moving to the first point and drawing
@@ -483,8 +488,8 @@ goog.ui.GraphicsRoundedPanel.prototype.decorateInternal = function(element) {
       var ry = rx;
       var fromAngle = this.startAngles_[i];
       var extent = this.endAngles_[i] - fromAngle;
-      var startX = cx + goog.math.angleDx(fromAngle, rx);
-      var startY = cy + goog.math.angleDy(fromAngle, ry);
+      var startX = cx + math.angleDx(fromAngle, rx);
+      var startY = cy + math.angleDy(fromAngle, ry);
       if (i > 0) {
         var currentPoint = path.getCurrentPoint();
         if (!currentPoint || startX != currentPoint[0] ||
@@ -508,10 +513,10 @@ goog.ui.GraphicsRoundedPanel.prototype.decorateInternal = function(element) {
   // needed. Then render the path.
   path.close();
   var stroke = this.borderWidth_ ?
-      new goog.graphics.Stroke(this.borderWidth_, this.borderColor_) :
+      new Stroke(this.borderWidth_, this.borderColor_) :
       null;
   var fill = this.backgroundColor_ ?
-      new goog.graphics.SolidFill(this.backgroundColor_, 1) :
+      new SolidFill(this.backgroundColor_, 1) :
       null;
   this.graphics_.drawPath(path, stroke, fill);
   this.graphics_.render(this.backgroundElement_);
@@ -519,9 +524,8 @@ goog.ui.GraphicsRoundedPanel.prototype.decorateInternal = function(element) {
 
 
 /** @override */
-goog.ui.GraphicsRoundedPanel.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.GraphicsRoundedPanel.superClass_.disposeInternal.call(this);
+GraphicsRoundedPanel.prototype.disposeInternal = function() {
+  GraphicsRoundedPanel.superClass_.disposeInternal.call(this);
   this.graphics_.dispose();
   delete this.graphics_;
   delete this.radii_;
@@ -535,12 +539,11 @@ goog.ui.GraphicsRoundedPanel.prototype.disposeInternal = function() {
 /**
  * Calculates the start coordinates, circle centers, and angles, for the rounded
  * corners at each corner of the panel.
- * @param {goog.math.Size} elementSize The size of element_.
+ * @param {math.Size} elementSize The size of element_.
  * @private
  */
-goog.ui.GraphicsRoundedPanel.prototype.calculateArcParameters_ = function(
+GraphicsRoundedPanel.prototype.calculateArcParameters_ = function(
     elementSize) {
-  'use strict';
   // Initialize the arrays containing the key points and angles.
   this.radii_ = [];
   this.cornerStarts_ = [];
@@ -552,29 +555,29 @@ goog.ui.GraphicsRoundedPanel.prototype.calculateArcParameters_ = function(
   // bottom-left, top-left and top-right corners, in that order.
   var angleInterval = 90;
   var borderWidthOffset =
-      this.borderWidth_ * goog.ui.GraphicsRoundedPanel.BORDER_WIDTH_FACTOR_;
+      this.borderWidth_ * GraphicsRoundedPanel.BORDER_WIDTH_FACTOR_;
   var radius, xStart, yStart, xCenter, yCenter, startAngle, endAngle;
   for (var i = 0; i < 4; i++) {
     var corner = Math.pow(2, i);  // Determines which corner we're dealing with.
-    var isLeft = corner & goog.ui.RoundedPanel.Corner.LEFT;
-    var isTop = corner & goog.ui.RoundedPanel.Corner.TOP;
+    var isLeft = corner & Corner.LEFT;
+    var isTop = corner & Corner.TOP;
 
     // Calculate the radius and the start coordinates.
     radius = corner & this.corners_ ? this.radius_ : 0;
     switch (corner) {
-      case goog.ui.RoundedPanel.Corner.BOTTOM_LEFT:
+      case Corner.BOTTOM_LEFT:
         xStart = borderWidthOffset + radius;
         yStart = elementSize.height - borderWidthOffset;
         break;
-      case goog.ui.RoundedPanel.Corner.TOP_LEFT:
+      case Corner.TOP_LEFT:
         xStart = borderWidthOffset;
         yStart = radius + borderWidthOffset;
         break;
-      case goog.ui.RoundedPanel.Corner.TOP_RIGHT:
+      case Corner.TOP_RIGHT:
         xStart = elementSize.width - radius - borderWidthOffset;
         yStart = borderWidthOffset;
         break;
-      case goog.ui.RoundedPanel.Corner.BOTTOM_RIGHT:
+      case Corner.BOTTOM_RIGHT:
         xStart = elementSize.width - borderWidthOffset;
         yStart = elementSize.height - radius - borderWidthOffset;
         break;
@@ -590,8 +593,8 @@ goog.ui.GraphicsRoundedPanel.prototype.calculateArcParameters_ = function(
 
     // Append the radius, angles, and coordinates to their arrays.
     this.radii_[i] = radius;
-    this.cornerStarts_[i] = new goog.math.Coordinate(xStart, yStart);
-    this.arcCenters_[i] = new goog.math.Coordinate(xCenter, yCenter);
+    this.cornerStarts_[i] = new Coordinate(xStart, yStart);
+    this.arcCenters_[i] = new Coordinate(xCenter, yCenter);
     this.startAngles_[i] = startAngle;
     this.endAngles_[i] = endAngle;
   }

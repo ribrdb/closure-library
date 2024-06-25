@@ -4,32 +4,31 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.DialogTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const Coordinate = goog.require('goog.math.Coordinate');
-const Dialog = goog.require('goog.ui.Dialog');
-const EventType = goog.require('goog.events.EventType');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const Role = goog.require('goog.a11y.aria.Role');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const css3 = goog.require('goog.fx.css3');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const safe = goog.require('goog.dom.safe');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { Const } from '../string/const.js';
+import { Coordinate } from '../math/coordinate.js';
+import { Dialog } from './dialog.js';
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { MockClock } from '../testing/mockclock.js';
+import { Role } from '../a11y/aria/roles.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as css3 from '../fx/css3/fx.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as safe from '../dom/safe.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
+import * as testingEvents from '../testing/events/events.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let bodyChildElement;
 let decorateTarget;

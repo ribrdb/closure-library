@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockClockTest');
 goog.setTestOnly();
 
-const GoogPromise = goog.require('goog.Promise');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Timer = goog.require('goog.Timer');
-const array = goog.require('goog.array');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googAsyncNextTick = goog.require('goog.async.nextTick');
-const googAsyncRun = goog.require('goog.async.run');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { MockClock } from './mockclock.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import { Timer } from '../timer/timer.js';
+import * as array from '../array/array.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import { nextTick as googAsyncNextTick } from '../async/nexttick.js';
+import { run as googAsyncRun } from '../async/run.js';
+import { recordFunction } from './recordfunction.js';
+import { testSuite } from './testsuite.js';
 
 const stubs = new PropertyReplacer();
 

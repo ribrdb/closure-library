@@ -18,9 +18,6 @@
  * @see https://goo.gl/Rok5YQ
  */
 
-goog.module('goog.collections.iters');
-goog.module.declareLegacyNamespace();
-
 /**
  * Get the iterator for an iterable.
  * @param {!Iterable<VALUE>} iterable
@@ -30,7 +27,7 @@ goog.module.declareLegacyNamespace();
 function getIterator(iterable) {
   return iterable[goog.global.Symbol.iterator]();
 }
-exports.getIterator = getIterator;
+export { getIterator };
 
 
 /**
@@ -49,7 +46,7 @@ function forEach(iterator, f) {
     f(result.value);
   }
 }
-exports.forEach = forEach;
+export { forEach };
 
 /**
  * An Iterable that wraps a child iterable, and maps every element of the child
@@ -103,7 +100,7 @@ class MapIterator {
  *     mapped values.
  * @template VALUE, RESULT
  */
-exports.map = function(iterable, f) {
+export let map = function(iterable, f) {
   return new MapIterator(iterable, f);
 };
 
@@ -163,7 +160,7 @@ class FilterIterator {
  *     values.
  * @template VALUE
  */
-exports.filter = function(iterable, f) {
+export let filter = function(iterable, f) {
   return new FilterIterator(iterable, f);
 };
 
@@ -215,7 +212,7 @@ class ConcatIterator {
  * @return {!IteratorIterable<VALUE>}
  * @template VALUE
  */
-exports.concat = function(...iterables) {
+export let concat = function(...iterables) {
   return new ConcatIterator(iterables.map(getIterator));
 };
 
@@ -225,7 +222,7 @@ exports.concat = function(...iterables) {
  * @return {!Array<VALUE>}
  * @template VALUE
  */
-exports.toArray = function(iterator) {
+export let toArray = function(iterator) {
   const arr = [];
   forEach(iterator, e => arr.push(e));
   return arr;

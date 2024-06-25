@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.format.csvTest');
 goog.setTestOnly();
 
-const ParseError = goog.require('goog.labs.format.csv.ParseError');
-const asserts = goog.require('goog.testing.asserts');
-const csv = goog.require('goog.labs.format.csv');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as csv from './csv.js';
+import { ParseError } from './csv.js';
+import * as asserts from '../../testing/asserts.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testGoldenPath() {

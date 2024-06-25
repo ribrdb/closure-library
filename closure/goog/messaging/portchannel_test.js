@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.PortChannelTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.events.EventType');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const GoogPromise = goog.require('goog.Promise');
-const MessagingMessageChannel = goog.requireType('goog.messaging.MessageChannel');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageEvent = goog.require('goog.testing.messaging.MockMessageEvent');
-const PortChannel = goog.require('goog.messaging.PortChannel');
-const TagName = goog.require('goog.dom.TagName');
-const TestCase = goog.require('goog.testing.TestCase');
-const Timer = goog.require('goog.Timer');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googJson = goog.require('goog.json');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventType } from '../events/eventtype.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageEvent } from '../testing/messaging/mockmessageevent.js';
+import { PortChannel } from './portchannel.js';
+import { TagName } from '../dom/tagname.js';
+import { TestCase } from '../testing/testcase.js';
+import { Timer } from '../timer/timer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as googJson from '../json/json.js';
+import { testSuite } from '../testing/testsuite.js';
+const MessagingMessageChannel = goog.requireType('goog.messaging.messagechannel');
 
 let mockControl;
 let mockPort;

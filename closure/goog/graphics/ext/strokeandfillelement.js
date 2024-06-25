@@ -10,13 +10,12 @@
  */
 
 
-goog.provide('goog.graphics.ext.StrokeAndFillElement');
+import { Element } from './element.js';
 
-goog.require('goog.graphics.ext.Element');
-goog.requireType('goog.graphics.Fill');
-goog.requireType('goog.graphics.Stroke');
-goog.requireType('goog.graphics.StrokeAndFillElement');
-goog.requireType('goog.graphics.ext.Group');
+goog.requireType('goog.graphics.fill');
+goog.requireType('goog.graphics.stroke');
+goog.requireType('goog.graphics.strokeandfillelement');
+goog.requireType('goog.graphics.ext.group');
 
 
 
@@ -28,14 +27,13 @@ goog.requireType('goog.graphics.ext.Group');
  * @param {goog.graphics.ext.Group} group Parent for this element.
  * @param {goog.graphics.StrokeAndFillElement} wrapper The thin wrapper to wrap.
  * @constructor
- * @extends {goog.graphics.ext.Element}
+ * @extends {Element}
  */
-goog.graphics.ext.StrokeAndFillElement = function(group, wrapper) {
-  'use strict';
-  goog.graphics.ext.Element.call(this, group, wrapper);
-};
+export function StrokeAndFillElement(group, wrapper) {
+ Element.call(this, group, wrapper);
+}
 goog.inherits(
-    goog.graphics.ext.StrokeAndFillElement, goog.graphics.ext.Element);
+    StrokeAndFillElement, Element);
 
 
 /**
@@ -43,9 +41,8 @@ goog.inherits(
  * @param {goog.graphics.Fill?} fill The fill object.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.StrokeAndFillElement.prototype.setFill = function(fill) {
-  'use strict';
-  this.getWrapper().setFill(fill);
+StrokeAndFillElement.prototype.setFill = function(fill) {
+ this.getWrapper().setFill(fill);
 };
 
 
@@ -54,9 +51,8 @@ goog.graphics.ext.StrokeAndFillElement.prototype.setFill = function(fill) {
  * @param {goog.graphics.Stroke?} stroke The stroke object.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.StrokeAndFillElement.prototype.setStroke = function(stroke) {
-  'use strict';
-  this.getWrapper().setStroke(stroke);
+StrokeAndFillElement.prototype.setStroke = function(stroke) {
+ this.getWrapper().setStroke(stroke);
 };
 
 
@@ -66,7 +62,6 @@ goog.graphics.ext.StrokeAndFillElement.prototype.setStroke = function(stroke) {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.StrokeAndFillElement.prototype.redraw = function() {
-  'use strict';
-  this.getWrapper().reapplyStroke();
+StrokeAndFillElement.prototype.redraw = function() {
+ this.getWrapper().reapplyStroke();
 };

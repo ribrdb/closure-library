@@ -8,13 +8,12 @@
  * @fileoverview CSS3 transition base library.
  */
 
-goog.provide('goog.fx.css3.Transition');
+import { Timer } from '../../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.asserts');
-goog.require('goog.fx.TransitionBase');
-goog.require('goog.style');
-goog.require('goog.style.transition');
+import * as asserts from '../../asserts/asserts.js';
+import { TransitionBase } from '../transitionbase.js';
+import * as style from '../../style/style.js';
+import * as transition from '../../style/transition.js';
 
 
 
@@ -35,7 +34,7 @@ goog.require('goog.style.transition');
  * that expands on the width and then followed by the height:
  *
  * <pre>
- *   var animation = new goog.fx.css3.Transition(
+ *   var animation = new Transition(
  *     element,
  *     duration,
  *     {width: 10px, height: 10px},
@@ -51,83 +50,80 @@ goog.require('goog.style.transition');
  * @param {number} duration The duration of the transition in seconds.
  *     This should be the longest of all transitions, including any delay.
  * @param {Object} initialStyle Initial style properties of the element before
- *     animating. Set using `goog.style.setStyle`.
+ *     animating. Set using `style.setStyle`.
  * @param {Object} finalStyle Final style properties of the element after
- *     animating. Set using `goog.style.setStyle`.
- * @param {goog.style.transition.Css3Property|
- *     Array<goog.style.transition.Css3Property>} transitions A single CSS3
+ *     animating. Set using `style.setStyle`.
+ * @param {transition.Css3Property|
+ *     Array<transition.Css3Property>} transitions A single CSS3
  *     transition property or an array of it.
- * @extends {goog.fx.TransitionBase}
+ * @extends {TransitionBase}
  * @constructor
  * @struct
  */
-goog.fx.css3.Transition = function(
-    element, duration, initialStyle, finalStyle, transitions) {
-  'use strict';
-  goog.fx.css3.Transition.base(this, 'constructor');
+export function Transition(element, duration, initialStyle, finalStyle, transitions) {
+ Transition.base(this, 'constructor');
 
-  /**
-   * Timer id to be used to cancel animation part-way.
-   * @private {number}
-   */
-  this.timerId_;
+ /**
+  * Timer id to be used to cancel animation part-way.
+  * @private {number}
+  */
+ this.timerId_;
 
-  /**
-   * @type {Element}
+ /**
+  * @type {Element}
+  * @private
+  */
+ this.element_ = element;
+
+ /**
+  * @type {number}
+  * @private
+  */
+ this.duration_ = duration;
+
+ /**
+  * @type {Object}
+  * @private
+  */
+ this.initialStyle_ = initialStyle;
+
+ /**
+  * @type {Object}
+  * @private
+  */
+ this.finalStyle_ = finalStyle;
+
+ /**
+   * @type {Array<transition.Css3Property>}
    * @private
    */
-  this.element_ = element;
-
-  /**
-   * @type {number}
-   * @private
-   */
-  this.duration_ = duration;
-
-  /**
-   * @type {Object}
-   * @private
-   */
-  this.initialStyle_ = initialStyle;
-
-  /**
-   * @type {Object}
-   * @private
-   */
-  this.finalStyle_ = finalStyle;
-
-  /**
-   * @type {Array<goog.style.transition.Css3Property>}
-   * @private
-   */
-  this.transitions_ = Array.isArray(transitions) ? transitions : [transitions];
-};
-goog.inherits(goog.fx.css3.Transition, goog.fx.TransitionBase);
+ this.transitions_ = Array.isArray(transitions) ? transitions : [transitions];
+}
+goog.inherits(Transition, TransitionBase);
 
 
 /** @override */
-goog.fx.css3.Transition.prototype.play = function() {
-  'use strict';
-  if (this.isPlaying()) {
-    return false;
-  }
+Transition.prototype.play = function() {
+ if (this.isPlaying()) {
+   return false;
+ }
 
-  this.onBegin();
-  this.onPlay();
+ this.onBegin();
+ this.onPlay();
 
-  this.startTime = goog.now();
-  this.setStatePlaying();
+ this.startTime = goog.now();
+ this.setStatePlaying();
 
-  if (goog.style.transition.isSupported()) {
-    goog.style.setStyle(this.element_, this.initialStyle_);
-    // Allow element to get updated to its initial state before installing
-    // CSS3 transition.
-    this.timerId_ = goog.Timer.callOnce(this.play_, undefined, this);
-    return true;
-  } else {
-    this.stop_(false);
-    return false;
-  }
+ if (transition.isSupported()) {
+   style.setStyle(this.element_, this.initialStyle_);
+   // Allow element to get updated to its initial state before installing
+   // CSS3 transition.
+   this.timerId_ = Timer.callOnce(this.play_, undefined, this);
+   return true;
+ } else {
+   this.stop_(false);
+   return false;
+ }
 };
 
 
@@ -135,24 +131,22 @@ goog.fx.css3.Transition.prototype.play = function() {
  * Helper method for play method. This needs to be executed on a timer.
  * @private
  */
-goog.fx.css3.Transition.prototype.play_ = function() {
-  'use strict';
-  // This measurement of the DOM element causes the browser to recalculate its
-  // initial state before the transition starts.
-  goog.style.getSize(this.element_);
-  goog.style.transition.set(this.element_, this.transitions_);
-  goog.style.setStyle(this.element_, this.finalStyle_);
-  this.timerId_ = goog.Timer.callOnce(
-      goog.bind(this.stop_, this, false), this.duration_ * 1000);
+Transition.prototype.play_ = function() {
+ // This measurement of the DOM element causes the browser to recalculate its
+ // initial state before the transition starts.
+ style.getSize(this.element_);
+ transition.set(this.element_, this.transitions_);
+ style.setStyle(this.element_, this.finalStyle_);
+ this.timerId_ = Timer.callOnce(
+     goog.bind(this.stop_, this, false), this.duration_ * 1000);
 };
 
 
 /** @override */
-goog.fx.css3.Transition.prototype.stop = function() {
-  'use strict';
-  if (!this.isPlaying()) return;
+Transition.prototype.stop = function() {
+ if (!this.isPlaying()) return;
 
-  this.stop_(true);
+ this.stop_(true);
 };
 
 
@@ -161,33 +155,31 @@ goog.fx.css3.Transition.prototype.stop = function() {
  * @param {boolean} stopped If the transition was stopped.
  * @private
  */
-goog.fx.css3.Transition.prototype.stop_ = function(stopped) {
-  'use strict';
-  goog.style.transition.removeAll(this.element_);
+Transition.prototype.stop_ = function(stopped) {
+ transition.removeAll(this.element_);
 
-  // Clear the timer.
-  goog.Timer.clear(this.timerId_);
+ // Clear the timer.
+ Timer.clear(this.timerId_);
 
-  // Make sure that we have reached the final style.
-  goog.style.setStyle(this.element_, this.finalStyle_);
+ // Make sure that we have reached the final style.
+ style.setStyle(this.element_, this.finalStyle_);
 
-  this.endTime = goog.now();
-  this.setStateStopped();
+ this.endTime = goog.now();
+ this.setStateStopped();
 
-  if (stopped) {
-    this.onStop();
-  } else {
-    this.onFinish();
-  }
-  this.onEnd();
+ if (stopped) {
+   this.onStop();
+ } else {
+   this.onFinish();
+ }
+ this.onEnd();
 };
 
 
 /** @override */
-goog.fx.css3.Transition.prototype.disposeInternal = function() {
-  'use strict';
-  this.stop();
-  goog.fx.css3.Transition.base(this, 'disposeInternal');
+Transition.prototype.disposeInternal = function() {
+ this.stop();
+ Transition.base(this, 'disposeInternal');
 };
 
 
@@ -195,7 +187,6 @@ goog.fx.css3.Transition.prototype.disposeInternal = function() {
  * Pausing CSS3 Transitions in not supported.
  * @override
  */
-goog.fx.css3.Transition.prototype.pause = function() {
-  'use strict';
-  goog.asserts.assert(false, 'Css3 transitions does not support pause action.');
+Transition.prototype.pause = function() {
+ asserts.assert(false, 'Css3 transitions does not support pause action.');
 };

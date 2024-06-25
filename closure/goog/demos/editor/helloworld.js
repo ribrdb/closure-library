@@ -12,11 +12,10 @@
  * @see helloworld.html
  */
 
-goog.provide('goog.demos.editor.HelloWorld');
+import * as dom from '../../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.Plugin');
+import { TagName } from '../../dom/tagname.js';
+import { Plugin } from '../../editor/plugin.js';
 
 
 
@@ -25,7 +24,7 @@ goog.require('goog.editor.Plugin');
  * @final
  * @unrestricted
  */
-goog.demos.editor.HelloWorld = class extends goog.editor.Plugin {
+export class HelloWorld extends Plugin {
   constructor() {
     super();
   }
@@ -37,7 +36,7 @@ goog.demos.editor.HelloWorld = class extends goog.editor.Plugin {
 
   /** @override */
   isSupportedCommand(command) {
-    return command == goog.demos.editor.HelloWorld.COMMAND.HELLO_WORLD;
+    return command == HelloWorld.COMMAND.HELLO_WORLD;
   }
 
   /**
@@ -53,10 +52,10 @@ goog.demos.editor.HelloWorld = class extends goog.editor.Plugin {
     const range = this.getFieldObject().getRange();
     range.removeContents();
     const newNode =
-        domHelper.createDom(goog.dom.TagName.SPAN, null, 'Hello World!');
+        domHelper.createDom(TagName.SPAN, null, 'Hello World!');
     range.insertNode(newNode, false);
   }
-};
+}
 
 
 
@@ -64,6 +63,6 @@ goog.demos.editor.HelloWorld = class extends goog.editor.Plugin {
  * Commands implemented by this plugin.
  * @enum {string}
  */
-goog.demos.editor.HelloWorld.COMMAND = {
+HelloWorld.COMMAND = {
   HELLO_WORLD: '+helloWorld'
 };

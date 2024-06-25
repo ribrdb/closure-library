@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ActivityMonitorTest');
 goog.setTestOnly();
 
-const ActivityMonitor = goog.require('goog.ui.ActivityMonitor');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { ActivityMonitor } from './activitymonitor.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let mockClock;
 const stubs = new PropertyReplacer();

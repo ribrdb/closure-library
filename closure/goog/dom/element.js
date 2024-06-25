@@ -4,11 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.element');
-goog.module.declareLegacyNamespace();
+import { NodeType } from './nodetype.js';
 
-const NodeType = goog.require('goog.dom.NodeType');
-const TagName = goog.require('goog.dom.TagName');
+import { TagName } from './tagname.js';
 
 /** @const {string}  */
 const HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
@@ -47,8 +45,7 @@ const isHtmlElementOfType = (value, tagName) => {
   return goog.isObject(value) && isHtmlElement(value) &&
       // Some uncommon JS environments (e.g. Cobalt 9) have issues with tag
       // capitalization.
-      (/** @type {!HTMLElement} */ (value).tagName.toUpperCase() ===
-       tagName.toString());
+      (/** @type {!HTMLElement} */ ((value).tagName.toUpperCase() === tagName.toString()));
 };
 
 /**
@@ -186,7 +183,7 @@ const isHtmlScriptElement = (value) => {
   return isHtmlElementOfType(value, TagName.SCRIPT);
 };
 
-exports = {
+export default {
   isElement,
   isHtmlElement,
   isHtmlElementOfType,

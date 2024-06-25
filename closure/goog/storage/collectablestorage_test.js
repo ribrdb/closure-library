@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.CollectableStorageTest');
 goog.setTestOnly();
 
-const CollectableStorage = goog.require('goog.storage.CollectableStorage');
-const FakeMechanism = goog.require('goog.testing.storage.FakeMechanism');
-const MockClock = goog.require('goog.testing.MockClock');
-const collectableStorageTester = goog.require('goog.storage.collectableStorageTester');
-const storageTester = goog.require('goog.storage.storageTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CollectableStorage } from './collectablestorage.js';
+import { FakeMechanism } from '../testing/storage/fakemechanism.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as collectableStorageTester from './collectablestoragetester.js';
+import * as storageTester from './storagetester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testBasicOperations() {

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.module.ModuleLoadCallbackTest');
 goog.setTestOnly();
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const ModuleLoadCallback = goog.require('goog.module.ModuleLoadCallback');
-const entryPointRegistry = goog.require('goog.debug.entryPointRegistry');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandler } from '../debug/errorhandler.js';
+import { ModuleLoadCallback } from './moduleloadcallback.js';
+import * as entryPointRegistry from '../debug/entrypointregistry.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testProtectEntryPoint() {

@@ -9,14 +9,8 @@
  */
 
 
-goog.provide('goog.dom.RangeEndpoint');
-
-
-/**
- * Constants for selection endpoints.
- * @enum {number}
- */
-goog.dom.RangeEndpoint = {
+RangeEndpoint = {
   START: 1,
   END: 0
 };
+export var RangeEndpoint;

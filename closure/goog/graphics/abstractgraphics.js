@@ -10,25 +10,25 @@
  */
 
 
-goog.provide('goog.graphics.AbstractGraphics');
+goog.declareModuleId('goog.graphics.abstractgraphics');
 
-goog.require('goog.dom');
-goog.require('goog.graphics.AffineTransform');
-goog.require('goog.graphics.Element');
-goog.require('goog.graphics.EllipseElement');
-goog.require('goog.graphics.Fill');
-goog.require('goog.graphics.Font');
-goog.require('goog.graphics.GroupElement');
-goog.require('goog.graphics.Path');
-goog.require('goog.graphics.PathElement');
-goog.require('goog.graphics.RectElement');
-goog.require('goog.graphics.Stroke');
-goog.require('goog.graphics.StrokeAndFillElement');
-goog.require('goog.graphics.TextElement');
-goog.require('goog.math.Coordinate');
-goog.require('goog.math.Size');
-goog.require('goog.style');
-goog.require('goog.ui.Component');
+import * as dom from '../dom/dom.js';
+import { AffineTransform } from './affinetransform.js';
+import { Element } from './element.js';
+import { EllipseElement } from './ellipseelement.js';
+import { Fill } from './fill.js';
+import { Font } from './font.js';
+import { GroupElement } from './groupelement.js';
+import { Path } from './path.js';
+import { PathElement } from './pathelement.js';
+import { RectElement } from './rectelement.js';
+import { Stroke } from './stroke.js';
+import { StrokeAndFillElement } from './strokeandfillelement.js';
+import { TextElement } from './textelement.js';
+import { Coordinate } from '../math/coordinate.js';
+import { Size } from '../math/size.js';
+import * as style from '../style/style.js';
+import { Component } from '../ui/component.js';
 
 
 
@@ -41,53 +41,51 @@ goog.require('goog.ui.Component');
  *     omitted or null, defaults to same as width.
  * @param {?number=} opt_coordHeight Optional coordinate system height - if
  *     omitted or null, defaults to same as height.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
  * @constructor
- * @extends {goog.ui.Component}
+ * @extends {Component}
  */
-goog.graphics.AbstractGraphics = function(
-    width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) {
-  'use strict';
-  goog.ui.Component.call(this, opt_domHelper);
+export function AbstractGraphics(width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) {
+ Component.call(this, opt_domHelper);
 
-  /**
-   * Width of graphics in pixels or percentage points.
-   * @type {number|string}
-   * @protected
-   */
-  this.width = width;
+ /**
+  * Width of graphics in pixels or percentage points.
+  * @type {number|string}
+  * @protected
+  */
+ this.width = width;
 
-  /**
-   * Height of graphics in pixels or percentage points.
-   * @type {number|string}
-   * @protected
-   */
-  this.height = height;
+ /**
+  * Height of graphics in pixels or percentage points.
+  * @type {number|string}
+  * @protected
+  */
+ this.height = height;
 
-  /**
-   * Width of coordinate system in units.
-   * @type {?number}
-   * @protected
-   */
-  this.coordWidth = opt_coordWidth || null;
+ /**
+  * Width of coordinate system in units.
+  * @type {?number}
+  * @protected
+  */
+ this.coordWidth = opt_coordWidth || null;
 
-  /**
-   * Height of coordinate system in units.
-   * @type {?number}
-   * @protected
-   */
-  this.coordHeight = opt_coordHeight || null;
-};
-goog.inherits(goog.graphics.AbstractGraphics, goog.ui.Component);
+ /**
+  * Height of coordinate system in units.
+  * @type {?number}
+  * @protected
+  */
+ this.coordHeight = opt_coordHeight || null;
+}
+goog.inherits(AbstractGraphics, Component);
 
 
 /**
  * The root level group element.
- * @type {goog.graphics.GroupElement?}
+ * @type {GroupElement?}
  * @protected
  */
-goog.graphics.AbstractGraphics.prototype.canvasElement = null;
+AbstractGraphics.prototype.canvasElement = null;
 
 
 /**
@@ -95,7 +93,7 @@ goog.graphics.AbstractGraphics.prototype.canvasElement = null;
  * @type {number}
  * @protected
  */
-goog.graphics.AbstractGraphics.prototype.coordLeft = 0;
+AbstractGraphics.prototype.coordLeft = 0;
 
 
 /**
@@ -103,15 +101,14 @@ goog.graphics.AbstractGraphics.prototype.coordLeft = 0;
  * @type {number}
  * @protected
  */
-goog.graphics.AbstractGraphics.prototype.coordTop = 0;
+AbstractGraphics.prototype.coordTop = 0;
 
 
 /**
- * @return {goog.graphics.GroupElement} The root level canvas element.
+ * @return {GroupElement} The root level canvas element.
  */
-goog.graphics.AbstractGraphics.prototype.getCanvasElement = function() {
-  'use strict';
-  return this.canvasElement;
+AbstractGraphics.prototype.getCanvasElement = function() {
+ return this.canvasElement;
 };
 
 
@@ -120,26 +117,24 @@ goog.graphics.AbstractGraphics.prototype.getCanvasElement = function() {
  * @param {number} coordWidth  The coordinate width.
  * @param {number} coordHeight  The coordinate height.
  */
-goog.graphics.AbstractGraphics.prototype.setCoordSize = function(
+AbstractGraphics.prototype.setCoordSize = function(
     coordWidth, coordHeight) {
-  'use strict';
-  this.coordWidth = coordWidth;
-  this.coordHeight = coordHeight;
+ this.coordWidth = coordWidth;
+ this.coordHeight = coordHeight;
 };
 
 
 /**
- * @return {goog.math.Size} The coordinate size.
+ * @return {Size} The coordinate size.
  */
-goog.graphics.AbstractGraphics.prototype.getCoordSize = function() {
-  'use strict';
-  if (this.coordWidth) {
-    return new goog.math.Size(
-        this.coordWidth,
-        /** @type {number} */ (this.coordHeight));
-  } else {
-    return this.getPixelSize();
-  }
+AbstractGraphics.prototype.getCoordSize = function() {
+ if (this.coordWidth) {
+   return new Size(
+       this.coordWidth,
+       /** @type {number} */ (this.coordHeight));
+ } else {
+   return this.getPixelSize();
+ }
 };
 
 
@@ -148,15 +143,14 @@ goog.graphics.AbstractGraphics.prototype.getCoordSize = function() {
  * @param {number} left  The coordinate system left bound.
  * @param {number} top  The coordinate system top bound.
  */
-goog.graphics.AbstractGraphics.prototype.setCoordOrigin = goog.abstractMethod;
+AbstractGraphics.prototype.setCoordOrigin = goog.abstractMethod;
 
 
 /**
- * @return {!goog.math.Coordinate} The coordinate system position.
+ * @return {!Coordinate} The coordinate system position.
  */
-goog.graphics.AbstractGraphics.prototype.getCoordOrigin = function() {
-  'use strict';
-  return new goog.math.Coordinate(this.coordLeft, this.coordTop);
+AbstractGraphics.prototype.getCoordOrigin = function() {
+ return new Coordinate(this.coordLeft, this.coordTop);
 };
 
 
@@ -165,88 +159,83 @@ goog.graphics.AbstractGraphics.prototype.getCoordOrigin = function() {
  * @param {number} pixelWidth  The width in pixels.
  * @param {number} pixelHeight  The height in pixels.
  */
-goog.graphics.AbstractGraphics.prototype.setSize = goog.abstractMethod;
+AbstractGraphics.prototype.setSize = goog.abstractMethod;
 
 
 /**
- * @return {goog.math.Size} The size of canvas.
+ * @return {Size} The size of canvas.
  * @deprecated Use getPixelSize.
  */
-goog.graphics.AbstractGraphics.prototype.getSize = function() {
-  'use strict';
-  return this.getPixelSize();
+AbstractGraphics.prototype.getSize = function() {
+ return this.getPixelSize();
 };
 
 
 /**
- * @return {goog.math.Size?} Returns the number of pixels spanned by the
+ * @return {Size?} Returns the number of pixels spanned by the
  *     surface, or null if the size could not be computed due to the size being
  *     specified in percentage points and the component not being in the
  *     document.
  */
-goog.graphics.AbstractGraphics.prototype.getPixelSize = function() {
-  'use strict';
-  if (this.isInDocument()) {
-    return goog.style.getSize(this.getElement());
-  }
-  if (typeof this.width === 'number' && typeof this.height === 'number') {
-    return new goog.math.Size(this.width, this.height);
-  }
-  return null;
+AbstractGraphics.prototype.getPixelSize = function() {
+ if (this.isInDocument()) {
+   return style.getSize(this.getElement());
+ }
+ if (typeof this.width === 'number' && typeof this.height === 'number') {
+   return new Size(this.width, this.height);
+ }
+ return null;
 };
 
 
 /**
  * @return {number} Returns the number of pixels per unit in the x direction.
  */
-goog.graphics.AbstractGraphics.prototype.getPixelScaleX = function() {
-  'use strict';
-  var pixelSize = this.getPixelSize();
-  return pixelSize ? pixelSize.width / this.getCoordSize().width : 0;
+AbstractGraphics.prototype.getPixelScaleX = function() {
+ var pixelSize = this.getPixelSize();
+ return pixelSize ? pixelSize.width / this.getCoordSize().width : 0;
 };
 
 
 /**
  * @return {number} Returns the number of pixels per unit in the y direction.
  */
-goog.graphics.AbstractGraphics.prototype.getPixelScaleY = function() {
-  'use strict';
-  var pixelSize = this.getPixelSize();
-  return pixelSize ? pixelSize.height / this.getCoordSize().height : 0;
+AbstractGraphics.prototype.getPixelScaleY = function() {
+ var pixelSize = this.getPixelSize();
+ return pixelSize ? pixelSize.height / this.getCoordSize().height : 0;
 };
 
 
 /**
  * Remove all drawing elements from the graphics.
  */
-goog.graphics.AbstractGraphics.prototype.clear = goog.abstractMethod;
+AbstractGraphics.prototype.clear = goog.abstractMethod;
 
 
 /**
  * Remove a single drawing element from the surface.  The default implementation
  * assumes a DOM based drawing surface.
- * @param {goog.graphics.Element} element The element to remove.
+ * @param {Element} element The element to remove.
  */
-goog.graphics.AbstractGraphics.prototype.removeElement = function(element) {
-  'use strict';
-  goog.dom.removeNode(element.getElement());
+AbstractGraphics.prototype.removeElement = function(element) {
+ dom.removeNode(element.getElement());
 };
 
 
 /**
  * Sets the fill for the given element.
- * @param {goog.graphics.StrokeAndFillElement} element The element wrapper.
- * @param {goog.graphics.Fill?} fill The fill object.
+ * @param {StrokeAndFillElement} element The element wrapper.
+ * @param {Fill?} fill The fill object.
  */
-goog.graphics.AbstractGraphics.prototype.setElementFill = goog.abstractMethod;
+AbstractGraphics.prototype.setElementFill = goog.abstractMethod;
 
 
 /**
  * Sets the stroke for the given element.
- * @param {goog.graphics.StrokeAndFillElement} element The element wrapper.
- * @param {goog.graphics.Stroke?} stroke The stroke object.
+ * @param {StrokeAndFillElement} element The element wrapper.
+ * @param {Stroke?} stroke The stroke object.
  */
-goog.graphics.AbstractGraphics.prototype.setElementStroke = goog.abstractMethod;
+AbstractGraphics.prototype.setElementStroke = goog.abstractMethod;
 
 
 /**
@@ -254,24 +243,24 @@ goog.graphics.AbstractGraphics.prototype.setElementStroke = goog.abstractMethod;
  *
  * If a more general affine transform is needed than this provides
  * (e.g. skew and scale) then use setElementAffineTransform.
- * @param {goog.graphics.Element} element The element wrapper.
+ * @param {Element} element The element wrapper.
  * @param {number} x The x coordinate of the translation transform.
  * @param {number} y The y coordinate of the translation transform.
  * @param {number} angle The angle of the rotation transform.
  * @param {number} centerX The horizontal center of the rotation transform.
  * @param {number} centerY The vertical center of the rotation transform.
  */
-goog.graphics.AbstractGraphics.prototype.setElementTransform =
+AbstractGraphics.prototype.setElementTransform =
     goog.abstractMethod;
 
 
 /**
  * Set the affine transform of an element.
- * @param {!goog.graphics.Element} element The element wrapper.
- * @param {!goog.graphics.AffineTransform} affineTransform The
+ * @param {!Element} element The element wrapper.
+ * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  */
-goog.graphics.AbstractGraphics.prototype.setElementAffineTransform =
+AbstractGraphics.prototype.setElementAffineTransform =
     goog.abstractMethod;
 
 
@@ -281,18 +270,17 @@ goog.graphics.AbstractGraphics.prototype.setElementAffineTransform =
  * @param {number} cx Center X coordinate.
  * @param {number} cy Center Y coordinate.
  * @param {number} r Radius length.
- * @param {goog.graphics.Stroke?} stroke Stroke object describing the
+ * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.EllipseElement} The newly created element.
+ * @return {EllipseElement} The newly created element.
  */
-goog.graphics.AbstractGraphics.prototype.drawCircle = function(
+AbstractGraphics.prototype.drawCircle = function(
     cx, cy, r, stroke, fill, opt_group) {
-  'use strict';
-  return this.drawEllipse(cx, cy, r, r, stroke, fill, opt_group);
+ return this.drawEllipse(cx, cy, r, r, stroke, fill, opt_group);
 };
 
 
@@ -303,15 +291,15 @@ goog.graphics.AbstractGraphics.prototype.drawCircle = function(
  * @param {number} cy Center Y coordinate.
  * @param {number} rx Radius length for the x-axis.
  * @param {number} ry Radius length for the y-axis.
- * @param {goog.graphics.Stroke?} stroke Stroke object describing the
+ * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.EllipseElement} The newly created element.
+ * @return {EllipseElement} The newly created element.
  */
-goog.graphics.AbstractGraphics.prototype.drawEllipse = goog.abstractMethod;
+AbstractGraphics.prototype.drawEllipse = goog.abstractMethod;
 
 
 /**
@@ -321,15 +309,15 @@ goog.graphics.AbstractGraphics.prototype.drawEllipse = goog.abstractMethod;
  * @param {number} y Y coordinate (top).
  * @param {number} width Width of rectangle.
  * @param {number} height Height of rectangle.
- * @param {goog.graphics.Stroke?} stroke Stroke object describing the
+ * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.RectElement} The newly created element.
+ * @return {RectElement} The newly created element.
  */
-goog.graphics.AbstractGraphics.prototype.drawRect = goog.abstractMethod;
+AbstractGraphics.prototype.drawRect = goog.abstractMethod;
 
 
 /**
@@ -342,30 +330,29 @@ goog.graphics.AbstractGraphics.prototype.drawRect = goog.abstractMethod;
  * @param {number} height Height of rectangle.
  * @param {string} align Horizontal alignment: left (default), center, right.
  * @param {string} vAlign Vertical alignment: top (default), center, bottom.
- * @param {goog.graphics.Font} font Font describing the font properties.
- * @param {goog.graphics.Stroke?} stroke Stroke object describing the
+ * @param {Font} font Font describing the font properties.
+ * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill  Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {Fill?} fill  Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.TextElement} The newly created element.
+ * @return {TextElement} The newly created element.
  */
-goog.graphics.AbstractGraphics.prototype.drawText = function(
+AbstractGraphics.prototype.drawText = function(
     text, x, y, width, height, align, vAlign, font, stroke, fill, opt_group) {
-  'use strict';
-  var baseline = font.size / 2;  // Baseline is middle of line
-  var textY;
-  if (vAlign == 'bottom') {
-    textY = y + height - baseline;
-  } else if (vAlign == 'center') {
-    textY = y + height / 2;
-  } else {
-    textY = y + baseline;
-  }
+ var baseline = font.size / 2;  // Baseline is middle of line
+ var textY;
+ if (vAlign == 'bottom') {
+   textY = y + height - baseline;
+ } else if (vAlign == 'center') {
+   textY = y + height / 2;
+ } else {
+   textY = y + baseline;
+ }
 
-  return this.drawTextOnLine(
-      text, x, textY, x + width, textY, align, font, stroke, fill, opt_group);
+ return this.drawTextOnLine(
+     text, x, textY, x + width, textY, align, font, stroke, fill, opt_group);
 };
 
 
@@ -378,53 +365,52 @@ goog.graphics.AbstractGraphics.prototype.drawText = function(
  * @param {number} x2 X coordinate of end of line.
  * @param {number} y2 Y coordinate of end of line.
  * @param {string} align Horizontal alingnment: left (default), center, right.
- * @param {goog.graphics.Font} font Font describing the font properties.
- * @param {goog.graphics.Stroke?} stroke Stroke object describing the
+ * @param {Font} font Font describing the font properties.
+ * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.TextElement} The newly created element.
+ * @return {TextElement} The newly created element.
  */
-goog.graphics.AbstractGraphics.prototype.drawTextOnLine = goog.abstractMethod;
+AbstractGraphics.prototype.drawTextOnLine = goog.abstractMethod;
 
 
 /**
  * Draw a path.
  *
- * @param {!goog.graphics.Path} path The path object to draw.
- * @param {goog.graphics.Stroke?} stroke Stroke object describing the
+ * @param {!Path} path The path object to draw.
+ * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.PathElement} The newly created element.
+ * @return {PathElement} The newly created element.
  */
-goog.graphics.AbstractGraphics.prototype.drawPath = goog.abstractMethod;
+AbstractGraphics.prototype.drawPath = goog.abstractMethod;
 
 
 /**
  * Create an empty group of drawing elements.
  *
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element to
+ * @param {GroupElement=} opt_group The group wrapper element to
  *     append to. If not specified, appends to the main canvas.
  *
- * @return {goog.graphics.GroupElement} The newly created group.
+ * @return {GroupElement} The newly created group.
  */
-goog.graphics.AbstractGraphics.prototype.createGroup = goog.abstractMethod;
+AbstractGraphics.prototype.createGroup = goog.abstractMethod;
 
 
 /**
  * Create an empty path.
  *
- * @return {!goog.graphics.Path} The path.
- * @deprecated Use {@code new goog.graphics.Path()}.
+ * @return {!Path} The path.
+ * @deprecated Use {@code new Path()}.
  */
-goog.graphics.AbstractGraphics.prototype.createPath = function() {
-  'use strict';
-  return new goog.graphics.Path();
+AbstractGraphics.prototype.createPath = function() {
+ return new Path();
 };
 
 
@@ -436,20 +422,19 @@ goog.graphics.AbstractGraphics.prototype.createPath = function() {
  * written value.
  *
  * @param {string} text The text string to measure.
- * @param {goog.graphics.Font} font The font object describing the font style.
+ * @param {Font} font The font object describing the font style.
  *
  * @return {number} The width in pixels of the text strings.
  */
-goog.graphics.AbstractGraphics.prototype.getTextWidth = goog.abstractMethod;
+AbstractGraphics.prototype.getTextWidth = goog.abstractMethod;
 
 
 /**
  * @return {boolean} Whether the underlying element can be cloned resulting in
  *     an accurate reproduction of the graphics contents.
  */
-goog.graphics.AbstractGraphics.prototype.isDomClonable = function() {
-  'use strict';
-  return false;
+AbstractGraphics.prototype.isDomClonable = function() {
+ return false;
 };
 
 
@@ -458,11 +443,11 @@ goog.graphics.AbstractGraphics.prototype.isDomClonable = function() {
  * together.  Not guaranteed to do anything - i.e. only use this for
  * optimization of a single code path.
  */
-goog.graphics.AbstractGraphics.prototype.suspend = function() {};
+AbstractGraphics.prototype.suspend = function() {};
 
 
 /**
  * Stop preventing redraws.  If any redraws had been prevented, a redraw will
  * be done now.
  */
-goog.graphics.AbstractGraphics.prototype.resume = function() {};
+AbstractGraphics.prototype.resume = function() {};

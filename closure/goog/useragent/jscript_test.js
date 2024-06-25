@@ -5,11 +5,10 @@
  */
 
 // Mock JScript functions
-goog.module('goog.userAgent.jscriptTest');
 goog.setTestOnly();
 
-const jscript = goog.require('goog.userAgent.jscript');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as jscript from './jscript.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 

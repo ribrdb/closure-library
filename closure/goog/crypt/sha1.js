@@ -19,9 +19,7 @@
  *   Firefox 16:  ~250 Mbit/s
  */
 
-goog.provide('goog.crypt.Sha1');
-
-goog.require('goog.crypt.Hash');
+import { Hash } from './hash.js';
 
 
 
@@ -30,13 +28,12 @@ goog.require('goog.crypt.Hash');
  *
  * The properties declared here are discussed in the above algorithm document.
  * @constructor
- * @extends {goog.crypt.Hash}
+ * @extends {Hash}
  * @final
  * @struct
  */
-goog.crypt.Sha1 = function() {
-  'use strict';
-  goog.crypt.Sha1.base(this, 'constructor');
+export function Sha1() {
+  Sha1.base(this, 'constructor');
 
   /** @const {number} */
   this.blockSize = 512 / 8;
@@ -87,13 +84,12 @@ goog.crypt.Sha1 = function() {
   this.total_ = 0;
 
   this.reset();
-};
-goog.inherits(goog.crypt.Sha1, goog.crypt.Hash);
+}
+goog.inherits(Sha1, Hash);
 
 
 /** @override */
-goog.crypt.Sha1.prototype.reset = function() {
-  'use strict';
+Sha1.prototype.reset = function() {
   this.chain_[0] = 0x67452301;
   this.chain_[1] = 0xefcdab89;
   this.chain_[2] = 0x98badcfe;
@@ -111,8 +107,7 @@ goog.crypt.Sha1.prototype.reset = function() {
  * @param {number=} opt_offset Offset of the block in the buffer.
  * @private
  */
-goog.crypt.Sha1.prototype.compress_ = function(buf, opt_offset) {
-  'use strict';
+Sha1.prototype.compress_ = function(buf, opt_offset) {
   if (!opt_offset) {
     opt_offset = 0;
   }
@@ -194,8 +189,7 @@ goog.crypt.Sha1.prototype.compress_ = function(buf, opt_offset) {
 
 
 /** @override */
-goog.crypt.Sha1.prototype.update = function(bytes, opt_length) {
-  'use strict';
+Sha1.prototype.update = function(bytes, opt_length) {
   // TODO(johnlenz): tighten the function signature and remove this check
   if (bytes == null) {
     return;
@@ -257,8 +251,7 @@ goog.crypt.Sha1.prototype.update = function(bytes, opt_length) {
 
 
 /** @override */
-goog.crypt.Sha1.prototype.digest = function() {
-  'use strict';
+Sha1.prototype.digest = function() {
   var digest = [];
   var totalBits = this.total_ * 8;
 

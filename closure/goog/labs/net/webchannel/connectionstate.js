@@ -10,7 +10,7 @@
  */
 
 
-goog.provide('goog.labs.net.webChannel.ConnectionState');
+goog.declareModuleId('goog.labs.net.webchannel.connectionstate');
 
 
 
@@ -22,19 +22,18 @@ goog.provide('goog.labs.net.webChannel.ConnectionState');
  * @constructor
  * @struct
  */
-goog.labs.net.webChannel.ConnectionState = function() {
-  'use strict';
-  /**
-   * Handshake result.
-   * @type {?Array<string>}
-   */
-  this.handshakeResult = null;
+export function ConnectionState() {
+ /**
+  * Handshake result.
+  * @type {?Array<string>}
+  */
+ this.handshakeResult = null;
 
-  /**
-   * The result of checking if there is a buffering proxy in the network.
-   * True means the connection is buffered, False means unbuffered,
-   * null means that the result is not available.
-   * @type {?boolean}
-   */
-  this.bufferingProxyResult = null;
-};
+ /**
+  * The result of checking if there is a buffering proxy in the network.
+  * True means the connection is buffered, False means unbuffered,
+  * null means that the result is not available.
+  * @type {?boolean}
+  */
+ this.bufferingProxyResult = null;
+}

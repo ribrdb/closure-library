@@ -8,39 +8,35 @@
  * @fileoverview Simple image loader, used for preloading.
  */
 
-goog.provide('goog.labs.net.image');
+import { Promise } from '../../promise/promise.js';
 
-goog.require('goog.Promise');
-goog.require('goog.dispose');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventType');
-goog.require('goog.html.SafeUrl');
-goog.require('goog.net.EventType');
-goog.require('goog.userAgent');
+import { dispose } from '../../disposable/dispose.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { EventType } from '../../events/eventtype.js';
+import { SafeUrl } from '../../html/safeurl.js';
+import { EventType as netEventType } from '../../net/eventtype.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 
 /**
  * Loads a single image.  Useful for preloading images.
  *
- * @param {!goog.html.SafeUrl|string} uri URI of the image.
+ * @param {!SafeUrl|string} uri URI of the image.
  * @param {(!Image|function(): !Image)=} opt_image If present, instead of
  *     creating a new Image instance the function will use the passed Image
  *     instance or the result of calling the Image factory respectively. This
  *     can be used to control exactly how Image instances are created, for
  *     example if they should be created in a particular document element, or
  *     have fields that will trigger CORS image fetches.
- * @return {!goog.Promise<!Image>} A Promise that will be resolved with the
+ * @return {!Promise<!Image>} A Promise that will be resolved with the
  *     given image if the image successfully loads.
  */
-goog.labs.net.image.load = function(uri, opt_image) {
-  'use strict';
-  return new goog
-      .Promise(/**
+export function load(uri, opt_image) {
+  return new Promise(/**
                 * @suppress {strictPrimitiveOperators} Part of the
                 * go/strict_warnings_migration
                 */
                function(resolve, reject) {
-                 'use strict';
                  let image;
                  if (opt_image === undefined) {
                    image = new Image();
@@ -60,30 +56,29 @@ goog.labs.net.image.load = function(uri, opt_image) {
                  // See:
                  // http://msdn.microsoft.com/en-us/library/ie/dn467845(v=vs.85).aspx
                  const loadEvent =
-                     (goog.userAgent.IE && goog.userAgent.VERSION < 11) ?
-                     goog.net.EventType.READY_STATE_CHANGE :
-                     goog.events.EventType.LOAD;
+                     (userAgent.IE && userAgent.VERSION < 11) ?
+                     netEventType.READY_STATE_CHANGE :
+                     EventType.LOAD;
 
-                 const handler = new goog.events.EventHandler();
+                 const handler = new EventHandler();
                  handler.listen(
                      image,
                      [
-                       loadEvent, goog.net.EventType.ABORT,
-                       goog.net.EventType.ERROR
+                       loadEvent, netEventType.ABORT,
+                       netEventType.ERROR
                      ],
                      function(e) {
-                       'use strict';
                        // We only registered listeners for READY_STATE_CHANGE
                        // for IE. If readyState is now COMPLETE, the image has
                        // loaded. See related comment above.
-                       if (e.type == goog.net.EventType.READY_STATE_CHANGE &&
-                           image.readyState != goog.net.EventType.COMPLETE) {
+                       if (e.type == netEventType.READY_STATE_CHANGE &&
+                           image.readyState != netEventType.COMPLETE) {
                          return;
                        }
 
                        // At this point, we know whether the image load was
                        // successful and no longer care about image events.
-                       goog.dispose(handler);
+                       dispose(handler);
 
                        // Whether the image successfully loaded.
                        if (e.type == loadEvent) {
@@ -96,4 +91,4 @@ goog.labs.net.image.load = function(uri, opt_image) {
                  // Initiate the image request.
                  image.src = uri;
                });
-};
+}

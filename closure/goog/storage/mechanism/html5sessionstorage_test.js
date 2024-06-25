@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.mechanism.HTML5SessionStorageTest');
 goog.setTestOnly();
 
-const HTML5SessionStorage = goog.require('goog.storage.mechanism.HTML5SessionStorage');
-const iterableMechanismTests = goog.require('goog.storage.mechanism.iterableMechanismTests');
-const mechanismSharingTests = goog.require('goog.storage.mechanism.mechanismSharingTests');
-const mechanismTests = goog.require('goog.storage.mechanism.mechanismTests');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { HTML5SessionStorage } from './html5sessionstorage.js';
+import * as iterableMechanismTests from './iterablemechanismtests.js';
+import * as mechanismSharingTests from './mechanismsharingtests.js';
+import * as mechanismTests from './mechanismtests.js';
+import * as product from '../../useragent/product.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let mechanism;
 let mechanismShared;

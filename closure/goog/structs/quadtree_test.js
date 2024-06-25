@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.QuadTreeTest');
 goog.setTestOnly();
 
-const QuadTree = goog.require('goog.structs.QuadTree');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { QuadTree } from './quadtree.js';
+import * as structs from './structs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function getTree() {
   const qt = new QuadTree(0, 0, 100, 100);

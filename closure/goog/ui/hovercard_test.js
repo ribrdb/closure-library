@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.HoverCardTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const HoverCard = goog.require('goog.ui.HoverCard');
-const MockClock = goog.require('goog.testing.MockClock');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Coordinate } from '../math/coordinate.js';
+import * as testingEvents from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { HoverCard } from './hovercard.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const timer = new MockClock();
 let card;

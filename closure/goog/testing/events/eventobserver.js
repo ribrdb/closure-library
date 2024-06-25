@@ -13,7 +13,7 @@
  *
  * Example usage:
  * <pre>
- * var observer = new goog.testing.events.EventObserver();
+ * var observer = new EventObserver();
  * var widget = new foo.Widget();
  * goog.events.listen(widget, ['select', 'submit'], observer);
  * // Simulate user action of 3 select events and 2 submit events.
@@ -23,11 +23,10 @@
  */
 
 goog.setTestOnly('goog.testing.events.EventObserver');
-goog.provide('goog.testing.events.EventObserver');
 
-goog.require('goog.array');
-goog.require('goog.events.Event');
-goog.requireType('goog.events.EventId');
+import * as array from '../../array/array.js';
+import { Event } from '../../events/event.js';
+goog.requireType('goog.events.eventid');
 
 
 
@@ -35,57 +34,52 @@ goog.requireType('goog.events.EventId');
  * Event observer.  Implements a handleEvent interface so it may be used as
  * a listener in listening functions and methods.
  * @see goog.events.listen
- * @see goog.events.EventHandler
+ * @see EventHandler
  * @constructor
  * @final
  */
-goog.testing.events.EventObserver = function() {
-  'use strict';
-  /**
+export function EventObserver() {
+ /**
    * A list of events handled by the observer in order of handling, oldest to
    * newest.
-   * @type {!Array<!goog.events.Event>}
+   * @type {!Array<!Event>}
    * @private
    */
-  this.events_ = [];
-};
+ this.events_ = [];
+}
 
 
 /**
  * Handles an event and remembers it.  Event listening functions and methods
  * will call this method when this observer is used as a listener.
  * @see goog.events.listen
- * @see goog.events.EventHandler
- * @param {!goog.events.Event} e Event to handle.
+ * @see EventHandler
+ * @param {!Event} e Event to handle.
  */
-goog.testing.events.EventObserver.prototype.handleEvent = function(e) {
-  'use strict';
-  this.events_.push(e);
+EventObserver.prototype.handleEvent = function(e) {
+ this.events_.push(e);
 };
 
 
 /**
- * @param {string|!goog.events.EventId=} opt_type If given, only return events
+ * @param {string|!EventId=} opt_type If given, only return events
  *     of this type.
- * @return {!Array<!goog.events.Event>} The events handled, oldest to newest.
+ * @return {!Array<!Event>} The events handled, oldest to newest.
  */
-goog.testing.events.EventObserver.prototype.getEvents = function(opt_type) {
-  'use strict';
-  let events = goog.array.clone(this.events_);
+EventObserver.prototype.getEvents = function(opt_type) {
+ let events = array.clone(this.events_);
 
-  if (opt_type) {
-    events = events.filter(function(event) {
-      'use strict';
-      return event.type == String(opt_type);
-    });
-  }
+ if (opt_type) {
+   events = events.filter(function(event) {
+    return event.type == String(opt_type);
+   });
+ }
 
-  return events;
+ return events;
 };
 
 
 /** Clears the list of events seen by this observer. */
-goog.testing.events.EventObserver.prototype.clear = function() {
-  'use strict';
-  this.events_ = [];
+EventObserver.prototype.clear = function() {
+ this.events_ = [];
 };

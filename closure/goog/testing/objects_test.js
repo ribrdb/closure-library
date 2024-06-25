@@ -5,14 +5,14 @@
  */
 
 /**
- * @fileoverview Tests for goog.testing.objects.
+ * @fileoverview Tests for objects.
  */
-goog.module('goog.testing.objects_test');
 goog.setTestOnly('goog.testing.objects_test');
 
-const asserts = goog.require('goog.testing.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
-const {assertDoesNotRetainReference, assertRetainsReference} = goog.require('goog.testing.objects');
+import * as asserts from './asserts.js';
+import { testSuite } from './testsuite.js';
+import objects from './objects.js';
+const {assertDoesNotRetainReference, assertRetainsReference} = objects;
 
 testSuite({
   testSimpleSearches() {

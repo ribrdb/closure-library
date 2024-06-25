@@ -8,33 +8,32 @@
  * @fileoverview Base class for bubble plugins.
  */
 
-goog.provide('goog.editor.plugins.AbstractBubblePlugin');
+import * as array from '../../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.Range');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.editor.Plugin');
-goog.require('goog.editor.style');
-goog.require('goog.events');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.events.actionEventWrapper');
-goog.require('goog.functions');
-goog.require('goog.string.Unicode');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.editor.Bubble');
-goog.require('goog.userAgent');
-goog.requireType('goog.events.BrowserEvent');
+import * as dom from '../../dom/dom.js';
+import { NodeType } from '../../dom/nodetype.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import * as classlist from '../../dom/classlist.js';
+import { Plugin } from '../plugin.js';
+import * as style from '../style.js';
+import * as events from '../../events/events.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { EventType } from '../../events/eventtype.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { actionEventWrapper } from '../../events/actioneventwrapper.js';
+import * as functions from '../../functions/functions.js';
+import { Unicode } from '../../string/string.js';
+import { Component } from '../../ui/component.js';
+import { Bubble } from '../../ui/editor/bubble.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.events.browserevent');
 
 
 
 /**
  * Base class for bubble plugins. This is used for to connect user behavior
- * in the editor to a goog.ui.editor.Bubble UI element that allows
+ * in the editor to a Bubble UI element that allows
  * the user to modify the properties of an element on their page (e.g. the alt
  * text of an image tag).
  *
@@ -45,32 +44,31 @@ goog.requireType('goog.events.BrowserEvent');
  * the rest of the bubble.
  *
  * @constructor
- * @extends {goog.editor.Plugin}
+ * @extends {Plugin}
  */
-goog.editor.plugins.AbstractBubblePlugin = function() {
-  'use strict';
-  goog.editor.plugins.AbstractBubblePlugin.base(this, 'constructor');
+export function AbstractBubblePlugin() {
+  AbstractBubblePlugin.base(this, 'constructor');
 
   /**
-   * Place to register events the plugin listens to.
-   * @type {goog.events.EventHandler<
-   *     !goog.editor.plugins.AbstractBubblePlugin>}
-   * @protected
-   */
-  this.eventRegister = new goog.events.EventHandler(this);
+       * Place to register events the plugin listens to.
+       * @type {EventHandler<
+       *     !AbstractBubblePlugin>}
+       * @protected
+       */
+  this.eventRegister = new EventHandler(this);
   this.registerDisposable(this.eventRegister);
 
   /**
-   * Instance factory function that creates a bubble UI component.  If set to a
-   * non-null value, this function will be used to create a bubble instead of
-   * the global factory function.  It takes as parameters the bubble parent
-   * element and the z index to draw the bubble at.
-   * @type {?function(!Element, number): !goog.ui.editor.Bubble}
-   * @private
-   */
+     * Instance factory function that creates a bubble UI component.  If set to a
+     * non-null value, this function will be used to create a bubble instead of
+     * the global factory function.  It takes as parameters the bubble parent
+     * element and the z index to draw the bubble at.
+     * @type {?function(!Element, number): !Bubble}
+     * @private
+     */
   this.bubbleFactory_ = null;
-};
-goog.inherits(goog.editor.plugins.AbstractBubblePlugin, goog.editor.Plugin);
+}
+goog.inherits(AbstractBubblePlugin, Plugin);
 
 
 /**
@@ -78,7 +76,7 @@ goog.inherits(goog.editor.plugins.AbstractBubblePlugin, goog.editor.Plugin);
  * @type {string}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.OPTION_LINK_CLASSNAME_ =
+AbstractBubblePlugin.OPTION_LINK_CLASSNAME_ =
     goog.getCssName('tr_option-link');
 
 
@@ -87,7 +85,7 @@ goog.editor.plugins.AbstractBubblePlugin.OPTION_LINK_CLASSNAME_ =
  * @type {string}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.LINK_CLASSNAME_ =
+AbstractBubblePlugin.LINK_CLASSNAME_ =
     goog.getCssName('tr_bubble_link');
 
 
@@ -96,7 +94,7 @@ goog.editor.plugins.AbstractBubblePlugin.LINK_CLASSNAME_ =
  * @type {string}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.TABBABLE_CLASSNAME_ =
+AbstractBubblePlugin.TABBABLE_CLASSNAME_ =
     goog.getCssName('tr_bubble_tabbable');
 
 
@@ -105,53 +103,51 @@ goog.editor.plugins.AbstractBubblePlugin.TABBABLE_CLASSNAME_ =
  * @type {string}
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.DASH_NBSP_STRING =
-    goog.string.Unicode.NBSP + '-' + goog.string.Unicode.NBSP;
+AbstractBubblePlugin.DASH_NBSP_STRING =
+    Unicode.NBSP + '-' + Unicode.NBSP;
 
 
 /**
  * Default factory function for creating a bubble UI component.
  * @param {!Element} parent The parent element for the bubble.
  * @param {number} zIndex The z index to draw the bubble at.
- * @return {!goog.ui.editor.Bubble} The new bubble component.
+ * @return {!Bubble} The new bubble component.
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.defaultBubbleFactory_ = function(
+AbstractBubblePlugin.defaultBubbleFactory_ = function(
     parent, zIndex) {
-  'use strict';
-  return new goog.ui.editor.Bubble(parent, zIndex);
+  return new Bubble(parent, zIndex);
 };
 
 
 /**
  * Global factory function that creates a bubble UI component. It takes as
  * parameters the bubble parent element and the z index to draw the bubble at.
- * @type {function(!Element, number): !goog.ui.editor.Bubble}
+ * @type {function(!Element, number): !Bubble}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.globalBubbleFactory_ =
-    goog.editor.plugins.AbstractBubblePlugin.defaultBubbleFactory_;
+AbstractBubblePlugin.globalBubbleFactory_ =
+    AbstractBubblePlugin.defaultBubbleFactory_;
 
 
 /**
  * Sets the global bubble factory function.
- * @param {function(!Element, number): !goog.ui.editor.Bubble}
+ * @param {function(!Element, number): !Bubble}
  *     bubbleFactory Function that creates a bubble for the given bubble parent
  *     element and z index.
  */
-goog.editor.plugins.AbstractBubblePlugin.setBubbleFactory = function(
+AbstractBubblePlugin.setBubbleFactory = function(
     bubbleFactory) {
-  'use strict';
-  goog.editor.plugins.AbstractBubblePlugin.globalBubbleFactory_ = bubbleFactory;
+  AbstractBubblePlugin.globalBubbleFactory_ = bubbleFactory;
 };
 
 
 /**
  * Map from field id to shared bubble object.
- * @type {!Object<goog.ui.editor.Bubble>}
+ * @type {!Object<Bubble>}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.bubbleMap_ = {};
+AbstractBubblePlugin.bubbleMap_ = {};
 
 
 /**
@@ -161,7 +157,7 @@ goog.editor.plugins.AbstractBubblePlugin.bubbleMap_ = {};
  * @type {Element|undefined}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.bubbleParent_;
+AbstractBubblePlugin.prototype.bubbleParent_;
 
 
 /**
@@ -170,7 +166,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.bubbleParent_;
  * @type {string?}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.panelId_ = null;
+AbstractBubblePlugin.prototype.panelId_ = null;
 
 
 /**
@@ -179,7 +175,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.panelId_ = null;
  * @type {boolean}
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.keyboardNavigationEnabled_ =
+AbstractBubblePlugin.prototype.keyboardNavigationEnabled_ =
     false;
 
 
@@ -187,13 +183,12 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.keyboardNavigationEnabled_ =
  * Sets the instance bubble factory function.  If set to a non-null value, this
  * function will be used to create a bubble instead of the global factory
  * function.
- * @param {?function(!Element, number): !goog.ui.editor.Bubble} bubbleFactory
+ * @param {?function(!Element, number): !Bubble} bubbleFactory
  *     Function that creates a bubble for the given bubble parent element and z
  *     index.  Null to reset the factory function.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.setBubbleFactory = function(
+AbstractBubblePlugin.prototype.setBubbleFactory = function(
     bubbleFactory) {
-  'use strict';
   this.bubbleFactory_ = bubbleFactory;
 };
 
@@ -202,11 +197,10 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.setBubbleFactory = function(
  * Sets whether the bubble should support tabbing through elements.
  * @param {boolean} keyboardNavigationEnabled
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.enableKeyboardNavigation =
+AbstractBubblePlugin.prototype.enableKeyboardNavigation =
     function(keyboardNavigationEnabled) {
-  'use strict';
-  this.keyboardNavigationEnabled_ = keyboardNavigationEnabled;
-};
+      this.keyboardNavigationEnabled_ = keyboardNavigationEnabled;
+    };
 
 
 /**
@@ -215,37 +209,34 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.enableKeyboardNavigation =
  *     anchored. If null, we will use the application document. This
  *     is useful when you have an editor embedded in a scrolling div.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.setBubbleParent = function(
+AbstractBubblePlugin.prototype.setBubbleParent = function(
     bubbleParent) {
-  'use strict';
   this.bubbleParent_ = bubbleParent;
 };
 
 
 /**
  * Returns the bubble map.  Subclasses may override to use a separate map.
- * @return {!Object<goog.ui.editor.Bubble>}
+ * @return {!Object<Bubble>}
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getBubbleMap = function() {
-  'use strict';
-  return goog.editor.plugins.AbstractBubblePlugin.bubbleMap_;
+AbstractBubblePlugin.prototype.getBubbleMap = function() {
+  return AbstractBubblePlugin.bubbleMap_;
 };
 
 
 /**
- * @return {goog.dom.DomHelper} The dom helper for the bubble window.
+ * @return {dom.DomHelper} The dom helper for the bubble window.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getBubbleDom = function() {
-  'use strict';
+AbstractBubblePlugin.prototype.getBubbleDom = function() {
   return this.dom_;
 };
 
 
 /** @override */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getTrogClassId =
-    goog.functions.constant('AbstractBubblePlugin');
+AbstractBubblePlugin.prototype.getTrogClassId =
+    functions.constant('AbstractBubblePlugin');
 
 
 /**
@@ -253,16 +244,14 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.getTrogClassId =
  * @return {Element} The target element.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getTargetElement =
+AbstractBubblePlugin.prototype.getTargetElement =
     function() {
-  'use strict';
-  return this.targetElement_;
-};
+      return this.targetElement_;
+    };
 
 
 /** @override */
-goog.editor.plugins.AbstractBubblePlugin.prototype.handleKeyUp = function(e) {
-  'use strict';
+AbstractBubblePlugin.prototype.handleKeyUp = function(e) {
   // For example, when an image is selected, pressing any key overwrites
   // the image and the panel should be hidden.
   // Therefore we need to track key presses when the bubble is showing.
@@ -278,39 +267,38 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.handleKeyUp = function(e) {
  * open property bubbles if no longer needed.  This should not be overridden.
  * @override
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.handleSelectionChange =
+AbstractBubblePlugin.prototype.handleSelectionChange =
     function(opt_e, opt_target) {
-  'use strict';
-  var selectedElement;
-  if (opt_e) {
-    selectedElement = /** @type {Element} */ (opt_e.target);
-  } else if (opt_target) {
-    selectedElement = /** @type {Element} */ (opt_target);
-  } else {
-    var range = this.getFieldObject().getRange();
-    if (range) {
-      var startNode = range.getStartNode();
-      var endNode = range.getEndNode();
-      var startOffset = range.getStartOffset();
-      var endOffset = range.getEndOffset();
-      // Sometimes in IE, the range will be collapsed, but think the end node
-      // and start node are different (although in the same visible position).
-      // In this case, favor the position IE thinks is the start node.
-      if (goog.userAgent.IE && range.isCollapsed() && startNode != endNode) {
-        range = goog.dom.Range.createCaret(startNode, startOffset);
-      }
-      if (startNode.nodeType == goog.dom.NodeType.ELEMENT &&
-          startNode == endNode && startOffset == endOffset - 1) {
-        var element = startNode.childNodes[startOffset];
-        if (element.nodeType == goog.dom.NodeType.ELEMENT) {
-          selectedElement = /** @type {!Element} */ (element);
+      var selectedElement;
+      if (opt_e) {
+        selectedElement = /** @type {Element} */ (opt_e.target);
+      } else if (opt_target) {
+        selectedElement = /** @type {Element} */ (opt_target);
+      } else {
+        var range = this.getFieldObject().getRange();
+        if (range) {
+          var startNode = range.getStartNode();
+          var endNode = range.getEndNode();
+          var startOffset = range.getStartOffset();
+          var endOffset = range.getEndOffset();
+          // Sometimes in IE, the range will be collapsed, but think the end node
+          // and start node are different (although in the same visible position).
+          // In this case, favor the position IE thinks is the start node.
+          if (userAgent.IE && range.isCollapsed() && startNode != endNode) {
+            range = Range.createCaret(startNode, startOffset);
+          }
+          if (startNode.nodeType == NodeType.ELEMENT &&
+              startNode == endNode && startOffset == endOffset - 1) {
+            var element = startNode.childNodes[startOffset];
+            if (element.nodeType == NodeType.ELEMENT) {
+              selectedElement = /** @type {!Element} */ (element);
+            }
+          }
         }
+        selectedElement = selectedElement || range && range.getContainerElement();
       }
-    }
-    selectedElement = selectedElement || range && range.getContainerElement();
-  }
-  return this.handleSelectionChangeInternal(selectedElement);
-};
+      return this.handleSelectionChangeInternal(selectedElement);
+    };
 
 
 /**
@@ -322,9 +310,8 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.handleSelectionChange =
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype
+AbstractBubblePlugin.prototype
     .handleSelectionChangeInternal = function(selectedElement) {
-  'use strict';
   if (selectedElement) {
     var bubbleTarget = this.getBubbleTargetFromSelection(selectedElement);
     if (bubbleTarget) {
@@ -356,13 +343,12 @@ goog.editor.plugins.AbstractBubblePlugin.prototype
  * @return {Element?} The HTML bubble target element or null if no element of
  *     the required type is not found.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype
+AbstractBubblePlugin.prototype
     .getBubbleTargetFromSelection = goog.abstractMethod;
 
 
 /** @override */
-goog.editor.plugins.AbstractBubblePlugin.prototype.disable = function(field) {
-  'use strict';
+AbstractBubblePlugin.prototype.disable = function(field) {
   // When the field is made uneditable, dispose of the bubble.  We do this
   // because the next time the field is made editable again it may be in
   // a different document / iframe.
@@ -381,38 +367,36 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.disable = function(field) {
 
 
 /**
- * @return {!goog.ui.editor.Bubble} The shared bubble object for the field this
+ * @return {!Bubble} The shared bubble object for the field this
  *     plugin is registered on.  Creates it if necessary.
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getSharedBubble_ =
+AbstractBubblePlugin.prototype.getSharedBubble_ =
     function() {
-  'use strict';
-  var bubbleParent = /** @type {!Element} */ (
-      this.bubbleParent_ || this.getFieldObject().getAppWindow().document.body);
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.dom_ = goog.dom.getDomHelper(bubbleParent);
+      var bubbleParent = /** @type {!Element} */ (
+          this.bubbleParent_ || this.getFieldObject().getAppWindow().document.body);
+      /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+      this.dom_ = dom.getDomHelper(bubbleParent);
 
-  var bubbleMap = this.getBubbleMap();
-  var bubble = bubbleMap[this.getFieldObject().id];
-  if (!bubble) {
-    var factory = this.bubbleFactory_ ||
-        goog.editor.plugins.AbstractBubblePlugin.globalBubbleFactory_;
-    bubble =
-        factory.call(null, bubbleParent, this.getFieldObject().getBaseZindex());
-    bubbleMap[this.getFieldObject().id] = bubble;
-  }
-  return bubble;
-};
+      var bubbleMap = this.getBubbleMap();
+      var bubble = bubbleMap[this.getFieldObject().id];
+      if (!bubble) {
+        var factory = this.bubbleFactory_ ||
+            AbstractBubblePlugin.globalBubbleFactory_;
+        bubble =
+            factory.call(null, bubbleParent, this.getFieldObject().getBaseZindex());
+        bubbleMap[this.getFieldObject().id] = bubble;
+      }
+      return bubble;
+    };
 
 
 /**
  * Creates and shows the property bubble.
  * @param {Element} targetElement The target element of the bubble.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.createBubble = function(
+AbstractBubblePlugin.prototype.createBubble = function(
     targetElement) {
-  'use strict';
   var bubble = this.getSharedBubble_();
   if (!bubble.hasPanelOfType(this.getBubbleType())) {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
@@ -423,13 +407,13 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.createBubble = function(
         goog.bind(this.createBubbleContents, this),
         this.shouldPreferBubbleAboveElement());
     this.eventRegister.listen(
-        bubble, goog.ui.Component.EventType.HIDE, this.handlePanelClosed_);
+        bubble, Component.EventType.HIDE, this.handlePanelClosed_);
 
     this.onShow();
 
     if (this.keyboardNavigationEnabled_) {
       this.eventRegister.listen(
-          bubble.getContentElement(), goog.events.EventType.KEYDOWN,
+          bubble.getContentElement(), EventType.KEYDOWN,
           this.onBubbleKey_);
     }
   }
@@ -441,8 +425,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.createBubble = function(
  *     name of the element this bubble targets.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getBubbleType = function() {
-  'use strict';
+AbstractBubblePlugin.prototype.getBubbleType = function() {
   return '';
 };
 
@@ -452,8 +435,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.getBubbleType = function() {
  *     title.  Should be overridden by subclasses.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.getBubbleTitle = function() {
-  'use strict';
+AbstractBubblePlugin.prototype.getBubbleTitle = function() {
   return '';
 };
 
@@ -463,8 +445,8 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.getBubbleTitle = function() {
  *     target element.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype
-    .shouldPreferBubbleAboveElement = goog.functions.FALSE;
+AbstractBubblePlugin.prototype
+    .shouldPreferBubbleAboveElement = functions.FALSE;
 
 
 /**
@@ -474,7 +456,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype
  *     which the contents should be added.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.createBubbleContents =
+AbstractBubblePlugin.prototype.createBubbleContents =
     goog.abstractMethod;
 
 
@@ -483,14 +465,13 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.createBubbleContents =
  * @param {Element} target The event source element.
  * @param {Function} handler The event handler.
  * @protected
- * @deprecated Use goog.editor.plugins.AbstractBubblePlugin.
+ * @deprecated Use AbstractBubblePlugin.
  *     registerActionHandler to register click and enter events.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.registerClickHandler =
+AbstractBubblePlugin.prototype.registerClickHandler =
     function(target, handler) {
-  'use strict';
-  this.registerActionHandler(target, handler);
-};
+      this.registerActionHandler(target, handler);
+    };
 
 
 /**
@@ -499,19 +480,17 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.registerClickHandler =
  * @param {Function} handler The event handler.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.registerActionHandler =
+AbstractBubblePlugin.prototype.registerActionHandler =
     function(target, handler) {
-  'use strict';
-  this.eventRegister.listenWithWrapper(
-      target, goog.events.actionEventWrapper, handler);
-};
+      this.eventRegister.listenWithWrapper(
+          target, actionEventWrapper, handler);
+    };
 
 
 /**
  * Closes the bubble.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.closeBubble = function() {
-  'use strict';
+AbstractBubblePlugin.prototype.closeBubble = function() {
   if (this.panelId_) {
     this.getSharedBubble_().removePanel(this.panelId_);
     this.handlePanelClosed_();
@@ -524,7 +503,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.closeBubble = function() {
  * Override it to provide your own one.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.onShow = function() {};
+AbstractBubblePlugin.prototype.onShow = function() {};
 
 
 /**
@@ -532,7 +511,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.onShow = function() {};
  * nothing.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.cleanOnBubbleClose =
+AbstractBubblePlugin.prototype.cleanOnBubbleClose =
     function() {};
 
 
@@ -541,15 +520,14 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.cleanOnBubbleClose =
  * hidden and also directly when the panel is closed manually.
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.handlePanelClosed_ =
+AbstractBubblePlugin.prototype.handlePanelClosed_ =
     function() {
-  'use strict';
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.targetElement_ = null;
-  this.panelId_ = null;
-  this.eventRegister.removeAll();
-  this.cleanOnBubbleClose();
-};
+      /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+      this.targetElement_ = null;
+      this.panelId_ = null;
+      this.eventRegister.removeAll();
+      this.cleanOnBubbleClose();
+    };
 
 
 /**
@@ -557,13 +535,12 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.handlePanelClosed_ =
  * tabbable element in the bubble when TAB is clicked.
  * @override
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.handleKeyDown = function(e) {
-  'use strict';
+AbstractBubblePlugin.prototype.handleKeyDown = function(e) {
   if (this.keyboardNavigationEnabled_ && this.isVisible() &&
-      e.keyCode == goog.events.KeyCodes.TAB && !e.shiftKey) {
+      e.keyCode == KeyCodes.TAB && !e.shiftKey) {
     var bubbleEl = this.getSharedBubble_().getContentElement();
-    var tabbable = goog.dom.getElementByClass(
-        goog.editor.plugins.AbstractBubblePlugin.TABBABLE_CLASSNAME_, bubbleEl);
+    var tabbable = dom.getElementByClass(
+        AbstractBubblePlugin.TABBABLE_CLASSNAME_, bubbleEl);
     if (tabbable) {
       tabbable.focus();
       e.preventDefault();
@@ -578,16 +555,15 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.handleKeyDown = function(e) {
  * Handles a key event on the bubble. This ensures that the focus loops through
  * the tabbable elements found in the bubble and then the focus is got by the
  * field element.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {events.BrowserEvent} e The event.
  * @private
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.onBubbleKey_ = function(e) {
-  'use strict';
-  if (this.isVisible() && e.keyCode == goog.events.KeyCodes.TAB) {
+AbstractBubblePlugin.prototype.onBubbleKey_ = function(e) {
+  if (this.isVisible() && e.keyCode == KeyCodes.TAB) {
     var bubbleEl = this.getSharedBubble_().getContentElement();
-    var tabbables = goog.dom.getElementsByClass(
-        goog.editor.plugins.AbstractBubblePlugin.TABBABLE_CLASSNAME_, bubbleEl);
-    var tabbable = e.shiftKey ? tabbables[0] : goog.array.peek(tabbables);
+    var tabbables = dom.getElementsByClass(
+        AbstractBubblePlugin.TABBABLE_CLASSNAME_, bubbleEl);
+    var tabbable = e.shiftKey ? tabbables[0] : array.peek(tabbables);
     var tabbingOutOfBubble = tabbable == e.target;
     if (tabbingOutOfBubble) {
       this.getFieldObject().focus();
@@ -600,8 +576,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.onBubbleKey_ = function(e) {
 /**
  * @return {boolean} Whether the bubble is visible.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.isVisible = function() {
-  'use strict';
+AbstractBubblePlugin.prototype.isVisible = function() {
   return !!this.panelId_;
 };
 
@@ -609,8 +584,7 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.isVisible = function() {
 /**
  * Reposition the property bubble.
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.reposition = function() {
-  'use strict';
+AbstractBubblePlugin.prototype.reposition = function() {
   var bubble = this.getSharedBubble_();
   if (bubble) {
     bubble.reposition();
@@ -625,18 +599,17 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.reposition = function() {
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.createLinkOption = function(
+AbstractBubblePlugin.prototype.createLinkOption = function(
     id) {
-  'use strict';
   // Dash plus link are together in a span so we can hide/show them easily
   return this.dom_.createDom(
-      goog.dom.TagName.SPAN, {
+      TagName.SPAN, {
         id: id,
         className:
-            goog.editor.plugins.AbstractBubblePlugin.OPTION_LINK_CLASSNAME_
+            AbstractBubblePlugin.OPTION_LINK_CLASSNAME_
       },
       this.dom_.createTextNode(
-          goog.editor.plugins.AbstractBubblePlugin.DASH_NBSP_STRING));
+          AbstractBubblePlugin.DASH_NBSP_STRING));
 };
 
 
@@ -653,9 +626,8 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.createLinkOption = function(
  * @return {Element} The link element.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.createLink = function(
+AbstractBubblePlugin.prototype.createLink = function(
     linkId, linkText, opt_onClick, opt_container) {
-  'use strict';
   var link = this.createLinkHelper(linkId, linkText, false, opt_container);
   if (opt_onClick) {
     this.registerActionHandler(link, opt_onClick);
@@ -677,20 +649,19 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.createLink = function(
  * @return {Element} The link element.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.createLinkHelper = function(
+AbstractBubblePlugin.prototype.createLinkHelper = function(
     linkId, linkText, isAnchor, opt_container) {
-  'use strict';
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
   var link = this.dom_.createDom(
-      isAnchor ? goog.dom.TagName.A : goog.dom.TagName.SPAN,
-      {className: goog.editor.plugins.AbstractBubblePlugin.LINK_CLASSNAME_},
+      isAnchor ? TagName.A : TagName.SPAN,
+      {className: AbstractBubblePlugin.LINK_CLASSNAME_},
       linkText);
   if (this.keyboardNavigationEnabled_) {
     this.setTabbable(link);
   }
   link.setAttribute('role', 'link');
   this.setupLink(link, linkId, opt_container);
-  goog.editor.style.makeUnselectable(link, this.eventRegister);
+  style.makeUnselectable(link, this.eventRegister);
   return link;
 };
 
@@ -707,14 +678,13 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.createLinkHelper = function(
  * @param {!Element} element
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.setTabbable = function(
+AbstractBubblePlugin.prototype.setTabbable = function(
     element) {
-  'use strict';
   if (!element.hasAttribute('tabindex')) {
     element.setAttribute('tabindex', 0);
   }
-  goog.dom.classlist.add(
-      element, goog.editor.plugins.AbstractBubblePlugin.TABBABLE_CLASSNAME_);
+  classlist.add(
+      element, AbstractBubblePlugin.TABBABLE_CLASSNAME_);
 };
 
 
@@ -726,16 +696,15 @@ goog.editor.plugins.AbstractBubblePlugin.prototype.setTabbable = function(
  * @param {Element=} opt_container If specified, location to insert link.
  * @protected
  */
-goog.editor.plugins.AbstractBubblePlugin.prototype.setupLink = function(
+AbstractBubblePlugin.prototype.setupLink = function(
     link, linkId, opt_container) {
-  'use strict';
   if (opt_container) {
     opt_container.appendChild(/** @type {!Node} */ (link));
   } else {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     var oldLink = this.dom_.getElement(linkId);
     if (oldLink) {
-      goog.dom.replaceNode(link, oldLink);
+      dom.replaceNode(link, oldLink);
     }
   }
 

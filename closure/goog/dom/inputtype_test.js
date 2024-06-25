@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.InputTypeTest');
 goog.setTestOnly();
 
-const InputType = goog.require('goog.dom.InputType');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { InputType } from './inputtype.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 testSuite({
   testCorrectNumberOfInputTypes() {

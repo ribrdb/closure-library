@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ServerChartTest');
 goog.setTestOnly();
 
-const ServerChart = goog.require('goog.ui.ServerChart');
-const Uri = goog.require('goog.Uri');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ServerChart } from './serverchart.js';
+import { Uri } from '../uri/uri.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function tryToCreateBarChart(bar) {
   bar.addDataSet([8, 23, 7], '008000');

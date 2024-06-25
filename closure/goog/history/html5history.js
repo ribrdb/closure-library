@@ -13,15 +13,13 @@
  */
 
 
-goog.provide('goog.history.Html5History');
-goog.provide('goog.history.Html5History.TokenTransformer');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.history.Event');
-goog.requireType('goog.events.BrowserEvent');
+import * as events from '../events/events.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../events/eventtype.js';
+import { Event } from './event.js';
+goog.requireType('goog.events.browserevent');
 
 
 
@@ -30,18 +28,17 @@ goog.requireType('goog.events.BrowserEvent');
  * history APIs.
  *
  * @param {Window=} opt_win The window to listen/dispatch history events on.
- * @param {goog.history.Html5History.TokenTransformer=} opt_transformer
+ * @param {Html5History.TokenTransformer=} opt_transformer
  *     The token transformer that is used to create URL from the token
  *     when storing token without using hash fragment.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @final
  */
-goog.history.Html5History = function(opt_win, opt_transformer) {
-  'use strict';
-  goog.events.EventTarget.call(this);
-  goog.asserts.assert(
-      goog.history.Html5History.isSupported(opt_win),
+export function Html5History(opt_win, opt_transformer) {
+  EventTarget.call(this);
+  asserts.assert(
+      Html5History.isSupported(opt_win),
       'HTML5 history is not supported.');
 
   /**
@@ -52,11 +49,11 @@ goog.history.Html5History = function(opt_win, opt_transformer) {
   this.window_ = opt_win || window;
 
   /**
-   * The token transformer that is used to create URL from the token
-   * when storing token without using hash fragment.
-   * @type {goog.history.Html5History.TokenTransformer}
-   * @private
-   */
+     * The token transformer that is used to create URL from the token
+     * when storing token without using hash fragment.
+     * @type {Html5History.TokenTransformer}
+     * @private
+     */
   this.transformer_ = opt_transformer || null;
 
   /**
@@ -67,14 +64,14 @@ goog.history.Html5History = function(opt_win, opt_transformer) {
    */
   this.lastFragment_ = null;
 
-  goog.events.listen(
-      this.window_, goog.events.EventType.POPSTATE, this.onHistoryEvent_, false,
+  events.listen(
+      this.window_, EventType.POPSTATE, this.onHistoryEvent_, false,
       this);
-  goog.events.listen(
-      this.window_, goog.events.EventType.HASHCHANGE, this.onHistoryEvent_,
+  events.listen(
+      this.window_, EventType.HASHCHANGE, this.onHistoryEvent_,
       false, this);
-};
-goog.inherits(goog.history.Html5History, goog.events.EventTarget);
+}
+goog.inherits(Html5History, EventTarget);
 
 
 /**
@@ -82,8 +79,7 @@ goog.inherits(goog.history.Html5History, goog.events.EventTarget);
  * @param {Window=} opt_win Optional window to check.
  * @return {boolean} Whether html5 history is supported.
  */
-goog.history.Html5History.isSupported = function(opt_win) {
-  'use strict';
+Html5History.isSupported = function(opt_win) {
   const win = opt_win || window;
   return !!(win.history && win.history.pushState);
 };
@@ -94,7 +90,7 @@ goog.history.Html5History.isSupported = function(opt_win) {
  * @type {boolean}
  * @private
  */
-goog.history.Html5History.prototype.enabled_ = false;
+Html5History.prototype.enabled_ = false;
 
 
 /**
@@ -102,7 +98,7 @@ goog.history.Html5History.prototype.enabled_ = false;
  * @type {boolean}
  * @private
  */
-goog.history.Html5History.prototype.useFragment_ = true;
+Html5History.prototype.useFragment_ = true;
 
 
 /**
@@ -111,7 +107,7 @@ goog.history.Html5History.prototype.useFragment_ = true;
  * @type {string}
  * @private
  */
-goog.history.Html5History.prototype.pathPrefix_ = '/';
+Html5History.prototype.pathPrefix_ = '/';
 
 
 /**
@@ -122,8 +118,7 @@ goog.history.Html5History.prototype.pathPrefix_ = '/';
  *
  * @param {boolean} enable Whether to enable history.
  */
-goog.history.Html5History.prototype.setEnabled = function(enable) {
-  'use strict';
+Html5History.prototype.setEnabled = function(enable) {
   if (enable == this.enabled_) {
     return;
   }
@@ -131,7 +126,7 @@ goog.history.Html5History.prototype.setEnabled = function(enable) {
   this.enabled_ = enable;
 
   if (enable) {
-    this.dispatchEvent(new goog.history.Event(this.getToken(), false));
+    this.dispatchEvent(new Event(this.getToken(), false));
   }
 };
 
@@ -140,10 +135,9 @@ goog.history.Html5History.prototype.setEnabled = function(enable) {
  * Returns the current token.
  * @return {string} The current token.
  */
-goog.history.Html5History.prototype.getToken = function() {
-  'use strict';
+Html5History.prototype.getToken = function() {
   if (this.useFragment_) {
-    return goog.asserts.assertString(this.getFragment_());
+    return asserts.assertString(this.getFragment_());
   } else {
     return this.transformer_ ?
         this.transformer_.retrieveToken(
@@ -158,8 +152,7 @@ goog.history.Html5History.prototype.getToken = function() {
  * @param {string} token The history state identifier.
  * @param {string=} opt_title Optional title to associate with history entry.
  */
-goog.history.Html5History.prototype.setToken = function(token, opt_title) {
-  'use strict';
+Html5History.prototype.setToken = function(token, opt_title) {
   if (token == this.getToken()) {
     return;
   }
@@ -168,7 +161,7 @@ goog.history.Html5History.prototype.setToken = function(token, opt_title) {
   this.window_.history.pushState(
       null, opt_title || this.window_.document.title || '',
       this.getUrl_(token));
-  this.dispatchEvent(new goog.history.Event(token, false));
+  this.dispatchEvent(new Event(token, false));
 };
 
 
@@ -178,32 +171,30 @@ goog.history.Html5History.prototype.setToken = function(token, opt_title) {
  * @param {string} token The history state identifier.
  * @param {string=} opt_title Optional title to associate with history entry.
  */
-goog.history.Html5History.prototype.replaceToken = function(token, opt_title) {
-  'use strict';
+Html5History.prototype.replaceToken = function(token, opt_title) {
   // Per externs/gecko_dom.js document.title can be null.
   this.window_.history.replaceState(
       null, opt_title || this.window_.document.title || '',
       this.getUrl_(token));
-  this.dispatchEvent(new goog.history.Event(token, false));
+  this.dispatchEvent(new Event(token, false));
 };
 
 
 /** @override */
-goog.history.Html5History.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.unlisten(
-      this.window_, goog.events.EventType.POPSTATE, this.onHistoryEvent_, false,
+Html5History.prototype.disposeInternal = function() {
+  events.unlisten(
+      this.window_, EventType.POPSTATE, this.onHistoryEvent_, false,
       this);
   if (this.useFragment_) {
-    goog.events.unlisten(
-        this.window_, goog.events.EventType.HASHCHANGE, this.onHistoryEvent_,
+    events.unlisten(
+        this.window_, EventType.HASHCHANGE, this.onHistoryEvent_,
         false, this);
   }
 };
 
 
 /** @return {boolean} Whether the fragment is used to store tokens. */
-goog.history.Html5History.prototype.getUseFragment = function() {
+Html5History.prototype.getUseFragment = function() {
   return this.useFragment_;
 };
 
@@ -212,16 +203,15 @@ goog.history.Html5History.prototype.getUseFragment = function() {
  * Sets whether to use the fragment to store tokens.
  * @param {boolean} useFragment Whether to use the fragment.
  */
-goog.history.Html5History.prototype.setUseFragment = function(useFragment) {
-  'use strict';
+Html5History.prototype.setUseFragment = function(useFragment) {
   if (this.useFragment_ != useFragment) {
     if (useFragment) {
-      goog.events.listen(
-          this.window_, goog.events.EventType.HASHCHANGE, this.onHistoryEvent_,
+      events.listen(
+          this.window_, EventType.HASHCHANGE, this.onHistoryEvent_,
           false, this);
     } else {
-      goog.events.unlisten(
-          this.window_, goog.events.EventType.HASHCHANGE, this.onHistoryEvent_,
+      events.unlisten(
+          this.window_, EventType.HASHCHANGE, this.onHistoryEvent_,
           false, this);
     }
     this.useFragment_ = useFragment;
@@ -234,8 +224,7 @@ goog.history.Html5History.prototype.setUseFragment = function(useFragment) {
  * prefix should start and end with slash.
  * @param {string} pathPrefix Sets the path prefix.
  */
-goog.history.Html5History.prototype.setPathPrefix = function(pathPrefix) {
-  'use strict';
+Html5History.prototype.setPathPrefix = function(pathPrefix) {
   this.pathPrefix_ = pathPrefix;
 };
 
@@ -244,8 +233,7 @@ goog.history.Html5History.prototype.setPathPrefix = function(pathPrefix) {
  * Gets the path prefix.
  * @return {string} The path prefix.
  */
-goog.history.Html5History.prototype.getPathPrefix = function() {
-  'use strict';
+Html5History.prototype.getPathPrefix = function() {
   return this.pathPrefix_;
 };
 
@@ -255,8 +243,7 @@ goog.history.Html5History.prototype.getPathPrefix = function() {
  * @return {?string} The hash fragment.
  * @private
  */
-goog.history.Html5History.prototype.getFragment_ = function() {
-  'use strict';
+Html5History.prototype.getFragment_ = function() {
   if (this.useFragment_) {
     const loc = this.window_.location.href;
     const index = loc.indexOf('#');
@@ -273,8 +260,7 @@ goog.history.Html5History.prototype.getFragment_ = function() {
  * @return {string} The URL.
  * @private
  */
-goog.history.Html5History.prototype.getUrl_ = function(token) {
-  'use strict';
+Html5History.prototype.getUrl_ = function(token) {
   if (this.useFragment_) {
     return '#' + token;
   } else {
@@ -288,20 +274,19 @@ goog.history.Html5History.prototype.getUrl_ = function(token) {
 
 /**
  * Handles history events dispatched by the browser.
- * @param {goog.events.BrowserEvent} e The browser event object.
+ * @param {events.BrowserEvent} e The browser event object.
  * @private
  */
-goog.history.Html5History.prototype.onHistoryEvent_ = function(e) {
-  'use strict';
+Html5History.prototype.onHistoryEvent_ = function(e) {
   if (this.enabled_) {
     const fragment = this.getFragment_();
     // Only fire NAVIGATE event if it's POPSTATE or if the fragment has changed
     // without a POPSTATE event. The latter is an indication the browser doesn't
     // support POPSTATE, and the event is a HASHCHANGE instead.
-    if (e.type == goog.events.EventType.POPSTATE ||
+    if (e.type == EventType.POPSTATE ||
         fragment != this.lastFragment_) {
       this.lastFragment_ = fragment;
-      this.dispatchEvent(new goog.history.Event(this.getToken(), true));
+      this.dispatchEvent(new Event(this.getToken(), true));
     }
   }
 };
@@ -310,7 +295,7 @@ goog.history.Html5History.prototype.onHistoryEvent_ = function(e) {
 
 /**
  * A token transformer that can create a URL from a history
- * token. This is used by `goog.history.Html5History` to create
+ * token. This is used by `Html5History` to create
  * URL when storing token without the hash fragment.
  *
  * Given a `window.location` object containing the location
@@ -319,7 +304,7 @@ goog.history.Html5History.prototype.onHistoryEvent_ = function(e) {
  *
  * @interface
  */
-goog.history.Html5History.TokenTransformer = function() {};
+Html5History.TokenTransformer = function() {};
 
 
 /**
@@ -332,7 +317,7 @@ goog.history.Html5History.TokenTransformer = function() {};
  *     Treat this object as read-only.
  * @return {string} token The history token.
  */
-goog.history.Html5History.TokenTransformer.prototype.retrieveToken = function(
+Html5History.TokenTransformer.prototype.retrieveToken = function(
     pathPrefix, location) {};
 
 
@@ -349,5 +334,5 @@ goog.history.Html5History.TokenTransformer.prototype.retrieveToken = function(
  *     (without {@code protocol://host:port} part); must begin with a
  *     slash.
  */
-goog.history.Html5History.TokenTransformer.prototype.createUrl = function(
+Html5History.TokenTransformer.prototype.createUrl = function(
     token, pathPrefix, location) {};

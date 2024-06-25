@@ -6,12 +6,11 @@
 
 /** @fileoverview Tests for {@link goog.html.sanitizer.ElementWeakMap} */
 
-goog.module('goog.html.sanitizer.ElementWeakMapTest');
 goog.setTestOnly();
 
-const ElementWeakMap = goog.require('goog.html.sanitizer.ElementWeakMap');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { ElementWeakMap } from './elementweakmap.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 /** @const {boolean} */
 const ELEMENTWEAKMAP_SUPPORTED = !userAgent.IE || document.documentMode >= 10;

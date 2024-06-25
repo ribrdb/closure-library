@@ -4,18 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.icontentTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const FieldFormatInfo = goog.require('goog.editor.icontent.FieldFormatInfo');
-const FieldStyleInfo = goog.require('goog.editor.icontent.FieldStyleInfo');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const icontent = goog.require('goog.editor.icontent');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserFeature } from './browserfeature.js';
+import * as icontent from './icontent.js';
+import { FieldFormatInfo, FieldStyleInfo } from './icontent.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let wrapperDiv;
 let realIframe;

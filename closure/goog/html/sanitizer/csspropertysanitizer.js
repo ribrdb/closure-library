@@ -14,13 +14,11 @@
  * @package
  */
 
-goog.module('goog.html.sanitizer.CssPropertySanitizer');
-goog.module.declareLegacyNamespace();
+import { SafeUrl } from '../safeurl.js';
 
-var SafeUrl = goog.require('goog.html.SafeUrl');
-var googAsserts = goog.require('goog.asserts');
-var googObject = goog.require('goog.object');
-var googString = goog.require('goog.string');
+import * as googAsserts from '../../asserts/asserts.js';
+import googObject from '../../object/object.js';
+import * as googString from '../../string/string.js';
 
 
 /**
@@ -103,7 +101,7 @@ function getSafeUri(uri, propName, uriRewriter) {
  * @return {?string} Sanitized property value or null if the property should be
  *     rejected altogether.
  */
-exports.sanitizeProperty = function(propName, propValue, opt_uriRewriter) {
+export let sanitizeProperty = function(propName, propValue, opt_uriRewriter) {
   propValue = googString.trim(propValue);
   if (propValue == '') {
     return null;

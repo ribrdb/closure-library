@@ -35,9 +35,7 @@
  * engines do not have the optimization of Array.shift.
  */
 
-goog.provide('goog.structs.Queue');
-
-goog.require('goog.array');
+import * as array from '../array/array.js';
 
 
 
@@ -47,17 +45,16 @@ goog.require('goog.array');
  * @constructor
  * @template T
  */
-goog.structs.Queue = function() {
-  'use strict';
-  /**
-   * @private {!Array<T>} Front stack. Items are pop()'ed from here.
-   */
-  this.front_ = [];
-  /**
-   * @private {!Array<T>} Back stack. Items are push()'ed here.
-   */
-  this.back_ = [];
-};
+export function Queue() {
+ /**
+  * @private {!Array<T>} Front stack. Items are pop()'ed from here.
+  */
+ this.front_ = [];
+ /**
+  * @private {!Array<T>} Back stack. Items are push()'ed here.
+  */
+ this.back_ = [];
+}
 
 
 /**
@@ -66,13 +63,12 @@ goog.structs.Queue = function() {
  *
  * @private
  */
-goog.structs.Queue.prototype.maybeFlip_ = function() {
-  'use strict';
-  if (this.front_.length === 0) {
-    this.front_ = this.back_;
-    this.front_.reverse();
-    this.back_ = [];
-  }
+Queue.prototype.maybeFlip_ = function() {
+ if (this.front_.length === 0) {
+   this.front_ = this.back_;
+   this.front_.reverse();
+   this.back_ = [];
+ }
 };
 
 
@@ -80,9 +76,8 @@ goog.structs.Queue.prototype.maybeFlip_ = function() {
  * Puts the specified element on this queue.
  * @param {T} element The element to be added to the queue.
  */
-goog.structs.Queue.prototype.enqueue = function(element) {
-  'use strict';
-  this.back_.push(element);
+Queue.prototype.enqueue = function(element) {
+ this.back_.push(element);
 };
 
 
@@ -91,10 +86,9 @@ goog.structs.Queue.prototype.enqueue = function(element) {
  * @return {T} The element at the head of this queue. Returns undefined if the
  *     queue is empty.
  */
-goog.structs.Queue.prototype.dequeue = function() {
-  'use strict';
-  this.maybeFlip_();
-  return this.front_.pop();
+Queue.prototype.dequeue = function() {
+ this.maybeFlip_();
+ return this.front_.pop();
 };
 
 
@@ -103,10 +97,9 @@ goog.structs.Queue.prototype.dequeue = function() {
  * @return {T} The element at the head of this queue. Returns undefined if the
  *     queue is empty.
  */
-goog.structs.Queue.prototype.peek = function() {
-  'use strict';
-  this.maybeFlip_();
-  return goog.array.peek(this.front_);
+Queue.prototype.peek = function() {
+ this.maybeFlip_();
+ return array.peek(this.front_);
 };
 
 
@@ -114,9 +107,8 @@ goog.structs.Queue.prototype.peek = function() {
  * Returns the number of elements in this queue.
  * @return {number} The number of elements in this queue.
  */
-goog.structs.Queue.prototype.getCount = function() {
-  'use strict';
-  return this.front_.length + this.back_.length;
+Queue.prototype.getCount = function() {
+ return this.front_.length + this.back_.length;
 };
 
 
@@ -124,19 +116,17 @@ goog.structs.Queue.prototype.getCount = function() {
  * Returns true if this queue contains no elements.
  * @return {boolean} true if this queue contains no elements.
  */
-goog.structs.Queue.prototype.isEmpty = function() {
-  'use strict';
-  return this.front_.length === 0 && this.back_.length === 0;
+Queue.prototype.isEmpty = function() {
+ return this.front_.length === 0 && this.back_.length === 0;
 };
 
 
 /**
  * Removes all elements from the queue.
  */
-goog.structs.Queue.prototype.clear = function() {
-  'use strict';
-  this.front_ = [];
-  this.back_ = [];
+Queue.prototype.clear = function() {
+ this.front_ = [];
+ this.back_ = [];
 };
 
 
@@ -145,10 +135,9 @@ goog.structs.Queue.prototype.clear = function() {
  * @param {T} obj The value to look for.
  * @return {boolean} Whether the object is in the queue.
  */
-goog.structs.Queue.prototype.contains = function(obj) {
-  'use strict';
-  return goog.array.contains(this.front_, obj) ||
-      goog.array.contains(this.back_, obj);
+Queue.prototype.contains = function(obj) {
+ return array.contains(this.front_, obj) ||
+     array.contains(this.back_, obj);
 };
 
 
@@ -157,10 +146,9 @@ goog.structs.Queue.prototype.contains = function(obj) {
  * @param {T} obj Object to remove.
  * @return {boolean} True if an element was removed.
  */
-goog.structs.Queue.prototype.remove = function(obj) {
-  'use strict';
-  return goog.array.removeLast(this.front_, obj) ||
-      goog.array.remove(this.back_, obj);
+Queue.prototype.remove = function(obj) {
+ return array.removeLast(this.front_, obj) ||
+     array.remove(this.back_, obj);
 };
 
 
@@ -168,16 +156,15 @@ goog.structs.Queue.prototype.remove = function(obj) {
  * Returns all the values in the queue.
  * @return {!Array<T>} An array of the values in the queue.
  */
-goog.structs.Queue.prototype.getValues = function() {
-  'use strict';
-  var res = [];
-  // Add the front array in reverse, then the back array.
-  for (var i = this.front_.length - 1; i >= 0; --i) {
-    res.push(this.front_[i]);
-  }
-  var len = this.back_.length;
-  for (var i = 0; i < len; ++i) {
-    res.push(this.back_[i]);
-  }
-  return res;
+Queue.prototype.getValues = function() {
+ var res = [];
+ // Add the front array in reverse, then the back array.
+ for (var i = this.front_.length - 1; i >= 0; --i) {
+   res.push(this.front_[i]);
+ }
+ var len = this.back_.length;
+ for (var i = 0; i < len; ++i) {
+   res.push(this.back_[i]);
+ }
+ return res;
 };

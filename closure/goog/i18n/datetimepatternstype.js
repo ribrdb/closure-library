@@ -8,7 +8,7 @@
  * @fileoverview Date/Time patterns data type.
  */
 
-goog.module('goog.i18n.DateTimePatternsType');
+goog.declareModuleId('goog.i18n.DateTimePatternsType');
 
 /**
  * The type definition for date/time patterns.
@@ -60,4 +60,4 @@ class DateTimePatternsType {
   }
 }
 
-exports = DateTimePatternsType;
+export { DateTimePatternsType };

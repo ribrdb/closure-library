@@ -8,8 +8,6 @@
  * @fileoverview DurationFormatSymbolsTypes supports the duration symbol types
  * to be referenced in the CLDR-version specific data file.
  */
-goog.module('goog.i18n.DurationSymbolTypes');
-
 /**
  * A collection of formatting patterns describing how to format each time unit
  * in different styles for a locale. There is one of these per locale in
@@ -24,10 +22,7 @@ goog.module('goog.i18n.DurationSymbolTypes');
  *   SECOND:  !DurationSymbolsFormatStyles,
  * }}
  */
-let DurationSymbols;
-
-/** @typedef {!DurationSymbols} */
-exports.DurationSymbols;
+export let DurationSymbols;
 
 /**
  * A collection of duration formatting display styles.
@@ -37,7 +32,4 @@ exports.DurationSymbols;
  *   NARROW: (string|undefined),
  * }}
  */
-let DurationSymbolsFormatStyles;
-
-/** @typedef {!DurationSymbolsFormatStyles} */
-exports.DurationSymbolsFormatStyles;
+export let DurationSymbolsFormatStyles;

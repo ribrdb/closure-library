@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for userAgentBrowser. */
 
-goog.module('goog.labs.userAgent.testAgentDataTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {INCOMPLETE_USERAGENT_DATA, withHighEntropyData} = goog.require('goog.labs.userAgent.testAgentData');
+import { testSuite } from '../../testing/testsuite.js';
+import { INCOMPLETE_USERAGENT_DATA, withHighEntropyData } from './test_agentdata.js';
 
 testSuite({
   async testGetHighEntropyValuesRejectsByDefault() {

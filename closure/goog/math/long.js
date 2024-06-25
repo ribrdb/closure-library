@@ -10,11 +10,9 @@
  * implementation is derived from LongLib in GWT.
  */
 
-goog.module('goog.math.Long');
-goog.module.declareLegacyNamespace();
+import * as asserts from '../asserts/asserts.js';
 
-const asserts = goog.require('goog.asserts');
-const reflect = goog.require('goog.reflect');
+import * as reflect from '../reflect/reflect.js';
 
 /**
  * Represents a 64-bit two's-complement integer, given its low and high 32-bit
@@ -755,7 +753,7 @@ class Long {
   }
 }
 
-exports = Long;
+export { Long };
 
 // NOTE: Common constant values ZERO, ONE, NEG_ONE, etc. are defined below the
 // from* methods on which they depend.

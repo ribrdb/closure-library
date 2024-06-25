@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.PortCallerTest');
 goog.setTestOnly();
 
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const PortCaller = goog.require('goog.messaging.PortCaller');
-const PortNetwork = goog.require('goog.messaging.PortNetwork');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { PortCaller } from './portcaller.js';
+import { PortNetwork } from './portnetwork.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockControl;
 let mockChannel;

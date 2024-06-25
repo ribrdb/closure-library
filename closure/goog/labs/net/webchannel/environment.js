@@ -10,11 +10,7 @@
  *
  */
 
-goog.module('goog.labs.net.webChannel.environment');
-
-goog.module.declareLegacyNamespace();
-
-var userAgent = goog.require('goog.userAgent');
+import * as userAgent from '../../../useragent/useragent.js';
 
 
 /**
@@ -46,7 +42,7 @@ var EDGE_POLLING_INTERVAL_ = 125;
  *
  * @return {boolean} True if polling is required with XHR.
  */
-exports.isPollingRequired = function() {
+export let isPollingRequired = function() {
   return userAgent.EDGE_OR_IE;
 };
 
@@ -58,7 +54,7 @@ exports.isPollingRequired = function() {
  * @return {number|undefined} The polling interval (MS) for the current U-A;
  * or undefined if polling is not supposed to be enabled.
  */
-exports.getPollingInterval = function() {
+export let getPollingInterval = function() {
   if (userAgent.EDGE_OR_IE) {
     return EDGE_POLLING_INTERVAL_;
   }
@@ -168,7 +164,7 @@ let isStartOriginTrialsCalled = false;
  * @param {function(*)} logError A function to execute when exceptions are
  *     caught.
  */
-exports.startOriginTrials = function(path, logError) {
+export let startOriginTrials = function(path, logError) {
   if (isStartOriginTrialsCalled) {
     return;
   }

@@ -11,14 +11,13 @@
  * goog.storage.mechanism.Mechanism.
  */
 
-goog.module('goog.storage.mechanism.mechanismTests');
 goog.setTestOnly();
 
-const ErrorCode = goog.require('goog.storage.mechanism.ErrorCode');
-const Mechanism = goog.require('goog.storage.mechanism.Mechanism');
-const userAgent = goog.require('goog.userAgent');
-const {assertEquals, assertNull, assertTrue} = goog.require('goog.testing.asserts');
-const {bindTests} = goog.require('goog.storage.mechanism.testhelpers');
+import { ErrorCode } from './errorcode.js';
+import { Mechanism } from './mechanism.js';
+import * as userAgent from '../../useragent/useragent.js';
+import { assertEquals, assertNull, assertTrue } from '../../testing/asserts.js';
+import { bindTests } from './mechanismtestdefinition.js';
 
 /**
  * @param {{
@@ -27,7 +26,7 @@ const {bindTests} = goog.require('goog.storage.mechanism.testhelpers');
  * }} state
  * @return {!Object}
  */
-exports.register = function(state) {
+export let register = function(state) {
   return {...bindTests(
       [
         testSetGet,

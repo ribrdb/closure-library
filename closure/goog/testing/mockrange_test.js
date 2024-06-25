@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockRangeTest');
 goog.setTestOnly();
 
-const MockRange = goog.require('goog.testing.MockRange');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockRange } from './mockrange.js';
+import { testSuite } from './testsuite.js';
 
 testSuite({
   /**

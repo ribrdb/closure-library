@@ -9,16 +9,15 @@
  */
 
 goog.setTestOnly('goog.testing.editor.TestHelper');
-goog.provide('goog.testing.editor.TestHelper');
 
-goog.require('goog.Disposable');
-goog.require('goog.dom');
-goog.require('goog.dom.Range');
-goog.require('goog.editor.BrowserFeature');
-goog.require('goog.editor.node');
-goog.require('goog.editor.plugins.AbstractBubblePlugin');
-goog.require('goog.testing.dom');
-goog.requireType('goog.dom.AbstractRange');
+import { Disposable } from '../../disposable/disposable.js';
+import * as dom from '../../dom/dom.js';
+import * as Range from '../../dom/range.js';
+import { BrowserFeature } from '../../editor/browserfeature.js';
+import * as node from '../../editor/node.js';
+import { AbstractBubblePlugin } from '../../editor/plugins/abstractbubbleplugin.js';
+import * as testingDom from '../dom.js';
+goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -26,15 +25,14 @@ goog.requireType('goog.dom.AbstractRange');
  * Create a new test controller.
  * @param {Element} root The root editable element.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @final
  */
-goog.testing.editor.TestHelper = function(root) {
-  'use strict';
+export function TestHelper(root) {
   if (!root) {
     throw new Error('Null root');
   }
-  goog.Disposable.call(this);
+  Disposable.call(this);
 
   /**
    * Convenience variable for root DOM element.
@@ -49,16 +47,15 @@ goog.testing.editor.TestHelper = function(root) {
    * @private
    */
   this.savedHtml_ = '';
-};
-goog.inherits(goog.testing.editor.TestHelper, goog.Disposable);
+}
+goog.inherits(TestHelper, Disposable);
 
 
 /**
  * Selects a new root element.
  * @param {Element} root The root editable element.
  */
-goog.testing.editor.TestHelper.prototype.setRoot = function(root) {
-  'use strict';
+TestHelper.prototype.setRoot = function(root) {
   if (!root) {
     throw new Error('Null root');
   }
@@ -70,10 +67,9 @@ goog.testing.editor.TestHelper.prototype.setRoot = function(root) {
  * Make the root element editable.  Also saves its HTML to be restored
  * in tearDown.
  */
-goog.testing.editor.TestHelper.prototype.setUpEditableElement = function() {
-  'use strict';
+TestHelper.prototype.setUpEditableElement = function() {
   this.savedHtml_ = this.root_.innerHTML;
-  if (goog.editor.BrowserFeature.HAS_CONTENT_EDITABLE) {
+  if (BrowserFeature.HAS_CONTENT_EDITABLE) {
     this.root_.contentEditable = true;
   } else {
     this.root_.ownerDocument.designMode = 'on';
@@ -86,27 +82,26 @@ goog.testing.editor.TestHelper.prototype.setUpEditableElement = function() {
  * Reset the element previously initialized, restoring its HTML and making it
  * non editable.
  * @suppress {accessControls} Private state of
- *     {@link goog.editor.plugins.AbstractBubblePlugin} is accessed for test
+ *     {@link AbstractBubblePlugin} is accessed for test
  *     purposes.
  */
-goog.testing.editor.TestHelper.prototype.tearDownEditableElement = function() {
-  'use strict';
-  if (goog.editor.BrowserFeature.HAS_CONTENT_EDITABLE) {
+TestHelper.prototype.tearDownEditableElement = function() {
+  if (BrowserFeature.HAS_CONTENT_EDITABLE) {
     this.root_.contentEditable = false;
   } else {
     this.root_.ownerDocument.designMode = 'off';
   }
-  goog.dom.removeChildren(this.root_);
+  dom.removeChildren(this.root_);
   this.root_.innerHTML = this.savedHtml_;
   this.root_.removeAttribute('g_editable');
 
-  if (goog.editor.plugins && goog.editor.plugins.AbstractBubblePlugin) {
+  if (goog.editor.plugins && AbstractBubblePlugin) {
     // Remove old bubbles.
-    for (let key in goog.editor.plugins.AbstractBubblePlugin.bubbleMap_) {
-      goog.editor.plugins.AbstractBubblePlugin.bubbleMap_[key].dispose();
+    for (let key in AbstractBubblePlugin.bubbleMap_) {
+      AbstractBubblePlugin.bubbleMap_[key].dispose();
     }
     // Ensure we get a new bubble for each test.
-    goog.editor.plugins.AbstractBubblePlugin.bubbleMap_ = {};
+    AbstractBubblePlugin.bubbleMap_ = {};
   }
 };
 
@@ -120,10 +115,9 @@ goog.testing.editor.TestHelper.prototype.tearDownEditableElement = function() {
  * others.
  * @param {string} htmlPattern The pattern to match.
  */
-goog.testing.editor.TestHelper.prototype.assertHtmlMatches = function(
+TestHelper.prototype.assertHtmlMatches = function(
     htmlPattern) {
-  'use strict';
-  goog.testing.dom.assertHtmlContentsMatch(htmlPattern, this.root_);
+  testingDom.assertHtmlContentsMatch(htmlPattern, this.root_);
 };
 
 
@@ -133,9 +127,8 @@ goog.testing.editor.TestHelper.prototype.assertHtmlMatches = function(
  *     expression to find a match of.
  * @return {Node} The first text node that matches, or null if none is found.
  */
-goog.testing.editor.TestHelper.prototype.findTextNode = function(textOrRegexp) {
-  'use strict';
-  return goog.testing.dom.findTextNode(textOrRegexp, this.root_);
+TestHelper.prototype.findTextNode = function(textOrRegexp) {
+  return testingDom.findTextNode(textOrRegexp, this.root_);
 };
 
 
@@ -151,11 +144,10 @@ goog.testing.editor.TestHelper.prototype.findTextNode = function(textOrRegexp) {
  *     at.
  * @param {number=} opt_toOffset Offset within the above node to end the
  *     selection at.
- * @return {!goog.dom.AbstractRange}
+ * @return {!dom.AbstractRange}
  */
-goog.testing.editor.TestHelper.prototype.select = function(
+TestHelper.prototype.select = function(
     from, fromOffset, opt_to, opt_toOffset) {
-  'use strict';
   let end;
   const start = end =
       (typeof from === 'string') ? this.findTextNode(from) : from;
@@ -168,18 +160,17 @@ goog.testing.editor.TestHelper.prototype.select = function(
   }
 
   const range =
-      goog.dom.Range.createFromNodes(start, startOffset, end, endOffset);
+      Range.createFromNodes(start, startOffset, end, endOffset);
   range.select();
   return range;
 };
 
 
 /** @override */
-goog.testing.editor.TestHelper.prototype.disposeInternal = function() {
-  'use strict';
-  if (goog.editor.node.isEditableContainer(this.root_)) {
+TestHelper.prototype.disposeInternal = function() {
+  if (node.isEditableContainer(this.root_)) {
     this.tearDownEditableElement();
   }
   delete this.root_;
-  goog.testing.editor.TestHelper.base(this, 'disposeInternal');
+  TestHelper.base(this, 'disposeInternal');
 };

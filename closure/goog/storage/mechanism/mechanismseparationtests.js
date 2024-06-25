@@ -13,12 +13,11 @@
  * namespace is used for each object.
  */
 
-goog.module('goog.storage.mechanism.mechanismSeparationTests');
 goog.setTestOnly('goog.storage.mechanism.mechanismSeparationTests');
 
-const IterableMechanism = goog.require('goog.storage.mechanism.IterableMechanism');
-const {assertEquals, assertNull, assertTrue} = goog.require('goog.testing.asserts');
-const {bindTests} = goog.require('goog.storage.mechanism.testhelpers');
+import { IterableMechanism } from './iterablemechanism.js';
+import { assertEquals, assertNull, assertTrue } from '../../testing/asserts.js';
+import { bindTests } from './mechanismtestdefinition.js';
 
 
 /**
@@ -95,7 +94,7 @@ function testSeparateClean(mechanism, mechanismSeparate) {
  * }} state
  * @return {!Object}
  */
-exports.register = function(state) {
+export let register = function(state) {
   return bindTests(
       [
         testSeparateSet,

@@ -24,12 +24,11 @@
  *    with each constructed as {tag-id: content-string}.
  */
 
-goog.module('goog.net.streams.PbJsonStreamParser');
+import { JsonStreamParser } from './jsonstreamparser.js';
 
-const JsonStreamParser = goog.require('goog.net.streams.JsonStreamParser');
-const StreamParser = goog.require('goog.net.streams.StreamParser');
-const asserts = goog.require('goog.asserts');
-const utils = goog.require('goog.net.streams.utils');
+import { StreamParser } from './streamparser.js';
+import * as asserts from '../../asserts/asserts.js';
+import * as utils from './utils.js';
 
 
 /**
@@ -279,4 +278,4 @@ PbJsonStreamParser.prototype.parse = function(input) {
 };
 
 
-exports = PbJsonStreamParser;
+export { PbJsonStreamParser };

@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.pubsub.PubSubTest');
 goog.setTestOnly();
 
-const MockClock = goog.require('goog.testing.MockClock');
-const PubSub = goog.require('goog.pubsub.PubSub');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockClock } from '../testing/mockclock.js';
+import { PubSub } from './pubsub.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let pubsub;
 let asyncPubsub;

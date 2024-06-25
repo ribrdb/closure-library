@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fs.FileWriterTest');
 goog.setTestOnly();
 
-const EventObserver = goog.require('goog.testing.events.EventObserver');
-const FsBlob = goog.require('goog.testing.fs.Blob');
-const FsError = goog.require('goog.fs.Error');
-const FsFile = goog.requireType('goog.testing.fs.File');
-const FsFileSaver = goog.require('goog.fs.FileSaver');
-const FsFileSystem = goog.require('goog.testing.fs.FileSystem');
-const FsFileWriter = goog.requireType('goog.testing.fs.FileWriter');
-const GoogPromise = goog.require('goog.Promise');
-const MockClock = goog.require('goog.testing.MockClock');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventObserver } from '../events/eventobserver.js';
+import { Blob as FsBlob } from './blob.js';
+import { Error as FsError } from '../../fs/error.js';
+import { FileSaver as FsFileSaver } from '../../fs/filesaver.js';
+import { FileSystem as FsFileSystem } from './filesystem.js';
+import { Promise as GoogPromise } from '../../promise/promise.js';
+import { MockClock } from '../mockclock.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as events from '../../events/events.js';
+import * as googArray from '../../array/array.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../testsuite.js';
+const FsFile = goog.requireType('goog.testing.fs.file');
+const FsFileWriter = goog.requireType('goog.testing.fs.filewriter');
 
 const EventType = FsFileSaver.EventType;
 const ReadyState = FsFileSaver.ReadyState;

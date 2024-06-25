@@ -13,10 +13,9 @@
  */
 
 
-goog.provide('goog.async.Delay');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.Timer');
+import { Timer } from '../timer/timer.js';
 
 
 
@@ -34,42 +33,41 @@ goog.require('goog.Timer');
  * @template THIS
  * @constructor
  * @struct
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @final
  */
-goog.async.Delay = function(listener, opt_interval, opt_handler) {
-  'use strict';
-  goog.async.Delay.base(this, 'constructor');
+export function Delay(listener, opt_interval, opt_handler) {
+ Delay.base(this, 'constructor');
 
-  /**
-   * The function that will be invoked after a delay.
-   * @private {function(this:THIS)}
-   */
-  this.listener_ = listener;
+ /**
+  * The function that will be invoked after a delay.
+  * @private {function(this:THIS)}
+  */
+ this.listener_ = listener;
 
-  /**
-   * The default amount of time to delay before invoking the callback.
-   * @type {number}
-   * @private
-   */
-  this.interval_ = opt_interval || 0;
+ /**
+  * The default amount of time to delay before invoking the callback.
+  * @type {number}
+  * @private
+  */
+ this.interval_ = opt_interval || 0;
 
-  /**
-   * The object context to invoke the callback in.
-   * @type {Object|undefined}
-   * @private
-   */
-  this.handler_ = opt_handler;
+ /**
+  * The object context to invoke the callback in.
+  * @type {Object|undefined}
+  * @private
+  */
+ this.handler_ = opt_handler;
 
 
-  /**
-   * Cached callback function invoked when the delay finishes.
-   * @type {Function}
-   * @private
-   */
-  this.callback_ = goog.bind(this.doAction_, this);
-};
-goog.inherits(goog.async.Delay, goog.Disposable);
+ /**
+  * Cached callback function invoked when the delay finishes.
+  * @type {Function}
+  * @private
+  */
+ this.callback_ = goog.bind(this.doAction_, this);
+}
+goog.inherits(Delay, Disposable);
 
 
 /**
@@ -77,7 +75,7 @@ goog.inherits(goog.async.Delay, goog.Disposable);
  * @type {number}
  * @private
  */
-goog.async.Delay.prototype.id_ = 0;
+Delay.prototype.id_ = 0;
 
 
 /**
@@ -86,12 +84,11 @@ goog.async.Delay.prototype.id_ = 0;
  * @override
  * @protected
  */
-goog.async.Delay.prototype.disposeInternal = function() {
-  'use strict';
-  goog.async.Delay.base(this, 'disposeInternal');
-  this.stop();
-  delete this.listener_;
-  delete this.handler_;
+Delay.prototype.disposeInternal = function() {
+ Delay.base(this, 'disposeInternal');
+ this.stop();
+ delete this.listener_;
+ delete this.handler_;
 };
 
 
@@ -102,12 +99,11 @@ goog.async.Delay.prototype.disposeInternal = function() {
  * @param {number=} opt_interval If specified, overrides the object's default
  *     interval with this one (in milliseconds).
  */
-goog.async.Delay.prototype.start = function(opt_interval) {
-  'use strict';
-  this.stop();
-  this.id_ = goog.Timer.callOnce(
-      this.callback_,
-      opt_interval !== undefined ? opt_interval : this.interval_);
+Delay.prototype.start = function(opt_interval) {
+ this.stop();
+ this.id_ = Timer.callOnce(
+     this.callback_,
+     opt_interval !== undefined ? opt_interval : this.interval_);
 };
 
 
@@ -117,11 +113,10 @@ goog.async.Delay.prototype.start = function(opt_interval) {
  *     active, overrides the object's default interval with this one (in
  *     milliseconds).
  */
-goog.async.Delay.prototype.startIfNotActive = function(opt_interval) {
-  'use strict';
-  if (!this.isActive()) {
-    this.start(opt_interval);
-  }
+Delay.prototype.startIfNotActive = function(opt_interval) {
+ if (!this.isActive()) {
+   this.start(opt_interval);
+ }
 };
 
 
@@ -129,12 +124,11 @@ goog.async.Delay.prototype.startIfNotActive = function(opt_interval) {
  * Stops the delay timer if it is active. No action is taken if the timer is not
  * in use.
  */
-goog.async.Delay.prototype.stop = function() {
-  'use strict';
-  if (this.isActive()) {
-    goog.Timer.clear(this.id_);
-  }
-  this.id_ = 0;
+Delay.prototype.stop = function() {
+ if (this.isActive()) {
+   Timer.clear(this.id_);
+ }
+ this.id_ = 0;
 };
 
 
@@ -142,10 +136,9 @@ goog.async.Delay.prototype.stop = function() {
  * Fires delay's action even if timer has already gone off or has not been
  * started yet; guarantees action firing. Stops the delay timer.
  */
-goog.async.Delay.prototype.fire = function() {
-  'use strict';
-  this.stop();
-  this.doAction_();
+Delay.prototype.fire = function() {
+ this.stop();
+ this.doAction_();
 };
 
 
@@ -153,20 +146,18 @@ goog.async.Delay.prototype.fire = function() {
  * Fires delay's action only if timer is currently active. Stops the delay
  * timer.
  */
-goog.async.Delay.prototype.fireIfActive = function() {
-  'use strict';
-  if (this.isActive()) {
-    this.fire();
-  }
+Delay.prototype.fireIfActive = function() {
+ if (this.isActive()) {
+   this.fire();
+ }
 };
 
 
 /**
  * @return {boolean} True if the delay is currently active, false otherwise.
  */
-goog.async.Delay.prototype.isActive = function() {
-  'use strict';
-  return this.id_ != 0;
+Delay.prototype.isActive = function() {
+ return this.id_ != 0;
 };
 
 
@@ -174,10 +165,9 @@ goog.async.Delay.prototype.isActive = function() {
  * Invokes the callback function after the delay successfully completes.
  * @private
  */
-goog.async.Delay.prototype.doAction_ = function() {
-  'use strict';
-  this.id_ = 0;
-  if (this.listener_) {
-    this.listener_.call(this.handler_);
-  }
+Delay.prototype.doAction_ = function() {
+ this.id_ = 0;
+ if (this.listener_) {
+   this.listener_.call(this.handler_);
+ }
 };

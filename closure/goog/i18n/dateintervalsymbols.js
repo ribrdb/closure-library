@@ -19,16 +19,11 @@
 
 // clang-format off
 
-goog.module('goog.i18n.dateIntervalSymbols');
-
 /**
  * Map containing the interval pattern for every calendar field.
  * @typedef {!Object<string, string>}
  */
-let DateIntervalPatternMap;
-
-/** @typedef {!DateIntervalPatternMap} */
-exports.DateIntervalPatternMap;
+export let DateIntervalPatternMap;
 
 /**
  * Collection of date interval symbols.
@@ -48,10 +43,7 @@ exports.DateIntervalPatternMap;
  *   FALLBACK: string
  * }}
  */
-let DateIntervalSymbols;
-
-/** @typedef {!DateIntervalSymbols} */
-exports.DateIntervalSymbols;
+export let DateIntervalSymbols;
 
 /** @type {!DateIntervalSymbols} */
 let defaultSymbols;
@@ -60,7 +52,7 @@ let defaultSymbols;
  * Returns the default DateIntervalSymbols.
  * @return {!DateIntervalSymbols}
  */
-exports.getDateIntervalSymbols = function() {
+export let getDateIntervalSymbols = function() {
   return defaultSymbols;
 };
 
@@ -68,12 +60,12 @@ exports.getDateIntervalSymbols = function() {
  * Sets the default DateIntervalSymbols.
  * @param {!DateIntervalSymbols} symbols
  */
-exports.setDateIntervalSymbols = function(symbols) {
+export let setDateIntervalSymbols = function(symbols) {
   defaultSymbols = symbols;
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_af = {
+export let DateIntervalSymbols_af = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'Md': 'EEEE d MMMM – EEEE d MMMM y',
@@ -138,7 +130,7 @@ exports.DateIntervalSymbols_af = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_am = {
+export let DateIntervalSymbols_am = {
   FULL_DATE: {
     'G': 'G EEEE፣ MMMM d፣ y – G EEEE፣ MMMM d፣ y',
     'Md': 'EEEE MMMM d – EEEE MMMM d፣ y',
@@ -204,7 +196,7 @@ exports.DateIntervalSymbols_am = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ar = {
+export let DateIntervalSymbols_ar = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE، d MMMM – EEEE، d MMMM، y',
@@ -268,13 +260,13 @@ exports.DateIntervalSymbols_ar = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ar_DZ = exports.DateIntervalSymbols_ar;
+export let DateIntervalSymbols_ar_DZ = DateIntervalSymbols_ar;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ar_EG = exports.DateIntervalSymbols_ar;
+export let DateIntervalSymbols_ar_EG = DateIntervalSymbols_ar;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_az = {
+export let DateIntervalSymbols_az = {
   FULL_DATE: {
     'G': 'G d MMMM y, EEEE – d MMMM y, EEEE',
     'Md': 'd MMMM y, EEEE – d MMMM, EEEE',
@@ -335,7 +327,7 @@ exports.DateIntervalSymbols_az = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_be = {
+export let DateIntervalSymbols_be = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM, y G – EEEE, d MMMM, y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -401,7 +393,7 @@ exports.DateIntervalSymbols_be = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_bg = {
+export let DateIntervalSymbols_bg = {
   FULL_DATE: {
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y \'г\'.',
     '_': 'EEEE, d MMMM y \'г\'.'
@@ -460,7 +452,7 @@ exports.DateIntervalSymbols_bg = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_bn = {
+export let DateIntervalSymbols_bn = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM, y G – EEEE, d MMMM, y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM, y',
@@ -522,7 +514,7 @@ exports.DateIntervalSymbols_bn = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_br = {
+export let DateIntervalSymbols_br = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'Md': 'EEEE d MMMM – EEEE d MMMM y',
@@ -583,7 +575,7 @@ exports.DateIntervalSymbols_br = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_bs = {
+export let DateIntervalSymbols_bs = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, d. MMMM – EEEE, d. MMMM y.',
@@ -645,7 +637,7 @@ exports.DateIntervalSymbols_bs = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ca = {
+export let DateIntervalSymbols_ca = {
   FULL_DATE: {
     'M': 'EEEE, d MMMM – EEEE, d MMMM \'de\' y',
     'd': 'EEEE, d – EEEE, d MMMM \'de\' y',
@@ -706,7 +698,7 @@ exports.DateIntervalSymbols_ca = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_chr = {
+export let DateIntervalSymbols_chr = {
   FULL_DATE: {
     'G': 'EEEE, MMMM d, y G – EEEE, MMMM d, y G',
     'Md': 'EEEE, MMMM d – EEEE, MMMM d, y',
@@ -768,7 +760,7 @@ exports.DateIntervalSymbols_chr = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_cs = {
+export let DateIntervalSymbols_cs = {
   FULL_DATE: {
     'G': 'EEEE d. M. y G – EEEE d. M. y G',
     'Md': 'EEEE d. M. – EEEE d. M. y',
@@ -830,7 +822,7 @@ exports.DateIntervalSymbols_cs = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_cy = {
+export let DateIntervalSymbols_cy = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -893,7 +885,7 @@ exports.DateIntervalSymbols_cy = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_da = {
+export let DateIntervalSymbols_da = {
   FULL_DATE: {
     'G': 'EEEE d. MMMM y G–EEEE d. MMMM y G',
     'M': 'EEEE d. MMMM–EEEE d. MMMM y',
@@ -959,7 +951,7 @@ exports.DateIntervalSymbols_da = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_de = {
+export let DateIntervalSymbols_de = {
   FULL_DATE: {
     'G': 'EEEE, d. MMMM y G – EEEE EEEE, d. MMMM y G',
     'M': 'EEEE, d. MMMM – EEEE, d. MMMM y',
@@ -1023,10 +1015,10 @@ exports.DateIntervalSymbols_de = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_de_AT = exports.DateIntervalSymbols_de;
+export let DateIntervalSymbols_de_AT = DateIntervalSymbols_de;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_de_CH = {
+export let DateIntervalSymbols_de_CH = {
   FULL_DATE: {
     'G': 'EEEE, d. MMMM y G – EEEE EEEE, d. MMMM y G',
     'M': 'EEEE, d. MMMM – EEEE, d. MMMM y',
@@ -1090,7 +1082,7 @@ exports.DateIntervalSymbols_de_CH = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_el = {
+export let DateIntervalSymbols_el = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'M': 'EEEE d MMMM – EEEE d MMMM y',
@@ -1158,7 +1150,7 @@ exports.DateIntervalSymbols_el = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en = {
+export let DateIntervalSymbols_en = {
   FULL_DATE: {
     'G': 'EEEE, MMMM d, y G – EEEE, MMMM d, y G',
     'Md': 'EEEE, MMMM d – EEEE, MMMM d, y',
@@ -1220,7 +1212,7 @@ exports.DateIntervalSymbols_en = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_AU = {
+export let DateIntervalSymbols_en_AU = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM, y G – EEEE, d MMMM, y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -1284,7 +1276,7 @@ exports.DateIntervalSymbols_en_AU = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_CA = {
+export let DateIntervalSymbols_en_CA = {
   FULL_DATE: {
     'G': 'EEEE, MMMM d, y G–EEEE, MMMM d, y G',
     'Md': 'EEEE, MMMM d–EEEE, MMMM d, y',
@@ -1347,7 +1339,7 @@ exports.DateIntervalSymbols_en_CA = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_GB = {
+export let DateIntervalSymbols_en_GB = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -1409,7 +1401,7 @@ exports.DateIntervalSymbols_en_GB = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_IE = {
+export let DateIntervalSymbols_en_IE = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE d MMMM – EEEE d MMMM y',
@@ -1471,7 +1463,7 @@ exports.DateIntervalSymbols_en_IE = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_IN = {
+export let DateIntervalSymbols_en_IN = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -1536,7 +1528,7 @@ exports.DateIntervalSymbols_en_IN = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_SG = {
+export let DateIntervalSymbols_en_SG = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -1598,10 +1590,10 @@ exports.DateIntervalSymbols_en_SG = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_US = exports.DateIntervalSymbols_en;
+export let DateIntervalSymbols_en_US = DateIntervalSymbols_en;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_en_ZA = {
+export let DateIntervalSymbols_en_ZA = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -1667,7 +1659,7 @@ exports.DateIntervalSymbols_en_ZA = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_es = {
+export let DateIntervalSymbols_es = {
   FULL_DATE: {
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
     '_': 'EEEE, d \'de\' MMMM \'de\' y'
@@ -1727,7 +1719,7 @@ exports.DateIntervalSymbols_es = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_es_419 = {
+export let DateIntervalSymbols_es_419 = {
   FULL_DATE: {
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
     '_': 'EEEE, d \'de\' MMMM \'de\' y'
@@ -1789,10 +1781,10 @@ exports.DateIntervalSymbols_es_419 = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_es_ES = exports.DateIntervalSymbols_es;
+export let DateIntervalSymbols_es_ES = DateIntervalSymbols_es;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_es_MX = {
+export let DateIntervalSymbols_es_MX = {
   FULL_DATE: {
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
     '_': 'EEEE, d \'de\' MMMM \'de\' y'
@@ -1854,7 +1846,7 @@ exports.DateIntervalSymbols_es_MX = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_es_US = {
+export let DateIntervalSymbols_es_US = {
   FULL_DATE: {
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
     '_': 'EEEE, d \'de\' MMMM \'de\' y'
@@ -1917,7 +1909,7 @@ exports.DateIntervalSymbols_es_US = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_et = {
+export let DateIntervalSymbols_et = {
   FULL_DATE: {
     'G': 'EEEE, d. MMMM y G – EEEE, d. MMMM y G',
     'Md': 'EEEE, d. MMMM – EEEE, d. MMMM y',
@@ -1979,7 +1971,7 @@ exports.DateIntervalSymbols_et = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_eu = {
+export let DateIntervalSymbols_eu = {
   FULL_DATE: {
     'G': 'G y, MMMM d(\'a\'), EEEE – G y, MMMM d(\'a\'), EEEE',
     'M': 'y(\'e\')\'ko\' MMMM d(\'a\'), EEEE – MMMM d(\'a\'), EEEE',
@@ -2042,7 +2034,7 @@ exports.DateIntervalSymbols_eu = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_fa = {
+export let DateIntervalSymbols_fa = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G تا EEEE d MMMM y G',
     'Md': 'EEEE d LLLL تا EEEE d MMMM y',
@@ -2102,7 +2094,7 @@ exports.DateIntervalSymbols_fa = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_fi = {
+export let DateIntervalSymbols_fi = {
   FULL_DATE: {
     '_': 'cccc d. MMMM y'
   },
@@ -2163,7 +2155,7 @@ exports.DateIntervalSymbols_fi = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_fil = {
+export let DateIntervalSymbols_fil = {
   FULL_DATE: {
     'G': 'EEEE, MMMM d, y G – EEEE, MMMM d, y G',
     'Md': 'EEEE, MMMM d – EEEE, MMMM d, y',
@@ -2225,7 +2217,7 @@ exports.DateIntervalSymbols_fil = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_fr = {
+export let DateIntervalSymbols_fr = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'M': 'EEEE d MMMM – EEEE d MMMM y',
@@ -2286,7 +2278,7 @@ exports.DateIntervalSymbols_fr = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_fr_CA = {
+export let DateIntervalSymbols_fr_CA = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'M': 'EEEE d MMMM – EEEE d MMMM y',
@@ -2348,7 +2340,7 @@ exports.DateIntervalSymbols_fr_CA = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ga = {
+export let DateIntervalSymbols_ga = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE d MMMM – EEEE d MMMM y',
@@ -2408,7 +2400,7 @@ exports.DateIntervalSymbols_ga = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_gl = {
+export let DateIntervalSymbols_gl = {
   FULL_DATE: {
     'G': 'EEEE, d \'de\' MMMM \'de\' y G – EEEE, d \'de\' MMMM \'de\' y G',
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
@@ -2470,7 +2462,7 @@ exports.DateIntervalSymbols_gl = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_gsw = {
+export let DateIntervalSymbols_gsw = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, d. MMMM – EEEE, d. MMMM y',
@@ -2530,7 +2522,7 @@ exports.DateIntervalSymbols_gsw = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_gu = {
+export let DateIntervalSymbols_gu = {
   FULL_DATE: {
     'G': 'G y d MMMM, EEEE – G y d MMMM, EEEE',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM, y',
@@ -2595,7 +2587,7 @@ exports.DateIntervalSymbols_gu = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_haw = {
+export let DateIntervalSymbols_haw = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'y MMMM d, EEEE – MMMM d, EEEE',
@@ -2661,7 +2653,7 @@ exports.DateIntervalSymbols_haw = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_he = {
+export let DateIntervalSymbols_he = {
   FULL_DATE: {
     'G': 'EEEE, d בMMMM y G – EEEE, d בMMMM y G',
     'Md': 'EEEE d MMMM – EEEE d MMMM y',
@@ -2726,7 +2718,7 @@ exports.DateIntervalSymbols_he = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_hi = {
+export let DateIntervalSymbols_hi = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -2788,7 +2780,7 @@ exports.DateIntervalSymbols_hi = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_hr = {
+export let DateIntervalSymbols_hr = {
   FULL_DATE: {
     'G': 'EEEE, dd. MMMM y. G – EEEE, dd. MMMM y. G',
     'M': 'EEEE, dd. MMMM – EEEE, dd. MMMM y.',
@@ -2852,7 +2844,7 @@ exports.DateIntervalSymbols_hr = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_hu = {
+export let DateIntervalSymbols_hu = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'y. MMMM d., EEEE – MMMM d., EEEE',
@@ -2916,7 +2908,7 @@ exports.DateIntervalSymbols_hu = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_hy = {
+export let DateIntervalSymbols_hy = {
   FULL_DATE: {
     'G': 'G y թ. MMMM d EEEE – G MMMM d EEEE',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM, y թ.',
@@ -2980,7 +2972,7 @@ exports.DateIntervalSymbols_hy = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_id = {
+export let DateIntervalSymbols_id = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -3043,7 +3035,7 @@ exports.DateIntervalSymbols_id = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_in = {
+export let DateIntervalSymbols_in = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -3106,7 +3098,7 @@ exports.DateIntervalSymbols_in = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_is = {
+export let DateIntervalSymbols_is = {
   FULL_DATE: {
     'G': 'EEEE, d. MMMM y G – EEEE, d. MMMM y G',
     'M': 'EEEE, d. MMMM – EEEE, d. MMMM y',
@@ -3168,7 +3160,7 @@ exports.DateIntervalSymbols_is = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_it = {
+export let DateIntervalSymbols_it = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'M': 'EEEE d MMMM – EEEE d MMMM y',
@@ -3232,7 +3224,7 @@ exports.DateIntervalSymbols_it = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_iw = {
+export let DateIntervalSymbols_iw = {
   FULL_DATE: {
     'G': 'EEEE, d בMMMM y G – EEEE, d בMMMM y G',
     'Md': 'EEEE d MMMM – EEEE d MMMM y',
@@ -3297,7 +3289,7 @@ exports.DateIntervalSymbols_iw = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ja = {
+export let DateIntervalSymbols_ja = {
   FULL_DATE: {
     'G': 'Gy/MM/dd(EEEE)～Gy/MM/dd(EEEE)',
     'Mdy': 'y/MM/dd(EEEE)～y/MM/dd(EEEE)',
@@ -3355,7 +3347,7 @@ exports.DateIntervalSymbols_ja = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ka = {
+export let DateIntervalSymbols_ka = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE, d MMMM. – EEEE, d MMMM. y',
@@ -3419,7 +3411,7 @@ exports.DateIntervalSymbols_ka = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_kk = {
+export let DateIntervalSymbols_kk = {
   FULL_DATE: {
     'G': 'G y \'ж\'. d MMMM, EEEE – G y \'ж\'. d MMMM, EEEE',
     'M': 'y \'ж\'. d MMMM, EEEE – d MMMM, EEEE',
@@ -3484,7 +3476,7 @@ exports.DateIntervalSymbols_kk = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_km = {
+export let DateIntervalSymbols_km = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'Md': 'EEEE dd MMMM y – EEEE dd MMMM y',
@@ -3551,7 +3543,7 @@ exports.DateIntervalSymbols_km = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_kn = {
+export let DateIntervalSymbols_kn = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, MMMM d – EEEE, MMMM d, y',
@@ -3621,7 +3613,7 @@ exports.DateIntervalSymbols_kn = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ko = {
+export let DateIntervalSymbols_ko = {
   FULL_DATE: {
     'G': 'GGGGG y년 M월 d일 EEEE요일 ~ GGGGG y년 M월 d일 EEEE요일',
     'Mdy': 'y. M. d. (EEEE) ~ y. M. d. (EEEE)',
@@ -3680,7 +3672,7 @@ exports.DateIntervalSymbols_ko = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ky = {
+export let DateIntervalSymbols_ky = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'y-\'ж\'., d-MMMM, EEEE – d-MMMM EEEE',
@@ -3746,7 +3738,7 @@ exports.DateIntervalSymbols_ky = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ln = {
+export let DateIntervalSymbols_ln = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'y MMMM d, EEEE – MMMM d, EEEE',
@@ -3811,7 +3803,7 @@ exports.DateIntervalSymbols_ln = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_lo = {
+export let DateIntervalSymbols_lo = {
   FULL_DATE: {
     'G': 'G EEEE, dd/MM/y – G EEEE, dd/MM/y',
     'Mdy': 'G EEEE, dd/MM/y – EEEE, dd/MM/y',
@@ -3875,7 +3867,7 @@ exports.DateIntervalSymbols_lo = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_lt = {
+export let DateIntervalSymbols_lt = {
   FULL_DATE: {
     'M': 'y MMMM d, EEEE. – MMMM d, EEEE.',
     'd': 'y MMMM d, EEEE – MMMM d, EEEE',
@@ -3936,7 +3928,7 @@ exports.DateIntervalSymbols_lt = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_lv = {
+export let DateIntervalSymbols_lv = {
   FULL_DATE: {
     'G': 'G y. \'gada\' d. MMMM, EEEE – G y. \'gada\' d. MMMM, EEEE',
     'y': 'EEEE, y. \'gada\' d. MMMM – EEEE, y. \'gada\' d. MMMM',
@@ -3998,7 +3990,7 @@ exports.DateIntervalSymbols_lv = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_mk = {
+export let DateIntervalSymbols_mk = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -4058,7 +4050,7 @@ exports.DateIntervalSymbols_mk = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ml = {
+export let DateIntervalSymbols_ml = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'y MMMM d, EEEE – MMMM d, EEEE',
@@ -4125,7 +4117,7 @@ exports.DateIntervalSymbols_ml = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_mn = {
+export let DateIntervalSymbols_mn = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'y \'оны\' MMMMM/dd EEEE – MMMMM/dd EEEE',
@@ -4190,7 +4182,7 @@ exports.DateIntervalSymbols_mn = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_mo = {
+export let DateIntervalSymbols_mo = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -4251,7 +4243,7 @@ exports.DateIntervalSymbols_mo = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_mr = {
+export let DateIntervalSymbols_mr = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, d MMMM – EEEE, d MMMM, y',
@@ -4314,7 +4306,7 @@ exports.DateIntervalSymbols_mr = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ms = {
+export let DateIntervalSymbols_ms = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -4377,7 +4369,7 @@ exports.DateIntervalSymbols_ms = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_mt = {
+export let DateIntervalSymbols_mt = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, d \'ta\'’ MMMM – EEEE, d \'ta\'’ MMMM y',
@@ -4441,7 +4433,7 @@ exports.DateIntervalSymbols_mt = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_my = {
+export let DateIntervalSymbols_my = {
   FULL_DATE: {
     'G': 'G y MMMM d၊ EEEE – G y MMMM d၊ EEEE',
     'Md': 'y၊ MMMM d၊ EEEE – MMMM d၊ EEEE',
@@ -4505,7 +4497,7 @@ exports.DateIntervalSymbols_my = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_nb = {
+export let DateIntervalSymbols_nb = {
   FULL_DATE: {
     'G': 'EEEE d. MMMM y G–EEEE d. MMMM y G',
     'M': 'EEEE d. MMMM–EEEE d. MMMM y',
@@ -4566,7 +4558,7 @@ exports.DateIntervalSymbols_nb = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ne = {
+export let DateIntervalSymbols_ne = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'y MMMM d, EEEE – MMMM d, EEEE',
@@ -4628,7 +4620,7 @@ exports.DateIntervalSymbols_ne = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_nl = {
+export let DateIntervalSymbols_nl = {
   FULL_DATE: {
     'G': 'EEEE d MMMM y G – EEEE d MMMM y G',
     'M': 'EEEE d MMMM – EEEE d MMMM y',
@@ -4690,7 +4682,7 @@ exports.DateIntervalSymbols_nl = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_no = {
+export let DateIntervalSymbols_no = {
   FULL_DATE: {
     'G': 'EEEE d. MMMM y G–EEEE d. MMMM y G',
     'M': 'EEEE d. MMMM–EEEE d. MMMM y',
@@ -4751,10 +4743,10 @@ exports.DateIntervalSymbols_no = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_no_NO = exports.DateIntervalSymbols_no;
+export let DateIntervalSymbols_no_NO = DateIntervalSymbols_no;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_or = {
+export let DateIntervalSymbols_or = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'y MMMM d, EEEE – MMMM d, EEEE',
@@ -4820,7 +4812,7 @@ exports.DateIntervalSymbols_or = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_pa = {
+export let DateIntervalSymbols_pa = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -4882,7 +4874,7 @@ exports.DateIntervalSymbols_pa = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_pl = {
+export let DateIntervalSymbols_pl = {
   FULL_DATE: {
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
     '_': 'EEEE, d MMMM y'
@@ -4946,7 +4938,7 @@ exports.DateIntervalSymbols_pl = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_pt = {
+export let DateIntervalSymbols_pt = {
   FULL_DATE: {
     'G': 'EEEE, d \'de\' MMMM \'de\' y G – EEEE, d \'de\' MMMM \'de\' y G',
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
@@ -5006,10 +4998,10 @@ exports.DateIntervalSymbols_pt = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_pt_BR = exports.DateIntervalSymbols_pt;
+export let DateIntervalSymbols_pt_BR = DateIntervalSymbols_pt;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_pt_PT = {
+export let DateIntervalSymbols_pt_PT = {
   FULL_DATE: {
     'Md': 'EEEE, d \'de\' MMMM – EEEE, d \'de\' MMMM \'de\' y',
     '_': 'EEEE, d \'de\' MMMM \'de\' y'
@@ -5066,7 +5058,7 @@ exports.DateIntervalSymbols_pt_PT = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ro = {
+export let DateIntervalSymbols_ro = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -5127,7 +5119,7 @@ exports.DateIntervalSymbols_ro = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ru = {
+export let DateIntervalSymbols_ru = {
   FULL_DATE: {
     'G': 'ccc, d MMMM y \'г\'. G – ccc, d MMMM y \'г\'. G',
     'M': 'ccc, d MMMM – ccc, d MMMM y \'г\'.',
@@ -5190,7 +5182,7 @@ exports.DateIntervalSymbols_ru = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sh = {
+export let DateIntervalSymbols_sh = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, dd. MMMM – EEEE, dd. MMMM y.',
@@ -5253,7 +5245,7 @@ exports.DateIntervalSymbols_sh = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_si = {
+export let DateIntervalSymbols_si = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     '_': 'y MMMM d, EEEE'
@@ -5314,7 +5306,7 @@ exports.DateIntervalSymbols_si = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sk = {
+export let DateIntervalSymbols_sk = {
   FULL_DATE: {
     'G': 'EEEE d. M. y G – EEEE d. M. y G',
     'M': 'EEEE d. M. – EEEE d. M. y',
@@ -5375,7 +5367,7 @@ exports.DateIntervalSymbols_sk = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sl = {
+export let DateIntervalSymbols_sl = {
   FULL_DATE: {
     'G': 'EEEE, d. MMMM y G–EEEE, d. MMMM y G',
     'Md': 'EEEE, d. MMMM–EEEE, d. MMMM y',
@@ -5437,7 +5429,7 @@ exports.DateIntervalSymbols_sl = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sq = {
+export let DateIntervalSymbols_sq = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -5500,7 +5492,7 @@ exports.DateIntervalSymbols_sq = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sr = {
+export let DateIntervalSymbols_sr = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, dd. MMMM – EEEE, dd. MMMM y.',
@@ -5563,7 +5555,7 @@ exports.DateIntervalSymbols_sr = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sr_Latn = {
+export let DateIntervalSymbols_sr_Latn = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'M': 'EEEE, dd. MMMM – EEEE, dd. MMMM y.',
@@ -5626,7 +5618,7 @@ exports.DateIntervalSymbols_sr_Latn = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sv = {
+export let DateIntervalSymbols_sv = {
   FULL_DATE: {
     'G': 'd MMMM y G, EEEE – d MMMM y G, EEEE',
     'Md': 'EEEE dd MMMM–EEEE dd MMMM y',
@@ -5692,7 +5684,7 @@ exports.DateIntervalSymbols_sv = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_sw = {
+export let DateIntervalSymbols_sw = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM y',
@@ -5751,7 +5743,7 @@ exports.DateIntervalSymbols_sw = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ta = {
+export let DateIntervalSymbols_ta = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE, d MMMM – EEEE, d MMMM, y',
@@ -5813,7 +5805,7 @@ exports.DateIntervalSymbols_ta = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_te = {
+export let DateIntervalSymbols_te = {
   FULL_DATE: {
     'G': 'G d MMMM, y, EEEE – G d MMMM, y, EEEE',
     'Md': 'd MMMM, EEEE – d MMMM, y, EEEE',
@@ -5877,7 +5869,7 @@ exports.DateIntervalSymbols_te = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_th = {
+export let DateIntervalSymbols_th = {
   FULL_DATE: {
     'G': 'EEEE d MMMM G y – EEEE d MMMM G y',
     'Md': 'EEEE d MMMM – EEEE d MMMM G y',
@@ -5939,7 +5931,7 @@ exports.DateIntervalSymbols_th = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_tl = {
+export let DateIntervalSymbols_tl = {
   FULL_DATE: {
     'G': 'EEEE, MMMM d, y G – EEEE, MMMM d, y G',
     'Md': 'EEEE, MMMM d – EEEE, MMMM d, y',
@@ -6001,7 +5993,7 @@ exports.DateIntervalSymbols_tl = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_tr = {
+export let DateIntervalSymbols_tr = {
   FULL_DATE: {
     'G': 'G d MMMM y EEEE – G d MMMM y EEEE',
     '_': 'd MMMM y EEEE'
@@ -6062,7 +6054,7 @@ exports.DateIntervalSymbols_tr = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_uk = {
+export let DateIntervalSymbols_uk = {
   FULL_DATE: {
     'G': 'ccc, d MMMM y \'р\'. G – ccc, d MMMM y \'р\'. G',
     'M': 'EEEE, d MMMM – EEEE, d MMMM y \'р\'.',
@@ -6127,7 +6119,7 @@ exports.DateIntervalSymbols_uk = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_ur = {
+export let DateIntervalSymbols_ur = {
   FULL_DATE: {
     'G': 'EEEE, MMMM d, y G – EEEE, MMMM d, y G',
     'Md': 'EEEE، d MMMM – EEEE، d MMMM، y',
@@ -6189,7 +6181,7 @@ exports.DateIntervalSymbols_ur = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_uz = {
+export let DateIntervalSymbols_uz = {
   FULL_DATE: {
     'G': 'EEEE, d-MMMM, G y – EEEE, d-MMMM, G y',
     'Md': 'EEEE, d-MMMM – EEEE, d-MMMM, y',
@@ -6250,7 +6242,7 @@ exports.DateIntervalSymbols_uz = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_vi = {
+export let DateIntervalSymbols_vi = {
   FULL_DATE: {
     'G': 'EEEE, d MMMM y G – EEEE, d MMMM y G',
     'M': 'EEEE, dd \'tháng\' M – EEEE, dd \'tháng\' M, y',
@@ -6315,7 +6307,7 @@ exports.DateIntervalSymbols_vi = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_zh = {
+export let DateIntervalSymbols_zh = {
   FULL_DATE: {
     'G': 'GGGGGy-MM-ddEEEE – GGGGGy-MM-ddEEEE',
     'Mdy': 'y/M/dEEEE至y/M/dEEEE',
@@ -6374,10 +6366,10 @@ exports.DateIntervalSymbols_zh = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_zh_CN = exports.DateIntervalSymbols_zh;
+export let DateIntervalSymbols_zh_CN = DateIntervalSymbols_zh;
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_zh_HK = {
+export let DateIntervalSymbols_zh_HK = {
   FULL_DATE: {
     'G': 'GGGGGy-MM-dd, EEEE – GGGGGy-MM-dd, EEEE',
     'Mdy': 'd/M/y（EEEE） 至 d/M/y（EEEE）',
@@ -6439,7 +6431,7 @@ exports.DateIntervalSymbols_zh_HK = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_zh_TW = {
+export let DateIntervalSymbols_zh_TW = {
   FULL_DATE: {
     'G': 'GGGGGy-MM-dd, EEEE – GGGGGy-MM-dd, EEEE',
     'Mdy': 'y/M/dEEEE至y/M/dEEEE',
@@ -6501,7 +6493,7 @@ exports.DateIntervalSymbols_zh_TW = {
 };
 
 /** @const {!DateIntervalSymbols} */
-exports.DateIntervalSymbols_zu = {
+export let DateIntervalSymbols_zu = {
   FULL_DATE: {
     'G': 'G y MMMM d, EEEE – G y MMMM d, EEEE',
     'Md': 'EEEE, MMMM d – EEEE, MMMM d, y',
@@ -6562,362 +6554,362 @@ exports.DateIntervalSymbols_zu = {
 
 switch (goog.LOCALE) {
   case 'af':
-    defaultSymbols = exports.DateIntervalSymbols_af;
+    defaultSymbols = DateIntervalSymbols_af;
     break;
   case 'am':
-    defaultSymbols = exports.DateIntervalSymbols_am;
+    defaultSymbols = DateIntervalSymbols_am;
     break;
   case 'ar':
-    defaultSymbols = exports.DateIntervalSymbols_ar;
+    defaultSymbols = DateIntervalSymbols_ar;
     break;
   case 'ar_DZ':
   case 'ar-DZ':
-    defaultSymbols = exports.DateIntervalSymbols_ar_DZ;
+    defaultSymbols = DateIntervalSymbols_ar_DZ;
     break;
   case 'ar_EG':
   case 'ar-EG':
-    defaultSymbols = exports.DateIntervalSymbols_ar_EG;
+    defaultSymbols = DateIntervalSymbols_ar_EG;
     break;
   case 'az':
-    defaultSymbols = exports.DateIntervalSymbols_az;
+    defaultSymbols = DateIntervalSymbols_az;
     break;
   case 'be':
-    defaultSymbols = exports.DateIntervalSymbols_be;
+    defaultSymbols = DateIntervalSymbols_be;
     break;
   case 'bg':
-    defaultSymbols = exports.DateIntervalSymbols_bg;
+    defaultSymbols = DateIntervalSymbols_bg;
     break;
   case 'bn':
-    defaultSymbols = exports.DateIntervalSymbols_bn;
+    defaultSymbols = DateIntervalSymbols_bn;
     break;
   case 'br':
-    defaultSymbols = exports.DateIntervalSymbols_br;
+    defaultSymbols = DateIntervalSymbols_br;
     break;
   case 'bs':
-    defaultSymbols = exports.DateIntervalSymbols_bs;
+    defaultSymbols = DateIntervalSymbols_bs;
     break;
   case 'ca':
-    defaultSymbols = exports.DateIntervalSymbols_ca;
+    defaultSymbols = DateIntervalSymbols_ca;
     break;
   case 'chr':
-    defaultSymbols = exports.DateIntervalSymbols_chr;
+    defaultSymbols = DateIntervalSymbols_chr;
     break;
   case 'cs':
-    defaultSymbols = exports.DateIntervalSymbols_cs;
+    defaultSymbols = DateIntervalSymbols_cs;
     break;
   case 'cy':
-    defaultSymbols = exports.DateIntervalSymbols_cy;
+    defaultSymbols = DateIntervalSymbols_cy;
     break;
   case 'da':
-    defaultSymbols = exports.DateIntervalSymbols_da;
+    defaultSymbols = DateIntervalSymbols_da;
     break;
   case 'de':
-    defaultSymbols = exports.DateIntervalSymbols_de;
+    defaultSymbols = DateIntervalSymbols_de;
     break;
   case 'de_AT':
   case 'de-AT':
-    defaultSymbols = exports.DateIntervalSymbols_de_AT;
+    defaultSymbols = DateIntervalSymbols_de_AT;
     break;
   case 'de_CH':
   case 'de-CH':
-    defaultSymbols = exports.DateIntervalSymbols_de_CH;
+    defaultSymbols = DateIntervalSymbols_de_CH;
     break;
   case 'el':
-    defaultSymbols = exports.DateIntervalSymbols_el;
+    defaultSymbols = DateIntervalSymbols_el;
     break;
   case 'en':
-    defaultSymbols = exports.DateIntervalSymbols_en;
+    defaultSymbols = DateIntervalSymbols_en;
     break;
   case 'en_AU':
   case 'en-AU':
-    defaultSymbols = exports.DateIntervalSymbols_en_AU;
+    defaultSymbols = DateIntervalSymbols_en_AU;
     break;
   case 'en_CA':
   case 'en-CA':
-    defaultSymbols = exports.DateIntervalSymbols_en_CA;
+    defaultSymbols = DateIntervalSymbols_en_CA;
     break;
   case 'en_GB':
   case 'en-GB':
-    defaultSymbols = exports.DateIntervalSymbols_en_GB;
+    defaultSymbols = DateIntervalSymbols_en_GB;
     break;
   case 'en_IE':
   case 'en-IE':
-    defaultSymbols = exports.DateIntervalSymbols_en_IE;
+    defaultSymbols = DateIntervalSymbols_en_IE;
     break;
   case 'en_IN':
   case 'en-IN':
-    defaultSymbols = exports.DateIntervalSymbols_en_IN;
+    defaultSymbols = DateIntervalSymbols_en_IN;
     break;
   case 'en_SG':
   case 'en-SG':
-    defaultSymbols = exports.DateIntervalSymbols_en_SG;
+    defaultSymbols = DateIntervalSymbols_en_SG;
     break;
   case 'en_US':
   case 'en-US':
-    defaultSymbols = exports.DateIntervalSymbols_en_US;
+    defaultSymbols = DateIntervalSymbols_en_US;
     break;
   case 'en_ZA':
   case 'en-ZA':
-    defaultSymbols = exports.DateIntervalSymbols_en_ZA;
+    defaultSymbols = DateIntervalSymbols_en_ZA;
     break;
   case 'es':
-    defaultSymbols = exports.DateIntervalSymbols_es;
+    defaultSymbols = DateIntervalSymbols_es;
     break;
   case 'es_419':
   case 'es-419':
-    defaultSymbols = exports.DateIntervalSymbols_es_419;
+    defaultSymbols = DateIntervalSymbols_es_419;
     break;
   case 'es_ES':
   case 'es-ES':
-    defaultSymbols = exports.DateIntervalSymbols_es_ES;
+    defaultSymbols = DateIntervalSymbols_es_ES;
     break;
   case 'es_MX':
   case 'es-MX':
-    defaultSymbols = exports.DateIntervalSymbols_es_MX;
+    defaultSymbols = DateIntervalSymbols_es_MX;
     break;
   case 'es_US':
   case 'es-US':
-    defaultSymbols = exports.DateIntervalSymbols_es_US;
+    defaultSymbols = DateIntervalSymbols_es_US;
     break;
   case 'et':
-    defaultSymbols = exports.DateIntervalSymbols_et;
+    defaultSymbols = DateIntervalSymbols_et;
     break;
   case 'eu':
-    defaultSymbols = exports.DateIntervalSymbols_eu;
+    defaultSymbols = DateIntervalSymbols_eu;
     break;
   case 'fa':
-    defaultSymbols = exports.DateIntervalSymbols_fa;
+    defaultSymbols = DateIntervalSymbols_fa;
     break;
   case 'fi':
-    defaultSymbols = exports.DateIntervalSymbols_fi;
+    defaultSymbols = DateIntervalSymbols_fi;
     break;
   case 'fil':
-    defaultSymbols = exports.DateIntervalSymbols_fil;
+    defaultSymbols = DateIntervalSymbols_fil;
     break;
   case 'fr':
-    defaultSymbols = exports.DateIntervalSymbols_fr;
+    defaultSymbols = DateIntervalSymbols_fr;
     break;
   case 'fr_CA':
   case 'fr-CA':
-    defaultSymbols = exports.DateIntervalSymbols_fr_CA;
+    defaultSymbols = DateIntervalSymbols_fr_CA;
     break;
   case 'ga':
-    defaultSymbols = exports.DateIntervalSymbols_ga;
+    defaultSymbols = DateIntervalSymbols_ga;
     break;
   case 'gl':
-    defaultSymbols = exports.DateIntervalSymbols_gl;
+    defaultSymbols = DateIntervalSymbols_gl;
     break;
   case 'gsw':
-    defaultSymbols = exports.DateIntervalSymbols_gsw;
+    defaultSymbols = DateIntervalSymbols_gsw;
     break;
   case 'gu':
-    defaultSymbols = exports.DateIntervalSymbols_gu;
+    defaultSymbols = DateIntervalSymbols_gu;
     break;
   case 'haw':
-    defaultSymbols = exports.DateIntervalSymbols_haw;
+    defaultSymbols = DateIntervalSymbols_haw;
     break;
   case 'he':
-    defaultSymbols = exports.DateIntervalSymbols_he;
+    defaultSymbols = DateIntervalSymbols_he;
     break;
   case 'hi':
-    defaultSymbols = exports.DateIntervalSymbols_hi;
+    defaultSymbols = DateIntervalSymbols_hi;
     break;
   case 'hr':
-    defaultSymbols = exports.DateIntervalSymbols_hr;
+    defaultSymbols = DateIntervalSymbols_hr;
     break;
   case 'hu':
-    defaultSymbols = exports.DateIntervalSymbols_hu;
+    defaultSymbols = DateIntervalSymbols_hu;
     break;
   case 'hy':
-    defaultSymbols = exports.DateIntervalSymbols_hy;
+    defaultSymbols = DateIntervalSymbols_hy;
     break;
   case 'id':
-    defaultSymbols = exports.DateIntervalSymbols_id;
+    defaultSymbols = DateIntervalSymbols_id;
     break;
   case 'in':
-    defaultSymbols = exports.DateIntervalSymbols_in;
+    defaultSymbols = DateIntervalSymbols_in;
     break;
   case 'is':
-    defaultSymbols = exports.DateIntervalSymbols_is;
+    defaultSymbols = DateIntervalSymbols_is;
     break;
   case 'it':
-    defaultSymbols = exports.DateIntervalSymbols_it;
+    defaultSymbols = DateIntervalSymbols_it;
     break;
   case 'iw':
-    defaultSymbols = exports.DateIntervalSymbols_iw;
+    defaultSymbols = DateIntervalSymbols_iw;
     break;
   case 'ja':
-    defaultSymbols = exports.DateIntervalSymbols_ja;
+    defaultSymbols = DateIntervalSymbols_ja;
     break;
   case 'ka':
-    defaultSymbols = exports.DateIntervalSymbols_ka;
+    defaultSymbols = DateIntervalSymbols_ka;
     break;
   case 'kk':
-    defaultSymbols = exports.DateIntervalSymbols_kk;
+    defaultSymbols = DateIntervalSymbols_kk;
     break;
   case 'km':
-    defaultSymbols = exports.DateIntervalSymbols_km;
+    defaultSymbols = DateIntervalSymbols_km;
     break;
   case 'kn':
-    defaultSymbols = exports.DateIntervalSymbols_kn;
+    defaultSymbols = DateIntervalSymbols_kn;
     break;
   case 'ko':
-    defaultSymbols = exports.DateIntervalSymbols_ko;
+    defaultSymbols = DateIntervalSymbols_ko;
     break;
   case 'ky':
-    defaultSymbols = exports.DateIntervalSymbols_ky;
+    defaultSymbols = DateIntervalSymbols_ky;
     break;
   case 'ln':
-    defaultSymbols = exports.DateIntervalSymbols_ln;
+    defaultSymbols = DateIntervalSymbols_ln;
     break;
   case 'lo':
-    defaultSymbols = exports.DateIntervalSymbols_lo;
+    defaultSymbols = DateIntervalSymbols_lo;
     break;
   case 'lt':
-    defaultSymbols = exports.DateIntervalSymbols_lt;
+    defaultSymbols = DateIntervalSymbols_lt;
     break;
   case 'lv':
-    defaultSymbols = exports.DateIntervalSymbols_lv;
+    defaultSymbols = DateIntervalSymbols_lv;
     break;
   case 'mk':
-    defaultSymbols = exports.DateIntervalSymbols_mk;
+    defaultSymbols = DateIntervalSymbols_mk;
     break;
   case 'ml':
-    defaultSymbols = exports.DateIntervalSymbols_ml;
+    defaultSymbols = DateIntervalSymbols_ml;
     break;
   case 'mn':
-    defaultSymbols = exports.DateIntervalSymbols_mn;
+    defaultSymbols = DateIntervalSymbols_mn;
     break;
   case 'mo':
-    defaultSymbols = exports.DateIntervalSymbols_mo;
+    defaultSymbols = DateIntervalSymbols_mo;
     break;
   case 'mr':
-    defaultSymbols = exports.DateIntervalSymbols_mr;
+    defaultSymbols = DateIntervalSymbols_mr;
     break;
   case 'ms':
-    defaultSymbols = exports.DateIntervalSymbols_ms;
+    defaultSymbols = DateIntervalSymbols_ms;
     break;
   case 'mt':
-    defaultSymbols = exports.DateIntervalSymbols_mt;
+    defaultSymbols = DateIntervalSymbols_mt;
     break;
   case 'my':
-    defaultSymbols = exports.DateIntervalSymbols_my;
+    defaultSymbols = DateIntervalSymbols_my;
     break;
   case 'nb':
-    defaultSymbols = exports.DateIntervalSymbols_nb;
+    defaultSymbols = DateIntervalSymbols_nb;
     break;
   case 'ne':
-    defaultSymbols = exports.DateIntervalSymbols_ne;
+    defaultSymbols = DateIntervalSymbols_ne;
     break;
   case 'nl':
-    defaultSymbols = exports.DateIntervalSymbols_nl;
+    defaultSymbols = DateIntervalSymbols_nl;
     break;
   case 'no':
-    defaultSymbols = exports.DateIntervalSymbols_no;
+    defaultSymbols = DateIntervalSymbols_no;
     break;
   case 'no_NO':
   case 'no-NO':
-    defaultSymbols = exports.DateIntervalSymbols_no_NO;
+    defaultSymbols = DateIntervalSymbols_no_NO;
     break;
   case 'or':
-    defaultSymbols = exports.DateIntervalSymbols_or;
+    defaultSymbols = DateIntervalSymbols_or;
     break;
   case 'pa':
-    defaultSymbols = exports.DateIntervalSymbols_pa;
+    defaultSymbols = DateIntervalSymbols_pa;
     break;
   case 'pl':
-    defaultSymbols = exports.DateIntervalSymbols_pl;
+    defaultSymbols = DateIntervalSymbols_pl;
     break;
   case 'pt':
-    defaultSymbols = exports.DateIntervalSymbols_pt;
+    defaultSymbols = DateIntervalSymbols_pt;
     break;
   case 'pt_BR':
   case 'pt-BR':
-    defaultSymbols = exports.DateIntervalSymbols_pt_BR;
+    defaultSymbols = DateIntervalSymbols_pt_BR;
     break;
   case 'pt_PT':
   case 'pt-PT':
-    defaultSymbols = exports.DateIntervalSymbols_pt_PT;
+    defaultSymbols = DateIntervalSymbols_pt_PT;
     break;
   case 'ro':
-    defaultSymbols = exports.DateIntervalSymbols_ro;
+    defaultSymbols = DateIntervalSymbols_ro;
     break;
   case 'ru':
-    defaultSymbols = exports.DateIntervalSymbols_ru;
+    defaultSymbols = DateIntervalSymbols_ru;
     break;
   case 'sh':
-    defaultSymbols = exports.DateIntervalSymbols_sh;
+    defaultSymbols = DateIntervalSymbols_sh;
     break;
   case 'si':
-    defaultSymbols = exports.DateIntervalSymbols_si;
+    defaultSymbols = DateIntervalSymbols_si;
     break;
   case 'sk':
-    defaultSymbols = exports.DateIntervalSymbols_sk;
+    defaultSymbols = DateIntervalSymbols_sk;
     break;
   case 'sl':
-    defaultSymbols = exports.DateIntervalSymbols_sl;
+    defaultSymbols = DateIntervalSymbols_sl;
     break;
   case 'sq':
-    defaultSymbols = exports.DateIntervalSymbols_sq;
+    defaultSymbols = DateIntervalSymbols_sq;
     break;
   case 'sr':
-    defaultSymbols = exports.DateIntervalSymbols_sr;
+    defaultSymbols = DateIntervalSymbols_sr;
     break;
   case 'sr_Latn':
   case 'sr-Latn':
-    defaultSymbols = exports.DateIntervalSymbols_sr_Latn;
+    defaultSymbols = DateIntervalSymbols_sr_Latn;
     break;
   case 'sv':
-    defaultSymbols = exports.DateIntervalSymbols_sv;
+    defaultSymbols = DateIntervalSymbols_sv;
     break;
   case 'sw':
-    defaultSymbols = exports.DateIntervalSymbols_sw;
+    defaultSymbols = DateIntervalSymbols_sw;
     break;
   case 'ta':
-    defaultSymbols = exports.DateIntervalSymbols_ta;
+    defaultSymbols = DateIntervalSymbols_ta;
     break;
   case 'te':
-    defaultSymbols = exports.DateIntervalSymbols_te;
+    defaultSymbols = DateIntervalSymbols_te;
     break;
   case 'th':
-    defaultSymbols = exports.DateIntervalSymbols_th;
+    defaultSymbols = DateIntervalSymbols_th;
     break;
   case 'tl':
-    defaultSymbols = exports.DateIntervalSymbols_tl;
+    defaultSymbols = DateIntervalSymbols_tl;
     break;
   case 'tr':
-    defaultSymbols = exports.DateIntervalSymbols_tr;
+    defaultSymbols = DateIntervalSymbols_tr;
     break;
   case 'uk':
-    defaultSymbols = exports.DateIntervalSymbols_uk;
+    defaultSymbols = DateIntervalSymbols_uk;
     break;
   case 'ur':
-    defaultSymbols = exports.DateIntervalSymbols_ur;
+    defaultSymbols = DateIntervalSymbols_ur;
     break;
   case 'uz':
-    defaultSymbols = exports.DateIntervalSymbols_uz;
+    defaultSymbols = DateIntervalSymbols_uz;
     break;
   case 'vi':
-    defaultSymbols = exports.DateIntervalSymbols_vi;
+    defaultSymbols = DateIntervalSymbols_vi;
     break;
   case 'zh':
-    defaultSymbols = exports.DateIntervalSymbols_zh;
+    defaultSymbols = DateIntervalSymbols_zh;
     break;
   case 'zh_CN':
   case 'zh-CN':
-    defaultSymbols = exports.DateIntervalSymbols_zh_CN;
+    defaultSymbols = DateIntervalSymbols_zh_CN;
     break;
   case 'zh_HK':
   case 'zh-HK':
-    defaultSymbols = exports.DateIntervalSymbols_zh_HK;
+    defaultSymbols = DateIntervalSymbols_zh_HK;
     break;
   case 'zh_TW':
   case 'zh-TW':
-    defaultSymbols = exports.DateIntervalSymbols_zh_TW;
+    defaultSymbols = DateIntervalSymbols_zh_TW;
     break;
   case 'zu':
-    defaultSymbols = exports.DateIntervalSymbols_zu;
+    defaultSymbols = DateIntervalSymbols_zu;
     break;
   default:
-    defaultSymbols = exports.DateIntervalSymbols_en;
+    defaultSymbols = DateIntervalSymbols_en;
 }

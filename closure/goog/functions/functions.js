@@ -18,19 +18,8 @@
  */
 
 
-goog.provide('goog.functions');
-
-
-/**
- * Creates a function that always returns the same value.
- * @param {T} retValue The value to return.
- * @return {function():T} The new function.
- * @template T
- */
-goog.functions.constant = function(retValue) {
-  'use strict';
+constant = function(retValue) {
   return function() {
-    'use strict';
     return retValue;
   };
 };
@@ -40,45 +29,42 @@ goog.functions.constant = function(retValue) {
  * Always returns false.
  * @type {function(...): boolean}
  */
-goog.functions.FALSE = function() {
-  'use strict';
+export function FALSE() {
   return false;
-};
+}
 
 
 /**
  * Always returns true.
  * @type {function(...): boolean}
  */
-goog.functions.TRUE = function() {
-  'use strict';
+export function TRUE() {
   return true;
-};
+}
 
 
 /**
  * Always returns `null`.
  * @type {function(...): null}
  */
-goog.functions.NULL = function() {
-  'use strict';
+export function NULL() {
   return null;
-};
+}
 
 
 /**
  * Always returns `undefined`.
  * @type {function(...): undefined}
  */
-goog.functions.UNDEFINED = function() {
+export function UNDEFINED() {
   return undefined;
-};
+}
 
 /**
  * Always returns `undefined` (loosely-typed version).
  * @type {!Function}
  */
-goog.functions.EMPTY = /** @type {?} */ (goog.functions.UNDEFINED);
+export var EMPTY = UNDEFINED;
 
 
 /**
@@ -89,10 +75,9 @@ goog.functions.EMPTY = /** @type {?} */ (goog.functions.UNDEFINED);
  * @return {T} The first argument passed in, or undefined if nothing was passed.
  * @template T
  */
-goog.functions.identity = function(opt_returnValue, var_args) {
-  'use strict';
+export function identity(opt_returnValue, var_args) {
   return opt_returnValue;
-};
+}
 
 
 /**
@@ -100,13 +85,11 @@ goog.functions.identity = function(opt_returnValue, var_args) {
  * @param {string} message The error message.
  * @return {!Function} The error-throwing function.
  */
-goog.functions.error = function(message) {
-  'use strict';
+export function error(message) {
   return function() {
-    'use strict';
     throw new Error(message);
   };
-};
+}
 
 
 /**
@@ -114,13 +97,11 @@ goog.functions.error = function(message) {
  * @param {*} err An object to be thrown.
  * @return {!Function} The error-throwing function.
  */
-goog.functions.fail = function(err) {
-  'use strict';
+export function fail(err) {
   return function() {
-    'use strict';
     throw err;
   };
-};
+}
 
 
 /**
@@ -131,15 +112,13 @@ goog.functions.fail = function(err) {
  * @return {!Function} A version of f that only keeps the first opt_numArgs
  *     arguments.
  */
-goog.functions.lock = function(f, opt_numArgs) {
-  'use strict';
+export function lock(f, opt_numArgs) {
   opt_numArgs = opt_numArgs || 0;
   return function() {
-    'use strict';
     const self = /** @type {*} */ (this);
     return f.apply(self, Array.prototype.slice.call(arguments, 0, opt_numArgs));
   };
-};
+}
 
 
 /**
@@ -147,13 +126,11 @@ goog.functions.lock = function(f, opt_numArgs) {
  * @param {number} n The position of the return argument.
  * @return {!Function} A new function.
  */
-goog.functions.nth = function(n) {
-  'use strict';
+export function nth(n) {
   return function() {
-    'use strict';
     return arguments[n];
   };
-};
+}
 
 
 /**
@@ -162,7 +139,7 @@ goog.functions.nth = function(n) {
  *
  * Usage:
  * function f(arg1, arg2, arg3, arg4) { ... }
- * var g = goog.functions.partialRight(f, arg3, arg4);
+ * var g = partialRight(f, arg3, arg4);
  * g(arg1, arg2);
  *
  * @param {!Function} fn A function to partially apply.
@@ -171,11 +148,9 @@ goog.functions.nth = function(n) {
  * @return {!Function} A partially-applied form of the function goog.partial()
  *     was invoked as a method of.
  */
-goog.functions.partialRight = function(fn, var_args) {
-  'use strict';
+export function partialRight(fn, var_args) {
   const rightArgs = Array.prototype.slice.call(arguments, 1);
   return function() {
-    'use strict';
     // Even in strict mode, IE10/11 and Edge (non-Chromium) use global context
     // when free-calling functions. To catch cases where people were using this
     // erroneously, we explicitly change the context to undefined to match
@@ -188,7 +163,7 @@ goog.functions.partialRight = function(fn, var_args) {
     newArgs.push.apply(newArgs, rightArgs);
     return fn.apply(self, newArgs);
   };
-};
+}
 
 
 /**
@@ -199,46 +174,41 @@ goog.functions.partialRight = function(fn, var_args) {
  * @return {function(...?):T} A new function.
  * @template T
  */
-goog.functions.withReturnValue = function(f, retValue) {
-  'use strict';
-  return goog.functions.sequence(f, goog.functions.constant(retValue));
-};
+export function withReturnValue(f, retValue) {
+  return sequence(f, constant(retValue));
+}
 
 
 /**
  * Creates a function that returns whether its argument equals the given value.
  *
  * Example:
- * var key = goog.object.findKey(obj, goog.functions.equalTo('needle'));
+ * var key = goog.object.findKey(obj, equalTo('needle'));
  *
  * @param {*} value The value to compare to.
  * @param {boolean=} opt_useLooseComparison Whether to use a loose (==)
  *     comparison rather than a strict (===) one. Defaults to false.
  * @return {function(*):boolean} The new function.
  */
-goog.functions.equalTo = function(value, opt_useLooseComparison) {
-  'use strict';
+export function equalTo(value, opt_useLooseComparison) {
   return function(other) {
-    'use strict';
     return opt_useLooseComparison ? (value == other) : (value === other);
   };
-};
+}
 
 
 /**
  * Creates the composition of the functions passed in.
- * For example, (goog.functions.compose(f, g))(a) is equivalent to f(g(a)).
+ * For example, (compose(f, g))(a) is equivalent to f(g(a)).
  * @param {function(...?):T} fn The final function.
  * @param {...Function} var_args A list of functions.
  * @return {function(...?):T} The composition of all inputs.
  * @template T
  */
-goog.functions.compose = function(fn, var_args) {
-  'use strict';
+export function compose(fn, var_args) {
   const functions = arguments;
   const length = functions.length;
   return function() {
-    'use strict';
     const self = /** @type {*} */ (this);
     let result;
     if (length) {
@@ -250,22 +220,20 @@ goog.functions.compose = function(fn, var_args) {
     }
     return result;
   };
-};
+}
 
 
 /**
  * Creates a function that calls the functions passed in in sequence, and
  * returns the value of the last function. For example,
- * (goog.functions.sequence(f, g))(x) is equivalent to f(x),g(x).
+ * (sequence(f, g))(x) is equivalent to f(x),g(x).
  * @param {...Function} var_args A list of functions.
  * @return {!Function} A function that calls all inputs in sequence.
  */
-goog.functions.sequence = function(var_args) {
-  'use strict';
+export function sequence(var_args) {
   const functions = arguments;
   const length = functions.length;
   return function() {
-    'use strict';
     const self = /** @type {*} */ (this);
     let result;
     for (let i = 0; i < length; i++) {
@@ -273,24 +241,22 @@ goog.functions.sequence = function(var_args) {
     }
     return result;
   };
-};
+}
 
 
 /**
  * Creates a function that returns true if each of its components evaluates
  * to true. The components are evaluated in order, and the evaluation will be
  * short-circuited as soon as a function returns false.
- * For example, (goog.functions.and(f, g))(x) is equivalent to f(x) && g(x).
+ * For example, (and(f, g))(x) is equivalent to f(x) && g(x).
  * @param {...Function} var_args A list of functions.
  * @return {function(...?):boolean} A function that ANDs its component
  *      functions.
  */
-goog.functions.and = function(var_args) {
-  'use strict';
+export function and(var_args) {
   const functions = arguments;
   const length = functions.length;
   return function() {
-    'use strict';
     const self = /** @type {*} */ (this);
     for (let i = 0; i < length; i++) {
       if (!functions[i].apply(self, arguments)) {
@@ -299,24 +265,22 @@ goog.functions.and = function(var_args) {
     }
     return true;
   };
-};
+}
 
 
 /**
  * Creates a function that returns true if any of its components evaluates
  * to true. The components are evaluated in order, and the evaluation will be
  * short-circuited as soon as a function returns true.
- * For example, (goog.functions.or(f, g))(x) is equivalent to f(x) || g(x).
+ * For example, (or(f, g))(x) is equivalent to f(x) || g(x).
  * @param {...Function} var_args A list of functions.
  * @return {function(...?):boolean} A function that ORs its component
  *    functions.
  */
-goog.functions.or = function(var_args) {
-  'use strict';
+export function or(var_args) {
   const functions = arguments;
   const length = functions.length;
   return function() {
-    'use strict';
     const self = /** @type {*} */ (this);
     for (let i = 0; i < length; i++) {
       if (functions[i].apply(self, arguments)) {
@@ -325,24 +289,22 @@ goog.functions.or = function(var_args) {
     }
     return false;
   };
-};
+}
 
 
 /**
  * Creates a function that returns the Boolean opposite of a provided function.
- * For example, (goog.functions.not(f))(x) is equivalent to !f(x).
+ * For example, (not(f))(x) is equivalent to !f(x).
  * @param {!Function} f The original function.
  * @return {function(...?):boolean} A function that delegates to f and returns
  * opposite.
  */
-goog.functions.not = function(f) {
-  'use strict';
+export function not(f) {
   return function() {
-    'use strict';
     const self = /** @type {*} */ (this);
     return !f.apply(self, arguments);
   };
-};
+}
 
 
 /**
@@ -351,7 +313,7 @@ goog.functions.not = function(f) {
  *
  * Example:
  *
- * var factory = goog.partial(goog.functions.create, Class);
+ * var factory = goog.partial(create, Class);
  *
  * @param {function(new:T, ...)} constructor The constructor for the Object.
  * @param {...*} var_args The arguments to be passed to the constructor.
@@ -360,8 +322,7 @@ goog.functions.not = function(f) {
  * @deprecated This function does not work with ES6 class constructors. Use
  *     arrow functions + spread args instead.
  */
-goog.functions.create = function(constructor, var_args) {
-  'use strict';
+export function create(constructor, var_args) {
   /**
    * @constructor
    * @final
@@ -378,15 +339,14 @@ goog.functions.create = function(constructor, var_args) {
   // the Array prototype function.
   constructor.apply(obj, Array.prototype.slice.call(arguments, 1));
   return obj;
-};
+}
 
 
 /**
  * @define {boolean} Whether the return value cache should be used.
  *    This should only be used to disable caches when testing.
  */
-goog.functions.CACHE_RETURN_VALUE =
-    goog.define('goog.functions.CACHE_RETURN_VALUE', true);
+export var CACHE_RETURN_VALUE = goog.define('goog.functions.CACHE_RETURN_VALUE', true);
 
 
 /**
@@ -404,14 +364,12 @@ goog.functions.CACHE_RETURN_VALUE =
  * @return {function():T} A wrapped version the function.
  * @template T
  */
-goog.functions.cacheReturnValue = function(fn) {
-  'use strict';
+export function cacheReturnValue(fn) {
   let called = false;
   let value;
 
   return function() {
-    'use strict';
-    if (!goog.functions.CACHE_RETURN_VALUE) {
+    if (!CACHE_RETURN_VALUE) {
       return fn();
     }
 
@@ -422,7 +380,7 @@ goog.functions.cacheReturnValue = function(fn) {
 
     return value;
   };
-};
+}
 
 
 /**
@@ -435,20 +393,18 @@ goog.functions.cacheReturnValue = function(fn) {
  * @param {function():*} f Function to call.
  * @return {function():undefined} Wrapped function.
  */
-goog.functions.once = function(f) {
-  'use strict';
+export function once(f) {
   // Keep a reference to the function that we null out when we're done with
   // it -- that way, the function can be GC'd when we're done with it.
   let inner = f;
   return function() {
-    'use strict';
     if (inner) {
       const tmp = inner;
       inner = null;
       tmp();
     }
   };
-};
+}
 
 
 /**
@@ -471,19 +427,18 @@ goog.functions.once = function(f) {
  * @return {function(...?): undefined} Wrapped function.
  * @template SCOPE
  */
-goog.functions.debounce = function(f, interval, opt_scope) {
-  'use strict';
+export function debounce(f, interval, opt_scope) {
   let timeout = 0;
-  return /** @type {function(...?)} */ (function(var_args) {
-    'use strict';
-    goog.global.clearTimeout(timeout);
-    const args = arguments;
-    timeout = goog.global.setTimeout(function() {
-      'use strict';
-      f.apply(opt_scope, args);
-    }, interval);
-  });
-};
+  return (
+    /** @type {function(...?)} */ (function(var_args) {
+      goog.global.clearTimeout(timeout);
+      const args = arguments;
+      timeout = goog.global.setTimeout(function() {
+        f.apply(opt_scope, args);
+      }, interval);
+    })
+  );
+}
 
 
 /**
@@ -503,14 +458,12 @@ goog.functions.debounce = function(f, interval, opt_scope) {
  * @return {function(...?): undefined} Wrapped function.
  * @template SCOPE
  */
-goog.functions.throttle = function(f, interval, opt_scope) {
-  'use strict';
+export function throttle(f, interval, opt_scope) {
   let timeout = 0;
   let shouldFire = false;
   let storedArgs = [];
 
   const handleTimeout = function() {
-    'use strict';
     timeout = 0;
     if (shouldFire) {
       shouldFire = false;
@@ -519,23 +472,23 @@ goog.functions.throttle = function(f, interval, opt_scope) {
   };
 
   const fire = function() {
-    'use strict';
     timeout = goog.global.setTimeout(handleTimeout, interval);
     let args = storedArgs;
     storedArgs = [];  // Avoid a space leak by clearing stored arguments.
     f.apply(opt_scope, args);
   };
 
-  return /** @type {function(...?)} */ (function(var_args) {
-    'use strict';
-    storedArgs = arguments;
-    if (!timeout) {
-      fire();
-    } else {
-      shouldFire = true;
-    }
-  });
-};
+  return (
+    /** @type {function(...?)} */ (function(var_args) {
+      storedArgs = arguments;
+      if (!timeout) {
+        fire();
+      } else {
+        shouldFire = true;
+      }
+    })
+  );
+}
 
 
 /**
@@ -556,29 +509,29 @@ goog.functions.throttle = function(f, interval, opt_scope) {
  * @return {function(...?): undefined} Wrapped function.
  * @template SCOPE
  */
-goog.functions.rateLimit = function(f, interval, opt_scope) {
-  'use strict';
+export function rateLimit(f, interval, opt_scope) {
   let timeout = 0;
 
   const handleTimeout = function() {
-    'use strict';
     timeout = 0;
   };
 
-  return /** @type {function(...?)} */ (function(var_args) {
-    'use strict';
-    if (!timeout) {
-      timeout = goog.global.setTimeout(handleTimeout, interval);
-      f.apply(opt_scope, arguments);
-    }
-  });
-};
+  return (
+    /** @type {function(...?)} */ (function(var_args) {
+      if (!timeout) {
+        timeout = goog.global.setTimeout(handleTimeout, interval);
+        f.apply(opt_scope, arguments);
+      }
+    })
+  );
+}
 
 /**
  * Returns true if the specified value is a function.
  * @param {*} val Variable to test.
  * @return {boolean} Whether variable is a function.
  */
-goog.functions.isFunction = (val) => {
+export var isFunction = (val) => {
   return typeof val === 'function';
 };
+export var constant;

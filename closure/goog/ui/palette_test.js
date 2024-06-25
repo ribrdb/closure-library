@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PaletteTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Container = goog.require('goog.ui.Container');
-const EventType = goog.require('goog.events.EventType');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyEvent = goog.require('goog.events.KeyEvent');
-const Palette = goog.require('goog.ui.Palette');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const googEvents = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from './component.js';
+import { Container } from './container.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyEvent } from '../events/keyevent.js';
+import { Palette } from './palette.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as dom from '../dom/dom.js';
+import * as googEvents from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let palette;
 let nodes;

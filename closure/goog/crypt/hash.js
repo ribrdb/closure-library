@@ -10,7 +10,7 @@
  * See goog.crypt.Sha1 and goog.crypt.Md5 for sample implementations.
  */
 
-goog.provide('goog.crypt.Hash');
+goog.declareModuleId('goog.crypt.hash');
 
 
 
@@ -20,20 +20,19 @@ goog.provide('goog.crypt.Hash');
  * @constructor
  * @struct
  */
-goog.crypt.Hash = function() {
-  'use strict';
-  /**
-   * The block size for the hasher.
-   * @type {number}
-   */
-  this.blockSize = -1;
-};
+export function Hash() {
+ /**
+  * The block size for the hasher.
+  * @type {number}
+  */
+ this.blockSize = -1;
+}
 
 
 /**
  * Resets the internal accumulator.
  */
-goog.crypt.Hash.prototype.reset = goog.abstractMethod;
+Hash.prototype.reset = goog.abstractMethod;
 
 
 /**
@@ -51,11 +50,11 @@ goog.crypt.Hash.prototype.reset = goog.abstractMethod;
  * @param {Array<number>|Uint8Array|string} bytes Data used for the update.
  * @param {number=} opt_length Number of bytes to use.
  */
-goog.crypt.Hash.prototype.update = goog.abstractMethod;
+Hash.prototype.update = goog.abstractMethod;
 
 
 /**
  * @return {!Array<number>} The finalized hash computed
  *     from the internal accumulator.
  */
-goog.crypt.Hash.prototype.digest = goog.abstractMethod;
+Hash.prototype.digest = goog.abstractMethod;

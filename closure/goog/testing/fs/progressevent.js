@@ -9,11 +9,10 @@
  */
 
 goog.setTestOnly('goog.testing.fs.ProgressEvent');
-goog.provide('goog.testing.fs.ProgressEvent');
 
-goog.require('goog.events.Event');
-goog.requireType('goog.fs.FileReader.EventType');
-goog.requireType('goog.fs.FileSaver.EventType');
+import { Event } from '../../events/event.js';
+goog.requireType('goog.fs.filereader');
+goog.requireType('goog.fs.filesaver');
 
 
 
@@ -25,38 +24,36 @@ goog.requireType('goog.fs.FileSaver.EventType');
  * @param {number} loaded The number of bytes processed.
  * @param {number} total The total data that was to be processed, in bytes.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @final
  */
-goog.testing.fs.ProgressEvent = function(type, loaded, total) {
-  'use strict';
-  goog.testing.fs.ProgressEvent.base(this, 'constructor', type);
+export function ProgressEvent(type, loaded, total) {
+ ProgressEvent.base(this, 'constructor', type);
 
-  /**
-   * The number of bytes processed.
-   * @type {number}
-   * @private
-   */
-  this.loaded_ = loaded;
+ /**
+  * The number of bytes processed.
+  * @type {number}
+  * @private
+  */
+ this.loaded_ = loaded;
 
 
-  /**
-   * The total data that was to be procesed, in bytes.
-   * @type {number}
-   * @private
-   */
-  this.total_ = total;
-};
-goog.inherits(goog.testing.fs.ProgressEvent, goog.events.Event);
+ /**
+  * The total data that was to be procesed, in bytes.
+  * @type {number}
+  * @private
+  */
+ this.total_ = total;
+}
+goog.inherits(ProgressEvent, Event);
 
 
 /**
  * @see {goog.fs.ProgressEvent#isLengthComputable}
  * @return {boolean} True if the length is known.
  */
-goog.testing.fs.ProgressEvent.prototype.isLengthComputable = function() {
-  'use strict';
-  return true;
+ProgressEvent.prototype.isLengthComputable = function() {
+ return true;
 };
 
 
@@ -64,9 +61,8 @@ goog.testing.fs.ProgressEvent.prototype.isLengthComputable = function() {
  * @see {goog.fs.ProgressEvent#getLoaded}
  * @return {number} The number of bytes loaded or written.
  */
-goog.testing.fs.ProgressEvent.prototype.getLoaded = function() {
-  'use strict';
-  return this.loaded_;
+ProgressEvent.prototype.getLoaded = function() {
+ return this.loaded_;
 };
 
 
@@ -74,7 +70,6 @@ goog.testing.fs.ProgressEvent.prototype.getLoaded = function() {
  * @see {goog.fs.ProgressEvent#getTotal}
  * @return {number} The total bytes to load or write.
  */
-goog.testing.fs.ProgressEvent.prototype.getTotal = function() {
-  'use strict';
-  return this.total_;
+ProgressEvent.prototype.getTotal = function() {
+ return this.total_;
 };

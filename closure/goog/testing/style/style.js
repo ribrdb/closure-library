@@ -11,11 +11,10 @@
  */
 
 goog.setTestOnly('goog.testing.style');
-goog.provide('goog.testing.style');
 
-goog.require('goog.dom');
-goog.require('goog.math.Rect');
-goog.require('goog.style');
+import * as dom from '../../dom/dom.js';
+import { Rect } from '../../math/rect.js';
+import * as googStyle from '../../style/style.js';
 
 
 /**
@@ -25,12 +24,11 @@ goog.require('goog.style');
  * @return {boolean} Whether the bounding rectangles of the given elements
  *     intersect.
  */
-goog.testing.style.intersects = function(element, otherElement) {
-  'use strict';
-  const elementRect = goog.style.getBounds(element);
-  const otherElementRect = goog.style.getBounds(otherElement);
-  return goog.math.Rect.intersects(elementRect, otherElementRect);
-};
+export function intersects(element, otherElement) {
+ const elementRect = googStyle.getBounds(element);
+ const otherElementRect = googStyle.getBounds(otherElement);
+ return Rect.intersects(elementRect, otherElementRect);
+}
 
 
 /**
@@ -38,16 +36,15 @@ goog.testing.style.intersects = function(element, otherElement) {
  * @param {Element} element The element to check.
  * @return {boolean} Whether the element has visible dimensions.
  */
-goog.testing.style.hasVisibleDimensions = function(element) {
-  'use strict';
-  const elSize = goog.style.getSize(element);
-  const shortest = elSize.getShortest();
-  if (shortest <= 0) {
-    return false;
-  }
+export function hasVisibleDimensions(element) {
+ const elSize = googStyle.getSize(element);
+ const shortest = elSize.getShortest();
+ if (shortest <= 0) {
+   return false;
+ }
 
-  return true;
-};
+ return true;
+}
 
 
 /**
@@ -56,14 +53,13 @@ goog.testing.style.hasVisibleDimensions = function(element) {
  * @param {!Element} element The element to check.
  * @return {boolean} Whether the CSS style of the element renders it visible.
  */
-goog.testing.style.isVisible = function(element) {
-  'use strict';
-  if (!goog.dom.isInDocument(element)) {
-    return false;
-  }
-  const style = getComputedStyle(element);
-  return style.visibility != 'hidden' && style.display != 'none';
-};
+export function isVisible(element) {
+ if (!dom.isInDocument(element)) {
+   return false;
+ }
+ const style = getComputedStyle(element);
+ return style.visibility != 'hidden' && style.display != 'none';
+}
 
 
 /**
@@ -71,11 +67,10 @@ goog.testing.style.isVisible = function(element) {
  * @param {!Element} el The element to test.
  * @return {boolean} Whether the element is on the screen.
  */
-goog.testing.style.isOnScreen = function(el) {
-  'use strict';
-  const doc = goog.dom.getDomHelper(el).getDocument();
-  const viewport = goog.style.getVisibleRectForElement(doc.body);
-  const viewportRect = goog.math.Rect.createFromBox(viewport);
-  return goog.dom.contains(doc, el) &&
-      goog.style.getBounds(el).intersects(viewportRect);
-};
+export function isOnScreen(el) {
+ const doc = dom.getDomHelper(el).getDocument();
+ const viewport = googStyle.getVisibleRectForElement(doc.body);
+ const viewportRect = Rect.createFromBox(viewport);
+ return dom.contains(doc, el) &&
+     googStyle.getBounds(el).intersects(viewportRect);
+}

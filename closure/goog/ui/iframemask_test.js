@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.IframeMaskTest');
 goog.setTestOnly();
 
-const IframeMask = goog.require('goog.ui.IframeMask');
-const MockClock = goog.require('goog.testing.MockClock');
-const Pool = goog.require('goog.structs.Pool');
-const Popup = goog.require('goog.ui.Popup');
-const PopupBase = goog.require('goog.ui.PopupBase');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const domIframe = goog.require('goog.dom.iframe');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { IframeMask } from './iframemask.js';
+import { MockClock } from '../testing/mockclock.js';
+import { Pool } from '../structs/pool.js';
+import { Popup } from './popup.js';
+import { PopupBase } from './popupbase.js';
+import { StrictMock } from '../testing/strictmock.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as domIframe from '../dom/iframe.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let iframeMask;
 let mockClock;

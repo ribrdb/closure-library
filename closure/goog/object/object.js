@@ -7,9 +7,6 @@
 /**
  * @fileoverview Utilities for manipulating objects/maps/hashes.
  */
-goog.module('goog.object');
-goog.module.declareLegacyNamespace();
-
 /**
  * Calls a function for each element in an object/map/hash.
  * @param {?Object<K,V>} obj The object over which to iterate.
@@ -670,7 +667,7 @@ function getSuperClass(constructor) {
   return proto && proto.constructor;
 }
 
-exports = {
+export default {
   add,
   clear,
   clone,

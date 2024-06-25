@@ -6,16 +6,14 @@
 
 /**
  * @fileoverview Code for managing series of undo-redo actions in the form of
- * {@link goog.editor.plugins.UndoRedoState}s.
+ * {@link UndoRedoState}s.
  */
 
 
-goog.provide('goog.editor.plugins.UndoRedoManager');
-goog.provide('goog.editor.plugins.UndoRedoManager.EventType');
+import { UndoRedoState } from './undoredostate.js';
 
-goog.require('goog.editor.plugins.UndoRedoState');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
+import * as events from '../../events/events.js';
+import { EventTarget } from '../../events/eventtarget.js';
 
 
 
@@ -24,11 +22,10 @@ goog.require('goog.events.EventTarget');
  * maintained on undo and redo stacks.
  *
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.editor.plugins.UndoRedoManager = function() {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function UndoRedoManager() {
+  EventTarget.call(this);
 
   /**
    * The maximum number of states on the undo stack at any time. Used to limit
@@ -40,17 +37,17 @@ goog.editor.plugins.UndoRedoManager = function() {
   this.maxUndoDepth_ = 100;
 
   /**
-   * The undo stack.
-   * @type {Array<goog.editor.plugins.UndoRedoState>}
-   * @private
-   */
+     * The undo stack.
+     * @type {Array<UndoRedoState>}
+     * @private
+     */
   this.undoStack_ = [];
 
   /**
-   * The redo stack.
-   * @type {Array<goog.editor.plugins.UndoRedoState>}
-   * @private
-   */
+     * The redo stack.
+     * @type {Array<UndoRedoState>}
+     * @private
+     */
   this.redoStack_ = [];
 
   /**
@@ -62,15 +59,15 @@ goog.editor.plugins.UndoRedoManager = function() {
    * @private
    */
   this.pendingActions_ = [];
-};
-goog.inherits(goog.editor.plugins.UndoRedoManager, goog.events.EventTarget);
+}
+goog.inherits(UndoRedoManager, EventTarget);
 
 
 /**
  * Event types for the events dispatched by undo-redo manager.
  * @enum {string}
  */
-goog.editor.plugins.UndoRedoManager.EventType = {
+UndoRedoManager.EventType = {
   /**
    * Signifies that he undo or redo stack transitioned between 0 and 1 states,
    * meaning that the ability to peform undo or redo operations has changed.
@@ -107,19 +104,18 @@ goog.editor.plugins.UndoRedoManager.EventType = {
 /**
  * The key for the listener for the completion of the asynchronous state whose
  * undo or redo action is in progress. Null if no action is in progress.
- * @type {?goog.events.Key}
+ * @type {?events.Key}
  * @private
  */
-goog.editor.plugins.UndoRedoManager.prototype.inProgressActionKey_ = null;
+UndoRedoManager.prototype.inProgressActionKey_ = null;
 
 
 /**
  * Set the max undo stack depth (not the real memory usage).
  * @param {number} depth Depth of the stack.
  */
-goog.editor.plugins.UndoRedoManager.prototype.setMaxUndoDepth = function(
+UndoRedoManager.prototype.setMaxUndoDepth = function(
     depth) {
-  'use strict';
   this.maxUndoDepth_ = depth;
 };
 
@@ -127,11 +123,10 @@ goog.editor.plugins.UndoRedoManager.prototype.setMaxUndoDepth = function(
 /**
  * Add state to the undo stack. This clears the redo stack.
  *
- * @param {goog.editor.plugins.UndoRedoState} state The state to add to the undo
+ * @param {UndoRedoState} state The state to add to the undo
  *     stack.
  */
-goog.editor.plugins.UndoRedoManager.prototype.addState = function(state) {
-  'use strict';
+UndoRedoManager.prototype.addState = function(state) {
   // TODO: is the state.equals check necessary?
   if (this.undoStack_.length == 0 ||
       !state.equals(this.undoStack_[this.undoStack_.length - 1])) {
@@ -144,7 +139,7 @@ goog.editor.plugins.UndoRedoManager.prototype.addState = function(state) {
     this.redoStack_.length = 0;
 
     this.dispatchEvent({
-      type: goog.editor.plugins.UndoRedoManager.EventType.STATE_ADDED,
+      type: UndoRedoManager.EventType.STATE_ADDED,
       state: state
     });
 
@@ -161,12 +156,11 @@ goog.editor.plugins.UndoRedoManager.prototype.addState = function(state) {
  * Dispatches a STATE_CHANGE event with this manager as the target.
  * @private
  */
-goog.editor.plugins.UndoRedoManager.prototype.dispatchStateChange_ =
+UndoRedoManager.prototype.dispatchStateChange_ =
     function() {
-  'use strict';
-  this.dispatchEvent(
-      goog.editor.plugins.UndoRedoManager.EventType.STATE_CHANGE);
-};
+      this.dispatchEvent(
+          UndoRedoManager.EventType.STATE_CHANGE);
+    };
 
 
 /**
@@ -174,8 +168,7 @@ goog.editor.plugins.UndoRedoManager.prototype.dispatchStateChange_ =
  * that state to the top of the redo stack. If the undo stack is empty, does
  * nothing.
  */
-goog.editor.plugins.UndoRedoManager.prototype.undo = function() {
-  'use strict';
+UndoRedoManager.prototype.undo = function() {
   this.shiftState_(this.undoStack_, this.redoStack_);
 };
 
@@ -185,8 +178,7 @@ goog.editor.plugins.UndoRedoManager.prototype.undo = function() {
  * that state to the top of the undo stack. If redo undo stack is empty, does
  * nothing.
  */
-goog.editor.plugins.UndoRedoManager.prototype.redo = function() {
-  'use strict';
+UndoRedoManager.prototype.redo = function() {
   this.shiftState_(this.redoStack_, this.undoStack_);
 };
 
@@ -195,8 +187,7 @@ goog.editor.plugins.UndoRedoManager.prototype.redo = function() {
  * @return {boolean} Wether the undo stack has items on it, i.e., if it is
  *     possible to perform an undo operation.
  */
-goog.editor.plugins.UndoRedoManager.prototype.hasUndoState = function() {
-  'use strict';
+UndoRedoManager.prototype.hasUndoState = function() {
   return this.undoStack_.length > 0;
 };
 
@@ -205,8 +196,7 @@ goog.editor.plugins.UndoRedoManager.prototype.hasUndoState = function() {
  * @return {boolean} Wether the redo stack has items on it, i.e., if it is
  *     possible to perform a redo operation.
  */
-goog.editor.plugins.UndoRedoManager.prototype.hasRedoState = function() {
-  'use strict';
+UndoRedoManager.prototype.hasRedoState = function() {
   return this.redoStack_.length > 0;
 };
 
@@ -215,15 +205,14 @@ goog.editor.plugins.UndoRedoManager.prototype.hasRedoState = function() {
  * Move a state from one stack to the other, performing the appropriate undo
  * or redo action.
  *
- * @param {Array<goog.editor.plugins.UndoRedoState>} fromStack Stack to move
+ * @param {Array<UndoRedoState>} fromStack Stack to move
  *     the state from.
- * @param {Array<goog.editor.plugins.UndoRedoState>} toStack Stack to move
+ * @param {Array<UndoRedoState>} toStack Stack to move
  *     the state to.
  * @private
  */
-goog.editor.plugins.UndoRedoManager.prototype.shiftState_ = function(
+UndoRedoManager.prototype.shiftState_ = function(
     fromStack, toStack) {
-  'use strict';
   if (fromStack.length) {
     var state = fromStack.pop();
 
@@ -232,8 +221,8 @@ goog.editor.plugins.UndoRedoManager.prototype.shiftState_ = function(
 
     this.addAction_({
       type: fromStack == this.undoStack_ ?
-          goog.editor.plugins.UndoRedoManager.EventType.BEFORE_UNDO :
-          goog.editor.plugins.UndoRedoManager.EventType.BEFORE_REDO,
+          UndoRedoManager.EventType.BEFORE_UNDO :
+          UndoRedoManager.EventType.BEFORE_REDO,
       func: fromStack == this.undoStack_ ? state.undo : state.redo,
       state: state
     });
@@ -257,8 +246,7 @@ goog.editor.plugins.UndoRedoManager.prototype.shiftState_ = function(
  *     came from.
  * @private
  */
-goog.editor.plugins.UndoRedoManager.prototype.addAction_ = function(action) {
-  'use strict';
+UndoRedoManager.prototype.addAction_ = function(action) {
   this.pendingActions_.push(action);
   if (this.pendingActions_.length == 1) {
     this.doAction_();
@@ -272,8 +260,7 @@ goog.editor.plugins.UndoRedoManager.prototype.addAction_ = function(action) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.plugins.UndoRedoManager.prototype.doAction_ = function() {
-  'use strict';
+UndoRedoManager.prototype.doAction_ = function() {
   if (this.inProgressActionKey_ || this.pendingActions_.length == 0) {
     return;
   }
@@ -284,8 +271,8 @@ goog.editor.plugins.UndoRedoManager.prototype.doAction_ = function() {
 
   if (this.dispatchEvent(e)) {
     if (action.state.isAsynchronous()) {
-      this.inProgressActionKey_ = goog.events.listen(
-          action.state, goog.editor.plugins.UndoRedoState.ACTION_COMPLETED,
+      this.inProgressActionKey_ = events.listen(
+          action.state, UndoRedoState.ACTION_COMPLETED,
           this.finishAction_, false, this);
       action.func.call(action.state);
     } else {
@@ -301,9 +288,8 @@ goog.editor.plugins.UndoRedoManager.prototype.doAction_ = function() {
  * action if one exists.
  * @private
  */
-goog.editor.plugins.UndoRedoManager.prototype.finishAction_ = function() {
-  'use strict';
-  goog.events.unlistenByKey(/** @type {number} */ (this.inProgressActionKey_));
+UndoRedoManager.prototype.finishAction_ = function() {
+  events.unlistenByKey(/** @type {number} */ (this.inProgressActionKey_));
   this.inProgressActionKey_ = null;
   this.doAction_();
 };
@@ -312,8 +298,7 @@ goog.editor.plugins.UndoRedoManager.prototype.finishAction_ = function() {
 /**
  * Clears the undo and redo stacks.
  */
-goog.editor.plugins.UndoRedoManager.prototype.clearHistory = function() {
-  'use strict';
+UndoRedoManager.prototype.clearHistory = function() {
   if (this.undoStack_.length > 0 || this.redoStack_.length > 0) {
     this.undoStack_.length = 0;
     this.redoStack_.length = 0;
@@ -323,20 +308,18 @@ goog.editor.plugins.UndoRedoManager.prototype.clearHistory = function() {
 
 
 /**
- * @return {goog.editor.plugins.UndoRedoState|undefined} The state at the top of
+ * @return {UndoRedoState|undefined} The state at the top of
  *     the undo stack without removing it from the stack.
  */
-goog.editor.plugins.UndoRedoManager.prototype.undoPeek = function() {
-  'use strict';
+UndoRedoManager.prototype.undoPeek = function() {
   return this.undoStack_[this.undoStack_.length - 1];
 };
 
 
 /**
- * @return {goog.editor.plugins.UndoRedoState|undefined} The state at the top of
+ * @return {UndoRedoState|undefined} The state at the top of
  *     the redo stack without removing it from the stack.
  */
-goog.editor.plugins.UndoRedoManager.prototype.redoPeek = function() {
-  'use strict';
+UndoRedoManager.prototype.redoPeek = function() {
   return this.redoStack_[this.redoStack_.length - 1];
 };

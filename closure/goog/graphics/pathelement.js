@@ -10,13 +10,13 @@
  */
 
 
-goog.provide('goog.graphics.PathElement');
+goog.declareModuleId('goog.graphics.pathelement');
 
-goog.require('goog.graphics.StrokeAndFillElement');
-goog.requireType('goog.graphics.AbstractGraphics');
-goog.requireType('goog.graphics.Fill');
-goog.requireType('goog.graphics.Path');
-goog.requireType('goog.graphics.Stroke');
+import { StrokeAndFillElement } from './strokeandfillelement.js';
+goog.requireType('goog.graphics.abstractgraphics');
+goog.requireType('goog.graphics.fill');
+goog.requireType('goog.graphics.path');
+goog.requireType('goog.graphics.stroke');
 
 
 
@@ -30,21 +30,20 @@ goog.requireType('goog.graphics.Stroke');
  * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
  * @param {goog.graphics.Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {goog.graphics.StrokeAndFillElement}
+ * @extends {StrokeAndFillElement}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.PathElement = function(element, graphics, stroke, fill) {
-  'use strict';
-  goog.graphics.StrokeAndFillElement.call(
-      this, element, graphics, stroke, fill);
-};
-goog.inherits(goog.graphics.PathElement, goog.graphics.StrokeAndFillElement);
+export function PathElement(element, graphics, stroke, fill) {
+ StrokeAndFillElement.call(
+     this, element, graphics, stroke, fill);
+}
+goog.inherits(PathElement, StrokeAndFillElement);
 
 
 /**
  * Update the underlying path.
  * @param {!goog.graphics.Path} path The path object to draw.
  */
-goog.graphics.PathElement.prototype.setPath = goog.abstractMethod;
+PathElement.prototype.setPath = goog.abstractMethod;

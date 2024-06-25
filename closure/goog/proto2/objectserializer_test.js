@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.proto2.ObjectSerializerTest');
 goog.setTestOnly();
 
-const ObjectSerializer = goog.require('goog.proto2.ObjectSerializer');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Serializer = goog.require('goog.proto2.Serializer');
-const TestAllTypes = goog.require('proto2.TestAllTypes');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ObjectSerializer } from './objectserializer.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Serializer } from './serializer.js';
+import { TestAllTypes } from './test.pb.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const propertyReplacer = new PropertyReplacer();
 

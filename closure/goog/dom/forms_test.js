@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.formsTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dom = goog.require('goog.dom');
-const forms = goog.require('goog.dom.forms');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as dom from './dom.js';
+import * as forms from './forms.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const stubs = new PropertyReplacer();
 

@@ -10,11 +10,9 @@
  *
  */
 
-goog.module('goog.labs.userAgent.util');
-goog.module.declareLegacyNamespace();
+import { caseInsensitiveContains, contains } from '../../string/internal.js';
 
-const {caseInsensitiveContains, contains} = goog.require('goog.string.internal');
-const {useClientHints} = goog.require('goog.labs.userAgent');
+import { useClientHints } from './useragent.js';
 
 /**
  * @const {boolean} If true, use navigator.userAgentData without check.
@@ -194,7 +192,7 @@ function extractVersionTuples(userAgent) {
   return data;
 }
 
-exports = {
+export default {
   ASSUME_CLIENT_HINTS_SUPPORT,
   extractVersionTuples,
   getNativeUserAgentString,

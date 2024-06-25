@@ -9,29 +9,14 @@
  */
 
 
-goog.provide('goog.db.KeyRange');
-
-
-
-/**
- * Creates a new IDBKeyRange wrapper object. Should not be created directly,
- * instead use one of the static factory methods. For example:
- * @see goog.db.KeyRange.bound
- * @see goog.db.KeyRange.lowerBound
- *
- * @param {!IDBKeyRange} range Underlying IDBKeyRange object.
- * @constructor
- * @final
- */
-goog.db.KeyRange = function(range) {
-  'use strict';
-  /**
-   * Underlying IDBKeyRange object.
-   *
-   * @type {!IDBKeyRange}
-   * @private
-   */
-  this.range_ = range;
+KeyRange = function(range) {
+ /**
+  * Underlying IDBKeyRange object.
+  *
+  * @type {!IDBKeyRange}
+  * @private
+  */
+ this.range_ = range;
 };
 
 
@@ -40,19 +25,18 @@ goog.db.KeyRange = function(range) {
  * @type {!Object}
  * @private
  */
-goog.db.KeyRange.IDB_KEY_RANGE_ =
+KeyRange.IDB_KEY_RANGE_ =
     goog.global.IDBKeyRange || goog.global.webkitIDBKeyRange;
 
 
 /**
  * Creates a new key range for a single value.
  * @param {IDBKeyType} key The single value in the range.
- * @return {!goog.db.KeyRange} The key range.
+ * @return {!KeyRange} The key range.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.db.KeyRange.only = function(key) {
-  'use strict';
-  return new goog.db.KeyRange(goog.db.KeyRange.IDB_KEY_RANGE_.only(key));
+KeyRange.only = function(key) {
+ return new KeyRange(KeyRange.IDB_KEY_RANGE_.only(key));
 };
 
 
@@ -64,13 +48,12 @@ goog.db.KeyRange.only = function(key) {
  *     value.
  * @param {boolean=} opt_upperOpen If true, the range excludes the upper bound
  *     value.
- * @return {!goog.db.KeyRange} The key range.
+ * @return {!KeyRange} The key range.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.db.KeyRange.bound = function(lower, upper, opt_lowerOpen, opt_upperOpen) {
-  'use strict';
-  return new goog.db.KeyRange(goog.db.KeyRange.IDB_KEY_RANGE_.bound(
-      lower, upper, opt_lowerOpen, opt_upperOpen));
+KeyRange.bound = function(lower, upper, opt_lowerOpen, opt_upperOpen) {
+ return new KeyRange(KeyRange.IDB_KEY_RANGE_.bound(
+     lower, upper, opt_lowerOpen, opt_upperOpen));
 };
 
 
@@ -79,13 +62,12 @@ goog.db.KeyRange.bound = function(lower, upper, opt_lowerOpen, opt_upperOpen) {
  * @param {IDBKeyType} lower The value of the lower bound.
  * @param {boolean=} opt_lowerOpen If true, the range excludes the lower bound
  *     value.
- * @return {!goog.db.KeyRange} The key range.
+ * @return {!KeyRange} The key range.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.db.KeyRange.lowerBound = function(lower, opt_lowerOpen) {
-  'use strict';
-  return new goog.db.KeyRange(
-      goog.db.KeyRange.IDB_KEY_RANGE_.lowerBound(lower, opt_lowerOpen));
+KeyRange.lowerBound = function(lower, opt_lowerOpen) {
+ return new KeyRange(
+     KeyRange.IDB_KEY_RANGE_.lowerBound(lower, opt_lowerOpen));
 };
 
 
@@ -94,13 +76,12 @@ goog.db.KeyRange.lowerBound = function(lower, opt_lowerOpen) {
  * @param {IDBKeyType} upper The value of the upper bound.
  * @param {boolean=} opt_upperOpen If true, the range excludes the upper bound
  *     value.
- * @return {!goog.db.KeyRange} The key range.
+ * @return {!KeyRange} The key range.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.db.KeyRange.upperBound = function(upper, opt_upperOpen) {
-  'use strict';
-  return new goog.db.KeyRange(
-      goog.db.KeyRange.IDB_KEY_RANGE_.upperBound(upper, opt_upperOpen));
+KeyRange.upperBound = function(upper, opt_upperOpen) {
+ return new KeyRange(
+     KeyRange.IDB_KEY_RANGE_.upperBound(upper, opt_upperOpen));
 };
 
 
@@ -109,7 +90,7 @@ goog.db.KeyRange.upperBound = function(upper, opt_upperOpen) {
  * and count methods.
  * @return {!IDBKeyRange}
  */
-goog.db.KeyRange.prototype.range = function() {
-  'use strict';
-  return this.range_;
+KeyRange.prototype.range = function() {
+ return this.range_;
 };
+export var KeyRange;

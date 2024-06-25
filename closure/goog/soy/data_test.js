@@ -4,17 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.soy.dataTest');
 goog.setTestOnly();
 
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
+import { SafeHtml } from '../html/safehtml.js';
+import { SafeStyle } from '../html/safestyle.js';
+import { SafeStyleSheet } from '../html/safestylesheet.js';
+import { SafeUrl } from '../html/safeurl.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+
 /** @suppress {extraRequire} */
-const testHelper = goog.require('goog.soy.testHelper');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as testHelper from './soy_testhelper.js';
+
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testToSafeHtml() {

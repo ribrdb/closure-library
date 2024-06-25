@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.style.app.MenuButtonRendererTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const MenuButton = goog.require('goog.ui.MenuButton');
-const MenuButtonRenderer = goog.require('goog.ui.style.app.MenuButtonRenderer');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.testing.ui.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from '../../component.js';
+import { MenuButton } from '../../menubutton.js';
+import { MenuButtonRenderer } from './menubuttonrenderer.js';
+import * as dom from '../../../dom/dom.js';
+import style from '../../../testing/ui/style.js';
+import { testSuite } from '../../../testing/testsuite.js';
 
 const renderer = MenuButtonRenderer.getInstance();
 let button;

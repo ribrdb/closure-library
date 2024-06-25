@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.mime.encodeTest');
 goog.setTestOnly();
 
-const encode = goog.require('goog.i18n.mime.encode');
-const testSuite = goog.require('goog.testing.testSuite');
+import { encode } from './mime.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testEncodeAllAscii() {

@@ -4,13 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.tweak.RegistryTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
+import { testSuite } from '../testing/testsuite.js';
+
 /** @suppress {extraRequire} needed for createRegistryEntries. */
-const testhelpers = goog.require('goog.tweak.testhelpers');
-const tweak = goog.require('goog.tweak');
+import * as testhelpers from './testhelpers.js';
+
+import * as tweak from './tweak.js';
 
 let registry;
 

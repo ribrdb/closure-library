@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.EventTargetGoogEventsTest');
 goog.setTestOnly();
 
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const eventTargetTester = goog.require('goog.events.eventTargetTester');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.testing');
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import eventTargetTester from './eventtargettester.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../testing/functionmock.js';
 
 const KeyType = eventTargetTester.KeyType;
 const EventType = eventTargetTester.EventType;

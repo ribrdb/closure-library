@@ -10,12 +10,11 @@
  * @see ../../demos/autocomplete-basic.html
  */
 
-goog.provide('goog.ui.ac');
+import { ArrayMatcher } from './arraymatcher.js';
 
-goog.require('goog.ui.ac.ArrayMatcher');
-goog.require('goog.ui.ac.AutoComplete');
-goog.require('goog.ui.ac.InputHandler');
-goog.require('goog.ui.ac.Renderer');
+import { AutoComplete } from './autocomplete.js';
+import { InputHandler } from './inputhandler.js';
+import { Renderer } from './renderer.js';
 
 
 /**
@@ -26,18 +25,16 @@ goog.require('goog.ui.ac.Renderer');
  * @param {boolean=} opt_multi Whether to allow multiple entries separated with
  *     semi-colons or commas.
  * @param {boolean=} opt_useSimilar use similar matches. e.g. "gost" => "ghost".
- * @return {!goog.ui.ac.AutoComplete} A new autocomplete object.
+ * @return {!AutoComplete} A new autocomplete object.
  */
-goog.ui.ac.createSimpleAutoComplete = function(
-    data, input, opt_multi, opt_useSimilar) {
-  'use strict';
-  var matcher = new goog.ui.ac.ArrayMatcher(data, !opt_useSimilar);
-  var renderer = new goog.ui.ac.Renderer();
-  var inputHandler = new goog.ui.ac.InputHandler(null, null, !!opt_multi);
+export function createSimpleAutoComplete(data, input, opt_multi, opt_useSimilar) {
+ var matcher = new ArrayMatcher(data, !opt_useSimilar);
+ var renderer = new Renderer();
+ var inputHandler = new InputHandler(null, null, !!opt_multi);
 
-  var autoComplete =
-      new goog.ui.ac.AutoComplete(matcher, renderer, inputHandler);
-  inputHandler.attachAutoComplete(autoComplete);
-  inputHandler.attachInputs(input);
-  return autoComplete;
-};
+ var autoComplete =
+     new AutoComplete(matcher, renderer, inputHandler);
+ inputHandler.attachAutoComplete(autoComplete);
+ inputHandler.attachInputs(input);
+ return autoComplete;
+}

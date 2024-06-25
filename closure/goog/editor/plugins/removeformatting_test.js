@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.RemoveFormattingTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const Range = goog.require('goog.dom.Range');
-const RemoveFormatting = goog.require('goog.editor.plugins.RemoveFormatting');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import { ExpectedFailures } from '../../testing/expectedfailures.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import * as Range from '../../dom/range.js';
+import { RemoveFormatting } from './removeformatting.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as googString from '../../string/string.js';
+import * as product from '../../useragent/product.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingDom from '../../testing/dom.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let SAVED_HTML;
 let FIELDMOCK;

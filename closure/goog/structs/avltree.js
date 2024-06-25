@@ -35,11 +35,9 @@
  */
 
 
-goog.module('goog.structs.AvlTree');
-goog.module.declareLegacyNamespace();
+import { Collection } from './collection.js';
 
-var Collection = goog.require('goog.structs.Collection');
-var asserts = goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 
 
@@ -963,4 +961,4 @@ Node.prototype.copy = function(parent, comparator, opt_copy) {
   return {root: node, leftMost: minNode, rightMost: maxNode};
 };
 
-exports = AvlTree;
+export { AvlTree };

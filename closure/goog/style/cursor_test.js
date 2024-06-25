@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.style.cursorTest');
 goog.setTestOnly();
 
-const cursor = goog.require('goog.style.cursor');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as cursor from './cursor.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 const baseCursorUrl = '/images/2/';
 let origWindowsUserAgentValue;

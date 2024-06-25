@@ -13,12 +13,11 @@
  * employs namespaces, make sure the same namespace is used for both objects.
  */
 
-goog.module('goog.storage.mechanism.mechanismSharingTests');
 goog.setTestOnly('goog.storage.mechanism.mechanismSharingTests');
 
-const IterableMechanism = goog.require('goog.storage.mechanism.IterableMechanism');
-const {assertEquals, assertNull, assertTrue} = goog.require('goog.testing.asserts');
-const {bindTests} = goog.require('goog.storage.mechanism.testhelpers');
+import { IterableMechanism } from './iterablemechanism.js';
+import { assertEquals, assertNull, assertTrue } from '../../testing/asserts.js';
+import { bindTests } from './mechanismtestdefinition.js';
 
 
 /**
@@ -28,7 +27,7 @@ const {bindTests} = goog.require('goog.storage.mechanism.testhelpers');
  * }} state
  * @return {!Object}
  */
-exports.register = function(state) {
+export let register = function(state) {
   return bindTests(
       [
         testSharedSet,

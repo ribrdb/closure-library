@@ -6,14 +6,13 @@
 
 /** @fileoverview Unit tests for goog.html.util. */
 
-goog.module('goog.html.UtilsTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const utils = goog.require('goog.html.utils');
+import { TagName } from '../dom/tagname.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as utils from './utils.js';
 
 const FAILURE_MESSAGE = 'Failed to strip all HTML.';
 const STRIP = 'Hello world!';

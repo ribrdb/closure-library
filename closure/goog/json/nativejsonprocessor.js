@@ -10,13 +10,11 @@
  * JSON library.
  */
 
-goog.module('goog.json.NativeJsonProcessor');
-goog.module.declareLegacyNamespace();
+import { Parser } from '../string/parser.js';
 
-const Parser = goog.require('goog.string.Parser');
-const Stringifier = goog.require('goog.string.Stringifier');
-const asserts = goog.require('goog.asserts');
-const {Replacer, Reviver} = goog.require('goog.json.types');
+import { Stringifier } from '../string/stringifier.js';
+import * as asserts from '../asserts/asserts.js';
+import { Replacer, Reviver } from './types.js';
 
 
 
@@ -29,7 +27,7 @@ const {Replacer, Reviver} = goog.require('goog.json.types');
  * @implements {Stringifier}
  * @final
  */
-exports = class {
+export default class {
   /**
    * @param {?Replacer=} opt_replacer An optional replacer to use during
    *     serialization.
@@ -75,4 +73,4 @@ exports = class {
   parse(s) {
     return goog.global['JSON'].parse(s, this.reviver_);
   }
-};
+}

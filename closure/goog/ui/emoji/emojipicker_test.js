@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.emoji.EmojiPickerTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Emoji = goog.require('goog.ui.emoji.Emoji');
-const EmojiPalette = goog.requireType('goog.ui.emoji.EmojiPalette');
-const EmojiPicker = goog.require('goog.ui.emoji.EmojiPicker');
-const EventHandler = goog.require('goog.events.EventHandler');
-const SpriteInfo = goog.require('goog.ui.emoji.SpriteInfo');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const events = goog.require('goog.testing.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from '../component.js';
+import { Emoji } from './emoji.js';
+import { EmojiPicker } from './emojipicker.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { SpriteInfo } from './spriteinfo.js';
+import { TagName } from '../../dom/tagname.js';
+import * as classlist from '../../dom/classlist.js';
+import * as events from '../../testing/events/events.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+const EmojiPalette = goog.requireType('goog.ui.emoji.emojipalette');
 
 let handler;
 

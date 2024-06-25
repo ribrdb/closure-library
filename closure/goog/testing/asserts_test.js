@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.assertsTest');
 goog.setTestOnly();
 
-const Deferred = goog.require('goog.async.Deferred');
-const GoogPromise = goog.require('goog.Promise');
-const IterIterator = goog.require('goog.iter.Iterator');
-const StructsMap = goog.require('goog.structs.Map');
-const StructsSet = goog.require('goog.structs.Set');
-const TestCase = goog.require('goog.testing.TestCase');
-const asserts = goog.require('goog.testing.asserts');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const googIter = goog.require('goog.iter');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const throwException = goog.require('goog.async.throwException');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import * as googIter from '../iter/iter.js';
+import { Iterator as IterIterator } from '../iter/iter.js';
+import { Map as StructsMap } from '../structs/map.js';
+import { Set as StructsSet } from '../structs/set.js';
+import { TestCase } from './testcase.js';
+import * as asserts from './asserts.js';
+import * as dom from '../dom/dom.js';
+import * as googArray from '../array/array.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from './testsuite.js';
+import { throwException } from '../async/throwexception.js';
 
 const SUPPORTS_TYPED_ARRAY =
     typeof Uint8Array === 'function' && typeof Uint8Array.of === 'function';

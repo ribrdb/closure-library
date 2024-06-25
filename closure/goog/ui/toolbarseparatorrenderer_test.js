@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ToolbarSeparatorRendererTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const INLINE_BLOCK_CLASSNAME = goog.require('goog.ui.INLINE_BLOCK_CLASSNAME');
-const TagName = goog.require('goog.dom.TagName');
-const ToolbarSeparator = goog.require('goog.ui.ToolbarSeparator');
-const ToolbarSeparatorRenderer = goog.require('goog.ui.ToolbarSeparatorRenderer');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from './component.js';
+import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
+import { TagName } from '../dom/tagname.js';
+import { ToolbarSeparator } from './toolbarseparator.js';
+import { ToolbarSeparatorRenderer } from './toolbarseparatorrenderer.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let parent;
 let renderer;

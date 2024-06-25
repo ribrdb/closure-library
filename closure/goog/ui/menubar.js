@@ -14,25 +14,23 @@
  * @see ../demos/menubar.html
  */
 
-goog.provide('goog.ui.menuBar');
+import { Container } from './container.js';
 
-goog.require('goog.ui.Container');
-goog.require('goog.ui.MenuBarRenderer');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.ui.ContainerRenderer');
+import { MenuBarRenderer } from './menubarrenderer.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.ui.containerrenderer');
 
 
 /**
  * The menuBar factory creates a new menu bar.
- * @param {goog.ui.ContainerRenderer=} opt_renderer Renderer used to render or
- *     decorate the menu bar; defaults to {@link goog.ui.MenuBarRenderer}.
+ * @param {ContainerRenderer=} opt_renderer Renderer used to render or
+ *     decorate the menu bar; defaults to {@link MenuBarRenderer}.
  * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for document
  *     interaction.
- * @return {!goog.ui.Container} The created menu bar.
+ * @return {!Container} The created menu bar.
  */
-goog.ui.menuBar.create = function(opt_renderer, opt_domHelper) {
-  'use strict';
-  return new goog.ui.Container(
-      null, opt_renderer ? opt_renderer : goog.ui.MenuBarRenderer.getInstance(),
-      opt_domHelper);
-};
+export function create(opt_renderer, opt_domHelper) {
+ return new Container(
+     null, opt_renderer ? opt_renderer : MenuBarRenderer.getInstance(),
+     opt_domHelper);
+}

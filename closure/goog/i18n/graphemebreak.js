@@ -11,11 +11,10 @@
  * Reference: http://unicode.org/reports/tr29
  */
 
-goog.provide('goog.i18n.GraphemeBreak');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.i18n.uChar');
-goog.require('goog.structs.InversionMap');
+import * as uChar from './uchar.js';
+import { InversionMap } from '../structs/inversionmap.js';
 
 /**
  * Enum for all Grapheme Cluster Break properties.
@@ -25,7 +24,7 @@ goog.require('goog.structs.InversionMap');
  *
  * @protected @enum {number}
  */
-goog.i18n.GraphemeBreak.property = {
+export var property = {
   OTHER: 0,
   CONTROL: 1,
   EXTEND: 2,
@@ -53,9 +52,9 @@ goog.i18n.GraphemeBreak.property = {
  * Grapheme Cluster Break property values for all codepoints as inversion map.
  * Constructed lazily.
  *
- * @private {?goog.structs.InversionMap}
+ * @private {?InversionMap}
  */
-goog.i18n.GraphemeBreak.inversions_ = null;
+var inversions_ = null;
 
 
 /**
@@ -73,18 +72,17 @@ goog.i18n.GraphemeBreak.inversions_ = null;
  * @return {boolean} True if a & b do not form a cluster; False otherwise.
  * @private
  */
-goog.i18n.GraphemeBreak.applyBreakRules_ = function(a, b, extended) {
-  'use strict';
-  var prop = goog.i18n.GraphemeBreak.property;
+function applyBreakRules_(a, b, extended) {
+  var prop = property;
 
   var aCode = (typeof a === 'string') ?
-      goog.i18n.GraphemeBreak.getCodePoint_(a, a.length - 1) :
+      getCodePoint_(a, a.length - 1) :
       a;
   var bCode =
-      (typeof b === 'string') ? goog.i18n.GraphemeBreak.getCodePoint_(b, 0) : b;
+      (typeof b === 'string') ? getCodePoint_(b, 0) : b;
 
-  var aProp = goog.i18n.GraphemeBreak.getBreakProp_(aCode);
-  var bProp = goog.i18n.GraphemeBreak.getBreakProp_(bCode);
+  var aProp = getBreakProp_(aCode);
+  var bProp = getBreakProp_(bCode);
 
   var isString = (typeof a === 'string');
 
@@ -148,9 +146,9 @@ goog.i18n.GraphemeBreak.applyBreakRules_ = function(a, b, extended) {
       codePoint = aCode;
       codePointProp = aProp;
       while (index > 0 && codePointProp === prop.EXTEND) {
-        index -= goog.i18n.uChar.charCount(codePoint);
-        codePoint = goog.i18n.GraphemeBreak.getCodePoint_(aStr, index);
-        codePointProp = goog.i18n.GraphemeBreak.getBreakProp_(codePoint);
+        index -= uChar.charCount(codePoint);
+        codePoint = getCodePoint_(aStr, index);
+        codePointProp = getBreakProp_(codePoint);
       }
       if (codePointProp === prop.E_BASE || codePointProp === prop.E_BASE_GAZ) {
         return false;
@@ -185,9 +183,9 @@ goog.i18n.GraphemeBreak.applyBreakRules_ = function(a, b, extended) {
       codePointProp = aProp;
       while (index > 0 && codePointProp === prop.REGIONAL_INDICATOR) {
         numberOfRi++;
-        index -= goog.i18n.uChar.charCount(codePoint);
-        codePoint = goog.i18n.GraphemeBreak.getCodePoint_(aStr, index);
-        codePointProp = goog.i18n.GraphemeBreak.getBreakProp_(codePoint);
+        index -= uChar.charCount(codePoint);
+        codePoint = getCodePoint_(aStr, index);
+        codePointProp = getBreakProp_(codePoint);
       }
       if (codePointProp === prop.REGIONAL_INDICATOR) {
         numberOfRi++;
@@ -206,7 +204,7 @@ goog.i18n.GraphemeBreak.applyBreakRules_ = function(a, b, extended) {
 
   // GB999.
   return true;
-};
+}
 
 
 /**
@@ -217,17 +215,16 @@ goog.i18n.GraphemeBreak.applyBreakRules_ = function(a, b, extended) {
  * @return {number} Property enum value of code point.
  * @private
  */
-goog.i18n.GraphemeBreak.getBreakProp_ = function(codePoint) {
-  'use strict';
+function getBreakProp_(codePoint) {
   if (0xAC00 <= codePoint && codePoint <= 0xD7A3) {
-    var prop = goog.i18n.GraphemeBreak.property;
+    var prop = property;
     if (codePoint % 0x1C === 0x10) {
       return prop.LV;
     }
     return prop.LVT;
   } else {
-    if (!goog.i18n.GraphemeBreak.inversions_) {
-      goog.i18n.GraphemeBreak.inversions_ = new goog.structs.InversionMap(
+    if (!inversions_) {
+      inversions_ = new InversionMap(
           [
             0,      10,   1,     2,   1,    18,   95,    33,    13,  1,
             594,    112,  275,   7,   263,  45,   1,     1,     1,   2,
@@ -374,10 +371,11 @@ goog.i18n.GraphemeBreak.getBreakProp_ = function(codePoint) {
           ],
           true);
     }
-    return /** @type {number} */ (
-        goog.i18n.GraphemeBreak.inversions_.at(codePoint));
+    return (
+      /** @type {number} */ (inversions_.at(codePoint))
+    );
   }
-};
+}
 
 /**
  * Extracts a code point from a string at the specified index.
@@ -387,11 +385,10 @@ goog.i18n.GraphemeBreak.getBreakProp_ = function(codePoint) {
  * @return {number} Extracted code point.
  * @private
  */
-goog.i18n.GraphemeBreak.getCodePoint_ = function(str, index) {
-  'use strict';
-  var codePoint = goog.i18n.uChar.getCodePointAround(str, index);
+function getCodePoint_(str, index) {
+  var codePoint = uChar.getCodePointAround(str, index);
   return (codePoint < 0) ? -codePoint : codePoint;
-};
+}
 
 /**
  * Indicates if there is a grapheme cluster boundary between a and b.
@@ -412,10 +409,9 @@ goog.i18n.GraphemeBreak.getCodePoint_ = function(str, index) {
  * @return {boolean} True if there is a grapheme cluster boundary between
  *     a and b; False otherwise.
  */
-goog.i18n.GraphemeBreak.hasGraphemeBreak = function(a, b, opt_extended) {
-  'use strict';
-  return goog.i18n.GraphemeBreak.applyBreakRules_(a, b, opt_extended !== false);
-};
+export function hasGraphemeBreak(a, b, opt_extended) {
+  return applyBreakRules_(a, b, opt_extended !== false);
+}
 
 /**
  * Indicates if there is a grapheme cluster boundary between a and b.
@@ -431,15 +427,14 @@ goog.i18n.GraphemeBreak.hasGraphemeBreak = function(a, b, opt_extended) {
  * @return {boolean} True if there is a grapheme cluster boundary between
  *     a and b; False otherwise.
  */
-goog.i18n.GraphemeBreak.hasGraphemeBreakStrings = function(a, b, opt_extended) {
-  'use strict';
-  goog.asserts.assert(a !== undefined, 'First string should be defined.');
-  goog.asserts.assert(b !== undefined, 'Second string should be defined.');
+export function hasGraphemeBreakStrings(a, b, opt_extended) {
+  asserts.assert(a !== undefined, 'First string should be defined.');
+  asserts.assert(b !== undefined, 'Second string should be defined.');
 
   // Break if any of the strings is empty.
   if (a.length === 0 || b.length === 0) {
     return true;
   }
 
-  return goog.i18n.GraphemeBreak.applyBreakRules_(a, b, opt_extended !== false);
-};
+  return applyBreakRules_(a, b, opt_extended !== false);
+}

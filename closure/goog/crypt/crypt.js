@@ -8,35 +8,33 @@
  * @fileoverview Namespace with crypto related helper functions.
  */
 
-goog.provide('goog.crypt');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.async.throwException');
+import { throwException } from '../async/throwexception.js';
 
 
 /**
  * Whether to async-throw on unicode input to the legacy versions of
- * `goog.crypt.stringToByteArray` (i.e. when `throwSync` is false).
+ * `stringToByteArray` (i.e. when `throwSync` is false).
  * NOTE: The default will change to `true` soon, after notifying users.
  * @define {boolean}
  */
-goog.crypt.ASYNC_THROW_ON_UNICODE_TO_BYTE =
-    goog.define('goog.crypt.ASYNC_THROW_ON_UNICODE_TO_BYTE', goog.DEBUG);
+export var ASYNC_THROW_ON_UNICODE_TO_BYTE = goog.define('goog.crypt.ASYNC_THROW_ON_UNICODE_TO_BYTE', goog.DEBUG);
 
 
 /**
  * Test-only stub to make our use of async.throwException more testable.
  * @const
  */
-goog.crypt.TEST_ONLY = {};
+export var TEST_ONLY = {};
 
 
 /** Remappable alias. */
-goog.crypt.TEST_ONLY.throwException = goog.async.throwException;
+TEST_ONLY.throwException = throwException;
 
 
 /** Configurable so that we can test the async-throw behavior. */
-goog.crypt.TEST_ONLY.alwaysThrowSynchronously = goog.DEBUG;
+TEST_ONLY.alwaysThrowSynchronously = goog.DEBUG;
 
 
 /**
@@ -46,9 +44,9 @@ goog.crypt.TEST_ONLY.alwaysThrowSynchronously = goog.DEBUG;
  * @return {!Array<number>} Array of numbers corresponding to the
  *     UCS character codes of each character in str.
  */
-goog.crypt.binaryStringToByteArray = function(str) {
-  return goog.crypt.stringToByteArray(str, true);
-};
+export function binaryStringToByteArray(str) {
+  return stringToByteArray(str, true);
+}
 
 
 /**
@@ -59,8 +57,7 @@ goog.crypt.binaryStringToByteArray = function(str) {
  * @return {!Array<number>} Array of numbers corresponding to the
  *     UCS character codes of each character in str.
  */
-goog.crypt.stringToByteArray = function(str, throwSync) {
-  'use strict';
+export function stringToByteArray(str, throwSync) {
   var output = [], p = 0;
   for (var i = 0; i < str.length; i++) {
     var c = str.charCodeAt(i);
@@ -68,10 +65,10 @@ goog.crypt.stringToByteArray = function(str, throwSync) {
     if (c > 0xff) {
       var err = new Error('go/unicode-to-byte-error');
       // NOTE: fail faster in debug to catch errors reliably in tests.
-      if (goog.crypt.TEST_ONLY.alwaysThrowSynchronously || throwSync) {
+      if (TEST_ONLY.alwaysThrowSynchronously || throwSync) {
         throw err;
-      } else if (goog.crypt.ASYNC_THROW_ON_UNICODE_TO_BYTE) {
-        goog.crypt.TEST_ONLY.throwException(err);
+      } else if (ASYNC_THROW_ON_UNICODE_TO_BYTE) {
+        TEST_ONLY.throwException(err);
       }
       output[p++] = c & 0xff;
       c >>= 8;
@@ -79,7 +76,7 @@ goog.crypt.stringToByteArray = function(str, throwSync) {
     output[p++] = c;
   }
   return output;
-};
+}
 
 
 /**
@@ -89,9 +86,9 @@ goog.crypt.stringToByteArray = function(str, throwSync) {
  *     characters.
  * @return {string} Stringification of the array.
  */
-goog.crypt.byteArrayToString = function(bytes) {
-  return goog.crypt.byteArrayToBinaryString(bytes);
-};
+export function byteArrayToString(bytes) {
+  return byteArrayToBinaryString(bytes);
+}
 
 
 /**
@@ -101,8 +98,7 @@ goog.crypt.byteArrayToString = function(bytes) {
  *     characters.
  * @return {string} Stringification of the array.
  */
-goog.crypt.byteArrayToBinaryString = function(bytes) {
-  'use strict';
+export function byteArrayToBinaryString(bytes) {
   var CHUNK_SIZE = 8192;
 
   // Special-case the simple case for speed's sake.
@@ -120,7 +116,7 @@ goog.crypt.byteArrayToBinaryString = function(bytes) {
     str += String.fromCharCode.apply(null, chunk);
   }
   return str;
-};
+}
 
 
 /**
@@ -131,18 +127,16 @@ goog.crypt.byteArrayToBinaryString = function(bytes) {
  * @param {string=} opt_separator Optional separator between values
  * @return {string} Hex string.
  */
-goog.crypt.byteArrayToHex = function(array, opt_separator) {
-  'use strict';
+export function byteArrayToHex(array, opt_separator) {
   return Array.prototype.map
       .call(
           array,
           function(numByte) {
-            'use strict';
             var hexByte = numByte.toString(16);
             return hexByte.length > 1 ? hexByte : '0' + hexByte;
           })
       .join(opt_separator || '');
-};
+}
 
 
 /**
@@ -151,16 +145,15 @@ goog.crypt.byteArrayToHex = function(array, opt_separator) {
  *     per integer).
  * @return {!Array<number>} Array of {0,255} integers for the given string.
  */
-goog.crypt.hexToByteArray = function(hexString) {
-  'use strict';
-  goog.asserts.assert(
+export function hexToByteArray(hexString) {
+  asserts.assert(
       hexString.length % 2 == 0, 'Key string length must be multiple of 2');
   var arr = [];
   for (var i = 0; i < hexString.length; i += 2) {
     arr.push(parseInt(hexString.substring(i, i + 2), 16));
   }
   return arr;
-};
+}
 
 
 /**
@@ -168,9 +161,9 @@ goog.crypt.hexToByteArray = function(hexString) {
  * @param {string} str 16-bit unicode string.
  * @return {!Array<number>} UTF-8 byte array.
  */
-goog.crypt.stringToUtf8ByteArray = function(str) {
-  return goog.crypt.textToByteArray(str);
-};
+export function stringToUtf8ByteArray(str) {
+  return textToByteArray(str);
+}
 
 
 /**
@@ -178,8 +171,7 @@ goog.crypt.stringToUtf8ByteArray = function(str) {
  * @param {string} str 16-bit unicode string.
  * @return {!Array<number>} UTF-8 byte array.
  */
-goog.crypt.textToByteArray = function(str) {
-  'use strict';
+export function textToByteArray(str) {
   // TODO(user): Use native implementations if/when available
   var out = [], p = 0;
   for (var i = 0; i < str.length; i++) {
@@ -205,7 +197,7 @@ goog.crypt.textToByteArray = function(str) {
     }
   }
   return out;
-};
+}
 
 
 /**
@@ -213,9 +205,9 @@ goog.crypt.textToByteArray = function(str) {
  * @param {Uint8Array|Array<number>} bytes UTF-8 byte array.
  * @return {string} 16-bit Unicode string.
  */
-goog.crypt.utf8ByteArrayToString = function(bytes) {
-  return goog.crypt.byteArrayToText(bytes);
-};
+export function utf8ByteArrayToString(bytes) {
+  return byteArrayToText(bytes);
+}
 
 
 /**
@@ -223,8 +215,7 @@ goog.crypt.utf8ByteArrayToString = function(bytes) {
  * @param {Uint8Array|Array<number>} bytes UTF-8 byte array.
  * @return {string} 16-bit Unicode string.
  */
-goog.crypt.byteArrayToText = function(bytes) {
-  'use strict';
+export function byteArrayToText(bytes) {
   // TODO(user): Use native implementations if/when available
   var out = [], pos = 0, c = 0;
   while (pos < bytes.length) {
@@ -251,7 +242,7 @@ goog.crypt.byteArrayToText = function(bytes) {
     }
   }
   return out.join('');
-};
+}
 
 
 /**
@@ -260,9 +251,8 @@ goog.crypt.byteArrayToText = function(bytes) {
  * @param {!Uint8Array|!Int8Array|!Array<number>} bytes2 Byte array 2.
  * @return {!Array<number>} Resulting XOR of the two byte arrays.
  */
-goog.crypt.xorByteArray = function(bytes1, bytes2) {
-  'use strict';
-  goog.asserts.assert(
+export function xorByteArray(bytes1, bytes2) {
+  asserts.assert(
       bytes1.length == bytes2.length, 'XOR array lengths must match');
 
   var result = [];
@@ -270,4 +260,4 @@ goog.crypt.xorByteArray = function(bytes1, bytes2) {
     result.push(bytes1[i] ^ bytes2[i]);
   }
   return result;
-};
+}

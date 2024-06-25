@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.AbstractTabHandlerTest');
 goog.setTestOnly();
 
-const AbstractTabHandler = goog.require('goog.editor.plugins.AbstractTabHandler');
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Field = goog.require('goog.editor.Field');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { AbstractTabHandler } from './abstracttabhandler.js';
+import { BrowserEvent } from '../../events/browserevent.js';
+import { Field } from '../field.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { StrictMock } from '../../testing/strictmock.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let tabHandler;
 let editableField;

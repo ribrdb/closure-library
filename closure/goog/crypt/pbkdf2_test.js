@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.pbkdf2Test');
 goog.setTestOnly();
 
-const crypt = goog.require('goog.crypt');
-const pbkdf2 = goog.require('goog.crypt.pbkdf2');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as crypt from './crypt.js';
+import * as pbkdf2 from './pbkdf2.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 testSuite({
   testPBKDF2() {

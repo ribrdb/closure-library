@@ -8,9 +8,7 @@
  * @fileoverview Utility methods for Protocol Buffer 2 implementation.
  */
 
-goog.provide('goog.proto2.Util');
-
-goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 
 /**
@@ -18,7 +16,7 @@ goog.require('goog.asserts');
  * clients of PB2. This for is clients that do not want assertion/checking
  * running even in non-COMPILED builds.
  */
-goog.proto2.Util.PBCHECK = goog.define('goog.proto2.Util.PBCHECK', !COMPILED);
+export var PBCHECK = goog.define('goog.proto2.Util.PBCHECK', !COMPILED);
 
 
 /**
@@ -29,12 +27,11 @@ goog.proto2.Util.PBCHECK = goog.define('goog.proto2.Util.PBCHECK', !COMPILED);
  * @param {string=} opt_message Error message in case of failure.
  * @throws {Error} Assertion failed, the condition evaluates to false.
  */
-goog.proto2.Util.assert = function(condition, opt_message) {
-  'use strict';
-  if (goog.proto2.Util.PBCHECK) {
-    goog.asserts.assert(condition, opt_message);
-  }
-};
+export function assert(condition, opt_message) {
+ if (PBCHECK) {
+   asserts.assert(condition, opt_message);
+ }
+}
 
 
 /**
@@ -42,7 +39,6 @@ goog.proto2.Util.assert = function(condition, opt_message) {
  *
  * @return {boolean} The value of the PBCHECK constant.
  */
-goog.proto2.Util.conductChecks = function() {
-  'use strict';
-  return goog.proto2.Util.PBCHECK;
-};
+export function conductChecks() {
+ return PBCHECK;
+}

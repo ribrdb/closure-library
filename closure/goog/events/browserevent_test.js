@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.BrowserEventTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Coordinate = goog.require('goog.math.Coordinate');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { Coordinate } from '../math/coordinate.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 const stubs = new PropertyReplacer();
 const Button = BrowserEvent.MouseButton;

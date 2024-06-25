@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.Base64StreamDecoderTest');
 goog.setTestOnly();
 
-const Base64StreamDecoder = goog.require('goog.net.streams.Base64StreamDecoder');
-const asserts = goog.require('goog.testing.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Base64StreamDecoder } from './base64streamdecoder.js';
+import * as asserts from '../../testing/asserts.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 // Static test data
 // clang-format off

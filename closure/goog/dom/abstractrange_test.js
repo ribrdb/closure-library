@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.AbstractRangeTest');
 goog.setTestOnly();
 
-const AbstractRange = goog.require('goog.dom.AbstractRange');
-const Const = goog.require('goog.string.Const');
-const Range = goog.require('goog.dom.Range');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const dom = goog.require('goog.dom');
-const safe = goog.require('goog.dom.safe');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AbstractRange } from './abstractrange.js';
+import { Const } from '../string/const.js';
+import * as Range from './range.js';
+import { TagName } from './tagname.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as dom from './dom.js';
+import * as safe from './safe.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 testSuite({

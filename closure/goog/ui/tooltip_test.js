@@ -4,26 +4,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TooltipTest');
 goog.setTestOnly();
 
-const AbsolutePosition = goog.require('goog.positioning.AbsolutePosition');
-const Coordinate = goog.require('goog.math.Coordinate');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.events.EventType');
-const FocusHandler = goog.require('goog.events.FocusHandler');
-const GoogEvent = goog.require('goog.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const PopupBase = goog.require('goog.ui.PopupBase');
-const TagName = goog.require('goog.dom.TagName');
-const TestQueue = goog.require('goog.testing.TestQueue');
-const Tooltip = goog.require('goog.ui.Tooltip');
-const events = goog.require('goog.testing.events');
-const googDom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const userAgent = goog.require('goog.userAgent');
+import { AbsolutePosition } from '../positioning/absoluteposition.js';
+import { Coordinate } from '../math/coordinate.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventType } from '../events/eventtype.js';
+import { FocusHandler } from '../events/focushandler.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PopupBase } from './popupbase.js';
+import { TagName } from '../dom/tagname.js';
+import { TestQueue } from '../testing/testqueue.js';
+import { Tooltip } from './tooltip.js';
+import * as events from '../testing/events/events.js';
+import * as googDom from '../dom/dom.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /**
  * A subclass of Tooltip that overrides `getPositioningStrategy`

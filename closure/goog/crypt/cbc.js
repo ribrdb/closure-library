@@ -10,12 +10,11 @@
  *     #Cipher-block_chaining_.28CBC.29. for description.
  */
 
-goog.provide('goog.crypt.Cbc');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.crypt');
-goog.require('goog.crypt.BlockCipher');
+import * as asserts from '../asserts/asserts.js';
+import * as crypt from './crypt.js';
+import { BlockCipher } from './blockcipher.js';
 
 
 
@@ -24,20 +23,19 @@ goog.require('goog.crypt.BlockCipher');
  * http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation
  * #Cipher-block_chaining_.28CBC.29
  *
- * @param {!goog.crypt.BlockCipher} cipher The block cipher to use.
+ * @param {!BlockCipher} cipher The block cipher to use.
  * @constructor
  * @final
  * @struct
  */
-goog.crypt.Cbc = function(cipher) {
-  'use strict';
-  /**
+export function Cbc(cipher) {
+ /**
    * Block cipher.
-   * @type {!goog.crypt.BlockCipher}
+   * @type {!BlockCipher}
    * @private
    */
-  this.cipher_ = cipher;
-};
+ this.cipher_ = cipher;
+}
 
 
 /**
@@ -49,37 +47,36 @@ goog.crypt.Cbc = function(cipher) {
  *     mode. An array of bytes with the same length as the block size.
  * @return {!Array<number>} Encrypted message.
  */
-goog.crypt.Cbc.prototype.encrypt = function(plainText, initialVector) {
-  'use strict';
-  goog.asserts.assert(
-      plainText.length % this.cipher_.BLOCK_SIZE == 0,
-      'Data\'s length must be multiple of block size.');
+Cbc.prototype.encrypt = function(plainText, initialVector) {
+ asserts.assert(
+     plainText.length % this.cipher_.BLOCK_SIZE == 0,
+     'Data\'s length must be multiple of block size.');
 
-  goog.asserts.assert(
-      initialVector.length == this.cipher_.BLOCK_SIZE,
-      'Initial vector must be size of one block.');
+ asserts.assert(
+     initialVector.length == this.cipher_.BLOCK_SIZE,
+     'Initial vector must be size of one block.');
 
-  // Implementation of
-  // http://en.wikipedia.org/wiki/File:Cbc_encryption.png
+ // Implementation of
+ // http://en.wikipedia.org/wiki/File:Cbc_encryption.png
 
-  var cipherText = [];
-  var vector = initialVector;
+ var cipherText = [];
+ var vector = initialVector;
 
-  // Generate each block of the encrypted cypher text.
-  for (var blockStartIndex = 0; blockStartIndex < plainText.length;
-       blockStartIndex += this.cipher_.BLOCK_SIZE) {
-    // Takes one block from the input message.
-    var plainTextBlock = Array.prototype.slice.call(
-        plainText, blockStartIndex, blockStartIndex + this.cipher_.BLOCK_SIZE);
+ // Generate each block of the encrypted cypher text.
+ for (var blockStartIndex = 0; blockStartIndex < plainText.length;
+      blockStartIndex += this.cipher_.BLOCK_SIZE) {
+   // Takes one block from the input message.
+   var plainTextBlock = Array.prototype.slice.call(
+       plainText, blockStartIndex, blockStartIndex + this.cipher_.BLOCK_SIZE);
 
-    var input = goog.crypt.xorByteArray(plainTextBlock, vector);
-    var resultBlock = this.cipher_.encrypt(input);
+   var input = crypt.xorByteArray(plainTextBlock, vector);
+   var resultBlock = this.cipher_.encrypt(input);
 
-    goog.array.extend(cipherText, resultBlock);
-    vector = resultBlock;
-  }
+   array.extend(cipherText, resultBlock);
+   vector = resultBlock;
+ }
 
-  return cipherText;
+ return cipherText;
 };
 
 
@@ -92,37 +89,36 @@ goog.crypt.Cbc.prototype.encrypt = function(plainText, initialVector) {
  *     mode. An array of bytes with the same length as the block size.
  * @return {!Array<number>} Decrypted message.
  */
-goog.crypt.Cbc.prototype.decrypt = function(cipherText, initialVector) {
-  'use strict';
-  goog.asserts.assert(
-      cipherText.length % this.cipher_.BLOCK_SIZE == 0,
-      'Data\'s length must be multiple of block size.');
+Cbc.prototype.decrypt = function(cipherText, initialVector) {
+ asserts.assert(
+     cipherText.length % this.cipher_.BLOCK_SIZE == 0,
+     'Data\'s length must be multiple of block size.');
 
-  goog.asserts.assert(
-      initialVector.length == this.cipher_.BLOCK_SIZE,
-      'Initial vector must be size of one block.');
+ asserts.assert(
+     initialVector.length == this.cipher_.BLOCK_SIZE,
+     'Initial vector must be size of one block.');
 
-  // Implementation of
-  // http://en.wikipedia.org/wiki/File:Cbc_decryption.png
+ // Implementation of
+ // http://en.wikipedia.org/wiki/File:Cbc_decryption.png
 
-  var plainText = [];
-  var blockStartIndex = 0;
-  var vector = initialVector;
+ var plainText = [];
+ var blockStartIndex = 0;
+ var vector = initialVector;
 
-  // Generate each block of the decrypted plain text.
-  while (blockStartIndex < cipherText.length) {
-    // Takes one block.
-    var cipherTextBlock = Array.prototype.slice.call(
-        cipherText, blockStartIndex, blockStartIndex + this.cipher_.BLOCK_SIZE);
+ // Generate each block of the decrypted plain text.
+ while (blockStartIndex < cipherText.length) {
+   // Takes one block.
+   var cipherTextBlock = Array.prototype.slice.call(
+       cipherText, blockStartIndex, blockStartIndex + this.cipher_.BLOCK_SIZE);
 
-    var resultBlock = this.cipher_.decrypt(cipherTextBlock);
-    var plainTextBlock = goog.crypt.xorByteArray(vector, resultBlock);
+   var resultBlock = this.cipher_.decrypt(cipherTextBlock);
+   var plainTextBlock = crypt.xorByteArray(vector, resultBlock);
 
-    goog.array.extend(plainText, plainTextBlock);
-    vector = cipherTextBlock;
+   array.extend(plainText, plainTextBlock);
+   vector = cipherTextBlock;
 
-    blockStartIndex += this.cipher_.BLOCK_SIZE;
-  }
+   blockStartIndex += this.cipher_.BLOCK_SIZE;
+ }
 
-  return plainText;
+ return plainText;
 };

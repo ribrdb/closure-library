@@ -14,26 +14,7 @@
  * about how to edit it via the generator check go/closure-ariagen.
  */
 
-goog.provide('goog.a11y.aria.AutoCompleteValues');
-goog.provide('goog.a11y.aria.CheckedValues');
-goog.provide('goog.a11y.aria.DropEffectValues');
-goog.provide('goog.a11y.aria.ExpandedValues');
-goog.provide('goog.a11y.aria.GrabbedValues');
-goog.provide('goog.a11y.aria.InvalidValues');
-goog.provide('goog.a11y.aria.LivePriority');
-goog.provide('goog.a11y.aria.OrientationValues');
-goog.provide('goog.a11y.aria.PressedValues');
-goog.provide('goog.a11y.aria.RelevantValues');
-goog.provide('goog.a11y.aria.SelectedValues');
-goog.provide('goog.a11y.aria.SortValues');
-goog.provide('goog.a11y.aria.State');
-
-
-/**
- * ARIA states and properties.
- * @enum {string}
- */
-goog.a11y.aria.State = {
+State = {
   // ARIA property for setting the currently active descendant of an element,
   // for example the selected item in a list box. Value: ID of an element.
   ACTIVEDESCENDANT: 'activedescendant',
@@ -197,7 +178,7 @@ goog.a11y.aria.State = {
  * ARIA state values for AutoCompleteValues.
  * @enum {string}
  */
-goog.a11y.aria.AutoCompleteValues = {
+export var AutoCompleteValues = {
   // The system provides text after the caret as a suggestion
   // for how to complete the field.
   INLINE: 'inline',
@@ -216,7 +197,7 @@ goog.a11y.aria.AutoCompleteValues = {
  * ARIA state values for DropEffectValues.
  * @enum {string}
  */
-goog.a11y.aria.DropEffectValues = {
+export var DropEffectValues = {
   // A duplicate of the source object will be dropped into the target.
   COPY: 'copy',
   // The source object will be removed from its current location
@@ -242,7 +223,7 @@ goog.a11y.aria.DropEffectValues = {
  * ARIA state values for LivePriority.
  * @enum {string}
  */
-goog.a11y.aria.LivePriority = {
+export var LivePriority = {
   // Updates to the region will not be presented to the user
   // unless the assitive technology is currently focused on that region.
   OFF: 'off',
@@ -263,7 +244,7 @@ goog.a11y.aria.LivePriority = {
  * ARIA state values for OrientationValues.
  * @enum {string}
  */
-goog.a11y.aria.OrientationValues = {
+export var OrientationValues = {
   // The element is oriented vertically.
   VERTICAL: 'vertical',
   // The element is oriented horizontally.
@@ -275,7 +256,7 @@ goog.a11y.aria.OrientationValues = {
  * ARIA state values for RelevantValues.
  * @enum {string}
  */
-goog.a11y.aria.RelevantValues = {
+export var RelevantValues = {
   // Element nodes are added to the DOM within the live region.
   ADDITIONS: 'additions',
   // Text or element nodes within the live region are removed from the DOM.
@@ -291,7 +272,7 @@ goog.a11y.aria.RelevantValues = {
  * ARIA state values for SortValues.
  * @enum {string}
  */
-goog.a11y.aria.SortValues = {
+export var SortValues = {
   // Items are sorted in ascending order by this column.
   ASCENDING: 'ascending',
   // Items are sorted in descending order by this column.
@@ -307,7 +288,7 @@ goog.a11y.aria.SortValues = {
  * ARIA state values for CheckedValues.
  * @enum {string}
  */
-goog.a11y.aria.CheckedValues = {
+export var CheckedValues = {
   // The selectable element is checked.
   TRUE: 'true',
   // The selectable element is not checked.
@@ -324,7 +305,7 @@ goog.a11y.aria.CheckedValues = {
  * ARIA state values for ExpandedValues.
  * @enum {string}
  */
-goog.a11y.aria.ExpandedValues = {
+export var ExpandedValues = {
   // The element, or another grouping element it controls, is expanded.
   TRUE: 'true',
   // The element, or another grouping element it controls, is collapsed.
@@ -340,7 +321,7 @@ goog.a11y.aria.ExpandedValues = {
  * ARIA state values for GrabbedValues.
  * @enum {string}
  */
-goog.a11y.aria.GrabbedValues = {
+export var GrabbedValues = {
   // Indicates that the element has been "grabbed" for dragging.
   TRUE: 'true',
   // Indicates that the element supports being dragged.
@@ -354,7 +335,7 @@ goog.a11y.aria.GrabbedValues = {
  * ARIA state values for InvalidValues.
  * @enum {string}
  */
-goog.a11y.aria.InvalidValues = {
+export var InvalidValues = {
   // There are no detected errors in the value.
   FALSE: 'false',
   // The value entered by the user has failed validation.
@@ -370,7 +351,7 @@ goog.a11y.aria.InvalidValues = {
  * ARIA state values for PressedValues.
  * @enum {string}
  */
-goog.a11y.aria.PressedValues = {
+export var PressedValues = {
   // The element is pressed.
   TRUE: 'true',
   // The element supports being pressed but is not currently pressed.
@@ -386,7 +367,7 @@ goog.a11y.aria.PressedValues = {
  * ARIA state values for SelectedValues.
  * @enum {string}
  */
-goog.a11y.aria.SelectedValues = {
+export var SelectedValues = {
   // The selectable element is selected.
   TRUE: 'true',
   // The selectable element is not selected.
@@ -394,3 +375,4 @@ goog.a11y.aria.SelectedValues = {
   // The element is not selectable.
   UNDEFINED: 'undefined'
 };
+export var State;

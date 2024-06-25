@@ -8,11 +8,10 @@
  * @fileoverview Tests for arbitrary base conversion library baseconversion.js.
  */
 
-goog.module('goog.crypt.baseNTest');
 goog.setTestOnly();
 
-const baseN = goog.require('goog.crypt.baseN');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as baseN from './basen.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function makeHugeBase() {
   // Number of digits in the base.

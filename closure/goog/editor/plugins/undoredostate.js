@@ -11,9 +11,7 @@
  */
 
 
-goog.provide('goog.editor.plugins.UndoRedoState');
-
-goog.require('goog.events.EventTarget');
+import { EventTarget } from '../../events/eventtarget.js';
 
 
 
@@ -24,21 +22,20 @@ goog.require('goog.events.EventTarget');
  *     state complete asynchronously. If true, then this state must fire
  *     an ACTION_COMPLETED event when undo or redo is complete.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.editor.plugins.UndoRedoState = function(asynchronous) {
-  'use strict';
-  goog.editor.plugins.UndoRedoState.base(this, 'constructor');
+export function UndoRedoState(asynchronous) {
+ UndoRedoState.base(this, 'constructor');
 
-  /**
-   * Indicates if the undo or redo actions for this state complete
-   * asynchronously.
-   * @type {boolean}
-   * @private
-   */
-  this.asynchronous_ = asynchronous;
-};
-goog.inherits(goog.editor.plugins.UndoRedoState, goog.events.EventTarget);
+ /**
+  * Indicates if the undo or redo actions for this state complete
+  * asynchronously.
+  * @type {boolean}
+  * @private
+  */
+ this.asynchronous_ = asynchronous;
+}
+goog.inherits(UndoRedoState, EventTarget);
 
 
 /**
@@ -46,7 +43,7 @@ goog.inherits(goog.editor.plugins.UndoRedoState, goog.events.EventTarget);
  * redo operation.
  * @const
  */
-goog.editor.plugins.UndoRedoState.ACTION_COMPLETED = 'action_completed';
+UndoRedoState.ACTION_COMPLETED = 'action_completed';
 
 
 /**
@@ -54,27 +51,26 @@ goog.editor.plugins.UndoRedoState.ACTION_COMPLETED = 'action_completed';
  *     complete asynchronously. If true, the state will fire an ACTION_COMPLETED
  *     event when an undo or redo action is complete.
  */
-goog.editor.plugins.UndoRedoState.prototype.isAsynchronous = function() {
-  'use strict';
-  return this.asynchronous_;
+UndoRedoState.prototype.isAsynchronous = function() {
+ return this.asynchronous_;
 };
 
 
 /**
  * Undoes the action represented by this state.
  */
-goog.editor.plugins.UndoRedoState.prototype.undo = goog.abstractMethod;
+UndoRedoState.prototype.undo = goog.abstractMethod;
 
 
 /**
  * Redoes the action represented by this state.
  */
-goog.editor.plugins.UndoRedoState.prototype.redo = goog.abstractMethod;
+UndoRedoState.prototype.redo = goog.abstractMethod;
 
 
 /**
  * Checks if two undo-redo states are the same.
- * @param {goog.editor.plugins.UndoRedoState} state The state to compare.
+ * @param {UndoRedoState} state The state to compare.
  * @return {boolean} Wether the two states are equal.
  */
-goog.editor.plugins.UndoRedoState.prototype.equals = goog.abstractMethod;
+UndoRedoState.prototype.equals = goog.abstractMethod;

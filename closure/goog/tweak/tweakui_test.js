@@ -4,17 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.tweak.TweakUiTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const TweakUi = goog.require('goog.tweak.TweakUi');
-const dom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TagName } from '../dom/tagname.js';
+import { TweakUi } from './tweakui.js';
+import * as dom from '../dom/dom.js';
+import * as googString from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
+
 /** @suppress {extraRequire} needed for createRegistryEntries. */
-const testhelpers = goog.require('goog.tweak.testhelpers');
-const tweak = goog.require('goog.tweak');
+import * as testhelpers from './testhelpers.js';
+
+import * as tweak from './tweak.js';
 
 let root;
 let registry;

@@ -12,14 +12,12 @@
  * respectively).
  */
 
-goog.module('goog.labs.userAgent.platform');
-goog.module.declareLegacyNamespace();
+import * as googString from '../../string/internal.js';
 
-const googString = goog.require('goog.string.internal');
-const util = goog.require('goog.labs.userAgent.util');
-const {AsyncValue, Version} = goog.require('goog.labs.userAgent.highEntropy.highEntropyValue');
-const {platformVersion} = goog.require('goog.labs.userAgent.highEntropy.highEntropyData');
-const {useClientHints} = goog.require('goog.labs.userAgent');
+import util from './util.js';
+import { AsyncValue, Version } from './highentropy/highentropyvalue.js';
+import { platformVersion } from './highentropy/highentropydata.js';
+import { useClientHints } from './useragent.js';
 
 /**
  * @param {boolean=} ignoreClientHintsFlag Iff truthy, the `useClientHints`
@@ -277,7 +275,7 @@ class PlatformVersion {
  */
 const version = new PlatformVersion();
 
-exports = {
+export default {
   getVersion,
   isAndroid,
   isChromeOS,

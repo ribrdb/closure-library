@@ -12,13 +12,12 @@
  * deprecated.
  */
 goog.setTestOnly('goog.testing.JsTdTestCaseAdapter');
-goog.provide('goog.testing.JsTdTestCaseAdapter');
 
-goog.require('goog.async.run');
-goog.require('goog.functions');
-goog.require('goog.testing.JsTdAsyncWrapper');
-goog.require('goog.testing.TestCase');
-goog.require('goog.testing.jsunit');
+import { run } from '../async/run.js';
+import * as functions from '../functions/functions.js';
+import * as JsTdAsyncWrapper from './jstdasyncwrapper.js';
+import { TestCase as testingTestCase } from './testcase.js';
+import * as jsunit from './jsunit.js';
 
 
 /**
@@ -32,29 +31,26 @@ goog.require('goog.testing.jsunit');
  * @private
  * @suppress {checkPrototypalTypes}
  */
-goog.testing.JsTdTestCaseAdapter.TestCaseFactory_ = function(
-    testCaseName, condition, opt_proto, opt_isAsync) {
-  'use strict';
-  /** @constructor */
-  var T = function() {};
-  if (opt_proto) T.prototype = opt_proto;
-  T.displayName = testCaseName;
+function TestCaseFactory_(testCaseName, condition, opt_proto, opt_isAsync) {
+    /** @constructor */
+    var T = function() {};
+    if (opt_proto) T.prototype = opt_proto;
+    T.displayName = testCaseName;
 
-  goog.async.run(function() {
-    'use strict';
-    var t = new T();
-    if (opt_isAsync) {
-      t = goog.testing.JsTdAsyncWrapper.convertToAsyncTestObj(t);
-    }
-    var testCase = new goog.testing.TestCase(testCaseName);
-    testCase.shouldRunTests = condition;
-    testCase.setTestObj(t);
-    testCase.autoDiscoverTests();
-    goog.testing.TestCase.initializeTestRunner(testCase, undefined);
-  });
+    run(function() {
+        var t = new T();
+        if (opt_isAsync) {
+          t = JsTdAsyncWrapper.convertToAsyncTestObj(t);
+        }
+        var testCase = new testingTestCase(testCaseName);
+        testCase.shouldRunTests = condition;
+        testCase.setTestObj(t);
+        testCase.autoDiscoverTests();
+        testingTestCase.initializeTestRunner(testCase, undefined);
+    });
 
-  return T;
-};
+    return T;
+}
 
 
 /**
@@ -63,11 +59,10 @@ goog.testing.JsTdTestCaseAdapter.TestCaseFactory_ = function(
  * @return {!Function}
  * @private
  */
-goog.testing.JsTdTestCaseAdapter.TestCase_ = function(testCaseName, opt_proto) {
-  'use strict';
-  return goog.testing.JsTdTestCaseAdapter.TestCaseFactory_(
-      testCaseName, goog.functions.TRUE, opt_proto);
-};
+function TestCase_(testCaseName, opt_proto) {
+    return TestCaseFactory_(
+        testCaseName, functions.TRUE, opt_proto);
+}
 
 
 /**
@@ -78,12 +73,10 @@ goog.testing.JsTdTestCaseAdapter.TestCase_ = function(testCaseName, opt_proto) {
  * @return {!Function}
  * @private
  */
-goog.testing.JsTdTestCaseAdapter.ConditionalTestCase_ = function(
-    testCaseName, condition, opt_proto) {
-  'use strict';
-  return goog.testing.JsTdTestCaseAdapter.TestCaseFactory_(
-      testCaseName, condition, opt_proto);
-};
+function ConditionalTestCase_(testCaseName, condition, opt_proto) {
+    return TestCaseFactory_(
+        testCaseName, condition, opt_proto);
+}
 
 
 /**
@@ -92,12 +85,10 @@ goog.testing.JsTdTestCaseAdapter.ConditionalTestCase_ = function(
  * @return {!Function}
  * @private
  */
-goog.testing.JsTdTestCaseAdapter.AsyncTestCase_ = function(
-    testCaseName, opt_proto) {
-  'use strict';
-  return goog.testing.JsTdTestCaseAdapter.TestCaseFactory_(
-      testCaseName, goog.functions.TRUE, opt_proto, true);
-};
+function AsyncTestCase_(testCaseName, opt_proto) {
+    return TestCaseFactory_(
+        testCaseName, functions.TRUE, opt_proto, true);
+}
 
 
 /**
@@ -108,39 +99,37 @@ goog.testing.JsTdTestCaseAdapter.AsyncTestCase_ = function(
  * @return {!Function}
  * @private
  */
-goog.testing.JsTdTestCaseAdapter.AsyncConditionalTestCase_ = function(
-    testCaseName, condition, opt_proto) {
-  'use strict';
-  return goog.testing.JsTdTestCaseAdapter.TestCaseFactory_(
-      testCaseName, condition, opt_proto, true);
-};
+function AsyncConditionalTestCase_(testCaseName, condition, opt_proto) {
+    return TestCaseFactory_(
+        testCaseName, condition, opt_proto, true);
+}
 
 
 // --- conditionally add polyfills for the basic JSTD API ---
 
 
 /** @suppress {duplicate} */
-var TestCase = TestCase || goog.testing.JsTdTestCaseAdapter.TestCase_;
+var TestCase = TestCase || TestCase_;
 
 
 /** @suppress {duplicate} */
 var ConditionalTestCase = ConditionalTestCase ||
-    goog.testing.JsTdTestCaseAdapter.ConditionalTestCase_;
+    ConditionalTestCase_;
 
 
 /** @suppress {duplicate} */
 var AsyncTestCase =
-    AsyncTestCase || goog.testing.JsTdTestCaseAdapter.AsyncTestCase_;
+    AsyncTestCase || AsyncTestCase_;
 
 
 /** @suppress {duplicate} */
 var AsyncConditionalTestCase = AsyncConditionalTestCase ||
-    goog.testing.JsTdTestCaseAdapter.AsyncConditionalTestCase_;
+    AsyncConditionalTestCase_;
 
 
 /** @suppress {duplicate} */
 var ConditionalAsyncTestCase = ConditionalAsyncTestCase ||
-    goog.testing.JsTdTestCaseAdapter.AsyncConditionalTestCase_;
+    AsyncConditionalTestCase_;
 
 
 // The API is also available under the jstestdriver namespace.

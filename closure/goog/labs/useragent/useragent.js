@@ -8,10 +8,7 @@
  * @fileoverview Defines for goog.labs.userAgent.
  */
 
-goog.module('goog.labs.userAgent');
-goog.module.declareLegacyNamespace();
-
-const flags = goog.require('goog.flags');
+import * as flags from '../../flags/flags.js';
 
 /**
  * @define {string} Optional runtime override for the USE_CLIENT_HINTS flag.
@@ -44,7 +41,7 @@ let forceClientHintsInTests = false;
  * @param {boolean} use Whether or not to use Client Hints API codepaths in
  *     goog.labs.useragent.* modules.
  */
-exports.setUseClientHintsForTesting = (use) => {
+export let setUseClientHintsForTesting = (use) => {
   forceClientHintsInTests = use;
 };
 
@@ -60,7 +57,7 @@ const useClientHintsRuntimeOverride = USE_CLIENT_HINTS_OVERRIDE ?
  * function as they are considered opt-in API surfaces.
  * @const {function():boolean}
  */
-exports.useClientHints = () => {
+export let useClientHints = () => {
   return flags.USE_USER_AGENT_CLIENT_HINTS || USE_CLIENT_HINTS ||
       useClientHintsRuntimeOverride || forceClientHintsInTests;
 };

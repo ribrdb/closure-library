@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ModalAriaVisibilityHelperTest');
 goog.setTestOnly();
 
-const ModalAriaVisibilityHelper = goog.require('goog.ui.ModalAriaVisibilityHelper');
-const State = goog.require('goog.a11y.aria.State');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ModalAriaVisibilityHelper } from './modalariavisibilityhelper.js';
+import { State } from '../a11y/aria/attributes.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as dom from '../dom/dom.js';
+import * as googString from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function assertUnalteredElements() {
   assertEmptyAriaHiddenState('div-2-1');

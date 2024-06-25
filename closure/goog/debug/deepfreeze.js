@@ -9,9 +9,7 @@
  * enforce deep immutability of objects as per the style guide, only in
  * non-production builds.
  */
-goog.module('goog.debug.deepFreeze');
-
-const {enhanceError, freeze} = goog.require('goog.debug');
+import { enhanceError, freeze } from './debug.js';
 
 /**
  * @private
@@ -170,4 +168,4 @@ const deepFreeze = function(arg) {
   }.valueOf();
 };
 
-exports = {deepFreeze};
+export default {deepFreeze};

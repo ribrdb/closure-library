@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ScrollFloaterTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const ScrollFloater = goog.require('goog.ui.ScrollFloater');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { ScrollFloater } from './scrollfloater.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testScrollFloater() {

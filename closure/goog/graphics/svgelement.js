@@ -10,25 +10,18 @@
  * the different draw methods of the graphics. This is the SVG implementation.
  */
 
-goog.provide('goog.graphics.SvgEllipseElement');
-goog.provide('goog.graphics.SvgGroupElement');
-goog.provide('goog.graphics.SvgImageElement');
-goog.provide('goog.graphics.SvgPathElement');
-goog.provide('goog.graphics.SvgRectElement');
-goog.provide('goog.graphics.SvgTextElement');
+import * as dom from '../dom/dom.js';
 
-
-goog.require('goog.dom');
-goog.require('goog.graphics.EllipseElement');
-goog.require('goog.graphics.GroupElement');
-goog.require('goog.graphics.ImageElement');
-goog.require('goog.graphics.PathElement');
-goog.require('goog.graphics.RectElement');
-goog.require('goog.graphics.TextElement');
-goog.requireType('goog.graphics.Fill');
-goog.requireType('goog.graphics.Path');
-goog.requireType('goog.graphics.Stroke');
-goog.requireType('goog.graphics.SvgGraphics');
+import { EllipseElement } from './ellipseelement.js';
+import { GroupElement } from './groupelement.js';
+import { ImageElement } from './imageelement.js';
+import { PathElement } from './pathelement.js';
+import { RectElement } from './rectelement.js';
+import { TextElement } from './textelement.js';
+goog.requireType('goog.graphics.fill');
+goog.requireType('goog.graphics.path');
+goog.requireType('goog.graphics.stroke');
+goog.requireType('goog.graphics.svggraphics');
 
 
 
@@ -40,26 +33,24 @@ goog.requireType('goog.graphics.SvgGraphics');
  * @param {goog.graphics.SvgGraphics} graphics The graphics creating
  *     this element.
  * @constructor
- * @extends {goog.graphics.GroupElement}
+ * @extends {GroupElement}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  * @final
  */
-goog.graphics.SvgGroupElement = function(element, graphics) {
-  'use strict';
-  goog.graphics.GroupElement.call(this, element, graphics);
-};
-goog.inherits(goog.graphics.SvgGroupElement, goog.graphics.GroupElement);
+export function SvgGroupElement(element, graphics) {
+ GroupElement.call(this, element, graphics);
+}
+goog.inherits(SvgGroupElement, GroupElement);
 
 
 /**
  * Remove all drawing elements from the group.
  * @override
  */
-goog.graphics.SvgGroupElement.prototype.clear = function() {
-  'use strict';
-  goog.dom.removeChildren(this.getElement());
+SvgGroupElement.prototype.clear = function() {
+ dom.removeChildren(this.getElement());
 };
 
 
@@ -70,17 +61,16 @@ goog.graphics.SvgGroupElement.prototype.clear = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgGroupElement.prototype.setSize = function(width, height) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'width': width, 'height': height});
+SvgGroupElement.prototype.setSize = function(width, height) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'width': width, 'height': height});
 };
 
 
 
 /**
  * Thin wrapper for SVG ellipse elements.
- * This is an implementation of the goog.graphics.EllipseElement interface.
+ * This is an implementation of the EllipseElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
@@ -89,14 +79,13 @@ goog.graphics.SvgGroupElement.prototype.setSize = function(width, height) {
  * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
  * @param {goog.graphics.Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {goog.graphics.EllipseElement}
+ * @extends {EllipseElement}
  * @final
  */
-goog.graphics.SvgEllipseElement = function(element, graphics, stroke, fill) {
-  'use strict';
-  goog.graphics.EllipseElement.call(this, element, graphics, stroke, fill);
-};
-goog.inherits(goog.graphics.SvgEllipseElement, goog.graphics.EllipseElement);
+export function SvgEllipseElement(element, graphics, stroke, fill) {
+ EllipseElement.call(this, element, graphics, stroke, fill);
+}
+goog.inherits(SvgEllipseElement, EllipseElement);
 
 
 /**
@@ -106,10 +95,9 @@ goog.inherits(goog.graphics.SvgEllipseElement, goog.graphics.EllipseElement);
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgEllipseElement.prototype.setCenter = function(cx, cy) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'cx': cx, 'cy': cy});
+SvgEllipseElement.prototype.setCenter = function(cx, cy) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'cx': cx, 'cy': cy});
 };
 
 
@@ -120,17 +108,16 @@ goog.graphics.SvgEllipseElement.prototype.setCenter = function(cx, cy) {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgEllipseElement.prototype.setRadius = function(rx, ry) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'rx': rx, 'ry': ry});
+SvgEllipseElement.prototype.setRadius = function(rx, ry) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'rx': rx, 'ry': ry});
 };
 
 
 
 /**
  * Thin wrapper for SVG rectangle elements.
- * This is an implementation of the goog.graphics.RectElement interface.
+ * This is an implementation of the RectElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
@@ -139,14 +126,13 @@ goog.graphics.SvgEllipseElement.prototype.setRadius = function(rx, ry) {
  * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
  * @param {goog.graphics.Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {goog.graphics.RectElement}
+ * @extends {RectElement}
  * @final
  */
-goog.graphics.SvgRectElement = function(element, graphics, stroke, fill) {
-  'use strict';
-  goog.graphics.RectElement.call(this, element, graphics, stroke, fill);
-};
-goog.inherits(goog.graphics.SvgRectElement, goog.graphics.RectElement);
+export function SvgRectElement(element, graphics, stroke, fill) {
+ RectElement.call(this, element, graphics, stroke, fill);
+}
+goog.inherits(SvgRectElement, RectElement);
 
 
 /**
@@ -156,9 +142,8 @@ goog.inherits(goog.graphics.SvgRectElement, goog.graphics.RectElement);
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgRectElement.prototype.setPosition = function(x, y) {
-  'use strict';
-  this.getGraphics().setElementAttributes(this.getElement(), {'x': x, 'y': y});
+SvgRectElement.prototype.setPosition = function(x, y) {
+ this.getGraphics().setElementAttributes(this.getElement(), {'x': x, 'y': y});
 };
 
 
@@ -169,17 +154,16 @@ goog.graphics.SvgRectElement.prototype.setPosition = function(x, y) {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgRectElement.prototype.setSize = function(width, height) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'width': width, 'height': height});
+SvgRectElement.prototype.setSize = function(width, height) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'width': width, 'height': height});
 };
 
 
 
 /**
  * Thin wrapper for SVG path elements.
- * This is an implementation of the goog.graphics.PathElement interface.
+ * This is an implementation of the PathElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
@@ -188,14 +172,13 @@ goog.graphics.SvgRectElement.prototype.setSize = function(width, height) {
  * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
  * @param {goog.graphics.Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {goog.graphics.PathElement}
+ * @extends {PathElement}
  * @final
  */
-goog.graphics.SvgPathElement = function(element, graphics, stroke, fill) {
-  'use strict';
-  goog.graphics.PathElement.call(this, element, graphics, stroke, fill);
-};
-goog.inherits(goog.graphics.SvgPathElement, goog.graphics.PathElement);
+export function SvgPathElement(element, graphics, stroke, fill) {
+ PathElement.call(this, element, graphics, stroke, fill);
+}
+goog.inherits(SvgPathElement, PathElement);
 
 
 /**
@@ -205,17 +188,16 @@ goog.inherits(goog.graphics.SvgPathElement, goog.graphics.PathElement);
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  * @suppress {missingRequire} goog.graphics.SvgGraphics
  */
-goog.graphics.SvgPathElement.prototype.setPath = function(path) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'d': goog.graphics.SvgGraphics.getSvgPath(path)});
+SvgPathElement.prototype.setPath = function(path) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'d': goog.graphics.SvgGraphics.getSvgPath(path)});
 };
 
 
 
 /**
  * Thin wrapper for SVG text elements.
- * This is an implementation of the goog.graphics.TextElement interface.
+ * This is an implementation of the TextElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
@@ -224,14 +206,13 @@ goog.graphics.SvgPathElement.prototype.setPath = function(path) {
  * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
  * @param {goog.graphics.Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {goog.graphics.TextElement}
+ * @extends {TextElement}
  * @final
  */
-goog.graphics.SvgTextElement = function(element, graphics, stroke, fill) {
-  'use strict';
-  goog.graphics.TextElement.call(this, element, graphics, stroke, fill);
-};
-goog.inherits(goog.graphics.SvgTextElement, goog.graphics.TextElement);
+export function SvgTextElement(element, graphics, stroke, fill) {
+ TextElement.call(this, element, graphics, stroke, fill);
+}
+goog.inherits(SvgTextElement, TextElement);
 
 
 /**
@@ -239,31 +220,29 @@ goog.inherits(goog.graphics.SvgTextElement, goog.graphics.TextElement);
  * @param {string} text The text to draw.
  * @override
  */
-goog.graphics.SvgTextElement.prototype.setText = function(text) {
-  'use strict';
-  // This is actually SVGTextElement but we don't have it in externs.
-  /** @type {!Text} */ (this.getElement().firstChild).data = text;
+SvgTextElement.prototype.setText = function(text) {
+ // This is actually SVGTextElement but we don't have it in externs.
+ /** @type {!Text} */ (this.getElement().firstChild).data = text;
 };
 
 
 
 /**
  * Thin wrapper for SVG image elements.
- * This is an implementation of the goog.graphics.ImageElement interface.
+ * This is an implementation of the ImageElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
  * @param {goog.graphics.SvgGraphics} graphics The graphics creating
  *     this element.
  * @constructor
- * @extends {goog.graphics.ImageElement}
+ * @extends {ImageElement}
  * @final
  */
-goog.graphics.SvgImageElement = function(element, graphics) {
-  'use strict';
-  goog.graphics.ImageElement.call(this, element, graphics);
-};
-goog.inherits(goog.graphics.SvgImageElement, goog.graphics.ImageElement);
+export function SvgImageElement(element, graphics) {
+ ImageElement.call(this, element, graphics);
+}
+goog.inherits(SvgImageElement, ImageElement);
 
 
 /**
@@ -273,9 +252,8 @@ goog.inherits(goog.graphics.SvgImageElement, goog.graphics.ImageElement);
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgImageElement.prototype.setPosition = function(x, y) {
-  'use strict';
-  this.getGraphics().setElementAttributes(this.getElement(), {'x': x, 'y': y});
+SvgImageElement.prototype.setPosition = function(x, y) {
+ this.getGraphics().setElementAttributes(this.getElement(), {'x': x, 'y': y});
 };
 
 
@@ -286,10 +264,9 @@ goog.graphics.SvgImageElement.prototype.setPosition = function(x, y) {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgImageElement.prototype.setSize = function(width, height) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'width': width, 'height': height});
+SvgImageElement.prototype.setSize = function(width, height) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'width': width, 'height': height});
 };
 
 
@@ -299,8 +276,7 @@ goog.graphics.SvgImageElement.prototype.setSize = function(width, height) {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.SvgImageElement.prototype.setSource = function(src) {
-  'use strict';
-  this.getGraphics().setElementAttributes(
-      this.getElement(), {'xlink:href': src});
+SvgImageElement.prototype.setSource = function(src) {
+ this.getGraphics().setElementAttributes(
+     this.getElement(), {'xlink:href': src});
 };

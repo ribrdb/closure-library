@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.css3.TransitionTest');
 goog.setTestOnly();
 
-const Css3Transition = goog.require('goog.fx.css3.Transition');
-const MockClock = goog.require('goog.testing.MockClock');
-const TagName = goog.require('goog.dom.TagName');
-const Transition = goog.require('goog.fx.Transition');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const styleTransition = goog.require('goog.style.transition');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Transition as Css3Transition } from './transition.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { TagName } from '../../dom/tagname.js';
+import { Transition } from '../transition.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import * as styleTransition from '../../style/transition.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let transition;
 let element;

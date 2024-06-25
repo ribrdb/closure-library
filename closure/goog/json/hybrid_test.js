@@ -6,14 +6,13 @@
 
 /** @fileoverview Unit tests for hybrid. */
 
-goog.module('goog.json.hybridTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const googJson = goog.require('goog.json');
-const hybrid = goog.require('goog.json.hybrid');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as googJson from './json.js';
+import * as hybrid from './hybrid.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const propertyReplacer = new PropertyReplacer();
 

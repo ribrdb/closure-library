@@ -9,7 +9,7 @@
  * @fileoverview Defines an interface for parsing strings into objects.
  */
 
-goog.provide('goog.string.Parser');
+goog.declareModuleId('goog.string.parser');
 
 
 
@@ -17,7 +17,7 @@ goog.provide('goog.string.Parser');
  * An interface for parsing strings into objects.
  * @interface
  */
-goog.string.Parser = function() {};
+export function Parser() {}
 
 
 /**
@@ -27,4 +27,4 @@ goog.string.Parser = function() {};
  * @param {string} s The string to parse.
  * @return {*} The object generated from the string.
  */
-goog.string.Parser.prototype.parse;
+Parser.prototype.parse;

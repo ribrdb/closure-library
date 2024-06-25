@@ -17,12 +17,10 @@
  * @supported Unless specified in the method documentation, IE 10 and newer.
  */
 
-goog.module('goog.html.sanitizer.noclobber');
-goog.module.declareLegacyNamespace();
+import { NodeType } from '../../dom/nodetype.js';
 
-var NodeType = goog.require('goog.dom.NodeType');
-var googAsserts = goog.require('goog.asserts');
-var userAgentProduct = goog.require('goog.userAgent.product');
+import * as googAsserts from '../../asserts/asserts.js';
+import * as userAgentProduct from '../../useragent/product.js';
 
 /**
  * Note about browser support:
@@ -451,7 +449,7 @@ function getElementNamespaceURI(element) {
       });
 }
 
-exports = {
+export default {
   getElementAttributes: getElementAttributes,
   hasElementAttribute: hasElementAttribute,
   getElementAttribute: getElementAttribute,

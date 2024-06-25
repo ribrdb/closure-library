@@ -3,11 +3,10 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.async.promisesTest');
 goog.setTestOnly();
 
-const promises = goog.require('goog.async.promises');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as promises from './promises.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   async testAllMapValues_resolve() {

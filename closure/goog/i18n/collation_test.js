@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.collationTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const collation = goog.require('goog.i18n.collation');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as collation from './collation.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let expectedFailures;
 let propertyReplacer;

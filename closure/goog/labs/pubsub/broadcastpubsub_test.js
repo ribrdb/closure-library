@@ -4,26 +4,26 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.pubsub.BroadcastPubSubTest');
 goog.setTestOnly();
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const BroadcastPubSub = goog.require('goog.labs.pubsub.BroadcastPubSub');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const Level = goog.require('goog.log.Level');
-const MockClock = goog.require('goog.testing.MockClock');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockInterface = goog.requireType('goog.testing.MockInterface');
-const StorageStorage = goog.require('goog.storage.Storage');
-const StructsMap = goog.require('goog.structs.Map');
-const events = goog.require('goog.testing.events');
-const googArray = goog.require('goog.array');
-const googJson = goog.require('goog.json');
-const log = goog.require('goog.log');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as mockmatchers from '../../testing/mockmatchers.js';
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+import { BroadcastPubSub } from './broadcastpubsub.js';
+import * as events from '../../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../../testing/events/events.js';
+import * as googLog from '../../log/log.js';
+import * as log from '../../log/log.js';
+const Level = googLog.Level;
+import { MockClock } from '../../testing/mockclock.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { Storage as StorageStorage } from '../../storage/storage.js';
+import { Map as StructsMap } from '../../structs/map.js';
+import * as googArray from '../../array/array.js';
+import * as googJson from '../../json/json.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
+const MockInterface = goog.requireType('goog.testing.mockinterface');
 
 /** @type {BroadcastPubSub} */
 let broadcastPubSub;

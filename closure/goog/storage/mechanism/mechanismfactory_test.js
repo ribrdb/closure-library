@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.mechanism.mechanismfactoryTest');
 goog.setTestOnly();
 
-const iterableMechanismTests = goog.require('goog.storage.mechanism.iterableMechanismTests');
-const mechanismSeparationTests = goog.require('goog.storage.mechanism.mechanismSeparationTests');
-const mechanismSharingTests = goog.require('goog.storage.mechanism.mechanismSharingTests');
-const mechanismTests = goog.require('goog.storage.mechanism.mechanismTests');
-const mechanismfactory = goog.require('goog.storage.mechanism.mechanismfactory');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as iterableMechanismTests from './iterablemechanismtests.js';
+import * as mechanismSeparationTests from './mechanismseparationtests.js';
+import * as mechanismSharingTests from './mechanismsharingtests.js';
+import * as mechanismTests from './mechanismtests.js';
+import * as mechanismfactory from './mechanismfactory.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let mechanism;
 let mechanismShared;

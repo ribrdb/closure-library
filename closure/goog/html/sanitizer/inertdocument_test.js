@@ -6,11 +6,11 @@
 
 /** @fileoverview testcases for createInertDocument. */
 
-goog.module('goog.html.inertDocumentTests');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {createInertDocument} = goog.require('goog.html.sanitizer.inertDocument');
+import { testSuite } from '../../testing/testsuite.js';
+import inertDocument from './inertdocument.js';
+const {createInertDocument} = inertDocument;
 
 testSuite({
   testInertDocument() {

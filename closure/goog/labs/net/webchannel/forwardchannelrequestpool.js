@@ -10,14 +10,11 @@
  *
  */
 
-goog.module('goog.labs.net.webChannel.ForwardChannelRequestPool');
+import { ChannelRequest } from './channelrequest.js';
 
-goog.module.declareLegacyNamespace();
-
-const ChannelRequest = goog.require('goog.labs.net.webChannel.ChannelRequest');
-const Wire = goog.require('goog.labs.net.webChannel.Wire');
-const array = goog.require('goog.array');
-const googString = goog.require('goog.string');
+import { Wire } from './wire.js';
+import * as array from '../../../array/array.js';
+import * as googString from '../../../string/string.js';
 
 
 /**
@@ -320,4 +317,4 @@ ForwardChannelRequestPool.prototype.forceComplete = function(onComplete) {
   return false;
 };
 
-exports = ForwardChannelRequestPool;
+export { ForwardChannelRequestPool };

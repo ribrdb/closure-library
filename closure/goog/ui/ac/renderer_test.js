@@ -4,24 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ac.RendererTest');
 goog.setTestOnly();
 
-const AutoComplete = goog.require('goog.ui.ac.AutoComplete');
-const FadeInAndShow = goog.require('goog.fx.dom.FadeInAndShow');
-const FadeOutAndHide = goog.require('goog.fx.dom.FadeOutAndHide');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Renderer = goog.require('goog.ui.ac.Renderer');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googString = goog.require('goog.string');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AutoComplete } from './autocomplete.js';
+import { FadeInAndShow, FadeOutAndHide } from '../../fx/dom.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { Renderer } from './renderer.js';
+import { State } from '../../a11y/aria/attributes.js';
+import { TagName } from '../../dom/tagname.js';
+import * as aria from '../../a11y/aria/aria.js';
+import * as classlist from '../../dom/classlist.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import * as googString from '../../string/string.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let renderer;
 const rendRows = [];

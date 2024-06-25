@@ -4,10 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.deferredAsyncTest');
 goog.setTestOnly();
-const Deferred = goog.require('goog.async.Deferred');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Deferred } from './deferred.js';
+import { testSuite } from '../../../../../closure/goog/testing/testsuite.js';
 
 testSuite({
   shouldRunTests() {

@@ -12,12 +12,11 @@
  * to enable any of the features provided by this class.
  */
 
-goog.module('goog.net.rpc.HttpCors');
+import { Uri as GoogUri } from '../../uri/uri.js';
 
-const GoogUri = goog.require('goog.Uri');
-const googObject = goog.require('goog.object');
-const googString = goog.require('goog.string');
-const googUriUtils = goog.require('goog.uri.utils');
+import googObject from '../../object/object.js';
+import * as googString from '../../string/string.js';
+import * as googUriUtils from '../../uri/utils.js';
 
 
 /**
@@ -28,7 +27,7 @@ const googUriUtils = goog.require('goog.uri.utils');
  *
  * @type {string}
  */
-exports.HTTP_HEADERS_PARAM_NAME = '$httpHeaders';
+export let HTTP_HEADERS_PARAM_NAME = '$httpHeaders';
 
 
 /**
@@ -39,7 +38,7 @@ exports.HTTP_HEADERS_PARAM_NAME = '$httpHeaders';
  *
  * @type {string}
  */
-exports.HTTP_METHOD_PARAM_NAME = '$httpMethod';
+export let HTTP_METHOD_PARAM_NAME = '$httpMethod';
 
 
 /**
@@ -49,7 +48,7 @@ exports.HTTP_METHOD_PARAM_NAME = '$httpMethod';
  * @param {!Object<string, string>} headers The custom headers.
  * @return {string} The URL param to overwrite custom HTTP headers.
  */
-exports.generateHttpHeadersOverwriteParam = function(headers) {
+export let generateHttpHeadersOverwriteParam = function(headers) {
   let result = '';
   googObject.forEach(headers, function(value, key) {
     result += key;
@@ -68,9 +67,9 @@ exports.generateHttpHeadersOverwriteParam = function(headers) {
  * @param {!Object<string, string>} headers The custom headers.
  * @return {string} The URL param to overwrite custom HTTP headers.
  */
-exports.generateEncodedHttpHeadersOverwriteParam = function(headers) {
+export let generateEncodedHttpHeadersOverwriteParam = function(headers) {
   return googString.urlEncode(
-      exports.generateHttpHeadersOverwriteParam(headers));
+      generateHttpHeadersOverwriteParam(headers));
 };
 
 
@@ -83,12 +82,12 @@ exports.generateEncodedHttpHeadersOverwriteParam = function(headers) {
  * @return {!GoogUri|string} The URI object or a string path with headers
  * encoded as a url param.
  */
-exports.setHttpHeadersWithOverwriteParam = function(
+export let setHttpHeadersWithOverwriteParam = function(
     url, urlParam, extraHeaders) {
   if (googObject.isEmpty(extraHeaders)) {
     return url;
   }
-  const httpHeaders = exports.generateHttpHeadersOverwriteParam(extraHeaders);
+  const httpHeaders = generateHttpHeadersOverwriteParam(extraHeaders);
   if (typeof url === 'string') {
     return googUriUtils.appendParam(
         url, googString.urlEncode(urlParam), httpHeaders);

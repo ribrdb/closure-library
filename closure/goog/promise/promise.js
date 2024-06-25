@@ -4,17 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.Promise');
+goog.declareModuleId('goog.promise.promise');
 
-goog.require('goog.Thenable');
-goog.require('goog.asserts');
-goog.require('goog.async.FreeList');
-goog.require('goog.async.run');
-goog.require('goog.async.throwException');
-goog.require('goog.debug.Error');
-goog.require('goog.debug.asyncStackTag');
-goog.require('goog.functions');
-goog.require('goog.promise.Resolver');
+import { Thenable } from './thenable.js';
+import * as asserts from '../asserts/asserts.js';
+import { FreeList } from '../async/freelist.js';
+import { run } from '../async/run.js';
+import { throwException } from '../async/throwexception.js';
+import * as debugError from '../debug/error.js';
+import asyncStackTag from '../debug/asyncstacktag.js';
+import * as functions from '../functions/functions.js';
+import { Resolver } from './resolver.js';
 
 
 
@@ -23,9 +23,9 @@ goog.require('goog.promise.Resolver');
  * being standardized and implemented across browsers. Now that Promise is
  * available in modern browsers, and is automatically polyfilled by the Closure
  * Compiler, by default, most new code should use native `Promise`
- * instead of `goog.Promise`. However, `goog.Promise` has the
+ * instead of `Promise`. However, `Promise` has the
  * concept of cancellation which native Promises do not yet have. So code
- * needing cancellation may still want to use `goog.Promise`.
+ * needing cancellation may still want to use `Promise`.
  *
  * Promises provide a result that may be resolved asynchronously. A Promise may
  * be resolved by being fulfilled with a fulfillment value, rejected with a
@@ -72,17 +72,16 @@ goog.require('goog.promise.Resolver');
  * @constructor
  * @struct
  * @final
- * @implements {goog.Thenable<TYPE>}
+ * @implements {Thenable<TYPE>}
  * @template TYPE,RESOLVER_CONTEXT
  */
-goog.Promise = function(resolver, opt_context) {
-  'use strict';
+export function Promise(resolver, opt_context) {
   /**
-   * The internal state of this Promise. Either PENDING, FULFILLED, REJECTED, or
-   * BLOCKED.
-   * @private {goog.Promise.State_}
-   */
-  this.state_ = goog.Promise.State_.PENDING;
+     * The internal state of this Promise. Either PENDING, FULFILLED, REJECTED, or
+     * BLOCKED.
+     * @private {Promise.State_}
+     */
+  this.state_ = Promise.State_.PENDING;
 
   /**
    * The settled result of the Promise. Immutable once set with either a
@@ -92,23 +91,23 @@ goog.Promise = function(resolver, opt_context) {
   this.result_ = undefined;
 
   /**
-   * For Promises created by calling `then()`, the originating parent.
-   * @private {?goog.Promise}
-   */
+     * For Promises created by calling `then()`, the originating parent.
+     * @private {?Promise}
+     */
   this.parent_ = null;
 
   /**
-   * The linked list of `onFulfilled` and `onRejected` callbacks
-   * added to this Promise by calls to `then()`.
-   * @private {?goog.Promise.CallbackEntry_}
-   */
+     * The linked list of `onFulfilled` and `onRejected` callbacks
+     * added to this Promise by calls to `then()`.
+     * @private {?Promise.CallbackEntry_}
+     */
   this.callbackEntries_ = null;
 
   /**
-   * The tail of the linked list of `onFulfilled` and `onRejected`
-   * callbacks added to this Promise by calls to `then()`.
-   * @private {?goog.Promise.CallbackEntry_}
-   */
+     * The tail of the linked list of `onFulfilled` and `onRejected`
+     * callbacks added to this Promise by calls to `then()`.
+     * @private {?Promise.CallbackEntry_}
+     */
   this.callbackEntriesTail_ = null;
 
   /**
@@ -117,7 +116,7 @@ goog.Promise = function(resolver, opt_context) {
    */
   this.executing_ = false;
 
-  if (goog.Promise.UNHANDLED_REJECTION_DELAY > 0) {
+  if (Promise.UNHANDLED_REJECTION_DELAY > 0) {
     /**
      * A timeout ID used when the `UNHANDLED_REJECTION_DELAY` is greater
      * than 0 milliseconds. The ID is set when the Promise is rejected, and
@@ -129,7 +128,7 @@ goog.Promise = function(resolver, opt_context) {
      * @private {number}
      */
     this.unhandledRejectionId_ = 0;
-  } else if (goog.Promise.UNHANDLED_REJECTION_DELAY == 0) {
+  } else if (Promise.UNHANDLED_REJECTION_DELAY == 0) {
     /**
      * When the `UNHANDLED_REJECTION_DELAY` is set to 0 milliseconds, a
      * boolean that is set if the Promise is rejected, and reset to false if an
@@ -141,7 +140,7 @@ goog.Promise = function(resolver, opt_context) {
     this.hadUnhandledRejection_ = false;
   }
 
-  if (goog.Promise.LONG_STACK_TRACES) {
+  if (Promise.LONG_STACK_TRACES) {
     /**
      * A list of stack trace frames pointing to the locations where this Promise
      * was created or had callbacks added to it. Saved to add additional context
@@ -161,19 +160,17 @@ goog.Promise = function(resolver, opt_context) {
   // As an optimization, we can skip this if resolver is
   // goog.functions.UNDEFINED. This value is passed internally when creating a
   // promise which will be resolved through a more optimized path.
-  if (resolver != goog.functions.UNDEFINED) {
+  if (resolver != functions.UNDEFINED) {
     try {
       var self = this;
       resolver.call(
           opt_context,
           function(value) {
-            'use strict';
-            self.resolve_(goog.Promise.State_.FULFILLED, value);
+            self.resolve_(Promise.State_.FULFILLED, value);
           },
           function(reason) {
-            'use strict';
             if (goog.DEBUG &&
-                !(reason instanceof goog.Promise.CancellationError)) {
+                !(reason instanceof Promise.CancellationError)) {
               try {
                 // Promise was rejected. Step up one call frame to see why.
                 if (reason instanceof Error) {
@@ -187,20 +184,20 @@ goog.Promise = function(resolver, opt_context) {
                 // activated.
               }
             }
-            self.resolve_(goog.Promise.State_.REJECTED, reason);
+            self.resolve_(Promise.State_.REJECTED, reason);
           });
     } catch (e) {
-      this.resolve_(goog.Promise.State_.REJECTED, e);
+      this.resolve_(Promise.State_.REJECTED, e);
     }
   }
-};
+}
 
 
 /**
  * @define {boolean} Whether traces of `then` calls should be included in
  * exceptions thrown
  */
-goog.Promise.LONG_STACK_TRACES =
+Promise.LONG_STACK_TRACES =
     goog.define('goog.Promise.LONG_STACK_TRACES', false);
 
 
@@ -213,7 +210,7 @@ goog.Promise.LONG_STACK_TRACES =
  * Rejections are rethrown as quickly as possible by default. A negative value
  * disables rejection handling entirely.
  */
-goog.Promise.UNHANDLED_REJECTION_DELAY =
+Promise.UNHANDLED_REJECTION_DELAY =
     goog.define('goog.Promise.UNHANDLED_REJECTION_DELAY', 0);
 
 
@@ -223,7 +220,7 @@ goog.Promise.UNHANDLED_REJECTION_DELAY =
  * @enum {number}
  * @private
  */
-goog.Promise.State_ = {
+Promise.State_ = {
   /** The Promise is waiting for resolution. */
   PENDING: 0,
 
@@ -246,9 +243,8 @@ goog.Promise.State_ = {
  *
  * @private @final @struct @constructor
  */
-goog.Promise.CallbackEntry_ = function() {
-  'use strict';
-  /** @type {?goog.Promise} */
+Promise.CallbackEntry_ = function() {
+  /** @type {?Promise} */
   this.child = null;
   /** @type {?Function} */
   this.onFulfilled = null;
@@ -256,7 +252,7 @@ goog.Promise.CallbackEntry_ = function() {
   this.onRejected = null;
   /** @type {?} */
   this.context = null;
-  /** @type {?goog.Promise.CallbackEntry_} */
+  /** @type {?Promise.CallbackEntry_} */
   this.next = null;
 
   /**
@@ -271,8 +267,7 @@ goog.Promise.CallbackEntry_ = function() {
 
 
 /** clear the object prior to reuse */
-goog.Promise.CallbackEntry_.prototype.reset = function() {
-  'use strict';
+Promise.CallbackEntry_.prototype.reset = function() {
   this.child = null;
   this.onFulfilled = null;
   this.onRejected = null;
@@ -285,33 +280,30 @@ goog.Promise.CallbackEntry_.prototype.reset = function() {
  * @define {number} The number of currently unused objects to keep around for
  *    reuse.
  */
-goog.Promise.DEFAULT_MAX_UNUSED =
+Promise.DEFAULT_MAX_UNUSED =
     goog.define('goog.Promise.DEFAULT_MAX_UNUSED', 100);
 
 
-/** @const @private {goog.async.FreeList<!goog.Promise.CallbackEntry_>} */
-goog.Promise.freelist_ = new goog.async.FreeList(
+/** @const @private {FreeList<!Promise.CallbackEntry_>} */
+Promise.freelist_ = new FreeList(
     function() {
-      'use strict';
-      return new goog.Promise.CallbackEntry_();
+      return new Promise.CallbackEntry_();
     },
     function(item) {
-      'use strict';
       item.reset();
     },
-    goog.Promise.DEFAULT_MAX_UNUSED);
+    Promise.DEFAULT_MAX_UNUSED);
 
 
 /**
  * @param {Function} onFulfilled
  * @param {Function} onRejected
  * @param {?} context
- * @return {!goog.Promise.CallbackEntry_}
+ * @return {!Promise.CallbackEntry_}
  * @private
  */
-goog.Promise.getCallbackEntry_ = function(onFulfilled, onRejected, context) {
-  'use strict';
-  var entry = goog.Promise.freelist_.get();
+Promise.getCallbackEntry_ = function(onFulfilled, onRejected, context) {
+  var entry = Promise.freelist_.get();
   entry.onFulfilled = onFulfilled;
   entry.onRejected = onRejected;
   entry.context = context;
@@ -320,12 +312,11 @@ goog.Promise.getCallbackEntry_ = function(onFulfilled, onRejected, context) {
 
 
 /**
- * @param {!goog.Promise.CallbackEntry_} entry
+ * @param {!Promise.CallbackEntry_} entry
  * @private
  */
-goog.Promise.returnEntry_ = function(entry) {
-  'use strict';
-  goog.Promise.freelist_.put(entry);
+Promise.returnEntry_ = function(entry) {
+  Promise.freelist_.put(entry);
 };
 
 
@@ -336,10 +327,10 @@ goog.Promise.returnEntry_ = function(entry) {
 /**
  * @param {VALUE=} opt_value
  * @return {RESULT} A new Promise that is immediately resolved
- *     with the given value. If the input value is already a goog.Promise, it
+ *     with the given value. If the input value is already a Promise, it
  *     will be returned immediately without creating a new instance.
  * @template VALUE
- * @template RESULT := type('goog.Promise',
+ * @template RESULT := type('Promise',
  *     cond(isUnknown(VALUE), unknown(),
  *       mapunion(VALUE, (V) =>
  *         cond(isTemplatized(V) && sub(rawTypeOf(V), 'IThenable'),
@@ -349,9 +340,8 @@ goog.Promise.returnEntry_ = function(entry) {
  *              V)))))
  * =:
  */
-goog.Promise.resolve = function(opt_value) {
-  'use strict';
-  if (opt_value instanceof goog.Promise) {
+Promise.resolve = function(opt_value) {
+  if (opt_value instanceof Promise) {
     // Avoid creating a new object if we already have a promise object
     // of the correct type.
     return opt_value;
@@ -359,21 +349,19 @@ goog.Promise.resolve = function(opt_value) {
 
   // Passing goog.functions.UNDEFINED will cause the constructor to take an
   // optimized path that skips calling the resolver function.
-  var promise = new goog.Promise(goog.functions.UNDEFINED);
-  promise.resolve_(goog.Promise.State_.FULFILLED, opt_value);
+  var promise = new Promise(functions.UNDEFINED);
+  promise.resolve_(Promise.State_.FULFILLED, opt_value);
   return promise;
 };
 
 
 /**
  * @param {*=} opt_reason
- * @return {!goog.Promise} A new Promise that is immediately rejected with the
+ * @return {!Promise} A new Promise that is immediately rejected with the
  *     given reason.
  */
-goog.Promise.reject = function(opt_reason) {
-  'use strict';
-  return new goog.Promise(function(resolve, reject) {
-    'use strict';
+Promise.reject = function(opt_reason) {
+  return new Promise(function(resolve, reject) {
     reject(opt_reason);
   });
 };
@@ -381,62 +369,57 @@ goog.Promise.reject = function(opt_reason) {
 
 /**
  * This is identical to
- * {@code goog.Promise.resolve(value).then(onFulfilled, onRejected)}, but it
+ * {@code Promise.resolve(value).then(onFulfilled, onRejected)}, but it
  * avoids creating an unnecessary wrapper Promise when `value` is already
  * thenable.
  *
- * @param {?(goog.Thenable<TYPE>|Thenable|TYPE)} value
+ * @param {?(Thenable<TYPE>|Thenable|TYPE)} value
  * @param {function(TYPE): ?} onFulfilled
  * @param {function(*): *} onRejected
  * @template TYPE
  * @private
  */
-goog.Promise.resolveThen_ = function(value, onFulfilled, onRejected) {
-  'use strict';
+Promise.resolveThen_ = function(value, onFulfilled, onRejected) {
   var isThenable =
-      goog.Promise.maybeThen_(value, onFulfilled, onRejected, null);
+      Promise.maybeThen_(value, onFulfilled, onRejected, null);
   if (!isThenable) {
-    goog.async.run(goog.partial(onFulfilled, value));
+    run(goog.partial(onFulfilled, value));
   }
 };
 
 
 /**
- * @param {!Array<?(goog.Promise<TYPE>|goog.Thenable<TYPE>|Thenable|*)>}
+ * @param {!Array<?(Promise<TYPE>|Thenable<TYPE>|Thenable|*)>}
  *     promises
- * @return {!goog.Promise<TYPE>} A Promise that receives the result of the
+ * @return {!Promise<TYPE>} A Promise that receives the result of the
  *     first Promise (or Promise-like) input to settle immediately after it
  *     settles.
  * @template TYPE
  */
-goog.Promise.race = function(promises) {
-  'use strict';
-  return new goog.Promise(function(resolve, reject) {
-    'use strict';
+Promise.race = function(promises) {
+  return new Promise(function(resolve, reject) {
     if (!promises.length) {
       resolve(undefined);
     }
     for (var i = 0, promise; i < promises.length; i++) {
       promise = promises[i];
-      goog.Promise.resolveThen_(promise, resolve, reject);
+      Promise.resolveThen_(promise, resolve, reject);
     }
   });
 };
 
 
 /**
- * @param {!Array<?(goog.Promise<TYPE>|goog.Thenable<TYPE>|Thenable|*)>}
+ * @param {!Array<?(Promise<TYPE>|Thenable<TYPE>|Thenable|*)>}
  *     promises
- * @return {!goog.Promise<!Array<TYPE>>} A Promise that receives a list of
+ * @return {!Promise<!Array<TYPE>>} A Promise that receives a list of
  *     every fulfilled value once every input Promise (or Promise-like) is
  *     successfully fulfilled, or is rejected with the first rejection reason
  *     immediately after it is rejected.
  * @template TYPE
  */
-goog.Promise.all = function(promises) {
-  'use strict';
-  return new goog.Promise(function(resolve, reject) {
-    'use strict';
+Promise.all = function(promises) {
+  return new Promise(function(resolve, reject) {
     var toFulfill = promises.length;
     var values = [];
 
@@ -446,7 +429,6 @@ goog.Promise.all = function(promises) {
     }
 
     var onFulfill = function(index, value) {
-      'use strict';
       toFulfill--;
       values[index] = value;
       if (toFulfill == 0) {
@@ -455,22 +437,21 @@ goog.Promise.all = function(promises) {
     };
 
     var onReject = function(reason) {
-      'use strict';
       reject(reason);
     };
 
     for (var i = 0, promise; i < promises.length; i++) {
       promise = promises[i];
-      goog.Promise.resolveThen_(promise, goog.partial(onFulfill, i), onReject);
+      Promise.resolveThen_(promise, goog.partial(onFulfill, i), onReject);
     }
   });
 };
 
 
 /**
- * @param {!Array<?(goog.Promise<TYPE>|goog.Thenable<TYPE>|Thenable|*)>}
+ * @param {!Array<?(Promise<TYPE>|Thenable<TYPE>|Thenable|*)>}
  *     promises
- * @return {!goog.Promise<!Array<{
+ * @return {!Promise<!Array<{
  *     fulfilled: boolean,
  *     value: (TYPE|undefined),
  *     reason: (*|undefined)}>>} A Promise that resolves with a list of
@@ -482,10 +463,8 @@ goog.Promise.all = function(promises) {
  *         field.
  * @template TYPE
  */
-goog.Promise.allSettled = function(promises) {
-  'use strict';
-  return new goog.Promise(function(resolve, reject) {
-    'use strict';
+Promise.allSettled = function(promises) {
+  return new Promise(function(resolve, reject) {
     var toSettle = promises.length;
     var results = [];
 
@@ -495,7 +474,6 @@ goog.Promise.allSettled = function(promises) {
     }
 
     var onSettled = function(index, fulfilled, result) {
-      'use strict';
       toSettle--;
       results[index] = fulfilled ? {fulfilled: true, value: result} :
                                    {fulfilled: false, reason: result};
@@ -506,7 +484,7 @@ goog.Promise.allSettled = function(promises) {
 
     for (var i = 0, promise; i < promises.length; i++) {
       promise = promises[i];
-      goog.Promise.resolveThen_(
+      Promise.resolveThen_(
           promise, goog.partial(onSettled, i, true /* fulfilled */),
           goog.partial(onSettled, i, false /* fulfilled */));
     }
@@ -515,17 +493,15 @@ goog.Promise.allSettled = function(promises) {
 
 
 /**
- * @param {!Array<?(goog.Promise<TYPE>|goog.Thenable<TYPE>|Thenable|*)>}
+ * @param {!Array<?(Promise<TYPE>|Thenable<TYPE>|Thenable|*)>}
  *     promises
- * @return {!goog.Promise<TYPE>} A Promise that receives the value of the first
+ * @return {!Promise<TYPE>} A Promise that receives the value of the first
  *     input to be fulfilled, or is rejected with a list of every rejection
  *     reason if all inputs are rejected.
  * @template TYPE
  */
-goog.Promise.firstFulfilled = function(promises) {
-  'use strict';
-  return new goog.Promise(function(resolve, reject) {
-    'use strict';
+Promise.firstFulfilled = function(promises) {
+  return new Promise(function(resolve, reject) {
     var toReject = promises.length;
     var reasons = [];
 
@@ -535,12 +511,10 @@ goog.Promise.firstFulfilled = function(promises) {
     }
 
     var onFulfill = function(value) {
-      'use strict';
       resolve(value);
     };
 
     var onReject = function(index, reason) {
-      'use strict';
       toReject--;
       reasons[index] = reason;
       if (toReject == 0) {
@@ -550,28 +524,26 @@ goog.Promise.firstFulfilled = function(promises) {
 
     for (var i = 0, promise; i < promises.length; i++) {
       promise = promises[i];
-      goog.Promise.resolveThen_(promise, onFulfill, goog.partial(onReject, i));
+      Promise.resolveThen_(promise, onFulfill, goog.partial(onReject, i));
     }
   });
 };
 
 
 /**
- * @return {!goog.promise.Resolver<TYPE>} Resolver wrapping the promise and its
+ * @return {!Resolver<TYPE>} Resolver wrapping the promise and its
  *     resolve / reject functions. Resolving or rejecting the resolver
  *     resolves or rejects the promise.
  * @template TYPE
  * @see {@link goog.promise.NativeResolver} for native Promises
  */
-goog.Promise.withResolver = function() {
-  'use strict';
+Promise.withResolver = function() {
   var resolve, reject;
-  var promise = new goog.Promise(function(rs, rj) {
-    'use strict';
+  var promise = new Promise(function(rs, rj) {
     resolve = rs;
     reject = rj;
   });
-  return new goog.Promise.Resolver_(promise, resolve, reject);
+  return new Promise.Resolver_(promise, resolve, reject);
 };
 
 
@@ -605,7 +577,7 @@ goog.Promise.withResolver = function() {
  * When a Promise (or thenable) is returned from the fulfilled callback,
  * the result is the payload of that promise, not the promise itself.
  *
- * @template RESULT := type('goog.Promise',
+ * @template RESULT := type('Promise',
  *     cond(isUnknown(VALUE), unknown(),
  *       mapunion(VALUE, (V) =>
  *         cond(isTemplatized(V) && sub(rawTypeOf(V), 'IThenable'),
@@ -616,21 +588,20 @@ goog.Promise.withResolver = function() {
  *  =:
  * @override
  */
-goog.Promise.prototype.then = function(
+Promise.prototype.then = function(
     opt_onFulfilled, opt_onRejected, opt_context) {
-  'use strict';
   if (opt_onFulfilled != null) {
-    goog.asserts.assertFunction(
+    asserts.assertFunction(
         opt_onFulfilled, 'opt_onFulfilled should be a function.');
   }
   if (opt_onRejected != null) {
-    goog.asserts.assertFunction(
+    asserts.assertFunction(
         opt_onRejected,
         'opt_onRejected should be a function. Did you pass opt_context ' +
             'as the second argument instead of the third?');
   }
 
-  if (goog.Promise.LONG_STACK_TRACES) {
+  if (Promise.LONG_STACK_TRACES) {
     this.addStackTrace_(new Error('then'));
   }
 
@@ -639,7 +610,7 @@ goog.Promise.prototype.then = function(
       typeof opt_onRejected === 'function' ? opt_onRejected : null,
       opt_context);
 };
-goog.Thenable.addImplementation(goog.Promise);
+Thenable.addImplementation(Promise);
 
 
 /**
@@ -663,28 +634,27 @@ goog.Thenable.addImplementation(goog.Promise);
  * @package
  * @template THIS
  */
-goog.Promise.prototype.thenVoid = function(
+Promise.prototype.thenVoid = function(
     opt_onFulfilled, opt_onRejected, opt_context) {
-  'use strict';
   if (opt_onFulfilled != null) {
-    goog.asserts.assertFunction(
+    asserts.assertFunction(
         opt_onFulfilled, 'opt_onFulfilled should be a function.');
   }
   if (opt_onRejected != null) {
-    goog.asserts.assertFunction(
+    asserts.assertFunction(
         opt_onRejected,
         'opt_onRejected should be a function. Did you pass opt_context ' +
             'as the second argument instead of the third?');
   }
 
-  if (goog.Promise.LONG_STACK_TRACES) {
+  if (Promise.LONG_STACK_TRACES) {
     this.addStackTrace_(new Error('then'));
   }
 
   // Note: no default rejection handler is provided here as we need to
   // distinguish unhandled rejections.
-  this.addCallbackEntry_(goog.Promise.getCallbackEntry_(
-      opt_onFulfilled || (goog.functions.UNDEFINED), opt_onRejected || null,
+  this.addCallbackEntry_(Promise.getCallbackEntry_(
+      opt_onFulfilled || (functions.UNDEFINED), opt_onRejected || null,
       opt_context));
 };
 
@@ -709,16 +679,15 @@ goog.Promise.prototype.thenVoid = function(
  * @param {THIS=} opt_context An optional context object that will be the
  *     execution context for the callbacks. By default, functions are executed
  *     in the global scope.
- * @return {!goog.Promise<TYPE>} This Promise, for chaining additional calls.
+ * @return {!Promise<TYPE>} This Promise, for chaining additional calls.
  * @template THIS
  */
-goog.Promise.prototype.thenAlways = function(onSettled, opt_context) {
-  'use strict';
-  if (goog.Promise.LONG_STACK_TRACES) {
+Promise.prototype.thenAlways = function(onSettled, opt_context) {
+  if (Promise.LONG_STACK_TRACES) {
     this.addStackTrace_(new Error('thenAlways'));
   }
 
-  var entry = goog.Promise.getCallbackEntry_(onSettled, onSettled, opt_context);
+  var entry = Promise.getCallbackEntry_(onSettled, onSettled, opt_context);
   entry.always = true;
   this.addCallbackEntry_(entry);
   return this;
@@ -736,14 +705,13 @@ goog.Promise.prototype.thenAlways = function(onSettled, opt_context) {
  * @param {THIS=} opt_context An optional context object that will be the
  *     execution context for the callbacks. By default, functions are executed
  *     in the global scope.
- * @return {!goog.Promise} A new Promise that will resolve either to the
+ * @return {!Promise} A new Promise that will resolve either to the
  *     value of this promise, or if this promise is rejected, the result of
  *     `onRejected`. The returned Promise will reject if `onRejected` throws.
  * @template THIS
  */
-goog.Promise.prototype.thenCatch = function(onRejected, opt_context) {
-  'use strict';
-  if (goog.Promise.LONG_STACK_TRACES) {
+Promise.prototype.thenCatch = function(onRejected, opt_context) {
+  if (Promise.LONG_STACK_TRACES) {
     this.addStackTrace_(new Error('thenCatch'));
   }
   return this.addChildPromise_(null, onRejected, opt_context);
@@ -758,12 +726,12 @@ goog.Promise.prototype.thenCatch = function(onRejected, opt_context) {
  * @param {THIS=} opt_context An optional context object that will be the
  *     execution context for the callbacks. By default, functions are executed
  *     in the global scope.
- * @return {!goog.Promise} A new Promise that will resolve either to the
+ * @return {!Promise} A new Promise that will resolve either to the
  *     value of this promise, or if this promise is rejected, the result of
  *     `onRejected`. The returned Promise will reject if `onRejected` throws.
  * @template THIS
  */
-goog.Promise.prototype.catch = goog.Promise.prototype.thenCatch;
+Promise.prototype.catch = Promise.prototype.thenCatch;
 
 
 /**
@@ -778,14 +746,12 @@ goog.Promise.prototype.catch = goog.Promise.prototype.thenCatch;
  * @param {string=} opt_message An optional debugging message for describing the
  *     cancellation reason.
  */
-goog.Promise.prototype.cancel = function(opt_message) {
-  'use strict';
-  if (this.state_ == goog.Promise.State_.PENDING) {
+Promise.prototype.cancel = function(opt_message) {
+  if (this.state_ == Promise.State_.PENDING) {
     // Instantiate Error object synchronously. This ensures Error::stack points
     // to the cancel() callsite.
-    var err = new goog.Promise.CancellationError(opt_message);
-    goog.async.run(function() {
-      'use strict';
+    var err = new Promise.CancellationError(opt_message);
+    run(function() {
       this.cancelInternal_(err);
     }, this);
   }
@@ -798,15 +764,14 @@ goog.Promise.prototype.cancel = function(opt_message) {
  * @param {!Error} err The cancellation error.
  * @private
  */
-goog.Promise.prototype.cancelInternal_ = function(err) {
-  'use strict';
-  if (this.state_ == goog.Promise.State_.PENDING) {
+Promise.prototype.cancelInternal_ = function(err) {
+  if (this.state_ == Promise.State_.PENDING) {
     if (this.parent_) {
       // Cancel the Promise and remove it from the parent's child list.
       this.parent_.cancelChild_(this, err);
       this.parent_ = null;
     } else {
-      this.resolve_(goog.Promise.State_.REJECTED, err);
+      this.resolve_(Promise.State_.REJECTED, err);
     }
   }
 };
@@ -818,12 +783,11 @@ goog.Promise.prototype.cancelInternal_ = function(err) {
  * other children in the list of callback entries, propagate the cancellation
  * by canceling this Promise as well.
  *
- * @param {!goog.Promise} childPromise The Promise to cancel.
+ * @param {!Promise} childPromise The Promise to cancel.
  * @param {!Error} err The cancel error to use for rejecting the Promise.
  * @private
  */
-goog.Promise.prototype.cancelChild_ = function(childPromise, err) {
-  'use strict';
+Promise.prototype.cancelChild_ = function(childPromise, err) {
   if (!this.callbackEntries_) {
     return;
   }
@@ -853,7 +817,7 @@ goog.Promise.prototype.cancelChild_ = function(childPromise, err) {
   // If the child Promise was the only child, cancel this Promise as well.
   // Otherwise, reject only the child Promise with the cancel error.
   if (childEntry) {
-    if (this.state_ == goog.Promise.State_.PENDING && childCount == 1) {
+    if (this.state_ == Promise.State_.PENDING && childCount == 1) {
       this.cancelInternal_(err);
     } else {
       if (beforeChildEntry) {
@@ -862,7 +826,7 @@ goog.Promise.prototype.cancelChild_ = function(childPromise, err) {
         this.popEntry_();
       }
 
-      this.executeCallback_(childEntry, goog.Promise.State_.REJECTED, err);
+      this.executeCallback_(childEntry, Promise.State_.REJECTED, err);
     }
   }
 };
@@ -872,16 +836,15 @@ goog.Promise.prototype.cancelChild_ = function(childPromise, err) {
  * Adds a callback entry to the current Promise, and schedules callback
  * execution if the Promise has already been settled.
  *
- * @param {goog.Promise.CallbackEntry_} callbackEntry Record containing
+ * @param {Promise.CallbackEntry_} callbackEntry Record containing
  *     `onFulfilled` and `onRejected` callbacks to execute after
  *     the Promise is settled.
  * @private
  */
-goog.Promise.prototype.addCallbackEntry_ = function(callbackEntry) {
-  'use strict';
+Promise.prototype.addCallbackEntry_ = function(callbackEntry) {
   if (!this.hasEntry_() &&
-      (this.state_ == goog.Promise.State_.FULFILLED ||
-       this.state_ == goog.Promise.State_.REJECTED)) {
+      (this.state_ == Promise.State_.FULFILLED ||
+       this.state_ == Promise.State_.REJECTED)) {
     this.scheduleCallbacks_();
   }
   this.queueEntry_(callbackEntry);
@@ -897,35 +860,32 @@ goog.Promise.prototype.addCallbackEntry_ = function(callbackEntry) {
  * @see http://promisesaplus.com/#the__method
  *
  * @param {?function(this:THIS, TYPE):
- *          (RESULT|goog.Promise<RESULT>|Thenable)} onFulfilled A callback that
+ *          (RESULT|Promise<RESULT>|Thenable)} onFulfilled A callback that
  *     will be invoked if the Promise is fulfilled, or null.
  * @param {?function(this:THIS, *): *} onRejected A callback that will be
  *     invoked if the Promise is rejected, or null.
  * @param {THIS=} opt_context An optional execution context for the callbacks.
  *     in the default calling context.
- * @return {!goog.Promise} The child Promise.
+ * @return {!Promise} The child Promise.
  * @template RESULT,THIS
  * @private
  */
-goog.Promise.prototype.addChildPromise_ = function(
+Promise.prototype.addChildPromise_ = function(
     onFulfilled, onRejected, opt_context) {
-  'use strict';
   if (onFulfilled) {
     onFulfilled =
-        goog.debug.asyncStackTag.wrap(onFulfilled, 'goog.Promise.then');
+        asyncStackTag.wrap(onFulfilled, 'goog.Promise.then');
   }
   if (onRejected) {
-    onRejected = goog.debug.asyncStackTag.wrap(onRejected, 'goog.Promise.then');
+    onRejected = asyncStackTag.wrap(onRejected, 'goog.Promise.then');
   }
 
-  /** @type {goog.Promise.CallbackEntry_} */
-  var callbackEntry = goog.Promise.getCallbackEntry_(null, null, null);
+  /** @type {Promise.CallbackEntry_} */
+  var callbackEntry = Promise.getCallbackEntry_(null, null, null);
 
-  callbackEntry.child = new goog.Promise(function(resolve, reject) {
-    'use strict';
+  callbackEntry.child = new Promise(function(resolve, reject) {
     // Invoke onFulfilled, or resolve with the parent's value if absent.
     callbackEntry.onFulfilled = onFulfilled ? function(value) {
-      'use strict';
       try {
         var result = onFulfilled.call(opt_context, value);
         resolve(result);
@@ -936,11 +896,10 @@ goog.Promise.prototype.addChildPromise_ = function(
 
     // Invoke onRejected, or reject with the parent's reason if absent.
     callbackEntry.onRejected = onRejected ? function(reason) {
-      'use strict';
       try {
         var result = onRejected.call(opt_context, reason);
         if (result === undefined &&
-            reason instanceof goog.Promise.CancellationError) {
+            reason instanceof Promise.CancellationError) {
           // Propagate cancellation to children if no other result is returned.
           reject(reason);
         } else {
@@ -964,11 +923,10 @@ goog.Promise.prototype.addChildPromise_ = function(
  * @param {TYPE} value
  * @private
  */
-goog.Promise.prototype.unblockAndFulfill_ = function(value) {
-  'use strict';
-  goog.asserts.assert(this.state_ == goog.Promise.State_.BLOCKED);
-  this.state_ = goog.Promise.State_.PENDING;
-  this.resolve_(goog.Promise.State_.FULFILLED, value);
+Promise.prototype.unblockAndFulfill_ = function(value) {
+  asserts.assert(this.state_ == Promise.State_.BLOCKED);
+  this.state_ = Promise.State_.PENDING;
+  this.resolve_(Promise.State_.FULFILLED, value);
 };
 
 
@@ -978,11 +936,10 @@ goog.Promise.prototype.unblockAndFulfill_ = function(value) {
  * @param {*} reason
  * @private
  */
-goog.Promise.prototype.unblockAndReject_ = function(reason) {
-  'use strict';
-  goog.asserts.assert(this.state_ == goog.Promise.State_.BLOCKED);
-  this.state_ = goog.Promise.State_.PENDING;
-  this.resolve_(goog.Promise.State_.REJECTED, reason);
+Promise.prototype.unblockAndReject_ = function(reason) {
+  asserts.assert(this.state_ == Promise.State_.BLOCKED);
+  this.state_ = Promise.State_.PENDING;
+  this.resolve_(Promise.State_.REJECTED, reason);
 };
 
 
@@ -999,23 +956,22 @@ goog.Promise.prototype.unblockAndReject_ = function(reason) {
  *
  * @see http://promisesaplus.com/#the_promise_resolution_procedure
  *
- * @param {goog.Promise.State_} state
+ * @param {Promise.State_} state
  * @param {*} x The result to apply to the Promise.
  * @private
  */
-goog.Promise.prototype.resolve_ = function(state, x) {
-  'use strict';
-  if (this.state_ != goog.Promise.State_.PENDING) {
+Promise.prototype.resolve_ = function(state, x) {
+  if (this.state_ != Promise.State_.PENDING) {
     return;
   }
 
   if (this === x) {
-    state = goog.Promise.State_.REJECTED;
+    state = Promise.State_.REJECTED;
     x = new TypeError('Promise cannot resolve to itself');
   }
 
-  this.state_ = goog.Promise.State_.BLOCKED;
-  var isThenable = goog.Promise.maybeThen_(
+  this.state_ = Promise.State_.BLOCKED;
+  var isThenable = Promise.maybeThen_(
       x, this.unblockAndFulfill_, this.unblockAndReject_, this);
   if (isThenable) {
     return;
@@ -1028,9 +984,9 @@ goog.Promise.prototype.resolve_ = function(state, x) {
   this.parent_ = null;
   this.scheduleCallbacks_();
 
-  if (state == goog.Promise.State_.REJECTED &&
-      !(x instanceof goog.Promise.CancellationError)) {
-    goog.Promise.addUnhandledRejection_(this, x);
+  if (state == Promise.State_.REJECTED &&
+      !(x instanceof Promise.CancellationError)) {
+    Promise.addUnhandledRejection_(this, x);
   }
 };
 
@@ -1046,13 +1002,12 @@ goog.Promise.prototype.resolve_ = function(state, x) {
  * @return {boolean} Whether the input value was thenable.
  * @private
  */
-goog.Promise.maybeThen_ = function(value, onFulfilled, onRejected, context) {
-  'use strict';
-  if (value instanceof goog.Promise) {
+Promise.maybeThen_ = function(value, onFulfilled, onRejected, context) {
+  if (value instanceof Promise) {
     value.thenVoid(onFulfilled, onRejected, context);
     return true;
-  } else if (goog.Thenable.isImplementedBy(value)) {
-    value = /** @type {!goog.Thenable} */ (value);
+  } else if (Thenable.isImplementedBy(value)) {
+    value = /** @type {!Thenable} */ (value);
     value.then(onFulfilled, onRejected, context);
     return true;
   } else if (goog.isObject(value)) {
@@ -1060,7 +1015,7 @@ goog.Promise.maybeThen_ = function(value, onFulfilled, onRejected, context) {
     try {
       var then = thenable.then;
       if (typeof then === 'function') {
-        goog.Promise.tryThen_(thenable, then, onFulfilled, onRejected, context);
+        Promise.tryThen_(thenable, then, onFulfilled, onRejected, context);
         return true;
       }
     } catch (e) {
@@ -1090,12 +1045,10 @@ goog.Promise.maybeThen_ = function(value, onFulfilled, onRejected, context) {
  * @param {*} context
  * @private
  */
-goog.Promise.tryThen_ = function(
+Promise.tryThen_ = function(
     thenable, then, onFulfilled, onRejected, context) {
-  'use strict';
   var called = false;
   var resolve = function(value) {
-    'use strict';
     if (!called) {
       called = true;
       onFulfilled.call(context, value);
@@ -1103,7 +1056,6 @@ goog.Promise.tryThen_ = function(
   };
 
   var reject = function(reason) {
-    'use strict';
     if (!called) {
       called = true;
       onRejected.call(context, reason);
@@ -1134,11 +1086,10 @@ goog.Promise.tryThen_ = function(
  *
  * @private
  */
-goog.Promise.prototype.scheduleCallbacks_ = function() {
-  'use strict';
+Promise.prototype.scheduleCallbacks_ = function() {
   if (!this.executing_) {
     this.executing_ = true;
-    goog.async.run(this.executeCallbacks_, this);
+    run(this.executeCallbacks_, this);
   }
 };
 
@@ -1147,19 +1098,17 @@ goog.Promise.prototype.scheduleCallbacks_ = function() {
  * @return {boolean} Whether there are any pending callbacks queued.
  * @private
  */
-goog.Promise.prototype.hasEntry_ = function() {
-  'use strict';
+Promise.prototype.hasEntry_ = function() {
   return !!this.callbackEntries_;
 };
 
 
 /**
- * @param {goog.Promise.CallbackEntry_} entry
+ * @param {Promise.CallbackEntry_} entry
  * @private
  */
-goog.Promise.prototype.queueEntry_ = function(entry) {
-  'use strict';
-  goog.asserts.assert(entry.onFulfilled != null);
+Promise.prototype.queueEntry_ = function(entry) {
+  asserts.assert(entry.onFulfilled != null);
 
   if (this.callbackEntriesTail_) {
     this.callbackEntriesTail_.next = entry;
@@ -1173,11 +1122,10 @@ goog.Promise.prototype.queueEntry_ = function(entry) {
 
 
 /**
- * @return {goog.Promise.CallbackEntry_} entry
+ * @return {Promise.CallbackEntry_} entry
  * @private
  */
-goog.Promise.prototype.popEntry_ = function() {
-  'use strict';
+Promise.prototype.popEntry_ = function() {
   var entry = null;
   if (this.callbackEntries_) {
     entry = this.callbackEntries_;
@@ -1190,20 +1138,19 @@ goog.Promise.prototype.popEntry_ = function() {
   }
 
   if (entry != null) {
-    goog.asserts.assert(entry.onFulfilled != null);
+    asserts.assert(entry.onFulfilled != null);
   }
   return entry;
 };
 
 
 /**
- * @param {goog.Promise.CallbackEntry_} previous
+ * @param {Promise.CallbackEntry_} previous
  * @private
  */
-goog.Promise.prototype.removeEntryAfter_ = function(previous) {
-  'use strict';
-  goog.asserts.assert(this.callbackEntries_);
-  goog.asserts.assert(previous != null);
+Promise.prototype.removeEntryAfter_ = function(previous) {
+  asserts.assert(this.callbackEntries_);
+  asserts.assert(previous != null);
   // If the last entry is being removed, update the tail
   if (previous.next == this.callbackEntriesTail_) {
     this.callbackEntriesTail_ = previous;
@@ -1218,11 +1165,10 @@ goog.Promise.prototype.removeEntryAfter_ = function(previous) {
  *
  * @private
  */
-goog.Promise.prototype.executeCallbacks_ = function() {
-  'use strict';
+Promise.prototype.executeCallbacks_ = function() {
   var entry = null;
   while (entry = this.popEntry_()) {
-    if (goog.Promise.LONG_STACK_TRACES) {
+    if (Promise.LONG_STACK_TRACES) {
       this.currentStep_++;
     }
     this.executeCallback_(entry, this.state_, this.result_);
@@ -1235,18 +1181,17 @@ goog.Promise.prototype.executeCallbacks_ = function() {
  * Executes a pending callback for this Promise. Invokes an `onFulfilled`
  * or `onRejected` callback based on the settled state of the Promise.
  *
- * @param {!goog.Promise.CallbackEntry_} callbackEntry An entry containing the
+ * @param {!Promise.CallbackEntry_} callbackEntry An entry containing the
  *     onFulfilled and/or onRejected callbacks for this step.
- * @param {goog.Promise.State_} state The resolution status of the Promise,
+ * @param {Promise.State_} state The resolution status of the Promise,
  *     either FULFILLED or REJECTED.
  * @param {*} result The settled result of the Promise.
  * @private
  */
-goog.Promise.prototype.executeCallback_ = function(
+Promise.prototype.executeCallback_ = function(
     callbackEntry, state, result) {
-  'use strict';
   // Cancel an unhandled rejection if the then/thenVoid call had an onRejected.
-  if (state == goog.Promise.State_.REJECTED && callbackEntry.onRejected &&
+  if (state == Promise.State_.REJECTED && callbackEntry.onRejected &&
       !callbackEntry.always) {
     this.removeUnhandledRejection_();
   }
@@ -1255,33 +1200,32 @@ goog.Promise.prototype.executeCallback_ = function(
     // When the parent is settled, the child no longer needs to hold on to it,
     // as the parent can no longer be canceled.
     callbackEntry.child.parent_ = null;
-    goog.Promise.invokeCallback_(callbackEntry, state, result);
+    Promise.invokeCallback_(callbackEntry, state, result);
   } else {
     // Callbacks created with thenAlways or thenVoid do not have the rejection
     // handling code normally set up in the child Promise.
     try {
       callbackEntry.always ?
           callbackEntry.onFulfilled.call(callbackEntry.context) :
-          goog.Promise.invokeCallback_(callbackEntry, state, result);
+          Promise.invokeCallback_(callbackEntry, state, result);
     } catch (err) {
-      goog.Promise.handleRejection_.call(null, err);
+      Promise.handleRejection_.call(null, err);
     }
   }
-  goog.Promise.returnEntry_(callbackEntry);
+  Promise.returnEntry_(callbackEntry);
 };
 
 
 /**
  * Executes the onFulfilled or onRejected callback for a callbackEntry.
  *
- * @param {!goog.Promise.CallbackEntry_} callbackEntry
- * @param {goog.Promise.State_} state
+ * @param {!Promise.CallbackEntry_} callbackEntry
+ * @param {Promise.State_} state
  * @param {*} result
  * @private
  */
-goog.Promise.invokeCallback_ = function(callbackEntry, state, result) {
-  'use strict';
-  if (state == goog.Promise.State_.FULFILLED) {
+Promise.invokeCallback_ = function(callbackEntry, state, result) {
+  if (state == Promise.State_.FULFILLED) {
     callbackEntry.onFulfilled.call(callbackEntry.context, result);
   } else if (callbackEntry.onRejected) {
     callbackEntry.onRejected.call(callbackEntry.context, result);
@@ -1297,9 +1241,8 @@ goog.Promise.invokeCallback_ = function(callbackEntry, state, result) {
  *     providing a stack trace.
  * @private
  */
-goog.Promise.prototype.addStackTrace_ = function(err) {
-  'use strict';
-  if (goog.Promise.LONG_STACK_TRACES && typeof err.stack === 'string') {
+Promise.prototype.addStackTrace_ = function(err) {
+  if (Promise.LONG_STACK_TRACES && typeof err.stack === 'string') {
     // Extract the third line of the stack trace, which is the entry for the
     // user function that called into Promise code.
     var trace = err.stack.split('\n', 4)[3];
@@ -1321,9 +1264,8 @@ goog.Promise.prototype.addStackTrace_ = function(err) {
  * @param {?} err An unhandled exception captured during callback execution.
  * @private
  */
-goog.Promise.prototype.appendLongStack_ = function(err) {
-  'use strict';
-  if (goog.Promise.LONG_STACK_TRACES && err && typeof err.stack === 'string' &&
+Promise.prototype.appendLongStack_ = function(err) {
+  if (Promise.LONG_STACK_TRACES && err && typeof err.stack === 'string' &&
       this.stack_.length) {
     var longTrace = ['Promise trace:'];
 
@@ -1333,7 +1275,7 @@ goog.Promise.prototype.appendLongStack_ = function(err) {
       }
       longTrace.push(
           'Value: ' +
-          '[' + (promise.state_ == goog.Promise.State_.REJECTED ? 'REJECTED' :
+          '[' + (promise.state_ == Promise.State_.REJECTED ? 'REJECTED' :
                                                                   'FULFILLED') +
           '] ' +
           '<' + String(promise.result_) + '>');
@@ -1350,14 +1292,13 @@ goog.Promise.prototype.appendLongStack_ = function(err) {
  *
  * @private
  */
-goog.Promise.prototype.removeUnhandledRejection_ = function() {
-  'use strict';
-  if (goog.Promise.UNHANDLED_REJECTION_DELAY > 0) {
+Promise.prototype.removeUnhandledRejection_ = function() {
+  if (Promise.UNHANDLED_REJECTION_DELAY > 0) {
     for (var p = this; p && p.unhandledRejectionId_; p = p.parent_) {
       goog.global.clearTimeout(p.unhandledRejectionId_);
       p.unhandledRejectionId_ = 0;
     }
-  } else if (goog.Promise.UNHANDLED_REJECTION_DELAY == 0) {
+  } else if (Promise.UNHANDLED_REJECTION_DELAY == 0) {
     for (var p = this; p && p.hadUnhandledRejection_; p = p.parent_) {
       p.hadUnhandledRejection_ = false;
     }
@@ -1372,26 +1313,23 @@ goog.Promise.prototype.removeUnhandledRejection_ = function() {
  * handler typically rethrows the rejection reason so that it becomes visible in
  * the developer console.
  *
- * @param {!goog.Promise} promise The rejected Promise.
+ * @param {!Promise} promise The rejected Promise.
  * @param {*} reason The Promise rejection reason.
  * @private
  */
-goog.Promise.addUnhandledRejection_ = function(promise, reason) {
-  'use strict';
-  if (goog.Promise.UNHANDLED_REJECTION_DELAY > 0) {
+Promise.addUnhandledRejection_ = function(promise, reason) {
+  if (Promise.UNHANDLED_REJECTION_DELAY > 0) {
     promise.unhandledRejectionId_ = goog.global.setTimeout(function() {
-      'use strict';
       promise.appendLongStack_(reason);
-      goog.Promise.handleRejection_.call(null, reason);
-    }, goog.Promise.UNHANDLED_REJECTION_DELAY);
+      Promise.handleRejection_.call(null, reason);
+    }, Promise.UNHANDLED_REJECTION_DELAY);
 
-  } else if (goog.Promise.UNHANDLED_REJECTION_DELAY == 0) {
+  } else if (Promise.UNHANDLED_REJECTION_DELAY == 0) {
     promise.hadUnhandledRejection_ = true;
-    goog.async.run(function() {
-      'use strict';
+    run(function() {
       if (promise.hadUnhandledRejection_) {
         promise.appendLongStack_(reason);
-        goog.Promise.handleRejection_.call(null, reason);
+        Promise.handleRejection_.call(null, reason);
       }
     });
   }
@@ -1404,7 +1342,7 @@ goog.Promise.addUnhandledRejection_ = function(promise, reason) {
  * @type {function(*)}
  * @private
  */
-goog.Promise.handleRejection_ = goog.async.throwException;
+Promise.handleRejection_ = throwException;
 
 
 /**
@@ -1417,11 +1355,10 @@ goog.Promise.handleRejection_ = goog.async.throwException;
  * captured by the developer console or a `window.onerror` handler.
  *
  * @param {function(*)} handler A function that will be called with reasons from
- *     rejected Promises. Defaults to `goog.async.throwException`.
+ *     rejected Promises. Defaults to `throwException`.
  */
-goog.Promise.setUnhandledRejectionHandler = function(handler) {
-  'use strict';
-  goog.Promise.handleRejection_ = handler;
+Promise.setUnhandledRejectionHandler = function(handler) {
+  Promise.handleRejection_ = handler;
 };
 
 
@@ -1433,36 +1370,34 @@ goog.Promise.setUnhandledRejectionHandler = function(handler) {
  *
  * @param {string=} opt_message
  * @constructor
- * @extends {goog.debug.Error}
+ * @extends {debugError}
  * @final
  */
-goog.Promise.CancellationError = function(opt_message) {
-  'use strict';
-  goog.Promise.CancellationError.base(this, 'constructor', opt_message);
+Promise.CancellationError = function(opt_message) {
+  Promise.CancellationError.base(this, 'constructor', opt_message);
   this.reportErrorToServer = false;
 };
-goog.inherits(goog.Promise.CancellationError, goog.debug.Error);
+goog.inherits(Promise.CancellationError, debugError);
 
 
 /** @override */
-goog.Promise.CancellationError.prototype.name = 'cancel';
+Promise.CancellationError.prototype.name = 'cancel';
 
 
 
 /**
  * Internal implementation of the resolver interface.
  *
- * @param {!goog.Promise<TYPE>} promise
- * @param {function((TYPE|goog.Promise<TYPE>|Thenable)=)} resolve
+ * @param {!Promise<TYPE>} promise
+ * @param {function((TYPE|Promise<TYPE>|Thenable)=)} resolve
  * @param {function(*=): void} reject
- * @implements {goog.promise.Resolver<TYPE>}
+ * @implements {Resolver<TYPE>}
  * @final @struct
  * @constructor
  * @private
  * @template TYPE
  */
-goog.Promise.Resolver_ = function(promise, resolve, reject) {
-  'use strict';
+Promise.Resolver_ = function(promise, resolve, reject) {
   /** @const */
   this.promise = promise;
 

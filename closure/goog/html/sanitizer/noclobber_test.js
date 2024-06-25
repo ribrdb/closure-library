@@ -6,16 +6,14 @@
 
 /** @fileoverview Tests for {@link goog.html.sanitizer.noclobber} */
 
-goog.module('goog.html.sanitizer.noclobberTest');
 goog.setTestOnly();
 
-const NodeType = goog.require('goog.dom.NodeType');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const noclobber = goog.require('goog.html.sanitizer.noclobber');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-
-const userAgentProduct = goog.require('goog.userAgent.product');
+import { NodeType } from '../../dom/nodetype.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import noclobber from './noclobber.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingDom from '../../testing/dom.js';
+import * as userAgentProduct from '../../useragent/product.js';
 
 /** Whether we support functions that operate on Node and Element. */
 const elementAndNodeSupported =

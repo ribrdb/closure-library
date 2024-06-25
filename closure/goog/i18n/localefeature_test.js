@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.LocaleFeatureTest');
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
+import * as LocaleFeature from './localefeature.js';
+
+import { testSuite } from '../testing/testsuite.js';
 
 
 goog.setTestOnly('goog.i18n.localeFeatureTest');
-
-const testSuite = goog.require('goog.testing.testSuite');
 
 testSuite({
   testUseEcmaScript2020: function() {

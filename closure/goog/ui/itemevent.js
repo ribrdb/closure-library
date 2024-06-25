@@ -5,13 +5,10 @@
  */
 
 /**
- * @fileoverview Definition of the goog.ui.ItemEvent class.
+ * @fileoverview Definition of the ItemEvent class.
  */
 
-goog.provide('goog.ui.ItemEvent');
-
-
-goog.require('goog.events.Event');
+import { Event } from '../events/event.js';
 
 
 
@@ -20,24 +17,23 @@ goog.require('goog.events.Event');
  * event.
  *
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @param {string} type Event Type.
  * @param {Object} target Reference to the object that is the target
  *                        of this event.
  * @param {Object} item The item that was clicked.
  * @final
  */
-goog.ui.ItemEvent = function(type, target, item) {
-  'use strict';
-  goog.events.Event.call(this, type, target);
+export function ItemEvent(type, target, item) {
+ Event.call(this, type, target);
 
-  /**
-   * Item for the event. The type of this object is specific to the type
-   * of event. For a menu, it would be the menu item that was clicked. For a
-   * listbox selection, it would be the listitem that was selected.
-   *
-   * @type {Object}
-   */
-  this.item = item;
-};
-goog.inherits(goog.ui.ItemEvent, goog.events.Event);
+ /**
+  * Item for the event. The type of this object is specific to the type
+  * of event. For a menu, it would be the menu item that was clicked. For a
+  * listbox selection, it would be the listitem that was selected.
+  *
+  * @type {Object}
+  */
+ this.item = item;
+}
+goog.inherits(ItemEvent, Event);

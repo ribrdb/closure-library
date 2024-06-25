@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.proto2.PbLiteSerializerTest');
 goog.setTestOnly();
 
-const PbLiteSerializer = goog.require('goog.proto2.PbLiteSerializer');
-const TestAllTypes = goog.require('proto2.TestAllTypes');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PbLiteSerializer } from './pbliteserializer.js';
+import { TestAllTypes } from './test.pb.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function createPopulatedMessage() {
   const message = new TestAllTypes();

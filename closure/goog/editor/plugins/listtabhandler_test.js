@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.ListTabHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Command = goog.require('goog.editor.Command');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const ListTabHandler = goog.require('goog.editor.plugins.ListTabHandler');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserEvent } from '../../events/browserevent.js';
+import { Command } from '../command.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { ListTabHandler } from './listtabhandler.js';
+import { StrictMock } from '../../testing/strictmock.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as functions from '../../functions/functions.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let field;
 let editableField;

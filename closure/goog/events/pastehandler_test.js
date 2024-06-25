@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.PasteHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const EventType = goog.require('goog.events.EventType');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const PasteHandler = goog.require('goog.events.PasteHandler');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserEvent } from './browserevent.js';
+import { EventType } from './eventtype.js';
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import { KeyCodes } from './keycodes.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PasteHandler } from './pastehandler.js';
+import * as dom from '../dom/dom.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** @suppress {checkTypes} suppression added to enable type checking */
 function newBrowserEvent(type) {

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.KeyCodesTest');
 goog.setTestOnly('goog.events.KeyCodesTest');
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { KeyCodes } from './keycodes.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 let stubs;

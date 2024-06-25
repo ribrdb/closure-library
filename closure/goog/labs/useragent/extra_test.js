@@ -7,15 +7,14 @@
 /**
  * @fileoverview Description of this file.
  */
-goog.module('goog.labs.userAgent.extraTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const browser = goog.require('goog.labs.userAgent.browser');
-const extra = goog.require('goog.labs.userAgent.extra');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const util = goog.require('goog.labs.userAgent.util');
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import * as browser from './browser.js';
+import extra from './extra.js';
+import { testAgents } from './test_agents.js';
+import { testSuite } from '../../testing/testsuite.js';
+import util from './util.js';
 
 const stubs = new PropertyReplacer();
 

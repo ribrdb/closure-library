@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.PriorityQueueTest');
 goog.setTestOnly();
 
-const PriorityQueue = goog.require('goog.structs.PriorityQueue');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PriorityQueue } from './priorityqueue.js';
+import * as structs from './structs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function getPriorityQueue() {
   const p = new PriorityQueue();

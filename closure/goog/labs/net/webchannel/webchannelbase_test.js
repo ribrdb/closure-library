@@ -9,30 +9,29 @@
  * Private methods are accessed for test purposes.
  */
 
-goog.module('goog.labs.net.webChannel.webChannelBaseTest');
 goog.setTestOnly();
 
-const ChannelRequest = goog.require('goog.labs.net.webChannel.ChannelRequest');
-const ForwardChannelRequestPool = goog.require('goog.labs.net.webChannel.ForwardChannelRequestPool');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Stat = goog.require('goog.labs.net.webChannel.requestStats.Stat');
-const StructsMap = goog.require('goog.structs.Map');
-const Timer = goog.require('goog.Timer');
-const Uri = goog.requireType('goog.Uri');
-const WebChannelBase = goog.require('goog.labs.net.webChannel.WebChannelBase');
-const WebChannelBaseTransport = goog.require('goog.labs.net.webChannel.WebChannelBaseTransport');
-const WebChannelDebug = goog.require('goog.labs.net.webChannel.WebChannelDebug');
-const Wire = goog.require('goog.labs.net.webChannel.Wire');
-const XhrIo = goog.requireType('goog.net.XhrIo');
-const asserts = goog.require('goog.testing.asserts');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const googJson = goog.require('goog.json');
-const netUtils = goog.require('goog.labs.net.webChannel.netUtils');
-const requestStats = goog.require('goog.labs.net.webChannel.requestStats');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ChannelRequest } from './channelrequest.js';
+import { ForwardChannelRequestPool } from './forwardchannelrequestpool.js';
+import { MockClock } from '../../../testing/mockclock.js';
+import { PropertyReplacer } from '../../../testing/propertyreplacer.js';
+import * as requestStats from './requeststats.js';
+import { Stat } from './requeststats.js';
+import { Map as StructsMap } from '../../../structs/map.js';
+import { Timer } from '../../../timer/timer.js';
+import { WebChannelBase } from './webchannelbase.js';
+import { WebChannelBaseTransport } from './webchannelbasetransport.js';
+import { WebChannelDebug } from './webchanneldebug.js';
+import { Wire } from './wire.js';
+import * as asserts from '../../../testing/asserts.js';
+import * as dom from '../../../dom/dom.js';
+import * as functions from '../../../functions/functions.js';
+import * as googArray from '../../../array/array.js';
+import * as googJson from '../../../json/json.js';
+import * as netUtils from './netutils.js';
+import { testSuite } from '../../../testing/testsuite.js';
+const Uri = goog.requireType('goog.uri.uri');
+const XhrIo = goog.requireType('goog.net.xhrio');
 
 /** Delay between a network failure and the next network request. */
 const RETRY_TIME = 1000;

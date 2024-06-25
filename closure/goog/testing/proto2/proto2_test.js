@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.proto2Test');
 goog.setTestOnly();
 
-const TestAllTypes = goog.require('proto2.TestAllTypes');
-const proto2 = goog.require('goog.testing.proto2');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TestAllTypes } from '../../proto2/test.pb.js';
+import * as proto2 from './proto2.js';
+import { testSuite } from '../testsuite.js';
 
 testSuite({
   testAssertEquals() {

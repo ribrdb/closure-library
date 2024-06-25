@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.rpc.HttpCorsTest');
 goog.setTestOnly('goog.net.rpc.HttpCorsTest');
 
-const GoogUri = goog.require('goog.Uri');
-const HttpCors = goog.require('goog.net.rpc.HttpCors');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Uri as GoogUri } from '../../uri/uri.js';
+import * as HttpCors from './httpcors.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 
 testSuite({

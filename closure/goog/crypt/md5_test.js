@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.Md5Test');
 goog.setTestOnly();
 
-const Md5 = goog.require('goog.crypt.Md5');
-const crypt = goog.require('goog.crypt');
-const hashTester = goog.require('goog.crypt.hashTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Md5 } from './md5.js';
+import * as crypt from './crypt.js';
+import * as hashTester from './hashtester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const sixty = '123456789012345678901234567890123456789012345678901234567890';
 

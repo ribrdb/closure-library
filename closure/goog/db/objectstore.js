@@ -9,14 +9,13 @@
  */
 
 
-goog.provide('goog.db.ObjectStore');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
 
-goog.require('goog.async.Deferred');
-goog.require('goog.db.Cursor');
-goog.require('goog.db.Error');
-goog.require('goog.db.Index');
-goog.require('goog.db.KeyRange');
-goog.require('goog.debug');
+import { Cursor } from './cursor.js';
+import { Error } from './error.js';
+import { Index } from './index.js';
+import { KeyRange } from './keyrange.js';
+import * as debug from '../debug/debug.js';
 
 
 
@@ -38,8 +37,7 @@ goog.require('goog.debug');
  *     Chrome (v22+) the error/request come with a DOM error string that is
  *     already very descriptive.
  */
-goog.db.ObjectStore = function(store) {
-  'use strict';
+export function ObjectStore(store) {
   /**
    * Underlying IndexedDB object store object.
    *
@@ -47,14 +45,13 @@ goog.db.ObjectStore = function(store) {
    * @private
    */
   this.store_ = store;
-};
+}
 
 
 /**
  * @return {string} The name of the object store.
  */
-goog.db.ObjectStore.prototype.getName = function() {
-  'use strict';
+ObjectStore.prototype.getName = function() {
   return this.store_.name;
 };
 
@@ -66,15 +63,14 @@ goog.db.ObjectStore.prototype.getName = function() {
  * @param {string} msg Message to give to the error.
  * @param {*} value Value to insert into the object store.
  * @param {IDBKeyType=} opt_key The key to use.
- * @return {!goog.async.Deferred} The resulting deferred request.
+ * @return {!Deferred} The resulting deferred request.
  * @private
  */
-goog.db.ObjectStore.prototype.insert_ = function(fn, msg, value, opt_key) {
-  'use strict';
+ObjectStore.prototype.insert_ = function(fn, msg, value, opt_key) {
   // TODO(user): refactor wrapping an IndexedDB request in a Deferred by
   // creating a higher-level abstraction for it (mostly affects here and
   // goog.db.Index)
-  const d = new goog.async.Deferred();
+  const d = new Deferred();
   let request;
   try {
     // put or add with (value, undefined) throws an error, so we need to check
@@ -85,24 +81,22 @@ goog.db.ObjectStore.prototype.insert_ = function(fn, msg, value, opt_key) {
       request = this.store_[fn](value);
     }
   } catch (ex) {
-    msg += goog.debug.deepExpose(value);
+    msg += debug.deepExpose(value);
     if (opt_key) {
-      msg += ', with key ' + goog.debug.deepExpose(opt_key);
+      msg += ', with key ' + debug.deepExpose(opt_key);
     }
-    d.errback(goog.db.Error.fromException(ex, msg));
+    d.errback(Error.fromException(ex, msg));
     return d;
   }
   request.onsuccess = function(ev) {
-    'use strict';
     d.callback(ev.target.result);
   };
   request.onerror = function(ev) {
-    'use strict';
-    msg += goog.debug.deepExpose(value);
+    msg += debug.deepExpose(value);
     if (opt_key) {
-      msg += ', with key ' + goog.debug.deepExpose(opt_key);
+      msg += ', with key ' + debug.deepExpose(opt_key);
     }
-    d.errback(goog.db.Error.fromRequest(ev.target, msg));
+    d.errback(Error.fromRequest(ev.target, msg));
   };
   return d;
 };
@@ -116,10 +110,9 @@ goog.db.ObjectStore.prototype.insert_ = function(fn, msg, value, opt_key) {
  * @param {IDBKeyType=} opt_key The key to use. Cannot be used if the
  *     keyPath was specified for the object store. If the keyPath was not
  *     specified but autoIncrement was not enabled, it must be used.
- * @return {!goog.async.Deferred} The deferred put request.
+ * @return {!Deferred} The deferred put request.
  */
-goog.db.ObjectStore.prototype.put = function(value, opt_key) {
-  'use strict';
+ObjectStore.prototype.put = function(value, opt_key) {
   return this.insert_(
       'put', 'putting into ' + this.getName() + ' with value', value, opt_key);
 };
@@ -133,10 +126,9 @@ goog.db.ObjectStore.prototype.put = function(value, opt_key) {
  * @param {IDBKeyType=} opt_key The key to use. Cannot be used if the
  *     keyPath was specified for the object store. If the keyPath was not
  *     specified but autoIncrement was not enabled, it must be used.
- * @return {!goog.async.Deferred} The deferred add request.
+ * @return {!Deferred} The deferred add request.
  */
-goog.db.ObjectStore.prototype.add = function(value, opt_key) {
-  'use strict';
+ObjectStore.prototype.add = function(value, opt_key) {
   return this.insert_(
       'add', 'adding into ' + this.getName() + ' with value ', value, opt_key);
 };
@@ -146,34 +138,31 @@ goog.db.ObjectStore.prototype.add = function(value, opt_key) {
  * Removes an object from the store. No-op if there is no object present with
  * the given key.
  *
- * @param {IDBKeyType|!goog.db.KeyRange} keyOrRange The key or range to remove
+ * @param {IDBKeyType|!KeyRange} keyOrRange The key or range to remove
  *     objects under.
- * @return {!goog.async.Deferred} The deferred remove request.
+ * @return {!Deferred} The deferred remove request.
  */
-goog.db.ObjectStore.prototype.remove = function(keyOrRange) {
-  'use strict';
-  const d = new goog.async.Deferred();
+ObjectStore.prototype.remove = function(keyOrRange) {
+  const d = new Deferred();
   let request;
   try {
     request = this.store_['delete'](
-        keyOrRange instanceof goog.db.KeyRange ? keyOrRange.range() :
+        keyOrRange instanceof KeyRange ? keyOrRange.range() :
                                                  keyOrRange);
   } catch (err) {
     const msg = 'removing from ' + this.getName() + ' with key ' +
-        goog.debug.deepExpose(keyOrRange);
-    d.errback(goog.db.Error.fromException(err, msg));
+        debug.deepExpose(keyOrRange);
+    d.errback(Error.fromException(err, msg));
     return d;
   }
   request.onsuccess = function(ev) {
-    'use strict';
     d.callback();
   };
   const self = this;
   request.onerror = function(ev) {
-    'use strict';
     const msg = 'removing from ' + self.getName() + ' with key ' +
-        goog.debug.deepExpose(keyOrRange);
-    d.errback(goog.db.Error.fromRequest(ev.target, msg));
+        debug.deepExpose(keyOrRange);
+    d.errback(Error.fromRequest(ev.target, msg));
   };
   return d;
 };
@@ -184,30 +173,27 @@ goog.db.ObjectStore.prototype.remove = function(keyOrRange) {
  * the result is `undefined`.
  *
  * @param {IDBKeyType} key The key to look up.
- * @return {!goog.async.Deferred} The deferred get request.
+ * @return {!Deferred} The deferred get request.
  */
-goog.db.ObjectStore.prototype.get = function(key) {
-  'use strict';
-  const d = new goog.async.Deferred();
+ObjectStore.prototype.get = function(key) {
+  const d = new Deferred();
   let request;
   try {
     request = this.store_.get(key);
   } catch (err) {
     const msg = 'getting from ' + this.getName() + ' with key ' +
-        goog.debug.deepExpose(key);
-    d.errback(goog.db.Error.fromException(err, msg));
+        debug.deepExpose(key);
+    d.errback(Error.fromException(err, msg));
     return d;
   }
   request.onsuccess = function(ev) {
-    'use strict';
     d.callback(ev.target.result);
   };
   const self = this;
   request.onerror = function(ev) {
-    'use strict';
     const msg = 'getting from ' + self.getName() + ' with key ' +
-        goog.debug.deepExpose(key);
-    d.errback(goog.db.Error.fromRequest(ev.target, msg));
+        debug.deepExpose(key);
+    d.errback(Error.fromRequest(ev.target, msg));
   };
   return d;
 };
@@ -219,14 +205,13 @@ goog.db.ObjectStore.prototype.get = function(key) {
  * If `obt_key` is a `KeyRange`, returns all keys in that range. If it is
  * `undefined`, returns all known keys.
  *
- * @param {!IDBKeyType|!goog.db.KeyRange=} opt_key Key or KeyRange to look up in
+ * @param {!IDBKeyType|!KeyRange=} opt_key Key or KeyRange to look up in
  *     the index.
  * @param {number=} opt_count The number records to return
- * @return {!goog.async.Deferred} A deferred array of objects that match the
+ * @return {!Deferred} A deferred array of objects that match the
  *     key.
  */
-goog.db.ObjectStore.prototype.getAll = function(opt_key, opt_count) {
-  'use strict';
+ObjectStore.prototype.getAll = function(opt_key, opt_count) {
   return this.getAllInternal_(
       'getAll', 'getting all from index ' + this.getName(), opt_key, opt_count);
 };
@@ -238,14 +223,13 @@ goog.db.ObjectStore.prototype.getAll = function(opt_key, opt_count) {
  * If `obt_key` is a `KeyRange`, returns all keys in that range. If it is
  * `undefined`, returns all known keys.
  *
- * @param {!IDBKeyType|!goog.db.KeyRange=} opt_key Key or KeyRange to look up in
+ * @param {!IDBKeyType|!KeyRange=} opt_key Key or KeyRange to look up in
  *     the index.
  * @param {number=} opt_count The number records to return
- * @return {!goog.async.Deferred} A deferred array of keys for objects that
+ * @return {!Deferred} A deferred array of keys for objects that
  *     match the key.
  */
-goog.db.ObjectStore.prototype.getAllKeys = function(opt_key, opt_count) {
-  'use strict';
+ObjectStore.prototype.getAllKeys = function(opt_key, opt_count) {
   return this.getAllInternal_(
       'getAllKeys', 'getting all keys index ' + this.getName(), opt_key,
       opt_count);
@@ -259,43 +243,40 @@ goog.db.ObjectStore.prototype.getAllKeys = function(opt_key, opt_count) {
  *
  * @param {string} fn Function name to call on the index to get the request.
  * @param {string} msg Message to give to the error.
- * @param {!IDBKeyType|!goog.db.KeyRange|undefined} keyOrRange
+ * @param {!IDBKeyType|!KeyRange|undefined} keyOrRange
  *     Key or KeyRange to look up in the index.
  * @param {number|undefined} count The number records to return
- * @return {!goog.async.Deferred} The resulting deferred array of objects.
+ * @return {!Deferred} The resulting deferred array of objects.
  * @private
  */
-goog.db.ObjectStore.prototype.getAllInternal_ = function(
+ObjectStore.prototype.getAllInternal_ = function(
     fn, msg, keyOrRange, count) {
-  'use strict';
   let nativeRange;
   if (keyOrRange === undefined) {
     nativeRange = undefined;
-  } else if (keyOrRange instanceof goog.db.KeyRange) {
+  } else if (keyOrRange instanceof KeyRange) {
     nativeRange = keyOrRange.range();
   } else {
-    nativeRange = goog.db.KeyRange.only(keyOrRange).range();
+    nativeRange = KeyRange.only(keyOrRange).range();
   }
 
-  const d = new goog.async.Deferred();
+  const d = new Deferred();
   let request;
   try {
     request = this.store_[fn](nativeRange, count);
   } catch (err) {
     msg += ' for range ' +
-        (nativeRange ? goog.debug.deepExpose(nativeRange) : '<all>');
-    d.errback(goog.db.Error.fromException(err, msg));
+        (nativeRange ? debug.deepExpose(nativeRange) : '<all>');
+    d.errback(Error.fromException(err, msg));
     return d;
   }
   request.onsuccess = function() {
-    'use strict';
     d.callback(request.result);
   };
   request.onerror = function(ev) {
-    'use strict';
     msg += ' for range ' +
-        (nativeRange ? goog.debug.deepExpose(nativeRange) : '<all>');
-    d.errback(goog.db.Error.fromRequest(ev.target, msg));
+        (nativeRange ? debug.deepExpose(nativeRange) : '<all>');
+    d.errback(Error.fromRequest(ev.target, msg));
   };
   return d;
 };
@@ -310,54 +291,50 @@ goog.db.ObjectStore.prototype.getAllInternal_ = function(
  *  var cursor = objectStore.openCursor(goog.db.Range.bound('a', 'c'));
  *
  *  var key = goog.events.listen(
- *      cursor, goog.db.Cursor.EventType.NEW_DATA, function() {
+ *      cursor, Cursor.EventType.NEW_DATA, function() {
  *    // Do something with data.
  *    cursor.next();
  *  });
  *
  *  goog.events.listenOnce(
- *      cursor, goog.db.Cursor.EventType.COMPLETE, function() {
+ *      cursor, Cursor.EventType.COMPLETE, function() {
  *    // Clean up listener, and perform a finishing operation on the data.
  *    goog.events.unlistenByKey(key);
  *  });
  * </code>
  *
- * @param {!goog.db.KeyRange=} opt_range The key range. If undefined iterates
+ * @param {!KeyRange=} opt_range The key range. If undefined iterates
  *     over the whole object store.
- * @param {!goog.db.Cursor.Direction=} opt_direction The direction. If undefined
+ * @param {!Cursor.Direction=} opt_direction The direction. If undefined
  *     moves in a forward direction with duplicates.
- * @return {!goog.db.Cursor} The cursor.
- * @throws {goog.db.Error} If there was a problem opening the cursor.
+ * @return {!Cursor} The cursor.
+ * @throws {Error} If there was a problem opening the cursor.
  */
-goog.db.ObjectStore.prototype.openCursor = function(opt_range, opt_direction) {
-  'use strict';
-  return goog.db.Cursor.openCursor(this.store_, opt_range, opt_direction);
+ObjectStore.prototype.openCursor = function(opt_range, opt_direction) {
+  return Cursor.openCursor(this.store_, opt_range, opt_direction);
 };
 
 
 /**
  * Deletes all objects from the store.
  *
- * @return {!goog.async.Deferred} The deferred clear request.
+ * @return {!Deferred} The deferred clear request.
  */
-goog.db.ObjectStore.prototype.clear = function() {
-  'use strict';
+ObjectStore.prototype.clear = function() {
   const msg = 'clearing store ' + this.getName();
-  const d = new goog.async.Deferred();
+  const d = new Deferred();
   let request;
   try {
     request = this.store_.clear();
   } catch (err) {
-    d.errback(goog.db.Error.fromException(err, msg));
+    d.errback(Error.fromException(err, msg));
     return d;
   }
   request.onsuccess = function(ev) {
-    'use strict';
     d.callback();
   };
   request.onerror = function(ev) {
-    'use strict';
-    d.errback(goog.db.Error.fromRequest(ev.target, msg));
+    d.errback(Error.fromRequest(ev.target, msg));
   };
   return d;
 };
@@ -374,18 +351,17 @@ goog.db.ObjectStore.prototype.clear = function() {
  *     available option is unique, which defaults to false. If unique is true,
  *     the index will enforce that there is only ever one object in the object
  *     store for each unique value it indexes on.
- * @return {!goog.db.Index} The newly created, wrapped index.
- * @throws {goog.db.Error} In case of an error creating the index.
+ * @return {!Index} The newly created, wrapped index.
+ * @throws {Error} In case of an error creating the index.
  */
-goog.db.ObjectStore.prototype.createIndex = function(
+ObjectStore.prototype.createIndex = function(
     name, keyPath, opt_parameters) {
-  'use strict';
   try {
-    return new goog.db.Index(
+    return new Index(
         this.store_.createIndex(name, keyPath, opt_parameters));
   } catch (ex) {
     const msg = 'creating new index ' + name + ' with key path ' + keyPath;
-    throw goog.db.Error.fromException(ex, msg);
+    throw Error.fromException(ex, msg);
   }
 };
 
@@ -394,16 +370,15 @@ goog.db.ObjectStore.prototype.createIndex = function(
  * Gets an index.
  *
  * @param {string} name Name of the index to fetch.
- * @return {!goog.db.Index} The requested wrapped index.
- * @throws {goog.db.Error} In case of an error getting the index.
+ * @return {!Index} The requested wrapped index.
+ * @throws {Error} In case of an error getting the index.
  */
-goog.db.ObjectStore.prototype.getIndex = function(name) {
-  'use strict';
+ObjectStore.prototype.getIndex = function(name) {
   try {
-    return new goog.db.Index(this.store_.index(name));
+    return new Index(this.store_.index(name));
   } catch (ex) {
     const msg = 'getting index ' + name;
-    throw goog.db.Error.fromException(ex, msg);
+    throw Error.fromException(ex, msg);
   }
 };
 
@@ -413,15 +388,14 @@ goog.db.ObjectStore.prototype.getIndex = function(name) {
  * {@link goog.db.UpgradeNeededCallback}.
  *
  * @param {string} name Name of the index to delete.
- * @throws {goog.db.Error} In case of an error deleting the index.
+ * @throws {Error} In case of an error deleting the index.
  */
-goog.db.ObjectStore.prototype.deleteIndex = function(name) {
-  'use strict';
+ObjectStore.prototype.deleteIndex = function(name) {
   try {
     this.store_.deleteIndex(name);
   } catch (ex) {
     const msg = 'deleting index ' + name;
-    throw goog.db.Error.fromException(ex, msg);
+    throw Error.fromException(ex, msg);
   }
 };
 
@@ -429,28 +403,25 @@ goog.db.ObjectStore.prototype.deleteIndex = function(name) {
 /**
  * Gets number of records within a key range.
  *
- * @param {!goog.db.KeyRange=} opt_range The key range. If undefined, this will
+ * @param {!KeyRange=} opt_range The key range. If undefined, this will
  *     count all records in the object store.
- * @return {!goog.async.Deferred} The deferred number of records.
+ * @return {!Deferred} The deferred number of records.
  */
-goog.db.ObjectStore.prototype.count = function(opt_range) {
-  'use strict';
-  const d = new goog.async.Deferred();
+ObjectStore.prototype.count = function(opt_range) {
+  const d = new Deferred();
 
   try {
     const range = opt_range ? opt_range.range() : null;
     const request = this.store_.count(range);
     request.onsuccess = function(ev) {
-      'use strict';
       d.callback(ev.target.result);
     };
     const self = this;
     request.onerror = function(ev) {
-      'use strict';
-      d.errback(goog.db.Error.fromRequest(ev.target, self.getName()));
+      d.errback(Error.fromRequest(ev.target, self.getName()));
     };
   } catch (ex) {
-    d.errback(goog.db.Error.fromException(ex, this.getName()));
+    d.errback(Error.fromException(ex, this.getName()));
   }
 
   return d;

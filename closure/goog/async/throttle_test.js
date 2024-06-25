@@ -3,13 +3,13 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.async.ThrottleTest');
 goog.setTestOnly();
 
-const MockClock = goog.require('goog.testing.MockClock');
-const Throttle = goog.require('goog.async.Throttle');
-const testSuite = goog.require('goog.testing.testSuite');
-const {assertDoesNotRetainReference, assertRetainsReference} = goog.require('goog.testing.objects');
+import { MockClock } from '../testing/mockclock.js';
+import { Throttle } from './throttle.js';
+import { testSuite } from '../testing/testsuite.js';
+import objects from '../testing/objects.js';
+const {assertDoesNotRetainReference, assertRetainsReference} = objects;
 
 testSuite({
   testThrottle() {

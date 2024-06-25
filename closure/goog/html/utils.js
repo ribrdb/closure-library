@@ -9,9 +9,7 @@
  * @fileoverview HTML processing utilities for HTML in string form.
  */
 
-goog.provide('goog.html.utils');
-
-goog.require('goog.string');
+import * as string from '../string/string.js';
 
 
 /**
@@ -27,21 +25,19 @@ goog.require('goog.string');
  * @return {string} The plain text of value without tags, HTML comments, or
  *     other non-text content.  Does NOT return safe HTML!
  */
-goog.html.utils.stripHtmlTags = function(value) {
-  'use strict';
-  // TODO(user): Make a version that extracts text attributes such as alt.
-  return goog.string.unescapeEntities(goog.string.trim(
-      value
-          .replace(
-              goog.html.utils.HTML_TAG_REGEX_,
-              function(fullMatch, tagName) {
-                'use strict';
-                return goog.html.utils.INLINE_HTML_TAG_REGEX_.test(tagName) ?
-                    '' :
-                    ' ';
-              })
-          .replace(/[\t\n ]+/g, ' ')));
-};
+export function stripHtmlTags(value) {
+ // TODO(user): Make a version that extracts text attributes such as alt.
+ return string.unescapeEntities(string.trim(
+     value
+         .replace(
+             HTML_TAG_REGEX_,
+             function(fullMatch, tagName) {
+              return INLINE_HTML_TAG_REGEX_.test(tagName) ?
+                  '' :
+                  ' ';
+             })
+         .replace(/[\t\n ]+/g, ' ')));
+}
 
 
 /**
@@ -49,8 +45,7 @@ goog.html.utils.stripHtmlTags = function(value) {
  *
  * @private @const
  */
-goog.html.utils.INLINE_HTML_TAG_REGEX_ =
-    /^(?:abbr|acronym|address|b|em|i|small|strong|su[bp]|u)$/i;
+var INLINE_HTML_TAG_REGEX_ = /^(?:abbr|acronym|address|b|em|i|small|strong|su[bp]|u)$/i;
 
 
 /**
@@ -61,4 +56,4 @@ goog.html.utils.INLINE_HTML_TAG_REGEX_ =
  *
  * @private @const
  */
-goog.html.utils.HTML_TAG_REGEX_ = /<[!\/]?([a-z0-9]+)([\/ ][^>]*)?>/gi;
+var HTML_TAG_REGEX_ = /<[!\/]?([a-z0-9]+)([\/ ][^>]*)?>/gi;

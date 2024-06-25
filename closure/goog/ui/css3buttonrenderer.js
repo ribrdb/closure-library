@@ -18,35 +18,33 @@
  * @see ../demos/css3button.html
  */
 
-goog.provide('goog.ui.Css3ButtonRenderer');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.ui.Button');
-goog.require('goog.ui.ButtonRenderer');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.INLINE_BLOCK_CLASSNAME');
-goog.require('goog.ui.registry');
-goog.requireType('goog.ui.Control');
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import { Button } from './button.js';
+import { ButtonRenderer } from './buttonrenderer.js';
+import { Component } from './component.js';
+import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
+import * as registry from './registry.js';
+goog.requireType('goog.ui.control');
 
 
 
 /**
- * Custom renderer for {@link goog.ui.Button}s. Css3 buttons can contain
+ * Custom renderer for {@link Button}s. Css3 buttons can contain
  * almost arbitrary HTML content, will flow like inline elements, but can be
  * styled like block-level elements.
  *
  * @constructor
- * @extends {goog.ui.ButtonRenderer}
+ * @extends {ButtonRenderer}
  * @final
  */
-goog.ui.Css3ButtonRenderer = function() {
-  'use strict';
-  goog.ui.ButtonRenderer.call(this);
-};
-goog.inherits(goog.ui.Css3ButtonRenderer, goog.ui.ButtonRenderer);
-goog.addSingletonGetter(goog.ui.Css3ButtonRenderer);
+export function Css3ButtonRenderer() {
+  ButtonRenderer.call(this);
+}
+goog.inherits(Css3ButtonRenderer, ButtonRenderer);
+goog.addSingletonGetter(Css3ButtonRenderer);
 
 
 /**
@@ -54,12 +52,11 @@ goog.addSingletonGetter(goog.ui.Css3ButtonRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.Css3ButtonRenderer.CSS_CLASS = goog.getCssName('goog-css3-button');
+Css3ButtonRenderer.CSS_CLASS = goog.getCssName('goog-css3-button');
 
 
 /** @override */
-goog.ui.Css3ButtonRenderer.prototype.getContentElement = function(element) {
-  'use strict';
+Css3ButtonRenderer.prototype.getContentElement = function(element) {
   return /** @type {Element} */ (element);
 };
 
@@ -71,18 +68,17 @@ goog.ui.Css3ButtonRenderer.prototype.getContentElement = function(element) {
  *      Contents...
  *    </div>
  *
- * Overrides {@link goog.ui.ButtonRenderer#createDom}.
- * @param {goog.ui.Control} control goog.ui.Button to render.
+ * Overrides {@link ButtonRenderer#createDom}.
+ * @param {goog.ui.Control} control Button to render.
  * @return {!Element} Root element for the button.
  * @override
  */
-goog.ui.Css3ButtonRenderer.prototype.createDom = function(control) {
-  'use strict';
-  var button = /** @type {goog.ui.Button} */ (control);
+Css3ButtonRenderer.prototype.createDom = function(control) {
+  var button = /** @type {Button} */ (control);
   var classNames = this.getClassNames(button);
   return button.getDomHelper().createDom(
-      goog.dom.TagName.DIV, {
-        'class': goog.ui.INLINE_BLOCK_CLASSNAME + ' ' + classNames.join(' '),
+      TagName.DIV, {
+        'class': INLINE_BLOCK_CLASSNAME + ' ' + classNames.join(' '),
         'title': button.getTooltip() || ''
       },
       button.getContent());
@@ -91,25 +87,23 @@ goog.ui.Css3ButtonRenderer.prototype.createDom = function(control) {
 
 /**
  * Returns true if this renderer can decorate the element.  Overrides
- * {@link goog.ui.ButtonRenderer#canDecorate} by returning true if the
+ * {@link ButtonRenderer#canDecorate} by returning true if the
  * element is a DIV, false otherwise.
  * @param {Element} element Element to decorate.
  * @return {boolean} Whether the renderer can decorate the element.
  * @override
  */
-goog.ui.Css3ButtonRenderer.prototype.canDecorate = function(element) {
-  'use strict';
-  return element.tagName == goog.dom.TagName.DIV;
+Css3ButtonRenderer.prototype.canDecorate = function(element) {
+  return element.tagName == TagName.DIV;
 };
 
 
 /** @override */
-goog.ui.Css3ButtonRenderer.prototype.decorate = function(button, element) {
-  'use strict';
-  goog.asserts.assert(element);
-  goog.dom.classlist.addAll(
-      element, [goog.ui.INLINE_BLOCK_CLASSNAME, this.getCssClass()]);
-  return goog.ui.Css3ButtonRenderer.superClass_.decorate.call(
+Css3ButtonRenderer.prototype.decorate = function(button, element) {
+  asserts.assert(element);
+  classlist.addAll(
+      element, [INLINE_BLOCK_CLASSNAME, this.getCssClass()]);
+  return Css3ButtonRenderer.superClass_.decorate.call(
       this, button, element);
 };
 
@@ -120,27 +114,24 @@ goog.ui.Css3ButtonRenderer.prototype.decorate = function(button, element) {
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.Css3ButtonRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.Css3ButtonRenderer.CSS_CLASS;
+Css3ButtonRenderer.prototype.getCssClass = function() {
+  return Css3ButtonRenderer.CSS_CLASS;
 };
 
 
-// Register a decorator factory function for goog.ui.Css3ButtonRenderer.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.Css3ButtonRenderer.CSS_CLASS, function() {
-      'use strict';
-      return new goog.ui.Button(null, goog.ui.Css3ButtonRenderer.getInstance());
-    });
+/* Register a decorator factory function for Css3ButtonRenderer.*/
+registry.setDecoratorByClassName(
+    Css3ButtonRenderer.CSS_CLASS, function() {
+  return new Button(null, Css3ButtonRenderer.getInstance());
+});
 
 
 // Register a decorator factory function for toggle buttons using the
-// goog.ui.Css3ButtonRenderer.
-goog.ui.registry.setDecoratorByClassName(
+/* Css3ButtonRenderer.*/
+registry.setDecoratorByClassName(
     goog.getCssName('goog-css3-toggle-button'), function() {
-      'use strict';
-      var button =
-          new goog.ui.Button(null, goog.ui.Css3ButtonRenderer.getInstance());
-      button.setSupportedState(goog.ui.Component.State.CHECKED, true);
-      return button;
-    });
+  var button =
+      new Button(null, Css3ButtonRenderer.getInstance());
+  button.setSupportedState(Component.State.CHECKED, true);
+  return button;
+});

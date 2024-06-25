@@ -14,22 +14,22 @@
 
 // clang-format off
 
-goog.module('goog.i18n.DurationSymbolsExt');
-const DurationSymbolTypes = goog.require('goog.i18n.DurationSymbolTypes');
-const DurationSymbols = goog.require('goog.i18n.DurationSymbols');
+import * as DurationSymbolTypes from './durationsymboltypes.js';
+
+import * as DurationSymbols from './durationsymbols.js';
 
 /** @type {!DurationSymbolTypes.DurationSymbols} */
 let defaultSymbols;
 
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_af_NA = DurationSymbols.DurationSymbols_af;
+export let DurationSymbols_af_NA = DurationSymbols.DurationSymbols_af;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_af_ZA = DurationSymbols.DurationSymbols_af;
+export let DurationSymbols_af_ZA = DurationSymbols.DurationSymbols_af;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_agq =  {
+export let DurationSymbols_agq = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -68,10 +68,10 @@ exports.DurationSymbols_agq =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_agq_CM = exports.DurationSymbols_agq;
+export let DurationSymbols_agq_CM = DurationSymbols_agq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ak =  {
+export let DurationSymbols_ak = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -110,67 +110,67 @@ exports.DurationSymbols_ak =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ak_GH = exports.DurationSymbols_ak;
+export let DurationSymbols_ak_GH = DurationSymbols_ak;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_am_ET = DurationSymbols.DurationSymbols_am;
+export let DurationSymbols_am_ET = DurationSymbols.DurationSymbols_am;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_001 = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_001 = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_AE = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_AE = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_BH = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_BH = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_DJ = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_DJ = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_EH = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_EH = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_ER = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_ER = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_IL = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_IL = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_IQ = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_IQ = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_JO = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_JO = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_KM = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_KM = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_KW = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_KW = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_LB = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_LB = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_LY = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_LY = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_MA = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_MA = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_MR = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_MR = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_OM = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_OM = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_PS = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_PS = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_QA = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_QA = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_SA =  {
+export let DurationSymbols_ar_SA = {
   DAY: {
     LONG: "zero{# يوم}one{يوم}two{يومان}few{# أيام}many{# يومًا}other{# يوم}",
     SHORT: "zero{# يوم}one{يوم}two{يومان}few{# أيام}many{# يومًا}other{# يوم}",
@@ -209,25 +209,25 @@ exports.DurationSymbols_ar_SA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_SD = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_SD = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_SO = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_SO = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_SS = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_SS = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_SY = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_SY = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_TD = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_TD = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_TN = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_TN = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_XB =  {
+export let DurationSymbols_ar_XB = {
   DAY: {
     LONG: "zero{# يوم}one{# ؜‮day‬؜}two{يومان}few{# أيام}many{# يومًا}other{# ؜‮days‬؜}",
     SHORT: "zero{# يوم}one{# ؜‮day‬؜}two{يومان}few{# أيام}many{# يومًا}other{# ؜‮days‬؜}",
@@ -266,10 +266,10 @@ exports.DurationSymbols_ar_XB =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ar_YE = DurationSymbols.DurationSymbols_ar;
+export let DurationSymbols_ar_YE = DurationSymbols.DurationSymbols_ar;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_as =  {
+export let DurationSymbols_as = {
   DAY: {
     LONG: "one{# দিন}other{# দিন}",
     SHORT: "one{# দিন}other{# দিন}",
@@ -308,10 +308,10 @@ exports.DurationSymbols_as =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_as_IN = exports.DurationSymbols_as;
+export let DurationSymbols_as_IN = DurationSymbols_as;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_asa =  {
+export let DurationSymbols_asa = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -350,10 +350,10 @@ exports.DurationSymbols_asa =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_asa_TZ = exports.DurationSymbols_asa;
+export let DurationSymbols_asa_TZ = DurationSymbols_asa;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ast =  {
+export let DurationSymbols_ast = {
   DAY: {
     LONG: "one{# día}other{# díes}",
     SHORT: "one{# día}other{# díes}",
@@ -392,10 +392,10 @@ exports.DurationSymbols_ast =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ast_ES = exports.DurationSymbols_ast;
+export let DurationSymbols_ast_ES = DurationSymbols_ast;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_az_Cyrl =  {
+export let DurationSymbols_az_Cyrl = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -434,7 +434,7 @@ exports.DurationSymbols_az_Cyrl =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_az_Cyrl_AZ =  {
+export let DurationSymbols_az_Cyrl_AZ = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -473,13 +473,13 @@ exports.DurationSymbols_az_Cyrl_AZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_az_Latn = DurationSymbols.DurationSymbols_az;
+export let DurationSymbols_az_Latn = DurationSymbols.DurationSymbols_az;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_az_Latn_AZ = DurationSymbols.DurationSymbols_az;
+export let DurationSymbols_az_Latn_AZ = DurationSymbols.DurationSymbols_az;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bas =  {
+export let DurationSymbols_bas = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -518,13 +518,13 @@ exports.DurationSymbols_bas =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bas_CM = exports.DurationSymbols_bas;
+export let DurationSymbols_bas_CM = DurationSymbols_bas;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_be_BY = DurationSymbols.DurationSymbols_be;
+export let DurationSymbols_be_BY = DurationSymbols.DurationSymbols_be;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bem =  {
+export let DurationSymbols_bem = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -563,10 +563,10 @@ exports.DurationSymbols_bem =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bem_ZM = exports.DurationSymbols_bem;
+export let DurationSymbols_bem_ZM = DurationSymbols_bem;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bez =  {
+export let DurationSymbols_bez = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -605,13 +605,13 @@ exports.DurationSymbols_bez =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bez_TZ = exports.DurationSymbols_bez;
+export let DurationSymbols_bez_TZ = DurationSymbols_bez;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bg_BG = DurationSymbols.DurationSymbols_bg;
+export let DurationSymbols_bg_BG = DurationSymbols.DurationSymbols_bg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bgc =  {
+export let DurationSymbols_bgc = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -650,10 +650,10 @@ exports.DurationSymbols_bgc =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bgc_IN = exports.DurationSymbols_bgc;
+export let DurationSymbols_bgc_IN = DurationSymbols_bgc;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bho =  {
+export let DurationSymbols_bho = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -692,10 +692,10 @@ exports.DurationSymbols_bho =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bho_IN = exports.DurationSymbols_bho;
+export let DurationSymbols_bho_IN = DurationSymbols_bho;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bm =  {
+export let DurationSymbols_bm = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -734,16 +734,16 @@ exports.DurationSymbols_bm =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bm_ML = exports.DurationSymbols_bm;
+export let DurationSymbols_bm_ML = DurationSymbols_bm;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bn_BD = DurationSymbols.DurationSymbols_bn;
+export let DurationSymbols_bn_BD = DurationSymbols.DurationSymbols_bn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bn_IN = DurationSymbols.DurationSymbols_bn;
+export let DurationSymbols_bn_IN = DurationSymbols.DurationSymbols_bn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bo =  {
+export let DurationSymbols_bo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -782,16 +782,16 @@ exports.DurationSymbols_bo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bo_CN = exports.DurationSymbols_bo;
+export let DurationSymbols_bo_CN = DurationSymbols_bo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bo_IN = exports.DurationSymbols_bo;
+export let DurationSymbols_bo_IN = DurationSymbols_bo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_br_FR = DurationSymbols.DurationSymbols_br;
+export let DurationSymbols_br_FR = DurationSymbols.DurationSymbols_br;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_brx =  {
+export let DurationSymbols_brx = {
   DAY: {
     LONG: "one{# सान}other{# सान}",
     SHORT: "other{# d}",
@@ -830,10 +830,10 @@ exports.DurationSymbols_brx =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_brx_IN = exports.DurationSymbols_brx;
+export let DurationSymbols_brx_IN = DurationSymbols_brx;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bs_Cyrl =  {
+export let DurationSymbols_bs_Cyrl = {
   DAY: {
     LONG: "one{# дан}few{# дана}other{# дана}",
     SHORT: "one{# дан}few{# дана}other{# дан}",
@@ -872,7 +872,7 @@ exports.DurationSymbols_bs_Cyrl =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bs_Cyrl_BA =  {
+export let DurationSymbols_bs_Cyrl_BA = {
   DAY: {
     LONG: "one{# дан}few{# дана}other{# дана}",
     SHORT: "one{# дан}few{# дана}other{# дан}",
@@ -911,25 +911,25 @@ exports.DurationSymbols_bs_Cyrl_BA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bs_Latn = DurationSymbols.DurationSymbols_bs;
+export let DurationSymbols_bs_Latn = DurationSymbols.DurationSymbols_bs;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_bs_Latn_BA = DurationSymbols.DurationSymbols_bs;
+export let DurationSymbols_bs_Latn_BA = DurationSymbols.DurationSymbols_bs;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ca_AD = DurationSymbols.DurationSymbols_ca;
+export let DurationSymbols_ca_AD = DurationSymbols.DurationSymbols_ca;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ca_ES = DurationSymbols.DurationSymbols_ca;
+export let DurationSymbols_ca_ES = DurationSymbols.DurationSymbols_ca;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ca_FR = DurationSymbols.DurationSymbols_ca;
+export let DurationSymbols_ca_FR = DurationSymbols.DurationSymbols_ca;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ca_IT = DurationSymbols.DurationSymbols_ca;
+export let DurationSymbols_ca_IT = DurationSymbols.DurationSymbols_ca;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ccp =  {
+export let DurationSymbols_ccp = {
   DAY: {
     LONG: "one{# 𑄘𑄨𑄚𑄴}other{# 𑄘𑄨𑄚𑄴}",
     SHORT: "one{# 𑄘𑄨𑄚𑄴}other{# 𑄘𑄨𑄚𑄴}",
@@ -968,13 +968,13 @@ exports.DurationSymbols_ccp =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ccp_BD = exports.DurationSymbols_ccp;
+export let DurationSymbols_ccp_BD = DurationSymbols_ccp;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ccp_IN = exports.DurationSymbols_ccp;
+export let DurationSymbols_ccp_IN = DurationSymbols_ccp;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ce =  {
+export let DurationSymbols_ce = {
   DAY: {
     LONG: "one{# де}other{# де}",
     SHORT: "one{д.}other{# д.}",
@@ -1013,10 +1013,10 @@ exports.DurationSymbols_ce =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ce_RU = exports.DurationSymbols_ce;
+export let DurationSymbols_ce_RU = DurationSymbols_ce;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ceb =  {
+export let DurationSymbols_ceb = {
   DAY: {
     LONG: "one{# ka adlaw}other{# ka mga adlaw}",
     SHORT: "one{# ka adlaw}other{# ka adlaw}",
@@ -1055,10 +1055,10 @@ exports.DurationSymbols_ceb =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ceb_PH = exports.DurationSymbols_ceb;
+export let DurationSymbols_ceb_PH = DurationSymbols_ceb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_cgg =  {
+export let DurationSymbols_cgg = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1097,13 +1097,13 @@ exports.DurationSymbols_cgg =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_cgg_UG = exports.DurationSymbols_cgg;
+export let DurationSymbols_cgg_UG = DurationSymbols_cgg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_chr_US = DurationSymbols.DurationSymbols_chr;
+export let DurationSymbols_chr_US = DurationSymbols.DurationSymbols_chr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ckb =  {
+export let DurationSymbols_ckb = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1142,25 +1142,25 @@ exports.DurationSymbols_ckb =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ckb_Arab = exports.DurationSymbols_ckb;
+export let DurationSymbols_ckb_Arab = DurationSymbols_ckb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ckb_Arab_IQ = exports.DurationSymbols_ckb;
+export let DurationSymbols_ckb_Arab_IQ = DurationSymbols_ckb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ckb_Arab_IR = exports.DurationSymbols_ckb;
+export let DurationSymbols_ckb_Arab_IR = DurationSymbols_ckb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ckb_IQ = exports.DurationSymbols_ckb;
+export let DurationSymbols_ckb_IQ = DurationSymbols_ckb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ckb_IR = exports.DurationSymbols_ckb;
+export let DurationSymbols_ckb_IR = DurationSymbols_ckb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_cs_CZ = DurationSymbols.DurationSymbols_cs;
+export let DurationSymbols_cs_CZ = DurationSymbols.DurationSymbols_cs;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_cv =  {
+export let DurationSymbols_cv = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1199,19 +1199,19 @@ exports.DurationSymbols_cv =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_cv_RU = exports.DurationSymbols_cv;
+export let DurationSymbols_cv_RU = DurationSymbols_cv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_cy_GB = DurationSymbols.DurationSymbols_cy;
+export let DurationSymbols_cy_GB = DurationSymbols.DurationSymbols_cy;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_da_DK = DurationSymbols.DurationSymbols_da;
+export let DurationSymbols_da_DK = DurationSymbols.DurationSymbols_da;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_da_GL = DurationSymbols.DurationSymbols_da;
+export let DurationSymbols_da_GL = DurationSymbols.DurationSymbols_da;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dav =  {
+export let DurationSymbols_dav = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1250,25 +1250,25 @@ exports.DurationSymbols_dav =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dav_KE = exports.DurationSymbols_dav;
+export let DurationSymbols_dav_KE = DurationSymbols_dav;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_de_BE = DurationSymbols.DurationSymbols_de;
+export let DurationSymbols_de_BE = DurationSymbols.DurationSymbols_de;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_de_DE = DurationSymbols.DurationSymbols_de;
+export let DurationSymbols_de_DE = DurationSymbols.DurationSymbols_de;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_de_IT = DurationSymbols.DurationSymbols_de;
+export let DurationSymbols_de_IT = DurationSymbols.DurationSymbols_de;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_de_LI = DurationSymbols.DurationSymbols_de;
+export let DurationSymbols_de_LI = DurationSymbols.DurationSymbols_de;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_de_LU = DurationSymbols.DurationSymbols_de;
+export let DurationSymbols_de_LU = DurationSymbols.DurationSymbols_de;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dje =  {
+export let DurationSymbols_dje = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1307,10 +1307,10 @@ exports.DurationSymbols_dje =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dje_NE = exports.DurationSymbols_dje;
+export let DurationSymbols_dje_NE = DurationSymbols_dje;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_doi =  {
+export let DurationSymbols_doi = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1349,10 +1349,10 @@ exports.DurationSymbols_doi =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_doi_IN = exports.DurationSymbols_doi;
+export let DurationSymbols_doi_IN = DurationSymbols_doi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dsb =  {
+export let DurationSymbols_dsb = {
   DAY: {
     LONG: "one{# źeń}two{# dnja}few{# dny}other{# dnjow}",
     SHORT: "one{# ź.}two{# dn.}few{# dn.}other{# dn.}",
@@ -1391,10 +1391,10 @@ exports.DurationSymbols_dsb =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dsb_DE = exports.DurationSymbols_dsb;
+export let DurationSymbols_dsb_DE = DurationSymbols_dsb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dua =  {
+export let DurationSymbols_dua = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1433,10 +1433,10 @@ exports.DurationSymbols_dua =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dua_CM = exports.DurationSymbols_dua;
+export let DurationSymbols_dua_CM = DurationSymbols_dua;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dyo =  {
+export let DurationSymbols_dyo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1475,10 +1475,10 @@ exports.DurationSymbols_dyo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dyo_SN = exports.DurationSymbols_dyo;
+export let DurationSymbols_dyo_SN = DurationSymbols_dyo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dz =  {
+export let DurationSymbols_dz = {
   DAY: {
     LONG: "other{ཉིན་ཞག་ #}",
     SHORT: "other{# d}",
@@ -1517,10 +1517,10 @@ exports.DurationSymbols_dz =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_dz_BT = exports.DurationSymbols_dz;
+export let DurationSymbols_dz_BT = DurationSymbols_dz;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ebu =  {
+export let DurationSymbols_ebu = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -1559,10 +1559,10 @@ exports.DurationSymbols_ebu =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ebu_KE = exports.DurationSymbols_ebu;
+export let DurationSymbols_ebu_KE = DurationSymbols_ebu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ee =  {
+export let DurationSymbols_ee = {
   DAY: {
     LONG: "one{ŋkeke #}other{ŋkeke #}",
     SHORT: "one{ŋkeke #}other{ŋkeke #}",
@@ -1601,19 +1601,19 @@ exports.DurationSymbols_ee =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ee_GH = exports.DurationSymbols_ee;
+export let DurationSymbols_ee_GH = DurationSymbols_ee;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ee_TG = exports.DurationSymbols_ee;
+export let DurationSymbols_ee_TG = DurationSymbols_ee;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_el_CY = DurationSymbols.DurationSymbols_el;
+export let DurationSymbols_el_CY = DurationSymbols.DurationSymbols_el;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_el_GR = DurationSymbols.DurationSymbols_el;
+export let DurationSymbols_el_GR = DurationSymbols.DurationSymbols_el;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_001 =  {
+export let DurationSymbols_en_001 = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1652,7 +1652,7 @@ exports.DurationSymbols_en_001 =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_150 =  {
+export let DurationSymbols_en_150 = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1691,10 +1691,10 @@ exports.DurationSymbols_en_150 =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_AE = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_AE = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_AG =  {
+export let DurationSymbols_en_AG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1733,7 +1733,7 @@ exports.DurationSymbols_en_AG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_AI =  {
+export let DurationSymbols_en_AI = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1772,10 +1772,10 @@ exports.DurationSymbols_en_AI =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_AS = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_AS = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_AT =  {
+export let DurationSymbols_en_AT = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1814,7 +1814,7 @@ exports.DurationSymbols_en_AT =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BB =  {
+export let DurationSymbols_en_BB = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1853,7 +1853,7 @@ exports.DurationSymbols_en_BB =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BE =  {
+export let DurationSymbols_en_BE = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1892,10 +1892,10 @@ exports.DurationSymbols_en_BE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BI = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_BI = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BM =  {
+export let DurationSymbols_en_BM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1934,7 +1934,7 @@ exports.DurationSymbols_en_BM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BS =  {
+export let DurationSymbols_en_BS = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -1973,7 +1973,7 @@ exports.DurationSymbols_en_BS =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BW =  {
+export let DurationSymbols_en_BW = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2012,7 +2012,7 @@ exports.DurationSymbols_en_BW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_BZ =  {
+export let DurationSymbols_en_BZ = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2051,7 +2051,7 @@ exports.DurationSymbols_en_BZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_CC =  {
+export let DurationSymbols_en_CC = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2090,7 +2090,7 @@ exports.DurationSymbols_en_CC =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_CH =  {
+export let DurationSymbols_en_CH = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2129,7 +2129,7 @@ exports.DurationSymbols_en_CH =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_CK =  {
+export let DurationSymbols_en_CK = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2168,7 +2168,7 @@ exports.DurationSymbols_en_CK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_CM =  {
+export let DurationSymbols_en_CM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2207,7 +2207,7 @@ exports.DurationSymbols_en_CM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_CX =  {
+export let DurationSymbols_en_CX = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2246,7 +2246,7 @@ exports.DurationSymbols_en_CX =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_CY =  {
+export let DurationSymbols_en_CY = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2285,7 +2285,7 @@ exports.DurationSymbols_en_CY =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_DE =  {
+export let DurationSymbols_en_DE = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2324,7 +2324,7 @@ exports.DurationSymbols_en_DE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_DG =  {
+export let DurationSymbols_en_DG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2363,7 +2363,7 @@ exports.DurationSymbols_en_DG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_DK =  {
+export let DurationSymbols_en_DK = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2402,7 +2402,7 @@ exports.DurationSymbols_en_DK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_DM =  {
+export let DurationSymbols_en_DM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2441,7 +2441,7 @@ exports.DurationSymbols_en_DM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_ER =  {
+export let DurationSymbols_en_ER = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2480,7 +2480,7 @@ exports.DurationSymbols_en_ER =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_FI =  {
+export let DurationSymbols_en_FI = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2519,7 +2519,7 @@ exports.DurationSymbols_en_FI =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_FJ =  {
+export let DurationSymbols_en_FJ = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2558,7 +2558,7 @@ exports.DurationSymbols_en_FJ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_FK =  {
+export let DurationSymbols_en_FK = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2597,7 +2597,7 @@ exports.DurationSymbols_en_FK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_FM =  {
+export let DurationSymbols_en_FM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2636,7 +2636,7 @@ exports.DurationSymbols_en_FM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GD =  {
+export let DurationSymbols_en_GD = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2675,7 +2675,7 @@ exports.DurationSymbols_en_GD =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GG =  {
+export let DurationSymbols_en_GG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2714,7 +2714,7 @@ exports.DurationSymbols_en_GG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GH =  {
+export let DurationSymbols_en_GH = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2753,7 +2753,7 @@ exports.DurationSymbols_en_GH =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GI =  {
+export let DurationSymbols_en_GI = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2792,7 +2792,7 @@ exports.DurationSymbols_en_GI =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GM =  {
+export let DurationSymbols_en_GM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2831,10 +2831,10 @@ exports.DurationSymbols_en_GM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GU = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_GU = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_GY =  {
+export let DurationSymbols_en_GY = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2873,7 +2873,7 @@ exports.DurationSymbols_en_GY =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_HK =  {
+export let DurationSymbols_en_HK = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2912,7 +2912,7 @@ exports.DurationSymbols_en_HK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_IL =  {
+export let DurationSymbols_en_IL = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2951,7 +2951,7 @@ exports.DurationSymbols_en_IL =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_IM =  {
+export let DurationSymbols_en_IM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -2990,7 +2990,7 @@ exports.DurationSymbols_en_IM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_IO =  {
+export let DurationSymbols_en_IO = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3029,7 +3029,7 @@ exports.DurationSymbols_en_IO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_JE =  {
+export let DurationSymbols_en_JE = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3068,7 +3068,7 @@ exports.DurationSymbols_en_JE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_JM =  {
+export let DurationSymbols_en_JM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3107,7 +3107,7 @@ exports.DurationSymbols_en_JM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_KE =  {
+export let DurationSymbols_en_KE = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3146,7 +3146,7 @@ exports.DurationSymbols_en_KE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_KI =  {
+export let DurationSymbols_en_KI = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3185,7 +3185,7 @@ exports.DurationSymbols_en_KI =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_KN =  {
+export let DurationSymbols_en_KN = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3224,7 +3224,7 @@ exports.DurationSymbols_en_KN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_KY =  {
+export let DurationSymbols_en_KY = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3263,7 +3263,7 @@ exports.DurationSymbols_en_KY =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_LC =  {
+export let DurationSymbols_en_LC = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3302,7 +3302,7 @@ exports.DurationSymbols_en_LC =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_LR =  {
+export let DurationSymbols_en_LR = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3341,7 +3341,7 @@ exports.DurationSymbols_en_LR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_LS =  {
+export let DurationSymbols_en_LS = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3380,7 +3380,7 @@ exports.DurationSymbols_en_LS =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MG =  {
+export let DurationSymbols_en_MG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3419,10 +3419,10 @@ exports.DurationSymbols_en_MG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MH = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_MH = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MO =  {
+export let DurationSymbols_en_MO = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3461,10 +3461,10 @@ exports.DurationSymbols_en_MO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MP = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_MP = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MS =  {
+export let DurationSymbols_en_MS = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3503,7 +3503,7 @@ exports.DurationSymbols_en_MS =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MT =  {
+export let DurationSymbols_en_MT = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3542,7 +3542,7 @@ exports.DurationSymbols_en_MT =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MU =  {
+export let DurationSymbols_en_MU = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3581,7 +3581,7 @@ exports.DurationSymbols_en_MU =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MV =  {
+export let DurationSymbols_en_MV = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3620,7 +3620,7 @@ exports.DurationSymbols_en_MV =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MW =  {
+export let DurationSymbols_en_MW = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3659,7 +3659,7 @@ exports.DurationSymbols_en_MW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_MY =  {
+export let DurationSymbols_en_MY = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3698,7 +3698,7 @@ exports.DurationSymbols_en_MY =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NA =  {
+export let DurationSymbols_en_NA = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3737,7 +3737,7 @@ exports.DurationSymbols_en_NA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NF =  {
+export let DurationSymbols_en_NF = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3776,7 +3776,7 @@ exports.DurationSymbols_en_NF =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NG =  {
+export let DurationSymbols_en_NG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3815,7 +3815,7 @@ exports.DurationSymbols_en_NG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NL =  {
+export let DurationSymbols_en_NL = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3854,7 +3854,7 @@ exports.DurationSymbols_en_NL =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NR =  {
+export let DurationSymbols_en_NR = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3893,7 +3893,7 @@ exports.DurationSymbols_en_NR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NU =  {
+export let DurationSymbols_en_NU = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3932,7 +3932,7 @@ exports.DurationSymbols_en_NU =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_NZ =  {
+export let DurationSymbols_en_NZ = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -3971,7 +3971,7 @@ exports.DurationSymbols_en_NZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_PG =  {
+export let DurationSymbols_en_PG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4010,10 +4010,10 @@ exports.DurationSymbols_en_PG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_PH = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_PH = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_PK =  {
+export let DurationSymbols_en_PK = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4052,7 +4052,7 @@ exports.DurationSymbols_en_PK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_PN =  {
+export let DurationSymbols_en_PN = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4091,10 +4091,10 @@ exports.DurationSymbols_en_PN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_PR = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_PR = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_PW =  {
+export let DurationSymbols_en_PW = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4133,7 +4133,7 @@ exports.DurationSymbols_en_PW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_RW =  {
+export let DurationSymbols_en_RW = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4172,7 +4172,7 @@ exports.DurationSymbols_en_RW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SB =  {
+export let DurationSymbols_en_SB = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4211,7 +4211,7 @@ exports.DurationSymbols_en_SB =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SC =  {
+export let DurationSymbols_en_SC = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4250,7 +4250,7 @@ exports.DurationSymbols_en_SC =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SD =  {
+export let DurationSymbols_en_SD = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4289,7 +4289,7 @@ exports.DurationSymbols_en_SD =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SE =  {
+export let DurationSymbols_en_SE = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4328,7 +4328,7 @@ exports.DurationSymbols_en_SE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SH =  {
+export let DurationSymbols_en_SH = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4367,7 +4367,7 @@ exports.DurationSymbols_en_SH =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SI =  {
+export let DurationSymbols_en_SI = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4406,7 +4406,7 @@ exports.DurationSymbols_en_SI =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SL =  {
+export let DurationSymbols_en_SL = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4445,7 +4445,7 @@ exports.DurationSymbols_en_SL =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SS =  {
+export let DurationSymbols_en_SS = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4484,7 +4484,7 @@ exports.DurationSymbols_en_SS =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SX =  {
+export let DurationSymbols_en_SX = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4523,7 +4523,7 @@ exports.DurationSymbols_en_SX =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_SZ =  {
+export let DurationSymbols_en_SZ = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4562,7 +4562,7 @@ exports.DurationSymbols_en_SZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_TC =  {
+export let DurationSymbols_en_TC = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4601,7 +4601,7 @@ exports.DurationSymbols_en_TC =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_TK =  {
+export let DurationSymbols_en_TK = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4640,7 +4640,7 @@ exports.DurationSymbols_en_TK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_TO =  {
+export let DurationSymbols_en_TO = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4679,7 +4679,7 @@ exports.DurationSymbols_en_TO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_TT =  {
+export let DurationSymbols_en_TT = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4718,7 +4718,7 @@ exports.DurationSymbols_en_TT =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_TV =  {
+export let DurationSymbols_en_TV = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4757,7 +4757,7 @@ exports.DurationSymbols_en_TV =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_TZ =  {
+export let DurationSymbols_en_TZ = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4796,7 +4796,7 @@ exports.DurationSymbols_en_TZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_UG =  {
+export let DurationSymbols_en_UG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4835,13 +4835,13 @@ exports.DurationSymbols_en_UG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_UM = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_UM = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_US_POSIX = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_US_POSIX = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_VC =  {
+export let DurationSymbols_en_VC = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4880,7 +4880,7 @@ exports.DurationSymbols_en_VC =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_VG =  {
+export let DurationSymbols_en_VG = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4919,10 +4919,10 @@ exports.DurationSymbols_en_VG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_VI = DurationSymbols.DurationSymbols_en;
+export let DurationSymbols_en_VI = DurationSymbols.DurationSymbols_en;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_VU =  {
+export let DurationSymbols_en_VU = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -4961,7 +4961,7 @@ exports.DurationSymbols_en_VU =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_WS =  {
+export let DurationSymbols_en_WS = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -5000,7 +5000,7 @@ exports.DurationSymbols_en_WS =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_XA =  {
+export let DurationSymbols_en_XA = {
   DAY: {
     LONG: "one{[# ðåý one two]}other{[# ðåýš one two]}",
     SHORT: "one{[# ðåý one two]}other{[# ðåýš one two]}",
@@ -5039,7 +5039,7 @@ exports.DurationSymbols_en_XA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_ZM =  {
+export let DurationSymbols_en_ZM = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -5078,7 +5078,7 @@ exports.DurationSymbols_en_ZM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_en_ZW =  {
+export let DurationSymbols_en_ZW = {
   DAY: {
     LONG: "one{# day}other{# days}",
     SHORT: "one{# day}other{# days}",
@@ -5117,7 +5117,7 @@ exports.DurationSymbols_en_ZW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_eo =  {
+export let DurationSymbols_eo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -5156,10 +5156,10 @@ exports.DurationSymbols_eo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_eo_001 = exports.DurationSymbols_eo;
+export let DurationSymbols_eo_001 = DurationSymbols_eo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_AR =  {
+export let DurationSymbols_es_AR = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5198,7 +5198,7 @@ exports.DurationSymbols_es_AR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_BO =  {
+export let DurationSymbols_es_BO = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5237,7 +5237,7 @@ exports.DurationSymbols_es_BO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_BR =  {
+export let DurationSymbols_es_BR = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5276,7 +5276,7 @@ exports.DurationSymbols_es_BR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_BZ =  {
+export let DurationSymbols_es_BZ = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5315,7 +5315,7 @@ exports.DurationSymbols_es_BZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_CL =  {
+export let DurationSymbols_es_CL = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5354,7 +5354,7 @@ exports.DurationSymbols_es_CL =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_CO =  {
+export let DurationSymbols_es_CO = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# día}other{# días}",
@@ -5393,7 +5393,7 @@ exports.DurationSymbols_es_CO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_CR =  {
+export let DurationSymbols_es_CR = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5432,7 +5432,7 @@ exports.DurationSymbols_es_CR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_CU =  {
+export let DurationSymbols_es_CU = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5471,7 +5471,7 @@ exports.DurationSymbols_es_CU =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_DO =  {
+export let DurationSymbols_es_DO = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5510,10 +5510,10 @@ exports.DurationSymbols_es_DO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_EA = DurationSymbols.DurationSymbols_es;
+export let DurationSymbols_es_EA = DurationSymbols.DurationSymbols_es;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_EC =  {
+export let DurationSymbols_es_EC = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5552,10 +5552,10 @@ exports.DurationSymbols_es_EC =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_GQ = DurationSymbols.DurationSymbols_es;
+export let DurationSymbols_es_GQ = DurationSymbols.DurationSymbols_es;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_GT =  {
+export let DurationSymbols_es_GT = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5594,7 +5594,7 @@ exports.DurationSymbols_es_GT =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_HN =  {
+export let DurationSymbols_es_HN = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5633,10 +5633,10 @@ exports.DurationSymbols_es_HN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_IC = DurationSymbols.DurationSymbols_es;
+export let DurationSymbols_es_IC = DurationSymbols.DurationSymbols_es;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_NI =  {
+export let DurationSymbols_es_NI = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5675,7 +5675,7 @@ exports.DurationSymbols_es_NI =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_PA =  {
+export let DurationSymbols_es_PA = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5714,7 +5714,7 @@ exports.DurationSymbols_es_PA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_PE =  {
+export let DurationSymbols_es_PE = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5753,10 +5753,10 @@ exports.DurationSymbols_es_PE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_PH = DurationSymbols.DurationSymbols_es;
+export let DurationSymbols_es_PH = DurationSymbols.DurationSymbols_es;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_PR =  {
+export let DurationSymbols_es_PR = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5795,7 +5795,7 @@ exports.DurationSymbols_es_PR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_PY =  {
+export let DurationSymbols_es_PY = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# día}other{# días}",
@@ -5834,7 +5834,7 @@ exports.DurationSymbols_es_PY =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_SV =  {
+export let DurationSymbols_es_SV = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5873,7 +5873,7 @@ exports.DurationSymbols_es_SV =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_UY =  {
+export let DurationSymbols_es_UY = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5912,7 +5912,7 @@ exports.DurationSymbols_es_UY =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_es_VE =  {
+export let DurationSymbols_es_VE = {
   DAY: {
     LONG: "one{# día}other{# días}",
     SHORT: "one{# d.}other{# dd.}",
@@ -5951,13 +5951,13 @@ exports.DurationSymbols_es_VE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_et_EE = DurationSymbols.DurationSymbols_et;
+export let DurationSymbols_et_EE = DurationSymbols.DurationSymbols_et;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_eu_ES = DurationSymbols.DurationSymbols_eu;
+export let DurationSymbols_eu_ES = DurationSymbols.DurationSymbols_eu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ewo =  {
+export let DurationSymbols_ewo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -5996,16 +5996,16 @@ exports.DurationSymbols_ewo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ewo_CM = exports.DurationSymbols_ewo;
+export let DurationSymbols_ewo_CM = DurationSymbols_ewo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fa_AF = DurationSymbols.DurationSymbols_fa;
+export let DurationSymbols_fa_AF = DurationSymbols.DurationSymbols_fa;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fa_IR = DurationSymbols.DurationSymbols_fa;
+export let DurationSymbols_fa_IR = DurationSymbols.DurationSymbols_fa;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff =  {
+export let DurationSymbols_ff = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -6044,7 +6044,7 @@ exports.DurationSymbols_ff =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm =  {
+export let DurationSymbols_ff_Adlm = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6083,7 +6083,7 @@ exports.DurationSymbols_ff_Adlm =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_BF =  {
+export let DurationSymbols_ff_Adlm_BF = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6122,7 +6122,7 @@ exports.DurationSymbols_ff_Adlm_BF =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_CM =  {
+export let DurationSymbols_ff_Adlm_CM = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6161,7 +6161,7 @@ exports.DurationSymbols_ff_Adlm_CM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_GH =  {
+export let DurationSymbols_ff_Adlm_GH = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6200,7 +6200,7 @@ exports.DurationSymbols_ff_Adlm_GH =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_GM =  {
+export let DurationSymbols_ff_Adlm_GM = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6239,7 +6239,7 @@ exports.DurationSymbols_ff_Adlm_GM =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_GN =  {
+export let DurationSymbols_ff_Adlm_GN = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6278,7 +6278,7 @@ exports.DurationSymbols_ff_Adlm_GN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_GW =  {
+export let DurationSymbols_ff_Adlm_GW = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6317,7 +6317,7 @@ exports.DurationSymbols_ff_Adlm_GW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_LR =  {
+export let DurationSymbols_ff_Adlm_LR = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6356,7 +6356,7 @@ exports.DurationSymbols_ff_Adlm_LR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_MR =  {
+export let DurationSymbols_ff_Adlm_MR = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6395,7 +6395,7 @@ exports.DurationSymbols_ff_Adlm_MR =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_NE =  {
+export let DurationSymbols_ff_Adlm_NE = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6434,7 +6434,7 @@ exports.DurationSymbols_ff_Adlm_NE =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_NG =  {
+export let DurationSymbols_ff_Adlm_NG = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6473,7 +6473,7 @@ exports.DurationSymbols_ff_Adlm_NG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_SL =  {
+export let DurationSymbols_ff_Adlm_SL = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6512,7 +6512,7 @@ exports.DurationSymbols_ff_Adlm_SL =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Adlm_SN =  {
+export let DurationSymbols_ff_Adlm_SN = {
   DAY: {
     LONG: "one{# 𞤻𞤢𞤤𞥆𞤢𞤤}other{# 𞤻𞤢𞤤𞥆𞤫}",
     SHORT: "one{# 𞤻𞤢𞤤.}other{# 𞤻𞤢𞤤.}",
@@ -6551,52 +6551,52 @@ exports.DurationSymbols_ff_Adlm_SN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_BF = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_BF = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_CM = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_CM = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_GH = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_GH = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_GM = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_GM = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_GN = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_GN = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_GW = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_GW = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_LR = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_LR = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_MR = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_MR = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_NE = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_NE = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_NG = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_NG = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_SL = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_SL = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ff_Latn_SN = exports.DurationSymbols_ff;
+export let DurationSymbols_ff_Latn_SN = DurationSymbols_ff;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fi_FI = DurationSymbols.DurationSymbols_fi;
+export let DurationSymbols_fi_FI = DurationSymbols.DurationSymbols_fi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fil_PH = DurationSymbols.DurationSymbols_fil;
+export let DurationSymbols_fil_PH = DurationSymbols.DurationSymbols_fil;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fo =  {
+export let DurationSymbols_fo = {
   DAY: {
     LONG: "one{# dagur}other{# dagar}",
     SHORT: "one{# d.}other{# d.}",
@@ -6635,148 +6635,148 @@ exports.DurationSymbols_fo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fo_DK = exports.DurationSymbols_fo;
+export let DurationSymbols_fo_DK = DurationSymbols_fo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fo_FO = exports.DurationSymbols_fo;
+export let DurationSymbols_fo_FO = DurationSymbols_fo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_BE = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_BE = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_BF = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_BF = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_BI = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_BI = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_BJ = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_BJ = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_BL = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_BL = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_CD = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_CD = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_CF = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_CF = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_CG = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_CG = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_CH = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_CH = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_CI = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_CI = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_CM = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_CM = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_DJ = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_DJ = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_DZ = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_DZ = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_FR = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_FR = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_GA = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_GA = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_GF = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_GF = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_GN = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_GN = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_GP = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_GP = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_GQ = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_GQ = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_HT = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_HT = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_KM = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_KM = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_LU = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_LU = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MA = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MA = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MC = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MC = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MF = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MF = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MG = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MG = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_ML = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_ML = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MQ = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MQ = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MR = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MR = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_MU = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_MU = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_NC = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_NC = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_NE = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_NE = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_PF = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_PF = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_PM = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_PM = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_RE = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_RE = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_RW = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_RW = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_SC = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_SC = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_SN = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_SN = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_SY = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_SY = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_TD = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_TD = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_TG = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_TG = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_TN = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_TN = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_VU = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_VU = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_WF = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_WF = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fr_YT = DurationSymbols.DurationSymbols_fr;
+export let DurationSymbols_fr_YT = DurationSymbols.DurationSymbols_fr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fur =  {
+export let DurationSymbols_fur = {
   DAY: {
     LONG: "one{# zornade}other{# zornadis}",
     SHORT: "other{# d}",
@@ -6815,10 +6815,10 @@ exports.DurationSymbols_fur =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fur_IT = exports.DurationSymbols_fur;
+export let DurationSymbols_fur_IT = DurationSymbols_fur;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fy =  {
+export let DurationSymbols_fy = {
   DAY: {
     LONG: "one{# dei}other{# deien}",
     SHORT: "one{# dei}other{# deien}",
@@ -6857,16 +6857,16 @@ exports.DurationSymbols_fy =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_fy_NL = exports.DurationSymbols_fy;
+export let DurationSymbols_fy_NL = DurationSymbols_fy;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ga_GB = DurationSymbols.DurationSymbols_ga;
+export let DurationSymbols_ga_GB = DurationSymbols.DurationSymbols_ga;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ga_IE = DurationSymbols.DurationSymbols_ga;
+export let DurationSymbols_ga_IE = DurationSymbols.DurationSymbols_ga;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gd =  {
+export let DurationSymbols_gd = {
   DAY: {
     LONG: "one{# latha}two{# latha}few{# làithean}other{# latha}",
     SHORT: "one{# là}two{# là}few{# là}other{# là}",
@@ -6905,25 +6905,25 @@ exports.DurationSymbols_gd =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gd_GB = exports.DurationSymbols_gd;
+export let DurationSymbols_gd_GB = DurationSymbols_gd;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gl_ES = DurationSymbols.DurationSymbols_gl;
+export let DurationSymbols_gl_ES = DurationSymbols.DurationSymbols_gl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gsw_CH = DurationSymbols.DurationSymbols_gsw;
+export let DurationSymbols_gsw_CH = DurationSymbols.DurationSymbols_gsw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gsw_FR = DurationSymbols.DurationSymbols_gsw;
+export let DurationSymbols_gsw_FR = DurationSymbols.DurationSymbols_gsw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gsw_LI = DurationSymbols.DurationSymbols_gsw;
+export let DurationSymbols_gsw_LI = DurationSymbols.DurationSymbols_gsw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gu_IN = DurationSymbols.DurationSymbols_gu;
+export let DurationSymbols_gu_IN = DurationSymbols.DurationSymbols_gu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_guz =  {
+export let DurationSymbols_guz = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -6962,10 +6962,10 @@ exports.DurationSymbols_guz =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_guz_KE = exports.DurationSymbols_guz;
+export let DurationSymbols_guz_KE = DurationSymbols_guz;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gv =  {
+export let DurationSymbols_gv = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7004,10 +7004,10 @@ exports.DurationSymbols_gv =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_gv_IM = exports.DurationSymbols_gv;
+export let DurationSymbols_gv_IM = DurationSymbols_gv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ha =  {
+export let DurationSymbols_ha = {
   DAY: {
     LONG: "one{rana #}other{ranaku #}",
     SHORT: "one{rana #}other{Rnk. #}",
@@ -7046,25 +7046,25 @@ exports.DurationSymbols_ha =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ha_GH = exports.DurationSymbols_ha;
+export let DurationSymbols_ha_GH = DurationSymbols_ha;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ha_NE = exports.DurationSymbols_ha;
+export let DurationSymbols_ha_NE = DurationSymbols_ha;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ha_NG = exports.DurationSymbols_ha;
+export let DurationSymbols_ha_NG = DurationSymbols_ha;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_haw_US = DurationSymbols.DurationSymbols_haw;
+export let DurationSymbols_haw_US = DurationSymbols.DurationSymbols_haw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_he_IL = DurationSymbols.DurationSymbols_he;
+export let DurationSymbols_he_IL = DurationSymbols.DurationSymbols_he;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hi_IN = DurationSymbols.DurationSymbols_hi;
+export let DurationSymbols_hi_IN = DurationSymbols.DurationSymbols_hi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hi_Latn =  {
+export let DurationSymbols_hi_Latn = {
   DAY: {
     LONG: "one{# din}other{# din}",
     SHORT: "one{# din}other{# din}",
@@ -7103,7 +7103,7 @@ exports.DurationSymbols_hi_Latn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hi_Latn_IN =  {
+export let DurationSymbols_hi_Latn_IN = {
   DAY: {
     LONG: "one{# din}other{# din}",
     SHORT: "one{# din}other{# din}",
@@ -7142,13 +7142,13 @@ exports.DurationSymbols_hi_Latn_IN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hr_BA = DurationSymbols.DurationSymbols_hr;
+export let DurationSymbols_hr_BA = DurationSymbols.DurationSymbols_hr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hr_HR = DurationSymbols.DurationSymbols_hr;
+export let DurationSymbols_hr_HR = DurationSymbols.DurationSymbols_hr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hsb =  {
+export let DurationSymbols_hsb = {
   DAY: {
     LONG: "one{# dźeń}two{# dnjej}few{# dny}other{# dnjow}",
     SHORT: "one{# dź.}two{# dn.}few{# dn.}other{# dn.}",
@@ -7187,16 +7187,16 @@ exports.DurationSymbols_hsb =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hsb_DE = exports.DurationSymbols_hsb;
+export let DurationSymbols_hsb_DE = DurationSymbols_hsb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hu_HU = DurationSymbols.DurationSymbols_hu;
+export let DurationSymbols_hu_HU = DurationSymbols.DurationSymbols_hu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_hy_AM = DurationSymbols.DurationSymbols_hy;
+export let DurationSymbols_hy_AM = DurationSymbols.DurationSymbols_hy;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ia =  {
+export let DurationSymbols_ia = {
   DAY: {
     LONG: "one{# die}other{# dies}",
     SHORT: "one{# die}other{# dies}",
@@ -7235,13 +7235,13 @@ exports.DurationSymbols_ia =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ia_001 = exports.DurationSymbols_ia;
+export let DurationSymbols_ia_001 = DurationSymbols_ia;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_id_ID = DurationSymbols.DurationSymbols_id;
+export let DurationSymbols_id_ID = DurationSymbols.DurationSymbols_id;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ig =  {
+export let DurationSymbols_ig = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7280,10 +7280,10 @@ exports.DurationSymbols_ig =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ig_NG = exports.DurationSymbols_ig;
+export let DurationSymbols_ig_NG = DurationSymbols_ig;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ii =  {
+export let DurationSymbols_ii = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7322,28 +7322,28 @@ exports.DurationSymbols_ii =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ii_CN = exports.DurationSymbols_ii;
+export let DurationSymbols_ii_CN = DurationSymbols_ii;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_is_IS = DurationSymbols.DurationSymbols_is;
+export let DurationSymbols_is_IS = DurationSymbols.DurationSymbols_is;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_it_CH = DurationSymbols.DurationSymbols_it;
+export let DurationSymbols_it_CH = DurationSymbols.DurationSymbols_it;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_it_IT = DurationSymbols.DurationSymbols_it;
+export let DurationSymbols_it_IT = DurationSymbols.DurationSymbols_it;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_it_SM = DurationSymbols.DurationSymbols_it;
+export let DurationSymbols_it_SM = DurationSymbols.DurationSymbols_it;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_it_VA = DurationSymbols.DurationSymbols_it;
+export let DurationSymbols_it_VA = DurationSymbols.DurationSymbols_it;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ja_JP = DurationSymbols.DurationSymbols_ja;
+export let DurationSymbols_ja_JP = DurationSymbols.DurationSymbols_ja;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_jgo =  {
+export let DurationSymbols_jgo = {
   DAY: {
     LONG: "one{# lɛ́Ꞌ}other{# lɛ́Ꞌ}",
     SHORT: "other{# d}",
@@ -7382,10 +7382,10 @@ exports.DurationSymbols_jgo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_jgo_CM = exports.DurationSymbols_jgo;
+export let DurationSymbols_jgo_CM = DurationSymbols_jgo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_jmc =  {
+export let DurationSymbols_jmc = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7424,10 +7424,10 @@ exports.DurationSymbols_jmc =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_jmc_TZ = exports.DurationSymbols_jmc;
+export let DurationSymbols_jmc_TZ = DurationSymbols_jmc;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_jv =  {
+export let DurationSymbols_jv = {
   DAY: {
     LONG: "other{# dina}",
     SHORT: "other{# dina}",
@@ -7466,13 +7466,13 @@ exports.DurationSymbols_jv =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_jv_ID = exports.DurationSymbols_jv;
+export let DurationSymbols_jv_ID = DurationSymbols_jv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ka_GE = DurationSymbols.DurationSymbols_ka;
+export let DurationSymbols_ka_GE = DurationSymbols.DurationSymbols_ka;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kab =  {
+export let DurationSymbols_kab = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7511,10 +7511,10 @@ exports.DurationSymbols_kab =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kab_DZ = exports.DurationSymbols_kab;
+export let DurationSymbols_kab_DZ = DurationSymbols_kab;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kam =  {
+export let DurationSymbols_kam = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7553,10 +7553,10 @@ exports.DurationSymbols_kam =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kam_KE = exports.DurationSymbols_kam;
+export let DurationSymbols_kam_KE = DurationSymbols_kam;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kde =  {
+export let DurationSymbols_kde = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7595,10 +7595,10 @@ exports.DurationSymbols_kde =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kde_TZ = exports.DurationSymbols_kde;
+export let DurationSymbols_kde_TZ = DurationSymbols_kde;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kea =  {
+export let DurationSymbols_kea = {
   DAY: {
     LONG: "other{# dia}",
     SHORT: "other{# dia}",
@@ -7637,10 +7637,10 @@ exports.DurationSymbols_kea =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kea_CV = exports.DurationSymbols_kea;
+export let DurationSymbols_kea_CV = DurationSymbols_kea;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kgp =  {
+export let DurationSymbols_kgp = {
   DAY: {
     LONG: "one{kurã #}other{kurã #}",
     SHORT: "one{# kurã}other{# kurã ag}",
@@ -7679,10 +7679,10 @@ exports.DurationSymbols_kgp =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kgp_BR = exports.DurationSymbols_kgp;
+export let DurationSymbols_kgp_BR = DurationSymbols_kgp;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_khq =  {
+export let DurationSymbols_khq = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7721,10 +7721,10 @@ exports.DurationSymbols_khq =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_khq_ML = exports.DurationSymbols_khq;
+export let DurationSymbols_khq_ML = DurationSymbols_khq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ki =  {
+export let DurationSymbols_ki = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7763,13 +7763,13 @@ exports.DurationSymbols_ki =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ki_KE = exports.DurationSymbols_ki;
+export let DurationSymbols_ki_KE = DurationSymbols_ki;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kk_KZ = DurationSymbols.DurationSymbols_kk;
+export let DurationSymbols_kk_KZ = DurationSymbols.DurationSymbols_kk;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kkj =  {
+export let DurationSymbols_kkj = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7808,10 +7808,10 @@ exports.DurationSymbols_kkj =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kkj_CM = exports.DurationSymbols_kkj;
+export let DurationSymbols_kkj_CM = DurationSymbols_kkj;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kl =  {
+export let DurationSymbols_kl = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7850,10 +7850,10 @@ exports.DurationSymbols_kl =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kl_GL = exports.DurationSymbols_kl;
+export let DurationSymbols_kl_GL = DurationSymbols_kl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kln =  {
+export let DurationSymbols_kln = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -7892,22 +7892,22 @@ exports.DurationSymbols_kln =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kln_KE = exports.DurationSymbols_kln;
+export let DurationSymbols_kln_KE = DurationSymbols_kln;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_km_KH = DurationSymbols.DurationSymbols_km;
+export let DurationSymbols_km_KH = DurationSymbols.DurationSymbols_km;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kn_IN = DurationSymbols.DurationSymbols_kn;
+export let DurationSymbols_kn_IN = DurationSymbols.DurationSymbols_kn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ko_KP = DurationSymbols.DurationSymbols_ko;
+export let DurationSymbols_ko_KP = DurationSymbols.DurationSymbols_ko;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ko_KR = DurationSymbols.DurationSymbols_ko;
+export let DurationSymbols_ko_KR = DurationSymbols.DurationSymbols_ko;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kok =  {
+export let DurationSymbols_kok = {
   DAY: {
     LONG: "other{# दीस}",
     SHORT: "other{# दीस}",
@@ -7946,10 +7946,10 @@ exports.DurationSymbols_kok =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kok_IN = exports.DurationSymbols_kok;
+export let DurationSymbols_kok_IN = DurationSymbols_kok;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ks =  {
+export let DurationSymbols_ks = {
   DAY: {
     LONG: "one{# دۄہ}other{# دۄہ}",
     SHORT: "other{# d}",
@@ -7988,13 +7988,13 @@ exports.DurationSymbols_ks =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ks_Arab = exports.DurationSymbols_ks;
+export let DurationSymbols_ks_Arab = DurationSymbols_ks;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ks_Arab_IN = exports.DurationSymbols_ks;
+export let DurationSymbols_ks_Arab_IN = DurationSymbols_ks;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ks_Deva =  {
+export let DurationSymbols_ks_Deva = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8033,7 +8033,7 @@ exports.DurationSymbols_ks_Deva =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ks_Deva_IN =  {
+export let DurationSymbols_ks_Deva_IN = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8072,7 +8072,7 @@ exports.DurationSymbols_ks_Deva_IN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ksb =  {
+export let DurationSymbols_ksb = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8111,10 +8111,10 @@ exports.DurationSymbols_ksb =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ksb_TZ = exports.DurationSymbols_ksb;
+export let DurationSymbols_ksb_TZ = DurationSymbols_ksb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ksf =  {
+export let DurationSymbols_ksf = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8153,10 +8153,10 @@ exports.DurationSymbols_ksf =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ksf_CM = exports.DurationSymbols_ksf;
+export let DurationSymbols_ksf_CM = DurationSymbols_ksf;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ksh =  {
+export let DurationSymbols_ksh = {
   DAY: {
     LONG: "zero{# Dääsch}one{# Dääsch}other{# Dääsch}",
     SHORT: "zero{# d}one{# d}other{# d}",
@@ -8195,10 +8195,10 @@ exports.DurationSymbols_ksh =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ksh_DE = exports.DurationSymbols_ksh;
+export let DurationSymbols_ksh_DE = DurationSymbols_ksh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ku =  {
+export let DurationSymbols_ku = {
   DAY: {
     LONG: "one{# roj}other{# roj}",
     SHORT: "one{# roj}other{# roj}",
@@ -8237,10 +8237,10 @@ exports.DurationSymbols_ku =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ku_TR = exports.DurationSymbols_ku;
+export let DurationSymbols_ku_TR = DurationSymbols_ku;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kw =  {
+export let DurationSymbols_kw = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8279,13 +8279,13 @@ exports.DurationSymbols_kw =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_kw_GB = exports.DurationSymbols_kw;
+export let DurationSymbols_kw_GB = DurationSymbols_kw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ky_KG = DurationSymbols.DurationSymbols_ky;
+export let DurationSymbols_ky_KG = DurationSymbols.DurationSymbols_ky;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lag =  {
+export let DurationSymbols_lag = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8324,10 +8324,10 @@ exports.DurationSymbols_lag =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lag_TZ = exports.DurationSymbols_lag;
+export let DurationSymbols_lag_TZ = DurationSymbols_lag;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lb =  {
+export let DurationSymbols_lb = {
   DAY: {
     LONG: "one{# Dag}other{# Deeg}",
     SHORT: "one{# D}other{# D}",
@@ -8366,10 +8366,10 @@ exports.DurationSymbols_lb =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lb_LU = exports.DurationSymbols_lb;
+export let DurationSymbols_lb_LU = DurationSymbols_lb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lg =  {
+export let DurationSymbols_lg = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8408,10 +8408,10 @@ exports.DurationSymbols_lg =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lg_UG = exports.DurationSymbols_lg;
+export let DurationSymbols_lg_UG = DurationSymbols_lg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lkt =  {
+export let DurationSymbols_lkt = {
   DAY: {
     LONG: "other{#-čháŋ}",
     SHORT: "other{#-čháŋ}",
@@ -8450,25 +8450,25 @@ exports.DurationSymbols_lkt =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lkt_US = exports.DurationSymbols_lkt;
+export let DurationSymbols_lkt_US = DurationSymbols_lkt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ln_AO = DurationSymbols.DurationSymbols_ln;
+export let DurationSymbols_ln_AO = DurationSymbols.DurationSymbols_ln;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ln_CD = DurationSymbols.DurationSymbols_ln;
+export let DurationSymbols_ln_CD = DurationSymbols.DurationSymbols_ln;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ln_CF = DurationSymbols.DurationSymbols_ln;
+export let DurationSymbols_ln_CF = DurationSymbols.DurationSymbols_ln;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ln_CG = DurationSymbols.DurationSymbols_ln;
+export let DurationSymbols_ln_CG = DurationSymbols.DurationSymbols_ln;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lo_LA = DurationSymbols.DurationSymbols_lo;
+export let DurationSymbols_lo_LA = DurationSymbols.DurationSymbols_lo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lrc =  {
+export let DurationSymbols_lrc = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8507,16 +8507,16 @@ exports.DurationSymbols_lrc =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lrc_IQ = exports.DurationSymbols_lrc;
+export let DurationSymbols_lrc_IQ = DurationSymbols_lrc;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lrc_IR = exports.DurationSymbols_lrc;
+export let DurationSymbols_lrc_IR = DurationSymbols_lrc;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lt_LT = DurationSymbols.DurationSymbols_lt;
+export let DurationSymbols_lt_LT = DurationSymbols.DurationSymbols_lt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lu =  {
+export let DurationSymbols_lu = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8555,10 +8555,10 @@ exports.DurationSymbols_lu =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lu_CD = exports.DurationSymbols_lu;
+export let DurationSymbols_lu_CD = DurationSymbols_lu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_luo =  {
+export let DurationSymbols_luo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8597,10 +8597,10 @@ exports.DurationSymbols_luo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_luo_KE = exports.DurationSymbols_luo;
+export let DurationSymbols_luo_KE = DurationSymbols_luo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_luy =  {
+export let DurationSymbols_luy = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8639,13 +8639,13 @@ exports.DurationSymbols_luy =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_luy_KE = exports.DurationSymbols_luy;
+export let DurationSymbols_luy_KE = DurationSymbols_luy;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_lv_LV = DurationSymbols.DurationSymbols_lv;
+export let DurationSymbols_lv_LV = DurationSymbols.DurationSymbols_lv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mai =  {
+export let DurationSymbols_mai = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8684,10 +8684,10 @@ exports.DurationSymbols_mai =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mai_IN = exports.DurationSymbols_mai;
+export let DurationSymbols_mai_IN = DurationSymbols_mai;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mas =  {
+export let DurationSymbols_mas = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8726,13 +8726,13 @@ exports.DurationSymbols_mas =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mas_KE = exports.DurationSymbols_mas;
+export let DurationSymbols_mas_KE = DurationSymbols_mas;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mas_TZ = exports.DurationSymbols_mas;
+export let DurationSymbols_mas_TZ = DurationSymbols_mas;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mer =  {
+export let DurationSymbols_mer = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8771,10 +8771,10 @@ exports.DurationSymbols_mer =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mer_KE = exports.DurationSymbols_mer;
+export let DurationSymbols_mer_KE = DurationSymbols_mer;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mfe =  {
+export let DurationSymbols_mfe = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8813,10 +8813,10 @@ exports.DurationSymbols_mfe =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mfe_MU = exports.DurationSymbols_mfe;
+export let DurationSymbols_mfe_MU = DurationSymbols_mfe;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mg =  {
+export let DurationSymbols_mg = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8855,10 +8855,10 @@ exports.DurationSymbols_mg =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mg_MG = exports.DurationSymbols_mg;
+export let DurationSymbols_mg_MG = DurationSymbols_mg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mgh =  {
+export let DurationSymbols_mgh = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8897,10 +8897,10 @@ exports.DurationSymbols_mgh =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mgh_MZ = exports.DurationSymbols_mgh;
+export let DurationSymbols_mgh_MZ = DurationSymbols_mgh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mgo =  {
+export let DurationSymbols_mgo = {
   DAY: {
     LONG: "one{# d}other{# d}",
     SHORT: "other{# d}",
@@ -8939,10 +8939,10 @@ exports.DurationSymbols_mgo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mgo_CM = exports.DurationSymbols_mgo;
+export let DurationSymbols_mgo_CM = DurationSymbols_mgo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mi =  {
+export let DurationSymbols_mi = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -8981,19 +8981,19 @@ exports.DurationSymbols_mi =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mi_NZ = exports.DurationSymbols_mi;
+export let DurationSymbols_mi_NZ = DurationSymbols_mi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mk_MK = DurationSymbols.DurationSymbols_mk;
+export let DurationSymbols_mk_MK = DurationSymbols.DurationSymbols_mk;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ml_IN = DurationSymbols.DurationSymbols_ml;
+export let DurationSymbols_ml_IN = DurationSymbols.DurationSymbols_ml;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mn_MN = DurationSymbols.DurationSymbols_mn;
+export let DurationSymbols_mn_MN = DurationSymbols.DurationSymbols_mn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mni =  {
+export let DurationSymbols_mni = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9032,31 +9032,31 @@ exports.DurationSymbols_mni =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mni_Beng = exports.DurationSymbols_mni;
+export let DurationSymbols_mni_Beng = DurationSymbols_mni;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mni_Beng_IN = exports.DurationSymbols_mni;
+export let DurationSymbols_mni_Beng_IN = DurationSymbols_mni;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mr_IN = DurationSymbols.DurationSymbols_mr;
+export let DurationSymbols_mr_IN = DurationSymbols.DurationSymbols_mr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ms_BN = DurationSymbols.DurationSymbols_ms;
+export let DurationSymbols_ms_BN = DurationSymbols.DurationSymbols_ms;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ms_ID = DurationSymbols.DurationSymbols_ms;
+export let DurationSymbols_ms_ID = DurationSymbols.DurationSymbols_ms;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ms_MY = DurationSymbols.DurationSymbols_ms;
+export let DurationSymbols_ms_MY = DurationSymbols.DurationSymbols_ms;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ms_SG = DurationSymbols.DurationSymbols_ms;
+export let DurationSymbols_ms_SG = DurationSymbols.DurationSymbols_ms;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mt_MT = DurationSymbols.DurationSymbols_mt;
+export let DurationSymbols_mt_MT = DurationSymbols.DurationSymbols_mt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mua =  {
+export let DurationSymbols_mua = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9095,13 +9095,13 @@ exports.DurationSymbols_mua =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mua_CM = exports.DurationSymbols_mua;
+export let DurationSymbols_mua_CM = DurationSymbols_mua;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_my_MM = DurationSymbols.DurationSymbols_my;
+export let DurationSymbols_my_MM = DurationSymbols.DurationSymbols_my;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mzn =  {
+export let DurationSymbols_mzn = {
   DAY: {
     LONG: "other{# روز}",
     SHORT: "other{# روز}",
@@ -9140,10 +9140,10 @@ exports.DurationSymbols_mzn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_mzn_IR = exports.DurationSymbols_mzn;
+export let DurationSymbols_mzn_IR = DurationSymbols_mzn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_naq =  {
+export let DurationSymbols_naq = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9182,16 +9182,16 @@ exports.DurationSymbols_naq =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_naq_NA = exports.DurationSymbols_naq;
+export let DurationSymbols_naq_NA = DurationSymbols_naq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nb_NO = DurationSymbols.DurationSymbols_nb;
+export let DurationSymbols_nb_NO = DurationSymbols.DurationSymbols_nb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nb_SJ = DurationSymbols.DurationSymbols_nb;
+export let DurationSymbols_nb_SJ = DurationSymbols.DurationSymbols_nb;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nd =  {
+export let DurationSymbols_nd = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9230,37 +9230,37 @@ exports.DurationSymbols_nd =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nd_ZW = exports.DurationSymbols_nd;
+export let DurationSymbols_nd_ZW = DurationSymbols_nd;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ne_IN = DurationSymbols.DurationSymbols_ne;
+export let DurationSymbols_ne_IN = DurationSymbols.DurationSymbols_ne;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ne_NP = DurationSymbols.DurationSymbols_ne;
+export let DurationSymbols_ne_NP = DurationSymbols.DurationSymbols_ne;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_AW = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_AW = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_BE = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_BE = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_BQ = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_BQ = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_CW = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_CW = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_NL = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_NL = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_SR = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_SR = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nl_SX = DurationSymbols.DurationSymbols_nl;
+export let DurationSymbols_nl_SX = DurationSymbols.DurationSymbols_nl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nmg =  {
+export let DurationSymbols_nmg = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9299,10 +9299,10 @@ exports.DurationSymbols_nmg =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nmg_CM = exports.DurationSymbols_nmg;
+export let DurationSymbols_nmg_CM = DurationSymbols_nmg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nn =  {
+export let DurationSymbols_nn = {
   DAY: {
     LONG: "one{# døgn}other{# døgn}",
     SHORT: "one{# d}other{# d}",
@@ -9341,10 +9341,10 @@ exports.DurationSymbols_nn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nn_NO = exports.DurationSymbols_nn;
+export let DurationSymbols_nn_NO = DurationSymbols_nn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nnh =  {
+export let DurationSymbols_nnh = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9383,10 +9383,10 @@ exports.DurationSymbols_nnh =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nnh_CM = exports.DurationSymbols_nnh;
+export let DurationSymbols_nnh_CM = DurationSymbols_nnh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nus =  {
+export let DurationSymbols_nus = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9425,10 +9425,10 @@ exports.DurationSymbols_nus =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nus_SS = exports.DurationSymbols_nus;
+export let DurationSymbols_nus_SS = DurationSymbols_nus;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nyn =  {
+export let DurationSymbols_nyn = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9467,10 +9467,10 @@ exports.DurationSymbols_nyn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_nyn_UG = exports.DurationSymbols_nyn;
+export let DurationSymbols_nyn_UG = DurationSymbols_nyn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_om =  {
+export let DurationSymbols_om = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9509,16 +9509,16 @@ exports.DurationSymbols_om =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_om_ET = exports.DurationSymbols_om;
+export let DurationSymbols_om_ET = DurationSymbols_om;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_om_KE = exports.DurationSymbols_om;
+export let DurationSymbols_om_KE = DurationSymbols_om;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_or_IN = DurationSymbols.DurationSymbols_or;
+export let DurationSymbols_or_IN = DurationSymbols.DurationSymbols_or;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_os =  {
+export let DurationSymbols_os = {
   DAY: {
     LONG: "one{# бон}other{# боны}",
     SHORT: "one{# бон}other{# боны}",
@@ -9557,13 +9557,13 @@ exports.DurationSymbols_os =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_os_GE = exports.DurationSymbols_os;
+export let DurationSymbols_os_GE = DurationSymbols_os;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_os_RU = exports.DurationSymbols_os;
+export let DurationSymbols_os_RU = DurationSymbols_os;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pa_Arab =  {
+export let DurationSymbols_pa_Arab = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9602,7 +9602,7 @@ exports.DurationSymbols_pa_Arab =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pa_Arab_PK =  {
+export let DurationSymbols_pa_Arab_PK = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9641,13 +9641,13 @@ exports.DurationSymbols_pa_Arab_PK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pa_Guru = DurationSymbols.DurationSymbols_pa;
+export let DurationSymbols_pa_Guru = DurationSymbols.DurationSymbols_pa;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pa_Guru_IN = DurationSymbols.DurationSymbols_pa;
+export let DurationSymbols_pa_Guru_IN = DurationSymbols.DurationSymbols_pa;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pcm =  {
+export let DurationSymbols_pcm = {
   DAY: {
     LONG: "one{# Dè}other{# Dè}",
     SHORT: "one{# dè}other{# dez}",
@@ -9686,13 +9686,13 @@ exports.DurationSymbols_pcm =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pcm_NG = exports.DurationSymbols_pcm;
+export let DurationSymbols_pcm_NG = DurationSymbols_pcm;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pl_PL = DurationSymbols.DurationSymbols_pl;
+export let DurationSymbols_pl_PL = DurationSymbols.DurationSymbols_pl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ps =  {
+export let DurationSymbols_ps = {
   DAY: {
     LONG: "one{# ورځ}other{# ورځې}",
     SHORT: "one{# ورځ}other{# ورځې}",
@@ -9731,10 +9731,10 @@ exports.DurationSymbols_ps =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ps_AF = exports.DurationSymbols_ps;
+export let DurationSymbols_ps_AF = DurationSymbols_ps;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ps_PK =  {
+export let DurationSymbols_ps_PK = {
   DAY: {
     LONG: "one{# ورځ}other{# ورځے}",
     SHORT: "one{# ورځ}other{# ورځے}",
@@ -9773,37 +9773,37 @@ exports.DurationSymbols_ps_PK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_AO = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_AO = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_CH = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_CH = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_CV = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_CV = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_GQ = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_GQ = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_GW = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_GW = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_LU = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_LU = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_MO = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_MO = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_MZ = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_MZ = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_ST = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_ST = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_pt_TL = DurationSymbols.DurationSymbols_pt;
+export let DurationSymbols_pt_TL = DurationSymbols.DurationSymbols_pt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_qu =  {
+export let DurationSymbols_qu = {
   DAY: {
     LONG: "other{# punchaw}",
     SHORT: "other{# d}",
@@ -9842,16 +9842,16 @@ exports.DurationSymbols_qu =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_qu_BO = exports.DurationSymbols_qu;
+export let DurationSymbols_qu_BO = DurationSymbols_qu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_qu_EC = exports.DurationSymbols_qu;
+export let DurationSymbols_qu_EC = DurationSymbols_qu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_qu_PE = exports.DurationSymbols_qu;
+export let DurationSymbols_qu_PE = DurationSymbols_qu;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_raj =  {
+export let DurationSymbols_raj = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9890,10 +9890,10 @@ exports.DurationSymbols_raj =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_raj_IN = exports.DurationSymbols_raj;
+export let DurationSymbols_raj_IN = DurationSymbols_raj;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rm =  {
+export let DurationSymbols_rm = {
   DAY: {
     LONG: "one{# di}other{# dis}",
     SHORT: "one{# di}other{# dis}",
@@ -9932,10 +9932,10 @@ exports.DurationSymbols_rm =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rm_CH = exports.DurationSymbols_rm;
+export let DurationSymbols_rm_CH = DurationSymbols_rm;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rn =  {
+export let DurationSymbols_rn = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -9974,10 +9974,10 @@ exports.DurationSymbols_rn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rn_BI = exports.DurationSymbols_rn;
+export let DurationSymbols_rn_BI = DurationSymbols_rn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ro_MD =  {
+export let DurationSymbols_ro_MD = {
   DAY: {
     LONG: "one{# zi}few{# zile}other{# de zile}",
     SHORT: "one{# zi}few{# zile}other{# zile}",
@@ -10016,10 +10016,10 @@ exports.DurationSymbols_ro_MD =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ro_RO = DurationSymbols.DurationSymbols_ro;
+export let DurationSymbols_ro_RO = DurationSymbols.DurationSymbols_ro;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rof =  {
+export let DurationSymbols_rof = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10058,28 +10058,28 @@ exports.DurationSymbols_rof =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rof_TZ = exports.DurationSymbols_rof;
+export let DurationSymbols_rof_TZ = DurationSymbols_rof;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ru_BY = DurationSymbols.DurationSymbols_ru;
+export let DurationSymbols_ru_BY = DurationSymbols.DurationSymbols_ru;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ru_KG = DurationSymbols.DurationSymbols_ru;
+export let DurationSymbols_ru_KG = DurationSymbols.DurationSymbols_ru;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ru_KZ = DurationSymbols.DurationSymbols_ru;
+export let DurationSymbols_ru_KZ = DurationSymbols.DurationSymbols_ru;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ru_MD = DurationSymbols.DurationSymbols_ru;
+export let DurationSymbols_ru_MD = DurationSymbols.DurationSymbols_ru;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ru_RU = DurationSymbols.DurationSymbols_ru;
+export let DurationSymbols_ru_RU = DurationSymbols.DurationSymbols_ru;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ru_UA = DurationSymbols.DurationSymbols_ru;
+export let DurationSymbols_ru_UA = DurationSymbols.DurationSymbols_ru;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rw =  {
+export let DurationSymbols_rw = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10118,10 +10118,10 @@ exports.DurationSymbols_rw =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rw_RW = exports.DurationSymbols_rw;
+export let DurationSymbols_rw_RW = DurationSymbols_rw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rwk =  {
+export let DurationSymbols_rwk = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10160,10 +10160,10 @@ exports.DurationSymbols_rwk =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_rwk_TZ = exports.DurationSymbols_rwk;
+export let DurationSymbols_rwk_TZ = DurationSymbols_rwk;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sa =  {
+export let DurationSymbols_sa = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10202,10 +10202,10 @@ exports.DurationSymbols_sa =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sa_IN = exports.DurationSymbols_sa;
+export let DurationSymbols_sa_IN = DurationSymbols_sa;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sah =  {
+export let DurationSymbols_sah = {
   DAY: {
     LONG: "other{# күн}",
     SHORT: "other{# күн}",
@@ -10244,10 +10244,10 @@ exports.DurationSymbols_sah =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sah_RU = exports.DurationSymbols_sah;
+export let DurationSymbols_sah_RU = DurationSymbols_sah;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_saq =  {
+export let DurationSymbols_saq = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10286,10 +10286,10 @@ exports.DurationSymbols_saq =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_saq_KE = exports.DurationSymbols_saq;
+export let DurationSymbols_saq_KE = DurationSymbols_saq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sat =  {
+export let DurationSymbols_sat = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10328,13 +10328,13 @@ exports.DurationSymbols_sat =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sat_Olck = exports.DurationSymbols_sat;
+export let DurationSymbols_sat_Olck = DurationSymbols_sat;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sat_Olck_IN = exports.DurationSymbols_sat;
+export let DurationSymbols_sat_Olck_IN = DurationSymbols_sat;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sbp =  {
+export let DurationSymbols_sbp = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10373,10 +10373,10 @@ exports.DurationSymbols_sbp =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sbp_TZ = exports.DurationSymbols_sbp;
+export let DurationSymbols_sbp_TZ = DurationSymbols_sbp;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sc =  {
+export let DurationSymbols_sc = {
   DAY: {
     LONG: "one{# die}other{# dies}",
     SHORT: "one{# die}other{# dies}",
@@ -10415,10 +10415,10 @@ exports.DurationSymbols_sc =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sc_IT = exports.DurationSymbols_sc;
+export let DurationSymbols_sc_IT = DurationSymbols_sc;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sd =  {
+export let DurationSymbols_sd = {
   DAY: {
     LONG: "one{# ڏينهن}other{# ڏينهن}",
     SHORT: "one{# ڏينهن}other{# ڏينهن}",
@@ -10457,13 +10457,13 @@ exports.DurationSymbols_sd =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sd_Arab = exports.DurationSymbols_sd;
+export let DurationSymbols_sd_Arab = DurationSymbols_sd;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sd_Arab_PK = exports.DurationSymbols_sd;
+export let DurationSymbols_sd_Arab_PK = DurationSymbols_sd;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sd_Deva =  {
+export let DurationSymbols_sd_Deva = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10502,7 +10502,7 @@ exports.DurationSymbols_sd_Deva =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sd_Deva_IN =  {
+export let DurationSymbols_sd_Deva_IN = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10541,7 +10541,7 @@ exports.DurationSymbols_sd_Deva_IN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_se =  {
+export let DurationSymbols_se = {
   DAY: {
     LONG: "one{# jándor}two{# jándora}other{# jándora}",
     SHORT: "one{# d}two{# d}other{# d}",
@@ -10580,16 +10580,16 @@ exports.DurationSymbols_se =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_se_FI = exports.DurationSymbols_se;
+export let DurationSymbols_se_FI = DurationSymbols_se;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_se_NO = exports.DurationSymbols_se;
+export let DurationSymbols_se_NO = DurationSymbols_se;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_se_SE = exports.DurationSymbols_se;
+export let DurationSymbols_se_SE = DurationSymbols_se;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_seh =  {
+export let DurationSymbols_seh = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10628,10 +10628,10 @@ exports.DurationSymbols_seh =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_seh_MZ = exports.DurationSymbols_seh;
+export let DurationSymbols_seh_MZ = DurationSymbols_seh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ses =  {
+export let DurationSymbols_ses = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10670,10 +10670,10 @@ exports.DurationSymbols_ses =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ses_ML = exports.DurationSymbols_ses;
+export let DurationSymbols_ses_ML = DurationSymbols_ses;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sg =  {
+export let DurationSymbols_sg = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10712,10 +10712,10 @@ exports.DurationSymbols_sg =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sg_CF = exports.DurationSymbols_sg;
+export let DurationSymbols_sg_CF = DurationSymbols_sg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_shi =  {
+export let DurationSymbols_shi = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10754,28 +10754,28 @@ exports.DurationSymbols_shi =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_shi_Latn = exports.DurationSymbols_shi;
+export let DurationSymbols_shi_Latn = DurationSymbols_shi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_shi_Latn_MA = exports.DurationSymbols_shi;
+export let DurationSymbols_shi_Latn_MA = DurationSymbols_shi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_shi_Tfng = exports.DurationSymbols_shi;
+export let DurationSymbols_shi_Tfng = DurationSymbols_shi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_shi_Tfng_MA = exports.DurationSymbols_shi;
+export let DurationSymbols_shi_Tfng_MA = DurationSymbols_shi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_si_LK = DurationSymbols.DurationSymbols_si;
+export let DurationSymbols_si_LK = DurationSymbols.DurationSymbols_si;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sk_SK = DurationSymbols.DurationSymbols_sk;
+export let DurationSymbols_sk_SK = DurationSymbols.DurationSymbols_sk;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sl_SI = DurationSymbols.DurationSymbols_sl;
+export let DurationSymbols_sl_SI = DurationSymbols.DurationSymbols_sl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_smn =  {
+export let DurationSymbols_smn = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10814,10 +10814,10 @@ exports.DurationSymbols_smn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_smn_FI = exports.DurationSymbols_smn;
+export let DurationSymbols_smn_FI = DurationSymbols_smn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sn =  {
+export let DurationSymbols_sn = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -10856,10 +10856,10 @@ exports.DurationSymbols_sn =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sn_ZW = exports.DurationSymbols_sn;
+export let DurationSymbols_sn_ZW = DurationSymbols_sn;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_so =  {
+export let DurationSymbols_so = {
   DAY: {
     LONG: "one{# maalin}other{# maalmood}",
     SHORT: "one{# mln}other{# mln}",
@@ -10898,31 +10898,31 @@ exports.DurationSymbols_so =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_so_DJ = exports.DurationSymbols_so;
+export let DurationSymbols_so_DJ = DurationSymbols_so;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_so_ET = exports.DurationSymbols_so;
+export let DurationSymbols_so_ET = DurationSymbols_so;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_so_KE = exports.DurationSymbols_so;
+export let DurationSymbols_so_KE = DurationSymbols_so;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_so_SO = exports.DurationSymbols_so;
+export let DurationSymbols_so_SO = DurationSymbols_so;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sq_AL = DurationSymbols.DurationSymbols_sq;
+export let DurationSymbols_sq_AL = DurationSymbols.DurationSymbols_sq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sq_MK = DurationSymbols.DurationSymbols_sq;
+export let DurationSymbols_sq_MK = DurationSymbols.DurationSymbols_sq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sq_XK = DurationSymbols.DurationSymbols_sq;
+export let DurationSymbols_sq_XK = DurationSymbols.DurationSymbols_sq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Cyrl = DurationSymbols.DurationSymbols_sr;
+export let DurationSymbols_sr_Cyrl = DurationSymbols.DurationSymbols_sr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Cyrl_BA =  {
+export let DurationSymbols_sr_Cyrl_BA = {
   DAY: {
     LONG: "one{# дан}few{# дана}other{# дана}",
     SHORT: "one{# дан}few{# дана}other{# дана}",
@@ -10961,7 +10961,7 @@ exports.DurationSymbols_sr_Cyrl_BA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Cyrl_ME =  {
+export let DurationSymbols_sr_Cyrl_ME = {
   DAY: {
     LONG: "one{# dan}few{# dana}other{# dana}",
     SHORT: "one{# dan}few{# dana}other{# dana}",
@@ -11000,13 +11000,13 @@ exports.DurationSymbols_sr_Cyrl_ME =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Cyrl_RS = DurationSymbols.DurationSymbols_sr;
+export let DurationSymbols_sr_Cyrl_RS = DurationSymbols.DurationSymbols_sr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Cyrl_XK = DurationSymbols.DurationSymbols_sr;
+export let DurationSymbols_sr_Cyrl_XK = DurationSymbols.DurationSymbols_sr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Latn_BA =  {
+export let DurationSymbols_sr_Latn_BA = {
   DAY: {
     LONG: "one{# dan}few{# dana}other{# dana}",
     SHORT: "one{# dan}few{# dana}other{# dana}",
@@ -11045,7 +11045,7 @@ exports.DurationSymbols_sr_Latn_BA =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Latn_ME =  {
+export let DurationSymbols_sr_Latn_ME = {
   DAY: {
     LONG: "one{# dan}few{# dana}other{# dana}",
     SHORT: "one{# dan}few{# dana}other{# dana}",
@@ -11084,7 +11084,7 @@ exports.DurationSymbols_sr_Latn_ME =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Latn_RS =  {
+export let DurationSymbols_sr_Latn_RS = {
   DAY: {
     LONG: "one{# dan}few{# dana}other{# dana}",
     SHORT: "one{# dan}few{# dana}other{# dana}",
@@ -11123,7 +11123,7 @@ exports.DurationSymbols_sr_Latn_RS =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sr_Latn_XK =  {
+export let DurationSymbols_sr_Latn_XK = {
   DAY: {
     LONG: "one{# dan}few{# dana}other{# dana}",
     SHORT: "one{# dan}few{# dana}other{# dana}",
@@ -11162,7 +11162,7 @@ exports.DurationSymbols_sr_Latn_XK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_su =  {
+export let DurationSymbols_su = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11201,49 +11201,49 @@ exports.DurationSymbols_su =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_su_Latn = exports.DurationSymbols_su;
+export let DurationSymbols_su_Latn = DurationSymbols_su;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_su_Latn_ID = exports.DurationSymbols_su;
+export let DurationSymbols_su_Latn_ID = DurationSymbols_su;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sv_AX = DurationSymbols.DurationSymbols_sv;
+export let DurationSymbols_sv_AX = DurationSymbols.DurationSymbols_sv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sv_FI = DurationSymbols.DurationSymbols_sv;
+export let DurationSymbols_sv_FI = DurationSymbols.DurationSymbols_sv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sv_SE = DurationSymbols.DurationSymbols_sv;
+export let DurationSymbols_sv_SE = DurationSymbols.DurationSymbols_sv;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sw_CD = DurationSymbols.DurationSymbols_sw;
+export let DurationSymbols_sw_CD = DurationSymbols.DurationSymbols_sw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sw_KE = DurationSymbols.DurationSymbols_sw;
+export let DurationSymbols_sw_KE = DurationSymbols.DurationSymbols_sw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sw_TZ = DurationSymbols.DurationSymbols_sw;
+export let DurationSymbols_sw_TZ = DurationSymbols.DurationSymbols_sw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_sw_UG = DurationSymbols.DurationSymbols_sw;
+export let DurationSymbols_sw_UG = DurationSymbols.DurationSymbols_sw;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ta_IN = DurationSymbols.DurationSymbols_ta;
+export let DurationSymbols_ta_IN = DurationSymbols.DurationSymbols_ta;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ta_LK = DurationSymbols.DurationSymbols_ta;
+export let DurationSymbols_ta_LK = DurationSymbols.DurationSymbols_ta;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ta_MY = DurationSymbols.DurationSymbols_ta;
+export let DurationSymbols_ta_MY = DurationSymbols.DurationSymbols_ta;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ta_SG = DurationSymbols.DurationSymbols_ta;
+export let DurationSymbols_ta_SG = DurationSymbols.DurationSymbols_ta;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_te_IN = DurationSymbols.DurationSymbols_te;
+export let DurationSymbols_te_IN = DurationSymbols.DurationSymbols_te;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_teo =  {
+export let DurationSymbols_teo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11282,13 +11282,13 @@ exports.DurationSymbols_teo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_teo_KE = exports.DurationSymbols_teo;
+export let DurationSymbols_teo_KE = DurationSymbols_teo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_teo_UG = exports.DurationSymbols_teo;
+export let DurationSymbols_teo_UG = DurationSymbols_teo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tg =  {
+export let DurationSymbols_tg = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11327,13 +11327,13 @@ exports.DurationSymbols_tg =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tg_TJ = exports.DurationSymbols_tg;
+export let DurationSymbols_tg_TJ = DurationSymbols_tg;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_th_TH = DurationSymbols.DurationSymbols_th;
+export let DurationSymbols_th_TH = DurationSymbols.DurationSymbols_th;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ti =  {
+export let DurationSymbols_ti = {
   DAY: {
     LONG: "one{# d}other{# d}",
     SHORT: "one{# d}other{# d}",
@@ -11372,13 +11372,13 @@ exports.DurationSymbols_ti =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ti_ER = exports.DurationSymbols_ti;
+export let DurationSymbols_ti_ER = DurationSymbols_ti;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ti_ET = exports.DurationSymbols_ti;
+export let DurationSymbols_ti_ET = DurationSymbols_ti;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tk =  {
+export let DurationSymbols_tk = {
   DAY: {
     LONG: "one{# gün}other{# gün}",
     SHORT: "one{# gün}other{# gün}",
@@ -11417,10 +11417,10 @@ exports.DurationSymbols_tk =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tk_TM = exports.DurationSymbols_tk;
+export let DurationSymbols_tk_TM = DurationSymbols_tk;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_to =  {
+export let DurationSymbols_to = {
   DAY: {
     LONG: "other{ʻaho ʻe #}",
     SHORT: "other{ʻa ʻe #}",
@@ -11459,16 +11459,16 @@ exports.DurationSymbols_to =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_to_TO = exports.DurationSymbols_to;
+export let DurationSymbols_to_TO = DurationSymbols_to;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tr_CY = DurationSymbols.DurationSymbols_tr;
+export let DurationSymbols_tr_CY = DurationSymbols.DurationSymbols_tr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tr_TR = DurationSymbols.DurationSymbols_tr;
+export let DurationSymbols_tr_TR = DurationSymbols.DurationSymbols_tr;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tt =  {
+export let DurationSymbols_tt = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11507,10 +11507,10 @@ exports.DurationSymbols_tt =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tt_RU = exports.DurationSymbols_tt;
+export let DurationSymbols_tt_RU = DurationSymbols_tt;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_twq =  {
+export let DurationSymbols_twq = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11549,10 +11549,10 @@ exports.DurationSymbols_twq =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_twq_NE = exports.DurationSymbols_twq;
+export let DurationSymbols_twq_NE = DurationSymbols_twq;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tzm =  {
+export let DurationSymbols_tzm = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11591,10 +11591,10 @@ exports.DurationSymbols_tzm =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_tzm_MA = exports.DurationSymbols_tzm;
+export let DurationSymbols_tzm_MA = DurationSymbols_tzm;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ug =  {
+export let DurationSymbols_ug = {
   DAY: {
     LONG: "one{# كۈن}other{# كۈن}",
     SHORT: "one{# كۈن}other{# كۈن}",
@@ -11633,19 +11633,19 @@ exports.DurationSymbols_ug =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ug_CN = exports.DurationSymbols_ug;
+export let DurationSymbols_ug_CN = DurationSymbols_ug;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uk_UA = DurationSymbols.DurationSymbols_uk;
+export let DurationSymbols_uk_UA = DurationSymbols.DurationSymbols_uk;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ur_IN = DurationSymbols.DurationSymbols_ur;
+export let DurationSymbols_ur_IN = DurationSymbols.DurationSymbols_ur;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_ur_PK = DurationSymbols.DurationSymbols_ur;
+export let DurationSymbols_ur_PK = DurationSymbols.DurationSymbols_ur;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uz_Arab =  {
+export let DurationSymbols_uz_Arab = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11684,7 +11684,7 @@ exports.DurationSymbols_uz_Arab =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uz_Arab_AF =  {
+export let DurationSymbols_uz_Arab_AF = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11723,7 +11723,7 @@ exports.DurationSymbols_uz_Arab_AF =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uz_Cyrl =  {
+export let DurationSymbols_uz_Cyrl = {
   DAY: {
     LONG: "one{# кун}other{# кун}",
     SHORT: "one{# кун}other{# кун}",
@@ -11762,7 +11762,7 @@ exports.DurationSymbols_uz_Cyrl =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uz_Cyrl_UZ =  {
+export let DurationSymbols_uz_Cyrl_UZ = {
   DAY: {
     LONG: "one{# кун}other{# кун}",
     SHORT: "one{# кун}other{# кун}",
@@ -11801,13 +11801,13 @@ exports.DurationSymbols_uz_Cyrl_UZ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uz_Latn = DurationSymbols.DurationSymbols_uz;
+export let DurationSymbols_uz_Latn = DurationSymbols.DurationSymbols_uz;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_uz_Latn_UZ = DurationSymbols.DurationSymbols_uz;
+export let DurationSymbols_uz_Latn_UZ = DurationSymbols.DurationSymbols_uz;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vai =  {
+export let DurationSymbols_vai = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11846,22 +11846,22 @@ exports.DurationSymbols_vai =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vai_Latn = exports.DurationSymbols_vai;
+export let DurationSymbols_vai_Latn = DurationSymbols_vai;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vai_Latn_LR = exports.DurationSymbols_vai;
+export let DurationSymbols_vai_Latn_LR = DurationSymbols_vai;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vai_Vaii = exports.DurationSymbols_vai;
+export let DurationSymbols_vai_Vaii = DurationSymbols_vai;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vai_Vaii_LR = exports.DurationSymbols_vai;
+export let DurationSymbols_vai_Vaii_LR = DurationSymbols_vai;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vi_VN = DurationSymbols.DurationSymbols_vi;
+export let DurationSymbols_vi_VN = DurationSymbols.DurationSymbols_vi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vun =  {
+export let DurationSymbols_vun = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11900,10 +11900,10 @@ exports.DurationSymbols_vun =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_vun_TZ = exports.DurationSymbols_vun;
+export let DurationSymbols_vun_TZ = DurationSymbols_vun;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_wae =  {
+export let DurationSymbols_wae = {
   DAY: {
     LONG: "one{# täg}other{# täg}",
     SHORT: "other{# d}",
@@ -11942,10 +11942,10 @@ exports.DurationSymbols_wae =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_wae_CH = exports.DurationSymbols_wae;
+export let DurationSymbols_wae_CH = DurationSymbols_wae;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_wo =  {
+export let DurationSymbols_wo = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -11984,10 +11984,10 @@ exports.DurationSymbols_wo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_wo_SN = exports.DurationSymbols_wo;
+export let DurationSymbols_wo_SN = DurationSymbols_wo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_xh =  {
+export let DurationSymbols_xh = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -12026,10 +12026,10 @@ exports.DurationSymbols_xh =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_xh_ZA = exports.DurationSymbols_xh;
+export let DurationSymbols_xh_ZA = DurationSymbols_xh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_xog =  {
+export let DurationSymbols_xog = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -12068,10 +12068,10 @@ exports.DurationSymbols_xog =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_xog_UG = exports.DurationSymbols_xog;
+export let DurationSymbols_xog_UG = DurationSymbols_xog;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yav =  {
+export let DurationSymbols_yav = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -12110,10 +12110,10 @@ exports.DurationSymbols_yav =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yav_CM = exports.DurationSymbols_yav;
+export let DurationSymbols_yav_CM = DurationSymbols_yav;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yi =  {
+export let DurationSymbols_yi = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -12152,10 +12152,10 @@ exports.DurationSymbols_yi =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yi_001 = exports.DurationSymbols_yi;
+export let DurationSymbols_yi_001 = DurationSymbols_yi;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yo =  {
+export let DurationSymbols_yo = {
   DAY: {
     LONG: "other{ọj #}",
     SHORT: "other{# ọj}",
@@ -12194,7 +12194,7 @@ exports.DurationSymbols_yo =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yo_BJ =  {
+export let DurationSymbols_yo_BJ = {
   DAY: {
     LONG: "other{ɔj #}",
     SHORT: "other{# ɔj}",
@@ -12233,10 +12233,10 @@ exports.DurationSymbols_yo_BJ =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yo_NG = exports.DurationSymbols_yo;
+export let DurationSymbols_yo_NG = DurationSymbols_yo;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yrl =  {
+export let DurationSymbols_yrl = {
   DAY: {
     LONG: "one{# ara}other{# ara-ita}",
     SHORT: "one{# ara}other{# ara}",
@@ -12275,16 +12275,16 @@ exports.DurationSymbols_yrl =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yrl_BR = exports.DurationSymbols_yrl;
+export let DurationSymbols_yrl_BR = DurationSymbols_yrl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yrl_CO = exports.DurationSymbols_yrl;
+export let DurationSymbols_yrl_CO = DurationSymbols_yrl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yrl_VE = exports.DurationSymbols_yrl;
+export let DurationSymbols_yrl_VE = DurationSymbols_yrl;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yue =  {
+export let DurationSymbols_yue = {
   DAY: {
     LONG: "other{# 天}",
     SHORT: "other{# 天}",
@@ -12323,7 +12323,7 @@ exports.DurationSymbols_yue =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yue_Hans =  {
+export let DurationSymbols_yue_Hans = {
   DAY: {
     LONG: "other{# 天}",
     SHORT: "other{# 天}",
@@ -12362,7 +12362,7 @@ exports.DurationSymbols_yue_Hans =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yue_Hans_CN =  {
+export let DurationSymbols_yue_Hans_CN = {
   DAY: {
     LONG: "other{# 天}",
     SHORT: "other{# 天}",
@@ -12401,13 +12401,13 @@ exports.DurationSymbols_yue_Hans_CN =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yue_Hant = exports.DurationSymbols_yue;
+export let DurationSymbols_yue_Hant = DurationSymbols_yue;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_yue_Hant_HK = exports.DurationSymbols_yue;
+export let DurationSymbols_yue_Hant_HK = DurationSymbols_yue;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zgh =  {
+export let DurationSymbols_zgh = {
   DAY: {
     LONG: "other{# d}",
     SHORT: "other{# d}",
@@ -12446,16 +12446,16 @@ exports.DurationSymbols_zgh =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zgh_MA = exports.DurationSymbols_zgh;
+export let DurationSymbols_zgh_MA = DurationSymbols_zgh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hans = DurationSymbols.DurationSymbols_zh;
+export let DurationSymbols_zh_Hans = DurationSymbols.DurationSymbols_zh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hans_CN = DurationSymbols.DurationSymbols_zh;
+export let DurationSymbols_zh_Hans_CN = DurationSymbols.DurationSymbols_zh;
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hans_HK =  {
+export let DurationSymbols_zh_Hans_HK = {
   DAY: {
     LONG: "other{#天}",
     SHORT: "other{#天}",
@@ -12494,7 +12494,7 @@ exports.DurationSymbols_zh_Hans_HK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hans_MO =  {
+export let DurationSymbols_zh_Hans_MO = {
   DAY: {
     LONG: "other{#天}",
     SHORT: "other{#天}",
@@ -12533,7 +12533,7 @@ exports.DurationSymbols_zh_Hans_MO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hans_SG =  {
+export let DurationSymbols_zh_Hans_SG = {
   DAY: {
     LONG: "other{#天}",
     SHORT: "other{#天}",
@@ -12572,7 +12572,7 @@ exports.DurationSymbols_zh_Hans_SG =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hant =  {
+export let DurationSymbols_zh_Hant = {
   DAY: {
     LONG: "other{# 天}",
     SHORT: "other{# 天}",
@@ -12611,7 +12611,7 @@ exports.DurationSymbols_zh_Hant =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hant_HK =  {
+export let DurationSymbols_zh_Hant_HK = {
   DAY: {
     LONG: "other{# 日}",
     SHORT: "other{# 日}",
@@ -12650,7 +12650,7 @@ exports.DurationSymbols_zh_Hant_HK =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hant_MO =  {
+export let DurationSymbols_zh_Hant_MO = {
   DAY: {
     LONG: "other{# 日}",
     SHORT: "other{# 日}",
@@ -12689,7 +12689,7 @@ exports.DurationSymbols_zh_Hant_MO =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zh_Hant_TW =  {
+export let DurationSymbols_zh_Hant_TW = {
   DAY: {
     LONG: "other{# 天}",
     SHORT: "other{# 天}",
@@ -12728,2704 +12728,2704 @@ exports.DurationSymbols_zh_Hant_TW =  {
 };
 
 /** @const {!DurationSymbolTypes.DurationSymbols} */
-exports.DurationSymbols_zu_ZA = DurationSymbols.DurationSymbols_zu;
+export let DurationSymbols_zu_ZA = DurationSymbols.DurationSymbols_zu;
 
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    defaultSymbols = exports.DurationSymbols_af_NA;
+    defaultSymbols = DurationSymbols_af_NA;
     break;
   case 'af_ZA':
   case 'af-ZA':
-    defaultSymbols = exports.DurationSymbols_af_ZA;
+    defaultSymbols = DurationSymbols_af_ZA;
     break;
   case 'agq':
-    defaultSymbols = exports.DurationSymbols_agq;
+    defaultSymbols = DurationSymbols_agq;
     break;
   case 'agq_CM':
   case 'agq-CM':
-    defaultSymbols = exports.DurationSymbols_agq_CM;
+    defaultSymbols = DurationSymbols_agq_CM;
     break;
   case 'ak':
-    defaultSymbols = exports.DurationSymbols_ak;
+    defaultSymbols = DurationSymbols_ak;
     break;
   case 'ak_GH':
   case 'ak-GH':
-    defaultSymbols = exports.DurationSymbols_ak_GH;
+    defaultSymbols = DurationSymbols_ak_GH;
     break;
   case 'am_ET':
   case 'am-ET':
-    defaultSymbols = exports.DurationSymbols_am_ET;
+    defaultSymbols = DurationSymbols_am_ET;
     break;
   case 'ar_001':
   case 'ar-001':
-    defaultSymbols = exports.DurationSymbols_ar_001;
+    defaultSymbols = DurationSymbols_ar_001;
     break;
   case 'ar_AE':
   case 'ar-AE':
-    defaultSymbols = exports.DurationSymbols_ar_AE;
+    defaultSymbols = DurationSymbols_ar_AE;
     break;
   case 'ar_BH':
   case 'ar-BH':
-    defaultSymbols = exports.DurationSymbols_ar_BH;
+    defaultSymbols = DurationSymbols_ar_BH;
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    defaultSymbols = exports.DurationSymbols_ar_DJ;
+    defaultSymbols = DurationSymbols_ar_DJ;
     break;
   case 'ar_EH':
   case 'ar-EH':
-    defaultSymbols = exports.DurationSymbols_ar_EH;
+    defaultSymbols = DurationSymbols_ar_EH;
     break;
   case 'ar_ER':
   case 'ar-ER':
-    defaultSymbols = exports.DurationSymbols_ar_ER;
+    defaultSymbols = DurationSymbols_ar_ER;
     break;
   case 'ar_IL':
   case 'ar-IL':
-    defaultSymbols = exports.DurationSymbols_ar_IL;
+    defaultSymbols = DurationSymbols_ar_IL;
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    defaultSymbols = exports.DurationSymbols_ar_IQ;
+    defaultSymbols = DurationSymbols_ar_IQ;
     break;
   case 'ar_JO':
   case 'ar-JO':
-    defaultSymbols = exports.DurationSymbols_ar_JO;
+    defaultSymbols = DurationSymbols_ar_JO;
     break;
   case 'ar_KM':
   case 'ar-KM':
-    defaultSymbols = exports.DurationSymbols_ar_KM;
+    defaultSymbols = DurationSymbols_ar_KM;
     break;
   case 'ar_KW':
   case 'ar-KW':
-    defaultSymbols = exports.DurationSymbols_ar_KW;
+    defaultSymbols = DurationSymbols_ar_KW;
     break;
   case 'ar_LB':
   case 'ar-LB':
-    defaultSymbols = exports.DurationSymbols_ar_LB;
+    defaultSymbols = DurationSymbols_ar_LB;
     break;
   case 'ar_LY':
   case 'ar-LY':
-    defaultSymbols = exports.DurationSymbols_ar_LY;
+    defaultSymbols = DurationSymbols_ar_LY;
     break;
   case 'ar_MA':
   case 'ar-MA':
-    defaultSymbols = exports.DurationSymbols_ar_MA;
+    defaultSymbols = DurationSymbols_ar_MA;
     break;
   case 'ar_MR':
   case 'ar-MR':
-    defaultSymbols = exports.DurationSymbols_ar_MR;
+    defaultSymbols = DurationSymbols_ar_MR;
     break;
   case 'ar_OM':
   case 'ar-OM':
-    defaultSymbols = exports.DurationSymbols_ar_OM;
+    defaultSymbols = DurationSymbols_ar_OM;
     break;
   case 'ar_PS':
   case 'ar-PS':
-    defaultSymbols = exports.DurationSymbols_ar_PS;
+    defaultSymbols = DurationSymbols_ar_PS;
     break;
   case 'ar_QA':
   case 'ar-QA':
-    defaultSymbols = exports.DurationSymbols_ar_QA;
+    defaultSymbols = DurationSymbols_ar_QA;
     break;
   case 'ar_SA':
   case 'ar-SA':
-    defaultSymbols = exports.DurationSymbols_ar_SA;
+    defaultSymbols = DurationSymbols_ar_SA;
     break;
   case 'ar_SD':
   case 'ar-SD':
-    defaultSymbols = exports.DurationSymbols_ar_SD;
+    defaultSymbols = DurationSymbols_ar_SD;
     break;
   case 'ar_SO':
   case 'ar-SO':
-    defaultSymbols = exports.DurationSymbols_ar_SO;
+    defaultSymbols = DurationSymbols_ar_SO;
     break;
   case 'ar_SS':
   case 'ar-SS':
-    defaultSymbols = exports.DurationSymbols_ar_SS;
+    defaultSymbols = DurationSymbols_ar_SS;
     break;
   case 'ar_SY':
   case 'ar-SY':
-    defaultSymbols = exports.DurationSymbols_ar_SY;
+    defaultSymbols = DurationSymbols_ar_SY;
     break;
   case 'ar_TD':
   case 'ar-TD':
-    defaultSymbols = exports.DurationSymbols_ar_TD;
+    defaultSymbols = DurationSymbols_ar_TD;
     break;
   case 'ar_TN':
   case 'ar-TN':
-    defaultSymbols = exports.DurationSymbols_ar_TN;
+    defaultSymbols = DurationSymbols_ar_TN;
     break;
   case 'ar_XB':
   case 'ar-XB':
-    defaultSymbols = exports.DurationSymbols_ar_XB;
+    defaultSymbols = DurationSymbols_ar_XB;
     break;
   case 'ar_YE':
   case 'ar-YE':
-    defaultSymbols = exports.DurationSymbols_ar_YE;
+    defaultSymbols = DurationSymbols_ar_YE;
     break;
   case 'as':
-    defaultSymbols = exports.DurationSymbols_as;
+    defaultSymbols = DurationSymbols_as;
     break;
   case 'as_IN':
   case 'as-IN':
-    defaultSymbols = exports.DurationSymbols_as_IN;
+    defaultSymbols = DurationSymbols_as_IN;
     break;
   case 'asa':
-    defaultSymbols = exports.DurationSymbols_asa;
+    defaultSymbols = DurationSymbols_asa;
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    defaultSymbols = exports.DurationSymbols_asa_TZ;
+    defaultSymbols = DurationSymbols_asa_TZ;
     break;
   case 'ast':
-    defaultSymbols = exports.DurationSymbols_ast;
+    defaultSymbols = DurationSymbols_ast;
     break;
   case 'ast_ES':
   case 'ast-ES':
-    defaultSymbols = exports.DurationSymbols_ast_ES;
+    defaultSymbols = DurationSymbols_ast_ES;
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    defaultSymbols = exports.DurationSymbols_az_Cyrl;
+    defaultSymbols = DurationSymbols_az_Cyrl;
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    defaultSymbols = exports.DurationSymbols_az_Cyrl_AZ;
+    defaultSymbols = DurationSymbols_az_Cyrl_AZ;
     break;
   case 'az_Latn':
   case 'az-Latn':
-    defaultSymbols = exports.DurationSymbols_az_Latn;
+    defaultSymbols = DurationSymbols_az_Latn;
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    defaultSymbols = exports.DurationSymbols_az_Latn_AZ;
+    defaultSymbols = DurationSymbols_az_Latn_AZ;
     break;
   case 'bas':
-    defaultSymbols = exports.DurationSymbols_bas;
+    defaultSymbols = DurationSymbols_bas;
     break;
   case 'bas_CM':
   case 'bas-CM':
-    defaultSymbols = exports.DurationSymbols_bas_CM;
+    defaultSymbols = DurationSymbols_bas_CM;
     break;
   case 'be_BY':
   case 'be-BY':
-    defaultSymbols = exports.DurationSymbols_be_BY;
+    defaultSymbols = DurationSymbols_be_BY;
     break;
   case 'bem':
-    defaultSymbols = exports.DurationSymbols_bem;
+    defaultSymbols = DurationSymbols_bem;
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    defaultSymbols = exports.DurationSymbols_bem_ZM;
+    defaultSymbols = DurationSymbols_bem_ZM;
     break;
   case 'bez':
-    defaultSymbols = exports.DurationSymbols_bez;
+    defaultSymbols = DurationSymbols_bez;
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    defaultSymbols = exports.DurationSymbols_bez_TZ;
+    defaultSymbols = DurationSymbols_bez_TZ;
     break;
   case 'bg_BG':
   case 'bg-BG':
-    defaultSymbols = exports.DurationSymbols_bg_BG;
+    defaultSymbols = DurationSymbols_bg_BG;
     break;
   case 'bgc':
-    defaultSymbols = exports.DurationSymbols_bgc;
+    defaultSymbols = DurationSymbols_bgc;
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    defaultSymbols = exports.DurationSymbols_bgc_IN;
+    defaultSymbols = DurationSymbols_bgc_IN;
     break;
   case 'bho':
-    defaultSymbols = exports.DurationSymbols_bho;
+    defaultSymbols = DurationSymbols_bho;
     break;
   case 'bho_IN':
   case 'bho-IN':
-    defaultSymbols = exports.DurationSymbols_bho_IN;
+    defaultSymbols = DurationSymbols_bho_IN;
     break;
   case 'bm':
-    defaultSymbols = exports.DurationSymbols_bm;
+    defaultSymbols = DurationSymbols_bm;
     break;
   case 'bm_ML':
   case 'bm-ML':
-    defaultSymbols = exports.DurationSymbols_bm_ML;
+    defaultSymbols = DurationSymbols_bm_ML;
     break;
   case 'bn_BD':
   case 'bn-BD':
-    defaultSymbols = exports.DurationSymbols_bn_BD;
+    defaultSymbols = DurationSymbols_bn_BD;
     break;
   case 'bn_IN':
   case 'bn-IN':
-    defaultSymbols = exports.DurationSymbols_bn_IN;
+    defaultSymbols = DurationSymbols_bn_IN;
     break;
   case 'bo':
-    defaultSymbols = exports.DurationSymbols_bo;
+    defaultSymbols = DurationSymbols_bo;
     break;
   case 'bo_CN':
   case 'bo-CN':
-    defaultSymbols = exports.DurationSymbols_bo_CN;
+    defaultSymbols = DurationSymbols_bo_CN;
     break;
   case 'bo_IN':
   case 'bo-IN':
-    defaultSymbols = exports.DurationSymbols_bo_IN;
+    defaultSymbols = DurationSymbols_bo_IN;
     break;
   case 'br_FR':
   case 'br-FR':
-    defaultSymbols = exports.DurationSymbols_br_FR;
+    defaultSymbols = DurationSymbols_br_FR;
     break;
   case 'brx':
-    defaultSymbols = exports.DurationSymbols_brx;
+    defaultSymbols = DurationSymbols_brx;
     break;
   case 'brx_IN':
   case 'brx-IN':
-    defaultSymbols = exports.DurationSymbols_brx_IN;
+    defaultSymbols = DurationSymbols_brx_IN;
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    defaultSymbols = exports.DurationSymbols_bs_Cyrl;
+    defaultSymbols = DurationSymbols_bs_Cyrl;
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    defaultSymbols = exports.DurationSymbols_bs_Cyrl_BA;
+    defaultSymbols = DurationSymbols_bs_Cyrl_BA;
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    defaultSymbols = exports.DurationSymbols_bs_Latn;
+    defaultSymbols = DurationSymbols_bs_Latn;
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    defaultSymbols = exports.DurationSymbols_bs_Latn_BA;
+    defaultSymbols = DurationSymbols_bs_Latn_BA;
     break;
   case 'ca_AD':
   case 'ca-AD':
-    defaultSymbols = exports.DurationSymbols_ca_AD;
+    defaultSymbols = DurationSymbols_ca_AD;
     break;
   case 'ca_ES':
   case 'ca-ES':
-    defaultSymbols = exports.DurationSymbols_ca_ES;
+    defaultSymbols = DurationSymbols_ca_ES;
     break;
   case 'ca_FR':
   case 'ca-FR':
-    defaultSymbols = exports.DurationSymbols_ca_FR;
+    defaultSymbols = DurationSymbols_ca_FR;
     break;
   case 'ca_IT':
   case 'ca-IT':
-    defaultSymbols = exports.DurationSymbols_ca_IT;
+    defaultSymbols = DurationSymbols_ca_IT;
     break;
   case 'ccp':
-    defaultSymbols = exports.DurationSymbols_ccp;
+    defaultSymbols = DurationSymbols_ccp;
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    defaultSymbols = exports.DurationSymbols_ccp_BD;
+    defaultSymbols = DurationSymbols_ccp_BD;
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    defaultSymbols = exports.DurationSymbols_ccp_IN;
+    defaultSymbols = DurationSymbols_ccp_IN;
     break;
   case 'ce':
-    defaultSymbols = exports.DurationSymbols_ce;
+    defaultSymbols = DurationSymbols_ce;
     break;
   case 'ce_RU':
   case 'ce-RU':
-    defaultSymbols = exports.DurationSymbols_ce_RU;
+    defaultSymbols = DurationSymbols_ce_RU;
     break;
   case 'ceb':
-    defaultSymbols = exports.DurationSymbols_ceb;
+    defaultSymbols = DurationSymbols_ceb;
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    defaultSymbols = exports.DurationSymbols_ceb_PH;
+    defaultSymbols = DurationSymbols_ceb_PH;
     break;
   case 'cgg':
-    defaultSymbols = exports.DurationSymbols_cgg;
+    defaultSymbols = DurationSymbols_cgg;
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    defaultSymbols = exports.DurationSymbols_cgg_UG;
+    defaultSymbols = DurationSymbols_cgg_UG;
     break;
   case 'chr_US':
   case 'chr-US':
-    defaultSymbols = exports.DurationSymbols_chr_US;
+    defaultSymbols = DurationSymbols_chr_US;
     break;
   case 'ckb':
-    defaultSymbols = exports.DurationSymbols_ckb;
+    defaultSymbols = DurationSymbols_ckb;
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    defaultSymbols = exports.DurationSymbols_ckb_Arab;
+    defaultSymbols = DurationSymbols_ckb_Arab;
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    defaultSymbols = exports.DurationSymbols_ckb_Arab_IQ;
+    defaultSymbols = DurationSymbols_ckb_Arab_IQ;
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    defaultSymbols = exports.DurationSymbols_ckb_Arab_IR;
+    defaultSymbols = DurationSymbols_ckb_Arab_IR;
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    defaultSymbols = exports.DurationSymbols_ckb_IQ;
+    defaultSymbols = DurationSymbols_ckb_IQ;
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    defaultSymbols = exports.DurationSymbols_ckb_IR;
+    defaultSymbols = DurationSymbols_ckb_IR;
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    defaultSymbols = exports.DurationSymbols_cs_CZ;
+    defaultSymbols = DurationSymbols_cs_CZ;
     break;
   case 'cv':
-    defaultSymbols = exports.DurationSymbols_cv;
+    defaultSymbols = DurationSymbols_cv;
     break;
   case 'cv_RU':
   case 'cv-RU':
-    defaultSymbols = exports.DurationSymbols_cv_RU;
+    defaultSymbols = DurationSymbols_cv_RU;
     break;
   case 'cy_GB':
   case 'cy-GB':
-    defaultSymbols = exports.DurationSymbols_cy_GB;
+    defaultSymbols = DurationSymbols_cy_GB;
     break;
   case 'da_DK':
   case 'da-DK':
-    defaultSymbols = exports.DurationSymbols_da_DK;
+    defaultSymbols = DurationSymbols_da_DK;
     break;
   case 'da_GL':
   case 'da-GL':
-    defaultSymbols = exports.DurationSymbols_da_GL;
+    defaultSymbols = DurationSymbols_da_GL;
     break;
   case 'dav':
-    defaultSymbols = exports.DurationSymbols_dav;
+    defaultSymbols = DurationSymbols_dav;
     break;
   case 'dav_KE':
   case 'dav-KE':
-    defaultSymbols = exports.DurationSymbols_dav_KE;
+    defaultSymbols = DurationSymbols_dav_KE;
     break;
   case 'de_BE':
   case 'de-BE':
-    defaultSymbols = exports.DurationSymbols_de_BE;
+    defaultSymbols = DurationSymbols_de_BE;
     break;
   case 'de_DE':
   case 'de-DE':
-    defaultSymbols = exports.DurationSymbols_de_DE;
+    defaultSymbols = DurationSymbols_de_DE;
     break;
   case 'de_IT':
   case 'de-IT':
-    defaultSymbols = exports.DurationSymbols_de_IT;
+    defaultSymbols = DurationSymbols_de_IT;
     break;
   case 'de_LI':
   case 'de-LI':
-    defaultSymbols = exports.DurationSymbols_de_LI;
+    defaultSymbols = DurationSymbols_de_LI;
     break;
   case 'de_LU':
   case 'de-LU':
-    defaultSymbols = exports.DurationSymbols_de_LU;
+    defaultSymbols = DurationSymbols_de_LU;
     break;
   case 'dje':
-    defaultSymbols = exports.DurationSymbols_dje;
+    defaultSymbols = DurationSymbols_dje;
     break;
   case 'dje_NE':
   case 'dje-NE':
-    defaultSymbols = exports.DurationSymbols_dje_NE;
+    defaultSymbols = DurationSymbols_dje_NE;
     break;
   case 'doi':
-    defaultSymbols = exports.DurationSymbols_doi;
+    defaultSymbols = DurationSymbols_doi;
     break;
   case 'doi_IN':
   case 'doi-IN':
-    defaultSymbols = exports.DurationSymbols_doi_IN;
+    defaultSymbols = DurationSymbols_doi_IN;
     break;
   case 'dsb':
-    defaultSymbols = exports.DurationSymbols_dsb;
+    defaultSymbols = DurationSymbols_dsb;
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    defaultSymbols = exports.DurationSymbols_dsb_DE;
+    defaultSymbols = DurationSymbols_dsb_DE;
     break;
   case 'dua':
-    defaultSymbols = exports.DurationSymbols_dua;
+    defaultSymbols = DurationSymbols_dua;
     break;
   case 'dua_CM':
   case 'dua-CM':
-    defaultSymbols = exports.DurationSymbols_dua_CM;
+    defaultSymbols = DurationSymbols_dua_CM;
     break;
   case 'dyo':
-    defaultSymbols = exports.DurationSymbols_dyo;
+    defaultSymbols = DurationSymbols_dyo;
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    defaultSymbols = exports.DurationSymbols_dyo_SN;
+    defaultSymbols = DurationSymbols_dyo_SN;
     break;
   case 'dz':
-    defaultSymbols = exports.DurationSymbols_dz;
+    defaultSymbols = DurationSymbols_dz;
     break;
   case 'dz_BT':
   case 'dz-BT':
-    defaultSymbols = exports.DurationSymbols_dz_BT;
+    defaultSymbols = DurationSymbols_dz_BT;
     break;
   case 'ebu':
-    defaultSymbols = exports.DurationSymbols_ebu;
+    defaultSymbols = DurationSymbols_ebu;
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    defaultSymbols = exports.DurationSymbols_ebu_KE;
+    defaultSymbols = DurationSymbols_ebu_KE;
     break;
   case 'ee':
-    defaultSymbols = exports.DurationSymbols_ee;
+    defaultSymbols = DurationSymbols_ee;
     break;
   case 'ee_GH':
   case 'ee-GH':
-    defaultSymbols = exports.DurationSymbols_ee_GH;
+    defaultSymbols = DurationSymbols_ee_GH;
     break;
   case 'ee_TG':
   case 'ee-TG':
-    defaultSymbols = exports.DurationSymbols_ee_TG;
+    defaultSymbols = DurationSymbols_ee_TG;
     break;
   case 'el_CY':
   case 'el-CY':
-    defaultSymbols = exports.DurationSymbols_el_CY;
+    defaultSymbols = DurationSymbols_el_CY;
     break;
   case 'el_GR':
   case 'el-GR':
-    defaultSymbols = exports.DurationSymbols_el_GR;
+    defaultSymbols = DurationSymbols_el_GR;
     break;
   case 'en_001':
   case 'en-001':
-    defaultSymbols = exports.DurationSymbols_en_001;
+    defaultSymbols = DurationSymbols_en_001;
     break;
   case 'en_150':
   case 'en-150':
-    defaultSymbols = exports.DurationSymbols_en_150;
+    defaultSymbols = DurationSymbols_en_150;
     break;
   case 'en_AE':
   case 'en-AE':
-    defaultSymbols = exports.DurationSymbols_en_AE;
+    defaultSymbols = DurationSymbols_en_AE;
     break;
   case 'en_AG':
   case 'en-AG':
-    defaultSymbols = exports.DurationSymbols_en_AG;
+    defaultSymbols = DurationSymbols_en_AG;
     break;
   case 'en_AI':
   case 'en-AI':
-    defaultSymbols = exports.DurationSymbols_en_AI;
+    defaultSymbols = DurationSymbols_en_AI;
     break;
   case 'en_AS':
   case 'en-AS':
-    defaultSymbols = exports.DurationSymbols_en_AS;
+    defaultSymbols = DurationSymbols_en_AS;
     break;
   case 'en_AT':
   case 'en-AT':
-    defaultSymbols = exports.DurationSymbols_en_AT;
+    defaultSymbols = DurationSymbols_en_AT;
     break;
   case 'en_BB':
   case 'en-BB':
-    defaultSymbols = exports.DurationSymbols_en_BB;
+    defaultSymbols = DurationSymbols_en_BB;
     break;
   case 'en_BE':
   case 'en-BE':
-    defaultSymbols = exports.DurationSymbols_en_BE;
+    defaultSymbols = DurationSymbols_en_BE;
     break;
   case 'en_BI':
   case 'en-BI':
-    defaultSymbols = exports.DurationSymbols_en_BI;
+    defaultSymbols = DurationSymbols_en_BI;
     break;
   case 'en_BM':
   case 'en-BM':
-    defaultSymbols = exports.DurationSymbols_en_BM;
+    defaultSymbols = DurationSymbols_en_BM;
     break;
   case 'en_BS':
   case 'en-BS':
-    defaultSymbols = exports.DurationSymbols_en_BS;
+    defaultSymbols = DurationSymbols_en_BS;
     break;
   case 'en_BW':
   case 'en-BW':
-    defaultSymbols = exports.DurationSymbols_en_BW;
+    defaultSymbols = DurationSymbols_en_BW;
     break;
   case 'en_BZ':
   case 'en-BZ':
-    defaultSymbols = exports.DurationSymbols_en_BZ;
+    defaultSymbols = DurationSymbols_en_BZ;
     break;
   case 'en_CC':
   case 'en-CC':
-    defaultSymbols = exports.DurationSymbols_en_CC;
+    defaultSymbols = DurationSymbols_en_CC;
     break;
   case 'en_CH':
   case 'en-CH':
-    defaultSymbols = exports.DurationSymbols_en_CH;
+    defaultSymbols = DurationSymbols_en_CH;
     break;
   case 'en_CK':
   case 'en-CK':
-    defaultSymbols = exports.DurationSymbols_en_CK;
+    defaultSymbols = DurationSymbols_en_CK;
     break;
   case 'en_CM':
   case 'en-CM':
-    defaultSymbols = exports.DurationSymbols_en_CM;
+    defaultSymbols = DurationSymbols_en_CM;
     break;
   case 'en_CX':
   case 'en-CX':
-    defaultSymbols = exports.DurationSymbols_en_CX;
+    defaultSymbols = DurationSymbols_en_CX;
     break;
   case 'en_CY':
   case 'en-CY':
-    defaultSymbols = exports.DurationSymbols_en_CY;
+    defaultSymbols = DurationSymbols_en_CY;
     break;
   case 'en_DE':
   case 'en-DE':
-    defaultSymbols = exports.DurationSymbols_en_DE;
+    defaultSymbols = DurationSymbols_en_DE;
     break;
   case 'en_DG':
   case 'en-DG':
-    defaultSymbols = exports.DurationSymbols_en_DG;
+    defaultSymbols = DurationSymbols_en_DG;
     break;
   case 'en_DK':
   case 'en-DK':
-    defaultSymbols = exports.DurationSymbols_en_DK;
+    defaultSymbols = DurationSymbols_en_DK;
     break;
   case 'en_DM':
   case 'en-DM':
-    defaultSymbols = exports.DurationSymbols_en_DM;
+    defaultSymbols = DurationSymbols_en_DM;
     break;
   case 'en_ER':
   case 'en-ER':
-    defaultSymbols = exports.DurationSymbols_en_ER;
+    defaultSymbols = DurationSymbols_en_ER;
     break;
   case 'en_FI':
   case 'en-FI':
-    defaultSymbols = exports.DurationSymbols_en_FI;
+    defaultSymbols = DurationSymbols_en_FI;
     break;
   case 'en_FJ':
   case 'en-FJ':
-    defaultSymbols = exports.DurationSymbols_en_FJ;
+    defaultSymbols = DurationSymbols_en_FJ;
     break;
   case 'en_FK':
   case 'en-FK':
-    defaultSymbols = exports.DurationSymbols_en_FK;
+    defaultSymbols = DurationSymbols_en_FK;
     break;
   case 'en_FM':
   case 'en-FM':
-    defaultSymbols = exports.DurationSymbols_en_FM;
+    defaultSymbols = DurationSymbols_en_FM;
     break;
   case 'en_GD':
   case 'en-GD':
-    defaultSymbols = exports.DurationSymbols_en_GD;
+    defaultSymbols = DurationSymbols_en_GD;
     break;
   case 'en_GG':
   case 'en-GG':
-    defaultSymbols = exports.DurationSymbols_en_GG;
+    defaultSymbols = DurationSymbols_en_GG;
     break;
   case 'en_GH':
   case 'en-GH':
-    defaultSymbols = exports.DurationSymbols_en_GH;
+    defaultSymbols = DurationSymbols_en_GH;
     break;
   case 'en_GI':
   case 'en-GI':
-    defaultSymbols = exports.DurationSymbols_en_GI;
+    defaultSymbols = DurationSymbols_en_GI;
     break;
   case 'en_GM':
   case 'en-GM':
-    defaultSymbols = exports.DurationSymbols_en_GM;
+    defaultSymbols = DurationSymbols_en_GM;
     break;
   case 'en_GU':
   case 'en-GU':
-    defaultSymbols = exports.DurationSymbols_en_GU;
+    defaultSymbols = DurationSymbols_en_GU;
     break;
   case 'en_GY':
   case 'en-GY':
-    defaultSymbols = exports.DurationSymbols_en_GY;
+    defaultSymbols = DurationSymbols_en_GY;
     break;
   case 'en_HK':
   case 'en-HK':
-    defaultSymbols = exports.DurationSymbols_en_HK;
+    defaultSymbols = DurationSymbols_en_HK;
     break;
   case 'en_IL':
   case 'en-IL':
-    defaultSymbols = exports.DurationSymbols_en_IL;
+    defaultSymbols = DurationSymbols_en_IL;
     break;
   case 'en_IM':
   case 'en-IM':
-    defaultSymbols = exports.DurationSymbols_en_IM;
+    defaultSymbols = DurationSymbols_en_IM;
     break;
   case 'en_IO':
   case 'en-IO':
-    defaultSymbols = exports.DurationSymbols_en_IO;
+    defaultSymbols = DurationSymbols_en_IO;
     break;
   case 'en_JE':
   case 'en-JE':
-    defaultSymbols = exports.DurationSymbols_en_JE;
+    defaultSymbols = DurationSymbols_en_JE;
     break;
   case 'en_JM':
   case 'en-JM':
-    defaultSymbols = exports.DurationSymbols_en_JM;
+    defaultSymbols = DurationSymbols_en_JM;
     break;
   case 'en_KE':
   case 'en-KE':
-    defaultSymbols = exports.DurationSymbols_en_KE;
+    defaultSymbols = DurationSymbols_en_KE;
     break;
   case 'en_KI':
   case 'en-KI':
-    defaultSymbols = exports.DurationSymbols_en_KI;
+    defaultSymbols = DurationSymbols_en_KI;
     break;
   case 'en_KN':
   case 'en-KN':
-    defaultSymbols = exports.DurationSymbols_en_KN;
+    defaultSymbols = DurationSymbols_en_KN;
     break;
   case 'en_KY':
   case 'en-KY':
-    defaultSymbols = exports.DurationSymbols_en_KY;
+    defaultSymbols = DurationSymbols_en_KY;
     break;
   case 'en_LC':
   case 'en-LC':
-    defaultSymbols = exports.DurationSymbols_en_LC;
+    defaultSymbols = DurationSymbols_en_LC;
     break;
   case 'en_LR':
   case 'en-LR':
-    defaultSymbols = exports.DurationSymbols_en_LR;
+    defaultSymbols = DurationSymbols_en_LR;
     break;
   case 'en_LS':
   case 'en-LS':
-    defaultSymbols = exports.DurationSymbols_en_LS;
+    defaultSymbols = DurationSymbols_en_LS;
     break;
   case 'en_MG':
   case 'en-MG':
-    defaultSymbols = exports.DurationSymbols_en_MG;
+    defaultSymbols = DurationSymbols_en_MG;
     break;
   case 'en_MH':
   case 'en-MH':
-    defaultSymbols = exports.DurationSymbols_en_MH;
+    defaultSymbols = DurationSymbols_en_MH;
     break;
   case 'en_MO':
   case 'en-MO':
-    defaultSymbols = exports.DurationSymbols_en_MO;
+    defaultSymbols = DurationSymbols_en_MO;
     break;
   case 'en_MP':
   case 'en-MP':
-    defaultSymbols = exports.DurationSymbols_en_MP;
+    defaultSymbols = DurationSymbols_en_MP;
     break;
   case 'en_MS':
   case 'en-MS':
-    defaultSymbols = exports.DurationSymbols_en_MS;
+    defaultSymbols = DurationSymbols_en_MS;
     break;
   case 'en_MT':
   case 'en-MT':
-    defaultSymbols = exports.DurationSymbols_en_MT;
+    defaultSymbols = DurationSymbols_en_MT;
     break;
   case 'en_MU':
   case 'en-MU':
-    defaultSymbols = exports.DurationSymbols_en_MU;
+    defaultSymbols = DurationSymbols_en_MU;
     break;
   case 'en_MV':
   case 'en-MV':
-    defaultSymbols = exports.DurationSymbols_en_MV;
+    defaultSymbols = DurationSymbols_en_MV;
     break;
   case 'en_MW':
   case 'en-MW':
-    defaultSymbols = exports.DurationSymbols_en_MW;
+    defaultSymbols = DurationSymbols_en_MW;
     break;
   case 'en_MY':
   case 'en-MY':
-    defaultSymbols = exports.DurationSymbols_en_MY;
+    defaultSymbols = DurationSymbols_en_MY;
     break;
   case 'en_NA':
   case 'en-NA':
-    defaultSymbols = exports.DurationSymbols_en_NA;
+    defaultSymbols = DurationSymbols_en_NA;
     break;
   case 'en_NF':
   case 'en-NF':
-    defaultSymbols = exports.DurationSymbols_en_NF;
+    defaultSymbols = DurationSymbols_en_NF;
     break;
   case 'en_NG':
   case 'en-NG':
-    defaultSymbols = exports.DurationSymbols_en_NG;
+    defaultSymbols = DurationSymbols_en_NG;
     break;
   case 'en_NL':
   case 'en-NL':
-    defaultSymbols = exports.DurationSymbols_en_NL;
+    defaultSymbols = DurationSymbols_en_NL;
     break;
   case 'en_NR':
   case 'en-NR':
-    defaultSymbols = exports.DurationSymbols_en_NR;
+    defaultSymbols = DurationSymbols_en_NR;
     break;
   case 'en_NU':
   case 'en-NU':
-    defaultSymbols = exports.DurationSymbols_en_NU;
+    defaultSymbols = DurationSymbols_en_NU;
     break;
   case 'en_NZ':
   case 'en-NZ':
-    defaultSymbols = exports.DurationSymbols_en_NZ;
+    defaultSymbols = DurationSymbols_en_NZ;
     break;
   case 'en_PG':
   case 'en-PG':
-    defaultSymbols = exports.DurationSymbols_en_PG;
+    defaultSymbols = DurationSymbols_en_PG;
     break;
   case 'en_PH':
   case 'en-PH':
-    defaultSymbols = exports.DurationSymbols_en_PH;
+    defaultSymbols = DurationSymbols_en_PH;
     break;
   case 'en_PK':
   case 'en-PK':
-    defaultSymbols = exports.DurationSymbols_en_PK;
+    defaultSymbols = DurationSymbols_en_PK;
     break;
   case 'en_PN':
   case 'en-PN':
-    defaultSymbols = exports.DurationSymbols_en_PN;
+    defaultSymbols = DurationSymbols_en_PN;
     break;
   case 'en_PR':
   case 'en-PR':
-    defaultSymbols = exports.DurationSymbols_en_PR;
+    defaultSymbols = DurationSymbols_en_PR;
     break;
   case 'en_PW':
   case 'en-PW':
-    defaultSymbols = exports.DurationSymbols_en_PW;
+    defaultSymbols = DurationSymbols_en_PW;
     break;
   case 'en_RW':
   case 'en-RW':
-    defaultSymbols = exports.DurationSymbols_en_RW;
+    defaultSymbols = DurationSymbols_en_RW;
     break;
   case 'en_SB':
   case 'en-SB':
-    defaultSymbols = exports.DurationSymbols_en_SB;
+    defaultSymbols = DurationSymbols_en_SB;
     break;
   case 'en_SC':
   case 'en-SC':
-    defaultSymbols = exports.DurationSymbols_en_SC;
+    defaultSymbols = DurationSymbols_en_SC;
     break;
   case 'en_SD':
   case 'en-SD':
-    defaultSymbols = exports.DurationSymbols_en_SD;
+    defaultSymbols = DurationSymbols_en_SD;
     break;
   case 'en_SE':
   case 'en-SE':
-    defaultSymbols = exports.DurationSymbols_en_SE;
+    defaultSymbols = DurationSymbols_en_SE;
     break;
   case 'en_SH':
   case 'en-SH':
-    defaultSymbols = exports.DurationSymbols_en_SH;
+    defaultSymbols = DurationSymbols_en_SH;
     break;
   case 'en_SI':
   case 'en-SI':
-    defaultSymbols = exports.DurationSymbols_en_SI;
+    defaultSymbols = DurationSymbols_en_SI;
     break;
   case 'en_SL':
   case 'en-SL':
-    defaultSymbols = exports.DurationSymbols_en_SL;
+    defaultSymbols = DurationSymbols_en_SL;
     break;
   case 'en_SS':
   case 'en-SS':
-    defaultSymbols = exports.DurationSymbols_en_SS;
+    defaultSymbols = DurationSymbols_en_SS;
     break;
   case 'en_SX':
   case 'en-SX':
-    defaultSymbols = exports.DurationSymbols_en_SX;
+    defaultSymbols = DurationSymbols_en_SX;
     break;
   case 'en_SZ':
   case 'en-SZ':
-    defaultSymbols = exports.DurationSymbols_en_SZ;
+    defaultSymbols = DurationSymbols_en_SZ;
     break;
   case 'en_TC':
   case 'en-TC':
-    defaultSymbols = exports.DurationSymbols_en_TC;
+    defaultSymbols = DurationSymbols_en_TC;
     break;
   case 'en_TK':
   case 'en-TK':
-    defaultSymbols = exports.DurationSymbols_en_TK;
+    defaultSymbols = DurationSymbols_en_TK;
     break;
   case 'en_TO':
   case 'en-TO':
-    defaultSymbols = exports.DurationSymbols_en_TO;
+    defaultSymbols = DurationSymbols_en_TO;
     break;
   case 'en_TT':
   case 'en-TT':
-    defaultSymbols = exports.DurationSymbols_en_TT;
+    defaultSymbols = DurationSymbols_en_TT;
     break;
   case 'en_TV':
   case 'en-TV':
-    defaultSymbols = exports.DurationSymbols_en_TV;
+    defaultSymbols = DurationSymbols_en_TV;
     break;
   case 'en_TZ':
   case 'en-TZ':
-    defaultSymbols = exports.DurationSymbols_en_TZ;
+    defaultSymbols = DurationSymbols_en_TZ;
     break;
   case 'en_UG':
   case 'en-UG':
-    defaultSymbols = exports.DurationSymbols_en_UG;
+    defaultSymbols = DurationSymbols_en_UG;
     break;
   case 'en_UM':
   case 'en-UM':
-    defaultSymbols = exports.DurationSymbols_en_UM;
+    defaultSymbols = DurationSymbols_en_UM;
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    defaultSymbols = exports.DurationSymbols_en_US_POSIX;
+    defaultSymbols = DurationSymbols_en_US_POSIX;
     break;
   case 'en_VC':
   case 'en-VC':
-    defaultSymbols = exports.DurationSymbols_en_VC;
+    defaultSymbols = DurationSymbols_en_VC;
     break;
   case 'en_VG':
   case 'en-VG':
-    defaultSymbols = exports.DurationSymbols_en_VG;
+    defaultSymbols = DurationSymbols_en_VG;
     break;
   case 'en_VI':
   case 'en-VI':
-    defaultSymbols = exports.DurationSymbols_en_VI;
+    defaultSymbols = DurationSymbols_en_VI;
     break;
   case 'en_VU':
   case 'en-VU':
-    defaultSymbols = exports.DurationSymbols_en_VU;
+    defaultSymbols = DurationSymbols_en_VU;
     break;
   case 'en_WS':
   case 'en-WS':
-    defaultSymbols = exports.DurationSymbols_en_WS;
+    defaultSymbols = DurationSymbols_en_WS;
     break;
   case 'en_XA':
   case 'en-XA':
-    defaultSymbols = exports.DurationSymbols_en_XA;
+    defaultSymbols = DurationSymbols_en_XA;
     break;
   case 'en_ZM':
   case 'en-ZM':
-    defaultSymbols = exports.DurationSymbols_en_ZM;
+    defaultSymbols = DurationSymbols_en_ZM;
     break;
   case 'en_ZW':
   case 'en-ZW':
-    defaultSymbols = exports.DurationSymbols_en_ZW;
+    defaultSymbols = DurationSymbols_en_ZW;
     break;
   case 'eo':
-    defaultSymbols = exports.DurationSymbols_eo;
+    defaultSymbols = DurationSymbols_eo;
     break;
   case 'eo_001':
   case 'eo-001':
-    defaultSymbols = exports.DurationSymbols_eo_001;
+    defaultSymbols = DurationSymbols_eo_001;
     break;
   case 'es_AR':
   case 'es-AR':
-    defaultSymbols = exports.DurationSymbols_es_AR;
+    defaultSymbols = DurationSymbols_es_AR;
     break;
   case 'es_BO':
   case 'es-BO':
-    defaultSymbols = exports.DurationSymbols_es_BO;
+    defaultSymbols = DurationSymbols_es_BO;
     break;
   case 'es_BR':
   case 'es-BR':
-    defaultSymbols = exports.DurationSymbols_es_BR;
+    defaultSymbols = DurationSymbols_es_BR;
     break;
   case 'es_BZ':
   case 'es-BZ':
-    defaultSymbols = exports.DurationSymbols_es_BZ;
+    defaultSymbols = DurationSymbols_es_BZ;
     break;
   case 'es_CL':
   case 'es-CL':
-    defaultSymbols = exports.DurationSymbols_es_CL;
+    defaultSymbols = DurationSymbols_es_CL;
     break;
   case 'es_CO':
   case 'es-CO':
-    defaultSymbols = exports.DurationSymbols_es_CO;
+    defaultSymbols = DurationSymbols_es_CO;
     break;
   case 'es_CR':
   case 'es-CR':
-    defaultSymbols = exports.DurationSymbols_es_CR;
+    defaultSymbols = DurationSymbols_es_CR;
     break;
   case 'es_CU':
   case 'es-CU':
-    defaultSymbols = exports.DurationSymbols_es_CU;
+    defaultSymbols = DurationSymbols_es_CU;
     break;
   case 'es_DO':
   case 'es-DO':
-    defaultSymbols = exports.DurationSymbols_es_DO;
+    defaultSymbols = DurationSymbols_es_DO;
     break;
   case 'es_EA':
   case 'es-EA':
-    defaultSymbols = exports.DurationSymbols_es_EA;
+    defaultSymbols = DurationSymbols_es_EA;
     break;
   case 'es_EC':
   case 'es-EC':
-    defaultSymbols = exports.DurationSymbols_es_EC;
+    defaultSymbols = DurationSymbols_es_EC;
     break;
   case 'es_GQ':
   case 'es-GQ':
-    defaultSymbols = exports.DurationSymbols_es_GQ;
+    defaultSymbols = DurationSymbols_es_GQ;
     break;
   case 'es_GT':
   case 'es-GT':
-    defaultSymbols = exports.DurationSymbols_es_GT;
+    defaultSymbols = DurationSymbols_es_GT;
     break;
   case 'es_HN':
   case 'es-HN':
-    defaultSymbols = exports.DurationSymbols_es_HN;
+    defaultSymbols = DurationSymbols_es_HN;
     break;
   case 'es_IC':
   case 'es-IC':
-    defaultSymbols = exports.DurationSymbols_es_IC;
+    defaultSymbols = DurationSymbols_es_IC;
     break;
   case 'es_NI':
   case 'es-NI':
-    defaultSymbols = exports.DurationSymbols_es_NI;
+    defaultSymbols = DurationSymbols_es_NI;
     break;
   case 'es_PA':
   case 'es-PA':
-    defaultSymbols = exports.DurationSymbols_es_PA;
+    defaultSymbols = DurationSymbols_es_PA;
     break;
   case 'es_PE':
   case 'es-PE':
-    defaultSymbols = exports.DurationSymbols_es_PE;
+    defaultSymbols = DurationSymbols_es_PE;
     break;
   case 'es_PH':
   case 'es-PH':
-    defaultSymbols = exports.DurationSymbols_es_PH;
+    defaultSymbols = DurationSymbols_es_PH;
     break;
   case 'es_PR':
   case 'es-PR':
-    defaultSymbols = exports.DurationSymbols_es_PR;
+    defaultSymbols = DurationSymbols_es_PR;
     break;
   case 'es_PY':
   case 'es-PY':
-    defaultSymbols = exports.DurationSymbols_es_PY;
+    defaultSymbols = DurationSymbols_es_PY;
     break;
   case 'es_SV':
   case 'es-SV':
-    defaultSymbols = exports.DurationSymbols_es_SV;
+    defaultSymbols = DurationSymbols_es_SV;
     break;
   case 'es_UY':
   case 'es-UY':
-    defaultSymbols = exports.DurationSymbols_es_UY;
+    defaultSymbols = DurationSymbols_es_UY;
     break;
   case 'es_VE':
   case 'es-VE':
-    defaultSymbols = exports.DurationSymbols_es_VE;
+    defaultSymbols = DurationSymbols_es_VE;
     break;
   case 'et_EE':
   case 'et-EE':
-    defaultSymbols = exports.DurationSymbols_et_EE;
+    defaultSymbols = DurationSymbols_et_EE;
     break;
   case 'eu_ES':
   case 'eu-ES':
-    defaultSymbols = exports.DurationSymbols_eu_ES;
+    defaultSymbols = DurationSymbols_eu_ES;
     break;
   case 'ewo':
-    defaultSymbols = exports.DurationSymbols_ewo;
+    defaultSymbols = DurationSymbols_ewo;
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    defaultSymbols = exports.DurationSymbols_ewo_CM;
+    defaultSymbols = DurationSymbols_ewo_CM;
     break;
   case 'fa_AF':
   case 'fa-AF':
-    defaultSymbols = exports.DurationSymbols_fa_AF;
+    defaultSymbols = DurationSymbols_fa_AF;
     break;
   case 'fa_IR':
   case 'fa-IR':
-    defaultSymbols = exports.DurationSymbols_fa_IR;
+    defaultSymbols = DurationSymbols_fa_IR;
     break;
   case 'ff':
-    defaultSymbols = exports.DurationSymbols_ff;
+    defaultSymbols = DurationSymbols_ff;
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm;
+    defaultSymbols = DurationSymbols_ff_Adlm;
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_BF;
+    defaultSymbols = DurationSymbols_ff_Adlm_BF;
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_CM;
+    defaultSymbols = DurationSymbols_ff_Adlm_CM;
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_GH;
+    defaultSymbols = DurationSymbols_ff_Adlm_GH;
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_GM;
+    defaultSymbols = DurationSymbols_ff_Adlm_GM;
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_GN;
+    defaultSymbols = DurationSymbols_ff_Adlm_GN;
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_GW;
+    defaultSymbols = DurationSymbols_ff_Adlm_GW;
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_LR;
+    defaultSymbols = DurationSymbols_ff_Adlm_LR;
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_MR;
+    defaultSymbols = DurationSymbols_ff_Adlm_MR;
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_NE;
+    defaultSymbols = DurationSymbols_ff_Adlm_NE;
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_NG;
+    defaultSymbols = DurationSymbols_ff_Adlm_NG;
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_SL;
+    defaultSymbols = DurationSymbols_ff_Adlm_SL;
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    defaultSymbols = exports.DurationSymbols_ff_Adlm_SN;
+    defaultSymbols = DurationSymbols_ff_Adlm_SN;
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    defaultSymbols = exports.DurationSymbols_ff_Latn;
+    defaultSymbols = DurationSymbols_ff_Latn;
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_BF;
+    defaultSymbols = DurationSymbols_ff_Latn_BF;
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_CM;
+    defaultSymbols = DurationSymbols_ff_Latn_CM;
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_GH;
+    defaultSymbols = DurationSymbols_ff_Latn_GH;
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_GM;
+    defaultSymbols = DurationSymbols_ff_Latn_GM;
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_GN;
+    defaultSymbols = DurationSymbols_ff_Latn_GN;
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_GW;
+    defaultSymbols = DurationSymbols_ff_Latn_GW;
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_LR;
+    defaultSymbols = DurationSymbols_ff_Latn_LR;
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_MR;
+    defaultSymbols = DurationSymbols_ff_Latn_MR;
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_NE;
+    defaultSymbols = DurationSymbols_ff_Latn_NE;
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_NG;
+    defaultSymbols = DurationSymbols_ff_Latn_NG;
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_SL;
+    defaultSymbols = DurationSymbols_ff_Latn_SL;
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    defaultSymbols = exports.DurationSymbols_ff_Latn_SN;
+    defaultSymbols = DurationSymbols_ff_Latn_SN;
     break;
   case 'fi_FI':
   case 'fi-FI':
-    defaultSymbols = exports.DurationSymbols_fi_FI;
+    defaultSymbols = DurationSymbols_fi_FI;
     break;
   case 'fil_PH':
   case 'fil-PH':
-    defaultSymbols = exports.DurationSymbols_fil_PH;
+    defaultSymbols = DurationSymbols_fil_PH;
     break;
   case 'fo':
-    defaultSymbols = exports.DurationSymbols_fo;
+    defaultSymbols = DurationSymbols_fo;
     break;
   case 'fo_DK':
   case 'fo-DK':
-    defaultSymbols = exports.DurationSymbols_fo_DK;
+    defaultSymbols = DurationSymbols_fo_DK;
     break;
   case 'fo_FO':
   case 'fo-FO':
-    defaultSymbols = exports.DurationSymbols_fo_FO;
+    defaultSymbols = DurationSymbols_fo_FO;
     break;
   case 'fr_BE':
   case 'fr-BE':
-    defaultSymbols = exports.DurationSymbols_fr_BE;
+    defaultSymbols = DurationSymbols_fr_BE;
     break;
   case 'fr_BF':
   case 'fr-BF':
-    defaultSymbols = exports.DurationSymbols_fr_BF;
+    defaultSymbols = DurationSymbols_fr_BF;
     break;
   case 'fr_BI':
   case 'fr-BI':
-    defaultSymbols = exports.DurationSymbols_fr_BI;
+    defaultSymbols = DurationSymbols_fr_BI;
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    defaultSymbols = exports.DurationSymbols_fr_BJ;
+    defaultSymbols = DurationSymbols_fr_BJ;
     break;
   case 'fr_BL':
   case 'fr-BL':
-    defaultSymbols = exports.DurationSymbols_fr_BL;
+    defaultSymbols = DurationSymbols_fr_BL;
     break;
   case 'fr_CD':
   case 'fr-CD':
-    defaultSymbols = exports.DurationSymbols_fr_CD;
+    defaultSymbols = DurationSymbols_fr_CD;
     break;
   case 'fr_CF':
   case 'fr-CF':
-    defaultSymbols = exports.DurationSymbols_fr_CF;
+    defaultSymbols = DurationSymbols_fr_CF;
     break;
   case 'fr_CG':
   case 'fr-CG':
-    defaultSymbols = exports.DurationSymbols_fr_CG;
+    defaultSymbols = DurationSymbols_fr_CG;
     break;
   case 'fr_CH':
   case 'fr-CH':
-    defaultSymbols = exports.DurationSymbols_fr_CH;
+    defaultSymbols = DurationSymbols_fr_CH;
     break;
   case 'fr_CI':
   case 'fr-CI':
-    defaultSymbols = exports.DurationSymbols_fr_CI;
+    defaultSymbols = DurationSymbols_fr_CI;
     break;
   case 'fr_CM':
   case 'fr-CM':
-    defaultSymbols = exports.DurationSymbols_fr_CM;
+    defaultSymbols = DurationSymbols_fr_CM;
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    defaultSymbols = exports.DurationSymbols_fr_DJ;
+    defaultSymbols = DurationSymbols_fr_DJ;
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    defaultSymbols = exports.DurationSymbols_fr_DZ;
+    defaultSymbols = DurationSymbols_fr_DZ;
     break;
   case 'fr_FR':
   case 'fr-FR':
-    defaultSymbols = exports.DurationSymbols_fr_FR;
+    defaultSymbols = DurationSymbols_fr_FR;
     break;
   case 'fr_GA':
   case 'fr-GA':
-    defaultSymbols = exports.DurationSymbols_fr_GA;
+    defaultSymbols = DurationSymbols_fr_GA;
     break;
   case 'fr_GF':
   case 'fr-GF':
-    defaultSymbols = exports.DurationSymbols_fr_GF;
+    defaultSymbols = DurationSymbols_fr_GF;
     break;
   case 'fr_GN':
   case 'fr-GN':
-    defaultSymbols = exports.DurationSymbols_fr_GN;
+    defaultSymbols = DurationSymbols_fr_GN;
     break;
   case 'fr_GP':
   case 'fr-GP':
-    defaultSymbols = exports.DurationSymbols_fr_GP;
+    defaultSymbols = DurationSymbols_fr_GP;
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    defaultSymbols = exports.DurationSymbols_fr_GQ;
+    defaultSymbols = DurationSymbols_fr_GQ;
     break;
   case 'fr_HT':
   case 'fr-HT':
-    defaultSymbols = exports.DurationSymbols_fr_HT;
+    defaultSymbols = DurationSymbols_fr_HT;
     break;
   case 'fr_KM':
   case 'fr-KM':
-    defaultSymbols = exports.DurationSymbols_fr_KM;
+    defaultSymbols = DurationSymbols_fr_KM;
     break;
   case 'fr_LU':
   case 'fr-LU':
-    defaultSymbols = exports.DurationSymbols_fr_LU;
+    defaultSymbols = DurationSymbols_fr_LU;
     break;
   case 'fr_MA':
   case 'fr-MA':
-    defaultSymbols = exports.DurationSymbols_fr_MA;
+    defaultSymbols = DurationSymbols_fr_MA;
     break;
   case 'fr_MC':
   case 'fr-MC':
-    defaultSymbols = exports.DurationSymbols_fr_MC;
+    defaultSymbols = DurationSymbols_fr_MC;
     break;
   case 'fr_MF':
   case 'fr-MF':
-    defaultSymbols = exports.DurationSymbols_fr_MF;
+    defaultSymbols = DurationSymbols_fr_MF;
     break;
   case 'fr_MG':
   case 'fr-MG':
-    defaultSymbols = exports.DurationSymbols_fr_MG;
+    defaultSymbols = DurationSymbols_fr_MG;
     break;
   case 'fr_ML':
   case 'fr-ML':
-    defaultSymbols = exports.DurationSymbols_fr_ML;
+    defaultSymbols = DurationSymbols_fr_ML;
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    defaultSymbols = exports.DurationSymbols_fr_MQ;
+    defaultSymbols = DurationSymbols_fr_MQ;
     break;
   case 'fr_MR':
   case 'fr-MR':
-    defaultSymbols = exports.DurationSymbols_fr_MR;
+    defaultSymbols = DurationSymbols_fr_MR;
     break;
   case 'fr_MU':
   case 'fr-MU':
-    defaultSymbols = exports.DurationSymbols_fr_MU;
+    defaultSymbols = DurationSymbols_fr_MU;
     break;
   case 'fr_NC':
   case 'fr-NC':
-    defaultSymbols = exports.DurationSymbols_fr_NC;
+    defaultSymbols = DurationSymbols_fr_NC;
     break;
   case 'fr_NE':
   case 'fr-NE':
-    defaultSymbols = exports.DurationSymbols_fr_NE;
+    defaultSymbols = DurationSymbols_fr_NE;
     break;
   case 'fr_PF':
   case 'fr-PF':
-    defaultSymbols = exports.DurationSymbols_fr_PF;
+    defaultSymbols = DurationSymbols_fr_PF;
     break;
   case 'fr_PM':
   case 'fr-PM':
-    defaultSymbols = exports.DurationSymbols_fr_PM;
+    defaultSymbols = DurationSymbols_fr_PM;
     break;
   case 'fr_RE':
   case 'fr-RE':
-    defaultSymbols = exports.DurationSymbols_fr_RE;
+    defaultSymbols = DurationSymbols_fr_RE;
     break;
   case 'fr_RW':
   case 'fr-RW':
-    defaultSymbols = exports.DurationSymbols_fr_RW;
+    defaultSymbols = DurationSymbols_fr_RW;
     break;
   case 'fr_SC':
   case 'fr-SC':
-    defaultSymbols = exports.DurationSymbols_fr_SC;
+    defaultSymbols = DurationSymbols_fr_SC;
     break;
   case 'fr_SN':
   case 'fr-SN':
-    defaultSymbols = exports.DurationSymbols_fr_SN;
+    defaultSymbols = DurationSymbols_fr_SN;
     break;
   case 'fr_SY':
   case 'fr-SY':
-    defaultSymbols = exports.DurationSymbols_fr_SY;
+    defaultSymbols = DurationSymbols_fr_SY;
     break;
   case 'fr_TD':
   case 'fr-TD':
-    defaultSymbols = exports.DurationSymbols_fr_TD;
+    defaultSymbols = DurationSymbols_fr_TD;
     break;
   case 'fr_TG':
   case 'fr-TG':
-    defaultSymbols = exports.DurationSymbols_fr_TG;
+    defaultSymbols = DurationSymbols_fr_TG;
     break;
   case 'fr_TN':
   case 'fr-TN':
-    defaultSymbols = exports.DurationSymbols_fr_TN;
+    defaultSymbols = DurationSymbols_fr_TN;
     break;
   case 'fr_VU':
   case 'fr-VU':
-    defaultSymbols = exports.DurationSymbols_fr_VU;
+    defaultSymbols = DurationSymbols_fr_VU;
     break;
   case 'fr_WF':
   case 'fr-WF':
-    defaultSymbols = exports.DurationSymbols_fr_WF;
+    defaultSymbols = DurationSymbols_fr_WF;
     break;
   case 'fr_YT':
   case 'fr-YT':
-    defaultSymbols = exports.DurationSymbols_fr_YT;
+    defaultSymbols = DurationSymbols_fr_YT;
     break;
   case 'fur':
-    defaultSymbols = exports.DurationSymbols_fur;
+    defaultSymbols = DurationSymbols_fur;
     break;
   case 'fur_IT':
   case 'fur-IT':
-    defaultSymbols = exports.DurationSymbols_fur_IT;
+    defaultSymbols = DurationSymbols_fur_IT;
     break;
   case 'fy':
-    defaultSymbols = exports.DurationSymbols_fy;
+    defaultSymbols = DurationSymbols_fy;
     break;
   case 'fy_NL':
   case 'fy-NL':
-    defaultSymbols = exports.DurationSymbols_fy_NL;
+    defaultSymbols = DurationSymbols_fy_NL;
     break;
   case 'ga_GB':
   case 'ga-GB':
-    defaultSymbols = exports.DurationSymbols_ga_GB;
+    defaultSymbols = DurationSymbols_ga_GB;
     break;
   case 'ga_IE':
   case 'ga-IE':
-    defaultSymbols = exports.DurationSymbols_ga_IE;
+    defaultSymbols = DurationSymbols_ga_IE;
     break;
   case 'gd':
-    defaultSymbols = exports.DurationSymbols_gd;
+    defaultSymbols = DurationSymbols_gd;
     break;
   case 'gd_GB':
   case 'gd-GB':
-    defaultSymbols = exports.DurationSymbols_gd_GB;
+    defaultSymbols = DurationSymbols_gd_GB;
     break;
   case 'gl_ES':
   case 'gl-ES':
-    defaultSymbols = exports.DurationSymbols_gl_ES;
+    defaultSymbols = DurationSymbols_gl_ES;
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    defaultSymbols = exports.DurationSymbols_gsw_CH;
+    defaultSymbols = DurationSymbols_gsw_CH;
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    defaultSymbols = exports.DurationSymbols_gsw_FR;
+    defaultSymbols = DurationSymbols_gsw_FR;
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    defaultSymbols = exports.DurationSymbols_gsw_LI;
+    defaultSymbols = DurationSymbols_gsw_LI;
     break;
   case 'gu_IN':
   case 'gu-IN':
-    defaultSymbols = exports.DurationSymbols_gu_IN;
+    defaultSymbols = DurationSymbols_gu_IN;
     break;
   case 'guz':
-    defaultSymbols = exports.DurationSymbols_guz;
+    defaultSymbols = DurationSymbols_guz;
     break;
   case 'guz_KE':
   case 'guz-KE':
-    defaultSymbols = exports.DurationSymbols_guz_KE;
+    defaultSymbols = DurationSymbols_guz_KE;
     break;
   case 'gv':
-    defaultSymbols = exports.DurationSymbols_gv;
+    defaultSymbols = DurationSymbols_gv;
     break;
   case 'gv_IM':
   case 'gv-IM':
-    defaultSymbols = exports.DurationSymbols_gv_IM;
+    defaultSymbols = DurationSymbols_gv_IM;
     break;
   case 'ha':
-    defaultSymbols = exports.DurationSymbols_ha;
+    defaultSymbols = DurationSymbols_ha;
     break;
   case 'ha_GH':
   case 'ha-GH':
-    defaultSymbols = exports.DurationSymbols_ha_GH;
+    defaultSymbols = DurationSymbols_ha_GH;
     break;
   case 'ha_NE':
   case 'ha-NE':
-    defaultSymbols = exports.DurationSymbols_ha_NE;
+    defaultSymbols = DurationSymbols_ha_NE;
     break;
   case 'ha_NG':
   case 'ha-NG':
-    defaultSymbols = exports.DurationSymbols_ha_NG;
+    defaultSymbols = DurationSymbols_ha_NG;
     break;
   case 'haw_US':
   case 'haw-US':
-    defaultSymbols = exports.DurationSymbols_haw_US;
+    defaultSymbols = DurationSymbols_haw_US;
     break;
   case 'he_IL':
   case 'he-IL':
-    defaultSymbols = exports.DurationSymbols_he_IL;
+    defaultSymbols = DurationSymbols_he_IL;
     break;
   case 'hi_IN':
   case 'hi-IN':
-    defaultSymbols = exports.DurationSymbols_hi_IN;
+    defaultSymbols = DurationSymbols_hi_IN;
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    defaultSymbols = exports.DurationSymbols_hi_Latn;
+    defaultSymbols = DurationSymbols_hi_Latn;
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    defaultSymbols = exports.DurationSymbols_hi_Latn_IN;
+    defaultSymbols = DurationSymbols_hi_Latn_IN;
     break;
   case 'hr_BA':
   case 'hr-BA':
-    defaultSymbols = exports.DurationSymbols_hr_BA;
+    defaultSymbols = DurationSymbols_hr_BA;
     break;
   case 'hr_HR':
   case 'hr-HR':
-    defaultSymbols = exports.DurationSymbols_hr_HR;
+    defaultSymbols = DurationSymbols_hr_HR;
     break;
   case 'hsb':
-    defaultSymbols = exports.DurationSymbols_hsb;
+    defaultSymbols = DurationSymbols_hsb;
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    defaultSymbols = exports.DurationSymbols_hsb_DE;
+    defaultSymbols = DurationSymbols_hsb_DE;
     break;
   case 'hu_HU':
   case 'hu-HU':
-    defaultSymbols = exports.DurationSymbols_hu_HU;
+    defaultSymbols = DurationSymbols_hu_HU;
     break;
   case 'hy_AM':
   case 'hy-AM':
-    defaultSymbols = exports.DurationSymbols_hy_AM;
+    defaultSymbols = DurationSymbols_hy_AM;
     break;
   case 'ia':
-    defaultSymbols = exports.DurationSymbols_ia;
+    defaultSymbols = DurationSymbols_ia;
     break;
   case 'ia_001':
   case 'ia-001':
-    defaultSymbols = exports.DurationSymbols_ia_001;
+    defaultSymbols = DurationSymbols_ia_001;
     break;
   case 'id_ID':
   case 'id-ID':
-    defaultSymbols = exports.DurationSymbols_id_ID;
+    defaultSymbols = DurationSymbols_id_ID;
     break;
   case 'ig':
-    defaultSymbols = exports.DurationSymbols_ig;
+    defaultSymbols = DurationSymbols_ig;
     break;
   case 'ig_NG':
   case 'ig-NG':
-    defaultSymbols = exports.DurationSymbols_ig_NG;
+    defaultSymbols = DurationSymbols_ig_NG;
     break;
   case 'ii':
-    defaultSymbols = exports.DurationSymbols_ii;
+    defaultSymbols = DurationSymbols_ii;
     break;
   case 'ii_CN':
   case 'ii-CN':
-    defaultSymbols = exports.DurationSymbols_ii_CN;
+    defaultSymbols = DurationSymbols_ii_CN;
     break;
   case 'is_IS':
   case 'is-IS':
-    defaultSymbols = exports.DurationSymbols_is_IS;
+    defaultSymbols = DurationSymbols_is_IS;
     break;
   case 'it_CH':
   case 'it-CH':
-    defaultSymbols = exports.DurationSymbols_it_CH;
+    defaultSymbols = DurationSymbols_it_CH;
     break;
   case 'it_IT':
   case 'it-IT':
-    defaultSymbols = exports.DurationSymbols_it_IT;
+    defaultSymbols = DurationSymbols_it_IT;
     break;
   case 'it_SM':
   case 'it-SM':
-    defaultSymbols = exports.DurationSymbols_it_SM;
+    defaultSymbols = DurationSymbols_it_SM;
     break;
   case 'it_VA':
   case 'it-VA':
-    defaultSymbols = exports.DurationSymbols_it_VA;
+    defaultSymbols = DurationSymbols_it_VA;
     break;
   case 'ja_JP':
   case 'ja-JP':
-    defaultSymbols = exports.DurationSymbols_ja_JP;
+    defaultSymbols = DurationSymbols_ja_JP;
     break;
   case 'jgo':
-    defaultSymbols = exports.DurationSymbols_jgo;
+    defaultSymbols = DurationSymbols_jgo;
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    defaultSymbols = exports.DurationSymbols_jgo_CM;
+    defaultSymbols = DurationSymbols_jgo_CM;
     break;
   case 'jmc':
-    defaultSymbols = exports.DurationSymbols_jmc;
+    defaultSymbols = DurationSymbols_jmc;
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    defaultSymbols = exports.DurationSymbols_jmc_TZ;
+    defaultSymbols = DurationSymbols_jmc_TZ;
     break;
   case 'jv':
-    defaultSymbols = exports.DurationSymbols_jv;
+    defaultSymbols = DurationSymbols_jv;
     break;
   case 'jv_ID':
   case 'jv-ID':
-    defaultSymbols = exports.DurationSymbols_jv_ID;
+    defaultSymbols = DurationSymbols_jv_ID;
     break;
   case 'ka_GE':
   case 'ka-GE':
-    defaultSymbols = exports.DurationSymbols_ka_GE;
+    defaultSymbols = DurationSymbols_ka_GE;
     break;
   case 'kab':
-    defaultSymbols = exports.DurationSymbols_kab;
+    defaultSymbols = DurationSymbols_kab;
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    defaultSymbols = exports.DurationSymbols_kab_DZ;
+    defaultSymbols = DurationSymbols_kab_DZ;
     break;
   case 'kam':
-    defaultSymbols = exports.DurationSymbols_kam;
+    defaultSymbols = DurationSymbols_kam;
     break;
   case 'kam_KE':
   case 'kam-KE':
-    defaultSymbols = exports.DurationSymbols_kam_KE;
+    defaultSymbols = DurationSymbols_kam_KE;
     break;
   case 'kde':
-    defaultSymbols = exports.DurationSymbols_kde;
+    defaultSymbols = DurationSymbols_kde;
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    defaultSymbols = exports.DurationSymbols_kde_TZ;
+    defaultSymbols = DurationSymbols_kde_TZ;
     break;
   case 'kea':
-    defaultSymbols = exports.DurationSymbols_kea;
+    defaultSymbols = DurationSymbols_kea;
     break;
   case 'kea_CV':
   case 'kea-CV':
-    defaultSymbols = exports.DurationSymbols_kea_CV;
+    defaultSymbols = DurationSymbols_kea_CV;
     break;
   case 'kgp':
-    defaultSymbols = exports.DurationSymbols_kgp;
+    defaultSymbols = DurationSymbols_kgp;
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    defaultSymbols = exports.DurationSymbols_kgp_BR;
+    defaultSymbols = DurationSymbols_kgp_BR;
     break;
   case 'khq':
-    defaultSymbols = exports.DurationSymbols_khq;
+    defaultSymbols = DurationSymbols_khq;
     break;
   case 'khq_ML':
   case 'khq-ML':
-    defaultSymbols = exports.DurationSymbols_khq_ML;
+    defaultSymbols = DurationSymbols_khq_ML;
     break;
   case 'ki':
-    defaultSymbols = exports.DurationSymbols_ki;
+    defaultSymbols = DurationSymbols_ki;
     break;
   case 'ki_KE':
   case 'ki-KE':
-    defaultSymbols = exports.DurationSymbols_ki_KE;
+    defaultSymbols = DurationSymbols_ki_KE;
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    defaultSymbols = exports.DurationSymbols_kk_KZ;
+    defaultSymbols = DurationSymbols_kk_KZ;
     break;
   case 'kkj':
-    defaultSymbols = exports.DurationSymbols_kkj;
+    defaultSymbols = DurationSymbols_kkj;
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    defaultSymbols = exports.DurationSymbols_kkj_CM;
+    defaultSymbols = DurationSymbols_kkj_CM;
     break;
   case 'kl':
-    defaultSymbols = exports.DurationSymbols_kl;
+    defaultSymbols = DurationSymbols_kl;
     break;
   case 'kl_GL':
   case 'kl-GL':
-    defaultSymbols = exports.DurationSymbols_kl_GL;
+    defaultSymbols = DurationSymbols_kl_GL;
     break;
   case 'kln':
-    defaultSymbols = exports.DurationSymbols_kln;
+    defaultSymbols = DurationSymbols_kln;
     break;
   case 'kln_KE':
   case 'kln-KE':
-    defaultSymbols = exports.DurationSymbols_kln_KE;
+    defaultSymbols = DurationSymbols_kln_KE;
     break;
   case 'km_KH':
   case 'km-KH':
-    defaultSymbols = exports.DurationSymbols_km_KH;
+    defaultSymbols = DurationSymbols_km_KH;
     break;
   case 'kn_IN':
   case 'kn-IN':
-    defaultSymbols = exports.DurationSymbols_kn_IN;
+    defaultSymbols = DurationSymbols_kn_IN;
     break;
   case 'ko_KP':
   case 'ko-KP':
-    defaultSymbols = exports.DurationSymbols_ko_KP;
+    defaultSymbols = DurationSymbols_ko_KP;
     break;
   case 'ko_KR':
   case 'ko-KR':
-    defaultSymbols = exports.DurationSymbols_ko_KR;
+    defaultSymbols = DurationSymbols_ko_KR;
     break;
   case 'kok':
-    defaultSymbols = exports.DurationSymbols_kok;
+    defaultSymbols = DurationSymbols_kok;
     break;
   case 'kok_IN':
   case 'kok-IN':
-    defaultSymbols = exports.DurationSymbols_kok_IN;
+    defaultSymbols = DurationSymbols_kok_IN;
     break;
   case 'ks':
-    defaultSymbols = exports.DurationSymbols_ks;
+    defaultSymbols = DurationSymbols_ks;
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    defaultSymbols = exports.DurationSymbols_ks_Arab;
+    defaultSymbols = DurationSymbols_ks_Arab;
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    defaultSymbols = exports.DurationSymbols_ks_Arab_IN;
+    defaultSymbols = DurationSymbols_ks_Arab_IN;
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    defaultSymbols = exports.DurationSymbols_ks_Deva;
+    defaultSymbols = DurationSymbols_ks_Deva;
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    defaultSymbols = exports.DurationSymbols_ks_Deva_IN;
+    defaultSymbols = DurationSymbols_ks_Deva_IN;
     break;
   case 'ksb':
-    defaultSymbols = exports.DurationSymbols_ksb;
+    defaultSymbols = DurationSymbols_ksb;
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    defaultSymbols = exports.DurationSymbols_ksb_TZ;
+    defaultSymbols = DurationSymbols_ksb_TZ;
     break;
   case 'ksf':
-    defaultSymbols = exports.DurationSymbols_ksf;
+    defaultSymbols = DurationSymbols_ksf;
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    defaultSymbols = exports.DurationSymbols_ksf_CM;
+    defaultSymbols = DurationSymbols_ksf_CM;
     break;
   case 'ksh':
-    defaultSymbols = exports.DurationSymbols_ksh;
+    defaultSymbols = DurationSymbols_ksh;
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    defaultSymbols = exports.DurationSymbols_ksh_DE;
+    defaultSymbols = DurationSymbols_ksh_DE;
     break;
   case 'ku':
-    defaultSymbols = exports.DurationSymbols_ku;
+    defaultSymbols = DurationSymbols_ku;
     break;
   case 'ku_TR':
   case 'ku-TR':
-    defaultSymbols = exports.DurationSymbols_ku_TR;
+    defaultSymbols = DurationSymbols_ku_TR;
     break;
   case 'kw':
-    defaultSymbols = exports.DurationSymbols_kw;
+    defaultSymbols = DurationSymbols_kw;
     break;
   case 'kw_GB':
   case 'kw-GB':
-    defaultSymbols = exports.DurationSymbols_kw_GB;
+    defaultSymbols = DurationSymbols_kw_GB;
     break;
   case 'ky_KG':
   case 'ky-KG':
-    defaultSymbols = exports.DurationSymbols_ky_KG;
+    defaultSymbols = DurationSymbols_ky_KG;
     break;
   case 'lag':
-    defaultSymbols = exports.DurationSymbols_lag;
+    defaultSymbols = DurationSymbols_lag;
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    defaultSymbols = exports.DurationSymbols_lag_TZ;
+    defaultSymbols = DurationSymbols_lag_TZ;
     break;
   case 'lb':
-    defaultSymbols = exports.DurationSymbols_lb;
+    defaultSymbols = DurationSymbols_lb;
     break;
   case 'lb_LU':
   case 'lb-LU':
-    defaultSymbols = exports.DurationSymbols_lb_LU;
+    defaultSymbols = DurationSymbols_lb_LU;
     break;
   case 'lg':
-    defaultSymbols = exports.DurationSymbols_lg;
+    defaultSymbols = DurationSymbols_lg;
     break;
   case 'lg_UG':
   case 'lg-UG':
-    defaultSymbols = exports.DurationSymbols_lg_UG;
+    defaultSymbols = DurationSymbols_lg_UG;
     break;
   case 'lkt':
-    defaultSymbols = exports.DurationSymbols_lkt;
+    defaultSymbols = DurationSymbols_lkt;
     break;
   case 'lkt_US':
   case 'lkt-US':
-    defaultSymbols = exports.DurationSymbols_lkt_US;
+    defaultSymbols = DurationSymbols_lkt_US;
     break;
   case 'ln_AO':
   case 'ln-AO':
-    defaultSymbols = exports.DurationSymbols_ln_AO;
+    defaultSymbols = DurationSymbols_ln_AO;
     break;
   case 'ln_CD':
   case 'ln-CD':
-    defaultSymbols = exports.DurationSymbols_ln_CD;
+    defaultSymbols = DurationSymbols_ln_CD;
     break;
   case 'ln_CF':
   case 'ln-CF':
-    defaultSymbols = exports.DurationSymbols_ln_CF;
+    defaultSymbols = DurationSymbols_ln_CF;
     break;
   case 'ln_CG':
   case 'ln-CG':
-    defaultSymbols = exports.DurationSymbols_ln_CG;
+    defaultSymbols = DurationSymbols_ln_CG;
     break;
   case 'lo_LA':
   case 'lo-LA':
-    defaultSymbols = exports.DurationSymbols_lo_LA;
+    defaultSymbols = DurationSymbols_lo_LA;
     break;
   case 'lrc':
-    defaultSymbols = exports.DurationSymbols_lrc;
+    defaultSymbols = DurationSymbols_lrc;
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    defaultSymbols = exports.DurationSymbols_lrc_IQ;
+    defaultSymbols = DurationSymbols_lrc_IQ;
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    defaultSymbols = exports.DurationSymbols_lrc_IR;
+    defaultSymbols = DurationSymbols_lrc_IR;
     break;
   case 'lt_LT':
   case 'lt-LT':
-    defaultSymbols = exports.DurationSymbols_lt_LT;
+    defaultSymbols = DurationSymbols_lt_LT;
     break;
   case 'lu':
-    defaultSymbols = exports.DurationSymbols_lu;
+    defaultSymbols = DurationSymbols_lu;
     break;
   case 'lu_CD':
   case 'lu-CD':
-    defaultSymbols = exports.DurationSymbols_lu_CD;
+    defaultSymbols = DurationSymbols_lu_CD;
     break;
   case 'luo':
-    defaultSymbols = exports.DurationSymbols_luo;
+    defaultSymbols = DurationSymbols_luo;
     break;
   case 'luo_KE':
   case 'luo-KE':
-    defaultSymbols = exports.DurationSymbols_luo_KE;
+    defaultSymbols = DurationSymbols_luo_KE;
     break;
   case 'luy':
-    defaultSymbols = exports.DurationSymbols_luy;
+    defaultSymbols = DurationSymbols_luy;
     break;
   case 'luy_KE':
   case 'luy-KE':
-    defaultSymbols = exports.DurationSymbols_luy_KE;
+    defaultSymbols = DurationSymbols_luy_KE;
     break;
   case 'lv_LV':
   case 'lv-LV':
-    defaultSymbols = exports.DurationSymbols_lv_LV;
+    defaultSymbols = DurationSymbols_lv_LV;
     break;
   case 'mai':
-    defaultSymbols = exports.DurationSymbols_mai;
+    defaultSymbols = DurationSymbols_mai;
     break;
   case 'mai_IN':
   case 'mai-IN':
-    defaultSymbols = exports.DurationSymbols_mai_IN;
+    defaultSymbols = DurationSymbols_mai_IN;
     break;
   case 'mas':
-    defaultSymbols = exports.DurationSymbols_mas;
+    defaultSymbols = DurationSymbols_mas;
     break;
   case 'mas_KE':
   case 'mas-KE':
-    defaultSymbols = exports.DurationSymbols_mas_KE;
+    defaultSymbols = DurationSymbols_mas_KE;
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    defaultSymbols = exports.DurationSymbols_mas_TZ;
+    defaultSymbols = DurationSymbols_mas_TZ;
     break;
   case 'mer':
-    defaultSymbols = exports.DurationSymbols_mer;
+    defaultSymbols = DurationSymbols_mer;
     break;
   case 'mer_KE':
   case 'mer-KE':
-    defaultSymbols = exports.DurationSymbols_mer_KE;
+    defaultSymbols = DurationSymbols_mer_KE;
     break;
   case 'mfe':
-    defaultSymbols = exports.DurationSymbols_mfe;
+    defaultSymbols = DurationSymbols_mfe;
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    defaultSymbols = exports.DurationSymbols_mfe_MU;
+    defaultSymbols = DurationSymbols_mfe_MU;
     break;
   case 'mg':
-    defaultSymbols = exports.DurationSymbols_mg;
+    defaultSymbols = DurationSymbols_mg;
     break;
   case 'mg_MG':
   case 'mg-MG':
-    defaultSymbols = exports.DurationSymbols_mg_MG;
+    defaultSymbols = DurationSymbols_mg_MG;
     break;
   case 'mgh':
-    defaultSymbols = exports.DurationSymbols_mgh;
+    defaultSymbols = DurationSymbols_mgh;
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    defaultSymbols = exports.DurationSymbols_mgh_MZ;
+    defaultSymbols = DurationSymbols_mgh_MZ;
     break;
   case 'mgo':
-    defaultSymbols = exports.DurationSymbols_mgo;
+    defaultSymbols = DurationSymbols_mgo;
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    defaultSymbols = exports.DurationSymbols_mgo_CM;
+    defaultSymbols = DurationSymbols_mgo_CM;
     break;
   case 'mi':
-    defaultSymbols = exports.DurationSymbols_mi;
+    defaultSymbols = DurationSymbols_mi;
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    defaultSymbols = exports.DurationSymbols_mi_NZ;
+    defaultSymbols = DurationSymbols_mi_NZ;
     break;
   case 'mk_MK':
   case 'mk-MK':
-    defaultSymbols = exports.DurationSymbols_mk_MK;
+    defaultSymbols = DurationSymbols_mk_MK;
     break;
   case 'ml_IN':
   case 'ml-IN':
-    defaultSymbols = exports.DurationSymbols_ml_IN;
+    defaultSymbols = DurationSymbols_ml_IN;
     break;
   case 'mn_MN':
   case 'mn-MN':
-    defaultSymbols = exports.DurationSymbols_mn_MN;
+    defaultSymbols = DurationSymbols_mn_MN;
     break;
   case 'mni':
-    defaultSymbols = exports.DurationSymbols_mni;
+    defaultSymbols = DurationSymbols_mni;
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    defaultSymbols = exports.DurationSymbols_mni_Beng;
+    defaultSymbols = DurationSymbols_mni_Beng;
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    defaultSymbols = exports.DurationSymbols_mni_Beng_IN;
+    defaultSymbols = DurationSymbols_mni_Beng_IN;
     break;
   case 'mr_IN':
   case 'mr-IN':
-    defaultSymbols = exports.DurationSymbols_mr_IN;
+    defaultSymbols = DurationSymbols_mr_IN;
     break;
   case 'ms_BN':
   case 'ms-BN':
-    defaultSymbols = exports.DurationSymbols_ms_BN;
+    defaultSymbols = DurationSymbols_ms_BN;
     break;
   case 'ms_ID':
   case 'ms-ID':
-    defaultSymbols = exports.DurationSymbols_ms_ID;
+    defaultSymbols = DurationSymbols_ms_ID;
     break;
   case 'ms_MY':
   case 'ms-MY':
-    defaultSymbols = exports.DurationSymbols_ms_MY;
+    defaultSymbols = DurationSymbols_ms_MY;
     break;
   case 'ms_SG':
   case 'ms-SG':
-    defaultSymbols = exports.DurationSymbols_ms_SG;
+    defaultSymbols = DurationSymbols_ms_SG;
     break;
   case 'mt_MT':
   case 'mt-MT':
-    defaultSymbols = exports.DurationSymbols_mt_MT;
+    defaultSymbols = DurationSymbols_mt_MT;
     break;
   case 'mua':
-    defaultSymbols = exports.DurationSymbols_mua;
+    defaultSymbols = DurationSymbols_mua;
     break;
   case 'mua_CM':
   case 'mua-CM':
-    defaultSymbols = exports.DurationSymbols_mua_CM;
+    defaultSymbols = DurationSymbols_mua_CM;
     break;
   case 'my_MM':
   case 'my-MM':
-    defaultSymbols = exports.DurationSymbols_my_MM;
+    defaultSymbols = DurationSymbols_my_MM;
     break;
   case 'mzn':
-    defaultSymbols = exports.DurationSymbols_mzn;
+    defaultSymbols = DurationSymbols_mzn;
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    defaultSymbols = exports.DurationSymbols_mzn_IR;
+    defaultSymbols = DurationSymbols_mzn_IR;
     break;
   case 'naq':
-    defaultSymbols = exports.DurationSymbols_naq;
+    defaultSymbols = DurationSymbols_naq;
     break;
   case 'naq_NA':
   case 'naq-NA':
-    defaultSymbols = exports.DurationSymbols_naq_NA;
+    defaultSymbols = DurationSymbols_naq_NA;
     break;
   case 'nb_NO':
   case 'nb-NO':
-    defaultSymbols = exports.DurationSymbols_nb_NO;
+    defaultSymbols = DurationSymbols_nb_NO;
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    defaultSymbols = exports.DurationSymbols_nb_SJ;
+    defaultSymbols = DurationSymbols_nb_SJ;
     break;
   case 'nd':
-    defaultSymbols = exports.DurationSymbols_nd;
+    defaultSymbols = DurationSymbols_nd;
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    defaultSymbols = exports.DurationSymbols_nd_ZW;
+    defaultSymbols = DurationSymbols_nd_ZW;
     break;
   case 'ne_IN':
   case 'ne-IN':
-    defaultSymbols = exports.DurationSymbols_ne_IN;
+    defaultSymbols = DurationSymbols_ne_IN;
     break;
   case 'ne_NP':
   case 'ne-NP':
-    defaultSymbols = exports.DurationSymbols_ne_NP;
+    defaultSymbols = DurationSymbols_ne_NP;
     break;
   case 'nl_AW':
   case 'nl-AW':
-    defaultSymbols = exports.DurationSymbols_nl_AW;
+    defaultSymbols = DurationSymbols_nl_AW;
     break;
   case 'nl_BE':
   case 'nl-BE':
-    defaultSymbols = exports.DurationSymbols_nl_BE;
+    defaultSymbols = DurationSymbols_nl_BE;
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    defaultSymbols = exports.DurationSymbols_nl_BQ;
+    defaultSymbols = DurationSymbols_nl_BQ;
     break;
   case 'nl_CW':
   case 'nl-CW':
-    defaultSymbols = exports.DurationSymbols_nl_CW;
+    defaultSymbols = DurationSymbols_nl_CW;
     break;
   case 'nl_NL':
   case 'nl-NL':
-    defaultSymbols = exports.DurationSymbols_nl_NL;
+    defaultSymbols = DurationSymbols_nl_NL;
     break;
   case 'nl_SR':
   case 'nl-SR':
-    defaultSymbols = exports.DurationSymbols_nl_SR;
+    defaultSymbols = DurationSymbols_nl_SR;
     break;
   case 'nl_SX':
   case 'nl-SX':
-    defaultSymbols = exports.DurationSymbols_nl_SX;
+    defaultSymbols = DurationSymbols_nl_SX;
     break;
   case 'nmg':
-    defaultSymbols = exports.DurationSymbols_nmg;
+    defaultSymbols = DurationSymbols_nmg;
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    defaultSymbols = exports.DurationSymbols_nmg_CM;
+    defaultSymbols = DurationSymbols_nmg_CM;
     break;
   case 'nn':
-    defaultSymbols = exports.DurationSymbols_nn;
+    defaultSymbols = DurationSymbols_nn;
     break;
   case 'nn_NO':
   case 'nn-NO':
-    defaultSymbols = exports.DurationSymbols_nn_NO;
+    defaultSymbols = DurationSymbols_nn_NO;
     break;
   case 'nnh':
-    defaultSymbols = exports.DurationSymbols_nnh;
+    defaultSymbols = DurationSymbols_nnh;
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    defaultSymbols = exports.DurationSymbols_nnh_CM;
+    defaultSymbols = DurationSymbols_nnh_CM;
     break;
   case 'nus':
-    defaultSymbols = exports.DurationSymbols_nus;
+    defaultSymbols = DurationSymbols_nus;
     break;
   case 'nus_SS':
   case 'nus-SS':
-    defaultSymbols = exports.DurationSymbols_nus_SS;
+    defaultSymbols = DurationSymbols_nus_SS;
     break;
   case 'nyn':
-    defaultSymbols = exports.DurationSymbols_nyn;
+    defaultSymbols = DurationSymbols_nyn;
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    defaultSymbols = exports.DurationSymbols_nyn_UG;
+    defaultSymbols = DurationSymbols_nyn_UG;
     break;
   case 'om':
-    defaultSymbols = exports.DurationSymbols_om;
+    defaultSymbols = DurationSymbols_om;
     break;
   case 'om_ET':
   case 'om-ET':
-    defaultSymbols = exports.DurationSymbols_om_ET;
+    defaultSymbols = DurationSymbols_om_ET;
     break;
   case 'om_KE':
   case 'om-KE':
-    defaultSymbols = exports.DurationSymbols_om_KE;
+    defaultSymbols = DurationSymbols_om_KE;
     break;
   case 'or_IN':
   case 'or-IN':
-    defaultSymbols = exports.DurationSymbols_or_IN;
+    defaultSymbols = DurationSymbols_or_IN;
     break;
   case 'os':
-    defaultSymbols = exports.DurationSymbols_os;
+    defaultSymbols = DurationSymbols_os;
     break;
   case 'os_GE':
   case 'os-GE':
-    defaultSymbols = exports.DurationSymbols_os_GE;
+    defaultSymbols = DurationSymbols_os_GE;
     break;
   case 'os_RU':
   case 'os-RU':
-    defaultSymbols = exports.DurationSymbols_os_RU;
+    defaultSymbols = DurationSymbols_os_RU;
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    defaultSymbols = exports.DurationSymbols_pa_Arab;
+    defaultSymbols = DurationSymbols_pa_Arab;
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    defaultSymbols = exports.DurationSymbols_pa_Arab_PK;
+    defaultSymbols = DurationSymbols_pa_Arab_PK;
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    defaultSymbols = exports.DurationSymbols_pa_Guru;
+    defaultSymbols = DurationSymbols_pa_Guru;
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    defaultSymbols = exports.DurationSymbols_pa_Guru_IN;
+    defaultSymbols = DurationSymbols_pa_Guru_IN;
     break;
   case 'pcm':
-    defaultSymbols = exports.DurationSymbols_pcm;
+    defaultSymbols = DurationSymbols_pcm;
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    defaultSymbols = exports.DurationSymbols_pcm_NG;
+    defaultSymbols = DurationSymbols_pcm_NG;
     break;
   case 'pl_PL':
   case 'pl-PL':
-    defaultSymbols = exports.DurationSymbols_pl_PL;
+    defaultSymbols = DurationSymbols_pl_PL;
     break;
   case 'ps':
-    defaultSymbols = exports.DurationSymbols_ps;
+    defaultSymbols = DurationSymbols_ps;
     break;
   case 'ps_AF':
   case 'ps-AF':
-    defaultSymbols = exports.DurationSymbols_ps_AF;
+    defaultSymbols = DurationSymbols_ps_AF;
     break;
   case 'ps_PK':
   case 'ps-PK':
-    defaultSymbols = exports.DurationSymbols_ps_PK;
+    defaultSymbols = DurationSymbols_ps_PK;
     break;
   case 'pt_AO':
   case 'pt-AO':
-    defaultSymbols = exports.DurationSymbols_pt_AO;
+    defaultSymbols = DurationSymbols_pt_AO;
     break;
   case 'pt_CH':
   case 'pt-CH':
-    defaultSymbols = exports.DurationSymbols_pt_CH;
+    defaultSymbols = DurationSymbols_pt_CH;
     break;
   case 'pt_CV':
   case 'pt-CV':
-    defaultSymbols = exports.DurationSymbols_pt_CV;
+    defaultSymbols = DurationSymbols_pt_CV;
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    defaultSymbols = exports.DurationSymbols_pt_GQ;
+    defaultSymbols = DurationSymbols_pt_GQ;
     break;
   case 'pt_GW':
   case 'pt-GW':
-    defaultSymbols = exports.DurationSymbols_pt_GW;
+    defaultSymbols = DurationSymbols_pt_GW;
     break;
   case 'pt_LU':
   case 'pt-LU':
-    defaultSymbols = exports.DurationSymbols_pt_LU;
+    defaultSymbols = DurationSymbols_pt_LU;
     break;
   case 'pt_MO':
   case 'pt-MO':
-    defaultSymbols = exports.DurationSymbols_pt_MO;
+    defaultSymbols = DurationSymbols_pt_MO;
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    defaultSymbols = exports.DurationSymbols_pt_MZ;
+    defaultSymbols = DurationSymbols_pt_MZ;
     break;
   case 'pt_ST':
   case 'pt-ST':
-    defaultSymbols = exports.DurationSymbols_pt_ST;
+    defaultSymbols = DurationSymbols_pt_ST;
     break;
   case 'pt_TL':
   case 'pt-TL':
-    defaultSymbols = exports.DurationSymbols_pt_TL;
+    defaultSymbols = DurationSymbols_pt_TL;
     break;
   case 'qu':
-    defaultSymbols = exports.DurationSymbols_qu;
+    defaultSymbols = DurationSymbols_qu;
     break;
   case 'qu_BO':
   case 'qu-BO':
-    defaultSymbols = exports.DurationSymbols_qu_BO;
+    defaultSymbols = DurationSymbols_qu_BO;
     break;
   case 'qu_EC':
   case 'qu-EC':
-    defaultSymbols = exports.DurationSymbols_qu_EC;
+    defaultSymbols = DurationSymbols_qu_EC;
     break;
   case 'qu_PE':
   case 'qu-PE':
-    defaultSymbols = exports.DurationSymbols_qu_PE;
+    defaultSymbols = DurationSymbols_qu_PE;
     break;
   case 'raj':
-    defaultSymbols = exports.DurationSymbols_raj;
+    defaultSymbols = DurationSymbols_raj;
     break;
   case 'raj_IN':
   case 'raj-IN':
-    defaultSymbols = exports.DurationSymbols_raj_IN;
+    defaultSymbols = DurationSymbols_raj_IN;
     break;
   case 'rm':
-    defaultSymbols = exports.DurationSymbols_rm;
+    defaultSymbols = DurationSymbols_rm;
     break;
   case 'rm_CH':
   case 'rm-CH':
-    defaultSymbols = exports.DurationSymbols_rm_CH;
+    defaultSymbols = DurationSymbols_rm_CH;
     break;
   case 'rn':
-    defaultSymbols = exports.DurationSymbols_rn;
+    defaultSymbols = DurationSymbols_rn;
     break;
   case 'rn_BI':
   case 'rn-BI':
-    defaultSymbols = exports.DurationSymbols_rn_BI;
+    defaultSymbols = DurationSymbols_rn_BI;
     break;
   case 'ro_MD':
   case 'ro-MD':
-    defaultSymbols = exports.DurationSymbols_ro_MD;
+    defaultSymbols = DurationSymbols_ro_MD;
     break;
   case 'ro_RO':
   case 'ro-RO':
-    defaultSymbols = exports.DurationSymbols_ro_RO;
+    defaultSymbols = DurationSymbols_ro_RO;
     break;
   case 'rof':
-    defaultSymbols = exports.DurationSymbols_rof;
+    defaultSymbols = DurationSymbols_rof;
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    defaultSymbols = exports.DurationSymbols_rof_TZ;
+    defaultSymbols = DurationSymbols_rof_TZ;
     break;
   case 'ru_BY':
   case 'ru-BY':
-    defaultSymbols = exports.DurationSymbols_ru_BY;
+    defaultSymbols = DurationSymbols_ru_BY;
     break;
   case 'ru_KG':
   case 'ru-KG':
-    defaultSymbols = exports.DurationSymbols_ru_KG;
+    defaultSymbols = DurationSymbols_ru_KG;
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    defaultSymbols = exports.DurationSymbols_ru_KZ;
+    defaultSymbols = DurationSymbols_ru_KZ;
     break;
   case 'ru_MD':
   case 'ru-MD':
-    defaultSymbols = exports.DurationSymbols_ru_MD;
+    defaultSymbols = DurationSymbols_ru_MD;
     break;
   case 'ru_RU':
   case 'ru-RU':
-    defaultSymbols = exports.DurationSymbols_ru_RU;
+    defaultSymbols = DurationSymbols_ru_RU;
     break;
   case 'ru_UA':
   case 'ru-UA':
-    defaultSymbols = exports.DurationSymbols_ru_UA;
+    defaultSymbols = DurationSymbols_ru_UA;
     break;
   case 'rw':
-    defaultSymbols = exports.DurationSymbols_rw;
+    defaultSymbols = DurationSymbols_rw;
     break;
   case 'rw_RW':
   case 'rw-RW':
-    defaultSymbols = exports.DurationSymbols_rw_RW;
+    defaultSymbols = DurationSymbols_rw_RW;
     break;
   case 'rwk':
-    defaultSymbols = exports.DurationSymbols_rwk;
+    defaultSymbols = DurationSymbols_rwk;
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    defaultSymbols = exports.DurationSymbols_rwk_TZ;
+    defaultSymbols = DurationSymbols_rwk_TZ;
     break;
   case 'sa':
-    defaultSymbols = exports.DurationSymbols_sa;
+    defaultSymbols = DurationSymbols_sa;
     break;
   case 'sa_IN':
   case 'sa-IN':
-    defaultSymbols = exports.DurationSymbols_sa_IN;
+    defaultSymbols = DurationSymbols_sa_IN;
     break;
   case 'sah':
-    defaultSymbols = exports.DurationSymbols_sah;
+    defaultSymbols = DurationSymbols_sah;
     break;
   case 'sah_RU':
   case 'sah-RU':
-    defaultSymbols = exports.DurationSymbols_sah_RU;
+    defaultSymbols = DurationSymbols_sah_RU;
     break;
   case 'saq':
-    defaultSymbols = exports.DurationSymbols_saq;
+    defaultSymbols = DurationSymbols_saq;
     break;
   case 'saq_KE':
   case 'saq-KE':
-    defaultSymbols = exports.DurationSymbols_saq_KE;
+    defaultSymbols = DurationSymbols_saq_KE;
     break;
   case 'sat':
-    defaultSymbols = exports.DurationSymbols_sat;
+    defaultSymbols = DurationSymbols_sat;
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    defaultSymbols = exports.DurationSymbols_sat_Olck;
+    defaultSymbols = DurationSymbols_sat_Olck;
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    defaultSymbols = exports.DurationSymbols_sat_Olck_IN;
+    defaultSymbols = DurationSymbols_sat_Olck_IN;
     break;
   case 'sbp':
-    defaultSymbols = exports.DurationSymbols_sbp;
+    defaultSymbols = DurationSymbols_sbp;
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    defaultSymbols = exports.DurationSymbols_sbp_TZ;
+    defaultSymbols = DurationSymbols_sbp_TZ;
     break;
   case 'sc':
-    defaultSymbols = exports.DurationSymbols_sc;
+    defaultSymbols = DurationSymbols_sc;
     break;
   case 'sc_IT':
   case 'sc-IT':
-    defaultSymbols = exports.DurationSymbols_sc_IT;
+    defaultSymbols = DurationSymbols_sc_IT;
     break;
   case 'sd':
-    defaultSymbols = exports.DurationSymbols_sd;
+    defaultSymbols = DurationSymbols_sd;
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    defaultSymbols = exports.DurationSymbols_sd_Arab;
+    defaultSymbols = DurationSymbols_sd_Arab;
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    defaultSymbols = exports.DurationSymbols_sd_Arab_PK;
+    defaultSymbols = DurationSymbols_sd_Arab_PK;
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    defaultSymbols = exports.DurationSymbols_sd_Deva;
+    defaultSymbols = DurationSymbols_sd_Deva;
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    defaultSymbols = exports.DurationSymbols_sd_Deva_IN;
+    defaultSymbols = DurationSymbols_sd_Deva_IN;
     break;
   case 'se':
-    defaultSymbols = exports.DurationSymbols_se;
+    defaultSymbols = DurationSymbols_se;
     break;
   case 'se_FI':
   case 'se-FI':
-    defaultSymbols = exports.DurationSymbols_se_FI;
+    defaultSymbols = DurationSymbols_se_FI;
     break;
   case 'se_NO':
   case 'se-NO':
-    defaultSymbols = exports.DurationSymbols_se_NO;
+    defaultSymbols = DurationSymbols_se_NO;
     break;
   case 'se_SE':
   case 'se-SE':
-    defaultSymbols = exports.DurationSymbols_se_SE;
+    defaultSymbols = DurationSymbols_se_SE;
     break;
   case 'seh':
-    defaultSymbols = exports.DurationSymbols_seh;
+    defaultSymbols = DurationSymbols_seh;
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    defaultSymbols = exports.DurationSymbols_seh_MZ;
+    defaultSymbols = DurationSymbols_seh_MZ;
     break;
   case 'ses':
-    defaultSymbols = exports.DurationSymbols_ses;
+    defaultSymbols = DurationSymbols_ses;
     break;
   case 'ses_ML':
   case 'ses-ML':
-    defaultSymbols = exports.DurationSymbols_ses_ML;
+    defaultSymbols = DurationSymbols_ses_ML;
     break;
   case 'sg':
-    defaultSymbols = exports.DurationSymbols_sg;
+    defaultSymbols = DurationSymbols_sg;
     break;
   case 'sg_CF':
   case 'sg-CF':
-    defaultSymbols = exports.DurationSymbols_sg_CF;
+    defaultSymbols = DurationSymbols_sg_CF;
     break;
   case 'shi':
-    defaultSymbols = exports.DurationSymbols_shi;
+    defaultSymbols = DurationSymbols_shi;
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    defaultSymbols = exports.DurationSymbols_shi_Latn;
+    defaultSymbols = DurationSymbols_shi_Latn;
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    defaultSymbols = exports.DurationSymbols_shi_Latn_MA;
+    defaultSymbols = DurationSymbols_shi_Latn_MA;
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    defaultSymbols = exports.DurationSymbols_shi_Tfng;
+    defaultSymbols = DurationSymbols_shi_Tfng;
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    defaultSymbols = exports.DurationSymbols_shi_Tfng_MA;
+    defaultSymbols = DurationSymbols_shi_Tfng_MA;
     break;
   case 'si_LK':
   case 'si-LK':
-    defaultSymbols = exports.DurationSymbols_si_LK;
+    defaultSymbols = DurationSymbols_si_LK;
     break;
   case 'sk_SK':
   case 'sk-SK':
-    defaultSymbols = exports.DurationSymbols_sk_SK;
+    defaultSymbols = DurationSymbols_sk_SK;
     break;
   case 'sl_SI':
   case 'sl-SI':
-    defaultSymbols = exports.DurationSymbols_sl_SI;
+    defaultSymbols = DurationSymbols_sl_SI;
     break;
   case 'smn':
-    defaultSymbols = exports.DurationSymbols_smn;
+    defaultSymbols = DurationSymbols_smn;
     break;
   case 'smn_FI':
   case 'smn-FI':
-    defaultSymbols = exports.DurationSymbols_smn_FI;
+    defaultSymbols = DurationSymbols_smn_FI;
     break;
   case 'sn':
-    defaultSymbols = exports.DurationSymbols_sn;
+    defaultSymbols = DurationSymbols_sn;
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    defaultSymbols = exports.DurationSymbols_sn_ZW;
+    defaultSymbols = DurationSymbols_sn_ZW;
     break;
   case 'so':
-    defaultSymbols = exports.DurationSymbols_so;
+    defaultSymbols = DurationSymbols_so;
     break;
   case 'so_DJ':
   case 'so-DJ':
-    defaultSymbols = exports.DurationSymbols_so_DJ;
+    defaultSymbols = DurationSymbols_so_DJ;
     break;
   case 'so_ET':
   case 'so-ET':
-    defaultSymbols = exports.DurationSymbols_so_ET;
+    defaultSymbols = DurationSymbols_so_ET;
     break;
   case 'so_KE':
   case 'so-KE':
-    defaultSymbols = exports.DurationSymbols_so_KE;
+    defaultSymbols = DurationSymbols_so_KE;
     break;
   case 'so_SO':
   case 'so-SO':
-    defaultSymbols = exports.DurationSymbols_so_SO;
+    defaultSymbols = DurationSymbols_so_SO;
     break;
   case 'sq_AL':
   case 'sq-AL':
-    defaultSymbols = exports.DurationSymbols_sq_AL;
+    defaultSymbols = DurationSymbols_sq_AL;
     break;
   case 'sq_MK':
   case 'sq-MK':
-    defaultSymbols = exports.DurationSymbols_sq_MK;
+    defaultSymbols = DurationSymbols_sq_MK;
     break;
   case 'sq_XK':
   case 'sq-XK':
-    defaultSymbols = exports.DurationSymbols_sq_XK;
+    defaultSymbols = DurationSymbols_sq_XK;
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    defaultSymbols = exports.DurationSymbols_sr_Cyrl;
+    defaultSymbols = DurationSymbols_sr_Cyrl;
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    defaultSymbols = exports.DurationSymbols_sr_Cyrl_BA;
+    defaultSymbols = DurationSymbols_sr_Cyrl_BA;
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    defaultSymbols = exports.DurationSymbols_sr_Cyrl_ME;
+    defaultSymbols = DurationSymbols_sr_Cyrl_ME;
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    defaultSymbols = exports.DurationSymbols_sr_Cyrl_RS;
+    defaultSymbols = DurationSymbols_sr_Cyrl_RS;
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    defaultSymbols = exports.DurationSymbols_sr_Cyrl_XK;
+    defaultSymbols = DurationSymbols_sr_Cyrl_XK;
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    defaultSymbols = exports.DurationSymbols_sr_Latn_BA;
+    defaultSymbols = DurationSymbols_sr_Latn_BA;
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    defaultSymbols = exports.DurationSymbols_sr_Latn_ME;
+    defaultSymbols = DurationSymbols_sr_Latn_ME;
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    defaultSymbols = exports.DurationSymbols_sr_Latn_RS;
+    defaultSymbols = DurationSymbols_sr_Latn_RS;
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    defaultSymbols = exports.DurationSymbols_sr_Latn_XK;
+    defaultSymbols = DurationSymbols_sr_Latn_XK;
     break;
   case 'su':
-    defaultSymbols = exports.DurationSymbols_su;
+    defaultSymbols = DurationSymbols_su;
     break;
   case 'su_Latn':
   case 'su-Latn':
-    defaultSymbols = exports.DurationSymbols_su_Latn;
+    defaultSymbols = DurationSymbols_su_Latn;
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    defaultSymbols = exports.DurationSymbols_su_Latn_ID;
+    defaultSymbols = DurationSymbols_su_Latn_ID;
     break;
   case 'sv_AX':
   case 'sv-AX':
-    defaultSymbols = exports.DurationSymbols_sv_AX;
+    defaultSymbols = DurationSymbols_sv_AX;
     break;
   case 'sv_FI':
   case 'sv-FI':
-    defaultSymbols = exports.DurationSymbols_sv_FI;
+    defaultSymbols = DurationSymbols_sv_FI;
     break;
   case 'sv_SE':
   case 'sv-SE':
-    defaultSymbols = exports.DurationSymbols_sv_SE;
+    defaultSymbols = DurationSymbols_sv_SE;
     break;
   case 'sw_CD':
   case 'sw-CD':
-    defaultSymbols = exports.DurationSymbols_sw_CD;
+    defaultSymbols = DurationSymbols_sw_CD;
     break;
   case 'sw_KE':
   case 'sw-KE':
-    defaultSymbols = exports.DurationSymbols_sw_KE;
+    defaultSymbols = DurationSymbols_sw_KE;
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    defaultSymbols = exports.DurationSymbols_sw_TZ;
+    defaultSymbols = DurationSymbols_sw_TZ;
     break;
   case 'sw_UG':
   case 'sw-UG':
-    defaultSymbols = exports.DurationSymbols_sw_UG;
+    defaultSymbols = DurationSymbols_sw_UG;
     break;
   case 'ta_IN':
   case 'ta-IN':
-    defaultSymbols = exports.DurationSymbols_ta_IN;
+    defaultSymbols = DurationSymbols_ta_IN;
     break;
   case 'ta_LK':
   case 'ta-LK':
-    defaultSymbols = exports.DurationSymbols_ta_LK;
+    defaultSymbols = DurationSymbols_ta_LK;
     break;
   case 'ta_MY':
   case 'ta-MY':
-    defaultSymbols = exports.DurationSymbols_ta_MY;
+    defaultSymbols = DurationSymbols_ta_MY;
     break;
   case 'ta_SG':
   case 'ta-SG':
-    defaultSymbols = exports.DurationSymbols_ta_SG;
+    defaultSymbols = DurationSymbols_ta_SG;
     break;
   case 'te_IN':
   case 'te-IN':
-    defaultSymbols = exports.DurationSymbols_te_IN;
+    defaultSymbols = DurationSymbols_te_IN;
     break;
   case 'teo':
-    defaultSymbols = exports.DurationSymbols_teo;
+    defaultSymbols = DurationSymbols_teo;
     break;
   case 'teo_KE':
   case 'teo-KE':
-    defaultSymbols = exports.DurationSymbols_teo_KE;
+    defaultSymbols = DurationSymbols_teo_KE;
     break;
   case 'teo_UG':
   case 'teo-UG':
-    defaultSymbols = exports.DurationSymbols_teo_UG;
+    defaultSymbols = DurationSymbols_teo_UG;
     break;
   case 'tg':
-    defaultSymbols = exports.DurationSymbols_tg;
+    defaultSymbols = DurationSymbols_tg;
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    defaultSymbols = exports.DurationSymbols_tg_TJ;
+    defaultSymbols = DurationSymbols_tg_TJ;
     break;
   case 'th_TH':
   case 'th-TH':
-    defaultSymbols = exports.DurationSymbols_th_TH;
+    defaultSymbols = DurationSymbols_th_TH;
     break;
   case 'ti':
-    defaultSymbols = exports.DurationSymbols_ti;
+    defaultSymbols = DurationSymbols_ti;
     break;
   case 'ti_ER':
   case 'ti-ER':
-    defaultSymbols = exports.DurationSymbols_ti_ER;
+    defaultSymbols = DurationSymbols_ti_ER;
     break;
   case 'ti_ET':
   case 'ti-ET':
-    defaultSymbols = exports.DurationSymbols_ti_ET;
+    defaultSymbols = DurationSymbols_ti_ET;
     break;
   case 'tk':
-    defaultSymbols = exports.DurationSymbols_tk;
+    defaultSymbols = DurationSymbols_tk;
     break;
   case 'tk_TM':
   case 'tk-TM':
-    defaultSymbols = exports.DurationSymbols_tk_TM;
+    defaultSymbols = DurationSymbols_tk_TM;
     break;
   case 'to':
-    defaultSymbols = exports.DurationSymbols_to;
+    defaultSymbols = DurationSymbols_to;
     break;
   case 'to_TO':
   case 'to-TO':
-    defaultSymbols = exports.DurationSymbols_to_TO;
+    defaultSymbols = DurationSymbols_to_TO;
     break;
   case 'tr_CY':
   case 'tr-CY':
-    defaultSymbols = exports.DurationSymbols_tr_CY;
+    defaultSymbols = DurationSymbols_tr_CY;
     break;
   case 'tr_TR':
   case 'tr-TR':
-    defaultSymbols = exports.DurationSymbols_tr_TR;
+    defaultSymbols = DurationSymbols_tr_TR;
     break;
   case 'tt':
-    defaultSymbols = exports.DurationSymbols_tt;
+    defaultSymbols = DurationSymbols_tt;
     break;
   case 'tt_RU':
   case 'tt-RU':
-    defaultSymbols = exports.DurationSymbols_tt_RU;
+    defaultSymbols = DurationSymbols_tt_RU;
     break;
   case 'twq':
-    defaultSymbols = exports.DurationSymbols_twq;
+    defaultSymbols = DurationSymbols_twq;
     break;
   case 'twq_NE':
   case 'twq-NE':
-    defaultSymbols = exports.DurationSymbols_twq_NE;
+    defaultSymbols = DurationSymbols_twq_NE;
     break;
   case 'tzm':
-    defaultSymbols = exports.DurationSymbols_tzm;
+    defaultSymbols = DurationSymbols_tzm;
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    defaultSymbols = exports.DurationSymbols_tzm_MA;
+    defaultSymbols = DurationSymbols_tzm_MA;
     break;
   case 'ug':
-    defaultSymbols = exports.DurationSymbols_ug;
+    defaultSymbols = DurationSymbols_ug;
     break;
   case 'ug_CN':
   case 'ug-CN':
-    defaultSymbols = exports.DurationSymbols_ug_CN;
+    defaultSymbols = DurationSymbols_ug_CN;
     break;
   case 'uk_UA':
   case 'uk-UA':
-    defaultSymbols = exports.DurationSymbols_uk_UA;
+    defaultSymbols = DurationSymbols_uk_UA;
     break;
   case 'ur_IN':
   case 'ur-IN':
-    defaultSymbols = exports.DurationSymbols_ur_IN;
+    defaultSymbols = DurationSymbols_ur_IN;
     break;
   case 'ur_PK':
   case 'ur-PK':
-    defaultSymbols = exports.DurationSymbols_ur_PK;
+    defaultSymbols = DurationSymbols_ur_PK;
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    defaultSymbols = exports.DurationSymbols_uz_Arab;
+    defaultSymbols = DurationSymbols_uz_Arab;
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    defaultSymbols = exports.DurationSymbols_uz_Arab_AF;
+    defaultSymbols = DurationSymbols_uz_Arab_AF;
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    defaultSymbols = exports.DurationSymbols_uz_Cyrl;
+    defaultSymbols = DurationSymbols_uz_Cyrl;
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    defaultSymbols = exports.DurationSymbols_uz_Cyrl_UZ;
+    defaultSymbols = DurationSymbols_uz_Cyrl_UZ;
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    defaultSymbols = exports.DurationSymbols_uz_Latn;
+    defaultSymbols = DurationSymbols_uz_Latn;
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    defaultSymbols = exports.DurationSymbols_uz_Latn_UZ;
+    defaultSymbols = DurationSymbols_uz_Latn_UZ;
     break;
   case 'vai':
-    defaultSymbols = exports.DurationSymbols_vai;
+    defaultSymbols = DurationSymbols_vai;
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    defaultSymbols = exports.DurationSymbols_vai_Latn;
+    defaultSymbols = DurationSymbols_vai_Latn;
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    defaultSymbols = exports.DurationSymbols_vai_Latn_LR;
+    defaultSymbols = DurationSymbols_vai_Latn_LR;
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    defaultSymbols = exports.DurationSymbols_vai_Vaii;
+    defaultSymbols = DurationSymbols_vai_Vaii;
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    defaultSymbols = exports.DurationSymbols_vai_Vaii_LR;
+    defaultSymbols = DurationSymbols_vai_Vaii_LR;
     break;
   case 'vi_VN':
   case 'vi-VN':
-    defaultSymbols = exports.DurationSymbols_vi_VN;
+    defaultSymbols = DurationSymbols_vi_VN;
     break;
   case 'vun':
-    defaultSymbols = exports.DurationSymbols_vun;
+    defaultSymbols = DurationSymbols_vun;
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    defaultSymbols = exports.DurationSymbols_vun_TZ;
+    defaultSymbols = DurationSymbols_vun_TZ;
     break;
   case 'wae':
-    defaultSymbols = exports.DurationSymbols_wae;
+    defaultSymbols = DurationSymbols_wae;
     break;
   case 'wae_CH':
   case 'wae-CH':
-    defaultSymbols = exports.DurationSymbols_wae_CH;
+    defaultSymbols = DurationSymbols_wae_CH;
     break;
   case 'wo':
-    defaultSymbols = exports.DurationSymbols_wo;
+    defaultSymbols = DurationSymbols_wo;
     break;
   case 'wo_SN':
   case 'wo-SN':
-    defaultSymbols = exports.DurationSymbols_wo_SN;
+    defaultSymbols = DurationSymbols_wo_SN;
     break;
   case 'xh':
-    defaultSymbols = exports.DurationSymbols_xh;
+    defaultSymbols = DurationSymbols_xh;
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    defaultSymbols = exports.DurationSymbols_xh_ZA;
+    defaultSymbols = DurationSymbols_xh_ZA;
     break;
   case 'xog':
-    defaultSymbols = exports.DurationSymbols_xog;
+    defaultSymbols = DurationSymbols_xog;
     break;
   case 'xog_UG':
   case 'xog-UG':
-    defaultSymbols = exports.DurationSymbols_xog_UG;
+    defaultSymbols = DurationSymbols_xog_UG;
     break;
   case 'yav':
-    defaultSymbols = exports.DurationSymbols_yav;
+    defaultSymbols = DurationSymbols_yav;
     break;
   case 'yav_CM':
   case 'yav-CM':
-    defaultSymbols = exports.DurationSymbols_yav_CM;
+    defaultSymbols = DurationSymbols_yav_CM;
     break;
   case 'yi':
-    defaultSymbols = exports.DurationSymbols_yi;
+    defaultSymbols = DurationSymbols_yi;
     break;
   case 'yi_001':
   case 'yi-001':
-    defaultSymbols = exports.DurationSymbols_yi_001;
+    defaultSymbols = DurationSymbols_yi_001;
     break;
   case 'yo':
-    defaultSymbols = exports.DurationSymbols_yo;
+    defaultSymbols = DurationSymbols_yo;
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    defaultSymbols = exports.DurationSymbols_yo_BJ;
+    defaultSymbols = DurationSymbols_yo_BJ;
     break;
   case 'yo_NG':
   case 'yo-NG':
-    defaultSymbols = exports.DurationSymbols_yo_NG;
+    defaultSymbols = DurationSymbols_yo_NG;
     break;
   case 'yrl':
-    defaultSymbols = exports.DurationSymbols_yrl;
+    defaultSymbols = DurationSymbols_yrl;
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    defaultSymbols = exports.DurationSymbols_yrl_BR;
+    defaultSymbols = DurationSymbols_yrl_BR;
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    defaultSymbols = exports.DurationSymbols_yrl_CO;
+    defaultSymbols = DurationSymbols_yrl_CO;
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    defaultSymbols = exports.DurationSymbols_yrl_VE;
+    defaultSymbols = DurationSymbols_yrl_VE;
     break;
   case 'yue':
-    defaultSymbols = exports.DurationSymbols_yue;
+    defaultSymbols = DurationSymbols_yue;
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    defaultSymbols = exports.DurationSymbols_yue_Hans;
+    defaultSymbols = DurationSymbols_yue_Hans;
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    defaultSymbols = exports.DurationSymbols_yue_Hans_CN;
+    defaultSymbols = DurationSymbols_yue_Hans_CN;
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    defaultSymbols = exports.DurationSymbols_yue_Hant;
+    defaultSymbols = DurationSymbols_yue_Hant;
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    defaultSymbols = exports.DurationSymbols_yue_Hant_HK;
+    defaultSymbols = DurationSymbols_yue_Hant_HK;
     break;
   case 'zgh':
-    defaultSymbols = exports.DurationSymbols_zgh;
+    defaultSymbols = DurationSymbols_zgh;
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    defaultSymbols = exports.DurationSymbols_zgh_MA;
+    defaultSymbols = DurationSymbols_zgh_MA;
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    defaultSymbols = exports.DurationSymbols_zh_Hans;
+    defaultSymbols = DurationSymbols_zh_Hans;
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    defaultSymbols = exports.DurationSymbols_zh_Hans_CN;
+    defaultSymbols = DurationSymbols_zh_Hans_CN;
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    defaultSymbols = exports.DurationSymbols_zh_Hans_HK;
+    defaultSymbols = DurationSymbols_zh_Hans_HK;
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    defaultSymbols = exports.DurationSymbols_zh_Hans_MO;
+    defaultSymbols = DurationSymbols_zh_Hans_MO;
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    defaultSymbols = exports.DurationSymbols_zh_Hans_SG;
+    defaultSymbols = DurationSymbols_zh_Hans_SG;
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    defaultSymbols = exports.DurationSymbols_zh_Hant;
+    defaultSymbols = DurationSymbols_zh_Hant;
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    defaultSymbols = exports.DurationSymbols_zh_Hant_HK;
+    defaultSymbols = DurationSymbols_zh_Hant_HK;
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    defaultSymbols = exports.DurationSymbols_zh_Hant_MO;
+    defaultSymbols = DurationSymbols_zh_Hant_MO;
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    defaultSymbols = exports.DurationSymbols_zh_Hant_TW;
+    defaultSymbols = DurationSymbols_zh_Hant_TW;
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    defaultSymbols = exports.DurationSymbols_zu_ZA;
+    defaultSymbols = DurationSymbols_zu_ZA;
     break;
 }
 

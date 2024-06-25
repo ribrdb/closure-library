@@ -11,7 +11,7 @@
  *
  * Usage:
  * <code>
- *   var arc4 = new goog.crypt.Arc4();
+ *   var arc4 = new Arc4();
  *   arc4.setKey(key);
  *   arc4.discard(1536);
  *   arc4.crypt(bytes);
@@ -21,9 +21,7 @@
  * be useful.
  */
 
-goog.provide('goog.crypt.Arc4');
-
-goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 
 
@@ -33,8 +31,7 @@ goog.require('goog.asserts');
  * @final
  * @struct
  */
-goog.crypt.Arc4 = function() {
-  'use strict';
+export function Arc4() {
   /**
    * A permutation of all 256 possible bytes.
    * @type {Array<number>}
@@ -55,7 +52,7 @@ goog.crypt.Arc4 = function() {
    * @private
    */
   this.index2_ = 0;
-};
+}
 
 
 /**
@@ -63,9 +60,8 @@ goog.crypt.Arc4 = function() {
  * @param {Array<number>} key A byte array containing the key.
  * @param {number=} opt_length Indicates # of bytes to take from the key.
  */
-goog.crypt.Arc4.prototype.setKey = function(key, opt_length) {
-  'use strict';
-  goog.asserts.assertArray(key, 'Key parameter must be a byte array');
+Arc4.prototype.setKey = function(key, opt_length) {
+  asserts.assertArray(key, 'Key parameter must be a byte array');
 
   if (!opt_length) {
     opt_length = key.length;
@@ -109,8 +105,7 @@ goog.crypt.Arc4.prototype.setKey = function(key, opt_length) {
  *    perf hit for crypt.
  * @param {number} length Number of bytes to disregard from the stream.
  */
-goog.crypt.Arc4.prototype.discard = function(length) {
-  'use strict';
+Arc4.prototype.discard = function(length) {
   var i = this.index1_;
   var j = this.index2_;
   var state = this.state_;
@@ -134,8 +129,7 @@ goog.crypt.Arc4.prototype.discard = function(length) {
  * @param {Array<number>|Uint8Array} data The data to be xor-ed in place.
  * @param {number=} opt_length The number of bytes to crypt.
  */
-goog.crypt.Arc4.prototype.crypt = function(data, opt_length) {
-  'use strict';
+Arc4.prototype.crypt = function(data, opt_length) {
   if (!opt_length) {
     opt_length = data.length;
   }

@@ -8,24 +8,21 @@
  * @fileoverview Renderer for toolbar buttons.
  */
 
-goog.provide('goog.ui.ToolbarButtonRenderer');
-
-goog.require('goog.ui.CustomButtonRenderer');
+import { CustomButtonRenderer } from './custombuttonrenderer.js';
 
 
 
 /**
  * Toolbar-specific renderer for {@link goog.ui.Button}s, based on {@link
- * goog.ui.CustomButtonRenderer}.
+ * CustomButtonRenderer}.
  * @constructor
- * @extends {goog.ui.CustomButtonRenderer}
+ * @extends {CustomButtonRenderer}
  */
-goog.ui.ToolbarButtonRenderer = function() {
-  'use strict';
-  goog.ui.CustomButtonRenderer.call(this);
-};
-goog.inherits(goog.ui.ToolbarButtonRenderer, goog.ui.CustomButtonRenderer);
-goog.addSingletonGetter(goog.ui.ToolbarButtonRenderer);
+export function ToolbarButtonRenderer() {
+ CustomButtonRenderer.call(this);
+}
+goog.inherits(ToolbarButtonRenderer, CustomButtonRenderer);
+goog.addSingletonGetter(ToolbarButtonRenderer);
 
 
 /**
@@ -33,7 +30,7 @@ goog.addSingletonGetter(goog.ui.ToolbarButtonRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.ToolbarButtonRenderer.CSS_CLASS =
+ToolbarButtonRenderer.CSS_CLASS =
     goog.getCssName('goog-toolbar-button');
 
 
@@ -43,7 +40,6 @@ goog.ui.ToolbarButtonRenderer.CSS_CLASS =
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.ToolbarButtonRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.ToolbarButtonRenderer.CSS_CLASS;
+ToolbarButtonRenderer.prototype.getCssClass = function() {
+ return ToolbarButtonRenderer.CSS_CLASS;
 };

@@ -11,33 +11,20 @@
  * as known to be "safe".
  */
 
-goog.provide('goog.soy.data');
-goog.provide('goog.soy.data.SanitizedContent');
-goog.provide('goog.soy.data.SanitizedContentKind');
-goog.provide('goog.soy.data.SanitizedCss');
-goog.provide('goog.soy.data.SanitizedHtml');
-goog.provide('goog.soy.data.SanitizedHtmlAttribute');
-goog.provide('goog.soy.data.SanitizedJs');
-goog.provide('goog.soy.data.SanitizedTrustedResourceUri');
-goog.provide('goog.soy.data.SanitizedUri');
+goog.declareModuleId('goog.soy.data');
 
-goog.require('goog.Uri');
-goog.require('goog.asserts');
-goog.require('goog.dom.safe');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.html.SafeScript');
-goog.require('goog.html.SafeStyle');
-goog.require('goog.html.SafeStyleSheet');
-goog.require('goog.html.SafeUrl');
-goog.require('goog.html.TrustedResourceUrl');
-goog.require('goog.html.uncheckedconversions');
-goog.require('goog.i18n.bidi.Dir');
-goog.require('goog.string.Const');
-
-goog.scope(() => {
-
-const SafeHtml = goog.html.SafeHtml;
-const safe = goog.dom.safe;
+import { Uri } from '../uri/uri.js';
+import * as asserts from '../asserts/asserts.js';
+import * as safe from '../dom/safe.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { SafeScript } from '../html/safescript.js';
+import { SafeStyle } from '../html/safestyle.js';
+import { SafeStyleSheet } from '../html/safestylesheet.js';
+import { SafeUrl } from '../html/safeurl.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as uncheckedconversions from '../html/uncheckedconversions.js';
+import { Dir } from '../i18n/bidi.js';
+import { Const } from '../string/const.js';
 
 /**
  * A type of textual content.
@@ -46,7 +33,7 @@ const safe = goog.dom.safe;
  *
  * @enum {!Object}
  */
-goog.soy.data.SanitizedContentKind = {
+export var SanitizedContentKind = {
 
   /**
    * A snippet of HTML that does not start or end inside a tag, comment, entity,
@@ -105,96 +92,91 @@ goog.soy.data.SanitizedContentKind = {
  *
  * @constructor
  */
-goog.soy.data.SanitizedContent = function() {
-  'use strict';
-  throw new Error('Do not instantiate directly');
-};
+export function SanitizedContent() {
+ throw new Error('Do not instantiate directly');
+}
 
 
 /**
  * The context in which this content is safe from XSS attacks.
- * @type {goog.soy.data.SanitizedContentKind}
+ * @type {SanitizedContentKind}
  */
-goog.soy.data.SanitizedContent.prototype.contentKind;
+SanitizedContent.prototype.contentKind;
 
 
 /**
  * The content's direction; null if unknown and thus to be estimated when
  * necessary.
- * @type {?goog.i18n.bidi.Dir}
+ * @type {?Dir}
  */
-goog.soy.data.SanitizedContent.prototype.contentDir = null;
+SanitizedContent.prototype.contentDir = null;
 
 
 /**
  * The already-safe content.
  * @protected {string}
  */
-goog.soy.data.SanitizedContent.prototype.content;
+SanitizedContent.prototype.content;
 
 
 /**
  * Gets the already-safe content.
  * @return {string}
  */
-goog.soy.data.SanitizedContent.prototype.getContent = function() {
-  'use strict';
-  return this.content;
+SanitizedContent.prototype.getContent = function() {
+ return this.content;
 };
 
 
 /** @override */
-goog.soy.data.SanitizedContent.prototype.toString = function() {
-  'use strict';
-  return this.content;
+SanitizedContent.prototype.toString = function() {
+ return this.content;
 };
 
 
 /**
  * Converts sanitized content of kind HTML into SafeHtml
- * @return {!goog.html.SafeHtml}
+ * @return {!SafeHtml}
  * @throws {!Error} when the content kind is not HTML.
  */
-goog.soy.data.SanitizedContent.prototype.toSafeHtml = function() {
-  'use strict';
-  if (this.contentKind !== goog.soy.data.SanitizedContentKind.HTML) {
-    throw new Error('Sanitized content was not of kind HTML.');
-  }
-  return goog.html.uncheckedconversions
-      .safeHtmlFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
-              'Soy SanitizedContent of kind HTML produces ' +
-              'SafeHtml-contract-compliant value.'),
-          this.toString());
+SanitizedContent.prototype.toSafeHtml = function() {
+ if (this.contentKind !== SanitizedContentKind.HTML) {
+   throw new Error('Sanitized content was not of kind HTML.');
+ }
+ return uncheckedconversions
+     .safeHtmlFromStringKnownToSatisfyTypeContract(
+         Const.from(
+             'Soy SanitizedContent of kind HTML produces ' +
+             'SafeHtml-contract-compliant value.'),
+         this.toString());
 };
 
 /** @type {(function((!Element|!ShadowRoot)): void)|undefined} */
-goog.soy.data.SanitizedContent.prototype.renderElement;
+SanitizedContent.prototype.renderElement;
 
 /** @type {(function(): !Element)|undefined} */
-goog.soy.data.SanitizedContent.prototype.renderAsElement;
+SanitizedContent.prototype.renderAsElement;
 
 /**
  * Converts sanitized content of kind URI into SafeUrl without modification.
- * @return {!goog.html.SafeUrl}
+ * @return {!SafeUrl}
  * @throws {Error} when the content kind is not URI.
  */
-goog.soy.data.SanitizedContent.prototype.toSafeUrl = function() {
-  'use strict';
-  if (this.contentKind !== goog.soy.data.SanitizedContentKind.URI) {
-    throw new Error('Sanitized content was not of kind URI.');
-  }
-  return goog.html.uncheckedconversions
-      .safeUrlFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
-              'Soy SanitizedContent of kind URI produces ' +
-              'SafeHtml-contract-compliant value.'),
-          this.toString());
+SanitizedContent.prototype.toSafeUrl = function() {
+ if (this.contentKind !== SanitizedContentKind.URI) {
+   throw new Error('Sanitized content was not of kind URI.');
+ }
+ return uncheckedconversions
+     .safeUrlFromStringKnownToSatisfyTypeContract(
+         Const.from(
+             'Soy SanitizedContent of kind URI produces ' +
+             'SafeHtml-contract-compliant value.'),
+         this.toString());
 };
 
 
 /**
- * Content of type {@link goog.soy.data.SanitizedContentKind.HTML}.
+ * Content of type {@link SanitizedContentKind.HTML}.
  *
  * The content is a string of HTML that can safely be embedded in a PCDATA
  * context in your app.  If you would be surprised to find that an HTML
@@ -203,19 +185,18 @@ goog.soy.data.SanitizedContent.prototype.toSafeUrl = function() {
  * grounds, then don't pass `s` here. The default content direction is
  * unknown, i.e. to be estimated when necessary.
  *
- * @extends {goog.soy.data.SanitizedContent}
+ * @extends {SanitizedContent}
  * @constructor
  */
-goog.soy.data.SanitizedHtml = function() {
-  'use strict';
-  goog.soy.data.SanitizedHtml.base(this, 'constructor');
-};
-goog.inherits(goog.soy.data.SanitizedHtml, goog.soy.data.SanitizedContent);
+export function SanitizedHtml() {
+ SanitizedHtml.base(this, 'constructor');
+}
+goog.inherits(SanitizedHtml, SanitizedContent);
 
 
 /** @override */
-goog.soy.data.SanitizedHtml.prototype.contentKind =
-    goog.soy.data.SanitizedContentKind.HTML;
+SanitizedHtml.prototype.contentKind =
+    SanitizedContentKind.HTML;
 
 
 /**
@@ -223,10 +204,9 @@ goog.soy.data.SanitizedHtml.prototype.contentKind =
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedHtml.isCompatibleWith = function(value) {
-  'use strict';
-  return typeof value === 'string' ||
-      goog.soy.data.SanitizedHtml.isCompatibleWithStrict(value);
+SanitizedHtml.isCompatibleWith = function(value) {
+ return typeof value === 'string' ||
+     SanitizedHtml.isCompatibleWithStrict(value);
 };
 
 
@@ -236,36 +216,34 @@ goog.soy.data.SanitizedHtml.isCompatibleWith = function(value) {
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedHtml.isCompatibleWithStrict = function(value) {
-  'use strict';
-  return value instanceof goog.soy.data.SanitizedHtml ||
-      value instanceof goog.html.SafeHtml;
+SanitizedHtml.isCompatibleWithStrict = function(value) {
+ return value instanceof SanitizedHtml ||
+     value instanceof SafeHtml;
 };
 
 
 /**
- * Content of type {@link goog.soy.data.SanitizedContentKind.JS}.
+ * Content of type {@link SanitizedContentKind.JS}.
  *
  * The content is JavaScript source that when evaluated does not execute any
  * attacker-controlled scripts. The content direction is LTR.
  *
- * @extends {goog.soy.data.SanitizedContent}
+ * @extends {SanitizedContent}
  * @constructor
  */
-goog.soy.data.SanitizedJs = function() {
-  'use strict';
-  goog.soy.data.SanitizedJs.base(this, 'constructor');
-};
-goog.inherits(goog.soy.data.SanitizedJs, goog.soy.data.SanitizedContent);
+export function SanitizedJs() {
+ SanitizedJs.base(this, 'constructor');
+}
+goog.inherits(SanitizedJs, SanitizedContent);
 
 
 /** @override */
-goog.soy.data.SanitizedJs.prototype.contentKind =
-    goog.soy.data.SanitizedContentKind.JS;
+SanitizedJs.prototype.contentKind =
+    SanitizedContentKind.JS;
 
 
 /** @override */
-goog.soy.data.SanitizedJs.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
+SanitizedJs.prototype.contentDir = Dir.LTR;
 
 
 /**
@@ -273,10 +251,9 @@ goog.soy.data.SanitizedJs.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedJs.isCompatibleWith = function(value) {
-  'use strict';
-  return typeof value === 'string' ||
-      goog.soy.data.SanitizedJs.isCompatibleWithStrict(value);
+SanitizedJs.isCompatibleWith = function(value) {
+ return typeof value === 'string' ||
+     SanitizedJs.isCompatibleWithStrict(value);
 };
 
 /**
@@ -285,51 +262,48 @@ goog.soy.data.SanitizedJs.isCompatibleWith = function(value) {
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedJs.isCompatibleWithStrict = function(value) {
-  'use strict';
-  return value instanceof goog.soy.data.SanitizedJs ||
-      value instanceof goog.html.SafeScript;
+SanitizedJs.isCompatibleWithStrict = function(value) {
+ return value instanceof SanitizedJs ||
+     value instanceof SafeScript;
 };
 
 
 /**
  * Converts sanitized content of kind JS into SafeScript without modification.
- * @return {!goog.html.SafeScript}
+ * @return {!SafeScript}
  */
-goog.soy.data.SanitizedJs.prototype.toSafeScript = function() {
-  'use strict';
-  return goog.html.uncheckedconversions
-      .safeScriptFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
-              'Soy SanitizedContent of kind JS produces ' +
-              'SafeScript-contract-compliant value.'),
-          this.toString());
+SanitizedJs.prototype.toSafeScript = function() {
+ return uncheckedconversions
+     .safeScriptFromStringKnownToSatisfyTypeContract(
+         Const.from(
+             'Soy SanitizedContent of kind JS produces ' +
+             'SafeScript-contract-compliant value.'),
+         this.toString());
 };
 
 
 
 /**
- * Content of type {@link goog.soy.data.SanitizedContentKind.URI}.
+ * Content of type {@link SanitizedContentKind.URI}.
  *
  * The content is a URI chunk that the caller knows is safe to emit in a
  * template. The content direction is LTR.
  *
- * @extends {goog.soy.data.SanitizedContent}
+ * @extends {SanitizedContent}
  * @constructor
  */
-goog.soy.data.SanitizedUri = function() {
-  'use strict';
-  goog.soy.data.SanitizedUri.base(this, 'constructor');
-};
-goog.inherits(goog.soy.data.SanitizedUri, goog.soy.data.SanitizedContent);
+export function SanitizedUri() {
+ SanitizedUri.base(this, 'constructor');
+}
+goog.inherits(SanitizedUri, SanitizedContent);
 
 /** @override */
-goog.soy.data.SanitizedUri.prototype.contentKind =
-    goog.soy.data.SanitizedContentKind.URI;
+SanitizedUri.prototype.contentKind =
+    SanitizedContentKind.URI;
 
 
 /** @override */
-goog.soy.data.SanitizedUri.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
+SanitizedUri.prototype.contentDir = Dir.LTR;
 
 
 /**
@@ -337,10 +311,9 @@ goog.soy.data.SanitizedUri.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedUri.isCompatibleWith = function(value) {
-  'use strict';
-  return typeof value === 'string' ||
-      goog.soy.data.SanitizedUri.isCompatibleWithStrict(value);
+SanitizedUri.isCompatibleWith = function(value) {
+ return typeof value === 'string' ||
+     SanitizedUri.isCompatibleWithStrict(value);
 };
 
 
@@ -350,58 +323,55 @@ goog.soy.data.SanitizedUri.isCompatibleWith = function(value) {
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedUri.isCompatibleWithStrict = function(value) {
-  'use strict';
-  return value instanceof goog.soy.data.SanitizedUri ||
-      value instanceof goog.html.SafeUrl ||
-      value instanceof goog.html.TrustedResourceUrl ||
-      value instanceof goog.Uri;
+SanitizedUri.isCompatibleWithStrict = function(value) {
+ return value instanceof SanitizedUri ||
+     value instanceof SafeUrl ||
+     value instanceof TrustedResourceUrl ||
+     value instanceof Uri;
 };
 
 
 
 /**
  * Content of type
- * {@link goog.soy.data.SanitizedContentKind.TRUSTED_RESOURCE_URI}.
+ * {@link SanitizedContentKind.TRUSTED_RESOURCE_URI}.
  *
  * The content is a TrustedResourceUri chunk that is not under attacker control.
  * The content direction is LTR.
  *
- * @extends {goog.soy.data.SanitizedContent}
+ * @extends {SanitizedContent}
  * @constructor
  */
-goog.soy.data.SanitizedTrustedResourceUri = function() {
-  'use strict';
-  goog.soy.data.SanitizedTrustedResourceUri.base(this, 'constructor');
-};
+export function SanitizedTrustedResourceUri() {
+ SanitizedTrustedResourceUri.base(this, 'constructor');
+}
 goog.inherits(
-    goog.soy.data.SanitizedTrustedResourceUri, goog.soy.data.SanitizedContent);
+    SanitizedTrustedResourceUri, SanitizedContent);
 
 
 /** @override */
-goog.soy.data.SanitizedTrustedResourceUri.prototype.contentKind =
-    goog.soy.data.SanitizedContentKind.TRUSTED_RESOURCE_URI;
+SanitizedTrustedResourceUri.prototype.contentKind =
+    SanitizedContentKind.TRUSTED_RESOURCE_URI;
 
 
 /** @override */
-goog.soy.data.SanitizedTrustedResourceUri.prototype.contentDir =
-    goog.i18n.bidi.Dir.LTR;
+SanitizedTrustedResourceUri.prototype.contentDir =
+    Dir.LTR;
 
 
 /**
  * Converts sanitized content into TrustedResourceUrl without modification.
- * @return {!goog.html.TrustedResourceUrl}
+ * @return {!TrustedResourceUrl}
  */
-goog.soy.data.SanitizedTrustedResourceUri.prototype.toTrustedResourceUrl =
+SanitizedTrustedResourceUri.prototype.toTrustedResourceUrl =
     function() {
-  'use strict';
-  return goog.html.uncheckedconversions
-      .trustedResourceUrlFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
-              'Soy SanitizedContent of kind TRUSTED_RESOURCE_URI produces ' +
-              'TrustedResourceUrl-contract-compliant value.'),
-          this.toString());
-};
+     return uncheckedconversions
+         .trustedResourceUrlFromStringKnownToSatisfyTypeContract(
+             Const.from(
+                 'Soy SanitizedContent of kind TRUSTED_RESOURCE_URI produces ' +
+                 'TrustedResourceUrl-contract-compliant value.'),
+             this.toString());
+    };
 
 
 /**
@@ -409,10 +379,9 @@ goog.soy.data.SanitizedTrustedResourceUri.prototype.toTrustedResourceUrl =
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedTrustedResourceUri.isCompatibleWith = function(value) {
-  'use strict';
-  return typeof value === 'string' ||
-      goog.soy.data.SanitizedTrustedResourceUri.isCompatibleWithStrict(value);
+SanitizedTrustedResourceUri.isCompatibleWith = function(value) {
+ return typeof value === 'string' ||
+     SanitizedTrustedResourceUri.isCompatibleWithStrict(value);
 };
 
 
@@ -422,40 +391,38 @@ goog.soy.data.SanitizedTrustedResourceUri.isCompatibleWith = function(value) {
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedTrustedResourceUri.isCompatibleWithStrict = function(
+SanitizedTrustedResourceUri.isCompatibleWithStrict = function(
     value) {
-  'use strict';
-  return value instanceof goog.soy.data.SanitizedTrustedResourceUri ||
-      value instanceof goog.html.TrustedResourceUrl;
+ return value instanceof SanitizedTrustedResourceUri ||
+     value instanceof TrustedResourceUrl;
 };
 
 
 
 /**
- * Content of type {@link goog.soy.data.SanitizedContentKind.ATTRIBUTES}.
+ * Content of type {@link SanitizedContentKind.ATTRIBUTES}.
  *
  * The content should be safely embeddable within an open tag, such as a
  * key="value" pair. The content direction is LTR.
  *
- * @extends {goog.soy.data.SanitizedContent}
+ * @extends {SanitizedContent}
  * @constructor
  */
-goog.soy.data.SanitizedHtmlAttribute = function() {
-  'use strict';
-  goog.soy.data.SanitizedHtmlAttribute.base(this, 'constructor');
-};
+export function SanitizedHtmlAttribute() {
+ SanitizedHtmlAttribute.base(this, 'constructor');
+}
 goog.inherits(
-    goog.soy.data.SanitizedHtmlAttribute, goog.soy.data.SanitizedContent);
+    SanitizedHtmlAttribute, SanitizedContent);
 
 
 /** @override */
-goog.soy.data.SanitizedHtmlAttribute.prototype.contentKind =
-    goog.soy.data.SanitizedContentKind.ATTRIBUTES;
+SanitizedHtmlAttribute.prototype.contentKind =
+    SanitizedContentKind.ATTRIBUTES;
 
 
 /** @override */
-goog.soy.data.SanitizedHtmlAttribute.prototype.contentDir =
-    goog.i18n.bidi.Dir.LTR;
+SanitizedHtmlAttribute.prototype.contentDir =
+    Dir.LTR;
 
 
 /**
@@ -463,10 +430,9 @@ goog.soy.data.SanitizedHtmlAttribute.prototype.contentDir =
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedHtmlAttribute.isCompatibleWith = function(value) {
-  'use strict';
-  return typeof value === 'string' ||
-      goog.soy.data.SanitizedHtmlAttribute.isCompatibleWithStrict(value);
+SanitizedHtmlAttribute.isCompatibleWith = function(value) {
+ return typeof value === 'string' ||
+     SanitizedHtmlAttribute.isCompatibleWithStrict(value);
 };
 
 
@@ -476,36 +442,34 @@ goog.soy.data.SanitizedHtmlAttribute.isCompatibleWith = function(value) {
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedHtmlAttribute.isCompatibleWithStrict = function(value) {
-  'use strict';
-  return value instanceof goog.soy.data.SanitizedHtmlAttribute;
+SanitizedHtmlAttribute.isCompatibleWithStrict = function(value) {
+ return value instanceof SanitizedHtmlAttribute;
 };
 
 
 
 /**
- * Content of type {@link goog.soy.data.SanitizedContentKind.CSS}.
+ * Content of type {@link SanitizedContentKind.CSS}.
  *
  * The content is non-attacker-exploitable CSS, such as {@code @import url(x)}.
  * The content direction is LTR.
  *
- * @extends {goog.soy.data.SanitizedContent}
+ * @extends {SanitizedContent}
  * @constructor
  */
-goog.soy.data.SanitizedCss = function() {
-  'use strict';
-  goog.soy.data.SanitizedCss.base(this, 'constructor');
-};
-goog.inherits(goog.soy.data.SanitizedCss, goog.soy.data.SanitizedContent);
+export function SanitizedCss() {
+ SanitizedCss.base(this, 'constructor');
+}
+goog.inherits(SanitizedCss, SanitizedContent);
 
 
 /** @override */
-goog.soy.data.SanitizedCss.prototype.contentKind =
-    goog.soy.data.SanitizedContentKind.CSS;
+SanitizedCss.prototype.contentKind =
+    SanitizedContentKind.CSS;
 
 
 /** @override */
-goog.soy.data.SanitizedCss.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
+SanitizedCss.prototype.contentDir = Dir.LTR;
 
 
 /**
@@ -513,10 +477,9 @@ goog.soy.data.SanitizedCss.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedCss.isCompatibleWith = function(value) {
-  'use strict';
-  return typeof value === 'string' ||
-      goog.soy.data.SanitizedCss.isCompatibleWithStrict(value);
+SanitizedCss.isCompatibleWith = function(value) {
+ return typeof value === 'string' ||
+     SanitizedCss.isCompatibleWithStrict(value);
 };
 
 
@@ -526,11 +489,10 @@ goog.soy.data.SanitizedCss.isCompatibleWith = function(value) {
  * @param {*} value
  * @return {boolean}
  */
-goog.soy.data.SanitizedCss.isCompatibleWithStrict = function(value) {
-  'use strict';
-  return value instanceof goog.soy.data.SanitizedCss ||
-      value instanceof goog.html.SafeStyle ||
-      value instanceof goog.html.SafeStyleSheet;
+SanitizedCss.isCompatibleWithStrict = function(value) {
+ return value instanceof SanitizedCss ||
+     value instanceof SafeStyle ||
+     value instanceof SafeStyleSheet;
 };
 
 
@@ -539,37 +501,33 @@ goog.soy.data.SanitizedCss.isCompatibleWithStrict = function(value) {
  * Note: SanitizedCss in Soy represents both SafeStyle and SafeStyleSheet in
  * Closure. It's about to be split so that SanitizedCss represents only
  * SafeStyleSheet.
- * @return {!goog.html.SafeStyleSheet}
+ * @return {!SafeStyleSheet}
  */
-goog.soy.data.SanitizedCss.prototype.toSafeStyleSheet = function() {
-  'use strict';
-  var value = this.toString();
-  goog.asserts.assert(
-      /[@{]|^\s*$/.test(value),
-      'value doesn\'t look like style sheet: ' + value);
-  return goog.html.uncheckedconversions
-      .safeStyleSheetFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
-              'Soy SanitizedCss produces SafeStyleSheet-contract-compliant ' +
-              'value.'),
-          value);
+SanitizedCss.prototype.toSafeStyleSheet = function() {
+ var value = this.toString();
+ asserts.assert(
+     /[@{]|^\s*$/.test(value),
+     'value doesn\'t look like style sheet: ' + value);
+ return uncheckedconversions
+     .safeStyleSheetFromStringKnownToSatisfyTypeContract(
+         Const.from(
+             'Soy SanitizedCss produces SafeStyleSheet-contract-compliant ' +
+             'value.'),
+         value);
 };
 
 
 /**
  * Converts SanitizedCss into SafeStyle.
- * @return {!goog.html.SafeStyle}
+ * @return {!SafeStyle}
  */
-goog.soy.data.SanitizedCss.prototype.toSafeStyle = function() {
-  'use strict';
-  const value = this.toString();
-  goog.asserts.assert(
-      !/{/.test(value), 'value doesn\'t look like style: ' + value);
-  return goog.html.uncheckedconversions
-      .safeStyleFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
-              'Soy SanitizedCss produces SafeStyle-contract-compliant value.'),
-          value);
+SanitizedCss.prototype.toSafeStyle = function() {
+ const value = this.toString();
+ asserts.assert(
+     !/{/.test(value), 'value doesn\'t look like style: ' + value);
+ return uncheckedconversions
+     .safeStyleFromStringKnownToSatisfyTypeContract(
+         Const.from(
+             'Soy SanitizedCss produces SafeStyle-contract-compliant value.'),
+         value);
 };
-
-});

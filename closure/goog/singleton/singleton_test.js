@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.singletontest');
 goog.setTestOnly();
 
-const singleton = goog.require('goog.singleton');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingSingleton = goog.require('goog.testing.singleton');
+import * as singleton from './singleton.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingSingleton from '../testing/singleton.js';
 
 testSuite({
   tearDown() {

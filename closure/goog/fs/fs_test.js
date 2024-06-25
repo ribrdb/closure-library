@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fsTest');
 goog.setTestOnly();
 
-const FsDirectoryEntry = goog.require('goog.fs.DirectoryEntry');
-const FsError = goog.require('goog.fs.Error');
-const FsFileReader = goog.require('goog.fs.FileReader');
-const FsFileSaver = goog.require('goog.fs.FileSaver');
-const GoogPromise = goog.require('goog.Promise');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googArray = goog.require('goog.array');
-const googFs = goog.require('goog.fs');
-const googFsBlob = goog.require('goog.fs.blob');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DirectoryEntry as FsDirectoryEntry } from './entry.js';
+import { Error as FsError } from './error.js';
+import { FileReader as FsFileReader } from './filereader.js';
+import { FileSaver as FsFileSaver } from './filesaver.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as googArray from '../array/array.js';
+import * as googFs from './fs.js';
+import * as googFsBlob from './blob.js';
+import * as googString from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const TEST_DIR = 'goog-fs-test-dir';
 

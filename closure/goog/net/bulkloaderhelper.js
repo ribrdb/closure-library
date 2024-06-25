@@ -10,10 +10,9 @@
  * a success.
  */
 
-goog.provide('goog.net.BulkLoaderHelper');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.requireType('goog.Uri');
+goog.requireType('goog.uri.uri');
 
 
 
@@ -21,28 +20,27 @@ goog.requireType('goog.Uri');
  * Helper class used to load multiple URIs.
  * @param {Array<string|goog.Uri>} uris The URIs to load.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @final
  */
-goog.net.BulkLoaderHelper = function(uris) {
-  'use strict';
-  goog.Disposable.call(this);
+export function BulkLoaderHelper(uris) {
+ Disposable.call(this);
 
-  /**
-   * The URIs to load.
-   * @type {Array<string|goog.Uri>}
-   * @private
-   */
-  this.uris_ = uris;
+ /**
+  * The URIs to load.
+  * @type {Array<string|goog.Uri>}
+  * @private
+  */
+ this.uris_ = uris;
 
-  /**
-   * The response from the XHR's.
-   * @type {Array<string>}
-   * @private
-   */
-  this.responseTexts_ = [];
-};
-goog.inherits(goog.net.BulkLoaderHelper, goog.Disposable);
+ /**
+  * The response from the XHR's.
+  * @type {Array<string>}
+  * @private
+  */
+ this.responseTexts_ = [];
+}
+goog.inherits(BulkLoaderHelper, Disposable);
 
 
 
@@ -51,9 +49,8 @@ goog.inherits(goog.net.BulkLoaderHelper, goog.Disposable);
  * @param {number} id The id.
  * @return {string|goog.Uri} The URI specified by the id.
  */
-goog.net.BulkLoaderHelper.prototype.getUri = function(id) {
-  'use strict';
-  return this.uris_[id];
+BulkLoaderHelper.prototype.getUri = function(id) {
+ return this.uris_[id];
 };
 
 
@@ -61,9 +58,8 @@ goog.net.BulkLoaderHelper.prototype.getUri = function(id) {
  * Gets the URIs.
  * @return {Array<string|goog.Uri>} The URIs.
  */
-goog.net.BulkLoaderHelper.prototype.getUris = function() {
-  'use strict';
-  return this.uris_;
+BulkLoaderHelper.prototype.getUris = function() {
+ return this.uris_;
 };
 
 
@@ -71,9 +67,8 @@ goog.net.BulkLoaderHelper.prototype.getUris = function() {
  * Gets the response texts.
  * @return {Array<string>} The response texts.
  */
-goog.net.BulkLoaderHelper.prototype.getResponseTexts = function() {
-  'use strict';
-  return this.responseTexts_;
+BulkLoaderHelper.prototype.getResponseTexts = function() {
+ return this.responseTexts_;
 };
 
 
@@ -82,10 +77,9 @@ goog.net.BulkLoaderHelper.prototype.getResponseTexts = function() {
  * @param {number} id The id.
  * @param {string} responseText The response texts.
  */
-goog.net.BulkLoaderHelper.prototype.setResponseText = function(
+BulkLoaderHelper.prototype.setResponseText = function(
     id, responseText) {
-  'use strict';
-  this.responseTexts_[id] = responseText;
+ this.responseTexts_[id] = responseText;
 };
 
 
@@ -93,26 +87,24 @@ goog.net.BulkLoaderHelper.prototype.setResponseText = function(
  * Determines if the load of the URIs is complete.
  * @return {boolean} TRUE iff the load is complete.
  */
-goog.net.BulkLoaderHelper.prototype.isLoadComplete = function() {
-  'use strict';
-  const responseTexts = this.responseTexts_;
-  if (responseTexts.length == this.uris_.length) {
-    for (let i = 0; i < responseTexts.length; i++) {
-      if (responseTexts[i] == null) {
-        return false;
-      }
-    }
-    return true;
-  }
-  return false;
+BulkLoaderHelper.prototype.isLoadComplete = function() {
+ const responseTexts = this.responseTexts_;
+ if (responseTexts.length == this.uris_.length) {
+   for (let i = 0; i < responseTexts.length; i++) {
+     if (responseTexts[i] == null) {
+       return false;
+     }
+   }
+   return true;
+ }
+ return false;
 };
 
 
 /** @override */
-goog.net.BulkLoaderHelper.prototype.disposeInternal = function() {
-  'use strict';
-  goog.net.BulkLoaderHelper.superClass_.disposeInternal.call(this);
+BulkLoaderHelper.prototype.disposeInternal = function() {
+ BulkLoaderHelper.superClass_.disposeInternal.call(this);
 
-  this.uris_ = null;
-  this.responseTexts_ = null;
+ this.uris_ = null;
+ this.responseTexts_ = null;
 };

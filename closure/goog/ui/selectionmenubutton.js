@@ -15,27 +15,25 @@
  * @see ../demos/selectionmenubutton.html
  */
 
-goog.provide('goog.ui.SelectionMenuButton');
-goog.provide('goog.ui.SelectionMenuButton.SelectionState');
+import { InputType } from '../dom/inputtype.js';
 
-goog.require('goog.dom.InputType');
-goog.require('goog.dom.TagName');
-goog.require('goog.events.EventType');
-goog.require('goog.style');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.MenuButton');
-goog.require('goog.ui.MenuItem');
-goog.require('goog.ui.registry');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.BrowserEvent');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.ui.ButtonRenderer');
-goog.requireType('goog.ui.MenuItemRenderer');
+import { TagName } from '../dom/tagname.js';
+import { EventType } from '../events/eventtype.js';
+import * as style from '../style/style.js';
+import { Component } from './component.js';
+import { MenuButton } from './menubutton.js';
+import { MenuItem } from './menuitem.js';
+import * as registry from './registry.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.browserevent');
+goog.requireType('goog.events.event');
+goog.requireType('goog.ui.buttonrenderer');
+goog.requireType('goog.ui.menuitemrenderer');
 
 
 
 /**
- * A selection menu button control.  Extends {@link goog.ui.MenuButton}.
+ * A selection menu button control.  Extends {@link MenuButton}.
  * Menu contains 'select all' and 'select none' MenuItems for selecting all and
  * no items by default. Other MenuItems can be added by user.
  *
@@ -43,28 +41,26 @@ goog.requireType('goog.ui.MenuItemRenderer');
  * and 'select none' menu items.
  *
  * @param {goog.ui.ButtonRenderer=} opt_renderer Renderer used to render or
- *     decorate the menu button; defaults to {@link goog.ui.MenuButtonRenderer}.
- * @param {goog.ui.MenuItemRenderer=} opt_itemRenderer Optional menu item
+ *     decorate the menu button; defaults to {@link MenuButtonRenderer}.
+ * @param {MenuItemRenderer=} opt_itemRenderer Optional menu item
  *     renderer.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
- * @extends {goog.ui.MenuButton}
+ * @extends {MenuButton}
  */
-goog.ui.SelectionMenuButton = function(
-    opt_renderer, opt_itemRenderer, opt_domHelper) {
-  'use strict';
-  goog.ui.MenuButton.call(this, null, null, opt_renderer, opt_domHelper);
+export function SelectionMenuButton(opt_renderer, opt_itemRenderer, opt_domHelper) {
+  MenuButton.call(this, null, null, opt_renderer, opt_domHelper);
   this.initialItemRenderer_ = opt_itemRenderer || null;
-};
-goog.inherits(goog.ui.SelectionMenuButton, goog.ui.MenuButton);
+}
+goog.inherits(SelectionMenuButton, MenuButton);
 
 
 /**
  * Constants for menu action types.
  * @enum {number}
  */
-goog.ui.SelectionMenuButton.SelectionState = {
+SelectionMenuButton.SelectionState = {
   ALL: 0,
   SOME: 1,
   NONE: 2
@@ -73,19 +69,19 @@ goog.ui.SelectionMenuButton.SelectionState = {
 
 /**
  * Select button state
- * @type {goog.ui.SelectionMenuButton.SelectionState}
+ * @type {SelectionMenuButton.SelectionState}
  * @protected
  */
-goog.ui.SelectionMenuButton.prototype.selectionState =
-    goog.ui.SelectionMenuButton.SelectionState.NONE;
+SelectionMenuButton.prototype.selectionState =
+    SelectionMenuButton.SelectionState.NONE;
 
 
 /**
  * Item renderer used for the first 2 items, 'select all' and 'select none'.
- * @type {goog.ui.MenuItemRenderer}
+ * @type {MenuItemRenderer}
  * @private
  */
-goog.ui.SelectionMenuButton.prototype.initialItemRenderer_;
+SelectionMenuButton.prototype.initialItemRenderer_;
 
 
 /**
@@ -93,9 +89,8 @@ goog.ui.SelectionMenuButton.prototype.initialItemRenderer_;
  * @param {boolean} enable Whether to enable or disable the button.
  * @override
  */
-goog.ui.SelectionMenuButton.prototype.setEnabled = function(enable) {
-  'use strict';
-  goog.ui.SelectionMenuButton.base(this, 'setEnabled', enable);
+SelectionMenuButton.prototype.setEnabled = function(enable) {
+  SelectionMenuButton.base(this, 'setEnabled', enable);
   this.setCheckboxEnabled(enable);
 };
 
@@ -106,19 +101,17 @@ goog.ui.SelectionMenuButton.prototype.setEnabled = function(enable) {
  * @protected
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.SelectionMenuButton.prototype.setCheckboxEnabled = function(enable) {
-  'use strict';
+SelectionMenuButton.prototype.setCheckboxEnabled = function(enable) {
   this.getCheckboxElement().disabled = !enable;
 };
 
 
 /** @override */
-goog.ui.SelectionMenuButton.prototype.handleMouseDown = function(e) {
-  'use strict';
+SelectionMenuButton.prototype.handleMouseDown = function(e) {
   if (!this.getDomHelper().contains(
           this.getCheckboxElement(),
           /** @type {Element} */ (e.target))) {
-    goog.ui.SelectionMenuButton.superClass_.handleMouseDown.call(this, e);
+    SelectionMenuButton.superClass_.handleMouseDown.call(this, e);
   }
 };
 
@@ -129,10 +122,9 @@ goog.ui.SelectionMenuButton.prototype.handleMouseDown = function(e) {
  * @return {Element} Checkbox.
  * @protected
  */
-goog.ui.SelectionMenuButton.prototype.getCheckboxElement = function() {
-  'use strict';
+SelectionMenuButton.prototype.getCheckboxElement = function() {
   var elements = this.getDomHelper().getElementsByTagNameAndClass(
-      goog.dom.TagName.INPUT,
+      TagName.INPUT,
       goog.getCssName('goog-selectionmenubutton-checkbox'),
       this.getContentElement());
   return elements[0];
@@ -144,19 +136,18 @@ goog.ui.SelectionMenuButton.prototype.getCheckboxElement = function() {
  * @param {goog.events.BrowserEvent} e Checkbox click event.
  * @protected
  */
-goog.ui.SelectionMenuButton.prototype.handleCheckboxClick = function(e) {
-  'use strict';
-  if (this.selectionState == goog.ui.SelectionMenuButton.SelectionState.NONE) {
-    this.setSelectionState(goog.ui.SelectionMenuButton.SelectionState.ALL);
+SelectionMenuButton.prototype.handleCheckboxClick = function(e) {
+  if (this.selectionState == SelectionMenuButton.SelectionState.NONE) {
+    this.setSelectionState(SelectionMenuButton.SelectionState.ALL);
     if (this.getItemAt(0)) {
       this.getItemAt(0).dispatchEvent(  // 'All' item
-          goog.ui.Component.EventType.ACTION);
+          Component.EventType.ACTION);
     }
   } else {
-    this.setSelectionState(goog.ui.SelectionMenuButton.SelectionState.NONE);
+    this.setSelectionState(SelectionMenuButton.SelectionState.NONE);
     if (this.getItemAt(1)) {
       this.getItemAt(1).dispatchEvent(  // 'None' item
-          goog.ui.Component.EventType.ACTION);
+          Component.EventType.ACTION);
     }
   }
 };
@@ -168,12 +159,11 @@ goog.ui.SelectionMenuButton.prototype.handleCheckboxClick = function(e) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.SelectionMenuButton.prototype.handleMenuAction_ = function(e) {
-  'use strict';
-  if (e.target.getModel() == goog.ui.SelectionMenuButton.SelectionState.ALL) {
-    this.setSelectionState(goog.ui.SelectionMenuButton.SelectionState.ALL);
+SelectionMenuButton.prototype.handleMenuAction_ = function(e) {
+  if (e.target.getModel() == SelectionMenuButton.SelectionState.ALL) {
+    this.setSelectionState(SelectionMenuButton.SelectionState.ALL);
   } else {
-    this.setSelectionState(goog.ui.SelectionMenuButton.SelectionState.NONE);
+    this.setSelectionState(SelectionMenuButton.SelectionState.NONE);
   }
 };
 
@@ -182,14 +172,13 @@ goog.ui.SelectionMenuButton.prototype.handleMenuAction_ = function(e) {
  * Set up events related to the menu items.
  * @private
  */
-goog.ui.SelectionMenuButton.prototype.addMenuEvent_ = function() {
-  'use strict';
+SelectionMenuButton.prototype.addMenuEvent_ = function() {
   if (this.getItemAt(0) && this.getItemAt(1)) {
     this.getHandler().listen(
-        this.getMenu(), goog.ui.Component.EventType.ACTION,
+        this.getMenu(), Component.EventType.ACTION,
         this.handleMenuAction_);
-    this.getItemAt(0).setModel(goog.ui.SelectionMenuButton.SelectionState.ALL);
-    this.getItemAt(1).setModel(goog.ui.SelectionMenuButton.SelectionState.NONE);
+    this.getItemAt(0).setModel(SelectionMenuButton.SelectionState.ALL);
+    this.getItemAt(1).setModel(SelectionMenuButton.SelectionState.NONE);
   }
 };
 
@@ -198,10 +187,9 @@ goog.ui.SelectionMenuButton.prototype.addMenuEvent_ = function() {
  * Set up events related to the checkbox.
  * @protected
  */
-goog.ui.SelectionMenuButton.prototype.addCheckboxEvent = function() {
-  'use strict';
+SelectionMenuButton.prototype.addCheckboxEvent = function() {
   this.getHandler().listen(
-      this.getCheckboxElement(), goog.events.EventType.CLICK,
+      this.getCheckboxElement(), EventType.CLICK,
       this.handleCheckboxClick);
 };
 
@@ -212,9 +200,8 @@ goog.ui.SelectionMenuButton.prototype.addCheckboxEvent = function() {
  * @override
  * @protected
  */
-goog.ui.SelectionMenuButton.prototype.createDom = function() {
-  'use strict';
-  goog.ui.SelectionMenuButton.superClass_.createDom.call(this);
+SelectionMenuButton.prototype.createDom = function() {
+  SelectionMenuButton.superClass_.createDom.call(this);
 
   this.createCheckbox();
 
@@ -223,10 +210,10 @@ goog.ui.SelectionMenuButton.prototype.createDom = function() {
   /** @desc Text for 'None' button, used to unselect all items in a list. */
   var MSG_SELECTIONMENUITEM_NONE = goog.getMsg('None');
 
-  var itemAll = new goog.ui.MenuItem(
+  var itemAll = new MenuItem(
       MSG_SELECTIONMENUITEM_ALL, null, this.getDomHelper(),
       this.initialItemRenderer_);
-  var itemNone = new goog.ui.MenuItem(
+  var itemNone = new MenuItem(
       MSG_SELECTIONMENUITEM_NONE, null, this.getDomHelper(),
       this.initialItemRenderer_);
   this.addItem(itemAll);
@@ -241,51 +228,47 @@ goog.ui.SelectionMenuButton.prototype.createDom = function() {
  * Creates and adds the checkbox to the button.
  * @protected
  */
-goog.ui.SelectionMenuButton.prototype.createCheckbox = function() {
-  'use strict';
-  var checkbox = this.getDomHelper().createElement(goog.dom.TagName.INPUT);
-  checkbox.type = goog.dom.InputType.CHECKBOX;
+SelectionMenuButton.prototype.createCheckbox = function() {
+  var checkbox = this.getDomHelper().createElement(TagName.INPUT);
+  checkbox.type = InputType.CHECKBOX;
   checkbox.className = goog.getCssName('goog-selectionmenubutton-checkbox');
   this.setContent(checkbox);
 };
 
 
 /** @override */
-goog.ui.SelectionMenuButton.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.SelectionMenuButton.superClass_.decorateInternal.call(this, element);
+SelectionMenuButton.prototype.decorateInternal = function(element) {
+  SelectionMenuButton.superClass_.decorateInternal.call(this, element);
   this.addCheckboxEvent();
   this.addMenuEvent_();
 };
 
 
 /** @override */
-goog.ui.SelectionMenuButton.prototype.setMenu = function(menu) {
-  'use strict';
-  goog.ui.SelectionMenuButton.superClass_.setMenu.call(this, menu);
+SelectionMenuButton.prototype.setMenu = function(menu) {
+  SelectionMenuButton.superClass_.setMenu.call(this, menu);
   this.addMenuEvent_();
 };
 
 
 /**
  * Set selection state and update checkbox.
- * @param {goog.ui.SelectionMenuButton.SelectionState} state Selection state.
+ * @param {SelectionMenuButton.SelectionState} state Selection state.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.SelectionMenuButton.prototype.setSelectionState = function(state) {
-  'use strict';
+SelectionMenuButton.prototype.setSelectionState = function(state) {
   if (this.selectionState != state) {
     var checkbox = this.getCheckboxElement();
-    if (state == goog.ui.SelectionMenuButton.SelectionState.ALL) {
+    if (state == SelectionMenuButton.SelectionState.ALL) {
       checkbox.checked = true;
-      goog.style.setOpacity(checkbox, 1);
-    } else if (state == goog.ui.SelectionMenuButton.SelectionState.SOME) {
+      style.setOpacity(checkbox, 1);
+    } else if (state == SelectionMenuButton.SelectionState.SOME) {
       checkbox.checked = true;
       // TODO(user): Get UX help to style this
-      goog.style.setOpacity(checkbox, 0.5);
+      style.setOpacity(checkbox, 0.5);
     } else {  // NONE
       checkbox.checked = false;
-      goog.style.setOpacity(checkbox, 1);
+      style.setOpacity(checkbox, 1);
     }
     this.selectionState = state;
   }
@@ -294,17 +277,15 @@ goog.ui.SelectionMenuButton.prototype.setSelectionState = function(state) {
 
 /**
 * Get selection state.
-* @return {goog.ui.SelectionMenuButton.SelectionState} Selection state.
+* @return {SelectionMenuButton.SelectionState} Selection state.
 */
-goog.ui.SelectionMenuButton.prototype.getSelectionState = function() {
-  'use strict';
+SelectionMenuButton.prototype.getSelectionState = function() {
   return this.selectionState;
 };
 
 
-// Register a decorator factory function for goog.ui.SelectionMenuButton.
-goog.ui.registry.setDecoratorByClassName(
+/* Register a decorator factory function for SelectionMenuButton.*/
+registry.setDecoratorByClassName(
     goog.getCssName('goog-selectionmenubutton-button'), function() {
-      'use strict';
-      return new goog.ui.SelectionMenuButton();
-    });
+  return new SelectionMenuButton();
+});

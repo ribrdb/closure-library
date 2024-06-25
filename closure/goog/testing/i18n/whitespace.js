@@ -9,8 +9,6 @@
  * Unicode whitespace characters simpler.
  */
 
-goog.module('goog.testing.i18n.whitespace');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly('goog.testing.i18n.whitespace');
 
 /**
@@ -18,7 +16,7 @@ goog.setTestOnly('goog.testing.i18n.whitespace');
  * characters. Same as \h in a Java regex Pattern.
  * @const {!RegExp}
  */
-exports.HORIZONTAL_WHITE_SPACE_REGEX = new RegExp(
+export let HORIZONTAL_WHITE_SPACE_REGEX = new RegExp(
     '[' +
         // Unicode space
         ' ' +
@@ -59,6 +57,6 @@ exports.HORIZONTAL_WHITE_SPACE_REGEX = new RegExp(
  * @param {string} input
  * @return {string}
  */
-exports.removeWhitespace = (input) => {
-  return input.replace(exports.HORIZONTAL_WHITE_SPACE_REGEX, '');
+export let removeWhitespace = (input) => {
+  return input.replace(HORIZONTAL_WHITE_SPACE_REGEX, '');
 };

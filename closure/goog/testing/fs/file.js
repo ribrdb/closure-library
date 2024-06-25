@@ -1,3 +1,4 @@
+goog.declareModuleId('goog.testing.fs.file');
 /**
  * @license
  * Copyright The Closure Library Authors.
@@ -9,9 +10,8 @@
  */
 
 goog.setTestOnly('goog.testing.fs.File');
-goog.provide('goog.testing.fs.File');
 
-goog.require('goog.testing.fs.Blob');
+import { Blob } from './blob.js';
 
 
 
@@ -24,23 +24,22 @@ goog.require('goog.testing.fs.Blob');
  * @param {string=} opt_data The string data encapsulated by the blob.
  * @param {string=} opt_type The mime type of the blob.
  * @constructor
- * @extends {goog.testing.fs.Blob}
+ * @extends {Blob}
  * @final
  */
-goog.testing.fs.File = function(name, opt_lastModified, opt_data, opt_type) {
-  'use strict';
-  goog.testing.fs.File.base(this, 'constructor', opt_data, opt_type);
+export function File(name, opt_lastModified, opt_data, opt_type) {
+ File.base(this, 'constructor', opt_data, opt_type);
 
-  /**
-   * @see http://www.w3.org/TR/FileAPI/#dfn-name
-   * @type {string}
-   */
-  this.name = name;
+ /**
+  * @see http://www.w3.org/TR/FileAPI/#dfn-name
+  * @type {string}
+  */
+ this.name = name;
 
-  /**
-   * @see http://www.w3.org/TR/FileAPI/#dfn-lastModifiedDate
-   * @type {Date}
-   */
-  this.lastModifiedDate = opt_lastModified || null;
-};
-goog.inherits(goog.testing.fs.File, goog.testing.fs.Blob);
+ /**
+  * @see http://www.w3.org/TR/FileAPI/#dfn-lastModifiedDate
+  * @type {Date}
+  */
+ this.lastModifiedDate = opt_lastModified || null;
+}
+goog.inherits(File, Blob);

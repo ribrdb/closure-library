@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.registryTest');
 goog.setTestOnly();
 
-const googObject = goog.require('goog.object');
-const registry = goog.require('goog.ui.registry');
-const testSuite = goog.require('goog.testing.testSuite');
+import googObject from '../object/object.js';
+import * as registry from './registry.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 // TODO(nickreid): THis all breaks when implemented using ES6 classes because of

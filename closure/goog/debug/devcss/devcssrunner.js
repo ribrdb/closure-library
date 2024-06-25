@@ -8,12 +8,9 @@
  * @fileoverview Development CSS Compiler runtime execution.
  */
 
-goog.provide('goog.debug.devCssRunner');
-
-goog.require('goog.debug.DevCss');
+import { DevCss } from './devcss.js';
 
 (function() {
-'use strict';
-const devCssInstance = new goog.debug.DevCss();
-devCssInstance.activateBrowserSpecificCssRules();
+ const devCssInstance = new DevCss();
+ devCssInstance.activateBrowserSpecificCssRules();
 })();

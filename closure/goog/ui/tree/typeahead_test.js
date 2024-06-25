@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.tree.TypeAheadTest');
 goog.setTestOnly();
 
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const TreeControl = goog.require('goog.ui.tree.TreeControl');
-const TypeAhead = goog.require('goog.ui.tree.TypeAhead');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { KeyCodes } from '../../events/keycodes.js';
+import { TreeControl } from './treecontrol.js';
+import { TypeAhead } from './typeahead.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 function makeATree() {
   const tree = new TreeControl('root');

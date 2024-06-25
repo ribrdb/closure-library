@@ -4,23 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.labs.pubsub.BroadcastPubSub');
+import { Disposable } from '../../disposable/disposable.js';
 
-
-goog.require('goog.Disposable');
-goog.require('goog.Timer');
-goog.require('goog.array');
-goog.require('goog.async.run');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventType');
-goog.require('goog.log');
-goog.require('goog.math');
-goog.require('goog.pubsub.PubSub');
-goog.require('goog.storage.Storage');
-goog.require('goog.storage.mechanism.HTML5LocalStorage');
-goog.require('goog.string');
-goog.require('goog.userAgent');
-goog.requireType('goog.events.BrowserEvent');
+import { Timer } from '../../timer/timer.js';
+import * as array from '../../array/array.js';
+import { run } from '../../async/run.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { EventType } from '../../events/eventtype.js';
+import * as log from '../../log/log.js';
+import * as math from '../../math/math.js';
+import { PubSub } from '../../pubsub/pubsub.js';
+import { Storage } from '../../storage/storage.js';
+import { HTML5LocalStorage } from '../../storage/mechanism/html5localstorage.js';
+import * as string from '../../string/string.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.events.browserevent');
 
 
 
@@ -45,7 +43,7 @@ goog.requireType('goog.events.BrowserEvent');
  * On IE8, localStorage is shared by the http and https origins. An attacker
  * could possibly leverage this to publish to the secure origin.
  *
- * goog.labs.pubsub.BroadcastPubSub wraps an instance of PubSub rather than
+ * BroadcastPubSub wraps an instance of PubSub rather than
  * subclassing because the base PubSub class allows publishing of arbitrary
  * objects.
  *
@@ -53,28 +51,27 @@ goog.requireType('goog.events.BrowserEvent');
  * constant and the `publish` function for more information.
  *
  *
- * @constructor @struct @extends {goog.Disposable}
+ * @constructor @struct @extends {Disposable}
  */
-goog.labs.pubsub.BroadcastPubSub = function() {
-  'use strict';
-  goog.labs.pubsub.BroadcastPubSub.base(this, 'constructor');
-  goog.labs.pubsub.BroadcastPubSub.instances_.push(this);
+export function BroadcastPubSub() {
+  BroadcastPubSub.base(this, 'constructor');
+  BroadcastPubSub.instances_.push(this);
 
   /** @private @const */
-  this.pubSub_ = new goog.pubsub.PubSub();
+  this.pubSub_ = new PubSub();
   this.registerDisposable(this.pubSub_);
 
   /** @private @const */
-  this.handler_ = new goog.events.EventHandler(this);
+  this.handler_ = new EventHandler(this);
   this.registerDisposable(this.handler_);
 
   /** @private @const */
-  this.logger_ = goog.log.getLogger('goog.labs.pubsub.BroadcastPubSub');
+  this.logger_ = log.getLogger('goog.labs.pubsub.BroadcastPubSub');
 
   /** @private @const */
-  this.mechanism_ = new goog.storage.mechanism.HTML5LocalStorage();
+  this.mechanism_ = new HTML5LocalStorage();
 
-  /** @private {?goog.storage.Storage} */
+  /** @private {?Storage} */
   this.storage_ = null;
 
   /** @private {?Object<string, number>} */
@@ -84,30 +81,30 @@ goog.labs.pubsub.BroadcastPubSub = function() {
   this.ie8StartupTimestamp_ = Date.now() - 1;
 
   if (this.mechanism_.isAvailable()) {
-    this.storage_ = new goog.storage.Storage(this.mechanism_);
+    this.storage_ = new Storage(this.mechanism_);
 
     let target = window;
-    if (goog.labs.pubsub.BroadcastPubSub.IS_IE8_) {
+    if (BroadcastPubSub.IS_IE8_) {
       this.ie8LastEventTimes_ = {};
 
       target = document;
     }
     this.handler_.listen(
-        target, goog.events.EventType.STORAGE, this.handleStorageEvent_);
+        target, EventType.STORAGE, this.handleStorageEvent_);
   }
-};
-goog.inherits(goog.labs.pubsub.BroadcastPubSub, goog.Disposable);
+}
+goog.inherits(BroadcastPubSub, Disposable);
 
 
-/** @private @const {!Array<!goog.labs.pubsub.BroadcastPubSub>} */
-goog.labs.pubsub.BroadcastPubSub.instances_ = [];
+/** @private @const {!Array<!BroadcastPubSub>} */
+BroadcastPubSub.instances_ = [];
 
 
 /**
  * SitePubSub namespace for localStorage.
  * @private @const
  */
-goog.labs.pubsub.BroadcastPubSub.STORAGE_KEY_ = '_closure_bps';
+BroadcastPubSub.STORAGE_KEY_ = '_closure_bps';
 
 
 /**
@@ -116,17 +113,16 @@ goog.labs.pubsub.BroadcastPubSub.STORAGE_KEY_ = '_closure_bps';
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.handleStorageEvent_ = function(e) {
-  'use strict';
-  if (goog.labs.pubsub.BroadcastPubSub.IS_IE8_) {
+BroadcastPubSub.prototype.handleStorageEvent_ = function(e) {
+  if (BroadcastPubSub.IS_IE8_) {
     // Even though we have the event, IE8 doesn't update our localStorage until
     // after we handle the actual event.
-    goog.async.run(this.handleIe8StorageEvent_, this);
+    run(this.handleIe8StorageEvent_, this);
     return;
   }
 
   const browserEvent = e.getBrowserEvent();
-  if (browserEvent.key != goog.labs.pubsub.BroadcastPubSub.STORAGE_KEY_) {
+  if (browserEvent.key != BroadcastPubSub.STORAGE_KEY_) {
     return;
   }
 
@@ -134,10 +130,10 @@ goog.labs.pubsub.BroadcastPubSub.prototype.handleStorageEvent_ = function(e) {
   const data = JSON.parse(browserEvent.newValue);
   const args = goog.isObject(data) && data['args'];
   if (Array.isArray(args) &&
-      goog.array.every(args, x => typeof x === 'string')) {
+      array.every(args, x => typeof x === 'string')) {
     this.dispatch_(args);
   } else {
-    goog.log.warning(this.logger_, 'storage event contained invalid arguments');
+    log.warning(this.logger_, 'storage event contained invalid arguments');
   }
 };
 
@@ -147,9 +143,8 @@ goog.labs.pubsub.BroadcastPubSub.prototype.handleStorageEvent_ = function(e) {
  * @param {!Array<string>} args The arguments to publish.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.dispatch_ = function(args) {
-  'use strict';
-  goog.pubsub.PubSub.prototype.publish.apply(this.pubSub_, args);
+BroadcastPubSub.prototype.dispatch_ = function(args) {
+  PubSub.prototype.publish.apply(this.pubSub_, args);
 };
 
 
@@ -161,8 +156,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.dispatch_ = function(args) {
  * @param {...string} var_args String arguments that are applied to each
  *     subscription function.
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.publish = function(topic, var_args) {
-  'use strict';
+BroadcastPubSub.prototype.publish = function(topic, var_args) {
   const args = Array.prototype.slice.call(arguments);
 
   // Dispatch to localStorage.
@@ -171,21 +165,21 @@ goog.labs.pubsub.BroadcastPubSub.prototype.publish = function(topic, var_args) {
     let now = Date.now();
     const data = {'args': args, 'timestamp': now};
 
-    if (!goog.labs.pubsub.BroadcastPubSub.IS_IE8_) {
+    if (!BroadcastPubSub.IS_IE8_) {
       // Generated events will contain all the data in modern browsers.
-      this.storage_.set(goog.labs.pubsub.BroadcastPubSub.STORAGE_KEY_, data);
-      this.storage_.remove(goog.labs.pubsub.BroadcastPubSub.STORAGE_KEY_);
+      this.storage_.set(BroadcastPubSub.STORAGE_KEY_, data);
+      this.storage_.remove(BroadcastPubSub.STORAGE_KEY_);
     } else {
       // With IE8 we need to manage our own events queue.
       let events = null;
 
       try {
         events =
-            this.storage_.get(goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+            this.storage_.get(BroadcastPubSub.IE8_EVENTS_KEY_);
       } catch (ex) {
-        goog.log.error(
+        log.error(
             this.logger_, 'publish encountered invalid event queue at ' +
-                goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+                BroadcastPubSub.IE8_EVENTS_KEY_);
       }
       if (!Array.isArray(events)) {
         events = [];
@@ -200,17 +194,17 @@ goog.labs.pubsub.BroadcastPubSub.prototype.publish = function(topic, var_args) {
           lastEvent && lastEvent['timestamp'] || this.ie8StartupTimestamp_;
       if (lastTimestamp >= now) {
         now = lastTimestamp +
-            goog.labs.pubsub.BroadcastPubSub.IE8_TIMESTAMP_UNIQUE_OFFSET_MS_;
+            BroadcastPubSub.IE8_TIMESTAMP_UNIQUE_OFFSET_MS_;
         data['timestamp'] = now;
       }
       events.push(data);
       this.storage_.set(
-          goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_, events);
+          BroadcastPubSub.IE8_EVENTS_KEY_, events);
 
       // Cleanup this event in IE8_EVENT_LIFETIME_MS_ milliseconds.
-      goog.Timer.callOnce(
+      Timer.callOnce(
           goog.bind(this.cleanupIe8StorageEvents_, this, now),
-          goog.labs.pubsub.BroadcastPubSub.IE8_EVENT_LIFETIME_MS_);
+          BroadcastPubSub.IE8_EVENT_LIFETIME_MS_);
     }
   }
 
@@ -218,15 +212,14 @@ goog.labs.pubsub.BroadcastPubSub.prototype.publish = function(topic, var_args) {
   // modified localStorage. For conforming browsers we have to manually dispatch
   // the publish event to subscriptions on instances of BroadcastPubSub in the
   // current window.
-  if (!goog.userAgent.IE) {
+  if (!userAgent.IE) {
     // Dispatch the publish event to local instances asynchronously to fix some
     // quirks with timings. The result is that all subscriptions are dispatched
     // before any future publishes are processed. The effect is that
     // subscriptions in the same window are dispatched as if they are the result
     // of a publish from another tab.
-    goog.labs.pubsub.BroadcastPubSub.instances_.forEach(function(instance) {
-      'use strict';
-      goog.async.run(goog.bind(instance.dispatch_, instance, args));
+    BroadcastPubSub.instances_.forEach(function(instance) {
+      run(goog.bind(instance.dispatch_, instance, args));
     });
   }
 };
@@ -241,9 +234,8 @@ goog.labs.pubsub.BroadcastPubSub.prototype.publish = function(topic, var_args) {
  *     called (the global scope if none).
  * @return {boolean} Whether a matching subscription was removed.
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.unsubscribe = function(
+BroadcastPubSub.prototype.unsubscribe = function(
     topic, fn, opt_context) {
-  'use strict';
   return this.pubSub_.unsubscribe(topic, fn, opt_context);
 };
 
@@ -255,8 +247,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.unsubscribe = function(
  * @param {number} key Subscription key.
  * @return {boolean} Whether a matching subscription was removed.
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.unsubscribeByKey = function(key) {
-  'use strict';
+BroadcastPubSub.prototype.unsubscribeByKey = function(key) {
   return this.pubSub_.unsubscribeByKey(key);
 };
 
@@ -275,9 +266,8 @@ goog.labs.pubsub.BroadcastPubSub.prototype.unsubscribeByKey = function(key) {
  *     called (the global scope if none).
  * @return {number} Subscription key.
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.subscribe = function(
+BroadcastPubSub.prototype.subscribe = function(
     topic, fn, opt_context) {
-  'use strict';
   return this.pubSub_.subscribe(topic, fn, opt_context);
 };
 
@@ -295,9 +285,8 @@ goog.labs.pubsub.BroadcastPubSub.prototype.subscribe = function(
  *     called (the global scope if none).
  * @return {number} Subscription key.
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.subscribeOnce = function(
+BroadcastPubSub.prototype.subscribeOnce = function(
     topic, fn, opt_context) {
-  'use strict';
   return this.pubSub_.subscribeOnce(topic, fn, opt_context);
 };
 
@@ -308,8 +297,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.subscribeOnce = function(
  * @param {string=} opt_topic The topic (all topics if unspecified).
  * @return {number} Number of subscriptions to the topic.
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.getCount = function(opt_topic) {
-  'use strict';
+BroadcastPubSub.prototype.getCount = function(opt_topic) {
   return this.pubSub_.getCount(opt_topic);
 };
 
@@ -318,21 +306,19 @@ goog.labs.pubsub.BroadcastPubSub.prototype.getCount = function(opt_topic) {
  * Clears the subscription list for a topic, or all topics if unspecified.
  * @param {string=} opt_topic Topic to clear (all topics if unspecified).
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.clear = function(opt_topic) {
-  'use strict';
+BroadcastPubSub.prototype.clear = function(opt_topic) {
   this.pubSub_.clear(opt_topic);
 };
 
 
 /** @override */
-goog.labs.pubsub.BroadcastPubSub.prototype.disposeInternal = function() {
-  'use strict';
-  goog.array.remove(goog.labs.pubsub.BroadcastPubSub.instances_, this);
-  if (goog.labs.pubsub.BroadcastPubSub.IS_IE8_ && this.storage_ != null &&
-      goog.labs.pubsub.BroadcastPubSub.instances_.length == 0) {
-    this.storage_.remove(goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+BroadcastPubSub.prototype.disposeInternal = function() {
+  array.remove(BroadcastPubSub.instances_, this);
+  if (BroadcastPubSub.IS_IE8_ && this.storage_ != null &&
+      BroadcastPubSub.instances_.length == 0) {
+    this.storage_.remove(BroadcastPubSub.IE8_EVENTS_KEY_);
   }
-  goog.labs.pubsub.BroadcastPubSub.base(this, 'disposeInternal');
+  BroadcastPubSub.base(this, 'disposeInternal');
 };
 
 
@@ -340,7 +326,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.disposeInternal = function() {
  * Prefix for IE8 storage event queue keys.
  * @private @const
  */
-goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_ = '_closure_bps_ie8evt';
+BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_ = '_closure_bps_ie8evt';
 
 
 /**
@@ -348,14 +334,14 @@ goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_ = '_closure_bps_ie8evt';
  * processed by other windows in this time they will be removed.
  * @private @const
  */
-goog.labs.pubsub.BroadcastPubSub.IE8_EVENT_LIFETIME_MS_ = 1000 * 10;
+BroadcastPubSub.IE8_EVENT_LIFETIME_MS_ = 1000 * 10;
 
 
 /**
  * Time (in milliseconds) that the IE8 event queue should live.
  * @private @const
  */
-goog.labs.pubsub.BroadcastPubSub.IE8_QUEUE_LIFETIME_MS_ = 1000 * 30;
+BroadcastPubSub.IE8_QUEUE_LIFETIME_MS_ = 1000 * 30;
 
 
 /**
@@ -363,7 +349,7 @@ goog.labs.pubsub.BroadcastPubSub.IE8_QUEUE_LIFETIME_MS_ = 1000 * 30;
  * happen in the same millisecond.
  * @private @const
  */
-goog.labs.pubsub.BroadcastPubSub.IE8_TIMESTAMP_UNIQUE_OFFSET_MS_ = .01;
+BroadcastPubSub.IE8_TIMESTAMP_UNIQUE_OFFSET_MS_ = .01;
 
 
 /**
@@ -385,9 +371,9 @@ goog.labs.pubsub.BroadcastPubSub.IE8_TIMESTAMP_UNIQUE_OFFSET_MS_ = .01;
  *
  * @private @const {string}
  */
-goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_ =
-    goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_ +
-    goog.math.randomInt(1e9);
+BroadcastPubSub.IE8_EVENTS_KEY_ =
+    BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_ +
+    math.randomInt(1e9);
 
 
 /**
@@ -397,25 +383,24 @@ goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_ =
  * obfuscation in each tab.
  * @private @typedef {{'timestamp': number, 'args': !Array<string>}}
  */
-goog.labs.pubsub.BroadcastPubSub.Ie8Event_;
+BroadcastPubSub.Ie8Event_;
 
 
 /** @private @const */
-goog.labs.pubsub.BroadcastPubSub.IS_IE8_ =
-    goog.userAgent.IE && goog.userAgent.DOCUMENT_MODE == 8;
+BroadcastPubSub.IS_IE8_ =
+    userAgent.IE && userAgent.DOCUMENT_MODE == 8;
 
 
 /**
  * Validates an event object.
  * @param {!Object} obj The object to validate as an Event.
- * @return {?goog.labs.pubsub.BroadcastPubSub.Ie8Event_} A valid
+ * @return {?BroadcastPubSub.Ie8Event_} A valid
  *     event object or null if the object is invalid.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.validateIe8Event_ = function(obj) {
-  'use strict';
+BroadcastPubSub.validateIe8Event_ = function(obj) {
   if (goog.isObject(obj) && typeof obj['timestamp'] === 'number' &&
-      goog.array.every(obj['args'], x => typeof x === 'string')) {
+      array.every(obj['args'], x => typeof x === 'string')) {
     return {'timestamp': obj['timestamp'], 'args': obj['args']};
   }
   return null;
@@ -425,14 +410,13 @@ goog.labs.pubsub.BroadcastPubSub.validateIe8Event_ = function(obj) {
 /**
  * Returns an array of valid IE8 events.
  * @param {!Array<!Object>} events Possible IE8 events.
- * @return {!Array<!goog.labs.pubsub.BroadcastPubSub.Ie8Event_>}
+ * @return {!Array<!BroadcastPubSub.Ie8Event_>}
  *     Valid IE8 events.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.filterValidIe8Events_ = function(events) {
-  'use strict';
-  return goog.array.filter(
-      events.map(goog.labs.pubsub.BroadcastPubSub.validateIe8Event_),
+BroadcastPubSub.filterValidIe8Events_ = function(events) {
+  return array.filter(
+      events.map(BroadcastPubSub.validateIe8Event_),
       x => x != null);
 };
 
@@ -441,17 +425,15 @@ goog.labs.pubsub.BroadcastPubSub.filterValidIe8Events_ = function(events) {
  * Returns the IE8 events that have a timestamp later than the provided
  * timestamp.
  * @param {number} timestamp Expired timestamp.
- * @param {!Array<!goog.labs.pubsub.BroadcastPubSub.Ie8Event_>} events
+ * @param {!Array<!BroadcastPubSub.Ie8Event_>} events
  *     Possible IE8 events.
- * @return {!Array<!goog.labs.pubsub.BroadcastPubSub.Ie8Event_>}
+ * @return {!Array<!BroadcastPubSub.Ie8Event_>}
  *     Unexpired IE8 events.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.filterNewIe8Events_ = function(
+BroadcastPubSub.filterNewIe8Events_ = function(
     timestamp, events) {
-  'use strict';
   return events.filter(function(event) {
-    'use strict';
     return event['timestamp'] > timestamp;
   });
 };
@@ -465,23 +447,22 @@ goog.labs.pubsub.BroadcastPubSub.filterNewIe8Events_ = function(
  *     events, false otherwise.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.maybeProcessIe8Events_ = function(
+BroadcastPubSub.prototype.maybeProcessIe8Events_ = function(
     key, events) {
-  'use strict';
   if (!events.length) {
     return false;
   }
 
   let validEvents =
-      goog.labs.pubsub.BroadcastPubSub.filterValidIe8Events_(events);
+      BroadcastPubSub.filterValidIe8Events_(events);
   if (validEvents.length == events.length) {
-    const lastTimestamp = goog.array.peek(validEvents)['timestamp'];
+    const lastTimestamp = array.peek(validEvents)['timestamp'];
     const previousTime =
         this.ie8LastEventTimes_[key] || this.ie8StartupTimestamp_;
     if (lastTimestamp > previousTime -
-            goog.labs.pubsub.BroadcastPubSub.IE8_QUEUE_LIFETIME_MS_) {
+            BroadcastPubSub.IE8_QUEUE_LIFETIME_MS_) {
       this.ie8LastEventTimes_[key] = lastTimestamp;
-      validEvents = goog.labs.pubsub.BroadcastPubSub.filterNewIe8Events_(
+      validEvents = BroadcastPubSub.filterNewIe8Events_(
           previousTime, validEvents);
       for (let i = 0, event; event = validEvents[i]; i++) {
         this.dispatch_(event['args']);
@@ -489,7 +470,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.maybeProcessIe8Events_ = function(
       return true;
     }
   } else {
-    goog.log.warning(this.logger_, 'invalid events found in queue ' + key);
+    log.warning(this.logger_, 'invalid events found in queue ' + key);
   }
 
   return false;
@@ -501,8 +482,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.maybeProcessIe8Events_ = function(
  * in localStorage for valid keys.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.handleIe8StorageEvent_ = function() {
-  'use strict';
+BroadcastPubSub.prototype.handleIe8StorageEvent_ = function() {
   const numKeys = this.mechanism_.getCount();
   for (let idx = 0; idx < numKeys; idx++) {
     const key = this.mechanism_.key(idx);
@@ -512,8 +492,8 @@ goog.labs.pubsub.BroadcastPubSub.prototype.handleIe8StorageEvent_ = function() {
     // and modern IE don't dispatch the event to the window which made the
     // change. This code simulates that behavior in IE8.
     if (!(typeof key === 'string' &&
-          goog.string.startsWith(
-              key, goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_))) {
+          string.startsWith(
+              key, BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_))) {
       continue;
     }
 
@@ -522,7 +502,7 @@ goog.labs.pubsub.BroadcastPubSub.prototype.handleIe8StorageEvent_ = function() {
     try {
       events = this.storage_.get(key);
     } catch (ex) {
-      goog.log.warning(this.logger_, 'invalid remote event queue ' + key);
+      log.warning(this.logger_, 'invalid remote event queue ' + key);
     }
 
     if (!(Array.isArray(events) && this.maybeProcessIe8Events_(key, events))) {
@@ -539,31 +519,30 @@ goog.labs.pubsub.BroadcastPubSub.prototype.handleIe8StorageEvent_ = function() {
  * @param {number} timestamp Maximum timestamp to remove from the queue.
  * @private
  */
-goog.labs.pubsub.BroadcastPubSub.prototype.cleanupIe8StorageEvents_ = function(
+BroadcastPubSub.prototype.cleanupIe8StorageEvents_ = function(
     timestamp) {
-  'use strict';
   let events = null;
 
   try {
     events =
-        this.storage_.get(goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+        this.storage_.get(BroadcastPubSub.IE8_EVENTS_KEY_);
   } catch (ex) {
-    goog.log.error(
+    log.error(
         this.logger_, 'cleanup encountered invalid event queue key ' +
-            goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+            BroadcastPubSub.IE8_EVENTS_KEY_);
   }
   if (!Array.isArray(events)) {
-    this.storage_.remove(goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+    this.storage_.remove(BroadcastPubSub.IE8_EVENTS_KEY_);
     return;
   }
 
-  events = goog.labs.pubsub.BroadcastPubSub.filterNewIe8Events_(
+  events = BroadcastPubSub.filterNewIe8Events_(
       timestamp,
-      goog.labs.pubsub.BroadcastPubSub.filterValidIe8Events_(events));
+      BroadcastPubSub.filterValidIe8Events_(events));
 
   if (events.length > 0) {
-    this.storage_.set(goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_, events);
+    this.storage_.set(BroadcastPubSub.IE8_EVENTS_KEY_, events);
   } else {
-    this.storage_.remove(goog.labs.pubsub.BroadcastPubSub.IE8_EVENTS_KEY_);
+    this.storage_.remove(BroadcastPubSub.IE8_EVENTS_KEY_);
   }
 };

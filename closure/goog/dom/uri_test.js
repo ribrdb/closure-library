@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.uriTest');
 goog.setTestOnly();
 
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const uri = goog.require('goog.dom.uri');
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as uri from './uri.js';
 
 testSuite({
   testNormalizeUri() {

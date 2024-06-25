@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.xpc.NativeMessagingTransportTest');
 goog.setTestOnly();
 
-const CfgFields = goog.require('goog.net.xpc.CfgFields');
-const CrossPageChannel = goog.require('goog.net.xpc.CrossPageChannel');
-const CrossPageChannelRole = goog.require('goog.net.xpc.CrossPageChannelRole');
-const NativeMessagingTransport = goog.require('goog.net.xpc.NativeMessagingTransport');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const netXpc = goog.require('goog.net.xpc');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as netXpc from './xpc.js';
+import { CfgFields } from './xpc.js';
+import { CrossPageChannel } from './crosspagechannel.js';
+import { CrossPageChannelRole } from './crosspagechannelrole.js';
+import { NativeMessagingTransport } from './nativemessagingtransport.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 // This test only tests the native messaing transport protocol version 2.
 // Testing of previous versions and of backward/forward compatibility is done

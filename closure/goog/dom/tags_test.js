@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.tagsTest');
 goog.setTestOnly();
 
-const tags = goog.require('goog.dom.tags');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as tags from './tags.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testIsVoidTag() {

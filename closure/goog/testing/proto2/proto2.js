@@ -5,28 +5,26 @@
  */
 
 /**
- * @fileoverview Test helpers to compare goog.proto2.Messages.
+ * @fileoverview Test helpers to compare Messages.
  */
 
 goog.setTestOnly('goog.testing.proto2');
-goog.provide('goog.testing.proto2');
 
-goog.require('goog.proto2.Message');
-goog.require('goog.proto2.ObjectSerializer');
-goog.require('goog.testing.asserts');
+import { Message } from '../../proto2/message.js';
+import { ObjectSerializer } from '../../proto2/objectserializer.js';
+import * as asserts from '../asserts.js';
 
 
 /**
- * Compares two goog.proto2.Message instances of the same type.
- * @param {!goog.proto2.Message} expected First message.
- * @param {!goog.proto2.Message} actual Second message.
+ * Compares two Message instances of the same type.
+ * @param {!Message} expected First message.
+ * @param {!Message} actual Second message.
  * @param {string} path Path to the messages.
  * @return {string} A string describing where they differ. Empty string if they
  *     are equal.
  * @private
  */
-goog.testing.proto2.findDifferences_ = function(expected, actual, path) {
-  'use strict';
+function findDifferences_(expected, actual, path) {
   const fields = expected.getDescriptor().getFields();
   for (let i = 0; i < fields.length; i++) {
     const field = fields[i];
@@ -54,9 +52,9 @@ goog.testing.proto2.findDifferences_ = function(expected, actual, path) {
           const expectedItem = expected.get(field, j);
           const actualItem = actual.get(field, j);
           if (isComposite) {
-            const itemDiff = goog.testing.proto2.findDifferences_(
-                /** @type {!goog.proto2.Message} */ (expectedItem),
-                /** @type {!goog.proto2.Message} */ (actualItem),
+            const itemDiff = findDifferences_(
+                /** @type {!Message} */ (expectedItem),
+                /** @type {!Message} */ (actualItem),
                 newPath + '[' + j + ']');
             if (itemDiff) {
               return itemDiff;
@@ -72,9 +70,9 @@ goog.testing.proto2.findDifferences_ = function(expected, actual, path) {
         const expectedValue = expected.get(field);
         const actualValue = actual.get(field);
         if (isComposite) {
-          const diff = goog.testing.proto2.findDifferences_(
-              /** @type {!goog.proto2.Message} */ (expectedValue),
-              /** @type {!goog.proto2.Message} */ (actualValue), newPath);
+          const diff = findDifferences_(
+              /** @type {!Message} */ (expectedValue),
+              /** @type {!Message} */ (actualValue), newPath);
           if (diff) {
             return diff;
           }
@@ -89,53 +87,50 @@ goog.testing.proto2.findDifferences_ = function(expected, actual, path) {
   }
 
   return '';
-};
+}
 
 
 /**
- * Compares two goog.proto2.Message objects. Gives more readable output than
+ * Compares two Message objects. Gives more readable output than
  * assertObjectEquals on mismatch.
- * @param {!goog.proto2.Message} expected Expected proto2 message.
- * @param {!goog.proto2.Message} actual Actual proto2 message.
+ * @param {!Message} expected Expected proto2 message.
+ * @param {!Message} actual Actual proto2 message.
  * @param {string=} opt_failureMessage Failure message when the values don't
  *     match.
  */
-goog.testing.proto2.assertEquals = function(
-    expected, actual, opt_failureMessage) {
-  'use strict';
+export function assertEquals(expected, actual, opt_failureMessage) {
   const failureSummary = opt_failureMessage || '';
-  if (!(expected instanceof goog.proto2.Message) ||
-      !(actual instanceof goog.proto2.Message)) {
-    goog.testing.asserts.raiseException(
+  if (!(expected instanceof Message) ||
+      !(actual instanceof Message)) {
+    asserts.raiseException(
         failureSummary,
         'Bad arguments were passed to goog.testing.proto2.assertEquals');
   }
   if (expected.constructor != actual.constructor) {
-    goog.testing.asserts.raiseException(
+    asserts.raiseException(
         failureSummary, 'Message type mismatch: ' +
             expected.getDescriptor().getFullName() + ' != ' +
             actual.getDescriptor().getFullName());
   }
-  const diff = goog.testing.proto2.findDifferences_(expected, actual, '');
+  const diff = findDifferences_(expected, actual, '');
   if (diff) {
-    goog.testing.asserts.raiseException(failureSummary, diff);
+    asserts.raiseException(failureSummary, diff);
   }
-};
+}
 
 
 /**
  * Helper function to quickly build protocol buffer messages from JSON objects.
  * @param {function(new:MessageType)} messageCtor A constructor that
- *     creates a `goog.proto2.Message` subclass instance.
+ *     creates a `Message` subclass instance.
  * @param {!Object} json JSON object which uses field names as keys.
  * @return {MessageType} The deserialized protocol buffer.
  * @template MessageType
  */
-goog.testing.proto2.fromObject = function(messageCtor, json) {
-  'use strict';
-  const serializer = new goog.proto2.ObjectSerializer(
-      goog.proto2.ObjectSerializer.KeyOption.NAME);
+export function fromObject(messageCtor, json) {
+  const serializer = new ObjectSerializer(
+      ObjectSerializer.KeyOption.NAME);
   const message = new messageCtor;
   serializer.deserializeTo(message, json);
   return message;
-};
+}

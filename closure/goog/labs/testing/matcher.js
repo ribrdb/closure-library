@@ -10,7 +10,7 @@
  */
 
 
-goog.provide('goog.labs.testing.Matcher');
+goog.declareModuleId('goog.labs.testing.matcher');
 
 
 
@@ -18,7 +18,7 @@ goog.provide('goog.labs.testing.Matcher');
  * A matcher object to be used in assertThat statements.
  * @interface
  */
-goog.labs.testing.Matcher = function() {};
+export function Matcher() {}
 
 
 /**
@@ -27,7 +27,7 @@ goog.labs.testing.Matcher = function() {};
  * @param {*} value The object to match.
  * @return {boolean} Whether the input value matches this matcher.
  */
-goog.labs.testing.Matcher.prototype.matches = function(value) {};
+Matcher.prototype.matches = function(value) {};
 
 
 /**
@@ -39,7 +39,7 @@ goog.labs.testing.Matcher.prototype.matches = function(value) {};
  *
  * @return {string} Description of why the matcher failed.
  */
-goog.labs.testing.Matcher.prototype.describe = function(
+Matcher.prototype.describe = function(
     value, opt_description) {};
 
 
@@ -50,23 +50,22 @@ goog.labs.testing.Matcher.prototype.describe = function(
  * @param {Function=} opt_describeFunction The ‘describe’ function.
  * @return {!Function} The custom matcher.
  */
-goog.labs.testing.Matcher.makeMatcher = function(
+Matcher.makeMatcher = function(
     matchesFunction, opt_describeFunction) {
-  'use strict';
-  /**
-   * @constructor
-   * @implements {goog.labs.testing.Matcher}
-   * @final
-   */
-  const matcherConstructor = function() {};
+ /**
+    * @constructor
+    * @implements {Matcher}
+    * @final
+    */
+ const matcherConstructor = function() {};
 
-  /** @override */
-  matcherConstructor.prototype.matches = matchesFunction;
+ /** @override */
+ matcherConstructor.prototype.matches = matchesFunction;
 
-  if (opt_describeFunction) {
-    /** @override */
-    matcherConstructor.prototype.describe = opt_describeFunction;
-  }
+ if (opt_describeFunction) {
+   /** @override */
+   matcherConstructor.prototype.describe = opt_describeFunction;
+ }
 
-  return matcherConstructor;
+ return matcherConstructor;
 };

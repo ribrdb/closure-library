@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.protoTest');
 goog.setTestOnly();
 
-const proto = goog.require('goog.proto');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as proto from './proto.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const serialize = proto.serialize;
 

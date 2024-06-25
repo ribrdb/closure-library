@@ -6,8 +6,6 @@
 
 // clang-format off
 
-goog.module('goog.i18n.NativeLocaleDigits');
-
 /**
  * @fileoverview Provides map of locales to script identifiers
  * where locales require specific digits other than ASCII.
@@ -17,10 +15,7 @@ goog.module('goog.i18n.NativeLocaleDigits');
  * Type of map from locale string to script codes
  * @typedef {!Object<string,string>}
  */
-let LocaleScriptMap;
-
-/** @typedef {{LocaleScriptMap}} */
-exports.LocaleScriptMap;
+export let LocaleScriptMap;
 
 /**
  * Native digit codes in ECMAScript Intl objects for locales
@@ -29,7 +24,7 @@ exports.LocaleScriptMap;
  * numbers. Examples include number and date/time formatting.
  * @const {!LocaleScriptMap}
  */
-exports.FormatWithLocaleDigits = {
+export let FormatWithLocaleDigits = {
   'ar': 'latn',
   'ar-EG': 'arab',
   'bn': 'beng',

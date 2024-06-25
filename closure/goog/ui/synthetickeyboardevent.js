@@ -4,10 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.ui.SyntheticKeyboardEvent');
+import { Event } from '../events/event.js';
 
-goog.require('goog.events.Event');
-goog.require('goog.ui.KeyboardEventData');
+import { KeyboardEventData } from './keyboardeventdata.js';
 
 
 
@@ -16,7 +15,7 @@ goog.require('goog.ui.KeyboardEventData');
  *
  * Prefer using the available `createKeyUp`, `createKeyDown`, `createKeyPress`
  * helpers over using this constructor.
- * @param {!goog.ui.SyntheticKeyboardEvent.Type} type
+ * @param {!SyntheticKeyboardEvent.Type} type
  * @param {number} keyCode
  * @param {boolean} shiftKey
  * @param {boolean} altKey
@@ -25,38 +24,44 @@ goog.require('goog.ui.KeyboardEventData');
  * @param {!Node} target
  * @param {function(): void} preventDefaultFn
  * @param {function(): void} stopPropagationFn
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @constructor @struct @final
  */
-goog.ui.SyntheticKeyboardEvent = function(
-    type, keyCode, shiftKey, altKey, ctrlKey, metaKey, target, preventDefaultFn,
-    stopPropagationFn) {
-  'use strict';
-  goog.ui.SyntheticKeyboardEvent.base(this, 'constructor', type);
+export function SyntheticKeyboardEvent(
+ type,
+ keyCode,
+ shiftKey,
+ altKey,
+ ctrlKey,
+ metaKey,
+ target,
+ preventDefaultFn,
+ stopPropagationFn
+) {
+ SyntheticKeyboardEvent.base(this, 'constructor', type);
 
-  /** @private @const {!goog.ui.KeyboardEventData} */
-  this.data_ = new goog.ui.KeyboardEventData.Builder()
-                   .keyCode(keyCode)
-                   .shiftKey(shiftKey)
-                   .altKey(altKey)
-                   .ctrlKey(ctrlKey)
-                   .metaKey(metaKey)
-                   .target(target)
-                   .rootTarget(target)
-                   .preventDefaultFn(preventDefaultFn)
-                   .stopPropagationFn(stopPropagationFn)
-                   .build();
-};
-goog.inherits(goog.ui.SyntheticKeyboardEvent, goog.events.Event);
+ /** @private @const {!KeyboardEventData} */
+ this.data_ = new KeyboardEventData.Builder()
+                  .keyCode(keyCode)
+                  .shiftKey(shiftKey)
+                  .altKey(altKey)
+                  .ctrlKey(ctrlKey)
+                  .metaKey(metaKey)
+                  .target(target)
+                  .rootTarget(target)
+                  .preventDefaultFn(preventDefaultFn)
+                  .stopPropagationFn(stopPropagationFn)
+                  .build();
+}
+goog.inherits(SyntheticKeyboardEvent, Event);
 
 
 /**
- * @return {!goog.ui.KeyboardEventData}
+ * @return {!KeyboardEventData}
  * @package
  */
-goog.ui.SyntheticKeyboardEvent.prototype.getData = function() {
-  'use strict';
-  return this.data_;
+SyntheticKeyboardEvent.prototype.getData = function() {
+ return this.data_;
 };
 
 
@@ -70,15 +75,14 @@ goog.ui.SyntheticKeyboardEvent.prototype.getData = function() {
  * @param {!Node} target
  * @param {function(): void} preventDefaultFn
  * @param {function(): void} stopPropagationFn
- * @return {!goog.ui.SyntheticKeyboardEvent}
+ * @return {!SyntheticKeyboardEvent}
  */
-goog.ui.SyntheticKeyboardEvent.createKeyDown = function(
+SyntheticKeyboardEvent.createKeyDown = function(
     keyCode, shiftKey, altKey, ctrlKey, metaKey, target, preventDefaultFn,
     stopPropagationFn) {
-  'use strict';
-  return new goog.ui.SyntheticKeyboardEvent(
-      goog.ui.SyntheticKeyboardEvent.Type.KEYDOWN, keyCode, shiftKey, altKey,
-      ctrlKey, metaKey, target, preventDefaultFn, stopPropagationFn);
+ return new SyntheticKeyboardEvent(
+     SyntheticKeyboardEvent.Type.KEYDOWN, keyCode, shiftKey, altKey,
+     ctrlKey, metaKey, target, preventDefaultFn, stopPropagationFn);
 };
 
 
@@ -92,15 +96,14 @@ goog.ui.SyntheticKeyboardEvent.createKeyDown = function(
  * @param {!Node} target
  * @param {function(): void} preventDefaultFn
  * @param {function(): void} stopPropagationFn
- * @return {!goog.ui.SyntheticKeyboardEvent}
+ * @return {!SyntheticKeyboardEvent}
  */
-goog.ui.SyntheticKeyboardEvent.createKeyUp = function(
+SyntheticKeyboardEvent.createKeyUp = function(
     keyCode, shiftKey, altKey, ctrlKey, metaKey, target, preventDefaultFn,
     stopPropagationFn) {
-  'use strict';
-  return new goog.ui.SyntheticKeyboardEvent(
-      goog.ui.SyntheticKeyboardEvent.Type.KEYUP, keyCode, shiftKey, altKey,
-      ctrlKey, metaKey, target, preventDefaultFn, stopPropagationFn);
+ return new SyntheticKeyboardEvent(
+     SyntheticKeyboardEvent.Type.KEYUP, keyCode, shiftKey, altKey,
+     ctrlKey, metaKey, target, preventDefaultFn, stopPropagationFn);
 };
 
 
@@ -114,15 +117,14 @@ goog.ui.SyntheticKeyboardEvent.createKeyUp = function(
  * @param {!Node} target
  * @param {function(): void} preventDefaultFn
  * @param {function(): void} stopPropagationFn
- * @return {!goog.ui.SyntheticKeyboardEvent}
+ * @return {!SyntheticKeyboardEvent}
  */
-goog.ui.SyntheticKeyboardEvent.createKeyPress = function(
+SyntheticKeyboardEvent.createKeyPress = function(
     keyCode, shiftKey, altKey, ctrlKey, metaKey, target, preventDefaultFn,
     stopPropagationFn) {
-  'use strict';
-  return new goog.ui.SyntheticKeyboardEvent(
-      goog.ui.SyntheticKeyboardEvent.Type.KEYPRESS, keyCode, shiftKey, altKey,
-      ctrlKey, metaKey, target, preventDefaultFn, stopPropagationFn);
+ return new SyntheticKeyboardEvent(
+     SyntheticKeyboardEvent.Type.KEYPRESS, keyCode, shiftKey, altKey,
+     ctrlKey, metaKey, target, preventDefaultFn, stopPropagationFn);
 };
 
 
@@ -130,7 +132,7 @@ goog.ui.SyntheticKeyboardEvent.createKeyPress = function(
  * Synthetic event types.
  * @enum {string}
  */
-goog.ui.SyntheticKeyboardEvent.Type = {
+SyntheticKeyboardEvent.Type = {
   KEYDOWN: 'synthetic-keydown',
   KEYUP: 'synthetic-keyup',
   KEYPRESS: 'synthetic-keypress'

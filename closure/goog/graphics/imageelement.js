@@ -10,10 +10,10 @@
  */
 
 
-goog.provide('goog.graphics.ImageElement');
+goog.declareModuleId('goog.graphics.imageelement');
 
-goog.require('goog.graphics.Element');
-goog.requireType('goog.graphics.AbstractGraphics');
+import { Element } from './element.js';
+goog.requireType('goog.graphics.abstractgraphics');
 
 
 
@@ -27,16 +27,15 @@ goog.requireType('goog.graphics.AbstractGraphics');
  * @param {goog.graphics.AbstractGraphics} graphics The graphics creating
  *     this element.
  * @constructor
- * @extends {goog.graphics.Element}
+ * @extends {Element}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.ImageElement = function(element, graphics) {
-  'use strict';
-  goog.graphics.Element.call(this, element, graphics);
-};
-goog.inherits(goog.graphics.ImageElement, goog.graphics.Element);
+export function ImageElement(element, graphics) {
+ Element.call(this, element, graphics);
+}
+goog.inherits(ImageElement, Element);
 
 
 /**
@@ -45,7 +44,7 @@ goog.inherits(goog.graphics.ImageElement, goog.graphics.Element);
  * @param {number} x X coordinate (left).
  * @param {number} y Y coordinate (top).
  */
-goog.graphics.ImageElement.prototype.setPosition = goog.abstractMethod;
+ImageElement.prototype.setPosition = goog.abstractMethod;
 
 
 /**
@@ -54,11 +53,11 @@ goog.graphics.ImageElement.prototype.setPosition = goog.abstractMethod;
  * @param {number} width Width of image.
  * @param {number} height Height of image.
  */
-goog.graphics.ImageElement.prototype.setSize = goog.abstractMethod;
+ImageElement.prototype.setSize = goog.abstractMethod;
 
 
 /**
  * Update the source of the image.
  * @param {string} src Source of the image.
  */
-goog.graphics.ImageElement.prototype.setSource = goog.abstractMethod;
+ImageElement.prototype.setSource = goog.abstractMethod;

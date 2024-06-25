@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.ErrorTest');
 goog.setTestOnly();
 
-const DebugError = goog.require('goog.debug.Error');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as DebugError from './error.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let expectedFailures;
 

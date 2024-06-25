@@ -9,41 +9,39 @@
  */
 
 goog.setTestOnly('goog.testing.editor.FieldMock');
-goog.provide('goog.testing.editor.FieldMock');
 
-goog.require('goog.dom');
-goog.require('goog.dom.Range');
-goog.require('goog.editor.Field');
-goog.require('goog.testing.LooseMock');
-goog.require('goog.testing.mockmatchers');
-goog.requireType('goog.dom.AbstractRange');
+import * as dom from '../../dom/dom.js';
+import * as Range from '../../dom/range.js';
+import { Field } from '../../editor/field.js';
+import { LooseMock } from '../loosemock.js';
+import * as mockmatchers from '../mockmatchers.js';
+goog.requireType('goog.dom.abstractrange');
 
 
 
 /**
- * Mock of goog.editor.Field.
+ * Mock of Field.
  * @param {Window=} opt_window Window the field would edit.  Defaults to
  *     `window`.
  * @param {Window=} opt_appWindow "AppWindow" of the field, which can be
  *     different from `opt_window` when mocking a field that uses an
  *     iframe. Defaults to `opt_window`.
- * @param {goog.dom.AbstractRange=} opt_range An object (mock or real) to be
- *     returned by getRange(). If omitted, a new goog.dom.Range is created
+ * @param {dom.AbstractRange=} opt_range An object (mock or real) to be
+ *     returned by getRange(). If omitted, a new Range is created
  *     from the window every time getRange() is called.
  * @constructor
- * @extends {goog.testing.LooseMock}
+ * @extends {LooseMock}
  * @suppress {missingProperties} Mocks do not fit in the type system well.
  * @final
  */
-goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
-  'use strict';
-  goog.testing.LooseMock.call(this, goog.editor.Field);
+export function FieldMock(opt_window, opt_appWindow, opt_range) {
+  LooseMock.call(this, Field);
   opt_window = opt_window || window;
   opt_appWindow = opt_appWindow || opt_window;
 
   // We want to pretend this is a Field even though it can't actaully be a
   // subclass.
-  const thisField = /** @type {!goog.editor.Field} */ (/** @type {*} */ (this));
+  const thisField = /** @type {!Field} */ (/** @type {*} */ (this));
 
   thisField.getAppWindow();
   this.$anyTimes();
@@ -52,13 +50,12 @@ goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
   thisField.getRange();
   this.$anyTimes();
   this.$does(function() {
-    'use strict';
-    return opt_range || goog.dom.Range.createFromWindow(opt_window);
+    return opt_range || Range.createFromWindow(opt_window);
   });
 
   thisField.getEditableDomHelper();
   this.$anyTimes();
-  this.$returns(goog.dom.getDomHelper(opt_window.document));
+  this.$returns(dom.getDomHelper(opt_window.document));
 
   thisField.usesIframe();
   this.$anyTimes();
@@ -68,10 +65,9 @@ goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
   this.$returns(0);
 
   thisField.restoreSavedRange(
-      /** @type {?} */ (goog.testing.mockmatchers.ignoreArgument));
+      /** @type {?} */ (mockmatchers.ignoreArgument));
   this.$anyTimes();
   this.$does(function(range) {
-    'use strict';
     if (range) {
       range.restore();
     }
@@ -86,7 +82,6 @@ goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
    * @return {boolean} Whether we're in modal interaction mode.
    */
   this.inModalMode = function() {
-    'use strict';
     return inModalMode;
   };
 
@@ -94,7 +89,6 @@ goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
    * @param {boolean} mode Sets whether we're in modal interaction mode.
    */
   this.setModalMode = function(mode) {
-    'use strict';
     inModalMode = mode;
   };
 
@@ -104,7 +98,6 @@ goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
    * @return {boolean} Whether the field is uneditable.
    */
   this.isUneditable = function() {
-    'use strict';
     return uneditable;
   };
 
@@ -112,8 +105,7 @@ goog.testing.editor.FieldMock = function(opt_window, opt_appWindow, opt_range) {
    * @param {boolean} isUneditable Whether the field is uneditable.
    */
   this.setUneditable = function(isUneditable) {
-    'use strict';
     uneditable = isUneditable;
   };
-};
-goog.inherits(goog.testing.editor.FieldMock, goog.testing.LooseMock);
+}
+goog.inherits(FieldMock, LooseMock);

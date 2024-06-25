@@ -8,10 +8,9 @@
  * @fileoverview Vendor prefix getters.
  */
 
-goog.provide('goog.dom.vendor');
+import * as string from '../string/string.js';
 
-goog.require('goog.string');
-goog.require('goog.userAgent');
+import * as userAgent from '../useragent/useragent.js';
 
 
 /**
@@ -20,18 +19,17 @@ goog.require('goog.userAgent');
  *
  * @return {?string} The JS vendor prefix or null if there is none.
  */
-goog.dom.vendor.getVendorJsPrefix = function() {
-  'use strict';
-  if (goog.userAgent.WEBKIT) {
+export function getVendorJsPrefix() {
+  if (userAgent.WEBKIT) {
     return 'Webkit';
-  } else if (goog.userAgent.GECKO) {
+  } else if (userAgent.GECKO) {
     return 'Moz';
-  } else if (goog.userAgent.IE) {
+  } else if (userAgent.IE) {
     return 'ms';
   }
 
   return null;
-};
+}
 
 
 /**
@@ -39,18 +37,17 @@ goog.dom.vendor.getVendorJsPrefix = function() {
  *
  * @return {?string} The vendor prefix or null if there is none.
  */
-goog.dom.vendor.getVendorPrefix = function() {
-  'use strict';
-  if (goog.userAgent.WEBKIT) {
+export function getVendorPrefix() {
+  if (userAgent.WEBKIT) {
     return '-webkit';
-  } else if (goog.userAgent.GECKO) {
+  } else if (userAgent.GECKO) {
     return '-moz';
-  } else if (goog.userAgent.IE) {
+  } else if (userAgent.IE) {
     return '-ms';
   }
 
   return null;
-};
+}
 
 
 /**
@@ -60,30 +57,28 @@ goog.dom.vendor.getVendorPrefix = function() {
  * @return {?string} A vendor prefixed property name, or null if it does not
  *     exist.
  */
-goog.dom.vendor.getPrefixedPropertyName = function(propertyName, opt_object) {
-  'use strict';
+export function getPrefixedPropertyName(propertyName, opt_object) {
   // We first check for a non-prefixed property, if available.
   if (opt_object && propertyName in opt_object) {
     return propertyName;
   }
-  var prefix = goog.dom.vendor.getVendorJsPrefix();
+  var prefix = getVendorJsPrefix();
   if (prefix) {
     prefix = prefix.toLowerCase();
-    var prefixedPropertyName = prefix + goog.string.toTitleCase(propertyName);
+    var prefixedPropertyName = prefix + string.toTitleCase(propertyName);
     return (opt_object === undefined || prefixedPropertyName in opt_object) ?
         prefixedPropertyName :
         null;
   }
   return null;
-};
+}
 
 
 /**
  * @param {string} eventType An event type.
  * @return {string} A lower-cased vendor prefixed event type.
  */
-goog.dom.vendor.getPrefixedEventType = function(eventType) {
-  'use strict';
-  var prefix = goog.dom.vendor.getVendorJsPrefix() || '';
+export function getPrefixedEventType(eventType) {
+  var prefix = getVendorJsPrefix() || '';
   return (prefix + eventType).toLowerCase();
-};
+}

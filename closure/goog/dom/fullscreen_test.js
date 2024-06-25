@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.fullscreen_test');
 goog.setTestOnly();
 
-const DomHelper = goog.require('goog.dom.DomHelper');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const asserts = goog.require('goog.testing.asserts');
-const fullscreen = goog.require('goog.dom.fullscreen');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DomHelper } from './dom.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as asserts from '../testing/asserts.js';
+import * as fullscreen from './fullscreen.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let domHelper;
 let mockDoc;

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.SetTest');
 goog.setTestOnly();
 
-const StructsSet = goog.require('goog.structs.Set');
-const iter = goog.require('goog.iter');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Set as StructsSet } from './set.js';
+import * as iter from '../iter/iter.js';
+import * as structs from './structs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function stringifySet(s) {
   return structs.getValues(s).join('');

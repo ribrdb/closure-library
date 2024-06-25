@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.reflectTest');
 goog.setTestOnly();
 
-const googObject = goog.require('goog.object');
-const reflect = goog.require('goog.reflect');
-const testSuite = goog.require('goog.testing.testSuite');
+import googObject from '../object/object.js';
+import * as reflect from './reflect.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * @param {number} key

@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.ControlRangeTest');
 goog.setTestOnly();
 
-const DomControlRange = goog.require('goog.dom.ControlRange');
-const DomTextRange = goog.require('goog.dom.TextRange');
-const RangeType = goog.require('goog.dom.RangeType');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import { ControlRange as DomControlRange } from './controlrange.js';
+import { TextRange as DomTextRange } from './textrange.js';
+import { RangeType } from './abstractrange.js';
+import { TagName } from './tagname.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let logo;
 let table;

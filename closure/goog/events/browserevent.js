@@ -35,15 +35,13 @@
  * </pre>
  */
 
-goog.provide('goog.events.BrowserEvent');
-goog.provide('goog.events.BrowserEvent.MouseButton');
-goog.provide('goog.events.BrowserEvent.PointerType');
+goog.declareModuleId('goog.events.browserevent');
 
-goog.require('goog.debug');
-goog.require('goog.events.Event');
-goog.require('goog.events.EventType');
-goog.require('goog.reflect');
-goog.require('goog.userAgent');
+import * as debug from '../debug/debug.js';
+import { Event } from './event.js';
+import { EventType } from './eventtype.js';
+import * as reflect from '../reflect/reflect.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /**
  * Accepts a browser event object and creates a patched, cross browser event
@@ -53,151 +51,150 @@ goog.require('goog.userAgent');
  * @param {Event=} opt_e Browser event object.
  * @param {EventTarget=} opt_currentTarget Current target for event.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {Event}
  */
-goog.events.BrowserEvent = function(opt_e, opt_currentTarget) {
-  'use strict';
-  goog.events.BrowserEvent.base(this, 'constructor', opt_e ? opt_e.type : '');
+export function BrowserEvent(opt_e, opt_currentTarget) {
+ BrowserEvent.base(this, 'constructor', opt_e ? opt_e.type : '');
 
-  /**
-   * Target that fired the event.
-   * @override
-   * @type {?Node}
-   */
-  this.target = null;
+ /**
+  * Target that fired the event.
+  * @override
+  * @type {?Node}
+  */
+ this.target = null;
 
-  /**
-   * Node that had the listener attached.
-   * @override
-   * @type {?Node|undefined}
-   */
-  this.currentTarget = null;
+ /**
+  * Node that had the listener attached.
+  * @override
+  * @type {?Node|undefined}
+  */
+ this.currentTarget = null;
 
-  /**
-   * For mouseover and mouseout events, the related object for the event.
-   * @type {?Node}
-   */
-  this.relatedTarget = null;
+ /**
+  * For mouseover and mouseout events, the related object for the event.
+  * @type {?Node}
+  */
+ this.relatedTarget = null;
 
-  /**
-   * X-coordinate relative to target.
-   * @type {number}
-   */
-  this.offsetX = 0;
+ /**
+  * X-coordinate relative to target.
+  * @type {number}
+  */
+ this.offsetX = 0;
 
-  /**
-   * Y-coordinate relative to target.
-   * @type {number}
-   */
-  this.offsetY = 0;
+ /**
+  * Y-coordinate relative to target.
+  * @type {number}
+  */
+ this.offsetY = 0;
 
-  /**
-   * X-coordinate relative to the window.
-   * @type {number}
-   */
-  this.clientX = 0;
+ /**
+  * X-coordinate relative to the window.
+  * @type {number}
+  */
+ this.clientX = 0;
 
-  /**
-   * Y-coordinate relative to the window.
-   * @type {number}
-   */
-  this.clientY = 0;
+ /**
+  * Y-coordinate relative to the window.
+  * @type {number}
+  */
+ this.clientY = 0;
 
-  /**
-   * X-coordinate relative to the monitor.
-   * @type {number}
-   */
-  this.screenX = 0;
+ /**
+  * X-coordinate relative to the monitor.
+  * @type {number}
+  */
+ this.screenX = 0;
 
-  /**
-   * Y-coordinate relative to the monitor.
-   * @type {number}
-   */
-  this.screenY = 0;
+ /**
+  * Y-coordinate relative to the monitor.
+  * @type {number}
+  */
+ this.screenY = 0;
 
-  /**
-   * Which mouse button was pressed.
-   * @type {number}
-   */
-  this.button = 0;
+ /**
+  * Which mouse button was pressed.
+  * @type {number}
+  */
+ this.button = 0;
 
-  /**
-   * Key of key press.
-   * @type {string}
-   */
-  this.key = '';
+ /**
+  * Key of key press.
+  * @type {string}
+  */
+ this.key = '';
 
-  /**
-   * Keycode of key press.
-   * @type {number}
-   */
-  this.keyCode = 0;
+ /**
+  * Keycode of key press.
+  * @type {number}
+  */
+ this.keyCode = 0;
 
-  /**
-   * Keycode of key press.
-   * @type {number}
-   */
-  this.charCode = 0;
+ /**
+  * Keycode of key press.
+  * @type {number}
+  */
+ this.charCode = 0;
 
-  /**
-   * Whether control was pressed at time of event.
-   * @type {boolean}
-   */
-  this.ctrlKey = false;
+ /**
+  * Whether control was pressed at time of event.
+  * @type {boolean}
+  */
+ this.ctrlKey = false;
 
-  /**
-   * Whether alt was pressed at time of event.
-   * @type {boolean}
-   */
-  this.altKey = false;
+ /**
+  * Whether alt was pressed at time of event.
+  * @type {boolean}
+  */
+ this.altKey = false;
 
-  /**
-   * Whether shift was pressed at time of event.
-   * @type {boolean}
-   */
-  this.shiftKey = false;
+ /**
+  * Whether shift was pressed at time of event.
+  * @type {boolean}
+  */
+ this.shiftKey = false;
 
-  /**
-   * Whether the meta key was pressed at time of event.
-   * @type {boolean}
-   */
-  this.metaKey = false;
+ /**
+  * Whether the meta key was pressed at time of event.
+  * @type {boolean}
+  */
+ this.metaKey = false;
 
-  /**
-   * History state object, only set for PopState events where it's a copy of the
-   * state object provided to pushState or replaceState.
-   * @type {?Object}
-   */
-  this.state = null;
+ /**
+  * History state object, only set for PopState events where it's a copy of the
+  * state object provided to pushState or replaceState.
+  * @type {?Object}
+  */
+ this.state = null;
 
-  /**
-   * Whether the default platform modifier key was pressed at time of event.
-   * (This is control for all platforms except Mac, where it's Meta.)
-   * @type {boolean}
-   */
-  this.platformModifierKey = false;
+ /**
+  * Whether the default platform modifier key was pressed at time of event.
+  * (This is control for all platforms except Mac, where it's Meta.)
+  * @type {boolean}
+  */
+ this.platformModifierKey = false;
 
-  /**
-   * @type {number}
-   */
-  this.pointerId = 0;
+ /**
+  * @type {number}
+  */
+ this.pointerId = 0;
 
-  /**
-   * @type {string}
-   */
-  this.pointerType = '';
+ /**
+  * @type {string}
+  */
+ this.pointerType = '';
 
-  /**
-   * The browser event object.
-   * @private {?Event}
-   */
-  this.event_ = null;
+ /**
+  * The browser event object.
+  * @private {?Event}
+  */
+ this.event_ = null;
 
-  if (opt_e) {
-    this.init(opt_e, opt_currentTarget);
-  }
-};
-goog.inherits(goog.events.BrowserEvent, goog.events.Event);
+ if (opt_e) {
+   this.init(opt_e, opt_currentTarget);
+ }
+}
+goog.inherits(BrowserEvent, Event);
 
 /**
  * @define {boolean} If true, use the layerX and layerY properties of a native
@@ -205,7 +202,7 @@ goog.inherits(goog.events.BrowserEvent, goog.events.Event);
  * reflow. If layerX or layerY is not defined, offsetX and offsetY will be used
  * as usual.
  */
-goog.events.BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY =
+BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY =
     goog.define('goog.events.BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY', false);
 
 
@@ -213,7 +210,7 @@ goog.events.BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY =
  * Normalized button constants for the mouse.
  * @enum {number}
  */
-goog.events.BrowserEvent.MouseButton = {
+BrowserEvent.MouseButton = {
   LEFT: 0,
   MIDDLE: 1,
   RIGHT: 2,
@@ -226,7 +223,7 @@ goog.events.BrowserEvent.MouseButton = {
  * Normalized pointer type constants for pointer events.
  * @enum {string}
  */
-goog.events.BrowserEvent.PointerType = {
+BrowserEvent.PointerType = {
   MOUSE: 'mouse',
   PEN: 'pen',
   TOUCH: 'touch'
@@ -236,9 +233,9 @@ goog.events.BrowserEvent.PointerType = {
 /**
  * Static data for mapping mouse buttons.
  * @type {!Array<number>}
- * @deprecated Use `goog.events.BrowserEvent.IE_BUTTON_MAP` instead.
+ * @deprecated Use `BrowserEvent.IE_BUTTON_MAP` instead.
  */
-goog.events.BrowserEvent.IEButtonMap = goog.debug.freeze([
+BrowserEvent.IEButtonMap = debug.freeze([
   1,  // LEFT
   4,  // MIDDLE
   2   // RIGHT
@@ -249,17 +246,17 @@ goog.events.BrowserEvent.IEButtonMap = goog.debug.freeze([
  * Static data for mapping mouse buttons.
  * @const {!Array<number>}
  */
-goog.events.BrowserEvent.IE_BUTTON_MAP = goog.events.BrowserEvent.IEButtonMap;
+BrowserEvent.IE_BUTTON_MAP = BrowserEvent.IEButtonMap;
 
 
 /**
  * Static data for mapping MSPointerEvent types to PointerEvent types.
- * @const {!Object<number, goog.events.BrowserEvent.PointerType>}
+ * @const {!Object<number, BrowserEvent.PointerType>}
  */
-goog.events.BrowserEvent.IE_POINTER_TYPE_MAP = goog.debug.freeze({
-  2: goog.events.BrowserEvent.PointerType.TOUCH,
-  3: goog.events.BrowserEvent.PointerType.PEN,
-  4: goog.events.BrowserEvent.PointerType.MOUSE
+BrowserEvent.IE_POINTER_TYPE_MAP = debug.freeze({
+  2: BrowserEvent.PointerType.TOUCH,
+  3: BrowserEvent.PointerType.PEN,
+  4: BrowserEvent.PointerType.MOUSE
 });
 
 
@@ -269,92 +266,91 @@ goog.events.BrowserEvent.IE_POINTER_TYPE_MAP = goog.debug.freeze({
  * @param {Event} e Browser event object.
  * @param {EventTarget=} opt_currentTarget Current target for event.
  */
-goog.events.BrowserEvent.prototype.init = function(e, opt_currentTarget) {
-  'use strict';
-  var type = this.type = e.type;
+BrowserEvent.prototype.init = function(e, opt_currentTarget) {
+ var type = this.type = e.type;
 
-  /**
-   * On touch devices use the first "changed touch" as the relevant touch.
-   * @type {?Touch}
-   * @suppress {strictMissingProperties} Added to tighten compiler checks
-   */
-  var relevantTouch =
-      e.changedTouches && e.changedTouches.length ? e.changedTouches[0] : null;
+ /**
+  * On touch devices use the first "changed touch" as the relevant touch.
+  * @type {?Touch}
+  * @suppress {strictMissingProperties} Added to tighten compiler checks
+  */
+ var relevantTouch =
+     e.changedTouches && e.changedTouches.length ? e.changedTouches[0] : null;
 
-  // TODO(nicksantos): Change this.target to type EventTarget.
-  this.target = /** @type {Node} */ (e.target) || e.srcElement;
+ // TODO(nicksantos): Change this.target to type EventTarget.
+ this.target = /** @type {Node} */ (e.target) || e.srcElement;
 
-  // TODO(nicksantos): Change this.currentTarget to type EventTarget.
-  this.currentTarget = /** @type {Node} */ (opt_currentTarget);
+ // TODO(nicksantos): Change this.currentTarget to type EventTarget.
+ this.currentTarget = /** @type {Node} */ (opt_currentTarget);
 
-  var relatedTarget = /** @type {Node} */ (e.relatedTarget);
-  if (relatedTarget) {
-    // There's a bug in FireFox where sometimes, relatedTarget will be a
-    // chrome element, and accessing any property of it will get a permission
-    // denied exception. See:
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=497780
-    if (goog.userAgent.GECKO) {
-      if (!goog.reflect.canAccessProperty(relatedTarget, 'nodeName')) {
-        relatedTarget = null;
-      }
-    }
-  } else if (type == goog.events.EventType.MOUSEOVER) {
-    relatedTarget = e.fromElement;
-  } else if (type == goog.events.EventType.MOUSEOUT) {
-    relatedTarget = e.toElement;
-  }
+ var relatedTarget = /** @type {Node} */ (e.relatedTarget);
+ if (relatedTarget) {
+   // There's a bug in FireFox where sometimes, relatedTarget will be a
+   // chrome element, and accessing any property of it will get a permission
+   // denied exception. See:
+   // https://bugzilla.mozilla.org/show_bug.cgi?id=497780
+   if (userAgent.GECKO) {
+     if (!reflect.canAccessProperty(relatedTarget, 'nodeName')) {
+       relatedTarget = null;
+     }
+   }
+ } else if (type == EventType.MOUSEOVER) {
+   relatedTarget = e.fromElement;
+ } else if (type == EventType.MOUSEOUT) {
+   relatedTarget = e.toElement;
+ }
 
-  this.relatedTarget = relatedTarget;
+ this.relatedTarget = relatedTarget;
 
-  if (relevantTouch) {
-    this.clientX = relevantTouch.clientX !== undefined ? relevantTouch.clientX :
-                                                         relevantTouch.pageX;
-    this.clientY = relevantTouch.clientY !== undefined ? relevantTouch.clientY :
-                                                         relevantTouch.pageY;
-    this.screenX = relevantTouch.screenX || 0;
-    this.screenY = relevantTouch.screenY || 0;
-  } else {
-    if (goog.events.BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY) {
-      this.offsetX = (e.layerX !== undefined) ? e.layerX : e.offsetX;
-      this.offsetY = (e.layerY !== undefined) ? e.layerY : e.offsetY;
-    } else {
-      // Webkit emits a lame warning whenever layerX/layerY is accessed.
-      // http://code.google.com/p/chromium/issues/detail?id=101733
-      this.offsetX = (goog.userAgent.WEBKIT || e.offsetX !== undefined) ?
-          e.offsetX :
-          e.layerX;
-      this.offsetY = (goog.userAgent.WEBKIT || e.offsetY !== undefined) ?
-          e.offsetY :
-          e.layerY;
-    }
-    this.clientX = e.clientX !== undefined ? e.clientX : e.pageX;
-    this.clientY = e.clientY !== undefined ? e.clientY : e.pageY;
-    this.screenX = e.screenX || 0;
-    this.screenY = e.screenY || 0;
-  }
+ if (relevantTouch) {
+   this.clientX = relevantTouch.clientX !== undefined ? relevantTouch.clientX :
+                                                        relevantTouch.pageX;
+   this.clientY = relevantTouch.clientY !== undefined ? relevantTouch.clientY :
+                                                        relevantTouch.pageY;
+   this.screenX = relevantTouch.screenX || 0;
+   this.screenY = relevantTouch.screenY || 0;
+ } else {
+   if (BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY) {
+     this.offsetX = (e.layerX !== undefined) ? e.layerX : e.offsetX;
+     this.offsetY = (e.layerY !== undefined) ? e.layerY : e.offsetY;
+   } else {
+     // Webkit emits a lame warning whenever layerX/layerY is accessed.
+     // http://code.google.com/p/chromium/issues/detail?id=101733
+     this.offsetX = (userAgent.WEBKIT || e.offsetX !== undefined) ?
+         e.offsetX :
+         e.layerX;
+     this.offsetY = (userAgent.WEBKIT || e.offsetY !== undefined) ?
+         e.offsetY :
+         e.layerY;
+   }
+   this.clientX = e.clientX !== undefined ? e.clientX : e.pageX;
+   this.clientY = e.clientY !== undefined ? e.clientY : e.pageY;
+   this.screenX = e.screenX || 0;
+   this.screenY = e.screenY || 0;
+ }
 
-  this.button = e.button;
+ this.button = e.button;
 
-  this.keyCode = e.keyCode || 0;
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.key = e.key || '';
-  this.charCode = e.charCode || (type == 'keypress' ? e.keyCode : 0);
-  this.ctrlKey = e.ctrlKey;
-  this.altKey = e.altKey;
-  this.shiftKey = e.shiftKey;
-  this.metaKey = e.metaKey;
-  this.platformModifierKey = goog.userAgent.MAC ? e.metaKey : e.ctrlKey;
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.pointerId = e.pointerId || 0;
-  this.pointerType = goog.events.BrowserEvent.getPointerType_(e);
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.state = e.state;
-  this.event_ = e;
-  if (e.defaultPrevented) {
-    // Sync native event state to internal state via super class, where default
-    // prevention is implemented and managed.
-    goog.events.BrowserEvent.superClass_.preventDefault.call(this);
-  }
+ this.keyCode = e.keyCode || 0;
+ /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+ this.key = e.key || '';
+ this.charCode = e.charCode || (type == 'keypress' ? e.keyCode : 0);
+ this.ctrlKey = e.ctrlKey;
+ this.altKey = e.altKey;
+ this.shiftKey = e.shiftKey;
+ this.metaKey = e.metaKey;
+ this.platformModifierKey = userAgent.MAC ? e.metaKey : e.ctrlKey;
+ /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+ this.pointerId = e.pointerId || 0;
+ this.pointerType = BrowserEvent.getPointerType_(e);
+ /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+ this.state = e.state;
+ this.event_ = e;
+ if (e.defaultPrevented) {
+   // Sync native event state to internal state via super class, where default
+   // prevention is implemented and managed.
+   BrowserEvent.superClass_.preventDefault.call(this);
+ }
 };
 
 
@@ -370,13 +366,12 @@ goog.events.BrowserEvent.prototype.init = function(e, opt_currentTarget) {
  *
  * There's a nice table of this mess at http://www.unixpapa.com/js/mouse.html.
  *
- * @param {goog.events.BrowserEvent.MouseButton} button The button
+ * @param {BrowserEvent.MouseButton} button The button
  *     to test for.
  * @return {boolean} True if button was pressed.
  */
-goog.events.BrowserEvent.prototype.isButton = function(button) {
-  'use strict';
-  return this.event_.button == button;
+BrowserEvent.prototype.isButton = function(button) {
+ return this.event_.button == button;
 };
 
 
@@ -388,51 +383,47 @@ goog.events.BrowserEvent.prototype.isButton = function(button) {
  *
  * @return {boolean} The result.
  */
-goog.events.BrowserEvent.prototype.isMouseActionButton = function() {
-  'use strict';
-  // Ctrl+click should never behave like a left-click on mac, regardless of
-  // whether or not the browser will actually ever emit such an event.  If
-  // we see it, treat it like right-click always.
-  return this.isButton(goog.events.BrowserEvent.MouseButton.LEFT) &&
-      !(goog.userAgent.MAC && this.ctrlKey);
+BrowserEvent.prototype.isMouseActionButton = function() {
+ // Ctrl+click should never behave like a left-click on mac, regardless of
+ // whether or not the browser will actually ever emit such an event.  If
+ // we see it, treat it like right-click always.
+ return this.isButton(BrowserEvent.MouseButton.LEFT) &&
+     !(userAgent.MAC && this.ctrlKey);
 };
 
 
 /**
  * @override
  */
-goog.events.BrowserEvent.prototype.stopPropagation = function() {
-  'use strict';
-  goog.events.BrowserEvent.superClass_.stopPropagation.call(this);
-  if (this.event_.stopPropagation) {
-    this.event_.stopPropagation();
-  } else {
-    this.event_.cancelBubble = true;
-  }
+BrowserEvent.prototype.stopPropagation = function() {
+ BrowserEvent.superClass_.stopPropagation.call(this);
+ if (this.event_.stopPropagation) {
+   this.event_.stopPropagation();
+ } else {
+   this.event_.cancelBubble = true;
+ }
 };
 
 
 /**
  * @override
  */
-goog.events.BrowserEvent.prototype.preventDefault = function() {
-  'use strict';
-  goog.events.BrowserEvent.superClass_.preventDefault.call(this);
-  var be = this.event_;
-  if (!be.preventDefault) {
-    be.returnValue = false;
-  } else {
-    be.preventDefault();
-  }
+BrowserEvent.prototype.preventDefault = function() {
+ BrowserEvent.superClass_.preventDefault.call(this);
+ var be = this.event_;
+ if (!be.preventDefault) {
+   be.returnValue = false;
+ } else {
+   be.preventDefault();
+ }
 };
 
 
 /**
  * @return {Event} The underlying browser event object.
  */
-goog.events.BrowserEvent.prototype.getBrowserEvent = function() {
-  'use strict';
-  return this.event_;
+BrowserEvent.prototype.getBrowserEvent = function() {
+ return this.event_;
 };
 
 
@@ -442,12 +433,11 @@ goog.events.BrowserEvent.prototype.getBrowserEvent = function() {
  * @return {string} The pointer type, e.g. 'mouse', 'pen', or 'touch'.
  * @private
  */
-goog.events.BrowserEvent.getPointerType_ = function(e) {
-  'use strict';
-  if (typeof (e.pointerType) === 'string') {
-    return e.pointerType;
-  }
-  // IE10 uses integer codes for pointer type.
-  // https://msdn.microsoft.com/en-us/library/hh772359(v=vs.85).aspx
-  return goog.events.BrowserEvent.IE_POINTER_TYPE_MAP[e.pointerType] || '';
+BrowserEvent.getPointerType_ = function(e) {
+ if (typeof (e.pointerType) === 'string') {
+   return e.pointerType;
+ }
+ // IE10 uses integer codes for pointer type.
+ // https://msdn.microsoft.com/en-us/library/hh772359(v=vs.85).aspx
+ return BrowserEvent.IE_POINTER_TYPE_MAP[e.pointerType] || '';
 };

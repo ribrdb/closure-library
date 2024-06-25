@@ -8,12 +8,11 @@
  * @fileoverview A basic statistics tracker.
  */
 
-goog.provide('goog.stats.BasicStat');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.log');
-goog.require('goog.string.format');
-goog.require('goog.structs.CircularBuffer');
+import * as log from '../log/log.js';
+import { format } from '../string/stringformat.js';
+import { CircularBuffer } from '../structs/circularbuffer.js';
 
 
 
@@ -32,32 +31,31 @@ goog.require('goog.structs.CircularBuffer');
  * @constructor
  * @final
  */
-goog.stats.BasicStat = function(interval) {
-  'use strict';
-  goog.asserts.assert(interval > 50);
+export function BasicStat(interval) {
+ asserts.assert(interval > 50);
 
-  /**
-   * The time interval that this statistic aggregates over.
-   * @type {number}
-   * @private
-   */
-  this.interval_ = interval;
+ /**
+  * The time interval that this statistic aggregates over.
+  * @type {number}
+  * @private
+  */
+ this.interval_ = interval;
 
-  /**
-   * The number of milliseconds in each slot.
-   * @type {number}
-   * @private
-   */
-  this.slotInterval_ = Math.floor(interval / goog.stats.BasicStat.NUM_SLOTS_);
+ /**
+  * The number of milliseconds in each slot.
+  * @type {number}
+  * @private
+  */
+ this.slotInterval_ = Math.floor(interval / BasicStat.NUM_SLOTS_);
 
-  /**
+ /**
    * The array of slots.
-   * @type {goog.structs.CircularBuffer}
+   * @type {CircularBuffer}
    * @private
    */
-  this.slots_ =
-      new goog.structs.CircularBuffer(goog.stats.BasicStat.NUM_SLOTS_);
-};
+ this.slots_ =
+     new CircularBuffer(BasicStat.NUM_SLOTS_);
+}
 
 
 /**
@@ -67,24 +65,23 @@ goog.stats.BasicStat = function(interval) {
  * @type {number}
  * @private
  */
-goog.stats.BasicStat.NUM_SLOTS_ = 50;
+BasicStat.NUM_SLOTS_ = 50;
 
 
 /**
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.stats.BasicStat.prototype.logger_ =
-    goog.log.getLogger('goog.stats.BasicStat');
+BasicStat.prototype.logger_ =
+    log.getLogger('goog.stats.BasicStat');
 
 
 /**
  * @return {number} The interval which over statistics are being
  *     accumulated, in milliseconds.
  */
-goog.stats.BasicStat.prototype.getInterval = function() {
-  'use strict';
-  return this.interval_;
+BasicStat.prototype.getInterval = function() {
+ return this.interval_;
 };
 
 
@@ -96,18 +93,17 @@ goog.stats.BasicStat.prototype.getInterval = function() {
  *     as the "current" time.  The current time must always be greater
  *     than or equal to the last time recorded by this stat tracker.
  */
-goog.stats.BasicStat.prototype.incBy = function(amt, opt_now) {
-  'use strict';
-  const now = opt_now ? opt_now : Date.now();
-  this.checkForTimeTravel_(now);
-  let slot = /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.getLast());
-  if (!slot || now >= slot.end) {
-    slot = new goog.stats.BasicStat.Slot_(this.getSlotBoundary_(now));
-    this.slots_.add(slot);
-  }
-  slot.count += amt;
-  slot.min = Math.min(amt, slot.min);
-  slot.max = Math.max(amt, slot.max);
+BasicStat.prototype.incBy = function(amt, opt_now) {
+ const now = opt_now ? opt_now : Date.now();
+ this.checkForTimeTravel_(now);
+ let slot = /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.getLast());
+ if (!slot || now >= slot.end) {
+   slot = new BasicStat.Slot_(this.getSlotBoundary_(now));
+   this.slots_.add(slot);
+ }
+ slot.count += amt;
+ slot.min = Math.min(amt, slot.min);
+ slot.max = Math.max(amt, slot.max);
 };
 
 
@@ -119,12 +115,10 @@ goog.stats.BasicStat.prototype.incBy = function(amt, opt_now) {
  *     than or equal to the last time recorded by this stat tracker.
  * @return {number} The total count over the tracked interval.
  */
-goog.stats.BasicStat.prototype.get = function(opt_now) {
-  'use strict';
-  return this.reduceSlots_(opt_now, function(sum, slot) {
-    'use strict';
-    return sum + slot.count;
-  }, 0);
+BasicStat.prototype.get = function(opt_now) {
+ return this.reduceSlots_(opt_now, function(sum, slot) {
+  return sum + slot.count;
+ }, 0);
 };
 
 
@@ -136,12 +130,10 @@ goog.stats.BasicStat.prototype.get = function(opt_now) {
  *     than or equal to the last time recorded by this stat tracker.
  * @return {number} The maximum count of this statistic.
  */
-goog.stats.BasicStat.prototype.getMax = function(opt_now) {
-  'use strict';
-  return this.reduceSlots_(opt_now, function(max, slot) {
-    'use strict';
-    return Math.max(max, slot.max);
-  }, Number.MIN_VALUE);
+BasicStat.prototype.getMax = function(opt_now) {
+ return this.reduceSlots_(opt_now, function(max, slot) {
+  return Math.max(max, slot.max);
+ }, Number.MIN_VALUE);
 };
 
 
@@ -153,12 +145,10 @@ goog.stats.BasicStat.prototype.getMax = function(opt_now) {
  *     than or equal to the last time recorded by this stat tracker.
  * @return {number} The minimum count of this statistic.
  */
-goog.stats.BasicStat.prototype.getMin = function(opt_now) {
-  'use strict';
-  return this.reduceSlots_(opt_now, function(min, slot) {
-    'use strict';
-    return Math.min(min, slot.min);
-  }, Number.MAX_VALUE);
+BasicStat.prototype.getMin = function(opt_now) {
+ return this.reduceSlots_(opt_now, function(min, slot) {
+  return Math.min(min, slot.min);
+ }, Number.MAX_VALUE);
 };
 
 
@@ -166,7 +156,7 @@ goog.stats.BasicStat.prototype.getMin = function(opt_now) {
  * Passes each active slot into a function and accumulates the result.
  *
  * @param {number|undefined} now The current time, in milliseconds.
- * @param {function(number, goog.stats.BasicStat.Slot_): number} func
+ * @param {function(number, BasicStat.Slot_): number} func
  *     The function to call for every active slot.  This function
  *     takes two arguments: the previous result and the new slot to
  *     include in the reduction.
@@ -174,20 +164,19 @@ goog.stats.BasicStat.prototype.getMin = function(opt_now) {
  * @return {number} The result of the reduction.
  * @private
  */
-goog.stats.BasicStat.prototype.reduceSlots_ = function(now, func, val) {
-  'use strict';
-  now = now || Date.now();
-  this.checkForTimeTravel_(now);
-  let rval = val;
-  const start = this.getSlotBoundary_(now) - this.interval_;
-  for (let i = this.slots_.getCount() - 1; i >= 0; --i) {
-    const slot = /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.get(i));
-    if (slot.end <= start) {
-      break;
-    }
-    rval = func(rval, slot);
-  }
-  return rval;
+BasicStat.prototype.reduceSlots_ = function(now, func, val) {
+ now = now || Date.now();
+ this.checkForTimeTravel_(now);
+ let rval = val;
+ const start = this.getSlotBoundary_(now) - this.interval_;
+ for (let i = this.slots_.getCount() - 1; i >= 0; --i) {
+   const slot = /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.get(i));
+   if (slot.end <= start) {
+     break;
+   }
+   rval = func(rval, slot);
+ }
+ return rval;
 };
 
 
@@ -199,9 +188,8 @@ goog.stats.BasicStat.prototype.reduceSlots_ = function(now, func, val) {
  * @return {number} The computed boundary.
  * @private
  */
-goog.stats.BasicStat.prototype.getSlotBoundary_ = function(time) {
-  'use strict';
-  return this.slotInterval_ * (Math.floor(time / this.slotInterval_) + 1);
+BasicStat.prototype.getSlotBoundary_ = function(time) {
+ return this.slotInterval_ * (Math.floor(time / this.slotInterval_) + 1);
 };
 
 
@@ -211,21 +199,20 @@ goog.stats.BasicStat.prototype.getSlotBoundary_ = function(time) {
  * @param {number} now The current time, in milliseconds.
  * @private
  */
-goog.stats.BasicStat.prototype.checkForTimeTravel_ = function(now) {
-  'use strict';
-  const slot =
-      /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.getLast());
-  if (slot) {
-    const slotStart = slot.end - this.slotInterval_;
-    if (now < slotStart) {
-      goog.log.warning(
-          this.logger_,
-          goog.string.format(
-              'Went backwards in time: now=%d, slotStart=%d.  Resetting state.',
-              now, slotStart));
-      this.reset_();
-    }
-  }
+BasicStat.prototype.checkForTimeTravel_ = function(now) {
+ const slot =
+     /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.getLast());
+ if (slot) {
+   const slotStart = slot.end - this.slotInterval_;
+   if (now < slotStart) {
+     log.warning(
+         this.logger_,
+         format(
+             'Went backwards in time: now=%d, slotStart=%d.  Resetting state.',
+             now, slotStart));
+     this.reset_();
+   }
+ }
 };
 
 
@@ -234,9 +221,8 @@ goog.stats.BasicStat.prototype.checkForTimeTravel_ = function(now) {
  * freshly created.
  * @private
  */
-goog.stats.BasicStat.prototype.reset_ = function() {
-  'use strict';
-  this.slots_.clear();
+BasicStat.prototype.reset_ = function() {
+ this.slots_.clear();
 };
 
 
@@ -247,13 +233,12 @@ goog.stats.BasicStat.prototype.reset_ = function() {
  * @constructor
  * @private
  */
-goog.stats.BasicStat.Slot_ = function(end) {
-  'use strict';
-  /**
-   * End time of this slot, exclusive.
-   * @type {number}
-   */
-  this.end = end;
+BasicStat.Slot_ = function(end) {
+ /**
+  * End time of this slot, exclusive.
+  * @type {number}
+  */
+ this.end = end;
 };
 
 
@@ -261,18 +246,18 @@ goog.stats.BasicStat.Slot_ = function(end) {
  * Aggregated count within this slot.
  * @type {number}
  */
-goog.stats.BasicStat.Slot_.prototype.count = 0;
+BasicStat.Slot_.prototype.count = 0;
 
 
 /**
  * The smallest atomic increment of the count within this slot.
  * @type {number}
  */
-goog.stats.BasicStat.Slot_.prototype.min = Number.MAX_VALUE;
+BasicStat.Slot_.prototype.min = Number.MAX_VALUE;
 
 
 /**
  * The largest atomic increment of the count within this slot.
  * @type {number}
  */
-goog.stats.BasicStat.Slot_.prototype.max = Number.MIN_VALUE;
+BasicStat.Slot_.prototype.max = Number.MIN_VALUE;

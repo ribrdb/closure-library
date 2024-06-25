@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.vec.Mat3Test');
 goog.setTestOnly();
 
-const Mat3 = goog.require('goog.vec.Mat3');
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
+import * as Mat3 from './mat3.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
 
 const randomMat3 = Mat3.createFloat32FromValues(
     0.8025078773498535, 0.7559120655059814, 0.15274643898010254,

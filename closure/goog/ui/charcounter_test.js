@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.CharCounterTest');
 goog.setTestOnly();
 
-const CharCounter = goog.require('goog.ui.CharCounter');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CharCounter } from './charcounter.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let charCounter;
 let countElement;

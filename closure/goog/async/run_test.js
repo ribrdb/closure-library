@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.runTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const run = goog.require('goog.async.run');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { run } from './run.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockClock;
 let stubs = new PropertyReplacer();

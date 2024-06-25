@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.spell.SpellCheckTest');
 goog.setTestOnly();
 
-const SpellCheck = goog.require('goog.spell.SpellCheck');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SpellCheck } from './spellcheck.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const TEST_DATA = {
   'Test': [SpellCheck.WordStatus.VALID, []],

@@ -4,17 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.Environment');
-goog.module.declareLegacyNamespace();
+import { Console as DebugConsole } from '../../debug/console.js';
 
-const DebugConsole = goog.require('goog.debug.Console');
-const MockClock = goog.require('goog.testing.MockClock');
-const MockControl = goog.require('goog.testing.MockControl');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const {EnvironmentBase} = goog.require('goog.labs.testing.EnvironmentBase');
+import { MockClock } from '../../testing/mockclock.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { EnvironmentBase } from './environmentbase.js';
 
 /** @suppress {extraRequire} Declares globals */
-goog.require('goog.testing.jsunit');
+import * as jsunit from '../../testing/jsunit.js';
 
 
 /**
@@ -212,4 +210,4 @@ Environment.console_ = new DebugConsole();
 // Activate logging to the browser's console by default.
 Environment.console_.setCapturing(true);
 
-exports = Environment;
+export { Environment };

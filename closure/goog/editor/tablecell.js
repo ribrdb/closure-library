@@ -9,9 +9,6 @@
  * This file provides one of the supporting classes for goog.editor.Table, the
  * goog.editor.TableCell.
  */
-goog.module('goog.editor.TableCell');
-goog.module.declareLegacyNamespace();
-
 /**
  * Class representing a table cell, which may span across multiple
  * rows and columns
@@ -90,4 +87,4 @@ TableCell.prototype.setRowSpan = function(rowSpan) {
   }
 };
 
-exports = TableCell;
+export { TableCell };

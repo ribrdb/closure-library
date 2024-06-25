@@ -9,7 +9,7 @@
  * attached to multiple anchor points.  The menu will try to reposition itself
  * if it goes outside the viewport.
  *
- * Decoration is the same as goog.ui.Menu except that the outer DIV can have a
+ * Decoration is the same as Menu except that the outer DIV can have a
  * 'for' property, which is the ID of the element which triggers the popup.
  *
  * Decorate Example:
@@ -29,42 +29,39 @@
  * @see ../demos/popupmenu.html
  */
 
-goog.provide('goog.ui.PopupMenu');
+goog.declareModuleId('goog.ui.popupmenu');
 
-goog.require('goog.events');
-goog.require('goog.events.BrowserEvent');
-goog.require('goog.events.BrowserEvent.MouseButton');
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.positioning.AnchoredViewportPosition');
-goog.require('goog.positioning.Corner');
-goog.require('goog.positioning.MenuAnchoredPosition');
-goog.require('goog.positioning.Overflow');
-goog.require('goog.positioning.ViewportClientPosition');
-goog.require('goog.structs.Map');
-goog.require('goog.style');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.Menu');
-goog.require('goog.ui.PopupBase');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.math.Box');
-goog.requireType('goog.positioning.AbstractPosition');
-goog.requireType('goog.ui.MenuRenderer');
+import * as events from '../events/events.js';
+import { BrowserEvent, BrowserEvent as eventsBrowserEvent } from '../events/browserevent.js';
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { AnchoredViewportPosition } from '../positioning/anchoredviewportposition.js';
+import { Corner, Overflow } from '../positioning/positioning.js';
+import { MenuAnchoredPosition } from '../positioning/menuanchoredposition.js';
+import { ViewportClientPosition } from '../positioning/viewportclientposition.js';
+import { Map } from '../structs/map.js';
+import * as style from '../style/style.js';
+import { Component } from './component.js';
+import { Menu } from './menu.js';
+import { PopupBase } from './popupbase.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.event');
+goog.requireType('goog.math.box');
+goog.requireType('goog.positioning.abstractposition');
+goog.requireType('goog.ui.menurenderer');
 
 
 
 /**
  * A basic menu class.
  * @param {?goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
- * @param {?goog.ui.MenuRenderer=} opt_renderer Renderer used to render or
- *     decorate the container; defaults to {@link goog.ui.MenuRenderer}.
- * @extends {goog.ui.Menu}
+ * @param {?MenuRenderer=} opt_renderer Renderer used to render or
+ *     decorate the container; defaults to {@link MenuRenderer}.
+ * @extends {Menu}
  * @constructor
  */
-goog.ui.PopupMenu = function(opt_domHelper, opt_renderer) {
-  'use strict';
-  goog.ui.Menu.call(this, opt_domHelper, opt_renderer);
+export function PopupMenu(opt_domHelper, opt_renderer) {
+  Menu.call(this, opt_domHelper, opt_renderer);
 
   this.setAllowAutoFocus(true);
 
@@ -72,13 +69,13 @@ goog.ui.PopupMenu = function(opt_domHelper, opt_renderer) {
   this.setVisible(false, true);
 
   /**
-   * Map of attachment points for the menu.  Key -> Object
-   * @type {!goog.structs.Map}
-   * @private
-   */
-  this.targets_ = new goog.structs.Map();
-};
-goog.inherits(goog.ui.PopupMenu, goog.ui.Menu);
+     * Map of attachment points for the menu.  Key -> Object
+     * @type {!Map}
+     * @private
+     */
+  this.targets_ = new Map();
+}
+goog.inherits(PopupMenu, Menu);
 
 
 /**
@@ -86,7 +83,7 @@ goog.inherits(goog.ui.PopupMenu, goog.ui.Menu);
  * @type {boolean}
  * @private
  */
-goog.ui.PopupMenu.prototype.toggleMode_ = false;
+PopupMenu.prototype.toggleMode_ = false;
 
 /**
  * If true, then the browser context menu will override the menu activation when
@@ -94,7 +91,7 @@ goog.ui.PopupMenu.prototype.toggleMode_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.PopupMenu.prototype.shiftOverride_ = false;
+PopupMenu.prototype.shiftOverride_ = false;
 
 
 /**
@@ -102,7 +99,7 @@ goog.ui.PopupMenu.prototype.shiftOverride_ = false;
  * @type {number}
  * @private
  */
-goog.ui.PopupMenu.prototype.lastHide_ = 0;
+PopupMenu.prototype.lastHide_ = 0;
 
 
 /**
@@ -110,7 +107,7 @@ goog.ui.PopupMenu.prototype.lastHide_ = 0;
  * @type {?Element}
  * @private
  */
-goog.ui.PopupMenu.prototype.currentAnchor_ = null;
+PopupMenu.prototype.currentAnchor_ = null;
 
 
 /**
@@ -121,30 +118,28 @@ goog.ui.PopupMenu.prototype.currentAnchor_ = null;
  * @override
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.PopupMenu.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.PopupMenu.superClass_.decorateInternal.call(this, element);
+PopupMenu.prototype.decorateInternal = function(element) {
+  PopupMenu.superClass_.decorateInternal.call(this, element);
   // 'for' is a custom attribute for attaching the menu to a click target
   var htmlFor = element.getAttribute('for') || element.htmlFor;
   if (htmlFor) {
     this.attach(
         this.getDomHelper().getElement(htmlFor),
-        goog.positioning.Corner.BOTTOM_LEFT);
+        Corner.BOTTOM_LEFT);
   }
 };
 
 
 /** @override */
-goog.ui.PopupMenu.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.PopupMenu.superClass_.enterDocument.call(this);
+PopupMenu.prototype.enterDocument = function() {
+  PopupMenu.superClass_.enterDocument.call(this);
 
   this.targets_.forEach(this.attachEvent_, this);
 
   var handler = this.getHandler();
-  handler.listen(this, goog.ui.Component.EventType.ACTION, this.onAction_);
+  handler.listen(this, Component.EventType.ACTION, this.onAction_);
   handler.listen(
-      this.getDomHelper().getDocument(), goog.events.EventType.MOUSEDOWN,
+      this.getDomHelper().getDocument(), EventType.MOUSEDOWN,
       this.onDocClick, true);
 };
 
@@ -155,20 +150,19 @@ goog.ui.PopupMenu.prototype.enterDocument = function() {
  * multiple positions doesn't make sense.
  *
  * @param {?Element} element Element whose click event should trigger the menu.
- * @param {?goog.positioning.Corner=} opt_targetCorner Corner of the target that
+ * @param {?Corner=} opt_targetCorner Corner of the target that
  *     the menu should be anchored to.
- * @param {goog.positioning.Corner=} opt_menuCorner Corner of the menu that
+ * @param {Corner=} opt_menuCorner Corner of the menu that
  *     should be anchored.
  * @param {boolean=} opt_contextMenu Whether the menu should show on
- *     {@link goog.events.EventType.CONTEXTMENU} events, false if it should
- *     show on {@link goog.events.EventType.MOUSEDOWN} events. Default is
+ *     {@link EventType.CONTEXTMENU} events, false if it should
+ *     show on {@link EventType.MOUSEDOWN} events. Default is
  *     MOUSEDOWN.
  * @param {?goog.math.Box=} opt_margin Margin for the popup used in positioning
  *     algorithms.
  */
-goog.ui.PopupMenu.prototype.attach = function(
+PopupMenu.prototype.attach = function(
     element, opt_targetCorner, opt_menuCorner, opt_contextMenu, opt_margin) {
-  'use strict';
   if (this.isAttachTarget(element)) {
     // Already in the popup, so just return.
     return;
@@ -185,7 +179,7 @@ goog.ui.PopupMenu.prototype.attach = function(
   var handler = goog.partial(this.onMenuKeyboardAction_, element);
   if (this.getElement()) {
     this.getHandler().listen(
-        this.getElement(), goog.events.EventType.KEYDOWN, handler);
+        this.getElement(), EventType.KEYDOWN, handler);
   }
 };
 
@@ -202,12 +196,11 @@ goog.ui.PopupMenu.prototype.attach = function(
  * listeners are fired.
  *
  * @param {Element} element Element whose click event triggered the menu.
- * @param {!goog.events.BrowserEvent} e The key down event.
+ * @param {!BrowserEvent} e The key down event.
  * @private
  */
-goog.ui.PopupMenu.prototype.onMenuKeyboardAction_ = function(element, e) {
-  'use strict';
-  if (e.keyCode == goog.events.KeyCodes.ESC) {
+PopupMenu.prototype.onMenuKeyboardAction_ = function(element, e) {
+  if (e.keyCode == KeyCodes.ESC) {
     element.focus();
     return;
   }
@@ -217,19 +210,19 @@ goog.ui.PopupMenu.prototype.onMenuKeyboardAction_ = function(element, e) {
   }
   var targetElement = highlightedItem.getElement();
   // Create an event to pass to the menu item's listener.
-  var event = new goog.events.BrowserEvent(e.getBrowserEvent(), targetElement);
+  var event = new eventsBrowserEvent(e.getBrowserEvent(), targetElement);
   event.target = targetElement;
   // If an item is highlighted and the user presses the SPACE/ENTER key, the
   // event target is the menu rather than the menu item, so we manually fire
   // the listener of the correct menu item.
-  if (e.keyCode == goog.events.KeyCodes.SPACE ||
-      e.keyCode == goog.events.KeyCodes.ENTER) {
-    goog.events.fireListeners(
-        targetElement, goog.events.EventType.KEYDOWN, false, event);
+  if (e.keyCode == KeyCodes.SPACE ||
+      e.keyCode == KeyCodes.ENTER) {
+    events.fireListeners(
+        targetElement, EventType.KEYDOWN, false, event);
   }
   // After activating a menu item the PopupMenu should be hidden (already
   // implemented in this.onAction_ for ENTER/MOUSEDOWN).
-  if (e.keyCode == goog.events.KeyCodes.SPACE) {
+  if (e.keyCode == KeyCodes.SPACE) {
     this.hide();
   }
 };
@@ -244,13 +237,13 @@ goog.ui.PopupMenu.prototype.onMenuKeyboardAction_ = function(element, e) {
  * Subclass may add more properties to the returned object, as needed.
  *
  * @param {?Element} element Element whose click event should trigger the menu.
- * @param {?goog.positioning.Corner=} opt_targetCorner Corner of the target that
+ * @param {?Corner=} opt_targetCorner Corner of the target that
  *     the menu should be anchored to.
- * @param {?goog.positioning.Corner=} opt_menuCorner Corner of the menu that
+ * @param {?Corner=} opt_menuCorner Corner of the menu that
  *     should be anchored.
  * @param {boolean=} opt_contextMenu Whether the menu should show on
- *     {@link goog.events.EventType.CONTEXTMENU} events, false if it should
- *     show on {@link goog.events.EventType.MOUSEDOWN} events. Default is
+ *     {@link EventType.CONTEXTMENU} events, false if it should
+ *     show on {@link EventType.MOUSEDOWN} events. Default is
  *     MOUSEDOWN.
  * @param {?goog.math.Box=} opt_margin Margin for the popup used in positioning
  *     algorithms.
@@ -260,9 +253,8 @@ goog.ui.PopupMenu.prototype.onMenuKeyboardAction_ = function(element, e) {
  *
  * @protected
  */
-goog.ui.PopupMenu.prototype.createAttachTarget = function(
+PopupMenu.prototype.createAttachTarget = function(
     element, opt_targetCorner, opt_menuCorner, opt_contextMenu, opt_margin) {
-  'use strict';
   if (!element) {
     return null;
   }
@@ -271,8 +263,8 @@ goog.ui.PopupMenu.prototype.createAttachTarget = function(
     element_: element,
     targetCorner_: opt_targetCorner,
     menuCorner_: opt_menuCorner,
-    eventType_: opt_contextMenu ? goog.events.EventType.CONTEXTMENU :
-                                  goog.events.EventType.MOUSEDOWN,
+    eventType_: opt_contextMenu ? EventType.CONTEXTMENU :
+                                  EventType.MOUSEDOWN,
     margin_: opt_margin
   };
 
@@ -294,8 +286,7 @@ goog.ui.PopupMenu.prototype.createAttachTarget = function(
  *     `element`).
  * @protected
  */
-goog.ui.PopupMenu.prototype.getAttachTarget = function(element) {
-  'use strict';
+PopupMenu.prototype.getAttachTarget = function(element) {
   return element ?
       /** @type {?Object} */ (this.targets_.get(goog.getUid(element))) :
       null;
@@ -309,8 +300,7 @@ goog.ui.PopupMenu.prototype.getAttachTarget = function(element) {
  *
  * @protected
  */
-goog.ui.PopupMenu.prototype.isAttachTarget = function(element) {
-  'use strict';
+PopupMenu.prototype.isAttachTarget = function(element) {
   return element ? this.targets_.containsKey(goog.getUid(element)) : false;
 };
 
@@ -319,8 +309,7 @@ goog.ui.PopupMenu.prototype.isAttachTarget = function(element) {
  * @return {?Element} The current element where the popup is anchored, if it's
  *     visible.
  */
-goog.ui.PopupMenu.prototype.getAttachedElement = function() {
-  'use strict';
+PopupMenu.prototype.getAttachedElement = function() {
   return this.currentAnchor_;
 };
 
@@ -332,13 +321,12 @@ goog.ui.PopupMenu.prototype.getAttachedElement = function() {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.PopupMenu.prototype.attachEvent_ = function(target) {
-  'use strict';
+PopupMenu.prototype.attachEvent_ = function(target) {
   this.getHandler().listen(
       target.element_, target.eventType_, this.onTargetClick_);
-  if (target.eventType_ != goog.events.EventType.CONTEXTMENU) {
+  if (target.eventType_ != EventType.CONTEXTMENU) {
     this.getHandler().listen(
-        target.element_, goog.events.EventType.KEYDOWN,
+        target.element_, EventType.KEYDOWN,
         this.onTargetKeyboardAction_);
   }
 };
@@ -347,8 +335,7 @@ goog.ui.PopupMenu.prototype.attachEvent_ = function(target) {
 /**
  * Detaches all listeners
  */
-goog.ui.PopupMenu.prototype.detachAll = function() {
-  'use strict';
+PopupMenu.prototype.detachAll = function() {
   if (this.isInDocument()) {
     var keys = this.targets_.getKeys();
     for (var i = 0; i < keys.length; i++) {
@@ -364,8 +351,7 @@ goog.ui.PopupMenu.prototype.detachAll = function() {
  * Detaches a menu from a given element.
  * @param {?Element} element Element whose click event should trigger the menu.
  */
-goog.ui.PopupMenu.prototype.detach = function(element) {
-  'use strict';
+PopupMenu.prototype.detach = function(element) {
   if (!this.isAttachTarget(element)) {
     throw new Error('Menu not attached to provided element, unable to detach.');
   }
@@ -385,8 +371,7 @@ goog.ui.PopupMenu.prototype.detach = function(element) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.PopupMenu.prototype.detachEvent_ = function(target) {
-  'use strict';
+PopupMenu.prototype.detachEvent_ = function(target) {
   this.getHandler().unlisten(
       target.element_, target.eventType_, this.onTargetClick_);
 };
@@ -397,8 +382,7 @@ goog.ui.PopupMenu.prototype.detachEvent_ = function(target) {
  * menus this should be false, for toolbar menus it makes more sense to be true.
  * @param {boolean} toggle The new toggle mode.
  */
-goog.ui.PopupMenu.prototype.setToggleMode = function(toggle) {
-  'use strict';
+PopupMenu.prototype.setToggleMode = function(toggle) {
   this.toggleMode_ = toggle;
 };
 
@@ -407,8 +391,7 @@ goog.ui.PopupMenu.prototype.setToggleMode = function(toggle) {
  * the shift key is held down.
  * @param {boolean} shiftOverride
  */
-goog.ui.PopupMenu.prototype.setShiftOverride = function(shiftOverride) {
-  'use strict';
+PopupMenu.prototype.setShiftOverride = function(shiftOverride) {
   this.shiftOverride_ = shiftOverride;
 };
 
@@ -416,8 +399,7 @@ goog.ui.PopupMenu.prototype.setShiftOverride = function(shiftOverride) {
  * Gets whether the menu is in toggle mode
  * @return {boolean} toggle.
  */
-goog.ui.PopupMenu.prototype.getToggleMode = function() {
-  'use strict';
+PopupMenu.prototype.getToggleMode = function() {
   return this.toggleMode_;
 };
 
@@ -426,8 +408,7 @@ goog.ui.PopupMenu.prototype.getToggleMode = function() {
  * the shift key is held down.
  * @return {boolean}
  */
-goog.ui.PopupMenu.prototype.getShiftOverride = function() {
-  'use strict';
+PopupMenu.prototype.getShiftOverride = function() {
   return this.shiftOverride_;
 };
 
@@ -436,15 +417,14 @@ goog.ui.PopupMenu.prototype.getShiftOverride = function() {
  * Show the menu using given positioning object.
  * @param {?goog.positioning.AbstractPosition} position The positioning
  *     instance.
- * @param {goog.positioning.Corner=} opt_menuCorner The corner of the menu to be
+ * @param {Corner=} opt_menuCorner The corner of the menu to be
  *     positioned.
  * @param {?goog.math.Box=} opt_margin A margin specified in pixels.
  * @param {?Element=} opt_anchor The element which acts as visual anchor for
  *     this menu.
  */
-goog.ui.PopupMenu.prototype.showWithPosition = function(
+PopupMenu.prototype.showWithPosition = function(
     position, opt_menuCorner, opt_margin, opt_anchor) {
-  'use strict';
   var isVisible = this.isVisible();
   if (this.isOrWasRecentlyVisible() && this.toggleMode_) {
     this.hide();
@@ -457,13 +437,13 @@ goog.ui.PopupMenu.prototype.showWithPosition = function(
   this.currentAnchor_ = opt_anchor || null;
 
   // Notify event handlers that the menu is about to be shown.
-  if (!this.dispatchEvent(goog.ui.Component.EventType.BEFORE_SHOW)) {
+  if (!this.dispatchEvent(Component.EventType.BEFORE_SHOW)) {
     return;
   }
 
   var menuCorner = typeof opt_menuCorner != 'undefined' ?
       opt_menuCorner :
-      goog.positioning.Corner.TOP_START;
+      Corner.TOP_START;
 
   // This is a little hacky so that we can position the menu with minimal
   // flicker.
@@ -474,7 +454,7 @@ goog.ui.PopupMenu.prototype.showWithPosition = function(
     this.getElement().style.visibility = 'hidden';
   }
 
-  goog.style.setElementShown(this.getElement(), true);
+  style.setElementShown(this.getElement(), true);
   position.reposition(this.getElement(), menuCorner, opt_margin);
 
   if (!isVisible) {
@@ -497,19 +477,18 @@ goog.ui.PopupMenu.prototype.showWithPosition = function(
  * @protected
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.PopupMenu.prototype.showMenu = function(target, x, y) {
-  'use strict';
+PopupMenu.prototype.showMenu = function(target, x, y) {
   var position = (target.targetCorner_ !== undefined) ?
-      new goog.positioning.AnchoredViewportPosition(
+      new AnchoredViewportPosition(
           target.element_, target.targetCorner_, true) :
-      new goog.positioning.ViewportClientPosition(x, y);
+      new ViewportClientPosition(x, y);
   if (position.setLastResortOverflow) {
     // This is a ViewportClientPosition, so we can set the overflow policy.
     // Allow the menu to slide from the corner rather than clipping if it is
     // completely impossible to fit it otherwise.
     position.setLastResortOverflow(
-        goog.positioning.Overflow.ADJUST_X |
-        goog.positioning.Overflow.ADJUST_Y);
+        Overflow.ADJUST_X |
+        Overflow.ADJUST_Y);
   }
   this.showWithPosition(
       position, target.menuCorner_, target.margin_, target.element_);
@@ -520,29 +499,27 @@ goog.ui.PopupMenu.prototype.showMenu = function(target, x, y) {
  * Shows the menu immediately at the given client coordinates.
  * @param {number} x The client-X associated with the show event.
  * @param {number} y The client-Y associated with the show event.
- * @param {goog.positioning.Corner=} opt_menuCorner Corner of the menu that
+ * @param {Corner=} opt_menuCorner Corner of the menu that
  *     should be anchored.
  */
-goog.ui.PopupMenu.prototype.showAt = function(x, y, opt_menuCorner) {
-  'use strict';
+PopupMenu.prototype.showAt = function(x, y, opt_menuCorner) {
   this.showWithPosition(
-      new goog.positioning.ViewportClientPosition(x, y), opt_menuCorner);
+      new ViewportClientPosition(x, y), opt_menuCorner);
 };
 
 
 /**
  * Shows the menu immediately attached to the given element
  * @param {?Element} element The element to show at.
- * @param {goog.positioning.Corner} targetCorner The corner of the target to
+ * @param {Corner} targetCorner The corner of the target to
  *     anchor to.
- * @param {goog.positioning.Corner=} opt_menuCorner Corner of the menu that
+ * @param {Corner=} opt_menuCorner Corner of the menu that
  *     should be anchored.
  */
-goog.ui.PopupMenu.prototype.showAtElement = function(
+PopupMenu.prototype.showAtElement = function(
     element, targetCorner, opt_menuCorner) {
-  'use strict';
   this.showWithPosition(
-      new goog.positioning.MenuAnchoredPosition(element, targetCorner, true),
+      new MenuAnchoredPosition(element, targetCorner, true),
       opt_menuCorner, null, element);
 };
 
@@ -550,8 +527,7 @@ goog.ui.PopupMenu.prototype.showAtElement = function(
 /**
  * Hides the menu.
  */
-goog.ui.PopupMenu.prototype.hide = function() {
-  'use strict';
+PopupMenu.prototype.hide = function() {
   if (!this.isVisible()) {
     return;
   }
@@ -573,8 +549,7 @@ goog.ui.PopupMenu.prototype.hide = function() {
  * @return {boolean} Whether the popup is currently visible or was visible
  *     within about 150 ms ago.
  */
-goog.ui.PopupMenu.prototype.isOrWasRecentlyVisible = function() {
-  'use strict';
+PopupMenu.prototype.isOrWasRecentlyVisible = function() {
   return this.isVisible() || this.wasRecentlyHidden();
 };
 
@@ -584,32 +559,29 @@ goog.ui.PopupMenu.prototype.isOrWasRecentlyVisible = function() {
  * @return {boolean} Whether the menu was recently hidden.
  * @protected
  */
-goog.ui.PopupMenu.prototype.wasRecentlyHidden = function() {
-  'use strict';
-  return Date.now() - this.lastHide_ < goog.ui.PopupBase.DEBOUNCE_DELAY_MS;
+PopupMenu.prototype.wasRecentlyHidden = function() {
+  return Date.now() - this.lastHide_ < PopupBase.DEBOUNCE_DELAY_MS;
 };
 
 
 /**
  * Dismiss the popup menu when an action fires.
- * @param {?goog.events.Event=} opt_e The optional event.
+ * @param {?events.Event=} opt_e The optional event.
  * @private
  */
-goog.ui.PopupMenu.prototype.onAction_ = function(opt_e) {
-  'use strict';
+PopupMenu.prototype.onAction_ = function(opt_e) {
   this.hide();
 };
 
 
 /**
  * Handles a browser click event on one of the popup targets.
- * @param {?goog.events.BrowserEvent} e The browser event.
+ * @param {?BrowserEvent} e The browser event.
  * @private
  */
-goog.ui.PopupMenu.prototype.onTargetClick_ = function(e) {
-  'use strict';
+PopupMenu.prototype.onTargetClick_ = function(e) {
   if (this.shiftOverride_ && e.shiftKey &&
-      e.button == goog.events.BrowserEvent.MouseButton.RIGHT) {
+      e.button == eventsBrowserEvent.MouseButton.RIGHT) {
     return;
   }
   this.onTargetActivation_(e);
@@ -618,19 +590,18 @@ goog.ui.PopupMenu.prototype.onTargetClick_ = function(e) {
 
 /**
  * Handles a KEYDOWN browser event on one of the popup targets.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @private
  */
-goog.ui.PopupMenu.prototype.onTargetKeyboardAction_ = function(e) {
-  'use strict';
-  if (e.keyCode == goog.events.KeyCodes.SPACE ||
-      e.keyCode == goog.events.KeyCodes.ENTER ||
-      e.keyCode == goog.events.KeyCodes.DOWN) {
+PopupMenu.prototype.onTargetKeyboardAction_ = function(e) {
+  if (e.keyCode == KeyCodes.SPACE ||
+      e.keyCode == KeyCodes.ENTER ||
+      e.keyCode == KeyCodes.DOWN) {
     this.onTargetActivation_(e);
   }
   // If the popupmenu is opened using the DOWN key, the focus should be on the
   // first menu item.
-  if (e.keyCode == goog.events.KeyCodes.DOWN) {
+  if (e.keyCode == KeyCodes.DOWN) {
     this.highlightFirst();
   }
 };
@@ -638,12 +609,11 @@ goog.ui.PopupMenu.prototype.onTargetKeyboardAction_ = function(e) {
 
 /**
  * Handles a browser event on one of the popup targets.
- * @param {?goog.events.BrowserEvent} e The browser event.
+ * @param {?BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.PopupMenu.prototype.onTargetActivation_ = function(e) {
-  'use strict';
+PopupMenu.prototype.onTargetActivation_ = function(e) {
   var keys = this.targets_.getKeys();
   for (var i = 0; i < keys.length; i++) {
     var target = /** @type {!Object} */ (this.targets_.get(keys[i]));
@@ -659,11 +629,10 @@ goog.ui.PopupMenu.prototype.onTargetActivation_ = function(e) {
 
 /**
  * Handles click events that propagate to the document.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @protected
  */
-goog.ui.PopupMenu.prototype.onDocClick = function(e) {
-  'use strict';
+PopupMenu.prototype.onDocClick = function(e) {
   if (this.isVisible() &&
       !this.containsElement(/** @type {!Element} */ (e.target))) {
     this.hide();
@@ -673,21 +642,19 @@ goog.ui.PopupMenu.prototype.onDocClick = function(e) {
 
 /**
  * Handles the key event target losing focus.
- * @param {?goog.events.BrowserEvent} e The browser event.
+ * @param {?BrowserEvent} e The browser event.
  * @override
  */
-goog.ui.PopupMenu.prototype.handleBlur = function(e) {
-  'use strict';
-  goog.ui.PopupMenu.superClass_.handleBlur.call(this, e);
+PopupMenu.prototype.handleBlur = function(e) {
+  PopupMenu.superClass_.handleBlur.call(this, e);
   this.hide();
 };
 
 
 /** @override */
-goog.ui.PopupMenu.prototype.disposeInternal = function() {
-  'use strict';
+PopupMenu.prototype.disposeInternal = function() {
   // Always call the superclass' disposeInternal() first (Bug 715885).
-  goog.ui.PopupMenu.superClass_.disposeInternal.call(this);
+  PopupMenu.superClass_.disposeInternal.call(this);
 
   // Disposes of the attachment target map.
   if (this.targets_) {

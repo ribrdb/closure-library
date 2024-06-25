@@ -13,10 +13,7 @@
  * @see ../demos/dragdrop.html
  */
 
-goog.provide('goog.fx.DragDrop');
-
-goog.require('goog.fx.AbstractDragDrop');
-goog.require('goog.fx.DragDropItem');
+import { AbstractDragDrop, DragDropItem } from './abstractdragdrop.js';
 
 
 
@@ -28,17 +25,16 @@ goog.require('goog.fx.DragDropItem');
  *     id, to be used as drag source/drop target.
  * @param {DRAG_DROP_DATA=} opt_data Data associated with the source/target.
  * @throws Error If no element argument is provided or if the type is invalid
- * @extends {goog.fx.AbstractDragDrop}
+ * @extends {AbstractDragDrop}
  * @template DRAG_DROP_DATA
  * @constructor
  * @struct
  */
-goog.fx.DragDrop = function(element, opt_data) {
-  'use strict';
-  goog.fx.AbstractDragDrop.call(this);
+export function DragDrop(element, opt_data) {
+ AbstractDragDrop.call(this);
 
-  var item = new goog.fx.DragDropItem(element, opt_data);
-  item.setParent(this);
-  this.items_.push(item);
-};
-goog.inherits(goog.fx.DragDrop, goog.fx.AbstractDragDrop);
+ var item = new DragDropItem(element, opt_data);
+ item.setParent(this);
+ this.items_.push(item);
+}
+goog.inherits(DragDrop, AbstractDragDrop);

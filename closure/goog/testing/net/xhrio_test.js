@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.net.XhrIoTest');
 goog.setTestOnly();
 
-const ErrorCode = goog.require('goog.net.ErrorCode');
-const EventType = goog.require('goog.net.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const InstanceOf = goog.require('goog.testing.mockmatchers.InstanceOf');
-const MockControl = goog.require('goog.testing.MockControl');
-const XhrIo = goog.require('goog.testing.net.XhrIo');
-const XmlHttp = goog.require('goog.net.XmlHttp');
-const asserts = goog.require('goog.testing.asserts');
-const domXml = goog.require('goog.dom.xml');
-const events = goog.require('goog.events');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorCode } from '../../net/errorcode.js';
+import { EventType } from '../../net/eventtype.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { InstanceOf } from '../mockmatchers.js';
+import { MockControl } from '../mockcontrol.js';
+import { XhrIo } from './xhrio.js';
+import { XmlHttp } from '../../net/xmlhttp.js';
+import * as asserts from '../asserts.js';
+import * as domXml from '../../dom/xml.js';
+import * as events from '../../events/events.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../testsuite.js';
 
 // In order to emulate the actual behavior of XhrIo, set this value for all
 // tests until the default value is false.

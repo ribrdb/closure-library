@@ -8,27 +8,26 @@
  * @fileoverview Utility function for linkifying text.
  */
 
-goog.provide('goog.string.linkify');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.html.uncheckedconversions');
-goog.require('goog.string');
-goog.require('goog.string.Const');
+import { SafeHtml } from '../html/safehtml.js';
+import * as uncheckedconversions from '../html/uncheckedconversions.js';
+import * as string from './string.js';
+import { Const } from './const.js';
 
 
 /**
  * Options bag for linkifyPlainTextAsHtml's second parameter.
  * @record
  */
-goog.string.linkify.LinkifyOptions = class {
+export class LinkifyOptions {
   constructor() {
     /**
-     * HTML attributes to add to all links created.  Default are `rel=nofollow`
-     * and `target=_blank`. To clear these defaults attributes, set them
-     * explicitly to '', i.e. `{rel: '', target: ''}`.
-     * @const {!Object<string, ?goog.html.SafeHtml.AttributeValue>|undefined}
-     */
+         * HTML attributes to add to all links created.  Default are `rel=nofollow`
+         * and `target=_blank`. To clear these defaults attributes, set them
+         * explicitly to '', i.e. `{rel: '', target: ''}`.
+         * @const {!Object<string, ?SafeHtml.AttributeValue>|undefined}
+         */
     this.attributes;
     /**
      * Whether to preserve newlines with &lt;br&gt;.
@@ -42,7 +41,7 @@ goog.string.linkify.LinkifyOptions = class {
      */
     this.preserveSpacesAndTabs;
   }
-};
+}
 
 
 /**
@@ -51,32 +50,31 @@ goog.string.linkify.LinkifyOptions = class {
  * _blank and it will have a rel=nofollow attribute applied to it so that links
  * created by linkify will not be of interest to search engines.
  * @param {string} text Plain text.
- * @param {!goog.string.linkify.LinkifyOptions=} opt_options Options bag.
- * @return {!goog.html.SafeHtml} Linkified HTML. Any text that is not part of a
+ * @param {!LinkifyOptions=} opt_options Options bag.
+ * @return {!SafeHtml} Linkified HTML. Any text that is not part of a
  *      link will be HTML-escaped.
  * @suppress {strictMissingProperties} opt_attributes type is a union
  */
-goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
-  'use strict';
+export function linkifyPlainTextAsHtml(text, opt_options) {
   const {attributes = {}, preserveNewlines, preserveSpacesAndTabs, ...rest} =
       opt_options || {};
   if (goog.DEBUG) {
     for (const key in rest) {
       if (rest.hasOwnProperty(key)) {
-        goog.asserts.fail(`Unexpected option: ${key}`);
+        asserts.fail(`Unexpected option: ${key}`);
       }
     }
   }
 
   /**
-   * @param {string} plainText
-   * @return {!goog.html.SafeHtml} html
-   */
+     * @param {string} plainText
+     * @return {!SafeHtml} html
+     */
   const htmlEscape = function(plainText) {
     if (preserveSpacesAndTabs) {
-      const html = goog.html.SafeHtml.htmlEscape(plainText);
+      const html = SafeHtml.htmlEscape(plainText);
       let modifiedHtml =
-          goog.html.SafeHtml
+          SafeHtml
               .unwrap(html)
               // Leading space is converted into a non-breaking space, and
               // spaces following whitespace are converted into non-breaking
@@ -86,15 +84,15 @@ goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
               // Preserve tabs by using style="white-space:pre"
               .replace(/(\t+)/g, '<span style="white-space:pre">$1</span>');
       if (preserveNewlines) {
-        modifiedHtml = goog.string.newLineToBr(modifiedHtml);
+        modifiedHtml = string.newLineToBr(modifiedHtml);
       }
-      return goog.html.uncheckedconversions
+      return uncheckedconversions
           .safeHtmlFromStringKnownToSatisfyTypeContract(
-              goog.string.Const.from('Escaped plain text'), modifiedHtml);
+              Const.from('Escaped plain text'), modifiedHtml);
     } else if (preserveNewlines) {
-      return goog.html.SafeHtml.htmlEscapePreservingNewlines(plainText);
+      return SafeHtml.htmlEscapePreservingNewlines(plainText);
     } else {
-      return goog.html.SafeHtml.htmlEscape(plainText);
+      return SafeHtml.htmlEscape(plainText);
     }
   };
 
@@ -127,9 +125,8 @@ goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
   const output = [];
   // Return value is ignored.
   text.replace(
-      goog.string.linkify.FIND_LINKS_RE_,
+      FIND_LINKS_RE_,
       function(part, before, original, email, protocol) {
-        'use strict';
         output.push(htmlEscape(before));
         if (!original) {
           return '';
@@ -149,7 +146,7 @@ goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
             href = 'http://';
           }
           const splitEndingPunctuation =
-              original.match(goog.string.linkify.ENDS_WITH_PUNCTUATION_RE_);
+              original.match(ENDS_WITH_PUNCTUATION_RE_);
           // An open paren in the link will often be matched with a close paren
           // at the end, so skip cutting off ending punctuation if
           // opening/closing parens are matched in the link. Same for curly
@@ -166,9 +163,9 @@ goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
           // and ')' is false.
           function needEndingPunctuationForBalance(
               split, openSymbol, closeSymbol) {
-            return goog.string.contains(split[2], closeSymbol) &&
-                goog.string.countOf(split[1], openSymbol) >
-                goog.string.countOf(split[1], closeSymbol);
+            return string.contains(split[2], closeSymbol) &&
+                string.countOf(split[1], openSymbol) >
+                string.countOf(split[1], closeSymbol);
           }
           if (splitEndingPunctuation &&
               !needEndingPunctuationForBalance(
@@ -183,12 +180,12 @@ goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
           }
         }
         attributesMap['href'] = href + linkText;
-        output.push(goog.html.SafeHtml.create('a', attributesMap, linkText));
+        output.push(SafeHtml.create('a', attributesMap, linkText));
         output.push(htmlEscape(afterLink));
         return '';
       });
-  return goog.html.SafeHtml.concat(output);
-};
+  return SafeHtml.concat(output);
+}
 
 
 /**
@@ -196,11 +193,10 @@ goog.string.linkify.linkifyPlainTextAsHtml = function(text, opt_options) {
  * @param {string} text Plain text.
  * @return {string} The first URL, or an empty string if not found.
  */
-goog.string.linkify.findFirstUrl = function(text) {
-  'use strict';
-  const link = text.match(goog.string.linkify.URL_RE_);
+export function findFirstUrl(text) {
+  const link = text.match(URL_RE_);
   return link != null ? link[0] : '';
-};
+}
 
 
 /**
@@ -208,11 +204,10 @@ goog.string.linkify.findFirstUrl = function(text) {
  * @param {string} text Plain text.
  * @return {string} The first email address, or an empty string if not found.
  */
-goog.string.linkify.findFirstEmail = function(text) {
-  'use strict';
-  const email = text.match(goog.string.linkify.EMAIL_RE_);
+export function findFirstEmail(text) {
+  const email = text.match(EMAIL_RE_);
   return email != null ? email[0] : '';
-};
+}
 
 
 /**
@@ -222,7 +217,7 @@ goog.string.linkify.findFirstEmail = function(text) {
  * @const
  * @private
  */
-goog.string.linkify.ENDING_PUNCTUATION_CHARS_ = '\':;,\\.?}\\]\\)!';
+var ENDING_PUNCTUATION_CHARS_ = '\':;,\\.?}\\]\\)!';
 
 
 /**
@@ -230,8 +225,8 @@ goog.string.linkify.ENDING_PUNCTUATION_CHARS_ = '\':;,\\.?}\\]\\)!';
  * @const
  * @private
  */
-goog.string.linkify.ENDS_WITH_PUNCTUATION_RE_ = new RegExp(
-    '^(.*?)([' + goog.string.linkify.ENDING_PUNCTUATION_CHARS_ + ']+)$');
+var ENDS_WITH_PUNCTUATION_RE_ = new RegExp(
+    '^(.*?)([' + ENDING_PUNCTUATION_CHARS_ + ']+)$');
 
 
 /**
@@ -243,7 +238,7 @@ goog.string.linkify.ENDS_WITH_PUNCTUATION_RE_ = new RegExp(
  * @const
  * @private
  */
-goog.string.linkify.ACCEPTABLE_URL_CHARS_ = '\\w#-;!=?@\\[\\\\\\]_`{|}~';
+var ACCEPTABLE_URL_CHARS_ = '\\w#-;!=?@\\[\\\\\\]_`{|}~';
 
 
 /**
@@ -253,7 +248,7 @@ goog.string.linkify.ACCEPTABLE_URL_CHARS_ = '\\w#-;!=?@\\[\\\\\\]_`{|}~';
  * @const
  * @private
  */
-goog.string.linkify.RECOGNIZED_PROTOCOLS_ = ['https?', 'ftp'];
+var RECOGNIZED_PROTOCOLS_ = ['https?', 'ftp'];
 
 
 /**
@@ -263,8 +258,7 @@ goog.string.linkify.RECOGNIZED_PROTOCOLS_ = ['https?', 'ftp'];
  * @const
  * @private
  */
-goog.string.linkify.PROTOCOL_START_ =
-    '(' + goog.string.linkify.RECOGNIZED_PROTOCOLS_.join('|') + ')://';
+var PROTOCOL_START_ = '(' + RECOGNIZED_PROTOCOLS_.join('|') + ')://';
 
 
 /**
@@ -274,7 +268,7 @@ goog.string.linkify.PROTOCOL_START_ =
  * @const
  * @private
  */
-goog.string.linkify.WWW_START_ = 'www\\.';
+var WWW_START_ = 'www\\.';
 
 
 /**
@@ -283,10 +277,9 @@ goog.string.linkify.WWW_START_ = 'www\\.';
  * @const
  * @private
  */
-goog.string.linkify.URL_RE_STRING_ =
-    '(?:' + goog.string.linkify.PROTOCOL_START_ + '|' +
-    goog.string.linkify.WWW_START_ + ')[' +
-    goog.string.linkify.ACCEPTABLE_URL_CHARS_ + ']+';
+var URL_RE_STRING_ = '(?:' + PROTOCOL_START_ + '|' +
+WWW_START_ + ')[' +
+ACCEPTABLE_URL_CHARS_ + ']+';
 
 
 /**
@@ -295,8 +288,7 @@ goog.string.linkify.URL_RE_STRING_ =
  * @const
  * @private
  */
-goog.string.linkify.URL_RE_ =
-    new RegExp(goog.string.linkify.URL_RE_STRING_, 'i');
+var URL_RE_ = new RegExp(URL_RE_STRING_, 'i');
 
 
 /**
@@ -305,7 +297,7 @@ goog.string.linkify.URL_RE_ =
  * @const
  * @private
  */
-goog.string.linkify.TOP_LEVEL_DOMAIN_ = '(?:com|org|net|edu|gov' +
+var TOP_LEVEL_DOMAIN_ = '(?:com|org|net|edu|gov' +
     // from http://www.iana.org/gtld/gtld.htm
     '|aero|biz|cat|coop|info|int|jobs|mobi|museum|name|pro|travel' +
     '|arpa|asia|xxx' +
@@ -321,9 +313,8 @@ goog.string.linkify.TOP_LEVEL_DOMAIN_ = '(?:com|org|net|edu|gov' +
  * @const
  * @private
  */
-goog.string.linkify.EMAIL_RE_STRING_ =
-    '(?:mailto:)?([\\w.!#$%&\'*+-/=?^_`{|}~]+@[A-Za-z0-9.-]+\\.' +
-    goog.string.linkify.TOP_LEVEL_DOMAIN_ + ')';
+var EMAIL_RE_STRING_ = '(?:mailto:)?([\\w.!#$%&\'*+-/=?^_`{|}~]+@[A-Za-z0-9.-]+\\.' +
+TOP_LEVEL_DOMAIN_ + ')';
 
 
 /**
@@ -332,8 +323,7 @@ goog.string.linkify.EMAIL_RE_STRING_ =
  * @const
  * @private
  */
-goog.string.linkify.EMAIL_RE_ =
-    new RegExp(goog.string.linkify.EMAIL_RE_STRING_, 'i');
+var EMAIL_RE_ = new RegExp(EMAIL_RE_STRING_, 'i');
 
 
 /**
@@ -346,11 +336,11 @@ goog.string.linkify.EMAIL_RE_ =
  * @const
  * @private
  */
-goog.string.linkify.FIND_LINKS_RE_ = new RegExp(
+var FIND_LINKS_RE_ = new RegExp(
     // Match everything including newlines.
     '([\\S\\s]*?)(' +
         // Match email after a word break.
-        '\\b' + goog.string.linkify.EMAIL_RE_STRING_ + '|' +
+        '\\b' + EMAIL_RE_STRING_ + '|' +
         // Match url after a word break.
-        '\\b' + goog.string.linkify.URL_RE_STRING_ + '|$)',
+        '\\b' + URL_RE_STRING_ + '|$)',
     'gi');

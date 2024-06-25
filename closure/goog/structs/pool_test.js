@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.PoolTest');
 goog.setTestOnly();
 
-const MockClock = goog.require('goog.testing.MockClock');
-const Pool = goog.require('goog.structs.Pool');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockClock } from '../testing/mockclock.js';
+import { Pool } from './pool.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Implementation of the Pool class with isObjectDead() always returning TRUE,
 // so that the Pool will not reuse any objects.

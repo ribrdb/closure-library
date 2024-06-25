@@ -9,18 +9,17 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.stringTest');
 goog.setTestOnly();
 
-const MockControl = goog.require('goog.testing.MockControl');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const Unicode = goog.require('goog.string.Unicode');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const googObject = goog.require('goog.object');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockControl } from '../testing/mockcontrol.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as googString from './string.js';
+import { Unicode } from './string.js';
+import * as dom from '../dom/dom.js';
+import * as functions from '../functions/functions.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let stubs;
 let mockControl;

@@ -4,30 +4,29 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.BasicTextFormatterTest');
 goog.setTestOnly();
 
-const BasicTextFormatter = goog.require('goog.editor.plugins.BasicTextFormatter');
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const Command = goog.require('goog.editor.Command');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Field = goog.require('goog.editor.Field');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const LooseMock = goog.require('goog.testing.LooseMock');
-const Plugin = goog.require('goog.editor.Plugin');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Range = goog.require('goog.dom.Range');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const product = goog.require('goog.userAgent.product');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BasicTextFormatter } from './basictextformatter.js';
+import { BrowserFeature } from '../browserfeature.js';
+import { Command } from '../command.js';
+import { ExpectedFailures } from '../../testing/expectedfailures.js';
+import { Field } from '../field.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { LooseMock } from '../../testing/loosemock.js';
+import { Plugin } from '../plugin.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import * as Range from '../../dom/range.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as googArray from '../../array/array.js';
+import googObject from '../../object/object.js';
+import * as mockmatchers from '../../testing/mockmatchers.js';
+import * as product from '../../useragent/product.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let stubs;
 

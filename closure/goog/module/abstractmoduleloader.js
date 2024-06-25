@@ -8,10 +8,9 @@
  * @fileoverview An interface for module loading.
  */
 
-goog.module('goog.module.AbstractModuleLoader');
-goog.module.declareLegacyNamespace();
+goog.declareModuleId('goog.module.AbstractModuleLoader');
 
-const ModuleInfo = goog.requireType('goog.module.ModuleInfo');
+const ModuleInfo = goog.requireType('goog.module.moduleinfo');
 
 /**
  * An interface that loads JavaScript modules.
@@ -95,4 +94,4 @@ AbstractModuleLoader.LoadOptions = class {
   }
 };
 
-exports = AbstractModuleLoader;
+export { AbstractModuleLoader };

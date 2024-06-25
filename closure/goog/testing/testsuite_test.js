@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.testSuiteTest');
 goog.setTestOnly();
 
-const TestCase = goog.require('goog.testing.TestCase');
-const asserts = goog.require('goog.testing.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TestCase } from './testcase.js';
+import * as asserts from './asserts.js';
+import { testSuite } from './testsuite.js';
 
 let calls;
 

@@ -9,18 +9,16 @@
  * @see http://www.w3.org/TR/page-visibility/
  */
 
-goog.module('goog.labs.dom.PageVisibilityEvent');
-goog.module.declareLegacyNamespace();
+import { Event } from '../../events/event.js';
 
-const Event = goog.require('goog.events.Event');
-const EventType = goog.require('goog.events.EventType');
-const PageVisibilityState = goog.require('goog.labs.dom.PageVisibilityState');
+import { EventType } from '../../events/eventtype.js';
+import PageVisibilityState from './pagevisibilitystate.js';
 
 /**
  * A page visibility change event.
  * @final
  */
-exports = class PageVisibilityEvent extends Event {
+export default class PageVisibilityEvent extends Event {
   /**
    * Constructs a new PageVisibilityEvent.
    * @param {boolean} hidden Whether the page is hidden.
@@ -42,4 +40,4 @@ exports = class PageVisibilityEvent extends Event {
      */
     this.visibilityState = visibilityState;
   }
-};
+}

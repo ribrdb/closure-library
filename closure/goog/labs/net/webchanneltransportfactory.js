@@ -9,10 +9,9 @@
  * avoid exposing concrete classes to clients.
  */
 
-goog.provide('goog.net.createWebChannelTransport');
+import { WebChannelBaseTransport } from './webchannel/webchannelbasetransport.js';
 
-goog.require('goog.labs.net.webChannel.WebChannelBaseTransport');
-goog.requireType('goog.net.WebChannelTransport');
+goog.requireType('goog.labs.net.webchanneltransport');
 
 
 /**
@@ -22,7 +21,6 @@ goog.requireType('goog.net.WebChannelTransport');
  *
  * @return {!goog.net.WebChannelTransport} the newly created transport instance.
  */
-goog.net.createWebChannelTransport = function() {
-  'use strict';
-  return new goog.labs.net.webChannel.WebChannelBaseTransport();
-};
+export function createWebChannelTransport() {
+ return new WebChannelBaseTransport();
+}

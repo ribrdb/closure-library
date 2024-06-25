@@ -9,14 +9,12 @@
  * is goog.module.ModuleManager.
  */
 
-goog.provide('goog.loader.AbstractModuleManager');
-goog.provide('goog.loader.AbstractModuleManager.CallbackType');
+import { AbstractModuleLoader } from '../module/abstractmoduleloader.js';
 
-goog.require('goog.module.AbstractModuleLoader');
-goog.require('goog.module.ModuleInfo');
-goog.require('goog.module.ModuleLoadCallback');
-goog.requireType('goog.html.TrustedResourceUrl');
-goog.requireType('goog.module.BaseModule');
+import { ModuleInfo } from '../module/moduleinfo.js';
+import { ModuleLoadCallback } from '../module/moduleloadcallback.js';
+goog.requireType('goog.html.trustedresourceurl');
+goog.requireType('goog.module.basemodule');
 
 
 
@@ -27,28 +25,27 @@ goog.requireType('goog.module.BaseModule');
  * @constructor
  * @struct
  */
-goog.loader.AbstractModuleManager = function() {
-  'use strict';
-  /**
-   * The module context needed for module initialization.
-   * @private {?Object}
-   */
-  this.moduleContext_ = null;
+export function AbstractModuleManager() {
+ /**
+  * The module context needed for module initialization.
+  * @private {?Object}
+  */
+ this.moduleContext_ = null;
 
-  /**
+ /**
    * A loader for the modules that implements loadModules(ids, moduleInfoMap,
    * opt_successFn, opt_errorFn, opt_timeoutFn, opt_forceReload) method.
-   * @private {?goog.module.AbstractModuleLoader}
+   * @private {?AbstractModuleLoader}
    */
-  this.loader_ = null;
-};
+ this.loader_ = null;
+}
 
 
 /**
  * The type of callbacks that can be registered with the module manager,.
  * @enum {string}
  */
-goog.loader.AbstractModuleManager.CallbackType = {
+AbstractModuleManager.CallbackType = {
   /**
    * Fired when an error has occurred.
    */
@@ -87,14 +84,14 @@ goog.loader.AbstractModuleManager.CallbackType = {
  * module loading.
  * @type {number}
  */
-goog.loader.AbstractModuleManager.CORRUPT_RESPONSE_STATUS_CODE = 8001;
+AbstractModuleManager.CORRUPT_RESPONSE_STATUS_CODE = 8001;
 
 
 /**
  * Sets the batch mode as enabled or disabled for the module manager.
  * @param {boolean} enabled Whether the batch mode is to be enabled or not.
  */
-goog.loader.AbstractModuleManager.prototype.setBatchModeEnabled = function(
+AbstractModuleManager.prototype.setBatchModeEnabled = function(
     enabled) {};
 
 
@@ -104,7 +101,7 @@ goog.loader.AbstractModuleManager.prototype.setBatchModeEnabled = function(
  * loads. The default {@see goog.module.ModuleLoader} does not.
  * @param {boolean} enabled
  */
-goog.loader.AbstractModuleManager.prototype.setConcurrentLoadingEnabled =
+AbstractModuleManager.prototype.setConcurrentLoadingEnabled =
     function(enabled) {};
 
 
@@ -114,7 +111,7 @@ goog.loader.AbstractModuleManager.prototype.setConcurrentLoadingEnabled =
  * @param {!Object<!Array<string>>} infoMap An object that contains a mapping
  *    from module id (String) to list of required module ids (Array).
  */
-goog.loader.AbstractModuleManager.prototype.setAllModuleInfo = function(
+AbstractModuleManager.prototype.setAllModuleInfo = function(
     infoMap) {};
 
 
@@ -128,17 +125,17 @@ goog.loader.AbstractModuleManager.prototype.setAllModuleInfo = function(
  * @param {!Array<string>=} opt_loadingModuleIds A list of moduleIds that
  *     are currently being loaded.
  */
-goog.loader.AbstractModuleManager.prototype.setAllModuleInfoString = function(
+AbstractModuleManager.prototype.setAllModuleInfoString = function(
     opt_info, opt_loadingModuleIds) {};
 
 
 /**
  * Gets a module info object by id.
  * @param {string} id A module identifier.
- * @return {!goog.module.ModuleInfo} The module info.
+ * @return {!ModuleInfo} The module info.
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.getModuleInfo = function(id) {};
+AbstractModuleManager.prototype.getModuleInfo = function(id) {};
 
 /**
  * Register an extra runtime module dependency. After an extra edge is added,
@@ -150,10 +147,9 @@ goog.loader.AbstractModuleManager.prototype.getModuleInfo = function(id) {};
  * @param {string} fromModule The dependent module of the extra edge.
  * @param {string} toModule The module dependency of the extra edge.
  */
-goog.loader.AbstractModuleManager.prototype.addExtraEdge = function(
+AbstractModuleManager.prototype.addExtraEdge = function(
     fromModule, toModule) {
-  'use strict';
-  throw new Error('addExtraEdge is not implemented.');
+ throw new Error('addExtraEdge is not implemented.');
 };
 
 /**
@@ -163,10 +159,9 @@ goog.loader.AbstractModuleManager.prototype.addExtraEdge = function(
  * @param {string} fromModule The dependent module of the extra edge.
  * @param {string} toModule The module dependency of the extra edge.
  */
-goog.loader.AbstractModuleManager.prototype.removeExtraEdge = function(
+AbstractModuleManager.prototype.removeExtraEdge = function(
     fromModule, toModule) {
-  'use strict';
-  throw new Error('removeExtraEdge is not implemented.');
+ throw new Error('removeExtraEdge is not implemented.');
 };
 
 /**
@@ -174,27 +169,25 @@ goog.loader.AbstractModuleManager.prototype.removeExtraEdge = function(
  * @param {!Object<string, !Array<!goog.html.TrustedResourceUrl>>} moduleUriMap
  *     The map of id/uris pairs for each module.
  */
-goog.loader.AbstractModuleManager.prototype.setModuleTrustedUris = function(
+AbstractModuleManager.prototype.setModuleTrustedUris = function(
     moduleUriMap) {};
 
 
 /**
  * Gets the application-specific module loader.
- * @return {?goog.module.AbstractModuleLoader} the loader.
+ * @return {?AbstractModuleLoader} the loader.
  */
-goog.loader.AbstractModuleManager.prototype.getLoader = function() {
-  'use strict';
-  return this.loader_;
+AbstractModuleManager.prototype.getLoader = function() {
+ return this.loader_;
 };
 
 
 /**
  * Sets the application-specific module loader.
- * @param {!goog.module.AbstractModuleLoader} loader
+ * @param {!AbstractModuleLoader} loader
  */
-goog.loader.AbstractModuleManager.prototype.setLoader = function(loader) {
-  'use strict';
-  this.loader_ = loader;
+AbstractModuleManager.prototype.setLoader = function(loader) {
+ this.loader_ = loader;
 };
 
 
@@ -202,9 +195,8 @@ goog.loader.AbstractModuleManager.prototype.setLoader = function(loader) {
  * Gets the module context to use to initialize the module.
  * @return {?Object} The context.
  */
-goog.loader.AbstractModuleManager.prototype.getModuleContext = function() {
-  'use strict';
-  return this.moduleContext_;
+AbstractModuleManager.prototype.getModuleContext = function() {
+ return this.moduleContext_;
 };
 
 
@@ -212,10 +204,9 @@ goog.loader.AbstractModuleManager.prototype.getModuleContext = function() {
  * Sets the module context to use to initialize the module.
  * @param {!Object} context The context.
  */
-goog.loader.AbstractModuleManager.prototype.setModuleContext = function(
+AbstractModuleManager.prototype.setModuleContext = function(
     context) {
-  'use strict';
-  this.moduleContext_ = context;
+ this.moduleContext_ = context;
 };
 
 
@@ -223,9 +214,8 @@ goog.loader.AbstractModuleManager.prototype.setModuleContext = function(
  * Determines if the ModuleManager is active
  * @return {boolean} TRUE iff the ModuleManager is active (i.e., not idle).
  */
-goog.loader.AbstractModuleManager.prototype.isActive = function() {
-  'use strict';
-  return false;
+AbstractModuleManager.prototype.isActive = function() {
+ return false;
 };
 
 
@@ -233,9 +223,8 @@ goog.loader.AbstractModuleManager.prototype.isActive = function() {
  * Determines if the ModuleManager is user active
  * @return {boolean} TRUE iff the ModuleManager is user active (i.e., not idle).
  */
-goog.loader.AbstractModuleManager.prototype.isUserActive = function() {
-  'use strict';
-  return false;
+AbstractModuleManager.prototype.isUserActive = function() {
+ return false;
 };
 
 
@@ -249,7 +238,7 @@ goog.loader.AbstractModuleManager.prototype.isUserActive = function() {
  * @return {!IThenable}
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.preloadModule = function(
+AbstractModuleManager.prototype.preloadModule = function(
     id, opt_timeout) {};
 
 
@@ -260,9 +249,8 @@ goog.loader.AbstractModuleManager.prototype.preloadModule = function(
  *
  * @param {string} id The id of the module to prefetch.
  */
-goog.loader.AbstractModuleManager.prototype.prefetchModule = function(id) {
-  'use strict';
-  throw new Error('prefetchModule is not implemented.');
+AbstractModuleManager.prototype.prefetchModule = function(id) {
+ throw new Error('prefetchModule is not implemented.');
 };
 
 
@@ -274,7 +262,7 @@ goog.loader.AbstractModuleManager.prototype.prefetchModule = function(id) {
  *
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.setLoaded = function() {};
+AbstractModuleManager.prototype.setLoaded = function() {};
 
 
 /**
@@ -284,7 +272,7 @@ goog.loader.AbstractModuleManager.prototype.setLoaded = function() {};
  * @return {boolean} TRUE iff the module is loading.
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.isModuleLoading = function(id) {};
+AbstractModuleManager.prototype.isModuleLoading = function(id) {};
 
 
 /**
@@ -303,11 +291,11 @@ goog.loader.AbstractModuleManager.prototype.isModuleLoading = function(id) {};
  *     user initiated.
  * @param {boolean=} opt_preferSynchronous TRUE iff the function should be
  *     executed synchronously if the module has already been loaded.
- * @return {!goog.module.ModuleLoadCallback} A callback wrapper that exposes
+ * @return {!ModuleLoadCallback} A callback wrapper that exposes
  *     an abort and execute method.
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.execOnLoad = function(
+AbstractModuleManager.prototype.execOnLoad = function(
     moduleId, fn, opt_handler, opt_noLoad, opt_userInitiated,
     opt_preferSynchronous) {};
 
@@ -320,7 +308,7 @@ goog.loader.AbstractModuleManager.prototype.execOnLoad = function(
  * @return {!IThenable} A deferred object.
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.load = function(
+AbstractModuleManager.prototype.load = function(
     moduleId, opt_userInitiated) {};
 
 
@@ -335,7 +323,7 @@ goog.loader.AbstractModuleManager.prototype.load = function(
  *     id is finished.
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.loadMultiple = function(
+AbstractModuleManager.prototype.loadMultiple = function(
     moduleIds, opt_userInitiated) {};
 
 
@@ -344,7 +332,7 @@ goog.loader.AbstractModuleManager.prototype.loadMultiple = function(
  * @param {string} id Identifier of the module.
  * @abstract
  */
-goog.loader.AbstractModuleManager.prototype.beforeLoadModuleCode = function(
+AbstractModuleManager.prototype.beforeLoadModuleCode = function(
     id) {};
 
 
@@ -365,7 +353,7 @@ goog.loader.AbstractModuleManager.prototype.beforeLoadModuleCode = function(
  * @param {!Object=} opt_handler Optional handler under whose scope to execute
  *     the callback.
  */
-goog.loader.AbstractModuleManager.prototype.registerInitializationCallback =
+AbstractModuleManager.prototype.registerInitializationCallback =
     function(fn, opt_handler) {};
 
 
@@ -380,7 +368,7 @@ goog.loader.AbstractModuleManager.prototype.registerInitializationCallback =
  * @param {!Object=} opt_handler Optional handler under whose scope to execute
  *     the callback.
  */
-goog.loader.AbstractModuleManager.prototype.registerLateInitializationCallback =
+AbstractModuleManager.prototype.registerLateInitializationCallback =
     function(fn, opt_handler) {};
 
 
@@ -390,16 +378,16 @@ goog.loader.AbstractModuleManager.prototype.registerLateInitializationCallback =
  * {@see goog.module.BaseModule}.
  * @param {function(new:goog.module.BaseModule)} fn The constructor function.
  */
-goog.loader.AbstractModuleManager.prototype.setModuleConstructor = function(
+AbstractModuleManager.prototype.setModuleConstructor = function(
     fn) {};
 
 
 /**
  * The function to call if the module manager is in error.
- * @param {!goog.loader.AbstractModuleManager.CallbackType|!Array<
- *     !goog.loader.AbstractModuleManager.CallbackType>} types The callback
+ * @param {!AbstractModuleManager.CallbackType|!Array<
+ *     !AbstractModuleManager.CallbackType>} types The callback
  *         type.
  * @param {!Function} fn The function to register as a callback.
  */
-goog.loader.AbstractModuleManager.prototype.registerCallback = function(
+AbstractModuleManager.prototype.registerCallback = function(
     types, fn) {};

@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.RangeTest');
 goog.setTestOnly();
 
-const DomTextRange = goog.require('goog.dom.TextRange');
-const NodeType = goog.require('goog.dom.NodeType');
-const Range = goog.require('goog.dom.Range');
-const RangeType = goog.require('goog.dom.RangeType');
-const TagName = goog.require('goog.dom.TagName');
-const browserrange = goog.require('goog.dom.browserrange');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import { TextRange as DomTextRange } from './textrange.js';
+import { NodeType } from './nodetype.js';
+import * as Range from './range.js';
+import { RangeType } from './abstractrange.js';
+import { TagName } from './tagname.js';
+import * as browserrange from './browserrange/browserrange.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
+import * as userAgent from '../useragent/useragent.js';
 
 const assertRangeEquals = testingDom.assertRangeEquals;
 

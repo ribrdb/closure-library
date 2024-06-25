@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.MenuSeparatorRendererTest');
 goog.setTestOnly();
 
-const MenuSeparator = goog.require('goog.ui.MenuSeparator');
-const MenuSeparatorRenderer = goog.require('goog.ui.MenuSeparatorRenderer');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MenuSeparator } from './menuseparator.js';
+import { MenuSeparatorRenderer } from './menuseparatorrenderer.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let sandbox;
 let originalSandbox;

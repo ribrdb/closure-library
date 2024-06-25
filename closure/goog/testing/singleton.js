@@ -6,7 +6,7 @@
 
 /**
  * @fileoverview This module simplifies testing code which uses stateful
- * singletons. `goog.testing.singleton.reset` resets all instances, so
+ * singletons. `reset` resets all instances, so
  * next time when `getInstance` is called, a new instance is created.
  * It's recommended to reset the singletons in `tearDown` to prevent
  * interference between subsequent tests.
@@ -16,29 +16,27 @@
  */
 
 goog.setTestOnly('goog.testing.singleton');
-goog.provide('goog.testing.singleton');
 
-goog.require('goog.singleton');
+import * as googSingleton from '../singleton/singleton.js';
 
 /**
  * Deletes all singleton instances, so `getInstance` will return a new
  * instance on next call.
  * @const
  */
-goog.testing.singleton.resetAll = function() {
-  'use strict';
-  // Avoid concatenating arrays here - causes tests to perform poorly when there
-  // are very large numbers of singletons to reset.
-  const singletons1 = goog.getObjectByName('goog.instantiatedSingletons_');
-  const singletons2 = goog.singleton.instantiatedSingletons;
-  let ctor;
-  while (ctor = singletons1.pop()) {
-    goog.testing.singleton.reset(ctor);
-  }
-  while (ctor = singletons2.pop()) {
-    goog.testing.singleton.reset(ctor);
-  }
-};
+export function resetAll() {
+ // Avoid concatenating arrays here - causes tests to perform poorly when there
+ // are very large numbers of singletons to reset.
+ const singletons1 = goog.getObjectByName('goog.instantiatedSingletons_');
+ const singletons2 = googSingleton.instantiatedSingletons;
+ let ctor;
+ while (ctor = singletons1.pop()) {
+   reset(ctor);
+ }
+ while (ctor = singletons2.pop()) {
+   reset(ctor);
+ }
+}
 
 /**
  * Deletes a singleton's instance, so `getInstance` will return a new instance
@@ -48,12 +46,12 @@ goog.testing.singleton.resetAll = function() {
  * @suppress {missingProperties} 'instance_' isn't a property on any declared
  * type.
  */
-goog.testing.singleton.reset = function(singleton) {
-  'use strict';
-  delete /** @type {?} */ (singleton).instance_;
-};
+export function reset(singleton) {
+ delete /** @type {?} */ (singleton).instance_;
+}
 
 /**
- * @deprecated Please use `goog.singleton.getInstance()`.
+ * @deprecated Please use `googSingleton.getInstance()`.
  */
-goog.testing.singleton.addSingletonGetter = goog.addSingletonGetter;
+addSingletonGetter = goog.addSingletonGetter;
+export var addSingletonGetter;

@@ -16,21 +16,19 @@
  *     we could do something interesting, but IE offers no way for us to tell.
  */
 
-goog.provide('goog.cssom');
-goog.provide('goog.cssom.CssRuleType');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.labs.userAgent.browser');
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as safe from '../dom/safe.js';
+import * as browser from '../labs/useragent/browser.js';
 
 
 /**
  * Enumeration of `CSSRule` types.
  * @enum {number}
  */
-goog.cssom.CssRuleType = {
+export var CssRuleType = {
   STYLE: 1,
   IMPORT: 3,
   MEDIA: 4,
@@ -46,11 +44,12 @@ goog.cssom.CssRuleType = {
  * @param {(StyleSheet|StyleSheetList)=} opt_styleSheet
  * @return {string} css text.
  */
-goog.cssom.getAllCssText = function(opt_styleSheet) {
-  'use strict';
+export function getAllCssText(opt_styleSheet) {
   var styleSheet = opt_styleSheet || document.styleSheets;
-  return /** @type {string} */ (goog.cssom.getAllCss_(styleSheet, true));
-};
+  return (
+    /** @type {string} */ (getAllCss_(styleSheet, true))
+  );
+}
 
 
 /**
@@ -60,12 +59,12 @@ goog.cssom.getAllCssText = function(opt_styleSheet) {
  * @param {(StyleSheet|StyleSheetList)=} opt_styleSheet
  * @return {!Array<CSSStyleRule>} A list of CSSStyleRules.
  */
-goog.cssom.getAllCssStyleRules = function(opt_styleSheet) {
-  'use strict';
+export function getAllCssStyleRules(opt_styleSheet) {
   var styleSheet = opt_styleSheet || document.styleSheets;
-  return /** @type {!Array<CSSStyleRule>} */ (
-      goog.cssom.getAllCss_(styleSheet, false));
-};
+  return (
+    /** @type {!Array<CSSStyleRule>} */ (getAllCss_(styleSheet, false))
+  );
+}
 
 
 /**
@@ -81,8 +80,7 @@ goog.cssom.getAllCssStyleRules = function(opt_styleSheet) {
  * @return {CSSRuleList} An array of CSSRules or null.
  * @suppress {strictMissingProperties} StyleSheet does not define cssRules
  */
-goog.cssom.getCssRulesFromStyleSheet = function(styleSheet) {
-  'use strict';
+export function getCssRulesFromStyleSheet(styleSheet) {
   var cssRuleList = null;
   try {
     // Select cssRules unless it isn't present.  For pre-IE9 IE, use the rules
@@ -104,7 +102,7 @@ goog.cssom.getCssRulesFromStyleSheet = function(styleSheet) {
     }
   }
   return cssRuleList;
-};
+}
 
 
 /**
@@ -118,9 +116,7 @@ goog.cssom.getCssRulesFromStyleSheet = function(styleSheet) {
  * @return {!Array<StyleSheet>} A list of StyleSheet objects.
  * @suppress {strictMissingProperties} StyleSheet does not define cssRules
  */
-goog.cssom.getAllCssStyleSheets = function(
-    opt_styleSheet, opt_includeDisabled) {
-  'use strict';
+export function getAllCssStyleSheets(opt_styleSheet, opt_includeDisabled) {
   var styleSheetsOutput = [];
   var styleSheet = opt_styleSheet || document.styleSheets;
   var includeDisabled =
@@ -129,25 +125,25 @@ goog.cssom.getAllCssStyleSheets = function(
   // Imports need to go first.
   if (styleSheet.imports && styleSheet.imports.length) {
     for (var i = 0, n = styleSheet.imports.length; i < n; i++) {
-      goog.array.extend(
+      array.extend(
           styleSheetsOutput,
-          goog.cssom.getAllCssStyleSheets(styleSheet.imports[i]));
+          getAllCssStyleSheets(styleSheet.imports[i]));
     }
 
   } else if (styleSheet.length) {
     // In case we get a StyleSheetList object.
     // http://dev.w3.org/csswg/cssom/#the-stylesheetlist
     for (var i = 0, n = styleSheet.length; i < n; i++) {
-      goog.array.extend(
+      array.extend(
           styleSheetsOutput,
-          goog.cssom.getAllCssStyleSheets(
+          getAllCssStyleSheets(
               /** @type {!StyleSheet} */ (styleSheet[i])));
     }
   } else {
     // We need to walk through rules in browsers which implement .cssRules
     // to see if there are styleSheets buried in there.
     // If we have a StyleSheet within CssRules.
-    var cssRuleList = goog.cssom.getCssRulesFromStyleSheet(
+    var cssRuleList = getCssRulesFromStyleSheet(
         /** @type {!StyleSheet} */ (styleSheet));
     if (cssRuleList && cssRuleList.length) {
       // Chrome does not evaluate cssRuleList[i] to undefined when i >=n;
@@ -158,9 +154,9 @@ goog.cssom.getAllCssStyleSheets = function(
         cssRule = cssRuleList[i];
         // There are more stylesheets to get on this object..
         if (cssRule.styleSheet) {
-          goog.array.extend(
+          array.extend(
               styleSheetsOutput,
-              goog.cssom.getAllCssStyleSheets(cssRule.styleSheet));
+              getAllCssStyleSheets(cssRule.styleSheet));
         }
       }
     }
@@ -173,7 +169,7 @@ goog.cssom.getAllCssStyleSheets = function(
   }
 
   return styleSheetsOutput;
-};
+}
 
 
 /**
@@ -181,8 +177,7 @@ goog.cssom.getAllCssStyleSheets = function(
  * @param {CSSRule} cssRule A CSSRule.
  * @return {string} cssText The text for the rule, including the selector.
  */
-goog.cssom.getCssTextFromCssRule = function(cssRule) {
-  'use strict';
+export function getCssTextFromCssRule(cssRule) {
   var cssText = '';
 
   // Per github.com/microsoft/ChakraCore/issues/6165, IE/Edge errors when
@@ -209,7 +204,7 @@ goog.cssom.getCssTextFromCssRule = function(cssRule) {
   }
 
   return cssText;
-};
+}
 
 
 /**
@@ -220,16 +215,14 @@ goog.cssom.getCssTextFromCssRule = function(cssRule) {
  * @throws {Error} When we cannot get the parentStyleSheet.
  * @return {number} The index of the CSSRule, or -1.
  */
-goog.cssom.getCssRuleIndexInParentStyleSheet = function(
-    cssRule, opt_parentStyleSheet) {
-  'use strict';
+export function getCssRuleIndexInParentStyleSheet(cssRule, opt_parentStyleSheet) {
   // Look for our special style.ruleIndex property from getAllCss.
   if (cssRule.style && /** @type {!Object} */ (cssRule.style)['-closure-rule-index']) {
     return (/** @type {!Object} */ (cssRule.style))['-closure-rule-index'];
   }
 
   var parentStyleSheet =
-      opt_parentStyleSheet || goog.cssom.getParentStyleSheet(cssRule);
+      opt_parentStyleSheet || getParentStyleSheet(cssRule);
 
   if (!parentStyleSheet) {
     // We could call getAllCssStyleRules() here to get our special indexes on
@@ -237,7 +230,7 @@ goog.cssom.getCssRuleIndexInParentStyleSheet = function(
     throw new Error('Cannot find a parentStyleSheet.');
   }
 
-  var cssRuleList = goog.cssom.getCssRulesFromStyleSheet(parentStyleSheet);
+  var cssRuleList = getCssRulesFromStyleSheet(parentStyleSheet);
   if (cssRuleList && cssRuleList.length) {
     for (var i = 0, n = cssRuleList.length, thisCssRule; i < n; i++) {
       thisCssRule = cssRuleList[i];
@@ -247,7 +240,7 @@ goog.cssom.getCssRuleIndexInParentStyleSheet = function(
     }
   }
   return -1;
-};
+}
 
 
 /**
@@ -257,12 +250,11 @@ goog.cssom.getCssRuleIndexInParentStyleSheet = function(
  * @param {CSSRule} cssRule The CSSRule.
  * @return {StyleSheet} A styleSheet object.
  */
-goog.cssom.getParentStyleSheet = function(cssRule) {
-  'use strict';
+export function getParentStyleSheet(cssRule) {
   return cssRule.parentStyleSheet ||
       cssRule.style &&
       (/** @type {!Object} */ (cssRule.style))['-closure-parent-stylesheet'];
-};
+}
 
 
 /**
@@ -279,25 +271,23 @@ goog.cssom.getParentStyleSheet = function(cssRule) {
  * @throws {Error} If we cannot find a parentStyleSheet.
  * @throws {Error} If we cannot find a css rule index.
  */
-goog.cssom.replaceCssRule = function(
-    cssRule, cssText, opt_parentStyleSheet, opt_index) {
-  'use strict';
+export function replaceCssRule(cssRule, cssText, opt_parentStyleSheet, opt_index) {
   var parentStyleSheet =
-      opt_parentStyleSheet || goog.cssom.getParentStyleSheet(cssRule);
+      opt_parentStyleSheet || getParentStyleSheet(cssRule);
   if (parentStyleSheet) {
     var index = Number(opt_index) >= 0 ?
         Number(opt_index) :
-        goog.cssom.getCssRuleIndexInParentStyleSheet(cssRule, parentStyleSheet);
+        getCssRuleIndexInParentStyleSheet(cssRule, parentStyleSheet);
     if (index >= 0) {
-      goog.cssom.removeCssRule(parentStyleSheet, index);
-      goog.cssom.addCssRule(parentStyleSheet, cssText, index);
+      removeCssRule(parentStyleSheet, index);
+      addCssRule(parentStyleSheet, cssText, index);
     } else {
       throw new Error('Cannot proceed without the index of the cssRule.');
     }
   } else {
     throw new Error('Cannot proceed without the parentStyleSheet.');
   }
-};
+}
 
 
 /**
@@ -311,13 +301,12 @@ goog.cssom.replaceCssRule = function(
  *     exception warning "Node cannot be inserted at the specified point in
  *     the hierarchy."
  */
-goog.cssom.addCssRule = function(cssStyleSheet, cssText, opt_index) {
-  'use strict';
+export function addCssRule(cssStyleSheet, cssText, opt_index) {
   var index = opt_index;
   if (index == undefined || index < 0) {
     // If no index specified, insert at the end of the current list
     // of rules.
-    var rules = goog.cssom.getCssRulesFromStyleSheet(cssStyleSheet);
+    var rules = getCssRulesFromStyleSheet(cssStyleSheet);
     index = rules.length;
   }
   cssStyleSheet = /** @type {!CSSStyleSheet} */ (cssStyleSheet);
@@ -339,7 +328,7 @@ goog.cssom.addCssRule = function(cssStyleSheet, cssText, opt_index) {
       throw new Error('Your CSSRule appears to be ill-formatted.');
     }
   }
-};
+}
 
 
 /**
@@ -347,8 +336,7 @@ goog.cssom.addCssRule = function(cssStyleSheet, cssText, opt_index) {
  * @param {StyleSheet} cssStyleSheet The CSSRule's parentStyleSheet.
  * @param {number} index The CSSRule's index in the parentStyleSheet.
  */
-goog.cssom.removeCssRule = function(cssStyleSheet, index) {
-  'use strict';
+export function removeCssRule(cssStyleSheet, index) {
   cssStyleSheet = /** @type {!CSSStyleSheet} */ (cssStyleSheet);
   if (cssStyleSheet.deleteRule) {
     // W3C.
@@ -358,36 +346,35 @@ goog.cssom.removeCssRule = function(cssStyleSheet, index) {
     // IE.
     cssStyleSheet.removeRule(index);
   }
-};
+}
 
 
 /**
  * Appends a DOM node to HEAD containing the css text that's passed in.
  * @param {string} cssText CSS to add to the end of the document.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper user for
+ * @param {dom.DomHelper=} opt_domHelper Optional DOM helper user for
  *     document interactions.
  * @return {!Element} The newly created STYLE element.
  */
-goog.cssom.addCssText = function(cssText, opt_domHelper) {
-  'use strict';
-  var domHelper = opt_domHelper || goog.dom.getDomHelper();
+export function addCssText(cssText, opt_domHelper) {
+  var domHelper = opt_domHelper || dom.getDomHelper();
   var document = domHelper.getDocument();
-  var cssNode = domHelper.createElement(goog.dom.TagName.STYLE);
+  var cssNode = domHelper.createElement(TagName.STYLE);
 
   // If a CSP nonce is present, propagate it to style blocks
-  const nonce = goog.dom.safe.getStyleNonce(goog.dom.getWindow(document));
+  const nonce = safe.getStyleNonce(dom.getWindow(document));
   if (nonce) {
     cssNode.setAttribute('nonce', nonce);
   }
 
   cssNode.type = 'text/css';
-  var head = domHelper.getElementsByTagName(goog.dom.TagName.HEAD)[0];
+  var head = domHelper.getElementsByTagName(TagName.HEAD)[0];
 
   // IE requires the element to be inserted in the document before any
   // style contents is added to the element. Other browsers don't
   // process style content changes made after the element is attached
   // to the DOM, as a performance optimization.
-  const isIE = goog.labs.userAgent.browser.isIE();
+  const isIE = browser.isIE();
   if (isIE) {
     head.appendChild(cssNode);
   }
@@ -406,7 +393,7 @@ goog.cssom.addCssText = function(cssText, opt_domHelper) {
   }
 
   return cssNode;
-};
+}
 
 
 /**
@@ -418,8 +405,7 @@ goog.cssom.addCssText = function(cssText, opt_domHelper) {
  * @return {?string} filename The filename, or null if not an external
  *    styleSheet.
  */
-goog.cssom.getFileNameFromStyleSheet = function(styleSheet) {
-  'use strict';
+export function getFileNameFromStyleSheet(styleSheet) {
   var href = styleSheet.href;
 
   // Another IE/FF difference. IE returns an empty string, while FF and others
@@ -432,7 +418,7 @@ goog.cssom.getFileNameFromStyleSheet = function(styleSheet) {
   var matches = /([^\/\?]+)[^\/]*$/.exec(href);
   var filename = matches[1];
   return filename;
-};
+}
 
 
 /**
@@ -442,13 +428,12 @@ goog.cssom.getFileNameFromStyleSheet = function(styleSheet) {
  * @return {string|!Array<CSSRule>} cssText or cssRules.
  * @private
  */
-goog.cssom.getAllCss_ = function(styleSheet, isTextOutput) {
-  'use strict';
+function getAllCss_(styleSheet, isTextOutput) {
   var cssOut = [];
-  var styleSheets = goog.cssom.getAllCssStyleSheets(styleSheet);
+  var styleSheets = getAllCssStyleSheets(styleSheet);
 
   for (var i = 0; styleSheet = styleSheets[i]; i++) {
-    var cssRuleList = goog.cssom.getCssRulesFromStyleSheet(styleSheet);
+    var cssRuleList = getCssRulesFromStyleSheet(styleSheet);
 
     if (cssRuleList && cssRuleList.length) {
       var ruleIndex = 0;
@@ -456,7 +441,7 @@ goog.cssom.getAllCss_ = function(styleSheet, isTextOutput) {
         cssRule = cssRuleList[j];
         // Gets cssText output, ignoring CSSImportRules.
         if (isTextOutput && !cssRule.href) {
-          var res = goog.cssom.getCssTextFromCssRule(cssRule);
+          var res = getCssTextFromCssRule(cssRule);
           cssOut.push(res);
 
         } else if (!cssRule.href) {
@@ -490,4 +475,4 @@ goog.cssom.getAllCss_ = function(styleSheet, isTextOutput) {
     }
   }
   return isTextOutput ? cssOut.join(' ') : cssOut;
-};
+}

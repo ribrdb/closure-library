@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.EventTargetTest');
 goog.setTestOnly();
 
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const Listenable = goog.require('goog.events.Listenable');
-const eventTargetTester = goog.require('goog.events.eventTargetTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import { Listenable } from './listenable.js';
+import eventTargetTester from './eventtargettester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const KeyType = eventTargetTester.KeyType;
 const UnlistenReturnType = eventTargetTester.UnlistenReturnType;

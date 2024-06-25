@@ -10,7 +10,6 @@
  * examples.
  */
 
-goog.module('goog.labs.userAgent.testAgents');
 goog.setTestOnly();
 
 const testAgents = {};
@@ -483,4 +482,4 @@ testAgents.KAIOS =
     'Mozilla/5.0 (Mobile; LYF/F90M/LYF_F90M_000-03-19-240319; Android; ' +
     'rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5';
 
-exports = testAgents;
+export { testAgents };

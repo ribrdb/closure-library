@@ -12,10 +12,9 @@
  */
 
 
-goog.provide('goog.structs.PriorityPool');
+import { Pool } from './pool.js';
 
-goog.require('goog.structs.Pool');
-goog.require('goog.structs.PriorityQueue');
+import { PriorityQueue } from './priorityqueue.js';
 
 
 
@@ -24,11 +23,10 @@ goog.require('goog.structs.PriorityQueue');
  * @param {number=} opt_minCount Min. number of objects (Default: 0).
  * @param {number=} opt_maxCount Max. number of objects (Default: 10).
  * @constructor
- * @extends {goog.structs.Pool<VALUE>}
+ * @extends {Pool<VALUE>}
  * @template VALUE
  */
-goog.structs.PriorityPool = function(opt_minCount, opt_maxCount) {
-  'use strict';
+export function PriorityPool(opt_minCount, opt_maxCount) {
   /**
    * The key for the most recent timeout created.
    * @private {number|undefined}
@@ -36,18 +34,18 @@ goog.structs.PriorityPool = function(opt_minCount, opt_maxCount) {
   this.delayTimeout_ = undefined;
 
   /**
-   * Queue of requests for pool objects.
-   * @private {goog.structs.PriorityQueue<VALUE>}
-   */
-  this.requestQueue_ = new goog.structs.PriorityQueue();
+     * Queue of requests for pool objects.
+     * @private {PriorityQueue<VALUE>}
+     */
+  this.requestQueue_ = new PriorityQueue();
 
   // Must break convention of putting the super-class's constructor first. This
   // is because the super-class constructor calls adjustForMinMax, which this
   // class overrides. In this class's implementation, it assumes that there
   // is a requestQueue_, and will error if not present.
-  goog.structs.Pool.call(this, opt_minCount, opt_maxCount);
-};
-goog.inherits(goog.structs.PriorityPool, goog.structs.Pool);
+  Pool.call(this, opt_minCount, opt_maxCount);
+}
+goog.inherits(PriorityPool, Pool);
 
 
 /**
@@ -55,13 +53,12 @@ goog.inherits(goog.structs.PriorityPool, goog.structs.Pool);
  * @type {number}
  * @private
  */
-goog.structs.PriorityPool.DEFAULT_PRIORITY_ = 100;
+PriorityPool.DEFAULT_PRIORITY_ = 100;
 
 
 /** @override */
-goog.structs.PriorityPool.prototype.setDelay = function(delay) {
-  'use strict';
-  goog.structs.PriorityPool.base(this, 'setDelay', delay);
+PriorityPool.prototype.setDelay = function(delay) {
+  PriorityPool.base(this, 'setDelay', delay);
 
   // If the pool hasn't been accessed yet, no need to do anything.
   if (this.lastAccess == null) {
@@ -90,11 +87,10 @@ goog.structs.PriorityPool.prototype.setDelay = function(delay) {
  *     available and a callback is not given. Otherwise, undefined.
  * @override
  */
-goog.structs.PriorityPool.prototype.getObject = function(
+PriorityPool.prototype.getObject = function(
     opt_callback, opt_priority) {
-  'use strict';
   if (!opt_callback) {
-    var result = goog.structs.PriorityPool.base(this, 'getObject');
+    var result = PriorityPool.base(this, 'getObject');
     if (result && this.delay) {
       this.delayTimeout_ = goog.global.setTimeout(
           goog.bind(this.handleQueueRequests_, this), this.delay);
@@ -104,7 +100,7 @@ goog.structs.PriorityPool.prototype.getObject = function(
 
   var priority = (opt_priority !== undefined) ?
       opt_priority :
-      goog.structs.PriorityPool.DEFAULT_PRIORITY_;
+      PriorityPool.DEFAULT_PRIORITY_;
   this.requestQueue_.enqueue(priority, opt_callback);
 
   // Handle all requests.
@@ -119,8 +115,7 @@ goog.structs.PriorityPool.prototype.getObject = function(
  * possible.
  * @private
  */
-goog.structs.PriorityPool.prototype.handleQueueRequests_ = function() {
-  'use strict';
+PriorityPool.prototype.handleQueueRequests_ = function() {
   var requestQueue = this.requestQueue_;
   while (requestQueue.getCount() > 0) {
     var obj = this.getObject();
@@ -144,9 +139,8 @@ goog.structs.PriorityPool.prototype.handleQueueRequests_ = function() {
  * @param {VALUE} obj The object to add to the collection of free objects.
  * @override
  */
-goog.structs.PriorityPool.prototype.addFreeObject = function(obj) {
-  'use strict';
-  goog.structs.PriorityPool.superClass_.addFreeObject.call(this, obj);
+PriorityPool.prototype.addFreeObject = function(obj) {
+  PriorityPool.superClass_.addFreeObject.call(this, obj);
 
   // Handle all requests.
   this.handleQueueRequests_();
@@ -162,9 +156,8 @@ goog.structs.PriorityPool.prototype.addFreeObject = function(obj) {
  * (i.e., all objects are in use).
  * @override
  */
-goog.structs.PriorityPool.prototype.adjustForMinMax = function() {
-  'use strict';
-  goog.structs.PriorityPool.superClass_.adjustForMinMax.call(this);
+PriorityPool.prototype.adjustForMinMax = function() {
+  PriorityPool.superClass_.adjustForMinMax.call(this);
 
   // Handle all requests.
   this.handleQueueRequests_();
@@ -172,9 +165,8 @@ goog.structs.PriorityPool.prototype.adjustForMinMax = function() {
 
 
 /** @override */
-goog.structs.PriorityPool.prototype.disposeInternal = function() {
-  'use strict';
-  goog.structs.PriorityPool.superClass_.disposeInternal.call(this);
+PriorityPool.prototype.disposeInternal = function() {
+  PriorityPool.superClass_.disposeInternal.call(this);
   goog.global.clearTimeout(this.delayTimeout_);
   this.requestQueue_.clear();
   this.requestQueue_ = null;

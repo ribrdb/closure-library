@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TabTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const TabRenderer = goog.require('goog.ui.TabRenderer');
-const UiTab = goog.require('goog.ui.Tab');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from './component.js';
+import { TabRenderer } from './tabrenderer.js';
+import { Tab as UiTab } from './tab.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let sandbox;
 let tab;

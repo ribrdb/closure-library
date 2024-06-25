@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.TimerTest');
 goog.setTestOnly();
 
-const GoogPromise = goog.require('goog.Promise');
-const MockClock = goog.require('goog.testing.MockClock');
-const Timer = goog.require('goog.Timer');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { MockClock } from '../testing/mockclock.js';
+import { Timer } from './timer.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const intervalIds = {};
 const intervalIdCounter = 0;

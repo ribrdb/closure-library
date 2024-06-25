@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.parallelClosureTestSuiteTest');
 goog.setTestOnly('goog.testing.parallelClosureTestSuiteTest');
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const MockControl = goog.require('goog.testing.MockControl');
-const MultiTestRunner = goog.require('goog.testing.MultiTestRunner');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const dom = goog.require('goog.dom');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const parallelClosureTestSuite = goog.require('goog.testing.parallelClosureTestSuite');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as mockmatchers from './mockmatchers.js';
+import { ArgumentMatcher } from './mockmatchers.js';
+import { MockControl } from './mockcontrol.js';
+import { MultiTestRunner } from './multitestrunner.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import { TestCase } from './testcase.js';
+import * as dom from '../dom/dom.js';
+import * as parallelClosureTestSuite from './parallel_closure_test_suite.js';
+import { testSuite } from './testsuite.js';
 
 const mocks = new MockControl();
 const stubs = new PropertyReplacer();

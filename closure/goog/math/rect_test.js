@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.RectTest');
 goog.setTestOnly();
 
-const Box = goog.require('goog.math.Box');
-const Coordinate = goog.require('goog.math.Coordinate');
-const GoogRect = goog.require('goog.math.Rect');
-const Size = goog.require('goog.math.Size');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Box } from './box.js';
+import { Coordinate } from './coordinate.js';
+import { Rect as GoogRect } from './rect.js';
+import { Size } from './size.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Produce legible assertion results. If two rects are not equal, the error

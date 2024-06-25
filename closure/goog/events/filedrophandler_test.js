@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.FileDropHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const EventType = goog.require('goog.events.EventType');
-const FileDropHandler = goog.require('goog.events.FileDropHandler');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { EventType } from './eventtype.js';
+import { FileDropHandler } from './filedrophandler.js';
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let textarea;
 let doc;

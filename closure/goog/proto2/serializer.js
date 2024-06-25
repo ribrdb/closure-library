@@ -8,12 +8,11 @@
  * @fileoverview Base class for all Protocol Buffer 2 serializers.
  */
 
-goog.provide('goog.proto2.Serializer');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.proto2.FieldDescriptor');
-goog.require('goog.proto2.Message');
-goog.requireType('goog.proto2.Descriptor');
+import { FieldDescriptor } from './fielddescriptor.js';
+import { Message } from './message.js';
+goog.requireType('goog.proto2.descriptor');
 
 
 
@@ -24,25 +23,25 @@ goog.requireType('goog.proto2.Descriptor');
  *
  * @constructor
  */
-goog.proto2.Serializer = function() {};
+export function Serializer() {}
 
 
 /**
  * @define {boolean} Whether to decode and convert symbolic enum values to
  * actual enum values or leave them as strings.
  */
-goog.proto2.Serializer.DECODE_SYMBOLIC_ENUMS =
+Serializer.DECODE_SYMBOLIC_ENUMS =
     goog.define('goog.proto2.Serializer.DECODE_SYMBOLIC_ENUMS', false);
 
 
 /**
  * Serializes a message to the expected format.
  *
- * @param {goog.proto2.Message} message The message to be serialized.
+ * @param {Message} message The message to be serialized.
  *
  * @return {*} The serialized form of the message.
  */
-goog.proto2.Serializer.prototype.serialize = goog.abstractMethod;
+Serializer.prototype.serialize = goog.abstractMethod;
 
 
 /**
@@ -51,7 +50,7 @@ goog.proto2.Serializer.prototype.serialize = goog.abstractMethod;
  * for Infinity, -Infinity and NaN numerical values which are converted to
  * string representation.
  *
- * @param {goog.proto2.FieldDescriptor} field The field from which this
+ * @param {FieldDescriptor} field The field from which this
  *     value came.
  *
  * @param {*} value The value of the field.
@@ -59,10 +58,9 @@ goog.proto2.Serializer.prototype.serialize = goog.abstractMethod;
  * @return {*} The value.
  * @protected
  */
-goog.proto2.Serializer.prototype.getSerializedValue = function(field, value) {
-  'use strict';
+Serializer.prototype.getSerializedValue = function(field, value) {
   if (field.isCompositeType()) {
-    return this.serialize(/** @type {goog.proto2.Message} */ (value));
+    return this.serialize(/** @type {Message} */ (value));
   } else if (typeof value === 'number' && !isFinite(value)) {
     return value.toString();
   } else {
@@ -78,13 +76,12 @@ goog.proto2.Serializer.prototype.getSerializedValue = function(field, value) {
  *     to be created.
  * @param {*} data The data of the message.
  *
- * @return {!goog.proto2.Message} The message created.
+ * @return {!Message} The message created.
  */
-goog.proto2.Serializer.prototype.deserialize = function(descriptor, data) {
-  'use strict';
+Serializer.prototype.deserialize = function(descriptor, data) {
   var message = descriptor.createMessageInstance();
   this.deserializeTo(message, data);
-  goog.asserts.assert(message instanceof goog.proto2.Message);
+  asserts.assert(message instanceof Message);
   return message;
 };
 
@@ -93,11 +90,11 @@ goog.proto2.Serializer.prototype.deserialize = function(descriptor, data) {
  * Deserializes a message from the expected format and places the
  * data in the message.
  *
- * @param {goog.proto2.Message} message The message in which to
+ * @param {Message} message The message in which to
  *     place the information.
  * @param {*} data The data of the message.
  */
-goog.proto2.Serializer.prototype.deserializeTo = goog.abstractMethod;
+Serializer.prototype.deserializeTo = goog.abstractMethod;
 
 
 /**
@@ -105,7 +102,7 @@ goog.proto2.Serializer.prototype.deserializeTo = goog.abstractMethod;
  * field is a Message or Group and returns the value, converted or unchanged,
  * for primitive field types otherwise.
  *
- * @param {goog.proto2.FieldDescriptor} field The field from which this
+ * @param {FieldDescriptor} field The field from which this
  *     value came.
  *
  * @param {*} value The value of the field.
@@ -113,11 +110,10 @@ goog.proto2.Serializer.prototype.deserializeTo = goog.abstractMethod;
  * @return {*} The value.
  * @protected
  */
-goog.proto2.Serializer.prototype.getDeserializedValue = function(field, value) {
-  'use strict';
+Serializer.prototype.getDeserializedValue = function(field, value) {
   // Composite types are deserialized recursively.
   if (field.isCompositeType()) {
-    if (value instanceof goog.proto2.Message) {
+    if (value instanceof Message) {
       return value;
     }
 
@@ -125,11 +121,11 @@ goog.proto2.Serializer.prototype.getDeserializedValue = function(field, value) {
   }
 
   // Decode enum values.
-  if (field.getFieldType() == goog.proto2.FieldDescriptor.FieldType.ENUM) {
+  if (field.getFieldType() == FieldDescriptor.FieldType.ENUM) {
     // If it's a string, get enum value by name.
     // NB: In order this feature to work, property renaming should be turned off
     // for the respective enums.
-    if (goog.proto2.Serializer.DECODE_SYMBOLIC_ENUMS &&
+    if (Serializer.DECODE_SYMBOLIC_ENUMS &&
         typeof value === 'string') {
       // enumType is a regular JavaScript enum as defined in field's metadata.
       var enumType = field.getNativeType();
@@ -141,7 +137,7 @@ goog.proto2.Serializer.prototype.getDeserializedValue = function(field, value) {
     // If it's a string containing a positive integer, this looks like a viable
     // enum int value. Return as numeric.
     if (typeof value === 'string' &&
-        goog.proto2.Serializer.INTEGER_REGEX.test(value)) {
+        Serializer.INTEGER_REGEX.test(value)) {
       var numeric = Number(value);
       if (numeric > 0) {
         return numeric;
@@ -181,7 +177,7 @@ goog.proto2.Serializer.prototype.getDeserializedValue = function(field, value) {
       // Validate the string.  If the string is not an integral number, we would
       // rather have an assertion or error in the caller than a mysterious NaN
       // value.
-      if (goog.proto2.Serializer.INTEGER_REGEX.test(value)) {
+      if (Serializer.INTEGER_REGEX.test(value)) {
         return Number(value);
       }
     }
@@ -192,4 +188,4 @@ goog.proto2.Serializer.prototype.getDeserializedValue = function(field, value) {
 
 
 /** @const {!RegExp} */
-goog.proto2.Serializer.INTEGER_REGEX = /^-?[0-9]+$/;
+Serializer.INTEGER_REGEX = /^-?[0-9]+$/;

@@ -8,18 +8,7 @@
  * @fileoverview Collection of utility functions for Unicode character.
  */
 
-goog.provide('goog.i18n.uChar');
-
-
-// Constants for handling Unicode supplementary characters (surrogate pairs).
-
-
-/**
- * The minimum value for Supplementary code points.
- * @type {number}
- * @private
- */
-goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ = 0x10000;
+SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ = 0x10000;
 
 
 /**
@@ -28,7 +17,7 @@ goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ = 0x10000;
  * @type {number}
  * @private
  */
-goog.i18n.uChar.CODE_POINT_MAX_VALUE_ = 0x10FFFF;
+var CODE_POINT_MAX_VALUE_ = 0x10FFFF;
 
 
 /**
@@ -36,7 +25,7 @@ goog.i18n.uChar.CODE_POINT_MAX_VALUE_ = 0x10FFFF;
  * @type {number}
  * @private
  */
-goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_ = 0xD800;
+var LEAD_SURROGATE_MIN_VALUE_ = 0xD800;
 
 
 /**
@@ -44,7 +33,7 @@ goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_ = 0xD800;
  * @type {number}
  * @private
  */
-goog.i18n.uChar.LEAD_SURROGATE_MAX_VALUE_ = 0xDBFF;
+var LEAD_SURROGATE_MAX_VALUE_ = 0xDBFF;
 
 
 /**
@@ -52,7 +41,7 @@ goog.i18n.uChar.LEAD_SURROGATE_MAX_VALUE_ = 0xDBFF;
  * @type {number}
  * @private
  */
-goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_ = 0xDC00;
+var TRAIL_SURROGATE_MIN_VALUE_ = 0xDC00;
 
 
 /**
@@ -60,7 +49,7 @@ goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_ = 0xDC00;
  * @type {number}
  * @private
  */
-goog.i18n.uChar.TRAIL_SURROGATE_MAX_VALUE_ = 0xDFFF;
+var TRAIL_SURROGATE_MAX_VALUE_ = 0xDFFF;
 
 
 /**
@@ -71,7 +60,7 @@ goog.i18n.uChar.TRAIL_SURROGATE_MAX_VALUE_ = 0xDFFF;
  * @type {number}
  * @private
  */
-goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_ = 10;
+var TRAIL_SURROGATE_BIT_COUNT_ = 10;
 
 
 /**
@@ -79,14 +68,13 @@ goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_ = 10;
  * @param {string} ch The given character.
  * @return {string} The U+ notation of the given character.
  */
-goog.i18n.uChar.toHexString = function(ch) {
-  'use strict';
-  const chCode = goog.i18n.uChar.toCharCode(ch);
-  const chCodeStr = 'U+' +
-      goog.i18n.uChar.padString_(chCode.toString(16).toUpperCase(), 4, '0');
+export function toHexString(ch) {
+ const chCode = toCharCode(ch);
+ const chCodeStr = 'U+' +
+     padString_(chCode.toString(16).toUpperCase(), 4, '0');
 
-  return chCodeStr;
-};
+ return chCodeStr;
+}
 
 
 /**
@@ -97,13 +85,12 @@ goog.i18n.uChar.toHexString = function(ch) {
  * @return {string} The padded string.
  * @private
  */
-goog.i18n.uChar.padString_ = function(str, length, ch) {
-  'use strict';
-  while (str.length < length) {
-    str = ch + str;
-  }
-  return str;
-};
+function padString_(str, length, ch) {
+ while (str.length < length) {
+   str = ch + str;
+ }
+ return str;
+}
 
 
 /**
@@ -113,10 +100,9 @@ goog.i18n.uChar.padString_ = function(str, length, ch) {
  * ignored.
  * @return {number} The Unicode value of the character.
  */
-goog.i18n.uChar.toCharCode = function(ch) {
-  'use strict';
-  return goog.i18n.uChar.getCodePointAround(ch, 0);
-};
+export function toCharCode(ch) {
+ return getCodePointAround(ch, 0);
+}
 
 
 /**
@@ -125,41 +111,37 @@ goog.i18n.uChar.toCharCode = function(ch) {
  * @param {number} code The Unicode value of the character.
  * @return {?string} The character corresponding to the given Unicode value.
  */
-goog.i18n.uChar.fromCharCode = function(code) {
-  'use strict';
-  if (code == null ||
-      !(code >= 0 && code <= goog.i18n.uChar.CODE_POINT_MAX_VALUE_)) {
-    return null;
-  }
-  if (goog.i18n.uChar.isSupplementaryCodePoint(code)) {
-    // First, we split the code point into the trail surrogate part (the
-    // TRAIL_SURROGATE_BIT_COUNT_ least significant bits) and the lead surrogate
-    // part (the rest of the bits, shifted down; note that for now this includes
-    // the supplementary offset, also shifted down, to be subtracted off below).
-    const leadBits = code >> goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_;
-    const trailBits = code &
-        // A bit-mask to get the TRAIL_SURROGATE_BIT_COUNT_ (i.e. 10) least
-        // significant bits. 1 << 10 = 0x0400. 0x0400 - 1 = 0x03FF.
-        ((1 << goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_) - 1);
+export function fromCharCode(code) {
+ if (code == null ||
+     !(code >= 0 && code <= CODE_POINT_MAX_VALUE_)) {
+   return null;
+ }
+ if (isSupplementaryCodePoint(code)) {
+   // First, we split the code point into the trail surrogate part (the
+   // TRAIL_SURROGATE_BIT_COUNT_ least significant bits) and the lead surrogate
+   // part (the rest of the bits, shifted down; note that for now this includes
+   // the supplementary offset, also shifted down, to be subtracted off below).
+   const leadBits = code >> TRAIL_SURROGATE_BIT_COUNT_;
+   const trailBits = code &
+       // A bit-mask to get the TRAIL_SURROGATE_BIT_COUNT_ (i.e. 10) least
+       // significant bits. 1 << 10 = 0x0400. 0x0400 - 1 = 0x03FF.
+       ((1 << TRAIL_SURROGATE_BIT_COUNT_) - 1);
 
-    // Now we calculate the code point of each surrogate by adding each offset
-    // to the corresponding base code point.
-    const leadCodePoint = leadBits +
-        (goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_ -
-         // Subtract off the supplementary offset, which had been shifted down
-         // with the rest of leadBits. We do this here instead of before the
-         // shift in order to save a separate subtraction step.
-         (goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ >>
-          goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_));
-    const trailCodePoint =
-        trailBits + goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_;
+   // Now we calculate the code point of each surrogate by adding each offset
+   // to the corresponding base code point.
+   const leadCodePoint = leadBits +
+       (LEAD_SURROGATE_MIN_VALUE_ -
+        (SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ >>
+         TRAIL_SURROGATE_BIT_COUNT_));
+   const trailCodePoint =
+       trailBits + TRAIL_SURROGATE_MIN_VALUE_;
 
-    // Convert the code points into a 2-character long string.
-    return String.fromCharCode(leadCodePoint) +
-        String.fromCharCode(trailCodePoint);
-  }
-  return String.fromCharCode(code);
-};
+   // Convert the code points into a 2-character long string.
+   return String.fromCharCode(leadCodePoint) +
+       String.fromCharCode(trailCodePoint);
+ }
+ return String.fromCharCode(code);
+}
 
 
 /**
@@ -195,28 +177,28 @@ goog.i18n.uChar.fromCharCode = function(code) {
  * surrogate) of a surrogate pair, returns the negated code pointed encoded by
  * the pair.
  */
-goog.i18n.uChar.getCodePointAround = function(string, index) {
-  'use strict';
-  const charCode = string.charCodeAt(index);
-  if (goog.i18n.uChar.isLeadSurrogateCodePoint(charCode) &&
-      index + 1 < string.length) {
-    const trail = string.charCodeAt(index + 1);
-    if (goog.i18n.uChar.isTrailSurrogateCodePoint(trail)) {
-      // Part of a surrogate pair.
-      return /** @type {number} */ (
-          goog.i18n.uChar.buildSupplementaryCodePoint(charCode, trail));
-    }
-  } else if (goog.i18n.uChar.isTrailSurrogateCodePoint(charCode) && index > 0) {
-    const lead = string.charCodeAt(index - 1);
-    if (goog.i18n.uChar.isLeadSurrogateCodePoint(lead)) {
-      // Part of a surrogate pair.
-      const codepoint = /** @type {number} */ (
-          goog.i18n.uChar.buildSupplementaryCodePoint(lead, charCode));
-      return -codepoint;
-    }
-  }
-  return charCode;
-};
+export function getCodePointAround(string, index) {
+ const charCode = string.charCodeAt(index);
+ if (isLeadSurrogateCodePoint(charCode) &&
+     index + 1 < string.length) {
+   const trail = string.charCodeAt(index + 1);
+   if (isTrailSurrogateCodePoint(trail)) {
+     // Part of a surrogate pair.
+     return (
+      /** @type {number} */ (buildSupplementaryCodePoint(charCode, trail))
+     );
+   }
+ } else if (isTrailSurrogateCodePoint(charCode) && index > 0) {
+   const lead = string.charCodeAt(index - 1);
+   if (isLeadSurrogateCodePoint(lead)) {
+     // Part of a surrogate pair.
+     const codepoint = /** @type {number} */ (
+         buildSupplementaryCodePoint(lead, charCode));
+     return -codepoint;
+   }
+ }
+ return charCode;
+}
 
 
 /**
@@ -225,10 +207,9 @@ goog.i18n.uChar.getCodePointAround = function(string, index) {
  * @param {number} codePoint
  * @return {number} 2 if codePoint is a supplementary character, 1 otherwise.
  */
-goog.i18n.uChar.charCount = function(codePoint) {
-  'use strict';
-  return goog.i18n.uChar.isSupplementaryCodePoint(codePoint) ? 2 : 1;
-};
+export function charCount(codePoint) {
+ return isSupplementaryCodePoint(codePoint) ? 2 : 1;
+}
 
 
 /**
@@ -237,11 +218,10 @@ goog.i18n.uChar.charCount = function(codePoint) {
  * @param {number} codePoint
  * @return {boolean} Whether then given code point is a supplementary character.
  */
-goog.i18n.uChar.isSupplementaryCodePoint = function(codePoint) {
-  'use strict';
-  return codePoint >= goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ &&
-      codePoint <= goog.i18n.uChar.CODE_POINT_MAX_VALUE_;
-};
+export function isSupplementaryCodePoint(codePoint) {
+ return codePoint >= SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ &&
+     codePoint <= CODE_POINT_MAX_VALUE_;
+}
 
 
 /**
@@ -250,11 +230,10 @@ goog.i18n.uChar.isSupplementaryCodePoint = function(codePoint) {
  * @return {boolean} Whether the given code point is a leading surrogate
  * character.
  */
-goog.i18n.uChar.isLeadSurrogateCodePoint = function(codePoint) {
-  'use strict';
-  return codePoint >= goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_ &&
-      codePoint <= goog.i18n.uChar.LEAD_SURROGATE_MAX_VALUE_;
-};
+export function isLeadSurrogateCodePoint(codePoint) {
+ return codePoint >= LEAD_SURROGATE_MIN_VALUE_ &&
+     codePoint <= LEAD_SURROGATE_MAX_VALUE_;
+}
 
 
 /**
@@ -263,11 +242,10 @@ goog.i18n.uChar.isLeadSurrogateCodePoint = function(codePoint) {
  * @return {boolean} Whether the given code point is a trailing surrogate
  * character.
  */
-goog.i18n.uChar.isTrailSurrogateCodePoint = function(codePoint) {
-  'use strict';
-  return codePoint >= goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_ &&
-      codePoint <= goog.i18n.uChar.TRAIL_SURROGATE_MAX_VALUE_;
-};
+export function isTrailSurrogateCodePoint(codePoint) {
+ return codePoint >= TRAIL_SURROGATE_MIN_VALUE_ &&
+     codePoint <= TRAIL_SURROGATE_MAX_VALUE_;
+}
 
 
 /**
@@ -279,17 +257,17 @@ goog.i18n.uChar.isTrailSurrogateCodePoint = function(codePoint) {
  * @return {?number} The supplementary Unicode code point obtained by decoding
  * the given UTF-16 surrogate pair.
  */
-goog.i18n.uChar.buildSupplementaryCodePoint = function(lead, trail) {
-  'use strict';
-  if (goog.i18n.uChar.isLeadSurrogateCodePoint(lead) &&
-      goog.i18n.uChar.isTrailSurrogateCodePoint(trail)) {
-    const shiftedLeadOffset =
-        (lead << goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_) -
-        (goog.i18n.uChar.LEAD_SURROGATE_MIN_VALUE_
-         << goog.i18n.uChar.TRAIL_SURROGATE_BIT_COUNT_);
-    const trailOffset = trail - goog.i18n.uChar.TRAIL_SURROGATE_MIN_VALUE_ +
-        goog.i18n.uChar.SUPPLEMENTARY_CODE_POINT_MIN_VALUE_;
-    return shiftedLeadOffset + trailOffset;
-  }
-  return null;
-};
+export function buildSupplementaryCodePoint(lead, trail) {
+ if (isLeadSurrogateCodePoint(lead) &&
+     isTrailSurrogateCodePoint(trail)) {
+   const shiftedLeadOffset =
+       (lead << TRAIL_SURROGATE_BIT_COUNT_) -
+       (LEAD_SURROGATE_MIN_VALUE_
+        << TRAIL_SURROGATE_BIT_COUNT_);
+   const trailOffset = trail - TRAIL_SURROGATE_MIN_VALUE_ +
+       SUPPLEMENTARY_CODE_POINT_MIN_VALUE_;
+   return shiftedLeadOffset + trailOffset;
+ }
+ return null;
+}
+export var SUPPLEMENTARY_CODE_POINT_MIN_VALUE_;

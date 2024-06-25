@@ -8,13 +8,13 @@
  * @fileoverview Provides test-only functions for setting the user agent.
  */
 
-goog.module('goog.labs.userAgent.testUtil');
 goog.setTestOnly();
 
-const util = goog.require('goog.labs.userAgent.util');
-const {resetForTesting: browserResetForTesting} = goog.require('goog.labs.userAgent.browser');
-const {setUseClientHintsForTesting} = goog.require('goog.labs.userAgent');
-const {version: platformVersion} = goog.require('goog.labs.userAgent.platform');
+import util from './util.js';
+import { resetForTesting as browserResetForTesting } from './browser.js';
+import { setUseClientHintsForTesting } from './useragent.js';
+import platform from './platform.js';
+const {version: platformVersion} = platform;
 
 /**
  * Override the user agent with the given values.
@@ -27,7 +27,7 @@ function setUserAgent(userAgent, userAgentData) {
   util.setUserAgentData(userAgentData);
   setUseClientHintsForTesting(!!userAgentData);
 }
-exports.setUserAgent = setUserAgent;
+export { setUserAgent };
 
 /**
  * If the user agent string or user agent data object was overridden using
@@ -39,4 +39,4 @@ function resetUserAgent() {
   platformVersion.resetForTesting();
   browserResetForTesting();
 }
-exports.resetUserAgent = resetUserAgent;
+export { resetUserAgent };

@@ -9,21 +9,20 @@
  * @suppress {missingRequire} swapping userAgent
  */
 
-goog.module('goog.events.MouseWheelHandlerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const MouseWheelEvent = goog.require('goog.events.MouseWheelEvent');
-const MouseWheelHandler = goog.require('goog.events.MouseWheelHandler');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { BrowserEvent } from './browserevent.js';
+import { MouseWheelEvent, MouseWheelHandler } from './mousewheelhandler.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as dom from '../dom/dom.js';
+import * as events from './events.js';
+import * as functions from '../functions/functions.js';
+import * as googString from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
+
 /** @suppress {extraRequire} */
-const userAgent = goog.require('goog.userAgent');
+import * as userAgent from '../useragent/useragent.js';
 
 let log;
 const stubs = new PropertyReplacer();

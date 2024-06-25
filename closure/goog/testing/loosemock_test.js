@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.LooseMockTest');
 goog.setTestOnly();
 
-const LooseMock = goog.require('goog.testing.LooseMock');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
+import { LooseMock } from './loosemock.js';
+import * as mockmatchers from './mockmatchers.js';
+import { testSuite } from './testsuite.js';
 
 // The object that we will be mocking
 class RealObject {

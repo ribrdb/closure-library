@@ -10,16 +10,15 @@
  */
 
 
-goog.provide('goog.dom.iframe');
+import * as dom from './dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.html.SafeStyle');
-goog.require('goog.html.TrustedResourceUrl');
-goog.require('goog.string.Const');
-goog.require('goog.userAgent');
+import { TagName } from './tagname.js';
+import * as safe from './safe.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { SafeStyle } from '../html/safestyle.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import { Const } from '../string/const.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 /**
@@ -30,26 +29,25 @@ goog.require('goog.userAgent');
  * Security Policy (CSP). According to http://www.w3.org/TR/CSP/ CSP does not
  * allow inline javascript by default.
  *
- * @const {!goog.html.TrustedResourceUrl}
+ * @const {!TrustedResourceUrl}
  */
-goog.dom.iframe.BLANK_SOURCE_URL = goog.userAgent.IE ?
-    goog.html.TrustedResourceUrl.fromConstant(
-        goog.string.Const.from('javascript:""')) :
-    goog.html.TrustedResourceUrl.fromConstant(
-        goog.string.Const.from('about:blank'));
+export var BLANK_SOURCE_URL = userAgent.IE ?
+    TrustedResourceUrl.fromConstant(
+        Const.from('javascript:""')) :
+    TrustedResourceUrl.fromConstant(
+        Const.from('about:blank'));
 
 
 /**
- * Legacy version of goog.dom.iframe.BLANK_SOURCE_URL.
+ * Legacy version of BLANK_SOURCE_URL.
  * @const {string}
  */
-goog.dom.iframe.BLANK_SOURCE =
-    goog.html.TrustedResourceUrl.unwrap(goog.dom.iframe.BLANK_SOURCE_URL);
+export var BLANK_SOURCE = TrustedResourceUrl.unwrap(BLANK_SOURCE_URL);
 
 
 /**
  * Safe source for a new blank iframe that may not cause a new load of the
- * iframe. This is different from `goog.dom.iframe.BLANK_SOURCE` in that
+ * iframe. This is different from `BLANK_SOURCE` in that
  * it will allow an iframe to be loaded synchronously in more browsers, notably
  * Gecko, following the javascript protocol spec.
  *
@@ -73,21 +71,21 @@ goog.dom.iframe.BLANK_SOURCE =
  * throws an error with 'javascript:undefined'. Webkit browsers will reload the
  * iframe when setting this source on an existing iframe.
  *
- * @const {!goog.html.TrustedResourceUrl}
+ * @const {!TrustedResourceUrl}
  */
-goog.dom.iframe.BLANK_SOURCE_NEW_FRAME_URL = goog.userAgent.IE ?
-    goog.html.TrustedResourceUrl.fromConstant(
-        goog.string.Const.from('javascript:""')) :
-    goog.html.TrustedResourceUrl.fromConstant(
-        goog.string.Const.from('javascript:undefined'));
+export var BLANK_SOURCE_NEW_FRAME_URL = userAgent.IE ?
+    TrustedResourceUrl.fromConstant(
+        Const.from('javascript:""')) :
+    TrustedResourceUrl.fromConstant(
+        Const.from('javascript:undefined'));
 
 
 /**
- * Legacy version of goog.dom.iframe.BLANK_SOURCE_NEW_FRAME_URL.
+ * Legacy version of BLANK_SOURCE_NEW_FRAME_URL.
  * @const {string}
  */
-goog.dom.iframe.BLANK_SOURCE_NEW_FRAME = goog.html.TrustedResourceUrl.unwrap(
-    goog.dom.iframe.BLANK_SOURCE_NEW_FRAME_URL);
+export var BLANK_SOURCE_NEW_FRAME = TrustedResourceUrl.unwrap(
+    BLANK_SOURCE_NEW_FRAME_URL);
 
 
 /**
@@ -95,7 +93,7 @@ goog.dom.iframe.BLANK_SOURCE_NEW_FRAME = goog.html.TrustedResourceUrl.unwrap(
  * @const {string}
  * @private
  */
-goog.dom.iframe.STYLES_ = 'border:0;vertical-align:bottom;';
+var STYLES_ = 'border:0;vertical-align:bottom;';
 
 
 /**
@@ -109,29 +107,28 @@ goog.dom.iframe.STYLES_ = 'border:0;vertical-align:bottom;';
  * are no guarantees to the contents of the iframe or whether it is rendered
  * in quirks mode.
  *
- * @param {goog.dom.DomHelper} domHelper The dom helper to use.
- * @param {!goog.html.SafeStyle=} opt_styles CSS styles for the iframe.
+ * @param {dom.DomHelper} domHelper The dom helper to use.
+ * @param {!SafeStyle=} opt_styles CSS styles for the iframe.
  * @return {!HTMLIFrameElement} A completely blank iframe.
  */
-goog.dom.iframe.createBlank = function(domHelper, opt_styles) {
-  'use strict';
-  var styles;
-  if (opt_styles) {
-    // SafeStyle has to be converted back to a string for now, since there's
-    // no safe alternative to createDom().
-    styles = goog.html.SafeStyle.unwrap(opt_styles);
-  } else {  // undefined.
-    styles = '';
-  }
-  var iframe = domHelper.createDom(goog.dom.TagName.IFRAME, {
-    'frameborder': 0,
-    // Since iframes are inline elements, we must align to bottom to
-    // compensate for the line descent.
-    'style': goog.dom.iframe.STYLES_ + styles
-  });
-  goog.dom.safe.setIframeSrc(iframe, goog.dom.iframe.BLANK_SOURCE_URL);
-  return iframe;
-};
+export function createBlank(domHelper, opt_styles) {
+ var styles;
+ if (opt_styles) {
+   // SafeStyle has to be converted back to a string for now, since there's
+   // no safe alternative to createDom().
+   styles = SafeStyle.unwrap(opt_styles);
+ } else {  // undefined.
+   styles = '';
+ }
+ var iframe = domHelper.createDom(TagName.IFRAME, {
+   'frameborder': 0,
+   // Since iframes are inline elements, we must align to bottom to
+   // compensate for the line descent.
+   'style': STYLES_ + styles
+ });
+ safe.setIframeSrc(iframe, BLANK_SOURCE_URL);
+ return iframe;
+}
 
 
 /**
@@ -140,16 +137,15 @@ goog.dom.iframe.createBlank = function(domHelper, opt_styles) {
  * @param {!HTMLIFrameElement} iframe An iframe with no contents, such as
  *     one created by {@link #createBlank}, but already appended to
  *     a parent document.
- * @param {!goog.html.SafeHtml} content Content to write to the iframe,
+ * @param {!SafeHtml} content Content to write to the iframe,
  *     from doctype to the HTML close tag.
  */
-goog.dom.iframe.writeSafeContent = function(iframe, content) {
-  'use strict';
-  var doc = goog.dom.getFrameContentDocument(iframe);
-  doc.open();
-  goog.dom.safe.documentWrite(doc, content);
-  doc.close();
-};
+export function writeSafeContent(iframe, content) {
+ var doc = dom.getFrameContentDocument(iframe);
+ doc.open();
+ safe.documentWrite(doc, content);
+ doc.close();
+}
 
 
 // TODO(gboyer): Provide a higher-level API for the most common use case, so
@@ -166,35 +162,33 @@ goog.dom.iframe.writeSafeContent = function(iframe, content) {
  *
  * @param {!Element} parentElement The parent element in which to append the
  *     iframe.
- * @param {!goog.html.SafeHtml=} opt_headContents Contents to go into the
+ * @param {!SafeHtml=} opt_headContents Contents to go into the
  *     iframe's head.
- * @param {!goog.html.SafeHtml=} opt_bodyContents Contents to go into the
+ * @param {!SafeHtml=} opt_bodyContents Contents to go into the
  *     iframe's body.
- * @param {!goog.html.SafeStyle=} opt_styles CSS styles for the iframe itself,
+ * @param {!SafeStyle=} opt_styles CSS styles for the iframe itself,
  *     before adding to the parent element.
  * @param {boolean=} opt_quirks Whether to use quirks mode (false by default).
  * @return {!HTMLIFrameElement} An iframe that has the specified contents.
  */
-goog.dom.iframe.createWithContent = function(
-    parentElement, opt_headContents, opt_bodyContents, opt_styles, opt_quirks) {
-  'use strict';
-  var domHelper = goog.dom.getDomHelper(parentElement);
+export function createWithContent(parentElement, opt_headContents, opt_bodyContents, opt_styles, opt_quirks) {
+ var domHelper = dom.getDomHelper(parentElement);
 
-  var content = goog.html.SafeHtml.create(
-      'html', {},
-      goog.html.SafeHtml.concat(
-          goog.html.SafeHtml.create('head', {}, opt_headContents),
-          goog.html.SafeHtml.create('body', {}, opt_bodyContents)));
-  if (!opt_quirks) {
-    content =
-        goog.html.SafeHtml.concat(goog.html.SafeHtml.DOCTYPE_HTML, content);
-  }
+ var content = SafeHtml.create(
+     'html', {},
+     SafeHtml.concat(
+         SafeHtml.create('head', {}, opt_headContents),
+         SafeHtml.create('body', {}, opt_bodyContents)));
+ if (!opt_quirks) {
+   content =
+       SafeHtml.concat(SafeHtml.DOCTYPE_HTML, content);
+ }
 
-  var iframe = goog.dom.iframe.createBlank(domHelper, opt_styles);
+ var iframe = createBlank(domHelper, opt_styles);
 
-  // Cannot manipulate iframe content until it is in a document.
-  parentElement.appendChild(iframe);
-  goog.dom.iframe.writeSafeContent(iframe, content);
+ // Cannot manipulate iframe content until it is in a document.
+ parentElement.appendChild(iframe);
+ writeSafeContent(iframe, content);
 
-  return iframe;
-};
+ return iframe;
+}

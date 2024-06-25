@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ButtonRendererTest');
 goog.setTestOnly();
 
-const Button = goog.require('goog.ui.Button');
-const ButtonRenderer = goog.require('goog.ui.ButtonRenderer');
-const ButtonSide = goog.require('goog.ui.ButtonSide');
-const Component = goog.require('goog.ui.Component');
-const ControlRenderer = goog.require('goog.ui.ControlRenderer');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Role = goog.require('goog.a11y.aria.Role');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Button } from './button.js';
+import { ButtonRenderer } from './buttonrenderer.js';
+import { ButtonSide } from './buttonside.js';
+import { Component } from './component.js';
+import { ControlRenderer } from './controlrenderer.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { Role } from '../a11y/aria/roles.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let button;
 let buttonRenderer;

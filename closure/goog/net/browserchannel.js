@@ -15,48 +15,36 @@
  *  channel.setHandler(handler);
  *  channel.connect('channel/test', 'channel/bind');
  *
- * See goog.net.BrowserChannel.Handler for the handler interface.
+ * See BrowserChannel.Handler for the handler interface.
  */
 
 
-goog.provide('goog.net.BrowserChannel');
-goog.provide('goog.net.BrowserChannel.Error');
-goog.provide('goog.net.BrowserChannel.Event');
-goog.provide('goog.net.BrowserChannel.Handler');
-goog.provide('goog.net.BrowserChannel.Hooks');
-goog.provide('goog.net.BrowserChannel.LogSaver');
-goog.provide('goog.net.BrowserChannel.QueuedMap');
-goog.provide('goog.net.BrowserChannel.ServerReachability');
-goog.provide('goog.net.BrowserChannel.ServerReachabilityEvent');
-goog.provide('goog.net.BrowserChannel.Stat');
-goog.provide('goog.net.BrowserChannel.StatEvent');
-goog.provide('goog.net.BrowserChannel.State');
-goog.provide('goog.net.BrowserChannel.TimingEvent');
+goog.declareModuleId('goog.net.browserchannel');
 
-goog.require('goog.Uri');
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.debug.formatter');
-goog.require('goog.events.Event');
-goog.require('goog.events.EventTarget');
-goog.require('goog.json');
-goog.require('goog.json.NativeJsonProcessor');
-goog.require('goog.log');
-goog.require('goog.net.BrowserTestChannel');
-goog.require('goog.net.ChannelDebug');
-goog.require('goog.net.ChannelRequest');
-goog.require('goog.net.XhrIo');
-goog.require('goog.net.browserchannelinternal.ServerReachability');
-goog.require('goog.net.browserchannelinternal.hooks');
-goog.require('goog.net.browserchannelinternal.stats');
-goog.require('goog.net.tmpnetwork');
-goog.require('goog.object');
-goog.require('goog.string');
-goog.require('goog.structs');
-goog.require('goog.structs.CircularBuffer');
+import { Uri } from '../uri/uri.js';
+import * as googArray from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import * as formatter from '../debug/formatter.js';
+import { Event } from '../events/event.js';
+import { EventTarget } from '../events/eventtarget.js';
+import * as json from '../json/json.js';
+import NativeJsonProcessor from '../json/nativejsonprocessor.js';
+import * as log from '../log/log.js';
+import { BrowserTestChannel } from './browsertestchannel.js';
+import { ChannelDebug } from './channeldebug.js';
+import { ChannelRequest } from './channelrequest.js';
+import { XhrIo } from './xhrio.js';
+import { ServerReachability } from './browserchannelserverreachability.js';
+import * as hooks from './browserchannelexecutionhooks.js';
+import * as stats from './browserchannelstats.js';
+import * as tmpnetwork from './tmpnetwork.js';
+import object from '../object/object.js';
+import * as string from '../string/string.js';
+import * as structs from '../structs/structs.js';
+import { CircularBuffer } from '../structs/circularbuffer.js';
 goog.requireType('goog.debug.formatter');
-goog.requireType('goog.string.Parser');
-goog.requireType('goog.structs.Map');
+goog.requireType('goog.string.parser');
+goog.requireType('goog.structs.map');
 
 
 
@@ -75,10 +63,12 @@ goog.requireType('goog.structs.Map');
  *        until the test is performed.
  * @constructor
  */
-goog.net.BrowserChannel = function(
-    opt_clientVersion, opt_firstTestResults, opt_secondTestResults,
-    opt_asyncTest) {
-  'use strict';
+export function BrowserChannel(
+  opt_clientVersion,
+  opt_firstTestResults,
+  opt_secondTestResults,
+  opt_asyncTest
+) {
   /**
    * The application specific version that is passed to the server.
    * @type {?string}
@@ -87,42 +77,42 @@ goog.net.BrowserChannel = function(
   this.clientVersion_ = opt_clientVersion || null;
 
   /**
-   * The current state of the BrowserChannel. It should be one of the
-   * goog.net.BrowserChannel.State constants.
-   * @type {!goog.net.BrowserChannel.State}
-   * @private
-   */
-  this.state_ = goog.net.BrowserChannel.State.INIT;
+     * The current state of the BrowserChannel. It should be one of the
+     * BrowserChannel.State constants.
+     * @type {!BrowserChannel.State}
+     * @private
+     */
+  this.state_ = BrowserChannel.State.INIT;
 
   /**
-   * An array of queued maps that need to be sent to the server.
-   * @type {Array<goog.net.BrowserChannel.QueuedMap>}
-   * @private
-   */
+     * An array of queued maps that need to be sent to the server.
+     * @type {Array<BrowserChannel.QueuedMap>}
+     * @private
+     */
   this.outgoingMaps_ = [];
 
   /**
-   * An array of dequeued maps that we have either received a non-successful
-   * response for, or no response at all, and which therefore may or may not
-   * have been received by the server.
-   * @type {Array<goog.net.BrowserChannel.QueuedMap>}
-   * @private
-   */
+     * An array of dequeued maps that we have either received a non-successful
+     * response for, or no response at all, and which therefore may or may not
+     * have been received by the server.
+     * @type {Array<BrowserChannel.QueuedMap>}
+     * @private
+     */
   this.pendingMaps_ = [];
 
   /**
-   * The channel debug used for browserchannel logging
-   * @type {!goog.net.ChannelDebug}
-   * @private
-   */
-  this.channelDebug_ = new goog.net.ChannelDebug();
+     * The channel debug used for browserchannel logging
+     * @type {!ChannelDebug}
+     * @private
+     */
+  this.channelDebug_ = new ChannelDebug();
 
   /**
-   * Parser for a response payload. The parser should return an array.
-   * @type {!goog.string.Parser}
-   * @private
-   */
-  this.parser_ = new goog.json.NativeJsonProcessor();
+     * Parser for a response payload. The parser should return an array.
+     * @type {!string.Parser}
+     * @private
+     */
+  this.parser_ = new NativeJsonProcessor();
 
   /**
    * An array of results for the first browser channel test call.
@@ -147,33 +137,32 @@ goog.net.BrowserChannel = function(
    * @private {boolean}
    */
   this.asyncTest_ = opt_asyncTest || false;
-};
+}
 /**
  * Alias the internal Stat module to be used from the main BrowserChannel
  * module.
  * @const
  */
-goog.net.BrowserChannel.Stat = goog.net.browserchannelinternal.stats.Stat;
+BrowserChannel.Stat = stats.Stat;
 
 /**
  * Alias getStatEventTarget as it used to be provided from the main
  * BrowserChannel module.
  * @const
  */
-goog.net.BrowserChannel.getStatEventTarget =
-    goog.net.browserchannelinternal.stats.getStatEventTarget;
+BrowserChannel.getStatEventTarget =
+    stats.getStatEventTarget;
 
 
 /**
  * Simple container class for a (mapId, map) pair.
  * @param {number} mapId The id for this map.
- * @param {Object|goog.structs.Map} map The map itself.
+ * @param {Object|structs.Map} map The map itself.
  * @param {Object=} opt_context The context associated with the map.
  * @constructor
  * @final
  */
-goog.net.BrowserChannel.QueuedMap = function(mapId, map, opt_context) {
-  'use strict';
+BrowserChannel.QueuedMap = function(mapId, map, opt_context) {
   /**
    * The id for this map.
    * @type {number}
@@ -199,7 +188,7 @@ goog.net.BrowserChannel.QueuedMap = function(mapId, map, opt_context) {
  * @type {?Object}
  * @private
  */
-goog.net.BrowserChannel.prototype.extraHeaders_ = null;
+BrowserChannel.prototype.extraHeaders_ = null;
 
 
 /**
@@ -207,23 +196,23 @@ goog.net.BrowserChannel.prototype.extraHeaders_ = null;
  * @type {?Object}
  * @private
  */
-goog.net.BrowserChannel.prototype.extraParams_ = null;
+BrowserChannel.prototype.extraParams_ = null;
 
 
 /**
  * The current ChannelRequest object for the forwardchannel.
- * @type {goog.net.ChannelRequest?}
+ * @type {ChannelRequest?}
  * @private
  */
-goog.net.BrowserChannel.prototype.forwardChannelRequest_ = null;
+BrowserChannel.prototype.forwardChannelRequest_ = null;
 
 
 /**
  * The ChannelRequest object for the backchannel.
- * @type {goog.net.ChannelRequest?}
+ * @type {ChannelRequest?}
  * @private
  */
-goog.net.BrowserChannel.prototype.backChannelRequest_ = null;
+BrowserChannel.prototype.backChannelRequest_ = null;
 
 
 /**
@@ -232,23 +221,23 @@ goog.net.BrowserChannel.prototype.backChannelRequest_ = null;
  * @type {?string}
  * @private
  */
-goog.net.BrowserChannel.prototype.path_ = null;
+BrowserChannel.prototype.path_ = null;
 
 
 /**
  * The absolute URI for the forwardchannel request.
- * @type {?goog.Uri}
+ * @type {?Uri}
  * @private
  */
-goog.net.BrowserChannel.prototype.forwardChannelUri_ = null;
+BrowserChannel.prototype.forwardChannelUri_ = null;
 
 
 /**
  * The absolute URI for the backchannel request.
- * @type {?goog.Uri}
+ * @type {?Uri}
  * @private
  */
-goog.net.BrowserChannel.prototype.backChannelUri_ = null;
+BrowserChannel.prototype.backChannelUri_ = null;
 
 
 /**
@@ -257,14 +246,14 @@ goog.net.BrowserChannel.prototype.backChannelUri_ = null;
  * @type {?string}
  * @private
  */
-goog.net.BrowserChannel.prototype.hostPrefix_ = null;
+BrowserChannel.prototype.hostPrefix_ = null;
 
 
 /**
  * Whether we allow the use of a subdomain in IE for the backchannel requests.
  * @private
  */
-goog.net.BrowserChannel.prototype.allowHostPrefix_ = true;
+BrowserChannel.prototype.allowHostPrefix_ = true;
 
 
 /**
@@ -273,7 +262,7 @@ goog.net.BrowserChannel.prototype.allowHostPrefix_ = true;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.nextRid_ = 0;
+BrowserChannel.prototype.nextRid_ = 0;
 
 
 /**
@@ -282,7 +271,7 @@ goog.net.BrowserChannel.prototype.nextRid_ = 0;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.nextMapId_ = 0;
+BrowserChannel.prototype.nextMapId_ = 0;
 
 
 /**
@@ -290,15 +279,15 @@ goog.net.BrowserChannel.prototype.nextMapId_ = 0;
  * @type {boolean}
  * @private
  */
-goog.net.BrowserChannel.prototype.failFast_ = false;
+BrowserChannel.prototype.failFast_ = false;
 
 
 /**
  * The handler that receive callbacks for state changes and data.
- * @type {?goog.net.BrowserChannel.Handler}
+ * @type {?BrowserChannel.Handler}
  * @private
  */
-goog.net.BrowserChannel.prototype.handler_ = null;
+BrowserChannel.prototype.handler_ = null;
 
 
 /**
@@ -306,7 +295,7 @@ goog.net.BrowserChannel.prototype.handler_ = null;
  * @type {?number}
  * @private
  */
-goog.net.BrowserChannel.prototype.forwardChannelTimerId_ = null;
+BrowserChannel.prototype.forwardChannelTimerId_ = null;
 
 
 /**
@@ -314,7 +303,7 @@ goog.net.BrowserChannel.prototype.forwardChannelTimerId_ = null;
  * @type {?number}
  * @private
  */
-goog.net.BrowserChannel.prototype.backChannelTimerId_ = null;
+BrowserChannel.prototype.backChannelTimerId_ = null;
 
 
 /**
@@ -323,16 +312,16 @@ goog.net.BrowserChannel.prototype.backChannelTimerId_ = null;
  * @type {?number}
  * @private
  */
-goog.net.BrowserChannel.prototype.deadBackChannelTimerId_ = null;
+BrowserChannel.prototype.deadBackChannelTimerId_ = null;
 
 
 /**
  * The BrowserTestChannel object which encapsulates the logic for determining
  * interesting network conditions about the client.
- * @type {goog.net.BrowserTestChannel?}
+ * @type {BrowserTestChannel?}
  * @private
  */
-goog.net.BrowserChannel.prototype.connectionTest_ = null;
+BrowserChannel.prototype.connectionTest_ = null;
 
 
 /**
@@ -340,7 +329,7 @@ goog.net.BrowserChannel.prototype.connectionTest_ = null;
  * @type {?boolean}
  * @private
  */
-goog.net.BrowserChannel.prototype.useChunked_ = null;
+BrowserChannel.prototype.useChunked_ = null;
 
 
 /**
@@ -348,7 +337,7 @@ goog.net.BrowserChannel.prototype.useChunked_ = null;
  * useful to disable this.
  * @private
  */
-goog.net.BrowserChannel.prototype.allowChunkedMode_ = true;
+BrowserChannel.prototype.allowChunkedMode_ = true;
 
 
 /**
@@ -357,7 +346,7 @@ goog.net.BrowserChannel.prototype.allowChunkedMode_ = true;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.lastArrayId_ = -1;
+BrowserChannel.prototype.lastArrayId_ = -1;
 
 
 /**
@@ -365,7 +354,7 @@ goog.net.BrowserChannel.prototype.lastArrayId_ = -1;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.lastPostResponseArrayId_ = -1;
+BrowserChannel.prototype.lastPostResponseArrayId_ = -1;
 
 
 /**
@@ -373,7 +362,7 @@ goog.net.BrowserChannel.prototype.lastPostResponseArrayId_ = -1;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.lastStatusCode_ = -1;
+BrowserChannel.prototype.lastStatusCode_ = -1;
 
 
 /**
@@ -381,7 +370,7 @@ goog.net.BrowserChannel.prototype.lastStatusCode_ = -1;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.forwardChannelRetryCount_ = 0;
+BrowserChannel.prototype.forwardChannelRetryCount_ = 0;
 
 
 /**
@@ -390,7 +379,7 @@ goog.net.BrowserChannel.prototype.forwardChannelRetryCount_ = 0;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.backChannelRetryCount_ = 0;
+BrowserChannel.prototype.backChannelRetryCount_ = 0;
 
 
 /**
@@ -400,7 +389,7 @@ goog.net.BrowserChannel.prototype.backChannelRetryCount_ = 0;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.backChannelAttemptId_;
+BrowserChannel.prototype.backChannelAttemptId_;
 
 
 /**
@@ -411,7 +400,7 @@ goog.net.BrowserChannel.prototype.backChannelAttemptId_;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.baseRetryDelayMs_ = 5 * 1000;
+BrowserChannel.prototype.baseRetryDelayMs_ = 5 * 1000;
 
 
 /**
@@ -420,7 +409,7 @@ goog.net.BrowserChannel.prototype.baseRetryDelayMs_ = 5 * 1000;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.retryDelaySeedMs_ = 10 * 1000;
+BrowserChannel.prototype.retryDelaySeedMs_ = 10 * 1000;
 
 
 /**
@@ -429,7 +418,7 @@ goog.net.BrowserChannel.prototype.retryDelaySeedMs_ = 10 * 1000;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.forwardChannelMaxRetries_ = 2;
+BrowserChannel.prototype.forwardChannelMaxRetries_ = 2;
 
 
 /**
@@ -438,7 +427,7 @@ goog.net.BrowserChannel.prototype.forwardChannelMaxRetries_ = 2;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.forwardChannelRequestTimeoutMs_ = 20 * 1000;
+BrowserChannel.prototype.forwardChannelRequestTimeoutMs_ = 20 * 1000;
 
 
 /**
@@ -455,17 +444,17 @@ goog.net.BrowserChannel.prototype.forwardChannelRequestTimeoutMs_ = 20 * 1000;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.readyStateChangeThrottleMs_ = 0;
+BrowserChannel.prototype.readyStateChangeThrottleMs_ = 0;
 
 
 /**
  * Whether cross origin requests are supported for the browser channel.
  *
- * See {@link goog.net.XhrIo#setWithCredentials}.
+ * See {@link XhrIo#setWithCredentials}.
  * @type {boolean}
  * @private
  */
-goog.net.BrowserChannel.prototype.supportsCrossDomainXhrs_ = false;
+BrowserChannel.prototype.supportsCrossDomainXhrs_ = false;
 
 
 /**
@@ -474,7 +463,7 @@ goog.net.BrowserChannel.prototype.supportsCrossDomainXhrs_ = false;
  * com.google.net.browserchannel.BrowserChannel.LATEST_CHANNEL_VERSION.
  * @type {number}
  */
-goog.net.BrowserChannel.LATEST_CHANNEL_VERSION = 8;
+BrowserChannel.LATEST_CHANNEL_VERSION = 8;
 
 
 /**
@@ -484,15 +473,15 @@ goog.net.BrowserChannel.LATEST_CHANNEL_VERSION = 8;
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.prototype.channelVersion_ =
-    goog.net.BrowserChannel.LATEST_CHANNEL_VERSION;
+BrowserChannel.prototype.channelVersion_ =
+    BrowserChannel.LATEST_CHANNEL_VERSION;
 
 
 /**
  * Enum type for the browser channel state machine.
  * @enum {number}
  */
-goog.net.BrowserChannel.State = {
+BrowserChannel.State = {
   /** The channel is closed. */
   CLOSED: 0,
 
@@ -511,7 +500,7 @@ goog.net.BrowserChannel.State = {
  * The timeout in milliseconds for a forward channel request.
  * @type {number}
  */
-goog.net.BrowserChannel.FORWARD_CHANNEL_RETRY_TIMEOUT = 20 * 1000;
+BrowserChannel.FORWARD_CHANNEL_RETRY_TIMEOUT = 20 * 1000;
 
 
 /**
@@ -519,7 +508,7 @@ goog.net.BrowserChannel.FORWARD_CHANNEL_RETRY_TIMEOUT = 20 * 1000;
  * requests.
  * @type {number}
  */
-goog.net.BrowserChannel.BACK_CHANNEL_MAX_RETRIES = 3;
+BrowserChannel.BACK_CHANNEL_MAX_RETRIES = 3;
 
 
 /**
@@ -528,7 +517,7 @@ goog.net.BrowserChannel.BACK_CHANNEL_MAX_RETRIES = 3;
  * real measurement of the RTT.
  * @type {number}
  */
-goog.net.BrowserChannel.RTT_ESTIMATE = 3 * 1000;
+BrowserChannel.RTT_ESTIMATE = 3 * 1000;
 
 
 /**
@@ -536,14 +525,14 @@ goog.net.BrowserChannel.RTT_ESTIMATE = 3 * 1000;
  * this number.
  * @type {number}
  */
-goog.net.BrowserChannel.INACTIVE_CHANNEL_RETRY_FACTOR = 2;
+BrowserChannel.INACTIVE_CHANNEL_RETRY_FACTOR = 2;
 
 
 /**
  * Enum type for identifying a BrowserChannel error.
  * @enum {number}
  */
-goog.net.BrowserChannel.Error = {
+BrowserChannel.Error = {
   /** Value that indicates no error has occurred. */
   OK: 0,
 
@@ -584,7 +573,7 @@ goog.net.BrowserChannel.Error = {
  * @enum {number}
  * @private
  */
-goog.net.BrowserChannel.ChannelType_ = {
+BrowserChannel.ChannelType_ = {
   FORWARD_CHANNEL: 1,
 
   BACK_CHANNEL: 2,
@@ -597,13 +586,13 @@ goog.net.BrowserChannel.ChannelType_ = {
  * @type {number}
  * @private
  */
-goog.net.BrowserChannel.MAX_MAPS_PER_REQUEST_ = 1000;
+BrowserChannel.MAX_MAPS_PER_REQUEST_ = 1000;
 
 /**
  * Events fired by BrowserChannel and associated objects
  * @const
  */
-goog.net.BrowserChannel.Event = {};
+BrowserChannel.Event = {};
 
 
 /**
@@ -611,7 +600,7 @@ goog.net.BrowserChannel.Event = {};
  * applications to know about for stats or debugging purposes. This event fires
  * on the EventTarget returned by getStatEventTarget.
  */
-goog.net.BrowserChannel.Event.STAT_EVENT = 'statevent';
+BrowserChannel.Event.STAT_EVENT = 'statevent';
 
 
 /**
@@ -619,28 +608,27 @@ goog.net.BrowserChannel.Event.STAT_EVENT = 'statevent';
  * the size of the POST and the round trip time.
  * This event fires on the EventTarget returned by getStatEventTarget.
  */
-goog.net.BrowserChannel.Event.TIMING_EVENT = 'timingevent';
+BrowserChannel.Event.TIMING_EVENT = 'timingevent';
 
 /** @const */
-goog.net.BrowserChannel.StatEvent =
-    goog.net.browserchannelinternal.stats.StatEvent;
+BrowserChannel.StatEvent =
+    stats.StatEvent;
 
 /**
- * Event class for goog.net.BrowserChannel.Event.TIMING_EVENT
+ * Event class for BrowserChannel.Event.TIMING_EVENT
  *
- * @param {goog.events.EventTarget} target The stat event target for
+ * @param {EventTarget} target The stat event target for
        the browser channel.
  * @param {number} size The number of characters in the POST data.
  * @param {number} rtt The total round trip time from POST to response in MS.
  * @param {number} retries The number of times the POST had to be retried.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @final
  */
-goog.net.BrowserChannel.TimingEvent = function(target, size, rtt, retries) {
-  'use strict';
-  goog.events.Event.call(
-      this, goog.net.BrowserChannel.Event.TIMING_EVENT, target);
+BrowserChannel.TimingEvent = function(target, size, rtt, retries) {
+  Event.call(
+      this, BrowserChannel.Event.TIMING_EVENT, target);
 
   /**
    * @type {number}
@@ -657,7 +645,7 @@ goog.net.BrowserChannel.TimingEvent = function(target, size, rtt, retries) {
    */
   this.retries = retries;
 };
-goog.inherits(goog.net.BrowserChannel.TimingEvent, goog.events.Event);
+goog.inherits(BrowserChannel.TimingEvent, Event);
 
 
 /**
@@ -665,37 +653,36 @@ goog.inherits(goog.net.BrowserChannel.TimingEvent, goog.events.Event);
  * the server is is discovered.
  * @const {string}
  */
-goog.net.BrowserChannel.Event.SERVER_REACHABILITY_EVENT = 'serverreachability';
+BrowserChannel.Event.SERVER_REACHABILITY_EVENT = 'serverreachability';
 
 /** @const */
-goog.net.BrowserChannel.ServerReachability =
-    goog.net.browserchannelinternal.ServerReachability;
+BrowserChannel.ServerReachability =
+    ServerReachability;
 
 /**
- * Event class for goog.net.BrowserChannel.Event.SERVER_REACHABILITY_EVENT.
+ * Event class for BrowserChannel.Event.SERVER_REACHABILITY_EVENT.
  *
- * @param {goog.events.EventTarget} target The stat event target for
+ * @param {EventTarget} target The stat event target for
        the browser channel.
- * @param {goog.net.browserchannelinternal.ServerReachability} reachabilityType
+ * @param {ServerReachability} reachabilityType
  The
  *     reachability event type.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @final
  */
-goog.net.BrowserChannel.ServerReachabilityEvent = function(
+BrowserChannel.ServerReachabilityEvent = function(
     target, reachabilityType) {
-  'use strict';
-  goog.events.Event.call(
-      this, goog.net.BrowserChannel.Event.SERVER_REACHABILITY_EVENT, target);
+  Event.call(
+      this, BrowserChannel.Event.SERVER_REACHABILITY_EVENT, target);
 
   /**
-   * @type {goog.net.browserchannelinternal.ServerReachability}
-   */
+     * @type {ServerReachability}
+     */
   this.reachabilityType = reachabilityType;
 };
 goog.inherits(
-    goog.net.BrowserChannel.ServerReachabilityEvent, goog.events.Event);
+    BrowserChannel.ServerReachabilityEvent, Event);
 
 /**
  * A guess at a cutoff at which to no longer assume the backchannel is dead
@@ -705,16 +692,15 @@ goog.inherits(
  * 50kbits/sec * (1 byte / 8 bits) * 6 sec dead backchannel timeout
  * @type {number}
  */
-goog.net.BrowserChannel.OUTSTANDING_DATA_BACKCHANNEL_RETRY_CUTOFF = 37500;
+BrowserChannel.OUTSTANDING_DATA_BACKCHANNEL_RETRY_CUTOFF = 37500;
 
 
 /**
  * Returns the browserchannel logger.
  *
- * @return {!goog.net.ChannelDebug} The channel debug object.
+ * @return {!ChannelDebug} The channel debug object.
  */
-goog.net.BrowserChannel.prototype.getChannelDebug = function() {
-  'use strict';
+BrowserChannel.prototype.getChannelDebug = function() {
   return this.channelDebug_;
 };
 
@@ -723,10 +709,9 @@ goog.net.BrowserChannel.prototype.getChannelDebug = function() {
  * Set the browserchannel logger.
  * TODO(user): Add interface for channel loggers or remove this function.
  *
- * @param {goog.net.ChannelDebug} channelDebug The channel debug object.
+ * @param {ChannelDebug} channelDebug The channel debug object.
  */
-goog.net.BrowserChannel.prototype.setChannelDebug = function(channelDebug) {
-  'use strict';
+BrowserChannel.prototype.setChannelDebug = function(channelDebug) {
   if (channelDebug != null) {
     this.channelDebug_ = channelDebug;
   }
@@ -738,31 +723,31 @@ goog.net.BrowserChannel.prototype.setChannelDebug = function(channelDebug) {
  * instead.
  * @const
  */
-goog.net.BrowserChannel.Hooks = goog.net.browserchannelinternal.hooks;
+BrowserChannel.Hooks = hooks;
 
 /**
  * Alias setStartThreadExecutionHook from the internal Hooks module, as it was
  * previously available as a top-level export here.
  * @const
  */
-goog.net.BrowserChannel.setStartThreadExecutionHook =
-    goog.net.browserchannelinternal.hooks.setStartThreadExecutionHook;
+BrowserChannel.setStartThreadExecutionHook =
+    hooks.setStartThreadExecutionHook;
 
 /**
  * Alias setEndThreadExecutionHook from the internal Hooks module, as it was
  * previously available as a top-level export here.
  * @const
  */
-goog.net.BrowserChannel.setEndThreadExecutionHook =
-    goog.net.browserchannelinternal.hooks.setEndThreadExecutionHook;
+BrowserChannel.setEndThreadExecutionHook =
+    hooks.setEndThreadExecutionHook;
 
 /**
  * Alias createChannelRequest from the internal Hooks module, as it was
  * previously available as a top-level export here.
  * @const
  */
-goog.net.BrowserChannel.createChannelRequest =
-    goog.net.ChannelRequest.createChannelRequest;
+BrowserChannel.createChannelRequest =
+    ChannelRequest.createChannelRequest;
 
 /**
  * Starts the channel. This initiates connections to the server.
@@ -774,13 +759,12 @@ goog.net.BrowserChannel.createChannelRequest =
  * @param {string=} opt_oldSessionId  Session ID from a previous session.
  * @param {number=} opt_oldArrayId  The last array ID from a previous session.
  */
-goog.net.BrowserChannel.prototype.connect = function(
+BrowserChannel.prototype.connect = function(
     testPath, channelPath, opt_extraParams, opt_oldSessionId, opt_oldArrayId) {
-  'use strict';
   this.channelDebug_.debug('connect()');
 
-  goog.net.browserchannelinternal.stats.notifyStatEvent(
-      goog.net.browserchannelinternal.stats.Stat.CONNECT_ATTEMPT);
+  stats.notifyStatEvent(
+      stats.Stat.CONNECT_ATTEMPT);
 
   this.path_ = channelPath;
   this.extraParams_ = opt_extraParams || {};
@@ -792,7 +776,7 @@ goog.net.BrowserChannel.prototype.connect = function(
   }
 
   if (this.asyncTest_) {
-    goog.net.browserchannelinternal.hooks.setTimeout(
+    hooks.setTimeout(
         goog.bind(this.connectTest_, this, testPath), 100);
     this.connectChannel_();
   } else {
@@ -805,13 +789,12 @@ goog.net.BrowserChannel.prototype.connect = function(
  * Disconnects and closes the channel.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.net.BrowserChannel.prototype.disconnect = function() {
-  'use strict';
+BrowserChannel.prototype.disconnect = function() {
   this.channelDebug_.debug('disconnect()');
 
   this.cancelRequests_();
 
-  if (this.state_ == goog.net.BrowserChannel.State.OPENED) {
+  if (this.state_ == BrowserChannel.State.OPENED) {
     const rid = this.nextRid_++;
     const uri = this.forwardChannelUri_.clone();
     uri.setParameterValue('SID', this.sid_);
@@ -822,7 +805,7 @@ goog.net.BrowserChannel.prototype.disconnect = function() {
     this.addAdditionalParams_(uri);
 
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-    const request = goog.net.ChannelRequest.createChannelRequest(
+    const request = ChannelRequest.createChannelRequest(
         this, this.channelDebug_, this.sid_, rid);
     request.sendUsingImgTag(uri);
   }
@@ -837,8 +820,7 @@ goog.net.BrowserChannel.prototype.disconnect = function() {
  * @return {string} Session ID.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.net.BrowserChannel.prototype.getSessionId = function() {
-  'use strict';
+BrowserChannel.prototype.getSessionId = function() {
   return this.sid_;
 };
 
@@ -849,14 +831,13 @@ goog.net.BrowserChannel.prototype.getSessionId = function() {
  * @param {string} testPath  The relative PATH for the test connection.
  * @private
  */
-goog.net.BrowserChannel.prototype.connectTest_ = function(testPath) {
-  'use strict';
+BrowserChannel.prototype.connectTest_ = function(testPath) {
   this.channelDebug_.debug('connectTest_()');
   if (!this.okToMakeRequest_()) {
     return;  // channel is cancelled
   }
   this.connectionTest_ =
-      new goog.net.BrowserTestChannel(this, this.channelDebug_);
+      new BrowserTestChannel(this, this.channelDebug_);
   this.connectionTest_.setExtraHeaders(this.extraHeaders_);
   this.connectionTest_.setParser(this.parser_);
   this.connectionTest_.connect(testPath);
@@ -867,11 +848,10 @@ goog.net.BrowserChannel.prototype.connectTest_ = function(testPath) {
  * Starts the regular channel which is run after the test channel is complete.
  * @private
  */
-goog.net.BrowserChannel.prototype.connectChannel_ = function() {
-  'use strict';
+BrowserChannel.prototype.connectChannel_ = function() {
   this.channelDebug_.debug('connectChannel_()');
   this.ensureInState_(
-      goog.net.BrowserChannel.State.INIT, goog.net.BrowserChannel.State.CLOSED);
+      BrowserChannel.State.INIT, BrowserChannel.State.CLOSED);
   this.forwardChannelUri_ =
       this.getForwardChannelUri(/** @type {string} */ (this.path_));
   this.ensureForwardChannel_();
@@ -882,8 +862,7 @@ goog.net.BrowserChannel.prototype.connectChannel_ = function() {
  * Cancels all outstanding requests.
  * @private
  */
-goog.net.BrowserChannel.prototype.cancelRequests_ = function() {
-  'use strict';
+BrowserChannel.prototype.cancelRequests_ = function() {
   if (this.connectionTest_) {
     this.connectionTest_.abort();
     this.connectionTest_ = null;
@@ -918,8 +897,7 @@ goog.net.BrowserChannel.prototype.cancelRequests_ = function() {
  *
  * @return {Object} The HTTP headers, or null.
  */
-goog.net.BrowserChannel.prototype.getExtraHeaders = function() {
-  'use strict';
+BrowserChannel.prototype.getExtraHeaders = function() {
   return this.extraHeaders_;
 };
 
@@ -929,8 +907,7 @@ goog.net.BrowserChannel.prototype.getExtraHeaders = function() {
  *
  * @param {Object} extraHeaders The HTTP headers, or null.
  */
-goog.net.BrowserChannel.prototype.setExtraHeaders = function(extraHeaders) {
-  'use strict';
+BrowserChannel.prototype.setExtraHeaders = function(extraHeaders) {
   this.extraHeaders_ = extraHeaders;
 };
 
@@ -941,9 +918,8 @@ goog.net.BrowserChannel.prototype.setExtraHeaders = function(extraHeaders) {
  * @param {number} throttle The throttle in ms.  A value of zero indicates
  *     no throttle.
  */
-goog.net.BrowserChannel.prototype.setReadyStateChangeThrottle = function(
+BrowserChannel.prototype.setReadyStateChangeThrottle = function(
     throttle) {
-  'use strict';
   this.readyStateChangeThrottleMs_ = throttle;
 };
 
@@ -958,12 +934,11 @@ goog.net.BrowserChannel.prototype.setReadyStateChangeThrottle = function(
  * CORS response headers as per:
  * https://developer.mozilla.org/en-US/docs/HTTP_access_control
  *
- * See {@link goog.net.XhrIo#setWithCredentials}.
+ * See {@link XhrIo#setWithCredentials}.
  * @param {boolean} supportCrossDomain Whether cross domain XHRs are supported.
  */
-goog.net.BrowserChannel.prototype.setSupportsCrossDomainXhrs = function(
+BrowserChannel.prototype.setSupportsCrossDomainXhrs = function(
     supportCrossDomain) {
-  'use strict';
   this.supportsCrossDomainXhrs_ = supportCrossDomain;
 };
 
@@ -971,20 +946,18 @@ goog.net.BrowserChannel.prototype.setSupportsCrossDomainXhrs = function(
 /**
  * Returns the handler used for channel callback events.
  *
- * @return {goog.net.BrowserChannel.Handler} The handler.
+ * @return {BrowserChannel.Handler} The handler.
  */
-goog.net.BrowserChannel.prototype.getHandler = function() {
-  'use strict';
+BrowserChannel.prototype.getHandler = function() {
   return this.handler_;
 };
 
 
 /**
  * Sets the handler used for channel callback events.
- * @param {goog.net.BrowserChannel.Handler} handler The handler to set.
+ * @param {BrowserChannel.Handler} handler The handler to set.
  */
-goog.net.BrowserChannel.prototype.setHandler = function(handler) {
-  'use strict';
+BrowserChannel.prototype.setHandler = function(handler) {
   this.handler_ = handler;
 };
 
@@ -994,8 +967,7 @@ goog.net.BrowserChannel.prototype.setHandler = function(handler) {
  * cases where this isn't allowed.
  * @return {boolean} Whether a host prefix is allowed.
  */
-goog.net.BrowserChannel.prototype.getAllowHostPrefix = function() {
-  'use strict';
+BrowserChannel.prototype.getAllowHostPrefix = function() {
   return this.allowHostPrefix_;
 };
 
@@ -1006,9 +978,8 @@ goog.net.BrowserChannel.prototype.getAllowHostPrefix = function() {
  * using a subdomain causes Apache to force the user to authenticate twice.
  * @param {boolean} allowHostPrefix Whether a host prefix is allowed.
  */
-goog.net.BrowserChannel.prototype.setAllowHostPrefix = function(
+BrowserChannel.prototype.setAllowHostPrefix = function(
     allowHostPrefix) {
-  'use strict';
   this.allowHostPrefix_ = allowHostPrefix;
 };
 
@@ -1016,20 +987,19 @@ goog.net.BrowserChannel.prototype.setAllowHostPrefix = function(
 /**
  * Returns whether the channel is buffered or not. This state is valid for
  * querying only after the test connection has completed. This may be
- * queried in the goog.net.BrowserChannel.okToMakeRequest() callback.
+ * queried in the BrowserChannel.okToMakeRequest() callback.
  * A channel may be buffered if the test connection determines that
  * a chunked response could not be sent down within a suitable time.
  * @return {boolean} Whether the channel is buffered.
  */
-goog.net.BrowserChannel.prototype.isBuffered = function() {
-  'use strict';
+BrowserChannel.prototype.isBuffered = function() {
   return !this.useChunked_;
 };
 
 
 /**
  * Sets whether the channel is buffered or not. This state is usually updated in
- * goog.net.BrowserChannel.testConnectionFinished, but can be set manually here.
+ * BrowserChannel.testConnectionFinished, but can be set manually here.
  * This updated status will be reflected in subsequent connections and requests
  * to the channel.
  * NOTE: This should ONLY be used by clients that are certain of their
@@ -1038,8 +1008,7 @@ goog.net.BrowserChannel.prototype.isBuffered = function() {
  * from the server.
  * @param {boolean} isBuffered Whether the channel is buffered.
  */
-goog.net.BrowserChannel.prototype.setIsBuffered = function(isBuffered) {
-  'use strict';
+BrowserChannel.prototype.setIsBuffered = function(isBuffered) {
   this.useChunked_ = !isBuffered;
   this.secondTestResults_ = isBuffered;
 };
@@ -1052,8 +1021,7 @@ goog.net.BrowserChannel.prototype.setIsBuffered = function(isBuffered) {
 
  * @return {boolean} Whether chunked mode is allowed.
  */
-goog.net.BrowserChannel.prototype.getAllowChunkedMode = function() {
-  'use strict';
+BrowserChannel.prototype.getAllowChunkedMode = function() {
   return this.allowChunkedMode_;
 };
 
@@ -1063,9 +1031,8 @@ goog.net.BrowserChannel.prototype.getAllowChunkedMode = function() {
  * useful for the application to have a way to disable chunked mode for a user.
  * @param {boolean} allowChunkedMode  Whether chunked mode is allowed.
  */
-goog.net.BrowserChannel.prototype.setAllowChunkedMode = function(
+BrowserChannel.prototype.setAllowChunkedMode = function(
     allowChunkedMode) {
-  'use strict';
   this.allowChunkedMode_ = allowChunkedMode;
 };
 
@@ -1079,27 +1046,26 @@ goog.net.BrowserChannel.prototype.setAllowChunkedMode = function(
  * @param {?Object=} opt_context The context associated with the map.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.net.BrowserChannel.prototype.sendMap = function(map, opt_context) {
-  'use strict';
-  if (this.state_ == goog.net.BrowserChannel.State.CLOSED) {
+BrowserChannel.prototype.sendMap = function(map, opt_context) {
+  if (this.state_ == BrowserChannel.State.CLOSED) {
     throw new Error('Invalid operation: sending map when state is closed');
   }
 
   // We can only send 1000 maps per POST, but typically we should never have
   // that much to send, so warn if we exceed that (we still send all the maps).
   if (this.outgoingMaps_.length ==
-      goog.net.BrowserChannel.MAX_MAPS_PER_REQUEST_) {
+      BrowserChannel.MAX_MAPS_PER_REQUEST_) {
     // severe() is temporary so that we get these uploaded and can figure out
     // what's causing them. Afterwards can change to warning().
     this.channelDebug_.severe(
-        'Already have ' + goog.net.BrowserChannel.MAX_MAPS_PER_REQUEST_ +
+        'Already have ' + BrowserChannel.MAX_MAPS_PER_REQUEST_ +
         ' queued maps upon queueing ' + this.parser_.stringify(map));
   }
 
-  this.outgoingMaps_.push(new goog.net.BrowserChannel.QueuedMap(
+  this.outgoingMaps_.push(new BrowserChannel.QueuedMap(
       this.nextMapId_++, map, opt_context));
-  if (this.state_ == goog.net.BrowserChannel.State.OPENING ||
-      this.state_ == goog.net.BrowserChannel.State.OPENED) {
+  if (this.state_ == BrowserChannel.State.OPENING ||
+      this.state_ == BrowserChannel.State.OPENED) {
     this.ensureForwardChannel_();
   }
 };
@@ -1111,8 +1077,7 @@ goog.net.BrowserChannel.prototype.sendMap = function(map, opt_context) {
  * there was already one network failure, the request will fail immediately.
  * @param {boolean} failFast  Whether or not to fail fast.
  */
-goog.net.BrowserChannel.prototype.setFailFast = function(failFast) {
-  'use strict';
+BrowserChannel.prototype.setFailFast = function(failFast) {
   this.failFast_ = failFast;
   this.channelDebug_.info('setFailFast: ' + failFast);
   if ((this.forwardChannelRequest_ || this.forwardChannelTimerId_) &&
@@ -1130,7 +1095,7 @@ goog.net.BrowserChannel.prototype.setFailFast = function(failFast) {
       this.forwardChannelTimerId_ = null;
       // The error code from the last failed request is gone, so just use a
       // generic one.
-      this.signalError_(goog.net.BrowserChannel.Error.REQUEST_FAILED);
+      this.signalError_(BrowserChannel.Error.REQUEST_FAILED);
     }
   }
 };
@@ -1140,8 +1105,7 @@ goog.net.BrowserChannel.prototype.setFailFast = function(failFast) {
  * @return {number} The max number of forward-channel retries, which will be 0
  * in fail-fast mode.
  */
-goog.net.BrowserChannel.prototype.getForwardChannelMaxRetries = function() {
-  'use strict';
+BrowserChannel.prototype.getForwardChannelMaxRetries = function() {
   return this.failFast_ ? 0 : this.forwardChannelMaxRetries_;
 };
 
@@ -1151,9 +1115,8 @@ goog.net.BrowserChannel.prototype.getForwardChannelMaxRetries = function() {
  * channel requests.
  * @param {number} retries The maximum number of attempts.
  */
-goog.net.BrowserChannel.prototype.setForwardChannelMaxRetries = function(
+BrowserChannel.prototype.setForwardChannelMaxRetries = function(
     retries) {
-  'use strict';
   this.forwardChannelMaxRetries_ = retries;
 };
 
@@ -1162,9 +1125,8 @@ goog.net.BrowserChannel.prototype.setForwardChannelMaxRetries = function(
  * Sets the timeout for a forward channel request.
  * @param {number} timeoutMs The timeout in milliseconds.
  */
-goog.net.BrowserChannel.prototype.setForwardChannelRequestTimeout = function(
+BrowserChannel.prototype.setForwardChannelRequestTimeout = function(
     timeoutMs) {
-  'use strict';
   this.forwardChannelRequestTimeoutMs_ = timeoutMs;
 };
 
@@ -1172,10 +1134,9 @@ goog.net.BrowserChannel.prototype.setForwardChannelRequestTimeout = function(
 /**
  * @return {number} The max number of back-channel retries, which is a constant.
  */
-goog.net.BrowserChannel.prototype.getBackChannelMaxRetries = function() {
-  'use strict';
+BrowserChannel.prototype.getBackChannelMaxRetries = function() {
   // Back-channel retries is a constant.
-  return goog.net.BrowserChannel.BACK_CHANNEL_MAX_RETRIES;
+  return BrowserChannel.BACK_CHANNEL_MAX_RETRIES;
 };
 
 
@@ -1183,19 +1144,17 @@ goog.net.BrowserChannel.prototype.getBackChannelMaxRetries = function() {
  * Returns whether the channel is closed
  * @return {boolean} true if the channel is closed.
  */
-goog.net.BrowserChannel.prototype.isClosed = function() {
-  'use strict';
-  return this.state_ == goog.net.BrowserChannel.State.CLOSED;
+BrowserChannel.prototype.isClosed = function() {
+  return this.state_ == BrowserChannel.State.CLOSED;
 };
 
 
 /**
  * Returns the browser channel state.
- * @return {goog.net.BrowserChannel.State} The current state of the browser
+ * @return {BrowserChannel.State} The current state of the browser
  * channel.
  */
-goog.net.BrowserChannel.prototype.getState = function() {
-  'use strict';
+BrowserChannel.prototype.getState = function() {
   return this.state_;
 };
 
@@ -1204,8 +1163,7 @@ goog.net.BrowserChannel.prototype.getState = function() {
  * Return the last status code received for a request.
  * @return {number} The last status code received for a request.
  */
-goog.net.BrowserChannel.prototype.getLastStatusCode = function() {
-  'use strict';
+BrowserChannel.prototype.getLastStatusCode = function() {
   return this.lastStatusCode_;
 };
 
@@ -1213,8 +1171,7 @@ goog.net.BrowserChannel.prototype.getLastStatusCode = function() {
 /**
  * @return {number} The last array id received.
  */
-goog.net.BrowserChannel.prototype.getLastArrayId = function() {
-  'use strict';
+BrowserChannel.prototype.getLastArrayId = function() {
   return this.lastArrayId_;
 };
 
@@ -1223,18 +1180,16 @@ goog.net.BrowserChannel.prototype.getLastArrayId = function() {
  * Returns whether there are outstanding requests servicing the channel.
  * @return {boolean} true if there are outstanding requests.
  */
-goog.net.BrowserChannel.prototype.hasOutstandingRequests = function() {
-  'use strict';
+BrowserChannel.prototype.hasOutstandingRequests = function() {
   return this.outstandingRequests_() != 0;
 };
 
 
 /**
  * Sets a new parser for the response payload.
- * @param {!goog.string.Parser} parser Parser.
+ * @param {!string.Parser} parser Parser.
  */
-goog.net.BrowserChannel.prototype.setParser = function(parser) {
-  'use strict';
+BrowserChannel.prototype.setParser = function(parser) {
   this.parser_ = parser;
 };
 
@@ -1244,8 +1199,7 @@ goog.net.BrowserChannel.prototype.setParser = function(parser) {
  * @return {number} The number of outstanding requests to the server.
  * @private
  */
-goog.net.BrowserChannel.prototype.outstandingRequests_ = function() {
-  'use strict';
+BrowserChannel.prototype.outstandingRequests_ = function() {
   let count = 0;
   if (this.backChannelRequest_) {
     count++;
@@ -1261,8 +1215,7 @@ goog.net.BrowserChannel.prototype.outstandingRequests_ = function() {
  * Ensures that a forward channel request is scheduled.
  * @private
  */
-goog.net.BrowserChannel.prototype.ensureForwardChannel_ = function() {
-  'use strict';
+BrowserChannel.prototype.ensureForwardChannel_ = function() {
   if (this.forwardChannelRequest_) {
     // connection in process - no need to start a new request
     return;
@@ -1274,7 +1227,7 @@ goog.net.BrowserChannel.prototype.ensureForwardChannel_ = function() {
   }
 
   this.forwardChannelTimerId_ =
-      goog.net.browserchannelinternal.hooks.setTimeout(
+      hooks.setTimeout(
           goog.bind(this.onStartForwardChannelTimer_, this), 0);
   this.forwardChannelRetryCount_ = 0;
 };
@@ -1283,20 +1236,19 @@ goog.net.BrowserChannel.prototype.ensureForwardChannel_ = function() {
 /**
  * Schedules a forward-channel retry for the specified request, unless the max
  * retries has been reached.
- * @param {goog.net.ChannelRequest} request The failed request to retry.
+ * @param {ChannelRequest} request The failed request to retry.
  * @return {boolean} true iff a retry was scheduled.
  * @private
  */
-goog.net.BrowserChannel.prototype.maybeRetryForwardChannel_ = function(
+BrowserChannel.prototype.maybeRetryForwardChannel_ = function(
     request) {
-  'use strict';
   if (this.forwardChannelRequest_ || this.forwardChannelTimerId_) {
     // Should be impossible to be called in this state.
     this.channelDebug_.severe('Request already in progress');
     return false;
   }
 
-  if (this.state_ == goog.net.BrowserChannel.State.INIT ||  // no retry open_()
+  if (this.state_ == BrowserChannel.State.INIT ||  // no retry open_()
       (this.forwardChannelRetryCount_ >= this.getForwardChannelMaxRetries())) {
     return false;
   }
@@ -1304,7 +1256,7 @@ goog.net.BrowserChannel.prototype.maybeRetryForwardChannel_ = function(
   this.channelDebug_.debug('Going to retry POST');
 
   this.forwardChannelTimerId_ =
-      goog.net.browserchannelinternal.hooks.setTimeout(
+      hooks.setTimeout(
           goog.bind(this.onStartForwardChannelTimer_, this, request),
           this.getRetryTime_(this.forwardChannelRetryCount_));
   this.forwardChannelRetryCount_++;
@@ -1314,12 +1266,11 @@ goog.net.BrowserChannel.prototype.maybeRetryForwardChannel_ = function(
 
 /**
  * Timer callback for ensureForwardChannel
- * @param {goog.net.ChannelRequest=} opt_retryRequest A failed request to retry.
+ * @param {ChannelRequest=} opt_retryRequest A failed request to retry.
  * @private
  */
-goog.net.BrowserChannel.prototype.onStartForwardChannelTimer_ = function(
+BrowserChannel.prototype.onStartForwardChannelTimer_ = function(
     opt_retryRequest) {
-  'use strict';
   this.forwardChannelTimerId_ = null;
   this.startForwardChannel_(opt_retryRequest);
 };
@@ -1327,23 +1278,22 @@ goog.net.BrowserChannel.prototype.onStartForwardChannelTimer_ = function(
 
 /**
  * Begins a new forward channel operation to the server.
- * @param {goog.net.ChannelRequest=} opt_retryRequest A failed request to retry.
+ * @param {ChannelRequest=} opt_retryRequest A failed request to retry.
  * @private
  */
-goog.net.BrowserChannel.prototype.startForwardChannel_ = function(
+BrowserChannel.prototype.startForwardChannel_ = function(
     opt_retryRequest) {
-  'use strict';
   this.channelDebug_.debug('startForwardChannel_');
   if (!this.okToMakeRequest_()) {
     return;  // channel is cancelled
-  } else if (this.state_ == goog.net.BrowserChannel.State.INIT) {
+  } else if (this.state_ == BrowserChannel.State.INIT) {
     if (opt_retryRequest) {
       this.channelDebug_.severe('Not supposed to retry the open');
       return;
     }
     this.open_();
-    this.state_ = goog.net.BrowserChannel.State.OPENING;
-  } else if (this.state_ == goog.net.BrowserChannel.State.OPENED) {
+    this.state_ = BrowserChannel.State.OPENING;
+  } else if (this.state_ == BrowserChannel.State.OPENED) {
     if (opt_retryRequest) {
       this.makeForwardChannelRequest_(opt_retryRequest);
       return;
@@ -1375,13 +1325,12 @@ goog.net.BrowserChannel.prototype.startForwardChannel_ = function(
  * Establishes a new channel session with the server.
  * @private
  */
-goog.net.BrowserChannel.prototype.open_ = function() {
-  'use strict';
+BrowserChannel.prototype.open_ = function() {
   this.channelDebug_.debug('open_()');
   this.nextRid_ = Math.floor(Math.random() * 100000);
 
   const rid = this.nextRid_++;
-  const request = goog.net.ChannelRequest.createChannelRequest(
+  const request = ChannelRequest.createChannelRequest(
       this, this.channelDebug_, '', rid);
   request.setExtraHeaders(this.extraHeaders_);
   const requestText = this.dequeueOutgoingMaps_();
@@ -1401,13 +1350,12 @@ goog.net.BrowserChannel.prototype.open_ = function() {
 
 /**
  * Makes a forward channel request using XMLHTTP.
- * @param {goog.net.ChannelRequest=} opt_retryRequest A failed request to retry.
+ * @param {ChannelRequest=} opt_retryRequest A failed request to retry.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.net.BrowserChannel.prototype.makeForwardChannelRequest_ = function(
+BrowserChannel.prototype.makeForwardChannelRequest_ = function(
     opt_retryRequest) {
-  'use strict';
   let rid;
   let requestText;
   if (opt_retryRequest) {
@@ -1435,7 +1383,7 @@ goog.net.BrowserChannel.prototype.makeForwardChannelRequest_ = function(
   this.addAdditionalParams_(uri);
 
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  const request = goog.net.ChannelRequest.createChannelRequest(
+  const request = ChannelRequest.createChannelRequest(
       this, this.channelDebug_, this.sid_, rid,
       this.forwardChannelRetryCount_ + 1);
   request.setExtraHeaders(this.extraHeaders_);
@@ -1452,17 +1400,15 @@ goog.net.BrowserChannel.prototype.makeForwardChannelRequest_ = function(
 
 /**
  * Adds the additional parameters from the handler to the given URI.
- * @param {goog.Uri} uri The URI to add the parameters to.
+ * @param {Uri} uri The URI to add the parameters to.
  * @private
  */
-goog.net.BrowserChannel.prototype.addAdditionalParams_ = function(uri) {
-  'use strict';
+BrowserChannel.prototype.addAdditionalParams_ = function(uri) {
   // Add the additional reconnect parameters as needed.
   if (this.handler_) {
     const params = this.handler_.getAdditionalParams(this);
     if (params) {
-      goog.object.forEach(params, function(value, key) {
-        'use strict';
+      object.forEach(params, function(value, key) {
         uri.setParameterValue(key, value);
       });
     }
@@ -1476,10 +1422,9 @@ goog.net.BrowserChannel.prototype.addAdditionalParams_ = function(uri) {
  *                  queued outgoing maps.
  * @private
  */
-goog.net.BrowserChannel.prototype.dequeueOutgoingMaps_ = function() {
-  'use strict';
+BrowserChannel.prototype.dequeueOutgoingMaps_ = function() {
   const count = Math.min(
-      this.outgoingMaps_.length, goog.net.BrowserChannel.MAX_MAPS_PER_REQUEST_);
+      this.outgoingMaps_.length, BrowserChannel.MAX_MAPS_PER_REQUEST_);
   const sb = ['count=' + count];
   let offset;
   if (this.channelVersion_ > 6 && count > 0) {
@@ -1500,8 +1445,7 @@ goog.net.BrowserChannel.prototype.dequeueOutgoingMaps_ = function() {
       mapId -= offset;
     }
     try {
-      goog.object.forEach(map, function(value, key, coll) {
-        'use strict';
+      object.forEach(map, function(value, key, coll) {
         sb.push('req' + mapId + '_' + key + '=' + encodeURIComponent(value));
       });
     } catch (ex) {
@@ -1527,8 +1471,7 @@ goog.net.BrowserChannel.prototype.dequeueOutgoingMaps_ = function() {
  * channel request.
  * @private
  */
-goog.net.BrowserChannel.prototype.requeuePendingMaps_ = function() {
-  'use strict';
+BrowserChannel.prototype.requeuePendingMaps_ = function() {
   this.outgoingMaps_ = this.pendingMaps_.concat(this.outgoingMaps_);
   this.pendingMaps_.length = 0;
 };
@@ -1538,8 +1481,7 @@ goog.net.BrowserChannel.prototype.requeuePendingMaps_ = function() {
  * Ensures there is a backchannel request for receiving data from the server.
  * @private
  */
-goog.net.BrowserChannel.prototype.ensureBackChannel_ = function() {
-  'use strict';
+BrowserChannel.prototype.ensureBackChannel_ = function() {
   if (this.backChannelRequest_) {
     // already have one
     return;
@@ -1551,7 +1493,7 @@ goog.net.BrowserChannel.prototype.ensureBackChannel_ = function() {
   }
 
   this.backChannelAttemptId_ = 1;
-  this.backChannelTimerId_ = goog.net.browserchannelinternal.hooks.setTimeout(
+  this.backChannelTimerId_ = hooks.setTimeout(
       goog.bind(this.onStartBackChannelTimer_, this), 0);
   this.backChannelRetryCount_ = 0;
 };
@@ -1562,8 +1504,7 @@ goog.net.BrowserChannel.prototype.ensureBackChannel_ = function() {
  * @return {boolean} true iff a retry was scheduled.
  * @private
  */
-goog.net.BrowserChannel.prototype.maybeRetryBackChannel_ = function() {
-  'use strict';
+BrowserChannel.prototype.maybeRetryBackChannel_ = function() {
   if (this.backChannelRequest_ || this.backChannelTimerId_) {
     // Should be impossible to be called in this state.
     this.channelDebug_.severe('Request already in progress');
@@ -1577,7 +1518,7 @@ goog.net.BrowserChannel.prototype.maybeRetryBackChannel_ = function() {
   this.channelDebug_.debug('Going to retry GET');
 
   this.backChannelAttemptId_++;
-  this.backChannelTimerId_ = goog.net.browserchannelinternal.hooks.setTimeout(
+  this.backChannelTimerId_ = hooks.setTimeout(
       goog.bind(this.onStartBackChannelTimer_, this),
       this.getRetryTime_(this.backChannelRetryCount_));
   this.backChannelRetryCount_++;
@@ -1589,8 +1530,7 @@ goog.net.BrowserChannel.prototype.maybeRetryBackChannel_ = function() {
  * Timer callback for ensureBackChannel_.
  * @private
  */
-goog.net.BrowserChannel.prototype.onStartBackChannelTimer_ = function() {
-  'use strict';
+BrowserChannel.prototype.onStartBackChannelTimer_ = function() {
   this.backChannelTimerId_ = null;
   this.startBackChannel_();
 };
@@ -1601,8 +1541,7 @@ goog.net.BrowserChannel.prototype.onStartBackChannelTimer_ = function() {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.net.BrowserChannel.prototype.startBackChannel_ = function() {
-  'use strict';
+BrowserChannel.prototype.startBackChannel_ = function() {
   if (!this.okToMakeRequest_()) {
     // channel is cancelled
     return;
@@ -1610,7 +1549,7 @@ goog.net.BrowserChannel.prototype.startBackChannel_ = function() {
 
   this.channelDebug_.debug('Creating new HttpRequest');
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.backChannelRequest_ = goog.net.ChannelRequest.createChannelRequest(
+  this.backChannelRequest_ = ChannelRequest.createChannelRequest(
       this, this.channelDebug_, this.sid_, 'rpc', this.backChannelAttemptId_);
   this.backChannelRequest_.setExtraHeaders(this.extraHeaders_);
   this.backChannelRequest_.setReadyStateChangeThrottle(
@@ -1624,7 +1563,7 @@ goog.net.BrowserChannel.prototype.startBackChannel_ = function() {
   // Add the reconnect parameters.
   this.addAdditionalParams_(uri);
 
-  if (!goog.net.ChannelRequest.supportsXhrStreaming()) {
+  if (!ChannelRequest.supportsXhrStreaming()) {
     uri.setParameterValue('TYPE', 'html');
     this.backChannelRequest_.tridentGet(uri, Boolean(this.hostPrefix_));
   } else {
@@ -1644,11 +1583,10 @@ goog.net.BrowserChannel.prototype.startBackChannel_ = function() {
  * @private
  * @return {boolean} If it's OK to make a request.
  */
-goog.net.BrowserChannel.prototype.okToMakeRequest_ = function() {
-  'use strict';
+BrowserChannel.prototype.okToMakeRequest_ = function() {
   if (this.handler_) {
     const result = this.handler_.okToMakeRequest(this);
-    if (result != goog.net.BrowserChannel.Error.OK) {
+    if (result != BrowserChannel.Error.OK) {
       this.channelDebug_.debug(
           'Handler returned error code from ' +
           'okToMakeRequest');
@@ -1662,12 +1600,11 @@ goog.net.BrowserChannel.prototype.okToMakeRequest_ = function() {
 
 /**
  * Callback from BrowserTestChannel for when the channel is finished.
- * @param {goog.net.BrowserTestChannel} testChannel The BrowserTestChannel.
+ * @param {BrowserTestChannel} testChannel The BrowserTestChannel.
  * @param {boolean} useChunked  Whether we can chunk responses.
  */
-goog.net.BrowserChannel.prototype.testConnectionFinished = function(
+BrowserChannel.prototype.testConnectionFinished = function(
     testChannel, useChunked) {
-  'use strict';
   this.channelDebug_.debug('Test Connection Finished');
 
   // Use the results of the second phase of the test channel if user decided to
@@ -1688,41 +1625,38 @@ goog.net.BrowserChannel.prototype.testConnectionFinished = function(
 
 /**
  * Callback from BrowserTestChannel for when the channel has an error.
- * @param {goog.net.BrowserTestChannel} testChannel The BrowserTestChannel.
- * @param {goog.net.ChannelRequest.Error} errorCode  The error code of the
+ * @param {BrowserTestChannel} testChannel The BrowserTestChannel.
+ * @param {ChannelRequest.Error} errorCode  The error code of the
        failure.
  */
-goog.net.BrowserChannel.prototype.testConnectionFailure = function(
+BrowserChannel.prototype.testConnectionFailure = function(
     testChannel, errorCode) {
-  'use strict';
   this.channelDebug_.debug('Test Connection Failed');
   this.lastStatusCode_ = testChannel.getLastStatusCode();
-  this.signalError_(goog.net.BrowserChannel.Error.REQUEST_FAILED);
+  this.signalError_(BrowserChannel.Error.REQUEST_FAILED);
 };
 
 
 /**
  * Callback from BrowserTestChannel for when the channel is blocked.
- * @param {goog.net.BrowserTestChannel} testChannel The BrowserTestChannel.
+ * @param {BrowserTestChannel} testChannel The BrowserTestChannel.
  */
-goog.net.BrowserChannel.prototype.testConnectionBlocked = function(
+BrowserChannel.prototype.testConnectionBlocked = function(
     testChannel) {
-  'use strict';
   this.channelDebug_.debug('Test Connection Blocked');
   this.lastStatusCode_ = this.connectionTest_.getLastStatusCode();
-  this.signalError_(goog.net.BrowserChannel.Error.BLOCKED);
+  this.signalError_(BrowserChannel.Error.BLOCKED);
 };
 
 
 /**
  * Callback from ChannelRequest for when new data is received
- * @param {goog.net.ChannelRequest} request  The request object.
+ * @param {ChannelRequest} request  The request object.
  * @param {string} responseText The text of the response.
  */
-goog.net.BrowserChannel.prototype.onRequestData = function(
+BrowserChannel.prototype.onRequestData = function(
     request, responseText) {
-  'use strict';
-  if (this.state_ == goog.net.BrowserChannel.State.CLOSED ||
+  if (this.state_ == BrowserChannel.State.CLOSED ||
       (this.backChannelRequest_ != request &&
        this.forwardChannelRequest_ != request)) {
     // either CLOSED or a request we don't know about (perhaps an old request)
@@ -1731,7 +1665,7 @@ goog.net.BrowserChannel.prototype.onRequestData = function(
   this.lastStatusCode_ = request.getLastStatusCode();
 
   if (this.forwardChannelRequest_ == request &&
-      this.state_ == goog.net.BrowserChannel.State.OPENED) {
+      this.state_ == BrowserChannel.State.OPENED) {
     if (this.channelVersion_ > 7) {
       let response;
       try {
@@ -1743,21 +1677,21 @@ goog.net.BrowserChannel.prototype.onRequestData = function(
         this.handlePostResponse_(response);
       } else {
         this.channelDebug_.debug('Bad POST response data returned');
-        this.signalError_(goog.net.BrowserChannel.Error.BAD_RESPONSE);
+        this.signalError_(BrowserChannel.Error.BAD_RESPONSE);
       }
-    } else if (responseText != goog.net.ChannelDebug.MAGIC_RESPONSE_COOKIE) {
+    } else if (responseText != ChannelDebug.MAGIC_RESPONSE_COOKIE) {
       this.channelDebug_.debug(
           'Bad data returned - missing/invald ' +
           'magic cookie');
-      this.signalError_(goog.net.BrowserChannel.Error.BAD_RESPONSE);
+      this.signalError_(BrowserChannel.Error.BAD_RESPONSE);
     }
   } else {
     if (this.backChannelRequest_ == request) {
       this.clearDeadBackchannelTimer_();
     }
-    if (!goog.string.isEmptyOrWhitespace(responseText)) {
+    if (!string.isEmptyOrWhitespace(responseText)) {
       const response = this.parser_.parse(responseText);
-      goog.asserts.assert(Array.isArray(response));
+      asserts.assert(Array.isArray(response));
       this.onInput_(/** @type {!Array<?>} */ (response));
     }
   }
@@ -1770,9 +1704,8 @@ goog.net.BrowserChannel.prototype.onRequestData = function(
  *     response.
  * @private
  */
-goog.net.BrowserChannel.prototype.handlePostResponse_ = function(
+BrowserChannel.prototype.handlePostResponse_ = function(
     responseValues) {
-  'use strict';
   // The first response value is set to 0 if server is missing backchannel.
   if (responseValues[0] == 0) {
     this.handleBackchannelMissing_();
@@ -1791,9 +1724,9 @@ goog.net.BrowserChannel.prototype.handlePostResponse_ = function(
     if (!this.deadBackChannelTimerId_) {
       // We expect to receive data within 2 RTTs or we retry the backchannel.
       this.deadBackChannelTimerId_ =
-          goog.net.browserchannelinternal.hooks.setTimeout(
+          hooks.setTimeout(
               goog.bind(this.onBackChannelDead_, this),
-              2 * goog.net.BrowserChannel.RTT_ESTIMATE);
+              2 * BrowserChannel.RTT_ESTIMATE);
     }
   }
 };
@@ -1805,8 +1738,7 @@ goog.net.BrowserChannel.prototype.handlePostResponse_ = function(
  * @private
  * @suppress {strictPrimitiveOperators}
  */
-goog.net.BrowserChannel.prototype.handleBackchannelMissing_ = function() {
-  'use strict';
+BrowserChannel.prototype.handleBackchannelMissing_ = function() {
   // As long as the back channel was started before the POST was sent,
   // we should retry the backchannel. We give a slight buffer of RTT_ESTIMATE
   // so as not to excessively retry the backchannel
@@ -1818,7 +1750,7 @@ goog.net.BrowserChannel.prototype.handleBackchannelMissing_ = function() {
     this.channelDebug_.warning('We do not have a BackChannel established');
   } else if (
       this.backChannelRequest_.getRequestStartTime() +
-          goog.net.BrowserChannel.RTT_ESTIMATE <
+          BrowserChannel.RTT_ESTIMATE <
       this.forwardChannelRequest_.getRequestStartTime()) {
     this.clearDeadBackchannelTimer_();
     this.backChannelRequest_.cancel();
@@ -1827,8 +1759,8 @@ goog.net.BrowserChannel.prototype.handleBackchannelMissing_ = function() {
     return;
   }
   this.maybeRetryBackChannel_();
-  goog.net.browserchannelinternal.stats.notifyStatEvent(
-      goog.net.browserchannelinternal.stats.Stat.BACKCHANNEL_MISSING);
+  stats.notifyStatEvent(
+      stats.Stat.BACKCHANNEL_MISSING);
 };
 
 
@@ -1840,12 +1772,11 @@ goog.net.BrowserChannel.prototype.handleBackchannelMissing_ = function() {
  * @return {boolean} Whether to start the backchannel retry timer.
  * @private
  */
-goog.net.BrowserChannel.prototype.shouldRetryBackChannel_ = function(
+BrowserChannel.prototype.shouldRetryBackChannel_ = function(
     outstandingBytes) {
-  'use strict';
   // Not too many outstanding bytes, not buffered and not after a retry.
   return outstandingBytes <
-      goog.net.BrowserChannel.OUTSTANDING_DATA_BACKCHANNEL_RETRY_CUTOFF &&
+      BrowserChannel.OUTSTANDING_DATA_BACKCHANNEL_RETRY_CUTOFF &&
       !this.isBuffered() && this.backChannelRetryCount_ == 0;
 };
 
@@ -1858,9 +1789,8 @@ goog.net.BrowserChannel.prototype.shouldRetryBackChannel_ = function(
  * @return {?string} The host prefix to actually use, if any. Will return null
  *     if the use of host prefixes was disabled via setAllowHostPrefix().
  */
-goog.net.BrowserChannel.prototype.correctHostPrefix = function(
+BrowserChannel.prototype.correctHostPrefix = function(
     serverHostPrefix) {
-  'use strict';
   if (this.allowHostPrefix_) {
     if (this.handler_) {
       return this.handler_.correctHostPrefix(serverHostPrefix);
@@ -1876,15 +1806,14 @@ goog.net.BrowserChannel.prototype.correctHostPrefix = function(
  * successfully receive data from the server.
  * @private
  */
-goog.net.BrowserChannel.prototype.onBackChannelDead_ = function() {
-  'use strict';
+BrowserChannel.prototype.onBackChannelDead_ = function() {
   if (this.deadBackChannelTimerId_ != null) {
     this.deadBackChannelTimerId_ = null;
     this.backChannelRequest_.cancel();
     this.backChannelRequest_ = null;
     this.maybeRetryBackChannel_();
-    goog.net.browserchannelinternal.stats.notifyStatEvent(
-        goog.net.browserchannelinternal.stats.Stat.BACKCHANNEL_DEAD);
+    stats.notifyStatEvent(
+        stats.Stat.BACKCHANNEL_DEAD);
   }
 };
 
@@ -1894,8 +1823,7 @@ goog.net.BrowserChannel.prototype.onBackChannelDead_ = function() {
  * successfully receive data from the server.
  * @private
  */
-goog.net.BrowserChannel.prototype.clearDeadBackchannelTimer_ = function() {
-  'use strict';
+BrowserChannel.prototype.clearDeadBackchannelTimer_ = function() {
   if (this.deadBackChannelTimerId_ != null) {
     goog.global.clearTimeout(this.deadBackChannelTimerId_);
     this.deadBackChannelTimerId_ = null;
@@ -1907,36 +1835,34 @@ goog.net.BrowserChannel.prototype.clearDeadBackchannelTimer_ = function() {
  * Returns whether or not the given error/status combination is fatal or not.
  * On fatal errors we immediately close the session rather than retrying the
  * failed request.
- * @param {goog.net.ChannelRequest.Error?} error The error code for the failed
+ * @param {ChannelRequest.Error?} error The error code for the failed
  * request.
  * @param {number} statusCode The last HTTP status code.
  * @return {boolean} Whether or not the error is fatal.
  * @private
  */
-goog.net.BrowserChannel.isFatalError_ = function(error, statusCode) {
-  'use strict';
-  return error == goog.net.ChannelRequest.Error.UNKNOWN_SESSION_ID ||
-      error == goog.net.ChannelRequest.Error.ACTIVE_X_BLOCKED ||
-      (error == goog.net.ChannelRequest.Error.STATUS && statusCode > 0);
+BrowserChannel.isFatalError_ = function(error, statusCode) {
+  return error == ChannelRequest.Error.UNKNOWN_SESSION_ID ||
+      error == ChannelRequest.Error.ACTIVE_X_BLOCKED ||
+      (error == ChannelRequest.Error.STATUS && statusCode > 0);
 };
 
 
 /**
  * Callback from ChannelRequest that indicates a request has completed.
- * @param {goog.net.ChannelRequest} request  The request object.
+ * @param {ChannelRequest} request  The request object.
  * @suppress {strictPrimitiveOperators}
  */
-goog.net.BrowserChannel.prototype.onRequestComplete = function(request) {
-  'use strict';
+BrowserChannel.prototype.onRequestComplete = function(request) {
   this.channelDebug_.debug('Request complete');
   let type;
   if (this.backChannelRequest_ == request) {
     this.clearDeadBackchannelTimer_();
     this.backChannelRequest_ = null;
-    type = goog.net.BrowserChannel.ChannelType_.BACK_CHANNEL;
+    type = BrowserChannel.ChannelType_.BACK_CHANNEL;
   } else if (this.forwardChannelRequest_ == request) {
     this.forwardChannelRequest_ = null;
-    type = goog.net.BrowserChannel.ChannelType_.FORWARD_CHANNEL;
+    type = BrowserChannel.ChannelType_.FORWARD_CHANNEL;
   } else {
     // return if it was an old request from a previous session
     return;
@@ -1944,15 +1870,15 @@ goog.net.BrowserChannel.prototype.onRequestComplete = function(request) {
 
   this.lastStatusCode_ = request.getLastStatusCode();
 
-  if (this.state_ == goog.net.BrowserChannel.State.CLOSED) {
+  if (this.state_ == BrowserChannel.State.CLOSED) {
     return;
   }
 
   if (request.getSuccess()) {
     // Yay!
-    if (type == goog.net.BrowserChannel.ChannelType_.FORWARD_CHANNEL) {
+    if (type == BrowserChannel.ChannelType_.FORWARD_CHANNEL) {
       const size = request.getPostData() ? request.getPostData().length : 0;
-      goog.net.BrowserChannel.notifyTimingEvent(
+      BrowserChannel.notifyTimingEvent(
           size, Date.now() - request.getRequestStartTime(),
           this.forwardChannelRetryCount_);
       this.ensureForwardChannel_();
@@ -1966,19 +1892,19 @@ goog.net.BrowserChannel.prototype.onRequestComplete = function(request) {
   // Else unsuccessful. Fall through.
 
   const lastError = request.getLastError();
-  if (!goog.net.BrowserChannel.isFatalError_(lastError, this.lastStatusCode_)) {
+  if (!BrowserChannel.isFatalError_(lastError, this.lastStatusCode_)) {
     // Maybe retry.
     this.channelDebug_.debug(
         'Maybe retrying, last error: ' +
-        goog.net.ChannelRequest.errorStringFromCode(
-            /** @type {goog.net.ChannelRequest.Error} */ (lastError),
+        ChannelRequest.errorStringFromCode(
+            /** @type {ChannelRequest.Error} */ (lastError),
             this.lastStatusCode_));
-    if (type == goog.net.BrowserChannel.ChannelType_.FORWARD_CHANNEL) {
+    if (type == BrowserChannel.ChannelType_.FORWARD_CHANNEL) {
       if (this.maybeRetryForwardChannel_(request)) {
         return;
       }
     }
-    if (type == goog.net.BrowserChannel.ChannelType_.BACK_CHANNEL) {
+    if (type == BrowserChannel.ChannelType_.BACK_CHANNEL) {
       if (this.maybeRetryBackChannel_()) {
         return;
       }
@@ -1994,20 +1920,20 @@ goog.net.BrowserChannel.prototype.onRequestComplete = function(request) {
   // Can't save this session. :(
   this.channelDebug_.debug('Error: HTTP request failed');
   switch (lastError) {
-    case goog.net.ChannelRequest.Error.NO_DATA:
-      this.signalError_(goog.net.BrowserChannel.Error.NO_DATA);
+    case ChannelRequest.Error.NO_DATA:
+      this.signalError_(BrowserChannel.Error.NO_DATA);
       break;
-    case goog.net.ChannelRequest.Error.BAD_DATA:
-      this.signalError_(goog.net.BrowserChannel.Error.BAD_DATA);
+    case ChannelRequest.Error.BAD_DATA:
+      this.signalError_(BrowserChannel.Error.BAD_DATA);
       break;
-    case goog.net.ChannelRequest.Error.UNKNOWN_SESSION_ID:
-      this.signalError_(goog.net.BrowserChannel.Error.UNKNOWN_SESSION_ID);
+    case ChannelRequest.Error.UNKNOWN_SESSION_ID:
+      this.signalError_(BrowserChannel.Error.UNKNOWN_SESSION_ID);
       break;
-    case goog.net.ChannelRequest.Error.ACTIVE_X_BLOCKED:
-      this.signalError_(goog.net.BrowserChannel.Error.ACTIVE_X_BLOCKED);
+    case ChannelRequest.Error.ACTIVE_X_BLOCKED:
+      this.signalError_(BrowserChannel.Error.ACTIVE_X_BLOCKED);
       break;
     default:
-      this.signalError_(goog.net.BrowserChannel.Error.REQUEST_FAILED);
+      this.signalError_(BrowserChannel.Error.REQUEST_FAILED);
       break;
   }
 };
@@ -2018,14 +1944,13 @@ goog.net.BrowserChannel.prototype.onRequestComplete = function(request) {
  * @return {number} Time in ms before firing next retry request.
  * @private
  */
-goog.net.BrowserChannel.prototype.getRetryTime_ = function(retryCount) {
-  'use strict';
+BrowserChannel.prototype.getRetryTime_ = function(retryCount) {
   let retryTime = this.baseRetryDelayMs_ +
       Math.floor(Math.random() * this.retryDelaySeedMs_);
   if (!this.isActive()) {
     this.channelDebug_.debug('Inactive channel');
     retryTime =
-        retryTime * goog.net.BrowserChannel.INACTIVE_CHANNEL_RETRY_FACTOR;
+        retryTime * BrowserChannel.INACTIVE_CHANNEL_RETRY_FACTOR;
   }
   // Backoff for subsequent retries
   retryTime = retryTime * retryCount;
@@ -2038,9 +1963,8 @@ goog.net.BrowserChannel.prototype.getRetryTime_ = function(retryCount) {
  * @param {number} delaySeedMs A random delay between 0 and this is added to
  *     the base part.
  */
-goog.net.BrowserChannel.prototype.setRetryDelay = function(
+BrowserChannel.prototype.setRetryDelay = function(
     baseDelayMs, delaySeedMs) {
-  'use strict';
   this.baseRetryDelayMs_ = baseDelayMs;
   this.retryDelaySeedMs_ = delaySeedMs;
 };
@@ -2052,15 +1976,14 @@ goog.net.BrowserChannel.prototype.setRetryDelay = function(
  *     by the server.
  * @private
  */
-goog.net.BrowserChannel.prototype.onInput_ = function(respArray) {
-  'use strict';
+BrowserChannel.prototype.onInput_ = function(respArray) {
   const batch =
       this.handler_ && this.handler_.channelHandleMultipleArrays ? [] : null;
   for (let i = 0; i < respArray.length; i++) {
     let nextArray = respArray[i];
     this.lastArrayId_ = nextArray[0];
     nextArray = nextArray[1];
-    if (this.state_ == goog.net.BrowserChannel.State.OPENING) {
+    if (this.state_ == BrowserChannel.State.OPENING) {
       if (nextArray[0] == 'c') {
         /**
          * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -2074,7 +1997,7 @@ goog.net.BrowserChannel.prototype.onInput_ = function(respArray) {
           // Servers prior to version 7 did not send this, so assume version 6.
           this.channelVersion_ = 6;
         }
-        this.state_ = goog.net.BrowserChannel.State.OPENED;
+        this.state_ = BrowserChannel.State.OPENED;
         if (this.handler_) {
           this.handler_.channelOpened(this);
         }
@@ -2083,15 +2006,15 @@ goog.net.BrowserChannel.prototype.onInput_ = function(respArray) {
         // Open connection to receive data
         this.ensureBackChannel_();
       } else if (nextArray[0] == 'stop') {
-        this.signalError_(goog.net.BrowserChannel.Error.STOP);
+        this.signalError_(BrowserChannel.Error.STOP);
       }
-    } else if (this.state_ == goog.net.BrowserChannel.State.OPENED) {
+    } else if (this.state_ == BrowserChannel.State.OPENED) {
       if (nextArray[0] == 'stop') {
         if (batch && !(batch.length === 0)) {
           this.handler_.channelHandleMultipleArrays(this, batch);
           batch.length = 0;
         }
-        this.signalError_(goog.net.BrowserChannel.Error.STOP);
+        this.signalError_(BrowserChannel.Error.STOP);
       } else if (nextArray[0] == 'noop') {
         // ignore - noop to keep connection happy
       } else {
@@ -2122,9 +2045,8 @@ goog.net.BrowserChannel.prototype.onInput_ = function(respArray) {
  *     states.
  * @private
  */
-goog.net.BrowserChannel.prototype.ensureInState_ = function(var_args) {
-  'use strict';
-  if (!goog.array.contains(arguments, this.state_)) {
+BrowserChannel.prototype.ensureInState_ = function(var_args) {
+  if (!googArray.contains(arguments, this.state_)) {
     throw new Error('Unexpected channel state: ' + this.state_);
   }
 };
@@ -2132,24 +2054,23 @@ goog.net.BrowserChannel.prototype.ensureInState_ = function(var_args) {
 
 /**
  * Signals an error has occurred.
- * @param {goog.net.BrowserChannel.Error} error  The error code for the failure.
+ * @param {BrowserChannel.Error} error  The error code for the failure.
  * @private
  */
-goog.net.BrowserChannel.prototype.signalError_ = function(error) {
-  'use strict';
+BrowserChannel.prototype.signalError_ = function(error) {
   this.channelDebug_.info('Error code ' + error);
-  if (error == goog.net.BrowserChannel.Error.REQUEST_FAILED ||
-      error == goog.net.BrowserChannel.Error.BLOCKED) {
+  if (error == BrowserChannel.Error.REQUEST_FAILED ||
+      error == BrowserChannel.Error.BLOCKED) {
     // Ping google to check if it's a server error or user's network error.
     let imageUri = null;
     if (this.handler_) {
       imageUri = this.handler_.getNetworkTestImageUri(this);
     }
-    goog.net.tmpnetwork.testGoogleCom(
+    tmpnetwork.testGoogleCom(
         goog.bind(this.testGoogleComCallback_, this), imageUri);
   } else {
-    goog.net.browserchannelinternal.stats.notifyStatEvent(
-        goog.net.browserchannelinternal.stats.Stat.ERROR_OTHER);
+    stats.notifyStatEvent(
+        stats.Stat.ERROR_OTHER);
   }
   this.onError_(error);
 };
@@ -2160,19 +2081,18 @@ goog.net.BrowserChannel.prototype.signalError_ = function(error) {
  * @param {boolean} networkUp Whether the network is up.
  * @private
  */
-goog.net.BrowserChannel.prototype.testGoogleComCallback_ = function(networkUp) {
-  'use strict';
+BrowserChannel.prototype.testGoogleComCallback_ = function(networkUp) {
   if (networkUp) {
     this.channelDebug_.info('Successfully pinged google.com');
-    goog.net.browserchannelinternal.stats.notifyStatEvent(
-        goog.net.browserchannelinternal.stats.Stat.ERROR_OTHER);
+    stats.notifyStatEvent(
+        stats.Stat.ERROR_OTHER);
   } else {
     this.channelDebug_.info('Failed to ping google.com');
-    goog.net.browserchannelinternal.stats.notifyStatEvent(
-        goog.net.browserchannelinternal.stats.Stat.ERROR_NETWORK);
+    stats.notifyStatEvent(
+        stats.Stat.ERROR_NETWORK);
     // We call onError_ here instead of signalError_ because the latter just
     // calls notifyStatEvent, and we don't want to have another stat event.
-    this.onError_(goog.net.BrowserChannel.Error.NETWORK);
+    this.onError_(BrowserChannel.Error.NETWORK);
   }
 };
 
@@ -2181,8 +2101,7 @@ goog.net.BrowserChannel.prototype.testGoogleComCallback_ = function(networkUp) {
  * Called when messages have been successfully sent from the queue.
  * @private
  */
-goog.net.BrowserChannel.prototype.onSuccess_ = function() {
-  'use strict';
+BrowserChannel.prototype.onSuccess_ = function() {
   if (this.handler_) {
     this.handler_.channelSuccess(this, this.pendingMaps_);
   }
@@ -2192,13 +2111,12 @@ goog.net.BrowserChannel.prototype.onSuccess_ = function() {
 /**
  * Called when we've determined the final error for a channel. It closes the
  * notifiers the handler of the error and closes the channel.
- * @param {goog.net.BrowserChannel.Error} error  The error code for the failure.
+ * @param {BrowserChannel.Error} error  The error code for the failure.
  * @private
  */
-goog.net.BrowserChannel.prototype.onError_ = function(error) {
-  'use strict';
+BrowserChannel.prototype.onError_ = function(error) {
   this.channelDebug_.debug('HttpChannel: error - ' + error);
-  this.state_ = goog.net.BrowserChannel.State.CLOSED;
+  this.state_ = BrowserChannel.State.CLOSED;
   if (this.handler_) {
     this.handler_.channelError(this, error);
   }
@@ -2212,9 +2130,8 @@ goog.net.BrowserChannel.prototype.onError_ = function(error) {
  * event, and reports any pending or undelivered maps.
  * @private
  */
-goog.net.BrowserChannel.prototype.onClose_ = function() {
-  'use strict';
-  this.state_ = goog.net.BrowserChannel.State.CLOSED;
+BrowserChannel.prototype.onClose_ = function() {
+  this.state_ = BrowserChannel.State.CLOSED;
   this.lastStatusCode_ = -1;
   if (this.handler_) {
     if (this.pendingMaps_.length == 0 && this.outgoingMaps_.length == 0) {
@@ -2225,8 +2142,8 @@ goog.net.BrowserChannel.prototype.onClose_ = function() {
           ', pending: ' + this.pendingMaps_.length +
           ', outgoing: ' + this.outgoingMaps_.length);
 
-      const copyOfPendingMaps = goog.array.clone(this.pendingMaps_);
-      const copyOfUndeliveredMaps = goog.array.clone(this.outgoingMaps_);
+      const copyOfPendingMaps = googArray.clone(this.pendingMaps_);
+      const copyOfUndeliveredMaps = googArray.clone(this.outgoingMaps_);
       this.pendingMaps_.length = 0;
       this.outgoingMaps_.length = 0;
 
@@ -2240,10 +2157,9 @@ goog.net.BrowserChannel.prototype.onClose_ = function() {
 /**
  * Gets the Uri used for the connection that sends data to the server.
  * @param {string} path The path on the host.
- * @return {!goog.Uri} The forward channel URI.
+ * @return {!Uri} The forward channel URI.
  */
-goog.net.BrowserChannel.prototype.getForwardChannelUri = function(path) {
-  'use strict';
+BrowserChannel.prototype.getForwardChannelUri = function(path) {
   const uri = this.createDataUri(null, path);
   this.channelDebug_.debug('GetForwardChannelUri: ' + uri);
   return uri;
@@ -2254,8 +2170,7 @@ goog.net.BrowserChannel.prototype.getForwardChannelUri = function(path) {
  * Gets the results for the first browser channel test
  * @return {Array<string>} The results.
  */
-goog.net.BrowserChannel.prototype.getFirstTestResults = function() {
-  'use strict';
+BrowserChannel.prototype.getFirstTestResults = function() {
   return this.firstTestResults_;
 };
 
@@ -2265,8 +2180,7 @@ goog.net.BrowserChannel.prototype.getFirstTestResults = function() {
  * @return {?boolean} The results. True -> buffered connection,
  *      False -> unbuffered, null -> unknown.
  */
-goog.net.BrowserChannel.prototype.getSecondTestResults = function() {
-  'use strict';
+BrowserChannel.prototype.getSecondTestResults = function() {
   return this.secondTestResults_;
 };
 
@@ -2275,11 +2189,10 @@ goog.net.BrowserChannel.prototype.getSecondTestResults = function() {
  * Gets the Uri used for the connection that receives data from the server.
  * @param {?string} hostPrefix The host prefix.
  * @param {string} path The path on the host.
- * @return {!goog.Uri} The back channel URI.
+ * @return {!Uri} The back channel URI.
  */
-goog.net.BrowserChannel.prototype.getBackChannelUri = function(
+BrowserChannel.prototype.getBackChannelUri = function(
     hostPrefix, path) {
-  'use strict';
   const uri = this.createDataUri(
       this.shouldUseSecondaryDomains() ? hostPrefix : null, path);
   this.channelDebug_.debug('GetBackChannelUri: ' + uri);
@@ -2293,12 +2206,11 @@ goog.net.BrowserChannel.prototype.getBackChannelUri = function(
  * @param {?string} hostPrefix The host prefix.
  * @param {string} path The path on the host (may be absolute or relative).
  * @param {number=} opt_overridePort Optional override port.
- * @return {!goog.Uri} The data URI.
+ * @return {!Uri} The data URI.
  */
-goog.net.BrowserChannel.prototype.createDataUri = function(
+BrowserChannel.prototype.createDataUri = function(
     hostPrefix, path, opt_overridePort) {
-  'use strict';
-  let uri = goog.Uri.parse(path);
+  let uri = Uri.parse(path);
   const uriAbsolute = (uri.getDomain() != '');
   if (uriAbsolute) {
     if (hostPrefix) {
@@ -2317,12 +2229,11 @@ goog.net.BrowserChannel.prototype.createDataUri = function(
 
     const port = opt_overridePort || +locationPage.port;
 
-    uri = goog.Uri.create(locationPage.protocol, null, hostName, port, path);
+    uri = Uri.create(locationPage.protocol, null, hostName, port, path);
   }
 
   if (this.extraParams_) {
-    goog.object.forEach(this.extraParams_, function(value, key) {
-      'use strict';
+    object.forEach(this.extraParams_, function(value, key) {
       uri.setParameterValue(key, value);
     });
   }
@@ -2344,14 +2255,13 @@ goog.net.BrowserChannel.prototype.createDataUri = function(
  * a secondary domain if withCredentials (CORS) is enabled.
  * @param {?string} hostPrefix The host prefix, if we need an XhrIo object
  *     capable of calling a secondary domain.
- * @return {!goog.net.XhrIo} A new XhrIo object.
+ * @return {!XhrIo} A new XhrIo object.
  */
-goog.net.BrowserChannel.prototype.createXhrIo = function(hostPrefix) {
-  'use strict';
+BrowserChannel.prototype.createXhrIo = function(hostPrefix) {
   if (hostPrefix && !this.supportsCrossDomainXhrs_) {
     throw new Error('Can\'t create secondary domain capable XhrIo object.');
   }
-  const xhr = new goog.net.XhrIo();
+  const xhr = new XhrIo();
   xhr.setWithCredentials(this.supportsCrossDomainXhrs_);
   return xhr;
 };
@@ -2362,8 +2272,7 @@ goog.net.BrowserChannel.prototype.createXhrIo = function(hostPrefix) {
  * length of time to wait before retrying. This call delegates to the handler.
  * @return {boolean} Whether the channel is currently active.
  */
-goog.net.BrowserChannel.prototype.isActive = function() {
-  'use strict';
+BrowserChannel.prototype.isActive = function() {
   return !!this.handler_ && this.handler_.isActive(this);
 };
 
@@ -2371,14 +2280,13 @@ goog.net.BrowserChannel.prototype.isActive = function() {
 /**
  * Notify the channel that a particular fine grained network event has occurred.
  * Should be considered package-private.
- * @param {goog.net.browserchannelinternal.ServerReachability} reachabilityType
+ * @param {ServerReachability} reachabilityType
  *     The reachability event type.
  */
-goog.net.BrowserChannel.prototype.notifyServerReachabilityEvent = function(
+BrowserChannel.prototype.notifyServerReachabilityEvent = function(
     reachabilityType) {
-  'use strict';
-  const target = goog.net.browserchannelinternal.stats.getStatEventTarget();
-  target.dispatchEvent(new goog.net.BrowserChannel.ServerReachabilityEvent(
+  const target = stats.getStatEventTarget();
+  target.dispatchEvent(new BrowserChannel.ServerReachabilityEvent(
       target, reachabilityType));
 };
 
@@ -2390,11 +2298,10 @@ goog.net.BrowserChannel.prototype.notifyServerReachabilityEvent = function(
  * @param {number} rtt The amount of time from POST start to response.
  * @param {number} retries The number of times the POST had to be retried.
  */
-goog.net.BrowserChannel.notifyTimingEvent = function(size, rtt, retries) {
-  'use strict';
-  const target = goog.net.browserchannelinternal.stats.getStatEventTarget();
+BrowserChannel.notifyTimingEvent = function(size, rtt, retries) {
+  const target = stats.getStatEventTarget();
   target.dispatchEvent(
-      new goog.net.BrowserChannel.TimingEvent(target, size, rtt, retries));
+      new BrowserChannel.TimingEvent(target, size, rtt, retries));
 };
 
 
@@ -2421,10 +2328,9 @@ goog.net.BrowserChannel.notifyTimingEvent = function(size, rtt, retries) {
  * @return {boolean} Whether to use secondary domains.
  * @see http://code.google.com/p/closure-library/issues/detail?id=339
  */
-goog.net.BrowserChannel.prototype.shouldUseSecondaryDomains = function() {
-  'use strict';
+BrowserChannel.prototype.shouldUseSecondaryDomains = function() {
   return this.supportsCrossDomainXhrs_ ||
-      !goog.net.ChannelRequest.supportsXhrStreaming();
+      !ChannelRequest.supportsXhrStreaming();
 };
 
 
@@ -2434,16 +2340,16 @@ goog.net.BrowserChannel.prototype.shouldUseSecondaryDomains = function() {
  * detected.
  * @const
  */
-goog.net.BrowserChannel.LogSaver = {};
+BrowserChannel.LogSaver = {};
 
 
 /**
  * Buffer for accumulating the debug log
- * @type {goog.structs.CircularBuffer}
+ * @type {CircularBuffer}
  * @private
  */
-goog.net.BrowserChannel.LogSaver.buffer_ =
-    new goog.structs.CircularBuffer(1000);
+BrowserChannel.LogSaver.buffer_ =
+    new CircularBuffer(1000);
 
 
 /**
@@ -2451,24 +2357,23 @@ goog.net.BrowserChannel.LogSaver.buffer_ =
  * @type {boolean}
  * @private
  */
-goog.net.BrowserChannel.LogSaver.enabled_ = false;
+BrowserChannel.LogSaver.enabled_ = false;
 
 
 /**
  * Formatter for saving logs.
- * @type {goog.debug.formatter.Formatter}
+ * @type {formatter.Formatter}
  * @private
  */
-goog.net.BrowserChannel.LogSaver.formatter_ = new goog.debug.formatter.TextFormatter();
+BrowserChannel.LogSaver.formatter_ = new formatter.TextFormatter();
 
 
 /**
  * Returns whether the LogSaver is enabled.
  * @return {boolean} Whether saving is enabled or disabled.
  */
-goog.net.BrowserChannel.LogSaver.isEnabled = function() {
-  'use strict';
-  return goog.net.BrowserChannel.LogSaver.enabled_;
+BrowserChannel.LogSaver.isEnabled = function() {
+  return BrowserChannel.LogSaver.enabled_;
 };
 
 
@@ -2476,30 +2381,28 @@ goog.net.BrowserChannel.LogSaver.isEnabled = function() {
  * Enables of disables the LogSaver.
  * @param {boolean} enable Whether to enable or disable saving.
  */
-goog.net.BrowserChannel.LogSaver.setEnabled = function(enable) {
-  'use strict';
-  if (enable == goog.net.BrowserChannel.LogSaver.enabled_) {
+BrowserChannel.LogSaver.setEnabled = function(enable) {
+  if (enable == BrowserChannel.LogSaver.enabled_) {
     return;
   }
 
-  const fn = goog.net.BrowserChannel.LogSaver.addLogRecord;
-  const logger = goog.log.getLogger('goog.net');
+  const fn = BrowserChannel.LogSaver.addLogRecord;
+  const logger = log.getLogger('goog.net');
   if (enable) {
-    goog.log.addHandler(logger, fn);
+    log.addHandler(logger, fn);
   } else {
-    goog.log.removeHandler(logger, fn);
+    log.removeHandler(logger, fn);
   }
 };
 
 
 /**
  * Adds a log record.
- * @param {goog.log.LogRecord} logRecord the LogRecord.
+ * @param {log.LogRecord} logRecord the LogRecord.
  */
-goog.net.BrowserChannel.LogSaver.addLogRecord = function(logRecord) {
-  'use strict';
-  goog.net.BrowserChannel.LogSaver.buffer_.add(
-      goog.net.BrowserChannel.LogSaver.formatter_.formatRecord(logRecord));
+BrowserChannel.LogSaver.addLogRecord = function(logRecord) {
+  BrowserChannel.LogSaver.buffer_.add(
+      BrowserChannel.LogSaver.formatter_.formatRecord(logRecord));
 };
 
 
@@ -2507,18 +2410,16 @@ goog.net.BrowserChannel.LogSaver.addLogRecord = function(logRecord) {
  * Returns the log as a single string.
  * @return {string} The log as a single string.
  */
-goog.net.BrowserChannel.LogSaver.getBuffer = function() {
-  'use strict';
-  return goog.net.BrowserChannel.LogSaver.buffer_.getValues().join('');
+BrowserChannel.LogSaver.getBuffer = function() {
+  return BrowserChannel.LogSaver.buffer_.getValues().join('');
 };
 
 
 /**
  * Clears the buffer
  */
-goog.net.BrowserChannel.LogSaver.clearBuffer = function() {
-  'use strict';
-  goog.net.BrowserChannel.LogSaver.buffer_.clear();
+BrowserChannel.LogSaver.clearBuffer = function() {
+  BrowserChannel.LogSaver.buffer_.clear();
 };
 
 
@@ -2527,112 +2428,109 @@ goog.net.BrowserChannel.LogSaver.clearBuffer = function() {
  * Abstract base class for the browser channel handler
  * @constructor
  */
-goog.net.BrowserChannel.Handler = function() {};
+BrowserChannel.Handler = function() {};
 
 
 /**
  * Callback handler for when a batch of response arrays is received from the
  * server.
- * @type {?function(!goog.net.BrowserChannel, !Array<!Array<?>>)}
+ * @type {?function(!BrowserChannel, !Array<!Array<?>>)}
  */
-goog.net.BrowserChannel.Handler.prototype.channelHandleMultipleArrays = null;
+BrowserChannel.Handler.prototype.channelHandleMultipleArrays = null;
 
 
 /**
  * Whether it's okay to make a request to the server. A handler can return
  * false if the channel should fail. For example, if the user has logged out,
  * the handler may want all requests to fail immediately.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
- * @return {goog.net.BrowserChannel.Error} An error code. The code should
- * return goog.net.BrowserChannel.Error.OK to indicate it's okay. Any other
+ * @param {BrowserChannel} browserChannel The browser channel.
+ * @return {BrowserChannel.Error} An error code. The code should
+ * return BrowserChannel.Error.OK to indicate it's okay. Any other
  * error code will cause a failure.
  */
-goog.net.BrowserChannel.Handler.prototype.okToMakeRequest = function(
+BrowserChannel.Handler.prototype.okToMakeRequest = function(
     browserChannel) {
-  'use strict';
-  return goog.net.BrowserChannel.Error.OK;
+  return BrowserChannel.Error.OK;
 };
 
 
 /**
  * Indicates the BrowserChannel has successfully negotiated with the server
  * and can now send and receive data.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel} browserChannel The browser channel.
  */
-goog.net.BrowserChannel.Handler.prototype.channelOpened = function(
+BrowserChannel.Handler.prototype.channelOpened = function(
     browserChannel) {};
 
 
 /**
  * New input is available for the application to process.
  *
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel} browserChannel The browser channel.
  * @param {Array<?>} array The data array.
  */
-goog.net.BrowserChannel.Handler.prototype.channelHandleArray = function(
+BrowserChannel.Handler.prototype.channelHandleArray = function(
     browserChannel, array) {};
 
 
 /**
  * Indicates maps were successfully sent on the BrowserChannel.
  *
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
- * @param {Array<goog.net.BrowserChannel.QueuedMap>} deliveredMaps The
+ * @param {BrowserChannel} browserChannel The browser channel.
+ * @param {Array<BrowserChannel.QueuedMap>} deliveredMaps The
  *     array of maps that have been delivered to the server. This is a direct
  *     reference to the internal BrowserChannel array, so a copy should be made
  *     if the caller desires a reference to the data.
  */
-goog.net.BrowserChannel.Handler.prototype.channelSuccess = function(
+BrowserChannel.Handler.prototype.channelSuccess = function(
     browserChannel, deliveredMaps) {};
 
 
 /**
  * Indicates an error occurred on the BrowserChannel.
  *
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
- * @param {goog.net.BrowserChannel.Error} error The error code.
+ * @param {BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel.Error} error The error code.
  */
-goog.net.BrowserChannel.Handler.prototype.channelError = function(
+BrowserChannel.Handler.prototype.channelError = function(
     browserChannel, error) {};
 
 
 /**
  * Indicates the BrowserChannel is closed. Also notifies about which maps,
  * if any, that may not have been delivered to the server.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
- * @param {Array<goog.net.BrowserChannel.QueuedMap>=} opt_pendingMaps The
+ * @param {BrowserChannel} browserChannel The browser channel.
+ * @param {Array<BrowserChannel.QueuedMap>=} opt_pendingMaps The
  *     array of pending maps, which may or may not have been delivered to the
  *     server.
- * @param {Array<goog.net.BrowserChannel.QueuedMap>=} opt_undeliveredMaps
+ * @param {Array<BrowserChannel.QueuedMap>=} opt_undeliveredMaps
  *     The array of undelivered maps, which have definitely not been delivered
  *     to the server.
  */
-goog.net.BrowserChannel.Handler.prototype.channelClosed = function(
+BrowserChannel.Handler.prototype.channelClosed = function(
     browserChannel, opt_pendingMaps, opt_undeliveredMaps) {};
 
 
 /**
  * Gets any parameters that should be added at the time another connection is
  * made to the server.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel} browserChannel The browser channel.
  * @return {!Object} Extra parameter keys and values to add to the
  *     requests.
  */
-goog.net.BrowserChannel.Handler.prototype.getAdditionalParams = function(
+BrowserChannel.Handler.prototype.getAdditionalParams = function(
     browserChannel) {
-  'use strict';
   return {};
 };
 
 
 /**
  * Gets the URI of an image that can be used to test network connectivity.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
- * @return {goog.Uri?} A custom URI to load for the network test.
+ * @param {BrowserChannel} browserChannel The browser channel.
+ * @return {Uri?} A custom URI to load for the network test.
  */
-goog.net.BrowserChannel.Handler.prototype.getNetworkTestImageUri = function(
+BrowserChannel.Handler.prototype.getNetworkTestImageUri = function(
     browserChannel) {
-  'use strict';
   return null;
 };
 
@@ -2640,23 +2538,21 @@ goog.net.BrowserChannel.Handler.prototype.getNetworkTestImageUri = function(
 /**
  * Gets whether this channel is currently active. This is used to determine the
  * length of time to wait before retrying.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel} browserChannel The browser channel.
  * @return {boolean} Whether the channel is currently active.
  */
-goog.net.BrowserChannel.Handler.prototype.isActive = function(browserChannel) {
-  'use strict';
+BrowserChannel.Handler.prototype.isActive = function(browserChannel) {
   return true;
 };
 
 
 /**
  * Called by the channel if enumeration of the map throws an exception.
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel} browserChannel The browser channel.
  * @param {Object} map The map that can't be enumerated.
  */
-goog.net.BrowserChannel.Handler.prototype.badMapError = function(
+BrowserChannel.Handler.prototype.badMapError = function(
     browserChannel, map) {
-  'use strict';
   return;
 };
 
@@ -2668,8 +2564,7 @@ goog.net.BrowserChannel.Handler.prototype.badMapError = function(
  * @param {?string} serverHostPrefix The host prefix provided by the server.
  * @return {?string} The host prefix the client should use.
  */
-goog.net.BrowserChannel.Handler.prototype.correctHostPrefix = function(
+BrowserChannel.Handler.prototype.correctHostPrefix = function(
     serverHostPrefix) {
-  'use strict';
   return serverHostPrefix;
 };

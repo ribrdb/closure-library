@@ -4,15 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.style.layoutassertsTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
+import { TagName } from '../../dom/tagname.js';
+import * as dom from '../../dom/dom.js';
+
 /** @suppress {extraRequire} */
-const layoutasserts = goog.require('goog.testing.style.layoutasserts');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as layoutasserts from './layoutasserts.js';
+
+import * as style from '../../style/style.js';
+import { testSuite } from '../testsuite.js';
 
 let div1;
 let div2;

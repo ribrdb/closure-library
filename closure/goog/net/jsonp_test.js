@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.JsonpTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const Jsonp = goog.require('goog.net.Jsonp');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const googFunctions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const safe = goog.require('goog.dom.safe');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Const } from '../string/const.js';
+import { Jsonp } from './jsonp.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as googFunctions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as safe from '../dom/safe.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Global vars to facilitate a shared set up function.
 

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.TrieTest');
 goog.setTestOnly();
 
-const Trie = goog.require('goog.structs.Trie');
-const googObject = goog.require('goog.object');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Trie } from './trie.js';
+import googObject from '../object/object.js';
+import * as structs from './structs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function makeTrie() {
   const trie = new Trie();

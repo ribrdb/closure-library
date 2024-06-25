@@ -9,27 +9,26 @@
  * XML utilities.
  */
 
-goog.provide('goog.dom.xml');
+import * as dom from './dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.safe');
-goog.require('goog.html.legacyconversions');
-goog.require('goog.userAgent');
-
-
-/**
- * Max XML size for MSXML2.  Used to prevent potential DoS attacks.
- * @type {number}
- */
-goog.dom.xml.MAX_XML_SIZE_KB = 2 * 1024;  // In kB
+import { NodeType } from './nodetype.js';
+import * as safe from './safe.js';
+import * as legacyconversions from '../html/legacyconversions.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 /**
  * Max XML size for MSXML2.  Used to prevent potential DoS attacks.
  * @type {number}
  */
-goog.dom.xml.MAX_ELEMENT_DEPTH = 256;  // Same default as MSXML6.
+export var MAX_XML_SIZE_KB = 2 * 1024;  // In kB
+
+
+/**
+ * Max XML size for MSXML2.  Used to prevent potential DoS attacks.
+ * @type {number}
+ */
+export var MAX_ELEMENT_DEPTH = 256;  // Same default as MSXML6.
 
 
 /**
@@ -37,9 +36,8 @@ goog.dom.xml.MAX_ELEMENT_DEPTH = 256;  // Same default as MSXML6.
  * @return {boolean} true if browser has ActiveXObject support.
  * @private
  */
-goog.dom.xml.hasActiveXObjectSupport_ = function() {
-  'use strict';
-  if (!goog.userAgent.IE) {
+function hasActiveXObjectSupport_() {
+  if (!userAgent.IE) {
     // Avoid raising useless exception in case code is not compiled
     // and browser is not MSIE.
     return false;
@@ -54,7 +52,7 @@ goog.dom.xml.hasActiveXObjectSupport_ = function() {
   } catch (e) {
     return false;
   }
-};
+}
 
 
 /**
@@ -62,8 +60,7 @@ goog.dom.xml.hasActiveXObjectSupport_ = function() {
  * Possible override if this test become wrong in coming IE versions.
  * @type {boolean}
  */
-goog.dom.xml.ACTIVEX_SUPPORT =
-    goog.userAgent.IE && goog.dom.xml.hasActiveXObjectSupport_();
+export var ACTIVEX_SUPPORT = userAgent.IE && hasActiveXObjectSupport_();
 
 
 /**
@@ -78,32 +75,30 @@ goog.dom.xml.ACTIVEX_SUPPORT =
  * @throws {Error} if browser does not support creating new documents or
  * namespace is provided without a root tag name.
  */
-goog.dom.xml.createDocument = function(
-    opt_rootTagName, opt_namespaceUri, opt_preferActiveX) {
-  'use strict';
+export function createDocument(opt_rootTagName, opt_namespaceUri, opt_preferActiveX) {
   if (opt_namespaceUri && !opt_rootTagName) {
     throw new Error('Can\'t create document with namespace and no root tag');
   }
   // If document.implementation.createDocument is available and they haven't
   // explicitly opted to use ActiveXObject when possible.
   if (document.implementation && document.implementation.createDocument &&
-      !(goog.dom.xml.ACTIVEX_SUPPORT && opt_preferActiveX)) {
+      !(ACTIVEX_SUPPORT && opt_preferActiveX)) {
     return document.implementation.createDocument(
         opt_namespaceUri || '', opt_rootTagName || '', null);
-  } else if (goog.dom.xml.ACTIVEX_SUPPORT) {
-    var doc = goog.dom.xml.createMsXmlDocument_();
+  } else if (ACTIVEX_SUPPORT) {
+    var doc = createMsXmlDocument_();
     if (doc) {
       if (opt_rootTagName) {
         doc.appendChild(
             /** @type {!Node} */ (doc.createNode(
-                goog.dom.NodeType.ELEMENT, opt_rootTagName,
+                NodeType.ELEMENT, opt_rootTagName,
                 opt_namespaceUri || '')));
       }
       return doc;
     }
   }
   throw new Error('Your browser does not support creating new documents');
-};
+}
 
 
 /**
@@ -116,20 +111,19 @@ goog.dom.xml.createDocument = function(
  * @return {Document} XML document from the text.
  * @throws {Error} if browser does not support loading XML documents.
  */
-goog.dom.xml.loadXml = function(xml, opt_preferActiveX) {
-  'use strict';
+export function loadXml(xml, opt_preferActiveX) {
   if (typeof DOMParser != 'undefined' &&
-      !(goog.dom.xml.ACTIVEX_SUPPORT && opt_preferActiveX)) {
-    return goog.dom.safe.parseFromString(
-        new DOMParser(), goog.html.legacyconversions.safeHtmlFromString(xml),
+      !(ACTIVEX_SUPPORT && opt_preferActiveX)) {
+    return safe.parseFromString(
+        new DOMParser(), legacyconversions.safeHtmlFromString(xml),
         'application/xml');
-  } else if (goog.dom.xml.ACTIVEX_SUPPORT) {
-    var doc = goog.dom.xml.createMsXmlDocument_();
+  } else if (ACTIVEX_SUPPORT) {
+    var doc = createMsXmlDocument_();
     doc.loadXML(xml);
     return doc;
   }
   throw new Error('Your browser does not support loading xml documents');
-};
+}
 
 
 /**
@@ -138,8 +132,7 @@ goog.dom.xml.loadXml = function(xml, opt_preferActiveX) {
  * @return {string} The serialized XML.
  * @throws {Error} if browser does not support XML serialization.
  */
-goog.dom.xml.serialize = function(xml) {
-  'use strict';
+export function serialize(xml) {
   // Compatible with IE/ActiveXObject.
   var text = xml.xml;
   if (text) {
@@ -150,7 +143,7 @@ goog.dom.xml.serialize = function(xml) {
     return new XMLSerializer().serializeToString(xml);
   }
   throw new Error('Your browser does not support serializing XML documents');
-};
+}
 
 
 /**
@@ -159,16 +152,15 @@ goog.dom.xml.serialize = function(xml) {
  * @param {string} path Xpath selector.
  * @return {Node} The selected node, or null if no matching node.
  */
-goog.dom.xml.selectSingleNode = function(node, path) {
-  'use strict';
+export function selectSingleNode(node, path) {
   if (typeof node.selectSingleNode != 'undefined') {
-    var doc = goog.dom.getOwnerDocument(node);
+    var doc = dom.getOwnerDocument(node);
     if (typeof doc.setProperty != 'undefined') {
       doc.setProperty('SelectionLanguage', 'XPath');
     }
     return node.selectSingleNode(path);
   } else if (document.implementation.hasFeature('XPath', '3.0')) {
-    var doc = goog.dom.getOwnerDocument(node);
+    var doc = dom.getOwnerDocument(node);
     var resolver = doc.createNSResolver(doc.documentElement);
     var result = doc.evaluate(
         path, node, resolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
@@ -178,7 +170,7 @@ goog.dom.xml.selectSingleNode = function(node, path) {
   // Document was created using ActiveXObject
   // TODO(joeltine): This should throw instead of return null.
   return null;
-};
+}
 
 
 /**
@@ -188,16 +180,15 @@ goog.dom.xml.selectSingleNode = function(node, path) {
  * @return {(!NodeList<!Node>|!Array<!Node>)} The selected nodes, or empty array
  *     if no matching nodes.
  */
-goog.dom.xml.selectNodes = function(node, path) {
-  'use strict';
+export function selectNodes(node, path) {
   if (typeof node.selectNodes != 'undefined') {
-    var doc = goog.dom.getOwnerDocument(node);
+    var doc = dom.getOwnerDocument(node);
     if (typeof doc.setProperty != 'undefined') {
       doc.setProperty('SelectionLanguage', 'XPath');
     }
     return node.selectNodes(path);
   } else if (document.implementation.hasFeature('XPath', '3.0')) {
-    var doc = goog.dom.getOwnerDocument(node);
+    var doc = dom.getOwnerDocument(node);
     var resolver = doc.createNSResolver(doc.documentElement);
     var nodes = doc.evaluate(
         path, node, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -213,25 +204,24 @@ goog.dom.xml.selectNodes = function(node, path) {
     // TODO(joeltine): This should throw instead of return empty array.
     return [];
   }
-};
+}
 
 
 /**
- * Sets multiple attributes on an element. Differs from goog.dom.setProperties
+ * Sets multiple attributes on an element. Differs from dom.setProperties
  * in that it exclusively uses the element's setAttributes method. Use this
  * when you need to ensure that the exact property is available as an attribute
  * and can be read later by the native getAttribute method.
  * @param {!Element} element XML or DOM element to set attributes on.
  * @param {!Object<string, string>} attributes Map of property:value pairs.
  */
-goog.dom.xml.setAttributes = function(element, attributes) {
-  'use strict';
+export function setAttributes(element, attributes) {
   for (var key in attributes) {
     if (attributes.hasOwnProperty(key)) {
       element.setAttribute(key, attributes[key]);
     }
   }
-};
+}
 
 
 /**
@@ -239,8 +229,7 @@ goog.dom.xml.setAttributes = function(element, attributes) {
  * @return {!XMLDOMDocument} The new document.
  * @private
  */
-goog.dom.xml.createMsXmlDocument_ = function() {
-  'use strict';
+function createMsXmlDocument_() {
   var doc = new ActiveXObject('MSXML2.DOMDocument');
   if (doc) {
     // Prevent potential vulnerabilities exposed by MSXML2, see
@@ -254,11 +243,11 @@ goog.dom.xml.createMsXmlDocument_ = function() {
     // specific details on which MSXML versions support these properties.
     try {
       doc.setProperty('ProhibitDTD', true);
-      doc.setProperty('MaxXMLSize', goog.dom.xml.MAX_XML_SIZE_KB);
-      doc.setProperty('MaxElementDepth', goog.dom.xml.MAX_ELEMENT_DEPTH);
+      doc.setProperty('MaxXMLSize', MAX_XML_SIZE_KB);
+      doc.setProperty('MaxElementDepth', MAX_ELEMENT_DEPTH);
     } catch (e) {
       // No-op.
     }
   }
   return doc;
-};
+}

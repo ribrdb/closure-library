@@ -13,9 +13,7 @@
  * JsUnit test runner.
  */
 
-goog.provide('goog.testing.JsTdAsyncWrapper');
-
-goog.require('goog.Promise');
+import { Promise } from '../promise/promise.js';
 
 
 /**
@@ -25,7 +23,7 @@ goog.require('goog.Promise');
  * @return {number}
  * @private
  */
-goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_FN_ = goog.global.setTimeout;
+var REAL_SET_TIMEOUT_FN_ = goog.global.setTimeout;
 
 
 /**
@@ -35,15 +33,14 @@ goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_FN_ = goog.global.setTimeout;
  * @param {number} timeout Timeout time in ms.
  * @private
  */
-goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_ = function(fn, timeout) {
-  'use strict';
+function REAL_SET_TIMEOUT_(fn, timeout) {
   // Setting timeout into a variable is necessary to invoke the function in the
   // default global context. Inlining breaks chrome since it requires setTimeout
   // to be called with the global context, and IE8 doesn't support the call
   // method on setTimeout.
-  var setTimeoutFn = goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_FN_;
+  var setTimeoutFn = REAL_SET_TIMEOUT_FN_;
   setTimeoutFn(fn, timeout);
-};
+}
 
 
 /**
@@ -57,16 +54,13 @@ goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_ = function(fn, timeout) {
  * @return {T} A object that has all test methods wrapped in a fake
  *     testing queue.
  */
-goog.testing.JsTdAsyncWrapper.convertToAsyncTestObj = function(original) {
-  'use strict';
+export function convertToAsyncTestObj(original) {
   // Wraps a call to a test function and passes an instance of a fake queue
   // into the test function.
   var queueWrapperFn = function(fn) {
-    'use strict';
     return function() {
-      'use strict';
       var self = /** @type {?} */ (this);  // T this is expected
-      var queue = new goog.testing.JsTdAsyncWrapper.Queue(self);
+      var queue = new Queue(self);
       fn.call(self, queue);
       return queue.startExecuting();
     };
@@ -82,7 +76,7 @@ goog.testing.JsTdAsyncWrapper.convertToAsyncTestObj = function(original) {
     }
   }
   return newTestObj;
-};
+}
 
 
 
@@ -94,18 +88,17 @@ goog.testing.JsTdAsyncWrapper.convertToAsyncTestObj = function(original) {
  * @constructor
  * @final
  */
-goog.testing.JsTdAsyncWrapper.Queue = function(testObj) {
-  'use strict';
+export function Queue(testObj) {
   /**
-   * The queue steps.
-   * @private {!Array<!goog.testing.JsTdAsyncWrapper.Step_>}
-   */
+     * The queue steps.
+     * @private {!Array<!Step_>}
+     */
   this.steps_ = [];
 
   /**
-   * A delegate that is used within a defer call.
-   * @private {?goog.testing.JsTdAsyncWrapper.Queue}
-   */
+     * A delegate that is used within a defer call.
+     * @private {?Queue}
+     */
   this.delegate_ = null;
 
   /**
@@ -113,19 +106,18 @@ goog.testing.JsTdAsyncWrapper.Queue = function(testObj) {
    * @private {!Object}
    */
   this.testObj_ = testObj;
-};
+}
 
 
 /**
- * @param {string|function(!goog.testing.JsTdAsyncWrapper.Pool_=)} stepName
+ * @param {string|function(!Pool_=)} stepName
  *     The name of the current testing step, or the fn parameter if
  *     no stepName is desired.
- * @param {function(!goog.testing.JsTdAsyncWrapper.Pool_=)=} opt_fn A function
+ * @param {function(!Pool_=)=} opt_fn A function
  *   that will be called.
  */
-goog.testing.JsTdAsyncWrapper.Queue.prototype.defer = function(
+Queue.prototype.defer = function(
     stepName, opt_fn) {
-  'use strict';
   var fn = opt_fn;
   if (!opt_fn && typeof stepName == 'function') {
     fn = stepName;
@@ -139,20 +131,17 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.defer = function(
     this.delegate_.defer(stepName, fn);
     return;
   }
-  this.steps_.push(new goog.testing.JsTdAsyncWrapper.Step_(
-      /** @type {string} */ (stepName),
+  this.steps_.push(new Step_( (stepName),
       /** @type {function(!goog.testing.JsTdAsyncWrapper.Pool_=)} */ (fn)));
 };
 
 
 /**
  * Starts the execution.
- * @return {!goog.Promise<void>}
+ * @return {!Promise<void>}
  */
-goog.testing.JsTdAsyncWrapper.Queue.prototype.startExecuting = function() {
-  'use strict';
-  return new goog.Promise(goog.bind(function(resolve, reject) {
-    'use strict';
+Queue.prototype.startExecuting = function() {
+  return new Promise(goog.bind(function(resolve, reject) {
     this.executeNextStep_(resolve, reject);
   }, this));
 };
@@ -165,9 +154,8 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.startExecuting = function() {
  * @param {function(*)} errback
  * @private
  */
-goog.testing.JsTdAsyncWrapper.Queue.prototype.executeNextStep_ = function(
+Queue.prototype.executeNextStep_ = function(
     callback, errback) {
-  'use strict';
   // Note: From this point on, we can no longer use goog.Promise (which uses
   // the goog.async.run queue) because it conflicts with MockClock, and we can't
   // use the native Promise because it is not supported on IE. So we revert to
@@ -177,18 +165,15 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.executeNextStep_ = function(
     return;
   }
   var step = this.steps_.shift();
-  this.delegate_ = new goog.testing.JsTdAsyncWrapper.Queue(this.testObj_);
-  var pool = new goog.testing.JsTdAsyncWrapper.Pool_(
+  this.delegate_ = new Queue(this.testObj_);
+  var pool = new Pool_(
       this.testObj_, goog.bind(function() {
-        'use strict';
-        goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_(goog.bind(function() {
-          'use strict';
-          this.executeDelegate_(callback, errback);
-        }, this), 0);
-      }, this), goog.bind(function(reason) {
-        'use strict';
-        this.handleError_(errback, reason, step.name);
-      }, this));
+    REAL_SET_TIMEOUT_(goog.bind(function() {
+      this.executeDelegate_(callback, errback);
+    }, this), 0);
+  }, this), goog.bind(function(reason) {
+    this.handleError_(errback, reason, step.name);
+  }, this));
   try {
     step.fn.call(this.testObj_, pool);
   } catch (e) {
@@ -204,9 +189,8 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.executeNextStep_ = function(
  * @param {function(*)} errback
  * @private
  */
-goog.testing.JsTdAsyncWrapper.Queue.prototype.executeDelegate_ = function(
+Queue.prototype.executeDelegate_ = function(
     callback, errback) {
-  'use strict';
   // Wait till the delegate queue completes before moving on to the
   // next step.
   if (!this.delegate_) {
@@ -214,10 +198,8 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.executeDelegate_ = function(
     return;
   }
   this.delegate_.executeNextStep_(goog.bind(function() {
-    'use strict';
     this.delegate_ = null;
-    goog.testing.JsTdAsyncWrapper.REAL_SET_TIMEOUT_(goog.bind(function() {
-      'use strict';
+    REAL_SET_TIMEOUT_(goog.bind(function() {
       this.executeNextStep_(callback, errback);
     }, this), 0);
   }, this), errback);
@@ -230,9 +212,8 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.executeDelegate_ = function(
  * @param {string} stepName
  * @private
  */
-goog.testing.JsTdAsyncWrapper.Queue.prototype.handleError_ = function(
+Queue.prototype.handleError_ = function(
     errback, reason, stepName) {
-  'use strict';
   var error = reason instanceof Error ? reason : Error(reason);
   error.message = 'In step ' + stepName + ', error: ' + error.message;
   errback(reason);
@@ -243,17 +224,16 @@ goog.testing.JsTdAsyncWrapper.Queue.prototype.handleError_ = function(
 /**
  * A step to be executed.
  * @param {string} name
- * @param {function(!goog.testing.JsTdAsyncWrapper.Pool_=)} fn
+ * @param {function(!Pool_=)} fn
  * @constructor
  * @private
  */
-goog.testing.JsTdAsyncWrapper.Step_ = function(name, fn) {
-  'use strict';
+function Step_(name, fn) {
   /** @final {string} */
   this.name = name;
-  /** @final {function(!goog.testing.JsTdAsyncWrapper.Pool_=)} */
+  /** @final {function(!Pool_=)} */
   this.fn = fn;
-};
+}
 
 
 
@@ -267,8 +247,7 @@ goog.testing.JsTdAsyncWrapper.Step_ = function(name, fn) {
  * @private
  * @final
  */
-goog.testing.JsTdAsyncWrapper.Pool_ = function(testObj, callback, errback) {
-  'use strict';
+function Pool_(testObj, callback, errback) {
   /** @private {number} */
   this.outstandingCallbacks_ = 0;
 
@@ -286,14 +265,13 @@ goog.testing.JsTdAsyncWrapper.Pool_ = function(testObj, callback, errback) {
 
   /** @private {boolean} */
   this.callbackCalled_ = false;
-};
+}
 
 
 /**
  * @return {function()}
  */
-goog.testing.JsTdAsyncWrapper.Pool_.prototype.noop = function() {
-  'use strict';
+Pool_.prototype.noop = function() {
   return this.addCallback(function() {});
 };
 
@@ -308,9 +286,8 @@ goog.testing.JsTdAsyncWrapper.Pool_.prototype.noop = function() {
  * @param {?string=} opt_description The callback description.
  * @return {function()}
  */
-goog.testing.JsTdAsyncWrapper.Pool_.prototype.addCallback = function(
+Pool_.prototype.addCallback = function(
     fn, opt_n, opt_timeout, opt_description) {
-  'use strict';
   // TODO(mtragut): This could be fixed if required by test cases.
   if (opt_timeout || opt_description) {
     throw new Error(
@@ -319,7 +296,6 @@ goog.testing.JsTdAsyncWrapper.Pool_.prototype.addCallback = function(
   var numCallbacks = opt_n || 1;
   this.outstandingCallbacks_ = this.outstandingCallbacks_ + numCallbacks;
   return goog.bind(function() {
-    'use strict';
     try {
       fn.apply(this.testObj_, arguments);
     } catch (e) {
@@ -344,18 +320,16 @@ goog.testing.JsTdAsyncWrapper.Pool_.prototype.addCallback = function(
  * @param {?string=} opt_description The callback description.
  * @return {function()}
  */
-goog.testing.JsTdAsyncWrapper.Pool_.prototype.add =
-    goog.testing.JsTdAsyncWrapper.Pool_.prototype.addCallback;
+Pool_.prototype.add =
+    Pool_.prototype.addCallback;
 
 
 /**
  * @param {string} msg The message to print if the error callback gets called.
  * @return {function()}
  */
-goog.testing.JsTdAsyncWrapper.Pool_.prototype.addErrback = function(msg) {
-  'use strict';
+Pool_.prototype.addErrback = function(msg) {
   return goog.bind(function() {
-    'use strict';
     var errorMsg = msg;
     if (arguments.length) {
       errorMsg += ' - Error callback called with params: ( ';
@@ -376,8 +350,7 @@ goog.testing.JsTdAsyncWrapper.Pool_.prototype.addErrback = function(msg) {
 /**
  * Completes the pool if there are no outstanding callbacks.
  */
-goog.testing.JsTdAsyncWrapper.Pool_.prototype.maybeComplete = function() {
-  'use strict';
+Pool_.prototype.maybeComplete = function() {
   if (this.outstandingCallbacks_ == 0 && !this.callbackCalled_) {
     this.callbackCalled_ = true;
     this.callback_();

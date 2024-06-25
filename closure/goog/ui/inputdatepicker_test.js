@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.InputDatePickerTest');
 goog.setTestOnly();
 
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-const DateTimeParse = goog.require('goog.i18n.DateTimeParse');
-const InputDatePicker = goog.require('goog.ui.InputDatePicker');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DateTimeFormat } from '../i18n/datetimeformat.js';
+import { DateTimeParse } from '../i18n/datetimeparse.js';
+import { InputDatePicker } from './inputdatepicker.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const dateTimeFormatter = new DateTimeFormat('MM/dd/yyyy');
 const dateTimeParser = new DateTimeParse('MM/dd/yyyy');

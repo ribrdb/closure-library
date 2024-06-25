@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.InputHandlerTest');
 goog.setTestOnly();
 
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.events.EventType');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const InputHandler = goog.require('goog.events.InputHandler');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { EventHandler } from './eventhandler.js';
+import { EventType } from './eventtype.js';
+import * as events from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { InputHandler } from './inputhandler.js';
+import { KeyCodes } from './keycodes.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let inputHandler;
 let eventHandler;

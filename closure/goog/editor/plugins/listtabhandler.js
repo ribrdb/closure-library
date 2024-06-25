@@ -9,33 +9,30 @@
  * outdent.
  */
 
-goog.provide('goog.editor.plugins.ListTabHandler');
+import * as dom from '../../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.Command');
-goog.require('goog.editor.plugins.AbstractTabHandler');
-goog.require('goog.iter');
+import { TagName } from '../../dom/tagname.js';
+import { Command } from '../command.js';
+import { AbstractTabHandler } from './abstracttabhandler.js';
+import * as iter from '../../iter/iter.js';
 
 
 
 /**
  * Plugin to handle tab keys in lists to indent and outdent.
  * @constructor
- * @extends {goog.editor.plugins.AbstractTabHandler}
+ * @extends {AbstractTabHandler}
  * @final
  */
-goog.editor.plugins.ListTabHandler = function() {
-  'use strict';
-  goog.editor.plugins.AbstractTabHandler.call(this);
-};
+export function ListTabHandler() {
+  AbstractTabHandler.call(this);
+}
 goog.inherits(
-    goog.editor.plugins.ListTabHandler, goog.editor.plugins.AbstractTabHandler);
+    ListTabHandler, AbstractTabHandler);
 
 
 /** @override */
-goog.editor.plugins.ListTabHandler.prototype.getTrogClassId = function() {
-  'use strict';
+ListTabHandler.prototype.getTrogClassId = function() {
   return 'ListTabHandler';
 };
 
@@ -44,17 +41,15 @@ goog.editor.plugins.ListTabHandler.prototype.getTrogClassId = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.ListTabHandler.prototype.handleTabKey = function(e) {
-  'use strict';
+ListTabHandler.prototype.handleTabKey = function(e) {
   var range = this.getFieldObject().getRange();
-  if (goog.dom.getAncestorByTagNameAndClass(
-          range.getContainerElement(), goog.dom.TagName.LI) ||
-      goog.iter.some(range, function(node) {
-        'use strict';
-        return node.tagName == goog.dom.TagName.LI;
+  if (dom.getAncestorByTagNameAndClass(
+          range.getContainerElement(), TagName.LI) ||
+      iter.some(range, function(node) {
+        return node.tagName == TagName.LI;
       })) {
     this.getFieldObject().execCommand(
-        e.shiftKey ? goog.editor.Command.OUTDENT : goog.editor.Command.INDENT);
+        e.shiftKey ? Command.OUTDENT : Command.INDENT);
     e.preventDefault();
     return true;
   }

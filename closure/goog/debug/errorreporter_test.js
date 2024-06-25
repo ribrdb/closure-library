@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.ErrorReporterTest');
 goog.setTestOnly();
 
-const DebugError = goog.require('goog.debug.Error');
-const ErrorReporter = goog.require('goog.debug.ErrorReporter');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dispose = goog.require('goog.dispose');
-const errorcontext = goog.require('goog.debug.errorcontext');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as DebugError from './error.js';
+import { ErrorReporter } from './errorreporter.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as errorcontext from './errorcontext.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 class MockXhrIo {
   onReadyStateChangeEntryPoint_() {}

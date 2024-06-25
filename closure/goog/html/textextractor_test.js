@@ -8,11 +8,10 @@
  * @fileoverview Tests for the textExtractor module.
  */
 
-goog.module('goog.html.textExtractorTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const textExtractor = goog.require('goog.html.textExtractor');
+import { testSuite } from '../testing/testsuite.js';
+import * as textExtractor from './textextractor.js';
 
 
 /**

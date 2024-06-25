@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.mockmatchersTest');
 goog.setTestOnly('goog.testing.mockmatchersTest');
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const matchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as matchers from './mockmatchers.js';
+import { ArgumentMatcher } from './mockmatchers.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from './testsuite.js';
 
 // Simple classes to test the InstanceOf matcher.
 const foo = function() {};

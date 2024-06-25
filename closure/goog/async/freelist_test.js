@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.FreeListTest');
 goog.setTestOnly();
 
-const FreeList = goog.require('goog.async.FreeList');
-const testSuite = goog.require('goog.testing.testSuite');
+import { FreeList } from './freelist.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let id = 0;
 let list = null;

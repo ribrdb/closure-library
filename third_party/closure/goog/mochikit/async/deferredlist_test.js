@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.deferredListTest');
 goog.setTestOnly();
-const Deferred = goog.require('goog.async.Deferred');
-const DeferredList = goog.require('goog.async.DeferredList');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Deferred } from './deferred.js';
+import { DeferredList } from './deferredlist.js';
+import * as googArray from '../../../../../closure/goog/array/array.js';
+import { testSuite } from '../../../../../closure/goog/testing/testsuite.js';
 
 
 // Re-throw (after a timeout) any errors not handled in an errback.

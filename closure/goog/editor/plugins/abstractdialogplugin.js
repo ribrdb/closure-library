@@ -9,18 +9,16 @@
  * Trogedit dialog has its own plugin.
  */
 
-goog.provide('goog.editor.plugins.AbstractDialogPlugin');
-goog.provide('goog.editor.plugins.AbstractDialogPlugin.EventType');
+import * as dom from '../../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.Range');
-goog.require('goog.editor.Field');
-goog.require('goog.editor.Plugin');
-goog.require('goog.editor.range');
-goog.require('goog.events');
-goog.require('goog.ui.editor.AbstractDialog');
-goog.requireType('goog.dom.SavedRange');
-goog.requireType('goog.events.Event');
+import * as Range from '../../dom/range.js';
+import { Field } from '../field.js';
+import { Plugin } from '../plugin.js';
+import * as range from '../range.js';
+import * as events from '../../events/events.js';
+import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
+goog.requireType('goog.dom.savedrange');
+goog.requireType('goog.events.event');
 
 
 // *** Public interface ***************************************************** //
@@ -35,55 +33,53 @@ goog.requireType('goog.events.Event');
  * setReuseDialog() after calling the superclass constructor.
  * @param {string} command The command that this plugin handles.
  * @constructor
- * @extends {goog.editor.Plugin}
+ * @extends {Plugin}
  */
-goog.editor.plugins.AbstractDialogPlugin = function(command) {
-  'use strict';
-  goog.editor.plugins.AbstractDialogPlugin.base(this, 'constructor');
+export function AbstractDialogPlugin(command) {
+ AbstractDialogPlugin.base(this, 'constructor');
 
-  /**
-   * The command that this plugin handles.
-   * @private {string}
-   */
-  this.command_ = command;
+ /**
+  * The command that this plugin handles.
+  * @private {string}
+  */
+ this.command_ = command;
 
-  /** @private {function()} */
-  this.restoreScrollPosition_ = function() {};
+ /** @private {function()} */
+ this.restoreScrollPosition_ = function() {};
 
-  /**
+ /**
    * The current dialog that was created and opened by this plugin.
-   * @private {?goog.ui.editor.AbstractDialog}
+   * @private {?AbstractDialog}
    */
-  this.dialog_ = null;
+ this.dialog_ = null;
 
-  /**
-   * Whether this plugin should reuse the same instance of the dialog each time
-   * execCommand is called or create a new one.
-   * @private {boolean}
-   */
-  this.reuseDialog_ = false;
+ /**
+  * Whether this plugin should reuse the same instance of the dialog each time
+  * execCommand is called or create a new one.
+  * @private {boolean}
+  */
+ this.reuseDialog_ = false;
 
-  /**
-   * Mutex to prevent recursive calls to disposeDialog_.
-   * @private {boolean}
-   */
-  this.isDisposingDialog_ = false;
+ /**
+  * Mutex to prevent recursive calls to disposeDialog_.
+  * @private {boolean}
+  */
+ this.isDisposingDialog_ = false;
 
-  /**
+ /**
    * SavedRange representing the selection before the dialog was opened.
-   * @private {?goog.dom.SavedRange}
+   * @private {?dom.SavedRange}
    */
-  this.savedRange_ = null;
-};
-goog.inherits(goog.editor.plugins.AbstractDialogPlugin, goog.editor.Plugin);
+ this.savedRange_ = null;
+}
+goog.inherits(AbstractDialogPlugin, Plugin);
 
 
 /** @override */
-goog.editor.plugins.AbstractDialogPlugin.prototype.isSupportedCommand =
+AbstractDialogPlugin.prototype.isSupportedCommand =
     function(command) {
-  'use strict';
-  return command == this.command_;
-};
+     return command == this.command_;
+    };
 
 
 /**
@@ -97,10 +93,9 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.isSupportedCommand =
  * @return {*} The result of the execCommand, if any.
  * @override
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.execCommand = function(
+AbstractDialogPlugin.prototype.execCommand = function(
     command, var_args) {
-  'use strict';
-  return this.execCommandInternal.apply(this, arguments);
+ return this.execCommandInternal.apply(this, arguments);
 };
 
 
@@ -111,7 +106,7 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.execCommand = function(
  * Event type constants for events the dialog plugins fire.
  * @enum {string}
  */
-goog.editor.plugins.AbstractDialogPlugin.EventType = {
+AbstractDialogPlugin.EventType = {
   // This event is fired when a dialog has been opened.
   OPENED: 'dialogOpened',
   // This event is fired when a dialog has been closed.
@@ -128,26 +123,25 @@ goog.editor.plugins.AbstractDialogPlugin.EventType = {
  * Implementations should expect that the editor is inactive and cannot be
  * focused, nor will its caret position (or selection) be determinable until
  * after the dialogs goog.ui.PopupBase.EventType.HIDE event has been handled.
- * @param {!goog.dom.DomHelper} dialogDomHelper The dom helper to be used to
+ * @param {!dom.DomHelper} dialogDomHelper The dom helper to be used to
  *     create the dialog.
  * @param {*=} opt_arg The dialog specific argument. Concrete subclasses should
  *     declare a specific type.
- * @return {goog.ui.editor.AbstractDialog} The newly created dialog.
+ * @return {AbstractDialog} The newly created dialog.
  * @protected
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.createDialog =
+AbstractDialogPlugin.prototype.createDialog =
     goog.abstractMethod;
 
 
 /**
  * Returns the current dialog that was created and opened by this plugin.
- * @return {goog.ui.editor.AbstractDialog} The current dialog that was created
+ * @return {AbstractDialog} The current dialog that was created
  *     and opened by this plugin.
  * @protected
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.getDialog = function() {
-  'use strict';
-  return this.dialog_;
+AbstractDialogPlugin.prototype.getDialog = function() {
+ return this.dialog_;
 };
 
 
@@ -158,16 +152,15 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.getDialog = function() {
  * @param {boolean} reuse Whether to reuse the dialog.
  * @protected
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.setReuseDialog = function(
+AbstractDialogPlugin.prototype.setReuseDialog = function(
     reuse) {
-  'use strict';
-  this.reuseDialog_ = reuse;
+ this.reuseDialog_ = reuse;
 };
 
 
 /**
  * Handles execCommand by opening the dialog. Dispatches
- * {@link goog.editor.plugins.AbstractDialogPlugin.EventType.OPENED} after the
+ * {@link AbstractDialogPlugin.EventType.OPENED} after the
  * dialog is shown.
  * @param {string} command The command to execute.
  * @param {*=} opt_arg The dialog specific argument. Should be the same as
@@ -176,54 +169,53 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.setReuseDialog = function(
  * @protected
  * @override
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.execCommandInternal =
+AbstractDialogPlugin.prototype.execCommandInternal =
     function(command, opt_arg) {
-  'use strict';
-  // If this plugin should not reuse dialog instances, first dispose of the
-  // previous dialog.
-  if (!this.reuseDialog_) {
-    this.disposeDialog_();
-  }
-  // If there is no dialog yet (or we aren't reusing the previous one), create
-  // one.
-  if (!this.dialog_) {
-    this.dialog_ = this.createDialog(
-        // TODO(user): Add Field.getAppDomHelper. (Note dom helper will
-        // need to be updated if setAppWindow is called by clients.)
-        goog.dom.getDomHelper(this.getFieldObject().getAppWindow()), opt_arg);
-  }
+     // If this plugin should not reuse dialog instances, first dispose of the
+     // previous dialog.
+     if (!this.reuseDialog_) {
+       this.disposeDialog_();
+     }
+     // If there is no dialog yet (or we aren't reusing the previous one), create
+     // one.
+     if (!this.dialog_) {
+       this.dialog_ = this.createDialog(
+           // TODO(user): Add Field.getAppDomHelper. (Note dom helper will
+           // need to be updated if setAppWindow is called by clients.)
+           dom.getDomHelper(this.getFieldObject().getAppWindow()), opt_arg);
+     }
 
-  // Since we're opening a dialog, we need to clear the selection because the
-  // focus will be going to the dialog, and if we leave an selection in the
-  // editor while another selection is active in the dialog as the user is
-  // typing, some browsers will screw up the original selection. But first we
-  // save it so we can restore it when the dialog closes.
-  // getRange may return null if there is no selection in the field.
-  var tempRange = this.getFieldObject().getRange();
-  // saveUsingDom() did not work as well as saveUsingNormalizedCarets(),
-  // not sure why.
+     // Since we're opening a dialog, we need to clear the selection because the
+     // focus will be going to the dialog, and if we leave an selection in the
+     // editor while another selection is active in the dialog as the user is
+     // typing, some browsers will screw up the original selection. But first we
+     // save it so we can restore it when the dialog closes.
+     // getRange may return null if there is no selection in the field.
+     var tempRange = this.getFieldObject().getRange();
+     // saveUsingDom() did not work as well as saveUsingNormalizedCarets(),
+     // not sure why.
 
-  this.restoreScrollPosition_ = this.saveScrollPosition();
-  this.savedRange_ =
-      tempRange && goog.editor.range.saveUsingNormalizedCarets(tempRange);
-  goog.dom.Range.clearSelection(
-      this.getFieldObject().getEditableDomHelper().getWindow());
+     this.restoreScrollPosition_ = this.saveScrollPosition();
+     this.savedRange_ =
+         tempRange && range.saveUsingNormalizedCarets(tempRange);
+     Range.clearSelection(
+         this.getFieldObject().getEditableDomHelper().getWindow());
 
-  // Listen for the dialog closing so we can clean up.
-  goog.events.listenOnce(
-      this.dialog_, goog.ui.editor.AbstractDialog.EventType.AFTER_HIDE,
-      this.handleAfterHide, false, this);
+     // Listen for the dialog closing so we can clean up.
+     events.listenOnce(
+         this.dialog_, AbstractDialog.EventType.AFTER_HIDE,
+         this.handleAfterHide, false, this);
 
-  this.getFieldObject().setModalMode(true);
-  this.dialog_.show();
-  this.dispatchEvent(goog.editor.plugins.AbstractDialogPlugin.EventType.OPENED);
+     this.getFieldObject().setModalMode(true);
+     this.dialog_.show();
+     this.dispatchEvent(AbstractDialogPlugin.EventType.OPENED);
 
-  // Since the selection has left the document, dispatch a selection
-  // change event.
-  this.getFieldObject().dispatchSelectionChangeEvent();
+     // Since the selection has left the document, dispatch a selection
+     // change event.
+     this.getFieldObject().dispatchSelectionChangeEvent();
 
-  return true;
-};
+     return true;
+    };
 
 
 /**
@@ -234,35 +226,34 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.execCommandInternal =
  * subclass' responsibility to place the selection in the desired place during
  * the OK or Cancel (or other) handler. In that case, this method will leave the
  * selection in place.
- * @param {goog.events.Event} e The AFTER_HIDE event object.
+ * @param {events.Event} e The AFTER_HIDE event object.
  * @protected
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.handleAfterHide = function(
+AbstractDialogPlugin.prototype.handleAfterHide = function(
     e) {
-  'use strict';
-  this.getFieldObject().setModalMode(false);
-  this.restoreOriginalSelection();
-  this.restoreScrollPosition_();
+ this.getFieldObject().setModalMode(false);
+ this.restoreOriginalSelection();
+ this.restoreScrollPosition_();
 
-  if (!this.reuseDialog_) {
-    this.disposeDialog_();
-  }
+ if (!this.reuseDialog_) {
+   this.disposeDialog_();
+ }
 
-  this.dispatchEvent(goog.editor.plugins.AbstractDialogPlugin.EventType.CLOSED);
+ this.dispatchEvent(AbstractDialogPlugin.EventType.CLOSED);
 
-  // Since the selection has returned to the document, dispatch a selection
-  // change event.
-  this.getFieldObject().dispatchSelectionChangeEvent();
+ // Since the selection has returned to the document, dispatch a selection
+ // change event.
+ this.getFieldObject().dispatchSelectionChangeEvent();
 
-  // When the dialog closes due to pressing enter or escape, that happens on the
-  // keydown event. But the browser will still fire a keyup event after that,
-  // which is caught by the editable field and causes it to try to fire a
-  // selection change event. To avoid that, we "debounce" the selection change
-  // event, meaning the editable field will not fire that event if the keyup
-  // that caused it immediately after this dialog was hidden ("immediately"
-  // means a small number of milliseconds defined by the editable field).
-  this.getFieldObject().debounceEvent(
-      goog.editor.Field.EventType.SELECTIONCHANGE);
+ // When the dialog closes due to pressing enter or escape, that happens on the
+ // keydown event. But the browser will still fire a keyup event after that,
+ // which is caught by the editable field and causes it to try to fire a
+ // selection change event. To avoid that, we "debounce" the selection change
+ // event, meaning the editable field will not fire that event if the keyup
+ // that caused it immediately after this dialog was hidden ("immediately"
+ // means a small number of milliseconds defined by the editable field).
+ this.getFieldObject().debounceEvent(
+     Field.EventType.SELECTIONCHANGE);
 };
 
 
@@ -272,12 +263,11 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.handleAfterHide = function(
  * have changed.
  * @protected
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.restoreOriginalSelection =
+AbstractDialogPlugin.prototype.restoreOriginalSelection =
     function() {
-  'use strict';
-  this.getFieldObject().restoreSavedRange(this.savedRange_);
-  this.savedRange_ = null;
-};
+     this.getFieldObject().restoreSavedRange(this.savedRange_);
+     this.savedRange_ = null;
+    };
 
 
 /**
@@ -286,23 +276,21 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.restoreOriginalSelection =
  * selection via restoreOriginalSelection.
  * @protected
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.disposeOriginalSelection =
+AbstractDialogPlugin.prototype.disposeOriginalSelection =
     function() {
-  'use strict';
-  if (this.savedRange_) {
-    this.savedRange_.dispose();
-    this.savedRange_ = null;
-  }
-};
+     if (this.savedRange_) {
+       this.savedRange_.dispose();
+       this.savedRange_ = null;
+     }
+    };
 
 
 /** @override */
-goog.editor.plugins.AbstractDialogPlugin.prototype.disposeInternal =
+AbstractDialogPlugin.prototype.disposeInternal =
     function() {
-  'use strict';
-  this.disposeDialog_();
-  goog.editor.plugins.AbstractDialogPlugin.base(this, 'disposeInternal');
-};
+     this.disposeDialog_();
+     AbstractDialogPlugin.base(this, 'disposeInternal');
+    };
 
 
 // *** Private implementation *********************************************** //
@@ -315,17 +303,16 @@ goog.editor.plugins.AbstractDialogPlugin.prototype.disposeInternal =
  * if the dialog was already disposed once it should not be disposed again.
  * @private
  */
-goog.editor.plugins.AbstractDialogPlugin.prototype.disposeDialog_ = function() {
-  'use strict';
-  // Wrap disposing the dialog in a mutex. Otherwise disposing it would cause it
-  // to get hidden (if it is still open) and fire AFTER_HIDE, which in
-  // turn would cause the dialog to be disposed again (closure only flags an
-  // object as disposed after the dispose call chain completes, so it doesn't
-  // prevent recursive dispose calls).
-  if (this.dialog_ && !this.isDisposingDialog_) {
-    this.isDisposingDialog_ = true;
-    this.dialog_.dispose();
-    this.dialog_ = null;
-    this.isDisposingDialog_ = false;
-  }
+AbstractDialogPlugin.prototype.disposeDialog_ = function() {
+ // Wrap disposing the dialog in a mutex. Otherwise disposing it would cause it
+ // to get hidden (if it is still open) and fire AFTER_HIDE, which in
+ // turn would cause the dialog to be disposed again (closure only flags an
+ // object as disposed after the dispose call chain completes, so it doesn't
+ // prevent recursive dispose calls).
+ if (this.dialog_ && !this.isDisposingDialog_) {
+   this.isDisposingDialog_ = true;
+   this.dialog_.dispose();
+   this.dialog_ = null;
+   this.isDisposingDialog_ = false;
+ }
 };

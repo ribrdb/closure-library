@@ -8,9 +8,7 @@
  * @fileoverview A Map that associates multiple values with a single key.
  */
 
-goog.provide('goog.labs.structs.Multimap');
-
-goog.require('goog.array');
+import * as array from '../../array/array.js';
 
 
 
@@ -19,7 +17,7 @@ goog.require('goog.array');
  * @final
  * @template K, V
  */
-goog.labs.structs.Multimap = class {
+export class Multimap {
   constructor() {
     this.clear();
   }
@@ -33,12 +31,12 @@ goog.labs.structs.Multimap = class {
   }
 
   /**
-   * Clones this multimap.
-   * @return {!goog.labs.structs.Multimap<K, V>} A multimap that contains all
-   *     the mapping this multimap has.
-   */
+     * Clones this multimap.
+     * @return {!Multimap<K, V>} A multimap that contains all
+     *     the mapping this multimap has.
+     */
   clone() {
-    const map = new goog.labs.structs.Multimap();
+    const map = new Multimap();
     map.addAllFromMultimap(this);
     return map;
   }
@@ -67,19 +65,17 @@ goog.labs.structs.Multimap = class {
    */
   addAllValues(key, values) {
     values.forEach(function(v) {
-      'use strict';
       this.add(key, v);
     }, this);
   }
 
   /**
-   * Adds the contents of the given map/multimap to this multimap.
-   * @param {!goog.labs.structs.Multimap<K, V>} map The
-   *     map to add.
-   */
+     * Adds the contents of the given map/multimap to this multimap.
+     * @param {!Multimap<K, V>} map The
+     *     map to add.
+     */
   addAllFromMultimap(map) {
     map.getEntries().forEach(function(entry) {
-      'use strict';
       this.add(entry[0], entry[1]);
     }, this);
   }
@@ -104,7 +100,7 @@ goog.labs.structs.Multimap = class {
    */
   get(key) {
     const values = this.map_.get(key);
-    return values ? goog.array.clone(values) : [];
+    return values ? array.clone(values) : [];
   }
 
   /**
@@ -119,8 +115,7 @@ goog.labs.structs.Multimap = class {
       return false;
     }
 
-    const removed = goog.array.removeIf(values, function(v) {
-      'use strict';
+    const removed = array.removeIf(values, function(v) {
       return Object.is(value, v);
     });
 
@@ -177,7 +172,6 @@ goog.labs.structs.Multimap = class {
     }
 
     const index = values.findIndex(function(v) {
-      'use strict';
       return Object.is(v, value);
     });
     return index >= 0;
@@ -212,7 +206,7 @@ goog.labs.structs.Multimap = class {
    * @return {!Array<V>} An array of values. There may be duplicates.
    */
   getValues() {
-    return goog.array.flatten([...this.map_.values()]);
+    return array.flatten([...this.map_.values()]);
   }
 
   /**
@@ -231,17 +225,17 @@ goog.labs.structs.Multimap = class {
     }
     return entries;
   }
-};
+}
 
 
 /**
  * The backing map.
  * @private {!Map<K, !Array<V>>}
  */
-goog.labs.structs.Multimap.prototype.map_;
+Multimap.prototype.map_;
 
 
 /**
  * @private {number}
  */
-goog.labs.structs.Multimap.prototype.count_ = 0;
+Multimap.prototype.count_ = 0;

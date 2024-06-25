@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.EventTypeTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.events.BrowserFeature');
-const EventType = goog.require('goog.events.EventType');
-const PointerFallbackEventType = goog.require('goog.events.PointerFallbackEventType');
-const PointerTouchFallbackEventType = goog.require('goog.events.PointerTouchFallbackEventType');
-const testSuite = goog.require('goog.testing.testSuite');
+import BrowserFeature from './browserfeature.js';
+import { EventType } from './eventtype.js';
+import { PointerFallbackEventType } from './pointerfallbackeventtype.js';
+import { PointerTouchFallbackEventType } from './pointertouchfallbackeventtype.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testPointerFallbackEventType() {

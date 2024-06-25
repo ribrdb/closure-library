@@ -10,7 +10,7 @@
  */
 
 
-goog.provide('goog.graphics.Fill');
+goog.declareModuleId('goog.graphics.fill');
 
 
 
@@ -21,16 +21,16 @@ goog.provide('goog.graphics.Fill');
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.Fill = function() {};
+export function Fill() {}
 
 
 /**
  * @return {string} The start color of a gradient fill.
  */
-goog.graphics.Fill.prototype.getColor1 = goog.abstractMethod;
+Fill.prototype.getColor1 = goog.abstractMethod;
 
 
 /**
  * @return {string} The end color of a gradient fill.
  */
-goog.graphics.Fill.prototype.getColor2 = goog.abstractMethod;
+Fill.prototype.getColor2 = goog.abstractMethod;

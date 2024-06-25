@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.events.MouseAsMouseEventType');
+import { EventType } from './eventtype.js';
 
-goog.require('goog.events.EventType');
-goog.require('goog.events.MouseEvents');
+import { MouseEvents } from './mouseevents.js';
 
 
 /**
- * An alias for `goog.events.EventType.MOUSE*` event types that continue to use
+ * An alias for `EventType.MOUSE*` event types that continue to use
  * mouse events.
- * @const {!goog.events.MouseEvents}
+ * @const {!MouseEvents}
  */
-goog.events.MouseAsMouseEventType = {
-  MOUSEDOWN: goog.events.EventType.MOUSEDOWN,
-  MOUSEUP: goog.events.EventType.MOUSEUP,
-  MOUSECANCEL: goog.events.EventType.MOUSECANCEL,
-  MOUSEMOVE: goog.events.EventType.MOUSEMOVE,
-  MOUSEOVER: goog.events.EventType.MOUSEOVER,
-  MOUSEOUT: goog.events.EventType.MOUSEOUT,
-  MOUSEENTER: goog.events.EventType.MOUSEENTER,
-  MOUSELEAVE: goog.events.EventType.MOUSELEAVE
+export var MouseAsMouseEventType = {
+  MOUSEDOWN: EventType.MOUSEDOWN,
+  MOUSEUP: EventType.MOUSEUP,
+  MOUSECANCEL: EventType.MOUSECANCEL,
+  MOUSEMOVE: EventType.MOUSEMOVE,
+  MOUSEOVER: EventType.MOUSEOVER,
+  MOUSEOUT: EventType.MOUSEOUT,
+  MOUSEENTER: EventType.MOUSEENTER,
+  MOUSELEAVE: EventType.MOUSELEAVE
 };

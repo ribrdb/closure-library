@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.styleTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.events.EventType');
-const LooseMock = goog.require('goog.testing.LooseMock');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const googStyle = goog.require('goog.style');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const style = goog.require('goog.editor.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserFeature } from './browserfeature.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventType } from '../events/eventtype.js';
+import { LooseMock } from '../testing/loosemock.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as googStyle from '../style/style.js';
+import * as mockmatchers from '../testing/mockmatchers.js';
+import * as style from './style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let parentNode = null;
 let childNode1 = null;

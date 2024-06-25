@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.style.transitionTest');
 goog.setTestOnly();
 
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const transition = goog.require('goog.style.transition');
-const userAgent = goog.require('goog.userAgent');
+import * as style from './style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as transition from './transition.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /** Fake element. */
 let element;

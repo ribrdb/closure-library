@@ -12,15 +12,15 @@
  */
 
 
-goog.provide('goog.graphics.Element');
+goog.declareModuleId('goog.graphics.element');
 
-goog.require('goog.asserts');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.Listenable');
-goog.require('goog.graphics.AffineTransform');
-goog.require('goog.math');
-goog.requireType('goog.graphics.AbstractGraphics');
+import * as asserts from '../asserts/asserts.js';
+import * as events from '../events/events.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { Listenable } from '../events/listenable.js';
+import { AffineTransform } from './affinetransform.js';
+import * as math from '../math/math.js';
+goog.requireType('goog.graphics.abstractgraphics');
 
 
 
@@ -33,21 +33,20 @@ goog.requireType('goog.graphics.AbstractGraphics');
  * @param {goog.graphics.AbstractGraphics} graphics  The graphics creating
  *     this element.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.Element = function(element, graphics) {
-  'use strict';
-  goog.events.EventTarget.call(this);
-  this.element_ = element;
-  this.graphics_ = graphics;
-  // Overloading EventTarget field to state that this is not a custom event.
-  // TODO(user) Should be handled in EventTarget.js (see bug 846824).
-  this[goog.events.Listenable.IMPLEMENTED_BY_PROP] = false;
-};
-goog.inherits(goog.graphics.Element, goog.events.EventTarget);
+export function Element(element, graphics) {
+ EventTarget.call(this);
+ this.element_ = element;
+ this.graphics_ = graphics;
+ // Overloading EventTarget field to state that this is not a custom event.
+ // TODO(user) Should be handled in EventTarget.js (see bug 846824).
+ this[Listenable.IMPLEMENTED_BY_PROP] = false;
+}
+goog.inherits(Element, EventTarget);
 
 
 /**
@@ -55,7 +54,7 @@ goog.inherits(goog.graphics.Element, goog.events.EventTarget);
  * @type {goog.graphics.AbstractGraphics?}
  * @private
  */
-goog.graphics.Element.prototype.graphics_ = null;
+Element.prototype.graphics_ = null;
 
 
 /**
@@ -63,24 +62,23 @@ goog.graphics.Element.prototype.graphics_ = null;
  * @type {?Element}
  * @private
  */
-goog.graphics.Element.prototype.element_ = null;
+Element.prototype.element_ = null;
 
 
 /**
  * The transformation applied to this element.
- * @type {goog.graphics.AffineTransform?}
+ * @type {AffineTransform?}
  * @private
  */
-goog.graphics.Element.prototype.transform_ = null;
+Element.prototype.transform_ = null;
 
 
 /**
  * Returns the underlying object.
  * @return {Element} The underlying element.
  */
-goog.graphics.Element.prototype.getElement = function() {
-  'use strict';
-  return this.element_;
+Element.prototype.getElement = function() {
+ return this.element_;
 };
 
 
@@ -89,9 +87,8 @@ goog.graphics.Element.prototype.getElement = function() {
  * @return {goog.graphics.AbstractGraphics} The graphics that created the
  *     element.
  */
-goog.graphics.Element.prototype.getGraphics = function() {
-  'use strict';
-  return this.graphics_;
+Element.prototype.getGraphics = function() {
+ return this.graphics_;
 };
 
 
@@ -106,62 +103,56 @@ goog.graphics.Element.prototype.getGraphics = function() {
  * @param {number} centerX The horizontal center of the rotation transform.
  * @param {number} centerY The vertical center of the rotation transform.
  */
-goog.graphics.Element.prototype.setTransformation = function(
+Element.prototype.setTransformation = function(
     x, y, rotate, centerX, centerY) {
-  'use strict';
-  this.transform_ =
-      goog.graphics.AffineTransform
-          .getRotateInstance(goog.math.toRadians(rotate), centerX, centerY)
-          .translate(x, y);
-  this.getGraphics().setElementTransform(this, x, y, rotate, centerX, centerY);
+ this.transform_ =
+     AffineTransform
+         .getRotateInstance(math.toRadians(rotate), centerX, centerY)
+         .translate(x, y);
+ this.getGraphics().setElementTransform(this, x, y, rotate, centerX, centerY);
 };
 
 
 /**
- * @return {!goog.graphics.AffineTransform} The transformation applied to
+ * @return {!AffineTransform} The transformation applied to
  *     this element.
  */
-goog.graphics.Element.prototype.getTransform = function() {
-  'use strict';
-  return this.transform_ ? this.transform_.clone() :
-                           new goog.graphics.AffineTransform();
+Element.prototype.getTransform = function() {
+ return this.transform_ ? this.transform_.clone() :
+                          new AffineTransform();
 };
 
 
 /**
  * Set the affine transform of the element.
- * @param {!goog.graphics.AffineTransform} affineTransform The
+ * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  */
-goog.graphics.Element.prototype.setTransform = function(affineTransform) {
-  'use strict';
-  this.transform_ = affineTransform.clone();
-  this.getGraphics().setElementAffineTransform(this, affineTransform);
+Element.prototype.setTransform = function(affineTransform) {
+ this.transform_ = affineTransform.clone();
+ this.getGraphics().setElementAffineTransform(this, affineTransform);
 };
 
 
 /** @override */
-goog.graphics.Element.prototype.addEventListener = function(
+Element.prototype.addEventListener = function(
     type, handler, opt_capture, opt_handlerScope) {
-  'use strict';
-  goog.events.listen(
-      this.element_, type, handler, opt_capture, opt_handlerScope);
+ events.listen(
+     this.element_, type, handler, opt_capture, opt_handlerScope);
 };
 
 
 /** @override */
-goog.graphics.Element.prototype.removeEventListener = function(
+Element.prototype.removeEventListener = function(
     type, handler, opt_capture, opt_handlerScope) {
-  'use strict';
-  goog.events.unlisten(
-      this.element_, type, handler, opt_capture, opt_handlerScope);
+ events.unlisten(
+     this.element_, type, handler, opt_capture, opt_handlerScope);
 };
 
 
 /** @override */
-goog.graphics.Element.prototype.disposeInternal = function() {
-  'use strict';
-  goog.graphics.Element.superClass_.disposeInternal.call(this);
-  goog.asserts.assert(this.element_);
-  goog.events.removeAll(this.element_);
+Element.prototype.disposeInternal = function() {
+ Element.superClass_.disposeInternal.call(this);
+ asserts.assert(this.element_);
+ events.removeAll(this.element_);
 };

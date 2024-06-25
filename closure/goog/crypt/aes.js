@@ -9,10 +9,9 @@
  * @see http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
  */
 
-goog.provide('goog.crypt.Aes');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.crypt.BlockCipher');
+import { BlockCipher } from './blockcipher.js';
 
 
 
@@ -29,16 +28,15 @@ goog.require('goog.crypt.BlockCipher');
  * information.
  *
  * @constructor
- * @implements {goog.crypt.BlockCipher}
+ * @implements {BlockCipher}
  * @param {!Array<number>} key The key as an array of integers in {0, 255}.
  *     The key must have lengths of 16, 24, or 32 integers for 128-,
  *     192-, or 256-bit encryption, respectively.
  * @final
  * @struct
  */
-goog.crypt.Aes = function(key) {
-  'use strict';
-  goog.crypt.Aes.assertKeyArray_(key);
+export function Aes(key) {
+  Aes.assertKeyArray_(key);
 
   /**
    * The AES key.
@@ -83,7 +81,7 @@ goog.crypt.Aes = function(key) {
   this.keySchedule_;
 
   this.keyExpansion_();
-};
+}
 
 
 /**
@@ -93,7 +91,7 @@ goog.crypt.Aes = function(key) {
  * @const
  * @public
  */
-goog.crypt.Aes.prototype.BLOCK_SIZE = 16;
+Aes.prototype.BLOCK_SIZE = 16;
 
 /**
  * Number of words in a block.
@@ -101,23 +99,22 @@ goog.crypt.Aes.prototype.BLOCK_SIZE = 16;
  * @const
  * @private
  */
-goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_ = goog.crypt.Aes.prototype.BLOCK_SIZE / 4;
+Aes.BLOCK_SIZE_IN_WORDS_ = Aes.prototype.BLOCK_SIZE / 4;
 
 
 /**
  * @define {boolean} Whether to call test method stubs.  This can be enabled
  *     for unit testing.
  */
-goog.crypt.Aes.ENABLE_TEST_MODE =
+Aes.ENABLE_TEST_MODE =
     goog.define('goog.crypt.Aes.ENABLE_TEST_MODE', false);
 
 
 /**
  * @override
  */
-goog.crypt.Aes.prototype.encrypt = function(input) {
-  'use strict';
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+Aes.prototype.encrypt = function(input) {
+  if (Aes.ENABLE_TEST_MODE) {
     this.testKeySchedule_(0, this.keySchedule_, 0);
   }
 
@@ -125,36 +122,36 @@ goog.crypt.Aes.prototype.encrypt = function(input) {
   this.addRoundKey_(0);
 
   for (var round = 1; round < this.numberOfRounds_; ++round) {
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    if (Aes.ENABLE_TEST_MODE) {
       this.testKeySchedule_(round, this.keySchedule_, round);
       this.testStartRound_(round, this.state_);
     }
 
-    this.subBytes_(goog.crypt.Aes.SBOX_);
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    this.subBytes_(Aes.SBOX_);
+    if (Aes.ENABLE_TEST_MODE) {
       this.testAfterSubBytes_(round, this.state_);
     }
 
     this.shiftRows_();
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    if (Aes.ENABLE_TEST_MODE) {
       this.testAfterShiftRows_(round, this.state_);
     }
 
     this.mixColumns_();
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    if (Aes.ENABLE_TEST_MODE) {
       this.testAfterMixColumns_(round, this.state_);
     }
 
     this.addRoundKey_(round);
   }
 
-  this.subBytes_(goog.crypt.Aes.SBOX_);
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+  this.subBytes_(Aes.SBOX_);
+  if (Aes.ENABLE_TEST_MODE) {
     this.testAfterSubBytes_(round, this.state_);
   }
 
   this.shiftRows_();
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+  if (Aes.ENABLE_TEST_MODE) {
     this.testAfterShiftRows_(round, this.state_);
   }
 
@@ -167,9 +164,8 @@ goog.crypt.Aes.prototype.encrypt = function(input) {
 /**
  * @override
  */
-goog.crypt.Aes.prototype.decrypt = function(input) {
-  'use strict';
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+Aes.prototype.decrypt = function(input) {
+  if (Aes.ENABLE_TEST_MODE) {
     this.testKeySchedule_(0, this.keySchedule_, this.numberOfRounds_);
   }
 
@@ -177,24 +173,24 @@ goog.crypt.Aes.prototype.decrypt = function(input) {
   this.addRoundKey_(this.numberOfRounds_);
 
   for (var round = 1; round < this.numberOfRounds_; ++round) {
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    if (Aes.ENABLE_TEST_MODE) {
       this.testKeySchedule_(
           round, this.keySchedule_, this.numberOfRounds_ - round);
       this.testStartRound_(round, this.state_);
     }
 
     this.invShiftRows_();
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    if (Aes.ENABLE_TEST_MODE) {
       this.testAfterShiftRows_(round, this.state_);
     }
 
-    this.subBytes_(goog.crypt.Aes.INV_SBOX_);
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    this.subBytes_(Aes.INV_SBOX_);
+    if (Aes.ENABLE_TEST_MODE) {
       this.testAfterSubBytes_(round, this.state_);
     }
 
     this.addRoundKey_(this.numberOfRounds_ - round);
-    if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+    if (Aes.ENABLE_TEST_MODE) {
       this.testAfterAddRoundKey_(round, this.state_);
     }
 
@@ -202,16 +198,16 @@ goog.crypt.Aes.prototype.decrypt = function(input) {
   }
 
   this.invShiftRows_();
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+  if (Aes.ENABLE_TEST_MODE) {
     this.testAfterShiftRows_(round, this.state_);
   }
 
-  this.subBytes_(goog.crypt.Aes.INV_SBOX_);
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+  this.subBytes_(Aes.INV_SBOX_);
+  if (Aes.ENABLE_TEST_MODE) {
     this.testAfterSubBytes_(this.numberOfRounds_, this.state_);
   }
 
-  if (goog.crypt.Aes.ENABLE_TEST_MODE) {
+  if (Aes.ENABLE_TEST_MODE) {
     this.testKeySchedule_(this.numberOfRounds_, this.keySchedule_, 0);
   }
 
@@ -226,15 +222,14 @@ goog.crypt.Aes.prototype.decrypt = function(input) {
  * @param {!Array<number>} arr AES key as array of integers.
  * @private
  */
-goog.crypt.Aes.assertKeyArray_ = function(arr) {
-  'use strict';
-  if (goog.asserts.ENABLE_ASSERTS) {
-    goog.asserts.assert(
+Aes.assertKeyArray_ = function(arr) {
+  if (asserts.ENABLE_ASSERTS) {
+    asserts.assert(
         arr.length == 16 || arr.length == 24 || arr.length == 32,
         'Key must have length 16, 24, or 32.');
     for (var i = 0; i < arr.length; i++) {
-      goog.asserts.assertNumber(arr[i]);
-      goog.asserts.assert(arr[i] >= 0 && arr[i] <= 255);
+      asserts.assertNumber(arr[i]);
+      asserts.assert(arr[i] >= 0 && arr[i] <= 255);
     }
   }
 };
@@ -247,7 +242,7 @@ goog.crypt.Aes.assertKeyArray_ = function(arr) {
  * @param {!Array<Array<number>>} Current state.
  * @private
  */
-goog.crypt.Aes.prototype.testStartRound_ = function(roundNum, Current) {};
+Aes.prototype.testStartRound_ = function(roundNum, Current) {};
 
 
 /**
@@ -258,7 +253,7 @@ goog.crypt.Aes.prototype.testStartRound_ = function(roundNum, Current) {};
  * @param {!Array<Array<number>>} Current state.
  * @private
  */
-goog.crypt.Aes.prototype.testAfterSubBytes_ = function(roundNum, Current) {};
+Aes.prototype.testAfterSubBytes_ = function(roundNum, Current) {};
 
 
 /**
@@ -269,7 +264,7 @@ goog.crypt.Aes.prototype.testAfterSubBytes_ = function(roundNum, Current) {};
  * @param {!Array<Array<number>>} Current state.
  * @private
  */
-goog.crypt.Aes.prototype.testAfterShiftRows_ = function(roundNum, Current) {};
+Aes.prototype.testAfterShiftRows_ = function(roundNum, Current) {};
 
 
 /**
@@ -280,7 +275,7 @@ goog.crypt.Aes.prototype.testAfterShiftRows_ = function(roundNum, Current) {};
  * @param {!Array<Array<number>>} Current state.
  * @private
  */
-goog.crypt.Aes.prototype.testAfterMixColumns_ = function(roundNum, Current) {};
+Aes.prototype.testAfterMixColumns_ = function(roundNum, Current) {};
 
 
 /**
@@ -290,7 +285,7 @@ goog.crypt.Aes.prototype.testAfterMixColumns_ = function(roundNum, Current) {};
  * @param {!Array<Array<number>>} Current state.
  * @private
  */
-goog.crypt.Aes.prototype.testAfterAddRoundKey_ = function(roundNum, Current) {};
+Aes.prototype.testAfterAddRoundKey_ = function(roundNum, Current) {};
 
 
 /**
@@ -304,7 +299,7 @@ goog.crypt.Aes.prototype.testAfterAddRoundKey_ = function(roundNum, Current) {};
  *     in the case of decryption.
  * @private
  */
-goog.crypt.Aes.prototype.testKeySchedule_ = function(
+Aes.prototype.testKeySchedule_ = function(
     roundNum, Computed, index) {};
 
 
@@ -314,19 +309,18 @@ goog.crypt.Aes.prototype.testKeySchedule_ = function(
  *     matrix.
  * @private
  */
-goog.crypt.Aes.prototype.copyInput_ = function(input) {
-  'use strict';
+Aes.prototype.copyInput_ = function(input) {
   var v, p;
 
-  goog.asserts.assert(
+  asserts.assert(
       input.length == this.BLOCK_SIZE, 'Expecting input of block size.');
 
-  for (var r = 0; r < goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_; r++) {
+  for (var r = 0; r < Aes.BLOCK_SIZE_IN_WORDS_; r++) {
     for (var c = 0; c < 4; c++) {
       p = c * 4 + r;
       v = input[p];
 
-      goog.asserts.assert(
+      asserts.assert(
           v <= 255 && v >= 0,
           'Invalid input. Value %s at position %s is not a byte.', v, p);
 
@@ -341,10 +335,9 @@ goog.crypt.Aes.prototype.copyInput_ = function(input) {
  * @return {!Array<number>} Output byte array.
  * @private
  */
-goog.crypt.Aes.prototype.generateOutput_ = function() {
-  'use strict';
+Aes.prototype.generateOutput_ = function() {
   var output = [];
-  for (var r = 0; r < goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_; r++) {
+  for (var r = 0; r < Aes.BLOCK_SIZE_IN_WORDS_; r++) {
     for (var c = 0; c < 4; c++) {
       output[c * 4 + r] = this.state_[r][c];
     }
@@ -358,8 +351,7 @@ goog.crypt.Aes.prototype.generateOutput_ = function() {
  * @param {number} round The current round.
  * @private
  */
-goog.crypt.Aes.prototype.addRoundKey_ = function(round) {
-  'use strict';
+Aes.prototype.addRoundKey_ = function(round) {
   for (var r = 0; r < 4; r++) {
     for (var c = 0; c < 4; c++) {
       this.state_[r][c] ^= this.keySchedule_[round * 4 + c][r];
@@ -374,8 +366,7 @@ goog.crypt.Aes.prototype.addRoundKey_ = function(round) {
  * @param {!Array<number>} box The SBox or invSBox.
  * @private
  */
-goog.crypt.Aes.prototype.subBytes_ = function(box) {
-  'use strict';
+Aes.prototype.subBytes_ = function(box) {
   for (var r = 0; r < 4; r++) {
     for (var c = 0; c < 4; c++) {
       this.state_[r][c] = box[this.state_[r][c]];
@@ -389,8 +380,7 @@ goog.crypt.Aes.prototype.subBytes_ = function(box) {
  * row is shifted one more slot than the one above it.
  * @private
  */
-goog.crypt.Aes.prototype.shiftRows_ = function() {
-  'use strict';
+Aes.prototype.shiftRows_ = function() {
   for (var r = 1; r < 4; r++) {
     for (var c = 0; c < 4; c++) {
       this.temp_[r][c] = this.state_[r][c];
@@ -400,7 +390,7 @@ goog.crypt.Aes.prototype.shiftRows_ = function() {
   for (var r = 1; r < 4; r++) {
     for (var c = 0; c < 4; c++) {
       this.state_[r][c] =
-          this.temp_[r][(c + r) % goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_];
+          this.temp_[r][(c + r) % Aes.BLOCK_SIZE_IN_WORDS_];
     }
   }
 };
@@ -410,11 +400,10 @@ goog.crypt.Aes.prototype.shiftRows_ = function() {
  * AES's InvShiftRows procedure. Shift the values in each row to the right.
  * @private
  */
-goog.crypt.Aes.prototype.invShiftRows_ = function() {
-  'use strict';
+Aes.prototype.invShiftRows_ = function() {
   for (var r = 1; r < 4; r++) {
     for (var c = 0; c < 4; c++) {
-      this.temp_[r][(c + r) % goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_] =
+      this.temp_[r][(c + r) % Aes.BLOCK_SIZE_IN_WORDS_] =
           this.state_[r][c];
     }
   }
@@ -431,8 +420,7 @@ goog.crypt.Aes.prototype.invShiftRows_ = function() {
  * AES's MixColumns procedure. Mix the columns of the state using magic.
  * @private
  */
-goog.crypt.Aes.prototype.mixColumns_ = function() {
-  'use strict';
+Aes.prototype.mixColumns_ = function() {
   var s = this.state_;
   var t = this.temp_[0];
 
@@ -443,17 +431,17 @@ goog.crypt.Aes.prototype.mixColumns_ = function() {
     t[3] = s[3][c];
 
     s[0][c] =
-        (goog.crypt.Aes.MULT_2_[t[0]] ^ goog.crypt.Aes.MULT_3_[t[1]] ^ t[2] ^
+        (Aes.MULT_2_[t[0]] ^ Aes.MULT_3_[t[1]] ^ t[2] ^
          t[3]);
     s[1][c] =
-        (t[0] ^ goog.crypt.Aes.MULT_2_[t[1]] ^ goog.crypt.Aes.MULT_3_[t[2]] ^
+        (t[0] ^ Aes.MULT_2_[t[1]] ^ Aes.MULT_3_[t[2]] ^
          t[3]);
     s[2][c] =
-        (t[0] ^ t[1] ^ goog.crypt.Aes.MULT_2_[t[2]] ^
-         goog.crypt.Aes.MULT_3_[t[3]]);
+        (t[0] ^ t[1] ^ Aes.MULT_2_[t[2]] ^
+         Aes.MULT_3_[t[3]]);
     s[3][c] =
-        (goog.crypt.Aes.MULT_3_[t[0]] ^ t[1] ^ t[2] ^
-         goog.crypt.Aes.MULT_2_[t[3]]);
+        (Aes.MULT_3_[t[0]] ^ t[1] ^ t[2] ^
+         Aes.MULT_2_[t[3]]);
   }
 };
 
@@ -462,8 +450,7 @@ goog.crypt.Aes.prototype.mixColumns_ = function() {
  * AES's InvMixColumns procedure.
  * @private
  */
-goog.crypt.Aes.prototype.invMixColumns_ = function() {
-  'use strict';
+Aes.prototype.invMixColumns_ = function() {
   var s = this.state_;
   var t = this.temp_[0];
 
@@ -474,20 +461,20 @@ goog.crypt.Aes.prototype.invMixColumns_ = function() {
     t[3] = s[3][c];
 
     s[0][c] =
-        (goog.crypt.Aes.MULT_E_[t[0]] ^ goog.crypt.Aes.MULT_B_[t[1]] ^
-         goog.crypt.Aes.MULT_D_[t[2]] ^ goog.crypt.Aes.MULT_9_[t[3]]);
+        (Aes.MULT_E_[t[0]] ^ Aes.MULT_B_[t[1]] ^
+         Aes.MULT_D_[t[2]] ^ Aes.MULT_9_[t[3]]);
 
     s[1][c] =
-        (goog.crypt.Aes.MULT_9_[t[0]] ^ goog.crypt.Aes.MULT_E_[t[1]] ^
-         goog.crypt.Aes.MULT_B_[t[2]] ^ goog.crypt.Aes.MULT_D_[t[3]]);
+        (Aes.MULT_9_[t[0]] ^ Aes.MULT_E_[t[1]] ^
+         Aes.MULT_B_[t[2]] ^ Aes.MULT_D_[t[3]]);
 
     s[2][c] =
-        (goog.crypt.Aes.MULT_D_[t[0]] ^ goog.crypt.Aes.MULT_9_[t[1]] ^
-         goog.crypt.Aes.MULT_E_[t[2]] ^ goog.crypt.Aes.MULT_B_[t[3]]);
+        (Aes.MULT_D_[t[0]] ^ Aes.MULT_9_[t[1]] ^
+         Aes.MULT_E_[t[2]] ^ Aes.MULT_B_[t[3]]);
 
     s[3][c] =
-        (goog.crypt.Aes.MULT_B_[t[0]] ^ goog.crypt.Aes.MULT_D_[t[1]] ^
-         goog.crypt.Aes.MULT_9_[t[2]] ^ goog.crypt.Aes.MULT_E_[t[3]]);
+        (Aes.MULT_B_[t[0]] ^ Aes.MULT_D_[t[1]] ^
+         Aes.MULT_9_[t[2]] ^ Aes.MULT_E_[t[3]]);
   }
 };
 
@@ -496,10 +483,9 @@ goog.crypt.Aes.prototype.invMixColumns_ = function() {
  * AES's KeyExpansion procedure. Create the key schedule from the initial key.
  * @private
  */
-goog.crypt.Aes.prototype.keyExpansion_ = function() {
-  'use strict';
+Aes.prototype.keyExpansion_ = function() {
   this.keySchedule_ = new Array(
-      goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_ * (this.numberOfRounds_ + 1));
+      Aes.BLOCK_SIZE_IN_WORDS_ * (this.numberOfRounds_ + 1));
 
   for (var rowNum = 0; rowNum < this.keyLengthInWords_; rowNum++) {
     this.keySchedule_[rowNum] = [
@@ -511,7 +497,7 @@ goog.crypt.Aes.prototype.keyExpansion_ = function() {
   var temp = new Array(4);
 
   for (var rowNum = this.keyLengthInWords_; rowNum <
-       (goog.crypt.Aes.BLOCK_SIZE_IN_WORDS_ * (this.numberOfRounds_ + 1));
+       (Aes.BLOCK_SIZE_IN_WORDS_ * (this.numberOfRounds_ + 1));
        rowNum++) {
     temp[0] = this.keySchedule_[rowNum - 1][0];
     temp[1] = this.keySchedule_[rowNum - 1][1];
@@ -522,10 +508,10 @@ goog.crypt.Aes.prototype.keyExpansion_ = function() {
       this.rotWord_(temp);
       this.subWord_(temp);
 
-      temp[0] ^= goog.crypt.Aes.RCON_[rowNum / this.keyLengthInWords_][0];
-      temp[1] ^= goog.crypt.Aes.RCON_[rowNum / this.keyLengthInWords_][1];
-      temp[2] ^= goog.crypt.Aes.RCON_[rowNum / this.keyLengthInWords_][2];
-      temp[3] ^= goog.crypt.Aes.RCON_[rowNum / this.keyLengthInWords_][3];
+      temp[0] ^= Aes.RCON_[rowNum / this.keyLengthInWords_][0];
+      temp[1] ^= Aes.RCON_[rowNum / this.keyLengthInWords_][1];
+      temp[2] ^= Aes.RCON_[rowNum / this.keyLengthInWords_][2];
+      temp[3] ^= Aes.RCON_[rowNum / this.keyLengthInWords_][3];
     } else if (
         this.keyLengthInWords_ > 6 && rowNum % this.keyLengthInWords_ == 4) {
       this.subWord_(temp);
@@ -550,12 +536,11 @@ goog.crypt.Aes.prototype.keyExpansion_ = function() {
  * @return {!Array<number>} The substituted bytes.
  * @private
  */
-goog.crypt.Aes.prototype.subWord_ = function(w) {
-  'use strict';
-  w[0] = goog.crypt.Aes.SBOX_[w[0]];
-  w[1] = goog.crypt.Aes.SBOX_[w[1]];
-  w[2] = goog.crypt.Aes.SBOX_[w[2]];
-  w[3] = goog.crypt.Aes.SBOX_[w[3]];
+Aes.prototype.subWord_ = function(w) {
+  w[0] = Aes.SBOX_[w[0]];
+  w[1] = Aes.SBOX_[w[1]];
+  w[2] = Aes.SBOX_[w[2]];
+  w[3] = Aes.SBOX_[w[3]];
 
   return w;
 };
@@ -567,8 +552,7 @@ goog.crypt.Aes.prototype.subWord_ = function(w) {
  * @return {!Array<number>} The rotated bytes.
  * @private
  */
-goog.crypt.Aes.prototype.rotWord_ = function(w) {
-  'use strict';
+Aes.prototype.rotWord_ = function(w) {
   var temp = w[0];
 
   w[0] = w[1];
@@ -585,7 +569,7 @@ goog.crypt.Aes.prototype.rotWord_ = function(w) {
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.SBOX_ = [
+Aes.SBOX_ = [
   0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe,
   0xd7, 0xab, 0x76,
 
@@ -641,7 +625,7 @@ goog.crypt.Aes.SBOX_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.INV_SBOX_ = [
+Aes.INV_SBOX_ = [
   0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38, 0xbf, 0x40, 0xa3, 0x9e, 0x81,
   0xf3, 0xd7, 0xfb,
 
@@ -697,7 +681,7 @@ goog.crypt.Aes.INV_SBOX_ = [
  * @type {!Array<!Array<number>>}
  * @private
  */
-goog.crypt.Aes.RCON_ = [
+Aes.RCON_ = [
   [0x00, 0x00, 0x00, 0x00],
   [0x01, 0x00, 0x00, 0x00],
   [0x02, 0x00, 0x00, 0x00],
@@ -717,7 +701,7 @@ goog.crypt.Aes.RCON_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.MULT_2_ = [
+Aes.MULT_2_ = [
   0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0E, 0x10, 0x12, 0x14, 0x16,
   0x18, 0x1A, 0x1C, 0x1E,
 
@@ -773,7 +757,7 @@ goog.crypt.Aes.MULT_2_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.MULT_3_ = [
+Aes.MULT_3_ = [
   0x00, 0x03, 0x06, 0x05, 0x0C, 0x0F, 0x0A, 0x09, 0x18, 0x1B, 0x1E, 0x1D,
   0x14, 0x17, 0x12, 0x11,
 
@@ -829,7 +813,7 @@ goog.crypt.Aes.MULT_3_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.MULT_9_ = [
+Aes.MULT_9_ = [
   0x00, 0x09, 0x12, 0x1B, 0x24, 0x2D, 0x36, 0x3F, 0x48, 0x41, 0x5A, 0x53,
   0x6C, 0x65, 0x7E, 0x77,
 
@@ -885,7 +869,7 @@ goog.crypt.Aes.MULT_9_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.MULT_B_ = [
+Aes.MULT_B_ = [
   0x00, 0x0B, 0x16, 0x1D, 0x2C, 0x27, 0x3A, 0x31, 0x58, 0x53, 0x4E, 0x45,
   0x74, 0x7F, 0x62, 0x69,
 
@@ -941,7 +925,7 @@ goog.crypt.Aes.MULT_B_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.MULT_D_ = [
+Aes.MULT_D_ = [
   0x00, 0x0D, 0x1A, 0x17, 0x34, 0x39, 0x2E, 0x23, 0x68, 0x65, 0x72, 0x7F,
   0x5C, 0x51, 0x46, 0x4B,
 
@@ -997,7 +981,7 @@ goog.crypt.Aes.MULT_D_ = [
  * @type {!Array<number>}
  * @private
  */
-goog.crypt.Aes.MULT_E_ = [
+Aes.MULT_E_ = [
   0x00, 0x0E, 0x1C, 0x12, 0x38, 0x36, 0x24, 0x2A, 0x70, 0x7E, 0x6C, 0x62,
   0x48, 0x46, 0x54, 0x5A,
 

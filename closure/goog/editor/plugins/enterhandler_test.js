@@ -4,29 +4,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.EnterHandlerTest');
 goog.setTestOnly();
 
-const Blockquote = goog.require('goog.editor.plugins.Blockquote');
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const EnterHandler = goog.require('goog.editor.plugins.EnterHandler');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Field = goog.require('goog.editor.Field');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const NodeType = goog.require('goog.dom.NodeType');
-const Plugin = goog.require('goog.editor.Plugin');
-const Range = goog.require('goog.dom.Range');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const editorRange = goog.require('goog.editor.range');
-const events = goog.require('goog.events');
-const googDom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const testingDom = goog.require('goog.testing.dom');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { Blockquote } from './blockquote.js';
+import { BrowserFeature } from '../browserfeature.js';
+import { EnterHandler } from './enterhandler.js';
+import { ExpectedFailures } from '../../testing/expectedfailures.js';
+import { Field } from '../field.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { MockClock } from '../../testing/mockclock.js';
+import { NodeType } from '../../dom/nodetype.js';
+import { Plugin } from '../plugin.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as editorRange from '../range.js';
+import * as events from '../../events/events.js';
+import * as googDom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testing from '../../html/testing.js';
+import * as testingDom from '../../testing/dom.js';
+import * as testingEvents from '../../testing/events/events.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let savedHtml;
 

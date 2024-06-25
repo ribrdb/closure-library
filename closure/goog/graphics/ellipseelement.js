@@ -10,12 +10,12 @@
  */
 
 
-goog.provide('goog.graphics.EllipseElement');
+goog.declareModuleId('goog.graphics.ellipseelement');
 
-goog.require('goog.graphics.StrokeAndFillElement');
-goog.requireType('goog.graphics.AbstractGraphics');
-goog.requireType('goog.graphics.Fill');
-goog.requireType('goog.graphics.Stroke');
+import { StrokeAndFillElement } from './strokeandfillelement.js';
+goog.requireType('goog.graphics.abstractgraphics');
+goog.requireType('goog.graphics.fill');
+goog.requireType('goog.graphics.stroke');
 
 
 
@@ -29,17 +29,16 @@ goog.requireType('goog.graphics.Stroke');
  * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
  * @param {goog.graphics.Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {goog.graphics.StrokeAndFillElement}
+ * @extends {StrokeAndFillElement}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.EllipseElement = function(element, graphics, stroke, fill) {
-  'use strict';
-  goog.graphics.StrokeAndFillElement.call(
-      this, element, graphics, stroke, fill);
-};
-goog.inherits(goog.graphics.EllipseElement, goog.graphics.StrokeAndFillElement);
+export function EllipseElement(element, graphics, stroke, fill) {
+ StrokeAndFillElement.call(
+     this, element, graphics, stroke, fill);
+}
+goog.inherits(EllipseElement, StrokeAndFillElement);
 
 
 /**
@@ -47,7 +46,7 @@ goog.inherits(goog.graphics.EllipseElement, goog.graphics.StrokeAndFillElement);
  * @param {number} cx  Center X coordinate.
  * @param {number} cy  Center Y coordinate.
  */
-goog.graphics.EllipseElement.prototype.setCenter = goog.abstractMethod;
+EllipseElement.prototype.setCenter = goog.abstractMethod;
 
 
 /**
@@ -55,4 +54,4 @@ goog.graphics.EllipseElement.prototype.setCenter = goog.abstractMethod;
  * @param {number} rx  Radius length for the x-axis.
  * @param {number} ry  Radius length for the y-axis.
  */
-goog.graphics.EllipseElement.prototype.setRadius = goog.abstractMethod;
+EllipseElement.prototype.setRadius = goog.abstractMethod;

@@ -8,9 +8,7 @@
  * @fileoverview Utilties to handle focusing related to rich text editing.
  */
 
-goog.provide('goog.editor.focus');
-
-goog.require('goog.dom.selection');
+import * as selection from '../dom/selection.js';
 
 
 /**
@@ -18,8 +16,7 @@ goog.require('goog.dom.selection');
  * @param {Element} inputElem Input DOM element.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.focus.focusInputField = function(inputElem) {
-  'use strict';
-  inputElem.focus();
-  goog.dom.selection.setCursorPosition(inputElem, inputElem.value.length);
-};
+export function focusInputField(inputElem) {
+ inputElem.focus();
+ selection.setCursorPosition(inputElem, inputElem.value.length);
+}

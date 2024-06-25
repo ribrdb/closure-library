@@ -11,9 +11,7 @@
  * on the filter.
  */
 
-goog.provide('goog.ui.FilterObservingMenuItemRenderer');
-
-goog.require('goog.ui.MenuItemRenderer');
+import { MenuItemRenderer } from './menuitemrenderer.js';
 
 
 
@@ -24,23 +22,22 @@ goog.require('goog.ui.MenuItemRenderer');
  *    <div class="goog-filterobsmenuitem"><div>...(content)...</div></div>
  *
  * @constructor
- * @extends {goog.ui.MenuItemRenderer}
+ * @extends {MenuItemRenderer}
  * @final
  */
-goog.ui.FilterObservingMenuItemRenderer = function() {
-  'use strict';
-  goog.ui.MenuItemRenderer.call(this);
-};
+export function FilterObservingMenuItemRenderer() {
+ MenuItemRenderer.call(this);
+}
 goog.inherits(
-    goog.ui.FilterObservingMenuItemRenderer, goog.ui.MenuItemRenderer);
-goog.addSingletonGetter(goog.ui.FilterObservingMenuItemRenderer);
+    FilterObservingMenuItemRenderer, MenuItemRenderer);
+goog.addSingletonGetter(FilterObservingMenuItemRenderer);
 
 
 /**
  * CSS class name the renderer applies to menu item elements.
  * @type {string}
  */
-goog.ui.FilterObservingMenuItemRenderer.CSS_CLASS =
+FilterObservingMenuItemRenderer.CSS_CLASS =
     goog.getCssName('goog-filterobsmenuitem');
 
 
@@ -50,7 +47,6 @@ goog.ui.FilterObservingMenuItemRenderer.CSS_CLASS =
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.FilterObservingMenuItemRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.FilterObservingMenuItemRenderer.CSS_CLASS;
+FilterObservingMenuItemRenderer.prototype.getCssClass = function() {
+ return FilterObservingMenuItemRenderer.CSS_CLASS;
 };

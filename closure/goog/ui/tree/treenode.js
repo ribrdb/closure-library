@@ -5,20 +5,19 @@
  */
 
 /**
- * @fileoverview Definition of the goog.ui.tree.TreeNode class.
+ * @fileoverview Definition of the TreeNode class.
  *
  *
  * This is a based on the webfx tree control. See file comment in
  * treecontrol.js.
  */
 
-goog.provide('goog.ui.tree.TreeNode');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.ui.tree.BaseNode');
-goog.requireType('goog.dom.DomHelper');
+import { BaseNode } from './basenode.js';
+goog.requireType('goog.dom.dom');
 goog.requireType('goog.html.SafeHtml');  // circular
-goog.requireType('goog.ui.tree.TreeControl');
+goog.requireType('goog.ui.tree.treecontrol');
 
 
 
@@ -31,13 +30,12 @@ goog.requireType('goog.ui.tree.TreeControl');
  *    will be used.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
- * @extends {goog.ui.tree.BaseNode}
+ * @extends {BaseNode}
  */
-goog.ui.tree.TreeNode = function(content, opt_config, opt_domHelper) {
-  'use strict';
-  goog.ui.tree.BaseNode.call(this, content, opt_config, opt_domHelper);
-};
-goog.inherits(goog.ui.tree.TreeNode, goog.ui.tree.BaseNode);
+export function TreeNode(content, opt_config, opt_domHelper) {
+  BaseNode.call(this, content, opt_config, opt_domHelper);
+}
+goog.inherits(TreeNode, BaseNode);
 
 
 /**
@@ -45,14 +43,13 @@ goog.inherits(goog.ui.tree.TreeNode, goog.ui.tree.BaseNode);
  * @return {?goog.ui.tree.TreeControl} The tree.
  * @override
  */
-goog.ui.tree.TreeNode.prototype.getTree = function() {
-  'use strict';
+TreeNode.prototype.getTree = function() {
   if (this.tree) {
     return this.tree;
   }
   const parent = this.getParent();
   if (parent) {
-    goog.asserts.assertInstanceof(parent, goog.ui.tree.TreeNode);
+    asserts.assertInstanceof(parent, TreeNode);
     const tree = parent.getTree();
     if (tree) {
       this.setTreeInternal(tree);
@@ -69,8 +66,7 @@ goog.ui.tree.TreeNode.prototype.getTree = function() {
  * @override
  * @suppress {strictMissingProperties}
  */
-goog.ui.tree.TreeNode.prototype.getCalculatedIconClass = function() {
-  'use strict';
+TreeNode.prototype.getCalculatedIconClass = function() {
   const expanded = this.getExpanded();
   const expandedIconClass = this.getExpandedIconClass();
   if (expanded && expandedIconClass) {

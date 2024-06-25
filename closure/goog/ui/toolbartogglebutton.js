@@ -8,13 +8,12 @@
  * @fileoverview A toolbar toggle button control.
  */
 
-goog.provide('goog.ui.ToolbarToggleButton');
+import { ToggleButton } from './togglebutton.js';
 
-goog.require('goog.ui.ToggleButton');
-goog.require('goog.ui.ToolbarButtonRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.ui.ControlContent');
+import { ToolbarButtonRenderer } from './toolbarbuttonrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -23,27 +22,25 @@ goog.requireType('goog.ui.ControlContent');
  *
  * @param {goog.ui.ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
- * @param {goog.ui.ToolbarButtonRenderer=} opt_renderer Optional renderer used
+ * @param {ToolbarButtonRenderer=} opt_renderer Optional renderer used
  *     to render or decorate the button; defaults to
- *     {@link goog.ui.ToolbarButtonRenderer}.
+ *     {@link ToolbarButtonRenderer}.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
- * @extends {goog.ui.ToggleButton}
+ * @extends {ToggleButton}
  */
-goog.ui.ToolbarToggleButton = function(content, opt_renderer, opt_domHelper) {
-  'use strict';
-  goog.ui.ToggleButton.call(
-      this, content,
-      opt_renderer || goog.ui.ToolbarButtonRenderer.getInstance(),
-      opt_domHelper);
-};
-goog.inherits(goog.ui.ToolbarToggleButton, goog.ui.ToggleButton);
+export function ToolbarToggleButton(content, opt_renderer, opt_domHelper) {
+ ToggleButton.call(
+     this, content,
+     opt_renderer || ToolbarButtonRenderer.getInstance(),
+     opt_domHelper);
+}
+goog.inherits(ToolbarToggleButton, ToggleButton);
 
 
 // Registers a decorator factory function for toggle buttons in toolbars.
-goog.ui.registry.setDecoratorByClassName(
+registry.setDecoratorByClassName(
     goog.getCssName('goog-toolbar-toggle-button'), function() {
-      'use strict';
-      return new goog.ui.ToolbarToggleButton(null);
-    });
+ return new ToolbarToggleButton(null);
+});

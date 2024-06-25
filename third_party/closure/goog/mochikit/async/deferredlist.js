@@ -20,9 +20,7 @@
  *
  */
 
-goog.provide('goog.async.DeferredList');
-
-goog.require('goog.async.Deferred');
+import { Deferred } from './deferred.js';
 
 
 
@@ -45,7 +43,7 @@ goog.require('goog.async.Deferred');
  * independent, and may have additional callbacks and errbacks added to their
  * execution sequences after they are passed as inputs to the list.
  *
- * @param {!Array<!goog.async.Deferred>} list An array of deferred results to
+ * @param {!Array<!Deferred>} list An array of deferred results to
  *     wait for.
  * @param {boolean=} opt_fireOnOneCallback Whether to stop waiting as soon as
  *     one input completes successfully. In this case, the
@@ -62,24 +60,28 @@ goog.require('goog.async.Deferred');
  *     <code>Deferred</code> after its use in the <code>DeferredList</code> will
  *     receive null instead of the error.
  * @param {Function=} opt_canceler A function that will be called if the
- *     <code>DeferredList</code> is canceled. @see goog.async.Deferred#cancel
+ *     <code>DeferredList</code> is canceled. @see Deferred#cancel
  * @param {Object=} opt_defaultScope The default scope to invoke callbacks or
  *     errbacks in.
  * @constructor
- * @extends {goog.async.Deferred}
+ * @extends {Deferred}
  */
-goog.async.DeferredList = function(
-    list, opt_fireOnOneCallback, opt_fireOnOneErrback, opt_consumeErrors,
-    opt_canceler, opt_defaultScope) {
-  'use strict';
-  goog.async.DeferredList.base(
+export function DeferredList(
+  list,
+  opt_fireOnOneCallback,
+  opt_fireOnOneErrback,
+  opt_consumeErrors,
+  opt_canceler,
+  opt_defaultScope
+) {
+  DeferredList.base(
       this, 'constructor', opt_canceler, opt_defaultScope);
 
   /**
-   * The list of Deferred objects to wait for.
-   * @const {!Array<!goog.async.Deferred>}
-   * @private
-   */
+     * The list of Deferred objects to wait for.
+     * @const {!Array<!Deferred>}
+     * @private
+     */
   this.list_ = list;
 
   /**
@@ -130,8 +132,8 @@ goog.async.DeferredList = function(
   if (list.length == 0 && !this.fireOnOneCallback_) {
     this.callback(this.deferredResults_);
   }
-};
-goog.inherits(goog.async.DeferredList, goog.async.Deferred);
+}
+goog.inherits(DeferredList, Deferred);
 
 
 /**
@@ -147,9 +149,8 @@ goog.inherits(goog.async.DeferredList, goog.async.Deferred);
  *     replaced with null.
  * @private
  */
-goog.async.DeferredList.prototype.handleCallback_ = function(
+DeferredList.prototype.handleCallback_ = function(
     index, success, result) {
-  'use strict';
   this.numFinished_++;
   this.deferredResults_[index] = [success, result];
 
@@ -172,9 +173,8 @@ goog.async.DeferredList.prototype.handleCallback_ = function(
 
 
 /** @override */
-goog.async.DeferredList.prototype.errback = function(res) {
-  'use strict';
-  goog.async.DeferredList.base(this, 'errback', res);
+DeferredList.prototype.errback = function(res) {
+  DeferredList.base(this, 'errback', res);
 
   // On error, cancel any pending requests.
   for (let i = 0; i < this.list_.length; i++) {
@@ -190,20 +190,18 @@ goog.async.DeferredList.prototype.errback = function(res) {
  * errback is fired immediately with the offending error, and all other pending
  * inputs are canceled.
  *
- * @param {!Array<!goog.async.Deferred>} list The list of <code>Deferred</code>
+ * @param {!Array<!Deferred>} list The list of <code>Deferred</code>
  *     inputs to wait for.
- * @return {!goog.async.Deferred} The deferred list of results from the inputs
+ * @return {!Deferred} The deferred list of results from the inputs
  *     if they all succeed, or the error result of the first input to fail.
  */
-goog.async.DeferredList.gatherResults = function(list) {
-  'use strict';
-  return new goog.async.DeferredList(list, false, true)
+DeferredList.gatherResults = function(list) {
+  return new DeferredList(list, false, true)
       .addCallback(function(results) {
-        'use strict';
-        const output = [];
-        for (let i = 0; i < results.length; i++) {
-          output[i] = results[i][1];
-        }
-        return output;
-      });
+    const output = [];
+    for (let i = 0; i < results.length; i++) {
+      output[i] = results[i][1];
+    }
+    return output;
+  });
 };

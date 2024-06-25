@@ -8,11 +8,9 @@
  * @fileoverview Provides an implementation for getInstance() methods.
  */
 
-goog.module('goog.singleton');
-goog.module.declareLegacyNamespace();
+import * as reflect from '../reflect/reflect.js';
 
-const reflect = goog.require('goog.reflect');
-const {assert} = goog.require('goog.asserts');
+import { assert } from '../asserts/asserts.js';
 
 /** @type {!Array<function(new: ?): ?>} */
 const instantiatedSingletons = [];
@@ -44,7 +42,7 @@ class Singleton {
  * @deprecated Singleton patterns are discouraged. Use dependency injection
  *     instead.
  */
-exports.getInstance = (ctor) => {
+export let getInstance = (ctor) => {
   assert(
       !Object.isSealed(ctor),
       'Cannot use getInstance() with a sealed constructor.');
@@ -65,4 +63,4 @@ exports.getInstance = (ctor) => {
   return instance;
 };
 
-exports.instantiatedSingletons = instantiatedSingletons;
+export { instantiatedSingletons };

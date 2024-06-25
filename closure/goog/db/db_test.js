@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dbTest');
 goog.setTestOnly();
 
-const Cursor = goog.require('goog.db.Cursor');
-const DbError = goog.require('goog.db.Error');
-const GoogPromise = goog.require('goog.Promise');
-const IndexedDb = goog.require('goog.db.IndexedDb');
-const KeyRange = goog.require('goog.db.KeyRange');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const Transaction = goog.require('goog.db.Transaction');
-const asserts = goog.require('goog.testing.asserts');
-const events = goog.require('goog.events');
-const googArray = goog.require('goog.array');
-const googDb = goog.require('goog.db');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Cursor } from './cursor.js';
+import { Error as DbError } from './error.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { IndexedDb } from './indexeddb.js';
+import { KeyRange } from './keyrange.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TestCase } from '../testing/testcase.js';
+import { Transaction } from './transaction.js';
+import * as asserts from '../testing/asserts.js';
+import * as events from '../events/events.js';
+import * as googArray from '../array/array.js';
+import * as googDb from './db.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const idbSupported = product.CHROME;
 let dbName;

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.PluginTest');
 goog.setTestOnly();
 
-const Field = goog.require('goog.editor.Field');
-const Plugin = goog.require('goog.editor.Plugin');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Field } from './field.js';
+import { Plugin } from './plugin.js';
+import { StrictMock } from '../testing/strictmock.js';
+import * as functions from '../functions/functions.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let plugin;
 let fieldObject;

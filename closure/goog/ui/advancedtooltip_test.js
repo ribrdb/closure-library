@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.AdvancedTooltipTest');
 goog.setTestOnly();
 
-const AdvancedTooltip = goog.require('goog.ui.AdvancedTooltip');
-const Box = goog.require('goog.math.Box');
-const Coordinate = goog.require('goog.math.Coordinate');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const TagName = goog.require('goog.dom.TagName');
-const Tooltip = goog.require('goog.ui.Tooltip');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { AdvancedTooltip } from './advancedtooltip.js';
+import { Box } from '../math/box.js';
+import { Coordinate } from '../math/coordinate.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { MockClock } from '../testing/mockclock.js';
+import { TagName } from '../dom/tagname.js';
+import { Tooltip } from './tooltip.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let att;
 let clock;

@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.JsonFuzzingTest');
 goog.setTestOnly();
 
-const JsonFuzzing = goog.require('goog.labs.testing.JsonFuzzing');
-const asserts = goog.require('goog.testing.asserts');
-const googJson = goog.require('goog.json');
-const testSuite = goog.require('goog.testing.testSuite');
+import { JsonFuzzing } from './json_fuzzing.js';
+import * as asserts from '../../testing/asserts.js';
+import * as googJson from '../../json/json.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testValidJson() {

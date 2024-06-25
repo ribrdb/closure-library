@@ -10,7 +10,7 @@
  */
 
 
-goog.provide('goog.graphics.Stroke');
+goog.declareModuleId('goog.graphics.stroke');
 
 
 
@@ -27,55 +27,51 @@ goog.provide('goog.graphics.Stroke');
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.Stroke = function(width, color, opt_opacity) {
-  'use strict';
-  /**
-   * The width of the stroke.
-   * @type {number|string}
-   * @private
-   */
-  this.width_ = width;
+export function Stroke(width, color, opt_opacity) {
+ /**
+  * The width of the stroke.
+  * @type {number|string}
+  * @private
+  */
+ this.width_ = width;
 
 
-  /**
-   * The color with which to fill.
-   * @type {string}
-   * @private
-   */
-  this.color_ = color;
+ /**
+  * The color with which to fill.
+  * @type {string}
+  * @private
+  */
+ this.color_ = color;
 
 
-  /**
-   * The opacity of the fill.
-   * @type {number}
-   * @private
-   */
-  this.opacity_ = opt_opacity == null ? 1.0 : opt_opacity;
-};
+ /**
+  * The opacity of the fill.
+  * @type {number}
+  * @private
+  */
+ this.opacity_ = opt_opacity == null ? 1.0 : opt_opacity;
+}
 
 
 /**
  * @return {number|string} The width of this stroke.
  */
-goog.graphics.Stroke.prototype.getWidth = function() {
-  'use strict';
-  return this.width_;
+Stroke.prototype.getWidth = function() {
+ return this.width_;
 };
 
 
 /**
  * @return {string} The color of this stroke.
  */
-goog.graphics.Stroke.prototype.getColor = function() {
-  'use strict';
-  return this.color_;
+Stroke.prototype.getColor = function() {
+ return this.color_;
 };
 
 
 /**
  * @return {number} The opacity of this fill.
  */
-goog.graphics.Stroke.prototype.getOpacity = function() {
-  'use strict';
-  return this.opacity_;
+Stroke.prototype.getOpacity = function() {
+ return this.opacity_;
 };

@@ -10,15 +10,14 @@
  * TODO(xtof): Link to document stating type contract.
  */
 
-goog.module('goog.html.SafeStyleSheet');
-goog.module.declareLegacyNamespace();
+goog.declareModuleId('goog.html.SafeStyleSheet');
 
-const Const = goog.require('goog.string.Const');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const TypedString = goog.require('goog.string.TypedString');
-const googObject = goog.require('goog.object');
-const {assert, fail} = goog.require('goog.asserts');
-const {contains} = goog.require('goog.string.internal');
+import { Const } from '../string/const.js';
+import { SafeStyle } from './safestyle.js';
+import { TypedString } from '../string/typedstring.js';
+import googObject from '../object/object.js';
+import { assert, fail } from '../asserts/asserts.js';
+import { contains } from '../string/internal.js';
 
 /**
  * Token used to ensure that object is created only from this file. No code
@@ -305,4 +304,4 @@ SafeStyleSheet.EMPTY =
     SafeStyleSheet.createSafeStyleSheetSecurityPrivateDoNotAccessOrElse('');
 
 
-exports = SafeStyleSheet;
+export { SafeStyleSheet };

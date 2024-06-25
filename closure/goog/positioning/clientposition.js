@@ -8,16 +8,15 @@
  * @fileoverview Client positioning class.
  */
 
-goog.provide('goog.positioning.ClientPosition');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.math.Coordinate');
-goog.require('goog.positioning');
-goog.require('goog.positioning.AbstractPosition');
-goog.require('goog.style');
-goog.requireType('goog.math.Box');
-goog.requireType('goog.math.Size');
+import * as dom from '../dom/dom.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as positioning from './positioning.js';
+import { AbstractPosition } from './abstractposition.js';
+import * as style from '../style/style.js';
+goog.requireType('goog.math.box');
+goog.requireType('goog.math.size');
 
 
 
@@ -29,55 +28,53 @@ goog.requireType('goog.math.Size');
  * a MOUSEMOVE event. Just use the event.clientX and event.clientY as the
  * parameters.
  *
- * @param {number|goog.math.Coordinate} arg1 Left position or coordinate.
+ * @param {number|Coordinate} arg1 Left position or coordinate.
  * @param {number=} opt_arg2 Top position.
  * @constructor
- * @extends {goog.positioning.AbstractPosition}
+ * @extends {AbstractPosition}
  */
-goog.positioning.ClientPosition = function(arg1, opt_arg2) {
-  'use strict';
-  /**
+export function ClientPosition(arg1, opt_arg2) {
+ /**
    * Coordinate to position popup at.
-   * @type {!goog.math.Coordinate}
+   * @type {!Coordinate}
    */
-  this.coordinate = arg1 instanceof goog.math.Coordinate ?
-      arg1 :
-      new goog.math.Coordinate(/** @type {number} */ (arg1), opt_arg2);
-};
+ this.coordinate = arg1 instanceof Coordinate ?
+     arg1 :
+     new Coordinate( (arg1), opt_arg2);
+}
 goog.inherits(
-    goog.positioning.ClientPosition, goog.positioning.AbstractPosition);
+    ClientPosition, AbstractPosition);
 
 
 /**
  * Repositions the popup according to the current state
  *
  * @param {Element} movableElement The DOM element of the popup.
- * @param {goog.positioning.Corner} movableElementCorner The corner of
+ * @param {positioning.Corner} movableElementCorner The corner of
  *     the popup element that that should be positioned adjacent to
- *     the anchorElement.  One of the goog.positioning.Corner
+ *     the anchorElement.  One of the positioning.Corner
  *     constants.
  * @param {goog.math.Box=} opt_margin A margin specified in pixels.
  * @param {goog.math.Size=} opt_preferredSize Preferred size of the element.
  * @override
  */
-goog.positioning.ClientPosition.prototype.reposition = function(
+ClientPosition.prototype.reposition = function(
     movableElement, movableElementCorner, opt_margin, opt_preferredSize) {
-  'use strict';
-  goog.asserts.assert(movableElement);
+ asserts.assert(movableElement);
 
-  // Translates the coordinate to be relative to the page.
-  var viewportOffset = goog.style.getViewportPageOffset(
-      goog.dom.getOwnerDocument(movableElement));
-  var x = this.coordinate.x + viewportOffset.x;
-  var y = this.coordinate.y + viewportOffset.y;
+ // Translates the coordinate to be relative to the page.
+ var viewportOffset = style.getViewportPageOffset(
+     dom.getOwnerDocument(movableElement));
+ var x = this.coordinate.x + viewportOffset.x;
+ var y = this.coordinate.y + viewportOffset.y;
 
-  // Translates the coordinate to be relative to the offset parent.
-  var movableParentTopLeft =
-      goog.positioning.getOffsetParentPageOffset(movableElement);
-  x -= movableParentTopLeft.x;
-  y -= movableParentTopLeft.y;
+ // Translates the coordinate to be relative to the offset parent.
+ var movableParentTopLeft =
+     positioning.getOffsetParentPageOffset(movableElement);
+ x -= movableParentTopLeft.x;
+ y -= movableParentTopLeft.y;
 
-  goog.positioning.positionAtCoordinate(
-      new goog.math.Coordinate(x, y), movableElement, movableElementCorner,
-      opt_margin, null, null, opt_preferredSize);
+ positioning.positionAtCoordinate(
+     new Coordinate(x, y), movableElement, movableElementCorner,
+     opt_margin, null, null, opt_preferredSize);
 };

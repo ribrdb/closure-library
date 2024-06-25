@@ -9,14 +9,13 @@
  * can highlight or select via the keyboard or the mouse.
  */
 
-goog.provide('goog.ui.ColorPalette');
+import * as googColor from '../color/color.js';
 
-goog.require('goog.color');
-goog.require('goog.dom.TagName');
-goog.require('goog.style');
-goog.require('goog.ui.Palette');
-goog.require('goog.ui.PaletteRenderer');
-goog.requireType('goog.dom.DomHelper');
+import { TagName } from '../dom/tagname.js';
+import * as style from '../style/style.js';
+import { Palette } from './palette.js';
+import { PaletteRenderer } from './paletterenderer.js';
+goog.requireType('goog.dom.dom');
 
 
 
@@ -29,15 +28,14 @@ goog.requireType('goog.dom.DomHelper');
  *
  * @param {Array<string>=} opt_colors Array of colors in any valid CSS color
  *     format.
- * @param {goog.ui.PaletteRenderer=} opt_renderer Renderer used to render or
- *     decorate the palette; defaults to {@link goog.ui.PaletteRenderer}.
+ * @param {PaletteRenderer=} opt_renderer Renderer used to render or
+ *     decorate the palette; defaults to {@link PaletteRenderer}.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
- * @extends {goog.ui.Palette}
+ * @extends {Palette}
  */
-goog.ui.ColorPalette = function(opt_colors, opt_renderer, opt_domHelper) {
-  'use strict';
+export function ColorPalette(opt_colors, opt_renderer, opt_domHelper) {
   /**
    * Array of colors to show in the palette.
    * @type {Array<string>}
@@ -45,15 +43,15 @@ goog.ui.ColorPalette = function(opt_colors, opt_renderer, opt_domHelper) {
    */
   this.colors_ = opt_colors || [];
 
-  goog.ui.Palette.call(
-      this, null, opt_renderer || goog.ui.PaletteRenderer.getInstance(),
+  Palette.call(
+      this, null, opt_renderer || PaletteRenderer.getInstance(),
       opt_domHelper);
 
   // Set the colors separately from the super call since we need the correct
   // DomHelper to be initialized for this class.
   this.setColors(this.colors_);
-};
-goog.inherits(goog.ui.ColorPalette, goog.ui.Palette);
+}
+goog.inherits(ColorPalette, Palette);
 
 
 /**
@@ -61,7 +59,7 @@ goog.inherits(goog.ui.ColorPalette, goog.ui.Palette);
  * @type {?Array<string>}
  * @private
  */
-goog.ui.ColorPalette.prototype.normalizedColors_ = null;
+ColorPalette.prototype.normalizedColors_ = null;
 
 
 /**
@@ -70,15 +68,14 @@ goog.ui.ColorPalette.prototype.normalizedColors_ = null;
  * @type {?Array<string>}
  * @private
  */
-goog.ui.ColorPalette.prototype.labels_ = null;
+ColorPalette.prototype.labels_ = null;
 
 
 /**
  * Returns the array of colors represented in the color palette.
  * @return {Array<string>} Array of colors.
  */
-goog.ui.ColorPalette.prototype.getColors = function() {
-  'use strict';
+ColorPalette.prototype.getColors = function() {
   return this.colors_;
 };
 
@@ -88,8 +85,7 @@ goog.ui.ColorPalette.prototype.getColors = function() {
  * @protected
  * @final
  */
-goog.ui.ColorPalette.prototype.getLabels = function() {
-  'use strict';
+ColorPalette.prototype.getLabels = function() {
   return this.labels_;
 };
 
@@ -99,8 +95,7 @@ goog.ui.ColorPalette.prototype.getLabels = function() {
  * @param {Array<string>=} opt_labels The array of labels to be used as
  *        tooltips. When not provided, the color value will be used.
  */
-goog.ui.ColorPalette.prototype.setColors = function(colors, opt_labels) {
-  'use strict';
+ColorPalette.prototype.setColors = function(colors, opt_labels) {
   this.colors_ = colors;
   this.labels_ = opt_labels || null;
   this.normalizedColors_ = null;
@@ -111,12 +106,11 @@ goog.ui.ColorPalette.prototype.setColors = function(colors, opt_labels) {
 /**
  * @return {?string} The current selected color in hex, or null.
  */
-goog.ui.ColorPalette.prototype.getSelectedColor = function() {
-  'use strict';
+ColorPalette.prototype.getSelectedColor = function() {
   var selectedItem = /** @type {Element} */ (this.getSelectedItem());
   if (selectedItem) {
-    var color = goog.style.getStyle(selectedItem, 'background-color');
-    return goog.ui.ColorPalette.parseColor_(color);
+    var color = style.getStyle(selectedItem, 'background-color');
+    return ColorPalette.parseColor_(color);
   } else {
     return null;
   }
@@ -129,13 +123,11 @@ goog.ui.ColorPalette.prototype.getSelectedColor = function() {
  * @param {?string} color The color to set as selected; null clears the
  *     selection.
  */
-goog.ui.ColorPalette.prototype.setSelectedColor = function(color) {
-  'use strict';
-  var hexColor = goog.ui.ColorPalette.parseColor_(color);
+ColorPalette.prototype.setSelectedColor = function(color) {
+  var hexColor = ColorPalette.parseColor_(color);
   if (!this.normalizedColors_) {
     this.normalizedColors_ = this.colors_.map(function(color) {
-      'use strict';
-      return goog.ui.ColorPalette.parseColor_(color);
+      return ColorPalette.parseColor_(color);
     });
   }
   this.setSelectedIndex(
@@ -147,11 +139,9 @@ goog.ui.ColorPalette.prototype.setSelectedColor = function(color) {
  * @return {!Array<!Node>} An array of DOM nodes for each color.
  * @protected
  */
-goog.ui.ColorPalette.prototype.createColorNodes = function() {
-  'use strict';
+ColorPalette.prototype.createColorNodes = function() {
   return this.colors_.map(function(color, index) {
-    'use strict';
-    var swatch = this.getDomHelper().createDom(goog.dom.TagName.DIV, {
+    var swatch = this.getDomHelper().createDom(TagName.DIV, {
       'class': goog.getCssName(this.getRenderer().getCssClass(), 'colorswatch'),
       'style': 'background-color:' + color
     });
@@ -159,7 +149,7 @@ goog.ui.ColorPalette.prototype.createColorNodes = function() {
       swatch.title = this.labels_[index];
     } else {
       swatch.title = color.charAt(0) == '#' ?
-          'RGB (' + goog.color.hexToRgb(color).join(', ') + ')' :
+          'RGB (' + googColor.hexToRgb(color).join(', ') + ')' :
           color;
     }
     return swatch;
@@ -175,11 +165,10 @@ goog.ui.ColorPalette.prototype.createColorNodes = function() {
  *     be parsed as a color.
  * @private
  */
-goog.ui.ColorPalette.parseColor_ = function(color) {
-  'use strict';
+ColorPalette.parseColor_ = function(color) {
   if (color) {
     try {
-      return goog.color.parse(color).hex;
+      return googColor.parse(color).hex;
     } catch (ex) {
       // Fall through.
     }

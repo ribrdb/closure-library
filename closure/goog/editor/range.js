@@ -8,20 +8,18 @@
  * @fileoverview Utilties for working with ranges.
  */
 
-goog.provide('goog.editor.range');
-goog.provide('goog.editor.range.Point');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.Range');
-goog.require('goog.dom.RangeEndpoint');
-goog.require('goog.dom.SavedCaretRange');
-goog.require('goog.editor.node');
-goog.require('goog.editor.style');
-goog.require('goog.iter');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.AbstractRange');
-goog.requireType('goog.dom.TagName');
+import { NodeType } from '../dom/nodetype.js';
+import * as Range from '../dom/range.js';
+import { RangeEndpoint } from '../dom/rangeendpoint.js';
+import { SavedCaretRange } from '../dom/savedcaretrange.js';
+import * as editorNode from './node.js';
+import * as style from './style.js';
+import * as iter from '../iter/iter.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.dom.abstractrange');
+goog.requireType('goog.dom.tagname');
 
 
 /**
@@ -29,44 +27,42 @@ goog.requireType('goog.dom.TagName');
  * boundaries of the element. If the range starts (or ends) outside the
  * element, the narrowed range's start point (or end point) will be the
  * leftmost (or rightmost) leaf of the element.
- * @param {goog.dom.AbstractRange} range The range.
+ * @param {dom.AbstractRange} range The range.
  * @param {Element} el The element to limit the range to.
- * @return {goog.dom.AbstractRange} A new narrowed range, or null if the
+ * @return {dom.AbstractRange} A new narrowed range, or null if the
  *     element does not contain any part of the given range.
  */
-goog.editor.range.narrow = function(range, el) {
-  'use strict';
+export function narrow(range, el) {
   var startContainer = range.getStartNode();
   var endContainer = range.getEndNode();
 
   if (startContainer && endContainer) {
     var isElement = function(node) {
-      'use strict';
       return node == el;
     };
-    var hasStart = goog.dom.getAncestor(startContainer, isElement, true);
-    var hasEnd = goog.dom.getAncestor(endContainer, isElement, true);
+    var hasStart = dom.getAncestor(startContainer, isElement, true);
+    var hasEnd = dom.getAncestor(endContainer, isElement, true);
 
     if (hasStart && hasEnd) {
       // The range is contained entirely within this element.
       return range.clone();
     } else if (hasStart) {
       // The range starts inside the element, but ends outside it.
-      var leaf = goog.editor.node.getRightMostLeaf(el);
-      return goog.dom.Range.createFromNodes(
+      var leaf = editorNode.getRightMostLeaf(el);
+      return Range.createFromNodes(
           range.getStartNode(), range.getStartOffset(), leaf,
-          goog.editor.node.getLength(leaf));
+          editorNode.getLength(leaf));
     } else if (hasEnd) {
       // The range starts outside the element, but ends inside it.
-      return goog.dom.Range.createFromNodes(
-          goog.editor.node.getLeftMostLeaf(el), 0, range.getEndNode(),
+      return Range.createFromNodes(
+          editorNode.getLeftMostLeaf(el), 0, range.getEndNode(),
           range.getEndOffset());
     }
   }
 
   // The selection starts and ends outside the element.
   return null;
-};
+}
 
 
 /**
@@ -75,18 +71,17 @@ goog.editor.range.narrow = function(range, el) {
  * but not the visible position of the range.
  * Ex. <code><li>foo</li></code> if "foo" is selected, instead of returning
  * start and end nodes as the foo text node, return the li.
- * @param {goog.dom.AbstractRange} range The range.
+ * @param {dom.AbstractRange} range The range.
  * @param {Node=} opt_stopNode Optional node to stop expanding past.
- * @return {!goog.dom.AbstractRange} The expanded range.
+ * @return {!dom.AbstractRange} The expanded range.
  */
-goog.editor.range.expand = function(range, opt_stopNode) {
-  'use strict';
+export function expand(range, opt_stopNode) {
   // Expand the start out to the common container.
-  var expandedRange = goog.editor.range.expandEndPointToContainer_(
-      range, goog.dom.RangeEndpoint.START, opt_stopNode);
+  var expandedRange = expandEndPointToContainer_(
+      range, RangeEndpoint.START, opt_stopNode);
   // Expand the end out to the common container.
-  expandedRange = goog.editor.range.expandEndPointToContainer_(
-      expandedRange, goog.dom.RangeEndpoint.END, opt_stopNode);
+  expandedRange = expandEndPointToContainer_(
+      expandedRange, RangeEndpoint.END, opt_stopNode);
 
   var startNode = expandedRange.getStartNode();
   var endNode = expandedRange.getEndNode();
@@ -96,7 +91,7 @@ goog.editor.range.expand = function(range, opt_stopNode) {
   // If we have reached a common container, now expand out.
   if (startNode == endNode) {
     while (endNode != opt_stopNode && startOffset == 0 &&
-           endOffset == goog.editor.node.getLength(endNode)) {
+           endOffset == editorNode.getLength(endNode)) {
       // Select the parent instead.
       var parentNode = endNode.parentNode;
       startOffset =
@@ -107,9 +102,9 @@ goog.editor.range.expand = function(range, opt_stopNode) {
     startNode = endNode;
   }
 
-  return goog.dom.Range.createFromNodes(
+  return Range.createFromNodes(
       startNode, startOffset, endNode, endOffset);
-};
+}
 
 
 /**
@@ -117,16 +112,14 @@ goog.editor.range.expand = function(range, opt_stopNode) {
  * range's common container (or stopNode, if provided) as possible, while
  * perserving the same visible position.
  *
- * @param {goog.dom.AbstractRange} range The range to expand.
- * @param {goog.dom.RangeEndpoint} endpoint The endpoint to expand.
+ * @param {dom.AbstractRange} range The range to expand.
+ * @param {RangeEndpoint} endpoint The endpoint to expand.
  * @param {Node=} opt_stopNode Optional node to stop expanding past.
- * @return {!goog.dom.AbstractRange} The expanded range.
+ * @return {!dom.AbstractRange} The expanded range.
  * @private
  */
-goog.editor.range.expandEndPointToContainer_ = function(
-    range, endpoint, opt_stopNode) {
-  'use strict';
-  var expandStart = endpoint == goog.dom.RangeEndpoint.START;
+function expandEndPointToContainer_(range, endpoint, opt_stopNode) {
+  var expandStart = endpoint == RangeEndpoint.START;
   var node = expandStart ? range.getStartNode() : range.getEndNode();
   var offset = expandStart ? range.getStartOffset() : range.getEndOffset();
   var container = range.getContainerElement();
@@ -137,7 +130,7 @@ goog.editor.range.expandEndPointToContainer_ = function(
     // (offset 0) or expand the end if we are at the end of a node
     // (offset length).
     if (expandStart && offset != 0 ||
-        !expandStart && offset != goog.editor.node.getLength(node)) {
+        !expandStart && offset != editorNode.getLength(node)) {
       break;
     }
 
@@ -147,23 +140,22 @@ goog.editor.range.expandEndPointToContainer_ = function(
     node = parentNode;
   }
 
-  return goog.dom.Range.createFromNodes(
+  return Range.createFromNodes(
       expandStart ? node : range.getStartNode(),
       expandStart ? offset : range.getStartOffset(),
       expandStart ? range.getEndNode() : node,
       expandStart ? range.getEndOffset() : offset);
-};
+}
 
 
 /**
  * Cause the window's selection to be the start of this node.
  * @param {Node} node The node to select the start of.
  */
-goog.editor.range.selectNodeStart = function(node) {
-  'use strict';
-  goog.dom.Range.createCaret(goog.editor.node.getLeftMostLeaf(node), 0)
+export function selectNodeStart(node) {
+  Range.createCaret(editorNode.getLeftMostLeaf(node), 0)
       .select();
-};
+}
 
 
 /**
@@ -176,19 +168,18 @@ goog.editor.range.selectNodeStart = function(node) {
  * Bug: http://bugs.webkit.org/show_bug.cgi?id=17697
  * @param {Node} node The node to position the cursor relative to.
  * @param {boolean} toLeft True to place it to the left, false to the right.
- * @return {!goog.dom.AbstractRange} The newly selected range.
+ * @return {!dom.AbstractRange} The newly selected range.
  */
-goog.editor.range.placeCursorNextTo = function(node, toLeft) {
-  'use strict';
+export function placeCursorNextTo(node, toLeft) {
   var parent = node.parentNode;
   var offset =
       Array.prototype.indexOf.call(parent.childNodes, node) + (toLeft ? 0 : 1);
   var point =
-      goog.editor.range.Point.createDeepestPoint(parent, offset, toLeft, true);
-  var range = goog.dom.Range.createCaret(point.node, point.offset);
+      Point.createDeepestPoint(parent, offset, toLeft, true);
+  var range = Range.createCaret(point.node, point.offset);
   range.select();
   return range;
-};
+}
 
 
 /**
@@ -198,16 +189,15 @@ goog.editor.range.placeCursorNextTo = function(node, toLeft) {
  *
  * @param {Node} node The node to normalize.
  */
-goog.editor.range.selectionPreservingNormalize = function(node) {
-  'use strict';
-  var doc = goog.dom.getOwnerDocument(node);
-  var selection = goog.dom.Range.createFromWindow(goog.dom.getWindow(doc));
+export function selectionPreservingNormalize(node) {
+  var doc = dom.getOwnerDocument(node);
+  var selection = Range.createFromWindow(dom.getWindow(doc));
   var normalizedRange =
-      goog.editor.range.rangePreservingNormalize(node, selection);
+      rangePreservingNormalize(node, selection);
   if (normalizedRange) {
     normalizedRange.select();
   }
-};
+}
 
 
 /**
@@ -216,13 +206,12 @@ goog.editor.range.selectionPreservingNormalize = function(node) {
  * @param {Node} node The node to normalize.
  * @private
  */
-goog.editor.range.normalizeNodeIe_ = function(node) {
-  'use strict';
+function normalizeNodeIe_(node) {
   var lastText = null;
   var child = node.firstChild;
   while (child) {
     var next = child.nextSibling;
-    if (child.nodeType == goog.dom.NodeType.TEXT) {
+    if (child.nodeType == NodeType.TEXT) {
       if (child.nodeValue == '') {
         node.removeChild(child);
       } else if (lastText) {
@@ -232,26 +221,25 @@ goog.editor.range.normalizeNodeIe_ = function(node) {
         lastText = child;
       }
     } else {
-      goog.editor.range.normalizeNodeIe_(child);
+      normalizeNodeIe_(child);
       lastText = null;
     }
     child = next;
   }
-};
+}
 
 
 /**
  * Normalizes the given node.
  * @param {Node} node The node to normalize.
  */
-goog.editor.range.normalizeNode = function(node) {
-  'use strict';
-  if (goog.userAgent.IE) {
-    goog.editor.range.normalizeNodeIe_(node);
+export function normalizeNode(node) {
+  if (userAgent.IE) {
+    normalizeNodeIe_(node);
   } else {
     node.normalize();
   }
-};
+}
 
 
 /**
@@ -260,27 +248,26 @@ goog.editor.range.normalizeNode = function(node) {
  * May also normalize things outside the node, if it is more efficient to do so.
  *
  * @param {Node} node The node to normalize.
- * @param {goog.dom.AbstractRange?} range The range to normalize.
- * @return {goog.dom.AbstractRange?} The range, adjusted for normalization.
+ * @param {dom.AbstractRange?} range The range to normalize.
+ * @return {dom.AbstractRange?} The range, adjusted for normalization.
  */
-goog.editor.range.rangePreservingNormalize = function(node, range) {
-  'use strict';
+export function rangePreservingNormalize(node, range) {
   if (range) {
-    var rangeFactory = goog.editor.range.normalize(range);
+    var rangeFactory = normalize(range);
     // WebKit has broken selection affinity, so carets tend to jump out of the
     // beginning of inline elements. This means that if we're doing the
     // normalize as the result of a range that will later become the selection,
     // we might not normalize something in the range after it is read back from
     // the selection. We can't just normalize the parentNode here because WebKit
     // can move the selection range out of multiple inline parents.
-    var container = goog.editor.style.getContainer(range.getContainerElement());
+    var container = style.getContainer(range.getContainerElement());
   }
 
   if (container) {
-    goog.editor.range.normalizeNode(
-        goog.dom.findCommonAncestor(container, node));
+    normalizeNode(
+        dom.findCommonAncestor(container, node));
   } else if (node) {
-    goog.editor.range.normalizeNode(node);
+    normalizeNode(node);
   }
 
   if (rangeFactory) {
@@ -288,25 +275,24 @@ goog.editor.range.rangePreservingNormalize = function(node, range) {
   } else {
     return null;
   }
-};
+}
 
 
 /**
  * Get the deepest point in the DOM that's equivalent to the endpoint of the
  * given range.
  *
- * @param {goog.dom.AbstractRange} range A range.
+ * @param {dom.AbstractRange} range A range.
  * @param {boolean} atStart True for the start point, false for the end point.
- * @return {!goog.editor.range.Point} The end point, expressed as a node
+ * @return {!Point} The end point, expressed as a node
  *    and an offset.
  */
-goog.editor.range.getDeepEndPoint = function(range, atStart) {
-  'use strict';
-  return atStart ? goog.editor.range.Point.createDeepestPoint(
+export function getDeepEndPoint(range, atStart) {
+  return atStart ? Point.createDeepestPoint(
                        range.getStartNode(), range.getStartOffset()) :
-                   goog.editor.range.Point.createDeepestPoint(
+                   Point.createDeepestPoint(
                        range.getEndNode(), range.getEndOffset());
-};
+}
 
 
 /**
@@ -328,32 +314,30 @@ goog.editor.range.getDeepEndPoint = function(range, atStart) {
  * without problems. It must be created before any normalization happens,
  * and invoked after normalization happens.
  *
- * @param {goog.dom.AbstractRange} range The range to normalize. It may
+ * @param {dom.AbstractRange} range The range to normalize. It may
  *    become invalid after body.normalize() is called.
- * @return {function(): goog.dom.AbstractRange} A factory for a normalized
+ * @return {function(): dom.AbstractRange} A factory for a normalized
  *    range. Should be called after body.normalize() is called.
  */
-goog.editor.range.normalize = function(range) {
-  'use strict';
+export function normalize(range) {
   var isReversed = range.isReversed();
-  var anchorPoint = goog.editor.range.normalizePoint_(
-      goog.editor.range.getDeepEndPoint(range, !isReversed));
+  var anchorPoint = normalizePoint_(
+      getDeepEndPoint(range, !isReversed));
   var anchorParent = anchorPoint.getParentPoint();
   var anchorPreviousSibling = anchorPoint.node.previousSibling;
-  if (anchorPoint.node.nodeType == goog.dom.NodeType.TEXT) {
+  if (anchorPoint.node.nodeType == NodeType.TEXT) {
     anchorPoint.node = null;
   }
 
-  var focusPoint = goog.editor.range.normalizePoint_(
-      goog.editor.range.getDeepEndPoint(range, isReversed));
+  var focusPoint = normalizePoint_(
+      getDeepEndPoint(range, isReversed));
   var focusParent = focusPoint.getParentPoint();
   var focusPreviousSibling = focusPoint.node.previousSibling;
-  if (focusPoint.node.nodeType == goog.dom.NodeType.TEXT) {
+  if (focusPoint.node.nodeType == NodeType.TEXT) {
     focusPoint.node = null;
   }
 
   return function() {
-    'use strict';
     if (!anchorPoint.node && anchorPreviousSibling) {
       // If anchorPoint.node was previously an empty text node with no siblings,
       // anchorPreviousSibling may not have a nextSibling since that node will
@@ -362,7 +346,7 @@ goog.editor.range.normalize = function(range) {
       anchorPoint.node = anchorPreviousSibling.nextSibling;
       if (!anchorPoint.node) {
         anchorPoint =
-            goog.editor.range.Point.getPointAtEndOfNode(anchorPreviousSibling);
+            Point.getPointAtEndOfNode(anchorPreviousSibling);
       }
     }
 
@@ -374,40 +358,39 @@ goog.editor.range.normalize = function(range) {
       focusPoint.node = focusPreviousSibling.nextSibling;
       if (!focusPoint.node) {
         focusPoint =
-            goog.editor.range.Point.getPointAtEndOfNode(focusPreviousSibling);
+            Point.getPointAtEndOfNode(focusPreviousSibling);
       }
     }
 
-    return goog.dom.Range.createFromNodes(
+    return Range.createFromNodes(
         anchorPoint.node || anchorParent.node.firstChild || anchorParent.node,
         anchorPoint.offset,
         focusPoint.node || focusParent.node.firstChild || focusParent.node,
         focusPoint.offset);
   };
-};
+}
 
 
 /**
  * Given a point in the current DOM, adjust it to represent the same point in
  * a normalized DOM.
  *
- * See the comments on goog.editor.range.normalize for more context.
+ * See the comments on normalize for more context.
  *
- * @param {goog.editor.range.Point} point A point in the document.
- * @return {!goog.editor.range.Point} The same point, for easy chaining.
+ * @param {Point} point A point in the document.
+ * @return {!Point} The same point, for easy chaining.
  * @private
  */
-goog.editor.range.normalizePoint_ = function(point) {
-  'use strict';
+function normalizePoint_(point) {
   var previous;
-  if (point.node.nodeType == goog.dom.NodeType.TEXT) {
+  if (point.node.nodeType == NodeType.TEXT) {
     // If the cursor position is in a text node,
     // look at all the previous text siblings of the text node,
     // and set the offset relative to the earliest text sibling.
     for (var current = point.node.previousSibling;
-         current && current.nodeType == goog.dom.NodeType.TEXT;
+         current && current.nodeType == NodeType.TEXT;
          current = current.previousSibling) {
-      point.offset += goog.editor.node.getLength(current);
+      point.offset += editorNode.getLength(current);
     }
 
     previous = current;
@@ -418,16 +401,15 @@ goog.editor.range.normalizePoint_ = function(point) {
   var parent = point.node.parentNode;
   point.node = previous ? previous.nextSibling : parent.firstChild;
   return point;
-};
+}
 
 
 /**
  * Checks if a range is completely inside an editable region.
- * @param {goog.dom.AbstractRange} range The range to test.
+ * @param {dom.AbstractRange} range The range to test.
  * @return {boolean} Whether the range is completely inside an editable region.
  */
-goog.editor.range.isEditable = function(range) {
-  'use strict';
+export function isEditable(range) {
   var rangeContainer = range.getContainerElement();
 
   // Closure's implementation of getContainerElement() is a little too
@@ -440,31 +422,29 @@ goog.editor.range.isEditable = function(range) {
       range.getStartNode() != rangeContainer.parentElement;
 
   return (rangeContainerIsOutsideRange &&
-          goog.editor.node.isEditableContainer(rangeContainer)) ||
-      goog.editor.node.isEditable(rangeContainer);
-};
+          editorNode.isEditableContainer(rangeContainer)) ||
+      editorNode.isEditable(rangeContainer);
+}
 
 
 /**
  * Returns whether the given range intersects with any instance of the given
  * tag.
- * @param {goog.dom.AbstractRange} range The range to check.
- * @param {!goog.dom.TagName} tagName The name of the tag.
+ * @param {dom.AbstractRange} range The range to check.
+ * @param {!dom.TagName} tagName The name of the tag.
  * @return {boolean} Whether the given range intersects with any instance of
  *     the given tag.
  */
-goog.editor.range.intersectsTag = function(range, tagName) {
-  'use strict';
-  if (goog.dom.getAncestorByTagNameAndClass(
+export function intersectsTag(range, tagName) {
+  if (dom.getAncestorByTagNameAndClass(
           range.getContainerElement(), tagName)) {
     return true;
   }
 
-  return goog.iter.some(range, function(node) {
-    'use strict';
+  return iter.some(range, function(node) {
     return node.tagName == tagName;
   });
-};
+}
 
 
 
@@ -475,8 +455,7 @@ goog.editor.range.intersectsTag = function(range, tagName) {
  * @constructor
  * @final
  */
-goog.editor.range.Point = function(node, offset) {
-  'use strict';
+export function Point(node, offset) {
   /**
    * The node containing the point.
    * @type {Node}
@@ -488,17 +467,16 @@ goog.editor.range.Point = function(node, offset) {
    * @type {number}
    */
   this.offset = offset;
-};
+}
 
 
 /**
  * Gets the point of this point's node in the DOM.
- * @return {!goog.editor.range.Point} The node's point.
+ * @return {!Point} The node's point.
  */
-goog.editor.range.Point.prototype.getParentPoint = function() {
-  'use strict';
+Point.prototype.getParentPoint = function() {
   var parent = this.node.parentNode;
-  return new goog.editor.range.Point(
+  return new Point(
       parent, Array.prototype.indexOf.call(parent.childNodes, this.node));
 };
 
@@ -516,12 +494,11 @@ goog.editor.range.Point.prototype.getParentPoint = function() {
  * @param {boolean=} opt_stopOnChildlessElement If true, and we encounter
  *     a Node which is an Element that cannot have children, we return a Point
  *     based on its parent rather than that Node itself.
- * @return {!goog.editor.range.Point} A new point.
+ * @return {!Point} A new point.
  */
-goog.editor.range.Point.createDeepestPoint = function(
+Point.createDeepestPoint = function(
     node, offset, opt_trendLeft, opt_stopOnChildlessElement) {
-  'use strict';
-  while (node.nodeType == goog.dom.NodeType.ELEMENT) {
+  while (node.nodeType == NodeType.ELEMENT) {
     var child = node.childNodes[offset];
     if (!child && !node.lastChild) {
       break;
@@ -529,14 +506,14 @@ goog.editor.range.Point.createDeepestPoint = function(
       var prevSibling = child.previousSibling;
       if (opt_trendLeft && prevSibling) {
         if (opt_stopOnChildlessElement &&
-            goog.editor.range.Point.isTerminalElement_(prevSibling)) {
+            Point.isTerminalElement_(prevSibling)) {
           break;
         }
         node = prevSibling;
-        offset = goog.editor.node.getLength(node);
+        offset = editorNode.getLength(node);
       } else {
         if (opt_stopOnChildlessElement &&
-            goog.editor.range.Point.isTerminalElement_(child)) {
+            Point.isTerminalElement_(child)) {
           break;
         }
         node = child;
@@ -544,15 +521,15 @@ goog.editor.range.Point.createDeepestPoint = function(
       }
     } else {
       if (opt_stopOnChildlessElement &&
-          goog.editor.range.Point.isTerminalElement_(node.lastChild)) {
+          Point.isTerminalElement_(node.lastChild)) {
         break;
       }
       node = node.lastChild;
-      offset = goog.editor.node.getLength(node);
+      offset = editorNode.getLength(node);
     }
   }
 
-  return new goog.editor.range.Point(node, offset);
+  return new Point(node, offset);
 };
 
 
@@ -565,22 +542,18 @@ goog.editor.range.Point.createDeepestPoint = function(
  *     child nodes (e.g. BR, IMG).
  * @private
  */
-goog.editor.range.Point.isTerminalElement_ = function(node) {
-  'use strict';
-  return (
-      node.nodeType == goog.dom.NodeType.ELEMENT &&
-      !goog.dom.canHaveChildren(node));
+Point.isTerminalElement_ = function(node) {
+  return (node.nodeType == NodeType.ELEMENT && !dom.canHaveChildren(node));
 };
 
 
 /**
  * Construct a point at the very end of the given node.
  * @param {Node} node The node to create a point for.
- * @return {!goog.editor.range.Point} A new point.
+ * @return {!Point} A new point.
  */
-goog.editor.range.Point.getPointAtEndOfNode = function(node) {
-  'use strict';
-  return new goog.editor.range.Point(node, goog.editor.node.getLength(node));
+Point.getPointAtEndOfNode = function(node) {
+  return new Point(node, editorNode.getLength(node));
 };
 
 
@@ -591,58 +564,55 @@ goog.editor.range.Point.getPointAtEndOfNode = function(node) {
  * Browsers have other bugs where they don't handle split text nodes in
  * contentEditable regions right.
  *
- * @param {goog.dom.AbstractRange} range The abstract range object.
- * @return {!goog.dom.SavedCaretRange} A saved caret range that normalizes
+ * @param {dom.AbstractRange} range The abstract range object.
+ * @return {!SavedCaretRange} A saved caret range that normalizes
  *     text nodes.
  */
-goog.editor.range.saveUsingNormalizedCarets = function(range) {
-  'use strict';
-  return new goog.editor.range.NormalizedCaretRange_(range);
-};
+export function saveUsingNormalizedCarets(range) {
+  return new NormalizedCaretRange_(range);
+}
 
 
 
 /**
  * Saves the range using carets, but normalizes text nodes when carets
  * are removed.
- * @see goog.editor.range.saveUsingNormalizedCarets
- * @param {goog.dom.AbstractRange} range The range being saved.
+ * @see saveUsingNormalizedCarets
+ * @param {dom.AbstractRange} range The range being saved.
  * @constructor
- * @extends {goog.dom.SavedCaretRange}
+ * @extends {SavedCaretRange}
  * @private
  */
-goog.editor.range.NormalizedCaretRange_ = function(range) {
-  'use strict';
-  goog.dom.SavedCaretRange.call(this, range);
-};
+function NormalizedCaretRange_(range) {
+  SavedCaretRange.call(this, range);
+}
 goog.inherits(
-    goog.editor.range.NormalizedCaretRange_, goog.dom.SavedCaretRange);
+    NormalizedCaretRange_, SavedCaretRange);
 
 
 /**
  * Normalizes text nodes whenever carets are removed from the document.
- * @param {goog.dom.AbstractRange=} opt_range A range whose offsets have already
+ * @param {dom.AbstractRange=} opt_range A range whose offsets have already
  *     been adjusted for caret removal; it will be adjusted and returned if it
  *     is also affected by post-removal operations, such as text node
  *     normalization.
- * @return {goog.dom.AbstractRange|undefined} The adjusted range, if opt_range
+ * @return {dom.AbstractRange|undefined} The adjusted range, if opt_range
  *     was provided.
  * @override
  */
-goog.editor.range.NormalizedCaretRange_.prototype.removeCarets = function(
+NormalizedCaretRange_.prototype.removeCarets = function(
     opt_range) {
-  'use strict';
   var startCaret = this.getCaret(true);
   var endCaret = this.getCaret(false);
   var node = startCaret && endCaret ?
-      goog.dom.findCommonAncestor(startCaret, endCaret) :
+      dom.findCommonAncestor(startCaret, endCaret) :
       startCaret || endCaret;
 
-  goog.editor.range.NormalizedCaretRange_.superClass_.removeCarets.call(this);
+  NormalizedCaretRange_.superClass_.removeCarets.call(this);
 
   if (opt_range) {
-    return goog.editor.range.rangePreservingNormalize(node, opt_range);
+    return rangePreservingNormalize(node, opt_range);
   } else if (node) {
-    goog.editor.range.selectionPreservingNormalize(node);
+    selectionPreservingNormalize(node);
   }
 };

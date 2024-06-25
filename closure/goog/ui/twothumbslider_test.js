@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.TwoThumbSliderTest');
 goog.setTestOnly();
 
-const SliderBase = goog.require('goog.ui.SliderBase');
-const TwoThumbSlider = goog.require('goog.ui.TwoThumbSlider');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SliderBase } from './sliderbase.js';
+import { TwoThumbSlider } from './twothumbslider.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let slider;
 

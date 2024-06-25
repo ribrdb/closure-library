@@ -9,13 +9,12 @@
  *  into anonymous, simplified JSON objects.
  */
 
-goog.provide('goog.proto2.ObjectSerializer');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.proto2.FieldDescriptor');
-goog.require('goog.proto2.Serializer');
-goog.require('goog.string');
-goog.requireType('goog.proto2.Message');
+import { FieldDescriptor } from './fielddescriptor.js';
+import { Serializer } from './serializer.js';
+import * as string from '../string/string.js';
+goog.requireType('goog.proto2.message');
 
 
 
@@ -23,7 +22,7 @@ goog.requireType('goog.proto2.Message');
  * ObjectSerializer, a serializer which turns Messages into simplified
  * ECMAScript objects.
  *
- * @param {goog.proto2.ObjectSerializer.KeyOption=} opt_keyOption If specified,
+ * @param {ObjectSerializer.KeyOption=} opt_keyOption If specified,
  *     which key option to use when serializing/deserializing.
  * @param {boolean=} opt_serializeBooleanAsNumber If specified and true, the
  *     serializer will convert boolean values to 0/1 representation.
@@ -31,19 +30,17 @@ goog.requireType('goog.proto2.Message');
  *     serializer will ignore unknown fields in the JSON payload instead of
  *     returning an error.
  * @constructor
- * @extends {goog.proto2.Serializer}
+ * @extends {Serializer}
  */
-goog.proto2.ObjectSerializer = function(
-    opt_keyOption, opt_serializeBooleanAsNumber, opt_ignoreUnknownFields) {
-  'use strict';
+export function ObjectSerializer(opt_keyOption, opt_serializeBooleanAsNumber, opt_ignoreUnknownFields) {
   /** @const */
   this.keyOption_ = opt_keyOption;
   /** @const */
   this.serializeBooleanAsNumber_ = opt_serializeBooleanAsNumber;
   /** @const */
   this.ignoreUnknownFields_ = opt_ignoreUnknownFields;
-};
-goog.inherits(goog.proto2.ObjectSerializer, goog.proto2.Serializer);
+}
+goog.inherits(ObjectSerializer, Serializer);
 
 
 /**
@@ -61,7 +58,7 @@ goog.inherits(goog.proto2.ObjectSerializer, goog.proto2.Serializer);
  *
  * @enum {number}
  */
-goog.proto2.ObjectSerializer.KeyOption = {
+ObjectSerializer.KeyOption = {
   /**
    * Use the tag of the field as the key (default)
    */
@@ -88,8 +85,7 @@ goog.proto2.ObjectSerializer.KeyOption = {
  * @return {!Object} The serialized form of the message.
  * @override
  */
-goog.proto2.ObjectSerializer.prototype.serialize = function(message) {
-  'use strict';
+ObjectSerializer.prototype.serialize = function(message) {
   var descriptor = message.getDescriptor();
   var fields = descriptor.getFields();
 
@@ -101,14 +97,14 @@ goog.proto2.ObjectSerializer.prototype.serialize = function(message) {
 
     var key = field.getTag();
     switch (this.keyOption_) {
-      case goog.proto2.ObjectSerializer.KeyOption.TAG:
+      case ObjectSerializer.KeyOption.TAG:
         // no action necessary, key already has the correct value.
         break;
-      case goog.proto2.ObjectSerializer.KeyOption.NAME:
+      case ObjectSerializer.KeyOption.NAME:
         key = field.getName();
         break;
-      case goog.proto2.ObjectSerializer.KeyOption.CAMEL_CASE_NAME:
-        key = goog.string.toCamelCase(
+      case ObjectSerializer.KeyOption.CAMEL_CASE_NAME:
+        key = string.toCamelCase(
             field
                 .getName()
                 // goog.string.toCamelCase expects a hyphen delimited string but
@@ -120,12 +116,12 @@ goog.proto2.ObjectSerializer.prototype.serialize = function(message) {
       default:
         // Default should never be reached unless keyOption is outside the valid
         // domain.
-        goog.asserts.assert(
-            this.keyOption_ !== goog.proto2.ObjectSerializer.KeyOption.TAG &&
+        asserts.assert(
+            this.keyOption_ !== ObjectSerializer.KeyOption.TAG &&
                 this.keyOption_ !==
-                    goog.proto2.ObjectSerializer.KeyOption.NAME &&
+                    ObjectSerializer.KeyOption.NAME &&
                 this.keyOption_ !==
-                    goog.proto2.ObjectSerializer.KeyOption.CAMEL_CASE_NAME,
+                    ObjectSerializer.KeyOption.CAMEL_CASE_NAME,
             'keyOption should be one of TAG, NAME, or CAMEL_CASE_NAME');
     }
 
@@ -146,7 +142,6 @@ goog.proto2.ObjectSerializer.prototype.serialize = function(message) {
 
   // Add the unknown fields, if any.
   message.forEachUnknown(function(tag, value) {
-    'use strict';
     // Do not set null values. This is possible when using pbliteserializer to
     // convert jsbp to closure object and then passed to this method.
     if (value !== null) {
@@ -159,34 +154,32 @@ goog.proto2.ObjectSerializer.prototype.serialize = function(message) {
 
 
 /** @override */
-goog.proto2.ObjectSerializer.prototype.getSerializedValue = function(
+ObjectSerializer.prototype.getSerializedValue = function(
     field, value) {
-  'use strict';
   // Handle the case where a boolean should be serialized as 0/1.
   // Some deserialization libraries, such as GWT, can use this notation.
   if (this.serializeBooleanAsNumber_ &&
-      field.getFieldType() == goog.proto2.FieldDescriptor.FieldType.BOOL &&
+      field.getFieldType() == FieldDescriptor.FieldType.BOOL &&
       typeof value === 'boolean') {
     return value ? 1 : 0;
   }
 
-  return goog.proto2.ObjectSerializer.base(
+  return ObjectSerializer.base(
       this, 'getSerializedValue', field, value);
 };
 
 
 /** @override */
-goog.proto2.ObjectSerializer.prototype.getDeserializedValue = function(
+ObjectSerializer.prototype.getDeserializedValue = function(
     field, value) {
-  'use strict';
   // Gracefully handle the case where a boolean is represented by 0/1.
   // Some serialization libraries, such as GWT, can use this notation.
-  if (field.getFieldType() == goog.proto2.FieldDescriptor.FieldType.BOOL &&
+  if (field.getFieldType() == FieldDescriptor.FieldType.BOOL &&
       typeof value === 'number') {
     return Boolean(value);
   }
 
-  return goog.proto2.ObjectSerializer.base(
+  return ObjectSerializer.base(
       this, 'getDeserializedValue', field, value);
 };
 
@@ -200,31 +193,30 @@ goog.proto2.ObjectSerializer.prototype.getDeserializedValue = function(
  * @param {*} data The data of the message.
  * @override
  */
-goog.proto2.ObjectSerializer.prototype.deserializeTo = function(message, data) {
-  'use strict';
+ObjectSerializer.prototype.deserializeTo = function(message, data) {
   var descriptor = message.getDescriptor();
 
   for (var key in data) {
     var field;
     var value = data[key];
 
-    var isNumeric = goog.string.isNumeric(key);
+    var isNumeric = string.isNumeric(key);
 
     if (isNumeric) {
       field = descriptor.findFieldByTag(key);
     } else {
       // We must not be in Key == TAG mode to lookup by name.
-      goog.asserts.assert(
-          this.keyOption_ == goog.proto2.ObjectSerializer.KeyOption.NAME ||
+      asserts.assert(
+          this.keyOption_ == ObjectSerializer.KeyOption.NAME ||
               this.keyOption_ ==
-                  goog.proto2.ObjectSerializer.KeyOption.CAMEL_CASE_NAME,
+                  ObjectSerializer.KeyOption.CAMEL_CASE_NAME,
           'Key mode ' + this.keyOption_ + 'for key ' + key + ' is not ' +
-              goog.proto2.ObjectSerializer.KeyOption.NAME + ' nor ' +
-              goog.proto2.ObjectSerializer.KeyOption.CAMEL_CASE_NAME);
+              ObjectSerializer.KeyOption.NAME + ' nor ' +
+              ObjectSerializer.KeyOption.CAMEL_CASE_NAME);
 
       if (this.keyOption_ ==
-          goog.proto2.ObjectSerializer.KeyOption.CAMEL_CASE_NAME) {
-        key = goog.string
+          ObjectSerializer.KeyOption.CAMEL_CASE_NAME) {
+        key = string
                   .toSelectorCase(key)
                   // goog.string.toSelectorCase returns a hyphen delimited form
                   // of the name but protos usually use an underscore delimited
@@ -237,7 +229,7 @@ goog.proto2.ObjectSerializer.prototype.deserializeTo = function(message, data) {
 
     if (field) {
       if (field.isRepeated()) {
-        goog.asserts.assert(
+        asserts.assert(
             Array.isArray(value),
             'Value for repeated field ' + field + ' must be an array.');
 
@@ -245,7 +237,7 @@ goog.proto2.ObjectSerializer.prototype.deserializeTo = function(message, data) {
           message.add(field, this.getDeserializedValue(field, value[j]));
         }
       } else {
-        goog.asserts.assert(
+        asserts.assert(
             !Array.isArray(value),
             'Value for non-repeated field ' + field + ' must not be an array.');
         message.set(field, this.getDeserializedValue(field, value));
@@ -258,7 +250,7 @@ goog.proto2.ObjectSerializer.prototype.deserializeTo = function(message, data) {
         // Handle unknown non-numeric tag.
         if (!this.ignoreUnknownFields_) {
           // Named fields must be present.
-          goog.asserts.fail('Failed to find field: ' + key);
+          asserts.fail('Failed to find field: ' + key);
         }
       }
     }

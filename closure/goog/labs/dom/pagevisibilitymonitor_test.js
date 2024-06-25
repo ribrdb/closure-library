@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.dom.PageVisibilityMonitorTest');
 goog.setTestOnly();
 
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const PageVisibilityMonitor = goog.require('goog.labs.dom.PageVisibilityMonitor');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import * as testingEvents from '../../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../../testing/events/events.js';
+import { PageVisibilityMonitor } from './pagevisibilitymonitor.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as events from '../../events/events.js';
+import * as functions from '../../functions/functions.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 const stubs = new PropertyReplacer();
 let vh;

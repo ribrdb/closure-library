@@ -12,18 +12,19 @@
  *   <http://go/js_modules_design>
  */
 
-goog.provide('goog.module.Loader');
+import { Timer } from '../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.html.legacyconversions');
+import * as array from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as safe from '../dom/safe.js';
+import * as legacyconversions from '../html/legacyconversions.js';
+
 /** @suppress {extraRequire} */
-goog.require('goog.module');
-goog.require('goog.object');
+import { module as googModule } from './module.js';
+
+import object from '../object/object.js';
 
 
 
@@ -31,13 +32,12 @@ goog.require('goog.object');
  * The dynamic loading functionality is defined as a class. The class
  * will be used as singleton. There is, however, a two step
  * initialization procedure because parameters need to be passed to
- * the goog.module.Loader instance.
+ * the Loader instance.
  *
  * @constructor
  * @final
  */
-goog.module.Loader = function() {
-  'use strict';
+export function Loader() {
   /**
    * Map of module name/array of {symbol name, callback} pairs that are pending
    * to be loaded.
@@ -82,13 +82,13 @@ goog.module.Loader = function() {
    * @private
    */
   this.pendingBeforeInit_ = [];
-};
-goog.addSingletonGetter(goog.module.Loader);
+}
+goog.addSingletonGetter(Loader);
 
 
 /**
- * Wrapper of goog.module.Loader.require() for use in modules.
- * See method goog.module.Loader.require() for
+ * Wrapper of Loader.require() for use in modules.
+ * See method Loader.require() for
  * explanation of params.
  *
  * @param {string} module The name of the module. Usually, the value
@@ -98,15 +98,14 @@ goog.addSingletonGetter(goog.module.Loader);
  * @param {Function} callback This function will be called with the
  *     resolved symbol as the argument once the module is loaded.
  */
-goog.module.Loader.require = function(module, symbol, callback) {
-  'use strict';
-  goog.module.Loader.getInstance().require(module, symbol, callback);
+Loader.require = function(module, symbol, callback) {
+  Loader.getInstance().require(module, symbol, callback);
 };
 
 
 /**
- * Wrapper of goog.module.Loader.provide() for use in modules
- * See method goog.module.Loader.provide() for explanation of params.
+ * Wrapper of Loader.provide() for use in modules
+ * See method Loader.provide() for explanation of params.
  *
  * @param {string} module The name of the module. Cf. parameter module
  *     of method require().
@@ -116,15 +115,14 @@ goog.module.Loader.require = function(module, symbol, callback) {
  * @param {Object=} opt_object The object bound to the symbol, or nothing when
  *     all symbols of the module are defined.
  */
-goog.module.Loader.provide = function(module, opt_symbol, opt_object) {
-  'use strict';
-  goog.module.Loader.getInstance().provide(module, opt_symbol, opt_object);
+Loader.provide = function(module, opt_symbol, opt_object) {
+  Loader.getInstance().provide(module, opt_symbol, opt_object);
 };
 
 
 /**
  * Wrapper of init() so that we only need to export this single
- * identifier instead of three. See method goog.module.Loader.init() for
+ * identifier instead of three. See method Loader.init() for
  * explanation of param.
  *
  * @param {string} urlBase The URL of the base library.
@@ -133,9 +131,8 @@ goog.module.Loader.provide = function(module, opt_symbol, opt_object) {
  *     module name and should return the fully-formed URL to the module file to
  *     load.
  */
-goog.module.Loader.init = function(urlBase, opt_urlFunction) {
-  'use strict';
-  goog.module.Loader.getInstance().init(urlBase, opt_urlFunction);
+Loader.init = function(urlBase, opt_urlFunction) {
+  Loader.getInstance().init(urlBase, opt_urlFunction);
 };
 
 
@@ -150,13 +147,10 @@ goog.module.Loader.init = function(urlBase, opt_urlFunction) {
  * @return {!Function} A function that forwards all its arguments to
  *     the dynamically loaded function specified by module and symbol.
  */
-goog.module.Loader.loaderCall = function(module, symbol) {
-  'use strict';
+Loader.loaderCall = function(module, symbol) {
   return function() {
-    'use strict';
     var args = arguments;
-    goog.module.Loader.require(module, symbol, function(f) {
-      'use strict';
+    Loader.require(module, symbol, function(f) {
       f.apply(null, args);
     });
   };
@@ -171,8 +165,7 @@ goog.module.Loader.loaderCall = function(module, symbol) {
  * @return {string} The full url to the module binary.
  * @private
  */
-goog.module.Loader.prototype.getModuleUrl_ = function(urlBase, module) {
-  'use strict';
+Loader.prototype.getModuleUrl_ = function(urlBase, module) {
   return urlBase + '_' + module + '.js';
 };
 
@@ -182,7 +175,7 @@ goog.module.Loader.prototype.getModuleUrl_ = function(urlBase, module) {
  * definition in the js_module_binary() BUILD rule.
  * @type {string}
  */
-goog.module.Loader.LOAD_CALLBACK = '__gjsload__';
+Loader.LOAD_CALLBACK = '__gjsload__';
 
 
 /**
@@ -198,8 +191,7 @@ goog.module.Loader.LOAD_CALLBACK = '__gjsload__';
  *   hence cannot shadow compiled identifiers in the surrounding scope.
  * @private
  */
-goog.module.Loader.loaderEval_ = function(t_) {
-  'use strict';
+Loader.loaderEval_ = function(t_) {
   eval(t_);
 };
 
@@ -217,14 +209,13 @@ goog.module.Loader.loaderEval_ = function(t_) {
  *     module name and should return the fully-formed URL to the module file to
  *     load.
  */
-goog.module.Loader.prototype.init = function(baseUrl, opt_urlFunction) {
-  'use strict';
+Loader.prototype.init = function(baseUrl, opt_urlFunction) {
   // For the use by the module wrappers, loaderEval_ is exported to
   // the page. Note that, despite the name, this is not part of the
   // API, so it is here and not in api_app.js. Cf. BUILD. Note this is
   // done before the first load requests are sent.
   goog.exportSymbol(
-      goog.module.Loader.LOAD_CALLBACK, goog.module.Loader.loaderEval_);
+      Loader.LOAD_CALLBACK, Loader.loaderEval_);
 
   this.urlBase_ = baseUrl.replace(/\.js$/, '');
   if (opt_urlFunction) {
@@ -232,10 +223,9 @@ goog.module.Loader.prototype.init = function(baseUrl, opt_urlFunction) {
   }
 
   this.pendingBeforeInit_.forEach(function(module) {
-    'use strict';
     this.load_(module);
   }, this);
-  goog.array.clear(this.pendingBeforeInit_);
+  array.clear(this.pendingBeforeInit_);
 };
 
 
@@ -251,8 +241,7 @@ goog.module.Loader.prototype.init = function(baseUrl, opt_urlFunction) {
  * @param {Function} callback This function will be called with the
  *     resolved symbol as the argument once the module is loaded.
  */
-goog.module.Loader.prototype.require = function(module, symbol, callback) {
-  'use strict';
+Loader.prototype.require = function(module, symbol, callback) {
   var pending = this.pending_;
   var modules = this.modules_;
   if (modules[module]) {
@@ -288,9 +277,8 @@ goog.module.Loader.prototype.require = function(module, symbol, callback) {
  *     all symbols of the module are defined.
  * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
-goog.module.Loader.prototype.provide = function(
+Loader.prototype.provide = function(
     module, opt_symbol, opt_object) {
-  'use strict';
   var modules = this.modules_;
   var pending = this.pending_;
   if (!modules[module]) {
@@ -319,8 +307,7 @@ goog.module.Loader.prototype.provide = function(
  * @param {string} module The name of the module.
  * @private
  */
-goog.module.Loader.prototype.load_ = function(module) {
-  'use strict';
+Loader.prototype.load_ = function(module) {
   // NOTE(user): If the module request happens inside a click handler
   // (presumably inside any user event handler, but the onload event
   // handler is fine), IE will load the script but not execute
@@ -329,28 +316,27 @@ goog.module.Loader.prototype.load_ = function(module) {
   // just defer the assignment to src. Safari doesn't execute the
   // script if the assignment to src happens *after* the script
   // element is inserted into the DOM.
-  goog.Timer.callOnce(function() {
-    'use strict';
+  Timer.callOnce(function() {
     // The module might have been registered in the interim (if fetched as part
     // of another module fetch because they share the same url)
     if (this.modules_[module]) {
       return;
     }
 
-    goog.asserts.assertString(this.urlBase_);
+    asserts.assertString(this.urlBase_);
     var url = this.getModuleUrl_(this.urlBase_, module);
 
     // Check if specified URL is already in flight
-    var urlInFlight = goog.object.containsValue(this.pendingModuleUrls_, url);
+    var urlInFlight = object.containsValue(this.pendingModuleUrls_, url);
     this.pendingModuleUrls_[module] = url;
     if (urlInFlight) {
       return;
     }
 
-    var s = goog.dom.createDom(
-        goog.dom.TagName.SCRIPT, {'type': 'text/javascript'});
-    goog.dom.safe.setScriptSrc(
-        s, goog.html.legacyconversions.trustedResourceUrlFromString(url));
+    var s = dom.createDom(
+        TagName.SCRIPT, {'type': 'text/javascript'});
+    safe.setScriptSrc(
+        s, legacyconversions.trustedResourceUrlFromString(url));
     document.body.appendChild(s);
   }, 0, this);
 };

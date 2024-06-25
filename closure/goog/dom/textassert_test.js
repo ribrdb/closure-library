@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.textassert_test');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const textAssert = goog.require('goog.dom.textAssert');
+import { testSuite } from '../testing/testsuite.js';
+import * as textAssert from './textassert.js';
 
 testSuite({
   testAssertIsTextThrowsWithHtmlTags: function() {

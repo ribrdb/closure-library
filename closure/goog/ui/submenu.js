@@ -6,34 +6,34 @@
 
 /**
  * @fileoverview A class representing menu items that open a submenu.
- * @see goog.ui.Menu
+ * @see Menu
  *
  * @see ../demos/submenus.html
  * @see ../demos/submenus2.html
  */
 
-goog.provide('goog.ui.SubMenu');
+goog.declareModuleId('goog.ui.submenu');
 
-goog.require('goog.Timer');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.classlist');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.positioning.AnchoredViewportPosition');
-goog.require('goog.positioning.Corner');
-goog.require('goog.style');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.Menu');
-goog.require('goog.ui.MenuItem');
-goog.require('goog.ui.SubMenuRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.events.BrowserEvent');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.events.KeyEvent');
-goog.requireType('goog.ui.ControlContent');
-goog.requireType('goog.ui.MenuHeader');
-goog.requireType('goog.ui.MenuItemRenderer');
-goog.requireType('goog.ui.MenuSeparator');
+import { Timer } from '../timer/timer.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dom from '../dom/dom.js';
+import * as classlist from '../dom/classlist.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { AnchoredViewportPosition } from '../positioning/anchoredviewportposition.js';
+import { Corner } from '../positioning/positioning.js';
+import * as style from '../style/style.js';
+import { Component } from './component.js';
+import { Menu } from './menu.js';
+import { MenuItem } from './menuitem.js';
+import { SubMenuRenderer } from './submenurenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.events.browserevent');
+goog.requireType('goog.events.event');
+goog.requireType('goog.events.keyevent');
+goog.requireType('goog.ui.controlcontent');
+goog.requireType('goog.ui.menuheader');
+goog.requireType('goog.ui.menuitemrenderer');
+goog.requireType('goog.ui.menuseparator');
 
 
 
@@ -44,27 +44,26 @@ goog.requireType('goog.ui.MenuSeparator');
  *     display as the content of the submenu (use to add icons or styling to
  *     menus).
  * @param {*=} opt_model Data/model associated with the menu item.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional dom helper used for dom
+ * @param {dom.DomHelper=} opt_domHelper Optional dom helper used for dom
  *     interactions.
- * @param {goog.ui.MenuItemRenderer=} opt_renderer Renderer used to render or
- *     decorate the component; defaults to {@link goog.ui.SubMenuRenderer}.
+ * @param {MenuItemRenderer=} opt_renderer Renderer used to render or
+ *     decorate the component; defaults to {@link SubMenuRenderer}.
  * @constructor
- * @extends {goog.ui.MenuItem}
+ * @extends {MenuItem}
  */
-goog.ui.SubMenu = function(content, opt_model, opt_domHelper, opt_renderer) {
-  'use strict';
-  goog.ui.MenuItem.call(
+export function SubMenu(content, opt_model, opt_domHelper, opt_renderer) {
+  MenuItem.call(
       this, content, opt_model, opt_domHelper,
-      opt_renderer || goog.ui.SubMenuRenderer.getInstance());
-};
-goog.inherits(goog.ui.SubMenu, goog.ui.MenuItem);
+      opt_renderer || SubMenuRenderer.getInstance());
+}
+goog.inherits(SubMenu, MenuItem);
 
 
 /**
  * The delay before opening the sub menu in milliseconds.
  * @type {number}
  */
-goog.ui.SubMenu.MENU_DELAY_MS = 218;
+SubMenu.MENU_DELAY_MS = 218;
 
 
 /**
@@ -72,7 +71,7 @@ goog.ui.SubMenu.MENU_DELAY_MS = 218;
  * @type {?number}
  * @private
  */
-goog.ui.SubMenu.prototype.dismissTimer_ = null;
+SubMenu.prototype.dismissTimer_ = null;
 
 
 /**
@@ -80,7 +79,7 @@ goog.ui.SubMenu.prototype.dismissTimer_ = null;
  * @type {?number}
  * @private
  */
-goog.ui.SubMenu.prototype.showTimer_ = null;
+SubMenu.prototype.showTimer_ = null;
 
 
 /**
@@ -88,15 +87,15 @@ goog.ui.SubMenu.prototype.showTimer_ = null;
  * @type {boolean}
  * @private
  */
-goog.ui.SubMenu.prototype.menuIsVisible_ = false;
+SubMenu.prototype.menuIsVisible_ = false;
 
 
 /**
  * The lazily created sub menu.
- * @type {goog.ui.Menu?}
+ * @type {Menu?}
  * @private
  */
-goog.ui.SubMenu.prototype.subMenu_ = null;
+SubMenu.prototype.subMenu_ = null;
 
 
 /**
@@ -104,7 +103,7 @@ goog.ui.SubMenu.prototype.subMenu_ = null;
  * @type {boolean}
  * @private
  */
-goog.ui.SubMenu.prototype.externalSubMenu_ = false;
+SubMenu.prototype.externalSubMenu_ = false;
 
 
 /**
@@ -114,7 +113,7 @@ goog.ui.SubMenu.prototype.externalSubMenu_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.SubMenu.prototype.alignToEnd_ = true;
+SubMenu.prototype.alignToEnd_ = true;
 
 
 /**
@@ -123,16 +122,15 @@ goog.ui.SubMenu.prototype.alignToEnd_ = true;
  * @type {boolean}
  * @private
  */
-goog.ui.SubMenu.prototype.isPositionAdjustable_ = false;
+SubMenu.prototype.isPositionAdjustable_ = false;
 
 
 /** @override */
-goog.ui.SubMenu.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.SubMenu.superClass_.enterDocument.call(this);
+SubMenu.prototype.enterDocument = function() {
+  SubMenu.superClass_.enterDocument.call(this);
 
   this.getHandler().listen(
-      this.getParent(), goog.ui.Component.EventType.HIDE, this.onParentHidden_);
+      this.getParent(), Component.EventType.HIDE, this.onParentHidden_);
 
   if (this.subMenu_) {
     this.setMenuListenersEnabled_(this.subMenu_, true);
@@ -141,31 +139,29 @@ goog.ui.SubMenu.prototype.enterDocument = function() {
 
 
 /** @override */
-goog.ui.SubMenu.prototype.exitDocument = function() {
-  'use strict';
+SubMenu.prototype.exitDocument = function() {
   this.getHandler().unlisten(
-      this.getParent(), goog.ui.Component.EventType.HIDE, this.onParentHidden_);
+      this.getParent(), Component.EventType.HIDE, this.onParentHidden_);
 
   if (this.subMenu_) {
     this.setMenuListenersEnabled_(this.subMenu_, false);
     if (!this.externalSubMenu_) {
       this.subMenu_.exitDocument();
-      goog.dom.removeNode(this.subMenu_.getElement());
+      dom.removeNode(this.subMenu_.getElement());
     }
   }
 
-  goog.ui.SubMenu.superClass_.exitDocument.call(this);
+  SubMenu.superClass_.exitDocument.call(this);
 };
 
 
 /** @override */
-goog.ui.SubMenu.prototype.disposeInternal = function() {
-  'use strict';
+SubMenu.prototype.disposeInternal = function() {
   if (this.subMenu_ && !this.externalSubMenu_) {
     this.subMenu_.dispose();
   }
   this.subMenu_ = null;
-  goog.ui.SubMenu.superClass_.disposeInternal.call(this);
+  SubMenu.superClass_.disposeInternal.call(this);
 };
 
 
@@ -177,9 +173,8 @@ goog.ui.SubMenu.prototype.disposeInternal = function() {
  * @param {boolean} highlight Whether item should be highlighted.
  * @param {boolean=} opt_btnPressed Whether the mouse button is held down.
  */
-goog.ui.SubMenu.prototype.setHighlighted = function(highlight, opt_btnPressed) {
-  'use strict';
-  goog.ui.SubMenu.superClass_.setHighlighted.call(this, highlight);
+SubMenu.prototype.setHighlighted = function(highlight, opt_btnPressed) {
+  SubMenu.superClass_.setHighlighted.call(this, highlight);
 
   if (opt_btnPressed) {
     this.getMenu().setMouseButtonPressed(true);
@@ -187,10 +182,10 @@ goog.ui.SubMenu.prototype.setHighlighted = function(highlight, opt_btnPressed) {
 
   if (!highlight) {
     if (this.dismissTimer_) {
-      goog.Timer.clear(this.dismissTimer_);
+      Timer.clear(this.dismissTimer_);
     }
     this.dismissTimer_ =
-        goog.Timer.callOnce(this.dismissSubMenu, this.getMenuDelay(), this);
+        Timer.callOnce(this.dismissSubMenu, this.getMenuDelay(), this);
   }
 };
 
@@ -198,8 +193,7 @@ goog.ui.SubMenu.prototype.setHighlighted = function(highlight, opt_btnPressed) {
 /**
  * Show the submenu and ensure that all siblings are hidden.
  */
-goog.ui.SubMenu.prototype.showSubMenu = function() {
-  'use strict';
+SubMenu.prototype.showSubMenu = function() {
   // Only show the menu if this item is still selected. This is called on a
   // timeout, so make sure our parent still exists.
   var parent = this.getParent();
@@ -213,15 +207,13 @@ goog.ui.SubMenu.prototype.showSubMenu = function() {
 /**
  * Dismisses the menu and all further submenus.
  */
-goog.ui.SubMenu.prototype.dismissSubMenu = function() {
-  'use strict';
+SubMenu.prototype.dismissSubMenu = function() {
   // Because setHighlighted calls this function on a timeout, we need to make
   // sure that the sub menu hasn't been disposed when we come back.
   var subMenu = this.subMenu_;
   if (subMenu && subMenu.getParent() == this) {
     this.setSubMenuVisible_(false);
     subMenu.forEachChild(function(child) {
-      'use strict';
       if (typeof child.dismissSubMenu == 'function') {
         child.dismissSubMenu();
       }
@@ -233,13 +225,12 @@ goog.ui.SubMenu.prototype.dismissSubMenu = function() {
 /**
  * Clears the show and hide timers for the sub menu.
  */
-goog.ui.SubMenu.prototype.clearTimers = function() {
-  'use strict';
+SubMenu.prototype.clearTimers = function() {
   if (this.dismissTimer_) {
-    goog.Timer.clear(this.dismissTimer_);
+    Timer.clear(this.dismissTimer_);
   }
   if (this.showTimer_) {
-    goog.Timer.clear(this.showTimer_);
+    Timer.clear(this.showTimer_);
   }
 };
 
@@ -252,10 +243,9 @@ goog.ui.SubMenu.prototype.clearTimers = function() {
  * @return {boolean} Whether the visibility was changed.
  * @override
  */
-goog.ui.SubMenu.prototype.setVisible = function(visible, opt_force) {
-  'use strict';
+SubMenu.prototype.setVisible = function(visible, opt_force) {
   var visibilityChanged =
-      goog.ui.SubMenu.superClass_.setVisible.call(this, visible, opt_force);
+      SubMenu.superClass_.setVisible.call(this, visible, opt_force);
   // For menus that allow menu items to be hidden (i.e. ComboBox) ensure that
   // the submenu is hidden.
   if (visibilityChanged && !this.isVisible()) {
@@ -269,10 +259,8 @@ goog.ui.SubMenu.prototype.setVisible = function(visible, opt_force) {
  * Dismiss all the sub menus of sibling menu items.
  * @private
  */
-goog.ui.SubMenu.prototype.dismissSiblings_ = function() {
-  'use strict';
+SubMenu.prototype.dismissSiblings_ = function() {
   this.getParent().forEachChild(function(child) {
-    'use strict';
     if (child != this && typeof child.dismissSubMenu == 'function') {
       child.dismissSubMenu();
       child.clearTimers();
@@ -290,19 +278,18 @@ goog.ui.SubMenu.prototype.dismissSiblings_ = function() {
  * @return {boolean} Whether the event was handled.
  * @override
  */
-goog.ui.SubMenu.prototype.handleKeyEvent = function(e) {
-  'use strict';
+SubMenu.prototype.handleKeyEvent = function(e) {
   var keyCode = e.keyCode;
-  var arrowOpenKeyCode = this.isRightToLeft() ? goog.events.KeyCodes.LEFT :
-                                                goog.events.KeyCodes.RIGHT;
-  var closeKeyCode = this.isRightToLeft() ? goog.events.KeyCodes.RIGHT :
-                                            goog.events.KeyCodes.LEFT;
+  var arrowOpenKeyCode = this.isRightToLeft() ? KeyCodes.LEFT :
+                                                KeyCodes.RIGHT;
+  var closeKeyCode = this.isRightToLeft() ? KeyCodes.RIGHT :
+                                            KeyCodes.LEFT;
 
   if (!this.menuIsVisible_) {
     // Menu item doesn't have keyboard control and the correct key was pressed.
     // So open take keyboard control and open the sub menu.
     if (this.isEnabled() &&
-        (keyCode == arrowOpenKeyCode || keyCode == goog.events.KeyCodes.ENTER ||
+        (keyCode == arrowOpenKeyCode || keyCode == KeyCodes.ENTER ||
          keyCode == this.getMnemonic())) {
       this.showSubMenu();
       this.getMenu().highlightFirst();
@@ -341,8 +328,7 @@ goog.ui.SubMenu.prototype.handleKeyEvent = function(e) {
  * @param {goog.events.Event} e Enter event to handle.
  * @private
  */
-goog.ui.SubMenu.prototype.onChildEnter_ = function(e) {
-  'use strict';
+SubMenu.prototype.onChildEnter_ = function(e) {
   if (this.subMenu_.getParent() == this) {
     this.clearTimers();
     this.getParentEventTarget().setHighlighted(this);
@@ -357,8 +343,7 @@ goog.ui.SubMenu.prototype.onChildEnter_ = function(e) {
  * @param {goog.events.Event} e The event.
  * @private
  */
-goog.ui.SubMenu.prototype.onParentHidden_ = function(e) {
-  'use strict';
+SubMenu.prototype.onParentHidden_ = function(e) {
   // Ignore propagated events
   if (e.target == this.getParentEventTarget()) {
     // TODO(user): Using an event for this is expensive.  Consider having a
@@ -376,14 +361,13 @@ goog.ui.SubMenu.prototype.onParentHidden_ = function(e) {
  * parent menu.
  * @param {goog.events.BrowserEvent} e Mouse event to handle.
  */
-goog.ui.SubMenu.prototype.handleMouseOver = function(e) {
-  'use strict';
+SubMenu.prototype.handleMouseOver = function(e) {
   if (this.isEnabled()) {
     this.clearTimers();
     this.showTimer_ =
-        goog.Timer.callOnce(this.showSubMenu, this.getMenuDelay(), this);
+        Timer.callOnce(this.showSubMenu, this.getMenuDelay(), this);
   }
-  goog.ui.SubMenu.superClass_.handleMouseOver.call(this, e);
+  SubMenu.superClass_.handleMouseOver.call(this, e);
 };
 
 
@@ -392,9 +376,8 @@ goog.ui.SubMenu.prototype.handleMouseOver = function(e) {
  * @return {number}
  * @protected
  */
-goog.ui.SubMenu.prototype.getMenuDelay = function() {
-  'use strict';
-  return goog.ui.SubMenu.MENU_DELAY_MS;
+SubMenu.prototype.getMenuDelay = function() {
+  return SubMenu.MENU_DELAY_MS;
 };
 
 
@@ -405,14 +388,13 @@ goog.ui.SubMenu.prototype.getMenuDelay = function() {
  * @return {boolean} True if the action was allowed to proceed, false otherwise.
  * @override
  */
-goog.ui.SubMenu.prototype.performActionInternal = function(e) {
-  'use strict';
+SubMenu.prototype.performActionInternal = function(e) {
   this.clearTimers();
   var shouldHandleClick =
-      this.isSupportedState(goog.ui.Component.State.SELECTED) ||
-      this.isSupportedState(goog.ui.Component.State.CHECKED);
+      this.isSupportedState(Component.State.SELECTED) ||
+      this.isSupportedState(Component.State.CHECKED);
   if (shouldHandleClick) {
-    return goog.ui.SubMenu.superClass_.performActionInternal.call(this, e);
+    return SubMenu.superClass_.performActionInternal.call(this, e);
   } else {
     this.showSubMenu();
     return true;
@@ -425,8 +407,7 @@ goog.ui.SubMenu.prototype.performActionInternal = function(e) {
  * @param {boolean} visible Whether to show menu.
  * @private
  */
-goog.ui.SubMenu.prototype.setSubMenuVisible_ = function(visible) {
-  'use strict';
+SubMenu.prototype.setSubMenuVisible_ = function(visible) {
   // Unhighlighting the menuitems if closing the menu so the event handlers can
   // determine the correct state.
   if (!visible && this.getMenu()) {
@@ -436,12 +417,12 @@ goog.ui.SubMenu.prototype.setSubMenuVisible_ = function(visible) {
   // Dispatch OPEN event before calling getMenu(), so we can create the menu
   // lazily on first access.
   this.dispatchEvent(
-      goog.ui.Component.getStateTransitionEvent(
-          goog.ui.Component.State.OPENED, visible));
+      Component.getStateTransitionEvent(
+          Component.State.OPENED, visible));
   var subMenu = this.getMenu();
   if (visible != this.menuIsVisible_) {
-    goog.dom.classlist.enable(
-        goog.asserts.assert(this.getElement()),
+    classlist.enable(
+        asserts.assert(this.getElement()),
         goog.getCssName('goog-submenu-open'), visible);
   }
   if (visible != subMenu.isVisible()) {
@@ -466,16 +447,15 @@ goog.ui.SubMenu.prototype.setSubMenuVisible_ = function(visible) {
 /**
  * Attaches or detaches menu event listeners to/from the given menu.  Called
  * each time a menu is attached to or detached from the submenu.
- * @param {goog.ui.Menu} menu Menu on which to listen for events.
+ * @param {Menu} menu Menu on which to listen for events.
  * @param {boolean} attach Whether to attach or detach event listeners.
  * @private
  */
-goog.ui.SubMenu.prototype.setMenuListenersEnabled_ = function(menu, attach) {
-  'use strict';
+SubMenu.prototype.setMenuListenersEnabled_ = function(menu, attach) {
   var handler = this.getHandler();
   var method = attach ? handler.listen : handler.unlisten;
   method.call(
-      handler, menu, goog.ui.Component.EventType.ENTER, this.onChildEnter_);
+      handler, menu, Component.EventType.ENTER, this.onChildEnter_);
 };
 
 
@@ -483,8 +463,7 @@ goog.ui.SubMenu.prototype.setMenuListenersEnabled_ = function(menu, attach) {
  * Sets whether the submenu is aligned at the end of the parent menu.
  * @param {boolean} alignToEnd True to align to end, false to align to start.
  */
-goog.ui.SubMenu.prototype.setAlignToEnd = function(alignToEnd) {
-  'use strict';
+SubMenu.prototype.setAlignToEnd = function(alignToEnd) {
   if (alignToEnd != this.alignToEnd_) {
     this.alignToEnd_ = alignToEnd;
     if (this.isInDocument()) {
@@ -507,8 +486,7 @@ goog.ui.SubMenu.prototype.setAlignToEnd = function(alignToEnd) {
  * @return {boolean} True if aligned to the end (the default), false if
  *     aligned to the start.
  */
-goog.ui.SubMenu.prototype.isAlignedToEnd = function() {
-  'use strict';
+SubMenu.prototype.isAlignedToEnd = function() {
   return this.alignToEnd_;
 };
 
@@ -518,12 +496,11 @@ goog.ui.SubMenu.prototype.isAlignedToEnd = function() {
  * opened and the menu element's size changes (e.g., when adding/removing items
  * to an opened sub menu).
  */
-goog.ui.SubMenu.prototype.positionSubMenu = function() {
-  'use strict';
-  var position = new goog.positioning.AnchoredViewportPosition(
+SubMenu.prototype.positionSubMenu = function() {
+  var position = new AnchoredViewportPosition(
       this.getElement(),
-      this.isAlignedToEnd() ? goog.positioning.Corner.TOP_END :
-                              goog.positioning.Corner.TOP_START,
+      this.isAlignedToEnd() ? Corner.TOP_END :
+                              Corner.TOP_START,
       this.isPositionAdjustable_);
 
   // TODO(user): Clean up popup code and have this be a one line call
@@ -531,15 +508,15 @@ goog.ui.SubMenu.prototype.positionSubMenu = function() {
   var el = subMenu.getElement();
   if (!subMenu.isVisible()) {
     el.style.visibility = 'hidden';
-    goog.style.setElementShown(el, true);
+    style.setElementShown(el, true);
   }
 
   position.reposition(
-      el, this.isAlignedToEnd() ? goog.positioning.Corner.TOP_START :
-                                  goog.positioning.Corner.TOP_END);
+      el, this.isAlignedToEnd() ? Corner.TOP_START :
+                                  Corner.TOP_END);
 
   if (!subMenu.isVisible()) {
-    goog.style.setElementShown(el, false);
+    style.setElementShown(el, false);
     el.style.visibility = 'visible';
   }
 };
@@ -550,33 +527,30 @@ goog.ui.SubMenu.prototype.positionSubMenu = function() {
 
 /**
  * Adds a new menu item at the end of the menu.
- * @param {goog.ui.MenuHeader|goog.ui.MenuItem|goog.ui.MenuSeparator} item Menu
+ * @param {MenuHeader|MenuItem|MenuSeparator} item Menu
  *     item to add to the menu.
  */
-goog.ui.SubMenu.prototype.addItem = function(item) {
-  'use strict';
+SubMenu.prototype.addItem = function(item) {
   this.getMenu().addChild(item, true);
 };
 
 
 /**
  * Adds a new menu item at a specific index in the menu.
- * @param {goog.ui.MenuHeader|goog.ui.MenuItem|goog.ui.MenuSeparator} item Menu
+ * @param {MenuHeader|MenuItem|MenuSeparator} item Menu
  *     item to add to the menu.
  * @param {number} n Index at which to insert the menu item.
  */
-goog.ui.SubMenu.prototype.addItemAt = function(item, n) {
-  'use strict';
+SubMenu.prototype.addItemAt = function(item, n) {
   this.getMenu().addChildAt(item, n, true);
 };
 
 
 /**
  * Removes an item from the menu and disposes it.
- * @param {goog.ui.MenuItem} item The menu item to remove.
+ * @param {MenuItem} item The menu item to remove.
  */
-goog.ui.SubMenu.prototype.removeItem = function(item) {
-  'use strict';
+SubMenu.prototype.removeItem = function(item) {
   var child = this.getMenu().removeChild(item, true);
   if (child) {
     child.dispose();
@@ -588,8 +562,7 @@ goog.ui.SubMenu.prototype.removeItem = function(item) {
  * Removes a menu item at a given index in the menu and disposes it.
  * @param {number} n Index of item.
  */
-goog.ui.SubMenu.prototype.removeItemAt = function(n) {
-  'use strict';
+SubMenu.prototype.removeItemAt = function(n) {
   var child = this.getMenu().removeChildAt(n, true);
   if (child) {
     child.dispose();
@@ -600,10 +573,9 @@ goog.ui.SubMenu.prototype.removeItemAt = function(n) {
 /**
  * Returns a reference to the menu item at a given index.
  * @param {number} n Index of menu item.
- * @return {goog.ui.Component} Reference to the menu item.
+ * @return {Component} Reference to the menu item.
  */
-goog.ui.SubMenu.prototype.getItemAt = function(n) {
-  'use strict';
+SubMenu.prototype.getItemAt = function(n) {
   return this.getMenu().getChildAt(n);
 };
 
@@ -612,32 +584,29 @@ goog.ui.SubMenu.prototype.getItemAt = function(n) {
  * Returns the number of items in the sub menu (including separators).
  * @return {number} The number of items in the menu.
  */
-goog.ui.SubMenu.prototype.getItemCount = function() {
-  'use strict';
+SubMenu.prototype.getItemCount = function() {
   return this.getMenu().getChildCount();
 };
 
 
 /**
  * Returns the menu items contained in the sub menu.
- * @return {!Array<!goog.ui.MenuItem>} An array of menu items.
+ * @return {!Array<!MenuItem>} An array of menu items.
  * @deprecated Use getItemAt/getItemCount instead.
  */
-goog.ui.SubMenu.prototype.getItems = function() {
-  'use strict';
+SubMenu.prototype.getItems = function() {
   return this.getMenu().getItems();
 };
 
 
 /**
  * Gets a reference to the submenu's actual menu.
- * @return {!goog.ui.Menu} Reference to the object representing the sub menu.
+ * @return {!Menu} Reference to the object representing the sub menu.
  */
-goog.ui.SubMenu.prototype.getMenu = function() {
-  'use strict';
+SubMenu.prototype.getMenu = function() {
   if (!this.subMenu_) {
     this.setMenu(
-        new goog.ui.Menu(this.getDomHelper()), /* opt_internal */ true);
+        new Menu(this.getDomHelper()), /* opt_internal */ true);
   } else if (this.externalSubMenu_ && this.subMenu_.getParent() != this) {
     // Since it is possible for the same popup menu to be attached to multiple
     // submenus, we need to ensure that it has the correct parent event target.
@@ -653,12 +622,11 @@ goog.ui.SubMenu.prototype.getMenu = function() {
 
 /**
  * Sets the submenu to a specific menu.
- * @param {goog.ui.Menu} menu The menu to show when this item is selected.
+ * @param {Menu} menu The menu to show when this item is selected.
  * @param {boolean=} opt_internal Whether this menu is an "internal" menu, and
  *     should be disposed of when this object is disposed of.
  */
-goog.ui.SubMenu.prototype.setMenu = function(menu, opt_internal) {
-  'use strict';
+SubMenu.prototype.setMenu = function(menu, opt_internal) {
   var oldMenu = this.subMenu_;
   if (menu != oldMenu) {
     if (oldMenu) {
@@ -692,8 +660,7 @@ goog.ui.SubMenu.prototype.setMenu = function(menu, opt_internal) {
  * @param {Element} element The element to test for.
  * @return {boolean} Whether or not the provided element is contained.
  */
-goog.ui.SubMenu.prototype.containsElement = function(element) {
-  'use strict';
+SubMenu.prototype.containsElement = function(element) {
   return this.getMenu().containsElement(element);
 };
 
@@ -701,8 +668,7 @@ goog.ui.SubMenu.prototype.containsElement = function(element) {
 /**
  * @param {boolean} isAdjustable Whether this submenu is adjustable.
  */
-goog.ui.SubMenu.prototype.setPositionAdjustable = function(isAdjustable) {
-  'use strict';
+SubMenu.prototype.setPositionAdjustable = function(isAdjustable) {
   this.isPositionAdjustable_ = !!isAdjustable;
 };
 
@@ -710,15 +676,13 @@ goog.ui.SubMenu.prototype.setPositionAdjustable = function(isAdjustable) {
 /**
  * @return {boolean} Whether this submenu is adjustable.
  */
-goog.ui.SubMenu.prototype.isPositionAdjustable = function() {
-  'use strict';
+SubMenu.prototype.isPositionAdjustable = function() {
   return this.isPositionAdjustable_;
 };
 
 
-// Register a decorator factory function for goog.ui.SubMenus.
-goog.ui.registry.setDecoratorByClassName(
+/* Register a decorator factory function for SubMenus.*/
+registry.setDecoratorByClassName(
     goog.getCssName('goog-submenu'), function() {
-      'use strict';
-      return new goog.ui.SubMenu(null);
-    });
+  return new SubMenu(null);
+});

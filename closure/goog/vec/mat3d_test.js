@@ -11,12 +11,11 @@
 //                                                                           //
 ////////////////////////// NOTE ABOUT EDITING THIS FILE ///////////////////////
 
-goog.module('goog.vec.mat3dTest');
 goog.setTestOnly();
 
-const mat3d = goog.require('goog.vec.mat3d');
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
+import * as mat3d from './mat3d.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
 
 const randommat3d = mat3d.setFromValues(
     mat3d.create(), 0.8025078773498535, 0.7559120655059814, 0.15274643898010254,

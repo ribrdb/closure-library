@@ -12,31 +12,30 @@
  * performed when adding ARIA to components.
  */
 
-goog.provide('goog.a11y.aria');
+import { Role } from './roles.js';
 
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.a11y.aria.State');
-goog.require('goog.a11y.aria.datatables');
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.object');
-goog.require('goog.string');
+import { State } from './attributes.js';
+import * as datatables from './datatables.js';
+import * as array from '../../array/array.js';
+import * as asserts from '../../asserts/asserts.js';
+import * as dom from '../../dom/dom.js';
+import { TagName } from '../../dom/tagname.js';
+import object from '../../object/object.js';
+import * as string from '../../string/string.js';
 
 
 /**
  * ARIA states/properties prefix.
  * @private
  */
-goog.a11y.aria.ARIA_PREFIX_ = 'aria-';
+var ARIA_PREFIX_ = 'aria-';
 
 
 /**
  * ARIA role attribute.
  * @private
  */
-goog.a11y.aria.ROLE_ATTRIBUTE_ = 'role';
+var ROLE_ATTRIBUTE_ = 'role';
 
 
 /**
@@ -45,13 +44,13 @@ goog.a11y.aria.ROLE_ATTRIBUTE_ = 'role';
  * they don't contain content to be made accessible.
  * @private
  */
-goog.a11y.aria.TAGS_WITH_ASSUMED_ROLES_ = goog.object.createSet([
-  goog.dom.TagName.A, goog.dom.TagName.AREA, goog.dom.TagName.BUTTON,
-  goog.dom.TagName.HEAD, goog.dom.TagName.INPUT, goog.dom.TagName.LINK,
-  goog.dom.TagName.MENU, goog.dom.TagName.META, goog.dom.TagName.OPTGROUP,
-  goog.dom.TagName.OPTION, goog.dom.TagName.PROGRESS, goog.dom.TagName.STYLE,
-  goog.dom.TagName.SELECT, goog.dom.TagName.SOURCE, goog.dom.TagName.TEXTAREA,
-  goog.dom.TagName.TITLE, goog.dom.TagName.TRACK
+var TAGS_WITH_ASSUMED_ROLES_ = object.createSet([
+  TagName.A, TagName.AREA, TagName.BUTTON,
+  TagName.HEAD, TagName.INPUT, TagName.LINK,
+  TagName.MENU, TagName.META, TagName.OPTGROUP,
+  TagName.OPTION, TagName.PROGRESS, TagName.STYLE,
+  TagName.SELECT, TagName.SOURCE, TagName.TEXTAREA,
+  TagName.TITLE, TagName.TRACK
 ]);
 
 
@@ -61,86 +60,84 @@ goog.a11y.aria.TAGS_WITH_ASSUMED_ROLES_ = goog.object.createSet([
  * to manage their active descendants or children. See
  * {@link http://www.w3.org/TR/wai-aria/states_and_properties
  * #aria-activedescendant} for more information.
- * @private @const {!Array<goog.a11y.aria.Role>}
+ * @private @const {!Array<Role>}
  */
-goog.a11y.aria.CONTAINER_ROLES_ = [
-  goog.a11y.aria.Role.COMBOBOX, goog.a11y.aria.Role.GRID,
-  goog.a11y.aria.Role.GROUP, goog.a11y.aria.Role.LISTBOX,
-  goog.a11y.aria.Role.MENU, goog.a11y.aria.Role.MENUBAR,
-  goog.a11y.aria.Role.RADIOGROUP, goog.a11y.aria.Role.ROW,
-  goog.a11y.aria.Role.ROWGROUP, goog.a11y.aria.Role.TAB_LIST,
-  goog.a11y.aria.Role.TEXTBOX, goog.a11y.aria.Role.TOOLBAR,
-  goog.a11y.aria.Role.TREE, goog.a11y.aria.Role.TREEGRID
+var CONTAINER_ROLES_ = [
+  Role.COMBOBOX, Role.GRID,
+  Role.GROUP, Role.LISTBOX,
+  Role.MENU, Role.MENUBAR,
+  Role.RADIOGROUP, Role.ROW,
+  Role.ROWGROUP, Role.TAB_LIST,
+  Role.TEXTBOX, Role.TOOLBAR,
+  Role.TREE, Role.TREEGRID
 ];
 
 
 /**
  * Sets the role of an element. If the roleName is
  * empty string or null, the role for the element is removed.
- * We encourage clients to call the goog.a11y.aria.removeRole
+ * We encourage clients to call the removeRole
  * method instead of setting null and empty string values.
  * Special handling for this case is added to ensure
  * backword compatibility with existing code.
  *
  * @param {!Element} element DOM node to set role of.
- * @param {!goog.a11y.aria.Role|string} roleName role name(s).
+ * @param {!Role|string} roleName role name(s).
  */
-goog.a11y.aria.setRole = function(element, roleName) {
-  'use strict';
+export function setRole(element, roleName) {
   if (!roleName) {
     // Setting the ARIA role to empty string is not allowed
     // by the ARIA standard.
-    goog.a11y.aria.removeRole(element);
+    removeRole(element);
   } else {
-    if (goog.asserts.ENABLE_ASSERTS) {
-      goog.asserts.assert(
-          goog.object.containsValue(goog.a11y.aria.Role, roleName),
+    if (asserts.ENABLE_ASSERTS) {
+      asserts.assert(
+          object.containsValue(Role, roleName),
           'No such ARIA role ' + roleName);
     }
-    element.setAttribute(goog.a11y.aria.ROLE_ATTRIBUTE_, roleName);
+    element.setAttribute(ROLE_ATTRIBUTE_, roleName);
   }
-};
+}
 
 
 /**
  * Gets role of an element.
  * @param {!Element} element DOM element to get role of.
- * @return {?goog.a11y.aria.Role} ARIA Role name.
+ * @return {?Role} ARIA Role name.
  */
-goog.a11y.aria.getRole = function(element) {
-  'use strict';
-  var role = element.getAttribute(goog.a11y.aria.ROLE_ATTRIBUTE_);
-  return /** @type {goog.a11y.aria.Role} */ (role) || null;
-};
+export function getRole(element) {
+  var role = element.getAttribute(ROLE_ATTRIBUTE_);
+  return (
+    /** @type {Role} */ (role) || null
+  );
+}
 
 
 /**
  * Removes role of an element.
  * @param {!Element} element DOM element to remove the role from.
  */
-goog.a11y.aria.removeRole = function(element) {
-  'use strict';
-  element.removeAttribute(goog.a11y.aria.ROLE_ATTRIBUTE_);
-};
+export function removeRole(element) {
+  element.removeAttribute(ROLE_ATTRIBUTE_);
+}
 
 
 /**
  * Sets the state or property of an element.
  * @param {!Element} element DOM node where we set state.
- * @param {!(goog.a11y.aria.State|string)} stateName State attribute being set.
+ * @param {!(State|string)} stateName State attribute being set.
  *     Automatically adds prefix 'aria-' to the state name if the attribute is
  *     not an extra attribute.
  * @param {string|boolean|number|!Array<string>} value Value
  * for the state attribute.
  */
-goog.a11y.aria.setState = function(element, stateName, value) {
-  'use strict';
+export function setState(element, stateName, value) {
   if (Array.isArray(value)) {
     value = value.join(' ');
   }
-  var attrStateName = goog.a11y.aria.getAriaAttributeName_(stateName);
+  var attrStateName = getAriaAttributeName_(stateName);
   if (value === '' || value == undefined) {
-    var defaultValueMap = goog.a11y.aria.datatables.getDefaultValuesMap();
+    var defaultValueMap = datatables.getDefaultValuesMap();
     // Work around for browsers that don't properly support ARIA.
     // According to the ARIA W3C standard, user agents should allow
     // setting empty value which results in setting the default value
@@ -159,7 +156,7 @@ goog.a11y.aria.setState = function(element, stateName, value) {
   } else {
     element.setAttribute(attrStateName, value);
   }
-};
+}
 
 
 /**
@@ -169,41 +166,38 @@ goog.a11y.aria.setState = function(element, stateName, value) {
  * A not empty attribute will be removed.
  * An empty attribute will be set to true.
  * @param {!Element} el DOM node for which to set attribute.
- * @param {!(goog.a11y.aria.State|string)} attr ARIA attribute being set.
+ * @param {!(State|string)} attr ARIA attribute being set.
  *     Automatically adds prefix 'aria-' to the attribute name if the attribute
  *     is not an extra attribute.
  */
-goog.a11y.aria.toggleState = function(el, attr) {
-  'use strict';
-  var val = goog.a11y.aria.getState(el, attr);
-  if (!goog.string.isEmptyOrWhitespace(goog.string.makeSafe(val)) &&
+export function toggleState(el, attr) {
+  var val = getState(el, attr);
+  if (!string.isEmptyOrWhitespace(string.makeSafe(val)) &&
       !(val == 'true' || val == 'false')) {
-    goog.a11y.aria.removeState(el, /** @type {!goog.a11y.aria.State} */ (attr));
+    removeState(el, /** @type {!State} */ (attr));
     return;
   }
-  goog.a11y.aria.setState(el, attr, val == 'true' ? 'false' : 'true');
-};
+  setState(el, attr, val == 'true' ? 'false' : 'true');
+}
 
 
 /**
  * Remove the state or property for the element.
  * @param {!Element} element DOM node where we set state.
- * @param {!goog.a11y.aria.State} stateName State name.
+ * @param {!State} stateName State name.
  */
-goog.a11y.aria.removeState = function(element, stateName) {
-  'use strict';
-  element.removeAttribute(goog.a11y.aria.getAriaAttributeName_(stateName));
-};
+export function removeState(element, stateName) {
+  element.removeAttribute(getAriaAttributeName_(stateName));
+}
 
 
 /**
  * Gets value of specified state or property.
  * @param {!Element} element DOM node to get state from.
- * @param {!goog.a11y.aria.State|string} stateName State name.
+ * @param {!State|string} stateName State name.
  * @return {string} Value of the state attribute.
  */
-goog.a11y.aria.getState = function(element, stateName) {
-  'use strict';
+export function getState(element, stateName) {
   // TODO(user): return properly typed value result --
   // boolean, number, string, null. We should be able to chain
   // getState(...) and setState(...) methods.
@@ -211,10 +205,10 @@ goog.a11y.aria.getState = function(element, stateName) {
   var attr =
       /** @type {string|number|boolean} */ (
           element.getAttribute(
-              goog.a11y.aria.getAriaAttributeName_(stateName)));
+              getAriaAttributeName_(stateName)));
   var isNullOrUndefined = attr == null || attr == undefined;
   return isNullOrUndefined ? '' : String(attr);
-};
+}
 
 
 /**
@@ -224,12 +218,11 @@ goog.a11y.aria.getState = function(element, stateName) {
  *     element for.
  * @return {?Element} DOM node of the activedescendant, if found.
  */
-goog.a11y.aria.getActiveDescendant = function(element) {
-  'use strict';
+export function getActiveDescendant(element) {
   var id =
-      goog.a11y.aria.getState(element, goog.a11y.aria.State.ACTIVEDESCENDANT);
-  return goog.dom.getOwnerDocument(element).getElementById(id);
-};
+      getState(element, State.ACTIVEDESCENDANT);
+  return dom.getOwnerDocument(element).getElementById(id);
+}
 
 
 /**
@@ -238,16 +231,15 @@ goog.a11y.aria.getActiveDescendant = function(element) {
  * @param {!Element} element DOM node to set activedescendant ARIA property to.
  * @param {?Element} activeElement DOM node being set as activedescendant.
  */
-goog.a11y.aria.setActiveDescendant = function(element, activeElement) {
-  'use strict';
+export function setActiveDescendant(element, activeElement) {
   var id = '';
   if (activeElement) {
     id = activeElement.id;
-    goog.asserts.assert(id, 'The active element should have an id.');
+    asserts.assert(id, 'The active element should have an id.');
   }
 
-  goog.a11y.aria.setState(element, goog.a11y.aria.State.ACTIVEDESCENDANT, id);
-};
+  setState(element, State.ACTIVEDESCENDANT, id);
+}
 
 
 /**
@@ -255,10 +247,9 @@ goog.a11y.aria.setActiveDescendant = function(element, activeElement) {
  * @param {!Element} element DOM node to get label from.
  * @return {string} label The label.
  */
-goog.a11y.aria.getLabel = function(element) {
-  'use strict';
-  return goog.a11y.aria.getState(element, goog.a11y.aria.State.LABEL);
-};
+export function getLabel(element) {
+  return getState(element, State.LABEL);
+}
 
 
 /**
@@ -266,123 +257,116 @@ goog.a11y.aria.getLabel = function(element) {
  * @param {!Element} element DOM node to set label to.
  * @param {string} label The label to set.
  */
-goog.a11y.aria.setLabel = function(element, label) {
-  'use strict';
-  goog.a11y.aria.setState(element, goog.a11y.aria.State.LABEL, label);
-};
+export function setLabel(element, label) {
+  setState(element, State.LABEL, label);
+}
 
 
 /**
  * Asserts that the element has a role set if it's not an HTML element whose
  * semantics is well supported by most screen readers.
- * Only to be used internally by the ARIA library in goog.a11y.aria.*.
+ * Only to be used internally by the ARIA library in *.
  * @param {!Element} element The element to assert an ARIA role set.
  * @param {!IArrayLike<string>} allowedRoles The child roles of
  * the roles.
  */
-goog.a11y.aria.assertRoleIsSetInternalUtil = function(element, allowedRoles) {
-  'use strict';
-  if (goog.a11y.aria.TAGS_WITH_ASSUMED_ROLES_[element.tagName]) {
+export function assertRoleIsSetInternalUtil(element, allowedRoles) {
+  if (TAGS_WITH_ASSUMED_ROLES_[element.tagName]) {
     return;
   }
-  var elementRole = /** @type {string}*/ (goog.a11y.aria.getRole(element));
-  goog.asserts.assert(
+  var elementRole = /** @type {string}*/ (getRole(element));
+  asserts.assert(
       elementRole != null, 'The element ARIA role cannot be null.');
 
-  goog.asserts.assert(
-      goog.array.contains(allowedRoles, elementRole),
+  asserts.assert(
+      array.contains(allowedRoles, elementRole),
       'Non existing or incorrect role set for element.' +
           'The role set is "' + elementRole + '". The role should be any of "' +
           allowedRoles + '". Check the ARIA specification for more details ' +
           'http://www.w3.org/TR/wai-aria/roles.');
-};
+}
 
 
 /**
  * Gets the boolean value of an ARIA state/property.
  * @param {!Element} element The element to get the ARIA state for.
- * @param {!goog.a11y.aria.State|string} stateName the ARIA state name.
+ * @param {!State|string} stateName the ARIA state name.
  * @return {?boolean} Boolean value for the ARIA state value or null if
  *     the state value is not 'true', not 'false', or not set.
  */
-goog.a11y.aria.getStateBoolean = function(element, stateName) {
-  'use strict';
+export function getStateBoolean(element, stateName) {
   var attr =
       /** @type {string|boolean|null} */ (element.getAttribute(
-          goog.a11y.aria.getAriaAttributeName_(stateName)));
-  goog.asserts.assert(
+          getAriaAttributeName_(stateName)));
+  asserts.assert(
       typeof attr === 'boolean' || attr == null || attr == 'true' ||
       attr == 'false');
   if (attr == null) {
     return attr;
   }
   return typeof attr === 'boolean' ? attr : attr == 'true';
-};
+}
 
 
 /**
  * Gets the number value of an ARIA state/property.
  * @param {!Element} element The element to get the ARIA state for.
- * @param {!goog.a11y.aria.State|string} stateName the ARIA state name.
+ * @param {!State|string} stateName the ARIA state name.
  * @return {?number} Number value for the ARIA state value or null if
  *     the state value is not a number or not set.
  */
-goog.a11y.aria.getStateNumber = function(element, stateName) {
-  'use strict';
+export function getStateNumber(element, stateName) {
   var attr =
       /** @type {string|number} */ (element.getAttribute(
-          goog.a11y.aria.getAriaAttributeName_(stateName)));
-  goog.asserts.assert(
+          getAriaAttributeName_(stateName)));
+  asserts.assert(
       (attr == null || !isNaN(Number(attr))) && typeof attr !== 'boolean');
   return attr == null ? null : Number(attr);
-};
+}
 
 
 /**
  * Gets the string value of an ARIA state/property.
  * @param {!Element} element The element to get the ARIA state for.
- * @param {!goog.a11y.aria.State|string} stateName the ARIA state name.
+ * @param {!State|string} stateName the ARIA state name.
  * @return {?string} String value for the ARIA state value or null if
  *     the state value is empty string or not set.
  */
-goog.a11y.aria.getStateString = function(element, stateName) {
-  'use strict';
+export function getStateString(element, stateName) {
   var attr =
-      element.getAttribute(goog.a11y.aria.getAriaAttributeName_(stateName));
-  goog.asserts.assert(
+      element.getAttribute(getAriaAttributeName_(stateName));
+  asserts.assert(
       (attr == null || typeof attr === 'string') &&
       (attr == '' || isNaN(Number(attr))) && attr != 'true' && attr != 'false');
   return (attr == null || attr == '') ? null : attr;
-};
+}
 
 
 /**
  * Gets array of strings value of the specified state or
  * property for the element.
- * Only to be used internally by the ARIA library in goog.a11y.aria.*.
+ * Only to be used internally by the ARIA library in *.
  * @param {!Element} element DOM node to get state from.
- * @param {!goog.a11y.aria.State} stateName State name.
+ * @param {!State} stateName State name.
  * @return {!IArrayLike<string>} string Array
  *     value of the state attribute.
  */
-goog.a11y.aria.getStringArrayStateInternalUtil = function(element, stateName) {
-  'use strict';
+export function getStringArrayStateInternalUtil(element, stateName) {
   var attrValue =
-      element.getAttribute(goog.a11y.aria.getAriaAttributeName_(stateName));
-  return goog.a11y.aria.splitStringOnWhitespace_(attrValue);
-};
+      element.getAttribute(getAriaAttributeName_(stateName));
+  return splitStringOnWhitespace_(attrValue);
+}
 
 
 /**
  * Returns true if element has an ARIA state/property, false otherwise.
  * @param {!Element} element The element to get the ARIA state for.
- * @param {!goog.a11y.aria.State|string} stateName the ARIA state name.
+ * @param {!State|string} stateName the ARIA state name.
  * @return {boolean}
  */
-goog.a11y.aria.hasState = function(element, stateName) {
-  'use strict';
-  return element.hasAttribute(goog.a11y.aria.getAriaAttributeName_(stateName));
-};
+export function hasState(element, stateName) {
+  return element.hasAttribute(getAriaAttributeName_(stateName));
+}
 
 
 /**
@@ -394,11 +378,10 @@ goog.a11y.aria.hasState = function(element, stateName) {
  * @param {!Element} element
  * @return {boolean}
  */
-goog.a11y.aria.isContainerRole = function(element) {
-  'use strict';
-  var role = goog.a11y.aria.getRole(element);
-  return goog.array.contains(goog.a11y.aria.CONTAINER_ROLES_, role);
-};
+export function isContainerRole(element) {
+  var role = getRole(element);
+  return array.contains(CONTAINER_ROLES_, role);
+}
 
 
 /**
@@ -408,10 +391,9 @@ goog.a11y.aria.isContainerRole = function(element) {
  *     value as result of the split.
  * @private
  */
-goog.a11y.aria.splitStringOnWhitespace_ = function(stringValue) {
-  'use strict';
+function splitStringOnWhitespace_(stringValue) {
   return stringValue ? stringValue.split(/\s+/) : [];
-};
+}
 
 
 /**
@@ -421,13 +403,12 @@ goog.a11y.aria.splitStringOnWhitespace_ = function(stringValue) {
  * @return {string} The ARIA attribute name with added 'aria-' prefix.
  * @throws {Error} If no such attribute exists.
  */
-goog.a11y.aria.getAriaAttributeName_ = function(ariaName) {
-  'use strict';
-  if (goog.asserts.ENABLE_ASSERTS) {
-    goog.asserts.assert(ariaName, 'ARIA attribute cannot be empty.');
-    goog.asserts.assert(
-        goog.object.containsValue(goog.a11y.aria.State, ariaName),
+function getAriaAttributeName_(ariaName) {
+  if (asserts.ENABLE_ASSERTS) {
+    asserts.assert(ariaName, 'ARIA attribute cannot be empty.');
+    asserts.assert(
+        object.containsValue(State, ariaName),
         'No such ARIA attribute ' + ariaName);
   }
-  return goog.a11y.aria.ARIA_PREFIX_ + ariaName;
-};
+  return ARIA_PREFIX_ + ariaName;
+}

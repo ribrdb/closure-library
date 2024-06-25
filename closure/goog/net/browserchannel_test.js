@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.BrowserChannelTest');
 goog.setTestOnly();
 
-const BrowserChannel = goog.require('goog.net.BrowserChannel');
-const ChannelDebug = goog.require('goog.net.ChannelDebug');
-const ChannelRequest = goog.require('goog.net.ChannelRequest');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const StructsMap = goog.require('goog.structs.Map');
-const Timer = goog.require('goog.Timer');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const googJson = goog.require('goog.json');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const stats = goog.require('goog.net.browserchannelinternal.stats');
-const testSuite = goog.require('goog.testing.testSuite');
-const tmpnetwork = goog.require('goog.net.tmpnetwork');
+import { BrowserChannel } from './browserchannel.js';
+import { ChannelDebug } from './channeldebug.js';
+import { ChannelRequest } from './channelrequest.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Map as StructsMap } from '../structs/map.js';
+import { Timer } from '../timer/timer.js';
+import * as dom from '../dom/dom.js';
+import * as functions from '../functions/functions.js';
+import * as googArray from '../array/array.js';
+import * as googJson from '../json/json.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import * as stats from './browserchannelstats.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as tmpnetwork from './tmpnetwork.js';
 
 /** Delay between a network failure and the next network request. */
 const RETRY_TIME = 1000;

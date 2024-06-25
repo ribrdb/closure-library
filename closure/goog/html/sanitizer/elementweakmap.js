@@ -10,10 +10,7 @@
  * by making anti-clobbering support optional.
  */
 
-goog.module('goog.html.sanitizer.ElementWeakMap');
-goog.module.declareLegacyNamespace();
-
-var noclobber = goog.require('goog.html.sanitizer.noclobber');
+import noclobber from './noclobber.js';
 
 // We also need to check if WeakMap has been polyfilled, because we want to use
 // ElementWeakMap instead of the polyfill.
@@ -98,4 +95,4 @@ ElementWeakMap.newWeakMap = function() {
   return NATIVE_WEAKMAP_SUPPORTED ? new WeakMap() : new ElementWeakMap();
 };
 
-exports = ElementWeakMap;
+export { ElementWeakMap };

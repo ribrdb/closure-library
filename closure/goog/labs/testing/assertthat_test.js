@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.assertThatTest');
 goog.setTestOnly();
 
-const MatcherError = goog.require('goog.labs.testing.MatcherError');
-const assertThat = goog.require('goog.labs.testing.assertThat');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MatcherError } from './matchererror.js';
+import { assertThat } from './assertthat.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let describeFn;
 let failureMatchesFn;

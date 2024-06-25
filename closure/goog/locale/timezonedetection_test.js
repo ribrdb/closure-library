@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.locale.timeZoneDetectionTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const timeZoneDetection = goog.require('goog.locale.timeZoneDetection');
+import { testSuite } from '../testing/testsuite.js';
+import * as timeZoneDetection from './timezonedetection.js';
 
 /** Mock date class with simplified properties of Date class for testing. */
 class MockDate {

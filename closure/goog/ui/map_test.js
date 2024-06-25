@@ -4,13 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.MapTest');
 goog.setTestOnly();
 
-const StructsMap = goog.require('goog.ui.Map');
+import * as StructsMap from './map.js';
+
 // const googIter = goog.require('goog.iter');
-const structs = goog.require('goog.structs');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as structs from '../structs/structs.js';
+
+import { testSuite } from '../testing/testsuite.js';
 
 function stringifyMap(m) {
   const keys = structs.getKeys(m);

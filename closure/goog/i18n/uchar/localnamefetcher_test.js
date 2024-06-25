@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.uChar.LocalNameFetcherTest');
 goog.setTestOnly();
 
-const LocalNameFetcher = goog.require('goog.i18n.uChar.LocalNameFetcher');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { LocalNameFetcher } from './localnamefetcher.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let nameFetcher = null;
 

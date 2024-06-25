@@ -6,13 +6,12 @@
 
 /** @fileoverview Implementation of `goog.net.WebChannel` for use in tests. */
 
-goog.module('goog.labs.net.webChannel.testing.FakeWebChannel');
 goog.setTestOnly();
 
-const EventTarget = goog.require('goog.events.EventTarget');
-const WebChannel = goog.requireType('goog.net.WebChannel');
-const {clear} = goog.require('goog.array');
-const {fail} = goog.require('goog.testing.asserts');
+import { EventTarget } from '../../../../events/eventtarget.js';
+import { clear } from '../../../../array/array.js';
+import { fail } from '../../../../testing/asserts.js';
+const WebChannel = goog.requireType('goog.labs.net.webchannel');
 
 /**
  * A fake web channel that captures all "sent" messages to memory, for testing.
@@ -92,4 +91,4 @@ class FakeWebChannel extends EventTarget {
   }
 }
 
-exports = {FakeWebChannel};
+export default {FakeWebChannel};

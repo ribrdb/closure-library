@@ -9,25 +9,22 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.positioningTest');
 goog.setTestOnly();
 
-const Box = goog.require('goog.math.Box');
-const Coordinate = goog.require('goog.math.Coordinate');
-const Corner = goog.require('goog.positioning.Corner');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Overflow = goog.require('goog.positioning.Overflow');
-const OverflowStatus = goog.require('goog.positioning.OverflowStatus');
-const Size = goog.require('goog.math.Size');
-const TagName = goog.require('goog.dom.TagName');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dom = goog.require('goog.dom');
-const positioning = goog.require('goog.positioning');
-const product = goog.require('goog.userAgent.product');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Box } from '../math/box.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as positioning from './positioning.js';
+import { Corner, Overflow, OverflowStatus } from './positioning.js';
+import * as dom from '../dom/dom.js';
+import { DomHelper } from '../dom/dom.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { Size } from '../math/size.js';
+import { TagName } from '../dom/tagname.js';
+import * as browser from '../labs/useragent/browser.js';
+import * as product from '../useragent/product.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Allow positions to be off by one in gecko as it reports scrolling
 // offsets in steps of 2.  Otherwise, allow for subpixel difference

@@ -9,16 +9,15 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.HistoryTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const GoogHistory = goog.require('goog.History');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Const } from '../string/const.js';
+import { History as GoogHistory } from './history.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Mimimal function to exercise construction.
 

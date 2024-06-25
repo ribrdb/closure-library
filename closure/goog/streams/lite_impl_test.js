@@ -4,12 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.streams.liteImplTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {TestCases: LiteTestCases} = goog.require('goog.streams.liteTestCases');
-const {newReadableStream} = goog.require('goog.streams.liteImpl');
+import { testSuite } from '../testing/testsuite.js';
+import liteTestCases from './lite_test_cases.js';
+const {TestCases: LiteTestCases} = liteTestCases;
+import liteImpl from './lite_impl.js';
+const {newReadableStream} = liteImpl;
 
 class TestCases extends LiteTestCases {
   constructor() {

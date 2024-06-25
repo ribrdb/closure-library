@@ -9,10 +9,9 @@
  */
 
 
-goog.provide('goog.history.Event');
+import { Event as eventsEvent } from '../events/event.js';
 
-goog.require('goog.events.Event');
-goog.require('goog.history.EventType');
+import { EventType } from './eventtype.js';
 
 
 
@@ -25,23 +24,22 @@ goog.require('goog.history.EventType');
  *     False if the token has been changed by a `setToken` or
  *     `replaceToken` call.
  * @constructor
- * @extends {goog.events.Event}
+ * @extends {eventsEvent}
  * @final
  */
-goog.history.Event = function(token, isNavigation) {
-  'use strict';
-  goog.events.Event.call(this, goog.history.EventType.NAVIGATE);
+export function Event(token, isNavigation) {
+ eventsEvent.call(this, EventType.NAVIGATE);
 
-  /**
-   * The current history state.
-   * @type {string}
-   */
-  this.token = token;
+ /**
+  * The current history state.
+  * @type {string}
+  */
+ this.token = token;
 
-  /**
-   * Whether the event was triggered by browser navigation.
-   * @type {boolean}
-   */
-  this.isNavigation = isNavigation;
-};
-goog.inherits(goog.history.Event, goog.events.Event);
+ /**
+  * Whether the event was triggered by browser navigation.
+  * @type {boolean}
+  */
+ this.isNavigation = isNavigation;
+}
+goog.inherits(Event, eventsEvent);

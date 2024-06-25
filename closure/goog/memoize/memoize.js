@@ -11,10 +11,7 @@
  * @see http://en.wikipedia.org/wiki/Memoization
  */
 
-goog.module('goog.memoize');
-goog.module.declareLegacyNamespace();
-
-const reflect = goog.require('goog.reflect');
+import * as reflect from '../reflect/reflect.js';
 
 /**
  * Note that when using the WeakMap polyfill users may run into issues
@@ -64,7 +61,7 @@ function memoize(f, serializer = simpleSerializer) {
   };
   return memoizedFn;
 }
-exports = memoize;
+export { memoize };
 
 /**
  * @define {boolean} Flag to disable memoization in unit tests.
@@ -79,7 +76,7 @@ memoize.ENABLE_MEMOIZE = goog.define('goog.memoize.ENABLE_MEMOIZE', true);
 const clearCache = function(cacheOwner) {
   MODULE_LOCAL_CACHE.set(cacheOwner || goog.global, {});
 };
-exports.clearCache = clearCache;
+export { clearCache };
 
 
 /**
@@ -101,4 +98,4 @@ const simpleSerializer = function(functionUid, args) {
   }
   return context.join('\x0B');
 };
-exports.simpleSerializer = simpleSerializer;
+export { simpleSerializer };

@@ -8,32 +8,30 @@
  * @fileoverview A toolbar-style renderer for {@link goog.ui.ColorMenuButton}.
  */
 
-goog.provide('goog.ui.ToolbarColorMenuButtonRenderer');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom.classlist');
-goog.require('goog.ui.ColorMenuButtonRenderer');
-goog.require('goog.ui.MenuButtonRenderer');
-goog.require('goog.ui.ToolbarMenuButtonRenderer');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.ui.Control');
-goog.requireType('goog.ui.ControlContent');
+import * as classlist from '../dom/classlist.js';
+import { ColorMenuButtonRenderer } from './colormenubuttonrenderer.js';
+import { MenuButtonRenderer } from './menubuttonrenderer.js';
+import { ToolbarMenuButtonRenderer } from './toolbarmenubuttonrenderer.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.ui.control');
+goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
  * Toolbar-style renderer for {@link goog.ui.ColorMenuButton}s.
  * @constructor
- * @extends {goog.ui.ToolbarMenuButtonRenderer}
+ * @extends {ToolbarMenuButtonRenderer}
  * @final
  */
-goog.ui.ToolbarColorMenuButtonRenderer = function() {
-  'use strict';
-  goog.ui.ToolbarMenuButtonRenderer.call(this);
-};
+export function ToolbarColorMenuButtonRenderer() {
+ ToolbarMenuButtonRenderer.call(this);
+}
 goog.inherits(
-    goog.ui.ToolbarColorMenuButtonRenderer, goog.ui.ToolbarMenuButtonRenderer);
-goog.addSingletonGetter(goog.ui.ToolbarColorMenuButtonRenderer);
+    ToolbarColorMenuButtonRenderer, ToolbarMenuButtonRenderer);
+goog.addSingletonGetter(ToolbarColorMenuButtonRenderer);
 
 
 /**
@@ -49,15 +47,14 @@ goog.addSingletonGetter(goog.ui.ToolbarColorMenuButtonRenderer);
  * @param {goog.ui.ControlContent} content Text caption or DOM structure.
  * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.
- * @see goog.ui.ToolbarColorMenuButtonRenderer#createColorIndicator
+ * @see ToolbarColorMenuButtonRenderer#createColorIndicator
  * @override
  */
-goog.ui.ToolbarColorMenuButtonRenderer.prototype.createCaption = function(
+ToolbarColorMenuButtonRenderer.prototype.createCaption = function(
     content, dom) {
-  'use strict';
-  return goog.ui.MenuButtonRenderer.wrapCaption(
-      goog.ui.ColorMenuButtonRenderer.wrapCaption(content, dom),
-      this.getCssClass(), dom);
+ return MenuButtonRenderer.wrapCaption(
+     ColorMenuButtonRenderer.wrapCaption(content, dom),
+     this.getCssClass(), dom);
 };
 
 
@@ -69,13 +66,12 @@ goog.ui.ToolbarColorMenuButtonRenderer.prototype.createCaption = function(
  * @param {*} value New value; assumed to be a color spec string.
  * @override
  */
-goog.ui.ToolbarColorMenuButtonRenderer.prototype.setValue = function(
+ToolbarColorMenuButtonRenderer.prototype.setValue = function(
     element, value) {
-  'use strict';
-  if (element) {
-    goog.ui.ColorMenuButtonRenderer.setCaptionValue(
-        this.getContentElement(element), value);
-  }
+ if (element) {
+   ColorMenuButtonRenderer.setCaptionValue(
+       this.getContentElement(element), value);
+ }
 };
 
 
@@ -88,13 +84,12 @@ goog.ui.ToolbarColorMenuButtonRenderer.prototype.setValue = function(
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ToolbarColorMenuButtonRenderer.prototype.initializeDom = function(
+ToolbarColorMenuButtonRenderer.prototype.initializeDom = function(
     button) {
-  'use strict';
-  this.setValue(button.getElement(), button.getValue());
-  goog.dom.classlist.add(
-      goog.asserts.assert(button.getElement()),
-      goog.getCssName('goog-toolbar-color-menu-button'));
-  goog.ui.ToolbarColorMenuButtonRenderer.superClass_.initializeDom.call(
-      this, button);
+ this.setValue(button.getElement(), button.getValue());
+ classlist.add(
+     asserts.assert(button.getElement()),
+     goog.getCssName('goog-toolbar-color-menu-button'));
+ ToolbarColorMenuButtonRenderer.superClass_.initializeDom.call(
+     this, button);
 };

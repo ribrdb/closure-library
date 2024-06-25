@@ -6,12 +6,11 @@
 
 /** @fileoverview Unit tests for paths. */
 
-goog.module('goog.math.pathsTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const paths = goog.require('goog.math.paths');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Coordinate } from './coordinate.js';
+import * as paths from './paths.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const regularNGon = paths.createRegularNGon;
 const arrow = paths.createArrow;

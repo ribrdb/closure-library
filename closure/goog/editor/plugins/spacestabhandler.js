@@ -8,32 +8,29 @@
  * @fileoverview Editor plugin to handle tab keys not in lists to add 4 spaces.
  */
 
-goog.provide('goog.editor.plugins.SpacesTabHandler');
+import { TagName } from '../../dom/tagname.js';
 
-goog.require('goog.dom.TagName');
-goog.require('goog.editor.plugins.AbstractTabHandler');
-goog.require('goog.editor.range');
+import { AbstractTabHandler } from './abstracttabhandler.js';
+import * as editorRange from '../range.js';
 
 
 
 /**
  * Plugin to handle tab keys when not in lists to add 4 spaces.
  * @constructor
- * @extends {goog.editor.plugins.AbstractTabHandler}
+ * @extends {AbstractTabHandler}
  * @final
  */
-goog.editor.plugins.SpacesTabHandler = function() {
-  'use strict';
-  goog.editor.plugins.AbstractTabHandler.call(this);
-};
+export function SpacesTabHandler() {
+  AbstractTabHandler.call(this);
+}
 goog.inherits(
-    goog.editor.plugins.SpacesTabHandler,
-    goog.editor.plugins.AbstractTabHandler);
+    SpacesTabHandler,
+    AbstractTabHandler);
 
 
 /** @override */
-goog.editor.plugins.SpacesTabHandler.prototype.getTrogClassId = function() {
-  'use strict';
+SpacesTabHandler.prototype.getTrogClassId = function() {
   return 'SpacesTabHandler';
 };
 
@@ -42,11 +39,10 @@ goog.editor.plugins.SpacesTabHandler.prototype.getTrogClassId = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.SpacesTabHandler.prototype.handleTabKey = function(e) {
-  'use strict';
+SpacesTabHandler.prototype.handleTabKey = function(e) {
   var dh = this.getFieldDomHelper();
   var range = this.getFieldObject().getRange();
-  if (!goog.editor.range.intersectsTag(range, goog.dom.TagName.LI)) {
+  if (!editorRange.intersectsTag(range, TagName.LI)) {
     // In the shift + tab case we don't want to insert spaces, but we don't
     // want focus to move either so skip the spacing logic and just prevent
     // default.
@@ -73,11 +69,11 @@ goog.editor.plugins.SpacesTabHandler.prototype.handleTabKey = function(e) {
       // the inserted spaces. This might make line wrapping slightly
       // sub-optimal around a grouping of non-breaking spaces.
       var elem =
-          dh.createDom(goog.dom.TagName.SPAN, null, '\u00a0\u00a0 \u00a0');
+          dh.createDom(TagName.SPAN, null, '\u00a0\u00a0 \u00a0');
       elem = range.insertNode(elem, false);
 
       this.getFieldObject().dispatchChange();
-      goog.editor.range.placeCursorNextTo(elem, false);
+      editorRange.placeCursorNextTo(elem, false);
       this.getFieldObject().dispatchSelectionChangeEvent();
     }
 

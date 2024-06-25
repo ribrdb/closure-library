@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.userAgent.adobeReaderTest');
 goog.setTestOnly();
 
-const adobeReader = goog.require('goog.userAgent.adobeReader');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as adobeReader from './adobereader.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // For now, just test that the variables exist, the test runner will
 // pick up any runtime errors.

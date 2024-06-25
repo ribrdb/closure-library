@@ -24,15 +24,13 @@
  * </pre>
  */
 
-goog.module('goog.testing.recordFunction');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly('goog.testing.recordFunction');
 
-const FunctionCall = goog.require('goog.testing.FunctionCall');
-const GoogPromise = goog.require('goog.Promise');
-const Resolver = goog.require('goog.promise.Resolver');
-const functions = goog.require('goog.functions');
-const {assertEquals} = goog.require('goog.testing.asserts');
+import { FunctionCall } from './functioncall.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { Resolver } from '../promise/resolver.js';
+import * as functions from '../functions/functions.js';
+import { assertEquals } from './asserts.js';
 
 /**
  * A function that represents the return type of recordFunction.
@@ -205,4 +203,4 @@ function recordFunction(opt_f) {
 /** @typedef {typeof recordedFunctionType} */
 recordFunction.Type;
 
-exports = recordFunction;
+export { recordFunction };

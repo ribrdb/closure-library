@@ -4,14 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.XhrNodeReadableStreamTest');
 goog.setTestOnly();
 
-const NodeReadableStream = goog.require('goog.net.streams.NodeReadableStream');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const testSuite = goog.require('goog.testing.testSuite');
-const {XhrNodeReadableStream} = goog.require('goog.net.streams.xhrNodeReadableStream');
-const {XhrStreamReaderStatus} = goog.require('goog.net.streams.xhrStreamReader');
+import { NodeReadableStream } from './nodereadablestream.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { testSuite } from '../../testing/testsuite.js';
+import xhrNodeReadableStream from './xhrnodereadablestream.js';
+const {XhrNodeReadableStream} = xhrNodeReadableStream;
+import xhrStreamReader from './xhrstreamreader.js';
+const {XhrStreamReaderStatus} = xhrStreamReader;
 
 let xhrReader;
 let xhrStream;

@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.pubsub.TypedPubSubTest');
 goog.setTestOnly();
 
-const TopicId = goog.require('goog.pubsub.TopicId');
-const TypedPubSub = goog.require('goog.pubsub.TypedPubSub');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TopicId } from './topicid.js';
+import { TypedPubSub } from './typedpubsub.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let pubsub;
 

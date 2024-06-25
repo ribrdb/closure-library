@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.json.processorTest');
 goog.setTestOnly();
 
-const NativeJsonProcessor = goog.require('goog.json.NativeJsonProcessor');
-const testSuite = goog.require('goog.testing.testSuite');
+import NativeJsonProcessor from './nativejsonprocessor.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const REPLACER = function(k, v) {
   return !!k ? v + 'd' : v;

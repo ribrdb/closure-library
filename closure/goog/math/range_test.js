@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.RangeTest');
 goog.setTestOnly();
 
-const Range = goog.require('goog.math.Range');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Range } from './range.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Produce legible assertion results. If two ranges are not equal, the error

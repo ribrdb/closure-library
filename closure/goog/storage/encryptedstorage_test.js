@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.EncryptedStorageTest');
 goog.setTestOnly();
 
-const EncryptedStorage = goog.require('goog.storage.EncryptedStorage');
-const ErrorCode = goog.require('goog.storage.ErrorCode');
-const FakeMechanism = goog.require('goog.testing.storage.FakeMechanism');
-const MockClock = goog.require('goog.testing.MockClock');
-const PseudoRandom = goog.require('goog.testing.PseudoRandom');
-const RichStorage = goog.require('goog.storage.RichStorage');
-const collectableStorageTester = goog.require('goog.storage.collectableStorageTester');
-const googJson = goog.require('goog.json');
-const storageTester = goog.require('goog.storage.storageTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EncryptedStorage } from './encryptedstorage.js';
+import { ErrorCode } from './errorcode.js';
+import { FakeMechanism } from '../testing/storage/fakemechanism.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PseudoRandom } from '../testing/pseudorandom.js';
+import { RichStorage } from './richstorage.js';
+import * as collectableStorageTester from './collectablestoragetester.js';
+import * as googJson from '../json/json.js';
+import * as storageTester from './storagetester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function getEncryptedWrapper(storage, key) {
   return JSON.parse(storage.mechanism.get(storage.hashKeyWithSecret_(key)));

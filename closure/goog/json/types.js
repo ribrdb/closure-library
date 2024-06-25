@@ -8,8 +8,6 @@
 /**
  * @fileoverview Description of this file.
  */
-goog.module('goog.json.types');
-
 /**
  * JSON replacer, as defined in Section 15.12.3 of the ES5 spec.
  * @see http://ecma-international.org/ecma-262/5.1/#sec-15.12.3
@@ -18,7 +16,7 @@ goog.module('goog.json.types');
  *
  * @typedef {function(this:Object, string, *): *}
  */
-exports.Replacer;
+export let Replacer;
 
 
 /**
@@ -27,4 +25,4 @@ exports.Replacer;
  *
  * @typedef {function(this:Object, string, *): *}
  */
-exports.Reviver;
+export let Reviver;

@@ -9,8 +9,6 @@
  * @fileoverview Typedef for JavaScript types that can be JSON serialized.
  */
 
-goog.module('goog.json.Jsonable');
-
 /**
  * @typedef {boolean|number|string}
  */
@@ -33,4 +31,4 @@ let NestedType;
  */
 let Jsonable;
 
-exports = Jsonable;
+export { Jsonable };

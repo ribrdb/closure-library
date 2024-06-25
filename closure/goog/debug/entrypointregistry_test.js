@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.entryPointRegistryTest');
 goog.setTestOnly();
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const entryPointRegistry = goog.require('goog.debug.entryPointRegistry');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandler } from './errorhandler.js';
+import * as entryPointRegistry from './entrypointregistry.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let lastError;
 let errorHandler;

@@ -6,9 +6,9 @@
 
 goog.setTestOnly();
 
-goog.require('goog.testing.TestCase');
-goog.require('goog.testing.asserts');
-goog.require('goog.testing.jsunit');
+import { TestCase } from './testcase.js';
+import * as asserts from './asserts.js';
+import * as jsunit from './jsunit.js';
 
 const meta = /**@type {!HTMLMetaElement} */ (document.createElement('meta'));
 meta.httpEquiv = 'Content-Security-Policy';
@@ -22,9 +22,9 @@ function shouldRunTests() {
 }
 
 function testCspViolationCausesTestCaseToFail() {
-  goog.testing.TestCase.getActiveTestCase().observeCspViolations(false);
+  TestCase.getActiveTestCase().observeCspViolations(false);
 
-  const testCase = new goog.testing.TestCase();
+  const testCase = new TestCase();
   testCase.addNewTest('test', function() {
     doCspViolation1();
   });
@@ -34,9 +34,9 @@ function testCspViolationCausesTestCaseToFail() {
 }
 
 function testCspViolationReportedForFailingTest() {
-  goog.testing.TestCase.getActiveTestCase().observeCspViolations(false);
+  TestCase.getActiveTestCase().observeCspViolations(false);
 
-  const testCase = new goog.testing.TestCase();
+  const testCase = new TestCase();
   testCase.addNewTest('test', function() {
     doCspViolation2();
     assertTrue(false);
@@ -47,7 +47,7 @@ function testCspViolationReportedForFailingTest() {
 }
 
 function testCspViolationCausesTestCaseToFail_lifeCycle() {
-  goog.testing.TestCase.getActiveTestCase().observeCspViolations(false);
+  TestCase.getActiveTestCase().observeCspViolations(false);
 
   const tests = [
     ['setUp', doCspViolation3], ['tearDown', doCspViolation4],
@@ -55,7 +55,7 @@ function testCspViolationCausesTestCaseToFail_lifeCycle() {
     ['shouldRunTests', doCspViolation7]
   ];
   for (const [name, doCspViolation] of tests) {
-    const testCase = new goog.testing.TestCase();
+    const testCase = new TestCase();
     testCase.ignoreStartupCspViolations();
     let didRun = false;
     testCase.setLifecycleObj({
@@ -81,7 +81,7 @@ function testCspViolationCausesTestCaseToFail_lifeCycle() {
 
 
 async function testCspViolationCausesTestCaseToFail_lifeCycleAsync() {
-  goog.testing.TestCase.getActiveTestCase().observeCspViolations(false);
+  TestCase.getActiveTestCase().observeCspViolations(false);
 
   const tests = [
     ['setUp', doCspViolation8],
@@ -90,7 +90,7 @@ async function testCspViolationCausesTestCaseToFail_lifeCycleAsync() {
 
   ];
   for (const [name, doCspViolation] of tests) {
-    const testCase = new goog.testing.TestCase();
+    const testCase = new TestCase();
     testCase.ignoreStartupCspViolations();
     let didRun = false;
     testCase.setLifecycleObj({

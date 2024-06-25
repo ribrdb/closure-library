@@ -6,20 +6,19 @@
 
 /** @fileoverview testcases for CSS Sanitizer. */
 
-goog.module('goog.html.CssSanitizerTest');
 goog.setTestOnly();
 
-const CssSanitizer = goog.require('goog.html.sanitizer.CssSanitizer');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const dom = goog.require('goog.testing.dom');
-const googString = goog.require('goog.string');
-const isVersion = goog.require('goog.userAgent.product.isVersion');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const userAgent = goog.require('goog.userAgent');
+import * as CssSanitizer from './csssanitizer.js';
+import { SafeStyle } from '../safestyle.js';
+import { SafeStyleSheet } from '../safestylesheet.js';
+import { SafeUrl } from '../safeurl.js';
+import * as dom from '../../testing/dom.js';
+import * as googString from '../../string/string.js';
+import { isVersion } from '../../useragent/product_isversion.js';
+import * as product from '../../useragent/product.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testing from '../testing.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 const isSafari9OrOlder = product.SAFARI && !isVersion(10);
 

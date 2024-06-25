@@ -9,10 +9,10 @@
  * interface that allows for playing, pausing and stopping an animation. It adds
  * a simple event model, and animation status.
  */
-goog.provide('goog.fx.TransitionBase');
+goog.declareModuleId('goog.fx.transitionbase');
 
-goog.require('goog.events.EventTarget');
-goog.require('goog.fx.Transition');  // Unreferenced: interface
+import { EventTarget } from '../events/eventtarget.js';
+import { Transition } from './transition.js';  // Unreferenced: interface
 
 
 
@@ -21,42 +21,41 @@ goog.require('goog.fx.Transition');  // Unreferenced: interface
  *
  * @constructor
  * @struct
- * @implements {goog.fx.Transition}
- * @extends {goog.events.EventTarget}
+ * @implements {Transition}
+ * @extends {EventTarget}
  */
-goog.fx.TransitionBase = function() {
-  'use strict';
-  goog.fx.TransitionBase.base(this, 'constructor');
+export function TransitionBase() {
+ TransitionBase.base(this, 'constructor');
 
-  /**
-   * The internal state of the animation.
-   * @type {goog.fx.TransitionBase.State}
-   * @private
-   */
-  this.state_ = goog.fx.TransitionBase.State.STOPPED;
+ /**
+    * The internal state of the animation.
+    * @type {TransitionBase.State}
+    * @private
+    */
+ this.state_ = TransitionBase.State.STOPPED;
 
-  /**
-   * Timestamp for when the animation was started.
-   * @type {?number}
-   * @protected
-   */
-  this.startTime = null;
+ /**
+  * Timestamp for when the animation was started.
+  * @type {?number}
+  * @protected
+  */
+ this.startTime = null;
 
-  /**
-   * Timestamp for when the animation finished or was stopped.
-   * @type {?number}
-   * @protected
-   */
-  this.endTime = null;
-};
-goog.inherits(goog.fx.TransitionBase, goog.events.EventTarget);
+ /**
+  * Timestamp for when the animation finished or was stopped.
+  * @type {?number}
+  * @protected
+  */
+ this.endTime = null;
+}
+goog.inherits(TransitionBase, EventTarget);
 
 
 /**
  * Enum for the possible states of an animation.
  * @enum {number}
  */
-goog.fx.TransitionBase.State = {
+TransitionBase.State = {
   STOPPED: 0,
   PAUSED: -1,
   PLAYING: 1
@@ -70,7 +69,7 @@ goog.fx.TransitionBase.State = {
  * @return {boolean} True iff the animation was started.
  * @override
  */
-goog.fx.TransitionBase.prototype.play = goog.abstractMethod;
+TransitionBase.prototype.play = goog.abstractMethod;
 
 
 /**
@@ -80,22 +79,21 @@ goog.fx.TransitionBase.prototype.play = goog.abstractMethod;
  *     the animation.
  * @override
  */
-goog.fx.TransitionBase.prototype.stop = goog.abstractMethod;
+TransitionBase.prototype.stop = goog.abstractMethod;
 
 
 /**
  * Pauses the animation.
  */
-goog.fx.TransitionBase.prototype.pause = goog.abstractMethod;
+TransitionBase.prototype.pause = goog.abstractMethod;
 
 
 /**
  * Returns the current state of the animation.
- * @return {goog.fx.TransitionBase.State} State of the animation.
+ * @return {TransitionBase.State} State of the animation.
  */
-goog.fx.TransitionBase.prototype.getStateInternal = function() {
-  'use strict';
-  return this.state_;
+TransitionBase.prototype.getStateInternal = function() {
+ return this.state_;
 };
 
 
@@ -103,9 +101,8 @@ goog.fx.TransitionBase.prototype.getStateInternal = function() {
  * Sets the current state of the animation to playing.
  * @protected
  */
-goog.fx.TransitionBase.prototype.setStatePlaying = function() {
-  'use strict';
-  this.state_ = goog.fx.TransitionBase.State.PLAYING;
+TransitionBase.prototype.setStatePlaying = function() {
+ this.state_ = TransitionBase.State.PLAYING;
 };
 
 
@@ -113,9 +110,8 @@ goog.fx.TransitionBase.prototype.setStatePlaying = function() {
  * Sets the current state of the animation to paused.
  * @protected
  */
-goog.fx.TransitionBase.prototype.setStatePaused = function() {
-  'use strict';
-  this.state_ = goog.fx.TransitionBase.State.PAUSED;
+TransitionBase.prototype.setStatePaused = function() {
+ this.state_ = TransitionBase.State.PAUSED;
 };
 
 
@@ -123,36 +119,32 @@ goog.fx.TransitionBase.prototype.setStatePaused = function() {
  * Sets the current state of the animation to stopped.
  * @protected
  */
-goog.fx.TransitionBase.prototype.setStateStopped = function() {
-  'use strict';
-  this.state_ = goog.fx.TransitionBase.State.STOPPED;
+TransitionBase.prototype.setStateStopped = function() {
+ this.state_ = TransitionBase.State.STOPPED;
 };
 
 
 /**
  * @return {boolean} True iff the current state of the animation is playing.
  */
-goog.fx.TransitionBase.prototype.isPlaying = function() {
-  'use strict';
-  return this.state_ == goog.fx.TransitionBase.State.PLAYING;
+TransitionBase.prototype.isPlaying = function() {
+ return this.state_ == TransitionBase.State.PLAYING;
 };
 
 
 /**
  * @return {boolean} True iff the current state of the animation is paused.
  */
-goog.fx.TransitionBase.prototype.isPaused = function() {
-  'use strict';
-  return this.state_ == goog.fx.TransitionBase.State.PAUSED;
+TransitionBase.prototype.isPaused = function() {
+ return this.state_ == TransitionBase.State.PAUSED;
 };
 
 
 /**
  * @return {boolean} True iff the current state of the animation is stopped.
  */
-goog.fx.TransitionBase.prototype.isStopped = function() {
-  'use strict';
-  return this.state_ == goog.fx.TransitionBase.State.STOPPED;
+TransitionBase.prototype.isStopped = function() {
+ return this.state_ == TransitionBase.State.STOPPED;
 };
 
 
@@ -161,9 +153,8 @@ goog.fx.TransitionBase.prototype.isStopped = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onBegin = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.BEGIN);
+TransitionBase.prototype.onBegin = function() {
+ this.dispatchAnimationEvent(Transition.EventType.BEGIN);
 };
 
 
@@ -172,9 +163,8 @@ goog.fx.TransitionBase.prototype.onBegin = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onEnd = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.END);
+TransitionBase.prototype.onEnd = function() {
+ this.dispatchAnimationEvent(Transition.EventType.END);
 };
 
 
@@ -183,9 +173,8 @@ goog.fx.TransitionBase.prototype.onEnd = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onFinish = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.FINISH);
+TransitionBase.prototype.onFinish = function() {
+ this.dispatchAnimationEvent(Transition.EventType.FINISH);
 };
 
 
@@ -194,9 +183,8 @@ goog.fx.TransitionBase.prototype.onFinish = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onPause = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.PAUSE);
+TransitionBase.prototype.onPause = function() {
+ this.dispatchAnimationEvent(Transition.EventType.PAUSE);
 };
 
 
@@ -205,9 +193,8 @@ goog.fx.TransitionBase.prototype.onPause = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onPlay = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.PLAY);
+TransitionBase.prototype.onPlay = function() {
+ this.dispatchAnimationEvent(Transition.EventType.PLAY);
 };
 
 
@@ -216,9 +203,8 @@ goog.fx.TransitionBase.prototype.onPlay = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onResume = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.RESUME);
+TransitionBase.prototype.onResume = function() {
+ this.dispatchAnimationEvent(Transition.EventType.RESUME);
 };
 
 
@@ -227,9 +213,8 @@ goog.fx.TransitionBase.prototype.onResume = function() {
  * of listening to the event, and call this instead of dispatching the event.
  * @protected
  */
-goog.fx.TransitionBase.prototype.onStop = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Transition.EventType.STOP);
+TransitionBase.prototype.onStop = function() {
+ this.dispatchAnimationEvent(Transition.EventType.STOP);
 };
 
 
@@ -238,7 +223,6 @@ goog.fx.TransitionBase.prototype.onStop = function() {
  * @param {string} type Event type that will be dispatched.
  * @protected
  */
-goog.fx.TransitionBase.prototype.dispatchAnimationEvent = function(type) {
-  'use strict';
-  this.dispatchEvent(type);
+TransitionBase.prototype.dispatchAnimationEvent = function(type) {
+ this.dispatchEvent(type);
 };

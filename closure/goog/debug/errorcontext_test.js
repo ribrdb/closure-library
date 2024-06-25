@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.errorcontextTest');
 goog.setTestOnly('goog.debug.errorcontextTest');
 
-const errorcontext = goog.require('goog.debug.errorcontext');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as errorcontext from './errorcontext.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testAddContext() {

@@ -11,9 +11,6 @@
  * @see goog.delegate.DelegateRegistry
  */
 
-goog.module('goog.delegate.delegates');
-
-
 /**
  * Calls the first delegate, or returns undefined if none are given.
  * @param {!Array<T>} delegates
@@ -21,7 +18,7 @@ goog.module('goog.delegate.delegates');
  * @return {R|undefined}
  * @template T, R
  */
-exports.callFirst = (delegates, mapper) => {
+export let callFirst = (delegates, mapper) => {
   if (delegates.length === 0) {
     return undefined;
   }
@@ -37,7 +34,7 @@ exports.callFirst = (delegates, mapper) => {
  * @return {R|undefined}
  * @template T, R
  */
-exports.callUntilDefinedAndNotNull = (delegates, mapper) => {
+export let callUntilDefinedAndNotNull = (delegates, mapper) => {
   for (const delegate of delegates) {
     const result = mapper(delegate);
     if (result != null) return result;
@@ -54,7 +51,7 @@ exports.callUntilDefinedAndNotNull = (delegates, mapper) => {
  * @return {boolean|R}
  * @template T, R
  */
-exports.callUntilTruthy = (delegates, mapper) => {
+export let callUntilTruthy = (delegates, mapper) => {
   for (const delegate of delegates) {
     const result = mapper(delegate);
     if (result) return result;

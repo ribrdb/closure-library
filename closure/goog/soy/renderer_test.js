@@ -4,19 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.soy.RendererTest');
 goog.setTestOnly();
 
-const NodeType = goog.require('goog.dom.NodeType');
-const Renderer = goog.require('goog.soy.Renderer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SanitizedContentKind = goog.require('goog.soy.data.SanitizedContentKind');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const recordFunction = goog.require('goog.testing.recordFunction');
+import { NodeType } from '../dom/nodetype.js';
+import { Renderer } from './renderer.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { SanitizedContentKind } from './data.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import { recordFunction } from '../testing/recordfunction.js';
+
 /** @suppress {extraRequire} */
-const testHelper = goog.require('goog.soy.testHelper');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as testHelper from './soy_testhelper.js';
+
+import { testSuite } from '../testing/testsuite.js';
 
 let handleRender;
 

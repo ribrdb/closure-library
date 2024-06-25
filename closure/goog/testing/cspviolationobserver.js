@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.testing.CspViolationObserver');
 goog.setTestOnly('goog.testing.CspViolationObserver');
 
 /**
@@ -12,7 +11,7 @@ goog.setTestOnly('goog.testing.CspViolationObserver');
  *
  * @constructor
  */
-goog.testing.CspViolationObserver = function() {
+export function CspViolationObserver() {
   if (!window.ReportingObserver) {
     return;
   }
@@ -25,13 +24,13 @@ goog.testing.CspViolationObserver = function() {
 
   /** @private {!Array<!Report>} */
   this.reports_ = [];
-};
+}
 
 
 /**
  * Starts listening for CSP reports.
  */
-goog.testing.CspViolationObserver.prototype.start = function() {
+CspViolationObserver.prototype.start = function() {
   if (!window.ReportingObserver || !this.enabled_) {
     return;
   }
@@ -56,7 +55,7 @@ goog.testing.CspViolationObserver.prototype.start = function() {
  * @return {!Array<!Report>}
  * @private
  */
-goog.testing.CspViolationObserver.prototype.take_ = function() {
+CspViolationObserver.prototype.take_ = function() {
   const newReports = this.reportingObserver_.takeRecords();
   this.reports_.push(...newReports);
 
@@ -73,7 +72,7 @@ goog.testing.CspViolationObserver.prototype.take_ = function() {
  *
  * @return {!Array<!Report>}
  */
-goog.testing.CspViolationObserver.prototype.stop = function() {
+CspViolationObserver.prototype.stop = function() {
   if (!window.ReportingObserver) {
     return [];
   }
@@ -96,7 +95,7 @@ goog.testing.CspViolationObserver.prototype.stop = function() {
  *
  * @param {boolean} enabled
  */
-goog.testing.CspViolationObserver.prototype.setEnabled = function(enabled) {
+CspViolationObserver.prototype.setEnabled = function(enabled) {
   if (!window.ReportingObserver) {
     return;
   }
@@ -124,7 +123,7 @@ goog.testing.CspViolationObserver.prototype.setEnabled = function(enabled) {
  * @param {!ReportingObserver} observer
  * @private
  */
-goog.testing.CspViolationObserver.prototype.onReport_ = function(
+CspViolationObserver.prototype.onReport_ = function(
     reports, observer) {
   this.reports_.push(...reports);
 };
@@ -135,7 +134,7 @@ goog.testing.CspViolationObserver.prototype.onReport_ = function(
  *
  * @return {!Array<!Report>}
  */
-goog.testing.CspViolationObserver.getBufferedReports = function() {
+CspViolationObserver.getBufferedReports = function() {
   if (!window.ReportingObserver) {
     return [];
   }
@@ -160,7 +159,7 @@ goog.testing.CspViolationObserver.getBufferedReports = function() {
  * @param {!Array<!Report>} reports
  * @return {string}
  */
-goog.testing.CspViolationObserver.formatReports = function(reports) {
+CspViolationObserver.formatReports = function(reports) {
   return reports
       .map(function(report) {
         return JSON.stringify(report.body.toJSON(), null, '    ');

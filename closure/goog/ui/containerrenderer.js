@@ -8,20 +8,20 @@
  * @fileoverview Base class for container renderers.
  */
 
-goog.provide('goog.ui.ContainerRenderer');
+goog.declareModuleId('goog.ui.containerrenderer');
 
-goog.require('goog.a11y.aria');
-goog.require('goog.asserts');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.string');
-goog.require('goog.style');
-goog.require('goog.ui.registry');
-goog.require('goog.userAgent');
-goog.requireType('goog.ui.Container');
-goog.requireType('goog.ui.Container.Orientation');
-goog.requireType('goog.ui.Control');
+import * as aria from '../a11y/aria/aria.js';
+import * as asserts from '../asserts/asserts.js';
+import { NodeType } from '../dom/nodetype.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as string from '../string/string.js';
+import * as style from '../style/style.js';
+import * as registry from './registry.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.ui.container');
+goog.requireType('goog.ui.container');
+goog.requireType('goog.ui.control');
 
 
 
@@ -32,13 +32,12 @@ goog.requireType('goog.ui.Control');
  * @param {string=} opt_ariaRole Optional ARIA role used for the element.
  * @constructor
  */
-goog.ui.ContainerRenderer = function(opt_ariaRole) {
-  'use strict';
+export function ContainerRenderer(opt_ariaRole) {
   // By default, the ARIA role is unspecified.
   /** @private {string|undefined} */
   this.ariaRole_ = opt_ariaRole;
-};
-goog.addSingletonGetter(goog.ui.ContainerRenderer);
+}
+goog.addSingletonGetter(ContainerRenderer);
 
 
 /**
@@ -47,7 +46,7 @@ goog.addSingletonGetter(goog.ui.ContainerRenderer);
  * An example to use this function using a menu is:
  *
  * <pre>
- * var myCustomRenderer = goog.ui.ContainerRenderer.getCustomRenderer(
+ * var myCustomRenderer = ContainerRenderer.getCustomRenderer(
  *     goog.ui.MenuRenderer, 'my-special-menu');
  * var newMenu = new goog.ui.Menu(opt_domHelper, myCustomRenderer);
  * </pre>
@@ -69,12 +68,11 @@ goog.addSingletonGetter(goog.ui.ContainerRenderer);
  *
  * @param {Function} ctor The constructor of the renderer you want to create.
  * @param {string} cssClassName The name of the CSS class for this renderer.
- * @return {goog.ui.ContainerRenderer} An instance of the desired renderer with
+ * @return {ContainerRenderer} An instance of the desired renderer with
  *     its getCssClass() method overridden to return the supplied custom CSS
  *     class name.
  */
-goog.ui.ContainerRenderer.getCustomRenderer = function(ctor, cssClassName) {
-  'use strict';
+ContainerRenderer.getCustomRenderer = function(ctor, cssClassName) {
   var renderer = new ctor();
 
   /**
@@ -83,7 +81,6 @@ goog.ui.ContainerRenderer.getCustomRenderer = function(ctor, cssClassName) {
    * @return {string} Renderer-specific CSS class.
    */
   renderer.getCssClass = function() {
-    'use strict';
     return cssClassName;
   };
 
@@ -96,7 +93,7 @@ goog.ui.ContainerRenderer.getCustomRenderer = function(ctor, cssClassName) {
  * by this renderer.
  * @type {string}
  */
-goog.ui.ContainerRenderer.CSS_CLASS = goog.getCssName('goog-container');
+ContainerRenderer.CSS_CLASS = goog.getCssName('goog-container');
 
 
 /**
@@ -104,8 +101,7 @@ goog.ui.ContainerRenderer.CSS_CLASS = goog.getCssName('goog-container');
  * See http://wiki/Main/ARIA for more info.
  * @return {undefined|string} ARIA role.
  */
-goog.ui.ContainerRenderer.prototype.getAriaRole = function() {
-  'use strict';
+ContainerRenderer.prototype.getAriaRole = function() {
   return this.ariaRole_;
 };
 
@@ -117,8 +113,7 @@ goog.ui.ContainerRenderer.prototype.getAriaRole = function() {
  * @param {boolean} enable Whether to add or remove the element's tab index.
  * @suppress {strictMissingProperties}
  */
-goog.ui.ContainerRenderer.prototype.enableTabIndex = function(element, enable) {
-  'use strict';
+ContainerRenderer.prototype.enableTabIndex = function(element, enable) {
   if (element) {
     element.tabIndex = enable ? 0 : -1;
   }
@@ -132,10 +127,9 @@ goog.ui.ContainerRenderer.prototype.enableTabIndex = function(element, enable) {
  * @param {goog.ui.Container} container Container to render.
  * @return {Element} Root element for the container.
  */
-goog.ui.ContainerRenderer.prototype.createDom = function(container) {
-  'use strict';
+ContainerRenderer.prototype.createDom = function(container) {
   return container.getDomHelper().createDom(
-      goog.dom.TagName.DIV, this.getClassNames(container).join(' '));
+      TagName.DIV, this.getClassNames(container).join(' '));
 };
 
 
@@ -146,8 +140,7 @@ goog.ui.ContainerRenderer.prototype.createDom = function(container) {
  *     is to be returned.
  * @return {Element} Element to contain child elements (null if none).
  */
-goog.ui.ContainerRenderer.prototype.getContentElement = function(element) {
-  'use strict';
+ContainerRenderer.prototype.getContentElement = function(element) {
   return element;
 };
 
@@ -158,8 +151,7 @@ goog.ui.ContainerRenderer.prototype.getContentElement = function(element) {
  * @param {Element} element Element to decorate.
  * @return {boolean} Whether the renderer can decorate the element.
  */
-goog.ui.ContainerRenderer.prototype.canDecorate = function(element) {
-  'use strict';
+ContainerRenderer.prototype.canDecorate = function(element) {
   return element.tagName == 'DIV';
 };
 
@@ -172,8 +164,7 @@ goog.ui.ContainerRenderer.prototype.canDecorate = function(element) {
  * @param {Element} element Element to decorate.
  * @return {!Element} Decorated element.
  */
-goog.ui.ContainerRenderer.prototype.decorate = function(container, element) {
-  'use strict';
+ContainerRenderer.prototype.decorate = function(container, element) {
   // Set the container's ID to the decorated element's DOM ID, if any.
   if (element.id) {
     container.setId(element.id);
@@ -182,10 +173,9 @@ goog.ui.ContainerRenderer.prototype.decorate = function(container, element) {
   // Configure the container's state based on the CSS class names it has.
   var baseClass = this.getCssClass();
   var hasBaseClass = false;
-  var classNames = goog.dom.classlist.get(element);
+  var classNames = classlist.get(element);
   if (classNames) {
     Array.prototype.forEach.call(classNames, function(className) {
-      'use strict';
       if (className == baseClass) {
         hasBaseClass = true;
       } else {
@@ -198,7 +188,7 @@ goog.ui.ContainerRenderer.prototype.decorate = function(container, element) {
 
   if (!hasBaseClass) {
     // Make sure the container's root element has the renderer's own CSS class.
-    goog.dom.classlist.add(element, baseClass);
+    classlist.add(element, baseClass);
   }
 
   // Decorate the element's children, if applicable.  This should happen after
@@ -222,9 +212,8 @@ goog.ui.ContainerRenderer.prototype.decorate = function(container, element) {
  * @protected
  * @suppress {missingRequire} goog.ui.Container
  */
-goog.ui.ContainerRenderer.prototype.setStateFromClassName = function(
+ContainerRenderer.prototype.setStateFromClassName = function(
     container, className, baseClass) {
-  'use strict';
   if (className == goog.getCssName(baseClass, 'disabled')) {
     container.setEnabled(false);
   } else if (className == goog.getCssName(baseClass, 'horizontal')) {
@@ -245,16 +234,15 @@ goog.ui.ContainerRenderer.prototype.setStateFromClassName = function(
  * @param {Element} element Element whose children are to be decorated.
  * @param {Element=} opt_firstChild the first child to be decorated.
  */
-goog.ui.ContainerRenderer.prototype.decorateChildren = function(
+ContainerRenderer.prototype.decorateChildren = function(
     container, element, opt_firstChild) {
-  'use strict';
   if (element) {
     var node = opt_firstChild || element.firstChild, next;
     // Tag soup HTML may result in a DOM where siblings have different parents.
     while (node && node.parentNode == element) {
       // Get the next sibling here, since the node may be replaced or removed.
       next = node.nextSibling;
-      if (node.nodeType == goog.dom.NodeType.ELEMENT) {
+      if (node.nodeType == NodeType.ELEMENT) {
         // Decorate element node.
         var child = this.getDecoratorForChild(/** @type {!Element} */ (node));
         if (child) {
@@ -268,7 +256,7 @@ goog.ui.ContainerRenderer.prototype.decorateChildren = function(
           container.addChild(child);
           child.decorate(/** @type {!Element} */ (node));
         }
-      } else if (!node.nodeValue || goog.string.trim(node.nodeValue) == '') {
+      } else if (!node.nodeValue || string.trim(node.nodeValue) == '') {
         // Remove empty text node, otherwise madness ensues (e.g. controls that
         // use goog-inline-block will flicker and shift on hover on Gecko).
         element.removeChild(node);
@@ -289,10 +277,10 @@ goog.ui.ContainerRenderer.prototype.decorateChildren = function(
  * @return {goog.ui.Control?} A new control suitable to decorate the element
  *     (null if none).
  */
-goog.ui.ContainerRenderer.prototype.getDecoratorForChild = function(element) {
-  'use strict';
-  return /** @type {goog.ui.Control} */ (
-      goog.ui.registry.getDecorator(element));
+ContainerRenderer.prototype.getDecoratorForChild = function(element) {
+  return (
+    /** @type {goog.ui.Control} */ (registry.getDecorator(element))
+  );
 };
 
 
@@ -302,24 +290,23 @@ goog.ui.ContainerRenderer.prototype.getDecoratorForChild = function(element) {
  * @param {goog.ui.Container} container Container whose DOM is to be initialized
  *     as it enters the document.
  */
-goog.ui.ContainerRenderer.prototype.initializeDom = function(container) {
-  'use strict';
+ContainerRenderer.prototype.initializeDom = function(container) {
   var elem = container.getElement();
-  goog.asserts.assert(elem, 'The container DOM element cannot be null.');
+  asserts.assert(elem, 'The container DOM element cannot be null.');
   // Make sure the container's element isn't selectable.  On Gecko, recursively
   // marking each child element unselectable is expensive and unnecessary, so
   // only mark the root element unselectable.
-  goog.style.setUnselectable(elem, true, goog.userAgent.GECKO);
+  style.setUnselectable(elem, true, userAgent.GECKO);
 
   // IE doesn't support outline:none, so we have to use the hideFocus property.
-  if (goog.userAgent.IE) {
+  if (userAgent.IE) {
     elem.hideFocus = true;
   }
 
   // Set the ARIA role.
   var ariaRole = this.getAriaRole();
   if (ariaRole) {
-    goog.a11y.aria.setRole(elem, ariaRole);
+    aria.setRole(elem, ariaRole);
   }
 };
 
@@ -332,8 +319,7 @@ goog.ui.ContainerRenderer.prototype.initializeDom = function(container) {
  *     to be returned.
  * @return {Element} Key event target (null if none).
  */
-goog.ui.ContainerRenderer.prototype.getKeyEventTarget = function(container) {
-  'use strict';
+ContainerRenderer.prototype.getKeyEventTarget = function(container) {
   return container.getElement();
 };
 
@@ -343,9 +329,8 @@ goog.ui.ContainerRenderer.prototype.getKeyEventTarget = function(container) {
  * rendered using this renderer.
  * @return {string} Renderer-specific CSS class.
  */
-goog.ui.ContainerRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.ContainerRenderer.CSS_CLASS;
+ContainerRenderer.prototype.getCssClass = function() {
+  return ContainerRenderer.CSS_CLASS;
 };
 
 
@@ -360,8 +345,7 @@ goog.ui.ContainerRenderer.prototype.getCssClass = function() {
  *     container.
  * @suppress {missingRequire} TODO(user): fix this
  */
-goog.ui.ContainerRenderer.prototype.getClassNames = function(container) {
-  'use strict';
+ContainerRenderer.prototype.getClassNames = function(container) {
   var baseClass = this.getCssClass();
   var isHorizontal =
       container.getOrientation() == goog.ui.Container.Orientation.HORIZONTAL;
@@ -383,7 +367,6 @@ goog.ui.ContainerRenderer.prototype.getClassNames = function(container) {
  *     created or decorated by this renderer.
  * @suppress {missingRequire} goog.ui.Container
  */
-goog.ui.ContainerRenderer.prototype.getDefaultOrientation = function() {
-  'use strict';
+ContainerRenderer.prototype.getDefaultOrientation = function() {
   return goog.ui.Container.Orientation.VERTICAL;
 };

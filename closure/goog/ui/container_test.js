@@ -4,26 +4,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ContainerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Component = goog.require('goog.ui.Component');
-const Container = goog.require('goog.ui.Container');
-const Control = goog.require('goog.ui.Control');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyEvent = goog.require('goog.events.KeyEvent');
-const PointerFallbackEventType = goog.require('goog.events.PointerFallbackEventType');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const googEvents = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { BrowserEvent } from '../events/browserevent.js';
+import { Component } from './component.js';
+import { Container } from './container.js';
+import { Control } from './control.js';
+import { Event as GoogEvent } from '../events/event.js';
+import * as testingEvents from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyEvent } from '../events/keyevent.js';
+import { PointerFallbackEventType } from '../events/pointerfallbackeventtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import * as googEvents from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let sandbox;
 let containerElement;

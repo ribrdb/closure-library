@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fs.FileEntryTest');
 goog.setTestOnly();
 
-const FsFileEntry = goog.require('goog.testing.fs.FileEntry');
-const FsFileSystem = goog.require('goog.testing.fs.FileSystem');
-const MockClock = goog.require('goog.testing.MockClock');
-const testSuite = goog.require('goog.testing.testSuite');
+import { FileEntry as FsFileEntry } from './entry.js';
+import { FileSystem as FsFileSystem } from './filesystem.js';
+import { MockClock } from '../mockclock.js';
+import { testSuite } from '../testsuite.js';
 
 let currentTime;
 let file;

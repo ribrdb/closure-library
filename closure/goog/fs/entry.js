@@ -11,14 +11,11 @@
  * When adding or modifying functionality in this namespace, be sure to update
  * the mock counterparts in goog.testing.fs.
  */
-goog.provide('goog.fs.DirectoryEntry');
-goog.provide('goog.fs.DirectoryEntry.Behavior');
-goog.provide('goog.fs.Entry');
-goog.provide('goog.fs.FileEntry');
+goog.declareModuleId('goog.fs.entry');
 
-goog.requireType('goog.async.Deferred');
-goog.requireType('goog.fs.FileSystem');
-goog.requireType('goog.fs.FileWriter');
+goog.requireType('goog.mochikit.async.deferred');
+goog.requireType('goog.fs.filesystem');
+goog.requireType('goog.fs.filewriter');
 
 
 
@@ -26,37 +23,37 @@ goog.requireType('goog.fs.FileWriter');
  * The interface for entries in the filesystem.
  * @interface
  */
-goog.fs.Entry = function() {};
+export function Entry() {}
 
 
 /**
  * @return {boolean} Whether or not this entry is a file.
  */
-goog.fs.Entry.prototype.isFile = function() {};
+Entry.prototype.isFile = function() {};
 
 
 /**
  * @return {boolean} Whether or not this entry is a directory.
  */
-goog.fs.Entry.prototype.isDirectory = function() {};
+Entry.prototype.isDirectory = function() {};
 
 
 /**
  * @return {string} The name of this entry.
  */
-goog.fs.Entry.prototype.getName = function() {};
+Entry.prototype.getName = function() {};
 
 
 /**
  * @return {string} The full path to this entry.
  */
-goog.fs.Entry.prototype.getFullPath = function() {};
+Entry.prototype.getFullPath = function() {};
 
 
 /**
  * @return {!goog.fs.FileSystem} The filesystem backing this entry.
  */
-goog.fs.Entry.prototype.getFileSystem = function() {};
+Entry.prototype.getFileSystem = function() {};
 
 
 /**
@@ -65,7 +62,7 @@ goog.fs.Entry.prototype.getFileSystem = function() {};
  * @return {!goog.async.Deferred} The deferred Date for this entry. If an error
  *     occurs, the errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.Entry.prototype.getLastModified = function() {};
+Entry.prototype.getLastModified = function() {};
 
 
 /**
@@ -74,43 +71,43 @@ goog.fs.Entry.prototype.getLastModified = function() {};
  * @return {!goog.async.Deferred} The deferred Metadata for this entry. If an
  *     error occurs, the errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.Entry.prototype.getMetadata = function() {};
+Entry.prototype.getMetadata = function() {};
 
 
 /**
  * Move this entry to a new location.
  *
- * @param {!goog.fs.DirectoryEntry} parent The new parent directory.
+ * @param {!DirectoryEntry} parent The new parent directory.
  * @param {string=} opt_newName The new name of the entry. If omitted, the entry
  *     retains its original name.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.FileEntry} or
- *     {@link goog.fs.DirectoryEntry} for the new entry. If an error occurs, the
+ * @return {!goog.async.Deferred} The deferred {@link FileEntry} or
+ *     {@link DirectoryEntry} for the new entry. If an error occurs, the
  *     errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.Entry.prototype.moveTo = function(parent, opt_newName) {};
+Entry.prototype.moveTo = function(parent, opt_newName) {};
 
 
 /**
  * Copy this entry to a new location.
  *
- * @param {!goog.fs.DirectoryEntry} parent The new parent directory.
+ * @param {!DirectoryEntry} parent The new parent directory.
  * @param {string=} opt_newName The name of the new entry. If omitted, the new
  *     entry has the same name as the original.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.FileEntry} or
- *     {@link goog.fs.DirectoryEntry} for the new entry. If an error occurs, the
+ * @return {!goog.async.Deferred} The deferred {@link FileEntry} or
+ *     {@link DirectoryEntry} for the new entry. If an error occurs, the
  *     errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.Entry.prototype.copyTo = function(parent, opt_newName) {};
+Entry.prototype.copyTo = function(parent, opt_newName) {};
 
 
 /**
  * Wrap an HTML5 entry object in an appropriate subclass instance.
  *
  * @param {!Entry} entry The underlying Entry object.
- * @return {!goog.fs.Entry} The appropriate subclass wrapper.
+ * @return {!Entry} The appropriate subclass wrapper.
  * @protected
  */
-goog.fs.Entry.prototype.wrapEntry = function(entry) {};
+Entry.prototype.wrapEntry = function(entry) {};
 
 
 /**
@@ -119,7 +116,7 @@ goog.fs.Entry.prototype.wrapEntry = function(entry) {};
  * @param {string=} opt_mimeType The MIME type that will be served for the URL.
  * @return {string} The URL.
  */
-goog.fs.Entry.prototype.toUrl = function(opt_mimeType) {};
+Entry.prototype.toUrl = function(opt_mimeType) {};
 
 
 /**
@@ -129,7 +126,7 @@ goog.fs.Entry.prototype.toUrl = function(opt_mimeType) {};
  * @param {string=} opt_mimeType The MIME type that will be served for the URI.
  * @return {string} The URI.
  */
-goog.fs.Entry.prototype.toUri = function(opt_mimeType) {};
+Entry.prototype.toUri = function(opt_mimeType) {};
 
 
 /**
@@ -139,16 +136,16 @@ goog.fs.Entry.prototype.toUri = function(opt_mimeType) {};
  *     the callback is called with true. If an error occurs, the errback is
  *     called a {@link goog.fs.Error}.
  */
-goog.fs.Entry.prototype.remove = function() {};
+Entry.prototype.remove = function() {};
 
 
 /**
  * Gets the parent directory.
  *
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.DirectoryEntry}.
+ * @return {!goog.async.Deferred} The deferred {@link DirectoryEntry}.
  *     If an error occurs, the errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.Entry.prototype.getParent = function() {};
+Entry.prototype.getParent = function() {};
 
 
 
@@ -156,16 +153,16 @@ goog.fs.Entry.prototype.getParent = function() {};
  * A directory in a local FileSystem.
  *
  * @interface
- * @extends {goog.fs.Entry}
+ * @extends {Entry}
  */
-goog.fs.DirectoryEntry = function() {};
+export function DirectoryEntry() {}
 
 
 /**
  * Behaviors for getting files and directories.
  * @enum {number}
  */
-goog.fs.DirectoryEntry.Behavior = {
+DirectoryEntry.Behavior = {
   /**
    * Get the file if it exists, error out if it doesn't.
    */
@@ -185,24 +182,24 @@ goog.fs.DirectoryEntry.Behavior = {
  * Get a file in the directory.
  *
  * @param {string} path The path to the file, relative to this directory.
- * @param {goog.fs.DirectoryEntry.Behavior=} opt_behavior The behavior for
+ * @param {DirectoryEntry.Behavior=} opt_behavior The behavior for
  *     handling an existing file, or the lack thereof.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.FileEntry}. If an
+ * @return {!goog.async.Deferred} The deferred {@link FileEntry}. If an
  *     error occurs, the errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.DirectoryEntry.prototype.getFile = function(path, opt_behavior) {};
+DirectoryEntry.prototype.getFile = function(path, opt_behavior) {};
 
 
 /**
  * Get a directory within this directory.
  *
  * @param {string} path The path to the directory, relative to this directory.
- * @param {goog.fs.DirectoryEntry.Behavior=} opt_behavior The behavior for
+ * @param {DirectoryEntry.Behavior=} opt_behavior The behavior for
  *     handling an existing directory, or the lack thereof.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.DirectoryEntry}.
+ * @return {!goog.async.Deferred} The deferred {@link DirectoryEntry}.
  *     If an error occurs, the errback is called a {@link goog.fs.Error}.
  */
-goog.fs.DirectoryEntry.prototype.getDirectory = function(path, opt_behavior) {};
+DirectoryEntry.prototype.getDirectory = function(path, opt_behavior) {};
 
 
 /**
@@ -212,21 +209,21 @@ goog.fs.DirectoryEntry.prototype.getDirectory = function(path, opt_behavior) {};
  * @param {string} path The directory path to create. May be absolute or
  *     relative to the current directory. The parent directory ".." and current
  *     directory "." are supported.
- * @return {!goog.async.Deferred} A deferred {@link goog.fs.DirectoryEntry} for
+ * @return {!goog.async.Deferred} A deferred {@link DirectoryEntry} for
  *     the requested path. If an error occurs, the errback is called with a
  *     {@link goog.fs.Error}.
  */
-goog.fs.DirectoryEntry.prototype.createPath = function(path) {};
+DirectoryEntry.prototype.createPath = function(path) {};
 
 
 /**
  * Gets a list of all entries in this directory.
  *
- * @return {!goog.async.Deferred} The deferred list of {@link goog.fs.Entry}
+ * @return {!goog.async.Deferred} The deferred list of {@link Entry}
  *     results. If an error occurs, the errback is called with a
  *     {@link goog.fs.Error}.
  */
-goog.fs.DirectoryEntry.prototype.listDirectory = function() {};
+DirectoryEntry.prototype.listDirectory = function() {};
 
 
 /**
@@ -236,7 +233,7 @@ goog.fs.DirectoryEntry.prototype.listDirectory = function() {};
  *     the callback is called with true. If an error occurs, the errback is
  *     called a {@link goog.fs.Error}.
  */
-goog.fs.DirectoryEntry.prototype.removeRecursively = function() {};
+DirectoryEntry.prototype.removeRecursively = function() {};
 
 
 
@@ -244,9 +241,9 @@ goog.fs.DirectoryEntry.prototype.removeRecursively = function() {};
  * A file in a local filesystem.
  *
  * @interface
- * @extends {goog.fs.Entry}
+ * @extends {Entry}
  */
-goog.fs.FileEntry = function() {};
+export function FileEntry() {}
 
 
 /**
@@ -255,7 +252,7 @@ goog.fs.FileEntry = function() {};
  * @return {!goog.async.Deferred<!goog.fs.FileWriter>} If an error occurs, the
  *     errback is called with a {@link goog.fs.Error}.
  */
-goog.fs.FileEntry.prototype.createWriter = function() {};
+FileEntry.prototype.createWriter = function() {};
 
 
 /**
@@ -264,4 +261,4 @@ goog.fs.FileEntry.prototype.createWriter = function() {};
  * @return {!goog.async.Deferred<!File>} If an error occurs, the errback is
  *     called with a {@link goog.fs.Error}.
  */
-goog.fs.FileEntry.prototype.file = function() {};
+FileEntry.prototype.file = function() {};

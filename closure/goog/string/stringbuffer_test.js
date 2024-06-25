@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.string.StringBufferTest');
 goog.setTestOnly();
 
-const StringBuffer = goog.require('goog.string.StringBuffer');
-const testSuite = goog.require('goog.testing.testSuite');
+import { StringBuffer } from './stringbuffer.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testStringBuffer() {

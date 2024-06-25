@@ -4,32 +4,31 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ControlTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Component = goog.require('goog.ui.Component');
-const Control = goog.require('goog.ui.Control');
-const ControlRenderer = goog.require('goog.ui.ControlRenderer');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const PointerFallbackEventType = goog.require('goog.events.PointerFallbackEventType');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const googEvents = goog.require('goog.events');
-const googObject = goog.require('goog.object');
-const googString = goog.require('goog.string');
-const registry = goog.require('goog.ui.registry');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserEvent } from '../events/browserevent.js';
+import { Component } from './component.js';
+import { Control } from './control.js';
+import { ControlRenderer } from './controlrenderer.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import * as testingEvents from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { PointerFallbackEventType } from '../events/pointerfallbackeventtype.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as googArray from '../array/array.js';
+import * as googEvents from '../events/events.js';
+import googObject from '../object/object.js';
+import * as googString from '../string/string.js';
+import * as registry from './registry.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Disabled due to problems on farm.
 const testFocus = false;

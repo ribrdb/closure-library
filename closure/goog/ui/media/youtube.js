@@ -16,14 +16,14 @@
  * {@link goog.ui.Component} base. This design guarantees that all different
  * types of medias will behave alike but will look different.
  *
- * goog.ui.media.Youtube expects `goog.ui.media.YoutubeModel` on
+ * goog.ui.media.Youtube expects `YoutubeModel` on
  * `goog.ui.Control.getModel` as data models, and render a flash object
  * that will play that URL.
  *
  * Example of usage:
  *
  * <pre>
- *   var video = goog.ui.media.YoutubeModel.newInstance(
+ *   var video = YoutubeModel.newInstance(
  *       'https://www.youtube.com/watch?v=ddl5f44spwQ');
  *   goog.ui.media.Youtube.newControl(video).render();
  * </pre>
@@ -53,13 +53,11 @@
  *
  */
 
-goog.provide('goog.ui.media.YoutubeModel');
+import { TrustedResourceUrl } from '../../html/trustedresourceurl.js';
 
-goog.require('goog.html.TrustedResourceUrl');
-goog.require('goog.string');
-goog.require('goog.string.Const');
-
-goog.require('goog.ui.media.MediaModel');
+import * as string from '../../string/string.js';
+import { Const } from '../../string/const.js';
+import { MediaModel } from './mediamodel.js';
 
 
 
@@ -73,30 +71,29 @@ goog.require('goog.ui.media.MediaModel');
  * @param {string=} opt_description An optional description of the youtube
  *     video.
  * @constructor
- * @extends {goog.ui.media.MediaModel}
+ * @extends {MediaModel}
  * @final
  */
-goog.ui.media.YoutubeModel = function(videoId, opt_caption, opt_description) {
-  'use strict';
-  goog.ui.media.MediaModel.call(
-      this, goog.ui.media.YoutubeModel.buildUrl(videoId), opt_caption,
-      opt_description, goog.ui.media.MediaModel.MimeType.FLASH);
+export function YoutubeModel(videoId, opt_caption, opt_description) {
+ MediaModel.call(
+     this, YoutubeModel.buildUrl(videoId), opt_caption,
+     opt_description, MediaModel.MimeType.FLASH);
 
-  /**
-   * The Youtube video id.
-   * @type {string}
-   * @private
-   */
-  this.videoId_ = videoId;
+ /**
+  * The Youtube video id.
+  * @type {string}
+  * @private
+  */
+ this.videoId_ = videoId;
 
-  this.setThumbnails([new goog.ui.media.MediaModel.Thumbnail(
-      goog.ui.media.YoutubeModel.getThumbnailUrl(videoId))]);
+ this.setThumbnails([new MediaModel.Thumbnail(
+     YoutubeModel.getThumbnailUrl(videoId))]);
 
-  this.setPlayer(
-      new goog.ui.media.MediaModel.Player(
-          goog.ui.media.YoutubeModel.getFlashUrl(videoId, true)));
-};
-goog.inherits(goog.ui.media.YoutubeModel, goog.ui.media.MediaModel);
+ this.setPlayer(
+     new MediaModel.Player(
+         YoutubeModel.getFlashUrl(videoId, true)));
+}
+goog.inherits(YoutubeModel, MediaModel);
 
 
 /**
@@ -110,7 +107,7 @@ goog.inherits(goog.ui.media.YoutubeModel, goog.ui.media.MediaModel);
 // Be careful about the placement of the dashes in the character classes. Eg,
 // use "[\\w=-]" instead of "[\\w-=]" if you mean to include the dash as a
 // character and not create a character range like "[a-f]".
-goog.ui.media.YoutubeModel.MATCHER_ = new RegExp(
+YoutubeModel.MATCHER_ = new RegExp(
     // Lead in.
     'https?://(?:[a-zA-Z]{1,3}\\.)?' +
         // Watch short URL prefix and /embed/ URLs. This should handle URLs
@@ -154,22 +151,21 @@ goog.ui.media.YoutubeModel.MATCHER_ = new RegExp(
  * @param {string=} opt_caption An optional caption of the youtube video.
  * @param {string=} opt_description An optional description of the youtube
  *     video.
- * @return {!goog.ui.media.YoutubeModel} The data model that represents the
+ * @return {!YoutubeModel} The data model that represents the
  *     youtube URL.
- * @see goog.ui.media.YoutubeModel.getVideoId()
+ * @see YoutubeModel.getVideoId()
  * @throws Error in case the parsing fails.
  */
-goog.ui.media.YoutubeModel.newInstance = function(
+YoutubeModel.newInstance = function(
     youtubeUrl, opt_caption, opt_description) {
-  'use strict';
-  const extract = goog.ui.media.YoutubeModel.MATCHER_.exec(youtubeUrl);
-  if (extract) {
-    const videoId = extract[1] || extract[2] || extract[3];
-    return new goog.ui.media.YoutubeModel(
-        videoId, opt_caption, opt_description);
-  }
+ const extract = YoutubeModel.MATCHER_.exec(youtubeUrl);
+ if (extract) {
+   const videoId = extract[1] || extract[2] || extract[3];
+   return new YoutubeModel(
+       videoId, opt_caption, opt_description);
+ }
 
-  throw new Error('failed to parse video id from youtube url: ' + youtubeUrl);
+ throw new Error('failed to parse video id from youtube url: ' + youtubeUrl);
 };
 
 
@@ -180,9 +176,8 @@ goog.ui.media.YoutubeModel.newInstance = function(
  * @param {string} videoId The youtube video ID.
  * @return {string} The youtube URL.
  */
-goog.ui.media.YoutubeModel.buildUrl = function(videoId) {
-  'use strict';
-  return 'https://www.youtube.com/watch?v=' + goog.string.urlEncode(videoId);
+YoutubeModel.buildUrl = function(videoId) {
+ return 'https://www.youtube.com/watch?v=' + string.urlEncode(videoId);
 };
 
 
@@ -199,9 +194,8 @@ goog.ui.media.YoutubeModel.buildUrl = function(videoId) {
  * @return {string} An URL that contains an image with a preview of the youtube
  *     movie.
  */
-goog.ui.media.YoutubeModel.getThumbnailUrl = function(youtubeId) {
-  'use strict';
-  return 'https://i.ytimg.com/vi/' + youtubeId + '/default.jpg';
+YoutubeModel.getThumbnailUrl = function(youtubeId) {
+ return 'https://i.ytimg.com/vi/' + youtubeId + '/default.jpg';
 };
 
 
@@ -212,21 +206,20 @@ goog.ui.media.YoutubeModel.getThumbnailUrl = function(youtubeId) {
  * @param {string} videoId The youtube video ID.
  * @param {boolean=} opt_autoplay Whether the flash movie should start playing
  *     as soon as it is shown, or if it should show a 'play' button.
- * @return {!goog.html.TrustedResourceUrl} The flash URL to be embedded on the
+ * @return {!TrustedResourceUrl} The flash URL to be embedded on the
  *     page.
  */
-goog.ui.media.YoutubeModel.getFlashUrl = function(videoId, opt_autoplay) {
-  'use strict';
-  // YouTube video ids are extracted from youtube URLs, which are user
-  // generated input. The video id is later used to embed a flash object,
-  // which is generated through HTML construction.
-  return goog.html.TrustedResourceUrl.format(
-      goog.string.Const.from(
-          'https://www.youtube.com/v/%{v}&hl=en&fs=1%{autoplay}'),
-      {
-        'v': videoId,
-        'autoplay': opt_autoplay ? goog.string.Const.from('&autoplay=1') : ''
-      });
+YoutubeModel.getFlashUrl = function(videoId, opt_autoplay) {
+ // YouTube video ids are extracted from youtube URLs, which are user
+ // generated input. The video id is later used to embed a flash object,
+ // which is generated through HTML construction.
+ return TrustedResourceUrl.format(
+     Const.from(
+         'https://www.youtube.com/v/%{v}&hl=en&fs=1%{autoplay}'),
+     {
+       'v': videoId,
+       'autoplay': opt_autoplay ? Const.from('&autoplay=1') : ''
+     });
 };
 
 
@@ -234,7 +227,6 @@ goog.ui.media.YoutubeModel.getFlashUrl = function(videoId, opt_autoplay) {
  * Gets the Youtube video id.
  * @return {string} The Youtube video id.
  */
-goog.ui.media.YoutubeModel.prototype.getVideoId = function() {
-  'use strict';
-  return this.videoId_;
+YoutubeModel.prototype.getVideoId = function() {
+ return this.videoId_;
 };

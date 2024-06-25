@@ -6,15 +6,14 @@
 
 /** @fileoverview Unit tests for device. */
 
-goog.module('goog.labs.userAgent.deviceTest');
 goog.setTestOnly();
 
-const device = goog.require('goog.labs.userAgent.device');
-const testAgentData = goog.require('goog.labs.userAgent.testAgentData');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const util = goog.require('goog.labs.userAgent.util');
-const {setUseClientHintsForTesting} = goog.require('goog.labs.userAgent');
+import * as device from './device.js';
+import * as testAgentData from './test_agentdata.js';
+import { testAgents } from './test_agents.js';
+import { testSuite } from '../../testing/testsuite.js';
+import util from './util.js';
+import { setUseClientHintsForTesting } from './useragent.js';
 
 /**
  * @param {?string} uaString

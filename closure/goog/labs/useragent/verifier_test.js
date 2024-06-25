@@ -7,12 +7,11 @@
 /**
  * @fileoverview Description of this file.
  */
-goog.module('goog.labs.useragent.verifierTest');
 goog.setTestOnly();
 
-const browser = goog.require('goog.labs.userAgent.browser');
-const testSuite = goog.require('goog.testing.testSuite');
-const verifier = goog.require('goog.labs.useragent.verifier');
+import * as browser from './browser.js';
+import { testSuite } from '../../testing/testsuite.js';
+import verifier from './verifier.js';
 
 
 testSuite({

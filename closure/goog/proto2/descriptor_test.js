@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.proto2.DescriptorTest');
 goog.setTestOnly();
 
-const Descriptor = goog.require('goog.proto2.Descriptor');
-const Message = goog.require('goog.proto2.Message');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Descriptor } from './descriptor.js';
+import { Message } from './message.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testDescriptorConstruction() {

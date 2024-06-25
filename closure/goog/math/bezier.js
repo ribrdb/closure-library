@@ -16,10 +16,9 @@
  * curves of arbitrary degree.
  */
 
-goog.provide('goog.math.Bezier');
+import * as math from './math.js';
 
-goog.require('goog.math');
-goog.require('goog.math.Coordinate');
+import { Coordinate } from './coordinate.js';
 
 
 
@@ -37,8 +36,7 @@ goog.require('goog.math.Coordinate');
  * @constructor
  * @final
  */
-goog.math.Bezier = function(x0, y0, x1, y1, x2, y2, x3, y3) {
-  'use strict';
+export function Bezier(x0, y0, x1, y1, x2, y2, x3, y3) {
   /**
    * X coordinate of the first point.
    * @type {number}
@@ -86,7 +84,7 @@ goog.math.Bezier = function(x0, y0, x1, y1, x2, y2, x3, y3) {
    * @type {number}
    */
   this.y3 = y3;
-};
+}
 
 
 /**
@@ -94,26 +92,24 @@ goog.math.Bezier = function(x0, y0, x1, y1, x2, y2, x3, y3) {
  * See: http://canvaspaint.org/blog/2006/12/ellipse/
  * @type {number}
  */
-goog.math.Bezier.KAPPA = 4 * (Math.sqrt(2) - 1) / 3;
+Bezier.KAPPA = 4 * (Math.sqrt(2) - 1) / 3;
 
 
 /**
- * @return {!goog.math.Bezier} A copy of this curve.
+ * @return {!Bezier} A copy of this curve.
  */
-goog.math.Bezier.prototype.clone = function() {
-  'use strict';
-  return new goog.math.Bezier(
+Bezier.prototype.clone = function() {
+  return new Bezier(
       this.x0, this.y0, this.x1, this.y1, this.x2, this.y2, this.x3, this.y3);
 };
 
 
 /**
  * Test if the given curve is exactly the same as this one.
- * @param {goog.math.Bezier} other The other curve.
+ * @param {Bezier} other The other curve.
  * @return {boolean} Whether the given curve is the same as this one.
  */
-goog.math.Bezier.prototype.equals = function(other) {
-  'use strict';
+Bezier.prototype.equals = function(other) {
   return this.x0 == other.x0 && this.y0 == other.y0 && this.x1 == other.x1 &&
       this.y1 == other.y1 && this.x2 == other.x2 && this.y2 == other.y2 &&
       this.x3 == other.x3 && this.y3 == other.y3;
@@ -123,8 +119,7 @@ goog.math.Bezier.prototype.equals = function(other) {
 /**
  * Modifies the curve in place to progress in the opposite direction.
  */
-goog.math.Bezier.prototype.flip = function() {
-  'use strict';
+Bezier.prototype.flip = function() {
   var temp = this.x0;
   this.x0 = this.x3;
   this.x3 = temp;
@@ -146,8 +141,7 @@ goog.math.Bezier.prototype.flip = function() {
  * @param {number} t The point on the curve to find.
  * @return {number} The computed coordinate.
  */
-goog.math.Bezier.prototype.getPointX = function(t) {
-  'use strict';
+Bezier.prototype.getPointX = function(t) {
   // Special case start and end.
   if (t == 0) {
     return this.x0;
@@ -156,16 +150,16 @@ goog.math.Bezier.prototype.getPointX = function(t) {
   }
 
   // Step one - from 4 points to 3
-  var ix0 = goog.math.lerp(this.x0, this.x1, t);
-  var ix1 = goog.math.lerp(this.x1, this.x2, t);
-  var ix2 = goog.math.lerp(this.x2, this.x3, t);
+  var ix0 = math.lerp(this.x0, this.x1, t);
+  var ix1 = math.lerp(this.x1, this.x2, t);
+  var ix2 = math.lerp(this.x2, this.x3, t);
 
   // Step two - from 3 points to 2
-  ix0 = goog.math.lerp(ix0, ix1, t);
-  ix1 = goog.math.lerp(ix1, ix2, t);
+  ix0 = math.lerp(ix0, ix1, t);
+  ix1 = math.lerp(ix1, ix2, t);
 
   // Final step - last point
-  return goog.math.lerp(ix0, ix1, t);
+  return math.lerp(ix0, ix1, t);
 };
 
 
@@ -174,8 +168,7 @@ goog.math.Bezier.prototype.getPointX = function(t) {
  * @param {number} t The point on the curve to find.
  * @return {number} The computed coordinate.
  */
-goog.math.Bezier.prototype.getPointY = function(t) {
-  'use strict';
+Bezier.prototype.getPointY = function(t) {
   // Special case start and end.
   if (t == 0) {
     return this.y0;
@@ -184,27 +177,26 @@ goog.math.Bezier.prototype.getPointY = function(t) {
   }
 
   // Step one - from 4 points to 3
-  var iy0 = goog.math.lerp(this.y0, this.y1, t);
-  var iy1 = goog.math.lerp(this.y1, this.y2, t);
-  var iy2 = goog.math.lerp(this.y2, this.y3, t);
+  var iy0 = math.lerp(this.y0, this.y1, t);
+  var iy1 = math.lerp(this.y1, this.y2, t);
+  var iy2 = math.lerp(this.y2, this.y3, t);
 
   // Step two - from 3 points to 2
-  iy0 = goog.math.lerp(iy0, iy1, t);
-  iy1 = goog.math.lerp(iy1, iy2, t);
+  iy0 = math.lerp(iy0, iy1, t);
+  iy1 = math.lerp(iy1, iy2, t);
 
   // Final step - last point
-  return goog.math.lerp(iy0, iy1, t);
+  return math.lerp(iy0, iy1, t);
 };
 
 
 /**
  * Computes the curve at a point between 0 and 1.
  * @param {number} t The point on the curve to find.
- * @return {!goog.math.Coordinate} The computed coordinate.
+ * @return {!Coordinate} The computed coordinate.
  */
-goog.math.Bezier.prototype.getPoint = function(t) {
-  'use strict';
-  return new goog.math.Coordinate(this.getPointX(t), this.getPointY(t));
+Bezier.prototype.getPoint = function(t) {
+  return new Coordinate(this.getPointX(t), this.getPointY(t));
 };
 
 
@@ -212,40 +204,39 @@ goog.math.Bezier.prototype.getPoint = function(t) {
  * Changes this curve in place to be the portion of itself from [t, 1].
  * @param {number} t The start of the desired portion of the curve.
  */
-goog.math.Bezier.prototype.subdivideLeft = function(t) {
-  'use strict';
+Bezier.prototype.subdivideLeft = function(t) {
   if (t == 1) {
     return;
   }
 
   // Step one - from 4 points to 3
-  var ix0 = goog.math.lerp(this.x0, this.x1, t);
-  var iy0 = goog.math.lerp(this.y0, this.y1, t);
+  var ix0 = math.lerp(this.x0, this.x1, t);
+  var iy0 = math.lerp(this.y0, this.y1, t);
 
-  var ix1 = goog.math.lerp(this.x1, this.x2, t);
-  var iy1 = goog.math.lerp(this.y1, this.y2, t);
+  var ix1 = math.lerp(this.x1, this.x2, t);
+  var iy1 = math.lerp(this.y1, this.y2, t);
 
-  var ix2 = goog.math.lerp(this.x2, this.x3, t);
-  var iy2 = goog.math.lerp(this.y2, this.y3, t);
+  var ix2 = math.lerp(this.x2, this.x3, t);
+  var iy2 = math.lerp(this.y2, this.y3, t);
 
   // Collect our new x1 and y1
   this.x1 = ix0;
   this.y1 = iy0;
 
   // Step two - from 3 points to 2
-  ix0 = goog.math.lerp(ix0, ix1, t);
-  iy0 = goog.math.lerp(iy0, iy1, t);
+  ix0 = math.lerp(ix0, ix1, t);
+  iy0 = math.lerp(iy0, iy1, t);
 
-  ix1 = goog.math.lerp(ix1, ix2, t);
-  iy1 = goog.math.lerp(iy1, iy2, t);
+  ix1 = math.lerp(ix1, ix2, t);
+  iy1 = math.lerp(iy1, iy2, t);
 
   // Collect our new x2 and y2
   this.x2 = ix0;
   this.y2 = iy0;
 
   // Final step - last point
-  this.x3 = goog.math.lerp(ix0, ix1, t);
-  this.y3 = goog.math.lerp(iy0, iy1, t);
+  this.x3 = math.lerp(ix0, ix1, t);
+  this.y3 = math.lerp(iy0, iy1, t);
 };
 
 
@@ -253,8 +244,7 @@ goog.math.Bezier.prototype.subdivideLeft = function(t) {
  * Changes this curve in place to be the portion of itself from [0, t].
  * @param {number} t The end of the desired portion of the curve.
  */
-goog.math.Bezier.prototype.subdivideRight = function(t) {
-  'use strict';
+Bezier.prototype.subdivideRight = function(t) {
   this.flip();
   this.subdivideLeft(1 - t);
   this.flip();
@@ -266,8 +256,7 @@ goog.math.Bezier.prototype.subdivideRight = function(t) {
  * @param {number} s The start of the desired portion of the curve.
  * @param {number} t The end of the desired portion of the curve.
  */
-goog.math.Bezier.prototype.subdivide = function(s, t) {
-  'use strict';
+Bezier.prototype.subdivide = function(s, t) {
   this.subdivideRight(s);
   this.subdivideLeft((t - s) / (1 - s));
 };
@@ -281,8 +270,7 @@ goog.math.Bezier.prototype.subdivide = function(s, t) {
  * @param {number} xVal The x coordinate of the point to find on the curve.
  * @return {number} The position t.
  */
-goog.math.Bezier.prototype.solvePositionFromXValue = function(xVal) {
-  'use strict';
+Bezier.prototype.solvePositionFromXValue = function(xVal) {
   // Desired precision on the computation.
   var epsilon = 1e-6;
 
@@ -337,7 +325,6 @@ goog.math.Bezier.prototype.solvePositionFromXValue = function(xVal) {
  * @param {number} xVal The x coordinate of the point on the curve.
  * @return {number} The y coordinate of the point on the curve.
  */
-goog.math.Bezier.prototype.solveYValueFromXValue = function(xVal) {
-  'use strict';
+Bezier.prototype.solveYValueFromXValue = function(xVal) {
   return this.getPointY(this.solvePositionFromXValue(xVal));
 };

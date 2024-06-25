@@ -4,22 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.AbstractDragDropTest');
 goog.setTestOnly('goog.fx.AbstractDragDropTest');
 
-const AbstractDragDrop = goog.require('goog.fx.AbstractDragDrop');
-const Box = goog.require('goog.math.Box');
-const Coordinate = goog.require('goog.math.Coordinate');
-const DragDropItem = goog.require('goog.fx.DragDropItem');
-const EventType = goog.require('goog.events.EventType');
-const TagName = goog.require('goog.dom.TagName');
-const array = goog.require('goog.array');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { AbstractDragDrop, DragDropItem } from './abstractdragdrop.js';
+import { Box } from '../math/box.js';
+import { Coordinate } from '../math/coordinate.js';
+import { EventType } from '../events/eventtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as array from '../array/array.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 const {ActiveDropTarget} = AbstractDragDrop.TEST_ONLY;
 

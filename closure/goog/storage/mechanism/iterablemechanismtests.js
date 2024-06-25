@@ -11,13 +11,12 @@
  * goog.storage.mechanism.IterableMechanism.
  */
 
-goog.module('goog.storage.mechanism.iterableMechanismTests');
 goog.setTestOnly('goog.storage.mechanism.iterableMechanismTests');
 
-const IterableMechanism = goog.require('goog.storage.mechanism.IterableMechanism');
-const googIter = goog.require('goog.iter');
-const {assertEquals, assertNull, assertObjectEquals, assertSameElements, fail} = goog.require('goog.testing.asserts');
-const {bindTests} = goog.require('goog.storage.mechanism.testhelpers');
+import { IterableMechanism } from './iterablemechanism.js';
+import * as googIter from '../../iter/iter.js';
+import { assertEquals, assertNull, assertObjectEquals, assertSameElements, fail } from '../../testing/asserts.js';
+import { bindTests } from './mechanismtestdefinition.js';
 
 
 /**
@@ -144,7 +143,7 @@ function testIteratorWithWeirdKeys(mechanism) {
  * }} state
  * @return {!Object}
  */
-exports.register = function(state) {
+export let register = function(state) {
   return bindTests(
       [
         testCount, testIteratorBasics, testIteratorWithTwoValues, testClear,

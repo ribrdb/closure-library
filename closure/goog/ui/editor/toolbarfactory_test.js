@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.editor.ToolbarFactoryTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const ToolbarFactory = goog.require('goog.ui.editor.ToolbarFactory');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ExpectedFailures } from '../../testing/expectedfailures.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as ToolbarFactory from './toolbarfactory.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let helper;
 let expectedFailures;

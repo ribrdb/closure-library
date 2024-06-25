@@ -13,9 +13,9 @@
  * from which it came. The Jsonp class provides a workaround by
  * using dynamically generated script tags. Typical usage:.
  *
- * const trustedUri = goog.html.TrustedResourceUrl.fromConstant(
+ * const trustedUri = TrustedResourceUrl.fromConstant(
  *     goog.string.Const.from('https://example.com/servlet'));
- * const jsonp = new goog.net.Jsonp(trustedUri);
+ * const jsonp = new Jsonp(trustedUri);
  * const payload = {'foo': 1, 'bar': true};
  * jsonp.send(payload, function(reply) { alert(reply) });
  *
@@ -24,12 +24,11 @@
  * Netscape 7.1+, Mozilla 1.4+, Opera 8.02+.
  */
 
-goog.provide('goog.net.Jsonp');
+import * as functions from '../functions/functions.js';
 
-goog.require('goog.functions');
-goog.require('goog.html.TrustedResourceUrl');
-goog.require('goog.net.jsloader');
-goog.require('goog.object');
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as jsloader from './jsloader.js';
+import object from '../object/object.js';
 
 // WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
 //
@@ -50,7 +49,7 @@ goog.require('goog.object');
  * host URL. By default, if no reply arrives within 5s, the channel
  * assumes the call failed to complete successfully.
  *
- * @param {!goog.html.TrustedResourceUrl} uri The Uri of the server side code
+ * @param {!TrustedResourceUrl} uri The Uri of the server side code
  *     that receives data posted through this channel (e.g.,
  *     "http://maps.google.com/maps/geo").
  *
@@ -60,14 +59,13 @@ goog.require('goog.object');
  * @constructor
  * @final
  */
-goog.net.Jsonp = function(uri, opt_callbackParamName) {
-  'use strict';
+export function Jsonp(uri, opt_callbackParamName) {
   /**
-   * The uri_ object will be used to encode the payload that is sent to the
-   * server.
-   * @type {!goog.html.TrustedResourceUrl}
-   * @private
-   */
+     * The uri_ object will be used to encode the payload that is sent to the
+     * server.
+     * @type {!TrustedResourceUrl}
+     * @private
+     */
   this.uri_ = uri;
 
   /**
@@ -94,13 +92,13 @@ goog.net.Jsonp = function(uri, opt_callbackParamName) {
    * @private
    */
   this.nonce_ = '';
-};
+}
 
 
 /**
  * The prefix for the callback name which will be stored on goog.global.
  */
-goog.net.Jsonp.CALLBACKS = '_callbacks_';
+Jsonp.CALLBACKS = '_callbacks_';
 
 
 /**
@@ -108,7 +106,7 @@ goog.net.Jsonp.CALLBACKS = '_callbacks_';
  * all channels share a common callback object.
  * @private
  */
-goog.net.Jsonp.scriptCounter_ = 0;
+Jsonp.scriptCounter_ = 0;
 
 
 /**
@@ -119,9 +117,8 @@ goog.net.Jsonp.scriptCounter_ = 0;
  *     object.
  * @private
  */
-goog.net.Jsonp.getCallbackId_ = function(id) {
-  'use strict';
-  return goog.net.Jsonp.CALLBACKS + '__' + id;
+Jsonp.getCallbackId_ = function(id) {
+  return Jsonp.CALLBACKS + '__' + id;
 };
 
 
@@ -135,8 +132,7 @@ goog.net.Jsonp.getCallbackId_ = function(id) {
  * @param {number} timeout The length of time before calls are
  * interrupted.
  */
-goog.net.Jsonp.prototype.setRequestTimeout = function(timeout) {
-  'use strict';
+Jsonp.prototype.setRequestTimeout = function(timeout) {
   this.timeout_ = timeout;
 };
 
@@ -146,8 +142,7 @@ goog.net.Jsonp.prototype.setRequestTimeout = function(timeout) {
  *
  * @return {number} The timeout value.
  */
-goog.net.Jsonp.prototype.getRequestTimeout = function() {
-  'use strict';
+Jsonp.prototype.getRequestTimeout = function() {
   return this.timeout_;
 };
 
@@ -160,8 +155,7 @@ goog.net.Jsonp.prototype.getRequestTimeout = function() {
  *
  * @param {string} nonce The CSP nonce value.
  */
-goog.net.Jsonp.prototype.setNonce = function(nonce) {
-  'use strict';
+Jsonp.prototype.setNonce = function(nonce) {
   this.nonce_ = nonce;
 };
 
@@ -200,18 +194,17 @@ goog.net.Jsonp.prototype.setNonce = function(nonce) {
  * @return {!Object} A request descriptor that may be used to cancel this
  *     transmission, or null, if the message may not be cancelled.
  */
-goog.net.Jsonp.prototype.send = function(
+Jsonp.prototype.send = function(
     opt_payload, opt_replyCallback, opt_errorCallback, opt_callbackParamValue) {
-  'use strict';
-  const payload = opt_payload ? goog.object.clone(opt_payload) : {};
+  const payload = opt_payload ? object.clone(opt_payload) : {};
 
   const id = opt_callbackParamValue ||
-      '_' + (goog.net.Jsonp.scriptCounter_++).toString(36) +
+      '_' + (Jsonp.scriptCounter_++).toString(36) +
           Date.now().toString(36);
-  const callbackId = goog.net.Jsonp.getCallbackId_(id);
+  const callbackId = Jsonp.getCallbackId_(id);
 
   if (opt_replyCallback) {
-    const reply = goog.net.Jsonp.newReplyHandler_(id, opt_replyCallback);
+    const reply = Jsonp.newReplyHandler_(id, opt_replyCallback);
     // Register the callback on goog.global to make it discoverable
     // by jsonp response.
     goog.global[callbackId] = reply;
@@ -225,8 +218,8 @@ goog.net.Jsonp.prototype.send = function(
 
   const uri = this.uri_.cloneWithParams(payload);
 
-  const deferred = goog.net.jsloader.safeLoad(uri, options);
-  const error = goog.net.Jsonp.newErrorHandler_(id, payload, opt_errorCallback);
+  const deferred = jsloader.safeLoad(uri, options);
+  const error = Jsonp.newErrorHandler_(id, payload, opt_errorCallback);
   deferred.addErrback(error);
 
   return {id_: id, deferred_: deferred};
@@ -239,14 +232,13 @@ goog.net.Jsonp.prototype.send = function(
  * @param {Object} request The request object returned by the send method.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.net.Jsonp.prototype.cancel = function(request) {
-  'use strict';
+Jsonp.prototype.cancel = function(request) {
   if (request) {
     if (request.deferred_) {
       request.deferred_.cancel();
     }
     if (request.id_) {
-      goog.net.Jsonp.cleanup_(request.id_, false);
+      Jsonp.cleanup_(request.id_, false);
     }
   }
 };
@@ -262,16 +254,14 @@ goog.net.Jsonp.prototype.cancel = function(request) {
  * @return {!Function} A zero argument function that handles callback duties.
  * @private
  */
-goog.net.Jsonp.newErrorHandler_ = function(id, payload, opt_errorCallback) {
-  'use strict';
+Jsonp.newErrorHandler_ = function(id, payload, opt_errorCallback) {
   /**
    * When we call across domains with a request, this function is the
    * timeout handler. Once it's done executing the user-specified
    * error-handler, it removes the script node and original function.
    */
   return function() {
-    'use strict';
-    goog.net.Jsonp.cleanup_(id, false);
+    Jsonp.cleanup_(id, false);
     if (opt_errorCallback) {
       opt_errorCallback(payload);
     }
@@ -288,8 +278,7 @@ goog.net.Jsonp.newErrorHandler_ = function(id, payload, opt_errorCallback) {
  * @return {!Function} A reply callback function.
  * @private
  */
-goog.net.Jsonp.newReplyHandler_ = function(id, replyCallback) {
-  'use strict';
+Jsonp.newReplyHandler_ = function(id, replyCallback) {
   /**
    * This function is the handler for the all-is-well response. It
    * clears the error timeout handler, calls the user's handler, then
@@ -298,8 +287,7 @@ goog.net.Jsonp.newReplyHandler_ = function(id, replyCallback) {
    * @param {...Object} var_args The response data sent from the server.
    */
   const handler = function(var_args) {
-    'use strict';
-    goog.net.Jsonp.cleanup_(id, true);
+    Jsonp.cleanup_(id, true);
     replyCallback.apply(undefined, arguments);
   };
   return handler;
@@ -315,9 +303,8 @@ goog.net.Jsonp.newReplyHandler_ = function(id, replyCallback) {
  *     never be called again).
  * @private
  */
-goog.net.Jsonp.cleanup_ = function(id, deleteReplyHandler) {
-  'use strict';
-  const callbackId = goog.net.Jsonp.getCallbackId_(id);
+Jsonp.cleanup_ = function(id, deleteReplyHandler) {
+  const callbackId = Jsonp.getCallbackId_(id);
   if (goog.global[callbackId]) {
     if (deleteReplyHandler) {
       try {
@@ -330,7 +317,7 @@ goog.net.Jsonp.cleanup_ = function(id, deleteReplyHandler) {
     } else {
       // Removing the script tag doesn't necessarily prevent the script
       // from firing, so we make the callback a noop.
-      goog.global[callbackId] = goog.functions.UNDEFINED;
+      goog.global[callbackId] = functions.UNDEFINED;
     }
   }
 };

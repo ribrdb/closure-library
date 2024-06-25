@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.LongTest');
 goog.setTestOnly();
 
-const Long = goog.require('goog.math.Long');
-const asserts = goog.require('goog.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Long } from './long.js';
+import * as asserts from '../asserts/asserts.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Interprets the given numbers as the bits of a 32-bit int.  In particular,
 // this takes care of the 32-bit being interpretted as the sign.

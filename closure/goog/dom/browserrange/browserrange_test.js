@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.browserrangeTest');
 goog.setTestOnly();
 
-const NodeType = goog.require('goog.dom.NodeType');
-const Range = goog.require('goog.dom.Range');
-const RangeEndpoint = goog.require('goog.dom.RangeEndpoint');
-const TagName = goog.require('goog.dom.TagName');
-const browserrange = goog.require('goog.dom.browserrange');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const testingDom = goog.require('goog.testing.dom');
+import { NodeType } from '../nodetype.js';
+import * as Range from '../range.js';
+import { RangeEndpoint } from '../rangeendpoint.js';
+import { TagName } from '../tagname.js';
+import * as browserrange from './browserrange.js';
+import * as dom from '../dom.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testing from '../../html/testing.js';
+import * as testingDom from '../../testing/dom.js';
 
 let test1;
 let test2;

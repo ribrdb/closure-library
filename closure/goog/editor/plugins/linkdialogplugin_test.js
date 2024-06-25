@@ -4,29 +4,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.editor.plugins.LinkDialogTest');
 goog.setTestOnly();
 
-const AbstractDialog = goog.require('goog.ui.editor.AbstractDialog');
-const Command = goog.require('goog.editor.Command');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const Field = goog.require('goog.editor.Field');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const Link = goog.require('goog.editor.Link');
-const LinkDialog = goog.require('goog.ui.editor.LinkDialog');
-const LinkDialogPlugin = goog.require('goog.editor.plugins.LinkDialogPlugin');
-const MockControl = goog.require('goog.testing.MockControl');
-const NodeType = goog.require('goog.dom.NodeType');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const editorDom = goog.require('goog.testing.editor.dom');
-const events = goog.require('goog.testing.events');
-const googString = goog.require('goog.string');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
+import { Command } from '../command.js';
+import * as dom from '../../dom/dom.js';
+import { DomHelper } from '../../dom/dom.js';
+import { Field } from '../field.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { Link } from '../link.js';
+import { LinkDialog } from '../../ui/editor/linkdialog.js';
+import { LinkDialogPlugin } from './linkdialogplugin.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { NodeType } from '../../dom/nodetype.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as editorDom from '../../testing/editor/dom.js';
+import * as events from '../../testing/events/events.js';
+import * as googString from '../../string/string.js';
+import * as mockmatchers from '../../testing/mockmatchers.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let plugin;
 let anchorElem;

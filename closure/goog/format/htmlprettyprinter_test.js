@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.format.HtmlPrettyPrinterTest');
 goog.setTestOnly();
 
-const HtmlPrettyPrinter = goog.require('goog.format.HtmlPrettyPrinter');
-const MockClock = goog.require('goog.testing.MockClock');
-const testSuite = goog.require('goog.testing.testSuite');
+import { HtmlPrettyPrinter } from './htmlprettyprinter.js';
+import { MockClock } from '../testing/mockclock.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const COMPLEX_HTML = '<!DOCTYPE root-element [SYSTEM OR PUBLIC FPI] "uri" [' +
     '<!-- internal declarations -->]>' +

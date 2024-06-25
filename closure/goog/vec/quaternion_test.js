@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.vec.QuaternionTest');
 goog.setTestOnly();
 
-const Mat3 = goog.require('goog.vec.Mat3');
-const Mat4 = goog.require('goog.vec.Mat4');
-const Quaternion = goog.require('goog.vec.Quaternion');
-const Vec3 = goog.require('goog.vec.Vec3');
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
-const vec3f = goog.require('goog.vec.vec3f');
+import * as Mat3 from './mat3.js';
+import * as Mat4 from './mat4.js';
+import * as Quaternion from './quaternion.js';
+import * as Vec3 from './vec3.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
+import * as vec3f from './vec3f.js';
 
 testSuite({
   testCreateIdentityFloat32() {

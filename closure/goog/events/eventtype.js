@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.events.EventType');
+import * as eventTypeHelpers from './eventtypehelpers.js';
 
-goog.require('goog.events.eventTypeHelpers');
-goog.require('goog.userAgent');
+import * as userAgent from '../useragent/useragent.js';
 
 
 /**
  * Constants for event names.
  * @enum {string}
  */
-goog.events.EventType = {
+export var EventType = {
   // Mouse events
   CLICK: 'click',
   RIGHTCLICK: 'rightclick',
@@ -172,16 +171,16 @@ goog.events.EventType = {
 
   // CSS animation events.
   ANIMATIONSTART:
-      goog.events.eventTypeHelpers.getVendorPrefixedName('AnimationStart'),
+      eventTypeHelpers.getVendorPrefixedName('AnimationStart'),
   ANIMATIONEND:
-      goog.events.eventTypeHelpers.getVendorPrefixedName('AnimationEnd'),
+      eventTypeHelpers.getVendorPrefixedName('AnimationEnd'),
   ANIMATIONITERATION:
-      goog.events.eventTypeHelpers.getVendorPrefixedName('AnimationIteration'),
+      eventTypeHelpers.getVendorPrefixedName('AnimationIteration'),
 
   // CSS transition events. Based on the browser support described at:
   // https://developer.mozilla.org/en/css/css_transitions#Browser_compatibility
   TRANSITIONEND:
-      goog.events.eventTypeHelpers.getVendorPrefixedName('TransitionEnd'),
+      eventTypeHelpers.getVendorPrefixedName('TransitionEnd'),
 
   // W3C Pointer Events
   // http://www.w3.org/TR/pointerevents/
@@ -221,7 +220,7 @@ goog.events.EventType = {
   TEXT: 'text',
   // The textInput event is supported in IE9+, but only in lower case. All other
   // browsers use the camel-case event name.
-  TEXTINPUT: goog.userAgent.IE ? 'textinput' : 'textInput',
+  TEXTINPUT: userAgent.IE ? 'textinput' : 'textInput',
   COMPOSITIONSTART: 'compositionstart',
   COMPOSITIONUPDATE: 'compositionupdate',
   COMPOSITIONEND: 'compositionend',

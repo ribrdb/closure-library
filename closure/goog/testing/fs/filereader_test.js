@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fs.FileReaderTest');
 goog.setTestOnly();
 
-const EventObserver = goog.require('goog.testing.events.EventObserver');
-const FsError = goog.require('goog.fs.Error');
-const FsFile = goog.requireType('goog.testing.fs.File');
-const FsFileReader = goog.require('goog.fs.FileReader');
-const FsFileSystem = goog.require('goog.testing.fs.FileSystem');
-const GoogPromise = goog.require('goog.Promise');
-const TestingFsFileReader = goog.require('goog.testing.fs.FileReader');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventObserver } from '../events/eventobserver.js';
+import { Error as FsError } from '../../fs/error.js';
+import { FileReader as FsFileReader } from '../../fs/filereader.js';
+import { FileSystem as FsFileSystem } from './filesystem.js';
+import { Promise as GoogPromise } from '../../promise/promise.js';
+import { FileReader as TestingFsFileReader } from './filereader.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as events from '../../events/events.js';
+import googObject from '../../object/object.js';
+import { testSuite } from '../testsuite.js';
+const FsFile = goog.requireType('goog.testing.fs.file');
 
 const EventType = FsFileReader.EventType;
 const ReadyState = FsFileReader.ReadyState;

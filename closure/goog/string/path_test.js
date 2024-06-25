@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.string.pathTest');
 goog.setTestOnly();
 
-const path = goog.require('goog.string.path');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as path from './path.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Some test data comes from Python's posixpath tests.
 // See http://svn.python.org/view/python/trunk/Lib/test/test_posixpath.py

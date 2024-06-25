@@ -13,10 +13,10 @@
  * or HTML5 WebSocket offers.
  */
 
-goog.provide('goog.net.WebChannelTransport');
+goog.declareModuleId('goog.labs.net.webchanneltransport');
 
-goog.requireType('goog.net.WebChannel');
-goog.requireType('goog.net.WebChannel.Options');
+goog.requireType('goog.labs.net.webchannel');
+goog.requireType('goog.labs.net.webchannel');
 
 
 
@@ -38,7 +38,7 @@ goog.requireType('goog.net.WebChannel.Options');
  *
  * @interface
  */
-goog.net.WebChannelTransport = function() {};
+export function WebChannelTransport() {}
 
 
 /**
@@ -51,7 +51,7 @@ goog.net.WebChannelTransport = function() {};
  * @const
  * @type {number}
  */
-goog.net.WebChannelTransport.CLIENT_VERSION = 22;
+WebChannelTransport.CLIENT_VERSION = 22;
 
 
 /**
@@ -67,4 +67,4 @@ goog.net.WebChannelTransport.CLIENT_VERSION = 22;
  *     the new channel instance is created.
  * @return {!goog.net.WebChannel} the newly created WebChannel instance.
  */
-goog.net.WebChannelTransport.prototype.createWebChannel = goog.abstractMethod;
+WebChannelTransport.prototype.createWebChannel = goog.abstractMethod;

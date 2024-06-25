@@ -9,15 +9,14 @@
  * their output until both ends of the channel are connected.
  */
 
-goog.provide('goog.messaging.BufferedChannel');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.Timer');
-goog.require('goog.dispose');
-goog.require('goog.events');
-goog.require('goog.log');
-goog.require('goog.messaging.MessageChannel');
-goog.require('goog.messaging.MultiChannel');
+import { Timer } from '../timer/timer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from '../events/events.js';
+import * as log from '../log/log.js';
+import { MessageChannel } from './messagechannel.js';
+import { MultiChannel } from './multichannel.js';
 
 
 
@@ -27,18 +26,17 @@ goog.require('goog.messaging.MultiChannel');
  * peer claiming that the peer is ready to receive.  The peer is also expected
  * to be a BufferedChannel, though this is not enforced.
  *
- * @param {!goog.messaging.MessageChannel} messageChannel The MessageChannel
+ * @param {!MessageChannel} messageChannel The MessageChannel
  *     we're wrapping.
  * @param {number=} opt_interval Polling interval for sending ready
  *     notifications to peer, in ms.  Default is 50.
  * @constructor
- * @extends {goog.Disposable}
- * @implements {goog.messaging.MessageChannel};
+ * @extends {Disposable}
+ * @implements {MessageChannel};
  * @final
  */
-goog.messaging.BufferedChannel = function(messageChannel, opt_interval) {
-  'use strict';
-  goog.Disposable.call(this);
+export function BufferedChannel(messageChannel, opt_interval) {
+  Disposable.call(this);
 
   /**
    * Buffer of messages to be sent when the channel's peer is ready.
@@ -49,49 +47,49 @@ goog.messaging.BufferedChannel = function(messageChannel, opt_interval) {
   this.buffer_ = [];
 
   /**
-   * Channel dispatcher wrapping the underlying delegate channel.
-   *
-   * @type {!goog.messaging.MultiChannel}
-   * @private
-   */
-  this.multiChannel_ = new goog.messaging.MultiChannel(messageChannel);
+     * Channel dispatcher wrapping the underlying delegate channel.
+     *
+     * @type {!MultiChannel}
+     * @private
+     */
+  this.multiChannel_ = new MultiChannel(messageChannel);
 
   /**
-   * Virtual channel for carrying the user's messages.
-   *
-   * @type {!goog.messaging.MessageChannel}
-   * @private
-   */
+     * Virtual channel for carrying the user's messages.
+     *
+     * @type {!MessageChannel}
+     * @private
+     */
   this.userChannel_ = this.multiChannel_.createVirtualChannel(
-      goog.messaging.BufferedChannel.USER_CHANNEL_NAME_);
+      BufferedChannel.USER_CHANNEL_NAME_);
 
   /**
-   * Virtual channel for carrying control messages for BufferedChannel.
-   *
-   * @type {!goog.messaging.MessageChannel}
-   * @private
-   */
+     * Virtual channel for carrying control messages for BufferedChannel.
+     *
+     * @type {!MessageChannel}
+     * @private
+     */
   this.controlChannel_ = this.multiChannel_.createVirtualChannel(
-      goog.messaging.BufferedChannel.CONTROL_CHANNEL_NAME_);
+      BufferedChannel.CONTROL_CHANNEL_NAME_);
 
   /**
-   * Timer for the peer ready ping loop.
-   *
-   * @type {goog.Timer}
-   * @private
-   */
-  this.timer_ = new goog.Timer(
-      opt_interval || goog.messaging.BufferedChannel.DEFAULT_INTERVAL_MILLIS_);
+     * Timer for the peer ready ping loop.
+     *
+     * @type {Timer}
+     * @private
+     */
+  this.timer_ = new Timer(
+      opt_interval || BufferedChannel.DEFAULT_INTERVAL_MILLIS_);
 
   this.timer_.start();
-  goog.events.listen(
-      this.timer_, goog.Timer.TICK, this.sendReadyPing_, false, this);
+  events.listen(
+      this.timer_, Timer.TICK, this.sendReadyPing_, false, this);
 
   this.controlChannel_.registerService(
-      goog.messaging.BufferedChannel.PEER_READY_SERVICE_NAME_,
+      BufferedChannel.PEER_READY_SERVICE_NAME_,
       goog.bind(this.setPeerReady_, this));
-};
-goog.inherits(goog.messaging.BufferedChannel, goog.Disposable);
+}
+goog.inherits(BufferedChannel, Disposable);
 
 
 /**
@@ -101,7 +99,7 @@ goog.inherits(goog.messaging.BufferedChannel, goog.Disposable);
  * @const
  * @private
  */
-goog.messaging.BufferedChannel.DEFAULT_INTERVAL_MILLIS_ = 50;
+BufferedChannel.DEFAULT_INTERVAL_MILLIS_ = 50;
 
 
 /**
@@ -114,7 +112,7 @@ goog.messaging.BufferedChannel.DEFAULT_INTERVAL_MILLIS_ = 50;
  * @const
  * @private
  */
-goog.messaging.BufferedChannel.PEER_READY_SERVICE_NAME_ = 'setPeerReady_';
+BufferedChannel.PEER_READY_SERVICE_NAME_ = 'setPeerReady_';
 
 
 /**
@@ -124,7 +122,7 @@ goog.messaging.BufferedChannel.PEER_READY_SERVICE_NAME_ = 'setPeerReady_';
  * @const
  * @private
  */
-goog.messaging.BufferedChannel.USER_CHANNEL_NAME_ = 'user';
+BufferedChannel.USER_CHANNEL_NAME_ = 'user';
 
 
 /**
@@ -135,12 +133,11 @@ goog.messaging.BufferedChannel.USER_CHANNEL_NAME_ = 'user';
  * @const
  * @private
  */
-goog.messaging.BufferedChannel.CONTROL_CHANNEL_NAME_ = 'control';
+BufferedChannel.CONTROL_CHANNEL_NAME_ = 'control';
 
 
 /** @override */
-goog.messaging.BufferedChannel.prototype.connect = function(opt_connectCb) {
-  'use strict';
+BufferedChannel.prototype.connect = function(opt_connectCb) {
   if (opt_connectCb) {
     opt_connectCb();
   }
@@ -148,8 +145,7 @@ goog.messaging.BufferedChannel.prototype.connect = function(opt_connectCb) {
 
 
 /** @override */
-goog.messaging.BufferedChannel.prototype.isConnected = function() {
-  'use strict';
+BufferedChannel.prototype.isConnected = function() {
   return true;
 };
 
@@ -157,8 +153,7 @@ goog.messaging.BufferedChannel.prototype.isConnected = function() {
 /**
  * @return {boolean} Whether the channel's peer is ready.
  */
-goog.messaging.BufferedChannel.prototype.isPeerReady = function() {
-  'use strict';
+BufferedChannel.prototype.isPeerReady = function() {
   return this.peerReady_;
 };
 
@@ -166,12 +161,12 @@ goog.messaging.BufferedChannel.prototype.isPeerReady = function() {
 /**
  * Logger.
  *
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @const
  * @private
  */
-goog.messaging.BufferedChannel.prototype.logger_ =
-    goog.log.getLogger('goog.messaging.bufferedchannel');
+BufferedChannel.prototype.logger_ =
+    log.getLogger('goog.messaging.bufferedchannel');
 
 
 /**
@@ -181,11 +176,10 @@ goog.messaging.BufferedChannel.prototype.logger_ =
  *
  * @private
  */
-goog.messaging.BufferedChannel.prototype.sendReadyPing_ = function() {
-  'use strict';
+BufferedChannel.prototype.sendReadyPing_ = function() {
   try {
     this.controlChannel_.send(
-        goog.messaging.BufferedChannel.PEER_READY_SERVICE_NAME_,
+        BufferedChannel.PEER_READY_SERVICE_NAME_,
         /* payload */ this.isPeerReady() ? '1' : '');
   } catch (e) {
     this.timer_.stop();  // So we don't keep calling send and re-throwing.
@@ -200,21 +194,19 @@ goog.messaging.BufferedChannel.prototype.sendReadyPing_ = function() {
   * @type {boolean}
   * @private
   */
-goog.messaging.BufferedChannel.prototype.peerReady_;
+BufferedChannel.prototype.peerReady_;
 
 
 /** @override */
-goog.messaging.BufferedChannel.prototype.registerService = function(
+BufferedChannel.prototype.registerService = function(
     serviceName, callback, opt_objectPayload) {
-  'use strict';
   this.userChannel_.registerService(serviceName, callback, opt_objectPayload);
 };
 
 
 /** @override */
-goog.messaging.BufferedChannel.prototype.registerDefaultService = function(
+BufferedChannel.prototype.registerDefaultService = function(
     callback) {
-  'use strict';
   this.userChannel_.registerDefaultService(callback);
 };
 
@@ -231,13 +223,12 @@ goog.messaging.BufferedChannel.prototype.registerDefaultService = function(
  * @see goog.net.xpc.BufferedChannel.send
  * @override
  */
-goog.messaging.BufferedChannel.prototype.send = function(serviceName, payload) {
-  'use strict';
+BufferedChannel.prototype.send = function(serviceName, payload) {
   if (this.isPeerReady()) {
     this.userChannel_.send(serviceName, payload);
   } else {
-    goog.log.fine(
-        goog.messaging.BufferedChannel.prototype.logger_,
+    log.fine(
+        BufferedChannel.prototype.logger_,
         'buffering message ' + serviceName);
     this.buffer_.push({serviceName: serviceName, payload: payload});
   }
@@ -254,9 +245,8 @@ goog.messaging.BufferedChannel.prototype.send = function(serviceName, payload) {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.messaging.BufferedChannel.prototype.setPeerReady_ = function(
+BufferedChannel.prototype.setPeerReady_ = function(
     peerKnowsWeKnowItsReady) {
-  'use strict';
   if (peerKnowsWeKnowItsReady) {
     this.timer_.stop();
   } else {
@@ -274,8 +264,8 @@ goog.messaging.BufferedChannel.prototype.setPeerReady_ = function(
   this.sendReadyPing_();
   for (let i = 0; i < this.buffer_.length; i++) {
     const message = this.buffer_[i];
-    goog.log.fine(
-        goog.messaging.BufferedChannel.prototype.logger_,
+    log.fine(
+        BufferedChannel.prototype.logger_,
         'sending buffered message ' + message.serviceName);
     this.userChannel_.send(message.serviceName, message.payload);
   }
@@ -284,9 +274,8 @@ goog.messaging.BufferedChannel.prototype.setPeerReady_ = function(
 
 
 /** @override */
-goog.messaging.BufferedChannel.prototype.disposeInternal = function() {
-  'use strict';
-  goog.dispose(this.multiChannel_);
-  goog.dispose(this.timer_);
-  goog.messaging.BufferedChannel.base(this, 'disposeInternal');
+BufferedChannel.prototype.disposeInternal = function() {
+  dispose(this.multiChannel_);
+  dispose(this.timer_);
+  BufferedChannel.base(this, 'disposeInternal');
 };

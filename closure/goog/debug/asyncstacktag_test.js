@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.asyncStackTagTest');
 goog.setTestOnly();
 
-const asyncStackTag = goog.require('goog.debug.asyncStackTag');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import asyncStackTag from './asyncstacktag.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testWrap() {

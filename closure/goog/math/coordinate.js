@@ -9,9 +9,9 @@
  */
 
 
-goog.provide('goog.math.Coordinate');
+goog.declareModuleId('goog.math.coordinate');
 
-goog.require('goog.math');
+import * as math from './math.js';
 
 
 
@@ -22,8 +22,7 @@ goog.require('goog.math');
  * @struct
  * @constructor
  */
-goog.math.Coordinate = function(opt_x, opt_y) {
-  'use strict';
+export function Coordinate(opt_x, opt_y) {
   /**
    * X-value
    * @type {number}
@@ -35,16 +34,15 @@ goog.math.Coordinate = function(opt_x, opt_y) {
    * @type {number}
    */
   this.y = (opt_y !== undefined) ? opt_y : 0;
-};
+}
 
 
 /**
  * Returns a new copy of the coordinate.
- * @return {!goog.math.Coordinate} A clone of this coordinate.
+ * @return {!Coordinate} A clone of this coordinate.
  */
-goog.math.Coordinate.prototype.clone = function() {
-  'use strict';
-  return new goog.math.Coordinate(this.x, this.y);
+Coordinate.prototype.clone = function() {
+  return new Coordinate(this.x, this.y);
 };
 
 
@@ -54,8 +52,7 @@ if (goog.DEBUG) {
    * @return {string} In the form (50, 73).
    * @override
    */
-  goog.math.Coordinate.prototype.toString = function() {
-    'use strict';
+  Coordinate.prototype.toString = function() {
     return '(' + this.x + ', ' + this.y + ')';
   };
 }
@@ -66,21 +63,19 @@ if (goog.DEBUG) {
  * @param {*} other Some other value.
  * @return {boolean} Whether the specified value is equal to this coordinate.
  */
-goog.math.Coordinate.prototype.equals = function(other) {
-  'use strict';
-  return other instanceof goog.math.Coordinate &&
-      goog.math.Coordinate.equals(this, other);
+Coordinate.prototype.equals = function(other) {
+  return other instanceof Coordinate &&
+      Coordinate.equals(this, other);
 };
 
 
 /**
  * Compares coordinates for equality.
- * @param {goog.math.Coordinate} a A Coordinate.
- * @param {goog.math.Coordinate} b A Coordinate.
+ * @param {Coordinate} a A Coordinate.
+ * @param {Coordinate} b A Coordinate.
  * @return {boolean} True iff the coordinates are equal, or if both are null.
  */
-goog.math.Coordinate.equals = function(a, b) {
-  'use strict';
+Coordinate.equals = function(a, b) {
   if (a == b) {
     return true;
   }
@@ -93,12 +88,11 @@ goog.math.Coordinate.equals = function(a, b) {
 
 /**
  * Returns the distance between two coordinates.
- * @param {!goog.math.Coordinate} a A Coordinate.
- * @param {!goog.math.Coordinate} b A Coordinate.
+ * @param {!Coordinate} a A Coordinate.
+ * @param {!Coordinate} b A Coordinate.
  * @return {number} The distance between `a` and `b`.
  */
-goog.math.Coordinate.distance = function(a, b) {
-  'use strict';
+Coordinate.distance = function(a, b) {
   var dx = a.x - b.x;
   var dy = a.y - b.y;
   return Math.sqrt(dx * dx + dy * dy);
@@ -107,24 +101,22 @@ goog.math.Coordinate.distance = function(a, b) {
 
 /**
  * Returns the magnitude of a coordinate.
- * @param {!goog.math.Coordinate} a A Coordinate.
+ * @param {!Coordinate} a A Coordinate.
  * @return {number} The distance between the origin and `a`.
  */
-goog.math.Coordinate.magnitude = function(a) {
-  'use strict';
+Coordinate.magnitude = function(a) {
   return Math.sqrt(a.x * a.x + a.y * a.y);
 };
 
 
 /**
  * Returns the angle from the origin to a coordinate.
- * @param {!goog.math.Coordinate} a A Coordinate.
+ * @param {!Coordinate} a A Coordinate.
  * @return {number} The angle, in degrees, clockwise from the positive X
  *     axis to `a`.
  */
-goog.math.Coordinate.azimuth = function(a) {
-  'use strict';
-  return goog.math.angle(0, 0, a.x, a.y);
+Coordinate.azimuth = function(a) {
+  return math.angle(0, 0, a.x, a.y);
 };
 
 
@@ -136,12 +128,11 @@ goog.math.Coordinate.azimuth = function(a) {
  * in lower-level languages, but the speed difference is not nearly as
  * pronounced in JavaScript (only a few percent.)
  *
- * @param {!goog.math.Coordinate} a A Coordinate.
- * @param {!goog.math.Coordinate} b A Coordinate.
+ * @param {!Coordinate} a A Coordinate.
+ * @param {!Coordinate} b A Coordinate.
  * @return {number} The squared distance between `a` and `b`.
  */
-goog.math.Coordinate.squaredDistance = function(a, b) {
-  'use strict';
+Coordinate.squaredDistance = function(a, b) {
   var dx = a.x - b.x;
   var dy = a.y - b.y;
   return dx * dx + dy * dy;
@@ -150,37 +141,34 @@ goog.math.Coordinate.squaredDistance = function(a, b) {
 
 /**
  * Returns the difference between two coordinates as a new
- * goog.math.Coordinate.
- * @param {!goog.math.Coordinate} a A Coordinate.
- * @param {!goog.math.Coordinate} b A Coordinate.
- * @return {!goog.math.Coordinate} A Coordinate representing the difference
+ * Coordinate.
+ * @param {!Coordinate} a A Coordinate.
+ * @param {!Coordinate} b A Coordinate.
+ * @return {!Coordinate} A Coordinate representing the difference
  *     between `a` and `b`.
  */
-goog.math.Coordinate.difference = function(a, b) {
-  'use strict';
-  return new goog.math.Coordinate(a.x - b.x, a.y - b.y);
+Coordinate.difference = function(a, b) {
+  return new Coordinate(a.x - b.x, a.y - b.y);
 };
 
 
 /**
- * Returns the sum of two coordinates as a new goog.math.Coordinate.
- * @param {!goog.math.Coordinate} a A Coordinate.
- * @param {!goog.math.Coordinate} b A Coordinate.
- * @return {!goog.math.Coordinate} A Coordinate representing the sum of the two
+ * Returns the sum of two coordinates as a new Coordinate.
+ * @param {!Coordinate} a A Coordinate.
+ * @param {!Coordinate} b A Coordinate.
+ * @return {!Coordinate} A Coordinate representing the sum of the two
  *     coordinates.
  */
-goog.math.Coordinate.sum = function(a, b) {
-  'use strict';
-  return new goog.math.Coordinate(a.x + b.x, a.y + b.y);
+Coordinate.sum = function(a, b) {
+  return new Coordinate(a.x + b.x, a.y + b.y);
 };
 
 
 /**
  * Rounds the x and y fields to the next larger integer values.
- * @return {!goog.math.Coordinate} This coordinate with ceil'd fields.
+ * @return {!Coordinate} This coordinate with ceil'd fields.
  */
-goog.math.Coordinate.prototype.ceil = function() {
-  'use strict';
+Coordinate.prototype.ceil = function() {
   this.x = Math.ceil(this.x);
   this.y = Math.ceil(this.y);
   return this;
@@ -189,10 +177,9 @@ goog.math.Coordinate.prototype.ceil = function() {
 
 /**
  * Rounds the x and y fields to the next smaller integer values.
- * @return {!goog.math.Coordinate} This coordinate with floored fields.
+ * @return {!Coordinate} This coordinate with floored fields.
  */
-goog.math.Coordinate.prototype.floor = function() {
-  'use strict';
+Coordinate.prototype.floor = function() {
   this.x = Math.floor(this.x);
   this.y = Math.floor(this.y);
   return this;
@@ -201,10 +188,9 @@ goog.math.Coordinate.prototype.floor = function() {
 
 /**
  * Rounds the x and y fields to the nearest integer values.
- * @return {!goog.math.Coordinate} This coordinate with rounded fields.
+ * @return {!Coordinate} This coordinate with rounded fields.
  */
-goog.math.Coordinate.prototype.round = function() {
-  'use strict';
+Coordinate.prototype.round = function() {
   this.x = Math.round(this.x);
   this.y = Math.round(this.y);
   return this;
@@ -212,18 +198,17 @@ goog.math.Coordinate.prototype.round = function() {
 
 
 /**
- * Translates this box by the given offsets. If a `goog.math.Coordinate`
+ * Translates this box by the given offsets. If a `Coordinate`
  * is given, then the x and y values are translated by the coordinate's x and y.
  * Otherwise, x and y are translated by `tx` and `opt_ty`
  * respectively.
- * @param {number|goog.math.Coordinate} tx The value to translate x by or the
+ * @param {number|Coordinate} tx The value to translate x by or the
  *     the coordinate to translate this coordinate by.
  * @param {number=} opt_ty The value to translate y by.
- * @return {!goog.math.Coordinate} This coordinate after translating.
+ * @return {!Coordinate} This coordinate after translating.
  */
-goog.math.Coordinate.prototype.translate = function(tx, opt_ty) {
-  'use strict';
-  if (tx instanceof goog.math.Coordinate) {
+Coordinate.prototype.translate = function(tx, opt_ty) {
+  if (tx instanceof Coordinate) {
     this.x += tx.x;
     this.y += tx.y;
   } else {
@@ -242,10 +227,9 @@ goog.math.Coordinate.prototype.translate = function(tx, opt_ty) {
  * is not given, then `sx` is used for both x and y.
  * @param {number} sx The scale factor to use for the x dimension.
  * @param {number=} opt_sy The scale factor to use for the y dimension.
- * @return {!goog.math.Coordinate} This coordinate after scaling.
+ * @return {!Coordinate} This coordinate after scaling.
  */
-goog.math.Coordinate.prototype.scale = function(sx, opt_sy) {
-  'use strict';
+Coordinate.prototype.scale = function(sx, opt_sy) {
   var sy = (typeof opt_sy === 'number') ? opt_sy : sx;
   this.x *= sx;
   this.y *= sy;
@@ -258,12 +242,11 @@ goog.math.Coordinate.prototype.scale = function(sx, opt_sy) {
  * center) by the given angle, in radians.
  * @param {number} radians The angle by which to rotate this coordinate
  *     clockwise about the given center, in radians.
- * @param {!goog.math.Coordinate=} opt_center The center of rotation. Defaults
+ * @param {!Coordinate=} opt_center The center of rotation. Defaults
  *     to (0, 0) if not given.
  */
-goog.math.Coordinate.prototype.rotateRadians = function(radians, opt_center) {
-  'use strict';
-  var center = opt_center || new goog.math.Coordinate(0, 0);
+Coordinate.prototype.rotateRadians = function(radians, opt_center) {
+  var center = opt_center || new Coordinate(0, 0);
 
   var x = this.x;
   var y = this.y;
@@ -280,10 +263,9 @@ goog.math.Coordinate.prototype.rotateRadians = function(radians, opt_center) {
  * center) by the given angle, in degrees.
  * @param {number} degrees The angle by which to rotate this coordinate
  *     clockwise about the given center, in degrees.
- * @param {!goog.math.Coordinate=} opt_center The center of rotation. Defaults
+ * @param {!Coordinate=} opt_center The center of rotation. Defaults
  *     to (0, 0) if not given.
  */
-goog.math.Coordinate.prototype.rotateDegrees = function(degrees, opt_center) {
-  'use strict';
-  this.rotateRadians(goog.math.toRadians(degrees), opt_center);
+Coordinate.prototype.rotateDegrees = function(degrees, opt_center) {
+  this.rotateRadians(math.toRadians(degrees), opt_center);
 };

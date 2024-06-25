@@ -14,21 +14,20 @@
 
 // clang-format off
 
-goog.module('goog.i18n.relativeDateTimeSymbolsExt');
+import * as relativeDateTimeSymbols from './relativedatetimesymbols.js';
 
-const relativeDateTimeSymbols = goog.require('goog.i18n.relativeDateTimeSymbols');
 /** @type {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
 let defaultSymbols;
 
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_af_NA = relativeDateTimeSymbols.RelativeDateTimeSymbols_af;
+export let RelativeDateTimeSymbols_af_NA = relativeDateTimeSymbols.RelativeDateTimeSymbols_af;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_af_ZA = relativeDateTimeSymbols.RelativeDateTimeSymbols_af;
+export let RelativeDateTimeSymbols_af_ZA = relativeDateTimeSymbols.RelativeDateTimeSymbols_af;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_agq =  {
+export let RelativeDateTimeSymbols_agq = {
   DAY: {
     LONG:{
       R:{'-1':'ā zūɛɛ','0':'nɛ','1':'tsʉtsʉ'},
@@ -88,10 +87,10 @@ exports.RelativeDateTimeSymbols_agq =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_agq_CM = exports.RelativeDateTimeSymbols_agq;
+export let RelativeDateTimeSymbols_agq_CM = RelativeDateTimeSymbols_agq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ak =  {
+export let RelativeDateTimeSymbols_ak = {
   DAY: {
     LONG:{
       R:{'-1':'Ndeda','0':'Ndɛ','1':'Ɔkyena'},
@@ -151,16 +150,16 @@ exports.RelativeDateTimeSymbols_ak =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ak_GH = exports.RelativeDateTimeSymbols_ak;
+export let RelativeDateTimeSymbols_ak_GH = RelativeDateTimeSymbols_ak;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_am_ET = relativeDateTimeSymbols.RelativeDateTimeSymbols_am;
+export let RelativeDateTimeSymbols_am_ET = relativeDateTimeSymbols.RelativeDateTimeSymbols_am;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_001 = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_001 = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_AE =  {
+export let RelativeDateTimeSymbols_ar_AE = {
   DAY: {
     LONG:{
       R:{'-1':'أمس','-2':'أول أمس','0':'اليوم','1':'غدًا','2':'بعد الغد'},
@@ -250,76 +249,76 @@ exports.RelativeDateTimeSymbols_ar_AE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_BH = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_BH = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_DJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_DJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_EH = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_EH = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_ER = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_ER = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_IL = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_IL = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_IQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_IQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_JO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_JO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_KM = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_KM = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_KW = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_KW = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_LB = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_LB = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_LY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_LY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_MA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_MA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_MR = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_MR = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_OM = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_OM = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_PS = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_PS = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_QA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_QA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_SA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_SA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_SD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_SD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_SO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_SO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_SS = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_SS = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_SY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_SY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_TD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_TD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_TN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_TN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_XB =  {
+export let RelativeDateTimeSymbols_ar_XB = {
   DAY: {
     LONG:{
       R:{'-1':'؜‮yesterday‬؜','0':'؜‮today‬؜','1':'؜‮tomorrow‬؜'},
@@ -459,10 +458,10 @@ exports.RelativeDateTimeSymbols_ar_XB =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ar_YE = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
+export let RelativeDateTimeSymbols_ar_YE = relativeDateTimeSymbols.RelativeDateTimeSymbols_ar;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_as =  {
+export let RelativeDateTimeSymbols_as = {
   DAY: {
     LONG:{
       R:{'-1':'কালি','-2':'পৰহি','0':'আজি','1':'কাইলৈ','2':'পৰহিলৈ'},
@@ -532,10 +531,10 @@ exports.RelativeDateTimeSymbols_as =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_as_IN = exports.RelativeDateTimeSymbols_as;
+export let RelativeDateTimeSymbols_as_IN = RelativeDateTimeSymbols_as;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_asa =  {
+export let RelativeDateTimeSymbols_asa = {
   DAY: {
     LONG:{
       R:{'-1':'Ighuo','0':'Iyoo','1':'Yavo'},
@@ -595,10 +594,10 @@ exports.RelativeDateTimeSymbols_asa =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_asa_TZ = exports.RelativeDateTimeSymbols_asa;
+export let RelativeDateTimeSymbols_asa_TZ = RelativeDateTimeSymbols_asa;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ast =  {
+export let RelativeDateTimeSymbols_ast = {
   DAY: {
     LONG:{
       R:{'-1':'ayeri','-2':'antayeri','0':'güei','1':'mañana','2':'pasao mañana'},
@@ -728,10 +727,10 @@ exports.RelativeDateTimeSymbols_ast =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ast_ES = exports.RelativeDateTimeSymbols_ast;
+export let RelativeDateTimeSymbols_ast_ES = RelativeDateTimeSymbols_ast;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_az_Cyrl =  {
+export let RelativeDateTimeSymbols_az_Cyrl = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -791,7 +790,7 @@ exports.RelativeDateTimeSymbols_az_Cyrl =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_az_Cyrl_AZ =  {
+export let RelativeDateTimeSymbols_az_Cyrl_AZ = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -851,13 +850,13 @@ exports.RelativeDateTimeSymbols_az_Cyrl_AZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_az_Latn = relativeDateTimeSymbols.RelativeDateTimeSymbols_az;
+export let RelativeDateTimeSymbols_az_Latn = relativeDateTimeSymbols.RelativeDateTimeSymbols_az;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_az_Latn_AZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_az;
+export let RelativeDateTimeSymbols_az_Latn_AZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_az;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bas =  {
+export let RelativeDateTimeSymbols_bas = {
   DAY: {
     LONG:{
       R:{'-1':'yààni','0':'lɛ̀n','1':'yàni'},
@@ -917,13 +916,13 @@ exports.RelativeDateTimeSymbols_bas =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bas_CM = exports.RelativeDateTimeSymbols_bas;
+export let RelativeDateTimeSymbols_bas_CM = RelativeDateTimeSymbols_bas;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_be_BY = relativeDateTimeSymbols.RelativeDateTimeSymbols_be;
+export let RelativeDateTimeSymbols_be_BY = relativeDateTimeSymbols.RelativeDateTimeSymbols_be;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bem =  {
+export let RelativeDateTimeSymbols_bem = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'Lelo','1':'tomorrow'},
@@ -983,10 +982,10 @@ exports.RelativeDateTimeSymbols_bem =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bem_ZM = exports.RelativeDateTimeSymbols_bem;
+export let RelativeDateTimeSymbols_bem_ZM = RelativeDateTimeSymbols_bem;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bez =  {
+export let RelativeDateTimeSymbols_bez = {
   DAY: {
     LONG:{
       R:{'-1':'Igolo','0':'Neng’u ni','1':'Hilawu'},
@@ -1046,13 +1045,13 @@ exports.RelativeDateTimeSymbols_bez =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bez_TZ = exports.RelativeDateTimeSymbols_bez;
+export let RelativeDateTimeSymbols_bez_TZ = RelativeDateTimeSymbols_bez;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bg_BG = relativeDateTimeSymbols.RelativeDateTimeSymbols_bg;
+export let RelativeDateTimeSymbols_bg_BG = relativeDateTimeSymbols.RelativeDateTimeSymbols_bg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bgc =  {
+export let RelativeDateTimeSymbols_bgc = {
   DAY: {
     LONG:{
       R:{'-1':'काह्ल (बित्या होड)','0':'आज','1':'काह्ल (आण आला)'},
@@ -1112,10 +1111,10 @@ exports.RelativeDateTimeSymbols_bgc =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bgc_IN = exports.RelativeDateTimeSymbols_bgc;
+export let RelativeDateTimeSymbols_bgc_IN = RelativeDateTimeSymbols_bgc;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bho =  {
+export let RelativeDateTimeSymbols_bho = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -1175,10 +1174,10 @@ exports.RelativeDateTimeSymbols_bho =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bho_IN = exports.RelativeDateTimeSymbols_bho;
+export let RelativeDateTimeSymbols_bho_IN = RelativeDateTimeSymbols_bho;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bm =  {
+export let RelativeDateTimeSymbols_bm = {
   DAY: {
     LONG:{
       R:{'-1':'kunu','0':'bi','1':'sini'},
@@ -1238,16 +1237,16 @@ exports.RelativeDateTimeSymbols_bm =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bm_ML = exports.RelativeDateTimeSymbols_bm;
+export let RelativeDateTimeSymbols_bm_ML = RelativeDateTimeSymbols_bm;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bn_BD = relativeDateTimeSymbols.RelativeDateTimeSymbols_bn;
+export let RelativeDateTimeSymbols_bn_BD = relativeDateTimeSymbols.RelativeDateTimeSymbols_bn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bn_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_bn;
+export let RelativeDateTimeSymbols_bn_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_bn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bo =  {
+export let RelativeDateTimeSymbols_bo = {
   DAY: {
     LONG:{
       R:{'-1':'ཁས་ས་','-2':'ཁས་ཉིན་','0':'དེ་རིང་','1':'སང་ཉིན་','2':'གནངས་ཉིན་'},
@@ -1307,16 +1306,16 @@ exports.RelativeDateTimeSymbols_bo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bo_CN = exports.RelativeDateTimeSymbols_bo;
+export let RelativeDateTimeSymbols_bo_CN = RelativeDateTimeSymbols_bo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bo_IN = exports.RelativeDateTimeSymbols_bo;
+export let RelativeDateTimeSymbols_bo_IN = RelativeDateTimeSymbols_bo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_br_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_br;
+export let RelativeDateTimeSymbols_br_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_br;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_brx =  {
+export let RelativeDateTimeSymbols_brx = {
   DAY: {
     LONG:{
       R:{'-1':'मैया','0':'दिनै','1':'गाबोन'},
@@ -1376,10 +1375,10 @@ exports.RelativeDateTimeSymbols_brx =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_brx_IN = exports.RelativeDateTimeSymbols_brx;
+export let RelativeDateTimeSymbols_brx_IN = RelativeDateTimeSymbols_brx;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bs_Cyrl =  {
+export let RelativeDateTimeSymbols_bs_Cyrl = {
   DAY: {
     LONG:{
       R:{'-1':'јуче','-2':'прекјуче','0':'данас','1':'сутра','2':'прекосутра'},
@@ -1474,7 +1473,7 @@ exports.RelativeDateTimeSymbols_bs_Cyrl =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bs_Cyrl_BA =  {
+export let RelativeDateTimeSymbols_bs_Cyrl_BA = {
   DAY: {
     LONG:{
       R:{'-1':'јуче','-2':'прекјуче','0':'данас','1':'сутра','2':'прекосутра'},
@@ -1569,25 +1568,25 @@ exports.RelativeDateTimeSymbols_bs_Cyrl_BA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bs_Latn = relativeDateTimeSymbols.RelativeDateTimeSymbols_bs;
+export let RelativeDateTimeSymbols_bs_Latn = relativeDateTimeSymbols.RelativeDateTimeSymbols_bs;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_bs_Latn_BA = relativeDateTimeSymbols.RelativeDateTimeSymbols_bs;
+export let RelativeDateTimeSymbols_bs_Latn_BA = relativeDateTimeSymbols.RelativeDateTimeSymbols_bs;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ca_AD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
+export let RelativeDateTimeSymbols_ca_AD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ca_ES = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
+export let RelativeDateTimeSymbols_ca_ES = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ca_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
+export let RelativeDateTimeSymbols_ca_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ca_IT = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
+export let RelativeDateTimeSymbols_ca_IT = relativeDateTimeSymbols.RelativeDateTimeSymbols_ca;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ccp =  {
+export let RelativeDateTimeSymbols_ccp = {
   DAY: {
     LONG:{
       R:{'-1':'𑄉𑄬𑄣𑄴𑄣𑄳𑄠𑄇𑄬𑄣𑄳𑄠𑄬','-2':'𑄉𑄬𑄣𑄧𑄘𑄬 𑄛𑄧𑄢𑄴𑄥𑄪','0':'𑄃𑄬𑄌𑄴𑄥𑄳𑄠','1':'𑄃𑄬𑄎𑄬𑄖𑄴𑄖𑄳𑄠𑄇𑄬𑄣𑄳𑄠𑄬','2':'𑄃𑄬𑄎𑄬𑄖𑄴𑄖𑄳𑄠𑄬 𑄛𑄧𑄢𑄴𑄥𑄪'},
@@ -1687,13 +1686,13 @@ exports.RelativeDateTimeSymbols_ccp =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ccp_BD = exports.RelativeDateTimeSymbols_ccp;
+export let RelativeDateTimeSymbols_ccp_BD = RelativeDateTimeSymbols_ccp;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ccp_IN = exports.RelativeDateTimeSymbols_ccp;
+export let RelativeDateTimeSymbols_ccp_IN = RelativeDateTimeSymbols_ccp;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ce =  {
+export let RelativeDateTimeSymbols_ce = {
   DAY: {
     LONG:{
       R:{'-1':'селхана','0':'тахана','1':'кхана'},
@@ -1798,10 +1797,10 @@ exports.RelativeDateTimeSymbols_ce =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ce_RU = exports.RelativeDateTimeSymbols_ce;
+export let RelativeDateTimeSymbols_ce_RU = RelativeDateTimeSymbols_ce;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ceb =  {
+export let RelativeDateTimeSymbols_ceb = {
   DAY: {
     LONG:{
       R:{'-1':'gahapon','0':'karong adlawa','1':'ugma'},
@@ -1861,10 +1860,10 @@ exports.RelativeDateTimeSymbols_ceb =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ceb_PH = exports.RelativeDateTimeSymbols_ceb;
+export let RelativeDateTimeSymbols_ceb_PH = RelativeDateTimeSymbols_ceb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_cgg =  {
+export let RelativeDateTimeSymbols_cgg = {
   DAY: {
     LONG:{
       R:{'-1':'Nyomwabazyo','0':'Erizooba','1':'Nyenkyakare'},
@@ -1924,13 +1923,13 @@ exports.RelativeDateTimeSymbols_cgg =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_cgg_UG = exports.RelativeDateTimeSymbols_cgg;
+export let RelativeDateTimeSymbols_cgg_UG = RelativeDateTimeSymbols_cgg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_chr_US = relativeDateTimeSymbols.RelativeDateTimeSymbols_chr;
+export let RelativeDateTimeSymbols_chr_US = relativeDateTimeSymbols.RelativeDateTimeSymbols_chr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ckb =  {
+export let RelativeDateTimeSymbols_ckb = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -1990,25 +1989,25 @@ exports.RelativeDateTimeSymbols_ckb =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ckb_Arab = exports.RelativeDateTimeSymbols_ckb;
+export let RelativeDateTimeSymbols_ckb_Arab = RelativeDateTimeSymbols_ckb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ckb_Arab_IQ = exports.RelativeDateTimeSymbols_ckb;
+export let RelativeDateTimeSymbols_ckb_Arab_IQ = RelativeDateTimeSymbols_ckb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ckb_Arab_IR = exports.RelativeDateTimeSymbols_ckb;
+export let RelativeDateTimeSymbols_ckb_Arab_IR = RelativeDateTimeSymbols_ckb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ckb_IQ = exports.RelativeDateTimeSymbols_ckb;
+export let RelativeDateTimeSymbols_ckb_IQ = RelativeDateTimeSymbols_ckb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ckb_IR = exports.RelativeDateTimeSymbols_ckb;
+export let RelativeDateTimeSymbols_ckb_IR = RelativeDateTimeSymbols_ckb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_cs_CZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_cs;
+export let RelativeDateTimeSymbols_cs_CZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_cs;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_cv =  {
+export let RelativeDateTimeSymbols_cv = {
   DAY: {
     LONG:{
       R:{'-1':'ӗнер','0':'паян','1':'ыран'},
@@ -2083,19 +2082,19 @@ exports.RelativeDateTimeSymbols_cv =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_cv_RU = exports.RelativeDateTimeSymbols_cv;
+export let RelativeDateTimeSymbols_cv_RU = RelativeDateTimeSymbols_cv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_cy_GB = relativeDateTimeSymbols.RelativeDateTimeSymbols_cy;
+export let RelativeDateTimeSymbols_cy_GB = relativeDateTimeSymbols.RelativeDateTimeSymbols_cy;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_da_DK = relativeDateTimeSymbols.RelativeDateTimeSymbols_da;
+export let RelativeDateTimeSymbols_da_DK = relativeDateTimeSymbols.RelativeDateTimeSymbols_da;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_da_GL = relativeDateTimeSymbols.RelativeDateTimeSymbols_da;
+export let RelativeDateTimeSymbols_da_GL = relativeDateTimeSymbols.RelativeDateTimeSymbols_da;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dav =  {
+export let RelativeDateTimeSymbols_dav = {
   DAY: {
     LONG:{
       R:{'-1':'Iguo','0':'Idime','1':'Kesho'},
@@ -2155,25 +2154,25 @@ exports.RelativeDateTimeSymbols_dav =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dav_KE = exports.RelativeDateTimeSymbols_dav;
+export let RelativeDateTimeSymbols_dav_KE = RelativeDateTimeSymbols_dav;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_de_BE = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
+export let RelativeDateTimeSymbols_de_BE = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_de_DE = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
+export let RelativeDateTimeSymbols_de_DE = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_de_IT = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
+export let RelativeDateTimeSymbols_de_IT = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_de_LI = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
+export let RelativeDateTimeSymbols_de_LI = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_de_LU = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
+export let RelativeDateTimeSymbols_de_LU = relativeDateTimeSymbols.RelativeDateTimeSymbols_de;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dje =  {
+export let RelativeDateTimeSymbols_dje = {
   DAY: {
     LONG:{
       R:{'-1':'Bi','0':'Hõo','1':'Suba'},
@@ -2233,10 +2232,10 @@ exports.RelativeDateTimeSymbols_dje =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dje_NE = exports.RelativeDateTimeSymbols_dje;
+export let RelativeDateTimeSymbols_dje_NE = RelativeDateTimeSymbols_dje;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_doi =  {
+export let RelativeDateTimeSymbols_doi = {
   DAY: {
     LONG:{
       R:{'-1':'जंदा कल','0':'अज्ज','1':'औंदे कल'},
@@ -2296,10 +2295,10 @@ exports.RelativeDateTimeSymbols_doi =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_doi_IN = exports.RelativeDateTimeSymbols_doi;
+export let RelativeDateTimeSymbols_doi_IN = RelativeDateTimeSymbols_doi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dsb =  {
+export let RelativeDateTimeSymbols_dsb = {
   DAY: {
     LONG:{
       R:{'-1':'cora','0':'źinsa','1':'witśe'},
@@ -2439,10 +2438,10 @@ exports.RelativeDateTimeSymbols_dsb =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dsb_DE = exports.RelativeDateTimeSymbols_dsb;
+export let RelativeDateTimeSymbols_dsb_DE = RelativeDateTimeSymbols_dsb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dua =  {
+export let RelativeDateTimeSymbols_dua = {
   DAY: {
     LONG:{
       R:{'-1':'kíɛlɛ nítómb́í','0':'wɛ́ŋgɛ̄','1':'kíɛlɛ'},
@@ -2502,10 +2501,10 @@ exports.RelativeDateTimeSymbols_dua =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dua_CM = exports.RelativeDateTimeSymbols_dua;
+export let RelativeDateTimeSymbols_dua_CM = RelativeDateTimeSymbols_dua;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dyo =  {
+export let RelativeDateTimeSymbols_dyo = {
   DAY: {
     LONG:{
       R:{'-1':'Fucen','0':'Jaat','1':'Kajom'},
@@ -2565,10 +2564,10 @@ exports.RelativeDateTimeSymbols_dyo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dyo_SN = exports.RelativeDateTimeSymbols_dyo;
+export let RelativeDateTimeSymbols_dyo_SN = RelativeDateTimeSymbols_dyo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dz =  {
+export let RelativeDateTimeSymbols_dz = {
   DAY: {
     LONG:{
       R:{'-1':'ཁ་ཙ་','-2':'ཁ་ཉིམ','0':'ད་རིས་','1':'ནངས་པ་','2':'གནངས་ཚེ'},
@@ -2628,10 +2627,10 @@ exports.RelativeDateTimeSymbols_dz =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_dz_BT = exports.RelativeDateTimeSymbols_dz;
+export let RelativeDateTimeSymbols_dz_BT = RelativeDateTimeSymbols_dz;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ebu =  {
+export let RelativeDateTimeSymbols_ebu = {
   DAY: {
     LONG:{
       R:{'-1':'Ĩgoro','0':'Ũmũnthĩ','1':'Rũciũ'},
@@ -2691,10 +2690,10 @@ exports.RelativeDateTimeSymbols_ebu =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ebu_KE = exports.RelativeDateTimeSymbols_ebu;
+export let RelativeDateTimeSymbols_ebu_KE = RelativeDateTimeSymbols_ebu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ee =  {
+export let RelativeDateTimeSymbols_ee = {
   DAY: {
     LONG:{
       R:{'-1':'etsɔ si va yi','-2':'nyitsɔ si va yi','0':'egbe','1':'etsɔ si gbɔna','2':'nyitsɔ si gbɔna'},
@@ -2769,19 +2768,19 @@ exports.RelativeDateTimeSymbols_ee =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ee_GH = exports.RelativeDateTimeSymbols_ee;
+export let RelativeDateTimeSymbols_ee_GH = RelativeDateTimeSymbols_ee;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ee_TG = exports.RelativeDateTimeSymbols_ee;
+export let RelativeDateTimeSymbols_ee_TG = RelativeDateTimeSymbols_ee;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_el_CY = relativeDateTimeSymbols.RelativeDateTimeSymbols_el;
+export let RelativeDateTimeSymbols_el_CY = relativeDateTimeSymbols.RelativeDateTimeSymbols_el;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_el_GR = relativeDateTimeSymbols.RelativeDateTimeSymbols_el;
+export let RelativeDateTimeSymbols_el_GR = relativeDateTimeSymbols.RelativeDateTimeSymbols_el;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_001 =  {
+export let RelativeDateTimeSymbols_en_001 = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -2876,7 +2875,7 @@ exports.RelativeDateTimeSymbols_en_001 =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_150 =  {
+export let RelativeDateTimeSymbols_en_150 = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -2971,10 +2970,10 @@ exports.RelativeDateTimeSymbols_en_150 =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_AE = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_AE = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_AG =  {
+export let RelativeDateTimeSymbols_en_AG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3069,7 +3068,7 @@ exports.RelativeDateTimeSymbols_en_AG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_AI =  {
+export let RelativeDateTimeSymbols_en_AI = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3164,10 +3163,10 @@ exports.RelativeDateTimeSymbols_en_AI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_AS = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_AS = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_AT =  {
+export let RelativeDateTimeSymbols_en_AT = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3262,7 +3261,7 @@ exports.RelativeDateTimeSymbols_en_AT =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BB =  {
+export let RelativeDateTimeSymbols_en_BB = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3357,7 +3356,7 @@ exports.RelativeDateTimeSymbols_en_BB =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BE =  {
+export let RelativeDateTimeSymbols_en_BE = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3452,10 +3451,10 @@ exports.RelativeDateTimeSymbols_en_BE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BI = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_BI = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BM =  {
+export let RelativeDateTimeSymbols_en_BM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3550,7 +3549,7 @@ exports.RelativeDateTimeSymbols_en_BM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BS =  {
+export let RelativeDateTimeSymbols_en_BS = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3645,7 +3644,7 @@ exports.RelativeDateTimeSymbols_en_BS =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BW =  {
+export let RelativeDateTimeSymbols_en_BW = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3740,7 +3739,7 @@ exports.RelativeDateTimeSymbols_en_BW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_BZ =  {
+export let RelativeDateTimeSymbols_en_BZ = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3835,7 +3834,7 @@ exports.RelativeDateTimeSymbols_en_BZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_CC =  {
+export let RelativeDateTimeSymbols_en_CC = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -3930,7 +3929,7 @@ exports.RelativeDateTimeSymbols_en_CC =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_CH =  {
+export let RelativeDateTimeSymbols_en_CH = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4025,7 +4024,7 @@ exports.RelativeDateTimeSymbols_en_CH =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_CK =  {
+export let RelativeDateTimeSymbols_en_CK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4120,7 +4119,7 @@ exports.RelativeDateTimeSymbols_en_CK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_CM =  {
+export let RelativeDateTimeSymbols_en_CM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4215,7 +4214,7 @@ exports.RelativeDateTimeSymbols_en_CM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_CX =  {
+export let RelativeDateTimeSymbols_en_CX = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4310,7 +4309,7 @@ exports.RelativeDateTimeSymbols_en_CX =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_CY =  {
+export let RelativeDateTimeSymbols_en_CY = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4405,7 +4404,7 @@ exports.RelativeDateTimeSymbols_en_CY =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_DE =  {
+export let RelativeDateTimeSymbols_en_DE = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4500,7 +4499,7 @@ exports.RelativeDateTimeSymbols_en_DE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_DG =  {
+export let RelativeDateTimeSymbols_en_DG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4595,7 +4594,7 @@ exports.RelativeDateTimeSymbols_en_DG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_DK =  {
+export let RelativeDateTimeSymbols_en_DK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4690,7 +4689,7 @@ exports.RelativeDateTimeSymbols_en_DK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_DM =  {
+export let RelativeDateTimeSymbols_en_DM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4785,7 +4784,7 @@ exports.RelativeDateTimeSymbols_en_DM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_ER =  {
+export let RelativeDateTimeSymbols_en_ER = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4880,7 +4879,7 @@ exports.RelativeDateTimeSymbols_en_ER =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_FI =  {
+export let RelativeDateTimeSymbols_en_FI = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -4975,7 +4974,7 @@ exports.RelativeDateTimeSymbols_en_FI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_FJ =  {
+export let RelativeDateTimeSymbols_en_FJ = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5070,7 +5069,7 @@ exports.RelativeDateTimeSymbols_en_FJ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_FK =  {
+export let RelativeDateTimeSymbols_en_FK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5165,7 +5164,7 @@ exports.RelativeDateTimeSymbols_en_FK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_FM =  {
+export let RelativeDateTimeSymbols_en_FM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5260,7 +5259,7 @@ exports.RelativeDateTimeSymbols_en_FM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GD =  {
+export let RelativeDateTimeSymbols_en_GD = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5355,7 +5354,7 @@ exports.RelativeDateTimeSymbols_en_GD =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GG =  {
+export let RelativeDateTimeSymbols_en_GG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5450,7 +5449,7 @@ exports.RelativeDateTimeSymbols_en_GG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GH =  {
+export let RelativeDateTimeSymbols_en_GH = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5545,7 +5544,7 @@ exports.RelativeDateTimeSymbols_en_GH =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GI =  {
+export let RelativeDateTimeSymbols_en_GI = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5640,7 +5639,7 @@ exports.RelativeDateTimeSymbols_en_GI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GM =  {
+export let RelativeDateTimeSymbols_en_GM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5735,10 +5734,10 @@ exports.RelativeDateTimeSymbols_en_GM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GU = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_GU = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_GY =  {
+export let RelativeDateTimeSymbols_en_GY = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5833,7 +5832,7 @@ exports.RelativeDateTimeSymbols_en_GY =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_HK =  {
+export let RelativeDateTimeSymbols_en_HK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -5928,7 +5927,7 @@ exports.RelativeDateTimeSymbols_en_HK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_IL =  {
+export let RelativeDateTimeSymbols_en_IL = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6023,7 +6022,7 @@ exports.RelativeDateTimeSymbols_en_IL =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_IM =  {
+export let RelativeDateTimeSymbols_en_IM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6118,7 +6117,7 @@ exports.RelativeDateTimeSymbols_en_IM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_IO =  {
+export let RelativeDateTimeSymbols_en_IO = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6213,7 +6212,7 @@ exports.RelativeDateTimeSymbols_en_IO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_JE =  {
+export let RelativeDateTimeSymbols_en_JE = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6308,7 +6307,7 @@ exports.RelativeDateTimeSymbols_en_JE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_JM =  {
+export let RelativeDateTimeSymbols_en_JM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6403,7 +6402,7 @@ exports.RelativeDateTimeSymbols_en_JM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_KE =  {
+export let RelativeDateTimeSymbols_en_KE = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6498,7 +6497,7 @@ exports.RelativeDateTimeSymbols_en_KE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_KI =  {
+export let RelativeDateTimeSymbols_en_KI = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6593,7 +6592,7 @@ exports.RelativeDateTimeSymbols_en_KI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_KN =  {
+export let RelativeDateTimeSymbols_en_KN = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6688,7 +6687,7 @@ exports.RelativeDateTimeSymbols_en_KN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_KY =  {
+export let RelativeDateTimeSymbols_en_KY = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6783,7 +6782,7 @@ exports.RelativeDateTimeSymbols_en_KY =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_LC =  {
+export let RelativeDateTimeSymbols_en_LC = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6878,7 +6877,7 @@ exports.RelativeDateTimeSymbols_en_LC =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_LR =  {
+export let RelativeDateTimeSymbols_en_LR = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -6973,7 +6972,7 @@ exports.RelativeDateTimeSymbols_en_LR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_LS =  {
+export let RelativeDateTimeSymbols_en_LS = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7068,7 +7067,7 @@ exports.RelativeDateTimeSymbols_en_LS =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MG =  {
+export let RelativeDateTimeSymbols_en_MG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7163,10 +7162,10 @@ exports.RelativeDateTimeSymbols_en_MG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MH = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_MH = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MO =  {
+export let RelativeDateTimeSymbols_en_MO = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7261,10 +7260,10 @@ exports.RelativeDateTimeSymbols_en_MO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MP = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_MP = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MS =  {
+export let RelativeDateTimeSymbols_en_MS = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7359,7 +7358,7 @@ exports.RelativeDateTimeSymbols_en_MS =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MT =  {
+export let RelativeDateTimeSymbols_en_MT = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7454,7 +7453,7 @@ exports.RelativeDateTimeSymbols_en_MT =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MU =  {
+export let RelativeDateTimeSymbols_en_MU = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7549,7 +7548,7 @@ exports.RelativeDateTimeSymbols_en_MU =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MV =  {
+export let RelativeDateTimeSymbols_en_MV = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7644,7 +7643,7 @@ exports.RelativeDateTimeSymbols_en_MV =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MW =  {
+export let RelativeDateTimeSymbols_en_MW = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7739,7 +7738,7 @@ exports.RelativeDateTimeSymbols_en_MW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_MY =  {
+export let RelativeDateTimeSymbols_en_MY = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7834,7 +7833,7 @@ exports.RelativeDateTimeSymbols_en_MY =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NA =  {
+export let RelativeDateTimeSymbols_en_NA = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -7929,7 +7928,7 @@ exports.RelativeDateTimeSymbols_en_NA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NF =  {
+export let RelativeDateTimeSymbols_en_NF = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8024,7 +8023,7 @@ exports.RelativeDateTimeSymbols_en_NF =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NG =  {
+export let RelativeDateTimeSymbols_en_NG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8119,7 +8118,7 @@ exports.RelativeDateTimeSymbols_en_NG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NL =  {
+export let RelativeDateTimeSymbols_en_NL = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8214,7 +8213,7 @@ exports.RelativeDateTimeSymbols_en_NL =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NR =  {
+export let RelativeDateTimeSymbols_en_NR = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8309,7 +8308,7 @@ exports.RelativeDateTimeSymbols_en_NR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NU =  {
+export let RelativeDateTimeSymbols_en_NU = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8404,7 +8403,7 @@ exports.RelativeDateTimeSymbols_en_NU =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_NZ =  {
+export let RelativeDateTimeSymbols_en_NZ = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8499,7 +8498,7 @@ exports.RelativeDateTimeSymbols_en_NZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_PG =  {
+export let RelativeDateTimeSymbols_en_PG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8594,10 +8593,10 @@ exports.RelativeDateTimeSymbols_en_PG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_PH = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_PH = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_PK =  {
+export let RelativeDateTimeSymbols_en_PK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8692,7 +8691,7 @@ exports.RelativeDateTimeSymbols_en_PK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_PN =  {
+export let RelativeDateTimeSymbols_en_PN = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8787,10 +8786,10 @@ exports.RelativeDateTimeSymbols_en_PN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_PR = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_PR = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_PW =  {
+export let RelativeDateTimeSymbols_en_PW = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8885,7 +8884,7 @@ exports.RelativeDateTimeSymbols_en_PW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_RW =  {
+export let RelativeDateTimeSymbols_en_RW = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -8980,7 +8979,7 @@ exports.RelativeDateTimeSymbols_en_RW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SB =  {
+export let RelativeDateTimeSymbols_en_SB = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9075,7 +9074,7 @@ exports.RelativeDateTimeSymbols_en_SB =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SC =  {
+export let RelativeDateTimeSymbols_en_SC = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9170,7 +9169,7 @@ exports.RelativeDateTimeSymbols_en_SC =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SD =  {
+export let RelativeDateTimeSymbols_en_SD = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9265,7 +9264,7 @@ exports.RelativeDateTimeSymbols_en_SD =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SE =  {
+export let RelativeDateTimeSymbols_en_SE = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9360,7 +9359,7 @@ exports.RelativeDateTimeSymbols_en_SE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SH =  {
+export let RelativeDateTimeSymbols_en_SH = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9455,7 +9454,7 @@ exports.RelativeDateTimeSymbols_en_SH =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SI =  {
+export let RelativeDateTimeSymbols_en_SI = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9550,7 +9549,7 @@ exports.RelativeDateTimeSymbols_en_SI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SL =  {
+export let RelativeDateTimeSymbols_en_SL = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9645,7 +9644,7 @@ exports.RelativeDateTimeSymbols_en_SL =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SS =  {
+export let RelativeDateTimeSymbols_en_SS = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9740,7 +9739,7 @@ exports.RelativeDateTimeSymbols_en_SS =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SX =  {
+export let RelativeDateTimeSymbols_en_SX = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9835,7 +9834,7 @@ exports.RelativeDateTimeSymbols_en_SX =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_SZ =  {
+export let RelativeDateTimeSymbols_en_SZ = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -9930,7 +9929,7 @@ exports.RelativeDateTimeSymbols_en_SZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_TC =  {
+export let RelativeDateTimeSymbols_en_TC = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10025,7 +10024,7 @@ exports.RelativeDateTimeSymbols_en_TC =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_TK =  {
+export let RelativeDateTimeSymbols_en_TK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10120,7 +10119,7 @@ exports.RelativeDateTimeSymbols_en_TK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_TO =  {
+export let RelativeDateTimeSymbols_en_TO = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10215,7 +10214,7 @@ exports.RelativeDateTimeSymbols_en_TO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_TT =  {
+export let RelativeDateTimeSymbols_en_TT = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10310,7 +10309,7 @@ exports.RelativeDateTimeSymbols_en_TT =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_TV =  {
+export let RelativeDateTimeSymbols_en_TV = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10405,7 +10404,7 @@ exports.RelativeDateTimeSymbols_en_TV =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_TZ =  {
+export let RelativeDateTimeSymbols_en_TZ = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10500,7 +10499,7 @@ exports.RelativeDateTimeSymbols_en_TZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_UG =  {
+export let RelativeDateTimeSymbols_en_UG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10595,13 +10594,13 @@ exports.RelativeDateTimeSymbols_en_UG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_UM = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_UM = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_US_POSIX = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_US_POSIX = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_VC =  {
+export let RelativeDateTimeSymbols_en_VC = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10696,7 +10695,7 @@ exports.RelativeDateTimeSymbols_en_VC =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_VG =  {
+export let RelativeDateTimeSymbols_en_VG = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10791,10 +10790,10 @@ exports.RelativeDateTimeSymbols_en_VG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_VI = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
+export let RelativeDateTimeSymbols_en_VI = relativeDateTimeSymbols.RelativeDateTimeSymbols_en;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_VU =  {
+export let RelativeDateTimeSymbols_en_VU = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10889,7 +10888,7 @@ exports.RelativeDateTimeSymbols_en_VU =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_WS =  {
+export let RelativeDateTimeSymbols_en_WS = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -10984,7 +10983,7 @@ exports.RelativeDateTimeSymbols_en_WS =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_XA =  {
+export let RelativeDateTimeSymbols_en_XA = {
   DAY: {
     LONG:{
       R:{'-1':'[ýéšţéŕðåý one two]','0':'[ţöðåý one]','1':'[ţöɱöŕŕöŵ one two]'},
@@ -11119,7 +11118,7 @@ exports.RelativeDateTimeSymbols_en_XA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_ZM =  {
+export let RelativeDateTimeSymbols_en_ZM = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -11214,7 +11213,7 @@ exports.RelativeDateTimeSymbols_en_ZM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_en_ZW =  {
+export let RelativeDateTimeSymbols_en_ZW = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -11309,7 +11308,7 @@ exports.RelativeDateTimeSymbols_en_ZW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_eo =  {
+export let RelativeDateTimeSymbols_eo = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -11369,10 +11368,10 @@ exports.RelativeDateTimeSymbols_eo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_eo_001 = exports.RelativeDateTimeSymbols_eo;
+export let RelativeDateTimeSymbols_eo_001 = RelativeDateTimeSymbols_eo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_AR =  {
+export let RelativeDateTimeSymbols_es_AR = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -11472,7 +11471,7 @@ exports.RelativeDateTimeSymbols_es_AR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_BO =  {
+export let RelativeDateTimeSymbols_es_BO = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -11567,7 +11566,7 @@ exports.RelativeDateTimeSymbols_es_BO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_BR =  {
+export let RelativeDateTimeSymbols_es_BR = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -11662,7 +11661,7 @@ exports.RelativeDateTimeSymbols_es_BR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_BZ =  {
+export let RelativeDateTimeSymbols_es_BZ = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -11757,7 +11756,7 @@ exports.RelativeDateTimeSymbols_es_BZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_CL =  {
+export let RelativeDateTimeSymbols_es_CL = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -11852,7 +11851,7 @@ exports.RelativeDateTimeSymbols_es_CL =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_CO =  {
+export let RelativeDateTimeSymbols_es_CO = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -11947,7 +11946,7 @@ exports.RelativeDateTimeSymbols_es_CO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_CR =  {
+export let RelativeDateTimeSymbols_es_CR = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12042,7 +12041,7 @@ exports.RelativeDateTimeSymbols_es_CR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_CU =  {
+export let RelativeDateTimeSymbols_es_CU = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12137,7 +12136,7 @@ exports.RelativeDateTimeSymbols_es_CU =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_DO =  {
+export let RelativeDateTimeSymbols_es_DO = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12232,10 +12231,10 @@ exports.RelativeDateTimeSymbols_es_DO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_EA = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
+export let RelativeDateTimeSymbols_es_EA = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_EC =  {
+export let RelativeDateTimeSymbols_es_EC = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12330,10 +12329,10 @@ exports.RelativeDateTimeSymbols_es_EC =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_GQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
+export let RelativeDateTimeSymbols_es_GQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_GT =  {
+export let RelativeDateTimeSymbols_es_GT = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12428,7 +12427,7 @@ exports.RelativeDateTimeSymbols_es_GT =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_HN =  {
+export let RelativeDateTimeSymbols_es_HN = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12523,10 +12522,10 @@ exports.RelativeDateTimeSymbols_es_HN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_IC = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
+export let RelativeDateTimeSymbols_es_IC = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_NI =  {
+export let RelativeDateTimeSymbols_es_NI = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12621,7 +12620,7 @@ exports.RelativeDateTimeSymbols_es_NI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_PA =  {
+export let RelativeDateTimeSymbols_es_PA = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12716,7 +12715,7 @@ exports.RelativeDateTimeSymbols_es_PA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_PE =  {
+export let RelativeDateTimeSymbols_es_PE = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12811,10 +12810,10 @@ exports.RelativeDateTimeSymbols_es_PE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_PH = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
+export let RelativeDateTimeSymbols_es_PH = relativeDateTimeSymbols.RelativeDateTimeSymbols_es;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_PR =  {
+export let RelativeDateTimeSymbols_es_PR = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -12909,7 +12908,7 @@ exports.RelativeDateTimeSymbols_es_PR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_PY =  {
+export let RelativeDateTimeSymbols_es_PY = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -13004,7 +13003,7 @@ exports.RelativeDateTimeSymbols_es_PY =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_SV =  {
+export let RelativeDateTimeSymbols_es_SV = {
   DAY: {
     LONG:{
       R:{'-2':'antier'},
@@ -13104,7 +13103,7 @@ exports.RelativeDateTimeSymbols_es_SV =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_UY =  {
+export let RelativeDateTimeSymbols_es_UY = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -13199,7 +13198,7 @@ exports.RelativeDateTimeSymbols_es_UY =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_es_VE =  {
+export let RelativeDateTimeSymbols_es_VE = {
   DAY: {
     LONG:{
       R:{'-1':'ayer','-2':'anteayer','0':'hoy','1':'mañana','2':'pasado mañana'},
@@ -13294,13 +13293,13 @@ exports.RelativeDateTimeSymbols_es_VE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_et_EE = relativeDateTimeSymbols.RelativeDateTimeSymbols_et;
+export let RelativeDateTimeSymbols_et_EE = relativeDateTimeSymbols.RelativeDateTimeSymbols_et;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_eu_ES = relativeDateTimeSymbols.RelativeDateTimeSymbols_eu;
+export let RelativeDateTimeSymbols_eu_ES = relativeDateTimeSymbols.RelativeDateTimeSymbols_eu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ewo =  {
+export let RelativeDateTimeSymbols_ewo = {
   DAY: {
     LONG:{
       R:{'-1':'Angogé','0':'Aná','1':'Okírí'},
@@ -13360,16 +13359,16 @@ exports.RelativeDateTimeSymbols_ewo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ewo_CM = exports.RelativeDateTimeSymbols_ewo;
+export let RelativeDateTimeSymbols_ewo_CM = RelativeDateTimeSymbols_ewo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fa_AF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fa;
+export let RelativeDateTimeSymbols_fa_AF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fa;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fa_IR = relativeDateTimeSymbols.RelativeDateTimeSymbols_fa;
+export let RelativeDateTimeSymbols_fa_IR = relativeDateTimeSymbols.RelativeDateTimeSymbols_fa;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff =  {
+export let RelativeDateTimeSymbols_ff = {
   DAY: {
     LONG:{
       R:{'-1':'Haŋki','0':'Hannde','1':'Jaŋngo'},
@@ -13429,7 +13428,7 @@ exports.RelativeDateTimeSymbols_ff =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm =  {
+export let RelativeDateTimeSymbols_ff_Adlm = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -13539,7 +13538,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_BF =  {
+export let RelativeDateTimeSymbols_ff_Adlm_BF = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -13649,7 +13648,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_BF =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_CM =  {
+export let RelativeDateTimeSymbols_ff_Adlm_CM = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -13759,7 +13758,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_CM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_GH =  {
+export let RelativeDateTimeSymbols_ff_Adlm_GH = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -13869,7 +13868,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_GH =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_GM =  {
+export let RelativeDateTimeSymbols_ff_Adlm_GM = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -13979,7 +13978,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_GM =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_GN =  {
+export let RelativeDateTimeSymbols_ff_Adlm_GN = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14089,7 +14088,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_GN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_GW =  {
+export let RelativeDateTimeSymbols_ff_Adlm_GW = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14199,7 +14198,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_GW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_LR =  {
+export let RelativeDateTimeSymbols_ff_Adlm_LR = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14309,7 +14308,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_LR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_MR =  {
+export let RelativeDateTimeSymbols_ff_Adlm_MR = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14419,7 +14418,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_MR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_NE =  {
+export let RelativeDateTimeSymbols_ff_Adlm_NE = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14529,7 +14528,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_NE =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_NG =  {
+export let RelativeDateTimeSymbols_ff_Adlm_NG = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14639,7 +14638,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_NG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_SL =  {
+export let RelativeDateTimeSymbols_ff_Adlm_SL = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14749,7 +14748,7 @@ exports.RelativeDateTimeSymbols_ff_Adlm_SL =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Adlm_SN =  {
+export let RelativeDateTimeSymbols_ff_Adlm_SN = {
   DAY: {
     LONG:{
       R:{'-1':'𞤸𞤢𞤲𞤳𞤭','0':'𞤸𞤢𞤲𞤣𞤫','1':'𞤶𞤢𞤲𞤺𞤮'},
@@ -14859,52 +14858,52 @@ exports.RelativeDateTimeSymbols_ff_Adlm_SN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_BF = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_BF = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_CM = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_CM = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_GH = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_GH = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_GM = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_GM = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_GN = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_GN = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_GW = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_GW = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_LR = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_LR = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_MR = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_MR = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_NE = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_NE = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_NG = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_NG = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_SL = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_SL = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ff_Latn_SN = exports.RelativeDateTimeSymbols_ff;
+export let RelativeDateTimeSymbols_ff_Latn_SN = RelativeDateTimeSymbols_ff;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fi_FI = relativeDateTimeSymbols.RelativeDateTimeSymbols_fi;
+export let RelativeDateTimeSymbols_fi_FI = relativeDateTimeSymbols.RelativeDateTimeSymbols_fi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fil_PH = relativeDateTimeSymbols.RelativeDateTimeSymbols_fil;
+export let RelativeDateTimeSymbols_fil_PH = relativeDateTimeSymbols.RelativeDateTimeSymbols_fil;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fo =  {
+export let RelativeDateTimeSymbols_fo = {
   DAY: {
     LONG:{
       R:{'-1':'í gjár','-2':'fyrradagin','0':'í dag','1':'í morgin','2':'í ovurmorgin'},
@@ -15019,148 +15018,148 @@ exports.RelativeDateTimeSymbols_fo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fo_DK = exports.RelativeDateTimeSymbols_fo;
+export let RelativeDateTimeSymbols_fo_DK = RelativeDateTimeSymbols_fo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fo_FO = exports.RelativeDateTimeSymbols_fo;
+export let RelativeDateTimeSymbols_fo_FO = RelativeDateTimeSymbols_fo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_BE = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_BE = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_BF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_BF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_BI = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_BI = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_BJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_BJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_BL = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_BL = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_CD = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_CD = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_CF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_CF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_CG = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_CG = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_CH = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_CH = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_CI = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_CI = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_CM = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_CM = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_DJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_DJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_DZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_DZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_GA = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_GA = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_GF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_GF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_GN = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_GN = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_GP = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_GP = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_GQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_GQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_HT = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_HT = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_KM = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_KM = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_LU = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_LU = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MA = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MA = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MC = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MC = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MG = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MG = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_ML = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_ML = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MR = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MR = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_MU = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_MU = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_NC = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_NC = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_NE = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_NE = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_PF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_PF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_PM = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_PM = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_RE = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_RE = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_RW = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_RW = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_SC = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_SC = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_SN = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_SN = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_SY = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_SY = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_TD = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_TD = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_TG = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_TG = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_TN = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_TN = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_VU = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_VU = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_WF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_WF = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fr_YT = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
+export let RelativeDateTimeSymbols_fr_YT = relativeDateTimeSymbols.RelativeDateTimeSymbols_fr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fur =  {
+export let RelativeDateTimeSymbols_fur = {
   DAY: {
     LONG:{
       R:{'-1':'îr','-2':'îr l’altri','0':'vuê','1':'doman','2':'passantdoman'},
@@ -15220,10 +15219,10 @@ exports.RelativeDateTimeSymbols_fur =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fur_IT = exports.RelativeDateTimeSymbols_fur;
+export let RelativeDateTimeSymbols_fur_IT = RelativeDateTimeSymbols_fur;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fy =  {
+export let RelativeDateTimeSymbols_fy = {
   DAY: {
     LONG:{
       R:{'-1':'gisteren','-2':'eergisteren','0':'vandaag','1':'morgen','2':'Oermorgen'},
@@ -15283,16 +15282,16 @@ exports.RelativeDateTimeSymbols_fy =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_fy_NL = exports.RelativeDateTimeSymbols_fy;
+export let RelativeDateTimeSymbols_fy_NL = RelativeDateTimeSymbols_fy;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ga_GB = relativeDateTimeSymbols.RelativeDateTimeSymbols_ga;
+export let RelativeDateTimeSymbols_ga_GB = relativeDateTimeSymbols.RelativeDateTimeSymbols_ga;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ga_IE = relativeDateTimeSymbols.RelativeDateTimeSymbols_ga;
+export let RelativeDateTimeSymbols_ga_IE = relativeDateTimeSymbols.RelativeDateTimeSymbols_ga;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gd =  {
+export let RelativeDateTimeSymbols_gd = {
   DAY: {
     LONG:{
       R:{'-1':'an-dè','-2':'a-bhòin-dè','0':'an-diugh','1':'a-màireach','2':'an-earar','3':'an-eararais'},
@@ -15432,25 +15431,25 @@ exports.RelativeDateTimeSymbols_gd =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gd_GB = exports.RelativeDateTimeSymbols_gd;
+export let RelativeDateTimeSymbols_gd_GB = RelativeDateTimeSymbols_gd;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gl_ES = relativeDateTimeSymbols.RelativeDateTimeSymbols_gl;
+export let RelativeDateTimeSymbols_gl_ES = relativeDateTimeSymbols.RelativeDateTimeSymbols_gl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gsw_CH = relativeDateTimeSymbols.RelativeDateTimeSymbols_gsw;
+export let RelativeDateTimeSymbols_gsw_CH = relativeDateTimeSymbols.RelativeDateTimeSymbols_gsw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gsw_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_gsw;
+export let RelativeDateTimeSymbols_gsw_FR = relativeDateTimeSymbols.RelativeDateTimeSymbols_gsw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gsw_LI = relativeDateTimeSymbols.RelativeDateTimeSymbols_gsw;
+export let RelativeDateTimeSymbols_gsw_LI = relativeDateTimeSymbols.RelativeDateTimeSymbols_gsw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gu_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_gu;
+export let RelativeDateTimeSymbols_gu_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_gu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_guz =  {
+export let RelativeDateTimeSymbols_guz = {
   DAY: {
     LONG:{
       R:{'-1':'Igoro','0':'Rero','1':'Mambia'},
@@ -15510,10 +15509,10 @@ exports.RelativeDateTimeSymbols_guz =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_guz_KE = exports.RelativeDateTimeSymbols_guz;
+export let RelativeDateTimeSymbols_guz_KE = RelativeDateTimeSymbols_guz;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gv =  {
+export let RelativeDateTimeSymbols_gv = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -15573,10 +15572,10 @@ exports.RelativeDateTimeSymbols_gv =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_gv_IM = exports.RelativeDateTimeSymbols_gv;
+export let RelativeDateTimeSymbols_gv_IM = RelativeDateTimeSymbols_gv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ha =  {
+export let RelativeDateTimeSymbols_ha = {
   DAY: {
     LONG:{
       R:{'-1':'jiya','0':'yau','1':'gobe'},
@@ -15656,25 +15655,25 @@ exports.RelativeDateTimeSymbols_ha =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ha_GH = exports.RelativeDateTimeSymbols_ha;
+export let RelativeDateTimeSymbols_ha_GH = RelativeDateTimeSymbols_ha;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ha_NE = exports.RelativeDateTimeSymbols_ha;
+export let RelativeDateTimeSymbols_ha_NE = RelativeDateTimeSymbols_ha;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ha_NG = exports.RelativeDateTimeSymbols_ha;
+export let RelativeDateTimeSymbols_ha_NG = RelativeDateTimeSymbols_ha;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_haw_US = relativeDateTimeSymbols.RelativeDateTimeSymbols_haw;
+export let RelativeDateTimeSymbols_haw_US = relativeDateTimeSymbols.RelativeDateTimeSymbols_haw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_he_IL = relativeDateTimeSymbols.RelativeDateTimeSymbols_he;
+export let RelativeDateTimeSymbols_he_IL = relativeDateTimeSymbols.RelativeDateTimeSymbols_he;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hi_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_hi;
+export let RelativeDateTimeSymbols_hi_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_hi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hi_Latn =  {
+export let RelativeDateTimeSymbols_hi_Latn = {
   DAY: {
     LONG:{
       R:{'-1':'kal','-2':'parson','0':'aaj','1':'aane wala kal','2':'aane wala parson'},
@@ -15804,7 +15803,7 @@ exports.RelativeDateTimeSymbols_hi_Latn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hi_Latn_IN =  {
+export let RelativeDateTimeSymbols_hi_Latn_IN = {
   DAY: {
     LONG:{
       R:{'-1':'kal','-2':'parson','0':'aaj','1':'aane wala kal','2':'aane wala parson'},
@@ -15934,13 +15933,13 @@ exports.RelativeDateTimeSymbols_hi_Latn_IN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hr_BA = relativeDateTimeSymbols.RelativeDateTimeSymbols_hr;
+export let RelativeDateTimeSymbols_hr_BA = relativeDateTimeSymbols.RelativeDateTimeSymbols_hr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hr_HR = relativeDateTimeSymbols.RelativeDateTimeSymbols_hr;
+export let RelativeDateTimeSymbols_hr_HR = relativeDateTimeSymbols.RelativeDateTimeSymbols_hr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hsb =  {
+export let RelativeDateTimeSymbols_hsb = {
   DAY: {
     LONG:{
       R:{'-1':'wčera','0':'dźensa','1':'jutře'},
@@ -16080,16 +16079,16 @@ exports.RelativeDateTimeSymbols_hsb =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hsb_DE = exports.RelativeDateTimeSymbols_hsb;
+export let RelativeDateTimeSymbols_hsb_DE = RelativeDateTimeSymbols_hsb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hu_HU = relativeDateTimeSymbols.RelativeDateTimeSymbols_hu;
+export let RelativeDateTimeSymbols_hu_HU = relativeDateTimeSymbols.RelativeDateTimeSymbols_hu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_hy_AM = relativeDateTimeSymbols.RelativeDateTimeSymbols_hy;
+export let RelativeDateTimeSymbols_hy_AM = relativeDateTimeSymbols.RelativeDateTimeSymbols_hy;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ia =  {
+export let RelativeDateTimeSymbols_ia = {
   DAY: {
     LONG:{
       R:{'-1':'heri','0':'hodie','1':'deman'},
@@ -16184,13 +16183,13 @@ exports.RelativeDateTimeSymbols_ia =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ia_001 = exports.RelativeDateTimeSymbols_ia;
+export let RelativeDateTimeSymbols_ia_001 = RelativeDateTimeSymbols_ia;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_id_ID = relativeDateTimeSymbols.RelativeDateTimeSymbols_id;
+export let RelativeDateTimeSymbols_id_ID = relativeDateTimeSymbols.RelativeDateTimeSymbols_id;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ig =  {
+export let RelativeDateTimeSymbols_ig = {
   DAY: {
     LONG:{
       R:{'-1':'Ụnyaahụ','0':'Taa','1':'Echi'},
@@ -16255,10 +16254,10 @@ exports.RelativeDateTimeSymbols_ig =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ig_NG = exports.RelativeDateTimeSymbols_ig;
+export let RelativeDateTimeSymbols_ig_NG = RelativeDateTimeSymbols_ig;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ii =  {
+export let RelativeDateTimeSymbols_ii = {
   DAY: {
     LONG:{
       R:{'-1':'ꀋꅔꉈ','-2':'ꎴꂿꋍꑍ','0':'ꀃꑍ','1':'ꃆꏂꑍ','2':'ꌕꀿꑍ'},
@@ -16318,28 +16317,28 @@ exports.RelativeDateTimeSymbols_ii =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ii_CN = exports.RelativeDateTimeSymbols_ii;
+export let RelativeDateTimeSymbols_ii_CN = RelativeDateTimeSymbols_ii;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_is_IS = relativeDateTimeSymbols.RelativeDateTimeSymbols_is;
+export let RelativeDateTimeSymbols_is_IS = relativeDateTimeSymbols.RelativeDateTimeSymbols_is;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_it_CH = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
+export let RelativeDateTimeSymbols_it_CH = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_it_IT = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
+export let RelativeDateTimeSymbols_it_IT = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_it_SM = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
+export let RelativeDateTimeSymbols_it_SM = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_it_VA = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
+export let RelativeDateTimeSymbols_it_VA = relativeDateTimeSymbols.RelativeDateTimeSymbols_it;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ja_JP = relativeDateTimeSymbols.RelativeDateTimeSymbols_ja;
+export let RelativeDateTimeSymbols_ja_JP = relativeDateTimeSymbols.RelativeDateTimeSymbols_ja;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_jgo =  {
+export let RelativeDateTimeSymbols_jgo = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'lɔꞋɔ','1':'tomorrow'},
@@ -16399,10 +16398,10 @@ exports.RelativeDateTimeSymbols_jgo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_jgo_CM = exports.RelativeDateTimeSymbols_jgo;
+export let RelativeDateTimeSymbols_jgo_CM = RelativeDateTimeSymbols_jgo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_jmc =  {
+export let RelativeDateTimeSymbols_jmc = {
   DAY: {
     LONG:{
       R:{'-1':'Ukou','0':'Inu','1':'Ngama'},
@@ -16462,10 +16461,10 @@ exports.RelativeDateTimeSymbols_jmc =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_jmc_TZ = exports.RelativeDateTimeSymbols_jmc;
+export let RelativeDateTimeSymbols_jmc_TZ = RelativeDateTimeSymbols_jmc;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_jv =  {
+export let RelativeDateTimeSymbols_jv = {
   DAY: {
     LONG:{
       R:{'-1':'wingi','0':'dino iki','1':'sesuk'},
@@ -16535,13 +16534,13 @@ exports.RelativeDateTimeSymbols_jv =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_jv_ID = exports.RelativeDateTimeSymbols_jv;
+export let RelativeDateTimeSymbols_jv_ID = RelativeDateTimeSymbols_jv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ka_GE = relativeDateTimeSymbols.RelativeDateTimeSymbols_ka;
+export let RelativeDateTimeSymbols_ka_GE = relativeDateTimeSymbols.RelativeDateTimeSymbols_ka;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kab =  {
+export let RelativeDateTimeSymbols_kab = {
   DAY: {
     LONG:{
       R:{'-1':'Iḍelli','0':'Ass-a','1':'Azekka'},
@@ -16601,10 +16600,10 @@ exports.RelativeDateTimeSymbols_kab =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kab_DZ = exports.RelativeDateTimeSymbols_kab;
+export let RelativeDateTimeSymbols_kab_DZ = RelativeDateTimeSymbols_kab;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kam =  {
+export let RelativeDateTimeSymbols_kam = {
   DAY: {
     LONG:{
       R:{'-1':'Ĩyoo','0':'Ũmũnthĩ','1':'Ũnĩ'},
@@ -16664,10 +16663,10 @@ exports.RelativeDateTimeSymbols_kam =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kam_KE = exports.RelativeDateTimeSymbols_kam;
+export let RelativeDateTimeSymbols_kam_KE = RelativeDateTimeSymbols_kam;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kde =  {
+export let RelativeDateTimeSymbols_kde = {
   DAY: {
     LONG:{
       R:{'-1':'Lido','0':'Nelo','1':'Nundu'},
@@ -16727,10 +16726,10 @@ exports.RelativeDateTimeSymbols_kde =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kde_TZ = exports.RelativeDateTimeSymbols_kde;
+export let RelativeDateTimeSymbols_kde_TZ = RelativeDateTimeSymbols_kde;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kea =  {
+export let RelativeDateTimeSymbols_kea = {
   DAY: {
     LONG:{
       R:{'-1':'onti','0':'oji','1':'manhan'},
@@ -16820,10 +16819,10 @@ exports.RelativeDateTimeSymbols_kea =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kea_CV = exports.RelativeDateTimeSymbols_kea;
+export let RelativeDateTimeSymbols_kea_CV = RelativeDateTimeSymbols_kea;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kgp =  {
+export let RelativeDateTimeSymbols_kgp = {
   DAY: {
     LONG:{
       R:{'-1':'rãketá','-2':'rãké ũn tá','0':'uri','1':'vajkỹ','2':'vaj ũn ka'},
@@ -16903,10 +16902,10 @@ exports.RelativeDateTimeSymbols_kgp =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kgp_BR = exports.RelativeDateTimeSymbols_kgp;
+export let RelativeDateTimeSymbols_kgp_BR = RelativeDateTimeSymbols_kgp;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_khq =  {
+export let RelativeDateTimeSymbols_khq = {
   DAY: {
     LONG:{
       R:{'-1':'Bi','0':'Hõo','1':'Suba'},
@@ -16966,10 +16965,10 @@ exports.RelativeDateTimeSymbols_khq =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_khq_ML = exports.RelativeDateTimeSymbols_khq;
+export let RelativeDateTimeSymbols_khq_ML = RelativeDateTimeSymbols_khq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ki =  {
+export let RelativeDateTimeSymbols_ki = {
   DAY: {
     LONG:{
       R:{'-1':'Ira','0':'Ũmũthĩ','1':'Rũciũ'},
@@ -17029,13 +17028,13 @@ exports.RelativeDateTimeSymbols_ki =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ki_KE = exports.RelativeDateTimeSymbols_ki;
+export let RelativeDateTimeSymbols_ki_KE = RelativeDateTimeSymbols_ki;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kk_KZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_kk;
+export let RelativeDateTimeSymbols_kk_KZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_kk;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kkj =  {
+export let RelativeDateTimeSymbols_kkj = {
   DAY: {
     LONG:{
       R:{'-1':'kwey','0':'muka','1':'nɛmɛnɔ'},
@@ -17095,10 +17094,10 @@ exports.RelativeDateTimeSymbols_kkj =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kkj_CM = exports.RelativeDateTimeSymbols_kkj;
+export let RelativeDateTimeSymbols_kkj_CM = RelativeDateTimeSymbols_kkj;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kl =  {
+export let RelativeDateTimeSymbols_kl = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -17158,10 +17157,10 @@ exports.RelativeDateTimeSymbols_kl =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kl_GL = exports.RelativeDateTimeSymbols_kl;
+export let RelativeDateTimeSymbols_kl_GL = RelativeDateTimeSymbols_kl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kln =  {
+export let RelativeDateTimeSymbols_kln = {
   DAY: {
     LONG:{
       R:{'-1':'Amut','0':'Raini','1':'Mutai'},
@@ -17221,22 +17220,22 @@ exports.RelativeDateTimeSymbols_kln =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kln_KE = exports.RelativeDateTimeSymbols_kln;
+export let RelativeDateTimeSymbols_kln_KE = RelativeDateTimeSymbols_kln;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_km_KH = relativeDateTimeSymbols.RelativeDateTimeSymbols_km;
+export let RelativeDateTimeSymbols_km_KH = relativeDateTimeSymbols.RelativeDateTimeSymbols_km;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kn_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_kn;
+export let RelativeDateTimeSymbols_kn_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_kn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ko_KP = relativeDateTimeSymbols.RelativeDateTimeSymbols_ko;
+export let RelativeDateTimeSymbols_ko_KP = relativeDateTimeSymbols.RelativeDateTimeSymbols_ko;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ko_KR = relativeDateTimeSymbols.RelativeDateTimeSymbols_ko;
+export let RelativeDateTimeSymbols_ko_KR = relativeDateTimeSymbols.RelativeDateTimeSymbols_ko;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kok =  {
+export let RelativeDateTimeSymbols_kok = {
   DAY: {
     LONG:{
       R:{'-1':'काल','0':'आयज','1':'फाल्यां'},
@@ -17311,10 +17310,10 @@ exports.RelativeDateTimeSymbols_kok =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kok_IN = exports.RelativeDateTimeSymbols_kok;
+export let RelativeDateTimeSymbols_kok_IN = RelativeDateTimeSymbols_kok;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ks =  {
+export let RelativeDateTimeSymbols_ks = {
   DAY: {
     LONG:{
       R:{'-1':'راتھ','0':'اَز','1':'پگاہ'},
@@ -17374,13 +17373,13 @@ exports.RelativeDateTimeSymbols_ks =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ks_Arab = exports.RelativeDateTimeSymbols_ks;
+export let RelativeDateTimeSymbols_ks_Arab = RelativeDateTimeSymbols_ks;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ks_Arab_IN = exports.RelativeDateTimeSymbols_ks;
+export let RelativeDateTimeSymbols_ks_Arab_IN = RelativeDateTimeSymbols_ks;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ks_Deva =  {
+export let RelativeDateTimeSymbols_ks_Deva = {
   DAY: {
     LONG:{
       R:{'-1':'राथ','0':'अज़','1':'पगाह'},
@@ -17440,7 +17439,7 @@ exports.RelativeDateTimeSymbols_ks_Deva =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ks_Deva_IN =  {
+export let RelativeDateTimeSymbols_ks_Deva_IN = {
   DAY: {
     LONG:{
       R:{'-1':'राथ','0':'अज़','1':'पगाह'},
@@ -17500,7 +17499,7 @@ exports.RelativeDateTimeSymbols_ks_Deva_IN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ksb =  {
+export let RelativeDateTimeSymbols_ksb = {
   DAY: {
     LONG:{
       R:{'-1':'Ghuo','0':'Evi eo','1':'Keloi'},
@@ -17560,10 +17559,10 @@ exports.RelativeDateTimeSymbols_ksb =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ksb_TZ = exports.RelativeDateTimeSymbols_ksb;
+export let RelativeDateTimeSymbols_ksb_TZ = RelativeDateTimeSymbols_ksb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ksf =  {
+export let RelativeDateTimeSymbols_ksf = {
   DAY: {
     LONG:{
       R:{'-1':'Rinkɔɔ́','0':'Gɛ́ɛnǝ','1':'Ridúrǝ́'},
@@ -17623,10 +17622,10 @@ exports.RelativeDateTimeSymbols_ksf =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ksf_CM = exports.RelativeDateTimeSymbols_ksf;
+export let RelativeDateTimeSymbols_ksf_CM = RelativeDateTimeSymbols_ksf;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ksh =  {
+export let RelativeDateTimeSymbols_ksh = {
   DAY: {
     LONG:{
       R:{'-1':'jestere','-2':'vörjestere','0':'hück','1':'morje','2':'övvermorje'},
@@ -17686,10 +17685,10 @@ exports.RelativeDateTimeSymbols_ksh =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ksh_DE = exports.RelativeDateTimeSymbols_ksh;
+export let RelativeDateTimeSymbols_ksh_DE = RelativeDateTimeSymbols_ksh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ku =  {
+export let RelativeDateTimeSymbols_ku = {
   DAY: {
     LONG:{
       R:{'-1':'duh','0':'îro','1':'sibe'},
@@ -17764,10 +17763,10 @@ exports.RelativeDateTimeSymbols_ku =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ku_TR = exports.RelativeDateTimeSymbols_ku;
+export let RelativeDateTimeSymbols_ku_TR = RelativeDateTimeSymbols_ku;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kw =  {
+export let RelativeDateTimeSymbols_kw = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -17827,13 +17826,13 @@ exports.RelativeDateTimeSymbols_kw =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_kw_GB = exports.RelativeDateTimeSymbols_kw;
+export let RelativeDateTimeSymbols_kw_GB = RelativeDateTimeSymbols_kw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ky_KG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ky;
+export let RelativeDateTimeSymbols_ky_KG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ky;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lag =  {
+export let RelativeDateTimeSymbols_lag = {
   DAY: {
     LONG:{
       R:{'-1':'Niijo','0':'Isikʉ','1':'Lamʉtoondo'},
@@ -17893,10 +17892,10 @@ exports.RelativeDateTimeSymbols_lag =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lag_TZ = exports.RelativeDateTimeSymbols_lag;
+export let RelativeDateTimeSymbols_lag_TZ = RelativeDateTimeSymbols_lag;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lb =  {
+export let RelativeDateTimeSymbols_lb = {
   DAY: {
     LONG:{
       R:{'-1':'gëschter','0':'haut','1':'muer'},
@@ -18036,10 +18035,10 @@ exports.RelativeDateTimeSymbols_lb =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lb_LU = exports.RelativeDateTimeSymbols_lb;
+export let RelativeDateTimeSymbols_lb_LU = RelativeDateTimeSymbols_lb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lg =  {
+export let RelativeDateTimeSymbols_lg = {
   DAY: {
     LONG:{
       R:{'-1':'Ggulo','0':'Lwaleero','1':'Nkya'},
@@ -18099,10 +18098,10 @@ exports.RelativeDateTimeSymbols_lg =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lg_UG = exports.RelativeDateTimeSymbols_lg;
+export let RelativeDateTimeSymbols_lg_UG = RelativeDateTimeSymbols_lg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lkt =  {
+export let RelativeDateTimeSymbols_lkt = {
   DAY: {
     LONG:{
       R:{'-1':'Ȟtálehaŋ','0':'Lé aŋpétu kiŋ','1':'Híŋhaŋni kiŋháŋ'},
@@ -18162,25 +18161,25 @@ exports.RelativeDateTimeSymbols_lkt =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lkt_US = exports.RelativeDateTimeSymbols_lkt;
+export let RelativeDateTimeSymbols_lkt_US = RelativeDateTimeSymbols_lkt;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ln_AO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
+export let RelativeDateTimeSymbols_ln_AO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ln_CD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
+export let RelativeDateTimeSymbols_ln_CD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ln_CF = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
+export let RelativeDateTimeSymbols_ln_CF = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ln_CG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
+export let RelativeDateTimeSymbols_ln_CG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ln;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lo_LA = relativeDateTimeSymbols.RelativeDateTimeSymbols_lo;
+export let RelativeDateTimeSymbols_lo_LA = relativeDateTimeSymbols.RelativeDateTimeSymbols_lo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lrc =  {
+export let RelativeDateTimeSymbols_lrc = {
   DAY: {
     LONG:{
       R:{'-1':'دیروٙز','0':'أمروٙ','1':'شوٙصوٙ'},
@@ -18240,16 +18239,16 @@ exports.RelativeDateTimeSymbols_lrc =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lrc_IQ = exports.RelativeDateTimeSymbols_lrc;
+export let RelativeDateTimeSymbols_lrc_IQ = RelativeDateTimeSymbols_lrc;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lrc_IR = exports.RelativeDateTimeSymbols_lrc;
+export let RelativeDateTimeSymbols_lrc_IR = RelativeDateTimeSymbols_lrc;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lt_LT = relativeDateTimeSymbols.RelativeDateTimeSymbols_lt;
+export let RelativeDateTimeSymbols_lt_LT = relativeDateTimeSymbols.RelativeDateTimeSymbols_lt;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lu =  {
+export let RelativeDateTimeSymbols_lu = {
   DAY: {
     LONG:{
       R:{'-1':'Makelela','0':'Lelu','1':'Malaba'},
@@ -18309,10 +18308,10 @@ exports.RelativeDateTimeSymbols_lu =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lu_CD = exports.RelativeDateTimeSymbols_lu;
+export let RelativeDateTimeSymbols_lu_CD = RelativeDateTimeSymbols_lu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_luo =  {
+export let RelativeDateTimeSymbols_luo = {
   DAY: {
     LONG:{
       R:{'-1':'nyoro','0':'kawuono','1':'kiny'},
@@ -18372,10 +18371,10 @@ exports.RelativeDateTimeSymbols_luo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_luo_KE = exports.RelativeDateTimeSymbols_luo;
+export let RelativeDateTimeSymbols_luo_KE = RelativeDateTimeSymbols_luo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_luy =  {
+export let RelativeDateTimeSymbols_luy = {
   DAY: {
     LONG:{
       R:{'-1':'Mgorova','0':'Lero','1':'Mgamba'},
@@ -18435,13 +18434,13 @@ exports.RelativeDateTimeSymbols_luy =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_luy_KE = exports.RelativeDateTimeSymbols_luy;
+export let RelativeDateTimeSymbols_luy_KE = RelativeDateTimeSymbols_luy;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_lv_LV = relativeDateTimeSymbols.RelativeDateTimeSymbols_lv;
+export let RelativeDateTimeSymbols_lv_LV = relativeDateTimeSymbols.RelativeDateTimeSymbols_lv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mai =  {
+export let RelativeDateTimeSymbols_mai = {
   DAY: {
     LONG:{
       R:{'-1':'काल्हिक दिन','0':'आजुक दिन','1':'काल्हिक दिन'},
@@ -18516,10 +18515,10 @@ exports.RelativeDateTimeSymbols_mai =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mai_IN = exports.RelativeDateTimeSymbols_mai;
+export let RelativeDateTimeSymbols_mai_IN = RelativeDateTimeSymbols_mai;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mas =  {
+export let RelativeDateTimeSymbols_mas = {
   DAY: {
     LONG:{
       R:{'-1':'Ŋolé','0':'Táatá','1':'Tááisérè'},
@@ -18579,13 +18578,13 @@ exports.RelativeDateTimeSymbols_mas =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mas_KE = exports.RelativeDateTimeSymbols_mas;
+export let RelativeDateTimeSymbols_mas_KE = RelativeDateTimeSymbols_mas;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mas_TZ = exports.RelativeDateTimeSymbols_mas;
+export let RelativeDateTimeSymbols_mas_TZ = RelativeDateTimeSymbols_mas;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mer =  {
+export let RelativeDateTimeSymbols_mer = {
   DAY: {
     LONG:{
       R:{'-1':'Ĩgoro','0':'Narua','1':'Rũjũ'},
@@ -18645,10 +18644,10 @@ exports.RelativeDateTimeSymbols_mer =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mer_KE = exports.RelativeDateTimeSymbols_mer;
+export let RelativeDateTimeSymbols_mer_KE = RelativeDateTimeSymbols_mer;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mfe =  {
+export let RelativeDateTimeSymbols_mfe = {
   DAY: {
     LONG:{
       R:{'-1':'Yer','0':'Zordi','1':'Demin'},
@@ -18708,10 +18707,10 @@ exports.RelativeDateTimeSymbols_mfe =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mfe_MU = exports.RelativeDateTimeSymbols_mfe;
+export let RelativeDateTimeSymbols_mfe_MU = RelativeDateTimeSymbols_mfe;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mg =  {
+export let RelativeDateTimeSymbols_mg = {
   DAY: {
     LONG:{
       R:{'-1':'Omaly','0':'Anio','1':'Rahampitso'},
@@ -18771,10 +18770,10 @@ exports.RelativeDateTimeSymbols_mg =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mg_MG = exports.RelativeDateTimeSymbols_mg;
+export let RelativeDateTimeSymbols_mg_MG = RelativeDateTimeSymbols_mg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mgh =  {
+export let RelativeDateTimeSymbols_mgh = {
   DAY: {
     LONG:{
       R:{'-1':'n’chana','0':'lel’lo','1':'me’llo'},
@@ -18834,10 +18833,10 @@ exports.RelativeDateTimeSymbols_mgh =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mgh_MZ = exports.RelativeDateTimeSymbols_mgh;
+export let RelativeDateTimeSymbols_mgh_MZ = RelativeDateTimeSymbols_mgh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mgo =  {
+export let RelativeDateTimeSymbols_mgo = {
   DAY: {
     LONG:{
       R:{'-1':'ikwiri','0':'tèchɔ̀ŋ','1':'isu','2':'isu ywi'},
@@ -18897,10 +18896,10 @@ exports.RelativeDateTimeSymbols_mgo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mgo_CM = exports.RelativeDateTimeSymbols_mgo;
+export let RelativeDateTimeSymbols_mgo_CM = RelativeDateTimeSymbols_mgo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mi =  {
+export let RelativeDateTimeSymbols_mi = {
   DAY: {
     LONG:{
       R:{'-1':'inanahi','0':'i tēnei rā','1':'āpōpō'},
@@ -19010,19 +19009,19 @@ exports.RelativeDateTimeSymbols_mi =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mi_NZ = exports.RelativeDateTimeSymbols_mi;
+export let RelativeDateTimeSymbols_mi_NZ = RelativeDateTimeSymbols_mi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mk_MK = relativeDateTimeSymbols.RelativeDateTimeSymbols_mk;
+export let RelativeDateTimeSymbols_mk_MK = relativeDateTimeSymbols.RelativeDateTimeSymbols_mk;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ml_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ml;
+export let RelativeDateTimeSymbols_ml_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ml;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mn_MN = relativeDateTimeSymbols.RelativeDateTimeSymbols_mn;
+export let RelativeDateTimeSymbols_mn_MN = relativeDateTimeSymbols.RelativeDateTimeSymbols_mn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mni =  {
+export let RelativeDateTimeSymbols_mni = {
   DAY: {
     LONG:{
       R:{'-1':'ঙরাং','0':'ঙসি','1':'হয়েং'},
@@ -19082,31 +19081,31 @@ exports.RelativeDateTimeSymbols_mni =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mni_Beng = exports.RelativeDateTimeSymbols_mni;
+export let RelativeDateTimeSymbols_mni_Beng = RelativeDateTimeSymbols_mni;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mni_Beng_IN = exports.RelativeDateTimeSymbols_mni;
+export let RelativeDateTimeSymbols_mni_Beng_IN = RelativeDateTimeSymbols_mni;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mr_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_mr;
+export let RelativeDateTimeSymbols_mr_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_mr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ms_BN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
+export let RelativeDateTimeSymbols_ms_BN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ms_ID = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
+export let RelativeDateTimeSymbols_ms_ID = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ms_MY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
+export let RelativeDateTimeSymbols_ms_MY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ms_SG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
+export let RelativeDateTimeSymbols_ms_SG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ms;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mt_MT = relativeDateTimeSymbols.RelativeDateTimeSymbols_mt;
+export let RelativeDateTimeSymbols_mt_MT = relativeDateTimeSymbols.RelativeDateTimeSymbols_mt;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mua =  {
+export let RelativeDateTimeSymbols_mua = {
   DAY: {
     LONG:{
       R:{'-1':'Tǝsoo','0':'Tǝ’nahko','1':'Tǝ’nane'},
@@ -19166,13 +19165,13 @@ exports.RelativeDateTimeSymbols_mua =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mua_CM = exports.RelativeDateTimeSymbols_mua;
+export let RelativeDateTimeSymbols_mua_CM = RelativeDateTimeSymbols_mua;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_my_MM = relativeDateTimeSymbols.RelativeDateTimeSymbols_my;
+export let RelativeDateTimeSymbols_my_MM = relativeDateTimeSymbols.RelativeDateTimeSymbols_my;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mzn =  {
+export let RelativeDateTimeSymbols_mzn = {
   DAY: {
     LONG:{
       R:{'-1':'دیروز','0':'اَمروز','1':'فِردا'},
@@ -19242,10 +19241,10 @@ exports.RelativeDateTimeSymbols_mzn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_mzn_IR = exports.RelativeDateTimeSymbols_mzn;
+export let RelativeDateTimeSymbols_mzn_IR = RelativeDateTimeSymbols_mzn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_naq =  {
+export let RelativeDateTimeSymbols_naq = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'Neetsee','1':'tomorrow'},
@@ -19305,16 +19304,16 @@ exports.RelativeDateTimeSymbols_naq =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_naq_NA = exports.RelativeDateTimeSymbols_naq;
+export let RelativeDateTimeSymbols_naq_NA = RelativeDateTimeSymbols_naq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nb_NO = relativeDateTimeSymbols.RelativeDateTimeSymbols_nb;
+export let RelativeDateTimeSymbols_nb_NO = relativeDateTimeSymbols.RelativeDateTimeSymbols_nb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nb_SJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_nb;
+export let RelativeDateTimeSymbols_nb_SJ = relativeDateTimeSymbols.RelativeDateTimeSymbols_nb;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nd =  {
+export let RelativeDateTimeSymbols_nd = {
   DAY: {
     LONG:{
       R:{'-1':'Izolo','0':'Lamuhla','1':'Kusasa'},
@@ -19374,37 +19373,37 @@ exports.RelativeDateTimeSymbols_nd =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nd_ZW = exports.RelativeDateTimeSymbols_nd;
+export let RelativeDateTimeSymbols_nd_ZW = RelativeDateTimeSymbols_nd;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ne_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ne;
+export let RelativeDateTimeSymbols_ne_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ne;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ne_NP = relativeDateTimeSymbols.RelativeDateTimeSymbols_ne;
+export let RelativeDateTimeSymbols_ne_NP = relativeDateTimeSymbols.RelativeDateTimeSymbols_ne;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_AW = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_AW = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_BE = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_BE = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_BQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_BQ = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_CW = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_CW = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_NL = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_NL = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_SR = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_SR = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nl_SX = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
+export let RelativeDateTimeSymbols_nl_SX = relativeDateTimeSymbols.RelativeDateTimeSymbols_nl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nmg =  {
+export let RelativeDateTimeSymbols_nmg = {
   DAY: {
     LONG:{
       R:{'-1':'Nakugú','0':'Dɔl','1':'Namáná'},
@@ -19464,10 +19463,10 @@ exports.RelativeDateTimeSymbols_nmg =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nmg_CM = exports.RelativeDateTimeSymbols_nmg;
+export let RelativeDateTimeSymbols_nmg_CM = RelativeDateTimeSymbols_nmg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nn =  {
+export let RelativeDateTimeSymbols_nn = {
   DAY: {
     LONG:{
       R:{'-1':'i går','-2':'i førgår','0':'i dag','1':'i morgon','2':'i overmorgon'},
@@ -19597,10 +19596,10 @@ exports.RelativeDateTimeSymbols_nn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nn_NO = exports.RelativeDateTimeSymbols_nn;
+export let RelativeDateTimeSymbols_nn_NO = RelativeDateTimeSymbols_nn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nnh =  {
+export let RelativeDateTimeSymbols_nnh = {
   DAY: {
     LONG:{
       R:{'-1':'jǔɔ gẅie à ka tɔ̌g','0':'lyɛ̌ʼɔɔn','1':'jǔɔ gẅie à ne ntóo'},
@@ -19660,10 +19659,10 @@ exports.RelativeDateTimeSymbols_nnh =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nnh_CM = exports.RelativeDateTimeSymbols_nnh;
+export let RelativeDateTimeSymbols_nnh_CM = RelativeDateTimeSymbols_nnh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nus =  {
+export let RelativeDateTimeSymbols_nus = {
   DAY: {
     LONG:{
       R:{'-1':'Pan','0':'Walɛ','1':'Ruun'},
@@ -19723,10 +19722,10 @@ exports.RelativeDateTimeSymbols_nus =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nus_SS = exports.RelativeDateTimeSymbols_nus;
+export let RelativeDateTimeSymbols_nus_SS = RelativeDateTimeSymbols_nus;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nyn =  {
+export let RelativeDateTimeSymbols_nyn = {
   DAY: {
     LONG:{
       R:{'-1':'Nyomwabazyo','0':'Erizooba','1':'Nyenkyakare'},
@@ -19786,10 +19785,10 @@ exports.RelativeDateTimeSymbols_nyn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_nyn_UG = exports.RelativeDateTimeSymbols_nyn;
+export let RelativeDateTimeSymbols_nyn_UG = RelativeDateTimeSymbols_nyn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_om =  {
+export let RelativeDateTimeSymbols_om = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -19849,16 +19848,16 @@ exports.RelativeDateTimeSymbols_om =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_om_ET = exports.RelativeDateTimeSymbols_om;
+export let RelativeDateTimeSymbols_om_ET = RelativeDateTimeSymbols_om;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_om_KE = exports.RelativeDateTimeSymbols_om;
+export let RelativeDateTimeSymbols_om_KE = RelativeDateTimeSymbols_om;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_or_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_or;
+export let RelativeDateTimeSymbols_or_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_or;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_os =  {
+export let RelativeDateTimeSymbols_os = {
   DAY: {
     LONG:{
       R:{'-1':'Знон','-2':'Ӕндӕрӕбон','0':'Абон','1':'Сом','2':'Иннӕбон'},
@@ -19918,13 +19917,13 @@ exports.RelativeDateTimeSymbols_os =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_os_GE = exports.RelativeDateTimeSymbols_os;
+export let RelativeDateTimeSymbols_os_GE = RelativeDateTimeSymbols_os;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_os_RU = exports.RelativeDateTimeSymbols_os;
+export let RelativeDateTimeSymbols_os_RU = RelativeDateTimeSymbols_os;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pa_Arab =  {
+export let RelativeDateTimeSymbols_pa_Arab = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -19984,7 +19983,7 @@ exports.RelativeDateTimeSymbols_pa_Arab =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pa_Arab_PK =  {
+export let RelativeDateTimeSymbols_pa_Arab_PK = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -20044,13 +20043,13 @@ exports.RelativeDateTimeSymbols_pa_Arab_PK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pa_Guru = relativeDateTimeSymbols.RelativeDateTimeSymbols_pa;
+export let RelativeDateTimeSymbols_pa_Guru = relativeDateTimeSymbols.RelativeDateTimeSymbols_pa;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pa_Guru_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_pa;
+export let RelativeDateTimeSymbols_pa_Guru_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_pa;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pcm =  {
+export let RelativeDateTimeSymbols_pcm = {
   DAY: {
     LONG:{
       R:{'-1':'Yẹ́stadè','0':'Todè','1':'Tumọ́ro'},
@@ -20115,13 +20114,13 @@ exports.RelativeDateTimeSymbols_pcm =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pcm_NG = exports.RelativeDateTimeSymbols_pcm;
+export let RelativeDateTimeSymbols_pcm_NG = RelativeDateTimeSymbols_pcm;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pl_PL = relativeDateTimeSymbols.RelativeDateTimeSymbols_pl;
+export let RelativeDateTimeSymbols_pl_PL = relativeDateTimeSymbols.RelativeDateTimeSymbols_pl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ps =  {
+export let RelativeDateTimeSymbols_ps = {
   DAY: {
     LONG:{
       R:{'-1':'پرون','0':'نن','1':'سبا'},
@@ -20221,10 +20220,10 @@ exports.RelativeDateTimeSymbols_ps =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ps_AF = exports.RelativeDateTimeSymbols_ps;
+export let RelativeDateTimeSymbols_ps_AF = RelativeDateTimeSymbols_ps;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ps_PK =  {
+export let RelativeDateTimeSymbols_ps_PK = {
   DAY: {
     LONG:{
       R:{'-1':'پرون','0':'نن','1':'سبا'},
@@ -20324,7 +20323,7 @@ exports.RelativeDateTimeSymbols_ps_PK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_AO =  {
+export let RelativeDateTimeSymbols_pt_AO = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -20449,7 +20448,7 @@ exports.RelativeDateTimeSymbols_pt_AO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_CH =  {
+export let RelativeDateTimeSymbols_pt_CH = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -20574,7 +20573,7 @@ exports.RelativeDateTimeSymbols_pt_CH =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_CV =  {
+export let RelativeDateTimeSymbols_pt_CV = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -20699,7 +20698,7 @@ exports.RelativeDateTimeSymbols_pt_CV =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_GQ =  {
+export let RelativeDateTimeSymbols_pt_GQ = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -20824,7 +20823,7 @@ exports.RelativeDateTimeSymbols_pt_GQ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_GW =  {
+export let RelativeDateTimeSymbols_pt_GW = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -20949,7 +20948,7 @@ exports.RelativeDateTimeSymbols_pt_GW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_LU =  {
+export let RelativeDateTimeSymbols_pt_LU = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -21074,7 +21073,7 @@ exports.RelativeDateTimeSymbols_pt_LU =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_MO =  {
+export let RelativeDateTimeSymbols_pt_MO = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -21199,7 +21198,7 @@ exports.RelativeDateTimeSymbols_pt_MO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_MZ =  {
+export let RelativeDateTimeSymbols_pt_MZ = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -21324,7 +21323,7 @@ exports.RelativeDateTimeSymbols_pt_MZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_ST =  {
+export let RelativeDateTimeSymbols_pt_ST = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -21449,7 +21448,7 @@ exports.RelativeDateTimeSymbols_pt_ST =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_pt_TL =  {
+export let RelativeDateTimeSymbols_pt_TL = {
   DAY: {
     LONG:{
       R:{'-1':'ontem','-2':'anteontem','0':'hoje','1':'amanhã','2':'depois de amanhã'},
@@ -21574,7 +21573,7 @@ exports.RelativeDateTimeSymbols_pt_TL =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_qu =  {
+export let RelativeDateTimeSymbols_qu = {
   DAY: {
     LONG:{
       R:{'-1':'qayna punchaw','0':'kunan punchaw','1':'paqarin'},
@@ -21634,16 +21633,16 @@ exports.RelativeDateTimeSymbols_qu =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_qu_BO = exports.RelativeDateTimeSymbols_qu;
+export let RelativeDateTimeSymbols_qu_BO = RelativeDateTimeSymbols_qu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_qu_EC = exports.RelativeDateTimeSymbols_qu;
+export let RelativeDateTimeSymbols_qu_EC = RelativeDateTimeSymbols_qu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_qu_PE = exports.RelativeDateTimeSymbols_qu;
+export let RelativeDateTimeSymbols_qu_PE = RelativeDateTimeSymbols_qu;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_raj =  {
+export let RelativeDateTimeSymbols_raj = {
   DAY: {
     LONG:{
       R:{'-1':'काल','0':'आज','1':'काल'},
@@ -21703,10 +21702,10 @@ exports.RelativeDateTimeSymbols_raj =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_raj_IN = exports.RelativeDateTimeSymbols_raj;
+export let RelativeDateTimeSymbols_raj_IN = RelativeDateTimeSymbols_raj;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rm =  {
+export let RelativeDateTimeSymbols_rm = {
   DAY: {
     LONG:{
       R:{'-1':'ier','-2':'stersas','0':'oz','1':'damaun','2':'puschmaun'},
@@ -21771,10 +21770,10 @@ exports.RelativeDateTimeSymbols_rm =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rm_CH = exports.RelativeDateTimeSymbols_rm;
+export let RelativeDateTimeSymbols_rm_CH = RelativeDateTimeSymbols_rm;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rn =  {
+export let RelativeDateTimeSymbols_rn = {
   DAY: {
     LONG:{
       R:{'-1':'Ejo (haheze)','0':'Uyu musi','1':'Ejo (hazoza)'},
@@ -21834,16 +21833,16 @@ exports.RelativeDateTimeSymbols_rn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rn_BI = exports.RelativeDateTimeSymbols_rn;
+export let RelativeDateTimeSymbols_rn_BI = RelativeDateTimeSymbols_rn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ro_MD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ro;
+export let RelativeDateTimeSymbols_ro_MD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ro;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ro_RO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ro;
+export let RelativeDateTimeSymbols_ro_RO = relativeDateTimeSymbols.RelativeDateTimeSymbols_ro;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rof =  {
+export let RelativeDateTimeSymbols_rof = {
   DAY: {
     LONG:{
       R:{'-1':'Hiyo','0':'Linu','1':'Ng’ama'},
@@ -21903,28 +21902,28 @@ exports.RelativeDateTimeSymbols_rof =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rof_TZ = exports.RelativeDateTimeSymbols_rof;
+export let RelativeDateTimeSymbols_rof_TZ = RelativeDateTimeSymbols_rof;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ru_BY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
+export let RelativeDateTimeSymbols_ru_BY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ru_KG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
+export let RelativeDateTimeSymbols_ru_KG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ru_KZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
+export let RelativeDateTimeSymbols_ru_KZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ru_MD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
+export let RelativeDateTimeSymbols_ru_MD = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ru_RU = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
+export let RelativeDateTimeSymbols_ru_RU = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ru_UA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
+export let RelativeDateTimeSymbols_ru_UA = relativeDateTimeSymbols.RelativeDateTimeSymbols_ru;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rw =  {
+export let RelativeDateTimeSymbols_rw = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -21984,10 +21983,10 @@ exports.RelativeDateTimeSymbols_rw =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rw_RW = exports.RelativeDateTimeSymbols_rw;
+export let RelativeDateTimeSymbols_rw_RW = RelativeDateTimeSymbols_rw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rwk =  {
+export let RelativeDateTimeSymbols_rwk = {
   DAY: {
     LONG:{
       R:{'-1':'Ukou','0':'Inu','1':'Ngama'},
@@ -22047,10 +22046,10 @@ exports.RelativeDateTimeSymbols_rwk =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_rwk_TZ = exports.RelativeDateTimeSymbols_rwk;
+export let RelativeDateTimeSymbols_rwk_TZ = RelativeDateTimeSymbols_rwk;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sa =  {
+export let RelativeDateTimeSymbols_sa = {
   DAY: {
     LONG:{
       R:{'-1':'गतदिनम्','0':'अद्य','1':'श्वः'},
@@ -22115,10 +22114,10 @@ exports.RelativeDateTimeSymbols_sa =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sa_IN = exports.RelativeDateTimeSymbols_sa;
+export let RelativeDateTimeSymbols_sa_IN = RelativeDateTimeSymbols_sa;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sah =  {
+export let RelativeDateTimeSymbols_sah = {
   DAY: {
     LONG:{
       R:{'-1':'Бэҕэһээ','-2':'Иллэрээ күн','0':'Бүгүн','1':'Сарсын','2':'Өйүүн'},
@@ -22188,10 +22187,10 @@ exports.RelativeDateTimeSymbols_sah =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sah_RU = exports.RelativeDateTimeSymbols_sah;
+export let RelativeDateTimeSymbols_sah_RU = RelativeDateTimeSymbols_sah;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_saq =  {
+export let RelativeDateTimeSymbols_saq = {
   DAY: {
     LONG:{
       R:{'-1':'Ng’ole','0':'Duo','1':'Taisere'},
@@ -22251,10 +22250,10 @@ exports.RelativeDateTimeSymbols_saq =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_saq_KE = exports.RelativeDateTimeSymbols_saq;
+export let RelativeDateTimeSymbols_saq_KE = RelativeDateTimeSymbols_saq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sat =  {
+export let RelativeDateTimeSymbols_sat = {
   DAY: {
     LONG:{
       R:{'-1':'ᱦᱚᱞᱟ','0':'ᱛᱮᱦᱮᱧ','1':'ᱜᱟᱯᱟ'},
@@ -22314,13 +22313,13 @@ exports.RelativeDateTimeSymbols_sat =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sat_Olck = exports.RelativeDateTimeSymbols_sat;
+export let RelativeDateTimeSymbols_sat_Olck = RelativeDateTimeSymbols_sat;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sat_Olck_IN = exports.RelativeDateTimeSymbols_sat;
+export let RelativeDateTimeSymbols_sat_Olck_IN = RelativeDateTimeSymbols_sat;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sbp =  {
+export let RelativeDateTimeSymbols_sbp = {
   DAY: {
     LONG:{
       R:{'-1':'Imehe','0':'Ineng’uni','1':'Pamulaawu'},
@@ -22380,10 +22379,10 @@ exports.RelativeDateTimeSymbols_sbp =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sbp_TZ = exports.RelativeDateTimeSymbols_sbp;
+export let RelativeDateTimeSymbols_sbp_TZ = RelativeDateTimeSymbols_sbp;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sc =  {
+export let RelativeDateTimeSymbols_sc = {
   DAY: {
     LONG:{
       R:{'-1':'eris','0':'oe','1':'cras'},
@@ -22478,10 +22477,10 @@ exports.RelativeDateTimeSymbols_sc =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sc_IT = exports.RelativeDateTimeSymbols_sc;
+export let RelativeDateTimeSymbols_sc_IT = RelativeDateTimeSymbols_sc;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sd =  {
+export let RelativeDateTimeSymbols_sd = {
   DAY: {
     LONG:{
       R:{'-1':'ڪل','0':'اڄ','1':'سڀاڻي'},
@@ -22556,13 +22555,13 @@ exports.RelativeDateTimeSymbols_sd =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sd_Arab = exports.RelativeDateTimeSymbols_sd;
+export let RelativeDateTimeSymbols_sd_Arab = RelativeDateTimeSymbols_sd;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sd_Arab_PK = exports.RelativeDateTimeSymbols_sd;
+export let RelativeDateTimeSymbols_sd_Arab_PK = RelativeDateTimeSymbols_sd;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sd_Deva =  {
+export let RelativeDateTimeSymbols_sd_Deva = {
   DAY: {
     LONG:{
       R:{'-1':'कल','0':'अॼु','1':'सुभाणे'},
@@ -22622,7 +22621,7 @@ exports.RelativeDateTimeSymbols_sd_Deva =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sd_Deva_IN =  {
+export let RelativeDateTimeSymbols_sd_Deva_IN = {
   DAY: {
     LONG:{
       R:{'-1':'कल','0':'अॼु','1':'सुभाणे'},
@@ -22682,7 +22681,7 @@ exports.RelativeDateTimeSymbols_sd_Deva_IN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_se =  {
+export let RelativeDateTimeSymbols_se = {
   DAY: {
     LONG:{
       R:{'-1':'ikte','-2':'oovdebpeivvi','0':'odne','1':'ihttin','2':'paijeelittáá'},
@@ -22742,7 +22741,7 @@ exports.RelativeDateTimeSymbols_se =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_se_FI =  {
+export let RelativeDateTimeSymbols_se_FI = {
   DAY: {
     LONG:{
       R:{'-2':'ovddet beaivvi','2':'don beaivve'},
@@ -22852,13 +22851,13 @@ exports.RelativeDateTimeSymbols_se_FI =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_se_NO = exports.RelativeDateTimeSymbols_se;
+export let RelativeDateTimeSymbols_se_NO = RelativeDateTimeSymbols_se;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_se_SE = exports.RelativeDateTimeSymbols_se;
+export let RelativeDateTimeSymbols_se_SE = RelativeDateTimeSymbols_se;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_seh =  {
+export let RelativeDateTimeSymbols_seh = {
   DAY: {
     LONG:{
       R:{'-1':'Zuro','0':'Lero','1':'Manguana'},
@@ -22918,10 +22917,10 @@ exports.RelativeDateTimeSymbols_seh =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_seh_MZ = exports.RelativeDateTimeSymbols_seh;
+export let RelativeDateTimeSymbols_seh_MZ = RelativeDateTimeSymbols_seh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ses =  {
+export let RelativeDateTimeSymbols_ses = {
   DAY: {
     LONG:{
       R:{'-1':'Bi','0':'Hõo','1':'Suba'},
@@ -22981,10 +22980,10 @@ exports.RelativeDateTimeSymbols_ses =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ses_ML = exports.RelativeDateTimeSymbols_ses;
+export let RelativeDateTimeSymbols_ses_ML = RelativeDateTimeSymbols_ses;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sg =  {
+export let RelativeDateTimeSymbols_sg = {
   DAY: {
     LONG:{
       R:{'-1':'Bîrï','0':'Lâsô','1':'Kêkerêke'},
@@ -23044,10 +23043,10 @@ exports.RelativeDateTimeSymbols_sg =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sg_CF = exports.RelativeDateTimeSymbols_sg;
+export let RelativeDateTimeSymbols_sg_CF = RelativeDateTimeSymbols_sg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_shi =  {
+export let RelativeDateTimeSymbols_shi = {
   DAY: {
     LONG:{
       R:{'-1':'ⵉⴹⵍⵍⵉ','0':'ⴰⵙⵙⴰ','1':'ⴰⵙⴽⴽⴰ'},
@@ -23107,7 +23106,7 @@ exports.RelativeDateTimeSymbols_shi =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_shi_Latn =  {
+export let RelativeDateTimeSymbols_shi_Latn = {
   DAY: {
     LONG:{
       R:{'-1':'iḍlli','0':'assa','1':'askka'},
@@ -23167,7 +23166,7 @@ exports.RelativeDateTimeSymbols_shi_Latn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_shi_Latn_MA =  {
+export let RelativeDateTimeSymbols_shi_Latn_MA = {
   DAY: {
     LONG:{
       R:{'-1':'iḍlli','0':'assa','1':'askka'},
@@ -23227,22 +23226,22 @@ exports.RelativeDateTimeSymbols_shi_Latn_MA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_shi_Tfng = exports.RelativeDateTimeSymbols_shi;
+export let RelativeDateTimeSymbols_shi_Tfng = RelativeDateTimeSymbols_shi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_shi_Tfng_MA = exports.RelativeDateTimeSymbols_shi;
+export let RelativeDateTimeSymbols_shi_Tfng_MA = RelativeDateTimeSymbols_shi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_si_LK = relativeDateTimeSymbols.RelativeDateTimeSymbols_si;
+export let RelativeDateTimeSymbols_si_LK = relativeDateTimeSymbols.RelativeDateTimeSymbols_si;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sk_SK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sk;
+export let RelativeDateTimeSymbols_sk_SK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sk;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sl_SI = relativeDateTimeSymbols.RelativeDateTimeSymbols_sl;
+export let RelativeDateTimeSymbols_sl_SI = relativeDateTimeSymbols.RelativeDateTimeSymbols_sl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_smn =  {
+export let RelativeDateTimeSymbols_smn = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -23302,10 +23301,10 @@ exports.RelativeDateTimeSymbols_smn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_smn_FI = exports.RelativeDateTimeSymbols_smn;
+export let RelativeDateTimeSymbols_smn_FI = RelativeDateTimeSymbols_smn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sn =  {
+export let RelativeDateTimeSymbols_sn = {
   DAY: {
     LONG:{
       R:{'-1':'Nezuro','0':'Nhasi','1':'Mangwana'},
@@ -23365,10 +23364,10 @@ exports.RelativeDateTimeSymbols_sn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sn_ZW = exports.RelativeDateTimeSymbols_sn;
+export let RelativeDateTimeSymbols_sn_ZW = RelativeDateTimeSymbols_sn;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_so =  {
+export let RelativeDateTimeSymbols_so = {
   DAY: {
     LONG:{
       R:{'-1':'Shalay','0':'Maanta','1':'Berri'},
@@ -23478,31 +23477,31 @@ exports.RelativeDateTimeSymbols_so =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_so_DJ = exports.RelativeDateTimeSymbols_so;
+export let RelativeDateTimeSymbols_so_DJ = RelativeDateTimeSymbols_so;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_so_ET = exports.RelativeDateTimeSymbols_so;
+export let RelativeDateTimeSymbols_so_ET = RelativeDateTimeSymbols_so;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_so_KE = exports.RelativeDateTimeSymbols_so;
+export let RelativeDateTimeSymbols_so_KE = RelativeDateTimeSymbols_so;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_so_SO = exports.RelativeDateTimeSymbols_so;
+export let RelativeDateTimeSymbols_so_SO = RelativeDateTimeSymbols_so;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sq_AL = relativeDateTimeSymbols.RelativeDateTimeSymbols_sq;
+export let RelativeDateTimeSymbols_sq_AL = relativeDateTimeSymbols.RelativeDateTimeSymbols_sq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sq_MK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sq;
+export let RelativeDateTimeSymbols_sq_MK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sq_XK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sq;
+export let RelativeDateTimeSymbols_sq_XK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Cyrl = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
+export let RelativeDateTimeSymbols_sr_Cyrl = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Cyrl_BA =  {
+export let RelativeDateTimeSymbols_sr_Cyrl_BA = {
   DAY: {
     LONG:{
       R:{'-1':'јуче','-2':'прекјуче','0':'данас','1':'сутра','2':'прекосутра'},
@@ -23622,16 +23621,16 @@ exports.RelativeDateTimeSymbols_sr_Cyrl_BA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Cyrl_ME = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
+export let RelativeDateTimeSymbols_sr_Cyrl_ME = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Cyrl_RS = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
+export let RelativeDateTimeSymbols_sr_Cyrl_RS = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Cyrl_XK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
+export let RelativeDateTimeSymbols_sr_Cyrl_XK = relativeDateTimeSymbols.RelativeDateTimeSymbols_sr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Latn_BA =  {
+export let RelativeDateTimeSymbols_sr_Latn_BA = {
   DAY: {
     LONG:{
       R:{'-1':'juče','-2':'prekjuče','0':'danas','1':'sutra','2':'prekosutra'},
@@ -23751,7 +23750,7 @@ exports.RelativeDateTimeSymbols_sr_Latn_BA =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Latn_ME =  {
+export let RelativeDateTimeSymbols_sr_Latn_ME = {
   DAY: {
     LONG:{
       R:{'-1':'juče','-2':'prekjuče','0':'danas','1':'sutra','2':'prekosutra'},
@@ -23871,7 +23870,7 @@ exports.RelativeDateTimeSymbols_sr_Latn_ME =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Latn_RS =  {
+export let RelativeDateTimeSymbols_sr_Latn_RS = {
   DAY: {
     LONG:{
       R:{'-1':'juče','-2':'prekjuče','0':'danas','1':'sutra','2':'prekosutra'},
@@ -23991,7 +23990,7 @@ exports.RelativeDateTimeSymbols_sr_Latn_RS =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sr_Latn_XK =  {
+export let RelativeDateTimeSymbols_sr_Latn_XK = {
   DAY: {
     LONG:{
       R:{'-1':'juče','-2':'prekjuče','0':'danas','1':'sutra','2':'prekosutra'},
@@ -24111,7 +24110,7 @@ exports.RelativeDateTimeSymbols_sr_Latn_XK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_su =  {
+export let RelativeDateTimeSymbols_su = {
   DAY: {
     LONG:{
       R:{'-1':'kamari','0':'dinten ieu','1':'énjing'},
@@ -24171,49 +24170,49 @@ exports.RelativeDateTimeSymbols_su =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_su_Latn = exports.RelativeDateTimeSymbols_su;
+export let RelativeDateTimeSymbols_su_Latn = RelativeDateTimeSymbols_su;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_su_Latn_ID = exports.RelativeDateTimeSymbols_su;
+export let RelativeDateTimeSymbols_su_Latn_ID = RelativeDateTimeSymbols_su;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sv_AX = relativeDateTimeSymbols.RelativeDateTimeSymbols_sv;
+export let RelativeDateTimeSymbols_sv_AX = relativeDateTimeSymbols.RelativeDateTimeSymbols_sv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sv_FI = relativeDateTimeSymbols.RelativeDateTimeSymbols_sv;
+export let RelativeDateTimeSymbols_sv_FI = relativeDateTimeSymbols.RelativeDateTimeSymbols_sv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sv_SE = relativeDateTimeSymbols.RelativeDateTimeSymbols_sv;
+export let RelativeDateTimeSymbols_sv_SE = relativeDateTimeSymbols.RelativeDateTimeSymbols_sv;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sw_CD = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
+export let RelativeDateTimeSymbols_sw_CD = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sw_KE = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
+export let RelativeDateTimeSymbols_sw_KE = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sw_TZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
+export let RelativeDateTimeSymbols_sw_TZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_sw_UG = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
+export let RelativeDateTimeSymbols_sw_UG = relativeDateTimeSymbols.RelativeDateTimeSymbols_sw;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ta_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
+export let RelativeDateTimeSymbols_ta_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ta_LK = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
+export let RelativeDateTimeSymbols_ta_LK = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ta_MY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
+export let RelativeDateTimeSymbols_ta_MY = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ta_SG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
+export let RelativeDateTimeSymbols_ta_SG = relativeDateTimeSymbols.RelativeDateTimeSymbols_ta;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_te_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_te;
+export let RelativeDateTimeSymbols_te_IN = relativeDateTimeSymbols.RelativeDateTimeSymbols_te;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_teo =  {
+export let RelativeDateTimeSymbols_teo = {
   DAY: {
     LONG:{
       R:{'-1':'Jaan','0':'Lolo','1':'Moi'},
@@ -24273,13 +24272,13 @@ exports.RelativeDateTimeSymbols_teo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_teo_KE = exports.RelativeDateTimeSymbols_teo;
+export let RelativeDateTimeSymbols_teo_KE = RelativeDateTimeSymbols_teo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_teo_UG = exports.RelativeDateTimeSymbols_teo;
+export let RelativeDateTimeSymbols_teo_UG = RelativeDateTimeSymbols_teo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tg =  {
+export let RelativeDateTimeSymbols_tg = {
   DAY: {
     LONG:{
       R:{'-1':'дирӯз','0':'имрӯз','1':'фардо'},
@@ -24374,13 +24373,13 @@ exports.RelativeDateTimeSymbols_tg =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tg_TJ = exports.RelativeDateTimeSymbols_tg;
+export let RelativeDateTimeSymbols_tg_TJ = RelativeDateTimeSymbols_tg;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_th_TH = relativeDateTimeSymbols.RelativeDateTimeSymbols_th;
+export let RelativeDateTimeSymbols_th_TH = relativeDateTimeSymbols.RelativeDateTimeSymbols_th;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ti =  {
+export let RelativeDateTimeSymbols_ti = {
   DAY: {
     LONG:{
       R:{'-1':'ትማሊ','0':'ሎሚ','1':'ጽባሕ'},
@@ -24455,13 +24454,13 @@ exports.RelativeDateTimeSymbols_ti =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ti_ER = exports.RelativeDateTimeSymbols_ti;
+export let RelativeDateTimeSymbols_ti_ER = RelativeDateTimeSymbols_ti;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ti_ET = exports.RelativeDateTimeSymbols_ti;
+export let RelativeDateTimeSymbols_ti_ET = RelativeDateTimeSymbols_ti;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tk =  {
+export let RelativeDateTimeSymbols_tk = {
   DAY: {
     LONG:{
       R:{'-1':'düýn','0':'şu gün','1':'ertir'},
@@ -24566,10 +24565,10 @@ exports.RelativeDateTimeSymbols_tk =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tk_TM = exports.RelativeDateTimeSymbols_tk;
+export let RelativeDateTimeSymbols_tk_TM = RelativeDateTimeSymbols_tk;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_to =  {
+export let RelativeDateTimeSymbols_to = {
   DAY: {
     LONG:{
       R:{'-1':'ʻaneafi','-2':'ʻaneheafi','0':'ʻahó ni','1':'ʻapongipongi','2':'ʻahepongipongi'},
@@ -24629,16 +24628,16 @@ exports.RelativeDateTimeSymbols_to =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_to_TO = exports.RelativeDateTimeSymbols_to;
+export let RelativeDateTimeSymbols_to_TO = RelativeDateTimeSymbols_to;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tr_CY = relativeDateTimeSymbols.RelativeDateTimeSymbols_tr;
+export let RelativeDateTimeSymbols_tr_CY = relativeDateTimeSymbols.RelativeDateTimeSymbols_tr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tr_TR = relativeDateTimeSymbols.RelativeDateTimeSymbols_tr;
+export let RelativeDateTimeSymbols_tr_TR = relativeDateTimeSymbols.RelativeDateTimeSymbols_tr;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tt =  {
+export let RelativeDateTimeSymbols_tt = {
   DAY: {
     LONG:{
       R:{'-1':'кичә','0':'бүген','1':'иртәгә'},
@@ -24718,10 +24717,10 @@ exports.RelativeDateTimeSymbols_tt =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tt_RU = exports.RelativeDateTimeSymbols_tt;
+export let RelativeDateTimeSymbols_tt_RU = RelativeDateTimeSymbols_tt;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_twq =  {
+export let RelativeDateTimeSymbols_twq = {
   DAY: {
     LONG:{
       R:{'-1':'Bi','0':'Hõo','1':'Suba'},
@@ -24781,10 +24780,10 @@ exports.RelativeDateTimeSymbols_twq =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_twq_NE = exports.RelativeDateTimeSymbols_twq;
+export let RelativeDateTimeSymbols_twq_NE = RelativeDateTimeSymbols_twq;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tzm =  {
+export let RelativeDateTimeSymbols_tzm = {
   DAY: {
     LONG:{
       R:{'-1':'Assenaṭ','0':'Assa','1':'Asekka'},
@@ -24844,10 +24843,10 @@ exports.RelativeDateTimeSymbols_tzm =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_tzm_MA = exports.RelativeDateTimeSymbols_tzm;
+export let RelativeDateTimeSymbols_tzm_MA = RelativeDateTimeSymbols_tzm;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ug =  {
+export let RelativeDateTimeSymbols_ug = {
   DAY: {
     LONG:{
       R:{'-1':'تۈنۈگۈن','0':'بۈگۈن','1':'ئەتە'},
@@ -24907,13 +24906,13 @@ exports.RelativeDateTimeSymbols_ug =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ug_CN = exports.RelativeDateTimeSymbols_ug;
+export let RelativeDateTimeSymbols_ug_CN = RelativeDateTimeSymbols_ug;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uk_UA = relativeDateTimeSymbols.RelativeDateTimeSymbols_uk;
+export let RelativeDateTimeSymbols_uk_UA = relativeDateTimeSymbols.RelativeDateTimeSymbols_uk;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ur_IN =  {
+export let RelativeDateTimeSymbols_ur_IN = {
   DAY: {
     LONG:{
       R:{'-1':'گزشتہ کل','-2':'گزشتہ پرسوں','0':'آج','1':'آئندہ کل','2':'آنے والا پرسوں'},
@@ -25033,10 +25032,10 @@ exports.RelativeDateTimeSymbols_ur_IN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_ur_PK = relativeDateTimeSymbols.RelativeDateTimeSymbols_ur;
+export let RelativeDateTimeSymbols_ur_PK = relativeDateTimeSymbols.RelativeDateTimeSymbols_ur;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uz_Arab =  {
+export let RelativeDateTimeSymbols_uz_Arab = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -25096,7 +25095,7 @@ exports.RelativeDateTimeSymbols_uz_Arab =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uz_Arab_AF =  {
+export let RelativeDateTimeSymbols_uz_Arab_AF = {
   DAY: {
     LONG:{
       R:{'-1':'yesterday','0':'today','1':'tomorrow'},
@@ -25156,7 +25155,7 @@ exports.RelativeDateTimeSymbols_uz_Arab_AF =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uz_Cyrl =  {
+export let RelativeDateTimeSymbols_uz_Cyrl = {
   DAY: {
     LONG:{
       R:{'-1':'кеча','0':'бугун','1':'эртага'},
@@ -25216,7 +25215,7 @@ exports.RelativeDateTimeSymbols_uz_Cyrl =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uz_Cyrl_UZ =  {
+export let RelativeDateTimeSymbols_uz_Cyrl_UZ = {
   DAY: {
     LONG:{
       R:{'-1':'кеча','0':'бугун','1':'эртага'},
@@ -25276,13 +25275,13 @@ exports.RelativeDateTimeSymbols_uz_Cyrl_UZ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uz_Latn = relativeDateTimeSymbols.RelativeDateTimeSymbols_uz;
+export let RelativeDateTimeSymbols_uz_Latn = relativeDateTimeSymbols.RelativeDateTimeSymbols_uz;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_uz_Latn_UZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_uz;
+export let RelativeDateTimeSymbols_uz_Latn_UZ = relativeDateTimeSymbols.RelativeDateTimeSymbols_uz;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vai =  {
+export let RelativeDateTimeSymbols_vai = {
   DAY: {
     LONG:{
       R:{'-1':'ꖴꖸ','0':'ꗦꗷ','1':'ꔻꕯ'},
@@ -25342,7 +25341,7 @@ exports.RelativeDateTimeSymbols_vai =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vai_Latn =  {
+export let RelativeDateTimeSymbols_vai_Latn = {
   DAY: {
     LONG:{
       R:{'-1':'kunu','0':'wɛlɛ','1':'sina'},
@@ -25402,7 +25401,7 @@ exports.RelativeDateTimeSymbols_vai_Latn =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vai_Latn_LR =  {
+export let RelativeDateTimeSymbols_vai_Latn_LR = {
   DAY: {
     LONG:{
       R:{'-1':'kunu','0':'wɛlɛ','1':'sina'},
@@ -25462,16 +25461,16 @@ exports.RelativeDateTimeSymbols_vai_Latn_LR =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vai_Vaii = exports.RelativeDateTimeSymbols_vai;
+export let RelativeDateTimeSymbols_vai_Vaii = RelativeDateTimeSymbols_vai;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vai_Vaii_LR = exports.RelativeDateTimeSymbols_vai;
+export let RelativeDateTimeSymbols_vai_Vaii_LR = RelativeDateTimeSymbols_vai;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vi_VN = relativeDateTimeSymbols.RelativeDateTimeSymbols_vi;
+export let RelativeDateTimeSymbols_vi_VN = relativeDateTimeSymbols.RelativeDateTimeSymbols_vi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vun =  {
+export let RelativeDateTimeSymbols_vun = {
   DAY: {
     LONG:{
       R:{'-1':'Ukou','0':'Inu','1':'Ngama'},
@@ -25531,10 +25530,10 @@ exports.RelativeDateTimeSymbols_vun =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_vun_TZ = exports.RelativeDateTimeSymbols_vun;
+export let RelativeDateTimeSymbols_vun_TZ = RelativeDateTimeSymbols_vun;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_wae =  {
+export let RelativeDateTimeSymbols_wae = {
   DAY: {
     LONG:{
       R:{'-1':'Gešter','-2':'Vorgešter','0':'Hitte','1':'Móre','2':'Ubermóre'},
@@ -25594,10 +25593,10 @@ exports.RelativeDateTimeSymbols_wae =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_wae_CH = exports.RelativeDateTimeSymbols_wae;
+export let RelativeDateTimeSymbols_wae_CH = RelativeDateTimeSymbols_wae;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_wo =  {
+export let RelativeDateTimeSymbols_wo = {
   DAY: {
     LONG:{
       R:{'-1':'démb','0':'tay','1':'suba'},
@@ -25682,10 +25681,10 @@ exports.RelativeDateTimeSymbols_wo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_wo_SN = exports.RelativeDateTimeSymbols_wo;
+export let RelativeDateTimeSymbols_wo_SN = RelativeDateTimeSymbols_wo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_xh =  {
+export let RelativeDateTimeSymbols_xh = {
   DAY: {
     LONG:{
       R:{'-1':'izolo','0':'namhlanje','1':'ngomso'},
@@ -25775,10 +25774,10 @@ exports.RelativeDateTimeSymbols_xh =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_xh_ZA = exports.RelativeDateTimeSymbols_xh;
+export let RelativeDateTimeSymbols_xh_ZA = RelativeDateTimeSymbols_xh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_xog =  {
+export let RelativeDateTimeSymbols_xog = {
   DAY: {
     LONG:{
       R:{'-1':'Edho','0':'Olwaleelo (leelo)','1':'Enkyo'},
@@ -25838,10 +25837,10 @@ exports.RelativeDateTimeSymbols_xog =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_xog_UG = exports.RelativeDateTimeSymbols_xog;
+export let RelativeDateTimeSymbols_xog_UG = RelativeDateTimeSymbols_xog;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yav =  {
+export let RelativeDateTimeSymbols_yav = {
   DAY: {
     LONG:{
       R:{'-1':'púyoó','0':'ínaan','1':'nakinyám'},
@@ -25901,10 +25900,10 @@ exports.RelativeDateTimeSymbols_yav =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yav_CM = exports.RelativeDateTimeSymbols_yav;
+export let RelativeDateTimeSymbols_yav_CM = RelativeDateTimeSymbols_yav;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yi =  {
+export let RelativeDateTimeSymbols_yi = {
   DAY: {
     LONG:{
       R:{'-1':'נעכטן','0':'היינט','1':'מארגן'},
@@ -25974,10 +25973,10 @@ exports.RelativeDateTimeSymbols_yi =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yi_001 = exports.RelativeDateTimeSymbols_yi;
+export let RelativeDateTimeSymbols_yi_001 = RelativeDateTimeSymbols_yi;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yo =  {
+export let RelativeDateTimeSymbols_yo = {
   DAY: {
     LONG:{
       R:{'-1':'Àná','-2':'íjẹta','0':'Òní','1':'Ọ̀la','2':'òtúùnla'},
@@ -26047,7 +26046,7 @@ exports.RelativeDateTimeSymbols_yo =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yo_BJ =  {
+export let RelativeDateTimeSymbols_yo_BJ = {
   DAY: {
     LONG:{
       R:{'-1':'Àná','-2':'íjɛta','0':'Òní','1':'Ɔ̀la'},
@@ -26117,10 +26116,10 @@ exports.RelativeDateTimeSymbols_yo_BJ =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yo_NG = exports.RelativeDateTimeSymbols_yo;
+export let RelativeDateTimeSymbols_yo_NG = RelativeDateTimeSymbols_yo;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yrl =  {
+export let RelativeDateTimeSymbols_yrl = {
   DAY: {
     LONG:{
       R:{'-1':'kuesê','-2':'amũ kuesê','0':'wií','1':'wirãdé','2':'wirãdé ariré'},
@@ -26205,16 +26204,16 @@ exports.RelativeDateTimeSymbols_yrl =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yrl_BR = exports.RelativeDateTimeSymbols_yrl;
+export let RelativeDateTimeSymbols_yrl_BR = RelativeDateTimeSymbols_yrl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yrl_CO = exports.RelativeDateTimeSymbols_yrl;
+export let RelativeDateTimeSymbols_yrl_CO = RelativeDateTimeSymbols_yrl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yrl_VE = exports.RelativeDateTimeSymbols_yrl;
+export let RelativeDateTimeSymbols_yrl_VE = RelativeDateTimeSymbols_yrl;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yue =  {
+export let RelativeDateTimeSymbols_yue = {
   DAY: {
     LONG:{
       R:{'-1':'尋日','-2':'前天','0':'今日','1':'聽日','2':'後天'},
@@ -26284,7 +26283,7 @@ exports.RelativeDateTimeSymbols_yue =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yue_Hans =  {
+export let RelativeDateTimeSymbols_yue_Hans = {
   DAY: {
     LONG:{
       R:{'-1':'寻日','-2':'前天','0':'今日','1':'听日','2':'后天'},
@@ -26354,7 +26353,7 @@ exports.RelativeDateTimeSymbols_yue_Hans =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yue_Hans_CN =  {
+export let RelativeDateTimeSymbols_yue_Hans_CN = {
   DAY: {
     LONG:{
       R:{'-1':'寻日','-2':'前天','0':'今日','1':'听日','2':'后天'},
@@ -26424,13 +26423,13 @@ exports.RelativeDateTimeSymbols_yue_Hans_CN =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yue_Hant = exports.RelativeDateTimeSymbols_yue;
+export let RelativeDateTimeSymbols_yue_Hant = RelativeDateTimeSymbols_yue;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_yue_Hant_HK = exports.RelativeDateTimeSymbols_yue;
+export let RelativeDateTimeSymbols_yue_Hant_HK = RelativeDateTimeSymbols_yue;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zgh =  {
+export let RelativeDateTimeSymbols_zgh = {
   DAY: {
     LONG:{
       R:{'-1':'ⵉⴹⵍⵍⵉ','0':'ⴰⵙⵙⴰ','1':'ⴰⵙⴽⴽⴰ'},
@@ -26490,16 +26489,16 @@ exports.RelativeDateTimeSymbols_zgh =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zgh_MA = exports.RelativeDateTimeSymbols_zgh;
+export let RelativeDateTimeSymbols_zgh_MA = RelativeDateTimeSymbols_zgh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hans = relativeDateTimeSymbols.RelativeDateTimeSymbols_zh;
+export let RelativeDateTimeSymbols_zh_Hans = relativeDateTimeSymbols.RelativeDateTimeSymbols_zh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hans_CN = relativeDateTimeSymbols.RelativeDateTimeSymbols_zh;
+export let RelativeDateTimeSymbols_zh_Hans_CN = relativeDateTimeSymbols.RelativeDateTimeSymbols_zh;
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hans_HK =  {
+export let RelativeDateTimeSymbols_zh_Hans_HK = {
   DAY: {
     LONG:{
       R:{'-1':'昨天','-2':'前天','0':'今天','1':'明天','2':'后天'},
@@ -26559,7 +26558,7 @@ exports.RelativeDateTimeSymbols_zh_Hans_HK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hans_MO =  {
+export let RelativeDateTimeSymbols_zh_Hans_MO = {
   DAY: {
     LONG:{
       R:{'-1':'昨天','-2':'前天','0':'今天','1':'明天','2':'后天'},
@@ -26619,7 +26618,7 @@ exports.RelativeDateTimeSymbols_zh_Hans_MO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hans_SG =  {
+export let RelativeDateTimeSymbols_zh_Hans_SG = {
   DAY: {
     LONG:{
       R:{'-1':'昨天','-2':'前天','0':'今天','1':'明天','2':'后天'},
@@ -26679,7 +26678,7 @@ exports.RelativeDateTimeSymbols_zh_Hans_SG =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hant =  {
+export let RelativeDateTimeSymbols_zh_Hant = {
   DAY: {
     LONG:{
       R:{'-1':'昨天','-2':'前天','0':'今天','1':'明天','2':'後天'},
@@ -26739,7 +26738,7 @@ exports.RelativeDateTimeSymbols_zh_Hant =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hant_HK =  {
+export let RelativeDateTimeSymbols_zh_Hant_HK = {
   DAY: {
     LONG:{
       R:{'-1':'昨日','-2':'前日','0':'今日','1':'明日','2':'後日'},
@@ -26844,7 +26843,7 @@ exports.RelativeDateTimeSymbols_zh_Hant_HK =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hant_MO =  {
+export let RelativeDateTimeSymbols_zh_Hant_MO = {
   DAY: {
     LONG:{
       R:{'-1':'昨日','-2':'前日','0':'今日','1':'明日','2':'後日'},
@@ -26949,7 +26948,7 @@ exports.RelativeDateTimeSymbols_zh_Hant_MO =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zh_Hant_TW =  {
+export let RelativeDateTimeSymbols_zh_Hant_TW = {
   DAY: {
     LONG:{
       R:{'-1':'昨天','-2':'前天','0':'今天','1':'明天','2':'後天'},
@@ -27009,2704 +27008,2704 @@ exports.RelativeDateTimeSymbols_zh_Hant_TW =  {
 };
 
 /** @const {!relativeDateTimeSymbols.RelativeDateTimeSymbols} */
-exports.RelativeDateTimeSymbols_zu_ZA = relativeDateTimeSymbols.RelativeDateTimeSymbols_zu;
+export let RelativeDateTimeSymbols_zu_ZA = relativeDateTimeSymbols.RelativeDateTimeSymbols_zu;
 
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_af_NA;
+    defaultSymbols = RelativeDateTimeSymbols_af_NA;
     break;
   case 'af_ZA':
   case 'af-ZA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_af_ZA;
+    defaultSymbols = RelativeDateTimeSymbols_af_ZA;
     break;
   case 'agq':
-    defaultSymbols = exports.RelativeDateTimeSymbols_agq;
+    defaultSymbols = RelativeDateTimeSymbols_agq;
     break;
   case 'agq_CM':
   case 'agq-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_agq_CM;
+    defaultSymbols = RelativeDateTimeSymbols_agq_CM;
     break;
   case 'ak':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ak;
+    defaultSymbols = RelativeDateTimeSymbols_ak;
     break;
   case 'ak_GH':
   case 'ak-GH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ak_GH;
+    defaultSymbols = RelativeDateTimeSymbols_ak_GH;
     break;
   case 'am_ET':
   case 'am-ET':
-    defaultSymbols = exports.RelativeDateTimeSymbols_am_ET;
+    defaultSymbols = RelativeDateTimeSymbols_am_ET;
     break;
   case 'ar_001':
   case 'ar-001':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_001;
+    defaultSymbols = RelativeDateTimeSymbols_ar_001;
     break;
   case 'ar_AE':
   case 'ar-AE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_AE;
+    defaultSymbols = RelativeDateTimeSymbols_ar_AE;
     break;
   case 'ar_BH':
   case 'ar-BH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_BH;
+    defaultSymbols = RelativeDateTimeSymbols_ar_BH;
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_DJ;
+    defaultSymbols = RelativeDateTimeSymbols_ar_DJ;
     break;
   case 'ar_EH':
   case 'ar-EH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_EH;
+    defaultSymbols = RelativeDateTimeSymbols_ar_EH;
     break;
   case 'ar_ER':
   case 'ar-ER':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_ER;
+    defaultSymbols = RelativeDateTimeSymbols_ar_ER;
     break;
   case 'ar_IL':
   case 'ar-IL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_IL;
+    defaultSymbols = RelativeDateTimeSymbols_ar_IL;
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_IQ;
+    defaultSymbols = RelativeDateTimeSymbols_ar_IQ;
     break;
   case 'ar_JO':
   case 'ar-JO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_JO;
+    defaultSymbols = RelativeDateTimeSymbols_ar_JO;
     break;
   case 'ar_KM':
   case 'ar-KM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_KM;
+    defaultSymbols = RelativeDateTimeSymbols_ar_KM;
     break;
   case 'ar_KW':
   case 'ar-KW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_KW;
+    defaultSymbols = RelativeDateTimeSymbols_ar_KW;
     break;
   case 'ar_LB':
   case 'ar-LB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_LB;
+    defaultSymbols = RelativeDateTimeSymbols_ar_LB;
     break;
   case 'ar_LY':
   case 'ar-LY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_LY;
+    defaultSymbols = RelativeDateTimeSymbols_ar_LY;
     break;
   case 'ar_MA':
   case 'ar-MA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_MA;
+    defaultSymbols = RelativeDateTimeSymbols_ar_MA;
     break;
   case 'ar_MR':
   case 'ar-MR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_MR;
+    defaultSymbols = RelativeDateTimeSymbols_ar_MR;
     break;
   case 'ar_OM':
   case 'ar-OM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_OM;
+    defaultSymbols = RelativeDateTimeSymbols_ar_OM;
     break;
   case 'ar_PS':
   case 'ar-PS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_PS;
+    defaultSymbols = RelativeDateTimeSymbols_ar_PS;
     break;
   case 'ar_QA':
   case 'ar-QA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_QA;
+    defaultSymbols = RelativeDateTimeSymbols_ar_QA;
     break;
   case 'ar_SA':
   case 'ar-SA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_SA;
+    defaultSymbols = RelativeDateTimeSymbols_ar_SA;
     break;
   case 'ar_SD':
   case 'ar-SD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_SD;
+    defaultSymbols = RelativeDateTimeSymbols_ar_SD;
     break;
   case 'ar_SO':
   case 'ar-SO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_SO;
+    defaultSymbols = RelativeDateTimeSymbols_ar_SO;
     break;
   case 'ar_SS':
   case 'ar-SS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_SS;
+    defaultSymbols = RelativeDateTimeSymbols_ar_SS;
     break;
   case 'ar_SY':
   case 'ar-SY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_SY;
+    defaultSymbols = RelativeDateTimeSymbols_ar_SY;
     break;
   case 'ar_TD':
   case 'ar-TD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_TD;
+    defaultSymbols = RelativeDateTimeSymbols_ar_TD;
     break;
   case 'ar_TN':
   case 'ar-TN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_TN;
+    defaultSymbols = RelativeDateTimeSymbols_ar_TN;
     break;
   case 'ar_XB':
   case 'ar-XB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_XB;
+    defaultSymbols = RelativeDateTimeSymbols_ar_XB;
     break;
   case 'ar_YE':
   case 'ar-YE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ar_YE;
+    defaultSymbols = RelativeDateTimeSymbols_ar_YE;
     break;
   case 'as':
-    defaultSymbols = exports.RelativeDateTimeSymbols_as;
+    defaultSymbols = RelativeDateTimeSymbols_as;
     break;
   case 'as_IN':
   case 'as-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_as_IN;
+    defaultSymbols = RelativeDateTimeSymbols_as_IN;
     break;
   case 'asa':
-    defaultSymbols = exports.RelativeDateTimeSymbols_asa;
+    defaultSymbols = RelativeDateTimeSymbols_asa;
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_asa_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_asa_TZ;
     break;
   case 'ast':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ast;
+    defaultSymbols = RelativeDateTimeSymbols_ast;
     break;
   case 'ast_ES':
   case 'ast-ES':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ast_ES;
+    defaultSymbols = RelativeDateTimeSymbols_ast_ES;
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    defaultSymbols = exports.RelativeDateTimeSymbols_az_Cyrl;
+    defaultSymbols = RelativeDateTimeSymbols_az_Cyrl;
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_az_Cyrl_AZ;
+    defaultSymbols = RelativeDateTimeSymbols_az_Cyrl_AZ;
     break;
   case 'az_Latn':
   case 'az-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_az_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_az_Latn;
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_az_Latn_AZ;
+    defaultSymbols = RelativeDateTimeSymbols_az_Latn_AZ;
     break;
   case 'bas':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bas;
+    defaultSymbols = RelativeDateTimeSymbols_bas;
     break;
   case 'bas_CM':
   case 'bas-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bas_CM;
+    defaultSymbols = RelativeDateTimeSymbols_bas_CM;
     break;
   case 'be_BY':
   case 'be-BY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_be_BY;
+    defaultSymbols = RelativeDateTimeSymbols_be_BY;
     break;
   case 'bem':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bem;
+    defaultSymbols = RelativeDateTimeSymbols_bem;
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bem_ZM;
+    defaultSymbols = RelativeDateTimeSymbols_bem_ZM;
     break;
   case 'bez':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bez;
+    defaultSymbols = RelativeDateTimeSymbols_bez;
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bez_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_bez_TZ;
     break;
   case 'bg_BG':
   case 'bg-BG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bg_BG;
+    defaultSymbols = RelativeDateTimeSymbols_bg_BG;
     break;
   case 'bgc':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bgc;
+    defaultSymbols = RelativeDateTimeSymbols_bgc;
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bgc_IN;
+    defaultSymbols = RelativeDateTimeSymbols_bgc_IN;
     break;
   case 'bho':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bho;
+    defaultSymbols = RelativeDateTimeSymbols_bho;
     break;
   case 'bho_IN':
   case 'bho-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bho_IN;
+    defaultSymbols = RelativeDateTimeSymbols_bho_IN;
     break;
   case 'bm':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bm;
+    defaultSymbols = RelativeDateTimeSymbols_bm;
     break;
   case 'bm_ML':
   case 'bm-ML':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bm_ML;
+    defaultSymbols = RelativeDateTimeSymbols_bm_ML;
     break;
   case 'bn_BD':
   case 'bn-BD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bn_BD;
+    defaultSymbols = RelativeDateTimeSymbols_bn_BD;
     break;
   case 'bn_IN':
   case 'bn-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bn_IN;
+    defaultSymbols = RelativeDateTimeSymbols_bn_IN;
     break;
   case 'bo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bo;
+    defaultSymbols = RelativeDateTimeSymbols_bo;
     break;
   case 'bo_CN':
   case 'bo-CN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bo_CN;
+    defaultSymbols = RelativeDateTimeSymbols_bo_CN;
     break;
   case 'bo_IN':
   case 'bo-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bo_IN;
+    defaultSymbols = RelativeDateTimeSymbols_bo_IN;
     break;
   case 'br_FR':
   case 'br-FR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_br_FR;
+    defaultSymbols = RelativeDateTimeSymbols_br_FR;
     break;
   case 'brx':
-    defaultSymbols = exports.RelativeDateTimeSymbols_brx;
+    defaultSymbols = RelativeDateTimeSymbols_brx;
     break;
   case 'brx_IN':
   case 'brx-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_brx_IN;
+    defaultSymbols = RelativeDateTimeSymbols_brx_IN;
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bs_Cyrl;
+    defaultSymbols = RelativeDateTimeSymbols_bs_Cyrl;
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bs_Cyrl_BA;
+    defaultSymbols = RelativeDateTimeSymbols_bs_Cyrl_BA;
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bs_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_bs_Latn;
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_bs_Latn_BA;
+    defaultSymbols = RelativeDateTimeSymbols_bs_Latn_BA;
     break;
   case 'ca_AD':
   case 'ca-AD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ca_AD;
+    defaultSymbols = RelativeDateTimeSymbols_ca_AD;
     break;
   case 'ca_ES':
   case 'ca-ES':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ca_ES;
+    defaultSymbols = RelativeDateTimeSymbols_ca_ES;
     break;
   case 'ca_FR':
   case 'ca-FR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ca_FR;
+    defaultSymbols = RelativeDateTimeSymbols_ca_FR;
     break;
   case 'ca_IT':
   case 'ca-IT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ca_IT;
+    defaultSymbols = RelativeDateTimeSymbols_ca_IT;
     break;
   case 'ccp':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ccp;
+    defaultSymbols = RelativeDateTimeSymbols_ccp;
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ccp_BD;
+    defaultSymbols = RelativeDateTimeSymbols_ccp_BD;
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ccp_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ccp_IN;
     break;
   case 'ce':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ce;
+    defaultSymbols = RelativeDateTimeSymbols_ce;
     break;
   case 'ce_RU':
   case 'ce-RU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ce_RU;
+    defaultSymbols = RelativeDateTimeSymbols_ce_RU;
     break;
   case 'ceb':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ceb;
+    defaultSymbols = RelativeDateTimeSymbols_ceb;
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ceb_PH;
+    defaultSymbols = RelativeDateTimeSymbols_ceb_PH;
     break;
   case 'cgg':
-    defaultSymbols = exports.RelativeDateTimeSymbols_cgg;
+    defaultSymbols = RelativeDateTimeSymbols_cgg;
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_cgg_UG;
+    defaultSymbols = RelativeDateTimeSymbols_cgg_UG;
     break;
   case 'chr_US':
   case 'chr-US':
-    defaultSymbols = exports.RelativeDateTimeSymbols_chr_US;
+    defaultSymbols = RelativeDateTimeSymbols_chr_US;
     break;
   case 'ckb':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ckb;
+    defaultSymbols = RelativeDateTimeSymbols_ckb;
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ckb_Arab;
+    defaultSymbols = RelativeDateTimeSymbols_ckb_Arab;
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ckb_Arab_IQ;
+    defaultSymbols = RelativeDateTimeSymbols_ckb_Arab_IQ;
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ckb_Arab_IR;
+    defaultSymbols = RelativeDateTimeSymbols_ckb_Arab_IR;
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ckb_IQ;
+    defaultSymbols = RelativeDateTimeSymbols_ckb_IQ;
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ckb_IR;
+    defaultSymbols = RelativeDateTimeSymbols_ckb_IR;
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_cs_CZ;
+    defaultSymbols = RelativeDateTimeSymbols_cs_CZ;
     break;
   case 'cv':
-    defaultSymbols = exports.RelativeDateTimeSymbols_cv;
+    defaultSymbols = RelativeDateTimeSymbols_cv;
     break;
   case 'cv_RU':
   case 'cv-RU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_cv_RU;
+    defaultSymbols = RelativeDateTimeSymbols_cv_RU;
     break;
   case 'cy_GB':
   case 'cy-GB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_cy_GB;
+    defaultSymbols = RelativeDateTimeSymbols_cy_GB;
     break;
   case 'da_DK':
   case 'da-DK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_da_DK;
+    defaultSymbols = RelativeDateTimeSymbols_da_DK;
     break;
   case 'da_GL':
   case 'da-GL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_da_GL;
+    defaultSymbols = RelativeDateTimeSymbols_da_GL;
     break;
   case 'dav':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dav;
+    defaultSymbols = RelativeDateTimeSymbols_dav;
     break;
   case 'dav_KE':
   case 'dav-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dav_KE;
+    defaultSymbols = RelativeDateTimeSymbols_dav_KE;
     break;
   case 'de_BE':
   case 'de-BE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_de_BE;
+    defaultSymbols = RelativeDateTimeSymbols_de_BE;
     break;
   case 'de_DE':
   case 'de-DE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_de_DE;
+    defaultSymbols = RelativeDateTimeSymbols_de_DE;
     break;
   case 'de_IT':
   case 'de-IT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_de_IT;
+    defaultSymbols = RelativeDateTimeSymbols_de_IT;
     break;
   case 'de_LI':
   case 'de-LI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_de_LI;
+    defaultSymbols = RelativeDateTimeSymbols_de_LI;
     break;
   case 'de_LU':
   case 'de-LU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_de_LU;
+    defaultSymbols = RelativeDateTimeSymbols_de_LU;
     break;
   case 'dje':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dje;
+    defaultSymbols = RelativeDateTimeSymbols_dje;
     break;
   case 'dje_NE':
   case 'dje-NE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dje_NE;
+    defaultSymbols = RelativeDateTimeSymbols_dje_NE;
     break;
   case 'doi':
-    defaultSymbols = exports.RelativeDateTimeSymbols_doi;
+    defaultSymbols = RelativeDateTimeSymbols_doi;
     break;
   case 'doi_IN':
   case 'doi-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_doi_IN;
+    defaultSymbols = RelativeDateTimeSymbols_doi_IN;
     break;
   case 'dsb':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dsb;
+    defaultSymbols = RelativeDateTimeSymbols_dsb;
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dsb_DE;
+    defaultSymbols = RelativeDateTimeSymbols_dsb_DE;
     break;
   case 'dua':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dua;
+    defaultSymbols = RelativeDateTimeSymbols_dua;
     break;
   case 'dua_CM':
   case 'dua-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dua_CM;
+    defaultSymbols = RelativeDateTimeSymbols_dua_CM;
     break;
   case 'dyo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dyo;
+    defaultSymbols = RelativeDateTimeSymbols_dyo;
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dyo_SN;
+    defaultSymbols = RelativeDateTimeSymbols_dyo_SN;
     break;
   case 'dz':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dz;
+    defaultSymbols = RelativeDateTimeSymbols_dz;
     break;
   case 'dz_BT':
   case 'dz-BT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_dz_BT;
+    defaultSymbols = RelativeDateTimeSymbols_dz_BT;
     break;
   case 'ebu':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ebu;
+    defaultSymbols = RelativeDateTimeSymbols_ebu;
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ebu_KE;
+    defaultSymbols = RelativeDateTimeSymbols_ebu_KE;
     break;
   case 'ee':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ee;
+    defaultSymbols = RelativeDateTimeSymbols_ee;
     break;
   case 'ee_GH':
   case 'ee-GH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ee_GH;
+    defaultSymbols = RelativeDateTimeSymbols_ee_GH;
     break;
   case 'ee_TG':
   case 'ee-TG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ee_TG;
+    defaultSymbols = RelativeDateTimeSymbols_ee_TG;
     break;
   case 'el_CY':
   case 'el-CY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_el_CY;
+    defaultSymbols = RelativeDateTimeSymbols_el_CY;
     break;
   case 'el_GR':
   case 'el-GR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_el_GR;
+    defaultSymbols = RelativeDateTimeSymbols_el_GR;
     break;
   case 'en_001':
   case 'en-001':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_001;
+    defaultSymbols = RelativeDateTimeSymbols_en_001;
     break;
   case 'en_150':
   case 'en-150':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_150;
+    defaultSymbols = RelativeDateTimeSymbols_en_150;
     break;
   case 'en_AE':
   case 'en-AE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_AE;
+    defaultSymbols = RelativeDateTimeSymbols_en_AE;
     break;
   case 'en_AG':
   case 'en-AG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_AG;
+    defaultSymbols = RelativeDateTimeSymbols_en_AG;
     break;
   case 'en_AI':
   case 'en-AI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_AI;
+    defaultSymbols = RelativeDateTimeSymbols_en_AI;
     break;
   case 'en_AS':
   case 'en-AS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_AS;
+    defaultSymbols = RelativeDateTimeSymbols_en_AS;
     break;
   case 'en_AT':
   case 'en-AT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_AT;
+    defaultSymbols = RelativeDateTimeSymbols_en_AT;
     break;
   case 'en_BB':
   case 'en-BB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BB;
+    defaultSymbols = RelativeDateTimeSymbols_en_BB;
     break;
   case 'en_BE':
   case 'en-BE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BE;
+    defaultSymbols = RelativeDateTimeSymbols_en_BE;
     break;
   case 'en_BI':
   case 'en-BI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BI;
+    defaultSymbols = RelativeDateTimeSymbols_en_BI;
     break;
   case 'en_BM':
   case 'en-BM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BM;
+    defaultSymbols = RelativeDateTimeSymbols_en_BM;
     break;
   case 'en_BS':
   case 'en-BS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BS;
+    defaultSymbols = RelativeDateTimeSymbols_en_BS;
     break;
   case 'en_BW':
   case 'en-BW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BW;
+    defaultSymbols = RelativeDateTimeSymbols_en_BW;
     break;
   case 'en_BZ':
   case 'en-BZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_BZ;
+    defaultSymbols = RelativeDateTimeSymbols_en_BZ;
     break;
   case 'en_CC':
   case 'en-CC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_CC;
+    defaultSymbols = RelativeDateTimeSymbols_en_CC;
     break;
   case 'en_CH':
   case 'en-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_CH;
+    defaultSymbols = RelativeDateTimeSymbols_en_CH;
     break;
   case 'en_CK':
   case 'en-CK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_CK;
+    defaultSymbols = RelativeDateTimeSymbols_en_CK;
     break;
   case 'en_CM':
   case 'en-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_CM;
+    defaultSymbols = RelativeDateTimeSymbols_en_CM;
     break;
   case 'en_CX':
   case 'en-CX':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_CX;
+    defaultSymbols = RelativeDateTimeSymbols_en_CX;
     break;
   case 'en_CY':
   case 'en-CY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_CY;
+    defaultSymbols = RelativeDateTimeSymbols_en_CY;
     break;
   case 'en_DE':
   case 'en-DE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_DE;
+    defaultSymbols = RelativeDateTimeSymbols_en_DE;
     break;
   case 'en_DG':
   case 'en-DG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_DG;
+    defaultSymbols = RelativeDateTimeSymbols_en_DG;
     break;
   case 'en_DK':
   case 'en-DK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_DK;
+    defaultSymbols = RelativeDateTimeSymbols_en_DK;
     break;
   case 'en_DM':
   case 'en-DM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_DM;
+    defaultSymbols = RelativeDateTimeSymbols_en_DM;
     break;
   case 'en_ER':
   case 'en-ER':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_ER;
+    defaultSymbols = RelativeDateTimeSymbols_en_ER;
     break;
   case 'en_FI':
   case 'en-FI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_FI;
+    defaultSymbols = RelativeDateTimeSymbols_en_FI;
     break;
   case 'en_FJ':
   case 'en-FJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_FJ;
+    defaultSymbols = RelativeDateTimeSymbols_en_FJ;
     break;
   case 'en_FK':
   case 'en-FK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_FK;
+    defaultSymbols = RelativeDateTimeSymbols_en_FK;
     break;
   case 'en_FM':
   case 'en-FM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_FM;
+    defaultSymbols = RelativeDateTimeSymbols_en_FM;
     break;
   case 'en_GD':
   case 'en-GD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GD;
+    defaultSymbols = RelativeDateTimeSymbols_en_GD;
     break;
   case 'en_GG':
   case 'en-GG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GG;
+    defaultSymbols = RelativeDateTimeSymbols_en_GG;
     break;
   case 'en_GH':
   case 'en-GH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GH;
+    defaultSymbols = RelativeDateTimeSymbols_en_GH;
     break;
   case 'en_GI':
   case 'en-GI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GI;
+    defaultSymbols = RelativeDateTimeSymbols_en_GI;
     break;
   case 'en_GM':
   case 'en-GM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GM;
+    defaultSymbols = RelativeDateTimeSymbols_en_GM;
     break;
   case 'en_GU':
   case 'en-GU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GU;
+    defaultSymbols = RelativeDateTimeSymbols_en_GU;
     break;
   case 'en_GY':
   case 'en-GY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_GY;
+    defaultSymbols = RelativeDateTimeSymbols_en_GY;
     break;
   case 'en_HK':
   case 'en-HK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_HK;
+    defaultSymbols = RelativeDateTimeSymbols_en_HK;
     break;
   case 'en_IL':
   case 'en-IL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_IL;
+    defaultSymbols = RelativeDateTimeSymbols_en_IL;
     break;
   case 'en_IM':
   case 'en-IM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_IM;
+    defaultSymbols = RelativeDateTimeSymbols_en_IM;
     break;
   case 'en_IO':
   case 'en-IO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_IO;
+    defaultSymbols = RelativeDateTimeSymbols_en_IO;
     break;
   case 'en_JE':
   case 'en-JE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_JE;
+    defaultSymbols = RelativeDateTimeSymbols_en_JE;
     break;
   case 'en_JM':
   case 'en-JM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_JM;
+    defaultSymbols = RelativeDateTimeSymbols_en_JM;
     break;
   case 'en_KE':
   case 'en-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_KE;
+    defaultSymbols = RelativeDateTimeSymbols_en_KE;
     break;
   case 'en_KI':
   case 'en-KI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_KI;
+    defaultSymbols = RelativeDateTimeSymbols_en_KI;
     break;
   case 'en_KN':
   case 'en-KN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_KN;
+    defaultSymbols = RelativeDateTimeSymbols_en_KN;
     break;
   case 'en_KY':
   case 'en-KY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_KY;
+    defaultSymbols = RelativeDateTimeSymbols_en_KY;
     break;
   case 'en_LC':
   case 'en-LC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_LC;
+    defaultSymbols = RelativeDateTimeSymbols_en_LC;
     break;
   case 'en_LR':
   case 'en-LR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_LR;
+    defaultSymbols = RelativeDateTimeSymbols_en_LR;
     break;
   case 'en_LS':
   case 'en-LS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_LS;
+    defaultSymbols = RelativeDateTimeSymbols_en_LS;
     break;
   case 'en_MG':
   case 'en-MG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MG;
+    defaultSymbols = RelativeDateTimeSymbols_en_MG;
     break;
   case 'en_MH':
   case 'en-MH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MH;
+    defaultSymbols = RelativeDateTimeSymbols_en_MH;
     break;
   case 'en_MO':
   case 'en-MO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MO;
+    defaultSymbols = RelativeDateTimeSymbols_en_MO;
     break;
   case 'en_MP':
   case 'en-MP':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MP;
+    defaultSymbols = RelativeDateTimeSymbols_en_MP;
     break;
   case 'en_MS':
   case 'en-MS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MS;
+    defaultSymbols = RelativeDateTimeSymbols_en_MS;
     break;
   case 'en_MT':
   case 'en-MT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MT;
+    defaultSymbols = RelativeDateTimeSymbols_en_MT;
     break;
   case 'en_MU':
   case 'en-MU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MU;
+    defaultSymbols = RelativeDateTimeSymbols_en_MU;
     break;
   case 'en_MV':
   case 'en-MV':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MV;
+    defaultSymbols = RelativeDateTimeSymbols_en_MV;
     break;
   case 'en_MW':
   case 'en-MW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MW;
+    defaultSymbols = RelativeDateTimeSymbols_en_MW;
     break;
   case 'en_MY':
   case 'en-MY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_MY;
+    defaultSymbols = RelativeDateTimeSymbols_en_MY;
     break;
   case 'en_NA':
   case 'en-NA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NA;
+    defaultSymbols = RelativeDateTimeSymbols_en_NA;
     break;
   case 'en_NF':
   case 'en-NF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NF;
+    defaultSymbols = RelativeDateTimeSymbols_en_NF;
     break;
   case 'en_NG':
   case 'en-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NG;
+    defaultSymbols = RelativeDateTimeSymbols_en_NG;
     break;
   case 'en_NL':
   case 'en-NL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NL;
+    defaultSymbols = RelativeDateTimeSymbols_en_NL;
     break;
   case 'en_NR':
   case 'en-NR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NR;
+    defaultSymbols = RelativeDateTimeSymbols_en_NR;
     break;
   case 'en_NU':
   case 'en-NU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NU;
+    defaultSymbols = RelativeDateTimeSymbols_en_NU;
     break;
   case 'en_NZ':
   case 'en-NZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_NZ;
+    defaultSymbols = RelativeDateTimeSymbols_en_NZ;
     break;
   case 'en_PG':
   case 'en-PG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_PG;
+    defaultSymbols = RelativeDateTimeSymbols_en_PG;
     break;
   case 'en_PH':
   case 'en-PH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_PH;
+    defaultSymbols = RelativeDateTimeSymbols_en_PH;
     break;
   case 'en_PK':
   case 'en-PK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_PK;
+    defaultSymbols = RelativeDateTimeSymbols_en_PK;
     break;
   case 'en_PN':
   case 'en-PN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_PN;
+    defaultSymbols = RelativeDateTimeSymbols_en_PN;
     break;
   case 'en_PR':
   case 'en-PR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_PR;
+    defaultSymbols = RelativeDateTimeSymbols_en_PR;
     break;
   case 'en_PW':
   case 'en-PW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_PW;
+    defaultSymbols = RelativeDateTimeSymbols_en_PW;
     break;
   case 'en_RW':
   case 'en-RW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_RW;
+    defaultSymbols = RelativeDateTimeSymbols_en_RW;
     break;
   case 'en_SB':
   case 'en-SB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SB;
+    defaultSymbols = RelativeDateTimeSymbols_en_SB;
     break;
   case 'en_SC':
   case 'en-SC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SC;
+    defaultSymbols = RelativeDateTimeSymbols_en_SC;
     break;
   case 'en_SD':
   case 'en-SD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SD;
+    defaultSymbols = RelativeDateTimeSymbols_en_SD;
     break;
   case 'en_SE':
   case 'en-SE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SE;
+    defaultSymbols = RelativeDateTimeSymbols_en_SE;
     break;
   case 'en_SH':
   case 'en-SH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SH;
+    defaultSymbols = RelativeDateTimeSymbols_en_SH;
     break;
   case 'en_SI':
   case 'en-SI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SI;
+    defaultSymbols = RelativeDateTimeSymbols_en_SI;
     break;
   case 'en_SL':
   case 'en-SL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SL;
+    defaultSymbols = RelativeDateTimeSymbols_en_SL;
     break;
   case 'en_SS':
   case 'en-SS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SS;
+    defaultSymbols = RelativeDateTimeSymbols_en_SS;
     break;
   case 'en_SX':
   case 'en-SX':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SX;
+    defaultSymbols = RelativeDateTimeSymbols_en_SX;
     break;
   case 'en_SZ':
   case 'en-SZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_SZ;
+    defaultSymbols = RelativeDateTimeSymbols_en_SZ;
     break;
   case 'en_TC':
   case 'en-TC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_TC;
+    defaultSymbols = RelativeDateTimeSymbols_en_TC;
     break;
   case 'en_TK':
   case 'en-TK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_TK;
+    defaultSymbols = RelativeDateTimeSymbols_en_TK;
     break;
   case 'en_TO':
   case 'en-TO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_TO;
+    defaultSymbols = RelativeDateTimeSymbols_en_TO;
     break;
   case 'en_TT':
   case 'en-TT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_TT;
+    defaultSymbols = RelativeDateTimeSymbols_en_TT;
     break;
   case 'en_TV':
   case 'en-TV':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_TV;
+    defaultSymbols = RelativeDateTimeSymbols_en_TV;
     break;
   case 'en_TZ':
   case 'en-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_en_TZ;
     break;
   case 'en_UG':
   case 'en-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_UG;
+    defaultSymbols = RelativeDateTimeSymbols_en_UG;
     break;
   case 'en_UM':
   case 'en-UM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_UM;
+    defaultSymbols = RelativeDateTimeSymbols_en_UM;
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_US_POSIX;
+    defaultSymbols = RelativeDateTimeSymbols_en_US_POSIX;
     break;
   case 'en_VC':
   case 'en-VC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_VC;
+    defaultSymbols = RelativeDateTimeSymbols_en_VC;
     break;
   case 'en_VG':
   case 'en-VG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_VG;
+    defaultSymbols = RelativeDateTimeSymbols_en_VG;
     break;
   case 'en_VI':
   case 'en-VI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_VI;
+    defaultSymbols = RelativeDateTimeSymbols_en_VI;
     break;
   case 'en_VU':
   case 'en-VU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_VU;
+    defaultSymbols = RelativeDateTimeSymbols_en_VU;
     break;
   case 'en_WS':
   case 'en-WS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_WS;
+    defaultSymbols = RelativeDateTimeSymbols_en_WS;
     break;
   case 'en_XA':
   case 'en-XA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_XA;
+    defaultSymbols = RelativeDateTimeSymbols_en_XA;
     break;
   case 'en_ZM':
   case 'en-ZM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_ZM;
+    defaultSymbols = RelativeDateTimeSymbols_en_ZM;
     break;
   case 'en_ZW':
   case 'en-ZW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_en_ZW;
+    defaultSymbols = RelativeDateTimeSymbols_en_ZW;
     break;
   case 'eo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_eo;
+    defaultSymbols = RelativeDateTimeSymbols_eo;
     break;
   case 'eo_001':
   case 'eo-001':
-    defaultSymbols = exports.RelativeDateTimeSymbols_eo_001;
+    defaultSymbols = RelativeDateTimeSymbols_eo_001;
     break;
   case 'es_AR':
   case 'es-AR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_AR;
+    defaultSymbols = RelativeDateTimeSymbols_es_AR;
     break;
   case 'es_BO':
   case 'es-BO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_BO;
+    defaultSymbols = RelativeDateTimeSymbols_es_BO;
     break;
   case 'es_BR':
   case 'es-BR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_BR;
+    defaultSymbols = RelativeDateTimeSymbols_es_BR;
     break;
   case 'es_BZ':
   case 'es-BZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_BZ;
+    defaultSymbols = RelativeDateTimeSymbols_es_BZ;
     break;
   case 'es_CL':
   case 'es-CL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_CL;
+    defaultSymbols = RelativeDateTimeSymbols_es_CL;
     break;
   case 'es_CO':
   case 'es-CO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_CO;
+    defaultSymbols = RelativeDateTimeSymbols_es_CO;
     break;
   case 'es_CR':
   case 'es-CR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_CR;
+    defaultSymbols = RelativeDateTimeSymbols_es_CR;
     break;
   case 'es_CU':
   case 'es-CU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_CU;
+    defaultSymbols = RelativeDateTimeSymbols_es_CU;
     break;
   case 'es_DO':
   case 'es-DO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_DO;
+    defaultSymbols = RelativeDateTimeSymbols_es_DO;
     break;
   case 'es_EA':
   case 'es-EA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_EA;
+    defaultSymbols = RelativeDateTimeSymbols_es_EA;
     break;
   case 'es_EC':
   case 'es-EC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_EC;
+    defaultSymbols = RelativeDateTimeSymbols_es_EC;
     break;
   case 'es_GQ':
   case 'es-GQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_GQ;
+    defaultSymbols = RelativeDateTimeSymbols_es_GQ;
     break;
   case 'es_GT':
   case 'es-GT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_GT;
+    defaultSymbols = RelativeDateTimeSymbols_es_GT;
     break;
   case 'es_HN':
   case 'es-HN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_HN;
+    defaultSymbols = RelativeDateTimeSymbols_es_HN;
     break;
   case 'es_IC':
   case 'es-IC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_IC;
+    defaultSymbols = RelativeDateTimeSymbols_es_IC;
     break;
   case 'es_NI':
   case 'es-NI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_NI;
+    defaultSymbols = RelativeDateTimeSymbols_es_NI;
     break;
   case 'es_PA':
   case 'es-PA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_PA;
+    defaultSymbols = RelativeDateTimeSymbols_es_PA;
     break;
   case 'es_PE':
   case 'es-PE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_PE;
+    defaultSymbols = RelativeDateTimeSymbols_es_PE;
     break;
   case 'es_PH':
   case 'es-PH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_PH;
+    defaultSymbols = RelativeDateTimeSymbols_es_PH;
     break;
   case 'es_PR':
   case 'es-PR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_PR;
+    defaultSymbols = RelativeDateTimeSymbols_es_PR;
     break;
   case 'es_PY':
   case 'es-PY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_PY;
+    defaultSymbols = RelativeDateTimeSymbols_es_PY;
     break;
   case 'es_SV':
   case 'es-SV':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_SV;
+    defaultSymbols = RelativeDateTimeSymbols_es_SV;
     break;
   case 'es_UY':
   case 'es-UY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_UY;
+    defaultSymbols = RelativeDateTimeSymbols_es_UY;
     break;
   case 'es_VE':
   case 'es-VE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_es_VE;
+    defaultSymbols = RelativeDateTimeSymbols_es_VE;
     break;
   case 'et_EE':
   case 'et-EE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_et_EE;
+    defaultSymbols = RelativeDateTimeSymbols_et_EE;
     break;
   case 'eu_ES':
   case 'eu-ES':
-    defaultSymbols = exports.RelativeDateTimeSymbols_eu_ES;
+    defaultSymbols = RelativeDateTimeSymbols_eu_ES;
     break;
   case 'ewo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ewo;
+    defaultSymbols = RelativeDateTimeSymbols_ewo;
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ewo_CM;
+    defaultSymbols = RelativeDateTimeSymbols_ewo_CM;
     break;
   case 'fa_AF':
   case 'fa-AF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fa_AF;
+    defaultSymbols = RelativeDateTimeSymbols_fa_AF;
     break;
   case 'fa_IR':
   case 'fa-IR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fa_IR;
+    defaultSymbols = RelativeDateTimeSymbols_fa_IR;
     break;
   case 'ff':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff;
+    defaultSymbols = RelativeDateTimeSymbols_ff;
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm;
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_BF;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_BF;
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_CM;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_CM;
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_GH;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_GH;
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_GM;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_GM;
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_GN;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_GN;
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_GW;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_GW;
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_LR;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_LR;
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_MR;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_MR;
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_NE;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_NE;
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_NG;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_NG;
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_SL;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_SL;
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Adlm_SN;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Adlm_SN;
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn;
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_BF;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_BF;
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_CM;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_CM;
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_GH;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_GH;
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_GM;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_GM;
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_GN;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_GN;
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_GW;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_GW;
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_LR;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_LR;
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_MR;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_MR;
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_NE;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_NE;
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_NG;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_NG;
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_SL;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_SL;
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ff_Latn_SN;
+    defaultSymbols = RelativeDateTimeSymbols_ff_Latn_SN;
     break;
   case 'fi_FI':
   case 'fi-FI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fi_FI;
+    defaultSymbols = RelativeDateTimeSymbols_fi_FI;
     break;
   case 'fil_PH':
   case 'fil-PH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fil_PH;
+    defaultSymbols = RelativeDateTimeSymbols_fil_PH;
     break;
   case 'fo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fo;
+    defaultSymbols = RelativeDateTimeSymbols_fo;
     break;
   case 'fo_DK':
   case 'fo-DK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fo_DK;
+    defaultSymbols = RelativeDateTimeSymbols_fo_DK;
     break;
   case 'fo_FO':
   case 'fo-FO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fo_FO;
+    defaultSymbols = RelativeDateTimeSymbols_fo_FO;
     break;
   case 'fr_BE':
   case 'fr-BE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_BE;
+    defaultSymbols = RelativeDateTimeSymbols_fr_BE;
     break;
   case 'fr_BF':
   case 'fr-BF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_BF;
+    defaultSymbols = RelativeDateTimeSymbols_fr_BF;
     break;
   case 'fr_BI':
   case 'fr-BI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_BI;
+    defaultSymbols = RelativeDateTimeSymbols_fr_BI;
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_BJ;
+    defaultSymbols = RelativeDateTimeSymbols_fr_BJ;
     break;
   case 'fr_BL':
   case 'fr-BL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_BL;
+    defaultSymbols = RelativeDateTimeSymbols_fr_BL;
     break;
   case 'fr_CD':
   case 'fr-CD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_CD;
+    defaultSymbols = RelativeDateTimeSymbols_fr_CD;
     break;
   case 'fr_CF':
   case 'fr-CF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_CF;
+    defaultSymbols = RelativeDateTimeSymbols_fr_CF;
     break;
   case 'fr_CG':
   case 'fr-CG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_CG;
+    defaultSymbols = RelativeDateTimeSymbols_fr_CG;
     break;
   case 'fr_CH':
   case 'fr-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_CH;
+    defaultSymbols = RelativeDateTimeSymbols_fr_CH;
     break;
   case 'fr_CI':
   case 'fr-CI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_CI;
+    defaultSymbols = RelativeDateTimeSymbols_fr_CI;
     break;
   case 'fr_CM':
   case 'fr-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_CM;
+    defaultSymbols = RelativeDateTimeSymbols_fr_CM;
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_DJ;
+    defaultSymbols = RelativeDateTimeSymbols_fr_DJ;
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_DZ;
+    defaultSymbols = RelativeDateTimeSymbols_fr_DZ;
     break;
   case 'fr_FR':
   case 'fr-FR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_FR;
+    defaultSymbols = RelativeDateTimeSymbols_fr_FR;
     break;
   case 'fr_GA':
   case 'fr-GA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_GA;
+    defaultSymbols = RelativeDateTimeSymbols_fr_GA;
     break;
   case 'fr_GF':
   case 'fr-GF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_GF;
+    defaultSymbols = RelativeDateTimeSymbols_fr_GF;
     break;
   case 'fr_GN':
   case 'fr-GN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_GN;
+    defaultSymbols = RelativeDateTimeSymbols_fr_GN;
     break;
   case 'fr_GP':
   case 'fr-GP':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_GP;
+    defaultSymbols = RelativeDateTimeSymbols_fr_GP;
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_GQ;
+    defaultSymbols = RelativeDateTimeSymbols_fr_GQ;
     break;
   case 'fr_HT':
   case 'fr-HT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_HT;
+    defaultSymbols = RelativeDateTimeSymbols_fr_HT;
     break;
   case 'fr_KM':
   case 'fr-KM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_KM;
+    defaultSymbols = RelativeDateTimeSymbols_fr_KM;
     break;
   case 'fr_LU':
   case 'fr-LU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_LU;
+    defaultSymbols = RelativeDateTimeSymbols_fr_LU;
     break;
   case 'fr_MA':
   case 'fr-MA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MA;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MA;
     break;
   case 'fr_MC':
   case 'fr-MC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MC;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MC;
     break;
   case 'fr_MF':
   case 'fr-MF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MF;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MF;
     break;
   case 'fr_MG':
   case 'fr-MG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MG;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MG;
     break;
   case 'fr_ML':
   case 'fr-ML':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_ML;
+    defaultSymbols = RelativeDateTimeSymbols_fr_ML;
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MQ;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MQ;
     break;
   case 'fr_MR':
   case 'fr-MR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MR;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MR;
     break;
   case 'fr_MU':
   case 'fr-MU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_MU;
+    defaultSymbols = RelativeDateTimeSymbols_fr_MU;
     break;
   case 'fr_NC':
   case 'fr-NC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_NC;
+    defaultSymbols = RelativeDateTimeSymbols_fr_NC;
     break;
   case 'fr_NE':
   case 'fr-NE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_NE;
+    defaultSymbols = RelativeDateTimeSymbols_fr_NE;
     break;
   case 'fr_PF':
   case 'fr-PF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_PF;
+    defaultSymbols = RelativeDateTimeSymbols_fr_PF;
     break;
   case 'fr_PM':
   case 'fr-PM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_PM;
+    defaultSymbols = RelativeDateTimeSymbols_fr_PM;
     break;
   case 'fr_RE':
   case 'fr-RE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_RE;
+    defaultSymbols = RelativeDateTimeSymbols_fr_RE;
     break;
   case 'fr_RW':
   case 'fr-RW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_RW;
+    defaultSymbols = RelativeDateTimeSymbols_fr_RW;
     break;
   case 'fr_SC':
   case 'fr-SC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_SC;
+    defaultSymbols = RelativeDateTimeSymbols_fr_SC;
     break;
   case 'fr_SN':
   case 'fr-SN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_SN;
+    defaultSymbols = RelativeDateTimeSymbols_fr_SN;
     break;
   case 'fr_SY':
   case 'fr-SY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_SY;
+    defaultSymbols = RelativeDateTimeSymbols_fr_SY;
     break;
   case 'fr_TD':
   case 'fr-TD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_TD;
+    defaultSymbols = RelativeDateTimeSymbols_fr_TD;
     break;
   case 'fr_TG':
   case 'fr-TG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_TG;
+    defaultSymbols = RelativeDateTimeSymbols_fr_TG;
     break;
   case 'fr_TN':
   case 'fr-TN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_TN;
+    defaultSymbols = RelativeDateTimeSymbols_fr_TN;
     break;
   case 'fr_VU':
   case 'fr-VU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_VU;
+    defaultSymbols = RelativeDateTimeSymbols_fr_VU;
     break;
   case 'fr_WF':
   case 'fr-WF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_WF;
+    defaultSymbols = RelativeDateTimeSymbols_fr_WF;
     break;
   case 'fr_YT':
   case 'fr-YT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fr_YT;
+    defaultSymbols = RelativeDateTimeSymbols_fr_YT;
     break;
   case 'fur':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fur;
+    defaultSymbols = RelativeDateTimeSymbols_fur;
     break;
   case 'fur_IT':
   case 'fur-IT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fur_IT;
+    defaultSymbols = RelativeDateTimeSymbols_fur_IT;
     break;
   case 'fy':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fy;
+    defaultSymbols = RelativeDateTimeSymbols_fy;
     break;
   case 'fy_NL':
   case 'fy-NL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_fy_NL;
+    defaultSymbols = RelativeDateTimeSymbols_fy_NL;
     break;
   case 'ga_GB':
   case 'ga-GB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ga_GB;
+    defaultSymbols = RelativeDateTimeSymbols_ga_GB;
     break;
   case 'ga_IE':
   case 'ga-IE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ga_IE;
+    defaultSymbols = RelativeDateTimeSymbols_ga_IE;
     break;
   case 'gd':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gd;
+    defaultSymbols = RelativeDateTimeSymbols_gd;
     break;
   case 'gd_GB':
   case 'gd-GB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gd_GB;
+    defaultSymbols = RelativeDateTimeSymbols_gd_GB;
     break;
   case 'gl_ES':
   case 'gl-ES':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gl_ES;
+    defaultSymbols = RelativeDateTimeSymbols_gl_ES;
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gsw_CH;
+    defaultSymbols = RelativeDateTimeSymbols_gsw_CH;
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gsw_FR;
+    defaultSymbols = RelativeDateTimeSymbols_gsw_FR;
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gsw_LI;
+    defaultSymbols = RelativeDateTimeSymbols_gsw_LI;
     break;
   case 'gu_IN':
   case 'gu-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gu_IN;
+    defaultSymbols = RelativeDateTimeSymbols_gu_IN;
     break;
   case 'guz':
-    defaultSymbols = exports.RelativeDateTimeSymbols_guz;
+    defaultSymbols = RelativeDateTimeSymbols_guz;
     break;
   case 'guz_KE':
   case 'guz-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_guz_KE;
+    defaultSymbols = RelativeDateTimeSymbols_guz_KE;
     break;
   case 'gv':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gv;
+    defaultSymbols = RelativeDateTimeSymbols_gv;
     break;
   case 'gv_IM':
   case 'gv-IM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_gv_IM;
+    defaultSymbols = RelativeDateTimeSymbols_gv_IM;
     break;
   case 'ha':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ha;
+    defaultSymbols = RelativeDateTimeSymbols_ha;
     break;
   case 'ha_GH':
   case 'ha-GH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ha_GH;
+    defaultSymbols = RelativeDateTimeSymbols_ha_GH;
     break;
   case 'ha_NE':
   case 'ha-NE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ha_NE;
+    defaultSymbols = RelativeDateTimeSymbols_ha_NE;
     break;
   case 'ha_NG':
   case 'ha-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ha_NG;
+    defaultSymbols = RelativeDateTimeSymbols_ha_NG;
     break;
   case 'haw_US':
   case 'haw-US':
-    defaultSymbols = exports.RelativeDateTimeSymbols_haw_US;
+    defaultSymbols = RelativeDateTimeSymbols_haw_US;
     break;
   case 'he_IL':
   case 'he-IL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_he_IL;
+    defaultSymbols = RelativeDateTimeSymbols_he_IL;
     break;
   case 'hi_IN':
   case 'hi-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hi_IN;
+    defaultSymbols = RelativeDateTimeSymbols_hi_IN;
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hi_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_hi_Latn;
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hi_Latn_IN;
+    defaultSymbols = RelativeDateTimeSymbols_hi_Latn_IN;
     break;
   case 'hr_BA':
   case 'hr-BA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hr_BA;
+    defaultSymbols = RelativeDateTimeSymbols_hr_BA;
     break;
   case 'hr_HR':
   case 'hr-HR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hr_HR;
+    defaultSymbols = RelativeDateTimeSymbols_hr_HR;
     break;
   case 'hsb':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hsb;
+    defaultSymbols = RelativeDateTimeSymbols_hsb;
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hsb_DE;
+    defaultSymbols = RelativeDateTimeSymbols_hsb_DE;
     break;
   case 'hu_HU':
   case 'hu-HU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hu_HU;
+    defaultSymbols = RelativeDateTimeSymbols_hu_HU;
     break;
   case 'hy_AM':
   case 'hy-AM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_hy_AM;
+    defaultSymbols = RelativeDateTimeSymbols_hy_AM;
     break;
   case 'ia':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ia;
+    defaultSymbols = RelativeDateTimeSymbols_ia;
     break;
   case 'ia_001':
   case 'ia-001':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ia_001;
+    defaultSymbols = RelativeDateTimeSymbols_ia_001;
     break;
   case 'id_ID':
   case 'id-ID':
-    defaultSymbols = exports.RelativeDateTimeSymbols_id_ID;
+    defaultSymbols = RelativeDateTimeSymbols_id_ID;
     break;
   case 'ig':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ig;
+    defaultSymbols = RelativeDateTimeSymbols_ig;
     break;
   case 'ig_NG':
   case 'ig-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ig_NG;
+    defaultSymbols = RelativeDateTimeSymbols_ig_NG;
     break;
   case 'ii':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ii;
+    defaultSymbols = RelativeDateTimeSymbols_ii;
     break;
   case 'ii_CN':
   case 'ii-CN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ii_CN;
+    defaultSymbols = RelativeDateTimeSymbols_ii_CN;
     break;
   case 'is_IS':
   case 'is-IS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_is_IS;
+    defaultSymbols = RelativeDateTimeSymbols_is_IS;
     break;
   case 'it_CH':
   case 'it-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_it_CH;
+    defaultSymbols = RelativeDateTimeSymbols_it_CH;
     break;
   case 'it_IT':
   case 'it-IT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_it_IT;
+    defaultSymbols = RelativeDateTimeSymbols_it_IT;
     break;
   case 'it_SM':
   case 'it-SM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_it_SM;
+    defaultSymbols = RelativeDateTimeSymbols_it_SM;
     break;
   case 'it_VA':
   case 'it-VA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_it_VA;
+    defaultSymbols = RelativeDateTimeSymbols_it_VA;
     break;
   case 'ja_JP':
   case 'ja-JP':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ja_JP;
+    defaultSymbols = RelativeDateTimeSymbols_ja_JP;
     break;
   case 'jgo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_jgo;
+    defaultSymbols = RelativeDateTimeSymbols_jgo;
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_jgo_CM;
+    defaultSymbols = RelativeDateTimeSymbols_jgo_CM;
     break;
   case 'jmc':
-    defaultSymbols = exports.RelativeDateTimeSymbols_jmc;
+    defaultSymbols = RelativeDateTimeSymbols_jmc;
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_jmc_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_jmc_TZ;
     break;
   case 'jv':
-    defaultSymbols = exports.RelativeDateTimeSymbols_jv;
+    defaultSymbols = RelativeDateTimeSymbols_jv;
     break;
   case 'jv_ID':
   case 'jv-ID':
-    defaultSymbols = exports.RelativeDateTimeSymbols_jv_ID;
+    defaultSymbols = RelativeDateTimeSymbols_jv_ID;
     break;
   case 'ka_GE':
   case 'ka-GE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ka_GE;
+    defaultSymbols = RelativeDateTimeSymbols_ka_GE;
     break;
   case 'kab':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kab;
+    defaultSymbols = RelativeDateTimeSymbols_kab;
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kab_DZ;
+    defaultSymbols = RelativeDateTimeSymbols_kab_DZ;
     break;
   case 'kam':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kam;
+    defaultSymbols = RelativeDateTimeSymbols_kam;
     break;
   case 'kam_KE':
   case 'kam-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kam_KE;
+    defaultSymbols = RelativeDateTimeSymbols_kam_KE;
     break;
   case 'kde':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kde;
+    defaultSymbols = RelativeDateTimeSymbols_kde;
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kde_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_kde_TZ;
     break;
   case 'kea':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kea;
+    defaultSymbols = RelativeDateTimeSymbols_kea;
     break;
   case 'kea_CV':
   case 'kea-CV':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kea_CV;
+    defaultSymbols = RelativeDateTimeSymbols_kea_CV;
     break;
   case 'kgp':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kgp;
+    defaultSymbols = RelativeDateTimeSymbols_kgp;
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kgp_BR;
+    defaultSymbols = RelativeDateTimeSymbols_kgp_BR;
     break;
   case 'khq':
-    defaultSymbols = exports.RelativeDateTimeSymbols_khq;
+    defaultSymbols = RelativeDateTimeSymbols_khq;
     break;
   case 'khq_ML':
   case 'khq-ML':
-    defaultSymbols = exports.RelativeDateTimeSymbols_khq_ML;
+    defaultSymbols = RelativeDateTimeSymbols_khq_ML;
     break;
   case 'ki':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ki;
+    defaultSymbols = RelativeDateTimeSymbols_ki;
     break;
   case 'ki_KE':
   case 'ki-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ki_KE;
+    defaultSymbols = RelativeDateTimeSymbols_ki_KE;
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kk_KZ;
+    defaultSymbols = RelativeDateTimeSymbols_kk_KZ;
     break;
   case 'kkj':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kkj;
+    defaultSymbols = RelativeDateTimeSymbols_kkj;
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kkj_CM;
+    defaultSymbols = RelativeDateTimeSymbols_kkj_CM;
     break;
   case 'kl':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kl;
+    defaultSymbols = RelativeDateTimeSymbols_kl;
     break;
   case 'kl_GL':
   case 'kl-GL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kl_GL;
+    defaultSymbols = RelativeDateTimeSymbols_kl_GL;
     break;
   case 'kln':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kln;
+    defaultSymbols = RelativeDateTimeSymbols_kln;
     break;
   case 'kln_KE':
   case 'kln-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kln_KE;
+    defaultSymbols = RelativeDateTimeSymbols_kln_KE;
     break;
   case 'km_KH':
   case 'km-KH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_km_KH;
+    defaultSymbols = RelativeDateTimeSymbols_km_KH;
     break;
   case 'kn_IN':
   case 'kn-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kn_IN;
+    defaultSymbols = RelativeDateTimeSymbols_kn_IN;
     break;
   case 'ko_KP':
   case 'ko-KP':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ko_KP;
+    defaultSymbols = RelativeDateTimeSymbols_ko_KP;
     break;
   case 'ko_KR':
   case 'ko-KR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ko_KR;
+    defaultSymbols = RelativeDateTimeSymbols_ko_KR;
     break;
   case 'kok':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kok;
+    defaultSymbols = RelativeDateTimeSymbols_kok;
     break;
   case 'kok_IN':
   case 'kok-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kok_IN;
+    defaultSymbols = RelativeDateTimeSymbols_kok_IN;
     break;
   case 'ks':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ks;
+    defaultSymbols = RelativeDateTimeSymbols_ks;
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ks_Arab;
+    defaultSymbols = RelativeDateTimeSymbols_ks_Arab;
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ks_Arab_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ks_Arab_IN;
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ks_Deva;
+    defaultSymbols = RelativeDateTimeSymbols_ks_Deva;
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ks_Deva_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ks_Deva_IN;
     break;
   case 'ksb':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ksb;
+    defaultSymbols = RelativeDateTimeSymbols_ksb;
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ksb_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_ksb_TZ;
     break;
   case 'ksf':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ksf;
+    defaultSymbols = RelativeDateTimeSymbols_ksf;
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ksf_CM;
+    defaultSymbols = RelativeDateTimeSymbols_ksf_CM;
     break;
   case 'ksh':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ksh;
+    defaultSymbols = RelativeDateTimeSymbols_ksh;
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ksh_DE;
+    defaultSymbols = RelativeDateTimeSymbols_ksh_DE;
     break;
   case 'ku':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ku;
+    defaultSymbols = RelativeDateTimeSymbols_ku;
     break;
   case 'ku_TR':
   case 'ku-TR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ku_TR;
+    defaultSymbols = RelativeDateTimeSymbols_ku_TR;
     break;
   case 'kw':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kw;
+    defaultSymbols = RelativeDateTimeSymbols_kw;
     break;
   case 'kw_GB':
   case 'kw-GB':
-    defaultSymbols = exports.RelativeDateTimeSymbols_kw_GB;
+    defaultSymbols = RelativeDateTimeSymbols_kw_GB;
     break;
   case 'ky_KG':
   case 'ky-KG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ky_KG;
+    defaultSymbols = RelativeDateTimeSymbols_ky_KG;
     break;
   case 'lag':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lag;
+    defaultSymbols = RelativeDateTimeSymbols_lag;
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lag_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_lag_TZ;
     break;
   case 'lb':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lb;
+    defaultSymbols = RelativeDateTimeSymbols_lb;
     break;
   case 'lb_LU':
   case 'lb-LU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lb_LU;
+    defaultSymbols = RelativeDateTimeSymbols_lb_LU;
     break;
   case 'lg':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lg;
+    defaultSymbols = RelativeDateTimeSymbols_lg;
     break;
   case 'lg_UG':
   case 'lg-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lg_UG;
+    defaultSymbols = RelativeDateTimeSymbols_lg_UG;
     break;
   case 'lkt':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lkt;
+    defaultSymbols = RelativeDateTimeSymbols_lkt;
     break;
   case 'lkt_US':
   case 'lkt-US':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lkt_US;
+    defaultSymbols = RelativeDateTimeSymbols_lkt_US;
     break;
   case 'ln_AO':
   case 'ln-AO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ln_AO;
+    defaultSymbols = RelativeDateTimeSymbols_ln_AO;
     break;
   case 'ln_CD':
   case 'ln-CD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ln_CD;
+    defaultSymbols = RelativeDateTimeSymbols_ln_CD;
     break;
   case 'ln_CF':
   case 'ln-CF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ln_CF;
+    defaultSymbols = RelativeDateTimeSymbols_ln_CF;
     break;
   case 'ln_CG':
   case 'ln-CG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ln_CG;
+    defaultSymbols = RelativeDateTimeSymbols_ln_CG;
     break;
   case 'lo_LA':
   case 'lo-LA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lo_LA;
+    defaultSymbols = RelativeDateTimeSymbols_lo_LA;
     break;
   case 'lrc':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lrc;
+    defaultSymbols = RelativeDateTimeSymbols_lrc;
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lrc_IQ;
+    defaultSymbols = RelativeDateTimeSymbols_lrc_IQ;
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lrc_IR;
+    defaultSymbols = RelativeDateTimeSymbols_lrc_IR;
     break;
   case 'lt_LT':
   case 'lt-LT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lt_LT;
+    defaultSymbols = RelativeDateTimeSymbols_lt_LT;
     break;
   case 'lu':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lu;
+    defaultSymbols = RelativeDateTimeSymbols_lu;
     break;
   case 'lu_CD':
   case 'lu-CD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lu_CD;
+    defaultSymbols = RelativeDateTimeSymbols_lu_CD;
     break;
   case 'luo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_luo;
+    defaultSymbols = RelativeDateTimeSymbols_luo;
     break;
   case 'luo_KE':
   case 'luo-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_luo_KE;
+    defaultSymbols = RelativeDateTimeSymbols_luo_KE;
     break;
   case 'luy':
-    defaultSymbols = exports.RelativeDateTimeSymbols_luy;
+    defaultSymbols = RelativeDateTimeSymbols_luy;
     break;
   case 'luy_KE':
   case 'luy-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_luy_KE;
+    defaultSymbols = RelativeDateTimeSymbols_luy_KE;
     break;
   case 'lv_LV':
   case 'lv-LV':
-    defaultSymbols = exports.RelativeDateTimeSymbols_lv_LV;
+    defaultSymbols = RelativeDateTimeSymbols_lv_LV;
     break;
   case 'mai':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mai;
+    defaultSymbols = RelativeDateTimeSymbols_mai;
     break;
   case 'mai_IN':
   case 'mai-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mai_IN;
+    defaultSymbols = RelativeDateTimeSymbols_mai_IN;
     break;
   case 'mas':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mas;
+    defaultSymbols = RelativeDateTimeSymbols_mas;
     break;
   case 'mas_KE':
   case 'mas-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mas_KE;
+    defaultSymbols = RelativeDateTimeSymbols_mas_KE;
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mas_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_mas_TZ;
     break;
   case 'mer':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mer;
+    defaultSymbols = RelativeDateTimeSymbols_mer;
     break;
   case 'mer_KE':
   case 'mer-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mer_KE;
+    defaultSymbols = RelativeDateTimeSymbols_mer_KE;
     break;
   case 'mfe':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mfe;
+    defaultSymbols = RelativeDateTimeSymbols_mfe;
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mfe_MU;
+    defaultSymbols = RelativeDateTimeSymbols_mfe_MU;
     break;
   case 'mg':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mg;
+    defaultSymbols = RelativeDateTimeSymbols_mg;
     break;
   case 'mg_MG':
   case 'mg-MG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mg_MG;
+    defaultSymbols = RelativeDateTimeSymbols_mg_MG;
     break;
   case 'mgh':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mgh;
+    defaultSymbols = RelativeDateTimeSymbols_mgh;
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mgh_MZ;
+    defaultSymbols = RelativeDateTimeSymbols_mgh_MZ;
     break;
   case 'mgo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mgo;
+    defaultSymbols = RelativeDateTimeSymbols_mgo;
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mgo_CM;
+    defaultSymbols = RelativeDateTimeSymbols_mgo_CM;
     break;
   case 'mi':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mi;
+    defaultSymbols = RelativeDateTimeSymbols_mi;
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mi_NZ;
+    defaultSymbols = RelativeDateTimeSymbols_mi_NZ;
     break;
   case 'mk_MK':
   case 'mk-MK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mk_MK;
+    defaultSymbols = RelativeDateTimeSymbols_mk_MK;
     break;
   case 'ml_IN':
   case 'ml-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ml_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ml_IN;
     break;
   case 'mn_MN':
   case 'mn-MN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mn_MN;
+    defaultSymbols = RelativeDateTimeSymbols_mn_MN;
     break;
   case 'mni':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mni;
+    defaultSymbols = RelativeDateTimeSymbols_mni;
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mni_Beng;
+    defaultSymbols = RelativeDateTimeSymbols_mni_Beng;
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mni_Beng_IN;
+    defaultSymbols = RelativeDateTimeSymbols_mni_Beng_IN;
     break;
   case 'mr_IN':
   case 'mr-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mr_IN;
+    defaultSymbols = RelativeDateTimeSymbols_mr_IN;
     break;
   case 'ms_BN':
   case 'ms-BN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ms_BN;
+    defaultSymbols = RelativeDateTimeSymbols_ms_BN;
     break;
   case 'ms_ID':
   case 'ms-ID':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ms_ID;
+    defaultSymbols = RelativeDateTimeSymbols_ms_ID;
     break;
   case 'ms_MY':
   case 'ms-MY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ms_MY;
+    defaultSymbols = RelativeDateTimeSymbols_ms_MY;
     break;
   case 'ms_SG':
   case 'ms-SG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ms_SG;
+    defaultSymbols = RelativeDateTimeSymbols_ms_SG;
     break;
   case 'mt_MT':
   case 'mt-MT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mt_MT;
+    defaultSymbols = RelativeDateTimeSymbols_mt_MT;
     break;
   case 'mua':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mua;
+    defaultSymbols = RelativeDateTimeSymbols_mua;
     break;
   case 'mua_CM':
   case 'mua-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mua_CM;
+    defaultSymbols = RelativeDateTimeSymbols_mua_CM;
     break;
   case 'my_MM':
   case 'my-MM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_my_MM;
+    defaultSymbols = RelativeDateTimeSymbols_my_MM;
     break;
   case 'mzn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mzn;
+    defaultSymbols = RelativeDateTimeSymbols_mzn;
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_mzn_IR;
+    defaultSymbols = RelativeDateTimeSymbols_mzn_IR;
     break;
   case 'naq':
-    defaultSymbols = exports.RelativeDateTimeSymbols_naq;
+    defaultSymbols = RelativeDateTimeSymbols_naq;
     break;
   case 'naq_NA':
   case 'naq-NA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_naq_NA;
+    defaultSymbols = RelativeDateTimeSymbols_naq_NA;
     break;
   case 'nb_NO':
   case 'nb-NO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nb_NO;
+    defaultSymbols = RelativeDateTimeSymbols_nb_NO;
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nb_SJ;
+    defaultSymbols = RelativeDateTimeSymbols_nb_SJ;
     break;
   case 'nd':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nd;
+    defaultSymbols = RelativeDateTimeSymbols_nd;
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nd_ZW;
+    defaultSymbols = RelativeDateTimeSymbols_nd_ZW;
     break;
   case 'ne_IN':
   case 'ne-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ne_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ne_IN;
     break;
   case 'ne_NP':
   case 'ne-NP':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ne_NP;
+    defaultSymbols = RelativeDateTimeSymbols_ne_NP;
     break;
   case 'nl_AW':
   case 'nl-AW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_AW;
+    defaultSymbols = RelativeDateTimeSymbols_nl_AW;
     break;
   case 'nl_BE':
   case 'nl-BE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_BE;
+    defaultSymbols = RelativeDateTimeSymbols_nl_BE;
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_BQ;
+    defaultSymbols = RelativeDateTimeSymbols_nl_BQ;
     break;
   case 'nl_CW':
   case 'nl-CW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_CW;
+    defaultSymbols = RelativeDateTimeSymbols_nl_CW;
     break;
   case 'nl_NL':
   case 'nl-NL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_NL;
+    defaultSymbols = RelativeDateTimeSymbols_nl_NL;
     break;
   case 'nl_SR':
   case 'nl-SR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_SR;
+    defaultSymbols = RelativeDateTimeSymbols_nl_SR;
     break;
   case 'nl_SX':
   case 'nl-SX':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nl_SX;
+    defaultSymbols = RelativeDateTimeSymbols_nl_SX;
     break;
   case 'nmg':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nmg;
+    defaultSymbols = RelativeDateTimeSymbols_nmg;
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nmg_CM;
+    defaultSymbols = RelativeDateTimeSymbols_nmg_CM;
     break;
   case 'nn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nn;
+    defaultSymbols = RelativeDateTimeSymbols_nn;
     break;
   case 'nn_NO':
   case 'nn-NO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nn_NO;
+    defaultSymbols = RelativeDateTimeSymbols_nn_NO;
     break;
   case 'nnh':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nnh;
+    defaultSymbols = RelativeDateTimeSymbols_nnh;
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nnh_CM;
+    defaultSymbols = RelativeDateTimeSymbols_nnh_CM;
     break;
   case 'nus':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nus;
+    defaultSymbols = RelativeDateTimeSymbols_nus;
     break;
   case 'nus_SS':
   case 'nus-SS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nus_SS;
+    defaultSymbols = RelativeDateTimeSymbols_nus_SS;
     break;
   case 'nyn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nyn;
+    defaultSymbols = RelativeDateTimeSymbols_nyn;
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_nyn_UG;
+    defaultSymbols = RelativeDateTimeSymbols_nyn_UG;
     break;
   case 'om':
-    defaultSymbols = exports.RelativeDateTimeSymbols_om;
+    defaultSymbols = RelativeDateTimeSymbols_om;
     break;
   case 'om_ET':
   case 'om-ET':
-    defaultSymbols = exports.RelativeDateTimeSymbols_om_ET;
+    defaultSymbols = RelativeDateTimeSymbols_om_ET;
     break;
   case 'om_KE':
   case 'om-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_om_KE;
+    defaultSymbols = RelativeDateTimeSymbols_om_KE;
     break;
   case 'or_IN':
   case 'or-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_or_IN;
+    defaultSymbols = RelativeDateTimeSymbols_or_IN;
     break;
   case 'os':
-    defaultSymbols = exports.RelativeDateTimeSymbols_os;
+    defaultSymbols = RelativeDateTimeSymbols_os;
     break;
   case 'os_GE':
   case 'os-GE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_os_GE;
+    defaultSymbols = RelativeDateTimeSymbols_os_GE;
     break;
   case 'os_RU':
   case 'os-RU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_os_RU;
+    defaultSymbols = RelativeDateTimeSymbols_os_RU;
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pa_Arab;
+    defaultSymbols = RelativeDateTimeSymbols_pa_Arab;
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pa_Arab_PK;
+    defaultSymbols = RelativeDateTimeSymbols_pa_Arab_PK;
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pa_Guru;
+    defaultSymbols = RelativeDateTimeSymbols_pa_Guru;
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pa_Guru_IN;
+    defaultSymbols = RelativeDateTimeSymbols_pa_Guru_IN;
     break;
   case 'pcm':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pcm;
+    defaultSymbols = RelativeDateTimeSymbols_pcm;
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pcm_NG;
+    defaultSymbols = RelativeDateTimeSymbols_pcm_NG;
     break;
   case 'pl_PL':
   case 'pl-PL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pl_PL;
+    defaultSymbols = RelativeDateTimeSymbols_pl_PL;
     break;
   case 'ps':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ps;
+    defaultSymbols = RelativeDateTimeSymbols_ps;
     break;
   case 'ps_AF':
   case 'ps-AF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ps_AF;
+    defaultSymbols = RelativeDateTimeSymbols_ps_AF;
     break;
   case 'ps_PK':
   case 'ps-PK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ps_PK;
+    defaultSymbols = RelativeDateTimeSymbols_ps_PK;
     break;
   case 'pt_AO':
   case 'pt-AO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_AO;
+    defaultSymbols = RelativeDateTimeSymbols_pt_AO;
     break;
   case 'pt_CH':
   case 'pt-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_CH;
+    defaultSymbols = RelativeDateTimeSymbols_pt_CH;
     break;
   case 'pt_CV':
   case 'pt-CV':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_CV;
+    defaultSymbols = RelativeDateTimeSymbols_pt_CV;
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_GQ;
+    defaultSymbols = RelativeDateTimeSymbols_pt_GQ;
     break;
   case 'pt_GW':
   case 'pt-GW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_GW;
+    defaultSymbols = RelativeDateTimeSymbols_pt_GW;
     break;
   case 'pt_LU':
   case 'pt-LU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_LU;
+    defaultSymbols = RelativeDateTimeSymbols_pt_LU;
     break;
   case 'pt_MO':
   case 'pt-MO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_MO;
+    defaultSymbols = RelativeDateTimeSymbols_pt_MO;
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_MZ;
+    defaultSymbols = RelativeDateTimeSymbols_pt_MZ;
     break;
   case 'pt_ST':
   case 'pt-ST':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_ST;
+    defaultSymbols = RelativeDateTimeSymbols_pt_ST;
     break;
   case 'pt_TL':
   case 'pt-TL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_pt_TL;
+    defaultSymbols = RelativeDateTimeSymbols_pt_TL;
     break;
   case 'qu':
-    defaultSymbols = exports.RelativeDateTimeSymbols_qu;
+    defaultSymbols = RelativeDateTimeSymbols_qu;
     break;
   case 'qu_BO':
   case 'qu-BO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_qu_BO;
+    defaultSymbols = RelativeDateTimeSymbols_qu_BO;
     break;
   case 'qu_EC':
   case 'qu-EC':
-    defaultSymbols = exports.RelativeDateTimeSymbols_qu_EC;
+    defaultSymbols = RelativeDateTimeSymbols_qu_EC;
     break;
   case 'qu_PE':
   case 'qu-PE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_qu_PE;
+    defaultSymbols = RelativeDateTimeSymbols_qu_PE;
     break;
   case 'raj':
-    defaultSymbols = exports.RelativeDateTimeSymbols_raj;
+    defaultSymbols = RelativeDateTimeSymbols_raj;
     break;
   case 'raj_IN':
   case 'raj-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_raj_IN;
+    defaultSymbols = RelativeDateTimeSymbols_raj_IN;
     break;
   case 'rm':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rm;
+    defaultSymbols = RelativeDateTimeSymbols_rm;
     break;
   case 'rm_CH':
   case 'rm-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rm_CH;
+    defaultSymbols = RelativeDateTimeSymbols_rm_CH;
     break;
   case 'rn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rn;
+    defaultSymbols = RelativeDateTimeSymbols_rn;
     break;
   case 'rn_BI':
   case 'rn-BI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rn_BI;
+    defaultSymbols = RelativeDateTimeSymbols_rn_BI;
     break;
   case 'ro_MD':
   case 'ro-MD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ro_MD;
+    defaultSymbols = RelativeDateTimeSymbols_ro_MD;
     break;
   case 'ro_RO':
   case 'ro-RO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ro_RO;
+    defaultSymbols = RelativeDateTimeSymbols_ro_RO;
     break;
   case 'rof':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rof;
+    defaultSymbols = RelativeDateTimeSymbols_rof;
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rof_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_rof_TZ;
     break;
   case 'ru_BY':
   case 'ru-BY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ru_BY;
+    defaultSymbols = RelativeDateTimeSymbols_ru_BY;
     break;
   case 'ru_KG':
   case 'ru-KG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ru_KG;
+    defaultSymbols = RelativeDateTimeSymbols_ru_KG;
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ru_KZ;
+    defaultSymbols = RelativeDateTimeSymbols_ru_KZ;
     break;
   case 'ru_MD':
   case 'ru-MD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ru_MD;
+    defaultSymbols = RelativeDateTimeSymbols_ru_MD;
     break;
   case 'ru_RU':
   case 'ru-RU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ru_RU;
+    defaultSymbols = RelativeDateTimeSymbols_ru_RU;
     break;
   case 'ru_UA':
   case 'ru-UA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ru_UA;
+    defaultSymbols = RelativeDateTimeSymbols_ru_UA;
     break;
   case 'rw':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rw;
+    defaultSymbols = RelativeDateTimeSymbols_rw;
     break;
   case 'rw_RW':
   case 'rw-RW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rw_RW;
+    defaultSymbols = RelativeDateTimeSymbols_rw_RW;
     break;
   case 'rwk':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rwk;
+    defaultSymbols = RelativeDateTimeSymbols_rwk;
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_rwk_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_rwk_TZ;
     break;
   case 'sa':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sa;
+    defaultSymbols = RelativeDateTimeSymbols_sa;
     break;
   case 'sa_IN':
   case 'sa-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sa_IN;
+    defaultSymbols = RelativeDateTimeSymbols_sa_IN;
     break;
   case 'sah':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sah;
+    defaultSymbols = RelativeDateTimeSymbols_sah;
     break;
   case 'sah_RU':
   case 'sah-RU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sah_RU;
+    defaultSymbols = RelativeDateTimeSymbols_sah_RU;
     break;
   case 'saq':
-    defaultSymbols = exports.RelativeDateTimeSymbols_saq;
+    defaultSymbols = RelativeDateTimeSymbols_saq;
     break;
   case 'saq_KE':
   case 'saq-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_saq_KE;
+    defaultSymbols = RelativeDateTimeSymbols_saq_KE;
     break;
   case 'sat':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sat;
+    defaultSymbols = RelativeDateTimeSymbols_sat;
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sat_Olck;
+    defaultSymbols = RelativeDateTimeSymbols_sat_Olck;
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sat_Olck_IN;
+    defaultSymbols = RelativeDateTimeSymbols_sat_Olck_IN;
     break;
   case 'sbp':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sbp;
+    defaultSymbols = RelativeDateTimeSymbols_sbp;
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sbp_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_sbp_TZ;
     break;
   case 'sc':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sc;
+    defaultSymbols = RelativeDateTimeSymbols_sc;
     break;
   case 'sc_IT':
   case 'sc-IT':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sc_IT;
+    defaultSymbols = RelativeDateTimeSymbols_sc_IT;
     break;
   case 'sd':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sd;
+    defaultSymbols = RelativeDateTimeSymbols_sd;
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sd_Arab;
+    defaultSymbols = RelativeDateTimeSymbols_sd_Arab;
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sd_Arab_PK;
+    defaultSymbols = RelativeDateTimeSymbols_sd_Arab_PK;
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sd_Deva;
+    defaultSymbols = RelativeDateTimeSymbols_sd_Deva;
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sd_Deva_IN;
+    defaultSymbols = RelativeDateTimeSymbols_sd_Deva_IN;
     break;
   case 'se':
-    defaultSymbols = exports.RelativeDateTimeSymbols_se;
+    defaultSymbols = RelativeDateTimeSymbols_se;
     break;
   case 'se_FI':
   case 'se-FI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_se_FI;
+    defaultSymbols = RelativeDateTimeSymbols_se_FI;
     break;
   case 'se_NO':
   case 'se-NO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_se_NO;
+    defaultSymbols = RelativeDateTimeSymbols_se_NO;
     break;
   case 'se_SE':
   case 'se-SE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_se_SE;
+    defaultSymbols = RelativeDateTimeSymbols_se_SE;
     break;
   case 'seh':
-    defaultSymbols = exports.RelativeDateTimeSymbols_seh;
+    defaultSymbols = RelativeDateTimeSymbols_seh;
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_seh_MZ;
+    defaultSymbols = RelativeDateTimeSymbols_seh_MZ;
     break;
   case 'ses':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ses;
+    defaultSymbols = RelativeDateTimeSymbols_ses;
     break;
   case 'ses_ML':
   case 'ses-ML':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ses_ML;
+    defaultSymbols = RelativeDateTimeSymbols_ses_ML;
     break;
   case 'sg':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sg;
+    defaultSymbols = RelativeDateTimeSymbols_sg;
     break;
   case 'sg_CF':
   case 'sg-CF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sg_CF;
+    defaultSymbols = RelativeDateTimeSymbols_sg_CF;
     break;
   case 'shi':
-    defaultSymbols = exports.RelativeDateTimeSymbols_shi;
+    defaultSymbols = RelativeDateTimeSymbols_shi;
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_shi_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_shi_Latn;
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_shi_Latn_MA;
+    defaultSymbols = RelativeDateTimeSymbols_shi_Latn_MA;
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    defaultSymbols = exports.RelativeDateTimeSymbols_shi_Tfng;
+    defaultSymbols = RelativeDateTimeSymbols_shi_Tfng;
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_shi_Tfng_MA;
+    defaultSymbols = RelativeDateTimeSymbols_shi_Tfng_MA;
     break;
   case 'si_LK':
   case 'si-LK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_si_LK;
+    defaultSymbols = RelativeDateTimeSymbols_si_LK;
     break;
   case 'sk_SK':
   case 'sk-SK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sk_SK;
+    defaultSymbols = RelativeDateTimeSymbols_sk_SK;
     break;
   case 'sl_SI':
   case 'sl-SI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sl_SI;
+    defaultSymbols = RelativeDateTimeSymbols_sl_SI;
     break;
   case 'smn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_smn;
+    defaultSymbols = RelativeDateTimeSymbols_smn;
     break;
   case 'smn_FI':
   case 'smn-FI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_smn_FI;
+    defaultSymbols = RelativeDateTimeSymbols_smn_FI;
     break;
   case 'sn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sn;
+    defaultSymbols = RelativeDateTimeSymbols_sn;
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sn_ZW;
+    defaultSymbols = RelativeDateTimeSymbols_sn_ZW;
     break;
   case 'so':
-    defaultSymbols = exports.RelativeDateTimeSymbols_so;
+    defaultSymbols = RelativeDateTimeSymbols_so;
     break;
   case 'so_DJ':
   case 'so-DJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_so_DJ;
+    defaultSymbols = RelativeDateTimeSymbols_so_DJ;
     break;
   case 'so_ET':
   case 'so-ET':
-    defaultSymbols = exports.RelativeDateTimeSymbols_so_ET;
+    defaultSymbols = RelativeDateTimeSymbols_so_ET;
     break;
   case 'so_KE':
   case 'so-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_so_KE;
+    defaultSymbols = RelativeDateTimeSymbols_so_KE;
     break;
   case 'so_SO':
   case 'so-SO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_so_SO;
+    defaultSymbols = RelativeDateTimeSymbols_so_SO;
     break;
   case 'sq_AL':
   case 'sq-AL':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sq_AL;
+    defaultSymbols = RelativeDateTimeSymbols_sq_AL;
     break;
   case 'sq_MK':
   case 'sq-MK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sq_MK;
+    defaultSymbols = RelativeDateTimeSymbols_sq_MK;
     break;
   case 'sq_XK':
   case 'sq-XK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sq_XK;
+    defaultSymbols = RelativeDateTimeSymbols_sq_XK;
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Cyrl;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Cyrl;
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Cyrl_BA;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Cyrl_BA;
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Cyrl_ME;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Cyrl_ME;
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Cyrl_RS;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Cyrl_RS;
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Cyrl_XK;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Cyrl_XK;
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Latn_BA;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Latn_BA;
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Latn_ME;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Latn_ME;
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Latn_RS;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Latn_RS;
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sr_Latn_XK;
+    defaultSymbols = RelativeDateTimeSymbols_sr_Latn_XK;
     break;
   case 'su':
-    defaultSymbols = exports.RelativeDateTimeSymbols_su;
+    defaultSymbols = RelativeDateTimeSymbols_su;
     break;
   case 'su_Latn':
   case 'su-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_su_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_su_Latn;
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    defaultSymbols = exports.RelativeDateTimeSymbols_su_Latn_ID;
+    defaultSymbols = RelativeDateTimeSymbols_su_Latn_ID;
     break;
   case 'sv_AX':
   case 'sv-AX':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sv_AX;
+    defaultSymbols = RelativeDateTimeSymbols_sv_AX;
     break;
   case 'sv_FI':
   case 'sv-FI':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sv_FI;
+    defaultSymbols = RelativeDateTimeSymbols_sv_FI;
     break;
   case 'sv_SE':
   case 'sv-SE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sv_SE;
+    defaultSymbols = RelativeDateTimeSymbols_sv_SE;
     break;
   case 'sw_CD':
   case 'sw-CD':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sw_CD;
+    defaultSymbols = RelativeDateTimeSymbols_sw_CD;
     break;
   case 'sw_KE':
   case 'sw-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sw_KE;
+    defaultSymbols = RelativeDateTimeSymbols_sw_KE;
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sw_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_sw_TZ;
     break;
   case 'sw_UG':
   case 'sw-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_sw_UG;
+    defaultSymbols = RelativeDateTimeSymbols_sw_UG;
     break;
   case 'ta_IN':
   case 'ta-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ta_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ta_IN;
     break;
   case 'ta_LK':
   case 'ta-LK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ta_LK;
+    defaultSymbols = RelativeDateTimeSymbols_ta_LK;
     break;
   case 'ta_MY':
   case 'ta-MY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ta_MY;
+    defaultSymbols = RelativeDateTimeSymbols_ta_MY;
     break;
   case 'ta_SG':
   case 'ta-SG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ta_SG;
+    defaultSymbols = RelativeDateTimeSymbols_ta_SG;
     break;
   case 'te_IN':
   case 'te-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_te_IN;
+    defaultSymbols = RelativeDateTimeSymbols_te_IN;
     break;
   case 'teo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_teo;
+    defaultSymbols = RelativeDateTimeSymbols_teo;
     break;
   case 'teo_KE':
   case 'teo-KE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_teo_KE;
+    defaultSymbols = RelativeDateTimeSymbols_teo_KE;
     break;
   case 'teo_UG':
   case 'teo-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_teo_UG;
+    defaultSymbols = RelativeDateTimeSymbols_teo_UG;
     break;
   case 'tg':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tg;
+    defaultSymbols = RelativeDateTimeSymbols_tg;
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tg_TJ;
+    defaultSymbols = RelativeDateTimeSymbols_tg_TJ;
     break;
   case 'th_TH':
   case 'th-TH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_th_TH;
+    defaultSymbols = RelativeDateTimeSymbols_th_TH;
     break;
   case 'ti':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ti;
+    defaultSymbols = RelativeDateTimeSymbols_ti;
     break;
   case 'ti_ER':
   case 'ti-ER':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ti_ER;
+    defaultSymbols = RelativeDateTimeSymbols_ti_ER;
     break;
   case 'ti_ET':
   case 'ti-ET':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ti_ET;
+    defaultSymbols = RelativeDateTimeSymbols_ti_ET;
     break;
   case 'tk':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tk;
+    defaultSymbols = RelativeDateTimeSymbols_tk;
     break;
   case 'tk_TM':
   case 'tk-TM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tk_TM;
+    defaultSymbols = RelativeDateTimeSymbols_tk_TM;
     break;
   case 'to':
-    defaultSymbols = exports.RelativeDateTimeSymbols_to;
+    defaultSymbols = RelativeDateTimeSymbols_to;
     break;
   case 'to_TO':
   case 'to-TO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_to_TO;
+    defaultSymbols = RelativeDateTimeSymbols_to_TO;
     break;
   case 'tr_CY':
   case 'tr-CY':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tr_CY;
+    defaultSymbols = RelativeDateTimeSymbols_tr_CY;
     break;
   case 'tr_TR':
   case 'tr-TR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tr_TR;
+    defaultSymbols = RelativeDateTimeSymbols_tr_TR;
     break;
   case 'tt':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tt;
+    defaultSymbols = RelativeDateTimeSymbols_tt;
     break;
   case 'tt_RU':
   case 'tt-RU':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tt_RU;
+    defaultSymbols = RelativeDateTimeSymbols_tt_RU;
     break;
   case 'twq':
-    defaultSymbols = exports.RelativeDateTimeSymbols_twq;
+    defaultSymbols = RelativeDateTimeSymbols_twq;
     break;
   case 'twq_NE':
   case 'twq-NE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_twq_NE;
+    defaultSymbols = RelativeDateTimeSymbols_twq_NE;
     break;
   case 'tzm':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tzm;
+    defaultSymbols = RelativeDateTimeSymbols_tzm;
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_tzm_MA;
+    defaultSymbols = RelativeDateTimeSymbols_tzm_MA;
     break;
   case 'ug':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ug;
+    defaultSymbols = RelativeDateTimeSymbols_ug;
     break;
   case 'ug_CN':
   case 'ug-CN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ug_CN;
+    defaultSymbols = RelativeDateTimeSymbols_ug_CN;
     break;
   case 'uk_UA':
   case 'uk-UA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uk_UA;
+    defaultSymbols = RelativeDateTimeSymbols_uk_UA;
     break;
   case 'ur_IN':
   case 'ur-IN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ur_IN;
+    defaultSymbols = RelativeDateTimeSymbols_ur_IN;
     break;
   case 'ur_PK':
   case 'ur-PK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_ur_PK;
+    defaultSymbols = RelativeDateTimeSymbols_ur_PK;
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uz_Arab;
+    defaultSymbols = RelativeDateTimeSymbols_uz_Arab;
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uz_Arab_AF;
+    defaultSymbols = RelativeDateTimeSymbols_uz_Arab_AF;
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uz_Cyrl;
+    defaultSymbols = RelativeDateTimeSymbols_uz_Cyrl;
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uz_Cyrl_UZ;
+    defaultSymbols = RelativeDateTimeSymbols_uz_Cyrl_UZ;
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uz_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_uz_Latn;
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_uz_Latn_UZ;
+    defaultSymbols = RelativeDateTimeSymbols_uz_Latn_UZ;
     break;
   case 'vai':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vai;
+    defaultSymbols = RelativeDateTimeSymbols_vai;
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vai_Latn;
+    defaultSymbols = RelativeDateTimeSymbols_vai_Latn;
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vai_Latn_LR;
+    defaultSymbols = RelativeDateTimeSymbols_vai_Latn_LR;
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vai_Vaii;
+    defaultSymbols = RelativeDateTimeSymbols_vai_Vaii;
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vai_Vaii_LR;
+    defaultSymbols = RelativeDateTimeSymbols_vai_Vaii_LR;
     break;
   case 'vi_VN':
   case 'vi-VN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vi_VN;
+    defaultSymbols = RelativeDateTimeSymbols_vi_VN;
     break;
   case 'vun':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vun;
+    defaultSymbols = RelativeDateTimeSymbols_vun;
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_vun_TZ;
+    defaultSymbols = RelativeDateTimeSymbols_vun_TZ;
     break;
   case 'wae':
-    defaultSymbols = exports.RelativeDateTimeSymbols_wae;
+    defaultSymbols = RelativeDateTimeSymbols_wae;
     break;
   case 'wae_CH':
   case 'wae-CH':
-    defaultSymbols = exports.RelativeDateTimeSymbols_wae_CH;
+    defaultSymbols = RelativeDateTimeSymbols_wae_CH;
     break;
   case 'wo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_wo;
+    defaultSymbols = RelativeDateTimeSymbols_wo;
     break;
   case 'wo_SN':
   case 'wo-SN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_wo_SN;
+    defaultSymbols = RelativeDateTimeSymbols_wo_SN;
     break;
   case 'xh':
-    defaultSymbols = exports.RelativeDateTimeSymbols_xh;
+    defaultSymbols = RelativeDateTimeSymbols_xh;
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_xh_ZA;
+    defaultSymbols = RelativeDateTimeSymbols_xh_ZA;
     break;
   case 'xog':
-    defaultSymbols = exports.RelativeDateTimeSymbols_xog;
+    defaultSymbols = RelativeDateTimeSymbols_xog;
     break;
   case 'xog_UG':
   case 'xog-UG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_xog_UG;
+    defaultSymbols = RelativeDateTimeSymbols_xog_UG;
     break;
   case 'yav':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yav;
+    defaultSymbols = RelativeDateTimeSymbols_yav;
     break;
   case 'yav_CM':
   case 'yav-CM':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yav_CM;
+    defaultSymbols = RelativeDateTimeSymbols_yav_CM;
     break;
   case 'yi':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yi;
+    defaultSymbols = RelativeDateTimeSymbols_yi;
     break;
   case 'yi_001':
   case 'yi-001':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yi_001;
+    defaultSymbols = RelativeDateTimeSymbols_yi_001;
     break;
   case 'yo':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yo;
+    defaultSymbols = RelativeDateTimeSymbols_yo;
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yo_BJ;
+    defaultSymbols = RelativeDateTimeSymbols_yo_BJ;
     break;
   case 'yo_NG':
   case 'yo-NG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yo_NG;
+    defaultSymbols = RelativeDateTimeSymbols_yo_NG;
     break;
   case 'yrl':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yrl;
+    defaultSymbols = RelativeDateTimeSymbols_yrl;
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yrl_BR;
+    defaultSymbols = RelativeDateTimeSymbols_yrl_BR;
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yrl_CO;
+    defaultSymbols = RelativeDateTimeSymbols_yrl_CO;
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yrl_VE;
+    defaultSymbols = RelativeDateTimeSymbols_yrl_VE;
     break;
   case 'yue':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yue;
+    defaultSymbols = RelativeDateTimeSymbols_yue;
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yue_Hans;
+    defaultSymbols = RelativeDateTimeSymbols_yue_Hans;
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yue_Hans_CN;
+    defaultSymbols = RelativeDateTimeSymbols_yue_Hans_CN;
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yue_Hant;
+    defaultSymbols = RelativeDateTimeSymbols_yue_Hant;
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_yue_Hant_HK;
+    defaultSymbols = RelativeDateTimeSymbols_yue_Hant_HK;
     break;
   case 'zgh':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zgh;
+    defaultSymbols = RelativeDateTimeSymbols_zgh;
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zgh_MA;
+    defaultSymbols = RelativeDateTimeSymbols_zgh_MA;
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hans;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hans;
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hans_CN;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hans_CN;
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hans_HK;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hans_HK;
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hans_MO;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hans_MO;
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hans_SG;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hans_SG;
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hant;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hant;
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hant_HK;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hant_HK;
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hant_MO;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hant_MO;
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zh_Hant_TW;
+    defaultSymbols = RelativeDateTimeSymbols_zh_Hant_TW;
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    defaultSymbols = exports.RelativeDateTimeSymbols_zu_ZA;
+    defaultSymbols = RelativeDateTimeSymbols_zu_ZA;
     break;
 }
 

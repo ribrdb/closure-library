@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.FormPostTest');
 goog.setTestOnly();
 
-const FormPost = goog.require('goog.ui.FormPost');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const isVersion = goog.require('goog.userAgent.product.isVersion');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
+import { FormPost } from './formpost.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import { isVersion } from '../useragent/product_isversion.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const TARGET = 'target';
 const ACTION_URL = 'http://url/';

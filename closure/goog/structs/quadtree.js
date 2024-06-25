@@ -15,11 +15,7 @@
  */
 
 
-goog.provide('goog.structs.QuadTree');
-goog.provide('goog.structs.QuadTree.Node');
-goog.provide('goog.structs.QuadTree.Point');
-
-goog.require('goog.math.Coordinate');
+import { Coordinate } from '../math/coordinate.js';
 
 
 
@@ -32,8 +28,7 @@ goog.require('goog.math.Coordinate');
  * @constructor
  * @final
  */
-goog.structs.QuadTree = function(minX, minY, maxX, maxY) {
-  'use strict';
+export function QuadTree(minX, minY, maxX, maxY) {
   /**
    * Count of the number of items in the tree.
    * @private {number}
@@ -41,21 +36,20 @@ goog.structs.QuadTree = function(minX, minY, maxX, maxY) {
   this.count_ = 0;
 
   /**
-   * The root node for the quad tree.
-   * @private {goog.structs.QuadTree.Node}
-   */
+     * The root node for the quad tree.
+     * @private {QuadTree.Node}
+     */
   this.root_ =
-      new goog.structs.QuadTree.Node(minX, minY, maxX - minX, maxY - minY);
-};
+      new QuadTree.Node(minX, minY, maxX - minX, maxY - minY);
+}
 
 
 /**
  * Returns a reference to the tree's root node.  Callers shouldn't modify nodes,
  * directly.  This is a convenience for visualization and debugging purposes.
- * @return {goog.structs.QuadTree.Node} The root node.
+ * @return {QuadTree.Node} The root node.
  */
-goog.structs.QuadTree.prototype.getRootNode = function() {
-  'use strict';
+QuadTree.prototype.getRootNode = function() {
   return this.root_;
 };
 
@@ -66,13 +60,12 @@ goog.structs.QuadTree.prototype.getRootNode = function() {
  * @param {number} y The y-coordinate.
  * @param {*} value The value associated with the point.
  */
-goog.structs.QuadTree.prototype.set = function(x, y, value) {
-  'use strict';
+QuadTree.prototype.set = function(x, y, value) {
   var root = this.root_;
   if (x < root.x || y < root.y || x > root.x + root.w || y > root.y + root.h) {
     throw new Error('Out of bounds : (' + x + ', ' + y + ')');
   }
-  if (this.insert_(root, new goog.structs.QuadTree.Point(x, y, value))) {
+  if (this.insert_(root, new QuadTree.Point(x, y, value))) {
     this.count_++;
   }
 };
@@ -88,8 +81,7 @@ goog.structs.QuadTree.prototype.set = function(x, y, value) {
  *     doesn't exist, or undefined if the node doesn't exist and no default
  *     has been provided.
  */
-goog.structs.QuadTree.prototype.get = function(x, y, opt_default) {
-  'use strict';
+QuadTree.prototype.get = function(x, y, opt_default) {
   var node = this.find_(this.root_, x, y);
   return node ? node.point.value : opt_default;
 };
@@ -102,13 +94,12 @@ goog.structs.QuadTree.prototype.get = function(x, y, opt_default) {
  * @return {*} The value of the node that was removed, or null if the
  *     node doesn't exist.
  */
-goog.structs.QuadTree.prototype.remove = function(x, y) {
-  'use strict';
+QuadTree.prototype.remove = function(x, y) {
   var node = this.find_(this.root_, x, y);
   if (node) {
     var value = node.point.value;
     node.point = null;
-    node.nodeType = goog.structs.QuadTree.NodeType.EMPTY;
+    node.nodeType = QuadTree.NodeType.EMPTY;
     this.balance_(node);
     this.count_--;
     return value;
@@ -124,8 +115,7 @@ goog.structs.QuadTree.prototype.remove = function(x, y) {
  * @param {number} y The y-coordinate.
  * @return {boolean} Whether the tree contains a point at (x, y).
  */
-goog.structs.QuadTree.prototype.contains = function(x, y) {
-  'use strict';
+QuadTree.prototype.contains = function(x, y) {
   return this.get(x, y) != null;
 };
 
@@ -133,17 +123,15 @@ goog.structs.QuadTree.prototype.contains = function(x, y) {
 /**
  * @return {boolean} Whether the tree is empty.
  */
-goog.structs.QuadTree.prototype.isEmpty = function() {
-  'use strict';
-  return this.root_.nodeType == goog.structs.QuadTree.NodeType.EMPTY;
+QuadTree.prototype.isEmpty = function() {
+  return this.root_.nodeType == QuadTree.NodeType.EMPTY;
 };
 
 
 /**
  * @return {number} The number of items in the tree.
  */
-goog.structs.QuadTree.prototype.getCount = function() {
-  'use strict';
+QuadTree.prototype.getCount = function() {
   return this.count_;
 };
 
@@ -151,10 +139,9 @@ goog.structs.QuadTree.prototype.getCount = function() {
 /**
  * Removes all items from the tree.
  */
-goog.structs.QuadTree.prototype.clear = function() {
-  'use strict';
+QuadTree.prototype.clear = function() {
   this.root_.nw = this.root_.ne = this.root_.sw = this.root_.se = null;
-  this.root_.nodeType = goog.structs.QuadTree.NodeType.EMPTY;
+  this.root_.nodeType = QuadTree.NodeType.EMPTY;
   this.root_.point = null;
   this.count_ = 0;
 };
@@ -162,14 +149,12 @@ goog.structs.QuadTree.prototype.clear = function() {
 
 /**
  * Returns an array containing the coordinates of each point stored in the tree.
- * @return {!Array<goog.math.Coordinate?>} Array of coordinates.
+ * @return {!Array<Coordinate?>} Array of coordinates.
  */
-goog.structs.QuadTree.prototype.getKeys = function() {
-  'use strict';
+QuadTree.prototype.getKeys = function() {
   var arr = [];
   this.traverse_(this.root_, function(node) {
-    'use strict';
-    arr.push(new goog.math.Coordinate(node.point.x, node.point.y));
+    arr.push(new Coordinate(node.point.x, node.point.y));
   });
   return arr;
 };
@@ -179,11 +164,9 @@ goog.structs.QuadTree.prototype.getKeys = function() {
  * Returns an array containing all values stored within the tree.
  * @return {!Array<Object>} The values stored within the tree.
  */
-goog.structs.QuadTree.prototype.getValues = function() {
-  'use strict';
+QuadTree.prototype.getValues = function() {
   var arr = [];
   this.traverse_(this.root_, function(node) {
-    'use strict';
     // Must have a point because it's a leaf.
     arr.push(node.point.value);
   });
@@ -193,20 +176,18 @@ goog.structs.QuadTree.prototype.getValues = function() {
 
 /**
  * Clones the quad-tree and returns the new instance.
- * @return {!goog.structs.QuadTree} A clone of the tree.
+ * @return {!QuadTree} A clone of the tree.
  */
-goog.structs.QuadTree.prototype.clone = function() {
-  'use strict';
+QuadTree.prototype.clone = function() {
   var x1 = this.root_.x;
   var y1 = this.root_.y;
   var x2 = x1 + this.root_.w;
   var y2 = y1 + this.root_.h;
-  var clone = new goog.structs.QuadTree(x1, y1, x2, y2);
+  var clone = new QuadTree(x1, y1, x2, y2);
   // This is inefficient as the clone needs to recalculate the structure of the
   // tree, even though we know it already.  But this is easier and can be
   // optimized when/if needed.
   this.traverse_(this.root_, function(node) {
-    'use strict';
     clone.set(node.point.x, node.point.y, node.point.value);
   });
   return clone;
@@ -215,18 +196,16 @@ goog.structs.QuadTree.prototype.clone = function() {
 
 /**
  * Traverses the tree and calls a function on each node.
- * @param {function(?, goog.math.Coordinate, goog.structs.QuadTree)} fn
+ * @param {function(?, Coordinate, QuadTree)} fn
  *     The function to call for every value. This function takes 3 arguments
  *     (the value, the coordinate, and the tree itself) and the return value is
  *     irrelevant.
  * @param {Object=} opt_obj The object to be used as the value of 'this'
  *     within {@ code fn}.
  */
-goog.structs.QuadTree.prototype.forEach = function(fn, opt_obj) {
-  'use strict';
+QuadTree.prototype.forEach = function(fn, opt_obj) {
   this.traverse_(this.root_, function(node) {
-    'use strict';
-    var coord = new goog.math.Coordinate(node.point.x, node.point.y);
+    var coord = new Coordinate(node.point.x, node.point.y);
     fn.call(opt_obj, node.point.value, coord, this);
   });
 };
@@ -236,20 +215,19 @@ goog.structs.QuadTree.prototype.forEach = function(fn, opt_obj) {
  * Traverses the tree depth-first, with quadrants being traversed in clockwise
  * order (NE, SE, SW, NW).  The provided function will be called for each
  * leaf node that is encountered.
- * @param {goog.structs.QuadTree.Node} node The current node.
- * @param {function(this:goog.structs.QuadTree, goog.structs.QuadTree.Node)} fn
+ * @param {QuadTree.Node} node The current node.
+ * @param {function(this:QuadTree, QuadTree.Node)} fn
  *     The function to call for each leaf node. This function takes the node as
  *     an argument, and its return value is irrelevant.
  * @private
  */
-goog.structs.QuadTree.prototype.traverse_ = function(node, fn) {
-  'use strict';
+QuadTree.prototype.traverse_ = function(node, fn) {
   switch (node.nodeType) {
-    case goog.structs.QuadTree.NodeType.LEAF:
+    case QuadTree.NodeType.LEAF:
       fn.call(this, node);
       break;
 
-    case goog.structs.QuadTree.NodeType.POINTER:
+    case QuadTree.NodeType.POINTER:
       this.traverse_(node.ne, fn);
       this.traverse_(node.se, fn);
       this.traverse_(node.sw, fn);
@@ -262,23 +240,22 @@ goog.structs.QuadTree.prototype.traverse_ = function(node, fn) {
 /**
  * Finds a leaf node with the same (x, y) coordinates as the target point, or
  * null if no point exists.
- * @param {goog.structs.QuadTree.Node} node The node to search in.
+ * @param {QuadTree.Node} node The node to search in.
  * @param {number} x The x-coordinate of the point to search for.
  * @param {number} y The y-coordinate of the point to search for.
- * @return {goog.structs.QuadTree.Node} The leaf node that matches the target,
+ * @return {QuadTree.Node} The leaf node that matches the target,
  *     or null if it doesn't exist.
  * @private
  */
-goog.structs.QuadTree.prototype.find_ = function(node, x, y) {
-  'use strict';
+QuadTree.prototype.find_ = function(node, x, y) {
   switch (node.nodeType) {
-    case goog.structs.QuadTree.NodeType.EMPTY:
+    case QuadTree.NodeType.EMPTY:
       return null;
 
-    case goog.structs.QuadTree.NodeType.LEAF:
+    case QuadTree.NodeType.LEAF:
       return node.point.x == x && node.point.y == y ? node : null;
 
-    case goog.structs.QuadTree.NodeType.POINTER:
+    case QuadTree.NodeType.POINTER:
       return this.find_(this.getQuadrantForPoint_(node, x, y), x, y);
 
     default:
@@ -289,22 +266,21 @@ goog.structs.QuadTree.prototype.find_ = function(node, x, y) {
 
 /**
  * Inserts a point into the tree, updating the tree's structure if necessary.
- * @param {goog.structs.QuadTree.Node} parent The parent to insert the point
+ * @param {QuadTree.Node} parent The parent to insert the point
  *     into.
- * @param {goog.structs.QuadTree.Point} point The point to insert.
+ * @param {QuadTree.Point} point The point to insert.
  * @return {boolean} True if a new node was added to the tree; False if a node
  *     already existed with the correpsonding coordinates and had its value
  *     reset.
  * @private
  */
-goog.structs.QuadTree.prototype.insert_ = function(parent, point) {
-  'use strict';
+QuadTree.prototype.insert_ = function(parent, point) {
   switch (parent.nodeType) {
-    case goog.structs.QuadTree.NodeType.EMPTY:
+    case QuadTree.NodeType.EMPTY:
       this.setPointForNode_(parent, point);
       return true;
 
-    case goog.structs.QuadTree.NodeType.LEAF:
+    case QuadTree.NodeType.LEAF:
       if (parent.point.x == point.x && parent.point.y == point.y) {
         this.setPointForNode_(parent, point);
         return false;
@@ -313,7 +289,7 @@ goog.structs.QuadTree.prototype.insert_ = function(parent, point) {
         return this.insert_(parent, point);
       }
 
-    case goog.structs.QuadTree.NodeType.POINTER:
+    case QuadTree.NodeType.POINTER:
       return this.insert_(
           this.getQuadrantForPoint_(parent, point.x, point.y), point);
 
@@ -326,25 +302,24 @@ goog.structs.QuadTree.prototype.insert_ = function(parent, point) {
 /**
  * Converts a leaf node to a pointer node and reinserts the node's point into
  * the correct child.
- * @param {goog.structs.QuadTree.Node} node The node to split.
+ * @param {QuadTree.Node} node The node to split.
  * @private
  */
-goog.structs.QuadTree.prototype.split_ = function(node) {
-  'use strict';
+QuadTree.prototype.split_ = function(node) {
   var oldPoint = node.point;
   node.point = null;
 
-  node.nodeType = goog.structs.QuadTree.NodeType.POINTER;
+  node.nodeType = QuadTree.NodeType.POINTER;
 
   var x = node.x;
   var y = node.y;
   var hw = node.w / 2;
   var hh = node.h / 2;
 
-  node.nw = new goog.structs.QuadTree.Node(x, y, hw, hh, node);
-  node.ne = new goog.structs.QuadTree.Node(x + hw, y, hw, hh, node);
-  node.sw = new goog.structs.QuadTree.Node(x, y + hh, hw, hh, node);
-  node.se = new goog.structs.QuadTree.Node(x + hw, y + hh, hw, hh, node);
+  node.nw = new QuadTree.Node(x, y, hw, hh, node);
+  node.ne = new QuadTree.Node(x + hw, y, hw, hh, node);
+  node.sw = new QuadTree.Node(x, y + hh, hw, hh, node);
+  node.se = new QuadTree.Node(x + hw, y + hh, hw, hh, node);
 
   this.insert_(node, oldPoint);
 };
@@ -353,41 +328,40 @@ goog.structs.QuadTree.prototype.split_ = function(node) {
 /**
  * Attempts to balance a node. A node will need balancing if all its children
  * are empty or it contains just one leaf.
- * @param {goog.structs.QuadTree.Node} node The node to balance.
+ * @param {QuadTree.Node} node The node to balance.
  * @private
  */
-goog.structs.QuadTree.prototype.balance_ = function(node) {
-  'use strict';
+QuadTree.prototype.balance_ = function(node) {
   switch (node.nodeType) {
-    case goog.structs.QuadTree.NodeType.EMPTY:
-    case goog.structs.QuadTree.NodeType.LEAF:
+    case QuadTree.NodeType.EMPTY:
+    case QuadTree.NodeType.LEAF:
       if (node.parent) {
         this.balance_(node.parent);
       }
       break;
 
-    case goog.structs.QuadTree.NodeType.POINTER:
+    case QuadTree.NodeType.POINTER:
       var nw = node.nw, ne = node.ne, sw = node.sw, se = node.se;
       var firstLeaf = null;
 
       // Look for the first non-empty child, if there is more than one then we
       // break as this node can't be balanced.
-      if (nw.nodeType != goog.structs.QuadTree.NodeType.EMPTY) {
+      if (nw.nodeType != QuadTree.NodeType.EMPTY) {
         firstLeaf = nw;
       }
-      if (ne.nodeType != goog.structs.QuadTree.NodeType.EMPTY) {
+      if (ne.nodeType != QuadTree.NodeType.EMPTY) {
         if (firstLeaf) {
           break;
         }
         firstLeaf = ne;
       }
-      if (sw.nodeType != goog.structs.QuadTree.NodeType.EMPTY) {
+      if (sw.nodeType != QuadTree.NodeType.EMPTY) {
         if (firstLeaf) {
           break;
         }
         firstLeaf = sw;
       }
-      if (se.nodeType != goog.structs.QuadTree.NodeType.EMPTY) {
+      if (se.nodeType != QuadTree.NodeType.EMPTY) {
         if (firstLeaf) {
           break;
         }
@@ -396,16 +370,16 @@ goog.structs.QuadTree.prototype.balance_ = function(node) {
 
       if (!firstLeaf) {
         // All child nodes are empty: so make this node empty.
-        node.nodeType = goog.structs.QuadTree.NodeType.EMPTY;
+        node.nodeType = QuadTree.NodeType.EMPTY;
         node.nw = node.ne = node.sw = node.se = null;
 
-      } else if (firstLeaf.nodeType == goog.structs.QuadTree.NodeType.POINTER) {
+      } else if (firstLeaf.nodeType == QuadTree.NodeType.POINTER) {
         // Only child was a pointer, therefore we can't rebalance.
         break;
 
       } else {
         // Only child was a leaf: so update node's point and make it a leaf.
-        node.nodeType = goog.structs.QuadTree.NodeType.LEAF;
+        node.nodeType = QuadTree.NodeType.LEAF;
         node.nw = node.ne = node.sw = node.se = null;
         node.point = firstLeaf.point;
       }
@@ -423,15 +397,14 @@ goog.structs.QuadTree.prototype.balance_ = function(node) {
 /**
  * Returns the child quadrant within a node that contains the given (x, y)
  * coordinate.
- * @param {goog.structs.QuadTree.Node} parent The node.
+ * @param {QuadTree.Node} parent The node.
  * @param {number} x The x-coordinate to look for.
  * @param {number} y The y-coordinate to look for.
- * @return {goog.structs.QuadTree.Node} The child quadrant that contains the
+ * @return {QuadTree.Node} The child quadrant that contains the
  *     point.
  * @private
  */
-goog.structs.QuadTree.prototype.getQuadrantForPoint_ = function(parent, x, y) {
-  'use strict';
+QuadTree.prototype.getQuadrantForPoint_ = function(parent, x, y) {
   var mx = parent.x + parent.w / 2;
   var my = parent.y + parent.h / 2;
   if (x < mx) {
@@ -444,16 +417,15 @@ goog.structs.QuadTree.prototype.getQuadrantForPoint_ = function(parent, x, y) {
 
 /**
  * Sets the point for a node, as long as the node is a leaf or empty.
- * @param {goog.structs.QuadTree.Node} node The node to set the point for.
- * @param {goog.structs.QuadTree.Point} point The point to set.
+ * @param {QuadTree.Node} node The node to set the point for.
+ * @param {QuadTree.Point} point The point to set.
  * @private
  */
-goog.structs.QuadTree.prototype.setPointForNode_ = function(node, point) {
-  'use strict';
-  if (node.nodeType == goog.structs.QuadTree.NodeType.POINTER) {
+QuadTree.prototype.setPointForNode_ = function(node, point) {
+  if (node.nodeType == QuadTree.NodeType.POINTER) {
     throw new Error('Can not set point for node of type POINTER');
   }
-  node.nodeType = goog.structs.QuadTree.NodeType.LEAF;
+  node.nodeType = QuadTree.NodeType.LEAF;
   node.point = point;
 };
 
@@ -462,7 +434,7 @@ goog.structs.QuadTree.prototype.setPointForNode_ = function(node, point) {
  * Enumeration of node types.
  * @enum {number}
  */
-goog.structs.QuadTree.NodeType = {
+QuadTree.NodeType = {
   EMPTY: 0,
   LEAF: 1,
   POINTER: 2
@@ -476,12 +448,11 @@ goog.structs.QuadTree.NodeType = {
  * @param {number} y Y-coordinate of node.
  * @param {number} w Width of node.
  * @param {number} h Height of node.
- * @param {goog.structs.QuadTree.Node=} opt_parent Optional parent node.
+ * @param {QuadTree.Node=} opt_parent Optional parent node.
  * @constructor
  * @final
  */
-goog.structs.QuadTree.Node = function(x, y, w, h, opt_parent) {
-  'use strict';
+QuadTree.Node = function(x, y, w, h, opt_parent) {
   /**
    * The x-coordinate of the node.
    * @type {number}
@@ -507,54 +478,54 @@ goog.structs.QuadTree.Node = function(x, y, w, h, opt_parent) {
   this.h = h;
 
   /**
-   * The parent node.
-   * @type {goog.structs.QuadTree.Node?}
-   */
+     * The parent node.
+     * @type {QuadTree.Node?}
+     */
   this.parent = opt_parent || null;
 };
 
 
 /**
  * The node's type.
- * @type {goog.structs.QuadTree.NodeType}
+ * @type {QuadTree.NodeType}
  */
-goog.structs.QuadTree.Node.prototype.nodeType =
-    goog.structs.QuadTree.NodeType.EMPTY;
+QuadTree.Node.prototype.nodeType =
+    QuadTree.NodeType.EMPTY;
 
 
 /**
  * The child node in the North-West quadrant.
- * @type {goog.structs.QuadTree.Node?}
+ * @type {QuadTree.Node?}
  */
-goog.structs.QuadTree.Node.prototype.nw = null;
+QuadTree.Node.prototype.nw = null;
 
 
 /**
  * The child node in the North-East quadrant.
- * @type {goog.structs.QuadTree.Node?}
+ * @type {QuadTree.Node?}
  */
-goog.structs.QuadTree.Node.prototype.ne = null;
+QuadTree.Node.prototype.ne = null;
 
 
 /**
  * The child node in the South-West quadrant.
- * @type {goog.structs.QuadTree.Node?}
+ * @type {QuadTree.Node?}
  */
-goog.structs.QuadTree.Node.prototype.sw = null;
+QuadTree.Node.prototype.sw = null;
 
 
 /**
  * The child node in the South-East quadrant.
- * @type {goog.structs.QuadTree.Node?}
+ * @type {QuadTree.Node?}
  */
-goog.structs.QuadTree.Node.prototype.se = null;
+QuadTree.Node.prototype.se = null;
 
 
 /**
  * The point for the node, if it is a leaf node.
- * @type {goog.structs.QuadTree.Point?}
+ * @type {QuadTree.Point?}
  */
-goog.structs.QuadTree.Node.prototype.point = null;
+QuadTree.Node.prototype.point = null;
 
 
 
@@ -566,8 +537,7 @@ goog.structs.QuadTree.Node.prototype.point = null;
  * @constructor
  * @final
  */
-goog.structs.QuadTree.Point = function(x, y, opt_value) {
-  'use strict';
+QuadTree.Point = function(x, y, opt_value) {
   /**
    * The x-coordinate for the point.
    * @type {number}

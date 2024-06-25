@@ -9,9 +9,6 @@
  * needed for the enumerated patterns in a locale
  */
 
-goog.module('goog.i18n.DayPeriods');
-goog.module.declareLegacyNamespace();
-
 /**
  * Fields for each day period
  * formatNames 1-3 styles: wide (default), narrow, & abbreviated
@@ -25,10 +22,7 @@ goog.module.declareLegacyNamespace();
  *    standaloneNames: (!Array<string>|undefined)
  *  }}
  */
-let DayPeriodInfo;
-
-/** @typedef {{DayPeriodInfo}} */
-exports.DayPeriodInfo;
+export let DayPeriodInfo;
 
 /**
  * Information on periods of the day for a locale
@@ -48,13 +42,13 @@ exports.DayPeriodInfo;
 let DayPeriods;
 
 /** @typedef {{DayPeriods}} */
-exports.DayPeriods = DayPeriods;
+export { DayPeriods };
 
 /**
  * Data for dayperiods by locale.
  * @type {!DayPeriods}
  */
-exports.DayPeriods_zh_Hant = {
+export let DayPeriods_zh_Hant = {
   midnight: {at: '00:00', formatNames: ['午夜'], periodName: 'midnight'},
   night1: {
     from: '00:00',
@@ -105,7 +99,7 @@ let defaultDayPeriods;
  * Returns the DayPeriod for the given locale. This may be undefined or null.
  * @return {?DayPeriods}
  */
-exports.getDayPeriods = function() {
+export let getDayPeriods = function() {
   return defaultDayPeriods;
 };
 
@@ -113,7 +107,7 @@ exports.getDayPeriods = function() {
  * Sets the default ListFormatSymbols
  * @param {?DayPeriods} newDayPeriods
  */
-exports.setDayPeriods = function(newDayPeriods) {
+export let setDayPeriods = function(newDayPeriods) {
   defaultDayPeriods = newDayPeriods;
 };
 
@@ -127,7 +121,7 @@ switch (goog.LOCALE) {
   case 'zh_Hant_TW':
   case 'zh-TW':
   case 'zh_TW':
-    defaultDayPeriods = exports.DayPeriods_zh_Hant;
+    defaultDayPeriods = DayPeriods_zh_Hant;
     break;
   default:
     // No day periods are required.

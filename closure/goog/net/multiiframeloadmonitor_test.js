@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.MultiIframeLoadMonitorTest');
 goog.setTestOnly('goog.net.MultiIframeLoadMonitorTest');
 
-const MultiIframeLoadMonitor = goog.require('goog.net.MultiIframeLoadMonitor');
-const Promise = goog.require('goog.Promise');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const Timer = goog.require('goog.Timer');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MultiIframeLoadMonitor } from './multiiframeloadmonitor.js';
+import { Promise } from '../promise/promise.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import { Timer } from '../timer/timer.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 const stubs = new PropertyReplacer();

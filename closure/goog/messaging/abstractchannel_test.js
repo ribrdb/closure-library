@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.AbstractChannelTest');
 goog.setTestOnly();
 
-const AbstractChannel = goog.require('goog.messaging.AbstractChannel');
-const AsyncMockControl = goog.require('goog.testing.async.MockControl');
-const MockControl = goog.require('goog.testing.MockControl');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AbstractChannel } from './abstractchannel.js';
+import { MockControl as AsyncMockControl } from '../testing/async/mockcontrol.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockControl;
 let mockWorker;

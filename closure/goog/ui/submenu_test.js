@@ -4,29 +4,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.SubMenuTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const GoogEvent = goog.require('goog.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyHandler = goog.require('goog.events.KeyHandler');
-const Menu = goog.require('goog.ui.Menu');
-const MenuItem = goog.require('goog.ui.MenuItem');
-const MockClock = goog.require('goog.testing.MockClock');
-const Overflow = goog.require('goog.positioning.Overflow');
-const State = goog.require('goog.a11y.aria.State');
-const SubMenu = goog.require('goog.ui.SubMenu');
-const SubMenuRenderer = goog.require('goog.ui.SubMenuRenderer');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const positioning = goog.require('goog.positioning');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Component } from './component.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyHandler } from '../events/keyhandler.js';
+import { Menu } from './menu.js';
+import { MenuItem } from './menuitem.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as positioning from '../positioning/positioning.js';
+import { Overflow } from '../positioning/positioning.js';
+import { State } from '../a11y/aria/attributes.js';
+import { SubMenu } from './submenu.js';
+import { SubMenuRenderer } from './submenurenderer.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let menu;
 let clonedMenuDom;

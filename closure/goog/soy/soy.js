@@ -6,17 +6,15 @@
 /**
  * @fileoverview Provides utility methods to render soy template.
  */
-goog.module('goog.soy');
-goog.module.declareLegacyNamespace();
+import { NodeType } from '../dom/nodetype.js';
 
-const NodeType = goog.require('goog.dom.NodeType');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SanitizedContent = goog.require('goog.soy.data.SanitizedContent');
-const SanitizedHtml = goog.requireType('goog.soy.data.SanitizedHtml');
-const TagName = goog.require('goog.dom.TagName');
-const asserts = goog.require('goog.asserts');
-const googDom = goog.require('goog.dom');
-const safe = goog.require('goog.dom.safe');
+import { SafeHtml } from '../html/safehtml.js';
+import { SanitizedContent } from './data.js';
+import { TagName } from '../dom/tagname.js';
+import * as asserts from '../asserts/asserts.js';
+import * as googDom from '../dom/dom.js';
+import * as safe from '../dom/safe.js';
+const SanitizedHtml = goog.requireType('goog.soy.data');
 
 /**
  * A define to control the behavior of SoyJS. If set to true, all Soy templates
@@ -28,13 +26,13 @@ const safe = goog.require('goog.dom.safe');
  * for the stub.
  * @define {boolean}
  */
-exports.shouldStub = goog.define('goog.soy.SHOULD_STUB', false);
+export let shouldStub = goog.define('goog.soy.SHOULD_STUB', false);
 
 /**
  * A define to always stub SoyJS with Incremental DOM templates.
  * @define {boolean}
  */
-exports.alwaysStub = goog.define('goog.soy.ALWAYS_STUB', false);
+export let alwaysStub = goog.define('goog.soy.ALWAYS_STUB', false);
 
 let shouldStubAtRuntime_ = true;
 
@@ -45,12 +43,12 @@ let shouldStubAtRuntime_ = true;
  * loaded), and A2 (A1 but code stubbed at runtime).
  * @return {boolean}
  */
-exports.shouldStubAtRuntime = function() {
+export let shouldStubAtRuntime = function() {
   return shouldStubAtRuntime_;
 };
 
 /** See above. */
-exports.disableStubbingAtRuntime = function() {
+export let disableStubbingAtRuntime = function() {
   shouldStubAtRuntime_ = false;
 };
 
@@ -61,14 +59,14 @@ exports.disableStubbingAtRuntime = function() {
  * @record
  */
 class IjData {}
-exports.IjData = IjData;
+export { IjData };
 
 /**
  * Helper typedef for ij parameters.  This is what soy generates.
  * @typedef {!IjData|!Object<string, *>}
  */
 let CompatibleIj;
-exports.CompatibleIj = CompatibleIj;
+export { CompatibleIj };
 
 /**
  * Type definition for strict Soy templates. Very useful when passing a template
@@ -76,7 +74,7 @@ exports.CompatibleIj = CompatibleIj;
  * @typedef {function(?=, ?CompatibleIj=):(string|!SanitizedContent)}
  */
 let StrictTemplate;
-exports.StrictTemplate = StrictTemplate;
+export { StrictTemplate };
 
 /**
  * Type definition for strict Soy HTML templates. Very useful when passing
@@ -84,14 +82,14 @@ exports.StrictTemplate = StrictTemplate;
  * @typedef {function(?=, ?CompatibleIj=):!SanitizedHtml}
  */
 let StrictHtmlTemplate;
-exports.StrictHtmlTemplate = StrictHtmlTemplate;
+export { StrictHtmlTemplate };
 
 /**
  * Type definition for text templates.
  * @typedef {function(?=, ?CompatibleIj=):string}
  */
 let TextTemplate;
-exports.TextTemplate = TextTemplate;
+export { TextTemplate };
 
 /**
  * Sets the processed template as the innerHTML of an element. It is recommended
@@ -112,7 +110,7 @@ function renderHtml(element, templateResult) {
   safe.unsafeSetInnerHtmlDoNotUseOrElse(
       asserts.assert(element), ensureTemplateOutputHtml(templateResult));
 }
-exports.renderHtml = renderHtml;
+export { renderHtml };
 
 /**
  * Renders a Soy template and then set the output string as
@@ -138,7 +136,7 @@ function renderElement(
   const html = ensureTemplateOutputHtml(output);
   safe.unsafeSetInnerHtmlDoNotUseOrElse(asserts.assert(element), html);
 }
-exports.renderElement = renderElement;
+export { renderElement };
 
 /**
  * Renders a Soy template into a single node or a document
@@ -169,7 +167,7 @@ function renderAsFragment(
   assertFirstTagValid(html.getTypedStringValue());
   return dom.safeHtmlToNode(html);
 }
-exports.renderAsFragment = renderAsFragment;
+export { renderAsFragment };
 
 /**
  * Renders a Soy template into a single node. If the rendered
@@ -191,7 +189,7 @@ function renderAsElement(
   return convertToElementInternal(
       template(templateData || defaultTemplateData, injectedData), domHelper);
 }
-exports.renderAsElement = renderAsElement;
+export { renderAsElement };
 
 /**
  * Converts a processed Soy template into a single node. If the rendered
@@ -207,7 +205,7 @@ exports.renderAsElement = renderAsElement;
 function convertToElement(templateResult, domHelper = undefined) {
   return convertToElementInternal(templateResult, domHelper);
 }
-exports.convertToElement = convertToElement;
+export { convertToElement };
 
 /**
  * Non-strict version of `convertToElement`.
@@ -320,7 +318,7 @@ function renderAsText(
       'renderText was called with a template of kind other than "text"');
   return String(result);
 }
-exports.renderAsText = renderAsText;
+export { renderAsText };
 
 /**
  * Immutable object that is passed into templates that are rendered

@@ -43,21 +43,17 @@
  * dtIntFmt.format(dt5, itv); // --> 'Sep 23 – Oct 23, 2016'
  */
 
-goog.module('goog.i18n.DateIntervalFormat');
+import { DateLike, DateTime, Interval } from '../date/date.js';
 
-const DateLike = goog.require('goog.date.DateLike');
-const DateRange = goog.require('goog.date.DateRange');
-const DateTime = goog.require('goog.date.DateTime');
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-const DateTimeSymbols = goog.require('goog.i18n.DateTimeSymbols');
-const DateTimeSymbolsType = goog.require('goog.i18n.DateTimeSymbolsType');
-const Interval = goog.require('goog.date.Interval');
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const TimeZone = goog.require('goog.i18n.TimeZone');
-const array = goog.require('goog.array');
-const asserts = goog.require('goog.asserts');
-const dateIntervalSymbols = goog.require('goog.i18n.dateIntervalSymbols');
-const object = goog.require('goog.object');
+import { DateRange } from '../date/daterange.js';
+import { DateTimeFormat } from './datetimeformat.js';
+import { DateTimeSymbols, DateTimeSymbolsType } from './datetimesymbols.js';
+import * as LocaleFeature from './localefeature.js';
+import { TimeZone } from './timezone.js';
+import * as array from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dateIntervalSymbols from './dateintervalsymbols.js';
+import object from '../object/object.js';
 
 /**
  * Constructs a DateIntervalFormat object based on the current locale.
@@ -858,4 +854,4 @@ DateTimeFormatter_.prototype.format = function(
   return this.dateTimeFormatter_.format(firstDate, opt_timeZone);
 };
 
-exports = DateIntervalFormat;
+export { DateIntervalFormat };

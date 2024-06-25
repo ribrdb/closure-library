@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.iterTest');
 goog.setTestOnly();
 
-const IterIterator = goog.require('goog.iter.Iterator');
-const googIter = goog.require('goog.iter');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as googIter from './iter.js';
+import { Iterator as IterIterator } from './iter.js';
+import { testSuite } from '../testing/testsuite.js';
 
 class ArrayIterator extends IterIterator {
   constructor(array) {

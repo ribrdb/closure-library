@@ -6,19 +6,18 @@
 
 /** @fileoverview Unit tests for SafeUrl and its builders. */
 
-goog.module('goog.html.safeUrlTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const fsUrl = goog.require('goog.fs.url');
-const googObject = goog.require('goog.object');
-const javascriptUrlTestVectors = goog.require('goog.html.javascriptUrlTestVectors');
-const safeUrlTestVectors = goog.require('goog.html.safeUrlTestVectors');
-const testSuite = goog.require('goog.testing.testSuite');
-const {assertExists} = goog.require('goog.asserts');
+import { Const } from '../string/const.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import * as fsUrl from '../fs/url.js';
+import googObject from '../object/object.js';
+import javascriptUrlTestVectors from './javascript_url_test_vectors.js';
+import safeUrlTestVectors from './safeurl_test_vectors.js';
+import { testSuite } from '../testing/testsuite.js';
+import { assertExists } from '../asserts/asserts.js';
 
 
 /**

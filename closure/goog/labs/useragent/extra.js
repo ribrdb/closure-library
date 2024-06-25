@@ -11,9 +11,7 @@
  * appear to be running in a different environment.
  */
 
-goog.module('goog.labs.userAgent.extra');
-
-const platform = goog.require('goog.labs.userAgent.platform');
+import platform from './platform.js';
 
 /**
  * Checks whether the browser appears to be a desktop-class running on a mobile
@@ -30,4 +28,4 @@ function isSafariDesktopOnMobile() {
   return platform.isMacintosh() && goog.global.navigator.maxTouchPoints > 0;
 }
 
-exports = {isSafariDesktopOnMobile};
+export default {isSafariDesktopOnMobile};

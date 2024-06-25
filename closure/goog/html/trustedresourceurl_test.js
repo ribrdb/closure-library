@@ -6,16 +6,15 @@
 
 /** @fileoverview Unit tests for TrustedResourceUrl and its builders. */
 
-goog.module('goog.html.trustedResourceUrlTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeScript = goog.require('goog.html.SafeScript');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const trustedtypes = goog.require('goog.html.trustedtypes');
+import { Const } from '../string/const.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeScript } from './safescript.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as trustedtypes from './trustedtypes.js';
 
 const stubs = new PropertyReplacer();
 const policy = goog.createTrustedTypesPolicy('closure_test');

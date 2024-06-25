@@ -21,134 +21,14 @@
 
 // clang-format off
 
-goog.provide('goog.i18n.NumberFormatSymbols');
-goog.provide('goog.i18n.NumberFormatSymbols_af');
-goog.provide('goog.i18n.NumberFormatSymbols_am');
-goog.provide('goog.i18n.NumberFormatSymbols_ar');
-goog.provide('goog.i18n.NumberFormatSymbols_ar_DZ');
-goog.provide('goog.i18n.NumberFormatSymbols_ar_EG');
-goog.provide('goog.i18n.NumberFormatSymbols_ar_EG_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_az');
-goog.provide('goog.i18n.NumberFormatSymbols_be');
-goog.provide('goog.i18n.NumberFormatSymbols_bg');
-goog.provide('goog.i18n.NumberFormatSymbols_bn');
-goog.provide('goog.i18n.NumberFormatSymbols_bn_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_br');
-goog.provide('goog.i18n.NumberFormatSymbols_bs');
-goog.provide('goog.i18n.NumberFormatSymbols_ca');
-goog.provide('goog.i18n.NumberFormatSymbols_chr');
-goog.provide('goog.i18n.NumberFormatSymbols_cs');
-goog.provide('goog.i18n.NumberFormatSymbols_cy');
-goog.provide('goog.i18n.NumberFormatSymbols_da');
-goog.provide('goog.i18n.NumberFormatSymbols_de');
-goog.provide('goog.i18n.NumberFormatSymbols_de_AT');
-goog.provide('goog.i18n.NumberFormatSymbols_de_CH');
-goog.provide('goog.i18n.NumberFormatSymbols_el');
-goog.provide('goog.i18n.NumberFormatSymbols_en');
-goog.provide('goog.i18n.NumberFormatSymbols_en_AU');
-goog.provide('goog.i18n.NumberFormatSymbols_en_CA');
-goog.provide('goog.i18n.NumberFormatSymbols_en_GB');
-goog.provide('goog.i18n.NumberFormatSymbols_en_IE');
-goog.provide('goog.i18n.NumberFormatSymbols_en_IN');
-goog.provide('goog.i18n.NumberFormatSymbols_en_SG');
-goog.provide('goog.i18n.NumberFormatSymbols_en_US');
-goog.provide('goog.i18n.NumberFormatSymbols_en_ZA');
-goog.provide('goog.i18n.NumberFormatSymbols_es');
-goog.provide('goog.i18n.NumberFormatSymbols_es_419');
-goog.provide('goog.i18n.NumberFormatSymbols_es_ES');
-goog.provide('goog.i18n.NumberFormatSymbols_es_MX');
-goog.provide('goog.i18n.NumberFormatSymbols_es_US');
-goog.provide('goog.i18n.NumberFormatSymbols_et');
-goog.provide('goog.i18n.NumberFormatSymbols_eu');
-goog.provide('goog.i18n.NumberFormatSymbols_fa');
-goog.provide('goog.i18n.NumberFormatSymbols_fa_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_fi');
-goog.provide('goog.i18n.NumberFormatSymbols_fil');
-goog.provide('goog.i18n.NumberFormatSymbols_fr');
-goog.provide('goog.i18n.NumberFormatSymbols_fr_CA');
-goog.provide('goog.i18n.NumberFormatSymbols_ga');
-goog.provide('goog.i18n.NumberFormatSymbols_gl');
-goog.provide('goog.i18n.NumberFormatSymbols_gsw');
-goog.provide('goog.i18n.NumberFormatSymbols_gu');
-goog.provide('goog.i18n.NumberFormatSymbols_haw');
-goog.provide('goog.i18n.NumberFormatSymbols_he');
-goog.provide('goog.i18n.NumberFormatSymbols_hi');
-goog.provide('goog.i18n.NumberFormatSymbols_hr');
-goog.provide('goog.i18n.NumberFormatSymbols_hu');
-goog.provide('goog.i18n.NumberFormatSymbols_hy');
-goog.provide('goog.i18n.NumberFormatSymbols_id');
-goog.provide('goog.i18n.NumberFormatSymbols_in');
-goog.provide('goog.i18n.NumberFormatSymbols_is');
-goog.provide('goog.i18n.NumberFormatSymbols_it');
-goog.provide('goog.i18n.NumberFormatSymbols_iw');
-goog.provide('goog.i18n.NumberFormatSymbols_ja');
-goog.provide('goog.i18n.NumberFormatSymbols_ka');
-goog.provide('goog.i18n.NumberFormatSymbols_kk');
-goog.provide('goog.i18n.NumberFormatSymbols_km');
-goog.provide('goog.i18n.NumberFormatSymbols_kn');
-goog.provide('goog.i18n.NumberFormatSymbols_ko');
-goog.provide('goog.i18n.NumberFormatSymbols_ky');
-goog.provide('goog.i18n.NumberFormatSymbols_ln');
-goog.provide('goog.i18n.NumberFormatSymbols_lo');
-goog.provide('goog.i18n.NumberFormatSymbols_lt');
-goog.provide('goog.i18n.NumberFormatSymbols_lv');
-goog.provide('goog.i18n.NumberFormatSymbols_mk');
-goog.provide('goog.i18n.NumberFormatSymbols_ml');
-goog.provide('goog.i18n.NumberFormatSymbols_mn');
-goog.provide('goog.i18n.NumberFormatSymbols_mo');
-goog.provide('goog.i18n.NumberFormatSymbols_mr');
-goog.provide('goog.i18n.NumberFormatSymbols_mr_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_ms');
-goog.provide('goog.i18n.NumberFormatSymbols_mt');
-goog.provide('goog.i18n.NumberFormatSymbols_my');
-goog.provide('goog.i18n.NumberFormatSymbols_my_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_nb');
-goog.provide('goog.i18n.NumberFormatSymbols_ne');
-goog.provide('goog.i18n.NumberFormatSymbols_ne_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_nl');
-goog.provide('goog.i18n.NumberFormatSymbols_no');
-goog.provide('goog.i18n.NumberFormatSymbols_no_NO');
-goog.provide('goog.i18n.NumberFormatSymbols_or');
-goog.provide('goog.i18n.NumberFormatSymbols_pa');
-goog.provide('goog.i18n.NumberFormatSymbols_pl');
-goog.provide('goog.i18n.NumberFormatSymbols_pt');
-goog.provide('goog.i18n.NumberFormatSymbols_pt_BR');
-goog.provide('goog.i18n.NumberFormatSymbols_pt_PT');
-goog.provide('goog.i18n.NumberFormatSymbols_ro');
-goog.provide('goog.i18n.NumberFormatSymbols_ru');
-goog.provide('goog.i18n.NumberFormatSymbols_sh');
-goog.provide('goog.i18n.NumberFormatSymbols_si');
-goog.provide('goog.i18n.NumberFormatSymbols_sk');
-goog.provide('goog.i18n.NumberFormatSymbols_sl');
-goog.provide('goog.i18n.NumberFormatSymbols_sq');
-goog.provide('goog.i18n.NumberFormatSymbols_sr');
-goog.provide('goog.i18n.NumberFormatSymbols_sr_Latn');
-goog.provide('goog.i18n.NumberFormatSymbols_sv');
-goog.provide('goog.i18n.NumberFormatSymbols_sw');
-goog.provide('goog.i18n.NumberFormatSymbols_ta');
-goog.provide('goog.i18n.NumberFormatSymbols_te');
-goog.provide('goog.i18n.NumberFormatSymbols_th');
-goog.provide('goog.i18n.NumberFormatSymbols_tl');
-goog.provide('goog.i18n.NumberFormatSymbols_tr');
-goog.provide('goog.i18n.NumberFormatSymbols_u_nu_latn');
-goog.provide('goog.i18n.NumberFormatSymbols_uk');
-goog.provide('goog.i18n.NumberFormatSymbols_ur');
-goog.provide('goog.i18n.NumberFormatSymbols_uz');
-goog.provide('goog.i18n.NumberFormatSymbols_vi');
-goog.provide('goog.i18n.NumberFormatSymbols_zh');
-goog.provide('goog.i18n.NumberFormatSymbols_zh_CN');
-goog.provide('goog.i18n.NumberFormatSymbols_zh_HK');
-goog.provide('goog.i18n.NumberFormatSymbols_zh_TW');
-goog.provide('goog.i18n.NumberFormatSymbols_zu');
-
 goog.requireType('goog.i18n.NumberFormatSymbolsType');
 
 
 /**
  * Number formatting symbols for locale af.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_af = {
+export var NumberFormatSymbols_af = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -169,9 +49,9 @@ goog.i18n.NumberFormatSymbols_af = {
 
 /**
  * Number formatting symbols for locale am.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_am = {
+export var NumberFormatSymbols_am = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -192,9 +72,9 @@ goog.i18n.NumberFormatSymbols_am = {
 
 /**
  * Number formatting symbols for locale ar.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ar = {
+export var NumberFormatSymbols_ar = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '‎%‎',
@@ -215,9 +95,9 @@ goog.i18n.NumberFormatSymbols_ar = {
 
 /**
  * Number formatting symbols for locale ar_DZ.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ar_DZ = {
+export var NumberFormatSymbols_ar_DZ = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '‎%‎',
@@ -238,9 +118,9 @@ goog.i18n.NumberFormatSymbols_ar_DZ = {
 
 /**
  * Number formatting symbols for locale ar_EG.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ar_EG = {
+export var NumberFormatSymbols_ar_EG = {
   DECIMAL_SEP: '٫',
   GROUP_SEP: '٬',
   PERCENT: '٪؜',
@@ -261,9 +141,9 @@ goog.i18n.NumberFormatSymbols_ar_EG = {
 
 /**
  * Number formatting symbols for locale ar_EG_u_nu_latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ar_EG_u_nu_latn = {
+export var NumberFormatSymbols_ar_EG_u_nu_latn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '‎%‎',
@@ -284,9 +164,9 @@ goog.i18n.NumberFormatSymbols_ar_EG_u_nu_latn = {
 
 /**
  * Number formatting symbols for locale az.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_az = {
+export var NumberFormatSymbols_az = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -307,9 +187,9 @@ goog.i18n.NumberFormatSymbols_az = {
 
 /**
  * Number formatting symbols for locale be.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_be = {
+export var NumberFormatSymbols_be = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -330,9 +210,9 @@ goog.i18n.NumberFormatSymbols_be = {
 
 /**
  * Number formatting symbols for locale bg.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_bg = {
+export var NumberFormatSymbols_bg = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -353,9 +233,9 @@ goog.i18n.NumberFormatSymbols_bg = {
 
 /**
  * Number formatting symbols for locale bn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_bn = {
+export var NumberFormatSymbols_bn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -376,9 +256,9 @@ goog.i18n.NumberFormatSymbols_bn = {
 
 /**
  * Number formatting symbols for locale bn_u_nu_latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_bn_u_nu_latn = {
+export var NumberFormatSymbols_bn_u_nu_latn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -399,9 +279,9 @@ goog.i18n.NumberFormatSymbols_bn_u_nu_latn = {
 
 /**
  * Number formatting symbols for locale br.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_br = {
+export var NumberFormatSymbols_br = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -422,9 +302,9 @@ goog.i18n.NumberFormatSymbols_br = {
 
 /**
  * Number formatting symbols for locale bs.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_bs = {
+export var NumberFormatSymbols_bs = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -445,9 +325,9 @@ goog.i18n.NumberFormatSymbols_bs = {
 
 /**
  * Number formatting symbols for locale ca.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ca = {
+export var NumberFormatSymbols_ca = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -468,9 +348,9 @@ goog.i18n.NumberFormatSymbols_ca = {
 
 /**
  * Number formatting symbols for locale chr.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_chr = {
+export var NumberFormatSymbols_chr = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -491,9 +371,9 @@ goog.i18n.NumberFormatSymbols_chr = {
 
 /**
  * Number formatting symbols for locale cs.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_cs = {
+export var NumberFormatSymbols_cs = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -514,9 +394,9 @@ goog.i18n.NumberFormatSymbols_cs = {
 
 /**
  * Number formatting symbols for locale cy.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_cy = {
+export var NumberFormatSymbols_cy = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -537,9 +417,9 @@ goog.i18n.NumberFormatSymbols_cy = {
 
 /**
  * Number formatting symbols for locale da.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_da = {
+export var NumberFormatSymbols_da = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -560,9 +440,9 @@ goog.i18n.NumberFormatSymbols_da = {
 
 /**
  * Number formatting symbols for locale de.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_de = {
+export var NumberFormatSymbols_de = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -583,9 +463,9 @@ goog.i18n.NumberFormatSymbols_de = {
 
 /**
  * Number formatting symbols for locale de_AT.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_de_AT = {
+export var NumberFormatSymbols_de_AT = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -606,9 +486,9 @@ goog.i18n.NumberFormatSymbols_de_AT = {
 
 /**
  * Number formatting symbols for locale de_CH.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_de_CH = {
+export var NumberFormatSymbols_de_CH = {
   DECIMAL_SEP: '.',
   GROUP_SEP: '’',
   PERCENT: '%',
@@ -629,9 +509,9 @@ goog.i18n.NumberFormatSymbols_de_CH = {
 
 /**
  * Number formatting symbols for locale el.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_el = {
+export var NumberFormatSymbols_el = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -652,9 +532,9 @@ goog.i18n.NumberFormatSymbols_el = {
 
 /**
  * Number formatting symbols for locale en.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en = {
+export var NumberFormatSymbols_en = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -675,9 +555,9 @@ goog.i18n.NumberFormatSymbols_en = {
 
 /**
  * Number formatting symbols for locale en_AU.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_AU = {
+export var NumberFormatSymbols_en_AU = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -698,9 +578,9 @@ goog.i18n.NumberFormatSymbols_en_AU = {
 
 /**
  * Number formatting symbols for locale en_CA.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_CA = {
+export var NumberFormatSymbols_en_CA = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -721,9 +601,9 @@ goog.i18n.NumberFormatSymbols_en_CA = {
 
 /**
  * Number formatting symbols for locale en_GB.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_GB = {
+export var NumberFormatSymbols_en_GB = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -744,9 +624,9 @@ goog.i18n.NumberFormatSymbols_en_GB = {
 
 /**
  * Number formatting symbols for locale en_IE.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_IE = {
+export var NumberFormatSymbols_en_IE = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -767,9 +647,9 @@ goog.i18n.NumberFormatSymbols_en_IE = {
 
 /**
  * Number formatting symbols for locale en_IN.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_IN = {
+export var NumberFormatSymbols_en_IN = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -790,9 +670,9 @@ goog.i18n.NumberFormatSymbols_en_IN = {
 
 /**
  * Number formatting symbols for locale en_SG.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_SG = {
+export var NumberFormatSymbols_en_SG = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -813,16 +693,16 @@ goog.i18n.NumberFormatSymbols_en_SG = {
 
 /**
  * Number formatting symbols for locale en_US.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_US = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_US = NumberFormatSymbols_en;
 
 
 /**
  * Number formatting symbols for locale en_ZA.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_en_ZA = {
+export var NumberFormatSymbols_en_ZA = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -843,9 +723,9 @@ goog.i18n.NumberFormatSymbols_en_ZA = {
 
 /**
  * Number formatting symbols for locale es.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_es = {
+export var NumberFormatSymbols_es = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -866,9 +746,9 @@ goog.i18n.NumberFormatSymbols_es = {
 
 /**
  * Number formatting symbols for locale es_419.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_es_419 = {
+export var NumberFormatSymbols_es_419 = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -889,16 +769,16 @@ goog.i18n.NumberFormatSymbols_es_419 = {
 
 /**
  * Number formatting symbols for locale es_ES.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_es_ES = goog.i18n.NumberFormatSymbols_es;
+export var NumberFormatSymbols_es_ES = NumberFormatSymbols_es;
 
 
 /**
  * Number formatting symbols for locale es_MX.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_es_MX = {
+export var NumberFormatSymbols_es_MX = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -919,9 +799,9 @@ goog.i18n.NumberFormatSymbols_es_MX = {
 
 /**
  * Number formatting symbols for locale es_US.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_es_US = {
+export var NumberFormatSymbols_es_US = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -942,9 +822,9 @@ goog.i18n.NumberFormatSymbols_es_US = {
 
 /**
  * Number formatting symbols for locale et.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_et = {
+export var NumberFormatSymbols_et = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -965,9 +845,9 @@ goog.i18n.NumberFormatSymbols_et = {
 
 /**
  * Number formatting symbols for locale eu.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_eu = {
+export var NumberFormatSymbols_eu = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -988,9 +868,9 @@ goog.i18n.NumberFormatSymbols_eu = {
 
 /**
  * Number formatting symbols for locale fa.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_fa = {
+export var NumberFormatSymbols_fa = {
   DECIMAL_SEP: '٫',
   GROUP_SEP: '٬',
   PERCENT: '٪',
@@ -1011,9 +891,9 @@ goog.i18n.NumberFormatSymbols_fa = {
 
 /**
  * Number formatting symbols for locale fa_u_nu_latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_fa_u_nu_latn = {
+export var NumberFormatSymbols_fa_u_nu_latn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1034,9 +914,9 @@ goog.i18n.NumberFormatSymbols_fa_u_nu_latn = {
 
 /**
  * Number formatting symbols for locale fi.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_fi = {
+export var NumberFormatSymbols_fi = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1057,9 +937,9 @@ goog.i18n.NumberFormatSymbols_fi = {
 
 /**
  * Number formatting symbols for locale fil.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_fil = {
+export var NumberFormatSymbols_fil = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1080,9 +960,9 @@ goog.i18n.NumberFormatSymbols_fil = {
 
 /**
  * Number formatting symbols for locale fr.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_fr = {
+export var NumberFormatSymbols_fr = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1103,9 +983,9 @@ goog.i18n.NumberFormatSymbols_fr = {
 
 /**
  * Number formatting symbols for locale fr_CA.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_fr_CA = {
+export var NumberFormatSymbols_fr_CA = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1126,9 +1006,9 @@ goog.i18n.NumberFormatSymbols_fr_CA = {
 
 /**
  * Number formatting symbols for locale ga.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ga = {
+export var NumberFormatSymbols_ga = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1149,9 +1029,9 @@ goog.i18n.NumberFormatSymbols_ga = {
 
 /**
  * Number formatting symbols for locale gl.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_gl = {
+export var NumberFormatSymbols_gl = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1172,9 +1052,9 @@ goog.i18n.NumberFormatSymbols_gl = {
 
 /**
  * Number formatting symbols for locale gsw.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_gsw = {
+export var NumberFormatSymbols_gsw = {
   DECIMAL_SEP: '.',
   GROUP_SEP: '’',
   PERCENT: '%',
@@ -1195,9 +1075,9 @@ goog.i18n.NumberFormatSymbols_gsw = {
 
 /**
  * Number formatting symbols for locale gu.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_gu = {
+export var NumberFormatSymbols_gu = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1218,9 +1098,9 @@ goog.i18n.NumberFormatSymbols_gu = {
 
 /**
  * Number formatting symbols for locale haw.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_haw = {
+export var NumberFormatSymbols_haw = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1241,9 +1121,9 @@ goog.i18n.NumberFormatSymbols_haw = {
 
 /**
  * Number formatting symbols for locale he.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_he = {
+export var NumberFormatSymbols_he = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1264,9 +1144,9 @@ goog.i18n.NumberFormatSymbols_he = {
 
 /**
  * Number formatting symbols for locale hi.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_hi = {
+export var NumberFormatSymbols_hi = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1287,9 +1167,9 @@ goog.i18n.NumberFormatSymbols_hi = {
 
 /**
  * Number formatting symbols for locale hr.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_hr = {
+export var NumberFormatSymbols_hr = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1310,9 +1190,9 @@ goog.i18n.NumberFormatSymbols_hr = {
 
 /**
  * Number formatting symbols for locale hu.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_hu = {
+export var NumberFormatSymbols_hu = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1333,9 +1213,9 @@ goog.i18n.NumberFormatSymbols_hu = {
 
 /**
  * Number formatting symbols for locale hy.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_hy = {
+export var NumberFormatSymbols_hy = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1356,9 +1236,9 @@ goog.i18n.NumberFormatSymbols_hy = {
 
 /**
  * Number formatting symbols for locale id.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_id = {
+export var NumberFormatSymbols_id = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1379,9 +1259,9 @@ goog.i18n.NumberFormatSymbols_id = {
 
 /**
  * Number formatting symbols for locale in.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_in = {
+export var NumberFormatSymbols_in = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1402,9 +1282,9 @@ goog.i18n.NumberFormatSymbols_in = {
 
 /**
  * Number formatting symbols for locale is.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_is = {
+export var NumberFormatSymbols_is = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1425,9 +1305,9 @@ goog.i18n.NumberFormatSymbols_is = {
 
 /**
  * Number formatting symbols for locale it.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_it = {
+export var NumberFormatSymbols_it = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1448,9 +1328,9 @@ goog.i18n.NumberFormatSymbols_it = {
 
 /**
  * Number formatting symbols for locale iw.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_iw = {
+export var NumberFormatSymbols_iw = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1471,9 +1351,9 @@ goog.i18n.NumberFormatSymbols_iw = {
 
 /**
  * Number formatting symbols for locale ja.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ja = {
+export var NumberFormatSymbols_ja = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1494,9 +1374,9 @@ goog.i18n.NumberFormatSymbols_ja = {
 
 /**
  * Number formatting symbols for locale ka.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ka = {
+export var NumberFormatSymbols_ka = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1517,9 +1397,9 @@ goog.i18n.NumberFormatSymbols_ka = {
 
 /**
  * Number formatting symbols for locale kk.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_kk = {
+export var NumberFormatSymbols_kk = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1540,9 +1420,9 @@ goog.i18n.NumberFormatSymbols_kk = {
 
 /**
  * Number formatting symbols for locale km.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_km = {
+export var NumberFormatSymbols_km = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1563,9 +1443,9 @@ goog.i18n.NumberFormatSymbols_km = {
 
 /**
  * Number formatting symbols for locale kn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_kn = {
+export var NumberFormatSymbols_kn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1586,9 +1466,9 @@ goog.i18n.NumberFormatSymbols_kn = {
 
 /**
  * Number formatting symbols for locale ko.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ko = {
+export var NumberFormatSymbols_ko = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1609,9 +1489,9 @@ goog.i18n.NumberFormatSymbols_ko = {
 
 /**
  * Number formatting symbols for locale ky.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ky = {
+export var NumberFormatSymbols_ky = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1632,9 +1512,9 @@ goog.i18n.NumberFormatSymbols_ky = {
 
 /**
  * Number formatting symbols for locale ln.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ln = {
+export var NumberFormatSymbols_ln = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1655,9 +1535,9 @@ goog.i18n.NumberFormatSymbols_ln = {
 
 /**
  * Number formatting symbols for locale lo.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_lo = {
+export var NumberFormatSymbols_lo = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1678,9 +1558,9 @@ goog.i18n.NumberFormatSymbols_lo = {
 
 /**
  * Number formatting symbols for locale lt.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_lt = {
+export var NumberFormatSymbols_lt = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1701,9 +1581,9 @@ goog.i18n.NumberFormatSymbols_lt = {
 
 /**
  * Number formatting symbols for locale lv.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_lv = {
+export var NumberFormatSymbols_lv = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1724,9 +1604,9 @@ goog.i18n.NumberFormatSymbols_lv = {
 
 /**
  * Number formatting symbols for locale mk.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_mk = {
+export var NumberFormatSymbols_mk = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1747,9 +1627,9 @@ goog.i18n.NumberFormatSymbols_mk = {
 
 /**
  * Number formatting symbols for locale ml.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ml = {
+export var NumberFormatSymbols_ml = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1770,9 +1650,9 @@ goog.i18n.NumberFormatSymbols_ml = {
 
 /**
  * Number formatting symbols for locale mn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_mn = {
+export var NumberFormatSymbols_mn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1793,9 +1673,9 @@ goog.i18n.NumberFormatSymbols_mn = {
 
 /**
  * Number formatting symbols for locale mo.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_mo = {
+export var NumberFormatSymbols_mo = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -1816,9 +1696,9 @@ goog.i18n.NumberFormatSymbols_mo = {
 
 /**
  * Number formatting symbols for locale mr.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_mr = {
+export var NumberFormatSymbols_mr = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1839,9 +1719,9 @@ goog.i18n.NumberFormatSymbols_mr = {
 
 /**
  * Number formatting symbols for locale mr_u_nu_latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_mr_u_nu_latn = {
+export var NumberFormatSymbols_mr_u_nu_latn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1862,9 +1742,9 @@ goog.i18n.NumberFormatSymbols_mr_u_nu_latn = {
 
 /**
  * Number formatting symbols for locale ms.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ms = {
+export var NumberFormatSymbols_ms = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1885,9 +1765,9 @@ goog.i18n.NumberFormatSymbols_ms = {
 
 /**
  * Number formatting symbols for locale mt.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_mt = {
+export var NumberFormatSymbols_mt = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1908,9 +1788,9 @@ goog.i18n.NumberFormatSymbols_mt = {
 
 /**
  * Number formatting symbols for locale my.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_my = {
+export var NumberFormatSymbols_my = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1931,9 +1811,9 @@ goog.i18n.NumberFormatSymbols_my = {
 
 /**
  * Number formatting symbols for locale my_u_nu_latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_my_u_nu_latn = {
+export var NumberFormatSymbols_my_u_nu_latn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -1954,9 +1834,9 @@ goog.i18n.NumberFormatSymbols_my_u_nu_latn = {
 
 /**
  * Number formatting symbols for locale nb.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_nb = {
+export var NumberFormatSymbols_nb = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -1977,9 +1857,9 @@ goog.i18n.NumberFormatSymbols_nb = {
 
 /**
  * Number formatting symbols for locale ne.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ne = {
+export var NumberFormatSymbols_ne = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2000,9 +1880,9 @@ goog.i18n.NumberFormatSymbols_ne = {
 
 /**
  * Number formatting symbols for locale ne_u_nu_latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ne_u_nu_latn = {
+export var NumberFormatSymbols_ne_u_nu_latn = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2023,9 +1903,9 @@ goog.i18n.NumberFormatSymbols_ne_u_nu_latn = {
 
 /**
  * Number formatting symbols for locale nl.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_nl = {
+export var NumberFormatSymbols_nl = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2046,9 +1926,9 @@ goog.i18n.NumberFormatSymbols_nl = {
 
 /**
  * Number formatting symbols for locale no.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_no = {
+export var NumberFormatSymbols_no = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2069,16 +1949,16 @@ goog.i18n.NumberFormatSymbols_no = {
 
 /**
  * Number formatting symbols for locale no_NO.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_no_NO = goog.i18n.NumberFormatSymbols_no;
+export var NumberFormatSymbols_no_NO = NumberFormatSymbols_no;
 
 
 /**
  * Number formatting symbols for locale or.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_or = {
+export var NumberFormatSymbols_or = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2099,9 +1979,9 @@ goog.i18n.NumberFormatSymbols_or = {
 
 /**
  * Number formatting symbols for locale pa.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_pa = {
+export var NumberFormatSymbols_pa = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2122,9 +2002,9 @@ goog.i18n.NumberFormatSymbols_pa = {
 
 /**
  * Number formatting symbols for locale pl.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_pl = {
+export var NumberFormatSymbols_pl = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2145,9 +2025,9 @@ goog.i18n.NumberFormatSymbols_pl = {
 
 /**
  * Number formatting symbols for locale pt.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_pt = {
+export var NumberFormatSymbols_pt = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2168,16 +2048,16 @@ goog.i18n.NumberFormatSymbols_pt = {
 
 /**
  * Number formatting symbols for locale pt_BR.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_pt_BR = goog.i18n.NumberFormatSymbols_pt;
+export var NumberFormatSymbols_pt_BR = NumberFormatSymbols_pt;
 
 
 /**
  * Number formatting symbols for locale pt_PT.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_pt_PT = {
+export var NumberFormatSymbols_pt_PT = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2198,9 +2078,9 @@ goog.i18n.NumberFormatSymbols_pt_PT = {
 
 /**
  * Number formatting symbols for locale ro.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ro = {
+export var NumberFormatSymbols_ro = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2221,9 +2101,9 @@ goog.i18n.NumberFormatSymbols_ro = {
 
 /**
  * Number formatting symbols for locale ru.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ru = {
+export var NumberFormatSymbols_ru = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2244,9 +2124,9 @@ goog.i18n.NumberFormatSymbols_ru = {
 
 /**
  * Number formatting symbols for locale sh.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sh = {
+export var NumberFormatSymbols_sh = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2267,9 +2147,9 @@ goog.i18n.NumberFormatSymbols_sh = {
 
 /**
  * Number formatting symbols for locale si.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_si = {
+export var NumberFormatSymbols_si = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2290,9 +2170,9 @@ goog.i18n.NumberFormatSymbols_si = {
 
 /**
  * Number formatting symbols for locale sk.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sk = {
+export var NumberFormatSymbols_sk = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2313,9 +2193,9 @@ goog.i18n.NumberFormatSymbols_sk = {
 
 /**
  * Number formatting symbols for locale sl.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sl = {
+export var NumberFormatSymbols_sl = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2336,9 +2216,9 @@ goog.i18n.NumberFormatSymbols_sl = {
 
 /**
  * Number formatting symbols for locale sq.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sq = {
+export var NumberFormatSymbols_sq = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2359,9 +2239,9 @@ goog.i18n.NumberFormatSymbols_sq = {
 
 /**
  * Number formatting symbols for locale sr.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sr = {
+export var NumberFormatSymbols_sr = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2382,16 +2262,16 @@ goog.i18n.NumberFormatSymbols_sr = {
 
 /**
  * Number formatting symbols for locale sr_Latn.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sr_Latn = goog.i18n.NumberFormatSymbols_sr;
+export var NumberFormatSymbols_sr_Latn = NumberFormatSymbols_sr;
 
 
 /**
  * Number formatting symbols for locale sv.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sv = {
+export var NumberFormatSymbols_sv = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2412,9 +2292,9 @@ goog.i18n.NumberFormatSymbols_sv = {
 
 /**
  * Number formatting symbols for locale sw.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_sw = {
+export var NumberFormatSymbols_sw = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2435,9 +2315,9 @@ goog.i18n.NumberFormatSymbols_sw = {
 
 /**
  * Number formatting symbols for locale ta.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ta = {
+export var NumberFormatSymbols_ta = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2458,9 +2338,9 @@ goog.i18n.NumberFormatSymbols_ta = {
 
 /**
  * Number formatting symbols for locale te.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_te = {
+export var NumberFormatSymbols_te = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2481,9 +2361,9 @@ goog.i18n.NumberFormatSymbols_te = {
 
 /**
  * Number formatting symbols for locale th.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_th = {
+export var NumberFormatSymbols_th = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2504,9 +2384,9 @@ goog.i18n.NumberFormatSymbols_th = {
 
 /**
  * Number formatting symbols for locale tl.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_tl = {
+export var NumberFormatSymbols_tl = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2527,9 +2407,9 @@ goog.i18n.NumberFormatSymbols_tl = {
 
 /**
  * Number formatting symbols for locale tr.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_tr = {
+export var NumberFormatSymbols_tr = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2550,9 +2430,9 @@ goog.i18n.NumberFormatSymbols_tr = {
 
 /**
  * Number formatting symbols for locale uk.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_uk = {
+export var NumberFormatSymbols_uk = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2573,9 +2453,9 @@ goog.i18n.NumberFormatSymbols_uk = {
 
 /**
  * Number formatting symbols for locale ur.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_ur = {
+export var NumberFormatSymbols_ur = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2596,9 +2476,9 @@ goog.i18n.NumberFormatSymbols_ur = {
 
 /**
  * Number formatting symbols for locale uz.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_uz = {
+export var NumberFormatSymbols_uz = {
   DECIMAL_SEP: ',',
   GROUP_SEP: ' ',
   PERCENT: '%',
@@ -2619,9 +2499,9 @@ goog.i18n.NumberFormatSymbols_uz = {
 
 /**
  * Number formatting symbols for locale vi.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_vi = {
+export var NumberFormatSymbols_vi = {
   DECIMAL_SEP: ',',
   GROUP_SEP: '.',
   PERCENT: '%',
@@ -2642,9 +2522,9 @@ goog.i18n.NumberFormatSymbols_vi = {
 
 /**
  * Number formatting symbols for locale zh.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_zh = {
+export var NumberFormatSymbols_zh = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2665,16 +2545,16 @@ goog.i18n.NumberFormatSymbols_zh = {
 
 /**
  * Number formatting symbols for locale zh_CN.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_zh_CN = goog.i18n.NumberFormatSymbols_zh;
+export var NumberFormatSymbols_zh_CN = NumberFormatSymbols_zh;
 
 
 /**
  * Number formatting symbols for locale zh_HK.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_zh_HK = {
+export var NumberFormatSymbols_zh_HK = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2695,9 +2575,9 @@ goog.i18n.NumberFormatSymbols_zh_HK = {
 
 /**
  * Number formatting symbols for locale zh_TW.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_zh_TW = {
+export var NumberFormatSymbols_zh_TW = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2718,9 +2598,9 @@ goog.i18n.NumberFormatSymbols_zh_TW = {
 
 /**
  * Number formatting symbols for locale zu.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols_zu = {
+export var NumberFormatSymbols_zu = {
   DECIMAL_SEP: '.',
   GROUP_SEP: ',',
   PERCENT: '%',
@@ -2741,478 +2621,479 @@ goog.i18n.NumberFormatSymbols_zu = {
 
 /**
  * Selected number formatting symbols by locale.
- * @const {!goog.i18n.NumberFormatSymbolsType.Type}
+ * @const {!NumberFormatSymbolsType.Type}
  */
-goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en;
-goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols = NumberFormatSymbols_en;
+NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en;
 
 switch (goog.LOCALE) {
   case 'af':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_af;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_af;
+    NumberFormatSymbols = NumberFormatSymbols_af;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_af;
     break;
   case 'am':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_am;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_am;
+    NumberFormatSymbols = NumberFormatSymbols_am;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_am;
     break;
   case 'ar':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ar;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ar;
+    NumberFormatSymbols = NumberFormatSymbols_ar;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ar;
     break;
   case 'ar_DZ':
   case 'ar-DZ':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ar_DZ;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ar_DZ;
+    NumberFormatSymbols = NumberFormatSymbols_ar_DZ;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ar_DZ;
     break;
   case 'ar_EG':
   case 'ar-EG':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ar_EG;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ar_EG_u_nu_latn;
+    NumberFormatSymbols = NumberFormatSymbols_ar_EG;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ar_EG_u_nu_latn;
     break;
   case 'az':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_az;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_az;
+    NumberFormatSymbols = NumberFormatSymbols_az;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_az;
     break;
   case 'be':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_be;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_be;
+    NumberFormatSymbols = NumberFormatSymbols_be;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_be;
     break;
   case 'bg':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_bg;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_bg;
+    NumberFormatSymbols = NumberFormatSymbols_bg;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_bg;
     break;
   case 'bn':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_bn;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_bn_u_nu_latn;
+    NumberFormatSymbols = NumberFormatSymbols_bn;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_bn_u_nu_latn;
     break;
   case 'br':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_br;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_br;
+    NumberFormatSymbols = NumberFormatSymbols_br;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_br;
     break;
   case 'bs':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_bs;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_bs;
+    NumberFormatSymbols = NumberFormatSymbols_bs;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_bs;
     break;
   case 'ca':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ca;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ca;
+    NumberFormatSymbols = NumberFormatSymbols_ca;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ca;
     break;
   case 'chr':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_chr;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_chr;
+    NumberFormatSymbols = NumberFormatSymbols_chr;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_chr;
     break;
   case 'cs':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_cs;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_cs;
+    NumberFormatSymbols = NumberFormatSymbols_cs;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_cs;
     break;
   case 'cy':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_cy;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_cy;
+    NumberFormatSymbols = NumberFormatSymbols_cy;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_cy;
     break;
   case 'da':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_da;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_da;
+    NumberFormatSymbols = NumberFormatSymbols_da;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_da;
     break;
   case 'de':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_de;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_de;
+    NumberFormatSymbols = NumberFormatSymbols_de;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_de;
     break;
   case 'de_AT':
   case 'de-AT':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_de_AT;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_de_AT;
+    NumberFormatSymbols = NumberFormatSymbols_de_AT;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_de_AT;
     break;
   case 'de_CH':
   case 'de-CH':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_de_CH;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_de_CH;
+    NumberFormatSymbols = NumberFormatSymbols_de_CH;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_de_CH;
     break;
   case 'el':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_el;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_el;
+    NumberFormatSymbols = NumberFormatSymbols_el;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_el;
     break;
   case 'en':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en;
+    NumberFormatSymbols = NumberFormatSymbols_en;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en;
     break;
   case 'en_AU':
   case 'en-AU':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_AU;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_AU;
+    NumberFormatSymbols = NumberFormatSymbols_en_AU;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_AU;
     break;
   case 'en_CA':
   case 'en-CA':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_CA;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_CA;
+    NumberFormatSymbols = NumberFormatSymbols_en_CA;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_CA;
     break;
   case 'en_GB':
   case 'en-GB':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_GB;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_GB;
+    NumberFormatSymbols = NumberFormatSymbols_en_GB;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_GB;
     break;
   case 'en_IE':
   case 'en-IE':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_IE;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_IE;
+    NumberFormatSymbols = NumberFormatSymbols_en_IE;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_IE;
     break;
   case 'en_IN':
   case 'en-IN':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_IN;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_IN;
+    NumberFormatSymbols = NumberFormatSymbols_en_IN;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_IN;
     break;
   case 'en_SG':
   case 'en-SG':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_SG;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_SG;
+    NumberFormatSymbols = NumberFormatSymbols_en_SG;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_SG;
     break;
   case 'en_US':
   case 'en-US':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_US;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_US;
+    NumberFormatSymbols = NumberFormatSymbols_en_US;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_US;
     break;
   case 'en_ZA':
   case 'en-ZA':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_en_ZA;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_en_ZA;
+    NumberFormatSymbols = NumberFormatSymbols_en_ZA;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en_ZA;
     break;
   case 'es':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_es;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_es;
+    NumberFormatSymbols = NumberFormatSymbols_es;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_es;
     break;
   case 'es_419':
   case 'es-419':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_es_419;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_es_419;
+    NumberFormatSymbols = NumberFormatSymbols_es_419;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_es_419;
     break;
   case 'es_ES':
   case 'es-ES':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_es_ES;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_es_ES;
+    NumberFormatSymbols = NumberFormatSymbols_es_ES;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_es_ES;
     break;
   case 'es_MX':
   case 'es-MX':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_es_MX;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_es_MX;
+    NumberFormatSymbols = NumberFormatSymbols_es_MX;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_es_MX;
     break;
   case 'es_US':
   case 'es-US':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_es_US;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_es_US;
+    NumberFormatSymbols = NumberFormatSymbols_es_US;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_es_US;
     break;
   case 'et':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_et;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_et;
+    NumberFormatSymbols = NumberFormatSymbols_et;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_et;
     break;
   case 'eu':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_eu;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_eu;
+    NumberFormatSymbols = NumberFormatSymbols_eu;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_eu;
     break;
   case 'fa':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_fa;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_fa_u_nu_latn;
+    NumberFormatSymbols = NumberFormatSymbols_fa;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_fa_u_nu_latn;
     break;
   case 'fi':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_fi;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_fi;
+    NumberFormatSymbols = NumberFormatSymbols_fi;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_fi;
     break;
   case 'fil':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_fil;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_fil;
+    NumberFormatSymbols = NumberFormatSymbols_fil;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_fil;
     break;
   case 'fr':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_fr;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_fr;
+    NumberFormatSymbols = NumberFormatSymbols_fr;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_fr;
     break;
   case 'fr_CA':
   case 'fr-CA':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_fr_CA;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_fr_CA;
+    NumberFormatSymbols = NumberFormatSymbols_fr_CA;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_fr_CA;
     break;
   case 'ga':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ga;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ga;
+    NumberFormatSymbols = NumberFormatSymbols_ga;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ga;
     break;
   case 'gl':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_gl;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_gl;
+    NumberFormatSymbols = NumberFormatSymbols_gl;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_gl;
     break;
   case 'gsw':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_gsw;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_gsw;
+    NumberFormatSymbols = NumberFormatSymbols_gsw;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_gsw;
     break;
   case 'gu':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_gu;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_gu;
+    NumberFormatSymbols = NumberFormatSymbols_gu;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_gu;
     break;
   case 'haw':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_haw;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_haw;
+    NumberFormatSymbols = NumberFormatSymbols_haw;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_haw;
     break;
   case 'he':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_he;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_he;
+    NumberFormatSymbols = NumberFormatSymbols_he;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_he;
     break;
   case 'hi':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_hi;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_hi;
+    NumberFormatSymbols = NumberFormatSymbols_hi;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_hi;
     break;
   case 'hr':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_hr;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_hr;
+    NumberFormatSymbols = NumberFormatSymbols_hr;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_hr;
     break;
   case 'hu':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_hu;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_hu;
+    NumberFormatSymbols = NumberFormatSymbols_hu;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_hu;
     break;
   case 'hy':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_hy;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_hy;
+    NumberFormatSymbols = NumberFormatSymbols_hy;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_hy;
     break;
   case 'id':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_id;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_id;
+    NumberFormatSymbols = NumberFormatSymbols_id;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_id;
     break;
   case 'in':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_in;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_in;
+    NumberFormatSymbols = NumberFormatSymbols_in;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_in;
     break;
   case 'is':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_is;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_is;
+    NumberFormatSymbols = NumberFormatSymbols_is;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_is;
     break;
   case 'it':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_it;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_it;
+    NumberFormatSymbols = NumberFormatSymbols_it;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_it;
     break;
   case 'iw':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_iw;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_iw;
+    NumberFormatSymbols = NumberFormatSymbols_iw;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_iw;
     break;
   case 'ja':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ja;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ja;
+    NumberFormatSymbols = NumberFormatSymbols_ja;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ja;
     break;
   case 'ka':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ka;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ka;
+    NumberFormatSymbols = NumberFormatSymbols_ka;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ka;
     break;
   case 'kk':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_kk;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_kk;
+    NumberFormatSymbols = NumberFormatSymbols_kk;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_kk;
     break;
   case 'km':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_km;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_km;
+    NumberFormatSymbols = NumberFormatSymbols_km;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_km;
     break;
   case 'kn':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_kn;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_kn;
+    NumberFormatSymbols = NumberFormatSymbols_kn;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_kn;
     break;
   case 'ko':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ko;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ko;
+    NumberFormatSymbols = NumberFormatSymbols_ko;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ko;
     break;
   case 'ky':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ky;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ky;
+    NumberFormatSymbols = NumberFormatSymbols_ky;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ky;
     break;
   case 'ln':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ln;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ln;
+    NumberFormatSymbols = NumberFormatSymbols_ln;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ln;
     break;
   case 'lo':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_lo;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_lo;
+    NumberFormatSymbols = NumberFormatSymbols_lo;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_lo;
     break;
   case 'lt':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_lt;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_lt;
+    NumberFormatSymbols = NumberFormatSymbols_lt;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_lt;
     break;
   case 'lv':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_lv;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_lv;
+    NumberFormatSymbols = NumberFormatSymbols_lv;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_lv;
     break;
   case 'mk':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_mk;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_mk;
+    NumberFormatSymbols = NumberFormatSymbols_mk;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_mk;
     break;
   case 'ml':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ml;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ml;
+    NumberFormatSymbols = NumberFormatSymbols_ml;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ml;
     break;
   case 'mn':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_mn;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_mn;
+    NumberFormatSymbols = NumberFormatSymbols_mn;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_mn;
     break;
   case 'mo':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_mo;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_mo;
+    NumberFormatSymbols = NumberFormatSymbols_mo;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_mo;
     break;
   case 'mr':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_mr;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_mr_u_nu_latn;
+    NumberFormatSymbols = NumberFormatSymbols_mr;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_mr_u_nu_latn;
     break;
   case 'ms':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ms;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ms;
+    NumberFormatSymbols = NumberFormatSymbols_ms;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ms;
     break;
   case 'mt':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_mt;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_mt;
+    NumberFormatSymbols = NumberFormatSymbols_mt;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_mt;
     break;
   case 'my':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_my;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_my_u_nu_latn;
+    NumberFormatSymbols = NumberFormatSymbols_my;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_my_u_nu_latn;
     break;
   case 'nb':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_nb;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_nb;
+    NumberFormatSymbols = NumberFormatSymbols_nb;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_nb;
     break;
   case 'ne':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ne;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ne_u_nu_latn;
+    NumberFormatSymbols = NumberFormatSymbols_ne;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ne_u_nu_latn;
     break;
   case 'nl':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_nl;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_nl;
+    NumberFormatSymbols = NumberFormatSymbols_nl;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_nl;
     break;
   case 'no':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_no;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_no;
+    NumberFormatSymbols = NumberFormatSymbols_no;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_no;
     break;
   case 'no_NO':
   case 'no-NO':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_no_NO;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_no_NO;
+    NumberFormatSymbols = NumberFormatSymbols_no_NO;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_no_NO;
     break;
   case 'or':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_or;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_or;
+    NumberFormatSymbols = NumberFormatSymbols_or;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_or;
     break;
   case 'pa':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_pa;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_pa;
+    NumberFormatSymbols = NumberFormatSymbols_pa;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_pa;
     break;
   case 'pl':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_pl;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_pl;
+    NumberFormatSymbols = NumberFormatSymbols_pl;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_pl;
     break;
   case 'pt':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_pt;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_pt;
+    NumberFormatSymbols = NumberFormatSymbols_pt;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_pt;
     break;
   case 'pt_BR':
   case 'pt-BR':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_pt_BR;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_pt_BR;
+    NumberFormatSymbols = NumberFormatSymbols_pt_BR;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_pt_BR;
     break;
   case 'pt_PT':
   case 'pt-PT':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_pt_PT;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_pt_PT;
+    NumberFormatSymbols = NumberFormatSymbols_pt_PT;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_pt_PT;
     break;
   case 'ro':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ro;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ro;
+    NumberFormatSymbols = NumberFormatSymbols_ro;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ro;
     break;
   case 'ru':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ru;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ru;
+    NumberFormatSymbols = NumberFormatSymbols_ru;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ru;
     break;
   case 'sh':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sh;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sh;
+    NumberFormatSymbols = NumberFormatSymbols_sh;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sh;
     break;
   case 'si':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_si;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_si;
+    NumberFormatSymbols = NumberFormatSymbols_si;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_si;
     break;
   case 'sk':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sk;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sk;
+    NumberFormatSymbols = NumberFormatSymbols_sk;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sk;
     break;
   case 'sl':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sl;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sl;
+    NumberFormatSymbols = NumberFormatSymbols_sl;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sl;
     break;
   case 'sq':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sq;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sq;
+    NumberFormatSymbols = NumberFormatSymbols_sq;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sq;
     break;
   case 'sr':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sr;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sr;
+    NumberFormatSymbols = NumberFormatSymbols_sr;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sr;
     break;
   case 'sr_Latn':
   case 'sr-Latn':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sr_Latn;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sr_Latn;
+    NumberFormatSymbols = NumberFormatSymbols_sr_Latn;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sr_Latn;
     break;
   case 'sv':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sv;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sv;
+    NumberFormatSymbols = NumberFormatSymbols_sv;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sv;
     break;
   case 'sw':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_sw;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_sw;
+    NumberFormatSymbols = NumberFormatSymbols_sw;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_sw;
     break;
   case 'ta':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ta;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ta;
+    NumberFormatSymbols = NumberFormatSymbols_ta;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ta;
     break;
   case 'te':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_te;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_te;
+    NumberFormatSymbols = NumberFormatSymbols_te;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_te;
     break;
   case 'th':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_th;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_th;
+    NumberFormatSymbols = NumberFormatSymbols_th;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_th;
     break;
   case 'tl':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_tl;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_tl;
+    NumberFormatSymbols = NumberFormatSymbols_tl;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_tl;
     break;
   case 'tr':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_tr;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_tr;
+    NumberFormatSymbols = NumberFormatSymbols_tr;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_tr;
     break;
   case 'uk':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_uk;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_uk;
+    NumberFormatSymbols = NumberFormatSymbols_uk;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_uk;
     break;
   case 'ur':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_ur;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_ur;
+    NumberFormatSymbols = NumberFormatSymbols_ur;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_ur;
     break;
   case 'uz':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_uz;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_uz;
+    NumberFormatSymbols = NumberFormatSymbols_uz;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_uz;
     break;
   case 'vi':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_vi;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_vi;
+    NumberFormatSymbols = NumberFormatSymbols_vi;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_vi;
     break;
   case 'zh':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_zh;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_zh;
+    NumberFormatSymbols = NumberFormatSymbols_zh;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_zh;
     break;
   case 'zh_CN':
   case 'zh-CN':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_zh_CN;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_zh_CN;
+    NumberFormatSymbols = NumberFormatSymbols_zh_CN;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_zh_CN;
     break;
   case 'zh_HK':
   case 'zh-HK':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_zh_HK;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_zh_HK;
+    NumberFormatSymbols = NumberFormatSymbols_zh_HK;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_zh_HK;
     break;
   case 'zh_TW':
   case 'zh-TW':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_zh_TW;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_zh_TW;
+    NumberFormatSymbols = NumberFormatSymbols_zh_TW;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_zh_TW;
     break;
   case 'zu':
-    goog.i18n.NumberFormatSymbols = goog.i18n.NumberFormatSymbols_zu;
-    goog.i18n.NumberFormatSymbols_u_nu_latn = goog.i18n.NumberFormatSymbols_zu;
+    NumberFormatSymbols = NumberFormatSymbols_zu;
+    NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_zu;
     break;
 }
+export var NumberFormatSymbols_u_nu_latn;

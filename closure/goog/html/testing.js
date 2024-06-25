@@ -16,16 +16,15 @@
  */
 
 
-goog.provide('goog.html.testing');
 goog.setTestOnly();
 
-goog.require('goog.html.SafeHtml');
-goog.require('goog.html.SafeScript');
-goog.require('goog.html.SafeStyle');
-goog.require('goog.html.SafeStyleSheet');
-goog.require('goog.html.SafeUrl');
-goog.require('goog.html.TrustedResourceUrl');
-goog.require('goog.testing.mockmatchers.ArgumentMatcher');
+import { SafeHtml } from './safehtml.js';
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import { ArgumentMatcher } from '../testing/mockmatchers.js';
 
 
 /**
@@ -35,13 +34,12 @@ goog.require('goog.testing.mockmatchers.ArgumentMatcher');
  * code.
  *
  * @param {string} html The string to wrap into a SafeHtml.
- * @return {!goog.html.SafeHtml}
+ * @return {!SafeHtml}
  */
-goog.html.testing.newSafeHtmlForTest = function(html) {
-  'use strict';
-  return goog.html.SafeHtml.createSafeHtmlSecurityPrivateDoNotAccessOrElse(
+export function newSafeHtmlForTest(html) {
+  return SafeHtml.createSafeHtmlSecurityPrivateDoNotAccessOrElse(
       html);
-};
+}
 
 
 /**
@@ -51,13 +49,12 @@ goog.html.testing.newSafeHtmlForTest = function(html) {
  * code.
  *
  * @param {string} script The string to wrap into a SafeScript.
- * @return {!goog.html.SafeScript}
+ * @return {!SafeScript}
  */
-goog.html.testing.newSafeScriptForTest = function(script) {
-  'use strict';
-  return goog.html.SafeScript.createSafeScriptSecurityPrivateDoNotAccessOrElse(
+export function newSafeScriptForTest(script) {
+  return SafeScript.createSafeScriptSecurityPrivateDoNotAccessOrElse(
       script);
-};
+}
 
 
 /**
@@ -67,13 +64,12 @@ goog.html.testing.newSafeScriptForTest = function(script) {
  * code.
  *
  * @param {string} style String to wrap into a SafeStyle.
- * @return {!goog.html.SafeStyle}
+ * @return {!SafeStyle}
  */
-goog.html.testing.newSafeStyleForTest = function(style) {
-  'use strict';
-  return goog.html.SafeStyle.createSafeStyleSecurityPrivateDoNotAccessOrElse(
+export function newSafeStyleForTest(style) {
+  return SafeStyle.createSafeStyleSecurityPrivateDoNotAccessOrElse(
       style);
-};
+}
 
 
 /**
@@ -84,13 +80,12 @@ goog.html.testing.newSafeStyleForTest = function(style) {
  * code.
  *
  * @param {string} styleSheet String to wrap into a SafeStyleSheet.
- * @return {!goog.html.SafeStyleSheet}
+ * @return {!SafeStyleSheet}
  */
-goog.html.testing.newSafeStyleSheetForTest = function(styleSheet) {
-  'use strict';
-  return goog.html.SafeStyleSheet
+export function newSafeStyleSheetForTest(styleSheet) {
+  return SafeStyleSheet
       .createSafeStyleSheetSecurityPrivateDoNotAccessOrElse(styleSheet);
-};
+}
 
 
 /**
@@ -100,12 +95,11 @@ goog.html.testing.newSafeStyleSheetForTest = function(styleSheet) {
  * code.
  *
  * @param {string} url String to wrap into a SafeUrl.
- * @return {!goog.html.SafeUrl}
+ * @return {!SafeUrl}
  */
-goog.html.testing.newSafeUrlForTest = function(url) {
-  'use strict';
-  return goog.html.SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
-};
+export function newSafeUrlForTest(url) {
+  return SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
+}
 
 
 /**
@@ -116,115 +110,102 @@ goog.html.testing.newSafeUrlForTest = function(url) {
  * code.
  *
  * @param {string} url String to wrap into a TrustedResourceUrl.
- * @return {!goog.html.TrustedResourceUrl}
+ * @return {!TrustedResourceUrl}
  */
-goog.html.testing.newTrustedResourceUrlForTest = function(url) {
-  'use strict';
-  return goog.html.TrustedResourceUrl
+export function newTrustedResourceUrlForTest(url) {
+  return TrustedResourceUrl
       .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(url);
-};
+}
 
 
 /**
  * Creates an argument matcher for SafeHtml.
- * @param {string|!goog.html.SafeHtml} expected
- * @return {!goog.testing.mockmatchers.ArgumentMatcher}
+ * @param {string|!SafeHtml} expected
+ * @return {!ArgumentMatcher}
  */
-goog.html.testing.matchSafeHtml = function(expected) {
-  'use strict';
-  if (expected instanceof goog.html.SafeHtml) {
-    expected = goog.html.SafeHtml.unwrap(expected);
+export function matchSafeHtml(expected) {
+  if (expected instanceof SafeHtml) {
+    expected = SafeHtml.unwrap(expected);
   }
-  return new goog.testing.mockmatchers.ArgumentMatcher(function(actual) {
-    'use strict';
-    return goog.html.SafeHtml.unwrap(actual) == expected;
+  return new ArgumentMatcher(function(actual) {
+    return SafeHtml.unwrap(actual) == expected;
   });
-};
+}
 
 
 /**
  * Creates an argument matcher for SafeScript.
- * @param {string|!goog.html.SafeScript} expected
- * @return {!goog.testing.mockmatchers.ArgumentMatcher}
+ * @param {string|!SafeScript} expected
+ * @return {!ArgumentMatcher}
  */
-goog.html.testing.matchSafeScript = function(expected) {
-  'use strict';
-  if (expected instanceof goog.html.SafeScript) {
-    expected = goog.html.SafeScript.unwrap(expected);
+export function matchSafeScript(expected) {
+  if (expected instanceof SafeScript) {
+    expected = SafeScript.unwrap(expected);
   }
-  return new goog.testing.mockmatchers.ArgumentMatcher(function(actual) {
-    'use strict';
-    return goog.html.SafeScript.unwrap(actual) == expected;
+  return new ArgumentMatcher(function(actual) {
+    return SafeScript.unwrap(actual) == expected;
   });
-};
+}
 
 
 /**
  * Creates an argument matcher for SafeStyle.
- * @param {string|!goog.html.SafeStyle} expected
- * @return {!goog.testing.mockmatchers.ArgumentMatcher}
+ * @param {string|!SafeStyle} expected
+ * @return {!ArgumentMatcher}
  */
-goog.html.testing.matchSafeStyle = function(expected) {
-  'use strict';
-  if (expected instanceof goog.html.SafeStyle) {
-    expected = goog.html.SafeStyle.unwrap(expected);
+export function matchSafeStyle(expected) {
+  if (expected instanceof SafeStyle) {
+    expected = SafeStyle.unwrap(expected);
   }
-  return new goog.testing.mockmatchers.ArgumentMatcher(function(actual) {
-    'use strict';
-    return goog.html.SafeStyle.unwrap(actual) == expected;
+  return new ArgumentMatcher(function(actual) {
+    return SafeStyle.unwrap(actual) == expected;
   });
-};
+}
 
 
 /**
  * Creates an argument matcher for SafeStyleSheet.
- * @param {string|!goog.html.SafeStyleSheet} expected
- * @return {!goog.testing.mockmatchers.ArgumentMatcher}
+ * @param {string|!SafeStyleSheet} expected
+ * @return {!ArgumentMatcher}
  */
-goog.html.testing.matchSafeStyleSheet = function(expected) {
-  'use strict';
-  if (expected instanceof goog.html.SafeStyleSheet) {
-    expected = goog.html.SafeStyleSheet.unwrap(expected);
+export function matchSafeStyleSheet(expected) {
+  if (expected instanceof SafeStyleSheet) {
+    expected = SafeStyleSheet.unwrap(expected);
   }
-  return new goog.testing.mockmatchers.ArgumentMatcher(function(actual) {
-    'use strict';
-    return goog.html.SafeStyleSheet.unwrap(actual) == expected;
+  return new ArgumentMatcher(function(actual) {
+    return SafeStyleSheet.unwrap(actual) == expected;
   });
-};
+}
 
 
 /**
  * Creates an argument matcher for SafeUrl.
- * @param {string|!goog.html.SafeUrl} expected
- * @return {!goog.testing.mockmatchers.ArgumentMatcher}
+ * @param {string|!SafeUrl} expected
+ * @return {!ArgumentMatcher}
  */
-goog.html.testing.matchSafeUrl = function(expected) {
-  'use strict';
-  if (expected instanceof goog.html.SafeUrl) {
-    expected = goog.html.SafeUrl.unwrap(expected);
+export function matchSafeUrl(expected) {
+  if (expected instanceof SafeUrl) {
+    expected = SafeUrl.unwrap(expected);
   }
-  return new goog.testing.mockmatchers.ArgumentMatcher(function(actual) {
-    'use strict';
-    return goog.html.SafeUrl.unwrap(actual) == expected;
+  return new ArgumentMatcher(function(actual) {
+    return SafeUrl.unwrap(actual) == expected;
   });
-};
+}
 
 
 /**
  * Creates an argument matcher for TrustedResourceUrl.
- * @param {string|!goog.html.TrustedResourceUrl} expected
- * @return {!goog.testing.mockmatchers.ArgumentMatcher}
+ * @param {string|!TrustedResourceUrl} expected
+ * @return {!ArgumentMatcher}
  */
-goog.html.testing.matchTrustedResourceUrl = function(expected) {
-  'use strict';
-  if (expected instanceof goog.html.TrustedResourceUrl) {
-    expected = goog.html.TrustedResourceUrl.unwrap(expected);
+export function matchTrustedResourceUrl(expected) {
+  if (expected instanceof TrustedResourceUrl) {
+    expected = TrustedResourceUrl.unwrap(expected);
   }
-  return new goog.testing.mockmatchers.ArgumentMatcher(function(actual) {
-    'use strict';
-    return goog.html.TrustedResourceUrl.unwrap(actual) == expected;
+  return new ArgumentMatcher(function(actual) {
+    return TrustedResourceUrl.unwrap(actual) == expected;
   });
-};
+}
 
 
 /**
@@ -232,7 +213,7 @@ goog.html.testing.matchTrustedResourceUrl = function(expected) {
  *
  *     beforeEach(function() {
  *       jasmine.addCustomEqualityTester(
- *           goog.html.testing.checkTypedStringEquality);
+ *           checkTypedStringEquality);
  *     });
  *
  *     it('typed string value matches same string', function() {
@@ -249,8 +230,7 @@ goog.html.testing.matchTrustedResourceUrl = function(expected) {
  *     goog.string.TypedString, true if typed strings equal, false if not.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.html.testing.checkTypedStringEquality = function(actual, expected) {
-  'use strict';
+export function checkTypedStringEquality(actual, expected) {
   if (actual && actual.implementsGoogStringTypedString) {
     if (expected != null && expected.implementsGoogStringTypedString) {
       if (!(actual instanceof expected.constructor)) {
@@ -263,4 +243,4 @@ goog.html.testing.checkTypedStringEquality = function(actual, expected) {
     }
     return actual.getTypedStringValue() == expected;
   }
-};
+}

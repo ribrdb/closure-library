@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.history.Html5HistoryTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.events.EventType');
-const HistoryEventType = goog.require('goog.history.EventType');
-const Html5History = goog.require('goog.history.Html5History');
-const MockControl = goog.require('goog.testing.MockControl');
-const Timer = goog.require('goog.Timer');
-const events = goog.require('goog.events');
-const jsunit = goog.require('goog.testing.jsunit');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventType } from '../events/eventtype.js';
+import { EventType as HistoryEventType } from './eventtype.js';
+import { Html5History } from './html5history.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { Timer } from '../timer/timer.js';
+import * as events from '../events/events.js';
+import * as jsunit from '../testing/jsunit.js';
+import * as mockmatchers from '../testing/mockmatchers.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Delay running the tests after page load. This test has some asynchronous
 // behavior that interacts with page load detection.

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.style.app.PrimaryActionButtonRendererTest');
 goog.setTestOnly();
 
-const Button = goog.require('goog.ui.Button');
-const Component = goog.require('goog.ui.Component');
-const PrimaryActionButtonRenderer = goog.require('goog.ui.style.app.PrimaryActionButtonRenderer');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.testing.ui.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Button } from '../../button.js';
+import { Component } from '../../component.js';
+import { PrimaryActionButtonRenderer } from './primaryactionbuttonrenderer.js';
+import * as dom from '../../../dom/dom.js';
+import style from '../../../testing/ui/style.js';
+import { testSuite } from '../../../testing/testsuite.js';
 
 const renderer = PrimaryActionButtonRenderer.getInstance();
 let button;

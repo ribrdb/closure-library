@@ -9,14 +9,7 @@
  * @fileoverview Contains the tag whitelist for use in the Html sanitizer.
  */
 
-goog.provide('goog.html.sanitizer.TagWhitelist');
-
-
-/**
- * A tag whitelist for allowed tags. Tag names must be in all caps.
- * @const @dict {boolean}
- */
-goog.html.sanitizer.TagWhitelist = {
+TagWhitelist = {
   'A': true,           // HTMLAnchorElement
   'ABBR': true,        // HTMLElement
   'ACRONYM': true,     // HTMLElement
@@ -117,3 +110,4 @@ goog.html.sanitizer.TagWhitelist = {
   'VAR': true,       // HTMLElement
   'WBR': true        // HTMLElement
 };
+export var TagWhitelist;

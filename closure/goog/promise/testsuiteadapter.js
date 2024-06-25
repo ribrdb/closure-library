@@ -15,9 +15,7 @@
  * @suppress {undefinedVars} Node.js's process and require
  */
 
-goog.provide('goog.promise.testSuiteAdapter');
-
-goog.require('goog.Promise');
+import { Promise } from './promise.js';
 
 goog.setTestOnly('goog.promise.testSuiteAdapter');
 
@@ -30,19 +28,17 @@ var promisesAplusTests = /** @type {function(!Object, function(*))} */ (
  * Adapter for specifying Promise-creating functions to the Promises test suite.
  * @const
  */
-goog.promise.testSuiteAdapter = {
-  /** @type {function(*): !goog.Promise} */
-  'resolved': goog.Promise.resolve,
+export var testSuiteAdapter = {
+  /** @type {function(*): !Promise} */
+  'resolved': Promise.resolve,
 
-  /** @type {function(*): !goog.Promise} */
-  'rejected': goog.Promise.reject,
+  /** @type {function(*): !Promise} */
+  'rejected': Promise.reject,
 
   /** @return {!Object} */
   'deferred': function() {
-    'use strict';
     var promiseObj = {};
-    promiseObj['promise'] = new goog.Promise(function(resolve, reject) {
-      'use strict';
+    promiseObj['promise'] = new Promise(function(resolve, reject) {
       promiseObj['resolve'] = resolve;
       promiseObj['reject'] = reject;
     });
@@ -58,18 +54,17 @@ goog.exportSymbol('setTimeout', setTimeout);
 
 // Rethrowing an error to the global scope kills Node immediately. Suppress
 // error rethrowing for running this test suite.
-goog.Promise.setUnhandledRejectionHandler(() => {});
+Promise.setUnhandledRejectionHandler(() => {});
 
 
 // Run the tests, exiting with a failure code if any of the tests fail.
 promisesAplusTests(
-    goog.promise.testSuiteAdapter,
+    testSuiteAdapter,
     /**
      * @suppress {missingProperties}
      * @param {?} err
      */
     function(err) {
-      'use strict';
       if (err) {
         process.exit(1);
       }

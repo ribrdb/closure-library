@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.TagNameTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TagName } from './tagname.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testCorrectNumberOfTagNames() {

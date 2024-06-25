@@ -19,17 +19,16 @@
  */
 
 
-goog.provide('goog.html.uncheckedconversions');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.html.SafeScript');
-goog.require('goog.html.SafeStyle');
-goog.require('goog.html.SafeStyleSheet');
-goog.require('goog.html.SafeUrl');
-goog.require('goog.html.TrustedResourceUrl');
-goog.require('goog.string.Const');
-goog.require('goog.string.internal');
+import { SafeHtml } from './safehtml.js';
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import { Const } from '../string/const.js';
+import * as internal from '../string/internal.js';
 
 
 /**
@@ -41,28 +40,26 @@ goog.require('goog.string.internal');
  * possible program states.
  *
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     this use of this method is safe. May include a security review ticket
  *     number.
  * @param {string} html A string that is claimed to adhere to the SafeHtml
  *     contract.
- * @return {!goog.html.SafeHtml} The value of html, wrapped in a SafeHtml
+ * @return {!SafeHtml} The value of html, wrapped in a SafeHtml
  *     object.
  */
-goog.html.uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract =
-    function(justification, html) {
-  'use strict';
-  // unwrap() called inside an assert so that justification can be optimized
-  // away in production code.
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.internal.isEmptyOrWhitespace(
-          goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return goog.html.SafeHtml.createSafeHtmlSecurityPrivateDoNotAccessOrElse(
-      html);
-};
+export function safeHtmlFromStringKnownToSatisfyTypeContract(justification, html) {
+    // unwrap() called inside an assert so that justification can be optimized
+    // away in production code.
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !internal.isEmptyOrWhitespace(
+            Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return SafeHtml.createSafeHtmlSecurityPrivateDoNotAccessOrElse(
+        html);
+}
 
 
 /**
@@ -74,27 +71,25 @@ goog.html.uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract =
  * all possible program states.
  *
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     this use of this method is safe. May include a security review ticket
  *     number.
  * @param {string} script The string to wrap as a SafeScript.
- * @return {!goog.html.SafeScript} The value of `script`, wrapped in a
+ * @return {!SafeScript} The value of `script`, wrapped in a
  *     SafeScript object.
  */
-goog.html.uncheckedconversions.safeScriptFromStringKnownToSatisfyTypeContract =
-    function(justification, script) {
-  'use strict';
-  // unwrap() called inside an assert so that justification can be optimized
-  // away in production code.
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.internal.isEmptyOrWhitespace(
-          goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return goog.html.SafeScript.createSafeScriptSecurityPrivateDoNotAccessOrElse(
-      script);
-};
+export function safeScriptFromStringKnownToSatisfyTypeContract(justification, script) {
+    // unwrap() called inside an assert so that justification can be optimized
+    // away in production code.
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !internal.isEmptyOrWhitespace(
+            Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return SafeScript.createSafeScriptSecurityPrivateDoNotAccessOrElse(
+        script);
+}
 
 
 /**
@@ -106,27 +101,25 @@ goog.html.uncheckedconversions.safeScriptFromStringKnownToSatisfyTypeContract =
  * possible program states.
  *
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     this use of this method is safe. May include a security review ticket
  *     number.
  * @param {string} style The string to wrap as a SafeStyle.
- * @return {!goog.html.SafeStyle} The value of `style`, wrapped in a
+ * @return {!SafeStyle} The value of `style`, wrapped in a
  *     SafeStyle object.
  */
-goog.html.uncheckedconversions.safeStyleFromStringKnownToSatisfyTypeContract =
-    function(justification, style) {
-  'use strict';
-  // unwrap() called inside an assert so that justification can be optimized
-  // away in production code.
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.internal.isEmptyOrWhitespace(
-          goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return goog.html.SafeStyle.createSafeStyleSecurityPrivateDoNotAccessOrElse(
-      style);
-};
+export function safeStyleFromStringKnownToSatisfyTypeContract(justification, style) {
+    // unwrap() called inside an assert so that justification can be optimized
+    // away in production code.
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !internal.isEmptyOrWhitespace(
+            Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return SafeStyle.createSafeStyleSecurityPrivateDoNotAccessOrElse(
+        style);
+}
 
 
 /**
@@ -138,28 +131,25 @@ goog.html.uncheckedconversions.safeStyleFromStringKnownToSatisfyTypeContract =
  * contract in all possible program states.
  *
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     this use of this method is safe. May include a security review ticket
  *     number.
  * @param {string} styleSheet The string to wrap as a SafeStyleSheet.
- * @return {!goog.html.SafeStyleSheet} The value of `styleSheet`, wrapped
+ * @return {!SafeStyleSheet} The value of `styleSheet`, wrapped
  *     in a SafeStyleSheet object.
  */
-goog.html.uncheckedconversions
-    .safeStyleSheetFromStringKnownToSatisfyTypeContract = function(
-    justification, styleSheet) {
-  'use strict';
-  // unwrap() called inside an assert so that justification can be optimized
-  // away in production code.
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.internal.isEmptyOrWhitespace(
-          goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return goog.html.SafeStyleSheet
-      .createSafeStyleSheetSecurityPrivateDoNotAccessOrElse(styleSheet);
-};
+export function safeStyleSheetFromStringKnownToSatisfyTypeContract(justification, styleSheet) {
+    // unwrap() called inside an assert so that justification can be optimized
+    // away in production code.
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !internal.isEmptyOrWhitespace(
+            Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return SafeStyleSheet
+        .createSafeStyleSheetSecurityPrivateDoNotAccessOrElse(styleSheet);
+}
 
 
 /**
@@ -171,26 +161,24 @@ goog.html.uncheckedconversions
  * possible program states.
  *
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     this use of this method is safe. May include a security review ticket
  *     number.
  * @param {string} url The string to wrap as a SafeUrl.
- * @return {!goog.html.SafeUrl} The value of `url`, wrapped in a SafeUrl
+ * @return {!SafeUrl} The value of `url`, wrapped in a SafeUrl
  *     object.
  */
-goog.html.uncheckedconversions.safeUrlFromStringKnownToSatisfyTypeContract =
-    function(justification, url) {
-  'use strict';
-  // unwrap() called inside an assert so that justification can be optimized
-  // away in production code.
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.internal.isEmptyOrWhitespace(
-          goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return goog.html.SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
-};
+export function safeUrlFromStringKnownToSatisfyTypeContract(justification, url) {
+    // unwrap() called inside an assert so that justification can be optimized
+    // away in production code.
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !internal.isEmptyOrWhitespace(
+            Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
+}
 
 
 /**
@@ -202,25 +190,22 @@ goog.html.uncheckedconversions.safeUrlFromStringKnownToSatisfyTypeContract =
  * in all possible program states.
  *
  *
- * @param {!goog.string.Const} justification A constant string explaining why
+ * @param {!Const} justification A constant string explaining why
  *     this use of this method is safe. May include a security review ticket
  *     number.
  * @param {string} url The string to wrap as a TrustedResourceUrl.
- * @return {!goog.html.TrustedResourceUrl} The value of `url`, wrapped in
+ * @return {!TrustedResourceUrl} The value of `url`, wrapped in
  *     a TrustedResourceUrl object.
  */
-goog.html.uncheckedconversions
-    .trustedResourceUrlFromStringKnownToSatisfyTypeContract = function(
-    justification, url) {
-  'use strict';
-  // unwrap() called inside an assert so that justification can be optimized
-  // away in production code.
-  goog.asserts.assertString(
-      goog.string.Const.unwrap(justification), 'must provide justification');
-  goog.asserts.assert(
-      !goog.string.internal.isEmptyOrWhitespace(
-          goog.string.Const.unwrap(justification)),
-      'must provide non-empty justification');
-  return goog.html.TrustedResourceUrl
-      .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(url);
-};
+export function trustedResourceUrlFromStringKnownToSatisfyTypeContract(justification, url) {
+    // unwrap() called inside an assert so that justification can be optimized
+    // away in production code.
+    asserts.assertString(
+        Const.unwrap(justification), 'must provide justification');
+    asserts.assert(
+        !internal.isEmptyOrWhitespace(
+            Const.unwrap(justification)),
+        'must provide non-empty justification');
+    return TrustedResourceUrl
+        .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(url);
+}

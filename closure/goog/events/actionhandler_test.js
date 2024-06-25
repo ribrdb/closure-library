@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.ActionHandlerTest');
 goog.setTestOnly();
 
-const ActionHandler = goog.require('goog.events.ActionHandler');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { ActionHandler } from './actionhandler.js';
+import * as dom from '../dom/dom.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let actionHandler;
 

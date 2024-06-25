@@ -8,17 +8,14 @@
  * @fileoverview Constants for determining keyboard support.
  */
 
-goog.provide('goog.userAgent.keyboard');
-
-goog.require('goog.labs.userAgent.platform');
+import platform from '../labs/useragent/platform.js';
 
 
 /**
  * @define {boolean} Whether the user agent is running with in an environment
  * that should use Mac-based keyboard shortcuts (Meta instead of Ctrl, etc.).
  */
-goog.userAgent.keyboard.ASSUME_MAC_KEYBOARD =
-    goog.define('goog.userAgent.keyboard.ASSUME_MAC_KEYBOARD', false);
+export var ASSUME_MAC_KEYBOARD = goog.define('goog.userAgent.keyboard.ASSUME_MAC_KEYBOARD', false);
 
 
 /**
@@ -26,11 +23,10 @@ goog.userAgent.keyboard.ASSUME_MAC_KEYBOARD =
  * @return {boolean}
  * @private
  */
-goog.userAgent.keyboard.determineMacKeyboard_ = function() {
-  'use strict';
-  return goog.labs.userAgent.platform.isMacintosh() ||
-      goog.labs.userAgent.platform.isIos();
-};
+function determineMacKeyboard_() {
+ return platform.isMacintosh() ||
+     platform.isIos();
+}
 
 
 /**
@@ -38,6 +34,5 @@ goog.userAgent.keyboard.determineMacKeyboard_ = function() {
  * keyboard shortcuts.
  * @type {boolean}
  */
-goog.userAgent.keyboard.MAC_KEYBOARD =
-    goog.userAgent.keyboard.ASSUME_MAC_KEYBOARD ||
-    goog.userAgent.keyboard.determineMacKeyboard_();
+export var MAC_KEYBOARD = ASSUME_MAC_KEYBOARD ||
+determineMacKeyboard_();

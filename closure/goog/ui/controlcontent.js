@@ -7,7 +7,7 @@
 /**
  * @fileoverview Type declaration for control content.
  */
-goog.provide('goog.ui.ControlContent');
+goog.declareModuleId('goog.ui.controlcontent');
 
 
 /**
@@ -15,4 +15,4 @@ goog.provide('goog.ui.ControlContent');
  * of {@link goog.ui.Control}s.
  * @typedef {string|Node|Array<!Node>|NodeList<!Node>}
  */
-goog.ui.ControlContent;
+export var ControlContent;

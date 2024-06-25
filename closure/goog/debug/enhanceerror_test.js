@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debugEnhanceErrorTest');
 goog.setTestOnly();
 
-const googDebug = goog.require('goog.debug');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as googDebug from './debug.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const THROW_STRING = 1;
 const THROW_NPE = 2;

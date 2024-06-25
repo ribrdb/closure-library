@@ -9,18 +9,17 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.dom.BufferedViewportSizeMonitorTest');
 goog.setTestOnly();
 
-const BufferedViewportSizeMonitor = goog.require('goog.dom.BufferedViewportSizeMonitor');
-const EventType = goog.require('goog.events.EventType');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const MockClock = goog.require('goog.testing.MockClock');
-const Size = goog.require('goog.math.Size');
-const ViewportSizeMonitor = goog.require('goog.dom.ViewportSizeMonitor');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { BufferedViewportSizeMonitor } from './bufferedviewportsizemonitor.js';
+import { EventType } from '../events/eventtype.js';
+import * as testingEvents from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { MockClock } from '../testing/mockclock.js';
+import { Size } from '../math/size.js';
+import { ViewportSizeMonitor } from './viewportsizemonitor.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** @suppress {visibility} suppression added to enable type checking */
 const RESIZE_DELAY = BufferedViewportSizeMonitor.RESIZE_EVENT_DELAY_MS_;

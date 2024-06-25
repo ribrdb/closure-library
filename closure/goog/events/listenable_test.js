@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.ListenableTest');
 goog.setTestOnly();
 
-const Listenable = goog.require('goog.events.Listenable');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Listenable } from './listenable.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testIsImplementedBy() {

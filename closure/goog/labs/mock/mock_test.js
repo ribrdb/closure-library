@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.mockTest');
 goog.setTestOnly('goog.labs.mockTest');
 
-const TimeoutError = goog.require('goog.labs.mock.TimeoutError');
-const VerificationError = goog.require('goog.labs.mock.VerificationError');
-const array = goog.require('goog.array');
-const mock = goog.require('goog.labs.mock');
-const mockTimeout = goog.require('goog.labs.mock.timeout');
-const string = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { mock as labsMock, mock as googLabsMock, mock } from './mock.js';
+const TimeoutError = labsMock.TimeoutError;
+const VerificationError = googLabsMock.VerificationError;
+import * as array from '../../array/array.js';
+import { timeout as mockTimeout } from './timeoutmode.js';
+import * as string from '../../string/string.js';
+import { testSuite } from '../../testing/testsuite.js';
+
 /** @suppress {extraRequire} Declares globals */
-goog.require('goog.labs.testing.AnythingMatcher');
 /** @suppress {extraRequire} Declares globals */
-goog.require('goog.labs.testing.GreaterThanMatcher');
+import { AnythingMatcher, GreaterThanMatcher } from '../testing/matchers.js';
 
 const ParentClass = function() {};
 ParentClass.prototype.method1 = function() {};

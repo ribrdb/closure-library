@@ -4,12 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.streams.liteNativeImplTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {TestCases} = goog.require('goog.streams.liteTestCases');
-const {newReadableStream} = goog.require('goog.streams.liteNativeImpl');
+import { testSuite } from '../testing/testsuite.js';
+import liteTestCases from './lite_test_cases.js';
+const {TestCases} = liteTestCases;
+import liteNativeImpl from './lite_native_impl.js';
+const {newReadableStream} = liteNativeImpl;
 
 let nativeImplementation = false;
 

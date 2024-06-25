@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.tree.BaseNodeTest');
 goog.setTestOnly();
 
-const BaseNode = goog.require('goog.ui.tree.BaseNode');
-const Component = goog.require('goog.ui.Component');
-const TagName = goog.require('goog.dom.TagName');
-const TreeControl = goog.require('goog.ui.tree.TreeControl');
-const TreeNode = goog.require('goog.ui.tree.TreeNode');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
+import { BaseNode } from './basenode.js';
+import { Component } from '../component.js';
+import { TagName } from '../../dom/tagname.js';
+import { TreeControl } from './treecontrol.js';
+import { TreeNode } from './treenode.js';
+import * as aria from '../../a11y/aria/aria.js';
+import * as classlist from '../../dom/classlist.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testing from '../../html/testing.js';
 
 testSuite({
   testAdd() {

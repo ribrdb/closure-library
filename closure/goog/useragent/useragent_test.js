@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.userAgentTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const googArray = goog.require('goog.array');
-const platform = goog.require('goog.labs.userAgent.platform');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const userAgentTestUtil = goog.require('goog.userAgentTestUtil');
-const util = goog.require('goog.labs.userAgent.util');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as googArray from '../array/array.js';
+import platform from '../labs/useragent/platform.js';
+import { testAgents } from '../labs/useragent/test_agents.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from './useragent.js';
+import * as userAgentTestUtil from './useragenttestutil.js';
+import util from '../labs/useragent/util.js';
 
 let documentMode;
 /** @suppress {visibility} */

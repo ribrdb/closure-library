@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.objectTest');
 goog.setTestOnly();
 
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const {assertInstanceof} = goog.require('goog.asserts');
+import * as functions from '../functions/functions.js';
+import * as googArray from '../array/array.js';
+import googObject from './object.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import { assertInstanceof } from '../asserts/asserts.js';
 
 function stringifyObject(m) {
   const keys = googObject.getKeys(m);

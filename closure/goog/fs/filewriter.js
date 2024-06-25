@@ -11,10 +11,10 @@
  * the mock counterparts in goog.testing.fs.
  */
 
-goog.provide('goog.fs.FileWriter');
+goog.declareModuleId('goog.fs.filewriter');
 
-goog.require('goog.fs.Error');
-goog.require('goog.fs.FileSaver');
+import { Error } from './error.js';
+import { FileSaver } from './filesaver.js';
 
 
 
@@ -27,12 +27,11 @@ goog.require('goog.fs.FileSaver');
  *
  * @param {!FileWriter} writer The underlying FileWriter object.
  * @constructor
- * @extends {goog.fs.FileSaver}
+ * @extends {FileSaver}
  * @final
  */
-goog.fs.FileWriter = function(writer) {
-  'use strict';
-  goog.fs.FileWriter.base(this, 'constructor', writer);
+export function FileWriter(writer) {
+  FileWriter.base(this, 'constructor', writer);
 
   /**
    * The underlying FileWriter object.
@@ -41,15 +40,14 @@ goog.fs.FileWriter = function(writer) {
    * @private
    */
   this.writer_ = writer;
-};
-goog.inherits(goog.fs.FileWriter, goog.fs.FileSaver);
+}
+goog.inherits(FileWriter, FileSaver);
 
 
 /**
  * @return {number} The byte offset at which the next write will occur.
  */
-goog.fs.FileWriter.prototype.getPosition = function() {
-  'use strict';
+FileWriter.prototype.getPosition = function() {
   return this.writer_.position;
 };
 
@@ -57,8 +55,7 @@ goog.fs.FileWriter.prototype.getPosition = function() {
 /**
  * @return {number} The length of the file.
  */
-goog.fs.FileWriter.prototype.getLength = function() {
-  'use strict';
+FileWriter.prototype.getLength = function() {
   return this.writer_.length;
 };
 
@@ -68,12 +65,11 @@ goog.fs.FileWriter.prototype.getLength = function() {
  *
  * @param {!Blob} blob The data to write.
  */
-goog.fs.FileWriter.prototype.write = function(blob) {
-  'use strict';
+FileWriter.prototype.write = function(blob) {
   try {
     this.writer_.write(blob);
   } catch (e) {
-    throw new goog.fs.Error(e, 'writing file');
+    throw new Error(e, 'writing file');
   }
 };
 
@@ -83,12 +79,11 @@ goog.fs.FileWriter.prototype.write = function(blob) {
  *
  * @param {number} offset An absolute byte offset into the file.
  */
-goog.fs.FileWriter.prototype.seek = function(offset) {
-  'use strict';
+FileWriter.prototype.seek = function(offset) {
   try {
     this.writer_.seek(offset);
   } catch (e) {
-    throw new goog.fs.Error(e, 'seeking in file');
+    throw new Error(e, 'seeking in file');
   }
 };
 
@@ -98,11 +93,10 @@ goog.fs.FileWriter.prototype.seek = function(offset) {
  *
  * @param {number} size The new size of the file, in bytes.
  */
-goog.fs.FileWriter.prototype.truncate = function(size) {
-  'use strict';
+FileWriter.prototype.truncate = function(size) {
   try {
     this.writer_.truncate(size);
   } catch (e) {
-    throw new goog.fs.Error(e, 'truncating file');
+    throw new Error(e, 'truncating file');
   }
 };

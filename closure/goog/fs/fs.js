@@ -14,44 +14,40 @@
  * its mock counterpart to goog.testing.fs.
  */
 
-goog.provide('goog.fs');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
 
-goog.require('goog.async.Deferred');
-goog.require('goog.fs.Error');
-goog.require('goog.fs.FileSystemImpl');
+import { Error as fsError } from './error.js';
+import { FileSystemImpl } from './filesystemimpl.js';
 
 
 /**
  * Get a wrapped FileSystem object.
  *
- * @param {goog.fs.FileSystemType_} type The type of the filesystem to get.
+ * @param {FileSystemType_} type The type of the filesystem to get.
  * @param {number} size The size requested for the filesystem, in bytes.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.FileSystem}. If an
- *     error occurs, the errback is called with a {@link goog.fs.Error}.
+ * @return {!Deferred} The deferred {@link FileSystem}. If an
+ *     error occurs, the errback is called with a {@link fsError}.
  * @private
  */
-goog.fs.get_ = function(type, size) {
-  'use strict';
+function get_(type, size) {
   const requestFileSystem =
       goog.global.requestFileSystem || goog.global.webkitRequestFileSystem;
 
   if (typeof requestFileSystem !== 'function') {
-    return goog.async.Deferred.fail(new Error('File API unsupported'));
+    return Deferred.fail(new Error('File API unsupported'));
   }
 
-  const d = new goog.async.Deferred();
+  const d = new Deferred();
   requestFileSystem(
       type, size,
       function(fs) {
-        'use strict';
-        d.callback(new goog.fs.FileSystemImpl(fs));
+        d.callback(new FileSystemImpl(fs));
       },
       function(err) {
-        'use strict';
-        d.errback(new goog.fs.Error(err, 'requesting filesystem'));
+        d.errback(new fsError(err, 'requesting filesystem'));
       });
   return d;
-};
+}
 
 
 /**
@@ -60,7 +56,7 @@ goog.fs.get_ = function(type, size) {
  * @enum {number}
  * @private
  */
-goog.fs.FileSystemType_ = {
+var FileSystemType_ = {
   /**
    * A temporary filesystem may be deleted by the user agent at its discretion.
    */
@@ -78,13 +74,12 @@ goog.fs.FileSystemType_ = {
  * by the user agent at its discretion.
  *
  * @param {number} size The size requested for the filesystem, in bytes.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.FileSystem}. If an
- *     error occurs, the errback is called with a {@link goog.fs.Error}.
+ * @return {!Deferred} The deferred {@link FileSystem}. If an
+ *     error occurs, the errback is called with a {@link fsError}.
  */
-goog.fs.getTemporary = function(size) {
-  'use strict';
-  return goog.fs.get_(goog.fs.FileSystemType_.TEMPORARY, size);
-};
+export function getTemporary(size) {
+  return get_(FileSystemType_.TEMPORARY, size);
+}
 
 
 /**
@@ -92,13 +87,12 @@ goog.fs.getTemporary = function(size) {
  * deleted without the user's or application's authorization.
  *
  * @param {number} size The size requested for the filesystem, in bytes.
- * @return {!goog.async.Deferred} The deferred {@link goog.fs.FileSystem}. If an
- *     error occurs, the errback is called with a {@link goog.fs.Error}.
+ * @return {!Deferred} The deferred {@link FileSystem}. If an
+ *     error occurs, the errback is called with a {@link fsError}.
  */
-goog.fs.getPersistent = function(size) {
-  'use strict';
-  return goog.fs.get_(goog.fs.FileSystemType_.PERSISTENT, size);
-};
+export function getPersistent(size) {
+  return get_(FileSystemType_.PERSISTENT, size);
+}
 
 
 /**
@@ -113,8 +107,7 @@ goog.fs.getPersistent = function(size) {
  * @param {number=} opt_end Index of the ending byte.
  * @return {Blob} The blob slice or null if not supported.
  */
-goog.fs.sliceBlob = function(blob, start, opt_end) {
-  'use strict';
+export function sliceBlob(blob, start, opt_end) {
   if (opt_end === undefined) {
     opt_end = blob.size;
   }
@@ -122,4 +115,4 @@ goog.fs.sliceBlob = function(blob, start, opt_end) {
     return blob.slice(start, opt_end);
   }
   return null;
-};
+}

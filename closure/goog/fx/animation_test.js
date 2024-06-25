@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.AnimationTest');
 goog.setTestOnly();
 
-const Animation = goog.require('goog.fx.Animation');
-const MockClock = goog.require('goog.testing.MockClock');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Animation } from './animation.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let clock;
 

@@ -16,37 +16,35 @@
  * @see ../demos/imagelessmenubutton.html
  */
 
-goog.provide('goog.ui.ImagelessMenuButtonRenderer');
+import * as googDom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.ui.INLINE_BLOCK_CLASSNAME');
-goog.require('goog.ui.MenuButton');
-goog.require('goog.ui.MenuButtonRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.ui.Button');
-goog.requireType('goog.ui.ControlContent');
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
+import { MenuButton } from './menubutton.js';
+import { MenuButtonRenderer } from './menubuttonrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.ui.button');
+goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
- * Custom renderer for {@link goog.ui.MenuButton}s. Imageless buttons can
+ * Custom renderer for {@link MenuButton}s. Imageless buttons can
  * contain almost arbitrary HTML content, will flow like inline elements, but
  * can be styled like block-level elements.
  *
  * @deprecated These contain a lot of unnecessary DOM for modern user agents.
  *     Please use a simpler button renderer like css3buttonrenderer.
  * @constructor
- * @extends {goog.ui.MenuButtonRenderer}
+ * @extends {MenuButtonRenderer}
  * @final
  */
-goog.ui.ImagelessMenuButtonRenderer = function() {
-  'use strict';
-  goog.ui.MenuButtonRenderer.call(this);
-};
-goog.inherits(goog.ui.ImagelessMenuButtonRenderer, goog.ui.MenuButtonRenderer);
-goog.addSingletonGetter(goog.ui.ImagelessMenuButtonRenderer);
+export function ImagelessMenuButtonRenderer() {
+  MenuButtonRenderer.call(this);
+}
+goog.inherits(ImagelessMenuButtonRenderer, MenuButtonRenderer);
+goog.addSingletonGetter(ImagelessMenuButtonRenderer);
 
 
 /**
@@ -54,16 +52,15 @@ goog.addSingletonGetter(goog.ui.ImagelessMenuButtonRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.ImagelessMenuButtonRenderer.CSS_CLASS =
+ImagelessMenuButtonRenderer.CSS_CLASS =
     goog.getCssName('goog-imageless-button');
 
 
 /** @override */
-goog.ui.ImagelessMenuButtonRenderer.prototype.getContentElement = function(
+ImagelessMenuButtonRenderer.prototype.getContentElement = function(
     element) {
-  'use strict';
   if (element) {
-    var captionElem = goog.dom.getElementsByTagNameAndClass(
+    var captionElem = googDom.getElementsByTagNameAndClass(
         '*', goog.getCssName(this.getCssClass(), 'caption'), element)[0];
     return captionElem;
   }
@@ -73,15 +70,14 @@ goog.ui.ImagelessMenuButtonRenderer.prototype.getContentElement = function(
 
 /**
  * Returns true if this renderer can decorate the element.  Overrides
- * {@link goog.ui.MenuButtonRenderer#canDecorate} by returning true if the
+ * {@link MenuButtonRenderer#canDecorate} by returning true if the
  * element is a DIV, false otherwise.
  * @param {Element} element Element to decorate.
  * @return {boolean} Whether the renderer can decorate the element.
  * @override
  */
-goog.ui.ImagelessMenuButtonRenderer.prototype.canDecorate = function(element) {
-  'use strict';
-  return element.tagName == goog.dom.TagName.DIV;
+ImagelessMenuButtonRenderer.prototype.canDecorate = function(element) {
+  return element.tagName == TagName.DIV;
 };
 
 
@@ -107,35 +103,34 @@ goog.ui.ImagelessMenuButtonRenderer.prototype.canDecorate = function(element) {
  * by subclasses.
  * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
- * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
+ * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
  * @override
  */
-goog.ui.ImagelessMenuButtonRenderer.prototype.createButton = function(
+ImagelessMenuButtonRenderer.prototype.createButton = function(
     content, dom) {
-  'use strict';
   var baseClass = this.getCssClass();
-  var inlineBlock = goog.ui.INLINE_BLOCK_CLASSNAME + ' ';
+  var inlineBlock = INLINE_BLOCK_CLASSNAME + ' ';
   return dom.createDom(
-      goog.dom.TagName.DIV,
+      TagName.DIV,
       inlineBlock + goog.getCssName(baseClass, 'outer-box'),
       dom.createDom(
-          goog.dom.TagName.DIV,
+          TagName.DIV,
           inlineBlock + goog.getCssName(baseClass, 'inner-box'),
           dom.createDom(
-              goog.dom.TagName.DIV, goog.getCssName(baseClass, 'pos'),
+              TagName.DIV, goog.getCssName(baseClass, 'pos'),
               dom.createDom(
-                  goog.dom.TagName.DIV,
+                  TagName.DIV,
                   goog.getCssName(baseClass, 'top-shadow'), '\u00A0'),
               dom.createDom(
-                  goog.dom.TagName.DIV,
+                  TagName.DIV,
                   [
                     goog.getCssName(baseClass, 'content'),
                     goog.getCssName(baseClass, 'caption'),
                     goog.getCssName('goog-inline-block')
                   ],
                   content),
-              dom.createDom(goog.dom.TagName.DIV, [
+              dom.createDom(TagName.DIV, [
                 goog.getCssName(baseClass, 'dropdown'),
                 goog.getCssName('goog-inline-block')
               ]))));
@@ -151,25 +146,24 @@ goog.ui.ImagelessMenuButtonRenderer.prototype.createButton = function(
  * @protected
  * @override
  */
-goog.ui.ImagelessMenuButtonRenderer.prototype.hasBoxStructure = function(
+ImagelessMenuButtonRenderer.prototype.hasBoxStructure = function(
     button, element) {
-  'use strict';
   var outer = button.getDomHelper().getFirstElementChild(element);
   var outerClassName = goog.getCssName(this.getCssClass(), 'outer-box');
-  if (outer && goog.dom.classlist.contains(outer, outerClassName)) {
+  if (outer && classlist.contains(outer, outerClassName)) {
     var inner = button.getDomHelper().getFirstElementChild(outer);
     var innerClassName = goog.getCssName(this.getCssClass(), 'inner-box');
-    if (inner && goog.dom.classlist.contains(inner, innerClassName)) {
+    if (inner && classlist.contains(inner, innerClassName)) {
       var pos = button.getDomHelper().getFirstElementChild(inner);
       var posClassName = goog.getCssName(this.getCssClass(), 'pos');
-      if (pos && goog.dom.classlist.contains(pos, posClassName)) {
+      if (pos && classlist.contains(pos, posClassName)) {
         var shadow = button.getDomHelper().getFirstElementChild(pos);
         var shadowClassName = goog.getCssName(this.getCssClass(), 'top-shadow');
-        if (shadow && goog.dom.classlist.contains(shadow, shadowClassName)) {
+        if (shadow && classlist.contains(shadow, shadowClassName)) {
           var content = button.getDomHelper().getNextElementSibling(shadow);
           var contentClassName = goog.getCssName(this.getCssClass(), 'content');
           if (content &&
-              goog.dom.classlist.contains(content, contentClassName)) {
+              classlist.contains(content, contentClassName)) {
             // We have a proper box structure.
             return true;
           }
@@ -187,20 +181,18 @@ goog.ui.ImagelessMenuButtonRenderer.prototype.hasBoxStructure = function(
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.ImagelessMenuButtonRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.ImagelessMenuButtonRenderer.CSS_CLASS;
+ImagelessMenuButtonRenderer.prototype.getCssClass = function() {
+  return ImagelessMenuButtonRenderer.CSS_CLASS;
 };
 
 
 // Register a decorator factory function for
-// goog.ui.ImagelessMenuButtonRenderer. Since we're using goog-imageless-button
+/* ImagelessMenuButtonRenderer. Since we're using goog-imageless-button*/
 // as the base class in order to get the same styling as
 // goog.ui.ImagelessButtonRenderer, we need to be explicit about giving
 // goog-imageless-menu-button here.
-goog.ui.registry.setDecoratorByClassName(
+registry.setDecoratorByClassName(
     goog.getCssName('goog-imageless-menu-button'), function() {
-      'use strict';
-      return new goog.ui.MenuButton(
-          null, null, goog.ui.ImagelessMenuButtonRenderer.getInstance());
-    });
+  return new MenuButton(
+      null, null, ImagelessMenuButtonRenderer.getInstance());
+});

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.Sha2_64bit_test');
 goog.setTestOnly();
 
-const Sha384 = goog.require('goog.crypt.Sha384');
-const Sha512 = goog.require('goog.crypt.Sha512');
-const Sha512_256 = goog.require('goog.crypt.Sha512_256');
-const crypt = goog.require('goog.crypt');
-const hashTester = goog.require('goog.crypt.hashTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Sha384 } from './sha384.js';
+import { Sha512 } from './sha512.js';
+import { Sha512_256 } from './sha512_256.js';
+import * as crypt from './crypt.js';
+import * as hashTester from './hashtester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Each object in the test vector array is a source text and one or more

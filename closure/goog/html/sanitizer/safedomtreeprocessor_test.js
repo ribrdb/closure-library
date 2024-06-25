@@ -6,13 +6,12 @@
 
 /** @fileoverview Tests for {@link goog.html.sanitizer.SafeDomTreeProcessor} */
 
-goog.module('goog.html.sanitizer.SafeDomTreeProcessorTest');
 goog.setTestOnly();
 
-const SafeDomTreeProcessor = goog.require('goog.html.sanitizer.SafeDomTreeProcessor');
-const noclobber = goog.require('goog.html.sanitizer.noclobber');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { SafeDomTreeProcessor } from './safedomtreeprocessor.js';
+import noclobber from './noclobber.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingDom from '../../testing/dom.js';
 
 /**
  * Concrete subclass that defines an identity transformation function.

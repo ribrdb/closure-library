@@ -9,49 +9,46 @@
  * closure/goog/proto2/package_test.proto.
  */
 
-goog.provide('someprotopackage.TestPackageTypes');
 goog.setTestOnly('someprotopackage.TestPackageTypes');
 
-goog.require('goog.proto2.Message');
-goog.require('proto2.TestAllTypes');
-goog.requireType('goog.proto2.Descriptor');
+import { Message } from './message.js';
+import { TestAllTypes } from './test.pb.js';
+goog.requireType('goog.proto2.descriptor');
 
 
 
 /**
  * Message TestPackageTypes.
  * @constructor
- * @extends {goog.proto2.Message}
+ * @extends {Message}
  * @final
  */
-someprotopackage.TestPackageTypes = function() {
-  'use strict';
-  goog.proto2.Message.call(this);
-};
-goog.inherits(someprotopackage.TestPackageTypes, goog.proto2.Message);
+export function TestPackageTypes() {
+  Message.call(this);
+}
+goog.inherits(TestPackageTypes, Message);
 
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
  * @private {?goog.proto2.Descriptor}
  */
-someprotopackage.TestPackageTypes.descriptor_ = null;
+TestPackageTypes.descriptor_ = null;
 
 
 /**
- * Overrides {@link goog.proto2.Message#clone} to specify its exact return type.
- * @return {!someprotopackage.TestPackageTypes} The cloned message.
+ * Overrides {@link Message#clone} to specify its exact return type.
+ * @return {!TestPackageTypes} The cloned message.
  * @override
  */
-someprotopackage.TestPackageTypes.prototype.clone;
+TestPackageTypes.prototype.clone;
 
 
 /**
  * Gets the value of the optional_int32 field.
  * @return {?number} The value.
  */
-someprotopackage.TestPackageTypes.prototype.getOptionalInt32 = function() {
-  'use strict';
+TestPackageTypes.prototype.getOptionalInt32 = function() {
   return /** @type {?number} */ (this.get$Value(1));
 };
 
@@ -60,19 +57,17 @@ someprotopackage.TestPackageTypes.prototype.getOptionalInt32 = function() {
  * Gets the value of the optional_int32 field or the default value if not set.
  * @return {number} The value.
  */
-someprotopackage.TestPackageTypes.prototype.getOptionalInt32OrDefault =
+TestPackageTypes.prototype.getOptionalInt32OrDefault =
     function() {
-  'use strict';
-  return /** @type {number} */ (this.get$ValueOrDefault(1));
-};
+      return /** @type {number} */ (this.get$ValueOrDefault(1));
+    };
 
 
 /**
  * Sets the value of the optional_int32 field.
  * @param {number} value The value.
  */
-someprotopackage.TestPackageTypes.prototype.setOptionalInt32 = function(value) {
-  'use strict';
+TestPackageTypes.prototype.setOptionalInt32 = function(value) {
   this.set$Value(1, value);
 };
 
@@ -80,8 +75,7 @@ someprotopackage.TestPackageTypes.prototype.setOptionalInt32 = function(value) {
 /**
  * @return {boolean} Whether the optional_int32 field has a value.
  */
-someprotopackage.TestPackageTypes.prototype.hasOptionalInt32 = function() {
-  'use strict';
+TestPackageTypes.prototype.hasOptionalInt32 = function() {
   return this.has$Value(1);
 };
 
@@ -89,8 +83,7 @@ someprotopackage.TestPackageTypes.prototype.hasOptionalInt32 = function() {
 /**
  * @return {number} The number of values in the optional_int32 field.
  */
-someprotopackage.TestPackageTypes.prototype.optionalInt32Count = function() {
-  'use strict';
+TestPackageTypes.prototype.optionalInt32Count = function() {
   return this.count$Values(1);
 };
 
@@ -98,38 +91,38 @@ someprotopackage.TestPackageTypes.prototype.optionalInt32Count = function() {
 /**
  * Clears the values in the optional_int32 field.
  */
-someprotopackage.TestPackageTypes.prototype.clearOptionalInt32 = function() {
-  'use strict';
+TestPackageTypes.prototype.clearOptionalInt32 = function() {
   this.clear$Field(1);
 };
 
 
 /**
  * Gets the value of the other_all field.
- * @return {?proto2.TestAllTypes} The value.
+ * @return {?TestAllTypes} The value.
  */
-someprotopackage.TestPackageTypes.prototype.getOtherAll = function() {
-  'use strict';
-  return /** @type {?proto2.TestAllTypes} */ (this.get$Value(2));
+TestPackageTypes.prototype.getOtherAll = function() {
+  return (
+    /** @type {?TestAllTypes} */ (this.get$Value(2))
+  );
 };
 
 
 /**
  * Gets the value of the other_all field or the default value if not set.
- * @return {!proto2.TestAllTypes} The value.
+ * @return {!TestAllTypes} The value.
  */
-someprotopackage.TestPackageTypes.prototype.getOtherAllOrDefault = function() {
-  'use strict';
-  return /** @type {!proto2.TestAllTypes} */ (this.get$ValueOrDefault(2));
+TestPackageTypes.prototype.getOtherAllOrDefault = function() {
+  return (
+    /** @type {!TestAllTypes} */ (this.get$ValueOrDefault(2))
+  );
 };
 
 
 /**
  * Sets the value of the other_all field.
- * @param {!proto2.TestAllTypes} value The value.
+ * @param {!TestAllTypes} value The value.
  */
-someprotopackage.TestPackageTypes.prototype.setOtherAll = function(value) {
-  'use strict';
+TestPackageTypes.prototype.setOtherAll = function(value) {
   this.set$Value(2, value);
 };
 
@@ -137,8 +130,7 @@ someprotopackage.TestPackageTypes.prototype.setOtherAll = function(value) {
 /**
  * @return {boolean} Whether the other_all field has a value.
  */
-someprotopackage.TestPackageTypes.prototype.hasOtherAll = function() {
-  'use strict';
+TestPackageTypes.prototype.hasOtherAll = function() {
   return this.has$Value(2);
 };
 
@@ -146,8 +138,7 @@ someprotopackage.TestPackageTypes.prototype.hasOtherAll = function() {
 /**
  * @return {number} The number of values in the other_all field.
  */
-someprotopackage.TestPackageTypes.prototype.otherAllCount = function() {
-  'use strict';
+TestPackageTypes.prototype.otherAllCount = function() {
   return this.count$Values(2);
 };
 
@@ -155,16 +146,14 @@ someprotopackage.TestPackageTypes.prototype.otherAllCount = function() {
 /**
  * Clears the values in the other_all field.
  */
-someprotopackage.TestPackageTypes.prototype.clearOtherAll = function() {
-  'use strict';
+TestPackageTypes.prototype.clearOtherAll = function() {
   this.clear$Field(2);
 };
 
 
 /** @override */
-someprotopackage.TestPackageTypes.prototype.getDescriptor = function() {
-  'use strict';
-  let descriptor = someprotopackage.TestPackageTypes.descriptor_;
+TestPackageTypes.prototype.getDescriptor = function() {
+  let descriptor = TestPackageTypes.descriptor_;
   if (!descriptor) {
     // The descriptor is created lazily when we instantiate a new instance.
     const descriptorObj = {
@@ -174,23 +163,23 @@ someprotopackage.TestPackageTypes.prototype.getDescriptor = function() {
       },
       1: {
         name: 'optional_int32',
-        fieldType: goog.proto2.Message.FieldType.INT32,
+        fieldType: Message.FieldType.INT32,
         type: Number
       },
       2: {
         name: 'other_all',
-        fieldType: goog.proto2.Message.FieldType.MESSAGE,
-        type: proto2.TestAllTypes
+        fieldType: Message.FieldType.MESSAGE,
+        type: TestAllTypes
       }
     };
-    someprotopackage.TestPackageTypes.descriptor_ = descriptor =
-        goog.proto2.Message.createDescriptor(
-             someprotopackage.TestPackageTypes, descriptorObj);
+    TestPackageTypes.descriptor_ = descriptor =
+        Message.createDescriptor(
+             TestPackageTypes, descriptorObj);
   }
   return descriptor;
 };
 
 
 /** @nocollapse */
-someprotopackage.TestPackageTypes.getDescriptor =
-    someprotopackage.TestPackageTypes.prototype.getDescriptor;
+TestPackageTypes.getDescriptor =
+    TestPackageTypes.prototype.getDescriptor;

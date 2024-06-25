@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.RangeModelTest');
 goog.setTestOnly();
 
-const RangeModel = goog.require('goog.ui.RangeModel');
-const testSuite = goog.require('goog.testing.testSuite');
+import { RangeModel } from './rangemodel.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function reset(rm, step) {
   rm.setStep(step || 1);

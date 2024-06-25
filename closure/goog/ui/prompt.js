@@ -11,18 +11,17 @@
  */
 
 
-goog.provide('goog.ui.Prompt');
+import { Timer } from '../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.dom');
-goog.require('goog.dom.InputType');
-goog.require('goog.dom.TagName');
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.functions');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.Dialog');
+import * as dom from '../dom/dom.js';
+import { InputType } from '../dom/inputtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../events/events.js';
+import { EventType } from '../events/eventtype.js';
+import * as functions from '../functions/functions.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { Component } from './component.js';
+import { Dialog } from './dialog.js';
 
 
 
@@ -33,7 +32,7 @@ goog.require('goog.ui.Dialog');
  * "Content area" and has the default class-name 'modal-dialog-userInput'
  *
  * @param {string} promptTitle The title of the prompt.
- * @param {string|!goog.html.SafeHtml} promptBody The body of the prompt.
+ * @param {string|!SafeHtml} promptBody The body of the prompt.
  *     String is treated as plain text and it will be HTML-escaped.
  * @param {Function} callback The function to call when the user selects Ok or
  *     Cancel. The function should expect a single argument which represents
@@ -44,16 +43,21 @@ goog.require('goog.ui.Dialog');
  * @param {string=} opt_class Optional prefix for the classes.
  * @param {boolean=} opt_useIframeForIE For IE, workaround windowed controls
  *     z-index issue by using a an iframe instead of a div for bg element.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper; see {@link
- *    goog.ui.Component} for semantics.
+ * @param {dom.DomHelper=} opt_domHelper Optional DOM helper; see {@link
+ *    Component} for semantics.
  * @constructor
- * @extends {goog.ui.Dialog}
+ * @extends {Dialog}
  */
-goog.ui.Prompt = function(
-    promptTitle, promptBody, callback, opt_defaultValue, opt_class,
-    opt_useIframeForIE, opt_domHelper) {
-  'use strict';
-  goog.ui.Prompt.base(
+export function Prompt(
+  promptTitle,
+  promptBody,
+  callback,
+  opt_defaultValue,
+  opt_class,
+  opt_useIframeForIE,
+  opt_domHelper
+) {
+  Prompt.base(
       this, 'constructor', opt_class, opt_useIframeForIE, opt_domHelper);
 
   /**
@@ -65,11 +69,11 @@ goog.ui.Prompt = function(
 
   this.setTitle(promptTitle);
 
-  var label = goog.html.SafeHtml.create(
+  var label = SafeHtml.create(
       'label', {'for': this.inputElementId_},
-      goog.html.SafeHtml.htmlEscapePreservingNewlines(promptBody));
-  var br = goog.html.SafeHtml.BR;
-  this.setSafeHtmlContent(goog.html.SafeHtml.concat(label, br, br));
+      SafeHtml.htmlEscapePreservingNewlines(promptBody));
+  var br = SafeHtml.BR;
+  this.setSafeHtmlContent(SafeHtml.concat(label, br, br));
 
   this.callback_ = callback;
   this.defaultValue_ = (opt_defaultValue !== undefined) ? opt_defaultValue : '';
@@ -78,13 +82,13 @@ goog.ui.Prompt = function(
   var MSG_PROMPT_OK = goog.getMsg('OK');
   /** @desc label for a dialog button. */
   var MSG_PROMPT_CANCEL = goog.getMsg('Cancel');
-  var buttonSet = new goog.ui.Dialog.ButtonSet(opt_domHelper);
-  buttonSet.set(goog.ui.Dialog.DefaultButtonKeys.OK, MSG_PROMPT_OK, true);
+  var buttonSet = new Dialog.ButtonSet(opt_domHelper);
+  buttonSet.set(Dialog.DefaultButtonKeys.OK, MSG_PROMPT_OK, true);
   buttonSet.set(
-      goog.ui.Dialog.DefaultButtonKeys.CANCEL, MSG_PROMPT_CANCEL, false, true);
+      Dialog.DefaultButtonKeys.CANCEL, MSG_PROMPT_CANCEL, false, true);
   this.setButtonSet(buttonSet);
-};
-goog.inherits(goog.ui.Prompt, goog.ui.Dialog);
+}
+goog.inherits(Prompt, Dialog);
 
 
 /**
@@ -92,7 +96,7 @@ goog.inherits(goog.ui.Prompt, goog.ui.Dialog);
  * @type {Function}
  * @private
  */
-goog.ui.Prompt.prototype.callback_ = goog.functions.UNDEFINED;
+Prompt.prototype.callback_ = functions.UNDEFINED;
 
 
 /**
@@ -100,7 +104,7 @@ goog.ui.Prompt.prototype.callback_ = goog.functions.UNDEFINED;
  * @type {string}
  * @private
  */
-goog.ui.Prompt.prototype.defaultValue_ = '';
+Prompt.prototype.defaultValue_ = '';
 
 
 /**
@@ -108,7 +112,7 @@ goog.ui.Prompt.prototype.defaultValue_ = '';
  * @type {?HTMLInputElement|?HTMLTextAreaElement}
  * @private
  */
-goog.ui.Prompt.prototype.userInputEl_ = null;
+Prompt.prototype.userInputEl_ = null;
 
 
 /**
@@ -117,7 +121,7 @@ goog.ui.Prompt.prototype.userInputEl_ = null;
  * @type {boolean}
  * @private
  */
-goog.ui.Prompt.prototype.isClosing_ = false;
+Prompt.prototype.isClosing_ = false;
 
 
 /**
@@ -126,7 +130,7 @@ goog.ui.Prompt.prototype.isClosing_ = false;
  * @type {number}
  * @private
  */
-goog.ui.Prompt.prototype.rows_ = 1;
+Prompt.prototype.rows_ = 1;
 
 
 /**
@@ -135,7 +139,7 @@ goog.ui.Prompt.prototype.rows_ = 1;
  * @type {number}
  * @private
  */
-goog.ui.Prompt.prototype.cols_ = 0;
+Prompt.prototype.cols_ = 0;
 
 
 /**
@@ -143,7 +147,7 @@ goog.ui.Prompt.prototype.cols_ = 0;
  * @type {?function(?Element)}
  * @private
  */
-goog.ui.Prompt.prototype.inputDecoratorFn_ = null;
+Prompt.prototype.inputDecoratorFn_ = null;
 
 
 /**
@@ -152,7 +156,7 @@ goog.ui.Prompt.prototype.inputDecoratorFn_ = null;
  * @type {function(string):boolean}
  * @private
  */
-goog.ui.Prompt.prototype.validationFn_ = goog.functions.TRUE;
+Prompt.prototype.validationFn_ = functions.TRUE;
 
 
 /**
@@ -161,25 +165,23 @@ goog.ui.Prompt.prototype.validationFn_ = goog.functions.TRUE;
  * @param {function(string): boolean} fn The validation function to use on user
  *     input.
  */
-goog.ui.Prompt.prototype.setValidationFunction = function(fn) {
-  'use strict';
+Prompt.prototype.setValidationFunction = function(fn) {
   this.validationFn_ = fn;
 };
 
 
 /** @override */
-goog.ui.Prompt.prototype.enterDocument = function() {
-  'use strict';
+Prompt.prototype.enterDocument = function() {
   if (this.inputDecoratorFn_) {
     this.inputDecoratorFn_(this.userInputEl_);
   }
-  goog.ui.Prompt.superClass_.enterDocument.call(this);
+  Prompt.superClass_.enterDocument.call(this);
   this.getHandler().listen(
-      this, goog.ui.Dialog.EventType.SELECT, this.onPromptExit_);
+      this, Dialog.EventType.SELECT, this.onPromptExit_);
 
   this.getHandler().listen(
       this.userInputEl_,
-      [goog.events.EventType.KEYUP, goog.events.EventType.CHANGE],
+      [EventType.KEYUP, EventType.CHANGE],
       this.handleInputChanged_);
 };
 
@@ -188,8 +190,7 @@ goog.ui.Prompt.prototype.enterDocument = function() {
  * @return {?HTMLInputElement|?HTMLTextAreaElement} The user input element. May
  *     be null if the Prompt has not been rendered.
  */
-goog.ui.Prompt.prototype.getInputElement = function() {
-  'use strict';
+Prompt.prototype.getInputElement = function() {
   return this.userInputEl_;
 };
 
@@ -202,8 +203,7 @@ goog.ui.Prompt.prototype.getInputElement = function() {
  * @param {function(Element)} inputDecoratorFn A function to call on the input
  *     element on #enterDocument.
  */
-goog.ui.Prompt.prototype.setInputDecoratorFn = function(inputDecoratorFn) {
-  'use strict';
+Prompt.prototype.setInputDecoratorFn = function(inputDecoratorFn) {
   this.inputDecoratorFn_ = inputDecoratorFn;
 };
 
@@ -213,20 +213,19 @@ goog.ui.Prompt.prototype.setInputDecoratorFn = function(inputDecoratorFn) {
  * A values of 1 means use an `<input>` element.  If the prompt is already
  * rendered then you cannot change from `<input>` to `<textarea>` or vice versa.
  * @param {number} rows Number of rows for user input element.
- * @throws {goog.ui.Component.Error.ALREADY_RENDERED} If the component is
+ * @throws {Component.Error.ALREADY_RENDERED} If the component is
  *    already rendered and an attempt to change between `<input>` and
  *    `<textarea>` is made.
  */
-goog.ui.Prompt.prototype.setRows = function(rows) {
-  'use strict';
+Prompt.prototype.setRows = function(rows) {
   if (this.isInDocument()) {
-    if (this.userInputEl_.tagName == goog.dom.TagName.INPUT) {
+    if (this.userInputEl_.tagName == TagName.INPUT) {
       if (rows > 1) {
-        throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+        throw new Error(Component.Error.ALREADY_RENDERED);
       }
     } else {
       if (rows <= 1) {
-        throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+        throw new Error(Component.Error.ALREADY_RENDERED);
       }
       /** @type {!HTMLTextAreaElement} */ (this.userInputEl_).rows = rows;
     }
@@ -238,8 +237,7 @@ goog.ui.Prompt.prototype.setRows = function(rows) {
 /**
  * @return {number} The number of rows in the user input element.
  */
-goog.ui.Prompt.prototype.getRows = function() {
-  'use strict';
+Prompt.prototype.getRows = function() {
   return this.rows_;
 };
 
@@ -248,11 +246,10 @@ goog.ui.Prompt.prototype.getRows = function() {
  * Set the number of cols in the user input element.
  * @param {number} cols Number of cols for user input element.
  */
-goog.ui.Prompt.prototype.setCols = function(cols) {
-  'use strict';
+Prompt.prototype.setCols = function(cols) {
   this.cols_ = cols;
   if (this.userInputEl_) {
-    if (this.userInputEl_.tagName == goog.dom.TagName.INPUT) {
+    if (this.userInputEl_.tagName == TagName.INPUT) {
       /** @type {!HTMLInputElement} */ (this.userInputEl_).size = cols;
     } else {
       /** @type {!HTMLTextAreaElement} */ (this.userInputEl_).cols = cols;
@@ -264,8 +261,7 @@ goog.ui.Prompt.prototype.setCols = function(cols) {
 /**
  * @return {number} The number of cols in the user input element.
  */
-goog.ui.Prompt.prototype.getCols = function() {
-  'use strict';
+Prompt.prototype.getCols = function() {
   return this.cols_;
 };
 
@@ -274,27 +270,26 @@ goog.ui.Prompt.prototype.getCols = function() {
  * Create the initial DOM representation for the prompt.
  * @override
  */
-goog.ui.Prompt.prototype.createDom = function() {
-  'use strict';
-  goog.ui.Prompt.superClass_.createDom.call(this);
+Prompt.prototype.createDom = function() {
+  Prompt.superClass_.createDom.call(this);
 
   var cls = this.getClass();
 
   // add input box to the content
   if (this.rows_ == 1) {
     // If rows == 1 then use an input element.
-    this.userInputEl_ = this.getDomHelper().createDom(goog.dom.TagName.INPUT, {
+    this.userInputEl_ = this.getDomHelper().createDom(TagName.INPUT, {
       'className': goog.getCssName(cls, 'userInput'),
       'value': this.defaultValue_
     });
-    this.userInputEl_.type = goog.dom.InputType.TEXT;
+    this.userInputEl_.type = InputType.TEXT;
     if (this.cols_) {
       this.userInputEl_.size = this.cols_;
     }
   } else {
     // If rows > 1 then use a textarea.
     this.userInputEl_ =
-        this.getDomHelper().createDom(goog.dom.TagName.TEXTAREA, {
+        this.getDomHelper().createDom(TagName.TEXTAREA, {
           'className': goog.getCssName(cls, 'userInput'),
           'value': this.defaultValue_
         });
@@ -308,7 +303,7 @@ goog.ui.Prompt.prototype.createDom = function() {
   var contentEl = this.getContentElement();
   contentEl.appendChild(
       this.getDomHelper().createDom(
-          goog.dom.TagName.DIV, {'style': 'overflow: auto'},
+          TagName.DIV, {'style': 'overflow: auto'},
           this.userInputEl_));
 };
 
@@ -318,8 +313,7 @@ goog.ui.Prompt.prototype.createDom = function() {
  * validation fails on the new input value.
  * @private
  */
-goog.ui.Prompt.prototype.handleInputChanged_ = function() {
-  'use strict';
+Prompt.prototype.handleInputChanged_ = function() {
   this.updateOkButtonState_();
 };
 
@@ -328,12 +322,11 @@ goog.ui.Prompt.prototype.handleInputChanged_ = function() {
  * Set OK button enabled/disabled state based on input.
  * @private
  */
-goog.ui.Prompt.prototype.updateOkButtonState_ = function() {
-  'use strict';
+Prompt.prototype.updateOkButtonState_ = function() {
   var enableOkButton = this.validationFn_(this.userInputEl_.value);
   var buttonSet = this.getButtonSet();
   buttonSet.setButtonEnabled(
-      goog.ui.Dialog.DefaultButtonKeys.OK, enableOkButton);
+      Dialog.DefaultButtonKeys.OK, enableOkButton);
 };
 
 
@@ -343,9 +336,8 @@ goog.ui.Prompt.prototype.updateOkButtonState_ = function() {
  * @param {boolean} visible Whether the dialog should be visible.
  * @override
  */
-goog.ui.Prompt.prototype.setVisible = function(visible) {
-  'use strict';
-  goog.ui.Prompt.base(this, 'setVisible', visible);
+Prompt.prototype.setVisible = function(visible) {
+  Prompt.base(this, 'setVisible', visible);
 
   if (visible) {
     this.isClosing_ = false;
@@ -360,9 +352,8 @@ goog.ui.Prompt.prototype.setVisible = function(visible) {
  * Overrides setFocus to put focus on the input element.
  * @override
  */
-goog.ui.Prompt.prototype.focus = function() {
-  'use strict';
-  goog.ui.Prompt.base(this, 'focus');
+Prompt.prototype.focus = function() {
+  Prompt.base(this, 'focus');
 
   this.userInputEl_.select();
 };
@@ -372,8 +363,7 @@ goog.ui.Prompt.prototype.focus = function() {
  * Sets the default value of the prompt when it is displayed.
  * @param {string} defaultValue The default value to display.
  */
-goog.ui.Prompt.prototype.setDefaultValue = function(defaultValue) {
-  'use strict';
+Prompt.prototype.setDefaultValue = function(defaultValue) {
   this.defaultValue_ = defaultValue;
 };
 
@@ -381,11 +371,10 @@ goog.ui.Prompt.prototype.setDefaultValue = function(defaultValue) {
 /**
  * Handles the closing of the prompt, invoking the callback function that was
  * registered to handle the value returned by the prompt.
- * @param {goog.ui.Dialog.Event} e The dialog's selection event.
+ * @param {Dialog.Event} e The dialog's selection event.
  * @private
  */
-goog.ui.Prompt.prototype.onPromptExit_ = function(e) {
-  'use strict';
+Prompt.prototype.onPromptExit_ = function(e) {
   /*
    * The timeouts below are required for one edge case. If after the dialog
    * hides, suppose validation of the input fails which displays an alert. If
@@ -396,24 +385,23 @@ goog.ui.Prompt.prototype.onPromptExit_ = function(e) {
   if (!this.isClosing_) {
     this.isClosing_ = true;
     if (e.key == 'ok') {
-      goog.Timer.callOnce(
+      Timer.callOnce(
           goog.bind(this.callback_, this, this.userInputEl_.value), 1);
     } else {
-      goog.Timer.callOnce(goog.bind(this.callback_, this, null), 1);
+      Timer.callOnce(goog.bind(this.callback_, this, null), 1);
     }
   }
 };
 
 
 /** @override */
-goog.ui.Prompt.prototype.disposeInternal = function() {
-  'use strict';
-  goog.dom.removeNode(this.userInputEl_);
+Prompt.prototype.disposeInternal = function() {
+  dom.removeNode(this.userInputEl_);
 
-  goog.events.unlisten(
-      this, goog.ui.Dialog.EventType.SELECT, this.onPromptExit_, true, this);
+  events.unlisten(
+      this, Dialog.EventType.SELECT, this.onPromptExit_, true, this);
 
-  goog.ui.Prompt.superClass_.disposeInternal.call(this);
+  Prompt.superClass_.disposeInternal.call(this);
 
   this.userInputEl_ = null;
 };

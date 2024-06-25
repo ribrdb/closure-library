@@ -10,11 +10,10 @@
  * XhrIo object.
  */
 
-goog.provide('goog.net.XhrIoPool');
+import { XhrIo } from './xhrio.js';
 
-goog.require('goog.net.XhrIo');
-goog.require('goog.structs.PriorityPool');
-goog.requireType('goog.structs.Map');
+import { PriorityPool } from '../structs/prioritypool.js';
+goog.requireType('goog.structs.map');
 
 
 
@@ -27,58 +26,54 @@ goog.requireType('goog.structs.Map');
  * @param {boolean=} opt_withCredentials Add credentials to every request
  *     (Default: false).
  * @constructor
- * @extends {goog.structs.PriorityPool}
+ * @extends {PriorityPool}
  */
-goog.net.XhrIoPool = function(
-    opt_headers, opt_minCount, opt_maxCount, opt_withCredentials) {
-  'use strict';
-  /**
-   * Map of default headers to add to every request.
-   * @type {goog.structs.Map|undefined}
-   * @private
-   */
-  this.headers_ = opt_headers;
+export function XhrIoPool(opt_headers, opt_minCount, opt_maxCount, opt_withCredentials) {
+ /**
+  * Map of default headers to add to every request.
+  * @type {goog.structs.Map|undefined}
+  * @private
+  */
+ this.headers_ = opt_headers;
 
-  /**
-   * Whether a "credentialed" requests are to be sent (ones that is aware of
-   * cookies and authentication). This is applicable only for cross-domain
-   * requests and more recent browsers that support this part of the HTTP Access
-   * Control standard.
-   *
-   * @see http://www.w3.org/TR/XMLHttpRequest/#the-withcredentials-attribute
-   *
-   * @private {boolean}
-   */
-  this.withCredentials_ = !!opt_withCredentials;
+ /**
+  * Whether a "credentialed" requests are to be sent (ones that is aware of
+  * cookies and authentication). This is applicable only for cross-domain
+  * requests and more recent browsers that support this part of the HTTP Access
+  * Control standard.
+  *
+  * @see http://www.w3.org/TR/XMLHttpRequest/#the-withcredentials-attribute
+  *
+  * @private {boolean}
+  */
+ this.withCredentials_ = !!opt_withCredentials;
 
-  // Must break convention of putting the super-class's constructor first. This
-  // is because the super-class constructor calls adjustForMinMax, which calls
-  // this class' createObject. In this class's implementation, it assumes that
-  // there is a headers_, and will lack those if not yet present.
-  goog.structs.PriorityPool.call(this, opt_minCount, opt_maxCount);
-};
-goog.inherits(goog.net.XhrIoPool, goog.structs.PriorityPool);
+ // Must break convention of putting the super-class's constructor first. This
+ // is because the super-class constructor calls adjustForMinMax, which calls
+ // this class' createObject. In this class's implementation, it assumes that
+ // there is a headers_, and will lack those if not yet present.
+ PriorityPool.call(this, opt_minCount, opt_maxCount);
+}
+goog.inherits(XhrIoPool, PriorityPool);
 
 
 /**
  * Creates an instance of an XhrIo object to use in the pool.
- * @return {!goog.net.XhrIo} The created object.
+ * @return {!XhrIo} The created object.
  * @override
  */
-goog.net.XhrIoPool.prototype.createObject = function() {
-  'use strict';
-  const xhrIo = new goog.net.XhrIo();
-  const headers = this.headers_;
-  if (headers) {
-    headers.forEach(function(value, key) {
-      'use strict';
-      xhrIo.headers.set(key, value);
-    });
-  }
-  if (this.withCredentials_) {
-    xhrIo.setWithCredentials(true);
-  }
-  return xhrIo;
+XhrIoPool.prototype.createObject = function() {
+ const xhrIo = new XhrIo();
+ const headers = this.headers_;
+ if (headers) {
+   headers.forEach(function(value, key) {
+    xhrIo.headers.set(key, value);
+   });
+ }
+ if (this.withCredentials_) {
+   xhrIo.setWithCredentials(true);
+ }
+ return xhrIo;
 };
 
 
@@ -89,9 +84,8 @@ goog.net.XhrIoPool.prototype.createObject = function() {
  *     object is not disposed and not active.
  * @override
  */
-goog.net.XhrIoPool.prototype.objectCanBeReused = function(obj) {
-  'use strict';
-  // An active XhrIo object should never be used.
-  const xhr = /** @type {goog.net.XhrIo} */ (obj);
-  return !xhr.isDisposed() && !xhr.isActive();
+XhrIoPool.prototype.objectCanBeReused = function(obj) {
+ // An active XhrIo object should never be used.
+ const xhr = /** @type {XhrIo} */ (obj);
+ return !xhr.isDisposed() && !xhr.isActive();
 };

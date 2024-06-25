@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.mechanism.ErrorHandlingMechanismTest');
 goog.setTestOnly();
 
-const ErrorHandlingMechanism = goog.require('goog.storage.mechanism.ErrorHandlingMechanism');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandlingMechanism } from './errorhandlingmechanism.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 const error = new Error();
 

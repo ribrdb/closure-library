@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.DisposableTest');
 goog.setTestOnly();
 
-const Disposable = goog.require('goog.Disposable');
-const dispose = goog.require('goog.dispose');
-const disposeAll = goog.require('goog.disposeAll');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Disposable } from './disposable.js';
+import { dispose } from './dispose.js';
+import { disposeAll } from './disposeall.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let d1;
 let d2;

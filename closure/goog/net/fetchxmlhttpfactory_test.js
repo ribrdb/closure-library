@@ -4,17 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.FetchXmlHttpFactoryTest');
 goog.setTestOnly();
 
-const FetchXmlHttp = goog.require('goog.net.FetchXmlHttp');
-const FetchXmlHttpFactory = goog.require('goog.net.FetchXmlHttpFactory');
-const MockControl = goog.require('goog.testing.MockControl');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const isVersion = goog.require('goog.userAgent.product.isVersion');
-const product = goog.require('goog.userAgent.product');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { FetchXmlHttp, FetchXmlHttpFactory } from './fetchxmlhttpfactory.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { isVersion } from '../useragent/product_isversion.js';
+import * as product from '../useragent/product.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** @type {!MockControl} */
 let mockControl;

@@ -8,11 +8,9 @@
  * @fileoverview A singleton interface for managing JavaScript code modules.
  */
 
-goog.module('goog.loader.activeModuleManager');
-goog.module.declareLegacyNamespace();
+import { AbstractModuleManager } from './abstractmodulemanager.js';
 
-const AbstractModuleManager = goog.require('goog.loader.AbstractModuleManager');
-const asserts = goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 /** @type {?AbstractModuleManager} */
 let moduleManager = null;
@@ -119,7 +117,7 @@ const reset = function() {
   configureFunctions = [];
 };
 
-exports = {
+export default {
   get,
   set,
   setDefault,

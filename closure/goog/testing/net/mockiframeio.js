@@ -8,38 +8,37 @@
  * @fileoverview Mock of IframeIo for unit testing.
  */
 
-goog.provide('goog.testing.net.MockIFrameIo');
-goog.require('goog.events.EventTarget');
-goog.require('goog.net.ErrorCode');
-goog.require('goog.net.EventType');
-goog.require('goog.net.IframeIo');
-goog.require('goog.testing.TestQueue');
-goog.requireType('goog.Uri');
-goog.requireType('goog.structs.Map');
+import { EventTarget } from '../../events/eventtarget.js';
+
+import { ErrorCode } from '../../net/errorcode.js';
+import { EventType } from '../../net/eventtype.js';
+import { IframeIo } from '../../net/iframeio.js';
+import { TestQueue } from '../testqueue.js';
+goog.requireType('goog.uri.uri');
+goog.requireType('goog.structs.map');
 
 
 
 /**
- * Mock implementation of goog.net.IframeIo. This doesn't provide a mock
+ * Mock implementation of IframeIo. This doesn't provide a mock
  * implementation for all cases, but it's not too hard to add them as needed.
- * @param {goog.testing.TestQueue} testQueue Test queue for inserting test
+ * @param {TestQueue} testQueue Test queue for inserting test
  *     events.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @final
  */
-goog.testing.net.MockIFrameIo = function(testQueue) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function MockIFrameIo(testQueue) {
+ EventTarget.call(this);
 
-  /**
+ /**
    * Queue of events write to
-   * @type {goog.testing.TestQueue}
+   * @type {TestQueue}
    * @private
    */
-  this.testQueue_ = testQueue;
-};
-goog.inherits(goog.testing.net.MockIFrameIo, goog.events.EventTarget);
+ this.testQueue_ = testQueue;
+}
+goog.inherits(MockIFrameIo, EventTarget);
 
 
 /**
@@ -47,7 +46,7 @@ goog.inherits(goog.testing.net.MockIFrameIo, goog.events.EventTarget);
  * @type {boolean}
  * @private
  */
-goog.testing.net.MockIFrameIo.prototype.active_ = false;
+MockIFrameIo.prototype.active_ = false;
 
 
 /**
@@ -55,16 +54,16 @@ goog.testing.net.MockIFrameIo.prototype.active_ = false;
  * @type {string}
  * @private
  */
-goog.testing.net.MockIFrameIo.prototype.lastContent_ = '';
+MockIFrameIo.prototype.lastContent_ = '';
 
 
 /**
  * Last error code.
- * @type {goog.net.ErrorCode}
+ * @type {ErrorCode}
  * @private
  */
-goog.testing.net.MockIFrameIo.prototype.lastErrorCode_ =
-    goog.net.ErrorCode.NO_ERROR;
+MockIFrameIo.prototype.lastErrorCode_ =
+    ErrorCode.NO_ERROR;
 
 
 /**
@@ -72,7 +71,7 @@ goog.testing.net.MockIFrameIo.prototype.lastErrorCode_ =
  * @type {string}
  * @private
  */
-goog.testing.net.MockIFrameIo.prototype.lastError_ = '';
+MockIFrameIo.prototype.lastError_ = '';
 
 
 /**
@@ -80,7 +79,7 @@ goog.testing.net.MockIFrameIo.prototype.lastError_ = '';
  * @type {?Object}
  * @private
  */
-goog.testing.net.MockIFrameIo.prototype.lastCustomError_ = null;
+MockIFrameIo.prototype.lastCustomError_ = null;
 
 
 /**
@@ -88,19 +87,19 @@ goog.testing.net.MockIFrameIo.prototype.lastCustomError_ = null;
  * @type {?goog.Uri}
  * @private
  */
-goog.testing.net.MockIFrameIo.prototype.lastUri_ = null;
+MockIFrameIo.prototype.lastUri_ = null;
 
 
 /** @private {Function} */
-goog.testing.net.MockIFrameIo.prototype.errorChecker_;
+MockIFrameIo.prototype.errorChecker_;
 
 
 /** @private {boolean} */
-goog.testing.net.MockIFrameIo.prototype.success_;
+MockIFrameIo.prototype.success_;
 
 
 /** @private {boolean} */
-goog.testing.net.MockIFrameIo.prototype.complete_;
+MockIFrameIo.prototype.complete_;
 
 
 /**
@@ -113,16 +112,15 @@ goog.testing.net.MockIFrameIo.prototype.complete_;
  *     caching.
  * @param {Object|goog.structs.Map=} opt_data Map of key-value pairs.
  */
-goog.testing.net.MockIFrameIo.prototype.send = function(
+MockIFrameIo.prototype.send = function(
     uri, opt_method, opt_noCache, opt_data) {
-  'use strict';
-  if (this.active_) {
-    throw new Error('[goog.net.IframeIo] Unable to send, already active.');
-  }
+ if (this.active_) {
+   throw new Error('[goog.net.IframeIo] Unable to send, already active.');
+ }
 
-  this.testQueue_.enqueue(['s', uri, opt_method, opt_noCache, opt_data]);
-  this.complete_ = false;
-  this.active_ = true;
+ this.testQueue_.enqueue(['s', uri, opt_method, opt_noCache, opt_data]);
+ this.complete_ = false;
+ this.active_ = true;
 };
 
 
@@ -134,35 +132,33 @@ goog.testing.net.MockIFrameIo.prototype.send = function(
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
  */
-goog.testing.net.MockIFrameIo.prototype.sendFromForm = function(
+MockIFrameIo.prototype.sendFromForm = function(
     form, opt_uri, opt_noCache) {
-  'use strict';
-  if (this.active_) {
-    throw new Error('[goog.net.IframeIo] Unable to send, already active.');
-  }
+ if (this.active_) {
+   throw new Error('[goog.net.IframeIo] Unable to send, already active.');
+ }
 
-  this.testQueue_.enqueue(['s', form, opt_uri, opt_noCache]);
-  this.complete_ = false;
-  this.active_ = true;
+ this.testQueue_.enqueue(['s', form, opt_uri, opt_noCache]);
+ this.complete_ = false;
+ this.active_ = true;
 };
 
 
 /**
  * Simulates aborting the current Iframe request.
- * @param {goog.net.ErrorCode=} opt_failureCode Optional error code to use -
+ * @param {ErrorCode=} opt_failureCode Optional error code to use -
  *     defaults to ABORT.
  */
-goog.testing.net.MockIFrameIo.prototype.abort = function(opt_failureCode) {
-  'use strict';
-  if (this.active_) {
-    this.testQueue_.enqueue(['a', opt_failureCode]);
-    this.complete_ = false;
-    this.active_ = false;
-    this.success_ = false;
-    this.lastErrorCode_ = opt_failureCode || goog.net.ErrorCode.ABORT;
-    this.dispatchEvent(goog.net.EventType.ABORT);
-    this.simulateReady();
-  }
+MockIFrameIo.prototype.abort = function(opt_failureCode) {
+ if (this.active_) {
+   this.testQueue_.enqueue(['a', opt_failureCode]);
+   this.complete_ = false;
+   this.active_ = false;
+   this.success_ = false;
+   this.lastErrorCode_ = opt_failureCode || ErrorCode.ABORT;
+   this.dispatchEvent(EventType.ABORT);
+   this.simulateReady();
+ }
 };
 
 
@@ -170,68 +166,62 @@ goog.testing.net.MockIFrameIo.prototype.abort = function(opt_failureCode) {
  * Simulates receive of incremental data.
  * @param {Object} data Data.
  */
-goog.testing.net.MockIFrameIo.prototype.simulateIncrementalData = function(
+MockIFrameIo.prototype.simulateIncrementalData = function(
     data) {
-  'use strict';
-  this.dispatchEvent(new goog.net.IframeIo.IncrementalDataEvent(data));
+ this.dispatchEvent(new IframeIo.IncrementalDataEvent(data));
 };
 
 
 /**
  * Simulates the iframe is done.
- * @param {goog.net.ErrorCode} errorCode The error code for any error that
+ * @param {ErrorCode} errorCode The error code for any error that
  *     should be simulated.
  */
-goog.testing.net.MockIFrameIo.prototype.simulateDone = function(errorCode) {
-  'use strict';
-  if (errorCode) {
-    this.success_ = false;
-    this.lastErrorCode_ = goog.net.ErrorCode.HTTP_ERROR;
-    this.lastError_ = this.getLastError();
-    this.dispatchEvent(goog.net.EventType.ERROR);
-  } else {
-    this.success_ = true;
-    this.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
-    this.dispatchEvent(goog.net.EventType.SUCCESS);
-  }
-  this.complete_ = true;
-  this.dispatchEvent(goog.net.EventType.COMPLETE);
+MockIFrameIo.prototype.simulateDone = function(errorCode) {
+ if (errorCode) {
+   this.success_ = false;
+   this.lastErrorCode_ = ErrorCode.HTTP_ERROR;
+   this.lastError_ = this.getLastError();
+   this.dispatchEvent(EventType.ERROR);
+ } else {
+   this.success_ = true;
+   this.lastErrorCode_ = ErrorCode.NO_ERROR;
+   this.dispatchEvent(EventType.SUCCESS);
+ }
+ this.complete_ = true;
+ this.dispatchEvent(EventType.COMPLETE);
 };
 
 
 /**
  * Simulates the IFrame is ready for the next request.
  */
-goog.testing.net.MockIFrameIo.prototype.simulateReady = function() {
-  'use strict';
-  this.dispatchEvent(goog.net.EventType.READY);
+MockIFrameIo.prototype.simulateReady = function() {
+ this.dispatchEvent(EventType.READY);
 };
 
 
 /**
  * @return {boolean} True if transfer is complete.
  */
-goog.testing.net.MockIFrameIo.prototype.isComplete = function() {
-  'use strict';
-  return this.complete_;
+MockIFrameIo.prototype.isComplete = function() {
+ return this.complete_;
 };
 
 
 /**
  * @return {boolean} True if transfer was successful.
  */
-goog.testing.net.MockIFrameIo.prototype.isSuccess = function() {
-  'use strict';
-  return this.success_;
+MockIFrameIo.prototype.isSuccess = function() {
+ return this.success_;
 };
 
 
 /**
  * @return {boolean} True if a transfer is in progress.
  */
-goog.testing.net.MockIFrameIo.prototype.isActive = function() {
-  'use strict';
-  return this.active_;
+MockIFrameIo.prototype.isActive = function() {
+ return this.active_;
 };
 
 
@@ -240,9 +230,8 @@ goog.testing.net.MockIFrameIo.prototype.isActive = function() {
  * Assumes plain text!
  * @return {string} Result from the server.
  */
-goog.testing.net.MockIFrameIo.prototype.getResponseText = function() {
-  'use strict';
-  return this.lastContent_;
+MockIFrameIo.prototype.getResponseText = function() {
+ return this.lastContent_;
 };
 
 
@@ -251,9 +240,8 @@ goog.testing.net.MockIFrameIo.prototype.getResponseText = function() {
  * if the response is malformed.
  * @return {!Object} The parsed content.
  */
-goog.testing.net.MockIFrameIo.prototype.getResponseJson = function() {
-  'use strict';
-  return /** @type {!Object} */ (JSON.parse(this.lastContent_));
+MockIFrameIo.prototype.getResponseJson = function() {
+ return /** @type {!Object} */ (JSON.parse(this.lastContent_));
 };
 
 
@@ -261,19 +249,17 @@ goog.testing.net.MockIFrameIo.prototype.getResponseJson = function() {
  * Get the uri of the last request.
  * @return {goog.Uri} Uri of last request.
  */
-goog.testing.net.MockIFrameIo.prototype.getLastUri = function() {
-  'use strict';
-  return this.lastUri_;
+MockIFrameIo.prototype.getLastUri = function() {
+ return this.lastUri_;
 };
 
 
 /**
  * Gets the last error code.
- * @return {goog.net.ErrorCode} Last error code.
+ * @return {ErrorCode} Last error code.
  */
-goog.testing.net.MockIFrameIo.prototype.getLastErrorCode = function() {
-  'use strict';
-  return this.lastErrorCode_;
+MockIFrameIo.prototype.getLastErrorCode = function() {
+ return this.lastErrorCode_;
 };
 
 
@@ -281,9 +267,8 @@ goog.testing.net.MockIFrameIo.prototype.getLastErrorCode = function() {
  * Gets the last error message.
  * @return {string} Last error message.
  */
-goog.testing.net.MockIFrameIo.prototype.getLastError = function() {
-  'use strict';
-  return goog.net.ErrorCode.getDebugMessage(this.lastErrorCode_);
+MockIFrameIo.prototype.getLastError = function() {
+ return ErrorCode.getDebugMessage(this.lastErrorCode_);
 };
 
 
@@ -291,9 +276,8 @@ goog.testing.net.MockIFrameIo.prototype.getLastError = function() {
  * Gets the last custom error.
  * @return {Object} Last custom error.
  */
-goog.testing.net.MockIFrameIo.prototype.getLastCustomError = function() {
-  'use strict';
-  return this.lastCustomError_;
+MockIFrameIo.prototype.getLastCustomError = function() {
+ return this.lastCustomError_;
 };
 
 
@@ -303,9 +287,8 @@ goog.testing.net.MockIFrameIo.prototype.getLastCustomError = function() {
  * @param {Function} fn Callback that expects a document object as it's single
  *     argument.
  */
-goog.testing.net.MockIFrameIo.prototype.setErrorChecker = function(fn) {
-  'use strict';
-  this.errorChecker_ = fn;
+MockIFrameIo.prototype.setErrorChecker = function(fn) {
+ this.errorChecker_ = fn;
 };
 
 
@@ -315,7 +298,6 @@ goog.testing.net.MockIFrameIo.prototype.setErrorChecker = function(fn) {
  * @return {Function} A callback that expects a document object as it's single
  *     argument.
  */
-goog.testing.net.MockIFrameIo.prototype.getErrorChecker = function() {
-  'use strict';
-  return this.errorChecker_;
+MockIFrameIo.prototype.getErrorChecker = function() {
+ return this.errorChecker_;
 };

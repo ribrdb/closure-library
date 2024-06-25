@@ -8,14 +8,13 @@
  * @fileoverview
  * @suppress {missingRequire} Swapping XhrIo
  */
-goog.module('goog.i18n.uChar.RemoteNameFetcherTest');
 goog.setTestOnly();
 
-const NetXhrIo = goog.require('goog.testing.net.XhrIo');
-const RemoteNameFetcher = goog.require('goog.i18n.uChar.RemoteNameFetcher');
-const XhrIo = goog.require('goog.net.XhrIo');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { XhrIo as NetXhrIo } from '../../testing/net/xhrio.js';
+import { RemoteNameFetcher } from './remotenamefetcher.js';
+import { XhrIo } from '../../net/xhrio.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let nameFetcher = null;
 

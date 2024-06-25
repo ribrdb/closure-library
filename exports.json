@@ -2582,6 +2582,7 @@
     "DateIntervalFormat"
   ],
   "closure/goog/i18n/dateintervalpatterns.js": [
+    "DateIntervalPatterns",
     "getDateIntervalPatterns",
     "setDateIntervalPatterns",
     "DateIntervalPatterns_af",
@@ -3407,6 +3408,8 @@
     "DateIntervalPatterns_zu_ZA"
   ],
   "closure/goog/i18n/dateintervalsymbols.js": [
+    "DateIntervalPatternMap",
+    "DateIntervalSymbols",
     "getDateIntervalSymbols",
     "setDateIntervalSymbols",
     "DateIntervalSymbols_af",
@@ -5891,6 +5894,7 @@
     "DateTimeSymbols_zu_ZA"
   ],
   "closure/goog/i18n/dayperiodsymbols.js": [
+    "DayPeriodInfo",
     "DayPeriods",
     "DayPeriods_zh_Hant",
     "getDayPeriods",
@@ -5899,6 +5903,8 @@
   "closure/goog/i18n/durationformat.js": [
     "DurationFormatStyle",
     "DurationFormatUnit",
+    "DurationLike",
+    "DurationFormatOptions",
     "DurationFormat"
   ],
   "closure/goog/i18n/durationsymbols.js": [
@@ -6726,6 +6732,10 @@
     "DurationSymbols_zh_Hant_TW",
     "DurationSymbols_zu_ZA"
   ],
+  "closure/goog/i18n/durationsymboltypes.js": [
+    "DurationSymbols",
+    "DurationSymbolsFormatStyles"
+  ],
   "closure/goog/i18n/graphemebreak.js": [
     "property",
     "hasGraphemeBreak",
@@ -6737,6 +6747,7 @@
     "ListFormat"
   ],
   "closure/goog/i18n/listsymbols.js": [
+    "ListFormatSymbols",
     "ListFormatSymbols_af",
     "ListFormatSymbols_am",
     "ListFormatSymbols_ar",
@@ -7587,6 +7598,7 @@
     "getHexCharArray"
   ],
   "closure/goog/i18n/nativelocaledigits.js": [
+    "LocaleScriptMap",
     "FormatWithLocaleDigits"
   ],
   "closure/goog/i18n/numberformat.js": [
@@ -8525,6 +8537,10 @@
     "RelativeDateTimeFormat"
   ],
   "closure/goog/i18n/relativedatetimesymbols.js": [
+    "RelativeDateTimeSymbols",
+    "RelativeDateTimeFormatStyles",
+    "StyleElement",
+    "RelativeDateTimeDirectionMap",
     "getRelativeDateTimeSymbols",
     "setRelativeDateTimeSymbols",
     "RelativeDateTimeSymbols_af",
@@ -9441,6 +9457,10 @@
   "closure/goog/json/nativejsonprocessor.js": [
     "default"
   ],
+  "closure/goog/json/types.js": [
+    "Replacer",
+    "Reviver"
+  ],
   "closure/goog/labs/dom/pagevisibilityevent.js": [
     "default"
   ],
@@ -9683,6 +9703,7 @@
   ],
   "closure/goog/labs/useragent/browser.js": [
     "Brand",
+    "AllBrands",
     "isOpera",
     "isIE",
     "isEdge",

@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.uCharNamesTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const uCharNames = goog.require('goog.i18n.uCharNames');
+import { testSuite } from '../testing/testsuite.js';
+import * as uCharNames from './ucharnames.js';
 
 testSuite({
   testToName() {

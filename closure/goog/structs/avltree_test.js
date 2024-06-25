@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.AvlTreeTest');
 goog.setTestOnly();
 
-const AvlTree = goog.require('goog.structs.AvlTree');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AvlTree } from './avltree.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // See https://github.com/google/closure-library/issues/896
 

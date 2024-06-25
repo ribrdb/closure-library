@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.format.EmailAddressTest');
 goog.setTestOnly();
 
-const EmailAddress = goog.require('goog.format.EmailAddress');
-const Format = goog.require('goog.i18n.bidi.Format');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EmailAddress } from './emailaddress.js';
+import { Format } from '../i18n/bidi.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from '../testing/testsuite.js';
 const LRM = Format.LRM;
 const RLM = Format.RLM;
 const LRE = Format.LRE;

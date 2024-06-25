@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ComponentTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const NodeType = goog.require('goog.dom.NodeType');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from './component.js';
+import * as dom from '../dom/dom.js';
+import { DomHelper } from '../dom/dom.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import { NodeType } from '../dom/nodetype.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let component;
 const propertyReplacer = new PropertyReplacer();

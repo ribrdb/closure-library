@@ -8,13 +8,12 @@
  * @fileoverview Utility methods to deal with CSS3 transforms programmatically.
  */
 
-goog.provide('goog.style.transform');
+import * as functions from '../functions/functions.js';
 
-goog.require('goog.functions');
-goog.require('goog.math.Coordinate');
-goog.require('goog.math.Coordinate3');
-goog.require('goog.style');
-goog.require('goog.userAgent');
+import { Coordinate } from '../math/coordinate.js';
+import { Coordinate3 } from '../math/coordinate3.js';
+import * as style from './style.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
@@ -23,20 +22,19 @@ goog.require('goog.userAgent');
  * element, in pixels.
  *
  * @param {!Element} element The element to get the translation of.
- * @return {!goog.math.Coordinate} The CSS translation of the element in px.
+ * @return {!Coordinate} The CSS translation of the element in px.
  */
-goog.style.transform.getTranslation = function(element) {
-  'use strict';
-  var transform = goog.style.getComputedTransform(element);
-  var matrixConstructor = goog.style.transform.matrixConstructor_();
+export function getTranslation(element) {
+  var transform = style.getComputedTransform(element);
+  var matrixConstructor = matrixConstructor_();
   if (transform && matrixConstructor) {
     var matrix = new matrixConstructor(transform);
     if (matrix) {
-      return new goog.math.Coordinate(matrix.m41, matrix.m42);
+      return new Coordinate(matrix.m41, matrix.m42);
     }
   }
-  return new goog.math.Coordinate(0, 0);
-};
+  return new Coordinate(0, 0);
+}
 
 
 /**
@@ -47,16 +45,15 @@ goog.style.transform.getTranslation = function(element) {
  * @param {number} y The vertical translation.
  * @return {boolean} Whether the CSS translation was set.
  */
-goog.style.transform.setTranslation = function(element, x, y) {
-  'use strict';
+export function setTranslation(element, x, y) {
   // TODO(user): After http://crbug.com/324107 is fixed, it will be faster to
   // use something like: translation = new CSSMatrix().translate(x, y, 0);
   var translation = 'translate3d(' + x + 'px,' + y + 'px,' +
       '0px)';
-  goog.style.setStyle(
-      element, goog.style.transform.getTransformProperty_(), translation);
+  style.setStyle(
+      element, getTransformProperty_(), translation);
   return true;
-};
+}
 
 
 /**
@@ -64,20 +61,19 @@ goog.style.transform.setTranslation = function(element, x, y) {
  * the element.
  *
  * @param {!Element} element The element to get the scale of.
- * @return {!goog.math.Coordinate3} The scale of the element.
+ * @return {!Coordinate3} The scale of the element.
  */
-goog.style.transform.getScale = function(element) {
-  'use strict';
-  var transform = goog.style.getComputedTransform(element);
-  var matrixConstructor = goog.style.transform.matrixConstructor_();
+export function getScale(element) {
+  var transform = style.getComputedTransform(element);
+  var matrixConstructor = matrixConstructor_();
   if (transform && matrixConstructor) {
     var matrix = new matrixConstructor(transform);
     if (matrix) {
-      return new goog.math.Coordinate3(matrix.m11, matrix.m22, matrix.m33);
+      return new Coordinate3(matrix.m11, matrix.m22, matrix.m33);
     }
   }
-  return new goog.math.Coordinate3(0, 0, 0);
-};
+  return new Coordinate3(0, 0, 0);
+}
 
 
 /**
@@ -89,13 +85,12 @@ goog.style.transform.getScale = function(element) {
  * @param {number} z The depth scale.
  * @return {boolean} Whether the CSS scale was set.
  */
-goog.style.transform.setScale = function(element, x, y, z) {
-  'use strict';
+export function setScale(element, x, y, z) {
   var scale = 'scale3d(' + x + ',' + y + ',' + z + ')';
-  goog.style.setStyle(
-      element, goog.style.transform.getTransformProperty_(), scale);
+  style.setStyle(
+      element, getTransformProperty_(), scale);
   return true;
-};
+}
 
 
 /**
@@ -103,10 +98,9 @@ goog.style.transform.setScale = function(element, x, y, z) {
  * @param {!Element} element The element to get the rotation of.
  * @return {number} The rotation of the element in degrees.
  */
-goog.style.transform.getRotation = function(element) {
-  'use strict';
-  var transform = goog.style.getComputedTransform(element);
-  var matrixConstructor = goog.style.transform.matrixConstructor_();
+export function getRotation(element) {
+  var transform = style.getComputedTransform(element);
+  var matrixConstructor = matrixConstructor_();
   if (transform && matrixConstructor) {
     var matrix = new matrixConstructor(transform);
     if (matrix) {
@@ -116,7 +110,7 @@ goog.style.transform.getRotation = function(element) {
     }
   }
   return 0;
-};
+}
 
 
 /**
@@ -126,13 +120,12 @@ goog.style.transform.getRotation = function(element) {
  * @param {number} degrees The number of degrees to rotate by.
  * @return {boolean} Whether the CSS rotation was set.
  */
-goog.style.transform.setRotation = function(element, degrees) {
-  'use strict';
+export function setRotation(element, degrees) {
   var rotation = 'rotate3d(0,0,1,' + degrees + 'deg)';
-  goog.style.setStyle(
-      element, goog.style.transform.getTransformProperty_(), rotation);
+  style.setStyle(
+      element, getTransformProperty_(), rotation);
   return true;
-};
+}
 
 
 /**
@@ -142,13 +135,11 @@ goog.style.transform.setRotation = function(element, degrees) {
  *     is IE9.
  * @private
  */
-goog.style.transform.getTransformProperty_ =
-    goog.functions.cacheReturnValue(function() {
-      'use strict';
-      return goog.userAgent.IE && goog.userAgent.DOCUMENT_MODE == 9 ?
-          '-ms-transform' :
-          'transform';
-    });
+var getTransformProperty_ = functions.cacheReturnValue(function() {
+  return userAgent.IE && userAgent.DOCUMENT_MODE == 9 ?
+      '-ms-transform' :
+      'transform';
+});
 
 
 /**
@@ -157,17 +148,15 @@ goog.style.transform.getTransformProperty_ =
  *     object (or null).
  * @private
  */
-goog.style.transform.matrixConstructor_ =
-    goog.functions.cacheReturnValue(function() {
-      'use strict';
-      if (goog.global['WebKitCSSMatrix'] !== undefined) {
-        return goog.global['WebKitCSSMatrix'];
-      }
-      if (goog.global['MSCSSMatrix'] !== undefined) {
-        return goog.global['MSCSSMatrix'];
-      }
-      if (goog.global['CSSMatrix'] !== undefined) {
-        return goog.global['CSSMatrix'];
-      }
-      return null;
-    });
+var matrixConstructor_ = functions.cacheReturnValue(function() {
+  if (goog.global['WebKitCSSMatrix'] !== undefined) {
+    return goog.global['WebKitCSSMatrix'];
+  }
+  if (goog.global['MSCSSMatrix'] !== undefined) {
+    return goog.global['MSCSSMatrix'];
+  }
+  if (goog.global['CSSMatrix'] !== undefined) {
+    return goog.global['CSSMatrix'];
+  }
+  return null;
+});

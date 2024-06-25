@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.AbstractBubblePluginTest');
 goog.setTestOnly();
 
-const AbstractBubblePlugin = goog.require('goog.editor.plugins.AbstractBubblePlugin');
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Bubble = goog.require('goog.ui.editor.Bubble');
-const EventType = goog.require('goog.events.EventType');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const functions = goog.require('goog.functions');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { AbstractBubblePlugin } from './abstractbubbleplugin.js';
+import { BrowserEvent } from '../../events/browserevent.js';
+import { Bubble } from '../../ui/editor/bubble.js';
+import { EventType } from '../../events/eventtype.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import * as events from '../../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../../testing/events/events.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as functions from '../../functions/functions.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let testHelper;
 let fieldDiv;

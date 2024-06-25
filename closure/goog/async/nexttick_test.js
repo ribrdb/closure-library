@@ -3,19 +3,18 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.async.nextTickTest');
 goog.setTestOnly();
 
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const GoogPromise = goog.require('goog.Promise');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dom = goog.require('goog.dom');
-const entryPointRegistry = goog.require('goog.debug.entryPointRegistry');
-const nextTick = goog.require('goog.async.nextTick');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorHandler } from '../debug/errorhandler.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as browser from '../labs/useragent/browser.js';
+import * as dom from '../dom/dom.js';
+import * as entryPointRegistry from '../debug/entrypointregistry.js';
+import { nextTick } from './nexttick.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let clock;
 const propertyReplacer = new PropertyReplacer();

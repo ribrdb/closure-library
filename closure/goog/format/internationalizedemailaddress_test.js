@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.format.InternationalizedEmailAddressTest');
 goog.setTestOnly();
 
-const InternationalizedEmailAddress = goog.require('goog.format.InternationalizedEmailAddress');
-const testSuite = goog.require('goog.testing.testSuite');
+import { InternationalizedEmailAddress } from './internationalizedemailaddress.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Asserts that the given validation function generates the expected outcome for

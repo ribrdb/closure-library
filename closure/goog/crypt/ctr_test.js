@@ -9,13 +9,12 @@
  */
 
 
-goog.module('goog.crypt.CtrTest');
 goog.setTestOnly('goog.crypt.CtrTest');
 
-const Aes = goog.require('goog.crypt.Aes');
-const Ctr = goog.require('goog.crypt.Ctr');
-const googCrypt = goog.require('goog.crypt');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Aes } from './aes.js';
+import { Ctr } from './ctr.js';
+import * as googCrypt from './crypt.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 /**

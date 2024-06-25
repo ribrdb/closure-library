@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.style.app.ButtonRendererTest');
 goog.setTestOnly();
 
-const Button = goog.require('goog.ui.Button');
-const ButtonRenderer = goog.require('goog.ui.style.app.ButtonRenderer');
-const Component = goog.require('goog.ui.Component');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.testing.ui.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Button } from '../../button.js';
+import { ButtonRenderer } from './buttonrenderer.js';
+import { Component } from '../../component.js';
+import * as dom from '../../../dom/dom.js';
+import style from '../../../testing/ui/style.js';
+import { testSuite } from '../../../testing/testsuite.js';
+import * as userAgent from '../../../useragent/useragent.js';
 
 const renderer = ButtonRenderer.getInstance();
 let button;

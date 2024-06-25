@@ -12,25 +12,22 @@
 // TODO(arv): Serialize booleans as 0 and 1
 
 
-goog.provide('goog.proto.Serializer');
+import { Serializer as jsonSerializer } from '../json/json.js';
 
-
-goog.require('goog.json.Serializer');
-goog.require('goog.string');
+import * as string from '../string/string.js';
 
 
 
 /**
  * Object that can serialize objects or values to a protocol buffer string.
  * @constructor
- * @extends {goog.json.Serializer}
+ * @extends {jsonSerializer}
  * @final
  */
-goog.proto.Serializer = function() {
-  'use strict';
-  goog.json.Serializer.call(this);
-};
-goog.inherits(goog.proto.Serializer, goog.json.Serializer);
+export function Serializer() {
+  jsonSerializer.call(this);
+}
+goog.inherits(Serializer, jsonSerializer);
 
 
 /**
@@ -40,8 +37,7 @@ goog.inherits(goog.proto.Serializer, goog.json.Serializer);
  * @param {Array<string>} sb Array used as a string builder.
  * @override
  */
-goog.proto.Serializer.prototype.serializeArray = function(arr, sb) {
-  'use strict';
+Serializer.prototype.serializeArray = function(arr, sb) {
   const l = arr.length;
   sb.push('[');
   let emptySlots = 0;
@@ -52,7 +48,7 @@ goog.proto.Serializer.prototype.serializeArray = function(arr, sb) {
     } else {
       sb.push(sep);
       if (emptySlots > 0) {
-        sb.push(goog.string.repeat('null,', emptySlots));
+        sb.push(string.repeat('null,', emptySlots));
         emptySlots = 0;
       }
       this.serializeInternal(arr[i], sb);

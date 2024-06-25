@@ -9,22 +9,21 @@
  * to preload multiple images, for example so they can be sized.
  */
 
-goog.provide('goog.net.ImageLoader');
+import { dispose } from '../disposable/dispose.js';
 
-goog.require('goog.dispose');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.net.EventType');
-goog.require('goog.object');
-goog.requireType('goog.events.Event');
+import * as googDom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../events/eventtype.js';
+import { EventType as netEventType } from './eventtype.js';
+import object from '../object/object.js';
+goog.requireType('goog.events.event');
 
 
 
 /**
- * Image loader utility class.  Raises a {@link goog.events.EventType.LOAD}
+ * Image loader utility class.  Raises a {@link EventType.LOAD}
  * event for each image loaded, with an {@link Image} object as the target of
  * the event, normalized to have `naturalHeight` and `naturalWidth`
  * attributes.
@@ -32,8 +31,8 @@ goog.requireType('goog.events.Event');
  * To use this class, run:
  *
  * <pre>
- *   const imageLoader = new goog.net.ImageLoader();
- *   goog.events.listen(imageLoader, goog.net.EventType.COMPLETE,
+ *   const imageLoader = new ImageLoader();
+ *   goog.events.listen(imageLoader, netEventType.COMPLETE,
  *       function(e) { ... });
  *   imageLoader.addImage("image_id", "http://path/to/image.gif");
  *   imageLoader.start();
@@ -42,26 +41,25 @@ goog.requireType('goog.events.Event');
  * The start() method must be called to start image loading.  Images can be
  * added and removed after loading has started, but only those images added
  * before start() was called will be loaded until start() is called again.
- * A goog.net.EventType.COMPLETE event will be dispatched only once all
+ * A netEventType.COMPLETE event will be dispatched only once all
  * outstanding images have completed uploading.
  *
  * @param {Element=} opt_parent An optional parent element whose document object
  *     should be used to load images.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @final
  */
-goog.net.ImageLoader = function(opt_parent) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function ImageLoader(opt_parent) {
+  EventTarget.call(this);
 
   /**
-   * Map of image IDs to their request including their image src, used to keep
-   * track of the images to load.  Once images have started loading, they're
-   * removed from this map.
-   * @type {!Object<!goog.net.ImageLoader.ImageRequest_>}
-   * @private
-   */
+     * Map of image IDs to their request including their image src, used to keep
+     * track of the images to load.  Once images have started loading, they're
+     * removed from this map.
+     * @type {!Object<!ImageLoader.ImageRequest_>}
+     * @private
+     */
   this.imageIdToRequestMap_ = {};
 
   /**
@@ -74,12 +72,12 @@ goog.net.ImageLoader = function(opt_parent) {
   this.imageIdToImageMap_ = {};
 
   /**
-   * Event handler object, used to keep track of onload and onreadystatechange
-   * listeners.
-   * @type {!goog.events.EventHandler<!goog.net.ImageLoader>}
-   * @private
-   */
-  this.handler_ = new goog.events.EventHandler(this);
+       * Event handler object, used to keep track of onload and onreadystatechange
+       * listeners.
+       * @type {!EventHandler<!ImageLoader>}
+       * @private
+       */
+  this.handler_ = new EventHandler(this);
 
   /**
    * The parent element whose document object will be used to load images.
@@ -98,8 +96,8 @@ goog.net.ImageLoader = function(opt_parent) {
    * @private
    */
   this.completionFired_ = false;
-};
-goog.inherits(goog.net.ImageLoader, goog.events.EventTarget);
+}
+goog.inherits(ImageLoader, EventTarget);
 
 
 /**
@@ -110,7 +108,7 @@ goog.inherits(goog.net.ImageLoader, goog.events.EventTarget);
  * @see https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image
  * @enum {string}
  */
-goog.net.ImageLoader.CorsRequestType = {
+ImageLoader.CorsRequestType = {
   ANONYMOUS: 'anonymous',
   USE_CREDENTIALS: 'use-credentials',
 };
@@ -121,11 +119,11 @@ goog.net.ImageLoader.CorsRequestType = {
  * type, if any.
  * @typedef {{
  *   src: string,
- *   corsRequestType: ?goog.net.ImageLoader.CorsRequestType
+ *   corsRequestType: ?ImageLoader.CorsRequestType
  * }}
  * @private
  */
-goog.net.ImageLoader.ImageRequest_;
+ImageLoader.ImageRequest_;
 
 
 /**
@@ -145,10 +143,10 @@ goog.net.ImageLoader.ImageRequest_;
  * @type {!Array<string>}
  * @private
  */
-goog.net.ImageLoader.IMAGE_LOAD_EVENTS_ = [
-  goog.events.EventType.LOAD,
-  goog.net.EventType.ABORT,
-  goog.net.EventType.ERROR,
+ImageLoader.IMAGE_LOAD_EVENTS_ = [
+  EventType.LOAD,
+  netEventType.ABORT,
+  netEventType.ERROR,
 ];
 
 
@@ -161,12 +159,11 @@ goog.net.ImageLoader.IMAGE_LOAD_EVENTS_ = [
  * @param {string} id The ID of the image to load.
  * @param {string|Image} image Either the source URL of the image or the HTML
  *     image element itself (or any object with a `src` property, really).
- * @param {!goog.net.ImageLoader.CorsRequestType=} opt_corsRequestType The type
+ * @param {!ImageLoader.CorsRequestType=} opt_corsRequestType The type
  *     of CORS request to use, if any.
  */
-goog.net.ImageLoader.prototype.addImage = function(
+ImageLoader.prototype.addImage = function(
     id, image, opt_corsRequestType) {
-  'use strict';
   const src = (typeof image === 'string') ? image : image.src;
   if (src) {
     this.completionFired_ = false;
@@ -185,8 +182,7 @@ goog.net.ImageLoader.prototype.addImage = function(
  * If the image was previously loading, removes any listeners for its events.
  * @param {string} id The ID of the image to remove.
  */
-goog.net.ImageLoader.prototype.removeImage = function(id) {
-  'use strict';
+ImageLoader.prototype.removeImage = function(id) {
   delete this.imageIdToRequestMap_[id];
 
   const image = this.imageIdToImageMap_[id];
@@ -195,7 +191,7 @@ goog.net.ImageLoader.prototype.removeImage = function(id) {
 
     // Stop listening for events on the image.
     this.handler_.unlisten(
-        image, goog.net.ImageLoader.IMAGE_LOAD_EVENTS_, this.onNetworkEvent_);
+        image, ImageLoader.IMAGE_LOAD_EVENTS_, this.onNetworkEvent_);
   }
 };
 
@@ -205,14 +201,12 @@ goog.net.ImageLoader.prototype.removeImage = function(id) {
  * event each time an image finishes loading, and a COMPLETE event after all
  * images have finished loading.
  */
-goog.net.ImageLoader.prototype.start = function() {
-  'use strict';
+ImageLoader.prototype.start = function() {
   // Iterate over the keys, rather than the full object, to essentially clone
   // the initial queued images in case any event handlers decide to add more
   // images before this loop has finished executing.
   const imageIdToRequestMap = this.imageIdToRequestMap_;
-  goog.object.getKeys(imageIdToRequestMap).forEach(function(id) {
-    'use strict';
+  object.getKeys(imageIdToRequestMap).forEach(function(id) {
     const imageRequest = imageIdToRequestMap[id];
     if (imageRequest) {
       delete imageIdToRequestMap[id];
@@ -225,12 +219,11 @@ goog.net.ImageLoader.prototype.start = function() {
 /**
  * Creates an `Image` object with the specified ID and source URL, and
  * listens for network events raised as the image is loaded.
- * @param {!goog.net.ImageLoader.ImageRequest_} imageRequest The request data.
+ * @param {!ImageLoader.ImageRequest_} imageRequest The request data.
  * @param {string} id The unique ID of the image to load.
  * @private
  */
-goog.net.ImageLoader.prototype.loadImage_ = function(imageRequest, id) {
-  'use strict';
+ImageLoader.prototype.loadImage_ = function(imageRequest, id) {
   if (this.isDisposed()) {
     // When loading an image in IE7 (and maybe IE8), the error handler
     // may fire before we yield JS control. If the error handler
@@ -241,8 +234,8 @@ goog.net.ImageLoader.prototype.loadImage_ = function(imageRequest, id) {
   /** @type {!HTMLImageElement} */
   let image;
   if (this.parent_) {
-    const dom = goog.dom.getDomHelper(this.parent_);
-    image = dom.createDom(goog.dom.TagName.IMG);
+    const dom = googDom.getDomHelper(this.parent_);
+    image = dom.createDom(TagName.IMG);
   } else {
     image = new Image();
   }
@@ -252,7 +245,7 @@ goog.net.ImageLoader.prototype.loadImage_ = function(imageRequest, id) {
   }
 
   this.handler_.listen(
-      image, goog.net.ImageLoader.IMAGE_LOAD_EVENTS_, this.onNetworkEvent_);
+      image, ImageLoader.IMAGE_LOAD_EVENTS_, this.onNetworkEvent_);
   this.imageIdToImageMap_[id] = image;
 
   image.id = id;
@@ -266,21 +259,20 @@ goog.net.ImageLoader.prototype.loadImage_ = function(imageRequest, id) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.net.ImageLoader.prototype.onNetworkEvent_ = function(evt) {
-  'use strict';
+ImageLoader.prototype.onNetworkEvent_ = function(evt) {
   const image = /** @type {Element} */ (evt.currentTarget);
 
   if (!image) {
     return;
   }
 
-  if (evt.type == goog.net.EventType.READY_STATE_CHANGE) {
+  if (evt.type == netEventType.READY_STATE_CHANGE) {
     // This implies that the user agent is IE; see loadImage_().
     // Noe that this block is used to check whether the image is ready to
     // dispatch the COMPLETE event.
-    if (image.readyState == goog.net.EventType.COMPLETE) {
+    if (image.readyState == netEventType.COMPLETE) {
       // This is the IE equivalent of a LOAD event.
-      evt.type = goog.events.EventType.LOAD;
+      evt.type = EventType.LOAD;
     } else {
       // This may imply that the load failed.
       // Note that the image has only the following states:
@@ -303,7 +295,7 @@ goog.net.ImageLoader.prototype.onNetworkEvent_ = function(evt) {
 
   // Add natural width/height properties for non-Gecko browsers.
   if (typeof image.naturalWidth == 'undefined') {
-    if (evt.type == goog.events.EventType.LOAD) {
+    if (evt.type == EventType.LOAD) {
       image.naturalWidth = image.width;
       image.naturalHeight = image.height;
     } else {
@@ -331,22 +323,20 @@ goog.net.ImageLoader.prototype.onNetworkEvent_ = function(evt) {
  * If there are no more images pending, raise a COMPLETE event.
  * @private
  */
-goog.net.ImageLoader.prototype.maybeFireCompletionEvent_ = function() {
-  'use strict';
-  if (goog.object.isEmpty(this.imageIdToImageMap_) &&
-      goog.object.isEmpty(this.imageIdToRequestMap_) &&
+ImageLoader.prototype.maybeFireCompletionEvent_ = function() {
+  if (object.isEmpty(this.imageIdToImageMap_) &&
+      object.isEmpty(this.imageIdToRequestMap_) &&
       !this.completionFired_) {
     this.completionFired_ = true;
-    this.dispatchEvent(goog.net.EventType.COMPLETE);
+    this.dispatchEvent(netEventType.COMPLETE);
   }
 };
 
 /** @override */
-goog.net.ImageLoader.prototype.disposeInternal = function() {
-  'use strict';
+ImageLoader.prototype.disposeInternal = function() {
   delete this.imageIdToRequestMap_;
   delete this.imageIdToImageMap_;
-  goog.dispose(this.handler_);
+  dispose(this.handler_);
 
-  goog.net.ImageLoader.superClass_.disposeInternal.call(this);
+  ImageLoader.superClass_.disposeInternal.call(this);
 };

@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.PortOperatorTest');
 goog.setTestOnly();
 
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const MockMessagePort = goog.require('goog.testing.messaging.MockMessagePort');
-const PortNetwork = goog.require('goog.messaging.PortNetwork');
-const PortOperator = goog.require('goog.messaging.PortOperator');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dispose = goog.require('goog.dispose');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { MockMessagePort } from '../testing/messaging/mockmessageport.js';
+import { PortNetwork } from './portnetwork.js';
+import { PortOperator } from './portoperator.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { dispose } from '../disposable/dispose.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let stubs;
 

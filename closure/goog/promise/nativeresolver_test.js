@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.promise.nativeResolverTest');
 goog.setTestOnly();
 
-const NativeResolver = goog.require('goog.promise.NativeResolver');
-const testSuite = goog.require('goog.testing.testSuite');
+import { NativeResolver } from './nativeresolver.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let resolver;
 

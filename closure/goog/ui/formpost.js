@@ -9,37 +9,34 @@
  * be used to effect a POST from JavaScript.
  */
 
-goog.provide('goog.ui.FormPost');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.dom.InputType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.ui.Component');
-goog.requireType('goog.dom.DomHelper');
+import { InputType } from '../dom/inputtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as safe from '../dom/safe.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { Component } from './component.js';
+goog.requireType('goog.dom.dom');
 
 
 
 /**
  * Creates a formpost object.
  * @constructor
- * @extends {goog.ui.Component}
+ * @extends {Component}
  * @param {goog.dom.DomHelper=} opt_dom The DOM helper.
  * @final
  */
-goog.ui.FormPost = function(opt_dom) {
-  'use strict';
-  goog.ui.Component.call(this, opt_dom);
-};
-goog.inherits(goog.ui.FormPost, goog.ui.Component);
+export function FormPost(opt_dom) {
+  Component.call(this, opt_dom);
+}
+goog.inherits(FormPost, Component);
 
 
 /** @override */
-goog.ui.FormPost.prototype.createDom = function() {
-  'use strict';
+FormPost.prototype.createDom = function() {
   this.setElementInternal(this.getDomHelper().createDom(
-      goog.dom.TagName.FORM, {'method': 'POST', 'style': 'display:none'}));
+      TagName.FORM, {'method': 'POST', 'style': 'display:none'}));
 };
 
 
@@ -55,8 +52,7 @@ goog.ui.FormPost.prototype.createDom = function() {
  *     constructor.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.FormPost.prototype.post = function(parameters, opt_url, opt_target) {
-  'use strict';
+FormPost.prototype.post = function(parameters, opt_url, opt_target) {
   var form = this.getElement();
   if (!form) {
     this.render();
@@ -76,21 +72,19 @@ goog.ui.FormPost.prototype.post = function(parameters, opt_url, opt_target) {
  *     strings, numbers, or arrays of strings or numbers.
  * @private
  */
-goog.ui.FormPost.prototype.setParameters_ = function(form, parameters) {
-  'use strict';
+FormPost.prototype.setParameters_ = function(form, parameters) {
   var name, value, html = [];
   for (name in parameters) {
     value = parameters[name];
     if (goog.isArrayLike(value)) {
-      goog.array.forEach(value, goog.bind(function(innerValue) {
-        'use strict';
+      array.forEach(value, goog.bind(function(innerValue) {
         html.push(this.createInput_(name, String(innerValue)));
       }, this));
     } else {
       html.push(this.createInput_(name, String(value)));
     }
   }
-  goog.dom.safe.setInnerHtml(form, goog.html.SafeHtml.concat(html));
+  safe.setInnerHtml(form, SafeHtml.concat(html));
 };
 
 
@@ -98,12 +92,11 @@ goog.ui.FormPost.prototype.setParameters_ = function(form, parameters) {
  * Creates a hidden <input> tag.
  * @param {string} name The name of the input.
  * @param {string} value The value of the input.
- * @return {!goog.html.SafeHtml}
+ * @return {!SafeHtml}
  * @private
  */
-goog.ui.FormPost.prototype.createInput_ = function(name, value) {
-  'use strict';
-  return goog.html.SafeHtml.create(
+FormPost.prototype.createInput_ = function(name, value) {
+  return SafeHtml.create(
       'input',
-      {'type': goog.dom.InputType.HIDDEN, 'name': name, 'value': value});
+      {'type': InputType.HIDDEN, 'name': name, 'value': value});
 };

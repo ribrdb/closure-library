@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.iter.es6Test');
 goog.setTestOnly('goog.iter.es6Test');
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {ShimIterable} = goog.require('goog.iter.es6');
-const {range, toArray} = goog.require('goog.iter');
+import { testSuite } from '../testing/testsuite.js';
+import es6 from './es6.js';
+const {ShimIterable} = es6;
+import { range, toArray } from './iter.js';
 
 /** @return {!Iterator<number>} */
 function* gen() {

@@ -10,45 +10,44 @@
  * @see ../demos/menuitem.html
  */
 
-goog.provide('goog.ui.MenuItem');
+goog.declareModuleId('goog.ui.menuitem');
 
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.array');
-goog.require('goog.dom');
-goog.require('goog.dom.classlist');
-goog.require('goog.math.Coordinate');
-goog.require('goog.string');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.Control');
-goog.require('goog.ui.MenuItemRenderer');
-goog.require('goog.ui.registry');
-goog.requireType('goog.events.KeyCodes');
-goog.requireType('goog.ui.ControlContent');  // circular
-goog.requireType('goog.ui.Menu');
+import { Role } from '../a11y/aria/roles.js';
+import * as array from '../array/array.js';
+import * as googDom from '../dom/dom.js';
+import * as classlist from '../dom/classlist.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as string from '../string/string.js';
+import { Component } from './component.js';
+import { Control } from './control.js';
+import { MenuItemRenderer } from './menuitemrenderer.js';
+import * as registry from './registry.js';
+goog.requireType('goog.events.keycodes');
+goog.requireType('goog.ui.controlcontent');  // circular
+goog.requireType('goog.ui.menu');
 
 
 
 /**
  * Class representing an item in a menu.
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to
+ * @param {ControlContent} content Text caption or DOM structure to
  *     display as the content of the item (use to add icons or styling to
  *     menus).
  * @param {*=} opt_model Data/model associated with the menu item.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper used for
+ * @param {googDom.DomHelper=} opt_domHelper Optional DOM helper used for
  *     document interactions.
- * @param {goog.ui.MenuItemRenderer=} opt_renderer Optional renderer.
+ * @param {MenuItemRenderer=} opt_renderer Optional renderer.
  * @constructor
- * @extends {goog.ui.Control}
+ * @extends {Control}
  */
-goog.ui.MenuItem = function(content, opt_model, opt_domHelper, opt_renderer) {
-  'use strict';
-  goog.ui.Control.call(
-      this, content, opt_renderer || goog.ui.MenuItemRenderer.getInstance(),
+export function MenuItem(content, opt_model, opt_domHelper, opt_renderer) {
+  Control.call(
+      this, content, opt_renderer || MenuItemRenderer.getInstance(),
       opt_domHelper);
   this.setValue(opt_model);
-};
-goog.inherits(goog.ui.MenuItem, goog.ui.Control);
+}
+goog.inherits(MenuItem, Control);
 
 
 /**
@@ -60,7 +59,7 @@ goog.inherits(goog.ui.MenuItem, goog.ui.Control);
  * @type {goog.events.KeyCodes}
  * @private
  */
-goog.ui.MenuItem.prototype.mnemonicKey_;
+MenuItem.prototype.mnemonicKey_;
 
 
 /**
@@ -73,7 +72,7 @@ goog.ui.MenuItem.prototype.mnemonicKey_;
  * @type {string}
  * @private
  */
-goog.ui.MenuItem.MNEMONIC_WRAPPER_CLASS_ =
+MenuItem.MNEMONIC_WRAPPER_CLASS_ =
     goog.getCssName('goog-menuitem-mnemonic-separator');
 
 
@@ -81,7 +80,7 @@ goog.ui.MenuItem.MNEMONIC_WRAPPER_CLASS_ =
  * The class set on an element that contains a keyboard accelerator hint.
  * @type {string}
  */
-goog.ui.MenuItem.ACCELERATOR_CLASS = goog.getCssName('goog-menuitem-accel');
+MenuItem.ACCELERATOR_CLASS = goog.getCssName('goog-menuitem-accel');
 
 
 // goog.ui.Component and goog.ui.Control implementation.
@@ -92,8 +91,7 @@ goog.ui.MenuItem.ACCELERATOR_CLASS = goog.getCssName('goog-menuitem-accel');
  * returns the model object associated with the item (if any), or its caption.
  * @return {*} Value associated with the menu item, if any, or its caption.
  */
-goog.ui.MenuItem.prototype.getValue = function() {
-  'use strict';
+MenuItem.prototype.getValue = function() {
   var model = this.getModel();
   return model != null ? model : this.getCaption();
 };
@@ -104,21 +102,19 @@ goog.ui.MenuItem.prototype.getValue = function() {
  * stores the value as the model of the menu item.
  * @param {*} value Value to be associated with the menu item.
  */
-goog.ui.MenuItem.prototype.setValue = function(value) {
-  'use strict';
+MenuItem.prototype.setValue = function(value) {
   this.setModel(value);
 };
 
 
 /** @override */
-goog.ui.MenuItem.prototype.setSupportedState = function(state, support) {
-  'use strict';
-  goog.ui.MenuItem.base(this, 'setSupportedState', state, support);
+MenuItem.prototype.setSupportedState = function(state, support) {
+  MenuItem.base(this, 'setSupportedState', state, support);
   switch (state) {
-    case goog.ui.Component.State.SELECTED:
+    case Component.State.SELECTED:
       this.setSelectableInternal_(support);
       break;
-    case goog.ui.Component.State.CHECKED:
+    case Component.State.CHECKED:
       this.setCheckableInternal_(support);
       break;
   }
@@ -130,9 +126,8 @@ goog.ui.MenuItem.prototype.setSupportedState = function(state, support) {
  * that represent selectable options.
  * @param {boolean} selectable Whether the menu item is selectable.
  */
-goog.ui.MenuItem.prototype.setSelectable = function(selectable) {
-  'use strict';
-  this.setSupportedState(goog.ui.Component.State.SELECTED, selectable);
+MenuItem.prototype.setSelectable = function(selectable) {
+  this.setSupportedState(Component.State.SELECTED, selectable);
 };
 
 
@@ -142,8 +137,7 @@ goog.ui.MenuItem.prototype.setSelectable = function(selectable) {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.MenuItem.prototype.setSelectableInternal_ = function(selectable) {
-  'use strict';
+MenuItem.prototype.setSelectableInternal_ = function(selectable) {
   if (this.isChecked() && !selectable) {
     this.setChecked(false);
   }
@@ -160,9 +154,8 @@ goog.ui.MenuItem.prototype.setSelectableInternal_ = function(selectable) {
  * that represent checkable options.
  * @param {boolean} checkable Whether the menu item is checkable.
  */
-goog.ui.MenuItem.prototype.setCheckable = function(checkable) {
-  'use strict';
-  this.setSupportedState(goog.ui.Component.State.CHECKED, checkable);
+MenuItem.prototype.setCheckable = function(checkable) {
+  this.setSupportedState(Component.State.CHECKED, checkable);
 };
 
 
@@ -172,8 +165,7 @@ goog.ui.MenuItem.prototype.setCheckable = function(checkable) {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.MenuItem.prototype.setCheckableInternal_ = function(checkable) {
-  'use strict';
+MenuItem.prototype.setCheckableInternal_ = function(checkable) {
   var element = this.getElement();
   if (element) {
     this.getRenderer().setCheckable(this, element, checkable);
@@ -185,33 +177,31 @@ goog.ui.MenuItem.prototype.setCheckableInternal_ = function(checkable) {
  * Returns the text caption of the component while ignoring accelerators.
  * @override
  */
-goog.ui.MenuItem.prototype.getCaption = function() {
-  'use strict';
+MenuItem.prototype.getCaption = function() {
   var content = this.getContent();
   if (Array.isArray(content)) {
-    var acceleratorClass = goog.ui.MenuItem.ACCELERATOR_CLASS;
-    var mnemonicWrapClass = goog.ui.MenuItem.MNEMONIC_WRAPPER_CLASS_;
+    var acceleratorClass = MenuItem.ACCELERATOR_CLASS;
+    var mnemonicWrapClass = MenuItem.MNEMONIC_WRAPPER_CLASS_;
     var caption =
-        goog.array
+        array
             .map(
                 content,
                 function(node) {
-                  'use strict';
-                  if (goog.dom.isElement(node) &&
-                      (goog.dom.classlist.contains(
+                  if (googDom.isElement(node) &&
+                      (classlist.contains(
                            /** @type {!Element} */ (node), acceleratorClass) ||
-                       goog.dom.classlist.contains(
+                       classlist.contains(
                            /** @type {!Element} */ (node),
                            mnemonicWrapClass))) {
                     return '';
                   } else {
-                    return goog.dom.getRawTextContent(node);
+                    return googDom.getRawTextContent(node);
                   }
                 })
             .join('');
-    return goog.string.collapseBreakingSpaces(caption);
+    return string.collapseBreakingSpaces(caption);
   }
-  return goog.ui.MenuItem.superClass_.getCaption.call(this);
+  return MenuItem.superClass_.getCaption.call(this);
 };
 
 
@@ -219,15 +209,13 @@ goog.ui.MenuItem.prototype.getCaption = function() {
  * @return {?string} The keyboard accelerator text, or null if the menu item
  *     doesn't have one.
  */
-goog.ui.MenuItem.prototype.getAccelerator = function() {
-  'use strict';
+MenuItem.prototype.getAccelerator = function() {
   var dom = this.getDomHelper();
   var content = this.getContent();
   if (Array.isArray(content)) {
-    var acceleratorEl = goog.array.find(content, function(e) {
-      'use strict';
-      return goog.dom.classlist.contains(
-          /** @type {!Element} */ (e), goog.ui.MenuItem.ACCELERATOR_CLASS);
+    var acceleratorEl = array.find(content, function(e) {
+      return classlist.contains(
+          /** @type {!Element} */ (e), MenuItem.ACCELERATOR_CLASS);
     });
     if (acceleratorEl) {
       return dom.getTextContent(acceleratorEl);
@@ -238,8 +226,7 @@ goog.ui.MenuItem.prototype.getAccelerator = function() {
 
 
 /** @override */
-goog.ui.MenuItem.prototype.handleMouseUp = function(e) {
-  'use strict';
+MenuItem.prototype.handleMouseUp = function(e) {
   var parentMenu = /** @type {goog.ui.Menu} */ (this.getParent());
 
   if (parentMenu) {
@@ -251,8 +238,8 @@ goog.ui.MenuItem.prototype.handleMouseUp = function(e) {
       /**
        * @suppress {strictMissingProperties} Added to tighten compiler checks
        */
-      var newCoords = new goog.math.Coordinate(e.clientX, e.clientY);
-      if (goog.math.Coordinate.equals(oldCoords, newCoords)) {
+      var newCoords = new Coordinate(e.clientX, e.clientY);
+      if (Coordinate.equals(oldCoords, newCoords)) {
         // This menu was opened by a mousedown and we're handling the consequent
         // mouseup. The coords haven't changed, meaning this was a simple click,
         // not a click and drag. Don't do the usual behavior because the menu
@@ -263,17 +250,16 @@ goog.ui.MenuItem.prototype.handleMouseUp = function(e) {
     }
   }
 
-  goog.ui.MenuItem.base(this, 'handleMouseUp', e);
+  MenuItem.base(this, 'handleMouseUp', e);
 };
 
 
 /** @override */
-goog.ui.MenuItem.prototype.handleKeyEventInternal = function(e) {
-  'use strict';
+MenuItem.prototype.handleKeyEventInternal = function(e) {
   if (e.keyCode == this.getMnemonic() && this.performActionInternal(e)) {
     return true;
   } else {
-    return goog.ui.MenuItem.base(this, 'handleKeyEventInternal', e);
+    return MenuItem.base(this, 'handleKeyEventInternal', e);
   }
 };
 
@@ -283,8 +269,7 @@ goog.ui.MenuItem.prototype.handleKeyEventInternal = function(e) {
  * action.
  * @param {goog.events.KeyCodes} key The key code.
  */
-goog.ui.MenuItem.prototype.setMnemonic = function(key) {
-  'use strict';
+MenuItem.prototype.setMnemonic = function(key) {
   this.mnemonicKey_ = key;
 };
 
@@ -294,33 +279,30 @@ goog.ui.MenuItem.prototype.setMnemonic = function(key) {
  * action.
  * @return {goog.events.KeyCodes} The key code of the mnemonic key.
  */
-goog.ui.MenuItem.prototype.getMnemonic = function() {
-  'use strict';
+MenuItem.prototype.getMnemonic = function() {
   return this.mnemonicKey_;
 };
 
 
-// Register a decorator factory function for goog.ui.MenuItems.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.MenuItemRenderer.CSS_CLASS, function() {
-      'use strict';
-      // MenuItem defaults to using MenuItemRenderer.
-      return new goog.ui.MenuItem(null);
-    });
+/* Register a decorator factory function for MenuItems.*/
+registry.setDecoratorByClassName(
+    MenuItemRenderer.CSS_CLASS, function() {
+  // MenuItem defaults to using MenuItemRenderer.
+  return new MenuItem(null);
+});
 
 
 /**
  * @override
  */
-goog.ui.MenuItem.prototype.getPreferredAriaRole = function() {
-  'use strict';
-  if (this.isSupportedState(goog.ui.Component.State.CHECKED)) {
-    return goog.a11y.aria.Role.MENU_ITEM_CHECKBOX;
+MenuItem.prototype.getPreferredAriaRole = function() {
+  if (this.isSupportedState(Component.State.CHECKED)) {
+    return Role.MENU_ITEM_CHECKBOX;
   }
-  if (this.isSupportedState(goog.ui.Component.State.SELECTED)) {
-    return goog.a11y.aria.Role.MENU_ITEM_RADIO;
+  if (this.isSupportedState(Component.State.SELECTED)) {
+    return Role.MENU_ITEM_RADIO;
   }
-  return goog.ui.MenuItem.base(this, 'getPreferredAriaRole');
+  return MenuItem.base(this, 'getPreferredAriaRole');
 };
 
 
@@ -328,10 +310,10 @@ goog.ui.MenuItem.prototype.getPreferredAriaRole = function() {
  * @override
  * @return {goog.ui.Menu}
  */
-goog.ui.MenuItem.prototype.getParent = function() {
-  'use strict';
-  return /** @type {goog.ui.Menu} */ (
-      goog.ui.Control.prototype.getParent.call(this));
+MenuItem.prototype.getParent = function() {
+  return (
+    /** @type {goog.ui.Menu} */ (Control.prototype.getParent.call(this))
+  );
 };
 
 
@@ -339,8 +321,8 @@ goog.ui.MenuItem.prototype.getParent = function() {
  * @override
  * @return {goog.ui.Menu}
  */
-goog.ui.MenuItem.prototype.getParentEventTarget = function() {
-  'use strict';
-  return /** @type {goog.ui.Menu} */ (
-      goog.ui.Control.prototype.getParentEventTarget.call(this));
+MenuItem.prototype.getParentEventTarget = function() {
+  return (
+    /** @type {goog.ui.Menu} */ (Control.prototype.getParentEventTarget.call(this))
+  );
 };

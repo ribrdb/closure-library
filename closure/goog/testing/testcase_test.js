@@ -4,22 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.TestCaseTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const FunctionMock = goog.require('goog.testing.FunctionMock');
-const GoogPromise = goog.require('goog.Promise');
-const JsUnitException = goog.require('goog.testing.JsUnitException');
-const MethodMock = goog.require('goog.testing.MethodMock');
-const MockRandom = goog.require('goog.testing.MockRandom');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const Timer = goog.require('goog.Timer');
-const functions = goog.require('goog.functions');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { ExpectedFailures } from './expectedfailures.js';
+import { FunctionMock, MethodMock } from './functionmock.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { JsUnitException } from './jsunitexception.js';
+import { MockRandom } from './mockrandom.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import { TestCase } from './testcase.js';
+import { Timer } from '../timer/timer.js';
+import * as functions from '../functions/functions.js';
+import * as googString from '../string/string.js';
+import { testSuite } from './testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Dual of fail().
 const ok = () => {

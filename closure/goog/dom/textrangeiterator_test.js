@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.TextRangeIteratorTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const TextRangeIterator = goog.require('goog.dom.TextRangeIterator');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { TagName } from './tagname.js';
+import { TextRangeIterator } from './textrangeiterator.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
 
 let test;
 let test2;

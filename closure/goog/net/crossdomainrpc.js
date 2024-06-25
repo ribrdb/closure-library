@@ -27,12 +27,12 @@
  *
  * // echo all parameters prefixed with "xdpe:"
  * const echo = {};
- * echo[goog.net.CrossDomainRpc.PARAM_ECHO_REQUEST_ID] =
+ * echo[CrossDomainRpc.PARAM_ECHO_REQUEST_ID] =
  *     &lt;value of parameter "xdpe:request-id"&gt;;
- * echo[goog.net.CrossDomainRpc.PARAM_ECHO_DUMMY_URI] =
+ * echo[CrossDomainRpc.PARAM_ECHO_DUMMY_URI] =
  *     &lt;value of parameter "xdpe:dummy-uri"&gt;;
  *
- * goog.net.CrossDomainRpc.sendResponse(
+ * CrossDomainRpc.sendResponse(
  *     '({"result":"&lt;responseInJSON"})',
  *     true,    // is JSON
  *     echo,    // parameters to echo back
@@ -55,36 +55,34 @@
  * Tested on IE6, IE7, Firefox 2.0 and Safari nightly r23841.
  */
 
-goog.provide('goog.net.CrossDomainRpc');
+import { Uri } from '../uri/uri.js';
 
-goog.require('goog.Uri');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.log');
-goog.require('goog.net.EventType');
-goog.require('goog.net.HttpStatus');
-goog.require('goog.string');
-goog.require('goog.userAgent');
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as safe from '../dom/safe.js';
+import * as events from '../events/events.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../events/eventtype.js';
+import { SafeHtml } from '../html/safehtml.js';
+import * as log from '../log/log.js';
+import { EventType as netEventType } from './eventtype.js';
+import { HttpStatus } from './httpstatus.js';
+import * as string from '../string/string.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
 /**
  * Creates a new instance of cross domain RPC.
  *
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @constructor
  * @final
  */
-goog.net.CrossDomainRpc = function() {
-  'use strict';
-  goog.events.EventTarget.call(this);
-};
-goog.inherits(goog.net.CrossDomainRpc, goog.events.EventTarget);
+export function CrossDomainRpc() {
+  EventTarget.call(this);
+}
+goog.inherits(CrossDomainRpc, EventTarget);
 
 
 /**
@@ -92,7 +90,7 @@ goog.inherits(goog.net.CrossDomainRpc, goog.events.EventTarget);
  * @type {string}
  * @private
  */
-goog.net.CrossDomainRpc.RESPONSE_MARKER_ = 'xdrp';
+CrossDomainRpc.RESPONSE_MARKER_ = 'xdrp';
 
 
 /**
@@ -100,39 +98,39 @@ goog.net.CrossDomainRpc.RESPONSE_MARKER_ = 'xdrp';
  * @type {boolean}
  * @private
  */
-goog.net.CrossDomainRpc.useFallBackDummyResource_ = true;
+CrossDomainRpc.useFallBackDummyResource_ = true;
 
 
 /** @type {Object} */
-goog.net.CrossDomainRpc.prototype.responseHeaders;
+CrossDomainRpc.prototype.responseHeaders;
 
 
 /** @type {string} */
-goog.net.CrossDomainRpc.prototype.responseText;
+CrossDomainRpc.prototype.responseText;
 
 
 /** @type {number} */
-goog.net.CrossDomainRpc.prototype.status;
+CrossDomainRpc.prototype.status;
 
 
 /** @private {number} */
-goog.net.CrossDomainRpc.prototype.timeWaitedAfterResponseReady_;
+CrossDomainRpc.prototype.timeWaitedAfterResponseReady_;
 
 
 /** @private {boolean} */
-goog.net.CrossDomainRpc.prototype.responseTextIsJson_;
+CrossDomainRpc.prototype.responseTextIsJson_;
 
 
 /** @private {boolean} */
-goog.net.CrossDomainRpc.prototype.responseReady_;
+CrossDomainRpc.prototype.responseReady_;
 
 
 /** @private {!HTMLIFrameElement} */
-goog.net.CrossDomainRpc.prototype.requestFrame_;
+CrossDomainRpc.prototype.requestFrame_;
 
 
-/** @private {goog.events.Key} */
-goog.net.CrossDomainRpc.prototype.loadListenerKey_;
+/** @private {events.Key} */
+CrossDomainRpc.prototype.loadListenerKey_;
 
 
 /**
@@ -142,13 +140,12 @@ goog.net.CrossDomainRpc.prototype.loadListenerKey_;
  *     otherwise.
  * @private
  */
-goog.net.CrossDomainRpc.isInResponseIframe_ = function() {
-  'use strict';
+CrossDomainRpc.isInResponseIframe_ = function() {
   return window.location &&
-      (window.location.hash.indexOf(goog.net.CrossDomainRpc.RESPONSE_MARKER_) ==
+      (window.location.hash.indexOf(CrossDomainRpc.RESPONSE_MARKER_) ==
            1 ||
        window.location.search.indexOf(
-           goog.net.CrossDomainRpc.RESPONSE_MARKER_) == 1);
+           CrossDomainRpc.RESPONSE_MARKER_) == 1);
 };
 
 
@@ -156,10 +153,10 @@ goog.net.CrossDomainRpc.isInResponseIframe_ = function() {
  * Stops execution of the rest of the page if this page is loaded inside a
  *    response iframe.
  */
-if (goog.net.CrossDomainRpc.isInResponseIframe_()) {
-  if (goog.userAgent.EDGE_OR_IE) {
+if (CrossDomainRpc.isInResponseIframe_()) {
+  if (userAgent.EDGE_OR_IE) {
     document.execCommand('Stop');
-  } else if (goog.userAgent.GECKO) {
+  } else if (userAgent.GECKO) {
     window.stop();
   } else {
     throw new Error('stopped');
@@ -174,9 +171,8 @@ if (goog.net.CrossDomainRpc.isInResponseIframe_()) {
  * @param {string} dummyResourceUri URI to dummy resource on the same domain
  *    of caller's page.
  */
-goog.net.CrossDomainRpc.setDummyResourceUri = function(dummyResourceUri) {
-  'use strict';
-  goog.net.CrossDomainRpc.dummyResourceUri_ = dummyResourceUri;
+CrossDomainRpc.setDummyResourceUri = function(dummyResourceUri) {
+  CrossDomainRpc.dummyResourceUri_ = dummyResourceUri;
 };
 
 
@@ -186,9 +182,8 @@ goog.net.CrossDomainRpc.setDummyResourceUri = function(dummyResourceUri) {
  * not available.
  * @param {boolean} useFallBack Whether to use fallback or not.
  */
-goog.net.CrossDomainRpc.setUseFallBackDummyResource = function(useFallBack) {
-  'use strict';
-  goog.net.CrossDomainRpc.useFallBackDummyResource_ = useFallBack;
+CrossDomainRpc.setUseFallBackDummyResource = function(useFallBack) {
+  CrossDomainRpc.useFallBackDummyResource_ = useFallBack;
 };
 
 
@@ -207,14 +202,13 @@ goog.net.CrossDomainRpc.setUseFallBackDummyResource = function(useFallBack) {
  *     request parameter.
  * @param {Object=} opt_headers Map of headers of the request.
  */
-goog.net.CrossDomainRpc.send = function(
+CrossDomainRpc.send = function(
     uri, opt_continuation, opt_method, opt_params, opt_headers) {
-  'use strict';
-  const xdrpc = new goog.net.CrossDomainRpc();
+  const xdrpc = new CrossDomainRpc();
   if (opt_continuation) {
-    goog.events.listen(xdrpc, goog.net.EventType.COMPLETE, opt_continuation);
+    events.listen(xdrpc, netEventType.COMPLETE, opt_continuation);
   }
-  goog.events.listen(xdrpc, goog.net.EventType.READY, xdrpc.reset);
+  events.listen(xdrpc, netEventType.READY, xdrpc.reset);
   xdrpc.sendRequest(uri, opt_method, opt_params, opt_headers);
 };
 
@@ -225,30 +219,28 @@ goog.net.CrossDomainRpc.send = function(
  * @param {boolean} flag Flag to indicate intention to turn debug model on
  *     (true) or off (false).
  */
-goog.net.CrossDomainRpc.setDebugMode = function(flag) {
-  'use strict';
-  goog.net.CrossDomainRpc.debugMode_ = flag;
+CrossDomainRpc.setDebugMode = function(flag) {
+  CrossDomainRpc.debugMode_ = flag;
 };
 
 
 /**
- * Logger for goog.net.CrossDomainRpc
- * @type {goog.log.Logger}
+ * Logger for CrossDomainRpc
+ * @type {log.Logger}
  * @private
  */
-goog.net.CrossDomainRpc.logger_ = goog.log.getLogger('goog.net.CrossDomainRpc');
+CrossDomainRpc.logger_ = log.getLogger('goog.net.CrossDomainRpc');
 
 
 /**
  * Creates the HTML of an input element
  * @param {string} name Name of input element.
  * @param {*} value Value of input element.
- * @return {!goog.html.SafeHtml} HTML of input element with that name and value.
+ * @return {!SafeHtml} HTML of input element with that name and value.
  * @private
  */
-goog.net.CrossDomainRpc.createInputHtml_ = function(name, value) {
-  'use strict';
-  return goog.html.SafeHtml.create('textarea', {'name': name}, String(value));
+CrossDomainRpc.createInputHtml_ = function(name, value) {
+  return SafeHtml.create('textarea', {'name': name}, String(value));
 };
 
 
@@ -258,48 +250,47 @@ goog.net.CrossDomainRpc.createInputHtml_ = function(name, value) {
  * @return {string} URI of the resource to use.
  * @private
  */
-goog.net.CrossDomainRpc.getDummyResourceUri_ = function() {
-  'use strict';
-  if (goog.net.CrossDomainRpc.dummyResourceUri_) {
-    return goog.net.CrossDomainRpc.dummyResourceUri_;
+CrossDomainRpc.getDummyResourceUri_ = function() {
+  if (CrossDomainRpc.dummyResourceUri_) {
+    return CrossDomainRpc.dummyResourceUri_;
   }
 
   // find a style sheet if not on IE, which will attempt to save style sheet
-  if (goog.userAgent.GECKO) {
-    const links = goog.dom.getElementsByTagName(goog.dom.TagName.LINK);
+  if (userAgent.GECKO) {
+    const links = dom.getElementsByTagName(TagName.LINK);
     for (let i = 0; i < links.length; i++) {
       const link = links[i];
       // find a link which is on the same domain as this page
       // cannot use one with '?' or '#' in its URL as it will confuse
-      // goog.net.CrossDomainRpc.getFramePayload_()
+      /* CrossDomainRpc.getFramePayload_()*/
       if (link.rel == 'stylesheet' &&
-          goog.Uri.haveSameDomain(link.href, window.location.href) &&
+          Uri.haveSameDomain(link.href, window.location.href) &&
           link.href.indexOf('?') < 0) {
-        return goog.net.CrossDomainRpc.removeHash_(link.href);
+        return CrossDomainRpc.removeHash_(link.href);
       }
     }
   }
 
-  const images = goog.dom.getElementsByTagName(goog.dom.TagName.IMG);
+  const images = dom.getElementsByTagName(TagName.IMG);
   for (let i = 0; i < images.length; i++) {
     const image = images[i];
     // find a link which is on the same domain as this page
     // cannot use one with '?' or '#' in its URL as it will confuse
-    // goog.net.CrossDomainRpc.getFramePayload_()
-    if (goog.Uri.haveSameDomain(image.src, window.location.href) &&
+    /* CrossDomainRpc.getFramePayload_()*/
+    if (Uri.haveSameDomain(image.src, window.location.href) &&
         image.src.indexOf('?') < 0) {
-      return goog.net.CrossDomainRpc.removeHash_(image.src);
+      return CrossDomainRpc.removeHash_(image.src);
     }
   }
 
-  if (!goog.net.CrossDomainRpc.useFallBackDummyResource_) {
+  if (!CrossDomainRpc.useFallBackDummyResource_) {
     throw new Error(
         'No suitable dummy resource specified or detected for this page');
   }
 
-  if (goog.userAgent.EDGE_OR_IE) {
+  if (userAgent.EDGE_OR_IE) {
     // use this page as the dummy resource; remove hash from URL if any
-    return goog.net.CrossDomainRpc.removeHash_(window.location.href);
+    return CrossDomainRpc.removeHash_(window.location.href);
   } else {
     /**
      * Try to use "http://<this-domain>/robots.txt" which may exist.  Even if
@@ -321,8 +312,7 @@ goog.net.CrossDomainRpc.getDummyResourceUri_ = function() {
  * @return {string} Uri with its hash and all characters after removed.
  * @private
  */
-goog.net.CrossDomainRpc.removeHash_ = function(uri) {
-  'use strict';
+CrossDomainRpc.removeHash_ = function(uri) {
   return uri.split('#')[0];
 };
 
@@ -336,44 +326,44 @@ goog.net.CrossDomainRpc.removeHash_ = function(uri) {
  * @type {number}
  * @private
  */
-goog.net.CrossDomainRpc.nextRequestId_ = 0;
+CrossDomainRpc.nextRequestId_ = 0;
 
 
 /**
  * Header prefix.
  * @type {string}
  */
-goog.net.CrossDomainRpc.HEADER = 'xdh:';
+CrossDomainRpc.HEADER = 'xdh:';
 
 
 /**
  * Parameter prefix.
  * @type {string}
  */
-goog.net.CrossDomainRpc.PARAM = 'xdp:';
+CrossDomainRpc.PARAM = 'xdp:';
 
 
 /**
  * Parameter to echo prefix.
  * @type {string}
  */
-goog.net.CrossDomainRpc.PARAM_ECHO = 'xdpe:';
+CrossDomainRpc.PARAM_ECHO = 'xdpe:';
 
 
 /**
  * Parameter to echo: request id
  * @type {string}
  */
-goog.net.CrossDomainRpc.PARAM_ECHO_REQUEST_ID =
-    goog.net.CrossDomainRpc.PARAM_ECHO + 'request-id';
+CrossDomainRpc.PARAM_ECHO_REQUEST_ID =
+    CrossDomainRpc.PARAM_ECHO + 'request-id';
 
 
 /**
  * Parameter to echo: dummy resource URI
  * @type {string}
  */
-goog.net.CrossDomainRpc.PARAM_ECHO_DUMMY_URI =
-    goog.net.CrossDomainRpc.PARAM_ECHO + 'dummy-uri';
+CrossDomainRpc.PARAM_ECHO_DUMMY_URI =
+    CrossDomainRpc.PARAM_ECHO + 'dummy-uri';
 
 
 /**
@@ -381,7 +371,7 @@ goog.net.CrossDomainRpc.PARAM_ECHO_DUMMY_URI =
  * @type {string}
  * @private
  */
-goog.net.CrossDomainRpc.REQUEST_MARKER_ = 'xdrq';
+CrossDomainRpc.REQUEST_MARKER_ = 'xdrq';
 
 
 /**
@@ -393,15 +383,14 @@ goog.net.CrossDomainRpc.REQUEST_MARKER_ = 'xdrq';
  *     request parameter.
  * @param {Object=} opt_headers Map of headers of the request.
  */
-goog.net.CrossDomainRpc.prototype.sendRequest = function(
+CrossDomainRpc.prototype.sendRequest = function(
     uri, opt_method, opt_params, opt_headers) {
-  'use strict';
   // create request frame
   const requestFrame = this.requestFrame_ =
-      goog.dom.createElement(goog.dom.TagName.IFRAME);
-  const requestId = goog.net.CrossDomainRpc.nextRequestId_++;
-  requestFrame.id = goog.net.CrossDomainRpc.REQUEST_MARKER_ + '-' + requestId;
-  if (!goog.net.CrossDomainRpc.debugMode_) {
+      dom.createElement(TagName.IFRAME);
+  const requestId = CrossDomainRpc.nextRequestId_++;
+  requestFrame.id = CrossDomainRpc.REQUEST_MARKER_ + '-' + requestId;
+  if (!CrossDomainRpc.debugMode_) {
     requestFrame.style.position = 'absolute';
     requestFrame.style.top = '-5000px';
     requestFrame.style.left = '-5000px';
@@ -413,23 +402,23 @@ goog.net.CrossDomainRpc.prototype.sendRequest = function(
 
   // add request id
   inputs.push(
-      goog.net.CrossDomainRpc.createInputHtml_(
-          goog.net.CrossDomainRpc.PARAM_ECHO_REQUEST_ID, requestId));
+      CrossDomainRpc.createInputHtml_(
+          CrossDomainRpc.PARAM_ECHO_REQUEST_ID, requestId));
 
   // add dummy resource uri
-  const dummyUri = goog.net.CrossDomainRpc.getDummyResourceUri_();
-  goog.log.fine(goog.net.CrossDomainRpc.logger_, 'dummyUri: ' + dummyUri);
+  const dummyUri = CrossDomainRpc.getDummyResourceUri_();
+  log.fine(CrossDomainRpc.logger_, 'dummyUri: ' + dummyUri);
   inputs.push(
-      goog.net.CrossDomainRpc.createInputHtml_(
-          goog.net.CrossDomainRpc.PARAM_ECHO_DUMMY_URI, dummyUri));
+      CrossDomainRpc.createInputHtml_(
+          CrossDomainRpc.PARAM_ECHO_DUMMY_URI, dummyUri));
 
   // add parameters
   if (opt_params) {
     for (let name in opt_params) {
       const value = opt_params[name];
       inputs.push(
-          goog.net.CrossDomainRpc.createInputHtml_(
-              goog.net.CrossDomainRpc.PARAM + name, value));
+          CrossDomainRpc.createInputHtml_(
+              CrossDomainRpc.PARAM + name, value));
     }
   }
 
@@ -438,29 +427,28 @@ goog.net.CrossDomainRpc.prototype.sendRequest = function(
     for (let name in opt_headers) {
       const value = opt_headers[name];
       inputs.push(
-          goog.net.CrossDomainRpc.createInputHtml_(
-              goog.net.CrossDomainRpc.HEADER + name, value));
+          CrossDomainRpc.createInputHtml_(
+              CrossDomainRpc.HEADER + name, value));
     }
   }
 
-  const requestFrameContentHtml = goog.html.SafeHtml.create(
+  const requestFrameContentHtml = SafeHtml.create(
       'body', {},
-      goog.html.SafeHtml.create(
+      SafeHtml.create(
           'form',
           {'method': opt_method == 'GET' ? 'GET' : 'POST', 'action': uri},
           inputs));
-  let requestFrameDoc = goog.dom.getFrameContentDocument(requestFrame);
+  let requestFrameDoc = dom.getFrameContentDocument(requestFrame);
   requestFrameDoc.open();
-  goog.dom.safe.documentWrite(requestFrameDoc, requestFrameContentHtml);
+  safe.documentWrite(requestFrameDoc, requestFrameContentHtml);
   requestFrameDoc.close();
 
   requestFrameDoc.forms[0].submit();
   requestFrameDoc = null;
 
   this.loadListenerKey_ =
-      goog.events.listen(requestFrame, goog.events.EventType.LOAD, function() {
-        'use strict';
-        goog.log.fine(goog.net.CrossDomainRpc.logger_, 'response ready');
+      events.listen(requestFrame, EventType.LOAD, function() {
+        log.fine(CrossDomainRpc.logger_, 'response ready');
         this.responseReady_ = true;
       }, false, this);
 
@@ -473,7 +461,7 @@ goog.net.CrossDomainRpc.prototype.sendRequest = function(
  * @type {number}
  * @private
  */
-goog.net.CrossDomainRpc.RESPONSE_POLLING_PERIOD_ = 50;
+CrossDomainRpc.RESPONSE_POLLING_PERIOD_ = 50;
 
 
 /**
@@ -481,7 +469,7 @@ goog.net.CrossDomainRpc.RESPONSE_POLLING_PERIOD_ = 50;
  * @type {number}
  * @private
  */
-goog.net.CrossDomainRpc.SEND_RESPONSE_TIME_OUT_ = 500;
+CrossDomainRpc.SEND_RESPONSE_TIME_OUT_ = 500;
 
 
 /**
@@ -489,13 +477,11 @@ goog.net.CrossDomainRpc.SEND_RESPONSE_TIME_OUT_ = 500;
  *     reads response frames and assembles response data
  * @private
  */
-goog.net.CrossDomainRpc.prototype.receiveResponse_ = function() {
-  'use strict';
+CrossDomainRpc.prototype.receiveResponse_ = function() {
   this.timeWaitedAfterResponseReady_ = 0;
   const responseDetectorHandle = window.setInterval(goog.bind(function() {
-    'use strict';
     this.detectResponse_(responseDetectorHandle);
-  }, this), goog.net.CrossDomainRpc.RESPONSE_POLLING_PERIOD_);
+  }, this), CrossDomainRpc.RESPONSE_POLLING_PERIOD_);
 };
 
 
@@ -504,27 +490,26 @@ goog.net.CrossDomainRpc.prototype.receiveResponse_ = function() {
  * @param {number} responseDetectorHandle Handle of detector.
  * @private
  */
-goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
+CrossDomainRpc.prototype.detectResponse_ = function(
     responseDetectorHandle) {
-  'use strict';
   const requestFrameWindow = this.requestFrame_.contentWindow;
   const grandChildrenLength = requestFrameWindow.frames.length;
   let responseInfoFrame = null;
   if (grandChildrenLength > 0 &&
-      goog.net.CrossDomainRpc.isResponseInfoFrame_(
+      CrossDomainRpc.isResponseInfoFrame_(
           responseInfoFrame =
               requestFrameWindow.frames[grandChildrenLength - 1])) {
-    goog.log.fine(goog.net.CrossDomainRpc.logger_, 'xd response ready');
+    log.fine(CrossDomainRpc.logger_, 'xd response ready');
 
     const responseInfoPayload =
-        goog.net.CrossDomainRpc.getFramePayload_(responseInfoFrame)
+        CrossDomainRpc.getFramePayload_(responseInfoFrame)
             .substring(1);
-    const params = new goog.Uri.QueryData(responseInfoPayload);
+    const params = new Uri.QueryData(responseInfoPayload);
 
     const chunks = [];
     const numChunks = Number(params.get('n'));
-    goog.log.fine(
-        goog.net.CrossDomainRpc.logger_,
+    log.fine(
+        CrossDomainRpc.logger_,
         'xd response number of chunks: ' + numChunks);
     for (let i = 0; i < numChunks; i++) {
       const responseFrame = requestFrameWindow.frames[i];
@@ -532,16 +517,16 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
           !responseFrame.location.href) {
         // On Safari 3.0, it is sometimes the case that the
         // iframe exists but doesn't have a same domain href yet.
-        goog.log.fine(
-            goog.net.CrossDomainRpc.logger_, 'xd response iframe not ready');
+        log.fine(
+            CrossDomainRpc.logger_, 'xd response iframe not ready');
         return;
       }
       const responseChunkPayload =
-          goog.net.CrossDomainRpc.getFramePayload_(responseFrame);
+          CrossDomainRpc.getFramePayload_(responseFrame);
       // go past "chunk="
       const chunkIndex =
-          responseChunkPayload.indexOf(goog.net.CrossDomainRpc.PARAM_CHUNK_) +
-          goog.net.CrossDomainRpc.PARAM_CHUNK_.length + 1;
+          responseChunkPayload.indexOf(CrossDomainRpc.PARAM_CHUNK_) +
+          CrossDomainRpc.PARAM_CHUNK_.length + 1;
       const chunk = responseChunkPayload.substring(chunkIndex);
       chunks.push(chunk);
     }
@@ -550,7 +535,7 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
 
     let responseData = chunks.join('');
     // Payload is not encoded to begin with on IE. Decode in other cases only.
-    if (!goog.userAgent.EDGE_OR_IE) {
+    if (!userAgent.EDGE_OR_IE) {
       responseData = decodeURIComponent(responseData);
     }
 
@@ -560,26 +545,26 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
     this.responseHeaders = /** @type {?Object} */ (JSON.parse(
         /** @type {string} */ (params.get('headers'))));
 
-    this.dispatchEvent(goog.net.EventType.READY);
-    this.dispatchEvent(goog.net.EventType.COMPLETE);
+    this.dispatchEvent(netEventType.READY);
+    this.dispatchEvent(netEventType.COMPLETE);
   } else {
     if (this.responseReady_) {
       /* The response has come back. But the first response iframe has not
        * been created yet. If this lasts long enough, it is an error.
        */
       this.timeWaitedAfterResponseReady_ +=
-          goog.net.CrossDomainRpc.RESPONSE_POLLING_PERIOD_;
+          CrossDomainRpc.RESPONSE_POLLING_PERIOD_;
       if (this.timeWaitedAfterResponseReady_ >
-          goog.net.CrossDomainRpc.SEND_RESPONSE_TIME_OUT_) {
-        goog.log.fine(goog.net.CrossDomainRpc.logger_, 'xd response timed out');
+          CrossDomainRpc.SEND_RESPONSE_TIME_OUT_) {
+        log.fine(CrossDomainRpc.logger_, 'xd response timed out');
         window.clearInterval(responseDetectorHandle);
 
-        this.status = goog.net.HttpStatus.INTERNAL_SERVER_ERROR;
+        this.status = HttpStatus.INTERNAL_SERVER_ERROR;
         this.responseText = 'response timed out';
 
-        this.dispatchEvent(goog.net.EventType.READY);
-        this.dispatchEvent(goog.net.EventType.ERROR);
-        this.dispatchEvent(goog.net.EventType.COMPLETE);
+        this.dispatchEvent(netEventType.READY);
+        this.dispatchEvent(netEventType.ERROR);
+        this.dispatchEvent(netEventType.COMPLETE);
       }
     }
   }
@@ -592,11 +577,10 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
  * @return {boolean} True if frame is a response info frame; false otherwise.
  * @private
  */
-goog.net.CrossDomainRpc.isResponseInfoFrame_ = function(frame) {
-  'use strict';
+CrossDomainRpc.isResponseInfoFrame_ = function(frame) {
   try {
-    return goog.net.CrossDomainRpc.getFramePayload_(frame).indexOf(
-               goog.net.CrossDomainRpc.RESPONSE_INFO_MARKER_) == 1;
+    return CrossDomainRpc.getFramePayload_(frame).indexOf(
+               CrossDomainRpc.RESPONSE_INFO_MARKER_) == 1;
   } catch (e) {
     // frame not ready for same-domain access yet
     return false;
@@ -612,8 +596,7 @@ goog.net.CrossDomainRpc.isResponseInfoFrame_ = function(frame) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.net.CrossDomainRpc.getFramePayload_ = function(frame) {
-  'use strict';
+CrossDomainRpc.getFramePayload_ = function(frame) {
   const href = frame.location.href;
   const question = href.indexOf('?');
   const hash = href.indexOf('#');
@@ -633,8 +616,7 @@ goog.net.CrossDomainRpc.getFramePayload_ = function(frame) {
  * @return {Object|undefined} JavaScript object if response is in JSON
  *     or undefined.
  */
-goog.net.CrossDomainRpc.prototype.getResponseJson = function() {
-  'use strict';
+CrossDomainRpc.prototype.getResponseJson = function() {
   return this.responseTextIsJson_ ?
       /** @type {?Object} */ (JSON.parse(this.responseText)) :
       undefined;
@@ -644,12 +626,11 @@ goog.net.CrossDomainRpc.prototype.getResponseJson = function() {
 /**
  * @return {boolean} Whether the request completed with a success.
  */
-goog.net.CrossDomainRpc.prototype.isSuccess = function() {
-  'use strict';
+CrossDomainRpc.prototype.isSuccess = function() {
   // Definition similar to goog.net.XhrIo.prototype.isSuccess.
   switch (this.status) {
-    case goog.net.HttpStatus.OK:
-    case goog.net.HttpStatus.NOT_MODIFIED:
+    case HttpStatus.OK:
+    case HttpStatus.NOT_MODIFIED:
       return true;
 
     default:
@@ -661,13 +642,12 @@ goog.net.CrossDomainRpc.prototype.isSuccess = function() {
 /**
  * Removes request iframe used.
  */
-goog.net.CrossDomainRpc.prototype.reset = function() {
-  'use strict';
-  if (!goog.net.CrossDomainRpc.debugMode_) {
-    goog.log.fine(
-        goog.net.CrossDomainRpc.logger_,
+CrossDomainRpc.prototype.reset = function() {
+  if (!CrossDomainRpc.debugMode_) {
+    log.fine(
+        CrossDomainRpc.logger_,
         'request frame removed: ' + this.requestFrame_.id);
-    goog.events.unlistenByKey(this.loadListenerKey_);
+    events.unlistenByKey(this.loadListenerKey_);
     this.requestFrame_.parentNode.removeChild(this.requestFrame_);
   }
   delete this.requestFrame_;
@@ -683,8 +663,8 @@ goog.net.CrossDomainRpc.prototype.reset = function() {
  * @type {string}
  * @private
  */
-goog.net.CrossDomainRpc.RESPONSE_INFO_MARKER_ =
-    goog.net.CrossDomainRpc.RESPONSE_MARKER_ + '-info';
+CrossDomainRpc.RESPONSE_INFO_MARKER_ =
+    CrossDomainRpc.RESPONSE_MARKER_ + '-info';
 
 
 /**
@@ -693,8 +673,8 @@ goog.net.CrossDomainRpc.RESPONSE_INFO_MARKER_ =
  * @type {number}
  * @private
  */
-goog.net.CrossDomainRpc.MAX_CHUNK_SIZE_ =
-    goog.userAgent.EDGE_OR_IE ? 4095 : 1024 * 1024;
+CrossDomainRpc.MAX_CHUNK_SIZE_ =
+    userAgent.EDGE_OR_IE ? 4095 : 1024 * 1024;
 
 
 /**
@@ -702,7 +682,7 @@ goog.net.CrossDomainRpc.MAX_CHUNK_SIZE_ =
  * @type {string}
  * @private
  */
-goog.net.CrossDomainRpc.PARAM_CHUNK_ = 'chunk';
+CrossDomainRpc.PARAM_CHUNK_ = 'chunk';
 
 
 /**
@@ -710,9 +690,9 @@ goog.net.CrossDomainRpc.PARAM_CHUNK_ = 'chunk';
  * type String
  * @private
  */
-goog.net.CrossDomainRpc.CHUNK_PREFIX_ =
-    goog.net.CrossDomainRpc.RESPONSE_MARKER_ + '=1&' +
-    goog.net.CrossDomainRpc.PARAM_CHUNK_ + '=';
+CrossDomainRpc.CHUNK_PREFIX_ =
+    CrossDomainRpc.RESPONSE_MARKER_ + '=1&' +
+    CrossDomainRpc.PARAM_CHUNK_ + '=';
 
 
 /**
@@ -734,24 +714,23 @@ goog.net.CrossDomainRpc.CHUNK_PREFIX_ =
  * @param {number} status HTTP response status code.
  * @param {string} headers Response headers in JSON format.
  */
-goog.net.CrossDomainRpc.sendResponse = function(
+CrossDomainRpc.sendResponse = function(
     data, isDataJson, echo, status, headers) {
-  'use strict';
-  let dummyUri = echo[goog.net.CrossDomainRpc.PARAM_ECHO_DUMMY_URI];
+  let dummyUri = echo[CrossDomainRpc.PARAM_ECHO_DUMMY_URI];
 
   // since the dummy-uri can be specified by the user, verify that it doesn't
   // use any other protocols. (Specifically we don't want users to use a
   // dummy-uri beginning with "javascript:").
-  if (!goog.string.caseInsensitiveStartsWith(dummyUri, 'http://') &&
-      !goog.string.caseInsensitiveStartsWith(dummyUri, 'https://')) {
+  if (!string.caseInsensitiveStartsWith(dummyUri, 'http://') &&
+      !string.caseInsensitiveStartsWith(dummyUri, 'https://')) {
     dummyUri = 'http://' + dummyUri;
   }
 
   // usable chunk size is max less dummy URI less chunk prefix length
   // TODO(user): Figure out why we need to do "- 1" below
-  const chunkSize = goog.net.CrossDomainRpc.MAX_CHUNK_SIZE_ - dummyUri.length -
+  const chunkSize = CrossDomainRpc.MAX_CHUNK_SIZE_ - dummyUri.length -
       1 -  // payload delimiter ('#' or '?')
-      goog.net.CrossDomainRpc.CHUNK_PREFIX_.length - 1;
+      CrossDomainRpc.CHUNK_PREFIX_.length - 1;
 
   /*
    * Here we used to do URI encoding of data before we divide it into chunks
@@ -774,20 +753,19 @@ goog.net.CrossDomainRpc.sendResponse = function(
    * Note(user): IE actually does encode only space to %20 and decodes that
    *   automatically when you do location.href or location.hash.
    */
-  if (!goog.userAgent.EDGE_OR_IE) {
+  if (!userAgent.EDGE_OR_IE) {
     data = encodeURIComponent(data);
   }
 
   const numChunksToSend = Math.ceil(data.length / chunkSize);
   if (numChunksToSend == 0) {
-    goog.net.CrossDomainRpc.createResponseInfo_(
+    CrossDomainRpc.createResponseInfo_(
         dummyUri, numChunksToSend, isDataJson, status, headers);
   } else {
     let numChunksSent = 0;
     const checkToCreateResponseInfo_ = function() {
-      'use strict';
       if (++numChunksSent == numChunksToSend) {
-        goog.net.CrossDomainRpc.createResponseInfo_(
+        CrossDomainRpc.createResponseInfo_(
             dummyUri, numChunksToSend, isDataJson, status, headers);
       }
     };
@@ -799,10 +777,10 @@ goog.net.CrossDomainRpc.sendResponse = function(
           data.substring(chunkStart) :
           data.substring(chunkStart, chunkEnd);
 
-      const responseFrame = goog.dom.createElement(goog.dom.TagName.IFRAME);
+      const responseFrame = dom.createElement(TagName.IFRAME);
       responseFrame.src = dummyUri +
-          goog.net.CrossDomainRpc.getPayloadDelimiter_(dummyUri) +
-          goog.net.CrossDomainRpc.CHUNK_PREFIX_ + chunk;
+          CrossDomainRpc.getPayloadDelimiter_(dummyUri) +
+          CrossDomainRpc.CHUNK_PREFIX_ + chunk;
       document.body.appendChild(responseFrame);
 
       // We used to call the function below when handling load event of
@@ -825,14 +803,13 @@ goog.net.CrossDomainRpc.sendResponse = function(
  * @param {string} headers Response headers in JSON format.
  * @private
  */
-goog.net.CrossDomainRpc.createResponseInfo_ = function(
+CrossDomainRpc.createResponseInfo_ = function(
     dummyUri, numChunks, isDataJson, status, headers) {
-  'use strict';
-  const responseInfoFrame = goog.dom.createElement(goog.dom.TagName.IFRAME);
+  const responseInfoFrame = dom.createElement(TagName.IFRAME);
   document.body.appendChild(responseInfoFrame);
   responseInfoFrame.src = dummyUri +
-      goog.net.CrossDomainRpc.getPayloadDelimiter_(dummyUri) +
-      goog.net.CrossDomainRpc.RESPONSE_INFO_MARKER_ + '=1&n=' + numChunks +
+      CrossDomainRpc.getPayloadDelimiter_(dummyUri) +
+      CrossDomainRpc.RESPONSE_INFO_MARKER_ + '=1&n=' + numChunks +
       '&isDataJson=' + isDataJson + '&status=' + status + '&headers=' +
       encodeURIComponent(headers);
 };
@@ -847,9 +824,8 @@ goog.net.CrossDomainRpc.createResponseInfo_ = function(
  *     "#" if it is not.
  * @private
  */
-goog.net.CrossDomainRpc.getPayloadDelimiter_ = function(dummyUri) {
-  'use strict';
-  return goog.net.CrossDomainRpc.REFERRER_ == dummyUri ? '?' : '#';
+CrossDomainRpc.getPayloadDelimiter_ = function(dummyUri) {
+  return CrossDomainRpc.REFERRER_ == dummyUri ? '?' : '#';
 };
 
 
@@ -859,8 +835,7 @@ goog.net.CrossDomainRpc.getPayloadDelimiter_ = function(dummyUri) {
  * @return {string} URI with all parameters removed.
  * @private
  */
-goog.net.CrossDomainRpc.removeUriParams_ = function(uri) {
-  'use strict';
+CrossDomainRpc.removeUriParams_ = function(uri) {
   // remove everything after question mark
   const question = uri.indexOf('?');
   if (question > 0) {
@@ -882,8 +857,7 @@ goog.net.CrossDomainRpc.removeUriParams_ = function(uri) {
  * @param {string} name Name of response header.
  * @return {string|undefined} Value of response header; undefined if not found.
  */
-goog.net.CrossDomainRpc.prototype.getResponseHeader = function(name) {
-  'use strict';
+CrossDomainRpc.prototype.getResponseHeader = function(name) {
   return goog.isObject(this.responseHeaders) ? this.responseHeaders[name] :
                                                undefined;
 };
@@ -894,5 +868,5 @@ goog.net.CrossDomainRpc.prototype.getResponseHeader = function(name) {
  * @type {string}
  * @private
  */
-goog.net.CrossDomainRpc.REFERRER_ =
-    goog.net.CrossDomainRpc.removeUriParams_(document.referrer);
+CrossDomainRpc.REFERRER_ =
+    CrossDomainRpc.removeUriParams_(document.referrer);

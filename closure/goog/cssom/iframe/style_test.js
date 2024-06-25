@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.cssom.iframe.styleTest');
 goog.setTestOnly();
 
-const DomHelper = goog.require('goog.dom.DomHelper');
-const TagName = goog.require('goog.dom.TagName');
-const cssom = goog.require('goog.cssom');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.cssom.iframe.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as dom from '../../dom/dom.js';
+import { DomHelper } from '../../dom/dom.js';
+import { TagName } from '../../dom/tagname.js';
+import * as cssom from '../cssom.js';
+import * as style from './style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 // unit tests
 const propertiesToTest = [

@@ -14,21 +14,19 @@
 
 // clang-format off
 
-goog.module('goog.i18n.dateIntervalPatternsExt');
-
-const dateIntervalPatterns = goog.require('goog.i18n.dateIntervalPatterns');
+import * as dateIntervalPatterns from './dateintervalpatterns.js';
 
 /** @type {!dateIntervalPatterns.DateIntervalPatterns} */
 let defaultPatterns;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_af_NA = dateIntervalPatterns.DateIntervalPatterns_af;
+export let DateIntervalPatterns_af_NA = dateIntervalPatterns.DateIntervalPatterns_af;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_af_ZA = dateIntervalPatterns.DateIntervalPatterns_af;
+export let DateIntervalPatterns_af_ZA = dateIntervalPatterns.DateIntervalPatterns_af;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_agq = {
+export let DateIntervalPatterns_agq = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -106,10 +104,10 @@ exports.DateIntervalPatterns_agq = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_agq_CM = exports.DateIntervalPatterns_agq;
+export let DateIntervalPatterns_agq_CM = DateIntervalPatterns_agq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ak = {
+export let DateIntervalPatterns_ak = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -187,88 +185,88 @@ exports.DateIntervalPatterns_ak = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ak_GH = exports.DateIntervalPatterns_ak;
+export let DateIntervalPatterns_ak_GH = DateIntervalPatterns_ak;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_am_ET = dateIntervalPatterns.DateIntervalPatterns_am;
+export let DateIntervalPatterns_am_ET = dateIntervalPatterns.DateIntervalPatterns_am;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_001 = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_001 = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_AE = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_AE = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_BH = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_BH = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_DJ = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_DJ = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_EH = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_EH = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_ER = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_ER = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_IL = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_IL = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_IQ = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_IQ = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_JO = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_JO = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_KM = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_KM = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_KW = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_KW = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_LB = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_LB = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_LY = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_LY = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_MA = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_MA = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_MR = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_MR = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_OM = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_OM = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_PS = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_PS = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_QA = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_QA = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_SA = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_SA = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_SD = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_SD = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_SO = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_SO = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_SS = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_SS = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_SY = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_SY = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_TD = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_TD = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_TN = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_TN = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_XB = {
+export let DateIntervalPatterns_ar_XB = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -337,10 +335,10 @@ exports.DateIntervalPatterns_ar_XB = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ar_YE = dateIntervalPatterns.DateIntervalPatterns_ar;
+export let DateIntervalPatterns_ar_YE = dateIntervalPatterns.DateIntervalPatterns_ar;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_as = {
+export let DateIntervalPatterns_as = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -410,10 +408,10 @@ exports.DateIntervalPatterns_as = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_as_IN = exports.DateIntervalPatterns_as;
+export let DateIntervalPatterns_as_IN = DateIntervalPatterns_as;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_asa = {
+export let DateIntervalPatterns_asa = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -491,10 +489,10 @@ exports.DateIntervalPatterns_asa = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_asa_TZ = exports.DateIntervalPatterns_asa;
+export let DateIntervalPatterns_asa_TZ = DateIntervalPatterns_asa;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ast = {
+export let DateIntervalPatterns_ast = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -569,10 +567,10 @@ exports.DateIntervalPatterns_ast = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ast_ES = exports.DateIntervalPatterns_ast;
+export let DateIntervalPatterns_ast_ES = DateIntervalPatterns_ast;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_az_Cyrl = {
+export let DateIntervalPatterns_az_Cyrl = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -650,7 +648,7 @@ exports.DateIntervalPatterns_az_Cyrl = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_az_Cyrl_AZ = {
+export let DateIntervalPatterns_az_Cyrl_AZ = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -728,13 +726,13 @@ exports.DateIntervalPatterns_az_Cyrl_AZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_az_Latn = dateIntervalPatterns.DateIntervalPatterns_az;
+export let DateIntervalPatterns_az_Latn = dateIntervalPatterns.DateIntervalPatterns_az;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_az_Latn_AZ = dateIntervalPatterns.DateIntervalPatterns_az;
+export let DateIntervalPatterns_az_Latn_AZ = dateIntervalPatterns.DateIntervalPatterns_az;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bas = {
+export let DateIntervalPatterns_bas = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -812,13 +810,13 @@ exports.DateIntervalPatterns_bas = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bas_CM = exports.DateIntervalPatterns_bas;
+export let DateIntervalPatterns_bas_CM = DateIntervalPatterns_bas;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_be_BY = dateIntervalPatterns.DateIntervalPatterns_be;
+export let DateIntervalPatterns_be_BY = dateIntervalPatterns.DateIntervalPatterns_be;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bem = {
+export let DateIntervalPatterns_bem = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -896,10 +894,10 @@ exports.DateIntervalPatterns_bem = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bem_ZM = exports.DateIntervalPatterns_bem;
+export let DateIntervalPatterns_bem_ZM = DateIntervalPatterns_bem;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bez = {
+export let DateIntervalPatterns_bez = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -977,13 +975,13 @@ exports.DateIntervalPatterns_bez = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bez_TZ = exports.DateIntervalPatterns_bez;
+export let DateIntervalPatterns_bez_TZ = DateIntervalPatterns_bez;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bg_BG = dateIntervalPatterns.DateIntervalPatterns_bg;
+export let DateIntervalPatterns_bg_BG = dateIntervalPatterns.DateIntervalPatterns_bg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bgc = {
+export let DateIntervalPatterns_bgc = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1061,10 +1059,10 @@ exports.DateIntervalPatterns_bgc = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bgc_IN = exports.DateIntervalPatterns_bgc;
+export let DateIntervalPatterns_bgc_IN = DateIntervalPatterns_bgc;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bho = {
+export let DateIntervalPatterns_bho = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1134,10 +1132,10 @@ exports.DateIntervalPatterns_bho = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bho_IN = exports.DateIntervalPatterns_bho;
+export let DateIntervalPatterns_bho_IN = DateIntervalPatterns_bho;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bm = {
+export let DateIntervalPatterns_bm = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1215,16 +1213,16 @@ exports.DateIntervalPatterns_bm = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bm_ML = exports.DateIntervalPatterns_bm;
+export let DateIntervalPatterns_bm_ML = DateIntervalPatterns_bm;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bn_BD = dateIntervalPatterns.DateIntervalPatterns_bn;
+export let DateIntervalPatterns_bn_BD = dateIntervalPatterns.DateIntervalPatterns_bn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bn_IN = dateIntervalPatterns.DateIntervalPatterns_bn;
+export let DateIntervalPatterns_bn_IN = dateIntervalPatterns.DateIntervalPatterns_bn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bo = {
+export let DateIntervalPatterns_bo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1302,16 +1300,16 @@ exports.DateIntervalPatterns_bo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bo_CN = exports.DateIntervalPatterns_bo;
+export let DateIntervalPatterns_bo_CN = DateIntervalPatterns_bo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bo_IN = exports.DateIntervalPatterns_bo;
+export let DateIntervalPatterns_bo_IN = DateIntervalPatterns_bo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_br_FR = dateIntervalPatterns.DateIntervalPatterns_br;
+export let DateIntervalPatterns_br_FR = dateIntervalPatterns.DateIntervalPatterns_br;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_brx = {
+export let DateIntervalPatterns_brx = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1391,10 +1389,10 @@ exports.DateIntervalPatterns_brx = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_brx_IN = exports.DateIntervalPatterns_brx;
+export let DateIntervalPatterns_brx_IN = DateIntervalPatterns_brx;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bs_Cyrl = {
+export let DateIntervalPatterns_bs_Cyrl = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1475,7 +1473,7 @@ exports.DateIntervalPatterns_bs_Cyrl = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bs_Cyrl_BA = {
+export let DateIntervalPatterns_bs_Cyrl_BA = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1556,25 +1554,25 @@ exports.DateIntervalPatterns_bs_Cyrl_BA = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bs_Latn = dateIntervalPatterns.DateIntervalPatterns_bs;
+export let DateIntervalPatterns_bs_Latn = dateIntervalPatterns.DateIntervalPatterns_bs;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_bs_Latn_BA = dateIntervalPatterns.DateIntervalPatterns_bs;
+export let DateIntervalPatterns_bs_Latn_BA = dateIntervalPatterns.DateIntervalPatterns_bs;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ca_AD = dateIntervalPatterns.DateIntervalPatterns_ca;
+export let DateIntervalPatterns_ca_AD = dateIntervalPatterns.DateIntervalPatterns_ca;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ca_ES = dateIntervalPatterns.DateIntervalPatterns_ca;
+export let DateIntervalPatterns_ca_ES = dateIntervalPatterns.DateIntervalPatterns_ca;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ca_FR = dateIntervalPatterns.DateIntervalPatterns_ca;
+export let DateIntervalPatterns_ca_FR = dateIntervalPatterns.DateIntervalPatterns_ca;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ca_IT = dateIntervalPatterns.DateIntervalPatterns_ca;
+export let DateIntervalPatterns_ca_IT = dateIntervalPatterns.DateIntervalPatterns_ca;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ccp = {
+export let DateIntervalPatterns_ccp = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1646,13 +1644,13 @@ exports.DateIntervalPatterns_ccp = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ccp_BD = exports.DateIntervalPatterns_ccp;
+export let DateIntervalPatterns_ccp_BD = DateIntervalPatterns_ccp;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ccp_IN = exports.DateIntervalPatterns_ccp;
+export let DateIntervalPatterns_ccp_IN = DateIntervalPatterns_ccp;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ce = {
+export let DateIntervalPatterns_ce = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1730,10 +1728,10 @@ exports.DateIntervalPatterns_ce = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ce_RU = exports.DateIntervalPatterns_ce;
+export let DateIntervalPatterns_ce_RU = DateIntervalPatterns_ce;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ceb = {
+export let DateIntervalPatterns_ceb = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -1804,10 +1802,10 @@ exports.DateIntervalPatterns_ceb = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ceb_PH = exports.DateIntervalPatterns_ceb;
+export let DateIntervalPatterns_ceb_PH = DateIntervalPatterns_ceb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_cgg = {
+export let DateIntervalPatterns_cgg = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1885,13 +1883,13 @@ exports.DateIntervalPatterns_cgg = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_cgg_UG = exports.DateIntervalPatterns_cgg;
+export let DateIntervalPatterns_cgg_UG = DateIntervalPatterns_cgg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_chr_US = dateIntervalPatterns.DateIntervalPatterns_chr;
+export let DateIntervalPatterns_chr_US = dateIntervalPatterns.DateIntervalPatterns_chr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ckb = {
+export let DateIntervalPatterns_ckb = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1969,25 +1967,25 @@ exports.DateIntervalPatterns_ckb = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ckb_Arab = exports.DateIntervalPatterns_ckb;
+export let DateIntervalPatterns_ckb_Arab = DateIntervalPatterns_ckb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ckb_Arab_IQ = exports.DateIntervalPatterns_ckb;
+export let DateIntervalPatterns_ckb_Arab_IQ = DateIntervalPatterns_ckb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ckb_Arab_IR = exports.DateIntervalPatterns_ckb;
+export let DateIntervalPatterns_ckb_Arab_IR = DateIntervalPatterns_ckb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ckb_IQ = exports.DateIntervalPatterns_ckb;
+export let DateIntervalPatterns_ckb_IQ = DateIntervalPatterns_ckb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ckb_IR = exports.DateIntervalPatterns_ckb;
+export let DateIntervalPatterns_ckb_IR = DateIntervalPatterns_ckb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_cs_CZ = dateIntervalPatterns.DateIntervalPatterns_cs;
+export let DateIntervalPatterns_cs_CZ = dateIntervalPatterns.DateIntervalPatterns_cs;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_cv = {
+export let DateIntervalPatterns_cv = {
   YEAR_FULL: {
     'G': 'y \'ҫ\'. G – y \'ҫ\'. G',
     'y': 'y–y',
@@ -2061,19 +2059,19 @@ exports.DateIntervalPatterns_cv = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_cv_RU = exports.DateIntervalPatterns_cv;
+export let DateIntervalPatterns_cv_RU = DateIntervalPatterns_cv;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_cy_GB = dateIntervalPatterns.DateIntervalPatterns_cy;
+export let DateIntervalPatterns_cy_GB = dateIntervalPatterns.DateIntervalPatterns_cy;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_da_DK = dateIntervalPatterns.DateIntervalPatterns_da;
+export let DateIntervalPatterns_da_DK = dateIntervalPatterns.DateIntervalPatterns_da;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_da_GL = dateIntervalPatterns.DateIntervalPatterns_da;
+export let DateIntervalPatterns_da_GL = dateIntervalPatterns.DateIntervalPatterns_da;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dav = {
+export let DateIntervalPatterns_dav = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2151,25 +2149,25 @@ exports.DateIntervalPatterns_dav = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dav_KE = exports.DateIntervalPatterns_dav;
+export let DateIntervalPatterns_dav_KE = DateIntervalPatterns_dav;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_de_BE = dateIntervalPatterns.DateIntervalPatterns_de;
+export let DateIntervalPatterns_de_BE = dateIntervalPatterns.DateIntervalPatterns_de;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_de_DE = dateIntervalPatterns.DateIntervalPatterns_de;
+export let DateIntervalPatterns_de_DE = dateIntervalPatterns.DateIntervalPatterns_de;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_de_IT = dateIntervalPatterns.DateIntervalPatterns_de;
+export let DateIntervalPatterns_de_IT = dateIntervalPatterns.DateIntervalPatterns_de;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_de_LI = dateIntervalPatterns.DateIntervalPatterns_de;
+export let DateIntervalPatterns_de_LI = dateIntervalPatterns.DateIntervalPatterns_de;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_de_LU = dateIntervalPatterns.DateIntervalPatterns_de;
+export let DateIntervalPatterns_de_LU = dateIntervalPatterns.DateIntervalPatterns_de;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dje = {
+export let DateIntervalPatterns_dje = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2247,10 +2245,10 @@ exports.DateIntervalPatterns_dje = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dje_NE = exports.DateIntervalPatterns_dje;
+export let DateIntervalPatterns_dje_NE = DateIntervalPatterns_dje;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_doi = {
+export let DateIntervalPatterns_doi = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -2324,10 +2322,10 @@ exports.DateIntervalPatterns_doi = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_doi_IN = exports.DateIntervalPatterns_doi;
+export let DateIntervalPatterns_doi_IN = DateIntervalPatterns_doi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dsb = {
+export let DateIntervalPatterns_dsb = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2401,10 +2399,10 @@ exports.DateIntervalPatterns_dsb = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dsb_DE = exports.DateIntervalPatterns_dsb;
+export let DateIntervalPatterns_dsb_DE = DateIntervalPatterns_dsb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dua = {
+export let DateIntervalPatterns_dua = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2482,10 +2480,10 @@ exports.DateIntervalPatterns_dua = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dua_CM = exports.DateIntervalPatterns_dua;
+export let DateIntervalPatterns_dua_CM = DateIntervalPatterns_dua;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dyo = {
+export let DateIntervalPatterns_dyo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2563,10 +2561,10 @@ exports.DateIntervalPatterns_dyo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dyo_SN = exports.DateIntervalPatterns_dyo;
+export let DateIntervalPatterns_dyo_SN = DateIntervalPatterns_dyo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dz = {
+export let DateIntervalPatterns_dz = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2643,10 +2641,10 @@ exports.DateIntervalPatterns_dz = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_dz_BT = exports.DateIntervalPatterns_dz;
+export let DateIntervalPatterns_dz_BT = DateIntervalPatterns_dz;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ebu = {
+export let DateIntervalPatterns_ebu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2724,10 +2722,10 @@ exports.DateIntervalPatterns_ebu = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ebu_KE = exports.DateIntervalPatterns_ebu;
+export let DateIntervalPatterns_ebu_KE = DateIntervalPatterns_ebu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ee = {
+export let DateIntervalPatterns_ee = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2802,19 +2800,19 @@ exports.DateIntervalPatterns_ee = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ee_GH = exports.DateIntervalPatterns_ee;
+export let DateIntervalPatterns_ee_GH = DateIntervalPatterns_ee;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ee_TG = exports.DateIntervalPatterns_ee;
+export let DateIntervalPatterns_ee_TG = DateIntervalPatterns_ee;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_el_CY = dateIntervalPatterns.DateIntervalPatterns_el;
+export let DateIntervalPatterns_el_CY = dateIntervalPatterns.DateIntervalPatterns_el;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_el_GR = dateIntervalPatterns.DateIntervalPatterns_el;
+export let DateIntervalPatterns_el_GR = dateIntervalPatterns.DateIntervalPatterns_el;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_001 = {
+export let DateIntervalPatterns_en_001 = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2886,7 +2884,7 @@ exports.DateIntervalPatterns_en_001 = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_150 = {
+export let DateIntervalPatterns_en_150 = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2958,7 +2956,7 @@ exports.DateIntervalPatterns_en_150 = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_AE = {
+export let DateIntervalPatterns_en_AE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -3028,7 +3026,7 @@ exports.DateIntervalPatterns_en_AE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_AG = {
+export let DateIntervalPatterns_en_AG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3100,7 +3098,7 @@ exports.DateIntervalPatterns_en_AG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_AI = {
+export let DateIntervalPatterns_en_AI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3172,10 +3170,10 @@ exports.DateIntervalPatterns_en_AI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_AS = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_AS = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_AT = {
+export let DateIntervalPatterns_en_AT = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3247,7 +3245,7 @@ exports.DateIntervalPatterns_en_AT = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BB = {
+export let DateIntervalPatterns_en_BB = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3319,7 +3317,7 @@ exports.DateIntervalPatterns_en_BB = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BE = {
+export let DateIntervalPatterns_en_BE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3392,10 +3390,10 @@ exports.DateIntervalPatterns_en_BE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BI = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_BI = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BM = {
+export let DateIntervalPatterns_en_BM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3467,7 +3465,7 @@ exports.DateIntervalPatterns_en_BM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BS = {
+export let DateIntervalPatterns_en_BS = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3539,7 +3537,7 @@ exports.DateIntervalPatterns_en_BS = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BW = {
+export let DateIntervalPatterns_en_BW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3614,7 +3612,7 @@ exports.DateIntervalPatterns_en_BW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_BZ = {
+export let DateIntervalPatterns_en_BZ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3689,7 +3687,7 @@ exports.DateIntervalPatterns_en_BZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_CC = {
+export let DateIntervalPatterns_en_CC = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3761,7 +3759,7 @@ exports.DateIntervalPatterns_en_CC = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_CH = {
+export let DateIntervalPatterns_en_CH = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3835,7 +3833,7 @@ exports.DateIntervalPatterns_en_CH = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_CK = {
+export let DateIntervalPatterns_en_CK = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3907,7 +3905,7 @@ exports.DateIntervalPatterns_en_CK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_CM = {
+export let DateIntervalPatterns_en_CM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3979,7 +3977,7 @@ exports.DateIntervalPatterns_en_CM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_CX = {
+export let DateIntervalPatterns_en_CX = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4051,7 +4049,7 @@ exports.DateIntervalPatterns_en_CX = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_CY = {
+export let DateIntervalPatterns_en_CY = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4123,7 +4121,7 @@ exports.DateIntervalPatterns_en_CY = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_DE = {
+export let DateIntervalPatterns_en_DE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4195,7 +4193,7 @@ exports.DateIntervalPatterns_en_DE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_DG = {
+export let DateIntervalPatterns_en_DG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4267,7 +4265,7 @@ exports.DateIntervalPatterns_en_DG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_DK = {
+export let DateIntervalPatterns_en_DK = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4339,7 +4337,7 @@ exports.DateIntervalPatterns_en_DK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_DM = {
+export let DateIntervalPatterns_en_DM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4411,7 +4409,7 @@ exports.DateIntervalPatterns_en_DM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_ER = {
+export let DateIntervalPatterns_en_ER = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4483,7 +4481,7 @@ exports.DateIntervalPatterns_en_ER = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_FI = {
+export let DateIntervalPatterns_en_FI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4555,7 +4553,7 @@ exports.DateIntervalPatterns_en_FI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_FJ = {
+export let DateIntervalPatterns_en_FJ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4627,7 +4625,7 @@ exports.DateIntervalPatterns_en_FJ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_FK = {
+export let DateIntervalPatterns_en_FK = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4699,7 +4697,7 @@ exports.DateIntervalPatterns_en_FK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_FM = {
+export let DateIntervalPatterns_en_FM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4771,7 +4769,7 @@ exports.DateIntervalPatterns_en_FM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GD = {
+export let DateIntervalPatterns_en_GD = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4843,7 +4841,7 @@ exports.DateIntervalPatterns_en_GD = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GG = {
+export let DateIntervalPatterns_en_GG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4915,7 +4913,7 @@ exports.DateIntervalPatterns_en_GG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GH = {
+export let DateIntervalPatterns_en_GH = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4987,7 +4985,7 @@ exports.DateIntervalPatterns_en_GH = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GI = {
+export let DateIntervalPatterns_en_GI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5059,7 +5057,7 @@ exports.DateIntervalPatterns_en_GI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GM = {
+export let DateIntervalPatterns_en_GM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5131,10 +5129,10 @@ exports.DateIntervalPatterns_en_GM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GU = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_GU = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_GY = {
+export let DateIntervalPatterns_en_GY = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5206,7 +5204,7 @@ exports.DateIntervalPatterns_en_GY = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_HK = {
+export let DateIntervalPatterns_en_HK = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5278,7 +5276,7 @@ exports.DateIntervalPatterns_en_HK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_IL = {
+export let DateIntervalPatterns_en_IL = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5350,7 +5348,7 @@ exports.DateIntervalPatterns_en_IL = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_IM = {
+export let DateIntervalPatterns_en_IM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5422,7 +5420,7 @@ exports.DateIntervalPatterns_en_IM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_IO = {
+export let DateIntervalPatterns_en_IO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5494,7 +5492,7 @@ exports.DateIntervalPatterns_en_IO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_JE = {
+export let DateIntervalPatterns_en_JE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5566,7 +5564,7 @@ exports.DateIntervalPatterns_en_JE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_JM = {
+export let DateIntervalPatterns_en_JM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5638,7 +5636,7 @@ exports.DateIntervalPatterns_en_JM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_KE = {
+export let DateIntervalPatterns_en_KE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5710,7 +5708,7 @@ exports.DateIntervalPatterns_en_KE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_KI = {
+export let DateIntervalPatterns_en_KI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5782,7 +5780,7 @@ exports.DateIntervalPatterns_en_KI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_KN = {
+export let DateIntervalPatterns_en_KN = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5854,7 +5852,7 @@ exports.DateIntervalPatterns_en_KN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_KY = {
+export let DateIntervalPatterns_en_KY = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5926,7 +5924,7 @@ exports.DateIntervalPatterns_en_KY = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_LC = {
+export let DateIntervalPatterns_en_LC = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5998,7 +5996,7 @@ exports.DateIntervalPatterns_en_LC = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_LR = {
+export let DateIntervalPatterns_en_LR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6070,7 +6068,7 @@ exports.DateIntervalPatterns_en_LR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_LS = {
+export let DateIntervalPatterns_en_LS = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6142,7 +6140,7 @@ exports.DateIntervalPatterns_en_LS = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MG = {
+export let DateIntervalPatterns_en_MG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6214,10 +6212,10 @@ exports.DateIntervalPatterns_en_MG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MH = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_MH = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MO = {
+export let DateIntervalPatterns_en_MO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6289,10 +6287,10 @@ exports.DateIntervalPatterns_en_MO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MP = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_MP = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MS = {
+export let DateIntervalPatterns_en_MS = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6364,7 +6362,7 @@ exports.DateIntervalPatterns_en_MS = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MT = {
+export let DateIntervalPatterns_en_MT = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6439,7 +6437,7 @@ exports.DateIntervalPatterns_en_MT = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MU = {
+export let DateIntervalPatterns_en_MU = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6511,7 +6509,7 @@ exports.DateIntervalPatterns_en_MU = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MV = {
+export let DateIntervalPatterns_en_MV = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6583,7 +6581,7 @@ exports.DateIntervalPatterns_en_MV = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MW = {
+export let DateIntervalPatterns_en_MW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6655,7 +6653,7 @@ exports.DateIntervalPatterns_en_MW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_MY = {
+export let DateIntervalPatterns_en_MY = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6727,7 +6725,7 @@ exports.DateIntervalPatterns_en_MY = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NA = {
+export let DateIntervalPatterns_en_NA = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6799,7 +6797,7 @@ exports.DateIntervalPatterns_en_NA = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NF = {
+export let DateIntervalPatterns_en_NF = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6871,7 +6869,7 @@ exports.DateIntervalPatterns_en_NF = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NG = {
+export let DateIntervalPatterns_en_NG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6943,7 +6941,7 @@ exports.DateIntervalPatterns_en_NG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NL = {
+export let DateIntervalPatterns_en_NL = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7015,7 +7013,7 @@ exports.DateIntervalPatterns_en_NL = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NR = {
+export let DateIntervalPatterns_en_NR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7087,7 +7085,7 @@ exports.DateIntervalPatterns_en_NR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NU = {
+export let DateIntervalPatterns_en_NU = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7159,7 +7157,7 @@ exports.DateIntervalPatterns_en_NU = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_NZ = {
+export let DateIntervalPatterns_en_NZ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7232,7 +7230,7 @@ exports.DateIntervalPatterns_en_NZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_PG = {
+export let DateIntervalPatterns_en_PG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7304,10 +7302,10 @@ exports.DateIntervalPatterns_en_PG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_PH = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_PH = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_PK = {
+export let DateIntervalPatterns_en_PK = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7379,7 +7377,7 @@ exports.DateIntervalPatterns_en_PK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_PN = {
+export let DateIntervalPatterns_en_PN = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7451,10 +7449,10 @@ exports.DateIntervalPatterns_en_PN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_PR = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_PR = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_PW = {
+export let DateIntervalPatterns_en_PW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7526,7 +7524,7 @@ exports.DateIntervalPatterns_en_PW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_RW = {
+export let DateIntervalPatterns_en_RW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7598,7 +7596,7 @@ exports.DateIntervalPatterns_en_RW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SB = {
+export let DateIntervalPatterns_en_SB = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7670,7 +7668,7 @@ exports.DateIntervalPatterns_en_SB = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SC = {
+export let DateIntervalPatterns_en_SC = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7742,7 +7740,7 @@ exports.DateIntervalPatterns_en_SC = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SD = {
+export let DateIntervalPatterns_en_SD = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7814,7 +7812,7 @@ exports.DateIntervalPatterns_en_SD = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SE = {
+export let DateIntervalPatterns_en_SE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7887,7 +7885,7 @@ exports.DateIntervalPatterns_en_SE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SH = {
+export let DateIntervalPatterns_en_SH = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7959,7 +7957,7 @@ exports.DateIntervalPatterns_en_SH = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SI = {
+export let DateIntervalPatterns_en_SI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8031,7 +8029,7 @@ exports.DateIntervalPatterns_en_SI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SL = {
+export let DateIntervalPatterns_en_SL = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8103,7 +8101,7 @@ exports.DateIntervalPatterns_en_SL = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SS = {
+export let DateIntervalPatterns_en_SS = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8175,7 +8173,7 @@ exports.DateIntervalPatterns_en_SS = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SX = {
+export let DateIntervalPatterns_en_SX = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8247,7 +8245,7 @@ exports.DateIntervalPatterns_en_SX = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_SZ = {
+export let DateIntervalPatterns_en_SZ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8319,7 +8317,7 @@ exports.DateIntervalPatterns_en_SZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_TC = {
+export let DateIntervalPatterns_en_TC = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8391,7 +8389,7 @@ exports.DateIntervalPatterns_en_TC = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_TK = {
+export let DateIntervalPatterns_en_TK = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8463,7 +8461,7 @@ exports.DateIntervalPatterns_en_TK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_TO = {
+export let DateIntervalPatterns_en_TO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8535,7 +8533,7 @@ exports.DateIntervalPatterns_en_TO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_TT = {
+export let DateIntervalPatterns_en_TT = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8607,7 +8605,7 @@ exports.DateIntervalPatterns_en_TT = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_TV = {
+export let DateIntervalPatterns_en_TV = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8679,7 +8677,7 @@ exports.DateIntervalPatterns_en_TV = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_TZ = {
+export let DateIntervalPatterns_en_TZ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8751,7 +8749,7 @@ exports.DateIntervalPatterns_en_TZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_UG = {
+export let DateIntervalPatterns_en_UG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8823,13 +8821,13 @@ exports.DateIntervalPatterns_en_UG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_UM = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_UM = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_US_POSIX = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_US_POSIX = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_VC = {
+export let DateIntervalPatterns_en_VC = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8901,7 +8899,7 @@ exports.DateIntervalPatterns_en_VC = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_VG = {
+export let DateIntervalPatterns_en_VG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -8973,10 +8971,10 @@ exports.DateIntervalPatterns_en_VG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_VI = dateIntervalPatterns.DateIntervalPatterns_en;
+export let DateIntervalPatterns_en_VI = dateIntervalPatterns.DateIntervalPatterns_en;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_VU = {
+export let DateIntervalPatterns_en_VU = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9048,7 +9046,7 @@ exports.DateIntervalPatterns_en_VU = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_WS = {
+export let DateIntervalPatterns_en_WS = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9120,7 +9118,7 @@ exports.DateIntervalPatterns_en_WS = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_XA = {
+export let DateIntervalPatterns_en_XA = {
   YEAR_FULL: {
     'G': '[y G – y G \'one\' \'two\']',
     'y': '[y – y \'one\']',
@@ -9198,7 +9196,7 @@ exports.DateIntervalPatterns_en_XA = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_ZM = {
+export let DateIntervalPatterns_en_ZM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9270,7 +9268,7 @@ exports.DateIntervalPatterns_en_ZM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_en_ZW = {
+export let DateIntervalPatterns_en_ZW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9346,7 +9344,7 @@ exports.DateIntervalPatterns_en_ZW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_eo = {
+export let DateIntervalPatterns_eo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -9424,10 +9422,10 @@ exports.DateIntervalPatterns_eo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_eo_001 = exports.DateIntervalPatterns_eo;
+export let DateIntervalPatterns_eo_001 = DateIntervalPatterns_eo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_AR = {
+export let DateIntervalPatterns_es_AR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9507,7 +9505,7 @@ exports.DateIntervalPatterns_es_AR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_BO = {
+export let DateIntervalPatterns_es_BO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9584,7 +9582,7 @@ exports.DateIntervalPatterns_es_BO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_BR = {
+export let DateIntervalPatterns_es_BR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9661,7 +9659,7 @@ exports.DateIntervalPatterns_es_BR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_BZ = {
+export let DateIntervalPatterns_es_BZ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9738,7 +9736,7 @@ exports.DateIntervalPatterns_es_BZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_CL = {
+export let DateIntervalPatterns_es_CL = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9818,7 +9816,7 @@ exports.DateIntervalPatterns_es_CL = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_CO = {
+export let DateIntervalPatterns_es_CO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y \'a\' y',
@@ -9900,7 +9898,7 @@ exports.DateIntervalPatterns_es_CO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_CR = {
+export let DateIntervalPatterns_es_CR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -9977,7 +9975,7 @@ exports.DateIntervalPatterns_es_CR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_CU = {
+export let DateIntervalPatterns_es_CU = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10054,7 +10052,7 @@ exports.DateIntervalPatterns_es_CU = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_DO = {
+export let DateIntervalPatterns_es_DO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10131,10 +10129,10 @@ exports.DateIntervalPatterns_es_DO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_EA = dateIntervalPatterns.DateIntervalPatterns_es;
+export let DateIntervalPatterns_es_EA = dateIntervalPatterns.DateIntervalPatterns_es;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_EC = {
+export let DateIntervalPatterns_es_EC = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10211,10 +10209,10 @@ exports.DateIntervalPatterns_es_EC = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_GQ = dateIntervalPatterns.DateIntervalPatterns_es;
+export let DateIntervalPatterns_es_GQ = dateIntervalPatterns.DateIntervalPatterns_es;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_GT = {
+export let DateIntervalPatterns_es_GT = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y \'al\' y',
@@ -10293,7 +10291,7 @@ exports.DateIntervalPatterns_es_GT = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_HN = {
+export let DateIntervalPatterns_es_HN = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10370,10 +10368,10 @@ exports.DateIntervalPatterns_es_HN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_IC = dateIntervalPatterns.DateIntervalPatterns_es;
+export let DateIntervalPatterns_es_IC = dateIntervalPatterns.DateIntervalPatterns_es;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_NI = {
+export let DateIntervalPatterns_es_NI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10450,7 +10448,7 @@ exports.DateIntervalPatterns_es_NI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_PA = {
+export let DateIntervalPatterns_es_PA = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10529,7 +10527,7 @@ exports.DateIntervalPatterns_es_PA = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_PE = {
+export let DateIntervalPatterns_es_PE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10606,10 +10604,10 @@ exports.DateIntervalPatterns_es_PE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_PH = dateIntervalPatterns.DateIntervalPatterns_es;
+export let DateIntervalPatterns_es_PH = dateIntervalPatterns.DateIntervalPatterns_es;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_PR = {
+export let DateIntervalPatterns_es_PR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10686,7 +10684,7 @@ exports.DateIntervalPatterns_es_PR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_PY = {
+export let DateIntervalPatterns_es_PY = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10763,7 +10761,7 @@ exports.DateIntervalPatterns_es_PY = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_SV = {
+export let DateIntervalPatterns_es_SV = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10840,7 +10838,7 @@ exports.DateIntervalPatterns_es_SV = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_UY = {
+export let DateIntervalPatterns_es_UY = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10917,7 +10915,7 @@ exports.DateIntervalPatterns_es_UY = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_es_VE = {
+export let DateIntervalPatterns_es_VE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -10994,13 +10992,13 @@ exports.DateIntervalPatterns_es_VE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_et_EE = dateIntervalPatterns.DateIntervalPatterns_et;
+export let DateIntervalPatterns_et_EE = dateIntervalPatterns.DateIntervalPatterns_et;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_eu_ES = dateIntervalPatterns.DateIntervalPatterns_eu;
+export let DateIntervalPatterns_eu_ES = dateIntervalPatterns.DateIntervalPatterns_eu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ewo = {
+export let DateIntervalPatterns_ewo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -11078,10 +11076,10 @@ exports.DateIntervalPatterns_ewo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ewo_CM = exports.DateIntervalPatterns_ewo;
+export let DateIntervalPatterns_ewo_CM = DateIntervalPatterns_ewo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fa_AF = {
+export let DateIntervalPatterns_fa_AF = {
   YEAR_FULL: {
     'G': 'y G تا y G',
     '_': 'y'
@@ -11153,10 +11151,10 @@ exports.DateIntervalPatterns_fa_AF = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fa_IR = dateIntervalPatterns.DateIntervalPatterns_fa;
+export let DateIntervalPatterns_fa_IR = dateIntervalPatterns.DateIntervalPatterns_fa;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff = {
+export let DateIntervalPatterns_ff = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -11234,7 +11232,7 @@ exports.DateIntervalPatterns_ff = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm = {
+export let DateIntervalPatterns_ff_Adlm = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11312,7 +11310,7 @@ exports.DateIntervalPatterns_ff_Adlm = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_BF = {
+export let DateIntervalPatterns_ff_Adlm_BF = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11390,7 +11388,7 @@ exports.DateIntervalPatterns_ff_Adlm_BF = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_CM = {
+export let DateIntervalPatterns_ff_Adlm_CM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11468,7 +11466,7 @@ exports.DateIntervalPatterns_ff_Adlm_CM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_GH = {
+export let DateIntervalPatterns_ff_Adlm_GH = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11546,7 +11544,7 @@ exports.DateIntervalPatterns_ff_Adlm_GH = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_GM = {
+export let DateIntervalPatterns_ff_Adlm_GM = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11624,7 +11622,7 @@ exports.DateIntervalPatterns_ff_Adlm_GM = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_GN = {
+export let DateIntervalPatterns_ff_Adlm_GN = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11702,7 +11700,7 @@ exports.DateIntervalPatterns_ff_Adlm_GN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_GW = {
+export let DateIntervalPatterns_ff_Adlm_GW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11780,7 +11778,7 @@ exports.DateIntervalPatterns_ff_Adlm_GW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_LR = {
+export let DateIntervalPatterns_ff_Adlm_LR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11858,7 +11856,7 @@ exports.DateIntervalPatterns_ff_Adlm_LR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_MR = {
+export let DateIntervalPatterns_ff_Adlm_MR = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -11936,7 +11934,7 @@ exports.DateIntervalPatterns_ff_Adlm_MR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_NE = {
+export let DateIntervalPatterns_ff_Adlm_NE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -12014,7 +12012,7 @@ exports.DateIntervalPatterns_ff_Adlm_NE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_NG = {
+export let DateIntervalPatterns_ff_Adlm_NG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -12092,7 +12090,7 @@ exports.DateIntervalPatterns_ff_Adlm_NG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_SL = {
+export let DateIntervalPatterns_ff_Adlm_SL = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -12170,7 +12168,7 @@ exports.DateIntervalPatterns_ff_Adlm_SL = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Adlm_SN = {
+export let DateIntervalPatterns_ff_Adlm_SN = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -12248,52 +12246,52 @@ exports.DateIntervalPatterns_ff_Adlm_SN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_BF = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_BF = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_CM = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_CM = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_GH = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_GH = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_GM = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_GM = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_GN = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_GN = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_GW = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_GW = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_LR = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_LR = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_MR = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_MR = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_NE = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_NE = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_NG = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_NG = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_SL = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_SL = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ff_Latn_SN = exports.DateIntervalPatterns_ff;
+export let DateIntervalPatterns_ff_Latn_SN = DateIntervalPatterns_ff;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fi_FI = dateIntervalPatterns.DateIntervalPatterns_fi;
+export let DateIntervalPatterns_fi_FI = dateIntervalPatterns.DateIntervalPatterns_fi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fil_PH = dateIntervalPatterns.DateIntervalPatterns_fil;
+export let DateIntervalPatterns_fil_PH = dateIntervalPatterns.DateIntervalPatterns_fil;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fo = {
+export let DateIntervalPatterns_fo = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -12370,28 +12368,28 @@ exports.DateIntervalPatterns_fo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fo_DK = exports.DateIntervalPatterns_fo;
+export let DateIntervalPatterns_fo_DK = DateIntervalPatterns_fo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fo_FO = exports.DateIntervalPatterns_fo;
+export let DateIntervalPatterns_fo_FO = DateIntervalPatterns_fo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_BE = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_BE = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_BF = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_BF = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_BI = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_BI = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_BJ = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_BJ = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_BL = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_BL = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_CD = {
+export let DateIntervalPatterns_fr_CD = {
   YEAR_FULL: {
     'G': 'y G \'à\' y G',
     '_': 'y'
@@ -12463,13 +12461,13 @@ exports.DateIntervalPatterns_fr_CD = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_CF = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_CF = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_CG = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_CG = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_CH = {
+export let DateIntervalPatterns_fr_CH = {
   YEAR_FULL: {
     'G': 'y G \'à\' y G',
     'y': 'y–y',
@@ -12543,115 +12541,115 @@ exports.DateIntervalPatterns_fr_CH = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_CI = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_CI = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_CM = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_CM = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_DJ = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_DJ = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_DZ = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_DZ = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_FR = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_FR = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_GA = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_GA = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_GF = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_GF = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_GN = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_GN = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_GP = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_GP = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_GQ = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_GQ = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_HT = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_HT = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_KM = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_KM = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_LU = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_LU = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MA = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MA = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MC = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MC = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MF = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MF = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MG = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MG = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_ML = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_ML = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MQ = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MQ = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MR = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MR = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_MU = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_MU = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_NC = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_NC = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_NE = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_NE = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_PF = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_PF = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_PM = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_PM = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_RE = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_RE = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_RW = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_RW = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_SC = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_SC = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_SN = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_SN = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_SY = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_SY = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_TD = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_TD = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_TG = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_TG = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_TN = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_TN = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_VU = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_VU = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_WF = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_WF = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fr_YT = dateIntervalPatterns.DateIntervalPatterns_fr;
+export let DateIntervalPatterns_fr_YT = dateIntervalPatterns.DateIntervalPatterns_fr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fur = {
+export let DateIntervalPatterns_fur = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -12728,10 +12726,10 @@ exports.DateIntervalPatterns_fur = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fur_IT = exports.DateIntervalPatterns_fur;
+export let DateIntervalPatterns_fur_IT = DateIntervalPatterns_fur;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fy = {
+export let DateIntervalPatterns_fy = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -12805,16 +12803,16 @@ exports.DateIntervalPatterns_fy = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_fy_NL = exports.DateIntervalPatterns_fy;
+export let DateIntervalPatterns_fy_NL = DateIntervalPatterns_fy;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ga_GB = dateIntervalPatterns.DateIntervalPatterns_ga;
+export let DateIntervalPatterns_ga_GB = dateIntervalPatterns.DateIntervalPatterns_ga;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ga_IE = dateIntervalPatterns.DateIntervalPatterns_ga;
+export let DateIntervalPatterns_ga_IE = dateIntervalPatterns.DateIntervalPatterns_ga;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gd = {
+export let DateIntervalPatterns_gd = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -12886,25 +12884,25 @@ exports.DateIntervalPatterns_gd = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gd_GB = exports.DateIntervalPatterns_gd;
+export let DateIntervalPatterns_gd_GB = DateIntervalPatterns_gd;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gl_ES = dateIntervalPatterns.DateIntervalPatterns_gl;
+export let DateIntervalPatterns_gl_ES = dateIntervalPatterns.DateIntervalPatterns_gl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gsw_CH = dateIntervalPatterns.DateIntervalPatterns_gsw;
+export let DateIntervalPatterns_gsw_CH = dateIntervalPatterns.DateIntervalPatterns_gsw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gsw_FR = dateIntervalPatterns.DateIntervalPatterns_gsw;
+export let DateIntervalPatterns_gsw_FR = dateIntervalPatterns.DateIntervalPatterns_gsw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gsw_LI = dateIntervalPatterns.DateIntervalPatterns_gsw;
+export let DateIntervalPatterns_gsw_LI = dateIntervalPatterns.DateIntervalPatterns_gsw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gu_IN = dateIntervalPatterns.DateIntervalPatterns_gu;
+export let DateIntervalPatterns_gu_IN = dateIntervalPatterns.DateIntervalPatterns_gu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_guz = {
+export let DateIntervalPatterns_guz = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -12982,10 +12980,10 @@ exports.DateIntervalPatterns_guz = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_guz_KE = exports.DateIntervalPatterns_guz;
+export let DateIntervalPatterns_guz_KE = DateIntervalPatterns_guz;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gv = {
+export let DateIntervalPatterns_gv = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13063,10 +13061,10 @@ exports.DateIntervalPatterns_gv = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_gv_IM = exports.DateIntervalPatterns_gv;
+export let DateIntervalPatterns_gv_IM = DateIntervalPatterns_gv;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ha = {
+export let DateIntervalPatterns_ha = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13143,25 +13141,25 @@ exports.DateIntervalPatterns_ha = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ha_GH = exports.DateIntervalPatterns_ha;
+export let DateIntervalPatterns_ha_GH = DateIntervalPatterns_ha;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ha_NE = exports.DateIntervalPatterns_ha;
+export let DateIntervalPatterns_ha_NE = DateIntervalPatterns_ha;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ha_NG = exports.DateIntervalPatterns_ha;
+export let DateIntervalPatterns_ha_NG = DateIntervalPatterns_ha;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_haw_US = dateIntervalPatterns.DateIntervalPatterns_haw;
+export let DateIntervalPatterns_haw_US = dateIntervalPatterns.DateIntervalPatterns_haw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_he_IL = dateIntervalPatterns.DateIntervalPatterns_he;
+export let DateIntervalPatterns_he_IL = dateIntervalPatterns.DateIntervalPatterns_he;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hi_IN = dateIntervalPatterns.DateIntervalPatterns_hi;
+export let DateIntervalPatterns_hi_IN = dateIntervalPatterns.DateIntervalPatterns_hi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hi_Latn = {
+export let DateIntervalPatterns_hi_Latn = {
   YEAR_FULL: {
     'G': 'G y –G y',
     'y': 'y–y',
@@ -13234,7 +13232,7 @@ exports.DateIntervalPatterns_hi_Latn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hi_Latn_IN = {
+export let DateIntervalPatterns_hi_Latn_IN = {
   YEAR_FULL: {
     'G': 'G y –G y',
     'y': 'y–y',
@@ -13307,13 +13305,13 @@ exports.DateIntervalPatterns_hi_Latn_IN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hr_BA = dateIntervalPatterns.DateIntervalPatterns_hr;
+export let DateIntervalPatterns_hr_BA = dateIntervalPatterns.DateIntervalPatterns_hr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hr_HR = dateIntervalPatterns.DateIntervalPatterns_hr;
+export let DateIntervalPatterns_hr_HR = dateIntervalPatterns.DateIntervalPatterns_hr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hsb = {
+export let DateIntervalPatterns_hsb = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13387,16 +13385,16 @@ exports.DateIntervalPatterns_hsb = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hsb_DE = exports.DateIntervalPatterns_hsb;
+export let DateIntervalPatterns_hsb_DE = DateIntervalPatterns_hsb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hu_HU = dateIntervalPatterns.DateIntervalPatterns_hu;
+export let DateIntervalPatterns_hu_HU = dateIntervalPatterns.DateIntervalPatterns_hu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_hy_AM = dateIntervalPatterns.DateIntervalPatterns_hy;
+export let DateIntervalPatterns_hy_AM = dateIntervalPatterns.DateIntervalPatterns_hy;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ia = {
+export let DateIntervalPatterns_ia = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -13466,13 +13464,13 @@ exports.DateIntervalPatterns_ia = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ia_001 = exports.DateIntervalPatterns_ia;
+export let DateIntervalPatterns_ia_001 = DateIntervalPatterns_ia;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_id_ID = dateIntervalPatterns.DateIntervalPatterns_id;
+export let DateIntervalPatterns_id_ID = dateIntervalPatterns.DateIntervalPatterns_id;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ig = {
+export let DateIntervalPatterns_ig = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13550,10 +13548,10 @@ exports.DateIntervalPatterns_ig = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ig_NG = exports.DateIntervalPatterns_ig;
+export let DateIntervalPatterns_ig_NG = DateIntervalPatterns_ig;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ii = {
+export let DateIntervalPatterns_ii = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13623,28 +13621,28 @@ exports.DateIntervalPatterns_ii = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ii_CN = exports.DateIntervalPatterns_ii;
+export let DateIntervalPatterns_ii_CN = DateIntervalPatterns_ii;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_is_IS = dateIntervalPatterns.DateIntervalPatterns_is;
+export let DateIntervalPatterns_is_IS = dateIntervalPatterns.DateIntervalPatterns_is;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_it_CH = dateIntervalPatterns.DateIntervalPatterns_it;
+export let DateIntervalPatterns_it_CH = dateIntervalPatterns.DateIntervalPatterns_it;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_it_IT = dateIntervalPatterns.DateIntervalPatterns_it;
+export let DateIntervalPatterns_it_IT = dateIntervalPatterns.DateIntervalPatterns_it;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_it_SM = dateIntervalPatterns.DateIntervalPatterns_it;
+export let DateIntervalPatterns_it_SM = dateIntervalPatterns.DateIntervalPatterns_it;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_it_VA = dateIntervalPatterns.DateIntervalPatterns_it;
+export let DateIntervalPatterns_it_VA = dateIntervalPatterns.DateIntervalPatterns_it;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ja_JP = dateIntervalPatterns.DateIntervalPatterns_ja;
+export let DateIntervalPatterns_ja_JP = dateIntervalPatterns.DateIntervalPatterns_ja;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_jgo = {
+export let DateIntervalPatterns_jgo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13722,10 +13720,10 @@ exports.DateIntervalPatterns_jgo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_jgo_CM = exports.DateIntervalPatterns_jgo;
+export let DateIntervalPatterns_jgo_CM = DateIntervalPatterns_jgo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_jmc = {
+export let DateIntervalPatterns_jmc = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13803,10 +13801,10 @@ exports.DateIntervalPatterns_jmc = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_jmc_TZ = exports.DateIntervalPatterns_jmc;
+export let DateIntervalPatterns_jmc_TZ = DateIntervalPatterns_jmc;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_jv = {
+export let DateIntervalPatterns_jv = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -13874,13 +13872,13 @@ exports.DateIntervalPatterns_jv = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_jv_ID = exports.DateIntervalPatterns_jv;
+export let DateIntervalPatterns_jv_ID = DateIntervalPatterns_jv;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ka_GE = dateIntervalPatterns.DateIntervalPatterns_ka;
+export let DateIntervalPatterns_ka_GE = dateIntervalPatterns.DateIntervalPatterns_ka;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kab = {
+export let DateIntervalPatterns_kab = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -13958,10 +13956,10 @@ exports.DateIntervalPatterns_kab = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kab_DZ = exports.DateIntervalPatterns_kab;
+export let DateIntervalPatterns_kab_DZ = DateIntervalPatterns_kab;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kam = {
+export let DateIntervalPatterns_kam = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14039,10 +14037,10 @@ exports.DateIntervalPatterns_kam = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kam_KE = exports.DateIntervalPatterns_kam;
+export let DateIntervalPatterns_kam_KE = DateIntervalPatterns_kam;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kde = {
+export let DateIntervalPatterns_kde = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14120,10 +14118,10 @@ exports.DateIntervalPatterns_kde = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kde_TZ = exports.DateIntervalPatterns_kde;
+export let DateIntervalPatterns_kde_TZ = DateIntervalPatterns_kde;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kea = {
+export let DateIntervalPatterns_kea = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -14194,10 +14192,10 @@ exports.DateIntervalPatterns_kea = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kea_CV = exports.DateIntervalPatterns_kea;
+export let DateIntervalPatterns_kea_CV = DateIntervalPatterns_kea;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kgp = {
+export let DateIntervalPatterns_kgp = {
   YEAR_FULL: {
     'G': 'G, y – G, y',
     '_': 'y'
@@ -14269,10 +14267,10 @@ exports.DateIntervalPatterns_kgp = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kgp_BR = exports.DateIntervalPatterns_kgp;
+export let DateIntervalPatterns_kgp_BR = DateIntervalPatterns_kgp;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_khq = {
+export let DateIntervalPatterns_khq = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14350,10 +14348,10 @@ exports.DateIntervalPatterns_khq = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_khq_ML = exports.DateIntervalPatterns_khq;
+export let DateIntervalPatterns_khq_ML = DateIntervalPatterns_khq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ki = {
+export let DateIntervalPatterns_ki = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14431,13 +14429,13 @@ exports.DateIntervalPatterns_ki = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ki_KE = exports.DateIntervalPatterns_ki;
+export let DateIntervalPatterns_ki_KE = DateIntervalPatterns_ki;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kk_KZ = dateIntervalPatterns.DateIntervalPatterns_kk;
+export let DateIntervalPatterns_kk_KZ = dateIntervalPatterns.DateIntervalPatterns_kk;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kkj = {
+export let DateIntervalPatterns_kkj = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14515,10 +14513,10 @@ exports.DateIntervalPatterns_kkj = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kkj_CM = exports.DateIntervalPatterns_kkj;
+export let DateIntervalPatterns_kkj_CM = DateIntervalPatterns_kkj;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kl = {
+export let DateIntervalPatterns_kl = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14596,10 +14594,10 @@ exports.DateIntervalPatterns_kl = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kl_GL = exports.DateIntervalPatterns_kl;
+export let DateIntervalPatterns_kl_GL = DateIntervalPatterns_kl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kln = {
+export let DateIntervalPatterns_kln = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14677,22 +14675,22 @@ exports.DateIntervalPatterns_kln = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kln_KE = exports.DateIntervalPatterns_kln;
+export let DateIntervalPatterns_kln_KE = DateIntervalPatterns_kln;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_km_KH = dateIntervalPatterns.DateIntervalPatterns_km;
+export let DateIntervalPatterns_km_KH = dateIntervalPatterns.DateIntervalPatterns_km;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kn_IN = dateIntervalPatterns.DateIntervalPatterns_kn;
+export let DateIntervalPatterns_kn_IN = dateIntervalPatterns.DateIntervalPatterns_kn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ko_KP = dateIntervalPatterns.DateIntervalPatterns_ko;
+export let DateIntervalPatterns_ko_KP = dateIntervalPatterns.DateIntervalPatterns_ko;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ko_KR = dateIntervalPatterns.DateIntervalPatterns_ko;
+export let DateIntervalPatterns_ko_KR = dateIntervalPatterns.DateIntervalPatterns_ko;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kok = {
+export let DateIntervalPatterns_kok = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14768,10 +14766,10 @@ exports.DateIntervalPatterns_kok = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kok_IN = exports.DateIntervalPatterns_kok;
+export let DateIntervalPatterns_kok_IN = DateIntervalPatterns_kok;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ks = {
+export let DateIntervalPatterns_ks = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -14842,13 +14840,13 @@ exports.DateIntervalPatterns_ks = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ks_Arab = exports.DateIntervalPatterns_ks;
+export let DateIntervalPatterns_ks_Arab = DateIntervalPatterns_ks;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ks_Arab_IN = exports.DateIntervalPatterns_ks;
+export let DateIntervalPatterns_ks_Arab_IN = DateIntervalPatterns_ks;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ks_Deva = {
+export let DateIntervalPatterns_ks_Deva = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14919,7 +14917,7 @@ exports.DateIntervalPatterns_ks_Deva = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ks_Deva_IN = {
+export let DateIntervalPatterns_ks_Deva_IN = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -14990,7 +14988,7 @@ exports.DateIntervalPatterns_ks_Deva_IN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ksb = {
+export let DateIntervalPatterns_ksb = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15068,10 +15066,10 @@ exports.DateIntervalPatterns_ksb = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ksb_TZ = exports.DateIntervalPatterns_ksb;
+export let DateIntervalPatterns_ksb_TZ = DateIntervalPatterns_ksb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ksf = {
+export let DateIntervalPatterns_ksf = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15149,10 +15147,10 @@ exports.DateIntervalPatterns_ksf = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ksf_CM = exports.DateIntervalPatterns_ksf;
+export let DateIntervalPatterns_ksf_CM = DateIntervalPatterns_ksf;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ksh = {
+export let DateIntervalPatterns_ksh = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15229,10 +15227,10 @@ exports.DateIntervalPatterns_ksh = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ksh_DE = exports.DateIntervalPatterns_ksh;
+export let DateIntervalPatterns_ksh_DE = DateIntervalPatterns_ksh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ku = {
+export let DateIntervalPatterns_ku = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15310,10 +15308,10 @@ exports.DateIntervalPatterns_ku = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ku_TR = exports.DateIntervalPatterns_ku;
+export let DateIntervalPatterns_ku_TR = DateIntervalPatterns_ku;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kw = {
+export let DateIntervalPatterns_kw = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15391,13 +15389,13 @@ exports.DateIntervalPatterns_kw = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_kw_GB = exports.DateIntervalPatterns_kw;
+export let DateIntervalPatterns_kw_GB = DateIntervalPatterns_kw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ky_KG = dateIntervalPatterns.DateIntervalPatterns_ky;
+export let DateIntervalPatterns_ky_KG = dateIntervalPatterns.DateIntervalPatterns_ky;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lag = {
+export let DateIntervalPatterns_lag = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15475,10 +15473,10 @@ exports.DateIntervalPatterns_lag = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lag_TZ = exports.DateIntervalPatterns_lag;
+export let DateIntervalPatterns_lag_TZ = DateIntervalPatterns_lag;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lb = {
+export let DateIntervalPatterns_lb = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15552,10 +15550,10 @@ exports.DateIntervalPatterns_lb = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lb_LU = exports.DateIntervalPatterns_lb;
+export let DateIntervalPatterns_lb_LU = DateIntervalPatterns_lb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lg = {
+export let DateIntervalPatterns_lg = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15633,10 +15631,10 @@ exports.DateIntervalPatterns_lg = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lg_UG = exports.DateIntervalPatterns_lg;
+export let DateIntervalPatterns_lg_UG = DateIntervalPatterns_lg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lkt = {
+export let DateIntervalPatterns_lkt = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15714,25 +15712,25 @@ exports.DateIntervalPatterns_lkt = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lkt_US = exports.DateIntervalPatterns_lkt;
+export let DateIntervalPatterns_lkt_US = DateIntervalPatterns_lkt;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ln_AO = dateIntervalPatterns.DateIntervalPatterns_ln;
+export let DateIntervalPatterns_ln_AO = dateIntervalPatterns.DateIntervalPatterns_ln;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ln_CD = dateIntervalPatterns.DateIntervalPatterns_ln;
+export let DateIntervalPatterns_ln_CD = dateIntervalPatterns.DateIntervalPatterns_ln;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ln_CF = dateIntervalPatterns.DateIntervalPatterns_ln;
+export let DateIntervalPatterns_ln_CF = dateIntervalPatterns.DateIntervalPatterns_ln;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ln_CG = dateIntervalPatterns.DateIntervalPatterns_ln;
+export let DateIntervalPatterns_ln_CG = dateIntervalPatterns.DateIntervalPatterns_ln;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lo_LA = dateIntervalPatterns.DateIntervalPatterns_lo;
+export let DateIntervalPatterns_lo_LA = dateIntervalPatterns.DateIntervalPatterns_lo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lrc = {
+export let DateIntervalPatterns_lrc = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15802,16 +15800,16 @@ exports.DateIntervalPatterns_lrc = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lrc_IQ = exports.DateIntervalPatterns_lrc;
+export let DateIntervalPatterns_lrc_IQ = DateIntervalPatterns_lrc;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lrc_IR = exports.DateIntervalPatterns_lrc;
+export let DateIntervalPatterns_lrc_IR = DateIntervalPatterns_lrc;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lt_LT = dateIntervalPatterns.DateIntervalPatterns_lt;
+export let DateIntervalPatterns_lt_LT = dateIntervalPatterns.DateIntervalPatterns_lt;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lu = {
+export let DateIntervalPatterns_lu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15889,10 +15887,10 @@ exports.DateIntervalPatterns_lu = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lu_CD = exports.DateIntervalPatterns_lu;
+export let DateIntervalPatterns_lu_CD = DateIntervalPatterns_lu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_luo = {
+export let DateIntervalPatterns_luo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -15970,10 +15968,10 @@ exports.DateIntervalPatterns_luo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_luo_KE = exports.DateIntervalPatterns_luo;
+export let DateIntervalPatterns_luo_KE = DateIntervalPatterns_luo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_luy = {
+export let DateIntervalPatterns_luy = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16051,13 +16049,13 @@ exports.DateIntervalPatterns_luy = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_luy_KE = exports.DateIntervalPatterns_luy;
+export let DateIntervalPatterns_luy_KE = DateIntervalPatterns_luy;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_lv_LV = dateIntervalPatterns.DateIntervalPatterns_lv;
+export let DateIntervalPatterns_lv_LV = dateIntervalPatterns.DateIntervalPatterns_lv;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mai = {
+export let DateIntervalPatterns_mai = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16135,10 +16133,10 @@ exports.DateIntervalPatterns_mai = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mai_IN = exports.DateIntervalPatterns_mai;
+export let DateIntervalPatterns_mai_IN = DateIntervalPatterns_mai;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mas = {
+export let DateIntervalPatterns_mas = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16216,13 +16214,13 @@ exports.DateIntervalPatterns_mas = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mas_KE = exports.DateIntervalPatterns_mas;
+export let DateIntervalPatterns_mas_KE = DateIntervalPatterns_mas;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mas_TZ = exports.DateIntervalPatterns_mas;
+export let DateIntervalPatterns_mas_TZ = DateIntervalPatterns_mas;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mer = {
+export let DateIntervalPatterns_mer = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16300,10 +16298,10 @@ exports.DateIntervalPatterns_mer = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mer_KE = exports.DateIntervalPatterns_mer;
+export let DateIntervalPatterns_mer_KE = DateIntervalPatterns_mer;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mfe = {
+export let DateIntervalPatterns_mfe = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16381,10 +16379,10 @@ exports.DateIntervalPatterns_mfe = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mfe_MU = exports.DateIntervalPatterns_mfe;
+export let DateIntervalPatterns_mfe_MU = DateIntervalPatterns_mfe;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mg = {
+export let DateIntervalPatterns_mg = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16462,10 +16460,10 @@ exports.DateIntervalPatterns_mg = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mg_MG = exports.DateIntervalPatterns_mg;
+export let DateIntervalPatterns_mg_MG = DateIntervalPatterns_mg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mgh = {
+export let DateIntervalPatterns_mgh = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16543,10 +16541,10 @@ exports.DateIntervalPatterns_mgh = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mgh_MZ = exports.DateIntervalPatterns_mgh;
+export let DateIntervalPatterns_mgh_MZ = DateIntervalPatterns_mgh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mgo = {
+export let DateIntervalPatterns_mgo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16624,10 +16622,10 @@ exports.DateIntervalPatterns_mgo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mgo_CM = exports.DateIntervalPatterns_mgo;
+export let DateIntervalPatterns_mgo_CM = DateIntervalPatterns_mgo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mi = {
+export let DateIntervalPatterns_mi = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16705,19 +16703,19 @@ exports.DateIntervalPatterns_mi = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mi_NZ = exports.DateIntervalPatterns_mi;
+export let DateIntervalPatterns_mi_NZ = DateIntervalPatterns_mi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mk_MK = dateIntervalPatterns.DateIntervalPatterns_mk;
+export let DateIntervalPatterns_mk_MK = dateIntervalPatterns.DateIntervalPatterns_mk;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ml_IN = dateIntervalPatterns.DateIntervalPatterns_ml;
+export let DateIntervalPatterns_ml_IN = dateIntervalPatterns.DateIntervalPatterns_ml;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mn_MN = dateIntervalPatterns.DateIntervalPatterns_mn;
+export let DateIntervalPatterns_mn_MN = dateIntervalPatterns.DateIntervalPatterns_mn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mni = {
+export let DateIntervalPatterns_mni = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16795,31 +16793,31 @@ exports.DateIntervalPatterns_mni = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mni_Beng = exports.DateIntervalPatterns_mni;
+export let DateIntervalPatterns_mni_Beng = DateIntervalPatterns_mni;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mni_Beng_IN = exports.DateIntervalPatterns_mni;
+export let DateIntervalPatterns_mni_Beng_IN = DateIntervalPatterns_mni;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mr_IN = dateIntervalPatterns.DateIntervalPatterns_mr;
+export let DateIntervalPatterns_mr_IN = dateIntervalPatterns.DateIntervalPatterns_mr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ms_BN = dateIntervalPatterns.DateIntervalPatterns_ms;
+export let DateIntervalPatterns_ms_BN = dateIntervalPatterns.DateIntervalPatterns_ms;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ms_ID = dateIntervalPatterns.DateIntervalPatterns_ms;
+export let DateIntervalPatterns_ms_ID = dateIntervalPatterns.DateIntervalPatterns_ms;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ms_MY = dateIntervalPatterns.DateIntervalPatterns_ms;
+export let DateIntervalPatterns_ms_MY = dateIntervalPatterns.DateIntervalPatterns_ms;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ms_SG = dateIntervalPatterns.DateIntervalPatterns_ms;
+export let DateIntervalPatterns_ms_SG = dateIntervalPatterns.DateIntervalPatterns_ms;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mt_MT = dateIntervalPatterns.DateIntervalPatterns_mt;
+export let DateIntervalPatterns_mt_MT = dateIntervalPatterns.DateIntervalPatterns_mt;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mua = {
+export let DateIntervalPatterns_mua = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16897,13 +16895,13 @@ exports.DateIntervalPatterns_mua = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mua_CM = exports.DateIntervalPatterns_mua;
+export let DateIntervalPatterns_mua_CM = DateIntervalPatterns_mua;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_my_MM = dateIntervalPatterns.DateIntervalPatterns_my;
+export let DateIntervalPatterns_my_MM = dateIntervalPatterns.DateIntervalPatterns_my;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mzn = {
+export let DateIntervalPatterns_mzn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -16981,10 +16979,10 @@ exports.DateIntervalPatterns_mzn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_mzn_IR = exports.DateIntervalPatterns_mzn;
+export let DateIntervalPatterns_mzn_IR = DateIntervalPatterns_mzn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_naq = {
+export let DateIntervalPatterns_naq = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17062,16 +17060,16 @@ exports.DateIntervalPatterns_naq = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_naq_NA = exports.DateIntervalPatterns_naq;
+export let DateIntervalPatterns_naq_NA = DateIntervalPatterns_naq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nb_NO = dateIntervalPatterns.DateIntervalPatterns_nb;
+export let DateIntervalPatterns_nb_NO = dateIntervalPatterns.DateIntervalPatterns_nb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nb_SJ = dateIntervalPatterns.DateIntervalPatterns_nb;
+export let DateIntervalPatterns_nb_SJ = dateIntervalPatterns.DateIntervalPatterns_nb;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nd = {
+export let DateIntervalPatterns_nd = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17149,19 +17147,19 @@ exports.DateIntervalPatterns_nd = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nd_ZW = exports.DateIntervalPatterns_nd;
+export let DateIntervalPatterns_nd_ZW = DateIntervalPatterns_nd;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ne_IN = dateIntervalPatterns.DateIntervalPatterns_ne;
+export let DateIntervalPatterns_ne_IN = dateIntervalPatterns.DateIntervalPatterns_ne;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ne_NP = dateIntervalPatterns.DateIntervalPatterns_ne;
+export let DateIntervalPatterns_ne_NP = dateIntervalPatterns.DateIntervalPatterns_ne;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_AW = dateIntervalPatterns.DateIntervalPatterns_nl;
+export let DateIntervalPatterns_nl_AW = dateIntervalPatterns.DateIntervalPatterns_nl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_BE = {
+export let DateIntervalPatterns_nl_BE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -17234,22 +17232,22 @@ exports.DateIntervalPatterns_nl_BE = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_BQ = dateIntervalPatterns.DateIntervalPatterns_nl;
+export let DateIntervalPatterns_nl_BQ = dateIntervalPatterns.DateIntervalPatterns_nl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_CW = dateIntervalPatterns.DateIntervalPatterns_nl;
+export let DateIntervalPatterns_nl_CW = dateIntervalPatterns.DateIntervalPatterns_nl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_NL = dateIntervalPatterns.DateIntervalPatterns_nl;
+export let DateIntervalPatterns_nl_NL = dateIntervalPatterns.DateIntervalPatterns_nl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_SR = dateIntervalPatterns.DateIntervalPatterns_nl;
+export let DateIntervalPatterns_nl_SR = dateIntervalPatterns.DateIntervalPatterns_nl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nl_SX = dateIntervalPatterns.DateIntervalPatterns_nl;
+export let DateIntervalPatterns_nl_SX = dateIntervalPatterns.DateIntervalPatterns_nl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nmg = {
+export let DateIntervalPatterns_nmg = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17327,10 +17325,10 @@ exports.DateIntervalPatterns_nmg = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nmg_CM = exports.DateIntervalPatterns_nmg;
+export let DateIntervalPatterns_nmg_CM = DateIntervalPatterns_nmg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nn = {
+export let DateIntervalPatterns_nn = {
   YEAR_FULL: {
     'G': 'y G–y G',
     '_': 'y'
@@ -17401,10 +17399,10 @@ exports.DateIntervalPatterns_nn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nn_NO = exports.DateIntervalPatterns_nn;
+export let DateIntervalPatterns_nn_NO = DateIntervalPatterns_nn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nnh = {
+export let DateIntervalPatterns_nnh = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17482,10 +17480,10 @@ exports.DateIntervalPatterns_nnh = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nnh_CM = exports.DateIntervalPatterns_nnh;
+export let DateIntervalPatterns_nnh_CM = DateIntervalPatterns_nnh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nus = {
+export let DateIntervalPatterns_nus = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17563,10 +17561,10 @@ exports.DateIntervalPatterns_nus = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nus_SS = exports.DateIntervalPatterns_nus;
+export let DateIntervalPatterns_nus_SS = DateIntervalPatterns_nus;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nyn = {
+export let DateIntervalPatterns_nyn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17644,10 +17642,10 @@ exports.DateIntervalPatterns_nyn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_nyn_UG = exports.DateIntervalPatterns_nyn;
+export let DateIntervalPatterns_nyn_UG = DateIntervalPatterns_nyn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_om = {
+export let DateIntervalPatterns_om = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17720,16 +17718,16 @@ exports.DateIntervalPatterns_om = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_om_ET = exports.DateIntervalPatterns_om;
+export let DateIntervalPatterns_om_ET = DateIntervalPatterns_om;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_om_KE = exports.DateIntervalPatterns_om;
+export let DateIntervalPatterns_om_KE = DateIntervalPatterns_om;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_or_IN = dateIntervalPatterns.DateIntervalPatterns_or;
+export let DateIntervalPatterns_or_IN = dateIntervalPatterns.DateIntervalPatterns_or;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_os = {
+export let DateIntervalPatterns_os = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17804,13 +17802,13 @@ exports.DateIntervalPatterns_os = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_os_GE = exports.DateIntervalPatterns_os;
+export let DateIntervalPatterns_os_GE = DateIntervalPatterns_os;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_os_RU = exports.DateIntervalPatterns_os;
+export let DateIntervalPatterns_os_RU = DateIntervalPatterns_os;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pa_Arab = {
+export let DateIntervalPatterns_pa_Arab = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17888,7 +17886,7 @@ exports.DateIntervalPatterns_pa_Arab = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pa_Arab_PK = {
+export let DateIntervalPatterns_pa_Arab_PK = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -17966,13 +17964,13 @@ exports.DateIntervalPatterns_pa_Arab_PK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pa_Guru = dateIntervalPatterns.DateIntervalPatterns_pa;
+export let DateIntervalPatterns_pa_Guru = dateIntervalPatterns.DateIntervalPatterns_pa;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pa_Guru_IN = dateIntervalPatterns.DateIntervalPatterns_pa;
+export let DateIntervalPatterns_pa_Guru_IN = dateIntervalPatterns.DateIntervalPatterns_pa;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pcm = {
+export let DateIntervalPatterns_pcm = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y–y',
@@ -18044,13 +18042,13 @@ exports.DateIntervalPatterns_pcm = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pcm_NG = exports.DateIntervalPatterns_pcm;
+export let DateIntervalPatterns_pcm_NG = DateIntervalPatterns_pcm;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pl_PL = dateIntervalPatterns.DateIntervalPatterns_pl;
+export let DateIntervalPatterns_pl_PL = dateIntervalPatterns.DateIntervalPatterns_pl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ps = {
+export let DateIntervalPatterns_ps = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -18122,13 +18120,13 @@ exports.DateIntervalPatterns_ps = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ps_AF = exports.DateIntervalPatterns_ps;
+export let DateIntervalPatterns_ps_AF = DateIntervalPatterns_ps;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ps_PK = exports.DateIntervalPatterns_ps;
+export let DateIntervalPatterns_ps_PK = DateIntervalPatterns_ps;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_AO = {
+export let DateIntervalPatterns_pt_AO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18203,7 +18201,7 @@ exports.DateIntervalPatterns_pt_AO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_CH = {
+export let DateIntervalPatterns_pt_CH = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18278,7 +18276,7 @@ exports.DateIntervalPatterns_pt_CH = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_CV = {
+export let DateIntervalPatterns_pt_CV = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18353,7 +18351,7 @@ exports.DateIntervalPatterns_pt_CV = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_GQ = {
+export let DateIntervalPatterns_pt_GQ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18428,7 +18426,7 @@ exports.DateIntervalPatterns_pt_GQ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_GW = {
+export let DateIntervalPatterns_pt_GW = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18503,7 +18501,7 @@ exports.DateIntervalPatterns_pt_GW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_LU = {
+export let DateIntervalPatterns_pt_LU = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18578,7 +18576,7 @@ exports.DateIntervalPatterns_pt_LU = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_MO = {
+export let DateIntervalPatterns_pt_MO = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18653,7 +18651,7 @@ exports.DateIntervalPatterns_pt_MO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_MZ = {
+export let DateIntervalPatterns_pt_MZ = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18728,7 +18726,7 @@ exports.DateIntervalPatterns_pt_MZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_ST = {
+export let DateIntervalPatterns_pt_ST = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18803,7 +18801,7 @@ exports.DateIntervalPatterns_pt_ST = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_pt_TL = {
+export let DateIntervalPatterns_pt_TL = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -18878,7 +18876,7 @@ exports.DateIntervalPatterns_pt_TL = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_qu = {
+export let DateIntervalPatterns_qu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -18952,16 +18950,16 @@ exports.DateIntervalPatterns_qu = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_qu_BO = exports.DateIntervalPatterns_qu;
+export let DateIntervalPatterns_qu_BO = DateIntervalPatterns_qu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_qu_EC = exports.DateIntervalPatterns_qu;
+export let DateIntervalPatterns_qu_EC = DateIntervalPatterns_qu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_qu_PE = exports.DateIntervalPatterns_qu;
+export let DateIntervalPatterns_qu_PE = DateIntervalPatterns_qu;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_raj = {
+export let DateIntervalPatterns_raj = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19039,10 +19037,10 @@ exports.DateIntervalPatterns_raj = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_raj_IN = exports.DateIntervalPatterns_raj;
+export let DateIntervalPatterns_raj_IN = DateIntervalPatterns_raj;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rm = {
+export let DateIntervalPatterns_rm = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19108,10 +19106,10 @@ exports.DateIntervalPatterns_rm = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rm_CH = exports.DateIntervalPatterns_rm;
+export let DateIntervalPatterns_rm_CH = DateIntervalPatterns_rm;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rn = {
+export let DateIntervalPatterns_rn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19189,16 +19187,16 @@ exports.DateIntervalPatterns_rn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rn_BI = exports.DateIntervalPatterns_rn;
+export let DateIntervalPatterns_rn_BI = DateIntervalPatterns_rn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ro_MD = dateIntervalPatterns.DateIntervalPatterns_ro;
+export let DateIntervalPatterns_ro_MD = dateIntervalPatterns.DateIntervalPatterns_ro;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ro_RO = dateIntervalPatterns.DateIntervalPatterns_ro;
+export let DateIntervalPatterns_ro_RO = dateIntervalPatterns.DateIntervalPatterns_ro;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rof = {
+export let DateIntervalPatterns_rof = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19276,25 +19274,25 @@ exports.DateIntervalPatterns_rof = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rof_TZ = exports.DateIntervalPatterns_rof;
+export let DateIntervalPatterns_rof_TZ = DateIntervalPatterns_rof;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ru_BY = dateIntervalPatterns.DateIntervalPatterns_ru;
+export let DateIntervalPatterns_ru_BY = dateIntervalPatterns.DateIntervalPatterns_ru;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ru_KG = dateIntervalPatterns.DateIntervalPatterns_ru;
+export let DateIntervalPatterns_ru_KG = dateIntervalPatterns.DateIntervalPatterns_ru;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ru_KZ = dateIntervalPatterns.DateIntervalPatterns_ru;
+export let DateIntervalPatterns_ru_KZ = dateIntervalPatterns.DateIntervalPatterns_ru;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ru_MD = dateIntervalPatterns.DateIntervalPatterns_ru;
+export let DateIntervalPatterns_ru_MD = dateIntervalPatterns.DateIntervalPatterns_ru;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ru_RU = dateIntervalPatterns.DateIntervalPatterns_ru;
+export let DateIntervalPatterns_ru_RU = dateIntervalPatterns.DateIntervalPatterns_ru;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ru_UA = {
+export let DateIntervalPatterns_ru_UA = {
   YEAR_FULL: {
     'G': 'y \'г\'. G – y \'г\'. G',
     'y': 'y–y',
@@ -19368,7 +19366,7 @@ exports.DateIntervalPatterns_ru_UA = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rw = {
+export let DateIntervalPatterns_rw = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19439,10 +19437,10 @@ exports.DateIntervalPatterns_rw = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rw_RW = exports.DateIntervalPatterns_rw;
+export let DateIntervalPatterns_rw_RW = DateIntervalPatterns_rw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rwk = {
+export let DateIntervalPatterns_rwk = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19520,10 +19518,10 @@ exports.DateIntervalPatterns_rwk = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_rwk_TZ = exports.DateIntervalPatterns_rwk;
+export let DateIntervalPatterns_rwk_TZ = DateIntervalPatterns_rwk;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sa = {
+export let DateIntervalPatterns_sa = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19601,10 +19599,10 @@ exports.DateIntervalPatterns_sa = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sa_IN = exports.DateIntervalPatterns_sa;
+export let DateIntervalPatterns_sa_IN = DateIntervalPatterns_sa;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sah = {
+export let DateIntervalPatterns_sah = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19676,10 +19674,10 @@ exports.DateIntervalPatterns_sah = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sah_RU = exports.DateIntervalPatterns_sah;
+export let DateIntervalPatterns_sah_RU = DateIntervalPatterns_sah;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_saq = {
+export let DateIntervalPatterns_saq = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19757,10 +19755,10 @@ exports.DateIntervalPatterns_saq = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_saq_KE = exports.DateIntervalPatterns_saq;
+export let DateIntervalPatterns_saq_KE = DateIntervalPatterns_saq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sat = {
+export let DateIntervalPatterns_sat = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19838,13 +19836,13 @@ exports.DateIntervalPatterns_sat = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sat_Olck = exports.DateIntervalPatterns_sat;
+export let DateIntervalPatterns_sat_Olck = DateIntervalPatterns_sat;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sat_Olck_IN = exports.DateIntervalPatterns_sat;
+export let DateIntervalPatterns_sat_Olck_IN = DateIntervalPatterns_sat;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sbp = {
+export let DateIntervalPatterns_sbp = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -19922,10 +19920,10 @@ exports.DateIntervalPatterns_sbp = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sbp_TZ = exports.DateIntervalPatterns_sbp;
+export let DateIntervalPatterns_sbp_TZ = DateIntervalPatterns_sbp;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sc = {
+export let DateIntervalPatterns_sc = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -20000,10 +19998,10 @@ exports.DateIntervalPatterns_sc = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sc_IT = exports.DateIntervalPatterns_sc;
+export let DateIntervalPatterns_sc_IT = DateIntervalPatterns_sc;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sd = {
+export let DateIntervalPatterns_sd = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -20074,13 +20072,13 @@ exports.DateIntervalPatterns_sd = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sd_Arab = exports.DateIntervalPatterns_sd;
+export let DateIntervalPatterns_sd_Arab = DateIntervalPatterns_sd;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sd_Arab_PK = exports.DateIntervalPatterns_sd;
+export let DateIntervalPatterns_sd_Arab_PK = DateIntervalPatterns_sd;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sd_Deva = {
+export let DateIntervalPatterns_sd_Deva = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20156,7 +20154,7 @@ exports.DateIntervalPatterns_sd_Deva = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sd_Deva_IN = {
+export let DateIntervalPatterns_sd_Deva_IN = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20232,7 +20230,7 @@ exports.DateIntervalPatterns_sd_Deva_IN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_se = {
+export let DateIntervalPatterns_se = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20303,7 +20301,7 @@ exports.DateIntervalPatterns_se = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_se_FI = {
+export let DateIntervalPatterns_se_FI = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20379,13 +20377,13 @@ exports.DateIntervalPatterns_se_FI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_se_NO = exports.DateIntervalPatterns_se;
+export let DateIntervalPatterns_se_NO = DateIntervalPatterns_se;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_se_SE = exports.DateIntervalPatterns_se;
+export let DateIntervalPatterns_se_SE = DateIntervalPatterns_se;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_seh = {
+export let DateIntervalPatterns_seh = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20463,10 +20461,10 @@ exports.DateIntervalPatterns_seh = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_seh_MZ = exports.DateIntervalPatterns_seh;
+export let DateIntervalPatterns_seh_MZ = DateIntervalPatterns_seh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ses = {
+export let DateIntervalPatterns_ses = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20544,10 +20542,10 @@ exports.DateIntervalPatterns_ses = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ses_ML = exports.DateIntervalPatterns_ses;
+export let DateIntervalPatterns_ses_ML = DateIntervalPatterns_ses;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sg = {
+export let DateIntervalPatterns_sg = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20625,10 +20623,10 @@ exports.DateIntervalPatterns_sg = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sg_CF = exports.DateIntervalPatterns_sg;
+export let DateIntervalPatterns_sg_CF = DateIntervalPatterns_sg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_shi = {
+export let DateIntervalPatterns_shi = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20706,28 +20704,28 @@ exports.DateIntervalPatterns_shi = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_shi_Latn = exports.DateIntervalPatterns_shi;
+export let DateIntervalPatterns_shi_Latn = DateIntervalPatterns_shi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_shi_Latn_MA = exports.DateIntervalPatterns_shi;
+export let DateIntervalPatterns_shi_Latn_MA = DateIntervalPatterns_shi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_shi_Tfng = exports.DateIntervalPatterns_shi;
+export let DateIntervalPatterns_shi_Tfng = DateIntervalPatterns_shi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_shi_Tfng_MA = exports.DateIntervalPatterns_shi;
+export let DateIntervalPatterns_shi_Tfng_MA = DateIntervalPatterns_shi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_si_LK = dateIntervalPatterns.DateIntervalPatterns_si;
+export let DateIntervalPatterns_si_LK = dateIntervalPatterns.DateIntervalPatterns_si;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sk_SK = dateIntervalPatterns.DateIntervalPatterns_sk;
+export let DateIntervalPatterns_sk_SK = dateIntervalPatterns.DateIntervalPatterns_sk;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sl_SI = dateIntervalPatterns.DateIntervalPatterns_sl;
+export let DateIntervalPatterns_sl_SI = dateIntervalPatterns.DateIntervalPatterns_sl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_smn = {
+export let DateIntervalPatterns_smn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -20807,10 +20805,10 @@ exports.DateIntervalPatterns_smn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_smn_FI = exports.DateIntervalPatterns_smn;
+export let DateIntervalPatterns_smn_FI = DateIntervalPatterns_smn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sn = {
+export let DateIntervalPatterns_sn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -20881,10 +20879,10 @@ exports.DateIntervalPatterns_sn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sn_ZW = exports.DateIntervalPatterns_sn;
+export let DateIntervalPatterns_sn_ZW = DateIntervalPatterns_sn;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_so = {
+export let DateIntervalPatterns_so = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -20959,43 +20957,43 @@ exports.DateIntervalPatterns_so = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_so_DJ = exports.DateIntervalPatterns_so;
+export let DateIntervalPatterns_so_DJ = DateIntervalPatterns_so;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_so_ET = exports.DateIntervalPatterns_so;
+export let DateIntervalPatterns_so_ET = DateIntervalPatterns_so;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_so_KE = exports.DateIntervalPatterns_so;
+export let DateIntervalPatterns_so_KE = DateIntervalPatterns_so;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_so_SO = exports.DateIntervalPatterns_so;
+export let DateIntervalPatterns_so_SO = DateIntervalPatterns_so;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sq_AL = dateIntervalPatterns.DateIntervalPatterns_sq;
+export let DateIntervalPatterns_sq_AL = dateIntervalPatterns.DateIntervalPatterns_sq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sq_MK = dateIntervalPatterns.DateIntervalPatterns_sq;
+export let DateIntervalPatterns_sq_MK = dateIntervalPatterns.DateIntervalPatterns_sq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sq_XK = dateIntervalPatterns.DateIntervalPatterns_sq;
+export let DateIntervalPatterns_sq_XK = dateIntervalPatterns.DateIntervalPatterns_sq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Cyrl = dateIntervalPatterns.DateIntervalPatterns_sr;
+export let DateIntervalPatterns_sr_Cyrl = dateIntervalPatterns.DateIntervalPatterns_sr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Cyrl_BA = dateIntervalPatterns.DateIntervalPatterns_sr;
+export let DateIntervalPatterns_sr_Cyrl_BA = dateIntervalPatterns.DateIntervalPatterns_sr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Cyrl_ME = dateIntervalPatterns.DateIntervalPatterns_sr;
+export let DateIntervalPatterns_sr_Cyrl_ME = dateIntervalPatterns.DateIntervalPatterns_sr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Cyrl_RS = dateIntervalPatterns.DateIntervalPatterns_sr;
+export let DateIntervalPatterns_sr_Cyrl_RS = dateIntervalPatterns.DateIntervalPatterns_sr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Cyrl_XK = dateIntervalPatterns.DateIntervalPatterns_sr;
+export let DateIntervalPatterns_sr_Cyrl_XK = dateIntervalPatterns.DateIntervalPatterns_sr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Latn_BA = {
+export let DateIntervalPatterns_sr_Latn_BA = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21072,7 +21070,7 @@ exports.DateIntervalPatterns_sr_Latn_BA = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Latn_ME = {
+export let DateIntervalPatterns_sr_Latn_ME = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21149,7 +21147,7 @@ exports.DateIntervalPatterns_sr_Latn_ME = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Latn_RS = {
+export let DateIntervalPatterns_sr_Latn_RS = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21226,7 +21224,7 @@ exports.DateIntervalPatterns_sr_Latn_RS = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sr_Latn_XK = {
+export let DateIntervalPatterns_sr_Latn_XK = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21303,7 +21301,7 @@ exports.DateIntervalPatterns_sr_Latn_XK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_su = {
+export let DateIntervalPatterns_su = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21381,16 +21379,16 @@ exports.DateIntervalPatterns_su = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_su_Latn = exports.DateIntervalPatterns_su;
+export let DateIntervalPatterns_su_Latn = DateIntervalPatterns_su;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_su_Latn_ID = exports.DateIntervalPatterns_su;
+export let DateIntervalPatterns_su_Latn_ID = DateIntervalPatterns_su;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sv_AX = dateIntervalPatterns.DateIntervalPatterns_sv;
+export let DateIntervalPatterns_sv_AX = dateIntervalPatterns.DateIntervalPatterns_sv;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sv_FI = {
+export let DateIntervalPatterns_sv_FI = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -21465,37 +21463,37 @@ exports.DateIntervalPatterns_sv_FI = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sv_SE = dateIntervalPatterns.DateIntervalPatterns_sv;
+export let DateIntervalPatterns_sv_SE = dateIntervalPatterns.DateIntervalPatterns_sv;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sw_CD = dateIntervalPatterns.DateIntervalPatterns_sw;
+export let DateIntervalPatterns_sw_CD = dateIntervalPatterns.DateIntervalPatterns_sw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sw_KE = dateIntervalPatterns.DateIntervalPatterns_sw;
+export let DateIntervalPatterns_sw_KE = dateIntervalPatterns.DateIntervalPatterns_sw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sw_TZ = dateIntervalPatterns.DateIntervalPatterns_sw;
+export let DateIntervalPatterns_sw_TZ = dateIntervalPatterns.DateIntervalPatterns_sw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_sw_UG = dateIntervalPatterns.DateIntervalPatterns_sw;
+export let DateIntervalPatterns_sw_UG = dateIntervalPatterns.DateIntervalPatterns_sw;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ta_IN = dateIntervalPatterns.DateIntervalPatterns_ta;
+export let DateIntervalPatterns_ta_IN = dateIntervalPatterns.DateIntervalPatterns_ta;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ta_LK = dateIntervalPatterns.DateIntervalPatterns_ta;
+export let DateIntervalPatterns_ta_LK = dateIntervalPatterns.DateIntervalPatterns_ta;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ta_MY = dateIntervalPatterns.DateIntervalPatterns_ta;
+export let DateIntervalPatterns_ta_MY = dateIntervalPatterns.DateIntervalPatterns_ta;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ta_SG = dateIntervalPatterns.DateIntervalPatterns_ta;
+export let DateIntervalPatterns_ta_SG = dateIntervalPatterns.DateIntervalPatterns_ta;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_te_IN = dateIntervalPatterns.DateIntervalPatterns_te;
+export let DateIntervalPatterns_te_IN = dateIntervalPatterns.DateIntervalPatterns_te;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_teo = {
+export let DateIntervalPatterns_teo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21573,13 +21571,13 @@ exports.DateIntervalPatterns_teo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_teo_KE = exports.DateIntervalPatterns_teo;
+export let DateIntervalPatterns_teo_KE = DateIntervalPatterns_teo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_teo_UG = exports.DateIntervalPatterns_teo;
+export let DateIntervalPatterns_teo_UG = DateIntervalPatterns_teo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tg = {
+export let DateIntervalPatterns_tg = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -21653,13 +21651,13 @@ exports.DateIntervalPatterns_tg = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tg_TJ = exports.DateIntervalPatterns_tg;
+export let DateIntervalPatterns_tg_TJ = DateIntervalPatterns_tg;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_th_TH = dateIntervalPatterns.DateIntervalPatterns_th;
+export let DateIntervalPatterns_th_TH = dateIntervalPatterns.DateIntervalPatterns_th;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ti = {
+export let DateIntervalPatterns_ti = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -21728,13 +21726,13 @@ exports.DateIntervalPatterns_ti = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ti_ER = exports.DateIntervalPatterns_ti;
+export let DateIntervalPatterns_ti_ER = DateIntervalPatterns_ti;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ti_ET = exports.DateIntervalPatterns_ti;
+export let DateIntervalPatterns_ti_ET = DateIntervalPatterns_ti;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tk = {
+export let DateIntervalPatterns_tk = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -21804,10 +21802,10 @@ exports.DateIntervalPatterns_tk = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tk_TM = exports.DateIntervalPatterns_tk;
+export let DateIntervalPatterns_tk_TM = DateIntervalPatterns_tk;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_to = {
+export let DateIntervalPatterns_to = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -21876,16 +21874,16 @@ exports.DateIntervalPatterns_to = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_to_TO = exports.DateIntervalPatterns_to;
+export let DateIntervalPatterns_to_TO = DateIntervalPatterns_to;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tr_CY = dateIntervalPatterns.DateIntervalPatterns_tr;
+export let DateIntervalPatterns_tr_CY = dateIntervalPatterns.DateIntervalPatterns_tr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tr_TR = dateIntervalPatterns.DateIntervalPatterns_tr;
+export let DateIntervalPatterns_tr_TR = dateIntervalPatterns.DateIntervalPatterns_tr;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tt = {
+export let DateIntervalPatterns_tt = {
   YEAR_FULL: {
     'G': 'G y \'ел\' – G y \'ел\'',
     'y': 'y–y',
@@ -21955,10 +21953,10 @@ exports.DateIntervalPatterns_tt = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tt_RU = exports.DateIntervalPatterns_tt;
+export let DateIntervalPatterns_tt_RU = DateIntervalPatterns_tt;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_twq = {
+export let DateIntervalPatterns_twq = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22036,10 +22034,10 @@ exports.DateIntervalPatterns_twq = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_twq_NE = exports.DateIntervalPatterns_twq;
+export let DateIntervalPatterns_twq_NE = DateIntervalPatterns_twq;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tzm = {
+export let DateIntervalPatterns_tzm = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22117,10 +22115,10 @@ exports.DateIntervalPatterns_tzm = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_tzm_MA = exports.DateIntervalPatterns_tzm;
+export let DateIntervalPatterns_tzm_MA = DateIntervalPatterns_tzm;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ug = {
+export let DateIntervalPatterns_ug = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -22196,19 +22194,19 @@ exports.DateIntervalPatterns_ug = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ug_CN = exports.DateIntervalPatterns_ug;
+export let DateIntervalPatterns_ug_CN = DateIntervalPatterns_ug;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uk_UA = dateIntervalPatterns.DateIntervalPatterns_uk;
+export let DateIntervalPatterns_uk_UA = dateIntervalPatterns.DateIntervalPatterns_uk;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ur_IN = dateIntervalPatterns.DateIntervalPatterns_ur;
+export let DateIntervalPatterns_ur_IN = dateIntervalPatterns.DateIntervalPatterns_ur;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_ur_PK = dateIntervalPatterns.DateIntervalPatterns_ur;
+export let DateIntervalPatterns_ur_PK = dateIntervalPatterns.DateIntervalPatterns_ur;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uz_Arab = {
+export let DateIntervalPatterns_uz_Arab = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22286,7 +22284,7 @@ exports.DateIntervalPatterns_uz_Arab = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uz_Arab_AF = {
+export let DateIntervalPatterns_uz_Arab_AF = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22364,7 +22362,7 @@ exports.DateIntervalPatterns_uz_Arab_AF = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uz_Cyrl = {
+export let DateIntervalPatterns_uz_Cyrl = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22434,7 +22432,7 @@ exports.DateIntervalPatterns_uz_Cyrl = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uz_Cyrl_UZ = {
+export let DateIntervalPatterns_uz_Cyrl_UZ = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22504,13 +22502,13 @@ exports.DateIntervalPatterns_uz_Cyrl_UZ = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uz_Latn = dateIntervalPatterns.DateIntervalPatterns_uz;
+export let DateIntervalPatterns_uz_Latn = dateIntervalPatterns.DateIntervalPatterns_uz;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_uz_Latn_UZ = dateIntervalPatterns.DateIntervalPatterns_uz;
+export let DateIntervalPatterns_uz_Latn_UZ = dateIntervalPatterns.DateIntervalPatterns_uz;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vai = {
+export let DateIntervalPatterns_vai = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22588,7 +22586,7 @@ exports.DateIntervalPatterns_vai = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vai_Latn = {
+export let DateIntervalPatterns_vai_Latn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22666,7 +22664,7 @@ exports.DateIntervalPatterns_vai_Latn = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vai_Latn_LR = {
+export let DateIntervalPatterns_vai_Latn_LR = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22744,16 +22742,16 @@ exports.DateIntervalPatterns_vai_Latn_LR = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vai_Vaii = exports.DateIntervalPatterns_vai;
+export let DateIntervalPatterns_vai_Vaii = DateIntervalPatterns_vai;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vai_Vaii_LR = exports.DateIntervalPatterns_vai;
+export let DateIntervalPatterns_vai_Vaii_LR = DateIntervalPatterns_vai;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vi_VN = dateIntervalPatterns.DateIntervalPatterns_vi;
+export let DateIntervalPatterns_vi_VN = dateIntervalPatterns.DateIntervalPatterns_vi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vun = {
+export let DateIntervalPatterns_vun = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22831,10 +22829,10 @@ exports.DateIntervalPatterns_vun = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_vun_TZ = exports.DateIntervalPatterns_vun;
+export let DateIntervalPatterns_vun_TZ = DateIntervalPatterns_vun;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_wae = {
+export let DateIntervalPatterns_wae = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -22904,10 +22902,10 @@ exports.DateIntervalPatterns_wae = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_wae_CH = exports.DateIntervalPatterns_wae;
+export let DateIntervalPatterns_wae_CH = DateIntervalPatterns_wae;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_wo = {
+export let DateIntervalPatterns_wo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -22985,10 +22983,10 @@ exports.DateIntervalPatterns_wo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_wo_SN = exports.DateIntervalPatterns_wo;
+export let DateIntervalPatterns_wo_SN = DateIntervalPatterns_wo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_xh = {
+export let DateIntervalPatterns_xh = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -23057,10 +23055,10 @@ exports.DateIntervalPatterns_xh = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_xh_ZA = exports.DateIntervalPatterns_xh;
+export let DateIntervalPatterns_xh_ZA = DateIntervalPatterns_xh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_xog = {
+export let DateIntervalPatterns_xog = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -23138,10 +23136,10 @@ exports.DateIntervalPatterns_xog = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_xog_UG = exports.DateIntervalPatterns_xog;
+export let DateIntervalPatterns_xog_UG = DateIntervalPatterns_xog;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yav = {
+export let DateIntervalPatterns_yav = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -23219,10 +23217,10 @@ exports.DateIntervalPatterns_yav = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yav_CM = exports.DateIntervalPatterns_yav;
+export let DateIntervalPatterns_yav_CM = DateIntervalPatterns_yav;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yi = {
+export let DateIntervalPatterns_yi = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -23297,10 +23295,10 @@ exports.DateIntervalPatterns_yi = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yi_001 = exports.DateIntervalPatterns_yi;
+export let DateIntervalPatterns_yi_001 = DateIntervalPatterns_yi;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yo = {
+export let DateIntervalPatterns_yo = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -23379,13 +23377,13 @@ exports.DateIntervalPatterns_yo = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yo_BJ = exports.DateIntervalPatterns_yo;
+export let DateIntervalPatterns_yo_BJ = DateIntervalPatterns_yo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yo_NG = exports.DateIntervalPatterns_yo;
+export let DateIntervalPatterns_yo_NG = DateIntervalPatterns_yo;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yrl = {
+export let DateIntervalPatterns_yrl = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -23457,16 +23455,16 @@ exports.DateIntervalPatterns_yrl = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yrl_BR = exports.DateIntervalPatterns_yrl;
+export let DateIntervalPatterns_yrl_BR = DateIntervalPatterns_yrl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yrl_CO = exports.DateIntervalPatterns_yrl;
+export let DateIntervalPatterns_yrl_CO = DateIntervalPatterns_yrl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yrl_VE = exports.DateIntervalPatterns_yrl;
+export let DateIntervalPatterns_yrl_VE = DateIntervalPatterns_yrl;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yue = {
+export let DateIntervalPatterns_yue = {
   YEAR_FULL: {
     'G': 'Gy年至Gy年',
     'y': 'y至y',
@@ -23538,7 +23536,7 @@ exports.DateIntervalPatterns_yue = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yue_Hans = {
+export let DateIntervalPatterns_yue_Hans = {
   YEAR_FULL: {
     'G': 'Gy年至Gy年',
     'y': 'y–y年',
@@ -23618,7 +23616,7 @@ exports.DateIntervalPatterns_yue_Hans = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yue_Hans_CN = {
+export let DateIntervalPatterns_yue_Hans_CN = {
   YEAR_FULL: {
     'G': 'Gy年至Gy年',
     'y': 'y–y年',
@@ -23698,13 +23696,13 @@ exports.DateIntervalPatterns_yue_Hans_CN = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yue_Hant = exports.DateIntervalPatterns_yue;
+export let DateIntervalPatterns_yue_Hant = DateIntervalPatterns_yue;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_yue_Hant_HK = exports.DateIntervalPatterns_yue;
+export let DateIntervalPatterns_yue_Hant_HK = DateIntervalPatterns_yue;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zgh = {
+export let DateIntervalPatterns_zgh = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -23779,16 +23777,16 @@ exports.DateIntervalPatterns_zgh = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zgh_MA = exports.DateIntervalPatterns_zgh;
+export let DateIntervalPatterns_zgh_MA = DateIntervalPatterns_zgh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hans = dateIntervalPatterns.DateIntervalPatterns_zh;
+export let DateIntervalPatterns_zh_Hans = dateIntervalPatterns.DateIntervalPatterns_zh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hans_CN = dateIntervalPatterns.DateIntervalPatterns_zh;
+export let DateIntervalPatterns_zh_Hans_CN = dateIntervalPatterns.DateIntervalPatterns_zh;
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hans_HK = {
+export let DateIntervalPatterns_zh_Hans_HK = {
   YEAR_FULL: {
     'G': 'Gy年 – Gy年',
     'y': 'y–y年',
@@ -23867,7 +23865,7 @@ exports.DateIntervalPatterns_zh_Hans_HK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hans_MO = {
+export let DateIntervalPatterns_zh_Hans_MO = {
   YEAR_FULL: {
     'G': 'Gy年 – Gy年',
     'y': 'y–y年',
@@ -23945,7 +23943,7 @@ exports.DateIntervalPatterns_zh_Hans_MO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hans_SG = {
+export let DateIntervalPatterns_zh_Hans_SG = {
   YEAR_FULL: {
     'G': 'Gy年 – Gy年',
     'y': 'y–y年',
@@ -24015,7 +24013,7 @@ exports.DateIntervalPatterns_zh_Hans_SG = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hant = {
+export let DateIntervalPatterns_zh_Hant = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y至y',
@@ -24094,7 +24092,7 @@ exports.DateIntervalPatterns_zh_Hant = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hant_HK = {
+export let DateIntervalPatterns_zh_Hant_HK = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y至y',
@@ -24173,7 +24171,7 @@ exports.DateIntervalPatterns_zh_Hant_HK = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hant_MO = {
+export let DateIntervalPatterns_zh_Hant_MO = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y至y',
@@ -24252,7 +24250,7 @@ exports.DateIntervalPatterns_zh_Hant_MO = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zh_Hant_TW = {
+export let DateIntervalPatterns_zh_Hant_TW = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y至y',
@@ -24331,2704 +24329,2704 @@ exports.DateIntervalPatterns_zh_Hant_TW = {
 };
 
 /** @const {!dateIntervalPatterns.DateIntervalPatterns} */
-exports.DateIntervalPatterns_zu_ZA = dateIntervalPatterns.DateIntervalPatterns_zu;
+export let DateIntervalPatterns_zu_ZA = dateIntervalPatterns.DateIntervalPatterns_zu;
 
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    defaultPatterns = exports.DateIntervalPatterns_af_NA;
+    defaultPatterns = DateIntervalPatterns_af_NA;
     break;
   case 'af_ZA':
   case 'af-ZA':
-    defaultPatterns = exports.DateIntervalPatterns_af_ZA;
+    defaultPatterns = DateIntervalPatterns_af_ZA;
     break;
   case 'agq':
-    defaultPatterns = exports.DateIntervalPatterns_agq;
+    defaultPatterns = DateIntervalPatterns_agq;
     break;
   case 'agq_CM':
   case 'agq-CM':
-    defaultPatterns = exports.DateIntervalPatterns_agq_CM;
+    defaultPatterns = DateIntervalPatterns_agq_CM;
     break;
   case 'ak':
-    defaultPatterns = exports.DateIntervalPatterns_ak;
+    defaultPatterns = DateIntervalPatterns_ak;
     break;
   case 'ak_GH':
   case 'ak-GH':
-    defaultPatterns = exports.DateIntervalPatterns_ak_GH;
+    defaultPatterns = DateIntervalPatterns_ak_GH;
     break;
   case 'am_ET':
   case 'am-ET':
-    defaultPatterns = exports.DateIntervalPatterns_am_ET;
+    defaultPatterns = DateIntervalPatterns_am_ET;
     break;
   case 'ar_001':
   case 'ar-001':
-    defaultPatterns = exports.DateIntervalPatterns_ar_001;
+    defaultPatterns = DateIntervalPatterns_ar_001;
     break;
   case 'ar_AE':
   case 'ar-AE':
-    defaultPatterns = exports.DateIntervalPatterns_ar_AE;
+    defaultPatterns = DateIntervalPatterns_ar_AE;
     break;
   case 'ar_BH':
   case 'ar-BH':
-    defaultPatterns = exports.DateIntervalPatterns_ar_BH;
+    defaultPatterns = DateIntervalPatterns_ar_BH;
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    defaultPatterns = exports.DateIntervalPatterns_ar_DJ;
+    defaultPatterns = DateIntervalPatterns_ar_DJ;
     break;
   case 'ar_EH':
   case 'ar-EH':
-    defaultPatterns = exports.DateIntervalPatterns_ar_EH;
+    defaultPatterns = DateIntervalPatterns_ar_EH;
     break;
   case 'ar_ER':
   case 'ar-ER':
-    defaultPatterns = exports.DateIntervalPatterns_ar_ER;
+    defaultPatterns = DateIntervalPatterns_ar_ER;
     break;
   case 'ar_IL':
   case 'ar-IL':
-    defaultPatterns = exports.DateIntervalPatterns_ar_IL;
+    defaultPatterns = DateIntervalPatterns_ar_IL;
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    defaultPatterns = exports.DateIntervalPatterns_ar_IQ;
+    defaultPatterns = DateIntervalPatterns_ar_IQ;
     break;
   case 'ar_JO':
   case 'ar-JO':
-    defaultPatterns = exports.DateIntervalPatterns_ar_JO;
+    defaultPatterns = DateIntervalPatterns_ar_JO;
     break;
   case 'ar_KM':
   case 'ar-KM':
-    defaultPatterns = exports.DateIntervalPatterns_ar_KM;
+    defaultPatterns = DateIntervalPatterns_ar_KM;
     break;
   case 'ar_KW':
   case 'ar-KW':
-    defaultPatterns = exports.DateIntervalPatterns_ar_KW;
+    defaultPatterns = DateIntervalPatterns_ar_KW;
     break;
   case 'ar_LB':
   case 'ar-LB':
-    defaultPatterns = exports.DateIntervalPatterns_ar_LB;
+    defaultPatterns = DateIntervalPatterns_ar_LB;
     break;
   case 'ar_LY':
   case 'ar-LY':
-    defaultPatterns = exports.DateIntervalPatterns_ar_LY;
+    defaultPatterns = DateIntervalPatterns_ar_LY;
     break;
   case 'ar_MA':
   case 'ar-MA':
-    defaultPatterns = exports.DateIntervalPatterns_ar_MA;
+    defaultPatterns = DateIntervalPatterns_ar_MA;
     break;
   case 'ar_MR':
   case 'ar-MR':
-    defaultPatterns = exports.DateIntervalPatterns_ar_MR;
+    defaultPatterns = DateIntervalPatterns_ar_MR;
     break;
   case 'ar_OM':
   case 'ar-OM':
-    defaultPatterns = exports.DateIntervalPatterns_ar_OM;
+    defaultPatterns = DateIntervalPatterns_ar_OM;
     break;
   case 'ar_PS':
   case 'ar-PS':
-    defaultPatterns = exports.DateIntervalPatterns_ar_PS;
+    defaultPatterns = DateIntervalPatterns_ar_PS;
     break;
   case 'ar_QA':
   case 'ar-QA':
-    defaultPatterns = exports.DateIntervalPatterns_ar_QA;
+    defaultPatterns = DateIntervalPatterns_ar_QA;
     break;
   case 'ar_SA':
   case 'ar-SA':
-    defaultPatterns = exports.DateIntervalPatterns_ar_SA;
+    defaultPatterns = DateIntervalPatterns_ar_SA;
     break;
   case 'ar_SD':
   case 'ar-SD':
-    defaultPatterns = exports.DateIntervalPatterns_ar_SD;
+    defaultPatterns = DateIntervalPatterns_ar_SD;
     break;
   case 'ar_SO':
   case 'ar-SO':
-    defaultPatterns = exports.DateIntervalPatterns_ar_SO;
+    defaultPatterns = DateIntervalPatterns_ar_SO;
     break;
   case 'ar_SS':
   case 'ar-SS':
-    defaultPatterns = exports.DateIntervalPatterns_ar_SS;
+    defaultPatterns = DateIntervalPatterns_ar_SS;
     break;
   case 'ar_SY':
   case 'ar-SY':
-    defaultPatterns = exports.DateIntervalPatterns_ar_SY;
+    defaultPatterns = DateIntervalPatterns_ar_SY;
     break;
   case 'ar_TD':
   case 'ar-TD':
-    defaultPatterns = exports.DateIntervalPatterns_ar_TD;
+    defaultPatterns = DateIntervalPatterns_ar_TD;
     break;
   case 'ar_TN':
   case 'ar-TN':
-    defaultPatterns = exports.DateIntervalPatterns_ar_TN;
+    defaultPatterns = DateIntervalPatterns_ar_TN;
     break;
   case 'ar_XB':
   case 'ar-XB':
-    defaultPatterns = exports.DateIntervalPatterns_ar_XB;
+    defaultPatterns = DateIntervalPatterns_ar_XB;
     break;
   case 'ar_YE':
   case 'ar-YE':
-    defaultPatterns = exports.DateIntervalPatterns_ar_YE;
+    defaultPatterns = DateIntervalPatterns_ar_YE;
     break;
   case 'as':
-    defaultPatterns = exports.DateIntervalPatterns_as;
+    defaultPatterns = DateIntervalPatterns_as;
     break;
   case 'as_IN':
   case 'as-IN':
-    defaultPatterns = exports.DateIntervalPatterns_as_IN;
+    defaultPatterns = DateIntervalPatterns_as_IN;
     break;
   case 'asa':
-    defaultPatterns = exports.DateIntervalPatterns_asa;
+    defaultPatterns = DateIntervalPatterns_asa;
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_asa_TZ;
+    defaultPatterns = DateIntervalPatterns_asa_TZ;
     break;
   case 'ast':
-    defaultPatterns = exports.DateIntervalPatterns_ast;
+    defaultPatterns = DateIntervalPatterns_ast;
     break;
   case 'ast_ES':
   case 'ast-ES':
-    defaultPatterns = exports.DateIntervalPatterns_ast_ES;
+    defaultPatterns = DateIntervalPatterns_ast_ES;
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    defaultPatterns = exports.DateIntervalPatterns_az_Cyrl;
+    defaultPatterns = DateIntervalPatterns_az_Cyrl;
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    defaultPatterns = exports.DateIntervalPatterns_az_Cyrl_AZ;
+    defaultPatterns = DateIntervalPatterns_az_Cyrl_AZ;
     break;
   case 'az_Latn':
   case 'az-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_az_Latn;
+    defaultPatterns = DateIntervalPatterns_az_Latn;
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    defaultPatterns = exports.DateIntervalPatterns_az_Latn_AZ;
+    defaultPatterns = DateIntervalPatterns_az_Latn_AZ;
     break;
   case 'bas':
-    defaultPatterns = exports.DateIntervalPatterns_bas;
+    defaultPatterns = DateIntervalPatterns_bas;
     break;
   case 'bas_CM':
   case 'bas-CM':
-    defaultPatterns = exports.DateIntervalPatterns_bas_CM;
+    defaultPatterns = DateIntervalPatterns_bas_CM;
     break;
   case 'be_BY':
   case 'be-BY':
-    defaultPatterns = exports.DateIntervalPatterns_be_BY;
+    defaultPatterns = DateIntervalPatterns_be_BY;
     break;
   case 'bem':
-    defaultPatterns = exports.DateIntervalPatterns_bem;
+    defaultPatterns = DateIntervalPatterns_bem;
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    defaultPatterns = exports.DateIntervalPatterns_bem_ZM;
+    defaultPatterns = DateIntervalPatterns_bem_ZM;
     break;
   case 'bez':
-    defaultPatterns = exports.DateIntervalPatterns_bez;
+    defaultPatterns = DateIntervalPatterns_bez;
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_bez_TZ;
+    defaultPatterns = DateIntervalPatterns_bez_TZ;
     break;
   case 'bg_BG':
   case 'bg-BG':
-    defaultPatterns = exports.DateIntervalPatterns_bg_BG;
+    defaultPatterns = DateIntervalPatterns_bg_BG;
     break;
   case 'bgc':
-    defaultPatterns = exports.DateIntervalPatterns_bgc;
+    defaultPatterns = DateIntervalPatterns_bgc;
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    defaultPatterns = exports.DateIntervalPatterns_bgc_IN;
+    defaultPatterns = DateIntervalPatterns_bgc_IN;
     break;
   case 'bho':
-    defaultPatterns = exports.DateIntervalPatterns_bho;
+    defaultPatterns = DateIntervalPatterns_bho;
     break;
   case 'bho_IN':
   case 'bho-IN':
-    defaultPatterns = exports.DateIntervalPatterns_bho_IN;
+    defaultPatterns = DateIntervalPatterns_bho_IN;
     break;
   case 'bm':
-    defaultPatterns = exports.DateIntervalPatterns_bm;
+    defaultPatterns = DateIntervalPatterns_bm;
     break;
   case 'bm_ML':
   case 'bm-ML':
-    defaultPatterns = exports.DateIntervalPatterns_bm_ML;
+    defaultPatterns = DateIntervalPatterns_bm_ML;
     break;
   case 'bn_BD':
   case 'bn-BD':
-    defaultPatterns = exports.DateIntervalPatterns_bn_BD;
+    defaultPatterns = DateIntervalPatterns_bn_BD;
     break;
   case 'bn_IN':
   case 'bn-IN':
-    defaultPatterns = exports.DateIntervalPatterns_bn_IN;
+    defaultPatterns = DateIntervalPatterns_bn_IN;
     break;
   case 'bo':
-    defaultPatterns = exports.DateIntervalPatterns_bo;
+    defaultPatterns = DateIntervalPatterns_bo;
     break;
   case 'bo_CN':
   case 'bo-CN':
-    defaultPatterns = exports.DateIntervalPatterns_bo_CN;
+    defaultPatterns = DateIntervalPatterns_bo_CN;
     break;
   case 'bo_IN':
   case 'bo-IN':
-    defaultPatterns = exports.DateIntervalPatterns_bo_IN;
+    defaultPatterns = DateIntervalPatterns_bo_IN;
     break;
   case 'br_FR':
   case 'br-FR':
-    defaultPatterns = exports.DateIntervalPatterns_br_FR;
+    defaultPatterns = DateIntervalPatterns_br_FR;
     break;
   case 'brx':
-    defaultPatterns = exports.DateIntervalPatterns_brx;
+    defaultPatterns = DateIntervalPatterns_brx;
     break;
   case 'brx_IN':
   case 'brx-IN':
-    defaultPatterns = exports.DateIntervalPatterns_brx_IN;
+    defaultPatterns = DateIntervalPatterns_brx_IN;
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    defaultPatterns = exports.DateIntervalPatterns_bs_Cyrl;
+    defaultPatterns = DateIntervalPatterns_bs_Cyrl;
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    defaultPatterns = exports.DateIntervalPatterns_bs_Cyrl_BA;
+    defaultPatterns = DateIntervalPatterns_bs_Cyrl_BA;
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_bs_Latn;
+    defaultPatterns = DateIntervalPatterns_bs_Latn;
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    defaultPatterns = exports.DateIntervalPatterns_bs_Latn_BA;
+    defaultPatterns = DateIntervalPatterns_bs_Latn_BA;
     break;
   case 'ca_AD':
   case 'ca-AD':
-    defaultPatterns = exports.DateIntervalPatterns_ca_AD;
+    defaultPatterns = DateIntervalPatterns_ca_AD;
     break;
   case 'ca_ES':
   case 'ca-ES':
-    defaultPatterns = exports.DateIntervalPatterns_ca_ES;
+    defaultPatterns = DateIntervalPatterns_ca_ES;
     break;
   case 'ca_FR':
   case 'ca-FR':
-    defaultPatterns = exports.DateIntervalPatterns_ca_FR;
+    defaultPatterns = DateIntervalPatterns_ca_FR;
     break;
   case 'ca_IT':
   case 'ca-IT':
-    defaultPatterns = exports.DateIntervalPatterns_ca_IT;
+    defaultPatterns = DateIntervalPatterns_ca_IT;
     break;
   case 'ccp':
-    defaultPatterns = exports.DateIntervalPatterns_ccp;
+    defaultPatterns = DateIntervalPatterns_ccp;
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    defaultPatterns = exports.DateIntervalPatterns_ccp_BD;
+    defaultPatterns = DateIntervalPatterns_ccp_BD;
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ccp_IN;
+    defaultPatterns = DateIntervalPatterns_ccp_IN;
     break;
   case 'ce':
-    defaultPatterns = exports.DateIntervalPatterns_ce;
+    defaultPatterns = DateIntervalPatterns_ce;
     break;
   case 'ce_RU':
   case 'ce-RU':
-    defaultPatterns = exports.DateIntervalPatterns_ce_RU;
+    defaultPatterns = DateIntervalPatterns_ce_RU;
     break;
   case 'ceb':
-    defaultPatterns = exports.DateIntervalPatterns_ceb;
+    defaultPatterns = DateIntervalPatterns_ceb;
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    defaultPatterns = exports.DateIntervalPatterns_ceb_PH;
+    defaultPatterns = DateIntervalPatterns_ceb_PH;
     break;
   case 'cgg':
-    defaultPatterns = exports.DateIntervalPatterns_cgg;
+    defaultPatterns = DateIntervalPatterns_cgg;
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    defaultPatterns = exports.DateIntervalPatterns_cgg_UG;
+    defaultPatterns = DateIntervalPatterns_cgg_UG;
     break;
   case 'chr_US':
   case 'chr-US':
-    defaultPatterns = exports.DateIntervalPatterns_chr_US;
+    defaultPatterns = DateIntervalPatterns_chr_US;
     break;
   case 'ckb':
-    defaultPatterns = exports.DateIntervalPatterns_ckb;
+    defaultPatterns = DateIntervalPatterns_ckb;
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    defaultPatterns = exports.DateIntervalPatterns_ckb_Arab;
+    defaultPatterns = DateIntervalPatterns_ckb_Arab;
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    defaultPatterns = exports.DateIntervalPatterns_ckb_Arab_IQ;
+    defaultPatterns = DateIntervalPatterns_ckb_Arab_IQ;
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    defaultPatterns = exports.DateIntervalPatterns_ckb_Arab_IR;
+    defaultPatterns = DateIntervalPatterns_ckb_Arab_IR;
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    defaultPatterns = exports.DateIntervalPatterns_ckb_IQ;
+    defaultPatterns = DateIntervalPatterns_ckb_IQ;
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    defaultPatterns = exports.DateIntervalPatterns_ckb_IR;
+    defaultPatterns = DateIntervalPatterns_ckb_IR;
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    defaultPatterns = exports.DateIntervalPatterns_cs_CZ;
+    defaultPatterns = DateIntervalPatterns_cs_CZ;
     break;
   case 'cv':
-    defaultPatterns = exports.DateIntervalPatterns_cv;
+    defaultPatterns = DateIntervalPatterns_cv;
     break;
   case 'cv_RU':
   case 'cv-RU':
-    defaultPatterns = exports.DateIntervalPatterns_cv_RU;
+    defaultPatterns = DateIntervalPatterns_cv_RU;
     break;
   case 'cy_GB':
   case 'cy-GB':
-    defaultPatterns = exports.DateIntervalPatterns_cy_GB;
+    defaultPatterns = DateIntervalPatterns_cy_GB;
     break;
   case 'da_DK':
   case 'da-DK':
-    defaultPatterns = exports.DateIntervalPatterns_da_DK;
+    defaultPatterns = DateIntervalPatterns_da_DK;
     break;
   case 'da_GL':
   case 'da-GL':
-    defaultPatterns = exports.DateIntervalPatterns_da_GL;
+    defaultPatterns = DateIntervalPatterns_da_GL;
     break;
   case 'dav':
-    defaultPatterns = exports.DateIntervalPatterns_dav;
+    defaultPatterns = DateIntervalPatterns_dav;
     break;
   case 'dav_KE':
   case 'dav-KE':
-    defaultPatterns = exports.DateIntervalPatterns_dav_KE;
+    defaultPatterns = DateIntervalPatterns_dav_KE;
     break;
   case 'de_BE':
   case 'de-BE':
-    defaultPatterns = exports.DateIntervalPatterns_de_BE;
+    defaultPatterns = DateIntervalPatterns_de_BE;
     break;
   case 'de_DE':
   case 'de-DE':
-    defaultPatterns = exports.DateIntervalPatterns_de_DE;
+    defaultPatterns = DateIntervalPatterns_de_DE;
     break;
   case 'de_IT':
   case 'de-IT':
-    defaultPatterns = exports.DateIntervalPatterns_de_IT;
+    defaultPatterns = DateIntervalPatterns_de_IT;
     break;
   case 'de_LI':
   case 'de-LI':
-    defaultPatterns = exports.DateIntervalPatterns_de_LI;
+    defaultPatterns = DateIntervalPatterns_de_LI;
     break;
   case 'de_LU':
   case 'de-LU':
-    defaultPatterns = exports.DateIntervalPatterns_de_LU;
+    defaultPatterns = DateIntervalPatterns_de_LU;
     break;
   case 'dje':
-    defaultPatterns = exports.DateIntervalPatterns_dje;
+    defaultPatterns = DateIntervalPatterns_dje;
     break;
   case 'dje_NE':
   case 'dje-NE':
-    defaultPatterns = exports.DateIntervalPatterns_dje_NE;
+    defaultPatterns = DateIntervalPatterns_dje_NE;
     break;
   case 'doi':
-    defaultPatterns = exports.DateIntervalPatterns_doi;
+    defaultPatterns = DateIntervalPatterns_doi;
     break;
   case 'doi_IN':
   case 'doi-IN':
-    defaultPatterns = exports.DateIntervalPatterns_doi_IN;
+    defaultPatterns = DateIntervalPatterns_doi_IN;
     break;
   case 'dsb':
-    defaultPatterns = exports.DateIntervalPatterns_dsb;
+    defaultPatterns = DateIntervalPatterns_dsb;
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    defaultPatterns = exports.DateIntervalPatterns_dsb_DE;
+    defaultPatterns = DateIntervalPatterns_dsb_DE;
     break;
   case 'dua':
-    defaultPatterns = exports.DateIntervalPatterns_dua;
+    defaultPatterns = DateIntervalPatterns_dua;
     break;
   case 'dua_CM':
   case 'dua-CM':
-    defaultPatterns = exports.DateIntervalPatterns_dua_CM;
+    defaultPatterns = DateIntervalPatterns_dua_CM;
     break;
   case 'dyo':
-    defaultPatterns = exports.DateIntervalPatterns_dyo;
+    defaultPatterns = DateIntervalPatterns_dyo;
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    defaultPatterns = exports.DateIntervalPatterns_dyo_SN;
+    defaultPatterns = DateIntervalPatterns_dyo_SN;
     break;
   case 'dz':
-    defaultPatterns = exports.DateIntervalPatterns_dz;
+    defaultPatterns = DateIntervalPatterns_dz;
     break;
   case 'dz_BT':
   case 'dz-BT':
-    defaultPatterns = exports.DateIntervalPatterns_dz_BT;
+    defaultPatterns = DateIntervalPatterns_dz_BT;
     break;
   case 'ebu':
-    defaultPatterns = exports.DateIntervalPatterns_ebu;
+    defaultPatterns = DateIntervalPatterns_ebu;
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    defaultPatterns = exports.DateIntervalPatterns_ebu_KE;
+    defaultPatterns = DateIntervalPatterns_ebu_KE;
     break;
   case 'ee':
-    defaultPatterns = exports.DateIntervalPatterns_ee;
+    defaultPatterns = DateIntervalPatterns_ee;
     break;
   case 'ee_GH':
   case 'ee-GH':
-    defaultPatterns = exports.DateIntervalPatterns_ee_GH;
+    defaultPatterns = DateIntervalPatterns_ee_GH;
     break;
   case 'ee_TG':
   case 'ee-TG':
-    defaultPatterns = exports.DateIntervalPatterns_ee_TG;
+    defaultPatterns = DateIntervalPatterns_ee_TG;
     break;
   case 'el_CY':
   case 'el-CY':
-    defaultPatterns = exports.DateIntervalPatterns_el_CY;
+    defaultPatterns = DateIntervalPatterns_el_CY;
     break;
   case 'el_GR':
   case 'el-GR':
-    defaultPatterns = exports.DateIntervalPatterns_el_GR;
+    defaultPatterns = DateIntervalPatterns_el_GR;
     break;
   case 'en_001':
   case 'en-001':
-    defaultPatterns = exports.DateIntervalPatterns_en_001;
+    defaultPatterns = DateIntervalPatterns_en_001;
     break;
   case 'en_150':
   case 'en-150':
-    defaultPatterns = exports.DateIntervalPatterns_en_150;
+    defaultPatterns = DateIntervalPatterns_en_150;
     break;
   case 'en_AE':
   case 'en-AE':
-    defaultPatterns = exports.DateIntervalPatterns_en_AE;
+    defaultPatterns = DateIntervalPatterns_en_AE;
     break;
   case 'en_AG':
   case 'en-AG':
-    defaultPatterns = exports.DateIntervalPatterns_en_AG;
+    defaultPatterns = DateIntervalPatterns_en_AG;
     break;
   case 'en_AI':
   case 'en-AI':
-    defaultPatterns = exports.DateIntervalPatterns_en_AI;
+    defaultPatterns = DateIntervalPatterns_en_AI;
     break;
   case 'en_AS':
   case 'en-AS':
-    defaultPatterns = exports.DateIntervalPatterns_en_AS;
+    defaultPatterns = DateIntervalPatterns_en_AS;
     break;
   case 'en_AT':
   case 'en-AT':
-    defaultPatterns = exports.DateIntervalPatterns_en_AT;
+    defaultPatterns = DateIntervalPatterns_en_AT;
     break;
   case 'en_BB':
   case 'en-BB':
-    defaultPatterns = exports.DateIntervalPatterns_en_BB;
+    defaultPatterns = DateIntervalPatterns_en_BB;
     break;
   case 'en_BE':
   case 'en-BE':
-    defaultPatterns = exports.DateIntervalPatterns_en_BE;
+    defaultPatterns = DateIntervalPatterns_en_BE;
     break;
   case 'en_BI':
   case 'en-BI':
-    defaultPatterns = exports.DateIntervalPatterns_en_BI;
+    defaultPatterns = DateIntervalPatterns_en_BI;
     break;
   case 'en_BM':
   case 'en-BM':
-    defaultPatterns = exports.DateIntervalPatterns_en_BM;
+    defaultPatterns = DateIntervalPatterns_en_BM;
     break;
   case 'en_BS':
   case 'en-BS':
-    defaultPatterns = exports.DateIntervalPatterns_en_BS;
+    defaultPatterns = DateIntervalPatterns_en_BS;
     break;
   case 'en_BW':
   case 'en-BW':
-    defaultPatterns = exports.DateIntervalPatterns_en_BW;
+    defaultPatterns = DateIntervalPatterns_en_BW;
     break;
   case 'en_BZ':
   case 'en-BZ':
-    defaultPatterns = exports.DateIntervalPatterns_en_BZ;
+    defaultPatterns = DateIntervalPatterns_en_BZ;
     break;
   case 'en_CC':
   case 'en-CC':
-    defaultPatterns = exports.DateIntervalPatterns_en_CC;
+    defaultPatterns = DateIntervalPatterns_en_CC;
     break;
   case 'en_CH':
   case 'en-CH':
-    defaultPatterns = exports.DateIntervalPatterns_en_CH;
+    defaultPatterns = DateIntervalPatterns_en_CH;
     break;
   case 'en_CK':
   case 'en-CK':
-    defaultPatterns = exports.DateIntervalPatterns_en_CK;
+    defaultPatterns = DateIntervalPatterns_en_CK;
     break;
   case 'en_CM':
   case 'en-CM':
-    defaultPatterns = exports.DateIntervalPatterns_en_CM;
+    defaultPatterns = DateIntervalPatterns_en_CM;
     break;
   case 'en_CX':
   case 'en-CX':
-    defaultPatterns = exports.DateIntervalPatterns_en_CX;
+    defaultPatterns = DateIntervalPatterns_en_CX;
     break;
   case 'en_CY':
   case 'en-CY':
-    defaultPatterns = exports.DateIntervalPatterns_en_CY;
+    defaultPatterns = DateIntervalPatterns_en_CY;
     break;
   case 'en_DE':
   case 'en-DE':
-    defaultPatterns = exports.DateIntervalPatterns_en_DE;
+    defaultPatterns = DateIntervalPatterns_en_DE;
     break;
   case 'en_DG':
   case 'en-DG':
-    defaultPatterns = exports.DateIntervalPatterns_en_DG;
+    defaultPatterns = DateIntervalPatterns_en_DG;
     break;
   case 'en_DK':
   case 'en-DK':
-    defaultPatterns = exports.DateIntervalPatterns_en_DK;
+    defaultPatterns = DateIntervalPatterns_en_DK;
     break;
   case 'en_DM':
   case 'en-DM':
-    defaultPatterns = exports.DateIntervalPatterns_en_DM;
+    defaultPatterns = DateIntervalPatterns_en_DM;
     break;
   case 'en_ER':
   case 'en-ER':
-    defaultPatterns = exports.DateIntervalPatterns_en_ER;
+    defaultPatterns = DateIntervalPatterns_en_ER;
     break;
   case 'en_FI':
   case 'en-FI':
-    defaultPatterns = exports.DateIntervalPatterns_en_FI;
+    defaultPatterns = DateIntervalPatterns_en_FI;
     break;
   case 'en_FJ':
   case 'en-FJ':
-    defaultPatterns = exports.DateIntervalPatterns_en_FJ;
+    defaultPatterns = DateIntervalPatterns_en_FJ;
     break;
   case 'en_FK':
   case 'en-FK':
-    defaultPatterns = exports.DateIntervalPatterns_en_FK;
+    defaultPatterns = DateIntervalPatterns_en_FK;
     break;
   case 'en_FM':
   case 'en-FM':
-    defaultPatterns = exports.DateIntervalPatterns_en_FM;
+    defaultPatterns = DateIntervalPatterns_en_FM;
     break;
   case 'en_GD':
   case 'en-GD':
-    defaultPatterns = exports.DateIntervalPatterns_en_GD;
+    defaultPatterns = DateIntervalPatterns_en_GD;
     break;
   case 'en_GG':
   case 'en-GG':
-    defaultPatterns = exports.DateIntervalPatterns_en_GG;
+    defaultPatterns = DateIntervalPatterns_en_GG;
     break;
   case 'en_GH':
   case 'en-GH':
-    defaultPatterns = exports.DateIntervalPatterns_en_GH;
+    defaultPatterns = DateIntervalPatterns_en_GH;
     break;
   case 'en_GI':
   case 'en-GI':
-    defaultPatterns = exports.DateIntervalPatterns_en_GI;
+    defaultPatterns = DateIntervalPatterns_en_GI;
     break;
   case 'en_GM':
   case 'en-GM':
-    defaultPatterns = exports.DateIntervalPatterns_en_GM;
+    defaultPatterns = DateIntervalPatterns_en_GM;
     break;
   case 'en_GU':
   case 'en-GU':
-    defaultPatterns = exports.DateIntervalPatterns_en_GU;
+    defaultPatterns = DateIntervalPatterns_en_GU;
     break;
   case 'en_GY':
   case 'en-GY':
-    defaultPatterns = exports.DateIntervalPatterns_en_GY;
+    defaultPatterns = DateIntervalPatterns_en_GY;
     break;
   case 'en_HK':
   case 'en-HK':
-    defaultPatterns = exports.DateIntervalPatterns_en_HK;
+    defaultPatterns = DateIntervalPatterns_en_HK;
     break;
   case 'en_IL':
   case 'en-IL':
-    defaultPatterns = exports.DateIntervalPatterns_en_IL;
+    defaultPatterns = DateIntervalPatterns_en_IL;
     break;
   case 'en_IM':
   case 'en-IM':
-    defaultPatterns = exports.DateIntervalPatterns_en_IM;
+    defaultPatterns = DateIntervalPatterns_en_IM;
     break;
   case 'en_IO':
   case 'en-IO':
-    defaultPatterns = exports.DateIntervalPatterns_en_IO;
+    defaultPatterns = DateIntervalPatterns_en_IO;
     break;
   case 'en_JE':
   case 'en-JE':
-    defaultPatterns = exports.DateIntervalPatterns_en_JE;
+    defaultPatterns = DateIntervalPatterns_en_JE;
     break;
   case 'en_JM':
   case 'en-JM':
-    defaultPatterns = exports.DateIntervalPatterns_en_JM;
+    defaultPatterns = DateIntervalPatterns_en_JM;
     break;
   case 'en_KE':
   case 'en-KE':
-    defaultPatterns = exports.DateIntervalPatterns_en_KE;
+    defaultPatterns = DateIntervalPatterns_en_KE;
     break;
   case 'en_KI':
   case 'en-KI':
-    defaultPatterns = exports.DateIntervalPatterns_en_KI;
+    defaultPatterns = DateIntervalPatterns_en_KI;
     break;
   case 'en_KN':
   case 'en-KN':
-    defaultPatterns = exports.DateIntervalPatterns_en_KN;
+    defaultPatterns = DateIntervalPatterns_en_KN;
     break;
   case 'en_KY':
   case 'en-KY':
-    defaultPatterns = exports.DateIntervalPatterns_en_KY;
+    defaultPatterns = DateIntervalPatterns_en_KY;
     break;
   case 'en_LC':
   case 'en-LC':
-    defaultPatterns = exports.DateIntervalPatterns_en_LC;
+    defaultPatterns = DateIntervalPatterns_en_LC;
     break;
   case 'en_LR':
   case 'en-LR':
-    defaultPatterns = exports.DateIntervalPatterns_en_LR;
+    defaultPatterns = DateIntervalPatterns_en_LR;
     break;
   case 'en_LS':
   case 'en-LS':
-    defaultPatterns = exports.DateIntervalPatterns_en_LS;
+    defaultPatterns = DateIntervalPatterns_en_LS;
     break;
   case 'en_MG':
   case 'en-MG':
-    defaultPatterns = exports.DateIntervalPatterns_en_MG;
+    defaultPatterns = DateIntervalPatterns_en_MG;
     break;
   case 'en_MH':
   case 'en-MH':
-    defaultPatterns = exports.DateIntervalPatterns_en_MH;
+    defaultPatterns = DateIntervalPatterns_en_MH;
     break;
   case 'en_MO':
   case 'en-MO':
-    defaultPatterns = exports.DateIntervalPatterns_en_MO;
+    defaultPatterns = DateIntervalPatterns_en_MO;
     break;
   case 'en_MP':
   case 'en-MP':
-    defaultPatterns = exports.DateIntervalPatterns_en_MP;
+    defaultPatterns = DateIntervalPatterns_en_MP;
     break;
   case 'en_MS':
   case 'en-MS':
-    defaultPatterns = exports.DateIntervalPatterns_en_MS;
+    defaultPatterns = DateIntervalPatterns_en_MS;
     break;
   case 'en_MT':
   case 'en-MT':
-    defaultPatterns = exports.DateIntervalPatterns_en_MT;
+    defaultPatterns = DateIntervalPatterns_en_MT;
     break;
   case 'en_MU':
   case 'en-MU':
-    defaultPatterns = exports.DateIntervalPatterns_en_MU;
+    defaultPatterns = DateIntervalPatterns_en_MU;
     break;
   case 'en_MV':
   case 'en-MV':
-    defaultPatterns = exports.DateIntervalPatterns_en_MV;
+    defaultPatterns = DateIntervalPatterns_en_MV;
     break;
   case 'en_MW':
   case 'en-MW':
-    defaultPatterns = exports.DateIntervalPatterns_en_MW;
+    defaultPatterns = DateIntervalPatterns_en_MW;
     break;
   case 'en_MY':
   case 'en-MY':
-    defaultPatterns = exports.DateIntervalPatterns_en_MY;
+    defaultPatterns = DateIntervalPatterns_en_MY;
     break;
   case 'en_NA':
   case 'en-NA':
-    defaultPatterns = exports.DateIntervalPatterns_en_NA;
+    defaultPatterns = DateIntervalPatterns_en_NA;
     break;
   case 'en_NF':
   case 'en-NF':
-    defaultPatterns = exports.DateIntervalPatterns_en_NF;
+    defaultPatterns = DateIntervalPatterns_en_NF;
     break;
   case 'en_NG':
   case 'en-NG':
-    defaultPatterns = exports.DateIntervalPatterns_en_NG;
+    defaultPatterns = DateIntervalPatterns_en_NG;
     break;
   case 'en_NL':
   case 'en-NL':
-    defaultPatterns = exports.DateIntervalPatterns_en_NL;
+    defaultPatterns = DateIntervalPatterns_en_NL;
     break;
   case 'en_NR':
   case 'en-NR':
-    defaultPatterns = exports.DateIntervalPatterns_en_NR;
+    defaultPatterns = DateIntervalPatterns_en_NR;
     break;
   case 'en_NU':
   case 'en-NU':
-    defaultPatterns = exports.DateIntervalPatterns_en_NU;
+    defaultPatterns = DateIntervalPatterns_en_NU;
     break;
   case 'en_NZ':
   case 'en-NZ':
-    defaultPatterns = exports.DateIntervalPatterns_en_NZ;
+    defaultPatterns = DateIntervalPatterns_en_NZ;
     break;
   case 'en_PG':
   case 'en-PG':
-    defaultPatterns = exports.DateIntervalPatterns_en_PG;
+    defaultPatterns = DateIntervalPatterns_en_PG;
     break;
   case 'en_PH':
   case 'en-PH':
-    defaultPatterns = exports.DateIntervalPatterns_en_PH;
+    defaultPatterns = DateIntervalPatterns_en_PH;
     break;
   case 'en_PK':
   case 'en-PK':
-    defaultPatterns = exports.DateIntervalPatterns_en_PK;
+    defaultPatterns = DateIntervalPatterns_en_PK;
     break;
   case 'en_PN':
   case 'en-PN':
-    defaultPatterns = exports.DateIntervalPatterns_en_PN;
+    defaultPatterns = DateIntervalPatterns_en_PN;
     break;
   case 'en_PR':
   case 'en-PR':
-    defaultPatterns = exports.DateIntervalPatterns_en_PR;
+    defaultPatterns = DateIntervalPatterns_en_PR;
     break;
   case 'en_PW':
   case 'en-PW':
-    defaultPatterns = exports.DateIntervalPatterns_en_PW;
+    defaultPatterns = DateIntervalPatterns_en_PW;
     break;
   case 'en_RW':
   case 'en-RW':
-    defaultPatterns = exports.DateIntervalPatterns_en_RW;
+    defaultPatterns = DateIntervalPatterns_en_RW;
     break;
   case 'en_SB':
   case 'en-SB':
-    defaultPatterns = exports.DateIntervalPatterns_en_SB;
+    defaultPatterns = DateIntervalPatterns_en_SB;
     break;
   case 'en_SC':
   case 'en-SC':
-    defaultPatterns = exports.DateIntervalPatterns_en_SC;
+    defaultPatterns = DateIntervalPatterns_en_SC;
     break;
   case 'en_SD':
   case 'en-SD':
-    defaultPatterns = exports.DateIntervalPatterns_en_SD;
+    defaultPatterns = DateIntervalPatterns_en_SD;
     break;
   case 'en_SE':
   case 'en-SE':
-    defaultPatterns = exports.DateIntervalPatterns_en_SE;
+    defaultPatterns = DateIntervalPatterns_en_SE;
     break;
   case 'en_SH':
   case 'en-SH':
-    defaultPatterns = exports.DateIntervalPatterns_en_SH;
+    defaultPatterns = DateIntervalPatterns_en_SH;
     break;
   case 'en_SI':
   case 'en-SI':
-    defaultPatterns = exports.DateIntervalPatterns_en_SI;
+    defaultPatterns = DateIntervalPatterns_en_SI;
     break;
   case 'en_SL':
   case 'en-SL':
-    defaultPatterns = exports.DateIntervalPatterns_en_SL;
+    defaultPatterns = DateIntervalPatterns_en_SL;
     break;
   case 'en_SS':
   case 'en-SS':
-    defaultPatterns = exports.DateIntervalPatterns_en_SS;
+    defaultPatterns = DateIntervalPatterns_en_SS;
     break;
   case 'en_SX':
   case 'en-SX':
-    defaultPatterns = exports.DateIntervalPatterns_en_SX;
+    defaultPatterns = DateIntervalPatterns_en_SX;
     break;
   case 'en_SZ':
   case 'en-SZ':
-    defaultPatterns = exports.DateIntervalPatterns_en_SZ;
+    defaultPatterns = DateIntervalPatterns_en_SZ;
     break;
   case 'en_TC':
   case 'en-TC':
-    defaultPatterns = exports.DateIntervalPatterns_en_TC;
+    defaultPatterns = DateIntervalPatterns_en_TC;
     break;
   case 'en_TK':
   case 'en-TK':
-    defaultPatterns = exports.DateIntervalPatterns_en_TK;
+    defaultPatterns = DateIntervalPatterns_en_TK;
     break;
   case 'en_TO':
   case 'en-TO':
-    defaultPatterns = exports.DateIntervalPatterns_en_TO;
+    defaultPatterns = DateIntervalPatterns_en_TO;
     break;
   case 'en_TT':
   case 'en-TT':
-    defaultPatterns = exports.DateIntervalPatterns_en_TT;
+    defaultPatterns = DateIntervalPatterns_en_TT;
     break;
   case 'en_TV':
   case 'en-TV':
-    defaultPatterns = exports.DateIntervalPatterns_en_TV;
+    defaultPatterns = DateIntervalPatterns_en_TV;
     break;
   case 'en_TZ':
   case 'en-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_en_TZ;
+    defaultPatterns = DateIntervalPatterns_en_TZ;
     break;
   case 'en_UG':
   case 'en-UG':
-    defaultPatterns = exports.DateIntervalPatterns_en_UG;
+    defaultPatterns = DateIntervalPatterns_en_UG;
     break;
   case 'en_UM':
   case 'en-UM':
-    defaultPatterns = exports.DateIntervalPatterns_en_UM;
+    defaultPatterns = DateIntervalPatterns_en_UM;
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    defaultPatterns = exports.DateIntervalPatterns_en_US_POSIX;
+    defaultPatterns = DateIntervalPatterns_en_US_POSIX;
     break;
   case 'en_VC':
   case 'en-VC':
-    defaultPatterns = exports.DateIntervalPatterns_en_VC;
+    defaultPatterns = DateIntervalPatterns_en_VC;
     break;
   case 'en_VG':
   case 'en-VG':
-    defaultPatterns = exports.DateIntervalPatterns_en_VG;
+    defaultPatterns = DateIntervalPatterns_en_VG;
     break;
   case 'en_VI':
   case 'en-VI':
-    defaultPatterns = exports.DateIntervalPatterns_en_VI;
+    defaultPatterns = DateIntervalPatterns_en_VI;
     break;
   case 'en_VU':
   case 'en-VU':
-    defaultPatterns = exports.DateIntervalPatterns_en_VU;
+    defaultPatterns = DateIntervalPatterns_en_VU;
     break;
   case 'en_WS':
   case 'en-WS':
-    defaultPatterns = exports.DateIntervalPatterns_en_WS;
+    defaultPatterns = DateIntervalPatterns_en_WS;
     break;
   case 'en_XA':
   case 'en-XA':
-    defaultPatterns = exports.DateIntervalPatterns_en_XA;
+    defaultPatterns = DateIntervalPatterns_en_XA;
     break;
   case 'en_ZM':
   case 'en-ZM':
-    defaultPatterns = exports.DateIntervalPatterns_en_ZM;
+    defaultPatterns = DateIntervalPatterns_en_ZM;
     break;
   case 'en_ZW':
   case 'en-ZW':
-    defaultPatterns = exports.DateIntervalPatterns_en_ZW;
+    defaultPatterns = DateIntervalPatterns_en_ZW;
     break;
   case 'eo':
-    defaultPatterns = exports.DateIntervalPatterns_eo;
+    defaultPatterns = DateIntervalPatterns_eo;
     break;
   case 'eo_001':
   case 'eo-001':
-    defaultPatterns = exports.DateIntervalPatterns_eo_001;
+    defaultPatterns = DateIntervalPatterns_eo_001;
     break;
   case 'es_AR':
   case 'es-AR':
-    defaultPatterns = exports.DateIntervalPatterns_es_AR;
+    defaultPatterns = DateIntervalPatterns_es_AR;
     break;
   case 'es_BO':
   case 'es-BO':
-    defaultPatterns = exports.DateIntervalPatterns_es_BO;
+    defaultPatterns = DateIntervalPatterns_es_BO;
     break;
   case 'es_BR':
   case 'es-BR':
-    defaultPatterns = exports.DateIntervalPatterns_es_BR;
+    defaultPatterns = DateIntervalPatterns_es_BR;
     break;
   case 'es_BZ':
   case 'es-BZ':
-    defaultPatterns = exports.DateIntervalPatterns_es_BZ;
+    defaultPatterns = DateIntervalPatterns_es_BZ;
     break;
   case 'es_CL':
   case 'es-CL':
-    defaultPatterns = exports.DateIntervalPatterns_es_CL;
+    defaultPatterns = DateIntervalPatterns_es_CL;
     break;
   case 'es_CO':
   case 'es-CO':
-    defaultPatterns = exports.DateIntervalPatterns_es_CO;
+    defaultPatterns = DateIntervalPatterns_es_CO;
     break;
   case 'es_CR':
   case 'es-CR':
-    defaultPatterns = exports.DateIntervalPatterns_es_CR;
+    defaultPatterns = DateIntervalPatterns_es_CR;
     break;
   case 'es_CU':
   case 'es-CU':
-    defaultPatterns = exports.DateIntervalPatterns_es_CU;
+    defaultPatterns = DateIntervalPatterns_es_CU;
     break;
   case 'es_DO':
   case 'es-DO':
-    defaultPatterns = exports.DateIntervalPatterns_es_DO;
+    defaultPatterns = DateIntervalPatterns_es_DO;
     break;
   case 'es_EA':
   case 'es-EA':
-    defaultPatterns = exports.DateIntervalPatterns_es_EA;
+    defaultPatterns = DateIntervalPatterns_es_EA;
     break;
   case 'es_EC':
   case 'es-EC':
-    defaultPatterns = exports.DateIntervalPatterns_es_EC;
+    defaultPatterns = DateIntervalPatterns_es_EC;
     break;
   case 'es_GQ':
   case 'es-GQ':
-    defaultPatterns = exports.DateIntervalPatterns_es_GQ;
+    defaultPatterns = DateIntervalPatterns_es_GQ;
     break;
   case 'es_GT':
   case 'es-GT':
-    defaultPatterns = exports.DateIntervalPatterns_es_GT;
+    defaultPatterns = DateIntervalPatterns_es_GT;
     break;
   case 'es_HN':
   case 'es-HN':
-    defaultPatterns = exports.DateIntervalPatterns_es_HN;
+    defaultPatterns = DateIntervalPatterns_es_HN;
     break;
   case 'es_IC':
   case 'es-IC':
-    defaultPatterns = exports.DateIntervalPatterns_es_IC;
+    defaultPatterns = DateIntervalPatterns_es_IC;
     break;
   case 'es_NI':
   case 'es-NI':
-    defaultPatterns = exports.DateIntervalPatterns_es_NI;
+    defaultPatterns = DateIntervalPatterns_es_NI;
     break;
   case 'es_PA':
   case 'es-PA':
-    defaultPatterns = exports.DateIntervalPatterns_es_PA;
+    defaultPatterns = DateIntervalPatterns_es_PA;
     break;
   case 'es_PE':
   case 'es-PE':
-    defaultPatterns = exports.DateIntervalPatterns_es_PE;
+    defaultPatterns = DateIntervalPatterns_es_PE;
     break;
   case 'es_PH':
   case 'es-PH':
-    defaultPatterns = exports.DateIntervalPatterns_es_PH;
+    defaultPatterns = DateIntervalPatterns_es_PH;
     break;
   case 'es_PR':
   case 'es-PR':
-    defaultPatterns = exports.DateIntervalPatterns_es_PR;
+    defaultPatterns = DateIntervalPatterns_es_PR;
     break;
   case 'es_PY':
   case 'es-PY':
-    defaultPatterns = exports.DateIntervalPatterns_es_PY;
+    defaultPatterns = DateIntervalPatterns_es_PY;
     break;
   case 'es_SV':
   case 'es-SV':
-    defaultPatterns = exports.DateIntervalPatterns_es_SV;
+    defaultPatterns = DateIntervalPatterns_es_SV;
     break;
   case 'es_UY':
   case 'es-UY':
-    defaultPatterns = exports.DateIntervalPatterns_es_UY;
+    defaultPatterns = DateIntervalPatterns_es_UY;
     break;
   case 'es_VE':
   case 'es-VE':
-    defaultPatterns = exports.DateIntervalPatterns_es_VE;
+    defaultPatterns = DateIntervalPatterns_es_VE;
     break;
   case 'et_EE':
   case 'et-EE':
-    defaultPatterns = exports.DateIntervalPatterns_et_EE;
+    defaultPatterns = DateIntervalPatterns_et_EE;
     break;
   case 'eu_ES':
   case 'eu-ES':
-    defaultPatterns = exports.DateIntervalPatterns_eu_ES;
+    defaultPatterns = DateIntervalPatterns_eu_ES;
     break;
   case 'ewo':
-    defaultPatterns = exports.DateIntervalPatterns_ewo;
+    defaultPatterns = DateIntervalPatterns_ewo;
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    defaultPatterns = exports.DateIntervalPatterns_ewo_CM;
+    defaultPatterns = DateIntervalPatterns_ewo_CM;
     break;
   case 'fa_AF':
   case 'fa-AF':
-    defaultPatterns = exports.DateIntervalPatterns_fa_AF;
+    defaultPatterns = DateIntervalPatterns_fa_AF;
     break;
   case 'fa_IR':
   case 'fa-IR':
-    defaultPatterns = exports.DateIntervalPatterns_fa_IR;
+    defaultPatterns = DateIntervalPatterns_fa_IR;
     break;
   case 'ff':
-    defaultPatterns = exports.DateIntervalPatterns_ff;
+    defaultPatterns = DateIntervalPatterns_ff;
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm;
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_BF;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_BF;
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_CM;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_CM;
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_GH;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_GH;
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_GM;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_GM;
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_GN;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_GN;
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_GW;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_GW;
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_LR;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_LR;
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_MR;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_MR;
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_NE;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_NE;
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_NG;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_NG;
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_SL;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_SL;
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Adlm_SN;
+    defaultPatterns = DateIntervalPatterns_ff_Adlm_SN;
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn;
+    defaultPatterns = DateIntervalPatterns_ff_Latn;
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_BF;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_BF;
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_CM;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_CM;
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_GH;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_GH;
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_GM;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_GM;
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_GN;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_GN;
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_GW;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_GW;
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_LR;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_LR;
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_MR;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_MR;
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_NE;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_NE;
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_NG;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_NG;
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_SL;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_SL;
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    defaultPatterns = exports.DateIntervalPatterns_ff_Latn_SN;
+    defaultPatterns = DateIntervalPatterns_ff_Latn_SN;
     break;
   case 'fi_FI':
   case 'fi-FI':
-    defaultPatterns = exports.DateIntervalPatterns_fi_FI;
+    defaultPatterns = DateIntervalPatterns_fi_FI;
     break;
   case 'fil_PH':
   case 'fil-PH':
-    defaultPatterns = exports.DateIntervalPatterns_fil_PH;
+    defaultPatterns = DateIntervalPatterns_fil_PH;
     break;
   case 'fo':
-    defaultPatterns = exports.DateIntervalPatterns_fo;
+    defaultPatterns = DateIntervalPatterns_fo;
     break;
   case 'fo_DK':
   case 'fo-DK':
-    defaultPatterns = exports.DateIntervalPatterns_fo_DK;
+    defaultPatterns = DateIntervalPatterns_fo_DK;
     break;
   case 'fo_FO':
   case 'fo-FO':
-    defaultPatterns = exports.DateIntervalPatterns_fo_FO;
+    defaultPatterns = DateIntervalPatterns_fo_FO;
     break;
   case 'fr_BE':
   case 'fr-BE':
-    defaultPatterns = exports.DateIntervalPatterns_fr_BE;
+    defaultPatterns = DateIntervalPatterns_fr_BE;
     break;
   case 'fr_BF':
   case 'fr-BF':
-    defaultPatterns = exports.DateIntervalPatterns_fr_BF;
+    defaultPatterns = DateIntervalPatterns_fr_BF;
     break;
   case 'fr_BI':
   case 'fr-BI':
-    defaultPatterns = exports.DateIntervalPatterns_fr_BI;
+    defaultPatterns = DateIntervalPatterns_fr_BI;
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    defaultPatterns = exports.DateIntervalPatterns_fr_BJ;
+    defaultPatterns = DateIntervalPatterns_fr_BJ;
     break;
   case 'fr_BL':
   case 'fr-BL':
-    defaultPatterns = exports.DateIntervalPatterns_fr_BL;
+    defaultPatterns = DateIntervalPatterns_fr_BL;
     break;
   case 'fr_CD':
   case 'fr-CD':
-    defaultPatterns = exports.DateIntervalPatterns_fr_CD;
+    defaultPatterns = DateIntervalPatterns_fr_CD;
     break;
   case 'fr_CF':
   case 'fr-CF':
-    defaultPatterns = exports.DateIntervalPatterns_fr_CF;
+    defaultPatterns = DateIntervalPatterns_fr_CF;
     break;
   case 'fr_CG':
   case 'fr-CG':
-    defaultPatterns = exports.DateIntervalPatterns_fr_CG;
+    defaultPatterns = DateIntervalPatterns_fr_CG;
     break;
   case 'fr_CH':
   case 'fr-CH':
-    defaultPatterns = exports.DateIntervalPatterns_fr_CH;
+    defaultPatterns = DateIntervalPatterns_fr_CH;
     break;
   case 'fr_CI':
   case 'fr-CI':
-    defaultPatterns = exports.DateIntervalPatterns_fr_CI;
+    defaultPatterns = DateIntervalPatterns_fr_CI;
     break;
   case 'fr_CM':
   case 'fr-CM':
-    defaultPatterns = exports.DateIntervalPatterns_fr_CM;
+    defaultPatterns = DateIntervalPatterns_fr_CM;
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    defaultPatterns = exports.DateIntervalPatterns_fr_DJ;
+    defaultPatterns = DateIntervalPatterns_fr_DJ;
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    defaultPatterns = exports.DateIntervalPatterns_fr_DZ;
+    defaultPatterns = DateIntervalPatterns_fr_DZ;
     break;
   case 'fr_FR':
   case 'fr-FR':
-    defaultPatterns = exports.DateIntervalPatterns_fr_FR;
+    defaultPatterns = DateIntervalPatterns_fr_FR;
     break;
   case 'fr_GA':
   case 'fr-GA':
-    defaultPatterns = exports.DateIntervalPatterns_fr_GA;
+    defaultPatterns = DateIntervalPatterns_fr_GA;
     break;
   case 'fr_GF':
   case 'fr-GF':
-    defaultPatterns = exports.DateIntervalPatterns_fr_GF;
+    defaultPatterns = DateIntervalPatterns_fr_GF;
     break;
   case 'fr_GN':
   case 'fr-GN':
-    defaultPatterns = exports.DateIntervalPatterns_fr_GN;
+    defaultPatterns = DateIntervalPatterns_fr_GN;
     break;
   case 'fr_GP':
   case 'fr-GP':
-    defaultPatterns = exports.DateIntervalPatterns_fr_GP;
+    defaultPatterns = DateIntervalPatterns_fr_GP;
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    defaultPatterns = exports.DateIntervalPatterns_fr_GQ;
+    defaultPatterns = DateIntervalPatterns_fr_GQ;
     break;
   case 'fr_HT':
   case 'fr-HT':
-    defaultPatterns = exports.DateIntervalPatterns_fr_HT;
+    defaultPatterns = DateIntervalPatterns_fr_HT;
     break;
   case 'fr_KM':
   case 'fr-KM':
-    defaultPatterns = exports.DateIntervalPatterns_fr_KM;
+    defaultPatterns = DateIntervalPatterns_fr_KM;
     break;
   case 'fr_LU':
   case 'fr-LU':
-    defaultPatterns = exports.DateIntervalPatterns_fr_LU;
+    defaultPatterns = DateIntervalPatterns_fr_LU;
     break;
   case 'fr_MA':
   case 'fr-MA':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MA;
+    defaultPatterns = DateIntervalPatterns_fr_MA;
     break;
   case 'fr_MC':
   case 'fr-MC':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MC;
+    defaultPatterns = DateIntervalPatterns_fr_MC;
     break;
   case 'fr_MF':
   case 'fr-MF':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MF;
+    defaultPatterns = DateIntervalPatterns_fr_MF;
     break;
   case 'fr_MG':
   case 'fr-MG':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MG;
+    defaultPatterns = DateIntervalPatterns_fr_MG;
     break;
   case 'fr_ML':
   case 'fr-ML':
-    defaultPatterns = exports.DateIntervalPatterns_fr_ML;
+    defaultPatterns = DateIntervalPatterns_fr_ML;
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MQ;
+    defaultPatterns = DateIntervalPatterns_fr_MQ;
     break;
   case 'fr_MR':
   case 'fr-MR':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MR;
+    defaultPatterns = DateIntervalPatterns_fr_MR;
     break;
   case 'fr_MU':
   case 'fr-MU':
-    defaultPatterns = exports.DateIntervalPatterns_fr_MU;
+    defaultPatterns = DateIntervalPatterns_fr_MU;
     break;
   case 'fr_NC':
   case 'fr-NC':
-    defaultPatterns = exports.DateIntervalPatterns_fr_NC;
+    defaultPatterns = DateIntervalPatterns_fr_NC;
     break;
   case 'fr_NE':
   case 'fr-NE':
-    defaultPatterns = exports.DateIntervalPatterns_fr_NE;
+    defaultPatterns = DateIntervalPatterns_fr_NE;
     break;
   case 'fr_PF':
   case 'fr-PF':
-    defaultPatterns = exports.DateIntervalPatterns_fr_PF;
+    defaultPatterns = DateIntervalPatterns_fr_PF;
     break;
   case 'fr_PM':
   case 'fr-PM':
-    defaultPatterns = exports.DateIntervalPatterns_fr_PM;
+    defaultPatterns = DateIntervalPatterns_fr_PM;
     break;
   case 'fr_RE':
   case 'fr-RE':
-    defaultPatterns = exports.DateIntervalPatterns_fr_RE;
+    defaultPatterns = DateIntervalPatterns_fr_RE;
     break;
   case 'fr_RW':
   case 'fr-RW':
-    defaultPatterns = exports.DateIntervalPatterns_fr_RW;
+    defaultPatterns = DateIntervalPatterns_fr_RW;
     break;
   case 'fr_SC':
   case 'fr-SC':
-    defaultPatterns = exports.DateIntervalPatterns_fr_SC;
+    defaultPatterns = DateIntervalPatterns_fr_SC;
     break;
   case 'fr_SN':
   case 'fr-SN':
-    defaultPatterns = exports.DateIntervalPatterns_fr_SN;
+    defaultPatterns = DateIntervalPatterns_fr_SN;
     break;
   case 'fr_SY':
   case 'fr-SY':
-    defaultPatterns = exports.DateIntervalPatterns_fr_SY;
+    defaultPatterns = DateIntervalPatterns_fr_SY;
     break;
   case 'fr_TD':
   case 'fr-TD':
-    defaultPatterns = exports.DateIntervalPatterns_fr_TD;
+    defaultPatterns = DateIntervalPatterns_fr_TD;
     break;
   case 'fr_TG':
   case 'fr-TG':
-    defaultPatterns = exports.DateIntervalPatterns_fr_TG;
+    defaultPatterns = DateIntervalPatterns_fr_TG;
     break;
   case 'fr_TN':
   case 'fr-TN':
-    defaultPatterns = exports.DateIntervalPatterns_fr_TN;
+    defaultPatterns = DateIntervalPatterns_fr_TN;
     break;
   case 'fr_VU':
   case 'fr-VU':
-    defaultPatterns = exports.DateIntervalPatterns_fr_VU;
+    defaultPatterns = DateIntervalPatterns_fr_VU;
     break;
   case 'fr_WF':
   case 'fr-WF':
-    defaultPatterns = exports.DateIntervalPatterns_fr_WF;
+    defaultPatterns = DateIntervalPatterns_fr_WF;
     break;
   case 'fr_YT':
   case 'fr-YT':
-    defaultPatterns = exports.DateIntervalPatterns_fr_YT;
+    defaultPatterns = DateIntervalPatterns_fr_YT;
     break;
   case 'fur':
-    defaultPatterns = exports.DateIntervalPatterns_fur;
+    defaultPatterns = DateIntervalPatterns_fur;
     break;
   case 'fur_IT':
   case 'fur-IT':
-    defaultPatterns = exports.DateIntervalPatterns_fur_IT;
+    defaultPatterns = DateIntervalPatterns_fur_IT;
     break;
   case 'fy':
-    defaultPatterns = exports.DateIntervalPatterns_fy;
+    defaultPatterns = DateIntervalPatterns_fy;
     break;
   case 'fy_NL':
   case 'fy-NL':
-    defaultPatterns = exports.DateIntervalPatterns_fy_NL;
+    defaultPatterns = DateIntervalPatterns_fy_NL;
     break;
   case 'ga_GB':
   case 'ga-GB':
-    defaultPatterns = exports.DateIntervalPatterns_ga_GB;
+    defaultPatterns = DateIntervalPatterns_ga_GB;
     break;
   case 'ga_IE':
   case 'ga-IE':
-    defaultPatterns = exports.DateIntervalPatterns_ga_IE;
+    defaultPatterns = DateIntervalPatterns_ga_IE;
     break;
   case 'gd':
-    defaultPatterns = exports.DateIntervalPatterns_gd;
+    defaultPatterns = DateIntervalPatterns_gd;
     break;
   case 'gd_GB':
   case 'gd-GB':
-    defaultPatterns = exports.DateIntervalPatterns_gd_GB;
+    defaultPatterns = DateIntervalPatterns_gd_GB;
     break;
   case 'gl_ES':
   case 'gl-ES':
-    defaultPatterns = exports.DateIntervalPatterns_gl_ES;
+    defaultPatterns = DateIntervalPatterns_gl_ES;
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    defaultPatterns = exports.DateIntervalPatterns_gsw_CH;
+    defaultPatterns = DateIntervalPatterns_gsw_CH;
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    defaultPatterns = exports.DateIntervalPatterns_gsw_FR;
+    defaultPatterns = DateIntervalPatterns_gsw_FR;
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    defaultPatterns = exports.DateIntervalPatterns_gsw_LI;
+    defaultPatterns = DateIntervalPatterns_gsw_LI;
     break;
   case 'gu_IN':
   case 'gu-IN':
-    defaultPatterns = exports.DateIntervalPatterns_gu_IN;
+    defaultPatterns = DateIntervalPatterns_gu_IN;
     break;
   case 'guz':
-    defaultPatterns = exports.DateIntervalPatterns_guz;
+    defaultPatterns = DateIntervalPatterns_guz;
     break;
   case 'guz_KE':
   case 'guz-KE':
-    defaultPatterns = exports.DateIntervalPatterns_guz_KE;
+    defaultPatterns = DateIntervalPatterns_guz_KE;
     break;
   case 'gv':
-    defaultPatterns = exports.DateIntervalPatterns_gv;
+    defaultPatterns = DateIntervalPatterns_gv;
     break;
   case 'gv_IM':
   case 'gv-IM':
-    defaultPatterns = exports.DateIntervalPatterns_gv_IM;
+    defaultPatterns = DateIntervalPatterns_gv_IM;
     break;
   case 'ha':
-    defaultPatterns = exports.DateIntervalPatterns_ha;
+    defaultPatterns = DateIntervalPatterns_ha;
     break;
   case 'ha_GH':
   case 'ha-GH':
-    defaultPatterns = exports.DateIntervalPatterns_ha_GH;
+    defaultPatterns = DateIntervalPatterns_ha_GH;
     break;
   case 'ha_NE':
   case 'ha-NE':
-    defaultPatterns = exports.DateIntervalPatterns_ha_NE;
+    defaultPatterns = DateIntervalPatterns_ha_NE;
     break;
   case 'ha_NG':
   case 'ha-NG':
-    defaultPatterns = exports.DateIntervalPatterns_ha_NG;
+    defaultPatterns = DateIntervalPatterns_ha_NG;
     break;
   case 'haw_US':
   case 'haw-US':
-    defaultPatterns = exports.DateIntervalPatterns_haw_US;
+    defaultPatterns = DateIntervalPatterns_haw_US;
     break;
   case 'he_IL':
   case 'he-IL':
-    defaultPatterns = exports.DateIntervalPatterns_he_IL;
+    defaultPatterns = DateIntervalPatterns_he_IL;
     break;
   case 'hi_IN':
   case 'hi-IN':
-    defaultPatterns = exports.DateIntervalPatterns_hi_IN;
+    defaultPatterns = DateIntervalPatterns_hi_IN;
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_hi_Latn;
+    defaultPatterns = DateIntervalPatterns_hi_Latn;
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    defaultPatterns = exports.DateIntervalPatterns_hi_Latn_IN;
+    defaultPatterns = DateIntervalPatterns_hi_Latn_IN;
     break;
   case 'hr_BA':
   case 'hr-BA':
-    defaultPatterns = exports.DateIntervalPatterns_hr_BA;
+    defaultPatterns = DateIntervalPatterns_hr_BA;
     break;
   case 'hr_HR':
   case 'hr-HR':
-    defaultPatterns = exports.DateIntervalPatterns_hr_HR;
+    defaultPatterns = DateIntervalPatterns_hr_HR;
     break;
   case 'hsb':
-    defaultPatterns = exports.DateIntervalPatterns_hsb;
+    defaultPatterns = DateIntervalPatterns_hsb;
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    defaultPatterns = exports.DateIntervalPatterns_hsb_DE;
+    defaultPatterns = DateIntervalPatterns_hsb_DE;
     break;
   case 'hu_HU':
   case 'hu-HU':
-    defaultPatterns = exports.DateIntervalPatterns_hu_HU;
+    defaultPatterns = DateIntervalPatterns_hu_HU;
     break;
   case 'hy_AM':
   case 'hy-AM':
-    defaultPatterns = exports.DateIntervalPatterns_hy_AM;
+    defaultPatterns = DateIntervalPatterns_hy_AM;
     break;
   case 'ia':
-    defaultPatterns = exports.DateIntervalPatterns_ia;
+    defaultPatterns = DateIntervalPatterns_ia;
     break;
   case 'ia_001':
   case 'ia-001':
-    defaultPatterns = exports.DateIntervalPatterns_ia_001;
+    defaultPatterns = DateIntervalPatterns_ia_001;
     break;
   case 'id_ID':
   case 'id-ID':
-    defaultPatterns = exports.DateIntervalPatterns_id_ID;
+    defaultPatterns = DateIntervalPatterns_id_ID;
     break;
   case 'ig':
-    defaultPatterns = exports.DateIntervalPatterns_ig;
+    defaultPatterns = DateIntervalPatterns_ig;
     break;
   case 'ig_NG':
   case 'ig-NG':
-    defaultPatterns = exports.DateIntervalPatterns_ig_NG;
+    defaultPatterns = DateIntervalPatterns_ig_NG;
     break;
   case 'ii':
-    defaultPatterns = exports.DateIntervalPatterns_ii;
+    defaultPatterns = DateIntervalPatterns_ii;
     break;
   case 'ii_CN':
   case 'ii-CN':
-    defaultPatterns = exports.DateIntervalPatterns_ii_CN;
+    defaultPatterns = DateIntervalPatterns_ii_CN;
     break;
   case 'is_IS':
   case 'is-IS':
-    defaultPatterns = exports.DateIntervalPatterns_is_IS;
+    defaultPatterns = DateIntervalPatterns_is_IS;
     break;
   case 'it_CH':
   case 'it-CH':
-    defaultPatterns = exports.DateIntervalPatterns_it_CH;
+    defaultPatterns = DateIntervalPatterns_it_CH;
     break;
   case 'it_IT':
   case 'it-IT':
-    defaultPatterns = exports.DateIntervalPatterns_it_IT;
+    defaultPatterns = DateIntervalPatterns_it_IT;
     break;
   case 'it_SM':
   case 'it-SM':
-    defaultPatterns = exports.DateIntervalPatterns_it_SM;
+    defaultPatterns = DateIntervalPatterns_it_SM;
     break;
   case 'it_VA':
   case 'it-VA':
-    defaultPatterns = exports.DateIntervalPatterns_it_VA;
+    defaultPatterns = DateIntervalPatterns_it_VA;
     break;
   case 'ja_JP':
   case 'ja-JP':
-    defaultPatterns = exports.DateIntervalPatterns_ja_JP;
+    defaultPatterns = DateIntervalPatterns_ja_JP;
     break;
   case 'jgo':
-    defaultPatterns = exports.DateIntervalPatterns_jgo;
+    defaultPatterns = DateIntervalPatterns_jgo;
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    defaultPatterns = exports.DateIntervalPatterns_jgo_CM;
+    defaultPatterns = DateIntervalPatterns_jgo_CM;
     break;
   case 'jmc':
-    defaultPatterns = exports.DateIntervalPatterns_jmc;
+    defaultPatterns = DateIntervalPatterns_jmc;
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_jmc_TZ;
+    defaultPatterns = DateIntervalPatterns_jmc_TZ;
     break;
   case 'jv':
-    defaultPatterns = exports.DateIntervalPatterns_jv;
+    defaultPatterns = DateIntervalPatterns_jv;
     break;
   case 'jv_ID':
   case 'jv-ID':
-    defaultPatterns = exports.DateIntervalPatterns_jv_ID;
+    defaultPatterns = DateIntervalPatterns_jv_ID;
     break;
   case 'ka_GE':
   case 'ka-GE':
-    defaultPatterns = exports.DateIntervalPatterns_ka_GE;
+    defaultPatterns = DateIntervalPatterns_ka_GE;
     break;
   case 'kab':
-    defaultPatterns = exports.DateIntervalPatterns_kab;
+    defaultPatterns = DateIntervalPatterns_kab;
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    defaultPatterns = exports.DateIntervalPatterns_kab_DZ;
+    defaultPatterns = DateIntervalPatterns_kab_DZ;
     break;
   case 'kam':
-    defaultPatterns = exports.DateIntervalPatterns_kam;
+    defaultPatterns = DateIntervalPatterns_kam;
     break;
   case 'kam_KE':
   case 'kam-KE':
-    defaultPatterns = exports.DateIntervalPatterns_kam_KE;
+    defaultPatterns = DateIntervalPatterns_kam_KE;
     break;
   case 'kde':
-    defaultPatterns = exports.DateIntervalPatterns_kde;
+    defaultPatterns = DateIntervalPatterns_kde;
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_kde_TZ;
+    defaultPatterns = DateIntervalPatterns_kde_TZ;
     break;
   case 'kea':
-    defaultPatterns = exports.DateIntervalPatterns_kea;
+    defaultPatterns = DateIntervalPatterns_kea;
     break;
   case 'kea_CV':
   case 'kea-CV':
-    defaultPatterns = exports.DateIntervalPatterns_kea_CV;
+    defaultPatterns = DateIntervalPatterns_kea_CV;
     break;
   case 'kgp':
-    defaultPatterns = exports.DateIntervalPatterns_kgp;
+    defaultPatterns = DateIntervalPatterns_kgp;
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    defaultPatterns = exports.DateIntervalPatterns_kgp_BR;
+    defaultPatterns = DateIntervalPatterns_kgp_BR;
     break;
   case 'khq':
-    defaultPatterns = exports.DateIntervalPatterns_khq;
+    defaultPatterns = DateIntervalPatterns_khq;
     break;
   case 'khq_ML':
   case 'khq-ML':
-    defaultPatterns = exports.DateIntervalPatterns_khq_ML;
+    defaultPatterns = DateIntervalPatterns_khq_ML;
     break;
   case 'ki':
-    defaultPatterns = exports.DateIntervalPatterns_ki;
+    defaultPatterns = DateIntervalPatterns_ki;
     break;
   case 'ki_KE':
   case 'ki-KE':
-    defaultPatterns = exports.DateIntervalPatterns_ki_KE;
+    defaultPatterns = DateIntervalPatterns_ki_KE;
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    defaultPatterns = exports.DateIntervalPatterns_kk_KZ;
+    defaultPatterns = DateIntervalPatterns_kk_KZ;
     break;
   case 'kkj':
-    defaultPatterns = exports.DateIntervalPatterns_kkj;
+    defaultPatterns = DateIntervalPatterns_kkj;
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    defaultPatterns = exports.DateIntervalPatterns_kkj_CM;
+    defaultPatterns = DateIntervalPatterns_kkj_CM;
     break;
   case 'kl':
-    defaultPatterns = exports.DateIntervalPatterns_kl;
+    defaultPatterns = DateIntervalPatterns_kl;
     break;
   case 'kl_GL':
   case 'kl-GL':
-    defaultPatterns = exports.DateIntervalPatterns_kl_GL;
+    defaultPatterns = DateIntervalPatterns_kl_GL;
     break;
   case 'kln':
-    defaultPatterns = exports.DateIntervalPatterns_kln;
+    defaultPatterns = DateIntervalPatterns_kln;
     break;
   case 'kln_KE':
   case 'kln-KE':
-    defaultPatterns = exports.DateIntervalPatterns_kln_KE;
+    defaultPatterns = DateIntervalPatterns_kln_KE;
     break;
   case 'km_KH':
   case 'km-KH':
-    defaultPatterns = exports.DateIntervalPatterns_km_KH;
+    defaultPatterns = DateIntervalPatterns_km_KH;
     break;
   case 'kn_IN':
   case 'kn-IN':
-    defaultPatterns = exports.DateIntervalPatterns_kn_IN;
+    defaultPatterns = DateIntervalPatterns_kn_IN;
     break;
   case 'ko_KP':
   case 'ko-KP':
-    defaultPatterns = exports.DateIntervalPatterns_ko_KP;
+    defaultPatterns = DateIntervalPatterns_ko_KP;
     break;
   case 'ko_KR':
   case 'ko-KR':
-    defaultPatterns = exports.DateIntervalPatterns_ko_KR;
+    defaultPatterns = DateIntervalPatterns_ko_KR;
     break;
   case 'kok':
-    defaultPatterns = exports.DateIntervalPatterns_kok;
+    defaultPatterns = DateIntervalPatterns_kok;
     break;
   case 'kok_IN':
   case 'kok-IN':
-    defaultPatterns = exports.DateIntervalPatterns_kok_IN;
+    defaultPatterns = DateIntervalPatterns_kok_IN;
     break;
   case 'ks':
-    defaultPatterns = exports.DateIntervalPatterns_ks;
+    defaultPatterns = DateIntervalPatterns_ks;
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    defaultPatterns = exports.DateIntervalPatterns_ks_Arab;
+    defaultPatterns = DateIntervalPatterns_ks_Arab;
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ks_Arab_IN;
+    defaultPatterns = DateIntervalPatterns_ks_Arab_IN;
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    defaultPatterns = exports.DateIntervalPatterns_ks_Deva;
+    defaultPatterns = DateIntervalPatterns_ks_Deva;
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ks_Deva_IN;
+    defaultPatterns = DateIntervalPatterns_ks_Deva_IN;
     break;
   case 'ksb':
-    defaultPatterns = exports.DateIntervalPatterns_ksb;
+    defaultPatterns = DateIntervalPatterns_ksb;
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_ksb_TZ;
+    defaultPatterns = DateIntervalPatterns_ksb_TZ;
     break;
   case 'ksf':
-    defaultPatterns = exports.DateIntervalPatterns_ksf;
+    defaultPatterns = DateIntervalPatterns_ksf;
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    defaultPatterns = exports.DateIntervalPatterns_ksf_CM;
+    defaultPatterns = DateIntervalPatterns_ksf_CM;
     break;
   case 'ksh':
-    defaultPatterns = exports.DateIntervalPatterns_ksh;
+    defaultPatterns = DateIntervalPatterns_ksh;
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    defaultPatterns = exports.DateIntervalPatterns_ksh_DE;
+    defaultPatterns = DateIntervalPatterns_ksh_DE;
     break;
   case 'ku':
-    defaultPatterns = exports.DateIntervalPatterns_ku;
+    defaultPatterns = DateIntervalPatterns_ku;
     break;
   case 'ku_TR':
   case 'ku-TR':
-    defaultPatterns = exports.DateIntervalPatterns_ku_TR;
+    defaultPatterns = DateIntervalPatterns_ku_TR;
     break;
   case 'kw':
-    defaultPatterns = exports.DateIntervalPatterns_kw;
+    defaultPatterns = DateIntervalPatterns_kw;
     break;
   case 'kw_GB':
   case 'kw-GB':
-    defaultPatterns = exports.DateIntervalPatterns_kw_GB;
+    defaultPatterns = DateIntervalPatterns_kw_GB;
     break;
   case 'ky_KG':
   case 'ky-KG':
-    defaultPatterns = exports.DateIntervalPatterns_ky_KG;
+    defaultPatterns = DateIntervalPatterns_ky_KG;
     break;
   case 'lag':
-    defaultPatterns = exports.DateIntervalPatterns_lag;
+    defaultPatterns = DateIntervalPatterns_lag;
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_lag_TZ;
+    defaultPatterns = DateIntervalPatterns_lag_TZ;
     break;
   case 'lb':
-    defaultPatterns = exports.DateIntervalPatterns_lb;
+    defaultPatterns = DateIntervalPatterns_lb;
     break;
   case 'lb_LU':
   case 'lb-LU':
-    defaultPatterns = exports.DateIntervalPatterns_lb_LU;
+    defaultPatterns = DateIntervalPatterns_lb_LU;
     break;
   case 'lg':
-    defaultPatterns = exports.DateIntervalPatterns_lg;
+    defaultPatterns = DateIntervalPatterns_lg;
     break;
   case 'lg_UG':
   case 'lg-UG':
-    defaultPatterns = exports.DateIntervalPatterns_lg_UG;
+    defaultPatterns = DateIntervalPatterns_lg_UG;
     break;
   case 'lkt':
-    defaultPatterns = exports.DateIntervalPatterns_lkt;
+    defaultPatterns = DateIntervalPatterns_lkt;
     break;
   case 'lkt_US':
   case 'lkt-US':
-    defaultPatterns = exports.DateIntervalPatterns_lkt_US;
+    defaultPatterns = DateIntervalPatterns_lkt_US;
     break;
   case 'ln_AO':
   case 'ln-AO':
-    defaultPatterns = exports.DateIntervalPatterns_ln_AO;
+    defaultPatterns = DateIntervalPatterns_ln_AO;
     break;
   case 'ln_CD':
   case 'ln-CD':
-    defaultPatterns = exports.DateIntervalPatterns_ln_CD;
+    defaultPatterns = DateIntervalPatterns_ln_CD;
     break;
   case 'ln_CF':
   case 'ln-CF':
-    defaultPatterns = exports.DateIntervalPatterns_ln_CF;
+    defaultPatterns = DateIntervalPatterns_ln_CF;
     break;
   case 'ln_CG':
   case 'ln-CG':
-    defaultPatterns = exports.DateIntervalPatterns_ln_CG;
+    defaultPatterns = DateIntervalPatterns_ln_CG;
     break;
   case 'lo_LA':
   case 'lo-LA':
-    defaultPatterns = exports.DateIntervalPatterns_lo_LA;
+    defaultPatterns = DateIntervalPatterns_lo_LA;
     break;
   case 'lrc':
-    defaultPatterns = exports.DateIntervalPatterns_lrc;
+    defaultPatterns = DateIntervalPatterns_lrc;
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    defaultPatterns = exports.DateIntervalPatterns_lrc_IQ;
+    defaultPatterns = DateIntervalPatterns_lrc_IQ;
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    defaultPatterns = exports.DateIntervalPatterns_lrc_IR;
+    defaultPatterns = DateIntervalPatterns_lrc_IR;
     break;
   case 'lt_LT':
   case 'lt-LT':
-    defaultPatterns = exports.DateIntervalPatterns_lt_LT;
+    defaultPatterns = DateIntervalPatterns_lt_LT;
     break;
   case 'lu':
-    defaultPatterns = exports.DateIntervalPatterns_lu;
+    defaultPatterns = DateIntervalPatterns_lu;
     break;
   case 'lu_CD':
   case 'lu-CD':
-    defaultPatterns = exports.DateIntervalPatterns_lu_CD;
+    defaultPatterns = DateIntervalPatterns_lu_CD;
     break;
   case 'luo':
-    defaultPatterns = exports.DateIntervalPatterns_luo;
+    defaultPatterns = DateIntervalPatterns_luo;
     break;
   case 'luo_KE':
   case 'luo-KE':
-    defaultPatterns = exports.DateIntervalPatterns_luo_KE;
+    defaultPatterns = DateIntervalPatterns_luo_KE;
     break;
   case 'luy':
-    defaultPatterns = exports.DateIntervalPatterns_luy;
+    defaultPatterns = DateIntervalPatterns_luy;
     break;
   case 'luy_KE':
   case 'luy-KE':
-    defaultPatterns = exports.DateIntervalPatterns_luy_KE;
+    defaultPatterns = DateIntervalPatterns_luy_KE;
     break;
   case 'lv_LV':
   case 'lv-LV':
-    defaultPatterns = exports.DateIntervalPatterns_lv_LV;
+    defaultPatterns = DateIntervalPatterns_lv_LV;
     break;
   case 'mai':
-    defaultPatterns = exports.DateIntervalPatterns_mai;
+    defaultPatterns = DateIntervalPatterns_mai;
     break;
   case 'mai_IN':
   case 'mai-IN':
-    defaultPatterns = exports.DateIntervalPatterns_mai_IN;
+    defaultPatterns = DateIntervalPatterns_mai_IN;
     break;
   case 'mas':
-    defaultPatterns = exports.DateIntervalPatterns_mas;
+    defaultPatterns = DateIntervalPatterns_mas;
     break;
   case 'mas_KE':
   case 'mas-KE':
-    defaultPatterns = exports.DateIntervalPatterns_mas_KE;
+    defaultPatterns = DateIntervalPatterns_mas_KE;
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_mas_TZ;
+    defaultPatterns = DateIntervalPatterns_mas_TZ;
     break;
   case 'mer':
-    defaultPatterns = exports.DateIntervalPatterns_mer;
+    defaultPatterns = DateIntervalPatterns_mer;
     break;
   case 'mer_KE':
   case 'mer-KE':
-    defaultPatterns = exports.DateIntervalPatterns_mer_KE;
+    defaultPatterns = DateIntervalPatterns_mer_KE;
     break;
   case 'mfe':
-    defaultPatterns = exports.DateIntervalPatterns_mfe;
+    defaultPatterns = DateIntervalPatterns_mfe;
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    defaultPatterns = exports.DateIntervalPatterns_mfe_MU;
+    defaultPatterns = DateIntervalPatterns_mfe_MU;
     break;
   case 'mg':
-    defaultPatterns = exports.DateIntervalPatterns_mg;
+    defaultPatterns = DateIntervalPatterns_mg;
     break;
   case 'mg_MG':
   case 'mg-MG':
-    defaultPatterns = exports.DateIntervalPatterns_mg_MG;
+    defaultPatterns = DateIntervalPatterns_mg_MG;
     break;
   case 'mgh':
-    defaultPatterns = exports.DateIntervalPatterns_mgh;
+    defaultPatterns = DateIntervalPatterns_mgh;
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    defaultPatterns = exports.DateIntervalPatterns_mgh_MZ;
+    defaultPatterns = DateIntervalPatterns_mgh_MZ;
     break;
   case 'mgo':
-    defaultPatterns = exports.DateIntervalPatterns_mgo;
+    defaultPatterns = DateIntervalPatterns_mgo;
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    defaultPatterns = exports.DateIntervalPatterns_mgo_CM;
+    defaultPatterns = DateIntervalPatterns_mgo_CM;
     break;
   case 'mi':
-    defaultPatterns = exports.DateIntervalPatterns_mi;
+    defaultPatterns = DateIntervalPatterns_mi;
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    defaultPatterns = exports.DateIntervalPatterns_mi_NZ;
+    defaultPatterns = DateIntervalPatterns_mi_NZ;
     break;
   case 'mk_MK':
   case 'mk-MK':
-    defaultPatterns = exports.DateIntervalPatterns_mk_MK;
+    defaultPatterns = DateIntervalPatterns_mk_MK;
     break;
   case 'ml_IN':
   case 'ml-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ml_IN;
+    defaultPatterns = DateIntervalPatterns_ml_IN;
     break;
   case 'mn_MN':
   case 'mn-MN':
-    defaultPatterns = exports.DateIntervalPatterns_mn_MN;
+    defaultPatterns = DateIntervalPatterns_mn_MN;
     break;
   case 'mni':
-    defaultPatterns = exports.DateIntervalPatterns_mni;
+    defaultPatterns = DateIntervalPatterns_mni;
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    defaultPatterns = exports.DateIntervalPatterns_mni_Beng;
+    defaultPatterns = DateIntervalPatterns_mni_Beng;
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    defaultPatterns = exports.DateIntervalPatterns_mni_Beng_IN;
+    defaultPatterns = DateIntervalPatterns_mni_Beng_IN;
     break;
   case 'mr_IN':
   case 'mr-IN':
-    defaultPatterns = exports.DateIntervalPatterns_mr_IN;
+    defaultPatterns = DateIntervalPatterns_mr_IN;
     break;
   case 'ms_BN':
   case 'ms-BN':
-    defaultPatterns = exports.DateIntervalPatterns_ms_BN;
+    defaultPatterns = DateIntervalPatterns_ms_BN;
     break;
   case 'ms_ID':
   case 'ms-ID':
-    defaultPatterns = exports.DateIntervalPatterns_ms_ID;
+    defaultPatterns = DateIntervalPatterns_ms_ID;
     break;
   case 'ms_MY':
   case 'ms-MY':
-    defaultPatterns = exports.DateIntervalPatterns_ms_MY;
+    defaultPatterns = DateIntervalPatterns_ms_MY;
     break;
   case 'ms_SG':
   case 'ms-SG':
-    defaultPatterns = exports.DateIntervalPatterns_ms_SG;
+    defaultPatterns = DateIntervalPatterns_ms_SG;
     break;
   case 'mt_MT':
   case 'mt-MT':
-    defaultPatterns = exports.DateIntervalPatterns_mt_MT;
+    defaultPatterns = DateIntervalPatterns_mt_MT;
     break;
   case 'mua':
-    defaultPatterns = exports.DateIntervalPatterns_mua;
+    defaultPatterns = DateIntervalPatterns_mua;
     break;
   case 'mua_CM':
   case 'mua-CM':
-    defaultPatterns = exports.DateIntervalPatterns_mua_CM;
+    defaultPatterns = DateIntervalPatterns_mua_CM;
     break;
   case 'my_MM':
   case 'my-MM':
-    defaultPatterns = exports.DateIntervalPatterns_my_MM;
+    defaultPatterns = DateIntervalPatterns_my_MM;
     break;
   case 'mzn':
-    defaultPatterns = exports.DateIntervalPatterns_mzn;
+    defaultPatterns = DateIntervalPatterns_mzn;
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    defaultPatterns = exports.DateIntervalPatterns_mzn_IR;
+    defaultPatterns = DateIntervalPatterns_mzn_IR;
     break;
   case 'naq':
-    defaultPatterns = exports.DateIntervalPatterns_naq;
+    defaultPatterns = DateIntervalPatterns_naq;
     break;
   case 'naq_NA':
   case 'naq-NA':
-    defaultPatterns = exports.DateIntervalPatterns_naq_NA;
+    defaultPatterns = DateIntervalPatterns_naq_NA;
     break;
   case 'nb_NO':
   case 'nb-NO':
-    defaultPatterns = exports.DateIntervalPatterns_nb_NO;
+    defaultPatterns = DateIntervalPatterns_nb_NO;
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    defaultPatterns = exports.DateIntervalPatterns_nb_SJ;
+    defaultPatterns = DateIntervalPatterns_nb_SJ;
     break;
   case 'nd':
-    defaultPatterns = exports.DateIntervalPatterns_nd;
+    defaultPatterns = DateIntervalPatterns_nd;
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    defaultPatterns = exports.DateIntervalPatterns_nd_ZW;
+    defaultPatterns = DateIntervalPatterns_nd_ZW;
     break;
   case 'ne_IN':
   case 'ne-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ne_IN;
+    defaultPatterns = DateIntervalPatterns_ne_IN;
     break;
   case 'ne_NP':
   case 'ne-NP':
-    defaultPatterns = exports.DateIntervalPatterns_ne_NP;
+    defaultPatterns = DateIntervalPatterns_ne_NP;
     break;
   case 'nl_AW':
   case 'nl-AW':
-    defaultPatterns = exports.DateIntervalPatterns_nl_AW;
+    defaultPatterns = DateIntervalPatterns_nl_AW;
     break;
   case 'nl_BE':
   case 'nl-BE':
-    defaultPatterns = exports.DateIntervalPatterns_nl_BE;
+    defaultPatterns = DateIntervalPatterns_nl_BE;
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    defaultPatterns = exports.DateIntervalPatterns_nl_BQ;
+    defaultPatterns = DateIntervalPatterns_nl_BQ;
     break;
   case 'nl_CW':
   case 'nl-CW':
-    defaultPatterns = exports.DateIntervalPatterns_nl_CW;
+    defaultPatterns = DateIntervalPatterns_nl_CW;
     break;
   case 'nl_NL':
   case 'nl-NL':
-    defaultPatterns = exports.DateIntervalPatterns_nl_NL;
+    defaultPatterns = DateIntervalPatterns_nl_NL;
     break;
   case 'nl_SR':
   case 'nl-SR':
-    defaultPatterns = exports.DateIntervalPatterns_nl_SR;
+    defaultPatterns = DateIntervalPatterns_nl_SR;
     break;
   case 'nl_SX':
   case 'nl-SX':
-    defaultPatterns = exports.DateIntervalPatterns_nl_SX;
+    defaultPatterns = DateIntervalPatterns_nl_SX;
     break;
   case 'nmg':
-    defaultPatterns = exports.DateIntervalPatterns_nmg;
+    defaultPatterns = DateIntervalPatterns_nmg;
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    defaultPatterns = exports.DateIntervalPatterns_nmg_CM;
+    defaultPatterns = DateIntervalPatterns_nmg_CM;
     break;
   case 'nn':
-    defaultPatterns = exports.DateIntervalPatterns_nn;
+    defaultPatterns = DateIntervalPatterns_nn;
     break;
   case 'nn_NO':
   case 'nn-NO':
-    defaultPatterns = exports.DateIntervalPatterns_nn_NO;
+    defaultPatterns = DateIntervalPatterns_nn_NO;
     break;
   case 'nnh':
-    defaultPatterns = exports.DateIntervalPatterns_nnh;
+    defaultPatterns = DateIntervalPatterns_nnh;
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    defaultPatterns = exports.DateIntervalPatterns_nnh_CM;
+    defaultPatterns = DateIntervalPatterns_nnh_CM;
     break;
   case 'nus':
-    defaultPatterns = exports.DateIntervalPatterns_nus;
+    defaultPatterns = DateIntervalPatterns_nus;
     break;
   case 'nus_SS':
   case 'nus-SS':
-    defaultPatterns = exports.DateIntervalPatterns_nus_SS;
+    defaultPatterns = DateIntervalPatterns_nus_SS;
     break;
   case 'nyn':
-    defaultPatterns = exports.DateIntervalPatterns_nyn;
+    defaultPatterns = DateIntervalPatterns_nyn;
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    defaultPatterns = exports.DateIntervalPatterns_nyn_UG;
+    defaultPatterns = DateIntervalPatterns_nyn_UG;
     break;
   case 'om':
-    defaultPatterns = exports.DateIntervalPatterns_om;
+    defaultPatterns = DateIntervalPatterns_om;
     break;
   case 'om_ET':
   case 'om-ET':
-    defaultPatterns = exports.DateIntervalPatterns_om_ET;
+    defaultPatterns = DateIntervalPatterns_om_ET;
     break;
   case 'om_KE':
   case 'om-KE':
-    defaultPatterns = exports.DateIntervalPatterns_om_KE;
+    defaultPatterns = DateIntervalPatterns_om_KE;
     break;
   case 'or_IN':
   case 'or-IN':
-    defaultPatterns = exports.DateIntervalPatterns_or_IN;
+    defaultPatterns = DateIntervalPatterns_or_IN;
     break;
   case 'os':
-    defaultPatterns = exports.DateIntervalPatterns_os;
+    defaultPatterns = DateIntervalPatterns_os;
     break;
   case 'os_GE':
   case 'os-GE':
-    defaultPatterns = exports.DateIntervalPatterns_os_GE;
+    defaultPatterns = DateIntervalPatterns_os_GE;
     break;
   case 'os_RU':
   case 'os-RU':
-    defaultPatterns = exports.DateIntervalPatterns_os_RU;
+    defaultPatterns = DateIntervalPatterns_os_RU;
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    defaultPatterns = exports.DateIntervalPatterns_pa_Arab;
+    defaultPatterns = DateIntervalPatterns_pa_Arab;
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    defaultPatterns = exports.DateIntervalPatterns_pa_Arab_PK;
+    defaultPatterns = DateIntervalPatterns_pa_Arab_PK;
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    defaultPatterns = exports.DateIntervalPatterns_pa_Guru;
+    defaultPatterns = DateIntervalPatterns_pa_Guru;
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    defaultPatterns = exports.DateIntervalPatterns_pa_Guru_IN;
+    defaultPatterns = DateIntervalPatterns_pa_Guru_IN;
     break;
   case 'pcm':
-    defaultPatterns = exports.DateIntervalPatterns_pcm;
+    defaultPatterns = DateIntervalPatterns_pcm;
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    defaultPatterns = exports.DateIntervalPatterns_pcm_NG;
+    defaultPatterns = DateIntervalPatterns_pcm_NG;
     break;
   case 'pl_PL':
   case 'pl-PL':
-    defaultPatterns = exports.DateIntervalPatterns_pl_PL;
+    defaultPatterns = DateIntervalPatterns_pl_PL;
     break;
   case 'ps':
-    defaultPatterns = exports.DateIntervalPatterns_ps;
+    defaultPatterns = DateIntervalPatterns_ps;
     break;
   case 'ps_AF':
   case 'ps-AF':
-    defaultPatterns = exports.DateIntervalPatterns_ps_AF;
+    defaultPatterns = DateIntervalPatterns_ps_AF;
     break;
   case 'ps_PK':
   case 'ps-PK':
-    defaultPatterns = exports.DateIntervalPatterns_ps_PK;
+    defaultPatterns = DateIntervalPatterns_ps_PK;
     break;
   case 'pt_AO':
   case 'pt-AO':
-    defaultPatterns = exports.DateIntervalPatterns_pt_AO;
+    defaultPatterns = DateIntervalPatterns_pt_AO;
     break;
   case 'pt_CH':
   case 'pt-CH':
-    defaultPatterns = exports.DateIntervalPatterns_pt_CH;
+    defaultPatterns = DateIntervalPatterns_pt_CH;
     break;
   case 'pt_CV':
   case 'pt-CV':
-    defaultPatterns = exports.DateIntervalPatterns_pt_CV;
+    defaultPatterns = DateIntervalPatterns_pt_CV;
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    defaultPatterns = exports.DateIntervalPatterns_pt_GQ;
+    defaultPatterns = DateIntervalPatterns_pt_GQ;
     break;
   case 'pt_GW':
   case 'pt-GW':
-    defaultPatterns = exports.DateIntervalPatterns_pt_GW;
+    defaultPatterns = DateIntervalPatterns_pt_GW;
     break;
   case 'pt_LU':
   case 'pt-LU':
-    defaultPatterns = exports.DateIntervalPatterns_pt_LU;
+    defaultPatterns = DateIntervalPatterns_pt_LU;
     break;
   case 'pt_MO':
   case 'pt-MO':
-    defaultPatterns = exports.DateIntervalPatterns_pt_MO;
+    defaultPatterns = DateIntervalPatterns_pt_MO;
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    defaultPatterns = exports.DateIntervalPatterns_pt_MZ;
+    defaultPatterns = DateIntervalPatterns_pt_MZ;
     break;
   case 'pt_ST':
   case 'pt-ST':
-    defaultPatterns = exports.DateIntervalPatterns_pt_ST;
+    defaultPatterns = DateIntervalPatterns_pt_ST;
     break;
   case 'pt_TL':
   case 'pt-TL':
-    defaultPatterns = exports.DateIntervalPatterns_pt_TL;
+    defaultPatterns = DateIntervalPatterns_pt_TL;
     break;
   case 'qu':
-    defaultPatterns = exports.DateIntervalPatterns_qu;
+    defaultPatterns = DateIntervalPatterns_qu;
     break;
   case 'qu_BO':
   case 'qu-BO':
-    defaultPatterns = exports.DateIntervalPatterns_qu_BO;
+    defaultPatterns = DateIntervalPatterns_qu_BO;
     break;
   case 'qu_EC':
   case 'qu-EC':
-    defaultPatterns = exports.DateIntervalPatterns_qu_EC;
+    defaultPatterns = DateIntervalPatterns_qu_EC;
     break;
   case 'qu_PE':
   case 'qu-PE':
-    defaultPatterns = exports.DateIntervalPatterns_qu_PE;
+    defaultPatterns = DateIntervalPatterns_qu_PE;
     break;
   case 'raj':
-    defaultPatterns = exports.DateIntervalPatterns_raj;
+    defaultPatterns = DateIntervalPatterns_raj;
     break;
   case 'raj_IN':
   case 'raj-IN':
-    defaultPatterns = exports.DateIntervalPatterns_raj_IN;
+    defaultPatterns = DateIntervalPatterns_raj_IN;
     break;
   case 'rm':
-    defaultPatterns = exports.DateIntervalPatterns_rm;
+    defaultPatterns = DateIntervalPatterns_rm;
     break;
   case 'rm_CH':
   case 'rm-CH':
-    defaultPatterns = exports.DateIntervalPatterns_rm_CH;
+    defaultPatterns = DateIntervalPatterns_rm_CH;
     break;
   case 'rn':
-    defaultPatterns = exports.DateIntervalPatterns_rn;
+    defaultPatterns = DateIntervalPatterns_rn;
     break;
   case 'rn_BI':
   case 'rn-BI':
-    defaultPatterns = exports.DateIntervalPatterns_rn_BI;
+    defaultPatterns = DateIntervalPatterns_rn_BI;
     break;
   case 'ro_MD':
   case 'ro-MD':
-    defaultPatterns = exports.DateIntervalPatterns_ro_MD;
+    defaultPatterns = DateIntervalPatterns_ro_MD;
     break;
   case 'ro_RO':
   case 'ro-RO':
-    defaultPatterns = exports.DateIntervalPatterns_ro_RO;
+    defaultPatterns = DateIntervalPatterns_ro_RO;
     break;
   case 'rof':
-    defaultPatterns = exports.DateIntervalPatterns_rof;
+    defaultPatterns = DateIntervalPatterns_rof;
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_rof_TZ;
+    defaultPatterns = DateIntervalPatterns_rof_TZ;
     break;
   case 'ru_BY':
   case 'ru-BY':
-    defaultPatterns = exports.DateIntervalPatterns_ru_BY;
+    defaultPatterns = DateIntervalPatterns_ru_BY;
     break;
   case 'ru_KG':
   case 'ru-KG':
-    defaultPatterns = exports.DateIntervalPatterns_ru_KG;
+    defaultPatterns = DateIntervalPatterns_ru_KG;
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    defaultPatterns = exports.DateIntervalPatterns_ru_KZ;
+    defaultPatterns = DateIntervalPatterns_ru_KZ;
     break;
   case 'ru_MD':
   case 'ru-MD':
-    defaultPatterns = exports.DateIntervalPatterns_ru_MD;
+    defaultPatterns = DateIntervalPatterns_ru_MD;
     break;
   case 'ru_RU':
   case 'ru-RU':
-    defaultPatterns = exports.DateIntervalPatterns_ru_RU;
+    defaultPatterns = DateIntervalPatterns_ru_RU;
     break;
   case 'ru_UA':
   case 'ru-UA':
-    defaultPatterns = exports.DateIntervalPatterns_ru_UA;
+    defaultPatterns = DateIntervalPatterns_ru_UA;
     break;
   case 'rw':
-    defaultPatterns = exports.DateIntervalPatterns_rw;
+    defaultPatterns = DateIntervalPatterns_rw;
     break;
   case 'rw_RW':
   case 'rw-RW':
-    defaultPatterns = exports.DateIntervalPatterns_rw_RW;
+    defaultPatterns = DateIntervalPatterns_rw_RW;
     break;
   case 'rwk':
-    defaultPatterns = exports.DateIntervalPatterns_rwk;
+    defaultPatterns = DateIntervalPatterns_rwk;
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_rwk_TZ;
+    defaultPatterns = DateIntervalPatterns_rwk_TZ;
     break;
   case 'sa':
-    defaultPatterns = exports.DateIntervalPatterns_sa;
+    defaultPatterns = DateIntervalPatterns_sa;
     break;
   case 'sa_IN':
   case 'sa-IN':
-    defaultPatterns = exports.DateIntervalPatterns_sa_IN;
+    defaultPatterns = DateIntervalPatterns_sa_IN;
     break;
   case 'sah':
-    defaultPatterns = exports.DateIntervalPatterns_sah;
+    defaultPatterns = DateIntervalPatterns_sah;
     break;
   case 'sah_RU':
   case 'sah-RU':
-    defaultPatterns = exports.DateIntervalPatterns_sah_RU;
+    defaultPatterns = DateIntervalPatterns_sah_RU;
     break;
   case 'saq':
-    defaultPatterns = exports.DateIntervalPatterns_saq;
+    defaultPatterns = DateIntervalPatterns_saq;
     break;
   case 'saq_KE':
   case 'saq-KE':
-    defaultPatterns = exports.DateIntervalPatterns_saq_KE;
+    defaultPatterns = DateIntervalPatterns_saq_KE;
     break;
   case 'sat':
-    defaultPatterns = exports.DateIntervalPatterns_sat;
+    defaultPatterns = DateIntervalPatterns_sat;
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    defaultPatterns = exports.DateIntervalPatterns_sat_Olck;
+    defaultPatterns = DateIntervalPatterns_sat_Olck;
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    defaultPatterns = exports.DateIntervalPatterns_sat_Olck_IN;
+    defaultPatterns = DateIntervalPatterns_sat_Olck_IN;
     break;
   case 'sbp':
-    defaultPatterns = exports.DateIntervalPatterns_sbp;
+    defaultPatterns = DateIntervalPatterns_sbp;
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_sbp_TZ;
+    defaultPatterns = DateIntervalPatterns_sbp_TZ;
     break;
   case 'sc':
-    defaultPatterns = exports.DateIntervalPatterns_sc;
+    defaultPatterns = DateIntervalPatterns_sc;
     break;
   case 'sc_IT':
   case 'sc-IT':
-    defaultPatterns = exports.DateIntervalPatterns_sc_IT;
+    defaultPatterns = DateIntervalPatterns_sc_IT;
     break;
   case 'sd':
-    defaultPatterns = exports.DateIntervalPatterns_sd;
+    defaultPatterns = DateIntervalPatterns_sd;
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    defaultPatterns = exports.DateIntervalPatterns_sd_Arab;
+    defaultPatterns = DateIntervalPatterns_sd_Arab;
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    defaultPatterns = exports.DateIntervalPatterns_sd_Arab_PK;
+    defaultPatterns = DateIntervalPatterns_sd_Arab_PK;
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    defaultPatterns = exports.DateIntervalPatterns_sd_Deva;
+    defaultPatterns = DateIntervalPatterns_sd_Deva;
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    defaultPatterns = exports.DateIntervalPatterns_sd_Deva_IN;
+    defaultPatterns = DateIntervalPatterns_sd_Deva_IN;
     break;
   case 'se':
-    defaultPatterns = exports.DateIntervalPatterns_se;
+    defaultPatterns = DateIntervalPatterns_se;
     break;
   case 'se_FI':
   case 'se-FI':
-    defaultPatterns = exports.DateIntervalPatterns_se_FI;
+    defaultPatterns = DateIntervalPatterns_se_FI;
     break;
   case 'se_NO':
   case 'se-NO':
-    defaultPatterns = exports.DateIntervalPatterns_se_NO;
+    defaultPatterns = DateIntervalPatterns_se_NO;
     break;
   case 'se_SE':
   case 'se-SE':
-    defaultPatterns = exports.DateIntervalPatterns_se_SE;
+    defaultPatterns = DateIntervalPatterns_se_SE;
     break;
   case 'seh':
-    defaultPatterns = exports.DateIntervalPatterns_seh;
+    defaultPatterns = DateIntervalPatterns_seh;
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    defaultPatterns = exports.DateIntervalPatterns_seh_MZ;
+    defaultPatterns = DateIntervalPatterns_seh_MZ;
     break;
   case 'ses':
-    defaultPatterns = exports.DateIntervalPatterns_ses;
+    defaultPatterns = DateIntervalPatterns_ses;
     break;
   case 'ses_ML':
   case 'ses-ML':
-    defaultPatterns = exports.DateIntervalPatterns_ses_ML;
+    defaultPatterns = DateIntervalPatterns_ses_ML;
     break;
   case 'sg':
-    defaultPatterns = exports.DateIntervalPatterns_sg;
+    defaultPatterns = DateIntervalPatterns_sg;
     break;
   case 'sg_CF':
   case 'sg-CF':
-    defaultPatterns = exports.DateIntervalPatterns_sg_CF;
+    defaultPatterns = DateIntervalPatterns_sg_CF;
     break;
   case 'shi':
-    defaultPatterns = exports.DateIntervalPatterns_shi;
+    defaultPatterns = DateIntervalPatterns_shi;
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_shi_Latn;
+    defaultPatterns = DateIntervalPatterns_shi_Latn;
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    defaultPatterns = exports.DateIntervalPatterns_shi_Latn_MA;
+    defaultPatterns = DateIntervalPatterns_shi_Latn_MA;
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    defaultPatterns = exports.DateIntervalPatterns_shi_Tfng;
+    defaultPatterns = DateIntervalPatterns_shi_Tfng;
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    defaultPatterns = exports.DateIntervalPatterns_shi_Tfng_MA;
+    defaultPatterns = DateIntervalPatterns_shi_Tfng_MA;
     break;
   case 'si_LK':
   case 'si-LK':
-    defaultPatterns = exports.DateIntervalPatterns_si_LK;
+    defaultPatterns = DateIntervalPatterns_si_LK;
     break;
   case 'sk_SK':
   case 'sk-SK':
-    defaultPatterns = exports.DateIntervalPatterns_sk_SK;
+    defaultPatterns = DateIntervalPatterns_sk_SK;
     break;
   case 'sl_SI':
   case 'sl-SI':
-    defaultPatterns = exports.DateIntervalPatterns_sl_SI;
+    defaultPatterns = DateIntervalPatterns_sl_SI;
     break;
   case 'smn':
-    defaultPatterns = exports.DateIntervalPatterns_smn;
+    defaultPatterns = DateIntervalPatterns_smn;
     break;
   case 'smn_FI':
   case 'smn-FI':
-    defaultPatterns = exports.DateIntervalPatterns_smn_FI;
+    defaultPatterns = DateIntervalPatterns_smn_FI;
     break;
   case 'sn':
-    defaultPatterns = exports.DateIntervalPatterns_sn;
+    defaultPatterns = DateIntervalPatterns_sn;
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    defaultPatterns = exports.DateIntervalPatterns_sn_ZW;
+    defaultPatterns = DateIntervalPatterns_sn_ZW;
     break;
   case 'so':
-    defaultPatterns = exports.DateIntervalPatterns_so;
+    defaultPatterns = DateIntervalPatterns_so;
     break;
   case 'so_DJ':
   case 'so-DJ':
-    defaultPatterns = exports.DateIntervalPatterns_so_DJ;
+    defaultPatterns = DateIntervalPatterns_so_DJ;
     break;
   case 'so_ET':
   case 'so-ET':
-    defaultPatterns = exports.DateIntervalPatterns_so_ET;
+    defaultPatterns = DateIntervalPatterns_so_ET;
     break;
   case 'so_KE':
   case 'so-KE':
-    defaultPatterns = exports.DateIntervalPatterns_so_KE;
+    defaultPatterns = DateIntervalPatterns_so_KE;
     break;
   case 'so_SO':
   case 'so-SO':
-    defaultPatterns = exports.DateIntervalPatterns_so_SO;
+    defaultPatterns = DateIntervalPatterns_so_SO;
     break;
   case 'sq_AL':
   case 'sq-AL':
-    defaultPatterns = exports.DateIntervalPatterns_sq_AL;
+    defaultPatterns = DateIntervalPatterns_sq_AL;
     break;
   case 'sq_MK':
   case 'sq-MK':
-    defaultPatterns = exports.DateIntervalPatterns_sq_MK;
+    defaultPatterns = DateIntervalPatterns_sq_MK;
     break;
   case 'sq_XK':
   case 'sq-XK':
-    defaultPatterns = exports.DateIntervalPatterns_sq_XK;
+    defaultPatterns = DateIntervalPatterns_sq_XK;
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Cyrl;
+    defaultPatterns = DateIntervalPatterns_sr_Cyrl;
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Cyrl_BA;
+    defaultPatterns = DateIntervalPatterns_sr_Cyrl_BA;
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Cyrl_ME;
+    defaultPatterns = DateIntervalPatterns_sr_Cyrl_ME;
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Cyrl_RS;
+    defaultPatterns = DateIntervalPatterns_sr_Cyrl_RS;
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Cyrl_XK;
+    defaultPatterns = DateIntervalPatterns_sr_Cyrl_XK;
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Latn_BA;
+    defaultPatterns = DateIntervalPatterns_sr_Latn_BA;
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Latn_ME;
+    defaultPatterns = DateIntervalPatterns_sr_Latn_ME;
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Latn_RS;
+    defaultPatterns = DateIntervalPatterns_sr_Latn_RS;
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    defaultPatterns = exports.DateIntervalPatterns_sr_Latn_XK;
+    defaultPatterns = DateIntervalPatterns_sr_Latn_XK;
     break;
   case 'su':
-    defaultPatterns = exports.DateIntervalPatterns_su;
+    defaultPatterns = DateIntervalPatterns_su;
     break;
   case 'su_Latn':
   case 'su-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_su_Latn;
+    defaultPatterns = DateIntervalPatterns_su_Latn;
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    defaultPatterns = exports.DateIntervalPatterns_su_Latn_ID;
+    defaultPatterns = DateIntervalPatterns_su_Latn_ID;
     break;
   case 'sv_AX':
   case 'sv-AX':
-    defaultPatterns = exports.DateIntervalPatterns_sv_AX;
+    defaultPatterns = DateIntervalPatterns_sv_AX;
     break;
   case 'sv_FI':
   case 'sv-FI':
-    defaultPatterns = exports.DateIntervalPatterns_sv_FI;
+    defaultPatterns = DateIntervalPatterns_sv_FI;
     break;
   case 'sv_SE':
   case 'sv-SE':
-    defaultPatterns = exports.DateIntervalPatterns_sv_SE;
+    defaultPatterns = DateIntervalPatterns_sv_SE;
     break;
   case 'sw_CD':
   case 'sw-CD':
-    defaultPatterns = exports.DateIntervalPatterns_sw_CD;
+    defaultPatterns = DateIntervalPatterns_sw_CD;
     break;
   case 'sw_KE':
   case 'sw-KE':
-    defaultPatterns = exports.DateIntervalPatterns_sw_KE;
+    defaultPatterns = DateIntervalPatterns_sw_KE;
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_sw_TZ;
+    defaultPatterns = DateIntervalPatterns_sw_TZ;
     break;
   case 'sw_UG':
   case 'sw-UG':
-    defaultPatterns = exports.DateIntervalPatterns_sw_UG;
+    defaultPatterns = DateIntervalPatterns_sw_UG;
     break;
   case 'ta_IN':
   case 'ta-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ta_IN;
+    defaultPatterns = DateIntervalPatterns_ta_IN;
     break;
   case 'ta_LK':
   case 'ta-LK':
-    defaultPatterns = exports.DateIntervalPatterns_ta_LK;
+    defaultPatterns = DateIntervalPatterns_ta_LK;
     break;
   case 'ta_MY':
   case 'ta-MY':
-    defaultPatterns = exports.DateIntervalPatterns_ta_MY;
+    defaultPatterns = DateIntervalPatterns_ta_MY;
     break;
   case 'ta_SG':
   case 'ta-SG':
-    defaultPatterns = exports.DateIntervalPatterns_ta_SG;
+    defaultPatterns = DateIntervalPatterns_ta_SG;
     break;
   case 'te_IN':
   case 'te-IN':
-    defaultPatterns = exports.DateIntervalPatterns_te_IN;
+    defaultPatterns = DateIntervalPatterns_te_IN;
     break;
   case 'teo':
-    defaultPatterns = exports.DateIntervalPatterns_teo;
+    defaultPatterns = DateIntervalPatterns_teo;
     break;
   case 'teo_KE':
   case 'teo-KE':
-    defaultPatterns = exports.DateIntervalPatterns_teo_KE;
+    defaultPatterns = DateIntervalPatterns_teo_KE;
     break;
   case 'teo_UG':
   case 'teo-UG':
-    defaultPatterns = exports.DateIntervalPatterns_teo_UG;
+    defaultPatterns = DateIntervalPatterns_teo_UG;
     break;
   case 'tg':
-    defaultPatterns = exports.DateIntervalPatterns_tg;
+    defaultPatterns = DateIntervalPatterns_tg;
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    defaultPatterns = exports.DateIntervalPatterns_tg_TJ;
+    defaultPatterns = DateIntervalPatterns_tg_TJ;
     break;
   case 'th_TH':
   case 'th-TH':
-    defaultPatterns = exports.DateIntervalPatterns_th_TH;
+    defaultPatterns = DateIntervalPatterns_th_TH;
     break;
   case 'ti':
-    defaultPatterns = exports.DateIntervalPatterns_ti;
+    defaultPatterns = DateIntervalPatterns_ti;
     break;
   case 'ti_ER':
   case 'ti-ER':
-    defaultPatterns = exports.DateIntervalPatterns_ti_ER;
+    defaultPatterns = DateIntervalPatterns_ti_ER;
     break;
   case 'ti_ET':
   case 'ti-ET':
-    defaultPatterns = exports.DateIntervalPatterns_ti_ET;
+    defaultPatterns = DateIntervalPatterns_ti_ET;
     break;
   case 'tk':
-    defaultPatterns = exports.DateIntervalPatterns_tk;
+    defaultPatterns = DateIntervalPatterns_tk;
     break;
   case 'tk_TM':
   case 'tk-TM':
-    defaultPatterns = exports.DateIntervalPatterns_tk_TM;
+    defaultPatterns = DateIntervalPatterns_tk_TM;
     break;
   case 'to':
-    defaultPatterns = exports.DateIntervalPatterns_to;
+    defaultPatterns = DateIntervalPatterns_to;
     break;
   case 'to_TO':
   case 'to-TO':
-    defaultPatterns = exports.DateIntervalPatterns_to_TO;
+    defaultPatterns = DateIntervalPatterns_to_TO;
     break;
   case 'tr_CY':
   case 'tr-CY':
-    defaultPatterns = exports.DateIntervalPatterns_tr_CY;
+    defaultPatterns = DateIntervalPatterns_tr_CY;
     break;
   case 'tr_TR':
   case 'tr-TR':
-    defaultPatterns = exports.DateIntervalPatterns_tr_TR;
+    defaultPatterns = DateIntervalPatterns_tr_TR;
     break;
   case 'tt':
-    defaultPatterns = exports.DateIntervalPatterns_tt;
+    defaultPatterns = DateIntervalPatterns_tt;
     break;
   case 'tt_RU':
   case 'tt-RU':
-    defaultPatterns = exports.DateIntervalPatterns_tt_RU;
+    defaultPatterns = DateIntervalPatterns_tt_RU;
     break;
   case 'twq':
-    defaultPatterns = exports.DateIntervalPatterns_twq;
+    defaultPatterns = DateIntervalPatterns_twq;
     break;
   case 'twq_NE':
   case 'twq-NE':
-    defaultPatterns = exports.DateIntervalPatterns_twq_NE;
+    defaultPatterns = DateIntervalPatterns_twq_NE;
     break;
   case 'tzm':
-    defaultPatterns = exports.DateIntervalPatterns_tzm;
+    defaultPatterns = DateIntervalPatterns_tzm;
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    defaultPatterns = exports.DateIntervalPatterns_tzm_MA;
+    defaultPatterns = DateIntervalPatterns_tzm_MA;
     break;
   case 'ug':
-    defaultPatterns = exports.DateIntervalPatterns_ug;
+    defaultPatterns = DateIntervalPatterns_ug;
     break;
   case 'ug_CN':
   case 'ug-CN':
-    defaultPatterns = exports.DateIntervalPatterns_ug_CN;
+    defaultPatterns = DateIntervalPatterns_ug_CN;
     break;
   case 'uk_UA':
   case 'uk-UA':
-    defaultPatterns = exports.DateIntervalPatterns_uk_UA;
+    defaultPatterns = DateIntervalPatterns_uk_UA;
     break;
   case 'ur_IN':
   case 'ur-IN':
-    defaultPatterns = exports.DateIntervalPatterns_ur_IN;
+    defaultPatterns = DateIntervalPatterns_ur_IN;
     break;
   case 'ur_PK':
   case 'ur-PK':
-    defaultPatterns = exports.DateIntervalPatterns_ur_PK;
+    defaultPatterns = DateIntervalPatterns_ur_PK;
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    defaultPatterns = exports.DateIntervalPatterns_uz_Arab;
+    defaultPatterns = DateIntervalPatterns_uz_Arab;
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    defaultPatterns = exports.DateIntervalPatterns_uz_Arab_AF;
+    defaultPatterns = DateIntervalPatterns_uz_Arab_AF;
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    defaultPatterns = exports.DateIntervalPatterns_uz_Cyrl;
+    defaultPatterns = DateIntervalPatterns_uz_Cyrl;
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    defaultPatterns = exports.DateIntervalPatterns_uz_Cyrl_UZ;
+    defaultPatterns = DateIntervalPatterns_uz_Cyrl_UZ;
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_uz_Latn;
+    defaultPatterns = DateIntervalPatterns_uz_Latn;
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    defaultPatterns = exports.DateIntervalPatterns_uz_Latn_UZ;
+    defaultPatterns = DateIntervalPatterns_uz_Latn_UZ;
     break;
   case 'vai':
-    defaultPatterns = exports.DateIntervalPatterns_vai;
+    defaultPatterns = DateIntervalPatterns_vai;
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    defaultPatterns = exports.DateIntervalPatterns_vai_Latn;
+    defaultPatterns = DateIntervalPatterns_vai_Latn;
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    defaultPatterns = exports.DateIntervalPatterns_vai_Latn_LR;
+    defaultPatterns = DateIntervalPatterns_vai_Latn_LR;
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    defaultPatterns = exports.DateIntervalPatterns_vai_Vaii;
+    defaultPatterns = DateIntervalPatterns_vai_Vaii;
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    defaultPatterns = exports.DateIntervalPatterns_vai_Vaii_LR;
+    defaultPatterns = DateIntervalPatterns_vai_Vaii_LR;
     break;
   case 'vi_VN':
   case 'vi-VN':
-    defaultPatterns = exports.DateIntervalPatterns_vi_VN;
+    defaultPatterns = DateIntervalPatterns_vi_VN;
     break;
   case 'vun':
-    defaultPatterns = exports.DateIntervalPatterns_vun;
+    defaultPatterns = DateIntervalPatterns_vun;
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    defaultPatterns = exports.DateIntervalPatterns_vun_TZ;
+    defaultPatterns = DateIntervalPatterns_vun_TZ;
     break;
   case 'wae':
-    defaultPatterns = exports.DateIntervalPatterns_wae;
+    defaultPatterns = DateIntervalPatterns_wae;
     break;
   case 'wae_CH':
   case 'wae-CH':
-    defaultPatterns = exports.DateIntervalPatterns_wae_CH;
+    defaultPatterns = DateIntervalPatterns_wae_CH;
     break;
   case 'wo':
-    defaultPatterns = exports.DateIntervalPatterns_wo;
+    defaultPatterns = DateIntervalPatterns_wo;
     break;
   case 'wo_SN':
   case 'wo-SN':
-    defaultPatterns = exports.DateIntervalPatterns_wo_SN;
+    defaultPatterns = DateIntervalPatterns_wo_SN;
     break;
   case 'xh':
-    defaultPatterns = exports.DateIntervalPatterns_xh;
+    defaultPatterns = DateIntervalPatterns_xh;
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    defaultPatterns = exports.DateIntervalPatterns_xh_ZA;
+    defaultPatterns = DateIntervalPatterns_xh_ZA;
     break;
   case 'xog':
-    defaultPatterns = exports.DateIntervalPatterns_xog;
+    defaultPatterns = DateIntervalPatterns_xog;
     break;
   case 'xog_UG':
   case 'xog-UG':
-    defaultPatterns = exports.DateIntervalPatterns_xog_UG;
+    defaultPatterns = DateIntervalPatterns_xog_UG;
     break;
   case 'yav':
-    defaultPatterns = exports.DateIntervalPatterns_yav;
+    defaultPatterns = DateIntervalPatterns_yav;
     break;
   case 'yav_CM':
   case 'yav-CM':
-    defaultPatterns = exports.DateIntervalPatterns_yav_CM;
+    defaultPatterns = DateIntervalPatterns_yav_CM;
     break;
   case 'yi':
-    defaultPatterns = exports.DateIntervalPatterns_yi;
+    defaultPatterns = DateIntervalPatterns_yi;
     break;
   case 'yi_001':
   case 'yi-001':
-    defaultPatterns = exports.DateIntervalPatterns_yi_001;
+    defaultPatterns = DateIntervalPatterns_yi_001;
     break;
   case 'yo':
-    defaultPatterns = exports.DateIntervalPatterns_yo;
+    defaultPatterns = DateIntervalPatterns_yo;
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    defaultPatterns = exports.DateIntervalPatterns_yo_BJ;
+    defaultPatterns = DateIntervalPatterns_yo_BJ;
     break;
   case 'yo_NG':
   case 'yo-NG':
-    defaultPatterns = exports.DateIntervalPatterns_yo_NG;
+    defaultPatterns = DateIntervalPatterns_yo_NG;
     break;
   case 'yrl':
-    defaultPatterns = exports.DateIntervalPatterns_yrl;
+    defaultPatterns = DateIntervalPatterns_yrl;
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    defaultPatterns = exports.DateIntervalPatterns_yrl_BR;
+    defaultPatterns = DateIntervalPatterns_yrl_BR;
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    defaultPatterns = exports.DateIntervalPatterns_yrl_CO;
+    defaultPatterns = DateIntervalPatterns_yrl_CO;
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    defaultPatterns = exports.DateIntervalPatterns_yrl_VE;
+    defaultPatterns = DateIntervalPatterns_yrl_VE;
     break;
   case 'yue':
-    defaultPatterns = exports.DateIntervalPatterns_yue;
+    defaultPatterns = DateIntervalPatterns_yue;
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    defaultPatterns = exports.DateIntervalPatterns_yue_Hans;
+    defaultPatterns = DateIntervalPatterns_yue_Hans;
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    defaultPatterns = exports.DateIntervalPatterns_yue_Hans_CN;
+    defaultPatterns = DateIntervalPatterns_yue_Hans_CN;
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    defaultPatterns = exports.DateIntervalPatterns_yue_Hant;
+    defaultPatterns = DateIntervalPatterns_yue_Hant;
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    defaultPatterns = exports.DateIntervalPatterns_yue_Hant_HK;
+    defaultPatterns = DateIntervalPatterns_yue_Hant_HK;
     break;
   case 'zgh':
-    defaultPatterns = exports.DateIntervalPatterns_zgh;
+    defaultPatterns = DateIntervalPatterns_zgh;
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    defaultPatterns = exports.DateIntervalPatterns_zgh_MA;
+    defaultPatterns = DateIntervalPatterns_zgh_MA;
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hans;
+    defaultPatterns = DateIntervalPatterns_zh_Hans;
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hans_CN;
+    defaultPatterns = DateIntervalPatterns_zh_Hans_CN;
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hans_HK;
+    defaultPatterns = DateIntervalPatterns_zh_Hans_HK;
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hans_MO;
+    defaultPatterns = DateIntervalPatterns_zh_Hans_MO;
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hans_SG;
+    defaultPatterns = DateIntervalPatterns_zh_Hans_SG;
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hant;
+    defaultPatterns = DateIntervalPatterns_zh_Hant;
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hant_HK;
+    defaultPatterns = DateIntervalPatterns_zh_Hant_HK;
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hant_MO;
+    defaultPatterns = DateIntervalPatterns_zh_Hant_MO;
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    defaultPatterns = exports.DateIntervalPatterns_zh_Hant_TW;
+    defaultPatterns = DateIntervalPatterns_zh_Hant_TW;
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    defaultPatterns = exports.DateIntervalPatterns_zu_ZA;
+    defaultPatterns = DateIntervalPatterns_zu_ZA;
     break;
 }
 

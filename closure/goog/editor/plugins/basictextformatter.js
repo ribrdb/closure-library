@@ -8,59 +8,55 @@
  * @fileoverview Functions to style text.
  */
 
-goog.provide("goog.editor.plugins.BasicTextFormatter");
-goog.provide("goog.editor.plugins.BasicTextFormatter.COMMAND");
+import * as array from '../../array/array.js';
 
-goog.require("goog.array");
-goog.require("goog.dom");
-goog.require("goog.dom.NodeType");
-goog.require("goog.dom.Range");
-goog.require("goog.dom.TagName");
-goog.require("goog.dom.safe");
-goog.require("goog.editor.BrowserFeature");
-goog.require("goog.editor.Command");
-goog.require("goog.editor.Link");
-goog.require("goog.editor.Plugin");
-goog.require("goog.editor.node");
-goog.require("goog.editor.range");
-goog.require("goog.editor.style");
-goog.require("goog.html.SafeHtml");
-goog.require("goog.html.uncheckedconversions");
-goog.require("goog.iter");
-goog.require("goog.log");
-goog.require("goog.object");
-goog.require("goog.string");
-goog.require("goog.string.Const");
-goog.require("goog.string.Unicode");
-goog.require("goog.style");
-goog.require("goog.ui.editor.messages");
-goog.require("goog.userAgent");
-goog.requireType("goog.dom.AbstractRange");
+import * as googDom from '../../dom/dom.js';
+import { NodeType } from '../../dom/nodetype.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import * as safe from '../../dom/safe.js';
+import { BrowserFeature } from '../browserfeature.js';
+import { Command } from '../command.js';
+import { Link } from '../link.js';
+import { Plugin } from '../plugin.js';
+import * as editorNode from '../node.js';
+import * as editorRange from '../range.js';
+import * as style from '../style.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import * as uncheckedconversions from '../../html/uncheckedconversions.js';
+import * as googIter from '../../iter/iter.js';
+import * as log from '../../log/log.js';
+import object from '../../object/object.js';
+import * as string from '../../string/string.js';
+import { Unicode } from '../../string/string.js';
+import { Const } from '../../string/const.js';
+import * as googStyle from '../../style/style.js';
+import * as messages from '../../ui/editor/messages.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.dom.abstractrange');
 
 /**
  * Functions to style text (e.g. underline, make bold, etc.)
  * @constructor
- * @extends {goog.editor.Plugin}
+ * @extends {Plugin}
  */
-goog.editor.plugins.BasicTextFormatter = function () {
-  "use strict";
-  goog.editor.Plugin.call(this);
-};
-goog.inherits(goog.editor.plugins.BasicTextFormatter, goog.editor.Plugin);
+export function BasicTextFormatter() {
+  Plugin.call(this);
+}
+goog.inherits(BasicTextFormatter, Plugin);
 
 /** @override */
-goog.editor.plugins.BasicTextFormatter.prototype.getTrogClassId = function () {
-  "use strict";
+BasicTextFormatter.prototype.getTrogClassId = function () {
   return "BTF";
 };
 
 /**
  * Logging object.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @protected
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.logger = goog.log.getLogger(
+BasicTextFormatter.prototype.logger = log.getLogger(
   "goog.editor.plugins.BasicTextFormatter"
 );
 
@@ -68,7 +64,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.logger = goog.log.getLogger(
  * Commands implemented by this plugin.
  * @enum {string}
  */
-goog.editor.plugins.BasicTextFormatter.COMMAND = {
+BasicTextFormatter.COMMAND = {
   LINK: "+link",
   CREATE_LINK: "+createLink",
   FORMAT_BLOCK: "+formatBlock",
@@ -95,14 +91,14 @@ goog.editor.plugins.BasicTextFormatter.COMMAND = {
 
 /**
  * Inverse map of execCommand strings to
- * {@link goog.editor.plugins.BasicTextFormatter.COMMAND} constants. Used to
+ * {@link BasicTextFormatter.COMMAND} constants. Used to
  * determine whether a string corresponds to a command this plugin
  * handles in O(1) time.
  * @type {Object}
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.SUPPORTED_COMMANDS_ =
-  goog.object.transpose(goog.editor.plugins.BasicTextFormatter.COMMAND);
+BasicTextFormatter.SUPPORTED_COMMANDS_ =
+  object.transpose(BasicTextFormatter.COMMAND);
 
 /**
  * Whether the string corresponds to a command this plugin handles.
@@ -111,45 +107,42 @@ goog.editor.plugins.BasicTextFormatter.SUPPORTED_COMMANDS_ =
  *     this plugin handles.
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.isSupportedCommand = function (
+BasicTextFormatter.prototype.isSupportedCommand = function (
   command
 ) {
-  "use strict";
   // TODO(user): restore this to simple check once table editing
   // is moved out into its own plugin
-  return command in goog.editor.plugins.BasicTextFormatter.SUPPORTED_COMMANDS_;
+  return command in BasicTextFormatter.SUPPORTED_COMMANDS_;
 };
 
 /**
  * Array of execCommand strings which should be silent.
- * @type {!Array<goog.editor.plugins.BasicTextFormatter.COMMAND>}
+ * @type {!Array<BasicTextFormatter.COMMAND>}
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.SILENT_COMMANDS_ = [
-  goog.editor.plugins.BasicTextFormatter.COMMAND.CREATE_LINK,
+BasicTextFormatter.SILENT_COMMANDS_ = [
+  BasicTextFormatter.COMMAND.CREATE_LINK,
 ];
 
 /**
  * Whether the string corresponds to a command that should be silent.
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.isSilentCommand = function (
+BasicTextFormatter.prototype.isSilentCommand = function (
   command
 ) {
-  "use strict";
-  return goog.array.contains(
-    goog.editor.plugins.BasicTextFormatter.SILENT_COMMANDS_,
+  return array.contains(
+    BasicTextFormatter.SILENT_COMMANDS_,
     command
   );
 };
 
 /**
- * @return {goog.dom.AbstractRange} The closure range object that wraps the
+ * @return {googDom.AbstractRange} The closure range object that wraps the
  *     current user selection.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.getRange_ = function () {
-  "use strict";
+BasicTextFormatter.prototype.getRange_ = function () {
   return this.getFieldObject().getRange();
 };
 
@@ -158,8 +151,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.getRange_ = function () {
  *     field.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.getDocument_ = function () {
-  "use strict";
+BasicTextFormatter.prototype.getDocument_ = function () {
   return this.getFieldDomHelper().getDocument();
 };
 
@@ -168,14 +160,13 @@ goog.editor.plugins.BasicTextFormatter.prototype.getDocument_ = function () {
  * @param {string} command Command to execute.
  * @param {...*} var_args For color commands, this
  *     should be the hex color (with the #). For FORMAT_BLOCK, this should be
- *     the goog.editor.plugins.BasicTextFormatter.BLOCK_COMMAND.
+ *     the BasicTextFormatter.BLOCK_COMMAND.
  *     It will be unused for other commands.
  * @return {Object|undefined} The result of the command.
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
+BasicTextFormatter.prototype.execCommandInternal =
   function (command, var_args) {
-    "use strict";
     let preserveDir, styleWithCss, needsFormatBlockDiv, hasPlaceholderSelection;
     var result;
     var opt_arg = arguments[1];
@@ -183,10 +174,10 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
     let placeholderValue;
 
     switch (command) {
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.BACKGROUND_COLOR:
+      case BasicTextFormatter.COMMAND.BACKGROUND_COLOR:
         // Don't bother for no color selected, color picker is resetting itself.
         if (opt_arg !== null) {
-          if (goog.editor.BrowserFeature.EATS_EMPTY_BACKGROUND_COLOR) {
+          if (BrowserFeature.EATS_EMPTY_BACKGROUND_COLOR) {
             this.applyBgColorManually_(opt_arg);
           } else {
             this.execCommandHelper_(command, opt_arg);
@@ -194,26 +185,26 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
         }
         break;
 
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.CREATE_LINK:
+      case BasicTextFormatter.COMMAND.CREATE_LINK:
         result = this.createLink_(arguments[1], arguments[2], arguments[3]);
         break;
 
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.LINK:
+      case BasicTextFormatter.COMMAND.LINK:
         result = this.toggleLink_(opt_arg);
         break;
 
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_CENTER:
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_FULL:
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_RIGHT:
-      case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_LEFT:
+      case BasicTextFormatter.COMMAND.JUSTIFY_CENTER:
+      case BasicTextFormatter.COMMAND.JUSTIFY_FULL:
+      case BasicTextFormatter.COMMAND.JUSTIFY_RIGHT:
+      case BasicTextFormatter.COMMAND.JUSTIFY_LEFT:
         this.justify_(command);
         break;
 
       default:
         if (
-          goog.userAgent.IE &&
+          userAgent.IE &&
           command ==
-            goog.editor.plugins.BasicTextFormatter.COMMAND.FORMAT_BLOCK &&
+            BasicTextFormatter.COMMAND.FORMAT_BLOCK &&
           opt_arg
         ) {
           // IE requires that the argument be in the form of an opening
@@ -226,7 +217,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
 
         if (
           command ==
-            goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_COLOR &&
+            BasicTextFormatter.COMMAND.FONT_COLOR &&
           opt_arg === null
         ) {
           // If we don't have a color, then FONT_COLOR is a no-op.
@@ -234,19 +225,19 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
         }
 
         switch (command) {
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.INDENT:
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.OUTDENT:
-            if (goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS) {
-              if (goog.userAgent.GECKO) {
+          case BasicTextFormatter.COMMAND.INDENT:
+          case BasicTextFormatter.COMMAND.OUTDENT:
+            if (BrowserFeature.HAS_STYLE_WITH_CSS) {
+              if (userAgent.GECKO) {
                 styleWithCss = true;
               }
             }
           // Fall through.
 
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.ORDERED_LIST:
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.UNORDERED_LIST:
+          case BasicTextFormatter.COMMAND.ORDERED_LIST:
+          case BasicTextFormatter.COMMAND.UNORDERED_LIST:
             if (
-              goog.editor.BrowserFeature.LEAVES_P_WHEN_REMOVING_LISTS &&
+              BrowserFeature.LEAVES_P_WHEN_REMOVING_LISTS &&
               this.queryCommandStateInternal_(this.getDocument_(), command)
             ) {
               // IE leaves behind P tags when unapplying lists.
@@ -254,9 +245,9 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
               // So, unlistify, then convert the Ps into divs.
               needsFormatBlockDiv =
                 this.getFieldObject().queryCommandValue(
-                  goog.editor.Command.DEFAULT_TAG
-                ) != goog.dom.TagName.P;
-            } else if (!goog.editor.BrowserFeature.CAN_LISTIFY_BR) {
+                  Command.DEFAULT_TAG
+                ) != TagName.P;
+            } else if (!BrowserFeature.CAN_LISTIFY_BR) {
               // IE doesn't convert BRed line breaks into separate list items.
               // So convert the BRs to divs, then do the listify.
               this.convertBreaksToDivs_();
@@ -264,8 +255,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
 
             // This fix only works in Gecko.
             if (
-              goog.userAgent.GECKO &&
-              goog.editor.BrowserFeature.FORGETS_FORMATTING_WHEN_LISTIFYING &&
+              userAgent.GECKO &&
+              BrowserFeature.FORGETS_FORMATTING_WHEN_LISTIFYING &&
               !this.queryCommandValue(command)
             ) {
               /** @suppress {strictPrimitiveOperators} */
@@ -276,11 +267,11 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
               .getDocument()
               .getSelection();
             if (selection.rangeCount === 1) {
-              placeholderValue = goog.string.createUniqueString();
-              const placeholderNode = goog.dom.createDom(goog.dom.TagName.SPAN);
+              placeholderValue = string.createUniqueString();
+              const placeholderNode = googDom.createDom(TagName.SPAN);
               const safePlaceholderAnchorContent =
-                goog.html.SafeHtml.htmlEscape(placeholderValue);
-              goog.dom.safe.setInnerHtml(
+                SafeHtml.htmlEscape(placeholderValue);
+              safe.setInnerHtml(
                 placeholderNode,
                 safePlaceholderAnchorContent
               );
@@ -291,20 +282,20 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
                 // Mark that we need to delete the placeholder selection later.
                 hasPlaceholderSelection = true;
 
-                goog.dom.Range.createFromBrowserRange(
+                Range.createFromBrowserRange(
                   selection.getRangeAt(0)
                 ).replaceContentsWithNode(placeholderNode);
-                goog.dom.Range.createFromNodeContents(placeholderNode).select();
-              } else if (goog.userAgent.WEBKIT) {
+                Range.createFromNodeContents(placeholderNode).select();
+              } else if (userAgent.WEBKIT) {
                 // For webkit, we need insert unselected, unformatted content
                 // at the start of the LI to prevent the list being split into 2
                 // lists, and delete the placeholder content after.
-                const parentListItem = goog.dom.getAncestorByTagNameAndClass(
+                const parentListItem = googDom.getAncestorByTagNameAndClass(
                   selection.anchorNode,
-                  goog.dom.TagName.LI
+                  TagName.LI
                 );
                 if (parentListItem) {
-                  goog.dom.insertChildAt(parentListItem, placeholderNode, 0);
+                  googDom.insertChildAt(parentListItem, placeholderNode, 0);
                   hasPlaceholderContent = true;
                 }
               }
@@ -312,7 +303,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
 
           // Fall through to preserveDir block
 
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.FORMAT_BLOCK:
+          case BasicTextFormatter.COMMAND.FORMAT_BLOCK:
             // Both FF & IE may lose directionality info. Save/restore it.
             // TODO(user): Does Safari also need this?
             // TODO (user): This isn't ideal because it uses a string
@@ -322,9 +313,9 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
             preserveDir = !!this.getFieldObject().getPluginByClassId("Bidi");
             break;
 
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.SUBSCRIPT:
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.SUPERSCRIPT:
-            if (goog.editor.BrowserFeature.NESTS_SUBSCRIPT_SUPERSCRIPT) {
+          case BasicTextFormatter.COMMAND.SUBSCRIPT:
+          case BasicTextFormatter.COMMAND.SUPERSCRIPT:
+            if (BrowserFeature.NESTS_SUBSCRIPT_SUPERSCRIPT) {
               // This browser nests subscript and superscript when both are
               // applied, instead of canceling out the first when applying the
               // second.
@@ -332,45 +323,45 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
             }
             break;
 
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.UNDERLINE:
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.BOLD:
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.ITALIC:
+          case BasicTextFormatter.COMMAND.UNDERLINE:
+          case BasicTextFormatter.COMMAND.BOLD:
+          case BasicTextFormatter.COMMAND.ITALIC:
             // If we are applying the formatting, then we want to have
             // styleWithCSS false so that we generate html tags (like <b>).  If we
             // are unformatting something, we want to have styleWithCSS true so
             // that we can unformat both html tags and inline styling.
             // TODO(user): What about WebKit and Opera?
             styleWithCss =
-              goog.userAgent.GECKO &&
-              goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS &&
+              userAgent.GECKO &&
+              BrowserFeature.HAS_STYLE_WITH_CSS &&
               this.queryCommandValue(command);
             break;
 
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_COLOR:
-          case goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_FACE:
+          case BasicTextFormatter.COMMAND.FONT_COLOR:
+          case BasicTextFormatter.COMMAND.FONT_FACE:
             // It is very expensive in FF (order of magnitude difference) to use
             // font tags instead of styled spans. Whenever possible,
             // force FF to use spans.
             // Font size is very expensive too, but FF always uses font tags,
             // regardless of which styleWithCSS value you use.
             styleWithCss =
-              goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS &&
-              goog.userAgent.GECKO;
+              BrowserFeature.HAS_STYLE_WITH_CSS &&
+              userAgent.GECKO;
         }
 
         /**
-         * Cases where we just use the default execCommand (in addition
-         * to the above fall-throughs)
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.STRIKE_THROUGH:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.HORIZONTAL_RULE:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.SUBSCRIPT:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.SUPERSCRIPT:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.UNDERLINE:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.BOLD:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.ITALIC:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_SIZE:
-         * goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_FACE:
-         */
+                 * Cases where we just use the default execCommand (in addition
+                 * to the above fall-throughs)
+                 * BasicTextFormatter.COMMAND.STRIKE_THROUGH:
+                 * BasicTextFormatter.COMMAND.HORIZONTAL_RULE:
+                 * BasicTextFormatter.COMMAND.SUBSCRIPT:
+                 * BasicTextFormatter.COMMAND.SUPERSCRIPT:
+                 * BasicTextFormatter.COMMAND.UNDERLINE:
+                 * BasicTextFormatter.COMMAND.BOLD:
+                 * BasicTextFormatter.COMMAND.ITALIC:
+                 * BasicTextFormatter.COMMAND.FONT_SIZE:
+                 * BasicTextFormatter.COMMAND.FONT_FACE:
+                 */
         this.execCommandHelper_(command, opt_arg, preserveDir, !!styleWithCss);
 
         if (hasPlaceholderSelection) {
@@ -392,8 +383,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
           // goog_12345abc<br>
           // def<br>
           // after execCommand is called
-          const POTENTIAL_PLACEHOLDER_TAGS = [goog.dom.TagName.SPAN, "#text"];
-          const placeholderNode = goog.dom.findNode(
+          const POTENTIAL_PLACEHOLDER_TAGS = [TagName.SPAN, "#text"];
+          const placeholderNode = googDom.findNode(
             this.getFieldObject().getElement(),
             (node) =>
               POTENTIAL_PLACEHOLDER_TAGS.includes(node.nodeName) &&
@@ -401,7 +392,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
           );
           if (placeholderNode) {
             if (placeholderNode.textContent === placeholderValue) {
-              goog.dom.removeNode(placeholderNode);
+              googDom.removeNode(placeholderNode);
             } else {
               placeholderNode.textContent =
                 placeholderNode.textContent.replaceAll(placeholderValue, "");
@@ -416,7 +407,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
     // FF loses focus, so we have to set the focus back to the document or the
     // user can't type after selecting from menu.  In IE, focus is set correctly
     // and resetting it here messes it up.
-    if (goog.userAgent.GECKO && !this.getFieldObject().inModalMode()) {
+    if (userAgent.GECKO && !this.getFieldObject().inModalMode()) {
       this.focusField_();
     }
     return result;
@@ -426,8 +417,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandInternal =
  * Focuses on the field.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.focusField_ = function () {
-  "use strict";
+BasicTextFormatter.prototype.focusField_ = function () {
   this.getFieldDomHelper().getWindow().focus();
 };
 
@@ -440,65 +430,64 @@ goog.editor.plugins.BasicTextFormatter.prototype.focusField_ = function () {
  *     if necessary.
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.queryCommandValue = function (
+BasicTextFormatter.prototype.queryCommandValue = function (
   command
 ) {
-  "use strict";
   var styleWithCss;
   switch (command) {
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.LINK:
-      return this.isNodeInState_(goog.dom.TagName.A);
+    case BasicTextFormatter.COMMAND.LINK:
+      return this.isNodeInState_(TagName.A);
 
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_CENTER:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_FULL:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_RIGHT:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.JUSTIFY_LEFT:
+    case BasicTextFormatter.COMMAND.JUSTIFY_CENTER:
+    case BasicTextFormatter.COMMAND.JUSTIFY_FULL:
+    case BasicTextFormatter.COMMAND.JUSTIFY_RIGHT:
+    case BasicTextFormatter.COMMAND.JUSTIFY_LEFT:
       return this.isJustification_(command);
 
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.FORMAT_BLOCK:
+    case BasicTextFormatter.COMMAND.FORMAT_BLOCK:
       // TODO(nicksantos): See if we can use queryCommandValue here.
-      return goog.editor.plugins.BasicTextFormatter.getSelectionBlockState_(
+      return BasicTextFormatter.getSelectionBlockState_(
         this.getFieldObject().getRange()
       );
 
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.INDENT:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.OUTDENT:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.HORIZONTAL_RULE:
+    case BasicTextFormatter.COMMAND.INDENT:
+    case BasicTextFormatter.COMMAND.OUTDENT:
+    case BasicTextFormatter.COMMAND.HORIZONTAL_RULE:
       // TODO: See if there are reasonable results to return for
       // these commands.
       return false;
 
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_SIZE:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_FACE:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.FONT_COLOR:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.BACKGROUND_COLOR:
+    case BasicTextFormatter.COMMAND.FONT_SIZE:
+    case BasicTextFormatter.COMMAND.FONT_FACE:
+    case BasicTextFormatter.COMMAND.FONT_COLOR:
+    case BasicTextFormatter.COMMAND.BACKGROUND_COLOR:
       // We use queryCommandValue here since we don't just want to know if a
       // color/fontface/fontsize is applied, we want to know WHICH one it is.
       return this.queryCommandValueInternal_(
         this.getDocument_(),
         command,
-        (goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS &&
-          goog.userAgent.GECKO) ||
+        (BrowserFeature.HAS_STYLE_WITH_CSS &&
+          userAgent.GECKO) ||
           undefined
       );
 
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.UNDERLINE:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.BOLD:
-    case goog.editor.plugins.BasicTextFormatter.COMMAND.ITALIC:
+    case BasicTextFormatter.COMMAND.UNDERLINE:
+    case BasicTextFormatter.COMMAND.BOLD:
+    case BasicTextFormatter.COMMAND.ITALIC:
       styleWithCss =
-        goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS && goog.userAgent.GECKO;
+        BrowserFeature.HAS_STYLE_WITH_CSS && userAgent.GECKO;
 
     default:
       /**
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.STRIKE_THROUGH
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.SUBSCRIPT
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.SUPERSCRIPT
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.UNDERLINE
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.BOLD
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.ITALIC
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.ORDERED_LIST
-       * goog.editor.plugins.BasicTextFormatter.COMMAND.UNORDERED_LIST
-       */
+             * BasicTextFormatter.COMMAND.STRIKE_THROUGH
+             * BasicTextFormatter.COMMAND.SUBSCRIPT
+             * BasicTextFormatter.COMMAND.SUPERSCRIPT
+             * BasicTextFormatter.COMMAND.UNDERLINE
+             * BasicTextFormatter.COMMAND.BOLD
+             * BasicTextFormatter.COMMAND.ITALIC
+             * BasicTextFormatter.COMMAND.ORDERED_LIST
+             * BasicTextFormatter.COMMAND.UNORDERED_LIST
+             */
       // This only works for commands that use the default execCommand
       return this.queryCommandStateInternal_(
         this.getDocument_(),
@@ -511,20 +500,19 @@ goog.editor.plugins.BasicTextFormatter.prototype.queryCommandValue = function (
 /**
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.prepareContentsHtml =
+BasicTextFormatter.prototype.prepareContentsHtml =
   function (html) {
-    "use strict";
     // If the browser collapses empty nodes and the field has only a script
     // tag in it, then it will collapse this node. Which will mean the user
     // can't click into it to edit it.
     if (
-      goog.editor.BrowserFeature.COLLAPSES_EMPTY_NODES &&
+      BrowserFeature.COLLAPSES_EMPTY_NODES &&
       html.match(/^\s*<script/i)
     ) {
       html = "&nbsp;" + html;
     }
 
-    if (goog.editor.BrowserFeature.CONVERT_TO_B_AND_I_TAGS) {
+    if (BrowserFeature.CONVERT_TO_B_AND_I_TAGS) {
       // Some browsers (FF) can't undo strong/em in some cases, but can undo b/i!
       html = html.replace(/<(\/?)strong([^\w])/gi, "<$1b$2");
       html = html.replace(/<(\/?)em([^\w])/gi, "<$1i$2");
@@ -536,13 +524,12 @@ goog.editor.plugins.BasicTextFormatter.prototype.prepareContentsHtml =
 /**
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.cleanContentsDom = function (
+BasicTextFormatter.prototype.cleanContentsDom = function (
   fieldCopy
 ) {
-  "use strict";
-  var images = goog.dom.getElementsByTagName(goog.dom.TagName.IMG, fieldCopy);
+  var images = googDom.getElementsByTagName(TagName.IMG, fieldCopy);
   for (var i = 0, image; (image = images[i]); i++) {
-    if (goog.editor.BrowserFeature.SHOWS_CUSTOM_ATTRS_IN_INNER_HTML) {
+    if (BrowserFeature.SHOWS_CUSTOM_ATTRS_IN_INNER_HTML) {
       // Only need to remove these attributes in IE because
       // Firefox and Safari don't show custom attributes in the innerHTML.
       image.removeAttribute("tabIndex");
@@ -566,23 +553,22 @@ goog.editor.plugins.BasicTextFormatter.prototype.cleanContentsDom = function (
 /**
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.cleanContentsHtml = function (
+BasicTextFormatter.prototype.cleanContentsHtml = function (
   html
 ) {
-  "use strict";
-  if (goog.editor.BrowserFeature.MOVES_STYLE_TO_HEAD) {
+  if (BrowserFeature.MOVES_STYLE_TO_HEAD) {
     // Safari creates a new <head> element for <style> tags, so prepend their
     // contents to the output.
     var heads = this.getFieldObject()
       .getEditableDomHelper()
-      .getElementsByTagNameAndClass(goog.dom.TagName.HEAD);
+      .getElementsByTagNameAndClass(TagName.HEAD);
     var stylesHtmlArr = [];
 
     // i starts at 1 so we don't copy in the original, legitimate <head>.
     var numHeads = heads.length;
     for (var i = 1; i < numHeads; ++i) {
-      var styles = goog.dom.getElementsByTagName(
-        goog.dom.TagName.STYLE,
+      var styles = googDom.getElementsByTagName(
+        TagName.STYLE,
         heads[i]
       );
       var numStyles = styles.length;
@@ -599,22 +585,21 @@ goog.editor.plugins.BasicTextFormatter.prototype.cleanContentsHtml = function (
 /**
  * @override
  */
-goog.editor.plugins.BasicTextFormatter.prototype.handleKeyboardShortcut =
+BasicTextFormatter.prototype.handleKeyboardShortcut =
   function (e, key, isModifierPressed) {
-    "use strict";
     if (!isModifierPressed) {
       return false;
     }
     var command;
     switch (key) {
       case "b": // Ctrl+B
-        command = goog.editor.plugins.BasicTextFormatter.COMMAND.BOLD;
+        command = BasicTextFormatter.COMMAND.BOLD;
         break;
       case "i": // Ctrl+I
-        command = goog.editor.plugins.BasicTextFormatter.COMMAND.ITALIC;
+        command = BasicTextFormatter.COMMAND.ITALIC;
         break;
       case "u": // Ctrl+U
-        command = goog.editor.plugins.BasicTextFormatter.COMMAND.UNDERLINE;
+        command = BasicTextFormatter.COMMAND.UNDERLINE;
         break;
       case "s": // Ctrl+S
         // TODO(user): This doesn't belong in here.  Clients should handle
@@ -642,7 +627,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.handleKeyboardShortcut =
  * @type {RegExp}
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.BR_REGEXP_ = goog.userAgent.IE
+BasicTextFormatter.BR_REGEXP_ = userAgent.IE
   ? /<br([^\/>]*)\/?>/gi
   : /<br([^\/>]*)\/?>(?!<\/(div|p)>)/gi;
 
@@ -652,10 +637,9 @@ goog.editor.plugins.BasicTextFormatter.BR_REGEXP_ = goog.userAgent.IE
  * @return {boolean} Whether any BR's were converted.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.convertBreaksToDivs_ =
+BasicTextFormatter.prototype.convertBreaksToDivs_ =
   function () {
-    "use strict";
-    if (!goog.userAgent.IE) {
+    if (!userAgent.IE) {
       // This function is only supported on IE and Opera.
       return false;
     }
@@ -664,17 +648,17 @@ goog.editor.plugins.BasicTextFormatter.prototype.convertBreaksToDivs_ =
     var doc = this.getDocument_();
     var dom = this.getFieldDomHelper();
 
-    goog.editor.plugins.BasicTextFormatter.BR_REGEXP_.lastIndex = 0;
+    BasicTextFormatter.BR_REGEXP_.lastIndex = 0;
     // Only mess with the HTML/selection if it contains a BR.
     if (
-      goog.editor.plugins.BasicTextFormatter.BR_REGEXP_.test(parent.innerHTML)
+      BasicTextFormatter.BR_REGEXP_.test(parent.innerHTML)
     ) {
       // Insert temporary markers to remember the selection.
       var savedRange = range.saveUsingCarets();
 
-      if (parent.tagName == goog.dom.TagName.P) {
+      if (parent.tagName == TagName.P) {
         // Can't append paragraphs to paragraph tags. Throws an exception in IE.
-        goog.editor.plugins.BasicTextFormatter.convertParagraphToDiv_(
+        BasicTextFormatter.convertParagraphToDiv_(
           parent,
           true
         );
@@ -690,21 +674,20 @@ goog.editor.plugins.BasicTextFormatter.prototype.convertBreaksToDivs_ =
         var attribute = "trtempbr";
         var value = "temp_br";
         var newHtml = parent.innerHTML.replace(
-          goog.editor.plugins.BasicTextFormatter.BR_REGEXP_,
+          BasicTextFormatter.BR_REGEXP_,
           "<p$1 " + attribute + '="' + value + '">'
         );
-        goog.editor.node.replaceInnerHtml(parent, newHtml);
+        editorNode.replaceInnerHtml(parent, newHtml);
 
-        var paragraphs = goog.array.toArray(
-          goog.dom.getElementsByTagName(goog.dom.TagName.P, parent)
+        var paragraphs = array.toArray(
+          googDom.getElementsByTagName(TagName.P, parent)
         );
-        goog.iter.forEach(paragraphs, function (paragraph) {
-          "use strict";
+        googIter.forEach(paragraphs, function (paragraph) {
           if (paragraph.getAttribute(attribute) == value) {
             paragraph.removeAttribute(attribute);
             if (
-              goog.string.isBreakingWhitespace(
-                goog.dom.getTextContent(paragraph)
+              string.isBreakingWhitespace(
+                googDom.getTextContent(paragraph)
               )
             ) {
               // Prevent the empty blocks from collapsing.
@@ -713,12 +696,12 @@ goog.editor.plugins.BasicTextFormatter.prototype.convertBreaksToDivs_ =
               // place the caret after the <br>, which effectively creates a
               // visible line break. Because of this, we have to resort to using a
               // &nbsp; in IE.
-              var child = goog.userAgent.IE
-                ? doc.createTextNode(goog.string.Unicode.NBSP)
-                : dom.createElement(goog.dom.TagName.BR);
+              var child = userAgent.IE
+                ? doc.createTextNode(Unicode.NBSP)
+                : dom.createElement(TagName.BR);
               paragraph.appendChild(child);
             }
-            goog.editor.plugins.BasicTextFormatter.convertParagraphToDiv_(
+            BasicTextFormatter.convertParagraphToDiv_(
               paragraph
             );
           }
@@ -742,12 +725,11 @@ goog.editor.plugins.BasicTextFormatter.prototype.convertBreaksToDivs_ =
  * @param {boolean=} opt_convertBrs If true, also convert BRs to divs.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.convertParagraphToDiv_ = function (
+BasicTextFormatter.convertParagraphToDiv_ = function (
   paragraph,
   opt_convertBrs
 ) {
-  "use strict";
-  if (!goog.userAgent.IE) {
+  if (!userAgent.IE) {
     // This function is only supported on IE and Opera.
     return;
   }
@@ -756,14 +738,14 @@ goog.editor.plugins.BasicTextFormatter.convertParagraphToDiv_ = function (
   if (opt_convertBrs) {
     // IE fills in the closing div tag if it's missing!
     outerHTML = outerHTML.replace(
-      goog.editor.plugins.BasicTextFormatter.BR_REGEXP_,
+      BasicTextFormatter.BR_REGEXP_,
       "</div><div$1>"
     );
   }
-  goog.dom.safe.setOuterHtml(
+  safe.setOuterHtml(
     /** @type {!Element} */ (paragraph),
-    goog.html.uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract(
-      goog.string.Const.from(
+    uncheckedconversions.safeHtmlFromStringKnownToSatisfyTypeContract(
+      Const.from(
         "Safe mutation of HTML that is already present in the DOM"
       ),
       outerHTML
@@ -772,21 +754,20 @@ goog.editor.plugins.BasicTextFormatter.convertParagraphToDiv_ = function (
 };
 
 /**
- * If this is a goog.editor.plugins.BasicTextFormatter.COMMAND,
+ * If this is a BasicTextFormatter.COMMAND,
  * convert it to something that we can pass into execCommand,
  * queryCommandState, etc.
  *
  * TODO(user): Consider doing away with the + and converter completely.
  *
- * @param {goog.editor.plugins.BasicTextFormatter.COMMAND|string}
+ * @param {BasicTextFormatter.COMMAND|string}
  *     command A command key.
  * @return {string} The equivalent execCommand command.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.convertToRealExecCommand_ = function (
+BasicTextFormatter.convertToRealExecCommand_ = function (
   command
 ) {
-  "use strict";
   return command.indexOf("+") == 0 ? command.substring(1) : command;
 };
 
@@ -795,8 +776,7 @@ goog.editor.plugins.BasicTextFormatter.convertToRealExecCommand_ = function (
  * @param {string} command The type of justification to perform.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.justify_ = function (command) {
-  "use strict";
+BasicTextFormatter.prototype.justify_ = function (command) {
   this.execCommandHelper_(command, null, false, true);
   // Firefox cannot justify divs.  In fact, justifying divs results in removing
   // the divs and replacing them with brs.  So "<div>foo</div><div>bar</div>"
@@ -805,7 +785,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.justify_ = function (command) {
   // which at least looks visually correct.  Since justification is (normally)
   // idempotent, it isn't a problem when the selection does not contain divs to
   // apply justifcation again.
-  if (goog.userAgent.GECKO) {
+  if (userAgent.GECKO) {
     this.execCommandHelper_(command, null, false, true);
   }
 
@@ -817,11 +797,11 @@ goog.editor.plugins.BasicTextFormatter.prototype.justify_ = function (command) {
   // which allows us to specify if we should insert align or text-align.
   // TODO(user): What about WebKit or Opera?
   if (
-    !(goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS && goog.userAgent.GECKO)
+    !(BrowserFeature.HAS_STYLE_WITH_CSS && userAgent.GECKO)
   ) {
-    goog.iter.forEach(
+    googIter.forEach(
       this.getFieldObject().getRange(),
-      goog.editor.plugins.BasicTextFormatter.convertContainerToTextAlign_
+      BasicTextFormatter.convertContainerToTextAlign_
     );
   }
 };
@@ -833,11 +813,10 @@ goog.editor.plugins.BasicTextFormatter.prototype.justify_ = function (command) {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.BasicTextFormatter.convertContainerToTextAlign_ = function (
+BasicTextFormatter.convertContainerToTextAlign_ = function (
   node
 ) {
-  "use strict";
-  var container = goog.editor.style.getContainer(node);
+  var container = style.getContainer(node);
 
   // TODO(user): Fix this so that it doesn't screw up tables.
   if (container.align) {
@@ -854,11 +833,10 @@ goog.editor.plugins.BasicTextFormatter.convertContainerToTextAlign_ = function (
  * require an input argument, this provides that value.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.safeExecCommand_ = function (
+BasicTextFormatter.prototype.safeExecCommand_ = function (
   command,
   opt_valueArgument
 ) {
-  "use strict";
   if (command.toLowerCase() === "inserthtml") {
     throw new Error("Unsafe command not supported");
   }
@@ -877,13 +855,12 @@ goog.editor.plugins.BasicTextFormatter.prototype.safeExecCommand_ = function (
  *     to perform the execCommand.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.execCommandHelper_ = function (
+BasicTextFormatter.prototype.execCommandHelper_ = function (
   command,
   opt_value,
   opt_preserveDir,
   opt_styleWithCss
 ) {
-  "use strict";
   // There is a bug in FF: some commands do not preserve attributes of the
   // block-level elements they replace.
   // This (among the rest) leads to loss of directionality information.
@@ -895,44 +872,44 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandHelper_ = function (
   // insertUnorderedList remove existing list.
   var dir = null;
   if (opt_preserveDir) {
-    dir = this.getFieldObject().queryCommandValue(goog.editor.Command.DIR_RTL)
+    dir = this.getFieldObject().queryCommandValue(Command.DIR_RTL)
       ? "rtl"
-      : this.getFieldObject().queryCommandValue(goog.editor.Command.DIR_LTR)
+      : this.getFieldObject().queryCommandValue(Command.DIR_LTR)
       ? "ltr"
       : null;
   }
 
   command =
-    goog.editor.plugins.BasicTextFormatter.convertToRealExecCommand_(command);
+    BasicTextFormatter.convertToRealExecCommand_(command);
 
   var endDiv, nbsp;
-  if (goog.userAgent.IE) {
+  if (userAgent.IE) {
     var ret = this.applyExecCommandIEFixes_(command);
     endDiv = ret[0];
     nbsp = ret[1];
   }
 
-  if (goog.userAgent.WEBKIT) {
+  if (userAgent.WEBKIT) {
     endDiv = this.applyExecCommandSafariFixes_(command);
   }
 
-  if (goog.userAgent.GECKO) {
+  if (userAgent.GECKO) {
     this.applyExecCommandGeckoFixes_(command);
   }
 
   if (
-    goog.editor.BrowserFeature.DOESNT_OVERRIDE_FONT_SIZE_IN_STYLE_ATTR &&
+    BrowserFeature.DOESNT_OVERRIDE_FONT_SIZE_IN_STYLE_ATTR &&
     command.toLowerCase() == "fontsize"
   ) {
     this.removeFontSizeFromStyleAttrs_();
   }
 
-  if (opt_styleWithCss && goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS) {
+  if (opt_styleWithCss && BrowserFeature.HAS_STYLE_WITH_CSS) {
     this.safeExecCommand_("styleWithCSS", true);
   }
 
   this.safeExecCommand_(command, opt_value);
-  if (opt_styleWithCss && goog.editor.BrowserFeature.HAS_STYLE_WITH_CSS) {
+  if (opt_styleWithCss && BrowserFeature.HAS_STYLE_WITH_CSS) {
     // If we enabled styleWithCSS, turn it back off.
     this.safeExecCommand_("styleWithCSS", false);
   }
@@ -942,10 +919,10 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandHelper_ = function (
     // lie. Also, this runs for insertunorderedlist so that the list isn't made
     // up of an <ul> for each <li> - even though it looks the same, the markup
     // is disgusting.
-    if (goog.userAgent.WEBKIT && !goog.userAgent.isVersionOrHigher(534)) {
+    if (userAgent.WEBKIT && !userAgent.isVersionOrHigher(534)) {
       this.fixSafariLists_();
     }
-    if (goog.userAgent.IE) {
+    if (userAgent.IE) {
       this.fixIELists_();
 
       if (nbsp) {
@@ -954,14 +931,14 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandHelper_ = function (
         // node thing as above will happen.  The error won't happen here, it
         // will happen after you hit enter and then do anything that loops
         // through the dom and tries to read that node.
-        goog.dom.removeNode(nbsp);
+        googDom.removeNode(nbsp);
       }
     }
   }
 
   if (endDiv) {
     // Remove the dummy div.
-    goog.dom.removeNode(endDiv);
+    googDom.removeNode(endDiv);
   }
 
   // Restore directionality if required and only when unambigous (dir!=null).
@@ -980,10 +957,9 @@ goog.editor.plugins.BasicTextFormatter.prototype.execCommandHelper_ = function (
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.BasicTextFormatter.prototype.applyBgColorManually_ =
+BasicTextFormatter.prototype.applyBgColorManually_ =
   function (bgColor) {
-    "use strict";
-    var needsSpaceInTextNode = goog.userAgent.GECKO;
+    var needsSpaceInTextNode = userAgent.GECKO;
     var range = this.getFieldObject().getRange();
     var textNode;
     var parentTag;
@@ -1005,7 +981,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyBgColorManually_ =
       // If the user sets a background color, types, then backspaces, we get a
       // span tag with nothing inside it (container is the span).
       parentTag =
-        containerNode.nodeType == goog.dom.NodeType.ELEMENT
+        containerNode.nodeType == NodeType.ELEMENT
           ? containerNode
           : containerNode.parentNode;
 
@@ -1022,13 +998,13 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyBgColorManually_ =
         // create a span with a space character inside
         // make the space character invisible using a CSS indent hack
         parentTag = this.getFieldDomHelper().createDom(
-          goog.dom.TagName.SPAN,
+          TagName.SPAN,
           { style: "text-indent:-10000px" },
           textNode
         );
         range.replaceContentsWithNode(parentTag);
       }
-      goog.dom.Range.createFromNodeContents(textNode).select();
+      Range.createFromNodeContents(textNode).select();
     }
 
     this.execCommandHelper_("hiliteColor", bgColor, false, true);
@@ -1051,14 +1027,13 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyBgColorManually_ =
  *   If selection contains a link, unlink it, return null.
  *   Otherwise, make selection into a link, return the link.
  * @param {string=} opt_target Target for the link.
- * @return {goog.editor.Link?} The resulting link, or null if a link was
+ * @return {Link?} The resulting link, or null if a link was
  *     removed.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.toggleLink_ = function (
+BasicTextFormatter.prototype.toggleLink_ = function (
   opt_target
 ) {
-  "use strict";
   if (!this.getFieldObject().isSelectionEditable()) {
     this.focusField_();
   }
@@ -1069,10 +1044,10 @@ goog.editor.plugins.BasicTextFormatter.prototype.toggleLink_ = function (
   // image as the selection.
   var parent = range && range.getContainerElement();
   var link = /** @type {Element} */ (
-    goog.dom.getAncestorByTagNameAndClass(parent, goog.dom.TagName.A)
+    googDom.getAncestorByTagNameAndClass(parent, TagName.A)
   );
-  if (link && goog.editor.node.isEditable(link)) {
-    goog.dom.flattenElement(link);
+  if (link && editorNode.isEditable(link)) {
+    googDom.flattenElement(link);
     this.getFieldObject().dispatchChange();
     this.getFieldObject().dispatchSelectionChangeEvent();
   } else {
@@ -1080,19 +1055,19 @@ goog.editor.plugins.BasicTextFormatter.prototype.toggleLink_ = function (
     if (editableLink) {
       if (
         !this.getFieldObject().execCommand(
-          goog.editor.Command.MODAL_LINK_EDITOR,
+          Command.MODAL_LINK_EDITOR,
           editableLink
         )
       ) {
         var url = this.getFieldObject()
           .getAppWindow()
-          .prompt(goog.ui.editor.messages.MSG_LINK_TO, "http://");
+          .prompt(messages.MSG_LINK_TO, "http://");
         if (url) {
           editableLink.setTextAndUrl(editableLink.getCurrentText() || url, url);
           editableLink.placeCursorRightOf();
         } else {
-          var savedRange = goog.editor.range.saveUsingNormalizedCarets(
-            goog.dom.Range.createFromNodeContents(editableLink.getAnchor())
+          var savedRange = editorRange.saveUsingNormalizedCarets(
+            Range.createFromNodeContents(editableLink.getAnchor())
           );
           editableLink.removeLink();
           savedRange.restore().select();
@@ -1108,28 +1083,27 @@ goog.editor.plugins.BasicTextFormatter.prototype.toggleLink_ = function (
 /**
  * Create a link out of the current selection.  If nothing is selected, insert
  * a new link.  Otherwise, enclose the selection in a link.
- * @param {goog.dom.AbstractRange} range The closure range object for the
+ * @param {googDom.AbstractRange} range The closure range object for the
  *     current selection.
  * @param {string} url The url to link to.
  * @param {string=} opt_target Target for the link.
- * @return {goog.editor.Link?} The newly created link, or null if the link
+ * @return {Link?} The newly created link, or null if the link
  *     couldn't be created.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.BasicTextFormatter.prototype.createLink_ = function (
+BasicTextFormatter.prototype.createLink_ = function (
   range,
   url,
   opt_target
 ) {
-  "use strict";
   var anchor = null;
   var anchors = [];
   var parent = range && range.getContainerElement();
   // We do not yet support creating links around images.  Instead of throwing
   // lots of js errors, just fail silently.
   // TODO(user): Add support for linking images.
-  if (parent && parent.tagName == goog.dom.TagName.IMG) {
+  if (parent && parent.tagName == TagName.IMG) {
     return null;
   }
   // If range is not present, the editable field doesn't have focus, abort
@@ -1140,27 +1114,26 @@ goog.editor.plugins.BasicTextFormatter.prototype.createLink_ = function (
 
   if (range.isCollapsed()) {
     var textRange = range.getTextRange(0).getBrowserRangeObject();
-    anchor = this.getFieldDomHelper().createElement(goog.dom.TagName.A);
+    anchor = this.getFieldDomHelper().createElement(TagName.A);
     textRange.insertNode(anchor);
   } else {
     // Create a unique identifier for the link so we can retrieve it later.
     // execCommand doesn't return the link to us, and we need a way to find
     // the newly created link in the dom, and the url is the only property
     // we have control over, so we set that to be unique and then find it.
-    var uniqueId = goog.string.createUniqueString();
+    var uniqueId = string.createUniqueString();
     this.execCommandHelper_("CreateLink", uniqueId);
     var setHrefAndLink = function (element, index, arr) {
-      "use strict";
       // We can't do straight comparison since the href can contain the
       // absolute url.
-      if (goog.string.endsWith(element.href, uniqueId)) {
+      if (string.endsWith(element.href, uniqueId)) {
         anchors.push(element);
       }
     };
 
     Array.prototype.forEach.call(
-      goog.dom.getElementsByTagName(
-        goog.dom.TagName.A,
+      googDom.getElementsByTagName(
+        TagName.A,
         /** @type {!Element} */ (this.getFieldObject().getElement())
       ),
       setHrefAndLink
@@ -1169,18 +1142,17 @@ goog.editor.plugins.BasicTextFormatter.prototype.createLink_ = function (
       anchor = anchors.pop();
     }
     var isLikelyUrl = function (a, i, anchors) {
-      "use strict";
-      return goog.editor.Link.isLikelyUrl(goog.dom.getRawTextContent(a));
+      return Link.isLikelyUrl(googDom.getRawTextContent(a));
     };
     if (anchors.length && anchors.every(isLikelyUrl)) {
       for (var i = 0, a; (a = anchors[i]); i++) {
-        goog.editor.Link.createNewLinkFromText(a, opt_target);
+        Link.createNewLinkFromText(a, opt_target);
       }
       anchors = null;
     }
   }
 
-  return goog.editor.Link.createNewLink(
+  return Link.createNewLink(
     /** @type {HTMLAnchorElement} */ (anchor),
     url,
     opt_target,
@@ -1198,7 +1170,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.createLink_ = function (
  * @const
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.brokenExecCommandsIE_ = {
+BasicTextFormatter.brokenExecCommandsIE_ = {
   indent: 1,
   outdent: 1,
   insertOrderedList: 1,
@@ -1218,7 +1190,7 @@ goog.editor.plugins.BasicTextFormatter.brokenExecCommandsIE_ = {
  * @const
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.blockquoteHatingCommandsIE_ = {
+BasicTextFormatter.blockquoteHatingCommandsIE_ = {
   insertOrderedList: 1,
   insertUnorderedList: 1,
 };
@@ -1226,13 +1198,12 @@ goog.editor.plugins.BasicTextFormatter.blockquoteHatingCommandsIE_ = {
 /**
  * Makes sure that superscript is removed before applying subscript, and vice
  * versa. Fixes {@link http://buganizer/issue?id=1173491} .
- * @param {goog.editor.plugins.BasicTextFormatter.COMMAND} command The command
+ * @param {BasicTextFormatter.COMMAND} command The command
  *     being applied, either SUBSCRIPT or SUPERSCRIPT.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.applySubscriptSuperscriptWorkarounds_ =
+BasicTextFormatter.prototype.applySubscriptSuperscriptWorkarounds_ =
   function (command) {
-    "use strict";
     if (!this.queryCommandValue(command)) {
       // The current selection doesn't currently have the requested
       // command, so we are applying it as opposed to removing it.
@@ -1242,11 +1213,11 @@ goog.editor.plugins.BasicTextFormatter.prototype.applySubscriptSuperscriptWorkar
       // the command applied will we be removing it and thus skipping the
       // removal of the opposite command.)
       var oppositeCommand =
-        command == goog.editor.plugins.BasicTextFormatter.COMMAND.SUBSCRIPT
-          ? goog.editor.plugins.BasicTextFormatter.COMMAND.SUPERSCRIPT
-          : goog.editor.plugins.BasicTextFormatter.COMMAND.SUBSCRIPT;
+        command == BasicTextFormatter.COMMAND.SUBSCRIPT
+          ? BasicTextFormatter.COMMAND.SUPERSCRIPT
+          : BasicTextFormatter.COMMAND.SUBSCRIPT;
       var oppositeExecCommand =
-        goog.editor.plugins.BasicTextFormatter.convertToRealExecCommand_(
+        BasicTextFormatter.convertToRealExecCommand_(
           oppositeCommand
         );
       // Executing the opposite command on a selection that already has it
@@ -1279,28 +1250,25 @@ goog.editor.plugins.BasicTextFormatter.prototype.applySubscriptSuperscriptWorkar
  * @private
  * @suppress {missingProperties}
  */
-goog.editor.plugins.BasicTextFormatter.prototype.removeFontSizeFromStyleAttrs_ =
+BasicTextFormatter.prototype.removeFontSizeFromStyleAttrs_ =
   function () {
-    "use strict";
     // Expand the range so that we consider surrounding tags. E.g. if only the
     // text node inside a span is selected, the browser could wrap a font tag
     // around the span and leave the selection such that only the text node is
     // found when looking inside the range, not the span.
-    var range = goog.editor.range.expand(
+    var range = editorRange.expand(
       this.getFieldObject().getRange(),
       this.getFieldObject().getElement()
     );
-    goog.iter.forEach(
-      goog.iter.filter(range, function (tag, dummy, iter) {
-        "use strict";
+    googIter.forEach(
+      googIter.filter(range, function (tag, dummy, iter) {
         return iter.isStartTag() && range.containsNode(tag);
       }),
       function (node) {
-        "use strict";
-        goog.style.setStyle(node, "font-size", "");
+        googStyle.setStyle(node, "font-size", "");
         // Gecko doesn't remove empty style tags.
         if (
-          goog.userAgent.GECKO &&
+          userAgent.GECKO &&
           node.style.length == 0 &&
           node.getAttribute("style") != null
         ) {
@@ -1318,9 +1286,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.removeFontSizeFromStyleAttrs_ =
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
+BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
   function (command) {
-    "use strict";
     // IE has a crazy bug where executing list commands
     // around blockquotes cause the blockquotes to get transformed
     // into "<OL><OL>" or "<UL><UL>" tags.
@@ -1330,12 +1297,12 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
     var dh = this.getFieldDomHelper();
     if (
       command in
-      goog.editor.plugins.BasicTextFormatter.blockquoteHatingCommandsIE_
+      BasicTextFormatter.blockquoteHatingCommandsIE_
     ) {
       var parent = range && range.getContainerElement();
       if (parent) {
-        var blockquotes = goog.dom.getElementsByTagNameAndClass(
-          goog.dom.TagName.BLOCKQUOTE,
+        var blockquotes = googDom.getElementsByTagNameAndClass(
+          TagName.BLOCKQUOTE,
           null,
           parent
         );
@@ -1359,21 +1326,21 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
 
         var bqThatNeedsDummyDiv =
           bq ||
-          goog.dom.getAncestorByTagNameAndClass(
+          googDom.getAncestorByTagNameAndClass(
             parent,
-            goog.dom.TagName.BLOCKQUOTE
+            TagName.BLOCKQUOTE
           );
         if (bqThatNeedsDummyDiv) {
-          endDiv = dh.createDom(goog.dom.TagName.DIV, { style: "height:0" });
-          goog.dom.appendChild(bqThatNeedsDummyDiv, endDiv);
+          endDiv = dh.createDom(TagName.DIV, { style: "height:0" });
+          googDom.appendChild(bqThatNeedsDummyDiv, endDiv);
           toRemove.push(endDiv);
 
           if (bq) {
-            range = goog.dom.Range.createFromNodes(bq, 0, endDiv, 0);
+            range = Range.createFromNodes(bq, 0, endDiv, 0);
           } else if (range.containsNode(endDiv)) {
             // the selection might be the entire blockquote, and
             // it's important that endDiv not be in the selection.
-            range = goog.dom.Range.createFromNodes(
+            range = Range.createFromNodes(
               range.getStartNode(),
               range.getStartOffset(),
               endDiv,
@@ -1398,7 +1365,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
     var fieldObject = this.getFieldObject();
     if (!fieldObject.usesIframe() && !endDiv) {
       if (
-        command in goog.editor.plugins.BasicTextFormatter.brokenExecCommandsIE_
+        command in BasicTextFormatter.brokenExecCommandsIE_
       ) {
         var field = fieldObject.getElement();
 
@@ -1410,7 +1377,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
         if (
           range &&
           range.isCollapsed() &&
-          !goog.dom.getFirstElementChild(field)
+          !googDom.getFirstElementChild(field)
         ) {
           // The problem only occurs if the selection is at the end of the field.
           var selection = range.getTextRange(0).getBrowserRangeObject();
@@ -1429,7 +1396,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
             // innerText is correct, but the node itself throws invalid argument
             // errors when you try to access its data, parentNode, nextSibling,
             // previousSibling or most other properties.  WTF.
-            var nbsp = dh.createTextNode(goog.string.Unicode.NBSP);
+            var nbsp = dh.createTextNode(Unicode.NBSP);
             field.appendChild(nbsp);
             selection.move("character", 1);
             selection.move("character", -1);
@@ -1438,8 +1405,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
           }
         }
 
-        endDiv = dh.createDom(goog.dom.TagName.DIV, { style: "height:0" });
-        goog.dom.appendChild(field, endDiv);
+        endDiv = dh.createDom(TagName.DIV, { style: "height:0" });
+        googDom.appendChild(field, endDiv);
         toRemove.push(endDiv);
       }
     }
@@ -1455,11 +1422,9 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
  * making things headings anyway.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.cleanUpSafariHeadings_ =
+BasicTextFormatter.prototype.cleanUpSafariHeadings_ =
   function () {
-    "use strict";
-    goog.iter.forEach(this.getRange_(), function (node) {
-      "use strict";
+    googIter.forEach(this.getRange_(), function (node) {
       if (node.className == "Apple-style-span") {
         // These shouldn't persist after creating headings via
         // a FormatBlock execCommand.
@@ -1475,13 +1440,11 @@ goog.editor.plugins.BasicTextFormatter.prototype.cleanUpSafariHeadings_ =
  * (see https://bugs.webkit.org/show_bug.cgi?id=19539, fixed by 2010-04-21)
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.fixSafariLists_ = function () {
-  "use strict";
+BasicTextFormatter.prototype.fixSafariLists_ = function () {
   var previousList = false;
-  goog.iter.forEach(this.getRange_(), function (node) {
-    "use strict";
+  googIter.forEach(this.getRange_(), function (node) {
     var tagName = node.tagName;
-    if (tagName == goog.dom.TagName.UL || tagName == goog.dom.TagName.OL) {
+    if (tagName == TagName.UL || tagName == TagName.OL) {
       // Don't disturb lists outside of the selection. If this is the first <ul>
       // or <ol> in the range, we don't really want to merge the previous list
       // into it, since that list isn't in the range.
@@ -1491,7 +1454,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.fixSafariLists_ = function () {
       }
       // The lists must be siblings to be merged; otherwise, indented sublists
       // could be broken.
-      var previousElementSibling = goog.dom.getPreviousElementSibling(node);
+      var previousElementSibling = googDom.getPreviousElementSibling(node);
       if (!previousElementSibling) {
         return;
       }
@@ -1499,7 +1462,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.fixSafariLists_ = function () {
       var range = node.ownerDocument.createRange();
       range.setStartAfter(previousElementSibling);
       range.setEndBefore(node);
-      if (!goog.string.isEmptyOrWhitespace(range.toString())) {
+      if (!string.isEmptyOrWhitespace(range.toString())) {
         return;
       }
       // Make sure both are lists of the same type (ordered or unordered)
@@ -1520,7 +1483,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.fixSafariLists_ = function () {
  * Sane "type" attribute values for OL elements
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.orderedListTypes_ = {
+BasicTextFormatter.orderedListTypes_ = {
   1: 1,
   a: 1,
   A: 1,
@@ -1532,7 +1495,7 @@ goog.editor.plugins.BasicTextFormatter.orderedListTypes_ = {
  * Sane "type" attribute values for UL elements
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.unorderedListTypes_ = {
+BasicTextFormatter.unorderedListTypes_ = {
   disc: 1,
   circle: 1,
   square: 1,
@@ -1545,15 +1508,14 @@ goog.editor.plugins.BasicTextFormatter.unorderedListTypes_ = {
  * automatically, but IE doesn't. This does it manually.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.fixIELists_ = function () {
-  "use strict";
+BasicTextFormatter.prototype.fixIELists_ = function () {
   // Find the lowest-level <ul> or <ol> that contains the entire range.
   var range = this.getRange_();
   var container = range && range.getContainer();
   while (
     container &&
-    /** @type {!Element} */ (container).tagName != goog.dom.TagName.UL &&
-    /** @type {!Element} */ (container).tagName != goog.dom.TagName.OL
+    /** @type {!Element} */ (container).tagName != TagName.UL &&
+    /** @type {!Element} */ (container).tagName != TagName.OL
   ) {
     container = container.parentNode;
   }
@@ -1563,30 +1525,29 @@ goog.editor.plugins.BasicTextFormatter.prototype.fixIELists_ = function () {
     container = container.parentNode;
   }
   if (!container) return;
-  var lists = goog.array.toArray(
-    goog.dom.getElementsByTagName(
-      goog.dom.TagName.UL,
+  var lists = array.toArray(
+    googDom.getElementsByTagName(
+      TagName.UL,
       /** @type {!Element} */ (container)
     )
   );
-  goog.array.extend(
+  array.extend(
     lists,
-    goog.array.toArray(
-      goog.dom.getElementsByTagName(
-        goog.dom.TagName.OL,
+    array.toArray(
+      googDom.getElementsByTagName(
+        TagName.OL,
         /** @type {!Element} */ (container)
       )
     )
   );
   // Fix the lists
   lists.forEach(function (node) {
-    "use strict";
     var type = node.type;
     if (type) {
       var saneTypes =
-        node.tagName == goog.dom.TagName.UL
-          ? goog.editor.plugins.BasicTextFormatter.unorderedListTypes_
-          : goog.editor.plugins.BasicTextFormatter.orderedListTypes_;
+        node.tagName == TagName.UL
+          ? BasicTextFormatter.unorderedListTypes_
+          : BasicTextFormatter.orderedListTypes_;
       if (!saneTypes[type]) {
         node.type = "";
       }
@@ -1599,7 +1560,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.fixIELists_ = function () {
  * contentEditable=true if there are no block-level elements.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.brokenExecCommandsSafari_ = {
+BasicTextFormatter.brokenExecCommandsSafari_ = {
   justifyCenter: 1,
   justifyFull: 1,
   justifyRight: 1,
@@ -1613,7 +1574,7 @@ goog.editor.plugins.BasicTextFormatter.brokenExecCommandsSafari_ = {
  * https://bugs.webkit.org/show_bug.cgi?id=19735
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.hangingExecCommandWebkit_ = {
+BasicTextFormatter.hangingExecCommandWebkit_ = {
   insertOrderedList: 1,
   insertUnorderedList: 1,
 };
@@ -1624,13 +1585,12 @@ goog.editor.plugins.BasicTextFormatter.hangingExecCommandWebkit_ = {
  * @return {!Element|undefined} The div added to the field.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandSafariFixes_ =
+BasicTextFormatter.prototype.applyExecCommandSafariFixes_ =
   function (command) {
-    "use strict";
     // See the comment on brokenExecCommandsSafari_
     var div;
     if (
-      goog.editor.plugins.BasicTextFormatter.brokenExecCommandsSafari_[command]
+      BasicTextFormatter.brokenExecCommandsSafari_[command]
     ) {
       // Add a new div at the end of the field.
       // Safari knows that it would be wrong to apply text-align to the
@@ -1638,21 +1598,21 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandSafariFixes_ =
       // because then it would align them too. So in this case, it will
       // enclose the current selection in a block node.
       div = this.getFieldDomHelper().createDom(
-        goog.dom.TagName.DIV,
+        TagName.DIV,
         { style: "height: 0" },
         "x"
       );
-      goog.dom.appendChild(this.getFieldObject().getElement(), div);
+      googDom.appendChild(this.getFieldObject().getElement(), div);
     }
 
     if (
-      !goog.userAgent.isVersionOrHigher(534) &&
-      goog.editor.plugins.BasicTextFormatter.hangingExecCommandWebkit_[command]
+      !userAgent.isVersionOrHigher(534) &&
+      BasicTextFormatter.hangingExecCommandWebkit_[command]
     ) {
       // Add a new div at the beginning of the field.
       var field = this.getFieldObject().getElement();
       div = this.getFieldDomHelper().createDom(
-        goog.dom.TagName.DIV,
+        TagName.DIV,
         { style: "height: 0" },
         "x"
       );
@@ -1668,9 +1628,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandSafariFixes_ =
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandGeckoFixes_ =
+BasicTextFormatter.prototype.applyExecCommandGeckoFixes_ =
   function (command) {
-    "use strict";
     if (command.toLowerCase() == "formatblock") {
       // Firefox throws a JS error for formatblock if the range is a child of the
       // body node. Changing the selection to the BR fixes the problem.
@@ -1680,11 +1639,11 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandGeckoFixes_ =
       if (
         range.isCollapsed() &&
         startNode &&
-        /** @type {!Element} */ (startNode).tagName == goog.dom.TagName.BODY
+        /** @type {!Element} */ (startNode).tagName == TagName.BODY
       ) {
         var startOffset = range.getStartOffset();
         var childNode = startNode.childNodes[startOffset];
-        if (childNode && childNode.tagName == goog.dom.TagName.BR) {
+        if (childNode && childNode.tagName == TagName.BR) {
           // Change the range using getBrowserRange() because goog.dom.TextRange
           // will avoid setting <br>s directly.
           // @see goog.dom.TextRange#createFromNodes
@@ -1702,24 +1661,22 @@ goog.editor.plugins.BasicTextFormatter.prototype.applyExecCommandGeckoFixes_ =
  * styleWithCSS is on. Toggling an inline style on the elements fixes it.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.invalidateInlineCss_ =
+BasicTextFormatter.prototype.invalidateInlineCss_ =
   function () {
-    "use strict";
     var ancestors = [];
     var ancestor = this.getFieldObject().getRange().getContainerElement();
     do {
       ancestors.push(ancestor);
     } while ((ancestor = ancestor.parentNode));
-    var nodesInSelection = goog.iter.chain(
-      goog.iter.toIterator(this.getFieldObject().getRange()),
-      goog.iter.toIterator(ancestors)
+    var nodesInSelection = googIter.chain(
+      googIter.toIterator(this.getFieldObject().getRange()),
+      googIter.toIterator(ancestors)
     );
-    var containersInSelection = goog.iter.filter(
+    var containersInSelection = googIter.filter(
       nodesInSelection,
-      goog.editor.style.isContainer
+      style.isContainer
     );
-    goog.iter.forEach(containersInSelection, function (element) {
-      "use strict";
+    googIter.forEach(containersInSelection, function (element) {
       /** @suppress {strictMissingProperties} Added to tighten compiler checks */
       var oldOutline = element.style.outline;
       /** @suppress {strictMissingProperties} Added to tighten compiler checks */
@@ -1740,13 +1697,12 @@ goog.editor.plugins.BasicTextFormatter.prototype.invalidateInlineCss_ =
  * @return {boolean} Whether the workaround was applied.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.beforeInsertListGecko_ =
+BasicTextFormatter.prototype.beforeInsertListGecko_ =
   function () {
-    "use strict";
     var tag = this.getFieldObject().queryCommandValue(
-      goog.editor.Command.DEFAULT_TAG
+      Command.DEFAULT_TAG
     );
-    if (tag == goog.dom.TagName.P || tag == goog.dom.TagName.DIV) {
+    if (tag == TagName.P || tag == TagName.DIV) {
       return false;
     }
 
@@ -1761,13 +1717,13 @@ goog.editor.plugins.BasicTextFormatter.prototype.beforeInsertListGecko_ =
     var range = this.getRange_();
     if (
       range.isCollapsed() &&
-      range.getContainer().nodeType != goog.dom.NodeType.TEXT
+      range.getContainer().nodeType != NodeType.TEXT
     ) {
       var tempTextNode = this.getFieldDomHelper().createTextNode(
-        goog.string.Unicode.NBSP
+        Unicode.NBSP
       );
       range.insertNode(tempTextNode, false);
-      goog.dom.Range.createFromNodeContents(tempTextNode).select();
+      Range.createFromNodeContents(tempTextNode).select();
       return true;
     }
     return false;
@@ -1777,26 +1733,24 @@ goog.editor.plugins.BasicTextFormatter.prototype.beforeInsertListGecko_ =
 
 /**
  * Get the toolbar state for the block-level elements in the given range.
- * @param {goog.dom.AbstractRange} range The range to get toolbar state for.
+ * @param {googDom.AbstractRange} range The range to get toolbar state for.
  * @return {string?} The selection block state.
  * @private
  * @suppress {missingProperties}
  */
-goog.editor.plugins.BasicTextFormatter.getSelectionBlockState_ = function (
+BasicTextFormatter.getSelectionBlockState_ = function (
   range
 ) {
-  "use strict";
   var tagName = null;
   // TODO(user): use for-of and normal control flow once
   // goog.iter.Iterator supports ES6 iteration.
   const stopIterationEarlyError = new Error();
   try {
-    goog.iter.forEach(range, function (node, ignore, it) {
-      "use strict";
+    googIter.forEach(range, function (node, ignore, it) {
       if (!it.isEndTag()) {
         // Iterate over all containers in the range, checking if they all have
         // the same tagName.
-        var container = goog.editor.style.getContainer(node);
+        var container = style.getContainer(node);
         var thisTagName = container.tagName;
         tagName = tagName || thisTagName;
 
@@ -1826,7 +1780,7 @@ goog.editor.plugins.BasicTextFormatter.getSelectionBlockState_ = function (
  * @type {Object}
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.SUPPORTED_JUSTIFICATIONS_ = {
+BasicTextFormatter.SUPPORTED_JUSTIFICATIONS_ = {
   center: 1,
   justify: 1,
   right: 1,
@@ -1839,8 +1793,7 @@ goog.editor.plugins.BasicTextFormatter.SUPPORTED_JUSTIFICATIONS_ = {
  *
  * @record
  */
-goog.editor.plugins.BasicTextFormatter.IBidiPlugin = function () {
-  "use strict";
+BasicTextFormatter.IBidiPlugin = function () {
   /** @type {function():?string}} */
   this.getSelectionAlignment;
 };
@@ -1853,10 +1806,9 @@ goog.editor.plugins.BasicTextFormatter.IBidiPlugin = function () {
  *     command for the entire selection.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.isJustification_ = function (
+BasicTextFormatter.prototype.isJustification_ = function (
   command
 ) {
-  "use strict";
   var alignment = command.replace("+justify", "").toLowerCase();
   if (alignment == "full") {
     alignment = "justify";
@@ -1892,10 +1844,7 @@ goog.editor.plugins.BasicTextFormatter.prototype.isJustification_ = function (
 
     var parent = range.getContainerElement();
     var nodes = Array.prototype.filter.call(parent.childNodes, function (node) {
-      "use strict";
-      return (
-        goog.editor.node.isImportant(node) && range.containsNode(node, true)
-      );
+      return (editorNode.isImportant(node) && range.containsNode(node, true));
     });
     nodes = nodes.length ? nodes : [parent];
 
@@ -1904,12 +1853,12 @@ goog.editor.plugins.BasicTextFormatter.prototype.isJustification_ = function (
 
       // If any node in the selection is not aligned the way we are checking,
       // then the justification command does not match.
-      var container = goog.editor.style.getContainer(
+      var container = style.getContainer(
         /** @type {Node} */ (current)
       );
       if (
         alignment !=
-        goog.editor.plugins.BasicTextFormatter.getNodeJustification_(container)
+        BasicTextFormatter.getNodeJustification_(container)
       ) {
         return false;
       }
@@ -1927,11 +1876,10 @@ goog.editor.plugins.BasicTextFormatter.prototype.isJustification_ = function (
  * @return {string} The justification for a given block-level node.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.getNodeJustification_ = function (
+BasicTextFormatter.getNodeJustification_ = function (
   element
 ) {
-  "use strict";
-  var value = goog.style.getComputedTextAlign(element);
+  var value = googStyle.getComputedTextAlign(element);
   // Strip preceding -moz- or -webkit- (@bug 2472589).
   value = value.replace(/^-(moz|webkit)-/, "");
 
@@ -1939,7 +1887,7 @@ goog.editor.plugins.BasicTextFormatter.getNodeJustification_ = function (
   // otherwise assume left aligned.
   // TODO: for rtl languages we probably need to assume right.
   if (
-    !goog.editor.plugins.BasicTextFormatter.SUPPORTED_JUSTIFICATIONS_[value]
+    !BasicTextFormatter.SUPPORTED_JUSTIFICATIONS_[value]
   ) {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     value = element.align || "left";
@@ -1951,18 +1899,17 @@ goog.editor.plugins.BasicTextFormatter.getNodeJustification_ = function (
  * Returns true if a selection contained in the node should set the appropriate
  * toolbar state for the given nodeName, e.g. if the node is contained in a
  * strong element and nodeName is "strong", then it will return true.
- * @param {!goog.dom.TagName} nodeName The type of node to check for.
+ * @param {!TagName} nodeName The type of node to check for.
  * @return {boolean} Whether the user's selection is in the given state.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.isNodeInState_ = function (
+BasicTextFormatter.prototype.isNodeInState_ = function (
   nodeName
 ) {
-  "use strict";
   var range = this.getRange_();
   var node = range && range.getContainerElement();
-  var ancestor = goog.dom.getAncestorByTagNameAndClass(node, nodeName);
-  return !!ancestor && goog.editor.node.isEditable(ancestor);
+  var ancestor = googDom.getAncestorByTagNameAndClass(node, nodeName);
+  return !!ancestor && editorNode.isEditable(ancestor);
 };
 
 /**
@@ -1974,9 +1921,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.isNodeInState_ = function (
  * @return {boolean} The command state.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.queryCommandStateInternal_ =
+BasicTextFormatter.prototype.queryCommandStateInternal_ =
   function (queryObject, command, opt_styleWithCss) {
-    "use strict";
     return /** @type {boolean} */ (
       this.queryCommandHelper_(true, queryObject, command, opt_styleWithCss)
     );
@@ -1991,9 +1937,8 @@ goog.editor.plugins.BasicTextFormatter.prototype.queryCommandStateInternal_ =
  * @return {string|boolean|null} The command value.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.queryCommandValueInternal_ =
+BasicTextFormatter.prototype.queryCommandValueInternal_ =
   function (queryObject, command, opt_styleWithCss) {
-    "use strict";
     return this.queryCommandHelper_(
       false,
       queryObject,
@@ -2013,11 +1958,10 @@ goog.editor.plugins.BasicTextFormatter.prototype.queryCommandValueInternal_ =
  * @return {string|boolean|null} The command value.
  * @private
  */
-goog.editor.plugins.BasicTextFormatter.prototype.queryCommandHelper_ =
+BasicTextFormatter.prototype.queryCommandHelper_ =
   function (isGetQueryCommandState, queryObject, command, opt_styleWithCss) {
-    "use strict";
     command =
-      goog.editor.plugins.BasicTextFormatter.convertToRealExecCommand_(command);
+      BasicTextFormatter.convertToRealExecCommand_(command);
     if (opt_styleWithCss) {
       // Don't use this.execCommandHelper_ here, as it is more heavyweight
       // and inserts a dummy div to protect against comamnds that could step

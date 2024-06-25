@@ -10,10 +10,7 @@
  * (https://developer.chrome.com/docs/devtools/console/api/#createtask).
  */
 
-goog.module('goog.debug.asyncStackTag');
-goog.module.declareLegacyNamespace();
-
-const {assertExists} = goog.require('goog.asserts');
+import { assertExists } from '../asserts/asserts.js';
 
 /**
  * Store a local variable with the createTask function. This prevents tests that
@@ -50,6 +47,6 @@ function wrap(fn, name = 'anonymous') {
   return wrappedFn;
 }
 
-exports = {
+export default {
   wrap,
 };

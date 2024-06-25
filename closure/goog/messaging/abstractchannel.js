@@ -12,12 +12,11 @@
  */
 
 
-goog.provide('goog.messaging.AbstractChannel');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.json');
-goog.require('goog.log');
-goog.require('goog.messaging.MessageChannel');  // interface
+import * as json from '../json/json.js';
+import * as log from '../log/log.js';
+import { MessageChannel } from './messagechannel.js';  // interface
 
 
 
@@ -25,12 +24,11 @@ goog.require('goog.messaging.MessageChannel');  // interface
  * Creates an abstract message channel.
  *
  * @constructor
- * @extends {goog.Disposable}
- * @implements {goog.messaging.MessageChannel}
+ * @extends {Disposable}
+ * @implements {MessageChannel}
  */
-goog.messaging.AbstractChannel = function() {
-  'use strict';
-  goog.messaging.AbstractChannel.base(this, 'constructor');
+export function AbstractChannel() {
+  AbstractChannel.base(this, 'constructor');
 
   /**
    * The services registered for this channel.
@@ -39,8 +37,8 @@ goog.messaging.AbstractChannel = function() {
    * @private
    */
   this.services_ = {};
-};
-goog.inherits(goog.messaging.AbstractChannel, goog.Disposable);
+}
+goog.inherits(AbstractChannel, Disposable);
 
 
 /**
@@ -49,16 +47,16 @@ goog.inherits(goog.messaging.AbstractChannel, goog.Disposable);
  * @type {?function(string, (string|!Object))}
  * @private
  */
-goog.messaging.AbstractChannel.prototype.defaultService_;
+AbstractChannel.prototype.defaultService_;
 
 
 /**
  * Logger for this class.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @protected
  */
-goog.messaging.AbstractChannel.prototype.logger =
-    goog.log.getLogger('goog.messaging.AbstractChannel');
+AbstractChannel.prototype.logger =
+    log.getLogger('goog.messaging.AbstractChannel');
 
 
 /**
@@ -67,8 +65,7 @@ goog.messaging.AbstractChannel.prototype.logger =
  * connected, they should override this and {@link #isConnected}.
  * @override
  */
-goog.messaging.AbstractChannel.prototype.connect = function(opt_connectCb) {
-  'use strict';
+AbstractChannel.prototype.connect = function(opt_connectCb) {
   if (opt_connectCb) {
     opt_connectCb();
   }
@@ -81,16 +78,14 @@ goog.messaging.AbstractChannel.prototype.connect = function(opt_connectCb) {
  * {@link #connect}.
  * @override
  */
-goog.messaging.AbstractChannel.prototype.isConnected = function() {
-  'use strict';
+AbstractChannel.prototype.isConnected = function() {
   return true;
 };
 
 
 /** @override */
-goog.messaging.AbstractChannel.prototype.registerService = function(
+AbstractChannel.prototype.registerService = function(
     serviceName, callback, opt_objectPayload) {
-  'use strict';
   this.services_[serviceName] = {
     callback: callback,
     objectPayload: !!opt_objectPayload
@@ -99,15 +94,14 @@ goog.messaging.AbstractChannel.prototype.registerService = function(
 
 
 /** @override */
-goog.messaging.AbstractChannel.prototype.registerDefaultService = function(
+AbstractChannel.prototype.registerDefaultService = function(
     callback) {
-  'use strict';
   this.defaultService_ = callback;
 };
 
 
 /** @override */
-goog.messaging.AbstractChannel.prototype.send = goog.abstractMethod;
+AbstractChannel.prototype.send = goog.abstractMethod;
 
 
 /**
@@ -124,9 +118,8 @@ goog.messaging.AbstractChannel.prototype.send = goog.abstractMethod;
  * @param {string|!Object} payload The contents of the message.
  * @protected
  */
-goog.messaging.AbstractChannel.prototype.deliver = function(
+AbstractChannel.prototype.deliver = function(
     serviceName, payload) {
-  'use strict';
   const service = this.getService(serviceName, payload);
   if (!service) {
     return;
@@ -151,9 +144,8 @@ goog.messaging.AbstractChannel.prototype.deliver = function(
  *     service object for the given service, or null if none was found.
  * @protected
  */
-goog.messaging.AbstractChannel.prototype.getService = function(
+AbstractChannel.prototype.getService = function(
     serviceName, payload) {
-  'use strict';
   const service = this.services_[serviceName];
   if (service) {
     return service;
@@ -163,7 +155,7 @@ goog.messaging.AbstractChannel.prototype.getService = function(
     return {callback: callback, objectPayload: objectPayload};
   }
 
-  goog.log.warning(this.logger, 'Unknown service name "' + serviceName + '"');
+  log.warning(this.logger, 'Unknown service name "' + serviceName + '"');
   return null;
 };
 
@@ -180,29 +172,27 @@ goog.messaging.AbstractChannel.prototype.getService = function(
  *     null if something went wrong.
  * @protected
  */
-goog.messaging.AbstractChannel.prototype.decodePayload = function(
+AbstractChannel.prototype.decodePayload = function(
     serviceName, payload, objectPayload) {
-  'use strict';
   if (objectPayload && typeof payload === 'string') {
     try {
       return /** @type {!Object} */ (JSON.parse(payload));
     } catch (err) {
-      goog.log.warning(
+      log.warning(
           this.logger, 'Expected JSON payload for ' + serviceName + ', was "' +
               payload + '"');
       return null;
     }
   } else if (!objectPayload && typeof payload !== 'string') {
-    return goog.json.serialize(payload);
+    return json.serialize(payload);
   }
   return payload;
 };
 
 
 /** @override */
-goog.messaging.AbstractChannel.prototype.disposeInternal = function() {
-  'use strict';
-  goog.messaging.AbstractChannel.base(this, 'disposeInternal');
+AbstractChannel.prototype.disposeInternal = function() {
+  AbstractChannel.base(this, 'disposeInternal');
   delete this.services_;
   delete this.defaultService_;
 };

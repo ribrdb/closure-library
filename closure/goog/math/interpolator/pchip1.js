@@ -10,34 +10,31 @@
  * See http://en.wikipedia.org/wiki/Monotone_cubic_interpolation.
  */
 
-goog.provide('goog.math.interpolator.Pchip1');
+import * as math from '../math.js';
 
-goog.require('goog.math');
-goog.require('goog.math.interpolator.Spline1');
+import { Spline1 } from './spline1.js';
 
 
 
 /**
  * A one dimensional monotone cubic spline interpolator.
- * @extends {goog.math.interpolator.Spline1}
+ * @extends {Spline1}
  * @constructor
  * @final
  */
-goog.math.interpolator.Pchip1 = function() {
-  'use strict';
-  goog.math.interpolator.Pchip1.base(this, 'constructor');
-};
-goog.inherits(goog.math.interpolator.Pchip1, goog.math.interpolator.Spline1);
+export function Pchip1() {
+  Pchip1.base(this, 'constructor');
+}
+goog.inherits(Pchip1, Spline1);
 
 
 /** @override */
-goog.math.interpolator.Pchip1.prototype.computeDerivatives = function(
+Pchip1.prototype.computeDerivatives = function(
     dx, slope) {
-  'use strict';
   const len = dx.length;
   const deriv = new Array(len + 1);
   for (let i = 1; i < len; ++i) {
-    if (goog.math.sign(slope[i - 1]) * goog.math.sign(slope[i]) <= 0) {
+    if (math.sign(slope[i - 1]) * math.sign(slope[i]) <= 0) {
       deriv[i] = 0;
     } else {
       const w1 = 2 * dx[i] + dx[i - 1];
@@ -62,14 +59,13 @@ goog.math.interpolator.Pchip1.prototype.computeDerivatives = function(
  * @return {number} The derivative at the 1st data point.
  * @private
  */
-goog.math.interpolator.Pchip1.prototype.computeDerivativeAtBoundary_ = function(
+Pchip1.prototype.computeDerivativeAtBoundary_ = function(
     dx0, dx1, slope0, slope1) {
-  'use strict';
   let deriv = ((2 * dx0 + dx1) * slope0 - dx0 * slope1) / (dx0 + dx1);
-  if (goog.math.sign(deriv) != goog.math.sign(slope0)) {
+  if (math.sign(deriv) != math.sign(slope0)) {
     deriv = 0;
   } else if (
-      goog.math.sign(slope0) != goog.math.sign(slope1) &&
+      math.sign(slope0) != math.sign(slope1) &&
       Math.abs(deriv) > Math.abs(3 * slope0)) {
     deriv = 3 * slope0;
   }

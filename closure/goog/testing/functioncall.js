@@ -8,8 +8,6 @@
  * @fileoverview Helper class for recording the calls of a function.
  */
 
-goog.module('goog.testing.FunctionCall');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly('goog.testing.FunctionCall');
 
 /**
@@ -80,4 +78,4 @@ FunctionCall.prototype.getError = function() {
   return this.error_;
 };
 
-exports = FunctionCall;
+export { FunctionCall };

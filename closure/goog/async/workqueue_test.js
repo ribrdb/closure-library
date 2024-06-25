@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.WorkQueueTest');
 goog.setTestOnly();
 
-const WorkQueue = goog.require('goog.async.WorkQueue');
-const testSuite = goog.require('goog.testing.testSuite');
+import { WorkQueue } from './workqueue.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const id = 0;
 let queue = null;

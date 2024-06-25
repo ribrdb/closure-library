@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.RichStorageTest');
 goog.setTestOnly();
 
-const ErrorCode = goog.require('goog.storage.ErrorCode');
-const FakeMechanism = goog.require('goog.testing.storage.FakeMechanism');
-const RichStorage = goog.require('goog.storage.RichStorage');
-const storageTester = goog.require('goog.storage.storageTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorCode } from './errorcode.js';
+import { FakeMechanism } from '../testing/storage/fakemechanism.js';
+import { RichStorage } from './richstorage.js';
+import * as storageTester from './storagetester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testBasicOperations() {

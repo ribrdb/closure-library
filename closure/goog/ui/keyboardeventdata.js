@@ -4,10 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.ui.KeyboardEventData');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.events.BrowserEvent');
+import { BrowserEvent } from '../events/browserevent.js';
 
 
 
@@ -15,7 +14,7 @@ goog.require('goog.events.BrowserEvent');
  * Data object that contains all the necessary information from a keyboard event
  * that is required to process it in `KeyboardShortcutHandler`.
  *
- * Prefer using `goog.ui.KeyboardEventData.Builder` over using this constructor.
+ * Prefer using `KeyboardEventData.Builder` over using this constructor.
  * @param {number} keyCode
  * @param {string} key
  * @param {boolean} shiftKey
@@ -29,10 +28,18 @@ goog.require('goog.events.BrowserEvent');
  * @constructor @struct @final
  * @package
  */
-goog.ui.KeyboardEventData = function(
-    keyCode, key, shiftKey, altKey, ctrlKey, metaKey, target, rootTarget,
-    preventDefaultFn, stopPropagationFn) {
-  'use strict';
+export function KeyboardEventData(
+  keyCode,
+  key,
+  shiftKey,
+  altKey,
+  ctrlKey,
+  metaKey,
+  target,
+  rootTarget,
+  preventDefaultFn,
+  stopPropagationFn
+) {
   /** @private @const {number} */
   this.keyCode_ = keyCode;
 
@@ -67,86 +74,75 @@ goog.ui.KeyboardEventData = function(
 
   /** @private @const {function(): void} */
   this.stopPropagationFn_ = stopPropagationFn;
-};
+}
 
 
 /** @return {number} The keyCode of the event. */
-goog.ui.KeyboardEventData.prototype.getKeyCode = function() {
-  'use strict';
+KeyboardEventData.prototype.getKeyCode = function() {
   return this.keyCode_;
 };
 
 
 /** @return {string} The key of the event, or `''` if not one. */
-goog.ui.KeyboardEventData.prototype.getKey = function() {
-  'use strict';
+KeyboardEventData.prototype.getKey = function() {
   return this.key_;
 };
 
 
 /** @return {boolean} If the shift key was pressed. */
-goog.ui.KeyboardEventData.prototype.getShiftKey = function() {
-  'use strict';
+KeyboardEventData.prototype.getShiftKey = function() {
   return this.shiftKey_;
 };
 
 
 /** @return {boolean} If the alt key was pressed. */
-goog.ui.KeyboardEventData.prototype.getAltKey = function() {
-  'use strict';
+KeyboardEventData.prototype.getAltKey = function() {
   return this.altKey_;
 };
 
 
 /** @return {boolean} If the ctrl key was pressed. */
-goog.ui.KeyboardEventData.prototype.getCtrlKey = function() {
-  'use strict';
+KeyboardEventData.prototype.getCtrlKey = function() {
   return this.ctrlKey_;
 };
 
 
 /** @return {boolean} If the meta key was pressed. */
-goog.ui.KeyboardEventData.prototype.getMetaKey = function() {
-  'use strict';
+KeyboardEventData.prototype.getMetaKey = function() {
   return this.metaKey_;
 };
 
 
 /** @return {!Node} The target of the event. */
-goog.ui.KeyboardEventData.prototype.getTarget = function() {
-  'use strict';
+KeyboardEventData.prototype.getTarget = function() {
   return this.target_;
 };
 
 
 /** @return {!EventTarget} The rootTarget of the event. */
-goog.ui.KeyboardEventData.prototype.getRootTarget = function() {
-  'use strict';
+KeyboardEventData.prototype.getRootTarget = function() {
   return this.rootTarget_;
 };
 
 
 /** @return {function(): void} Callback to prevent default. */
-goog.ui.KeyboardEventData.prototype.getPreventDefaultFn = function() {
-  'use strict';
+KeyboardEventData.prototype.getPreventDefaultFn = function() {
   return this.preventDefaultFn_;
 };
 
 
 /** @return {function(): void} Callback to stop propagation. */
-goog.ui.KeyboardEventData.prototype.getStopPropagationFn = function() {
-  'use strict';
+KeyboardEventData.prototype.getStopPropagationFn = function() {
   return this.stopPropagationFn_;
 };
 
 
 /**
- * @param {!goog.events.BrowserEvent} event
- * @return {!goog.ui.KeyboardEventData}
+ * @param {!BrowserEvent} event
+ * @return {!KeyboardEventData}
  * @suppress {strictMissingProperties} path is a union type
  */
-goog.ui.KeyboardEventData.fromBrowserEvent = function(event) {
-  'use strict';
+KeyboardEventData.fromBrowserEvent = function(event) {
   var e = event.getBrowserEvent();
   // Check existence to prevent classic FF reference error in strict mode.
   var hasComposed = e && 'composed' in e;
@@ -156,7 +152,7 @@ goog.ui.KeyboardEventData.fromBrowserEvent = function(event) {
   var path = hasComposed && hasComposedPath && e.composed && e.composedPath();
   var rootTarget = (path && path.length > 0) ? path[0] : event.target;
 
-  return new goog.ui.KeyboardEventData.Builder()
+  return new KeyboardEventData.Builder()
       .keyCode(event.keyCode || 0)
       .key(event.key || '')
       .shiftKey(!!event.shiftKey)
@@ -177,8 +173,7 @@ goog.ui.KeyboardEventData.fromBrowserEvent = function(event) {
  * defaults to `''`.
  * @constructor @struct @final
  */
-goog.ui.KeyboardEventData.Builder = function() {
-  'use strict';
+KeyboardEventData.Builder = function() {
   /** @private {?number} */
   this.keyCode_ = null;
 
@@ -213,10 +208,9 @@ goog.ui.KeyboardEventData.Builder = function() {
 
 /**
  * @param {number} keyCode
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.keyCode = function(keyCode) {
-  'use strict';
+KeyboardEventData.Builder.prototype.keyCode = function(keyCode) {
   this.keyCode_ = keyCode;
   return this;
 };
@@ -224,10 +218,9 @@ goog.ui.KeyboardEventData.Builder.prototype.keyCode = function(keyCode) {
 
 /**
  * @param {string} key
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.key = function(key) {
-  'use strict';
+KeyboardEventData.Builder.prototype.key = function(key) {
   this.key_ = key;
   return this;
 };
@@ -235,10 +228,9 @@ goog.ui.KeyboardEventData.Builder.prototype.key = function(key) {
 
 /**
  * @param {boolean} shiftKey
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.shiftKey = function(shiftKey) {
-  'use strict';
+KeyboardEventData.Builder.prototype.shiftKey = function(shiftKey) {
   this.shiftKey_ = shiftKey;
   return this;
 };
@@ -246,10 +238,9 @@ goog.ui.KeyboardEventData.Builder.prototype.shiftKey = function(shiftKey) {
 
 /**
  * @param {boolean} altKey
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.altKey = function(altKey) {
-  'use strict';
+KeyboardEventData.Builder.prototype.altKey = function(altKey) {
   this.altKey_ = altKey;
   return this;
 };
@@ -257,10 +248,9 @@ goog.ui.KeyboardEventData.Builder.prototype.altKey = function(altKey) {
 
 /**
  * @param {boolean} ctrlKey
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.ctrlKey = function(ctrlKey) {
-  'use strict';
+KeyboardEventData.Builder.prototype.ctrlKey = function(ctrlKey) {
   this.ctrlKey_ = ctrlKey;
   return this;
 };
@@ -268,10 +258,9 @@ goog.ui.KeyboardEventData.Builder.prototype.ctrlKey = function(ctrlKey) {
 
 /**
  * @param {boolean} metaKey
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.metaKey = function(metaKey) {
-  'use strict';
+KeyboardEventData.Builder.prototype.metaKey = function(metaKey) {
   this.metaKey_ = metaKey;
   return this;
 };
@@ -279,10 +268,9 @@ goog.ui.KeyboardEventData.Builder.prototype.metaKey = function(metaKey) {
 
 /**
  * @param {?Node} target
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.target = function(target) {
-  'use strict';
+KeyboardEventData.Builder.prototype.target = function(target) {
   this.target_ = target;
   return this;
 };
@@ -290,10 +278,9 @@ goog.ui.KeyboardEventData.Builder.prototype.target = function(target) {
 
 /**
  * @param {?EventTarget} rootTarget
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.rootTarget = function(rootTarget) {
-  'use strict';
+KeyboardEventData.Builder.prototype.rootTarget = function(rootTarget) {
   this.rootTarget_ = rootTarget;
   return this;
 };
@@ -301,11 +288,10 @@ goog.ui.KeyboardEventData.Builder.prototype.rootTarget = function(rootTarget) {
 
 /**
  * @param {function(): void} preventDefaultFn
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.preventDefaultFn = function(
+KeyboardEventData.Builder.prototype.preventDefaultFn = function(
     preventDefaultFn) {
-  'use strict';
   this.preventDefaultFn_ = preventDefaultFn;
   return this;
 };
@@ -313,26 +299,24 @@ goog.ui.KeyboardEventData.Builder.prototype.preventDefaultFn = function(
 
 /**
  * @param {function(): void} stopPropagationFn
- * @return {!goog.ui.KeyboardEventData.Builder}
+ * @return {!KeyboardEventData.Builder}
  */
-goog.ui.KeyboardEventData.Builder.prototype.stopPropagationFn = function(
+KeyboardEventData.Builder.prototype.stopPropagationFn = function(
     stopPropagationFn) {
-  'use strict';
   this.stopPropagationFn_ = stopPropagationFn;
   return this;
 };
 
 
-/** @return {!goog.ui.KeyboardEventData} */
-goog.ui.KeyboardEventData.Builder.prototype.build = function() {
-  'use strict';
-  return new goog.ui.KeyboardEventData(
-      goog.asserts.assertNumber(this.keyCode_), this.key_,
-      goog.asserts.assertBoolean(this.shiftKey_),
-      goog.asserts.assertBoolean(this.altKey_),
-      goog.asserts.assertBoolean(this.ctrlKey_),
-      goog.asserts.assertBoolean(this.metaKey_),
-      goog.asserts.assert(this.target_), goog.asserts.assert(this.rootTarget_),
-      goog.asserts.assertFunction(this.preventDefaultFn_),
-      goog.asserts.assertFunction(this.stopPropagationFn_));
+/** @return {!KeyboardEventData} */
+KeyboardEventData.Builder.prototype.build = function() {
+  return new KeyboardEventData(
+      asserts.assertNumber(this.keyCode_), this.key_,
+      asserts.assertBoolean(this.shiftKey_),
+      asserts.assertBoolean(this.altKey_),
+      asserts.assertBoolean(this.ctrlKey_),
+      asserts.assertBoolean(this.metaKey_),
+      asserts.assert(this.target_), asserts.assert(this.rootTarget_),
+      asserts.assertFunction(this.preventDefaultFn_),
+      asserts.assertFunction(this.stopPropagationFn_));
 };

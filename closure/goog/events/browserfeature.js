@@ -8,10 +8,6 @@
  * @fileoverview Browser capability checks for the events package.
  */
 
-goog.module('goog.events.BrowserFeature');
-goog.module.declareLegacyNamespace();
-
-
 /**
  * Tricks Closure Compiler into believing that a function is pure.  The compiler
  * assumes that any `valueOf` function is pure, without analyzing its contents.
@@ -29,7 +25,7 @@ const purify = (fn) => {
  * Enum of browser capabilities.
  * @enum {boolean}
  */
-exports = {
+export default {
   /**
    * Whether touch is enabled in the browser.
    */

@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.AnimationDelayTest');
 goog.setTestOnly('goog.async.AnimationDelayTest');
 
-const AnimationDelay = goog.require('goog.async.AnimationDelay');
-const Promise = goog.require('goog.Promise');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Timer = goog.require('goog.Timer');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AnimationDelay } from './animationdelay.js';
+import { Promise } from '../promise/promise.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Timer } from '../timer/timer.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const TEST_DELAY = 50;
 const stubs = new PropertyReplacer();

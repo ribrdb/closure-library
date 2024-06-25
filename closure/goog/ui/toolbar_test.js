@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ToolbarTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.events.EventType');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const Toolbar = goog.require('goog.ui.Toolbar');
-const ToolbarMenuButton = goog.require('goog.ui.ToolbarMenuButton');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventType } from '../events/eventtype.js';
+import * as events from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { Toolbar } from './toolbar.js';
+import { ToolbarMenuButton } from './toolbarmenubutton.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let toolbar;
 let toolbarWrapper;

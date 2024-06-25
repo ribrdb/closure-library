@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.cookiesTest');
 goog.setTestOnly();
 
-const Cookies = goog.require('goog.net.Cookies');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Cookies } from './cookies.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let baseCount = 0;
 const cookies = Cookies.getInstance();

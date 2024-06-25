@@ -6,12 +6,11 @@
 
 /** @fileoverview Tests for animationFrame. */
 
-goog.module('goog.dom.AnimationFrameTest');
 goog.setTestOnly();
 
-const MockClock = goog.require('goog.testing.MockClock');
-const animationFrame = goog.require('goog.dom.animationFrame');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockClock } from '../../testing/mockclock.js';
+import * as animationFrame from './animationframe.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 const NEXT_FRAME = MockClock.REQUEST_ANIMATION_FRAME_TIMEOUT;
 let mockClock;

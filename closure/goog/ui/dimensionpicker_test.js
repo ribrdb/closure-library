@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.DimensionPickerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const DimensionPicker = goog.require('goog.ui.DimensionPicker');
-const DimensionPickerRenderer = goog.require('goog.ui.DimensionPickerRenderer');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Size = goog.require('goog.math.Size');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserEvent } from '../events/browserevent.js';
+import { DimensionPicker } from './dimensionpicker.js';
+import { DimensionPickerRenderer } from './dimensionpickerrenderer.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { Size } from '../math/size.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let picker;
 let render;

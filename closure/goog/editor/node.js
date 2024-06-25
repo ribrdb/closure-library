@@ -6,24 +6,22 @@
 
 /**
  * @fileoverview Utilties for working with DOM nodes related to rich text
- * editing.  Many of these are not general enough to go into goog.dom.
+ * editing.  Many of these are not general enough to go into googDom.
  */
 
-goog.provide('goog.editor.node');
+import dom from '../asserts/dom.js';
 
-goog.require('goog.asserts.dom');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.iter.ChildIterator');
-goog.require('goog.dom.iter.SiblingIterator');
-goog.require('goog.dom.safe');
-goog.require('goog.html.legacyconversions');
-goog.require('goog.iter');
-goog.require('goog.object');
-goog.require('goog.string');
-goog.require('goog.string.Unicode');
-goog.require('goog.userAgent');
+import * as googDom from '../dom/dom.js';
+import { NodeType } from '../dom/nodetype.js';
+import { TagName } from '../dom/tagname.js';
+import { ChildIterator, SiblingIterator } from '../dom/iter.js';
+import * as safe from '../dom/safe.js';
+import * as legacyconversions from '../html/legacyconversions.js';
+import * as iter from '../iter/iter.js';
+import object from '../object/object.js';
+import * as string from '../string/string.js';
+import { Unicode } from '../string/string.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 /**
@@ -31,24 +29,24 @@ goog.require('goog.userAgent');
  * @type {Object}
  * @private
  */
-goog.editor.node.BLOCK_TAG_NAMES_ = goog.object.createSet(
-    goog.dom.TagName.ADDRESS, goog.dom.TagName.ARTICLE, goog.dom.TagName.ASIDE,
-    goog.dom.TagName.BLOCKQUOTE, goog.dom.TagName.BODY,
-    goog.dom.TagName.CAPTION, goog.dom.TagName.CENTER, goog.dom.TagName.COL,
-    goog.dom.TagName.COLGROUP, goog.dom.TagName.DETAILS, goog.dom.TagName.DIR,
-    goog.dom.TagName.DIV, goog.dom.TagName.DL, goog.dom.TagName.DD,
-    goog.dom.TagName.DT, goog.dom.TagName.FIELDSET, goog.dom.TagName.FIGCAPTION,
-    goog.dom.TagName.FIGURE, goog.dom.TagName.FOOTER, goog.dom.TagName.FORM,
-    goog.dom.TagName.H1, goog.dom.TagName.H2, goog.dom.TagName.H3,
-    goog.dom.TagName.H4, goog.dom.TagName.H5, goog.dom.TagName.H6,
-    goog.dom.TagName.HEADER, goog.dom.TagName.HGROUP, goog.dom.TagName.HR,
-    goog.dom.TagName.ISINDEX, goog.dom.TagName.OL, goog.dom.TagName.LI,
-    goog.dom.TagName.MAIN, goog.dom.TagName.MAP, goog.dom.TagName.MENU,
-    goog.dom.TagName.NAV, goog.dom.TagName.OPTGROUP, goog.dom.TagName.OPTION,
-    goog.dom.TagName.P, goog.dom.TagName.PRE, goog.dom.TagName.SECTION,
-    goog.dom.TagName.SUMMARY, goog.dom.TagName.TABLE, goog.dom.TagName.TBODY,
-    goog.dom.TagName.TD, goog.dom.TagName.TFOOT, goog.dom.TagName.TH,
-    goog.dom.TagName.THEAD, goog.dom.TagName.TR, goog.dom.TagName.UL);
+var BLOCK_TAG_NAMES_ = object.createSet(
+    TagName.ADDRESS, TagName.ARTICLE, TagName.ASIDE,
+    TagName.BLOCKQUOTE, TagName.BODY,
+    TagName.CAPTION, TagName.CENTER, TagName.COL,
+    TagName.COLGROUP, TagName.DETAILS, TagName.DIR,
+    TagName.DIV, TagName.DL, TagName.DD,
+    TagName.DT, TagName.FIELDSET, TagName.FIGCAPTION,
+    TagName.FIGURE, TagName.FOOTER, TagName.FORM,
+    TagName.H1, TagName.H2, TagName.H3,
+    TagName.H4, TagName.H5, TagName.H6,
+    TagName.HEADER, TagName.HGROUP, TagName.HR,
+    TagName.ISINDEX, TagName.OL, TagName.LI,
+    TagName.MAIN, TagName.MAP, TagName.MENU,
+    TagName.NAV, TagName.OPTGROUP, TagName.OPTION,
+    TagName.P, TagName.PRE, TagName.SECTION,
+    TagName.SUMMARY, TagName.TABLE, TagName.TBODY,
+    TagName.TD, TagName.TFOOT, TagName.TH,
+    TagName.THEAD, TagName.TR, TagName.UL);
 
 
 /**
@@ -58,8 +56,8 @@ goog.editor.node.BLOCK_TAG_NAMES_ = goog.object.createSet(
  * @type {Object}
  * @private
  */
-goog.editor.node.NON_EMPTY_TAGS_ = goog.object.createSet(
-    goog.dom.TagName.IMG, goog.dom.TagName.IFRAME, goog.dom.TagName.EMBED);
+var NON_EMPTY_TAGS_ = object.createSet(
+    TagName.IMG, TagName.IFRAME, TagName.EMBED);
 
 
 /**
@@ -67,10 +65,9 @@ goog.editor.node.NON_EMPTY_TAGS_ = goog.object.createSet(
  * @param {Node} node The node to test.
  * @return {boolean} Whether the node is in a standards mode document.
  */
-goog.editor.node.isStandardsMode = function(node) {
-  'use strict';
-  return goog.dom.getDomHelper(node).isCss1CompatMode();
-};
+export function isStandardsMode(node) {
+  return googDom.getDomHelper(node).isCss1CompatMode();
+}
 
 
 /**
@@ -78,14 +75,13 @@ goog.editor.node.isStandardsMode = function(node) {
  * @param {Node} parent The parent ndoe.
  * @return {Node} The right-most non-ignorable leaf node.
  */
-goog.editor.node.getRightMostLeaf = function(parent) {
-  'use strict';
+export function getRightMostLeaf(parent) {
   var temp;
-  while (temp = goog.editor.node.getLastChild(parent)) {
+  while (temp = getLastChild(parent)) {
     parent = temp;
   }
   return parent;
-};
+}
 
 
 /**
@@ -93,14 +89,13 @@ goog.editor.node.getRightMostLeaf = function(parent) {
  * @param {Node} parent The parent ndoe.
  * @return {Node} The left-most non-ignorable leaf node.
  */
-goog.editor.node.getLeftMostLeaf = function(parent) {
-  'use strict';
+export function getLeftMostLeaf(parent) {
   var temp;
-  while (temp = goog.editor.node.getFirstChild(parent)) {
+  while (temp = getFirstChild(parent)) {
     parent = temp;
   }
   return parent;
-};
+}
 
 
 /**
@@ -108,12 +103,11 @@ goog.editor.node.getLeftMostLeaf = function(parent) {
  * whitespace and comments.
  * @param {Node} parent The reference node.
  * @return {Node} The first child of sibling that is important according to
- *     goog.editor.node.isImportant, or null if no such node exists.
+ *     isImportant, or null if no such node exists.
  */
-goog.editor.node.getFirstChild = function(parent) {
-  'use strict';
-  return goog.editor.node.getChildHelper_(parent, false);
-};
+export function getFirstChild(parent) {
+  return getChildHelper_(parent, false);
+}
 
 
 /**
@@ -122,12 +116,11 @@ goog.editor.node.getFirstChild = function(parent) {
  * last of the nodes contained directly in the reference node.)
  * @param {Node} parent The reference node.
  * @return {Node} The last child of sibling that is important according to
- *     goog.editor.node.isImportant, or null if no such node exists.
+ *     isImportant, or null if no such node exists.
  */
-goog.editor.node.getLastChild = function(parent) {
-  'use strict';
-  return goog.editor.node.getChildHelper_(parent, true);
-};
+export function getLastChild(parent) {
+  return getChildHelper_(parent, true);
+}
 
 
 /**
@@ -138,15 +131,16 @@ goog.editor.node.getLastChild = function(parent) {
  * reference node.)
  * @param {Node} sibling The reference node.
  * @return {Node} The closest previous sibling to sibling that is
- *     important according to goog.editor.node.isImportant, or null if no such
+ *     important according to isImportant, or null if no such
  *     node exists.
  */
-goog.editor.node.getPreviousSibling = function(sibling) {
-  'use strict';
-  return /** @type {Node} */ (goog.editor.node.getFirstValue_(goog.iter.filter(
-      new goog.dom.iter.SiblingIterator(sibling, false, true),
-      goog.editor.node.isImportant)));
-};
+export function getPreviousSibling(sibling) {
+  return (
+    /** @type {Node} */ (getFirstValue_(iter.filter(
+          new SiblingIterator(sibling, false, true),
+          isImportant)))
+  );
+}
 
 
 /**
@@ -154,15 +148,16 @@ goog.editor.node.getPreviousSibling = function(sibling) {
  * comments.
  * @param {Node} sibling The reference node.
  * @return {Node} The closest next sibling to sibling that is important
- *     according to goog.editor.node.isImportant, or null if no
+ *     according to isImportant, or null if no
  *     such node exists.
  */
-goog.editor.node.getNextSibling = function(sibling) {
-  'use strict';
-  return /** @type {Node} */ (goog.editor.node.getFirstValue_(goog.iter.filter(
-      new goog.dom.iter.SiblingIterator(sibling),
-      goog.editor.node.isImportant)));
-};
+export function getNextSibling(sibling) {
+  return (
+    /** @type {Node} */ (getFirstValue_(iter.filter(
+          new SiblingIterator(sibling),
+          isImportant)))
+  );
+}
 
 
 /**
@@ -172,34 +167,31 @@ goog.editor.node.getNextSibling = function(sibling) {
  * @param {boolean} isReversed Whether children should be traversed forward
  *     or backward.
  * @return {Node} The first/last child of sibling that is important according
- *     to goog.editor.node.isImportant, or null if no such node exists.
+ *     to isImportant, or null if no such node exists.
  * @private
  */
-goog.editor.node.getChildHelper_ = function(parent, isReversed) {
-  'use strict';
-  return (!parent || parent.nodeType != goog.dom.NodeType.ELEMENT) ?
+function getChildHelper_(parent, isReversed) {
+  return (!parent || parent.nodeType != NodeType.ELEMENT) ?
       null :
       /** @type {Node} */
-      (goog.editor.node.getFirstValue_(goog.iter.filter(
-          new goog.dom.iter.ChildIterator(
-              /** @type {!Element} */ (parent), isReversed),
-          goog.editor.node.isImportant)));
-};
+      (getFirstValue_(iter.filter(
+          new ChildIterator( (parent), isReversed),
+          isImportant)));
+}
 
 
 /**
  * Utility function that returns the first value from an iterator or null if
  * the iterator is empty.
- * @param {goog.iter.Iterator} iterator The iterator to get a value from.
+ * @param {iter.Iterator} iterator The iterator to get a value from.
  * @return {*} The first value from the iterator.
  * @private
  */
-goog.editor.node.getFirstValue_ = function(iterator) {
-  'use strict';
+function getFirstValue_(iterator) {
   const it = iterator.next();
   if (it.done) return null;
   return it.value;
-};
+}
 
 
 /**
@@ -208,13 +200,12 @@ goog.editor.node.getFirstValue_ = function(iterator) {
  * @return {boolean} Whether the node is an element, or a text node that
  *     is not all whitespace.
  */
-goog.editor.node.isImportant = function(node) {
-  'use strict';
+export function isImportant(node) {
   // Return true if the node is not either a TextNode or an ElementNode.
-  return node.nodeType == goog.dom.NodeType.ELEMENT ||
-      node.nodeType == goog.dom.NodeType.TEXT &&
-      !goog.editor.node.isAllNonNbspWhiteSpace(node);
-};
+  return node.nodeType == NodeType.ELEMENT ||
+      node.nodeType == NodeType.TEXT &&
+      !isAllNonNbspWhiteSpace(node);
+}
 
 
 /**
@@ -224,10 +215,9 @@ goog.editor.node.isImportant = function(node) {
  * @return {boolean} Whether the text content of node is whitespace,
  *     otherwise false.
  */
-goog.editor.node.isAllNonNbspWhiteSpace = function(textNode) {
-  'use strict';
-  return goog.string.isBreakingWhitespace(textNode.nodeValue);
-};
+export function isAllNonNbspWhiteSpace(textNode) {
+  return string.isBreakingWhitespace(textNode.nodeValue);
+}
 
 
 /**
@@ -239,21 +229,20 @@ goog.editor.node.isAllNonNbspWhiteSpace = function(textNode) {
  * @return {boolean} Whether the node contains only whitespace.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.node.isEmpty = function(node, opt_prohibitSingleNbsp) {
-  'use strict';
-  var nodeData = goog.dom.getRawTextContent(node);
+export function isEmpty(node, opt_prohibitSingleNbsp) {
+  var nodeData = googDom.getRawTextContent(node);
 
   if (node.getElementsByTagName) {
     node = /** @type {!Element} */ (node);
-    for (var tag in goog.editor.node.NON_EMPTY_TAGS_) {
+    for (var tag in NON_EMPTY_TAGS_) {
       if (node.tagName == tag || node.getElementsByTagName(tag).length > 0) {
         return false;
       }
     }
   }
-  return (!opt_prohibitSingleNbsp && nodeData == goog.string.Unicode.NBSP) ||
-      goog.string.isBreakingWhitespace(nodeData);
-};
+  return (!opt_prohibitSingleNbsp && nodeData == Unicode.NBSP) ||
+      string.isBreakingWhitespace(nodeData);
+}
 
 
 /**
@@ -264,10 +253,9 @@ goog.editor.node.isEmpty = function(node, opt_prohibitSingleNbsp) {
  * @return {number} The length of the node.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.node.getLength = function(node) {
-  'use strict';
+export function getLength(node) {
   return node.length || node.childNodes.length;
-};
+}
 
 
 /**
@@ -278,15 +266,14 @@ goog.editor.node.getLength = function(node) {
  *    node as a parameter and returns true if it meets the criteria.
  * @return {?number} The index of the node found, or null if no node is found.
  */
-goog.editor.node.findInChildren = function(parent, hasProperty) {
-  'use strict';
+export function findInChildren(parent, hasProperty) {
   for (var i = 0, len = parent.childNodes.length; i < len; i++) {
     if (hasProperty(parent.childNodes[i])) {
       return i;
     }
   }
   return null;
-};
+}
 
 
 /**
@@ -299,8 +286,7 @@ goog.editor.node.findInChildren = function(parent, hasProperty) {
  * @return {Node} The topmost ancestor or null if no ancestor satisfies the
  *     predicate function.
  */
-goog.editor.node.findHighestMatchingAncestor = function(node, hasProperty) {
-  'use strict';
+export function findHighestMatchingAncestor(node, hasProperty) {
   var parent = node.parentNode;
   var ancestor = null;
   while (parent && hasProperty(parent)) {
@@ -308,7 +294,7 @@ goog.editor.node.findHighestMatchingAncestor = function(node, hasProperty) {
     parent = parent.parentNode;
   }
   return ancestor;
-};
+}
 
 
 /**
@@ -317,11 +303,10 @@ goog.editor.node.findHighestMatchingAncestor = function(node, hasProperty) {
  * @param {Node} node The node to test.
  * @return {boolean} Whether the node is a block-level node.
  */
-goog.editor.node.isBlockTag = function(node) {
-  'use strict';
-  return !!goog.editor.node.BLOCK_TAG_NAMES_[
+export function isBlockTag(node) {
+  return !!BLOCK_TAG_NAMES_[
       /** @type {!Element} */ (node).tagName];
-};
+}
 
 
 /**
@@ -330,13 +315,12 @@ goog.editor.node.isBlockTag = function(node) {
  * @return {Node} The node or the first sibling of the node that is not an
  *     empty text node. May be null.
  */
-goog.editor.node.skipEmptyTextNodes = function(node) {
-  'use strict';
-  while (node && node.nodeType == goog.dom.NodeType.TEXT && !node.nodeValue) {
+export function skipEmptyTextNodes(node) {
+  while (node && node.nodeType == NodeType.TEXT && !node.nodeValue) {
     node = node.nextSibling;
   }
   return node;
-};
+}
 
 
 /**
@@ -346,10 +330,9 @@ goog.editor.node.skipEmptyTextNodes = function(node) {
  * @return {boolean} Whether the element is a top-level editable container.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.node.isEditableContainer = function(element) {
-  'use strict';
+export function isEditableContainer(element) {
   return element.getAttribute && element.getAttribute('g_editable') == 'true';
-};
+}
 
 
 /**
@@ -357,10 +340,9 @@ goog.editor.node.isEditableContainer = function(element) {
  * @param {Node} node The node to test.
  * @return {boolean} Whether the node is in an editable container.
  */
-goog.editor.node.isEditable = function(node) {
-  'use strict';
-  return !!goog.dom.getAncestor(node, goog.editor.node.isEditableContainer);
-};
+export function isEditable(node) {
+  return !!googDom.getAncestor(node, isEditableContainer);
+}
 
 
 /**
@@ -372,17 +354,16 @@ goog.editor.node.isEditable = function(node) {
  *     the criteria or not.
  * @return {Node} The DOM node if found, or null.
  */
-goog.editor.node.findTopMostEditableAncestor = function(node, criteria) {
-  'use strict';
+export function findTopMostEditableAncestor(node, criteria) {
   var targetNode = null;
-  while (node && !goog.editor.node.isEditableContainer(node)) {
+  while (node && !isEditableContainer(node)) {
     if (criteria(node)) {
       targetNode = node;
     }
     node = node.parentNode;
   }
   return targetNode;
-};
+}
 
 
 /**
@@ -394,17 +375,15 @@ goog.editor.node.findTopMostEditableAncestor = function(node, criteria) {
  * @param {Node=} opt_root The top of the tree where splitting stops at.
  * @return {!Node} The new subtree.
  */
-goog.editor.node.splitDomTreeAt = function(
-    currentNode, opt_secondHalf, opt_root) {
-  'use strict';
+export function splitDomTreeAt(currentNode, opt_secondHalf, opt_root) {
   var parent;
   while (currentNode != opt_root && (parent = currentNode.parentNode)) {
-    opt_secondHalf = goog.editor.node.getSecondHalfOfNode_(
+    opt_secondHalf = getSecondHalfOfNode_(
         parent, currentNode, opt_secondHalf);
     currentNode = parent;
   }
   return /** @type {!Node} */ (opt_secondHalf);
-};
+}
 
 
 /**
@@ -419,17 +398,16 @@ goog.editor.node.splitDomTreeAt = function(
  *     startNode.
  * @private
  */
-goog.editor.node.getSecondHalfOfNode_ = function(node, startNode, firstChild) {
-  'use strict';
+function getSecondHalfOfNode_(node, startNode, firstChild) {
   var secondHalf = /** @type {!Node} */ (node.cloneNode(false));
   while (startNode.nextSibling) {
-    goog.dom.appendChild(secondHalf, startNode.nextSibling);
+    googDom.appendChild(secondHalf, startNode.nextSibling);
   }
   if (firstChild) {
     secondHalf.insertBefore(firstChild, secondHalf.firstChild);
   }
   return secondHalf;
-};
+}
 
 
 /**
@@ -437,12 +415,11 @@ goog.editor.node.getSecondHalfOfNode_ = function(node, startNode, firstChild) {
  * oldNode and appends them to newNode. oldNode is left with no children.
  * @param {!Node} newNode Node to transfer children to.
  * @param {Node} oldNode Node to transfer children from.
- * @deprecated Use goog.dom.append directly instead.
+ * @deprecated Use googDom.append directly instead.
  */
-goog.editor.node.transferChildren = function(newNode, oldNode) {
-  'use strict';
-  goog.dom.append(newNode, oldNode.childNodes);
-};
+export function transferChildren(newNode, oldNode) {
+  googDom.append(newNode, oldNode.childNodes);
+}
 
 
 /**
@@ -460,14 +437,13 @@ goog.editor.node.transferChildren = function(newNode, oldNode) {
  * @param {string} html The innerHTML to set on the node.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.node.replaceInnerHtml = function(node, html) {
-  'use strict';
+export function replaceInnerHtml(node, html) {
   // Only do this IE. On gecko, we use element change events, and don't
   // want to trigger spurious events.
-  if (goog.userAgent.IE) {
-    goog.dom.removeChildren(node);
+  if (userAgent.IE) {
+    googDom.removeChildren(node);
   }
-  goog.dom.safe.setInnerHtml(
-      goog.asserts.dom.assertIsElement(node),
-      goog.html.legacyconversions.safeHtmlFromString(html));
-};
+  safe.setInnerHtml(
+      dom.assertIsElement(node),
+      legacyconversions.safeHtmlFromString(html));
+}

@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.ViewportSizeMonitorTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Size = goog.require('goog.math.Size');
-const ViewportSizeMonitor = goog.require('goog.dom.ViewportSizeMonitor');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import { MockClock } from '../testing/mockclock.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Size } from '../math/size.js';
+import { ViewportSizeMonitor } from './viewportsizemonitor.js';
+import * as dom from './dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let propertyReplacer;
 let /** ? */ fakeWindow;

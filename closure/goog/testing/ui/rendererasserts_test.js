@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.ui.rendererassertsTest');
 goog.setTestOnly();
 
-const ControlRenderer = goog.require('goog.ui.ControlRenderer');
-const asserts = goog.require('goog.testing.asserts');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ControlRenderer } from '../../ui/controlrenderer.js';
+import * as asserts from '../asserts.js';
+import rendererasserts from './rendererasserts.js';
+import { testSuite } from '../testsuite.js';
 
 testSuite({
   testSuccess() {

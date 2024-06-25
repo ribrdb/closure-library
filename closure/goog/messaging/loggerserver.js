@@ -10,13 +10,12 @@
  * channels to contexts that don't have access to their own logging facilities.
  */
 
-goog.module('goog.messaging.LoggerServer');
-goog.module.declareLegacyNamespace();
+import { Disposable } from '../disposable/disposable.js';
 
-const Disposable = goog.require('goog.Disposable');
-const Level = goog.require('goog.log.Level');
-const MessageChannel = goog.requireType('goog.messaging.MessageChannel');
-const log = goog.require('goog.log');
+import * as googLog from '../log/log.js';
+import * as log from '../log/log.js';
+const Level = googLog.Level;
+const MessageChannel = goog.requireType('goog.messaging.messagechannel');
 
 /**
  * A logger server that logs messages on behalf of the remote end of a
@@ -89,4 +88,4 @@ class LoggerServer extends Disposable {
     delete this.channel_;
   }
 }
-exports = LoggerServer;
+export { LoggerServer };

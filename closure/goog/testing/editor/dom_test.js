@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.editor.domTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const editorDom = goog.require('goog.testing.editor.dom');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TagName } from '../../dom/tagname.js';
+import * as dom from '../../dom/dom.js';
+import * as editorDom from './dom.js';
+import * as functions from '../../functions/functions.js';
+import { testSuite } from '../testsuite.js';
 
 let root;
 let childNode1;

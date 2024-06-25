@@ -6,19 +6,18 @@
 
 /** @fileoverview Unit Test for the unsafe API of the HTML Sanitizer. */
 
-goog.module('goog.html.UnsafeTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const HtmlSanitizer = goog.require('goog.html.sanitizer.HtmlSanitizer');
-const HtmlSanitizerAttributePolicy = goog.requireType('goog.html.sanitizer.HtmlSanitizerAttributePolicy');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagWhitelist = goog.require('goog.html.sanitizer.TagWhitelist');
-const dom = goog.require('goog.testing.dom');
-const functions = goog.require('goog.functions');
-const testSuite = goog.require('goog.testing.testSuite');
-const unsafe = goog.require('goog.html.sanitizer.unsafe');
-const {AllowedAttributes} = goog.require('goog.html.sanitizer.attributeallowlists');
+import { Const } from '../../string/const.js';
+import { HtmlSanitizer } from './htmlsanitizer.js';
+import { SafeHtml } from '../safehtml.js';
+import { TagWhitelist } from './tagwhitelist.js';
+import * as dom from '../../testing/dom.js';
+import * as functions from '../../functions/functions.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as unsafe from './unsafe.js';
+import { AllowedAttributes } from './attributeallowlists.js';
+const HtmlSanitizerAttributePolicy = goog.requireType('goog.html.sanitizer.htmlsanitizer');
 
 const just = Const.from('test');
 

@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ButtonTest');
 goog.setTestOnly();
 
-const Button = goog.require('goog.ui.Button');
-const ButtonRenderer = goog.require('goog.ui.ButtonRenderer');
-const ButtonSide = goog.require('goog.ui.ButtonSide');
-const Component = goog.require('goog.ui.Component');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const KeyHandler = goog.require('goog.events.KeyHandler');
-const NativeButtonRenderer = goog.require('goog.ui.NativeButtonRenderer');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Button } from './button.js';
+import { ButtonRenderer } from './buttonrenderer.js';
+import { ButtonSide } from './buttonside.js';
+import { Component } from './component.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyHandler } from '../events/keyhandler.js';
+import { NativeButtonRenderer } from './nativebuttonrenderer.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let sandbox;
 let button;

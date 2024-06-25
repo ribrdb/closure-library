@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.BlockquoteTest');
 goog.setTestOnly();
 
-const Blockquote = goog.require('goog.editor.plugins.Blockquote');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const Range = goog.require('goog.dom.Range');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Blockquote } from './blockquote.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import * as Range from '../../dom/range.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 const SPLIT = '<span id="split-point"></span>';
 let field;

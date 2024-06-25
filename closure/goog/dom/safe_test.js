@@ -6,24 +6,23 @@
 
 /** @fileoverview Unit tests for safe. */
 
-goog.module('goog.dom.safeTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const InsertAdjacentHtmlPosition = goog.require('goog.dom.safe.InsertAdjacentHtmlPosition');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeScript = goog.require('goog.html.SafeScript');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const asserts = goog.require('goog.asserts');
-const dom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const googTesting = goog.require('goog.testing');
-const isSafari = goog.require('goog.labs.userAgent.browser');
-const safe = goog.require('goog.dom.safe');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
+import { Const } from '../string/const.js';
+import * as safe from './safe.js';
+import { InsertAdjacentHtmlPosition } from './safe.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { SafeScript } from '../html/safescript.js';
+import { SafeStyle } from '../html/safestyle.js';
+import { TagName } from './tagname.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dom from './dom.js';
+import * as googString from '../string/string.js';
+import * as googTesting from '../testing/functionmock.js';
+import * as isSafari from '../labs/useragent/browser.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
 
 let mockWindowOpen;
 

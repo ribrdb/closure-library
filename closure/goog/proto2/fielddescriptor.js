@@ -8,12 +8,12 @@
  * @fileoverview Protocol Buffer Field Descriptor class.
  */
 
-goog.provide('goog.proto2.FieldDescriptor');
+goog.declareModuleId('goog.proto2.fielddescriptor');
 
-goog.require('goog.asserts');
-goog.require('goog.string');
-goog.requireType('goog.proto2.Descriptor');
-goog.requireType('goog.proto2.Message');
+import * as asserts from '../asserts/asserts.js';
+import * as string from '../string/string.js';
+goog.requireType('goog.proto2.descriptor');
+goog.requireType('goog.proto2.message');
 
 
 
@@ -25,7 +25,7 @@ goog.requireType('goog.proto2.Message');
  * @param {number|string} tag The field's tag index.
  * @param {{
  *       name: string,
- *       fieldType: !goog.proto2.FieldDescriptor.FieldType,
+ *       fieldType: !FieldDescriptor.FieldType,
  *       type: !Function,
  *       repeated: (*|undefined),
  *       required: (*|undefined),
@@ -37,89 +37,88 @@ goog.requireType('goog.proto2.Message');
  * @constructor
  * @final
  */
-goog.proto2.FieldDescriptor = function(messageType, tag, metadata) {
-  'use strict';
-  /**
-   * The message type that contains the field that this
-   * descriptor describes.
-   * @private {function(new:goog.proto2.Message)}
-   */
-  this.parent_ = messageType;
+export function FieldDescriptor(messageType, tag, metadata) {
+ /**
+  * The message type that contains the field that this
+  * descriptor describes.
+  * @private {function(new:goog.proto2.Message)}
+  */
+ this.parent_ = messageType;
 
-  // Ensure that the tag is numeric.
-  goog.asserts.assert(goog.string.isNumeric(tag));
+ // Ensure that the tag is numeric.
+ asserts.assert(string.isNumeric(tag));
 
-  /**
-   * The field's tag number.
-   * @private {number}
-   */
-  this.tag_ = /** @type {number} */ (tag);
+ /**
+  * The field's tag number.
+  * @private {number}
+  */
+ this.tag_ = /** @type {number} */ (tag);
 
-  /**
-   * The field's name.
-   * @private {string}
-   */
-  this.name_ = metadata.name;
+ /**
+  * The field's name.
+  * @private {string}
+  */
+ this.name_ = metadata.name;
 
-  /**
-   * If true, this field is a packed field.
-   * @private {boolean}
-   */
-  this.isPacked_ = !!metadata.packed;
+ /**
+  * If true, this field is a packed field.
+  * @private {boolean}
+  */
+ this.isPacked_ = !!metadata.packed;
 
-  /**
-   * If true, this field is a repeating field.
-   * @private {boolean}
-   */
-  this.isRepeated_ = !!metadata.repeated;
+ /**
+  * If true, this field is a repeating field.
+  * @private {boolean}
+  */
+ this.isRepeated_ = !!metadata.repeated;
 
-  /**
-   * If true, this field is required.
-   * @private {boolean}
-   */
-  this.isRequired_ = !!metadata.required;
+ /**
+  * If true, this field is required.
+  * @private {boolean}
+  */
+ this.isRequired_ = !!metadata.required;
 
-  /**
-   * The field type of this field.
-   * @private {goog.proto2.FieldDescriptor.FieldType}
-   */
-  this.fieldType_ = metadata.fieldType;
+ /**
+    * The field type of this field.
+    * @private {FieldDescriptor.FieldType}
+    */
+ this.fieldType_ = metadata.fieldType;
 
-  /**
-   * If this field is a primitive: The native (ECMAScript) type of this field.
-   * If an enumeration: The enumeration object.
-   * If a message or group field: The Message function.
-   * @private {Function}
-   */
-  this.nativeType_ = metadata.type;
+ /**
+  * If this field is a primitive: The native (ECMAScript) type of this field.
+  * If an enumeration: The enumeration object.
+  * If a message or group field: The Message function.
+  * @private {Function}
+  */
+ this.nativeType_ = metadata.type;
 
-  /**
-   * Is it permissible on deserialization to convert between numbers and
-   * well-formed strings?  Is true for 64-bit integral field types and float and
-   * double types, false for all other field types.
-   * @private {boolean}
-   */
-  this.deserializationConversionPermitted_ = false;
+ /**
+  * Is it permissible on deserialization to convert between numbers and
+  * well-formed strings?  Is true for 64-bit integral field types and float and
+  * double types, false for all other field types.
+  * @private {boolean}
+  */
+ this.deserializationConversionPermitted_ = false;
 
-  switch (this.fieldType_) {
-    case goog.proto2.FieldDescriptor.FieldType.INT64:
-    case goog.proto2.FieldDescriptor.FieldType.UINT64:
-    case goog.proto2.FieldDescriptor.FieldType.FIXED64:
-    case goog.proto2.FieldDescriptor.FieldType.SFIXED64:
-    case goog.proto2.FieldDescriptor.FieldType.SINT64:
-    case goog.proto2.FieldDescriptor.FieldType.FLOAT:
-    case goog.proto2.FieldDescriptor.FieldType.DOUBLE:
-      this.deserializationConversionPermitted_ = true;
-      break;
-  }
+ switch (this.fieldType_) {
+   case FieldDescriptor.FieldType.INT64:
+   case FieldDescriptor.FieldType.UINT64:
+   case FieldDescriptor.FieldType.FIXED64:
+   case FieldDescriptor.FieldType.SFIXED64:
+   case FieldDescriptor.FieldType.SINT64:
+   case FieldDescriptor.FieldType.FLOAT:
+   case FieldDescriptor.FieldType.DOUBLE:
+     this.deserializationConversionPermitted_ = true;
+     break;
+ }
 
-  /**
-   * The default value of this field, if different from the default, default
-   * value.
-   * @private {*}
-   */
-  this.defaultValue_ = metadata.defaultValue;
-};
+ /**
+  * The default value of this field, if different from the default, default
+  * value.
+  * @private {*}
+  */
+ this.defaultValue_ = metadata.defaultValue;
+}
 
 
 /**
@@ -128,7 +127,7 @@ goog.proto2.FieldDescriptor = function(messageType, tag, metadata) {
  *
  * @enum {number}
  */
-goog.proto2.FieldDescriptor.FieldType = {
+FieldDescriptor.FieldType = {
   DOUBLE: 1,
   FLOAT: 2,
   INT64: 3,
@@ -155,9 +154,8 @@ goog.proto2.FieldDescriptor.FieldType = {
  *
  * @return {number} The tag number.
  */
-goog.proto2.FieldDescriptor.prototype.getTag = function() {
-  'use strict';
-  return this.tag_;
+FieldDescriptor.prototype.getTag = function() {
+ return this.tag_;
 };
 
 
@@ -165,11 +163,10 @@ goog.proto2.FieldDescriptor.prototype.getTag = function() {
  * Returns the descriptor describing the message that defined this field.
  * @return {!goog.proto2.Descriptor} The descriptor.
  */
-goog.proto2.FieldDescriptor.prototype.getContainingType = function() {
-  'use strict';
-  // Generated JS proto_library messages have getDescriptor() method which can
-  // be called with or without an instance.
-  return this.parent_.prototype.getDescriptor();
+FieldDescriptor.prototype.getContainingType = function() {
+ // Generated JS proto_library messages have getDescriptor() method which can
+ // be called with or without an instance.
+ return this.parent_.prototype.getDescriptor();
 };
 
 
@@ -177,9 +174,8 @@ goog.proto2.FieldDescriptor.prototype.getContainingType = function() {
  * Returns the name of the field that this descriptor represents.
  * @return {string} The name.
  */
-goog.proto2.FieldDescriptor.prototype.getName = function() {
-  'use strict';
-  return this.name_;
+FieldDescriptor.prototype.getName = function() {
+ return this.name_;
 };
 
 
@@ -187,40 +183,38 @@ goog.proto2.FieldDescriptor.prototype.getName = function() {
  * Returns the default value of this field.
  * @return {*} The default value.
  */
-goog.proto2.FieldDescriptor.prototype.getDefaultValue = function() {
-  'use strict';
-  if (this.defaultValue_ === undefined) {
-    // Set the default value based on a new instance of the native type.
-    // This will be (0, false, "") for (number, boolean, string) and will
-    // be a new instance of a group/message if the field is a message type.
-    var nativeType = this.nativeType_;
-    if (nativeType === Boolean) {
-      this.defaultValue_ = false;
-    } else if (nativeType === Number) {
-      this.defaultValue_ = 0;
-    } else if (nativeType === String) {
-      if (this.deserializationConversionPermitted_) {
-        // This field is a 64 bit integer represented as a string.
-        this.defaultValue_ = '0';
-      } else {
-        this.defaultValue_ = '';
-      }
-    } else {
-      return new nativeType;
-    }
-  }
+FieldDescriptor.prototype.getDefaultValue = function() {
+ if (this.defaultValue_ === undefined) {
+   // Set the default value based on a new instance of the native type.
+   // This will be (0, false, "") for (number, boolean, string) and will
+   // be a new instance of a group/message if the field is a message type.
+   var nativeType = this.nativeType_;
+   if (nativeType === Boolean) {
+     this.defaultValue_ = false;
+   } else if (nativeType === Number) {
+     this.defaultValue_ = 0;
+   } else if (nativeType === String) {
+     if (this.deserializationConversionPermitted_) {
+       // This field is a 64 bit integer represented as a string.
+       this.defaultValue_ = '0';
+     } else {
+       this.defaultValue_ = '';
+     }
+   } else {
+     return new nativeType;
+   }
+ }
 
-  return this.defaultValue_;
+ return this.defaultValue_;
 };
 
 
 /**
  * Returns the field type of the field described by this descriptor.
- * @return {goog.proto2.FieldDescriptor.FieldType} The field type.
+ * @return {FieldDescriptor.FieldType} The field type.
  */
-goog.proto2.FieldDescriptor.prototype.getFieldType = function() {
-  'use strict';
-  return this.fieldType_;
+FieldDescriptor.prototype.getFieldType = function() {
+ return this.fieldType_;
 };
 
 
@@ -230,9 +224,8 @@ goog.proto2.FieldDescriptor.prototype.getFieldType = function() {
  *
  * @return {Object} The native type.
  */
-goog.proto2.FieldDescriptor.prototype.getNativeType = function() {
-  'use strict';
-  return this.nativeType_;
+FieldDescriptor.prototype.getNativeType = function() {
+ return this.nativeType_;
 };
 
 
@@ -242,11 +235,10 @@ goog.proto2.FieldDescriptor.prototype.getNativeType = function() {
  *
  * @return {boolean} Whether conversion is permitted.
  */
-goog.proto2.FieldDescriptor.prototype.deserializationConversionPermitted =
+FieldDescriptor.prototype.deserializationConversionPermitted =
     function() {
-  'use strict';
-  return this.deserializationConversionPermitted_;
-};
+     return this.deserializationConversionPermitted_;
+    };
 
 
 /**
@@ -255,13 +247,12 @@ goog.proto2.FieldDescriptor.prototype.deserializationConversionPermitted =
  *
  * @return {!goog.proto2.Descriptor} The message descriptor.
  */
-goog.proto2.FieldDescriptor.prototype.getFieldMessageType = function() {
-  'use strict';
-  // Generated JS proto_library messages have getDescriptor() method which can
-  // be called with or without an instance.
-  var messageClass =
-      /** @type {function(new:goog.proto2.Message)} */ (this.nativeType_);
-  return messageClass.prototype.getDescriptor();
+FieldDescriptor.prototype.getFieldMessageType = function() {
+ // Generated JS proto_library messages have getDescriptor() method which can
+ // be called with or without an instance.
+ var messageClass =
+     /** @type {function(new:goog.proto2.Message)} */ (this.nativeType_);
+ return messageClass.prototype.getDescriptor();
 };
 
 
@@ -269,10 +260,9 @@ goog.proto2.FieldDescriptor.prototype.getFieldMessageType = function() {
  * @return {boolean} True if the field stores composite data or repeated
  *     composite data (message or group).
  */
-goog.proto2.FieldDescriptor.prototype.isCompositeType = function() {
-  'use strict';
-  return this.fieldType_ == goog.proto2.FieldDescriptor.FieldType.MESSAGE ||
-      this.fieldType_ == goog.proto2.FieldDescriptor.FieldType.GROUP;
+FieldDescriptor.prototype.isCompositeType = function() {
+ return this.fieldType_ == FieldDescriptor.FieldType.MESSAGE ||
+     this.fieldType_ == FieldDescriptor.FieldType.GROUP;
 };
 
 
@@ -280,9 +270,8 @@ goog.proto2.FieldDescriptor.prototype.isCompositeType = function() {
  * Returns whether the field described by this descriptor is packed.
  * @return {boolean} Whether the field is packed.
  */
-goog.proto2.FieldDescriptor.prototype.isPacked = function() {
-  'use strict';
-  return this.isPacked_;
+FieldDescriptor.prototype.isPacked = function() {
+ return this.isPacked_;
 };
 
 
@@ -290,9 +279,8 @@ goog.proto2.FieldDescriptor.prototype.isPacked = function() {
  * Returns whether the field described by this descriptor is repeating.
  * @return {boolean} Whether the field is repeated.
  */
-goog.proto2.FieldDescriptor.prototype.isRepeated = function() {
-  'use strict';
-  return this.isRepeated_;
+FieldDescriptor.prototype.isRepeated = function() {
+ return this.isRepeated_;
 };
 
 
@@ -300,9 +288,8 @@ goog.proto2.FieldDescriptor.prototype.isRepeated = function() {
  * Returns whether the field described by this descriptor is required.
  * @return {boolean} Whether the field is required.
  */
-goog.proto2.FieldDescriptor.prototype.isRequired = function() {
-  'use strict';
-  return this.isRequired_;
+FieldDescriptor.prototype.isRequired = function() {
+ return this.isRequired_;
 };
 
 
@@ -310,7 +297,6 @@ goog.proto2.FieldDescriptor.prototype.isRequired = function() {
  * Returns whether the field described by this descriptor is optional.
  * @return {boolean} Whether the field is optional.
  */
-goog.proto2.FieldDescriptor.prototype.isOptional = function() {
-  'use strict';
-  return !this.isRepeated_ && !this.isRequired_;
+FieldDescriptor.prototype.isOptional = function() {
+ return !this.isRepeated_ && !this.isRequired_;
 };

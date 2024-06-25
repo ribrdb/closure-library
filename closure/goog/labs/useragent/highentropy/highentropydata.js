@@ -8,18 +8,16 @@
  * @fileoverview Provides access to high-entropy user agent values.
  */
 
-goog.module('goog.labs.userAgent.highEntropy.highEntropyData');
-
-const {HighEntropyValue} = goog.require('goog.labs.userAgent.highEntropy.highEntropyValue');
+import { HighEntropyValue } from './highentropyvalue.js';
 
 /**
  * @type {!HighEntropyValue<!Array<!NavigatorUABrandVersion>|undefined>}
  */
 const fullVersionList = new HighEntropyValue('fullVersionList');
-exports.fullVersionList = fullVersionList;
+export { fullVersionList };
 
 /**
  * @type {!HighEntropyValue<string>}
  */
 const platformVersion = new HighEntropyValue('platformVersion');
-exports.platformVersion = platformVersion;
+export { platformVersion };

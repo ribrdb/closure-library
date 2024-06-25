@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.string.TypedString');
+goog.declareModuleId('goog.string.typedstring');
 
 
 
@@ -19,7 +19,7 @@ goog.provide('goog.string.TypedString');
  * to assert type membership, such as `goog.html.SafeHtml.unwrap`.
  * @interface
  */
-goog.string.TypedString = function() {};
+export function TypedString() {}
 
 
 /**
@@ -30,11 +30,11 @@ goog.string.TypedString = function() {};
  * property to `true`.
  * @type {boolean}
  */
-goog.string.TypedString.prototype.implementsGoogStringTypedString;
+TypedString.prototype.implementsGoogStringTypedString;
 
 
 /**
  * Retrieves this wrapped string's value.
  * @return {string} The wrapped string's value.
  */
-goog.string.TypedString.prototype.getTypedStringValue;
+TypedString.prototype.getTypedStringValue;

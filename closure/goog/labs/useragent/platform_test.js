@@ -6,15 +6,14 @@
 
 /** @fileoverview Unit tests for userAgentPlatform. */
 
-goog.module('goog.labs.userAgent.platformTest');
 goog.setTestOnly();
 
-const testAgentData = goog.require('goog.labs.userAgent.testAgentData');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgentPlatform = goog.require('goog.labs.userAgent.platform');
-const util = goog.require('goog.labs.userAgent.util');
-const {setUseClientHintsForTesting} = goog.require('goog.labs.userAgent');
+import * as testAgentData from './test_agentdata.js';
+import { testAgents } from './test_agents.js';
+import { testSuite } from '../../testing/testsuite.js';
+import userAgentPlatform from './platform.js';
+import util from './util.js';
+import { setUseClientHintsForTesting } from './useragent.js';
 
 /**
  * Asserts that getVersion correctly returns the given version.

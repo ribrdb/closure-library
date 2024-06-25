@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.AffineTransformTest');
 goog.setTestOnly();
 
-const AffineTransform = goog.require('goog.math.AffineTransform');
-const googArray = goog.require('goog.array');
-const googMath = goog.require('goog.math');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AffineTransform } from './affinetransform.js';
+import * as googArray from '../array/array.js';
+import * as googMath from './math.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function assertEqualsMethod(tx1, tx2, expected) {
   assertEquals(expected, tx1.equals(tx2));

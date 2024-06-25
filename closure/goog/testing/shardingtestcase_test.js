@@ -4,14 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.ShardingTestCaseTest');
 goog.setTestOnly();
 
-const ShardingTestCase = goog.require('goog.testing.ShardingTestCase');
-const TestCase = goog.require('goog.testing.TestCase');
-const asserts = goog.require('goog.testing.asserts');
+import { ShardingTestCase } from './shardingtestcase.js';
+import { TestCase } from './testcase.js';
+import * as asserts from './asserts.js';
+
 /** @suppress {extraRequire} */
-const jsunit = goog.require('goog.testing.jsunit');
+import * as jsunit from './jsunit.js';
 
 const testCase = new ShardingTestCase(1, 2);
 testCase.setTestObj({

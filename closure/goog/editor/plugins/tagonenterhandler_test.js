@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.TagOnEnterHandlerTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const Field = goog.require('goog.editor.Field');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const NodeType = goog.require('goog.dom.NodeType');
-const Plugin = goog.require('goog.editor.Plugin');
-const Range = goog.require('goog.dom.Range');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagName = goog.require('goog.dom.TagName');
-const TagOnEnterHandler = goog.require('goog.editor.plugins.TagOnEnterHandler');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const Unicode = goog.require('goog.string.Unicode');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import { BrowserFeature } from '../browserfeature.js';
+import { Field } from '../field.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { NodeType } from '../../dom/nodetype.js';
+import { Plugin } from '../plugin.js';
+import * as Range from '../../dom/range.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { TagName } from '../../dom/tagname.js';
+import { TagOnEnterHandler } from './tagonenterhandler.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import { Unicode } from '../../string/string.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../testing/events/events.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingDom from '../../testing/dom.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let savedHtml;
 

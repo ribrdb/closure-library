@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.EnvironmentBase');
+import { TestCase } from '../../testing/testcase.js';
 
-const TestCase = goog.require('goog.testing.TestCase');
-const Thenable = goog.require('goog.Thenable');
-const asserts = goog.require('goog.asserts');
+import { Thenable } from '../../promise/thenable.js';
+import * as asserts from '../../asserts/asserts.js';
 
 
 /**
@@ -21,7 +20,7 @@ const asserts = goog.require('goog.asserts');
  *
  * This base class has no dependencies on mocking or goog.testing.asserts.
  */
-exports.EnvironmentBase = class EnvironmentBase {
+export let EnvironmentBase = class EnvironmentBase {
   constructor() {
     // Use the same EnvironmentTestCase instance across all EnvironmentBase
     // objects.
@@ -56,7 +55,7 @@ exports.EnvironmentBase = class EnvironmentBase {
    *     resolved before the next test case is executed.
    */
   tearDown() {}
-}
+};
 
 /**
  * @private {?EnvironmentTestCase}

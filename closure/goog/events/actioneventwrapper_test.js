@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.actionEventWrapperTest');
 goog.setTestOnly();
 
-const EventHandler = goog.require('goog.events.EventHandler');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Role = goog.require('goog.a11y.aria.Role');
-const actionEventWrapper = goog.require('goog.events.actionEventWrapper');
-const aria = goog.require('goog.a11y.aria');
-const googEvents = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { EventHandler } from './eventhandler.js';
+import { KeyCodes } from './keycodes.js';
+import { Role } from '../a11y/aria/roles.js';
+import { actionEventWrapper } from './actioneventwrapper.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as googEvents from './events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let a;
 let buttonEl;

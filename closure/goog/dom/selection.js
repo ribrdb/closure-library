@@ -12,10 +12,9 @@
  */
 
 
-goog.provide('goog.dom.selection');
+import { InputType } from './inputtype.js';
 
-goog.require('goog.dom.InputType');
-goog.require('goog.string');
+import * as string from '../string/string.js';
 
 
 /**
@@ -24,13 +23,12 @@ goog.require('goog.string');
  * @param {Element} textfield A textarea or text input.
  * @param {number} pos The position to set the start of the selection at.
  */
-goog.dom.selection.setStart = function(textfield, pos) {
-  'use strict';
-  if (goog.dom.selection.useSelectionProperties_(textfield)) {
+export function setStart(textfield, pos) {
+  if (useSelectionProperties_(textfield)) {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     textfield.selectionStart = pos;
   }
-};
+}
 
 
 /**
@@ -42,10 +40,9 @@ goog.dom.selection.setStart = function(textfield, pos) {
  *     reliably tell the difference between an element that has no selection and
  *     one where it starts at 0.
  */
-goog.dom.selection.getStart = function(textfield) {
-  'use strict';
-  return goog.dom.selection.getEndPoints_(textfield, true)[0];
-};
+export function getStart(textfield) {
+  return getEndPoints_(textfield, true)[0];
+}
 
 
 /**
@@ -67,9 +64,7 @@ goog.dom.selection.getStart = function(textfield) {
  *     -1 as end offset.
  * @private
  */
-goog.dom.selection.getEndPointsTextareaIe_ = function(
-    range, selRange, getOnlyStart) {
-  'use strict';
+function getEndPointsTextareaIe_(range, selRange, getOnlyStart) {
   // Create a duplicate of the selected range object to perform our actions
   // against. Example of selectionRange = "" (assuming that the cursor is
   // just after the \r\n combination)
@@ -145,7 +140,7 @@ goog.dom.selection.getEndPointsTextareaIe_ = function(
     untrimmedBeforeSelectionText.length,
     untrimmedBeforeSelectionText.length + untrimmedSelectionText.length
   ];
-};
+}
 
 
 /**
@@ -158,10 +153,9 @@ goog.dom.selection.getEndPointsTextareaIe_ = function(
  *     difference between an element that has no selection and one where
  *     it starts and ends at 0.
  */
-goog.dom.selection.getEndPoints = function(textfield) {
-  'use strict';
-  return goog.dom.selection.getEndPoints_(textfield, false);
-};
+export function getEndPoints(textfield) {
+  return getEndPoints_(textfield, false);
+}
 
 
 /**
@@ -180,17 +174,16 @@ goog.dom.selection.getEndPoints = function(textfield) {
  *     -1 as end offset.
  * @private
  */
-goog.dom.selection.getEndPoints_ = function(textfield, getOnlyStart) {
-  'use strict';
+function getEndPoints_(textfield, getOnlyStart) {
   textfield = /** @type {!HTMLInputElement|!HTMLTextAreaElement} */ (textfield);
   var startPos = 0;
   var endPos = 0;
-  if (goog.dom.selection.useSelectionProperties_(textfield)) {
+  if (useSelectionProperties_(textfield)) {
     startPos = textfield.selectionStart;
     endPos = getOnlyStart ? -1 : textfield.selectionEnd;
   }
   return [startPos, endPos];
-};
+}
 
 
 /**
@@ -199,13 +192,12 @@ goog.dom.selection.getEndPoints_ = function(textfield, getOnlyStart) {
  * @param {Element} textfield A textarea or text input.
  * @param {number} pos The position to end the selection at.
  */
-goog.dom.selection.setEnd = function(textfield, pos) {
-  'use strict';
-  if (goog.dom.selection.useSelectionProperties_(textfield)) {
+export function setEnd(textfield, pos) {
+  if (useSelectionProperties_(textfield)) {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     textfield.selectionEnd = pos;
   }
-};
+}
 
 
 /**
@@ -214,10 +206,9 @@ goog.dom.selection.setEnd = function(textfield, pos) {
  * @return {number} The position where the selection ends or 0 if it was
  *     unable to find the position or no selection exists.
  */
-goog.dom.selection.getEnd = function(textfield) {
-  'use strict';
-  return goog.dom.selection.getEndPoints_(textfield, false)[1];
-};
+export function getEnd(textfield) {
+  return getEndPoints_(textfield, false)[1];
+}
 
 
 /**
@@ -225,16 +216,15 @@ goog.dom.selection.getEnd = function(textfield) {
  * @param {Element} textfield A textarea or text input.
  * @param {number} pos The position within the text field.
  */
-goog.dom.selection.setCursorPosition = function(textfield, pos) {
-  'use strict';
-  if (goog.dom.selection.useSelectionProperties_(textfield)) {
+export function setCursorPosition(textfield, pos) {
+  if (useSelectionProperties_(textfield)) {
     // Mozilla directly supports this
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     textfield.selectionStart = pos;
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     textfield.selectionEnd = pos;
   }
-};
+}
 
 
 /**
@@ -242,10 +232,9 @@ goog.dom.selection.setCursorPosition = function(textfield, pos) {
  * @param {Element} textfield A textarea or text input.
  * @param {string} text The text to change the selection to.
  */
-goog.dom.selection.setText = function(textfield, text) {
-  'use strict';
+export function setText(textfield, text) {
   textfield = /** @type {!HTMLInputElement|!HTMLTextAreaElement} */ (textfield);
-  if (goog.dom.selection.useSelectionProperties_(textfield)) {
+  if (useSelectionProperties_(textfield)) {
     var value = textfield.value;
     var oldSelectionStart = textfield.selectionStart;
     var before = value.slice(0, oldSelectionStart);
@@ -256,7 +245,7 @@ goog.dom.selection.setText = function(textfield, text) {
   } else {
     throw new Error('Cannot set the selection end');
   }
-};
+}
 
 
 /**
@@ -264,16 +253,15 @@ goog.dom.selection.setText = function(textfield, text) {
  * @param {Element} textfield A textarea or text input.
  * @return {string} The selected text.
  */
-goog.dom.selection.getText = function(textfield) {
-  'use strict';
+export function getText(textfield) {
   textfield = /** @type {!HTMLInputElement|!HTMLTextAreaElement} */ (textfield);
-  if (goog.dom.selection.useSelectionProperties_(textfield)) {
+  if (useSelectionProperties_(textfield)) {
     var s = textfield.value;
     return s.substring(textfield.selectionStart, textfield.selectionEnd);
   }
 
   throw new Error('Cannot get the selection text');
-};
+}
 
 
 /**
@@ -285,8 +273,7 @@ goog.dom.selection.getText = function(textfield) {
  * @return {string} Selected text in the textarea.
  * @private
  */
-goog.dom.selection.getSelectionRangeText_ = function(selRange) {
-  'use strict';
+function getSelectionRangeText_(selRange) {
   // Create a duplicate of the selected range object to perform our actions
   // against. Suppose the text in the textarea is "Hello\r\nWorld" and the
   // selection encompasses the "o\r\n" bit, initial selectionRange will be "o"
@@ -324,7 +311,7 @@ goog.dom.selection.getSelectionRangeText_ = function(selRange) {
     }
   }
   return untrimmedSelectionText;
-};
+}
 
 
 /**
@@ -335,15 +322,14 @@ goog.dom.selection.getSelectionRangeText_ = function(selRange) {
  * @return {!Array<TextRange>} Range of object and selection range in two
  *     element array.
  */
-goog.dom.selection.getRangeIe_ = function(el) {
-  'use strict';
+function getRangeIe_(el) {
   var doc = el.ownerDocument || el.document;
 
   var selectionRange = doc.selection.createRange();
   // el.createTextRange() doesn't work on textareas
   var range;
 
-  if (/** @type {?} */ (el).type == goog.dom.InputType.TEXTAREA) {
+  if (/** @type {?} */ (el).type == InputType.TEXTAREA) {
     range = doc.body.createTextRange();
     range.moveToElementText(el);
   } else {
@@ -351,7 +337,7 @@ goog.dom.selection.getRangeIe_ = function(el) {
   }
 
   return [range, selectionRange];
-};
+}
 
 
 /**
@@ -364,17 +350,16 @@ goog.dom.selection.getRangeIe_ = function(el) {
  * @return {number} The canonicalized position that will work properly with
  *     move('character', pos).
  */
-goog.dom.selection.canonicalizePositionIe_ = function(textfield, pos) {
-  'use strict';
+function canonicalizePositionIe_(textfield, pos) {
   textfield = /** @type {!HTMLTextAreaElement} */ (textfield);
-  if (textfield.type == goog.dom.InputType.TEXTAREA) {
+  if (textfield.type == InputType.TEXTAREA) {
     // We do this only for textarea because it is the only one which can
     // have a \r\n (input cannot have this).
     var value = textfield.value.substring(0, pos);
-    pos = goog.string.canonicalizeNewlines(value).length;
+    pos = string.canonicalizeNewlines(value).length;
   }
   return pos;
-};
+}
 
 
 /**
@@ -386,8 +371,7 @@ goog.dom.selection.canonicalizePositionIe_ = function(textfield, pos) {
  *     selectionEnd properties on `el`.
  * @private
  */
-goog.dom.selection.useSelectionProperties_ = function(el) {
-  'use strict';
+function useSelectionProperties_(el) {
   try {
     return typeof el.selectionStart == 'number';
   } catch (e) {
@@ -395,4 +379,4 @@ goog.dom.selection.useSelectionProperties_ = function(el) {
     // on an element with display: none.
     return false;
   }
-};
+}

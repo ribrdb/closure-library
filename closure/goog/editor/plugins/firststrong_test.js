@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.FirstStrongTest');
 goog.setTestOnly();
 
-const Command = goog.require('goog.editor.Command');
-const Field = goog.require('goog.editor.Field');
-const FirstStrong = goog.require('goog.editor.plugins.FirstStrong');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockClock = goog.require('goog.testing.MockClock');
-const Range = goog.require('goog.dom.Range');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.testing.events');
-const range = goog.require('goog.editor.range');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const userAgent = goog.require('goog.userAgent');
+import { Command } from '../command.js';
+import { Field } from '../field.js';
+import { FirstStrong } from './firststrong.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { MockClock } from '../../testing/mockclock.js';
+import * as Range from '../../dom/range.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as events from '../../testing/events/events.js';
+import * as range from '../range.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testing from '../../html/testing.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 // The key code for the Hebrew א, a strongly RTL letter.
 const ALEPH_KEYCODE = 1488;

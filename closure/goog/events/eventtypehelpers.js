@@ -9,10 +9,9 @@
  */
 
 
-goog.provide('goog.events.eventTypeHelpers');
+import BrowserFeature from './browserfeature.js';
 
-goog.require('goog.events.BrowserFeature');
-goog.require('goog.userAgent');
+import * as userAgent from '../useragent/useragent.js';
 
 
 /**
@@ -21,10 +20,9 @@ goog.require('goog.userAgent');
  * @return {string} The prefixed event name.
  * @package
  */
-goog.events.eventTypeHelpers.getVendorPrefixedName = function(eventName) {
-  'use strict';
-  return goog.userAgent.WEBKIT ? 'webkit' + eventName : eventName.toLowerCase();
-};
+export function getVendorPrefixedName(eventName) {
+ return userAgent.WEBKIT ? 'webkit' + eventName : eventName.toLowerCase();
+}
 
 
 /**
@@ -39,14 +37,12 @@ goog.events.eventTypeHelpers.getVendorPrefixedName = function(eventName) {
  *     name.
  * @package
  */
-goog.events.eventTypeHelpers.getPointerFallbackEventName = function(
-    pointerEventName, msPointerEventName, fallbackEventName) {
-  'use strict';
-  if (goog.events.BrowserFeature.POINTER_EVENTS) {
-    return pointerEventName;
-  }
-  if (goog.events.BrowserFeature.MSPOINTER_EVENTS) {
-    return msPointerEventName;
-  }
-  return fallbackEventName;
-};
+export function getPointerFallbackEventName(pointerEventName, msPointerEventName, fallbackEventName) {
+ if (BrowserFeature.POINTER_EVENTS) {
+   return pointerEventName;
+ }
+ if (BrowserFeature.MSPOINTER_EVENTS) {
+   return msPointerEventName;
+ }
+ return fallbackEventName;
+}

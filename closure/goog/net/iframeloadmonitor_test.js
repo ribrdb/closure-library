@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.IframeLoadMonitorTest');
 goog.setTestOnly('goog.net.IframeLoadMonitorTest');
 
-const IframeLoadMonitor = goog.require('goog.net.IframeLoadMonitor');
-const Promise = goog.require('goog.Promise');
-const TagName = goog.require('goog.dom.TagName');
-const Timer = goog.require('goog.Timer');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { IframeLoadMonitor } from './iframeloadmonitor.js';
+import { Promise } from '../promise/promise.js';
+import { TagName } from '../dom/tagname.js';
+import { Timer } from '../timer/timer.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 const TEST_FRAME_SRC = 'iframeloadmonitor_test_frame.html';

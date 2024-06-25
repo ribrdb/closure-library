@@ -12,15 +12,14 @@
  * GoogEventTarget.
  */
 
-goog.module('goog.events.ListenerMapTest');
 goog.setTestOnly();
 
-const EventId = goog.require('goog.events.EventId');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const ListenerMap = goog.require('goog.events.ListenerMap');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventId } from './eventid.js';
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import { ListenerMap } from './listenermap.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from './events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let et;
 let map;

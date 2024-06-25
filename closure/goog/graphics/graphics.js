@@ -16,17 +16,16 @@
  */
 
 
-goog.provide('goog.graphics');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.graphics.CanvasGraphics');
-goog.require('goog.graphics.SvgGraphics');
-goog.require('goog.userAgent');
-goog.requireType('goog.graphics.AbstractGraphics');
+import { CanvasGraphics } from './canvasgraphics.js';
+import { SvgGraphics } from './svggraphics.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.graphics.abstractgraphics');
 
 
 /**
- * Returns an instance of goog.graphics.AbstractGraphics that knows how to draw
+ * Returns an instance of AbstractGraphics that knows how to draw
  * for the current platform (A factory for the proper Graphics implementation)
  * @param {string|number} width The width in pixels.  Strings
  *     expressing percentages of parent with (e.g. '80%') are also accepted.
@@ -36,35 +35,33 @@ goog.requireType('goog.graphics.AbstractGraphics');
  *     omitted or null, defaults to same as width.
  * @param {?number=} opt_coordHeight The optional coordinate height - if
  *     omitted or null, defaults to same as height.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
- * @return {!goog.graphics.AbstractGraphics} The created instance.
+ * @return {!AbstractGraphics} The created instance.
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.createGraphics = function(
-    width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) {
-  'use strict';
-  var graphics;
-  if (goog.userAgent.WEBKIT && goog.userAgent.MOBILE) {
-    graphics = new goog.graphics.CanvasGraphics(
-        width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
-  } else {
-    graphics = new goog.graphics.SvgGraphics(
-        width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
-  }
+export function createGraphics(width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) {
+ var graphics;
+ if (userAgent.WEBKIT && userAgent.MOBILE) {
+   graphics = new CanvasGraphics(
+       width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
+ } else {
+   graphics = new SvgGraphics(
+       width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
+ }
 
-  // Create the dom now, because all drawing methods require that the
-  // main dom element (the canvas) has been already created.
-  graphics.createDom();
+ // Create the dom now, because all drawing methods require that the
+ // main dom element (the canvas) has been already created.
+ graphics.createDom();
 
-  return graphics;
-};
+ return graphics;
+}
 
 
 /**
- * Returns an instance of goog.graphics.AbstractGraphics that knows how to draw
+ * Returns an instance of AbstractGraphics that knows how to draw
  * for the current platform (A factory for the proper Graphics implementation)
  * @param {string|number} width The width in pixels.  Strings
  *     expressing percentages of parent with (e.g. '80%') are also accepted.
@@ -74,20 +71,18 @@ goog.graphics.createGraphics = function(
  *     same as width.
  * @param {?number=} opt_coordHeight The optional coordinate height, defaults to
  *     same as height.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {dom.DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
- * @return {!goog.graphics.AbstractGraphics} The created instance.
+ * @return {!AbstractGraphics} The created instance.
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.createSimpleGraphics = function(
-    width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) {
-  'use strict';
-  // Otherwise, defer to normal graphics object creation.
-  return goog.graphics.createGraphics(
-      width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
-};
+export function createSimpleGraphics(width, height, opt_coordWidth, opt_coordHeight, opt_domHelper) {
+ // Otherwise, defer to normal graphics object creation.
+ return createGraphics(
+     width, height, opt_coordWidth, opt_coordHeight, opt_domHelper);
+}
 
 
 /**
@@ -97,7 +92,6 @@ goog.graphics.createSimpleGraphics = function(
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.isBrowserSupported = function() {
-  'use strict';
-  return true;
-};
+export function isBrowserSupported() {
+ return true;
+}

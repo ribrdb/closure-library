@@ -4,23 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.editor.BubbleTest');
 goog.setTestOnly();
 
-const Bubble = goog.require('goog.ui.editor.Bubble');
-const Component = goog.require('goog.ui.Component');
-const Corner = goog.require('goog.positioning.Corner');
-const EventType = goog.require('goog.events.EventType');
-const OverflowStatus = goog.require('goog.positioning.OverflowStatus');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googString = goog.require('goog.string');
-const product = goog.require('goog.userAgent.product');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Bubble } from './bubble.js';
+import { Component } from '../component.js';
+import { Corner, OverflowStatus } from '../../positioning/positioning.js';
+import { EventType } from '../../events/eventtype.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../events/events.js';
+import * as googString from '../../string/string.js';
+import * as product from '../../useragent/product.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingEvents from '../../testing/events/events.js';
 
 let testHelper;
 let fieldDiv;

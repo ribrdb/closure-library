@@ -4,34 +4,43 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.date.relativeCommonTests');
 goog.setTestOnly('goog.date.relativeCommonTests');
 
-const DateTime = goog.require('goog.date.DateTime');
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-const DateTimePatterns_ar = goog.require('goog.i18n.DateTimePatterns_ar');
-const DateTimePatterns_bn = goog.require('goog.i18n.DateTimePatterns_bn');
-const DateTimePatterns_es = goog.require('goog.i18n.DateTimePatterns_es');
-const DateTimePatterns_fa = goog.require('goog.i18n.DateTimePatterns_fa');
-const DateTimePatterns_fr = goog.require('goog.i18n.DateTimePatterns_fr');
-const DateTimePatterns_no = goog.require('goog.i18n.DateTimePatterns_no');
-const DateTimeSymbols_ar = goog.require('goog.i18n.DateTimeSymbols_ar');
-const DateTimeSymbols_bn = goog.require('goog.i18n.DateTimeSymbols_bn');
-const DateTimeSymbols_es = goog.require('goog.i18n.DateTimeSymbols_es');
-const DateTimeSymbols_fa = goog.require('goog.i18n.DateTimeSymbols_fa');
-const DateTimeSymbols_fr = goog.require('goog.i18n.DateTimeSymbols_fr');
-const DateTimeSymbols_no = goog.require('goog.i18n.DateTimeSymbols_no');
+import { DateTime } from './date.js';
+import { DateTimeFormat } from '../i18n/datetimeformat.js';
+
+import {
+    DateTimePatterns_ar,
+    DateTimePatterns_bn,
+    DateTimePatterns_es,
+    DateTimePatterns_fa,
+    DateTimePatterns_fr,
+    DateTimePatterns_no,
+} from '../i18n/datetimepatterns.js';
+
+import {
+    DateTimeSymbols_ar,
+    DateTimeSymbols_bn,
+    DateTimeSymbols_es,
+    DateTimeSymbols_fa,
+    DateTimeSymbols_fr,
+    DateTimeSymbols_no,
+} from '../i18n/datetimesymbols.js';
+
 /** @suppress {extraRequire} */
-const NumberFormatSymbols = goog.require('goog.i18n.NumberFormatSymbols');
-const NumberFormatSymbols_bn = goog.require('goog.i18n.NumberFormatSymbols_bn');
-const NumberFormatSymbols_en = goog.require('goog.i18n.NumberFormatSymbols_en');
-const NumberFormatSymbols_fa = goog.require('goog.i18n.NumberFormatSymbols_fa');
-const NumberFormatSymbols_no = goog.require('goog.i18n.NumberFormatSymbols_no');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const relative = goog.require('goog.date.relative');
-const relativeDateTimeSymbols = goog.require('goog.i18n.relativeDateTimeSymbols');
-const testSuite = goog.require('goog.testing.testSuite');
-const {assertI18nEquals} = goog.require('goog.testing.i18n.asserts');
+import {
+    NumberFormatSymbols,
+    NumberFormatSymbols_bn,
+    NumberFormatSymbols_en,
+    NumberFormatSymbols_fa,
+    NumberFormatSymbols_no,
+} from '../i18n/numberformatsymbols.js';
+
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as relative from './relative.js';
+import * as relativeDateTimeSymbols from '../i18n/relativedatetimesymbols.js';
+import { testSuite } from '../testing/testsuite.js';
+import { assertI18nEquals } from '../testing/i18n/asserts.js';
 
 // Testing stubs that autoreset after each test run.
 /** @type {!PropertyReplacer} */

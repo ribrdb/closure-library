@@ -8,27 +8,25 @@
  * @fileoverview Definition of the browser range namespace and interface, as
  * well as several useful utility functions.
  *
- * DO NOT USE THIS FILE DIRECTLY.  Use goog.dom.Range instead.
+ * DO NOT USE THIS FILE DIRECTLY.  Use dom.Range instead.
  */
 
 
-goog.provide('goog.dom.browserrange');
-goog.provide('goog.dom.browserrange.Error');
+import * as dom from '../dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.browserrange.GeckoRange');
-goog.require('goog.dom.browserrange.W3cRange');
-goog.require('goog.dom.browserrange.WebKitRange');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.browserrange.AbstractRange');
+import { NodeType } from '../nodetype.js';
+import { GeckoRange } from './geckorange.js';
+import { W3cRange } from './w3crange.js';
+import { WebKitRange } from './webkitrange.js';
+import * as userAgent from '../../useragent/useragent.js';
+goog.requireType('goog.dom.browserrange.abstractrange');
 
 
 /**
  * Common error constants.
  * @enum {string}
  */
-goog.dom.browserrange.Error = {
+export var Error = {
   NOT_IMPLEMENTED: 'Not Implemented'
 };
 
@@ -41,40 +39,35 @@ goog.dom.browserrange.Error = {
 /**
  * Static method that returns the proper type of browser range.
  * @param {Range|TextRange} range A browser range object.
- * @return {!goog.dom.browserrange.AbstractRange} A wrapper object.
+ * @return {!AbstractRange} A wrapper object.
  */
-goog.dom.browserrange.createRange = function(range) {
-  'use strict';
-  if (goog.userAgent.WEBKIT) {
-    return new goog.dom.browserrange.WebKitRange(
-        /** @type {Range} */ (range));
-  } else if (goog.userAgent.GECKO) {
-    return new goog.dom.browserrange.GeckoRange(
-        /** @type {Range} */ (range));
+export function createRange(range) {
+  if (userAgent.WEBKIT) {
+    return new WebKitRange( (range));
+  } else if (userAgent.GECKO) {
+    return new GeckoRange( (range));
   } else {
     // Default other browsers, including Opera, to W3c ranges.
-    return new goog.dom.browserrange.W3cRange(
-        /** @type {Range} */ (range));
+    return new W3cRange( (range));
   }
-};
+}
 
 
 /**
  * Static method that returns the proper type of browser range.
  * @param {Node} node The node to select.
- * @return {!goog.dom.browserrange.AbstractRange} A wrapper object.
+ * @return {!AbstractRange} A wrapper object.
  */
-goog.dom.browserrange.createRangeFromNodeContents = function(node) {
-  'use strict';
-  if (goog.userAgent.WEBKIT) {
-    return goog.dom.browserrange.WebKitRange.createFromNodeContents(node);
-  } else if (goog.userAgent.GECKO) {
-    return goog.dom.browserrange.GeckoRange.createFromNodeContents(node);
+export function createRangeFromNodeContents(node) {
+  if (userAgent.WEBKIT) {
+    return WebKitRange.createFromNodeContents(node);
+  } else if (userAgent.GECKO) {
+    return GeckoRange.createFromNodeContents(node);
   } else {
     // Default other browsers to W3c ranges.
-    return goog.dom.browserrange.W3cRange.createFromNodeContents(node);
+    return W3cRange.createFromNodeContents(node);
   }
-};
+}
 
 
 /**
@@ -87,23 +80,21 @@ goog.dom.browserrange.createRangeFromNodeContents = function(node) {
  * @param {number} endOffset The offset within the node to end.  This is
  *     either the index into the childNodes array for element endNodes or
  *     the index into the character array for text endNodes.
- * @return {!goog.dom.browserrange.AbstractRange} A wrapper object.
+ * @return {!AbstractRange} A wrapper object.
  */
-goog.dom.browserrange.createRangeFromNodes = function(
-    startNode, startOffset, endNode, endOffset) {
-  'use strict';
-  if (goog.userAgent.WEBKIT) {
-    return goog.dom.browserrange.WebKitRange.createFromNodes(
+export function createRangeFromNodes(startNode, startOffset, endNode, endOffset) {
+  if (userAgent.WEBKIT) {
+    return WebKitRange.createFromNodes(
         startNode, startOffset, endNode, endOffset);
-  } else if (goog.userAgent.GECKO) {
-    return goog.dom.browserrange.GeckoRange.createFromNodes(
+  } else if (userAgent.GECKO) {
+    return GeckoRange.createFromNodes(
         startNode, startOffset, endNode, endOffset);
   } else {
     // Default other browsers to W3c ranges.
-    return goog.dom.browserrange.W3cRange.createFromNodes(
+    return W3cRange.createFromNodes(
         startNode, startOffset, endNode, endOffset);
   }
-};
+}
 
 
 /**
@@ -111,12 +102,11 @@ goog.dom.browserrange.createRangeFromNodes = function(
  * @param {Node} node The node to check.
  * @return {boolean} Whether the given node can contain a range end point.
  */
-goog.dom.browserrange.canContainRangeEndpoint = function(node) {
-  'use strict';
+export function canContainRangeEndpoint(node) {
   // NOTE(user): This is not complete, as divs with style -
   // 'display:inline-block' or 'position:absolute' can also not contain range
   // endpoints. A more complete check is to see if that element can be partially
   // selected (can be container) or not.
-  return goog.dom.canHaveChildren(node) ||
-      node.nodeType == goog.dom.NodeType.TEXT;
-};
+  return dom.canHaveChildren(node) ||
+      node.nodeType == NodeType.TEXT;
+}

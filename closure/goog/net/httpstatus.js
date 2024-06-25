@@ -8,18 +8,7 @@
  * @fileoverview Constants for HTTP status codes.
  */
 
-goog.provide('goog.net.HttpStatus');
-
-
-/**
- * HTTP Status Codes defined in RFC 2616, RFC 6585, RFC 4918 and RFC 7538.
- * @see http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
- * @see http://tools.ietf.org/html/rfc6585
- * @see https://tools.ietf.org/html/rfc4918
- * @see https://tools.ietf.org/html/rfc7538
- * @enum {number}
- */
-goog.net.HttpStatus = {
+HttpStatus = {
   // Informational 1xx
   CONTINUE: 100,
   SWITCHING_PROTOCOLS: 101,
@@ -100,19 +89,19 @@ goog.net.HttpStatus = {
  * @param {number} status The status code to test.
  * @return {boolean} Whether the status code should be considered successful.
  */
-goog.net.HttpStatus.isSuccess = function(status) {
-  'use strict';
-  switch (status) {
-    case goog.net.HttpStatus.OK:
-    case goog.net.HttpStatus.CREATED:
-    case goog.net.HttpStatus.ACCEPTED:
-    case goog.net.HttpStatus.NO_CONTENT:
-    case goog.net.HttpStatus.PARTIAL_CONTENT:
-    case goog.net.HttpStatus.NOT_MODIFIED:
-    case goog.net.HttpStatus.QUIRK_IE_NO_CONTENT:
-      return true;
+HttpStatus.isSuccess = function(status) {
+ switch (status) {
+   case HttpStatus.OK:
+   case HttpStatus.CREATED:
+   case HttpStatus.ACCEPTED:
+   case HttpStatus.NO_CONTENT:
+   case HttpStatus.PARTIAL_CONTENT:
+   case HttpStatus.NOT_MODIFIED:
+   case HttpStatus.QUIRK_IE_NO_CONTENT:
+     return true;
 
-    default:
-      return false;
-  }
+   default:
+     return false;
+ }
 };
+export var HttpStatus;

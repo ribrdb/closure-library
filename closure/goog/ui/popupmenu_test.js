@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PopupMenuTest');
 goog.setTestOnly();
 
-const Box = goog.require('goog.math.Box');
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Coordinate = goog.require('goog.math.Coordinate');
-const Corner = goog.require('goog.positioning.Corner');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.events.EventType');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Menu = goog.require('goog.ui.Menu');
-const MenuItem = goog.require('goog.ui.MenuItem');
-const PopupMenu = goog.require('goog.ui.PopupMenu');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Box } from '../math/box.js';
+import { BrowserEvent } from '../events/browserevent.js';
+import { Coordinate } from '../math/coordinate.js';
+import { Corner } from '../positioning/positioning.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { Menu } from './menu.js';
+import { MenuItem } from './menuitem.js';
+import { PopupMenu } from './popupmenu.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let anchor;
 let menu;

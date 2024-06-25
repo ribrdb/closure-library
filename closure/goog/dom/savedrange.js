@@ -9,12 +9,11 @@
  */
 
 
-goog.provide('goog.dom.AbstractSavedCaretRange');
-goog.provide('goog.dom.SavedRange');
+goog.declareModuleId('goog.dom.savedrange');
 
-goog.require('goog.Disposable');
-goog.require('goog.log');
-goog.requireType('goog.dom.AbstractRange');
+import { Disposable } from '../disposable/disposable.js';
+import * as log from '../log/log.js';
+goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -22,22 +21,21 @@ goog.requireType('goog.dom.AbstractRange');
  * Abstract interface for a saved range.
  * // TODO(user): rename to AbstractSavedRange?
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @abstract
  */
-goog.dom.SavedRange = function() {
-  'use strict';
-  goog.Disposable.call(this);
-};
-goog.inherits(goog.dom.SavedRange, goog.Disposable);
+export function SavedRange() {
+ Disposable.call(this);
+}
+goog.inherits(SavedRange, Disposable);
 
 
 /**
  * Logging object.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.dom.SavedRange.logger_ = goog.log.getLogger('goog.dom.SavedRange');
+SavedRange.logger_ = log.getLogger('goog.dom.SavedRange');
 
 
 /**
@@ -47,19 +45,18 @@ goog.dom.SavedRange.logger_ = goog.log.getLogger('goog.dom.SavedRange');
  *     (not be disposed) after restoring the range. Defaults to false (dispose).
  * @return {goog.dom.AbstractRange} The restored range.
  */
-goog.dom.SavedRange.prototype.restore = function(opt_stayAlive) {
-  'use strict';
-  if (this.isDisposed()) {
-    goog.log.error(
-        goog.dom.SavedRange.logger_,
-        'Disposed SavedRange objects cannot be restored.');
-  }
+SavedRange.prototype.restore = function(opt_stayAlive) {
+ if (this.isDisposed()) {
+   log.error(
+       SavedRange.logger_,
+       'Disposed SavedRange objects cannot be restored.');
+ }
 
-  var range = this.restoreInternal();
-  if (!opt_stayAlive) {
-    this.dispose();
-  }
-  return range;
+ var range = this.restoreInternal();
+ if (!opt_stayAlive) {
+   this.dispose();
+ }
+ return range;
 };
 
 /**
@@ -67,26 +64,25 @@ goog.dom.SavedRange.prototype.restore = function(opt_stayAlive) {
  * @return {goog.dom.AbstractRange} The restored range.
  * @protected
  */
-goog.dom.SavedRange.prototype.restoreInternal = goog.abstractMethod;
+SavedRange.prototype.restoreInternal = goog.abstractMethod;
 
 /**
  * Abstract interface for a range saved using carets.
  * @constructor
- * @extends {goog.dom.SavedRange}
+ * @extends {SavedRange}
  * @abstract
  */
-goog.dom.AbstractSavedCaretRange = function() {
-  'use strict';
-  goog.dom.SavedRange.call(this);
-};
-goog.inherits(goog.dom.AbstractSavedCaretRange, goog.dom.SavedRange);
+export function AbstractSavedCaretRange() {
+ SavedRange.call(this);
+}
+goog.inherits(AbstractSavedCaretRange, SavedRange);
 
 /**
  * Gets the range that this SavedCaretRage represents, without selecting it
  * or removing the carets from the DOM.
  * @return {goog.dom.AbstractRange?} An abstract range.
  */
-goog.dom.AbstractSavedCaretRange.prototype.toAbstractRange =
+AbstractSavedCaretRange.prototype.toAbstractRange =
     goog.abstractMethod;
 
 /**
@@ -96,7 +92,7 @@ goog.dom.AbstractSavedCaretRange.prototype.toAbstractRange =
  * @return {?Element} The start or end caret in the given document.
  * @abstract
  */
-goog.dom.AbstractSavedCaretRange.prototype.getCaret = function(start) {};
+AbstractSavedCaretRange.prototype.getCaret = function(start) {};
 
 /**
  * Removes the carets from the current restoration document.
@@ -108,7 +104,7 @@ goog.dom.AbstractSavedCaretRange.prototype.getCaret = function(start) {};
  *     was provided.
  * @abstract
  */
-goog.dom.AbstractSavedCaretRange.prototype.removeCarets = function(
+AbstractSavedCaretRange.prototype.removeCarets = function(
     opt_range) {};
 
 
@@ -117,5 +113,5 @@ goog.dom.AbstractSavedCaretRange.prototype.removeCarets = function(
  * @param {!Document} doc An HTML document.
  * @abstract
  */
-goog.dom.AbstractSavedCaretRange.prototype.setRestorationDocument = function(
+AbstractSavedCaretRange.prototype.setRestorationDocument = function(
     doc) {};

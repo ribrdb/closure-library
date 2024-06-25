@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ac.AutoCompleteTest');
 goog.setTestOnly();
 
-const AutoComplete = goog.require('goog.ui.ac.AutoComplete');
-const EventHandler = goog.require('goog.events.EventHandler');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const InputHandler = goog.require('goog.ui.ac.InputHandler');
-const InputType = goog.require('goog.dom.InputType');
-const MockControl = goog.require('goog.testing.MockControl');
-const RenderOptions = goog.require('goog.ui.ac.RenderOptions');
-const Renderer = goog.require('goog.ui.ac.Renderer');
-const Role = goog.require('goog.a11y.aria.Role');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const googString = goog.require('goog.string');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AutoComplete } from './autocomplete.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { EventTarget as GoogEventTarget } from '../../events/eventtarget.js';
+import { InputHandler } from './inputhandler.js';
+import { InputType } from '../../dom/inputtype.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { RenderOptions } from './renderoptions.js';
+import { Renderer } from './renderer.js';
+import { Role } from '../../a11y/aria/roles.js';
+import { TagName } from '../../dom/tagname.js';
+import * as aria from '../../a11y/aria/aria.js';
+import * as dom from '../../dom/dom.js';
+import * as events from '../../testing/events/events.js';
+import * as googString from '../../string/string.js';
+import * as mockmatchers from '../../testing/mockmatchers.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 /** Mock DataStore */
 class MockDS {

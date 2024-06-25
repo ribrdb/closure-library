@@ -21,125 +21,13 @@
 
 // clang-format off
 
-goog.provide('goog.i18n.DateTimeSymbols');
-goog.provide('goog.i18n.DateTimeSymbolsType');
-goog.provide('goog.i18n.DateTimeSymbols_af');
-goog.provide('goog.i18n.DateTimeSymbols_am');
-goog.provide('goog.i18n.DateTimeSymbols_ar');
-goog.provide('goog.i18n.DateTimeSymbols_ar_DZ');
-goog.provide('goog.i18n.DateTimeSymbols_ar_EG');
-goog.provide('goog.i18n.DateTimeSymbols_az');
-goog.provide('goog.i18n.DateTimeSymbols_be');
-goog.provide('goog.i18n.DateTimeSymbols_bg');
-goog.provide('goog.i18n.DateTimeSymbols_bn');
-goog.provide('goog.i18n.DateTimeSymbols_br');
-goog.provide('goog.i18n.DateTimeSymbols_bs');
-goog.provide('goog.i18n.DateTimeSymbols_ca');
-goog.provide('goog.i18n.DateTimeSymbols_chr');
-goog.provide('goog.i18n.DateTimeSymbols_cs');
-goog.provide('goog.i18n.DateTimeSymbols_cy');
-goog.provide('goog.i18n.DateTimeSymbols_da');
-goog.provide('goog.i18n.DateTimeSymbols_de');
-goog.provide('goog.i18n.DateTimeSymbols_de_AT');
-goog.provide('goog.i18n.DateTimeSymbols_de_CH');
-goog.provide('goog.i18n.DateTimeSymbols_el');
-goog.provide('goog.i18n.DateTimeSymbols_en');
-goog.provide('goog.i18n.DateTimeSymbols_en_AU');
-goog.provide('goog.i18n.DateTimeSymbols_en_CA');
-goog.provide('goog.i18n.DateTimeSymbols_en_GB');
-goog.provide('goog.i18n.DateTimeSymbols_en_IE');
-goog.provide('goog.i18n.DateTimeSymbols_en_IN');
-goog.provide('goog.i18n.DateTimeSymbols_en_ISO');
-goog.provide('goog.i18n.DateTimeSymbols_en_SG');
-goog.provide('goog.i18n.DateTimeSymbols_en_US');
-goog.provide('goog.i18n.DateTimeSymbols_en_ZA');
-goog.provide('goog.i18n.DateTimeSymbols_es');
-goog.provide('goog.i18n.DateTimeSymbols_es_419');
-goog.provide('goog.i18n.DateTimeSymbols_es_ES');
-goog.provide('goog.i18n.DateTimeSymbols_es_MX');
-goog.provide('goog.i18n.DateTimeSymbols_es_US');
-goog.provide('goog.i18n.DateTimeSymbols_et');
-goog.provide('goog.i18n.DateTimeSymbols_eu');
-goog.provide('goog.i18n.DateTimeSymbols_fa');
-goog.provide('goog.i18n.DateTimeSymbols_fi');
-goog.provide('goog.i18n.DateTimeSymbols_fil');
-goog.provide('goog.i18n.DateTimeSymbols_fr');
-goog.provide('goog.i18n.DateTimeSymbols_fr_CA');
-goog.provide('goog.i18n.DateTimeSymbols_ga');
-goog.provide('goog.i18n.DateTimeSymbols_gl');
-goog.provide('goog.i18n.DateTimeSymbols_gsw');
-goog.provide('goog.i18n.DateTimeSymbols_gu');
-goog.provide('goog.i18n.DateTimeSymbols_haw');
-goog.provide('goog.i18n.DateTimeSymbols_he');
-goog.provide('goog.i18n.DateTimeSymbols_hi');
-goog.provide('goog.i18n.DateTimeSymbols_hr');
-goog.provide('goog.i18n.DateTimeSymbols_hu');
-goog.provide('goog.i18n.DateTimeSymbols_hy');
-goog.provide('goog.i18n.DateTimeSymbols_id');
-goog.provide('goog.i18n.DateTimeSymbols_in');
-goog.provide('goog.i18n.DateTimeSymbols_is');
-goog.provide('goog.i18n.DateTimeSymbols_it');
-goog.provide('goog.i18n.DateTimeSymbols_iw');
-goog.provide('goog.i18n.DateTimeSymbols_ja');
-goog.provide('goog.i18n.DateTimeSymbols_ka');
-goog.provide('goog.i18n.DateTimeSymbols_kk');
-goog.provide('goog.i18n.DateTimeSymbols_km');
-goog.provide('goog.i18n.DateTimeSymbols_kn');
-goog.provide('goog.i18n.DateTimeSymbols_ko');
-goog.provide('goog.i18n.DateTimeSymbols_ky');
-goog.provide('goog.i18n.DateTimeSymbols_ln');
-goog.provide('goog.i18n.DateTimeSymbols_lo');
-goog.provide('goog.i18n.DateTimeSymbols_lt');
-goog.provide('goog.i18n.DateTimeSymbols_lv');
-goog.provide('goog.i18n.DateTimeSymbols_mk');
-goog.provide('goog.i18n.DateTimeSymbols_ml');
-goog.provide('goog.i18n.DateTimeSymbols_mn');
-goog.provide('goog.i18n.DateTimeSymbols_mo');
-goog.provide('goog.i18n.DateTimeSymbols_mr');
-goog.provide('goog.i18n.DateTimeSymbols_ms');
-goog.provide('goog.i18n.DateTimeSymbols_mt');
-goog.provide('goog.i18n.DateTimeSymbols_my');
-goog.provide('goog.i18n.DateTimeSymbols_nb');
-goog.provide('goog.i18n.DateTimeSymbols_ne');
-goog.provide('goog.i18n.DateTimeSymbols_nl');
-goog.provide('goog.i18n.DateTimeSymbols_no');
-goog.provide('goog.i18n.DateTimeSymbols_no_NO');
-goog.provide('goog.i18n.DateTimeSymbols_or');
-goog.provide('goog.i18n.DateTimeSymbols_pa');
-goog.provide('goog.i18n.DateTimeSymbols_pl');
-goog.provide('goog.i18n.DateTimeSymbols_pt');
-goog.provide('goog.i18n.DateTimeSymbols_pt_BR');
-goog.provide('goog.i18n.DateTimeSymbols_pt_PT');
-goog.provide('goog.i18n.DateTimeSymbols_ro');
-goog.provide('goog.i18n.DateTimeSymbols_ru');
-goog.provide('goog.i18n.DateTimeSymbols_sh');
-goog.provide('goog.i18n.DateTimeSymbols_si');
-goog.provide('goog.i18n.DateTimeSymbols_sk');
-goog.provide('goog.i18n.DateTimeSymbols_sl');
-goog.provide('goog.i18n.DateTimeSymbols_sq');
-goog.provide('goog.i18n.DateTimeSymbols_sr');
-goog.provide('goog.i18n.DateTimeSymbols_sr_Latn');
-goog.provide('goog.i18n.DateTimeSymbols_sv');
-goog.provide('goog.i18n.DateTimeSymbols_sw');
-goog.provide('goog.i18n.DateTimeSymbols_ta');
-goog.provide('goog.i18n.DateTimeSymbols_te');
-goog.provide('goog.i18n.DateTimeSymbols_th');
-goog.provide('goog.i18n.DateTimeSymbols_tl');
-goog.provide('goog.i18n.DateTimeSymbols_tr');
-goog.provide('goog.i18n.DateTimeSymbols_uk');
-goog.provide('goog.i18n.DateTimeSymbols_ur');
-goog.provide('goog.i18n.DateTimeSymbols_uz');
-goog.provide('goog.i18n.DateTimeSymbols_vi');
-goog.provide('goog.i18n.DateTimeSymbols_zh');
-goog.provide('goog.i18n.DateTimeSymbols_zh_CN');
-goog.provide('goog.i18n.DateTimeSymbols_zh_HK');
-goog.provide('goog.i18n.DateTimeSymbols_zh_TW');
-goog.provide('goog.i18n.DateTimeSymbols_zu');
+goog.declareModuleId('goog.i18n.datetimesymbols');
+
 /**
  * Date/time formatting symbols for locale en_ISO.
- * @const {!goog.i18n.DateTimeSymbolsType}
+ * @const {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_ISO = {
+export var DateTimeSymbols_en_ISO = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -169,9 +57,9 @@ goog.i18n.DateTimeSymbols_en_ISO = {
 /**
  * Date/time formatting symbols for locale af.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_af = {
+export var DateTimeSymbols_af = {
   ERAS: ['v.C.', 'n.C.'],
   ERANAMES: ['voor Christus', 'na Christus'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -201,9 +89,9 @@ goog.i18n.DateTimeSymbols_af = {
 /**
  * Date/time formatting symbols for locale am.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_am = {
+export var DateTimeSymbols_am = {
   ERAS: ['ዓ/ዓ', 'ዓ/ም'],
   ERANAMES: ['ዓመተ ዓለም', 'ዓመተ ምሕረት'],
   NARROWMONTHS: ['ጃ', 'ፌ', 'ማ', 'ኤ', 'ሜ', 'ጁ', 'ጁ', 'ኦ', 'ሴ', 'ኦ', 'ኖ', 'ዲ'],
@@ -233,9 +121,9 @@ goog.i18n.DateTimeSymbols_am = {
 /**
  * Date/time formatting symbols for locale ar.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ar = {
+export var DateTimeSymbols_ar = {
   ERAS: ['ق.م', 'م'],
   ERANAMES: ['قبل الميلاد', 'ميلادي'],
   NARROWMONTHS: ['ي', 'ف', 'م', 'أ', 'و', 'ن', 'ل', 'غ', 'س', 'ك', 'ب', 'د'],
@@ -265,9 +153,9 @@ goog.i18n.DateTimeSymbols_ar = {
 /**
  * Date/time formatting symbols for locale ar_DZ.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ar_DZ = {
+export var DateTimeSymbols_ar_DZ = {
   ERAS: ['ق.م', 'م'],
   ERANAMES: ['قبل الميلاد', 'ميلادي'],
   NARROWMONTHS: ['ج', 'ف', 'م', 'أ', 'م', 'ج', 'ج', 'أ', 'س', 'أ', 'ن', 'د'],
@@ -297,9 +185,9 @@ goog.i18n.DateTimeSymbols_ar_DZ = {
 /**
  * Date/time formatting symbols for locale ar_EG.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ar_EG = {
+export var DateTimeSymbols_ar_EG = {
   ZERODIGIT: 0x0660,
   ERAS: ['ق.م', 'م'],
   ERANAMES: ['قبل الميلاد', 'ميلادي'],
@@ -330,9 +218,9 @@ goog.i18n.DateTimeSymbols_ar_EG = {
 /**
  * Date/time formatting symbols for locale az.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_az = {
+export var DateTimeSymbols_az = {
   ERAS: ['e.ə.', 'y.e.'],
   ERANAMES: ['eramızdan əvvəl', 'yeni era'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -362,9 +250,9 @@ goog.i18n.DateTimeSymbols_az = {
 /**
  * Date/time formatting symbols for locale be.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_be = {
+export var DateTimeSymbols_be = {
   ERAS: ['да н.э.', 'н.э.'],
   ERANAMES: ['да нараджэння Хрыстова', 'ад нараджэння Хрыстова'],
   NARROWMONTHS: ['с', 'л', 'с', 'к', 'м', 'ч', 'л', 'ж', 'в', 'к', 'л', 'с'],
@@ -394,9 +282,9 @@ goog.i18n.DateTimeSymbols_be = {
 /**
  * Date/time formatting symbols for locale bg.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_bg = {
+export var DateTimeSymbols_bg = {
   ERAS: ['пр.Хр.', 'сл.Хр.'],
   ERANAMES: ['преди Христа', 'след Христа'],
   NARROWMONTHS: ['я', 'ф', 'м', 'а', 'м', 'ю', 'ю', 'а', 'с', 'о', 'н', 'д'],
@@ -426,9 +314,9 @@ goog.i18n.DateTimeSymbols_bg = {
 /**
  * Date/time formatting symbols for locale bn.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_bn = {
+export var DateTimeSymbols_bn = {
   ZERODIGIT: 0x09E6,
   ERAS: ['খ্রিস্টপূর্ব', 'খৃষ্টাব্দ'],
   ERANAMES: ['খ্রিস্টপূর্ব', 'খ্রীষ্টাব্দ'],
@@ -459,9 +347,9 @@ goog.i18n.DateTimeSymbols_bn = {
 /**
  * Date/time formatting symbols for locale br.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_br = {
+export var DateTimeSymbols_br = {
   ERAS: ['a-raok J.K.', 'goude J.K.'],
   ERANAMES: ['a-raok Jezuz-Krist', 'goude Jezuz-Krist'],
   NARROWMONTHS: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
@@ -491,9 +379,9 @@ goog.i18n.DateTimeSymbols_br = {
 /**
  * Date/time formatting symbols for locale bs.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_bs = {
+export var DateTimeSymbols_bs = {
   ERAS: ['p. n. e.', 'n. e.'],
   ERANAMES: ['prije nove ere', 'nove ere'],
   NARROWMONTHS: ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'],
@@ -523,9 +411,9 @@ goog.i18n.DateTimeSymbols_bs = {
 /**
  * Date/time formatting symbols for locale ca.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ca = {
+export var DateTimeSymbols_ca = {
   ERAS: ['aC', 'dC'],
   ERANAMES: ['abans de Crist', 'després de Crist'],
   NARROWMONTHS: ['GN', 'FB', 'MÇ', 'AB', 'MG', 'JN', 'JL', 'AG', 'ST', 'OC', 'NV', 'DS'],
@@ -555,9 +443,9 @@ goog.i18n.DateTimeSymbols_ca = {
 /**
  * Date/time formatting symbols for locale chr.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_chr = {
+export var DateTimeSymbols_chr = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['ᏧᏓᎷᎸ ᎤᎷᎯᏍᏗ ᎦᎶᏁᏛ', 'ᎠᏃ ᏙᎻᏂ'],
   NARROWMONTHS: ['Ꭴ', 'Ꭷ', 'Ꭰ', 'Ꭷ', 'Ꭰ', 'Ꮥ', 'Ꭻ', 'Ꭶ', 'Ꮪ', 'Ꮪ', 'Ꮕ', 'Ꭵ'],
@@ -587,9 +475,9 @@ goog.i18n.DateTimeSymbols_chr = {
 /**
  * Date/time formatting symbols for locale cs.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_cs = {
+export var DateTimeSymbols_cs = {
   ERAS: ['př. n. l.', 'n. l.'],
   ERANAMES: ['před naším letopočtem', 'našeho letopočtu'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -619,9 +507,9 @@ goog.i18n.DateTimeSymbols_cs = {
 /**
  * Date/time formatting symbols for locale cy.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_cy = {
+export var DateTimeSymbols_cy = {
   ERAS: ['CC', 'OC'],
   ERANAMES: ['Cyn Crist', 'Oed Crist'],
   NARROWMONTHS: ['I', 'Ch', 'M', 'E', 'M', 'M', 'G', 'A', 'M', 'H', 'T', 'Rh'],
@@ -651,9 +539,9 @@ goog.i18n.DateTimeSymbols_cy = {
 /**
  * Date/time formatting symbols for locale da.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_da = {
+export var DateTimeSymbols_da = {
   ERAS: ['f.Kr.', 'e.Kr.'],
   ERANAMES: ['før Kristus', 'efter Kristus'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -683,9 +571,9 @@ goog.i18n.DateTimeSymbols_da = {
 /**
  * Date/time formatting symbols for locale de.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_de = {
+export var DateTimeSymbols_de = {
   ERAS: ['v. Chr.', 'n. Chr.'],
   ERANAMES: ['v. Chr.', 'n. Chr.'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -715,9 +603,9 @@ goog.i18n.DateTimeSymbols_de = {
 /**
  * Date/time formatting symbols for locale de_AT.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_de_AT = {
+export var DateTimeSymbols_de_AT = {
   ERAS: ['v. Chr.', 'n. Chr.'],
   ERANAMES: ['v. Chr.', 'n. Chr.'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -747,17 +635,17 @@ goog.i18n.DateTimeSymbols_de_AT = {
 /**
  * Date/time formatting symbols for locale de_CH.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_de_CH = goog.i18n.DateTimeSymbols_de;
+export var DateTimeSymbols_de_CH = DateTimeSymbols_de;
 
 
 /**
  * Date/time formatting symbols for locale el.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_el = {
+export var DateTimeSymbols_el = {
   ERAS: ['π.Χ.', 'μ.Χ.'],
   ERANAMES: ['προ Χριστού', 'μετά Χριστόν'],
   NARROWMONTHS: ['Ι', 'Φ', 'Μ', 'Α', 'Μ', 'Ι', 'Ι', 'Α', 'Σ', 'Ο', 'Ν', 'Δ'],
@@ -787,9 +675,9 @@ goog.i18n.DateTimeSymbols_el = {
 /**
  * Date/time formatting symbols for locale en.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en = {
+export var DateTimeSymbols_en = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -819,9 +707,9 @@ goog.i18n.DateTimeSymbols_en = {
 /**
  * Date/time formatting symbols for locale en_AU.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_AU = {
+export var DateTimeSymbols_en_AU = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -851,9 +739,9 @@ goog.i18n.DateTimeSymbols_en_AU = {
 /**
  * Date/time formatting symbols for locale en_CA.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_CA = {
+export var DateTimeSymbols_en_CA = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -883,9 +771,9 @@ goog.i18n.DateTimeSymbols_en_CA = {
 /**
  * Date/time formatting symbols for locale en_GB.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_GB = {
+export var DateTimeSymbols_en_GB = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -915,9 +803,9 @@ goog.i18n.DateTimeSymbols_en_GB = {
 /**
  * Date/time formatting symbols for locale en_IE.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_IE = {
+export var DateTimeSymbols_en_IE = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -947,9 +835,9 @@ goog.i18n.DateTimeSymbols_en_IE = {
 /**
  * Date/time formatting symbols for locale en_IN.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_IN = {
+export var DateTimeSymbols_en_IN = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -979,9 +867,9 @@ goog.i18n.DateTimeSymbols_en_IN = {
 /**
  * Date/time formatting symbols for locale en_SG.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_SG = {
+export var DateTimeSymbols_en_SG = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1011,17 +899,17 @@ goog.i18n.DateTimeSymbols_en_SG = {
 /**
  * Date/time formatting symbols for locale en_US.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_US = goog.i18n.DateTimeSymbols_en;
+export var DateTimeSymbols_en_US = DateTimeSymbols_en;
 
 
 /**
  * Date/time formatting symbols for locale en_ZA.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_en_ZA = {
+export var DateTimeSymbols_en_ZA = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1051,9 +939,9 @@ goog.i18n.DateTimeSymbols_en_ZA = {
 /**
  * Date/time formatting symbols for locale es.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_es = {
+export var DateTimeSymbols_es = {
   ERAS: ['a. C.', 'd. C.'],
   ERANAMES: ['antes de Cristo', 'después de Cristo'],
   NARROWMONTHS: ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1083,9 +971,9 @@ goog.i18n.DateTimeSymbols_es = {
 /**
  * Date/time formatting symbols for locale es_419.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_es_419 = {
+export var DateTimeSymbols_es_419 = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['antes de Cristo', 'después de Cristo'],
   NARROWMONTHS: ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1115,17 +1003,17 @@ goog.i18n.DateTimeSymbols_es_419 = {
 /**
  * Date/time formatting symbols for locale es_ES.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_es_ES = goog.i18n.DateTimeSymbols_es;
+export var DateTimeSymbols_es_ES = DateTimeSymbols_es;
 
 
 /**
  * Date/time formatting symbols for locale es_MX.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_es_MX = {
+export var DateTimeSymbols_es_MX = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['antes de Cristo', 'después de Cristo'],
   NARROWMONTHS: ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1155,9 +1043,9 @@ goog.i18n.DateTimeSymbols_es_MX = {
 /**
  * Date/time formatting symbols for locale es_US.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_es_US = {
+export var DateTimeSymbols_es_US = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['antes de Cristo', 'después de Cristo'],
   NARROWMONTHS: ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1187,9 +1075,9 @@ goog.i18n.DateTimeSymbols_es_US = {
 /**
  * Date/time formatting symbols for locale et.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_et = {
+export var DateTimeSymbols_et = {
   ERAS: ['eKr', 'pKr'],
   ERANAMES: ['enne Kristust', 'pärast Kristust'],
   NARROWMONTHS: ['J', 'V', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1219,9 +1107,9 @@ goog.i18n.DateTimeSymbols_et = {
 /**
  * Date/time formatting symbols for locale eu.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_eu = {
+export var DateTimeSymbols_eu = {
   ERAS: ['K.a.', 'K.o.'],
   ERANAMES: ['K.a.', 'Kristo ondoren'],
   NARROWMONTHS: ['U', 'O', 'M', 'A', 'M', 'E', 'U', 'A', 'I', 'U', 'A', 'A'],
@@ -1251,9 +1139,9 @@ goog.i18n.DateTimeSymbols_eu = {
 /**
  * Date/time formatting symbols for locale fa.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_fa = {
+export var DateTimeSymbols_fa = {
   ZERODIGIT: 0x06F0,
   ERAS: ['ق.م.', 'م.'],
   ERANAMES: ['قبل از میلاد', 'میلادی'],
@@ -1284,9 +1172,9 @@ goog.i18n.DateTimeSymbols_fa = {
 /**
  * Date/time formatting symbols for locale fi.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_fi = {
+export var DateTimeSymbols_fi = {
   ERAS: ['eKr.', 'jKr.'],
   ERANAMES: ['ennen Kristuksen syntymää', 'jälkeen Kristuksen syntymän'],
   NARROWMONTHS: ['T', 'H', 'M', 'H', 'T', 'K', 'H', 'E', 'S', 'L', 'M', 'J'],
@@ -1316,9 +1204,9 @@ goog.i18n.DateTimeSymbols_fi = {
 /**
  * Date/time formatting symbols for locale fil.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_fil = {
+export var DateTimeSymbols_fil = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['Ene', 'Peb', 'Mar', 'Abr', 'May', 'Hun', 'Hul', 'Ago', 'Set', 'Okt', 'Nob', 'Dis'],
@@ -1348,9 +1236,9 @@ goog.i18n.DateTimeSymbols_fil = {
 /**
  * Date/time formatting symbols for locale fr.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_fr = {
+export var DateTimeSymbols_fr = {
   ERAS: ['av. J.-C.', 'ap. J.-C.'],
   ERANAMES: ['avant Jésus-Christ', 'après Jésus-Christ'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1380,9 +1268,9 @@ goog.i18n.DateTimeSymbols_fr = {
 /**
  * Date/time formatting symbols for locale fr_CA.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_fr_CA = {
+export var DateTimeSymbols_fr_CA = {
   ERAS: ['av. J.-C.', 'ap. J.-C.'],
   ERANAMES: ['avant Jésus-Christ', 'après Jésus-Christ'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1412,9 +1300,9 @@ goog.i18n.DateTimeSymbols_fr_CA = {
 /**
  * Date/time formatting symbols for locale ga.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ga = {
+export var DateTimeSymbols_ga = {
   ERAS: ['RC', 'AD'],
   ERANAMES: ['Roimh Chríost', 'Anno Domini'],
   NARROWMONTHS: ['E', 'F', 'M', 'A', 'B', 'M', 'I', 'L', 'M', 'D', 'S', 'N'],
@@ -1444,9 +1332,9 @@ goog.i18n.DateTimeSymbols_ga = {
 /**
  * Date/time formatting symbols for locale gl.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_gl = {
+export var DateTimeSymbols_gl = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['antes de Cristo', 'despois de Cristo'],
   NARROWMONTHS: ['x.', 'f.', 'm.', 'a.', 'm.', 'x.', 'x.', 'a.', 's.', 'o.', 'n.', 'd.'],
@@ -1476,9 +1364,9 @@ goog.i18n.DateTimeSymbols_gl = {
 /**
  * Date/time formatting symbols for locale gsw.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_gsw = {
+export var DateTimeSymbols_gsw = {
   ERAS: ['v. Chr.', 'n. Chr.'],
   ERANAMES: ['v. Chr.', 'n. Chr.'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1508,9 +1396,9 @@ goog.i18n.DateTimeSymbols_gsw = {
 /**
  * Date/time formatting symbols for locale gu.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_gu = {
+export var DateTimeSymbols_gu = {
   ERAS: ['ઈ.સ.પૂર્વે', 'ઈ.સ.'],
   ERANAMES: ['ઈસવીસન પૂર્વે', 'ઇસવીસન'],
   NARROWMONTHS: ['જા', 'ફે', 'મા', 'એ', 'મે', 'જૂ', 'જુ', 'ઑ', 'સ', 'ઑ', 'ન', 'ડિ'],
@@ -1540,9 +1428,9 @@ goog.i18n.DateTimeSymbols_gu = {
 /**
  * Date/time formatting symbols for locale haw.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_haw = {
+export var DateTimeSymbols_haw = {
   ERAS: ['BCE', 'CE'],
   ERANAMES: ['BCE', 'CE'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -1572,9 +1460,9 @@ goog.i18n.DateTimeSymbols_haw = {
 /**
  * Date/time formatting symbols for locale he.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_he = {
+export var DateTimeSymbols_he = {
   ERAS: ['לפנה״ס', 'לספירה'],
   ERANAMES: ['לפני הספירה', 'לספירה'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -1604,9 +1492,9 @@ goog.i18n.DateTimeSymbols_he = {
 /**
  * Date/time formatting symbols for locale hi.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_hi = {
+export var DateTimeSymbols_hi = {
   ERAS: ['ईसा-पूर्व', 'ईस्वी'],
   ERANAMES: ['ईसा-पूर्व', 'ईसवी सन'],
   NARROWMONTHS: ['ज', 'फ़', 'मा', 'अ', 'म', 'जू', 'जु', 'अ', 'सि', 'अ', 'न', 'दि'],
@@ -1636,9 +1524,9 @@ goog.i18n.DateTimeSymbols_hi = {
 /**
  * Date/time formatting symbols for locale hr.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_hr = {
+export var DateTimeSymbols_hr = {
   ERAS: ['pr. Kr.', 'po. Kr.'],
   ERANAMES: ['prije Krista', 'poslije Krista'],
   NARROWMONTHS: ['1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.', '10.', '11.', '12.'],
@@ -1668,9 +1556,9 @@ goog.i18n.DateTimeSymbols_hr = {
 /**
  * Date/time formatting symbols for locale hu.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_hu = {
+export var DateTimeSymbols_hu = {
   ERAS: ['i. e.', 'i. sz.'],
   ERANAMES: ['Krisztus előtt', 'időszámításunk szerint'],
   NARROWMONTHS: ['J', 'F', 'M', 'Á', 'M', 'J', 'J', 'A', 'Sz', 'O', 'N', 'D'],
@@ -1700,9 +1588,9 @@ goog.i18n.DateTimeSymbols_hu = {
 /**
  * Date/time formatting symbols for locale hy.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_hy = {
+export var DateTimeSymbols_hy = {
   ERAS: ['մ.թ.ա.', 'մ.թ.'],
   ERANAMES: ['Քրիստոսից առաջ', 'Քրիստոսից հետո'],
   NARROWMONTHS: ['Հ', 'Փ', 'Մ', 'Ա', 'Մ', 'Հ', 'Հ', 'Օ', 'Ս', 'Հ', 'Ն', 'Դ'],
@@ -1732,9 +1620,9 @@ goog.i18n.DateTimeSymbols_hy = {
 /**
  * Date/time formatting symbols for locale id.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_id = {
+export var DateTimeSymbols_id = {
   ERAS: ['SM', 'M'],
   ERANAMES: ['Sebelum Masehi', 'Masehi'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1764,9 +1652,9 @@ goog.i18n.DateTimeSymbols_id = {
 /**
  * Date/time formatting symbols for locale in.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_in = {
+export var DateTimeSymbols_in = {
   ERAS: ['SM', 'M'],
   ERANAMES: ['Sebelum Masehi', 'Masehi'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -1796,9 +1684,9 @@ goog.i18n.DateTimeSymbols_in = {
 /**
  * Date/time formatting symbols for locale is.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_is = {
+export var DateTimeSymbols_is = {
   ERAS: ['f.Kr.', 'e.Kr.'],
   ERANAMES: ['fyrir Krist', 'eftir Krist'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'Á', 'S', 'O', 'N', 'D'],
@@ -1828,9 +1716,9 @@ goog.i18n.DateTimeSymbols_is = {
 /**
  * Date/time formatting symbols for locale it.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_it = {
+export var DateTimeSymbols_it = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['avanti Cristo', 'dopo Cristo'],
   NARROWMONTHS: ['G', 'F', 'M', 'A', 'M', 'G', 'L', 'A', 'S', 'O', 'N', 'D'],
@@ -1860,9 +1748,9 @@ goog.i18n.DateTimeSymbols_it = {
 /**
  * Date/time formatting symbols for locale iw.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_iw = {
+export var DateTimeSymbols_iw = {
   ERAS: ['לפנה״ס', 'לספירה'],
   ERANAMES: ['לפני הספירה', 'לספירה'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -1892,9 +1780,9 @@ goog.i18n.DateTimeSymbols_iw = {
 /**
  * Date/time formatting symbols for locale ja.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ja = {
+export var DateTimeSymbols_ja = {
   ERAS: ['紀元前', '西暦'],
   ERANAMES: ['紀元前', '西暦'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -1924,9 +1812,9 @@ goog.i18n.DateTimeSymbols_ja = {
 /**
  * Date/time formatting symbols for locale ka.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ka = {
+export var DateTimeSymbols_ka = {
   ERAS: ['ძვ. წ.', 'ახ. წ.'],
   ERANAMES: ['ძველი წელთაღრიცხვით', 'ახალი წელთაღრიცხვით'],
   NARROWMONTHS: ['ი', 'თ', 'მ', 'ა', 'მ', 'ი', 'ი', 'ა', 'ს', 'ო', 'ნ', 'დ'],
@@ -1956,9 +1844,9 @@ goog.i18n.DateTimeSymbols_ka = {
 /**
  * Date/time formatting symbols for locale kk.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_kk = {
+export var DateTimeSymbols_kk = {
   ERAS: ['б.з.д.', 'б.з.'],
   ERANAMES: ['Біздің заманымызға дейін', 'біздің заманымыз'],
   NARROWMONTHS: ['Қ', 'А', 'Н', 'С', 'М', 'М', 'Ш', 'Т', 'Қ', 'Қ', 'Қ', 'Ж'],
@@ -1988,9 +1876,9 @@ goog.i18n.DateTimeSymbols_kk = {
 /**
  * Date/time formatting symbols for locale km.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_km = {
+export var DateTimeSymbols_km = {
   ERAS: ['មុន គ.ស.', 'គ.ស.'],
   ERANAMES: ['មុន​គ្រិស្តសករាជ', 'គ្រិស្តសករាជ'],
   NARROWMONTHS: ['ម', 'ក', 'ម', 'ម', 'ឧ', 'ម', 'ក', 'ស', 'ក', 'ត', 'វ', 'ធ'],
@@ -2020,9 +1908,9 @@ goog.i18n.DateTimeSymbols_km = {
 /**
  * Date/time formatting symbols for locale kn.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_kn = {
+export var DateTimeSymbols_kn = {
   ERAS: ['ಕ್ರಿ.ಪೂ', 'ಕ್ರಿ.ಶ'],
   ERANAMES: ['ಕ್ರಿಸ್ತ ಪೂರ್ವ', 'ಕ್ರಿಸ್ತ ಶಕ'],
   NARROWMONTHS: ['ಜ', 'ಫೆ', 'ಮಾ', 'ಏ', 'ಮೇ', 'ಜೂ', 'ಜು', 'ಆ', 'ಸೆ', 'ಅ', 'ನ', 'ಡಿ'],
@@ -2052,9 +1940,9 @@ goog.i18n.DateTimeSymbols_kn = {
 /**
  * Date/time formatting symbols for locale ko.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ko = {
+export var DateTimeSymbols_ko = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['기원전', '서기'],
   NARROWMONTHS: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -2084,9 +1972,9 @@ goog.i18n.DateTimeSymbols_ko = {
 /**
  * Date/time formatting symbols for locale ky.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ky = {
+export var DateTimeSymbols_ky = {
   ERAS: ['б.з.ч.', 'б.з.'],
   ERANAMES: ['биздин заманга чейин', 'биздин заман'],
   NARROWMONTHS: ['Я', 'Ф', 'М', 'А', 'М', 'И', 'И', 'А', 'С', 'О', 'Н', 'Д'],
@@ -2116,9 +2004,9 @@ goog.i18n.DateTimeSymbols_ky = {
 /**
  * Date/time formatting symbols for locale ln.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ln = {
+export var DateTimeSymbols_ln = {
   ERAS: ['libóso ya', 'nsima ya Y'],
   ERANAMES: ['Yambo ya Yézu Krís', 'Nsima ya Yézu Krís'],
   NARROWMONTHS: ['y', 'f', 'm', 'a', 'm', 'y', 'y', 'a', 's', 'ɔ', 'n', 'd'],
@@ -2148,9 +2036,9 @@ goog.i18n.DateTimeSymbols_ln = {
 /**
  * Date/time formatting symbols for locale lo.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_lo = {
+export var DateTimeSymbols_lo = {
   ERAS: ['ກ່ອນ ຄ.ສ.', 'ຄ.ສ.'],
   ERANAMES: ['ກ່ອນຄຣິດສັກກະລາດ', 'ຄຣິດສັກກະລາດ'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -2180,9 +2068,9 @@ goog.i18n.DateTimeSymbols_lo = {
 /**
  * Date/time formatting symbols for locale lt.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_lt = {
+export var DateTimeSymbols_lt = {
   ERAS: ['pr. Kr.', 'po Kr.'],
   ERANAMES: ['prieš Kristų', 'po Kristaus'],
   NARROWMONTHS: ['S', 'V', 'K', 'B', 'G', 'B', 'L', 'R', 'R', 'S', 'L', 'G'],
@@ -2212,9 +2100,9 @@ goog.i18n.DateTimeSymbols_lt = {
 /**
  * Date/time formatting symbols for locale lv.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_lv = {
+export var DateTimeSymbols_lv = {
   ERAS: ['p.m.ē.', 'm.ē.'],
   ERANAMES: ['pirms mūsu ēras', 'mūsu ērā'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -2244,9 +2132,9 @@ goog.i18n.DateTimeSymbols_lv = {
 /**
  * Date/time formatting symbols for locale mk.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_mk = {
+export var DateTimeSymbols_mk = {
   ERAS: ['п.н.е.', 'н.е.'],
   ERANAMES: ['пред нашата ера', 'од нашата ера'],
   NARROWMONTHS: ['ј', 'ф', 'м', 'а', 'м', 'ј', 'ј', 'а', 'с', 'о', 'н', 'д'],
@@ -2276,9 +2164,9 @@ goog.i18n.DateTimeSymbols_mk = {
 /**
  * Date/time formatting symbols for locale ml.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ml = {
+export var DateTimeSymbols_ml = {
   ERAS: ['ക്രി.മു.', 'എഡി'],
   ERANAMES: ['ക്രിസ്‌തുവിന് മുമ്പ്', 'ആന്നോ ഡൊമിനി'],
   NARROWMONTHS: ['ജ', 'ഫെ', 'മാ', 'ഏ', 'മെ', 'ജൂൺ', 'ജൂ', 'ഓ', 'സെ', 'ഒ', 'ന', 'ഡി'],
@@ -2308,9 +2196,9 @@ goog.i18n.DateTimeSymbols_ml = {
 /**
  * Date/time formatting symbols for locale mn.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_mn = {
+export var DateTimeSymbols_mn = {
   ERAS: ['МЭӨ', 'МЭ'],
   ERANAMES: ['манай эриний өмнөх', 'манай эриний'],
   NARROWMONTHS: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'],
@@ -2340,9 +2228,9 @@ goog.i18n.DateTimeSymbols_mn = {
 /**
  * Date/time formatting symbols for locale mo.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_mo = {
+export var DateTimeSymbols_mo = {
   ERAS: ['î.Hr.', 'd.Hr.'],
   ERANAMES: ['înainte de Hristos', 'după Hristos'],
   NARROWMONTHS: ['I', 'F', 'M', 'A', 'M', 'I', 'I', 'A', 'S', 'O', 'N', 'D'],
@@ -2372,9 +2260,9 @@ goog.i18n.DateTimeSymbols_mo = {
 /**
  * Date/time formatting symbols for locale mr.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_mr = {
+export var DateTimeSymbols_mr = {
   ZERODIGIT: 0x0966,
   ERAS: ['ई. स. पू.', 'इ. स.'],
   ERANAMES: ['ईसवीसनपूर्व', 'ईसवीसन'],
@@ -2405,9 +2293,9 @@ goog.i18n.DateTimeSymbols_mr = {
 /**
  * Date/time formatting symbols for locale ms.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ms = {
+export var DateTimeSymbols_ms = {
   ERAS: ['S.M.', 'TM'],
   ERANAMES: ['S.M.', 'TM'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'O', 'S', 'O', 'N', 'D'],
@@ -2437,9 +2325,9 @@ goog.i18n.DateTimeSymbols_ms = {
 /**
  * Date/time formatting symbols for locale mt.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_mt = {
+export var DateTimeSymbols_mt = {
   ERAS: ['QK', 'WK'],
   ERANAMES: ['Qabel Kristu', 'Wara Kristu'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'Ġ', 'L', 'A', 'S', 'O', 'N', 'D'],
@@ -2469,9 +2357,9 @@ goog.i18n.DateTimeSymbols_mt = {
 /**
  * Date/time formatting symbols for locale my.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_my = {
+export var DateTimeSymbols_my = {
   ZERODIGIT: 0x1040,
   ERAS: ['ဘီစီ', 'အဒေီ'],
   ERANAMES: ['ခရစ်တော် မပေါ်မီနှစ်', 'ခရစ်နှစ်'],
@@ -2502,9 +2390,9 @@ goog.i18n.DateTimeSymbols_my = {
 /**
  * Date/time formatting symbols for locale nb.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_nb = {
+export var DateTimeSymbols_nb = {
   ERAS: ['f.Kr.', 'e.Kr.'],
   ERANAMES: ['før Kristus', 'etter Kristus'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -2534,9 +2422,9 @@ goog.i18n.DateTimeSymbols_nb = {
 /**
  * Date/time formatting symbols for locale ne.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ne = {
+export var DateTimeSymbols_ne = {
   ZERODIGIT: 0x0966,
   ERAS: ['ईसा पूर्व', 'सन्'],
   ERANAMES: ['ईसा पूर्व', 'सन्'],
@@ -2567,9 +2455,9 @@ goog.i18n.DateTimeSymbols_ne = {
 /**
  * Date/time formatting symbols for locale nl.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_nl = {
+export var DateTimeSymbols_nl = {
   ERAS: ['v.Chr.', 'n.Chr.'],
   ERANAMES: ['voor Christus', 'na Christus'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -2599,9 +2487,9 @@ goog.i18n.DateTimeSymbols_nl = {
 /**
  * Date/time formatting symbols for locale no.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_no = {
+export var DateTimeSymbols_no = {
   ERAS: ['f.Kr.', 'e.Kr.'],
   ERANAMES: ['før Kristus', 'etter Kristus'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -2631,17 +2519,17 @@ goog.i18n.DateTimeSymbols_no = {
 /**
  * Date/time formatting symbols for locale no_NO.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_no_NO = goog.i18n.DateTimeSymbols_no;
+export var DateTimeSymbols_no_NO = DateTimeSymbols_no;
 
 
 /**
  * Date/time formatting symbols for locale or.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_or = {
+export var DateTimeSymbols_or = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['ଖ୍ରୀଷ୍ଟପୂର୍ବ', 'ଖ୍ରୀଷ୍ଟାବ୍ଦ'],
   NARROWMONTHS: ['ଜା', 'ଫେ', 'ମା', 'ଅ', 'ମଇ', 'ଜୁ', 'ଜୁ', 'ଅ', 'ସେ', 'ଅ', 'ନ', 'ଡି'],
@@ -2671,9 +2559,9 @@ goog.i18n.DateTimeSymbols_or = {
 /**
  * Date/time formatting symbols for locale pa.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_pa = {
+export var DateTimeSymbols_pa = {
   ERAS: ['ਈ. ਪੂ.', 'ਸੰਨ'],
   ERANAMES: ['ਈਸਵੀ ਪੂਰਵ', 'ਈਸਵੀ ਸੰਨ'],
   NARROWMONTHS: ['ਜ', 'ਫ਼', 'ਮਾ', 'ਅ', 'ਮ', 'ਜੂ', 'ਜੁ', 'ਅ', 'ਸ', 'ਅ', 'ਨ', 'ਦ'],
@@ -2703,9 +2591,9 @@ goog.i18n.DateTimeSymbols_pa = {
 /**
  * Date/time formatting symbols for locale pl.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_pl = {
+export var DateTimeSymbols_pl = {
   ERAS: ['p.n.e.', 'n.e.'],
   ERANAMES: ['przed naszą erą', 'naszej ery'],
   NARROWMONTHS: ['s', 'l', 'm', 'k', 'm', 'c', 'l', 's', 'w', 'p', 'l', 'g'],
@@ -2735,9 +2623,9 @@ goog.i18n.DateTimeSymbols_pl = {
 /**
  * Date/time formatting symbols for locale pt.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_pt = {
+export var DateTimeSymbols_pt = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['antes de Cristo', 'depois de Cristo'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -2767,17 +2655,17 @@ goog.i18n.DateTimeSymbols_pt = {
 /**
  * Date/time formatting symbols for locale pt_BR.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_pt_BR = goog.i18n.DateTimeSymbols_pt;
+export var DateTimeSymbols_pt_BR = DateTimeSymbols_pt;
 
 
 /**
  * Date/time formatting symbols for locale pt_PT.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_pt_PT = {
+export var DateTimeSymbols_pt_PT = {
   ERAS: ['a.C.', 'd.C.'],
   ERANAMES: ['antes de Cristo', 'depois de Cristo'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -2807,9 +2695,9 @@ goog.i18n.DateTimeSymbols_pt_PT = {
 /**
  * Date/time formatting symbols for locale ro.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ro = {
+export var DateTimeSymbols_ro = {
   ERAS: ['î.Hr.', 'd.Hr.'],
   ERANAMES: ['înainte de Hristos', 'după Hristos'],
   NARROWMONTHS: ['I', 'F', 'M', 'A', 'M', 'I', 'I', 'A', 'S', 'O', 'N', 'D'],
@@ -2839,9 +2727,9 @@ goog.i18n.DateTimeSymbols_ro = {
 /**
  * Date/time formatting symbols for locale ru.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ru = {
+export var DateTimeSymbols_ru = {
   ERAS: ['до н. э.', 'н. э.'],
   ERANAMES: ['до Рождества Христова', 'от Рождества Христова'],
   NARROWMONTHS: ['Я', 'Ф', 'М', 'А', 'М', 'И', 'И', 'А', 'С', 'О', 'Н', 'Д'],
@@ -2871,9 +2759,9 @@ goog.i18n.DateTimeSymbols_ru = {
 /**
  * Date/time formatting symbols for locale sh.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sh = {
+export var DateTimeSymbols_sh = {
   ERAS: ['p. n. e.', 'n. e.'],
   ERANAMES: ['pre nove ere', 'nove ere'],
   NARROWMONTHS: ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'],
@@ -2903,9 +2791,9 @@ goog.i18n.DateTimeSymbols_sh = {
 /**
  * Date/time formatting symbols for locale si.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_si = {
+export var DateTimeSymbols_si = {
   ERAS: ['ක්‍රි.පූ.', 'ක්‍රි.ව.'],
   ERANAMES: ['ක්‍රිස්තු පූර්ව', 'ක්‍රිස්තු වර්ෂ'],
   NARROWMONTHS: ['ජ', 'පෙ', 'මා', 'අ', 'මැ', 'ජූ', 'ජූ', 'අ', 'සැ', 'ඔ', 'නෙ', 'දෙ'],
@@ -2935,9 +2823,9 @@ goog.i18n.DateTimeSymbols_si = {
 /**
  * Date/time formatting symbols for locale sk.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sk = {
+export var DateTimeSymbols_sk = {
   ERAS: ['pred Kr.', 'po Kr.'],
   ERANAMES: ['pred Kristom', 'po Kristovi'],
   NARROWMONTHS: ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'],
@@ -2967,9 +2855,9 @@ goog.i18n.DateTimeSymbols_sk = {
 /**
  * Date/time formatting symbols for locale sl.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sl = {
+export var DateTimeSymbols_sl = {
   ERAS: ['pr. Kr.', 'po Kr.'],
   ERANAMES: ['pred Kristusom', 'po Kristusu'],
   NARROWMONTHS: ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'],
@@ -2999,9 +2887,9 @@ goog.i18n.DateTimeSymbols_sl = {
 /**
  * Date/time formatting symbols for locale sq.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sq = {
+export var DateTimeSymbols_sq = {
   ERAS: ['p.K.', 'mb.K.'],
   ERANAMES: ['para Krishtit', 'mbas Krishtit'],
   NARROWMONTHS: ['j', 'sh', 'm', 'p', 'm', 'q', 'k', 'g', 'sh', 't', 'n', 'dh'],
@@ -3031,9 +2919,9 @@ goog.i18n.DateTimeSymbols_sq = {
 /**
  * Date/time formatting symbols for locale sr.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sr = {
+export var DateTimeSymbols_sr = {
   ERAS: ['п. н. е.', 'н. е.'],
   ERANAMES: ['пре нове ере', 'нове ере'],
   NARROWMONTHS: ['ј', 'ф', 'м', 'а', 'м', 'ј', 'ј', 'а', 'с', 'о', 'н', 'д'],
@@ -3063,9 +2951,9 @@ goog.i18n.DateTimeSymbols_sr = {
 /**
  * Date/time formatting symbols for locale sr_Latn.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sr_Latn = {
+export var DateTimeSymbols_sr_Latn = {
   ERAS: ['p. n. e.', 'n. e.'],
   ERANAMES: ['pre nove ere', 'nove ere'],
   NARROWMONTHS: ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd'],
@@ -3095,9 +2983,9 @@ goog.i18n.DateTimeSymbols_sr_Latn = {
 /**
  * Date/time formatting symbols for locale sv.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sv = {
+export var DateTimeSymbols_sv = {
   ERAS: ['f.Kr.', 'e.Kr.'],
   ERANAMES: ['före Kristus', 'efter Kristus'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -3127,9 +3015,9 @@ goog.i18n.DateTimeSymbols_sv = {
 /**
  * Date/time formatting symbols for locale sw.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_sw = {
+export var DateTimeSymbols_sw = {
   ERAS: ['KK', 'BK'],
   ERANAMES: ['Kabla ya Kristo', 'Baada ya Kristo'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -3159,9 +3047,9 @@ goog.i18n.DateTimeSymbols_sw = {
 /**
  * Date/time formatting symbols for locale ta.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ta = {
+export var DateTimeSymbols_ta = {
   ERAS: ['கி.மு.', 'கி.பி.'],
   ERANAMES: ['கிறிஸ்துவுக்கு முன்', 'அன்னோ டோமினி'],
   NARROWMONTHS: ['ஜ', 'பி', 'மா', 'ஏ', 'மே', 'ஜூ', 'ஜூ', 'ஆ', 'செ', 'அ', 'ந', 'டி'],
@@ -3191,9 +3079,9 @@ goog.i18n.DateTimeSymbols_ta = {
 /**
  * Date/time formatting symbols for locale te.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_te = {
+export var DateTimeSymbols_te = {
   ERAS: ['క్రీపూ', 'క్రీశ'],
   ERANAMES: ['క్రీస్తు పూర్వం', 'క్రీస్తు శకం'],
   NARROWMONTHS: ['జ', 'ఫి', 'మా', 'ఏ', 'మే', 'జూ', 'జు', 'ఆ', 'సె', 'అ', 'న', 'డి'],
@@ -3223,9 +3111,9 @@ goog.i18n.DateTimeSymbols_te = {
 /**
  * Date/time formatting symbols for locale th.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_th = {
+export var DateTimeSymbols_th = {
   ERAS: ['ก่อน ค.ศ.', 'ค.ศ.'],
   ERANAMES: ['ปีก่อนคริสตกาล', 'คริสต์ศักราช'],
   NARROWMONTHS: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
@@ -3255,9 +3143,9 @@ goog.i18n.DateTimeSymbols_th = {
 /**
  * Date/time formatting symbols for locale tl.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_tl = {
+export var DateTimeSymbols_tl = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['Before Christ', 'Anno Domini'],
   NARROWMONTHS: ['Ene', 'Peb', 'Mar', 'Abr', 'May', 'Hun', 'Hul', 'Ago', 'Set', 'Okt', 'Nob', 'Dis'],
@@ -3287,9 +3175,9 @@ goog.i18n.DateTimeSymbols_tl = {
 /**
  * Date/time formatting symbols for locale tr.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_tr = {
+export var DateTimeSymbols_tr = {
   ERAS: ['MÖ', 'MS'],
   ERANAMES: ['Milattan Önce', 'Milattan Sonra'],
   NARROWMONTHS: ['O', 'Ş', 'M', 'N', 'M', 'H', 'T', 'A', 'E', 'E', 'K', 'A'],
@@ -3319,9 +3207,9 @@ goog.i18n.DateTimeSymbols_tr = {
 /**
  * Date/time formatting symbols for locale uk.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_uk = {
+export var DateTimeSymbols_uk = {
   ERAS: ['до н. е.', 'н. е.'],
   ERANAMES: ['до нашої ери', 'нашої ери'],
   NARROWMONTHS: ['с', 'л', 'б', 'к', 'т', 'ч', 'л', 'с', 'в', 'ж', 'л', 'г'],
@@ -3351,9 +3239,9 @@ goog.i18n.DateTimeSymbols_uk = {
 /**
  * Date/time formatting symbols for locale ur.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_ur = {
+export var DateTimeSymbols_ur = {
   ERAS: ['قبل مسیح', 'عیسوی'],
   ERANAMES: ['قبل مسیح', 'عیسوی'],
   NARROWMONTHS: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -3383,9 +3271,9 @@ goog.i18n.DateTimeSymbols_ur = {
 /**
  * Date/time formatting symbols for locale uz.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_uz = {
+export var DateTimeSymbols_uz = {
   ERAS: ['m.a.', 'milodiy'],
   ERANAMES: ['miloddan avvalgi', 'milodiy'],
   NARROWMONTHS: ['Y', 'F', 'M', 'A', 'M', 'I', 'I', 'A', 'S', 'O', 'N', 'D'],
@@ -3415,9 +3303,9 @@ goog.i18n.DateTimeSymbols_uz = {
 /**
  * Date/time formatting symbols for locale vi.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_vi = {
+export var DateTimeSymbols_vi = {
   ERAS: ['TCN', 'CN'],
   ERANAMES: ['Trước Thiên Chúa', 'Sau Công Nguyên'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -3447,9 +3335,9 @@ goog.i18n.DateTimeSymbols_vi = {
 /**
  * Date/time formatting symbols for locale zh.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_zh = {
+export var DateTimeSymbols_zh = {
   ERAS: ['公元前', '公元'],
   ERANAMES: ['公元前', '公元'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -3479,17 +3367,17 @@ goog.i18n.DateTimeSymbols_zh = {
 /**
  * Date/time formatting symbols for locale zh_CN.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_zh_CN = goog.i18n.DateTimeSymbols_zh;
+export var DateTimeSymbols_zh_CN = DateTimeSymbols_zh;
 
 
 /**
  * Date/time formatting symbols for locale zh_HK.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_zh_HK = {
+export var DateTimeSymbols_zh_HK = {
   ERAS: ['公元前', '公元'],
   ERANAMES: ['公元前', '公元'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -3519,9 +3407,9 @@ goog.i18n.DateTimeSymbols_zh_HK = {
 /**
  * Date/time formatting symbols for locale zh_TW.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_zh_TW = {
+export var DateTimeSymbols_zh_TW = {
   ERAS: ['西元前', '西元'],
   ERANAMES: ['西元前', '西元'],
   NARROWMONTHS: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -3551,9 +3439,9 @@ goog.i18n.DateTimeSymbols_zh_TW = {
 /**
  * Date/time formatting symbols for locale zu.
  * @const
- * @type {!goog.i18n.DateTimeSymbolsType}
+ * @type {!DateTimeSymbolsType}
  */
-goog.i18n.DateTimeSymbols_zu = {
+export var DateTimeSymbols_zu = {
   ERAS: ['BC', 'AD'],
   ERANAMES: ['BC', 'AD'],
   NARROWMONTHS: ['J', 'F', 'M', 'E', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -3583,450 +3471,450 @@ goog.i18n.DateTimeSymbols_zu = {
  * @record
  * @struct
  */
-goog.i18n.DateTimeSymbolsType = function() {};
+export function DateTimeSymbolsType() {}
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.ERAS;
+DateTimeSymbolsType.prototype.ERAS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.ERANAMES;
+DateTimeSymbolsType.prototype.ERANAMES;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.NARROWMONTHS;
+DateTimeSymbolsType.prototype.NARROWMONTHS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.STANDALONENARROWMONTHS;
+DateTimeSymbolsType.prototype.STANDALONENARROWMONTHS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.MONTHS;
+DateTimeSymbolsType.prototype.MONTHS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.STANDALONEMONTHS;
+DateTimeSymbolsType.prototype.STANDALONEMONTHS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.SHORTMONTHS;
+DateTimeSymbolsType.prototype.SHORTMONTHS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.STANDALONESHORTMONTHS;
+DateTimeSymbolsType.prototype.STANDALONESHORTMONTHS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.WEEKDAYS;
+DateTimeSymbolsType.prototype.WEEKDAYS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.SHORTWEEKDAYS;
+DateTimeSymbolsType.prototype.SHORTWEEKDAYS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.STANDALONESHORTWEEKDAYS;
+DateTimeSymbolsType.prototype.STANDALONESHORTWEEKDAYS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.STANDALONEWEEKDAYS;
+DateTimeSymbolsType.prototype.STANDALONEWEEKDAYS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.NARROWWEEKDAYS;
+DateTimeSymbolsType.prototype.NARROWWEEKDAYS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.STANDALONENARROWWEEKDAYS;
+DateTimeSymbolsType.prototype.STANDALONENARROWWEEKDAYS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.SHORTQUARTERS;
+DateTimeSymbolsType.prototype.SHORTQUARTERS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.QUARTERS;
+DateTimeSymbolsType.prototype.QUARTERS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.AMPMS;
+DateTimeSymbolsType.prototype.AMPMS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.DATEFORMATS;
+DateTimeSymbolsType.prototype.DATEFORMATS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.TIMEFORMATS;
+DateTimeSymbolsType.prototype.TIMEFORMATS;
 
 /** @type {!Array<string>} */
-goog.i18n.DateTimeSymbolsType.prototype.DATETIMEFORMATS;
+DateTimeSymbolsType.prototype.DATETIMEFORMATS;
 
 /** @type {number|undefined} */
-goog.i18n.DateTimeSymbolsType.prototype.ZERODIGIT;
+DateTimeSymbolsType.prototype.ZERODIGIT;
 
 /** @type {number} */
-goog.i18n.DateTimeSymbolsType.prototype.FIRSTDAYOFWEEK;
+DateTimeSymbolsType.prototype.FIRSTDAYOFWEEK;
 
 /** @type {!Array<number>} */
-goog.i18n.DateTimeSymbolsType.prototype.WEEKENDRANGE;
+DateTimeSymbolsType.prototype.WEEKENDRANGE;
 
 /** @type {number} */
-goog.i18n.DateTimeSymbolsType.prototype.FIRSTWEEKCUTOFFDAY;
+DateTimeSymbolsType.prototype.FIRSTWEEKCUTOFFDAY;
 
 
-/** @type {!goog.i18n.DateTimeSymbolsType} */
-goog.i18n.DateTimeSymbols;
+/** @type {!DateTimeSymbolsType} */
+export var DateTimeSymbols;
 
 
 /**
  * Selected date/time formatting symbols by locale.
  */
-goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en;
+DateTimeSymbols = DateTimeSymbols_en;
 
 switch (goog.LOCALE) {
   case 'en_ISO':
   case 'en-ISO':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_ISO;
+    DateTimeSymbols = DateTimeSymbols_en_ISO;
     break;
   case 'af':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_af;
+    DateTimeSymbols = DateTimeSymbols_af;
     break;
   case 'am':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_am;
+    DateTimeSymbols = DateTimeSymbols_am;
     break;
   case 'ar':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ar;
+    DateTimeSymbols = DateTimeSymbols_ar;
     break;
   case 'ar_DZ':
   case 'ar-DZ':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ar_DZ;
+    DateTimeSymbols = DateTimeSymbols_ar_DZ;
     break;
   case 'ar_EG':
   case 'ar-EG':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ar_EG;
+    DateTimeSymbols = DateTimeSymbols_ar_EG;
     break;
   case 'az':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_az;
+    DateTimeSymbols = DateTimeSymbols_az;
     break;
   case 'be':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_be;
+    DateTimeSymbols = DateTimeSymbols_be;
     break;
   case 'bg':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_bg;
+    DateTimeSymbols = DateTimeSymbols_bg;
     break;
   case 'bn':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_bn;
+    DateTimeSymbols = DateTimeSymbols_bn;
     break;
   case 'br':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_br;
+    DateTimeSymbols = DateTimeSymbols_br;
     break;
   case 'bs':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_bs;
+    DateTimeSymbols = DateTimeSymbols_bs;
     break;
   case 'ca':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ca;
+    DateTimeSymbols = DateTimeSymbols_ca;
     break;
   case 'chr':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_chr;
+    DateTimeSymbols = DateTimeSymbols_chr;
     break;
   case 'cs':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_cs;
+    DateTimeSymbols = DateTimeSymbols_cs;
     break;
   case 'cy':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_cy;
+    DateTimeSymbols = DateTimeSymbols_cy;
     break;
   case 'da':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_da;
+    DateTimeSymbols = DateTimeSymbols_da;
     break;
   case 'de':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_de;
+    DateTimeSymbols = DateTimeSymbols_de;
     break;
   case 'de_AT':
   case 'de-AT':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_de_AT;
+    DateTimeSymbols = DateTimeSymbols_de_AT;
     break;
   case 'de_CH':
   case 'de-CH':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_de_CH;
+    DateTimeSymbols = DateTimeSymbols_de_CH;
     break;
   case 'el':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_el;
+    DateTimeSymbols = DateTimeSymbols_el;
     break;
   case 'en':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en;
+    DateTimeSymbols = DateTimeSymbols_en;
     break;
   case 'en_AU':
   case 'en-AU':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_AU;
+    DateTimeSymbols = DateTimeSymbols_en_AU;
     break;
   case 'en_CA':
   case 'en-CA':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_CA;
+    DateTimeSymbols = DateTimeSymbols_en_CA;
     break;
   case 'en_GB':
   case 'en-GB':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_GB;
+    DateTimeSymbols = DateTimeSymbols_en_GB;
     break;
   case 'en_IE':
   case 'en-IE':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_IE;
+    DateTimeSymbols = DateTimeSymbols_en_IE;
     break;
   case 'en_IN':
   case 'en-IN':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_IN;
+    DateTimeSymbols = DateTimeSymbols_en_IN;
     break;
   case 'en_SG':
   case 'en-SG':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_SG;
+    DateTimeSymbols = DateTimeSymbols_en_SG;
     break;
   case 'en_US':
   case 'en-US':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_US;
+    DateTimeSymbols = DateTimeSymbols_en_US;
     break;
   case 'en_ZA':
   case 'en-ZA':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_en_ZA;
+    DateTimeSymbols = DateTimeSymbols_en_ZA;
     break;
   case 'es':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_es;
+    DateTimeSymbols = DateTimeSymbols_es;
     break;
   case 'es_419':
   case 'es-419':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_es_419;
+    DateTimeSymbols = DateTimeSymbols_es_419;
     break;
   case 'es_ES':
   case 'es-ES':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_es_ES;
+    DateTimeSymbols = DateTimeSymbols_es_ES;
     break;
   case 'es_MX':
   case 'es-MX':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_es_MX;
+    DateTimeSymbols = DateTimeSymbols_es_MX;
     break;
   case 'es_US':
   case 'es-US':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_es_US;
+    DateTimeSymbols = DateTimeSymbols_es_US;
     break;
   case 'et':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_et;
+    DateTimeSymbols = DateTimeSymbols_et;
     break;
   case 'eu':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_eu;
+    DateTimeSymbols = DateTimeSymbols_eu;
     break;
   case 'fa':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_fa;
+    DateTimeSymbols = DateTimeSymbols_fa;
     break;
   case 'fi':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_fi;
+    DateTimeSymbols = DateTimeSymbols_fi;
     break;
   case 'fil':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_fil;
+    DateTimeSymbols = DateTimeSymbols_fil;
     break;
   case 'fr':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_fr;
+    DateTimeSymbols = DateTimeSymbols_fr;
     break;
   case 'fr_CA':
   case 'fr-CA':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_fr_CA;
+    DateTimeSymbols = DateTimeSymbols_fr_CA;
     break;
   case 'ga':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ga;
+    DateTimeSymbols = DateTimeSymbols_ga;
     break;
   case 'gl':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_gl;
+    DateTimeSymbols = DateTimeSymbols_gl;
     break;
   case 'gsw':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_gsw;
+    DateTimeSymbols = DateTimeSymbols_gsw;
     break;
   case 'gu':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_gu;
+    DateTimeSymbols = DateTimeSymbols_gu;
     break;
   case 'haw':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_haw;
+    DateTimeSymbols = DateTimeSymbols_haw;
     break;
   case 'he':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_he;
+    DateTimeSymbols = DateTimeSymbols_he;
     break;
   case 'hi':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_hi;
+    DateTimeSymbols = DateTimeSymbols_hi;
     break;
   case 'hr':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_hr;
+    DateTimeSymbols = DateTimeSymbols_hr;
     break;
   case 'hu':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_hu;
+    DateTimeSymbols = DateTimeSymbols_hu;
     break;
   case 'hy':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_hy;
+    DateTimeSymbols = DateTimeSymbols_hy;
     break;
   case 'id':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_id;
+    DateTimeSymbols = DateTimeSymbols_id;
     break;
   case 'in':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_in;
+    DateTimeSymbols = DateTimeSymbols_in;
     break;
   case 'is':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_is;
+    DateTimeSymbols = DateTimeSymbols_is;
     break;
   case 'it':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_it;
+    DateTimeSymbols = DateTimeSymbols_it;
     break;
   case 'iw':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_iw;
+    DateTimeSymbols = DateTimeSymbols_iw;
     break;
   case 'ja':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ja;
+    DateTimeSymbols = DateTimeSymbols_ja;
     break;
   case 'ka':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ka;
+    DateTimeSymbols = DateTimeSymbols_ka;
     break;
   case 'kk':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_kk;
+    DateTimeSymbols = DateTimeSymbols_kk;
     break;
   case 'km':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_km;
+    DateTimeSymbols = DateTimeSymbols_km;
     break;
   case 'kn':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_kn;
+    DateTimeSymbols = DateTimeSymbols_kn;
     break;
   case 'ko':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ko;
+    DateTimeSymbols = DateTimeSymbols_ko;
     break;
   case 'ky':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ky;
+    DateTimeSymbols = DateTimeSymbols_ky;
     break;
   case 'ln':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ln;
+    DateTimeSymbols = DateTimeSymbols_ln;
     break;
   case 'lo':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_lo;
+    DateTimeSymbols = DateTimeSymbols_lo;
     break;
   case 'lt':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_lt;
+    DateTimeSymbols = DateTimeSymbols_lt;
     break;
   case 'lv':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_lv;
+    DateTimeSymbols = DateTimeSymbols_lv;
     break;
   case 'mk':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_mk;
+    DateTimeSymbols = DateTimeSymbols_mk;
     break;
   case 'ml':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ml;
+    DateTimeSymbols = DateTimeSymbols_ml;
     break;
   case 'mn':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_mn;
+    DateTimeSymbols = DateTimeSymbols_mn;
     break;
   case 'mo':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_mo;
+    DateTimeSymbols = DateTimeSymbols_mo;
     break;
   case 'mr':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_mr;
+    DateTimeSymbols = DateTimeSymbols_mr;
     break;
   case 'ms':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ms;
+    DateTimeSymbols = DateTimeSymbols_ms;
     break;
   case 'mt':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_mt;
+    DateTimeSymbols = DateTimeSymbols_mt;
     break;
   case 'my':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_my;
+    DateTimeSymbols = DateTimeSymbols_my;
     break;
   case 'nb':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_nb;
+    DateTimeSymbols = DateTimeSymbols_nb;
     break;
   case 'ne':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ne;
+    DateTimeSymbols = DateTimeSymbols_ne;
     break;
   case 'nl':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_nl;
+    DateTimeSymbols = DateTimeSymbols_nl;
     break;
   case 'no':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_no;
+    DateTimeSymbols = DateTimeSymbols_no;
     break;
   case 'no_NO':
   case 'no-NO':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_no_NO;
+    DateTimeSymbols = DateTimeSymbols_no_NO;
     break;
   case 'or':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_or;
+    DateTimeSymbols = DateTimeSymbols_or;
     break;
   case 'pa':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_pa;
+    DateTimeSymbols = DateTimeSymbols_pa;
     break;
   case 'pl':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_pl;
+    DateTimeSymbols = DateTimeSymbols_pl;
     break;
   case 'pt':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_pt;
+    DateTimeSymbols = DateTimeSymbols_pt;
     break;
   case 'pt_BR':
   case 'pt-BR':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_pt_BR;
+    DateTimeSymbols = DateTimeSymbols_pt_BR;
     break;
   case 'pt_PT':
   case 'pt-PT':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_pt_PT;
+    DateTimeSymbols = DateTimeSymbols_pt_PT;
     break;
   case 'ro':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ro;
+    DateTimeSymbols = DateTimeSymbols_ro;
     break;
   case 'ru':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ru;
+    DateTimeSymbols = DateTimeSymbols_ru;
     break;
   case 'sh':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sh;
+    DateTimeSymbols = DateTimeSymbols_sh;
     break;
   case 'si':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_si;
+    DateTimeSymbols = DateTimeSymbols_si;
     break;
   case 'sk':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sk;
+    DateTimeSymbols = DateTimeSymbols_sk;
     break;
   case 'sl':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sl;
+    DateTimeSymbols = DateTimeSymbols_sl;
     break;
   case 'sq':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sq;
+    DateTimeSymbols = DateTimeSymbols_sq;
     break;
   case 'sr':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sr;
+    DateTimeSymbols = DateTimeSymbols_sr;
     break;
   case 'sr_Latn':
   case 'sr-Latn':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sr_Latn;
+    DateTimeSymbols = DateTimeSymbols_sr_Latn;
     break;
   case 'sv':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sv;
+    DateTimeSymbols = DateTimeSymbols_sv;
     break;
   case 'sw':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_sw;
+    DateTimeSymbols = DateTimeSymbols_sw;
     break;
   case 'ta':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ta;
+    DateTimeSymbols = DateTimeSymbols_ta;
     break;
   case 'te':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_te;
+    DateTimeSymbols = DateTimeSymbols_te;
     break;
   case 'th':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_th;
+    DateTimeSymbols = DateTimeSymbols_th;
     break;
   case 'tl':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_tl;
+    DateTimeSymbols = DateTimeSymbols_tl;
     break;
   case 'tr':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_tr;
+    DateTimeSymbols = DateTimeSymbols_tr;
     break;
   case 'uk':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_uk;
+    DateTimeSymbols = DateTimeSymbols_uk;
     break;
   case 'ur':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_ur;
+    DateTimeSymbols = DateTimeSymbols_ur;
     break;
   case 'uz':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_uz;
+    DateTimeSymbols = DateTimeSymbols_uz;
     break;
   case 'vi':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_vi;
+    DateTimeSymbols = DateTimeSymbols_vi;
     break;
   case 'zh':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zh;
+    DateTimeSymbols = DateTimeSymbols_zh;
     break;
   case 'zh_CN':
   case 'zh-CN':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zh_CN;
+    DateTimeSymbols = DateTimeSymbols_zh_CN;
     break;
   case 'zh_HK':
   case 'zh-HK':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zh_HK;
+    DateTimeSymbols = DateTimeSymbols_zh_HK;
     break;
   case 'zh_TW':
   case 'zh-TW':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zh_TW;
+    DateTimeSymbols = DateTimeSymbols_zh_TW;
     break;
   case 'zu':
-    goog.i18n.DateTimeSymbols = goog.i18n.DateTimeSymbols_zu;
+    DateTimeSymbols = DateTimeSymbols_zu;
     break;
 }

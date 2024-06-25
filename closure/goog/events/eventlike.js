@@ -8,10 +8,10 @@
  * @fileoverview A typedef for event like objects that are dispatchable via the
  * goog.events.dispatchEvent function.
  */
-goog.provide('goog.events.EventLike');
+goog.declareModuleId('goog.events.eventlike');
 
-goog.requireType('goog.events.Event');
-goog.requireType('goog.events.EventId');
+goog.requireType('goog.events.event');
+goog.requireType('goog.events.eventid');
 
 /**
  * A typedef for event like objects that are dispatchable via the
@@ -21,4 +21,4 @@ goog.requireType('goog.events.EventId');
  * of the Event.
  * @typedef {string|Object|goog.events.Event|goog.events.EventId}
  */
-goog.events.EventLike;
+export var EventLike;

@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.MenuTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Coordinate = goog.require('goog.math.Coordinate');
-const Menu = goog.require('goog.ui.Menu');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Component } from './component.js';
+import { Coordinate } from '../math/coordinate.js';
+import { Menu } from './menu.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let menu;
 let clonedMenuDom;

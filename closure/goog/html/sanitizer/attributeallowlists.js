@@ -10,9 +10,6 @@
  * sanitizer.
  */
 
-goog.module('goog.html.sanitizer.attributeallowlists');
-goog.module.declareLegacyNamespace();
-
 /**
  * An allowlist for attributes that are always safe and allowed by default.
  * The sanitizer only applies whitespace trimming to these.
@@ -104,7 +101,7 @@ const AllowedAttributes = {
   '* VSPACE': true,
   '* WIDTH': true
 };
-exports.AllowedAttributes = AllowedAttributes;
+export { AllowedAttributes };
 
 /**
  * An allowlist for attributes that are not safe to allow unrestricted, but are
@@ -139,4 +136,4 @@ const SanitizedAttributeAllowlist = {
   // CSS style can cause network requests and XSSs
   '* STYLE': true
 };
-exports.SanitizedAttributeAllowlist = SanitizedAttributeAllowlist;
+export { SanitizedAttributeAllowlist };

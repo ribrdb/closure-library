@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.DebouncerTest');
 goog.setTestOnly();
 
-const Debouncer = goog.require('goog.async.Debouncer');
-const MockClock = goog.require('goog.testing.MockClock');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Debouncer } from './debouncer.js';
+import { MockClock } from '../testing/mockclock.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testDebouncerCommandSequences() {

@@ -4,16 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.style.webkitScrollbarsTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const asserts = goog.require('goog.asserts');
-const style = goog.require('goog.style');
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import * as asserts from '../asserts/asserts.js';
+import * as style from './style.js';
+
 /** @suppress {extraRequire} */
-const styleScrollbarTester = goog.require('goog.styleScrollbarTester');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as styleScrollbarTester from './stylescrollbartester.js';
+
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let expectedFailures;
 

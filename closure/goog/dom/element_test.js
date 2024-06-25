@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.elementTest');
 goog.setTestOnly();
 
-const DomHelper = goog.require('goog.dom.DomHelper');
-const TagName = goog.require('goog.dom.TagName');
-const element = goog.require('goog.dom.element');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DomHelper } from './dom.js';
+import { TagName } from './tagname.js';
+import element from './element.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * @param {function():!Document} getDocument

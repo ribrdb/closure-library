@@ -10,11 +10,10 @@
  * @supported IE 10+, Chrome 26+, Firefox 22+, Safari 7.1+, Opera 15+
  */
 
-goog.provide('goog.html.textExtractor');
+import { TagName } from '../dom/tagname.js';
 
-goog.require('goog.dom.TagName');
-goog.require('goog.html.sanitizer.HtmlSanitizer');
-goog.require('goog.object');
+import { HtmlSanitizer } from './sanitizer/htmlsanitizer.js';
+import object from '../object/object.js';
 
 
 /**
@@ -27,13 +26,12 @@ goog.require('goog.object');
  */
 // TODO(pelizzi): consider an optional bool parameter to also extract the text
 // content of alt attributes and such.
-goog.html.textExtractor.extractTextContent = function(html) {
-  'use strict';
-  if (!goog.html.textExtractor.isSupported()) {
+export function extractTextContent(html) {
+  if (!isSupported()) {
     return '';
   }
   // Disable all attributes except style to protect against DOM clobbering.
-  var sanitizer = new goog.html.sanitizer.HtmlSanitizer.Builder()
+  var sanitizer = new HtmlSanitizer.Builder()
                       .onlyAllowAttributes(['style'])
                       .allowCssStyles()
                       .build();
@@ -44,9 +42,9 @@ goog.html.textExtractor.extractTextContent = function(html) {
   // textContent and innerText do not handle spacing between block elements
   // properly. We need to reimplement a similar algorithm ourselves and account
   // for spacing between block elements.
-  return goog.html.textExtractor.extractTextContentFromNode_(sanitizedNodes)
+  return extractTextContentFromNode_(sanitizedNodes)
       .trim();
-};
+}
 
 
 /**
@@ -55,20 +53,19 @@ goog.html.textExtractor.extractTextContent = function(html) {
  * @return {string}
  * @private
  */
-goog.html.textExtractor.extractTextContentFromNode_ = function(node) {
-  'use strict';
+function extractTextContentFromNode_(node) {
   switch (node.nodeType) {
     case Node.ELEMENT_NODE:
       var element = /** @type {!Element} */ (node);
-      if (element.tagName == goog.dom.TagName.BR) {
+      if (element.tagName == TagName.BR) {
         return '\n';
       }
       var result = Array.prototype.map
                        .call(
                            node.childNodes,
-                           goog.html.textExtractor.extractTextContentFromNode_)
+                           extractTextContentFromNode_)
                        .join('');
-      if (goog.html.textExtractor.isBlockElement_(element)) {
+      if (isBlockElement_(element)) {
         result = '\n' + result + '\n';
       }
       return result;
@@ -77,21 +74,21 @@ goog.html.textExtractor.extractTextContentFromNode_ = function(node) {
     default:
       return '';
   }
-};
+}
 
 
 /**
  * A set of block elements.
- * @private @const {!Object<!goog.dom.TagName, boolean>}
+ * @private @const {!Object<!TagName, boolean>}
  */
-goog.html.textExtractor.BLOCK_ELEMENTS_ = goog.object.createSet(
-    goog.dom.TagName.ADDRESS, goog.dom.TagName.BLOCKQUOTE,
-    goog.dom.TagName.CENTER, goog.dom.TagName.DIV, goog.dom.TagName.DL,
-    goog.dom.TagName.FIELDSET, goog.dom.TagName.FORM, goog.dom.TagName.H1,
-    goog.dom.TagName.H2, goog.dom.TagName.H3, goog.dom.TagName.H4,
-    goog.dom.TagName.H5, goog.dom.TagName.H6, goog.dom.TagName.HR,
-    goog.dom.TagName.OL, goog.dom.TagName.P, goog.dom.TagName.PRE,
-    goog.dom.TagName.TABLE, goog.dom.TagName.UL);
+var BLOCK_ELEMENTS_ = object.createSet(
+    TagName.ADDRESS, TagName.BLOCKQUOTE,
+    TagName.CENTER, TagName.DIV, TagName.DL,
+    TagName.FIELDSET, TagName.FORM, TagName.H1,
+    TagName.H2, TagName.H3, TagName.H4,
+    TagName.H5, TagName.H6, TagName.HR,
+    TagName.OL, TagName.P, TagName.PRE,
+    TagName.TABLE, TagName.UL);
 
 
 /**
@@ -101,11 +98,10 @@ goog.html.textExtractor.BLOCK_ELEMENTS_ = goog.object.createSet(
  * @return {boolean}
  * @private
  */
-goog.html.textExtractor.isBlockElement_ = function(element) {
-  'use strict';
+function isBlockElement_(element) {
   return element.style.display == 'block' ||
-      goog.html.textExtractor.BLOCK_ELEMENTS_.hasOwnProperty(element.tagName);
-};
+      BLOCK_ELEMENTS_.hasOwnProperty(element.tagName);
+}
 
 
 /**
@@ -115,7 +111,6 @@ goog.html.textExtractor.isBlockElement_ = function(element) {
  * @return {boolean}
  * @package
  */
-goog.html.textExtractor.isSupported = function() {
-  'use strict';
+export function isSupported() {
   return true;
-};
+}

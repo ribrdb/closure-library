@@ -9,10 +9,7 @@
  */
 
 
-goog.module('goog.array');
-goog.module.declareLegacyNamespace();
-
-const asserts = goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 
 /**
@@ -41,7 +38,7 @@ goog.NATIVE_ARRAY_PROTOTYPES =
  */
 const ASSUME_NATIVE_FUNCTIONS = goog.define(
     'goog.array.ASSUME_NATIVE_FUNCTIONS', goog.FEATURESET_YEAR > 2012);
-exports.ASSUME_NATIVE_FUNCTIONS = ASSUME_NATIVE_FUNCTIONS;
+export { ASSUME_NATIVE_FUNCTIONS };
 
 
 /**
@@ -54,7 +51,7 @@ exports.ASSUME_NATIVE_FUNCTIONS = ASSUME_NATIVE_FUNCTIONS;
 function peek(array) {
   return array[array.length - 1];
 }
-exports.peek = peek;
+export { peek };
 
 
 /**
@@ -64,7 +61,7 @@ exports.peek = peek;
  * @return {T} Last item in array.
  * @template T
  */
-exports.last = peek;
+export { peek as last };
 
 // NOTE(arv): Since most of the array functions are generic it allows you to
 // pass an array-like object. Strings have a length and are considered array-
@@ -112,7 +109,7 @@ const indexOf = goog.NATIVE_ARRAY_PROTOTYPES &&
       }
       return -1;
     };
-exports.indexOf = indexOf;
+export { indexOf };
 
 
 /**
@@ -158,7 +155,7 @@ const lastIndexOf = goog.NATIVE_ARRAY_PROTOTYPES &&
       }
       return -1;
     };
-exports.lastIndexOf = lastIndexOf;
+export { lastIndexOf };
 
 
 /**
@@ -189,7 +186,7 @@ const forEach = goog.NATIVE_ARRAY_PROTOTYPES &&
         }
       }
     };
-exports.forEach = forEach;
+export { forEach };
 
 
 /**
@@ -215,7 +212,7 @@ function forEachRight(arr, f, opt_obj) {
     }
   }
 }
-exports.forEachRight = forEachRight;
+export { forEachRight };
 
 
 /**
@@ -259,7 +256,7 @@ const filter = goog.NATIVE_ARRAY_PROTOTYPES &&
       }
       return res;
     };
-exports.filter = filter;
+export { filter };
 
 
 /**
@@ -296,7 +293,7 @@ const map = goog.NATIVE_ARRAY_PROTOTYPES &&
       }
       return res;
     };
-exports.map = map;
+export { map };
 
 
 /**
@@ -342,7 +339,7 @@ const reduce = goog.NATIVE_ARRAY_PROTOTYPES &&
       });
       return rval;
     };
-exports.reduce = reduce;
+export { reduce };
 
 
 /**
@@ -388,7 +385,7 @@ const reduceRight = goog.NATIVE_ARRAY_PROTOTYPES &&
       });
       return rval;
     };
-exports.reduceRight = reduceRight;
+export { reduceRight };
 
 
 /**
@@ -425,7 +422,7 @@ const some = goog.NATIVE_ARRAY_PROTOTYPES &&
       }
       return false;
     };
-exports.some = some;
+export { some };
 
 
 /**
@@ -462,7 +459,7 @@ const every = goog.NATIVE_ARRAY_PROTOTYPES &&
       }
       return true;
     };
-exports.every = every;
+export { every };
 
 
 /**
@@ -486,7 +483,7 @@ function count(arr, f, opt_obj) {
   }, opt_obj);
   return count;
 }
-exports.count = count;
+export { count };
 
 
 /**
@@ -506,7 +503,7 @@ function find(arr, f, opt_obj) {
   const i = findIndex(arr, f, opt_obj);
   return i < 0 ? null : typeof arr === 'string' ? arr.charAt(i) : arr[i];
 }
-exports.find = find;
+export { find };
 
 
 /**
@@ -533,7 +530,7 @@ function findIndex(arr, f, opt_obj) {
   }
   return -1;
 }
-exports.findIndex = findIndex;
+export { findIndex };
 
 
 /**
@@ -554,7 +551,7 @@ function findRight(arr, f, opt_obj) {
   const i = findIndexRight(arr, f, opt_obj);
   return i < 0 ? null : typeof arr === 'string' ? arr.charAt(i) : arr[i];
 }
-exports.findRight = findRight;
+export { findRight };
 
 
 /**
@@ -581,7 +578,7 @@ function findIndexRight(arr, f, opt_obj) {
   }
   return -1;
 }
-exports.findIndexRight = findIndexRight;
+export { findIndexRight };
 
 
 /**
@@ -594,7 +591,7 @@ exports.findIndexRight = findIndexRight;
 function contains(arr, obj) {
   return indexOf(arr, obj) >= 0;
 }
-exports.contains = contains;
+export { contains };
 
 
 /**
@@ -605,7 +602,7 @@ exports.contains = contains;
 function isEmpty(arr) {
   return arr.length == 0;
 }
-exports.isEmpty = isEmpty;
+export { isEmpty };
 
 
 /**
@@ -622,7 +619,7 @@ function clear(arr) {
   }
   arr.length = 0;
 }
-exports.clear = clear;
+export { clear };
 
 
 /**
@@ -636,7 +633,7 @@ function insert(arr, obj) {
     arr.push(obj);
   }
 }
-exports.insert = insert;
+export { insert };
 
 
 /**
@@ -649,7 +646,7 @@ exports.insert = insert;
 function insertAt(arr, obj, opt_i) {
   splice(arr, opt_i, 0, obj);
 }
-exports.insertAt = insertAt;
+export { insertAt };
 
 
 /**
@@ -662,7 +659,7 @@ exports.insertAt = insertAt;
 function insertArrayAt(arr, elementsToAdd, opt_i) {
   goog.partial(splice, arr, opt_i, 0).apply(null, elementsToAdd);
 }
-exports.insertArrayAt = insertArrayAt;
+export { insertArrayAt };
 
 
 /**
@@ -681,7 +678,7 @@ function insertBefore(arr, obj, opt_obj2) {
     insertAt(arr, obj, i);
   }
 }
-exports.insertBefore = insertBefore;
+export { insertBefore };
 
 
 /**
@@ -700,7 +697,7 @@ function remove(arr, obj) {
   }
   return rv;
 }
-exports.remove = remove;
+export { remove };
 
 
 /**
@@ -718,7 +715,7 @@ function removeLast(arr, obj) {
   }
   return false;
 }
-exports.removeLast = removeLast;
+export { removeLast };
 
 
 /**
@@ -736,7 +733,7 @@ function removeAt(arr, i) {
   // will be 1
   return Array.prototype.splice.call(arr, i, 1).length == 1;
 }
-exports.removeAt = removeAt;
+export { removeAt };
 
 
 /**
@@ -759,7 +756,7 @@ function removeIf(arr, f, opt_obj) {
   }
   return false;
 }
-exports.removeIf = removeIf;
+export { removeIf };
 
 
 /**
@@ -785,7 +782,7 @@ function removeAllIf(arr, f, opt_obj) {
   });
   return removedCount;
 }
-exports.removeAllIf = removeAllIf;
+export { removeAllIf };
 
 
 /**
@@ -807,7 +804,7 @@ exports.removeAllIf = removeAllIf;
 function concat(var_args) {
   return Array.prototype.concat.apply([], arguments);
 }
-exports.concat = concat;
+export { concat };
 
 
 /**
@@ -819,7 +816,7 @@ exports.concat = concat;
 function join(var_args) {
   return Array.prototype.concat.apply([], arguments);
 }
-exports.join = join;
+export { join };
 
 
 /**
@@ -847,7 +844,7 @@ function toArray(object) {
   }
   return [];
 }
-exports.toArray = toArray;
+export { toArray };
 
 
 /**
@@ -858,7 +855,7 @@ exports.toArray = toArray;
  * @template T
  */
 const clone = toArray;
-exports.clone = clone;
+export { clone };
 
 
 /**
@@ -892,7 +889,7 @@ function extend(arr1, var_args) {
     }
   }
 }
-exports.extend = extend;
+export { extend };
 
 
 /**
@@ -916,7 +913,7 @@ function splice(arr, index, howMany, var_args) {
 
   return Array.prototype.splice.apply(arr, slice(arguments, 1));
 }
-exports.splice = splice;
+export { splice };
 
 
 /**
@@ -945,7 +942,7 @@ function slice(arr, start, opt_end) {
     return Array.prototype.slice.call(arr, start, opt_end);
   }
 }
-exports.slice = slice;
+export { slice };
 
 
 /**
@@ -996,7 +993,7 @@ function removeDuplicates(arr, opt_rv, opt_hashFn) {
   }
   returnArray.length = cursorInsert;
 }
-exports.removeDuplicates = removeDuplicates;
+export { removeDuplicates };
 
 
 /**
@@ -1029,7 +1026,7 @@ function binarySearch(arr, target, opt_compareFn) {
   return binarySearch_(
       arr, opt_compareFn || defaultCompare, false /* isEvaluator */, target);
 }
-exports.binarySearch = binarySearch;
+export { binarySearch };
 
 
 /**
@@ -1061,7 +1058,7 @@ function binarySelect(arr, evaluator, opt_obj) {
       arr, evaluator, true /* isEvaluator */, undefined /* opt_target */,
       opt_obj);
 }
-exports.binarySelect = binarySelect;
+export { binarySelect };
 
 
 /**
@@ -1148,7 +1145,7 @@ function sort(arr, opt_compareFn) {
   // TODO(arv): Update type annotation since null is not accepted.
   arr.sort(opt_compareFn || defaultCompare);
 }
-exports.sort = sort;
+export { sort };
 
 
 /**
@@ -1183,7 +1180,7 @@ function stableSort(arr, opt_compareFn) {
     arr[i] = compArr[i].value;
   }
 }
-exports.stableSort = stableSort;
+export { stableSort };
 
 
 /**
@@ -1211,7 +1208,7 @@ function sortByKey(arr, keyFn, opt_compareFn) {
     return keyCompareFn(keyFn(a), keyFn(b));
   });
 }
-exports.sortByKey = sortByKey;
+export { sortByKey };
 
 
 /**
@@ -1230,7 +1227,7 @@ function sortObjectsByKey(arr, key, opt_compareFn) {
     return obj[key];
   }, opt_compareFn);
 }
-exports.sortObjectsByKey = sortObjectsByKey;
+export { sortObjectsByKey };
 
 
 /**
@@ -1255,7 +1252,7 @@ function isSorted(arr, opt_compareFn, opt_strict) {
   }
   return true;
 }
-exports.isSorted = isSorted;
+export { isSorted };
 
 
 /**
@@ -1287,7 +1284,7 @@ function equals(arr1, arr2, opt_equalsFn) {
   }
   return true;
 }
-exports.equals = equals;
+export { equals };
 
 
 /**
@@ -1317,7 +1314,7 @@ function compare3(arr1, arr2, opt_compareFn) {
   }
   return defaultCompare(arr1.length, arr2.length);
 }
-exports.compare3 = compare3;
+export { compare3 };
 
 
 /**
@@ -1333,7 +1330,7 @@ exports.compare3 = compare3;
 function defaultCompare(a, b) {
   return a > b ? 1 : a < b ? -1 : 0;
 }
-exports.defaultCompare = defaultCompare;
+export { defaultCompare };
 
 
 /**
@@ -1349,7 +1346,7 @@ exports.defaultCompare = defaultCompare;
 function inverseDefaultCompare(a, b) {
   return -defaultCompare(a, b);
 }
-exports.inverseDefaultCompare = inverseDefaultCompare;
+export { inverseDefaultCompare };
 
 
 /**
@@ -1361,7 +1358,7 @@ exports.inverseDefaultCompare = inverseDefaultCompare;
 function defaultCompareEquality(a, b) {
   return a === b;
 }
-exports.defaultCompareEquality = defaultCompareEquality;
+export { defaultCompareEquality };
 
 
 /**
@@ -1385,7 +1382,7 @@ function binaryInsert(array, value, opt_compareFn) {
   }
   return false;
 }
-exports.binaryInsert = binaryInsert;
+export { binaryInsert };
 
 
 /**
@@ -1404,7 +1401,7 @@ function binaryRemove(array, value, opt_compareFn) {
   const index = binarySearch(array, value, opt_compareFn);
   return (index >= 0) ? removeAt(array, index) : false;
 }
-exports.binaryRemove = binaryRemove;
+export { binaryRemove };
 
 
 /**
@@ -1436,7 +1433,7 @@ function bucket(array, sorter, opt_obj) {
 
   return buckets;
 }
-exports.bucket = bucket;
+export { bucket };
 
 
 /**
@@ -1470,7 +1467,7 @@ function bucketToMap(array, sorter) {
 
   return buckets;
 }
-exports.bucketToMap = bucketToMap;
+export { bucketToMap };
 
 
 /**
@@ -1497,7 +1494,7 @@ function toObject(arr, keyFunc, opt_obj) {
   });
   return ret;
 }
-exports.toObject = toObject;
+export { toObject };
 
 
 /**
@@ -1523,7 +1520,7 @@ function toMap(arr, keyFunc) {
 
   return map;
 }
-exports.toMap = toMap;
+export { toMap };
 
 
 /**
@@ -1572,7 +1569,7 @@ function range(startOrEnd, opt_end, opt_step) {
   }
   return array;
 }
-exports.range = range;
+export { range };
 
 
 /**
@@ -1590,7 +1587,7 @@ function repeat(value, n) {
   }
   return array;
 }
-exports.repeat = repeat;
+export { repeat };
 
 
 /**
@@ -1620,7 +1617,7 @@ function flatten(var_args) {
   }
   return result;
 }
-exports.flatten = flatten;
+export { flatten };
 
 
 /**
@@ -1650,7 +1647,7 @@ function rotate(array, n) {
   }
   return array;
 }
-exports.rotate = rotate;
+export { rotate };
 
 
 /**
@@ -1673,7 +1670,7 @@ function moveItem(arr, fromIndex, toIndex) {
   // We don't use goog.array.insertAt and goog.array.removeAt, because they're
   // significantly slower than splice.
 }
-exports.moveItem = moveItem;
+export { moveItem };
 
 
 /**
@@ -1709,7 +1706,7 @@ function zip(var_args) {
   }
   return result;
 }
-exports.zip = zip;
+export { zip };
 
 
 /**
@@ -1738,7 +1735,7 @@ function shuffle(arr, opt_randFn) {
     arr[j] = tmp;
   }
 }
-exports.shuffle = shuffle;
+export { shuffle };
 
 
 /**
@@ -1758,7 +1755,7 @@ function copyByIndex(arr, index_arr) {
   });
   return result;
 }
-exports.copyByIndex = copyByIndex;
+export { copyByIndex };
 
 
 /**
@@ -1779,4 +1776,4 @@ exports.copyByIndex = copyByIndex;
 function concatMap(arr, f, opt_obj) {
   return concat.apply([], map(arr, f, opt_obj));
 }
-exports.concatMap = concatMap;
+export { concatMap };

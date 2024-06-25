@@ -4,17 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.ContinuationTestCaseTest');
 goog.setTestOnly();
 
-const ContinuationTestCase = goog.require('goog.testing.ContinuationTestCase');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const MockClock = goog.require('goog.testing.MockClock');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const events = goog.require('goog.events');
+import { ContinuationTestCase } from './continuationtestcase.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
+import { MockClock } from './mockclock.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import { TestCase } from './testcase.js';
+import * as events from '../events/events.js';
+
 /** @suppress {extraRequire} */
-const jsunit = goog.require('goog.testing.jsunit');
+import * as jsunit from './jsunit.js';
 
 /**
  * @fileoverview This test file uses the ContinuationTestCase to test itself,

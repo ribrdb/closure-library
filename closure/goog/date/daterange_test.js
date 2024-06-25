@@ -4,14 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.date.DateRangeTest');
 goog.setTestOnly();
 
-const DateDate = goog.require('goog.date.Date');
-const DateRange = goog.require('goog.date.DateRange');
-const DateTimeSymbols = goog.require('goog.i18n.DateTimeSymbols');
-const Interval = goog.require('goog.date.Interval');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Date as DateDate, Interval } from './date.js';
+import { DateRange } from './daterange.js';
+import { DateTimeSymbols } from '../i18n/datetimesymbols.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function assertStartEnd(name, start, end, actual) {
   assertTrue(

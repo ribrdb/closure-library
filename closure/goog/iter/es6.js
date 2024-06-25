@@ -8,11 +8,7 @@
  * @fileoverview Shims between goog.iter.Iterator and ES6 iterator.
  */
 
-goog.module('goog.iter.es6');
-goog.module.declareLegacyNamespace();
-
-const GoogIterable = goog.require('goog.iter.Iterable');
-const GoogIterator = goog.require('goog.iter.Iterator');
+import { Iterable as GoogIterable, Iterator as GoogIterator } from './iter.js';
 
 
 /**
@@ -167,7 +163,7 @@ class ShimEs6Iterator extends ShimIterableImpl {
 }
 
 
-exports = {
+export default {
   ShimIterable,
   ShimEs6Iterator,
   ShimGoogIterator,

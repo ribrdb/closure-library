@@ -17,10 +17,7 @@
 //     interface?
 
 
-goog.module('goog.structs.PriorityQueue');
-goog.module.declareLegacyNamespace();
-
-const Heap = goog.require('goog.structs.Heap');
+import { Heap } from './heap.js';
 
 
 /**
@@ -50,4 +47,4 @@ class PriorityQueue extends Heap {
     return this.remove();
   }
 }
-exports = PriorityQueue;
+export { PriorityQueue };

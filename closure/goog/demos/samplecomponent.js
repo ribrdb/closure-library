@@ -7,32 +7,31 @@
 /**
  * @fileoverview A simple, sample component.
  */
-goog.provide('goog.demos.SampleComponent');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.events.KeyHandler');
-goog.require('goog.ui.Component');
-goog.requireType('goog.events.Event');
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyHandler } from '../events/keyhandler.js';
+import { Component } from '../ui/component.js';
+goog.requireType('goog.events.event');
 
 
 
 /**
  * A simple box that changes colour when clicked. This class demonstrates the
- * goog.ui.Component API, and is keyboard accessible, as per
+ * Component API, and is keyboard accessible, as per
  * http://wiki/Main/ClosureKeyboardAccessible
  * @final
  * @unrestricted
  */
-goog.demos.SampleComponent = class extends goog.ui.Component {
+export class SampleComponent extends Component {
   /**
-   * @param {string=} opt_label A label to display. Defaults to "Click Me" if
-   *     none provided.
-   * @param {goog.dom.DomHelper=} opt_domHelper DOM helper to use.
-   */
+     * @param {string=} opt_label A label to display. Defaults to "Click Me" if
+     *     none provided.
+     * @param {dom.DomHelper=} opt_domHelper DOM helper to use.
+     */
   constructor(opt_label, opt_domHelper) {
     super(opt_domHelper);
 
@@ -51,12 +50,12 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
     this.color_ = 'red';
 
     /**
-     * Keyboard handler for this object. This object is created once the
-     * component's DOM element is known.
-     *
-     * @type {goog.events.KeyHandler?}
-     * @private
-     */
+         * Keyboard handler for this object. This object is created once the
+         * component's DOM element is known.
+         *
+         * @type {KeyHandler?}
+         * @private
+         */
     this.kh_ = null;
   }
 
@@ -80,7 +79,7 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
    * @override
    */
   createDom() {
-    this.decorateInternal(this.dom_.createElement(goog.dom.TagName.DIV));
+    this.decorateInternal(this.dom_.createElement(TagName.DIV));
   }
 
   /**
@@ -98,13 +97,13 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
     }
 
     const elem = this.getElement();
-    goog.dom.classlist.add(elem, goog.getCssName('goog-sample-component'));
+    classlist.add(elem, goog.getCssName('goog-sample-component'));
     elem.style.backgroundColor = this.color_;
     elem.tabIndex = 0;
 
-    this.kh_ = new goog.events.KeyHandler(elem);
+    this.kh_ = new KeyHandler(elem);
     this.getHandler().listen(
-        this.kh_, goog.events.KeyHandler.EventType.KEY, this.onKey_);
+        this.kh_, KeyHandler.EventType.KEY, this.onKey_);
   }
 
   /** @override */
@@ -122,7 +121,7 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
   enterDocument() {
     super.enterDocument();
     this.getHandler().listen(
-        this.getElement(), goog.events.EventType.CLICK, this.onDivClicked_);
+        this.getElement(), EventType.CLICK, this.onDivClicked_);
   }
 
   /**
@@ -135,7 +134,7 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
     if (!this.getElement()) {
       return '';
     }
-    return goog.dom.getTextContent(this.getElement());
+    return dom.getTextContent(this.getElement());
   }
 
   /**
@@ -155,7 +154,7 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
    * @suppress {strictMissingProperties} missing 'keyCode' prop
    */
   onKey_(event) {
-    const keyCodes = goog.events.KeyCodes;
+    const keyCodes = KeyCodes;
     if (event.keyCode == keyCodes.SPACE || event.keyCode == keyCodes.ENTER) {
       this.changeColor_();
     }
@@ -168,7 +167,7 @@ goog.demos.SampleComponent = class extends goog.ui.Component {
    */
   setLabelText(text) {
     if (this.getElement()) {
-      goog.dom.setTextContent(this.getElement(), text);
+      dom.setTextContent(this.getElement(), text);
     }
   }
-};
+}

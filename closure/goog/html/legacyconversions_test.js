@@ -6,17 +6,16 @@
 
 /** @fileoverview Unit tests for legacyconversions. */
 
-goog.module('goog.html.legacyconversionsTest');
 goog.setTestOnly();
 
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeScript = goog.require('goog.html.SafeScript');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeStyleSheet = goog.require('goog.html.SafeStyleSheet');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const legacyconversions = goog.require('goog.html.legacyconversions');
-const testSuite = goog.require('goog.testing.testSuite');
+import { SafeHtml } from './safehtml.js';
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
+import * as legacyconversions from './legacyconversions.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Asserts that conversionFunction calls the report callback.

@@ -12,10 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-goog.module('goog.defineClassTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
+import { testSuite } from './testing/testsuite.js';
 
 testSuite({
   testSuper() {

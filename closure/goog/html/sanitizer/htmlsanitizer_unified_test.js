@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.html.HtmlSanitizerUnifiedTest');
 goog.setTestOnly();
 
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SanitizerBuilder = goog.require('goog.html.sanitizer.HtmlSanitizer.Builder');
-const testSuite = goog.require('goog.testing.testSuite');
-const testVectors = goog.require('goog.html.htmlTestVectors');
+import { SafeHtml } from '../safehtml.js';
+import { HtmlSanitizer } from './htmlsanitizer.js';
+const SanitizerBuilder = HtmlSanitizer.Builder;
+import { testSuite } from '../../testing/testsuite.js';
+import * as testVectors from './html_test_vectors.js';
 
 const sanitizer = new SanitizerBuilder().build();
 

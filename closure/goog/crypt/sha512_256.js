@@ -14,14 +14,12 @@
  * Please be careful before using this hash function.
  * <p>
  * Usage:
- *   var sha512_256 = new goog.crypt.Sha512_256();
+ *   var sha512_256 = new Sha512_256();
  *   sha512_256.update(bytes);
  *   var hash = sha512_256.digest();
  */
 
-goog.provide('goog.crypt.Sha512_256');
-
-goog.require('goog.crypt.Sha2_64bit');
+import { Sha2_64bit } from './sha2_64bit.js';
 
 
 
@@ -29,21 +27,20 @@ goog.require('goog.crypt.Sha2_64bit');
  * Constructs a SHA-512/256 cryptographic hash.
  *
  * @constructor
- * @extends {goog.crypt.Sha2_64bit}
+ * @extends {Sha2_64bit}
  * @final
  * @struct
  */
-goog.crypt.Sha512_256 = function() {
-  'use strict';
-  goog.crypt.Sha512_256.base(
-      this, 'constructor', 4 /* numHashBlocks */,
-      goog.crypt.Sha512_256.INIT_HASH_BLOCK_);
-};
-goog.inherits(goog.crypt.Sha512_256, goog.crypt.Sha2_64bit);
+export function Sha512_256() {
+ Sha512_256.base(
+     this, 'constructor', 4 /* numHashBlocks */,
+     Sha512_256.INIT_HASH_BLOCK_);
+}
+goog.inherits(Sha512_256, Sha2_64bit);
 
 
 /** @private {!Array<number>} */
-goog.crypt.Sha512_256.INIT_HASH_BLOCK_ = [
+Sha512_256.INIT_HASH_BLOCK_ = [
   // Section 5.3.6.2 of
   // csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf
   0x22312194, 0xFC2BF72C,  // H0

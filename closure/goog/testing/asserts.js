@@ -4,22 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.testing.asserts');
 goog.setTestOnly();
 
-goog.require('goog.dom.safe');
-goog.require('goog.html.uncheckedconversions');
-goog.require('goog.string');
-goog.require('goog.string.Const');
-goog.require('goog.testing.JsUnitException');
+import * as safe from '../dom/safe.js';
+import * as uncheckedconversions from '../html/uncheckedconversions.js';
+import * as googString from '../string/string.js';
+import { Const } from '../string/const.js';
+import { JsUnitException } from './jsunitexception.js';
 
 var DOUBLE_EQUALITY_PREDICATE = function(var1, var2) {
-  'use strict';
   return var1 == var2;
 };
 var JSUNIT_UNDEFINED_VALUE = void 0;
 var TO_STRING_EQUALITY_PREDICATE = function(var1, var2) {
-  'use strict';
   return var1.toString() === var2.toString();
 };
 var OUTPUT_NEW_LINE_THRESHOLD = 40;
@@ -61,7 +58,6 @@ const EQUALITY_PREDICATES = {
   'Bigint': DOUBLE_EQUALITY_PREDICATE,
   'Boolean': DOUBLE_EQUALITY_PREDICATE,
   'Date': function(date1, date2) {
-    'use strict';
     return date1.getTime() == date2.getTime();
   },
   'RegExp': TO_STRING_EQUALITY_PREDICATE,
@@ -81,24 +77,21 @@ const EQUALITY_PREDICATES = {
  * @return {boolean} Whether the two variables are sufficiently close.
  * @private
  */
-goog.testing.asserts.numberRoughEqualityPredicate_ = function(
-    var1, var2, tolerance) {
-  'use strict';
+function numberRoughEqualityPredicate_(var1, var2, tolerance) {
   return Math.abs(var1 - var2) <= tolerance;
-};
+}
 
 
 /**
  * @type {!Object<string, function(?, ?, number): boolean>}
  * @private
  */
-goog.testing.asserts.primitiveRoughEqualityPredicates_ = {
-  'Number': goog.testing.asserts.numberRoughEqualityPredicate_
+var primitiveRoughEqualityPredicates_ = {
+  'Number': numberRoughEqualityPredicate_
 };
 
 
 var _trueTypeOf = function(something) {
-  'use strict';
   let result = typeof something;
   try {
     switch (result) {
@@ -143,7 +136,6 @@ var _trueTypeOf = function(something) {
 };
 
 var _displayStringForValue = function(aVar) {
-  'use strict';
   var result;
   try {
     result = '<' + String(aVar) + '>';
@@ -158,24 +150,22 @@ var _displayStringForValue = function(aVar) {
 };
 
 /** @param {?} failureMessage */
-goog.testing.asserts.fail = function(failureMessage) {
-  'use strict';
+function fail_(failureMessage) {
   _assert('Call to fail()', false, failureMessage);
-};
+}
+export { fail_ as fail };
 /**
  * @const
  * @suppress {duplicate,checkTypes} Test frameworks like Jasmine may also
  * define global fail functions.
  */
-var fail = goog.testing.asserts.fail;
+var fail = fail_;
 
 var argumentsIncludeComments = function(expectedNumberOfNonCommentArgs, args) {
-  'use strict';
   return args.length == expectedNumberOfNonCommentArgs + 1;
 };
 
 var commentArg = function(expectedNumberOfNonCommentArgs, args) {
-  'use strict';
   if (argumentsIncludeComments(expectedNumberOfNonCommentArgs, args)) {
     return args[0];
   }
@@ -185,19 +175,17 @@ var commentArg = function(expectedNumberOfNonCommentArgs, args) {
 
 var nonCommentArg = function(
     desiredNonCommentArgIndex, expectedNumberOfNonCommentArgs, args) {
-  'use strict';
   return argumentsIncludeComments(expectedNumberOfNonCommentArgs, args) ?
       args[desiredNonCommentArgIndex] :
       args[desiredNonCommentArgIndex - 1];
 };
 
 var _validateArguments = function(expectedNumberOfNonCommentArgs, args) {
-  'use strict';
   var valid = args.length == expectedNumberOfNonCommentArgs ||
       args.length == expectedNumberOfNonCommentArgs + 1 &&
           typeof args[0] === 'string';
   if (!valid) {
-    goog.testing.asserts.raiseException(
+    raiseException(
         'Incorrect arguments passed to assert function.\n' +
         'Expected ' + expectedNumberOfNonCommentArgs + ' argument(s) plus ' +
         'optional comment; got ' + args.length + '.');
@@ -212,7 +200,6 @@ var _validateArguments = function(expectedNumberOfNonCommentArgs, args) {
  * @private
  */
 var _getCurrentTestCase = function() {
-  'use strict';
   // Some users of goog.testing.asserts do not use goog.testing.TestRunner and
   // they do not include goog.testing.TestCase. Exceptions will not be
   // completely correct for these users.
@@ -229,20 +216,19 @@ var _getCurrentTestCase = function() {
 };
 
 var _assert = function(comment, booleanValue, failureMessage) {
-  'use strict';
   // If another framework has installed an adapter, tell it about the assertion.
   var adapter =
       typeof window !== 'undefined' && window['Closure assert adapter'];
   if (adapter) {
     adapter['assertWithMessage'](
         booleanValue,
-        goog.testing.JsUnitException.generateMessage(comment, failureMessage));
+        JsUnitException.generateMessage(comment, failureMessage));
     // Also throw an error, for callers that assume that asserts throw. We don't
     // include error details to avoid duplicate failure messages.
     if (!booleanValue) throw new Error('goog.testing assertion failed');
   }
   if (!booleanValue) {
-    goog.testing.asserts.raiseException(comment, failureMessage);
+    raiseException(comment, failureMessage);
   }
 };
 
@@ -253,8 +239,7 @@ var _assert = function(comment, booleanValue, failureMessage) {
  * @return {string} A failure message of the values don't match.
  * @private
  */
-goog.testing.asserts.getDefaultErrorMsg_ = function(expected, actual) {
-  'use strict';
+function getDefaultErrorMsg_(expected, actual) {
   var expectedDisplayString = _displayStringForValue(expected);
   var actualDisplayString = _displayStringForValue(actual);
   var shouldUseNewLines =
@@ -286,7 +271,6 @@ goog.testing.asserts.getDefaultErrorMsg_ = function(expected, actual) {
 
     if (commonPrefix > 2 || commonSuffix > 2) {
       var printString = function(str) {
-        'use strict';
         var startIndex = Math.max(0, commonPrefix - 2);
         var endIndex = Math.min(str.length, str.length - (commonSuffix - 2));
         return (startIndex > 0 ? '...' : '') +
@@ -306,15 +290,14 @@ goog.testing.asserts.getDefaultErrorMsg_ = function(expected, actual) {
     }
   }
   return msg;
-};
+}
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assert = function(a, opt_b) {
-  'use strict';
+function assert_(a, opt_b) {
   _validateArguments(1, arguments);
   var comment = commentArg(1, arguments);
   var booleanValue = nonCommentArg(1, 1, arguments);
@@ -324,9 +307,10 @@ goog.testing.asserts.assert = function(a, opt_b) {
       'Bad argument to assert(boolean): ' +
           _displayStringForValue(booleanValue));
   _assert(comment, booleanValue, 'Call to assert(boolean) with false');
-};
+}
+export { assert_ as assert };
 /** @const */
-var assert = goog.testing.asserts.assert;
+var assert = assert_;
 
 
 /**
@@ -337,10 +321,9 @@ var assert = goog.testing.asserts.assert;
  *     `assertThrows` was the comment).
  * @return {!Error} The error thrown by the function. Beware that code may throw
  *     other types in strange scenarios.
- * @throws {goog.testing.JsUnitException} If the assertion failed.
+ * @throws {JsUnitException} If the assertion failed.
  */
-goog.testing.asserts.assertThrows = function(a, opt_b) {
-  'use strict';
+function assertThrows_(a, opt_b) {
   _validateArguments(1, arguments);
   var func = nonCommentArg(1, 1, arguments);
   var comment = commentArg(1, arguments);
@@ -351,11 +334,11 @@ goog.testing.asserts.assertThrows = function(a, opt_b) {
   try {
     func();
   } catch (e) {
-    goog.testing.asserts.removeOperaStacktrace_(e);
+    removeOperaStacktrace_(e);
 
     var testCase = _getCurrentTestCase();
     if (e && e['isJsUnitException'] && testCase) {
-      goog.testing.asserts.raiseException(
+      raiseException(
           comment,
           'Function passed to assertThrows caught a JsUnitException (usually ' +
               'from an assert or call to fail()). If this is expected, use ' +
@@ -364,12 +347,13 @@ goog.testing.asserts.assertThrows = function(a, opt_b) {
 
     return e;
   }
-  goog.testing.asserts.raiseException(
+  raiseException(
       comment, 'No exception thrown from function passed to assertThrows');
   throw new Error('Should have thrown an error.');  // Make the compiler happy.
-};
+}
+export { assertThrows_ as assertThrows };
 /** @const */
-var assertThrows = goog.testing.asserts.assertThrows;
+var assertThrows = assertThrows_;
 
 
 /**
@@ -377,8 +361,7 @@ var assertThrows = goog.testing.asserts.assertThrows;
  * @param {*} e
  * @private
  */
-goog.testing.asserts.removeOperaStacktrace_ = function(e) {
-  'use strict';
+function removeOperaStacktrace_(e) {
   if (!goog.isObject(e)) return;
   const stack = e['stacktrace'];
   const errorMsg = e['message'];
@@ -389,7 +372,7 @@ goog.testing.asserts.removeOperaStacktrace_ = function(e) {
   if (errorMsg.indexOf(stack, stackStartIndex) == stackStartIndex) {
     e['message'] = errorMsg.slice(0, stackStartIndex - 14);
   }
-};
+}
 
 
 /**
@@ -399,10 +382,9 @@ goog.testing.asserts.removeOperaStacktrace_ = function(e) {
  * @param {!Function=} opt_b The function to call (if the first argument of
  *     `assertNotThrows` was the comment).
  * @return {*} The return value of the function.
- * @throws {goog.testing.JsUnitException} If the assertion failed.
+ * @throws {JsUnitException} If the assertion failed.
  */
-goog.testing.asserts.assertNotThrows = function(a, opt_b) {
-  'use strict';
+function assertNotThrows_(a, opt_b) {
   _validateArguments(1, arguments);
   var comment = commentArg(1, arguments);
   var func = nonCommentArg(1, 1, arguments);
@@ -419,11 +401,12 @@ goog.testing.asserts.assertNotThrows = function(a, opt_b) {
     // Some browsers don't have a stack trace so at least have the error
     // description.
     var stackTrace = e['stack'] || e['stacktrace'] || e.toString();
-    goog.testing.asserts.raiseException(comment, stackTrace);
+    raiseException(comment, stackTrace);
   }
-};
+}
+export { assertNotThrows_ as assertNotThrows };
 /** @const */
-var assertNotThrows = goog.testing.asserts.assertNotThrows;
+var assertNotThrows = assertNotThrows_;
 
 
 /**
@@ -434,13 +417,11 @@ var assertNotThrows = goog.testing.asserts.assertNotThrows;
  *     in a JsUnitException (usually contains a call to an assert).
  * @param {string=} opt_expectedMessage Failure message expected to be given
  *     with the exception.
- * @return {!goog.testing.JsUnitException} The error thrown by the function.
- * @throws {goog.testing.JsUnitException} If the function did not throw a
+ * @return {!JsUnitException} The error thrown by the function.
+ * @throws {JsUnitException} If the function did not throw a
  *     JsUnitException.
  */
-goog.testing.asserts.assertThrowsJsUnitException = function(
-    callback, opt_expectedMessage) {
-  'use strict';
+function assertThrowsJsUnitException_(callback, opt_expectedMessage) {
   try {
     callback();
   } catch (e) {
@@ -453,13 +434,13 @@ goog.testing.asserts.assertThrowsJsUnitException = function(
     }
 
     if (!e.isJsUnitException) {
-      goog.testing.asserts.fail(
+      fail_(
           'Expected a JsUnitException, got \'' + e + '\' instead');
     }
 
     if (typeof opt_expectedMessage != 'undefined' &&
         e.message != opt_expectedMessage) {
-      goog.testing.asserts.fail(
+      fail_(
           'Expected message [' + opt_expectedMessage + '] but got [' +
           e.message + ']');
     }
@@ -471,11 +452,12 @@ goog.testing.asserts.assertThrowsJsUnitException = function(
   if (typeof opt_expectedMessage != 'undefined') {
     msg += ': ' + opt_expectedMessage;
   }
-  throw new goog.testing.JsUnitException(msg);
-};
+  throw new JsUnitException(msg);
+}
+export { assertThrowsJsUnitException_ as assertThrowsJsUnitException };
 /** @const */
 var assertThrowsJsUnitException =
-    goog.testing.asserts.assertThrowsJsUnitException;
+    assertThrowsJsUnitException_;
 
 
 /**
@@ -499,8 +481,7 @@ var assertThrowsJsUnitException =
  *     the passed in IThenable rejects with. This IThenable will reject if the
  *     passed in IThenable does not reject.
  */
-goog.testing.asserts.assertRejects = function(a, opt_b) {
-  'use strict';
+function assertRejects_(a, opt_b) {
   _validateArguments(1, arguments);
   var thenable = /** @type {!IThenable<*>} */ (nonCommentArg(1, 1, arguments));
   var comment = commentArg(1, arguments);
@@ -510,26 +491,24 @@ goog.testing.asserts.assertRejects = function(a, opt_b) {
 
   return thenable.then(
       function() {
-        'use strict';
-        goog.testing.asserts.raiseException(
+        raiseException(
             comment, 'IThenable passed into assertRejects did not reject');
       },
       function(e) {
-        'use strict';
-        goog.testing.asserts.removeOperaStacktrace_(e);
+        removeOperaStacktrace_(e);
         return e;
       });
-};
+}
+export { assertRejects_ as assertRejects };
 /** @const */
-var assertRejects = goog.testing.asserts.assertRejects;
+var assertRejects = assertRejects_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertTrue = function(a, opt_b) {
-  'use strict';
+function assertTrue_(a, opt_b) {
   _validateArguments(1, arguments);
   var comment = commentArg(1, arguments);
   var booleanValue = nonCommentArg(1, 1, arguments);
@@ -539,17 +518,17 @@ goog.testing.asserts.assertTrue = function(a, opt_b) {
       'Bad argument to assertTrue(boolean): ' +
           _displayStringForValue(booleanValue));
   _assert(comment, booleanValue, 'Call to assertTrue(boolean) with false');
-};
+}
+export { assertTrue_ as assertTrue };
 /** @const */
-var assertTrue = goog.testing.asserts.assertTrue;
+var assertTrue = assertTrue_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertFalse = function(a, opt_b) {
-  'use strict';
+function assertFalse_(a, opt_b) {
   _validateArguments(1, arguments);
   var comment = commentArg(1, arguments);
   var booleanValue = nonCommentArg(1, 1, arguments);
@@ -559,9 +538,10 @@ goog.testing.asserts.assertFalse = function(a, opt_b) {
       'Bad argument to assertFalse(boolean): ' +
           _displayStringForValue(booleanValue));
   _assert(comment, !booleanValue, 'Call to assertFalse(boolean) with true');
-};
+}
+export { assertFalse_ as assertFalse };
 /** @const */
-var assertFalse = goog.testing.asserts.assertFalse;
+var assertFalse = assertFalse_;
 
 
 /**
@@ -569,17 +549,17 @@ var assertFalse = goog.testing.asserts.assertFalse;
  * @param {*} b The actual value (2 args) or the expected value (3 args).
  * @param {*=} opt_c The actual value (3 args only).
  */
-goog.testing.asserts.assertEquals = function(a, b, opt_c) {
-  'use strict';
+function assertEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var var1 = nonCommentArg(1, 2, arguments);
   var var2 = nonCommentArg(2, 2, arguments);
   _assert(
       commentArg(2, arguments), var1 === var2,
-      goog.testing.asserts.getDefaultErrorMsg_(var1, var2));
-};
+      getDefaultErrorMsg_(var1, var2));
+}
+export { assertEquals_ as assertEquals };
 /** @const */
-var assertEquals = goog.testing.asserts.assertEquals;
+var assertEquals = assertEquals_;
 
 
 /**
@@ -587,87 +567,86 @@ var assertEquals = goog.testing.asserts.assertEquals;
  * @param {*} b The actual value (2 args) or the expected value (3 args).
  * @param {*=} opt_c The actual value (3 args only).
  */
-goog.testing.asserts.assertNotEquals = function(a, b, opt_c) {
-  'use strict';
+function assertNotEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var var1 = nonCommentArg(1, 2, arguments);
   var var2 = nonCommentArg(2, 2, arguments);
   _assert(
       commentArg(2, arguments), var1 !== var2,
       'Expected not to be ' + _displayStringForValue(var2));
-};
+}
+export { assertNotEquals_ as assertNotEquals };
 /** @const */
-var assertNotEquals = goog.testing.asserts.assertNotEquals;
+var assertNotEquals = assertNotEquals_;
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNull = function(a, opt_b) {
-  'use strict';
+function assertNull_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
       commentArg(1, arguments), aVar === null,
-      goog.testing.asserts.getDefaultErrorMsg_(null, aVar));
-};
+      getDefaultErrorMsg_(null, aVar));
+}
+export { assertNull_ as assertNull };
 /** @const */
-var assertNull = goog.testing.asserts.assertNull;
+var assertNull = assertNull_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNotNull = function(a, opt_b) {
-  'use strict';
+function assertNotNull_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
       commentArg(1, arguments), aVar !== null,
       'Expected not to be ' + _displayStringForValue(null));
-};
+}
+export { assertNotNull_ as assertNotNull };
 /** @const */
-var assertNotNull = goog.testing.asserts.assertNotNull;
+var assertNotNull = assertNotNull_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertUndefined = function(a, opt_b) {
-  'use strict';
+function assertUndefined_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
       commentArg(1, arguments), aVar === JSUNIT_UNDEFINED_VALUE,
-      goog.testing.asserts.getDefaultErrorMsg_(JSUNIT_UNDEFINED_VALUE, aVar));
-};
+      getDefaultErrorMsg_(JSUNIT_UNDEFINED_VALUE, aVar));
+}
+export { assertUndefined_ as assertUndefined };
 /** @const */
-var assertUndefined = goog.testing.asserts.assertUndefined;
+var assertUndefined = assertUndefined_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNotUndefined = function(a, opt_b) {
-  'use strict';
+function assertNotUndefined_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
       commentArg(1, arguments), aVar !== JSUNIT_UNDEFINED_VALUE,
       'Expected not to be ' + _displayStringForValue(JSUNIT_UNDEFINED_VALUE));
-};
+}
+export { assertNotUndefined_ as assertNotUndefined };
 /** @const */
-var assertNotUndefined = goog.testing.asserts.assertNotUndefined;
+var assertNotUndefined = assertNotUndefined_;
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNullOrUndefined = function(a, opt_b) {
-  'use strict';
+function assertNullOrUndefined_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
@@ -675,69 +654,70 @@ goog.testing.asserts.assertNullOrUndefined = function(a, opt_b) {
       'Expected ' + _displayStringForValue(null) + ' or ' +
           _displayStringForValue(JSUNIT_UNDEFINED_VALUE) + ' but was ' +
           _displayStringForValue(aVar));
-};
+}
+export { assertNullOrUndefined_ as assertNullOrUndefined };
 /** @const */
-var assertNullOrUndefined = goog.testing.asserts.assertNullOrUndefined;
+var assertNullOrUndefined = assertNullOrUndefined_;
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNotNullNorUndefined = function(a, opt_b) {
-  'use strict';
+function assertNotNullNorUndefined_(a, opt_b) {
   _validateArguments(1, arguments);
-  goog.testing.asserts.assertNotNull.apply(null, arguments);
-  goog.testing.asserts.assertNotUndefined.apply(null, arguments);
-};
+  assertNotNull_.apply(null, arguments);
+  assertNotUndefined_.apply(null, arguments);
+}
+export { assertNotNullNorUndefined_ as assertNotNullNorUndefined };
 /** @const */
-var assertNotNullNorUndefined = goog.testing.asserts.assertNotNullNorUndefined;
+var assertNotNullNorUndefined = assertNotNullNorUndefined_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNonEmptyString = function(a, opt_b) {
-  'use strict';
+function assertNonEmptyString_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
       commentArg(1, arguments), aVar !== JSUNIT_UNDEFINED_VALUE &&
           aVar !== null && typeof aVar == 'string' && aVar !== '',
       'Expected non-empty string but was ' + _displayStringForValue(aVar));
-};
+}
+export { assertNonEmptyString_ as assertNonEmptyString };
 /** @const */
-var assertNonEmptyString = goog.testing.asserts.assertNonEmptyString;
+var assertNonEmptyString = assertNonEmptyString_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNaN = function(a, opt_b) {
-  'use strict';
+function assertNaN_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(
       commentArg(1, arguments), aVar !== aVar,
       'Expected NaN but was ' + _displayStringForValue(aVar));
-};
+}
+export { assertNaN_ as assertNaN };
 /** @const */
-var assertNaN = goog.testing.asserts.assertNaN;
+var assertNaN = assertNaN_;
 
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertNotNaN = function(a, opt_b) {
-  'use strict';
+function assertNotNaN_(a, opt_b) {
   _validateArguments(1, arguments);
   var aVar = nonCommentArg(1, 1, arguments);
   _assert(commentArg(1, arguments), !isNaN(aVar), 'Expected not NaN');
-};
+}
+export { assertNotNaN_ as assertNotNaN };
 /** @const */
-var assertNotNaN = goog.testing.asserts.assertNotNaN;
+var assertNotNaN = assertNotNaN_;
 
 
 /**
@@ -745,7 +725,7 @@ var assertNotNaN = goog.testing.asserts.assertNotNaN;
  * in cases where the predicate can't test the input variables for equality.
  * @type {?string}
  */
-goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS = null;
+export var EQUALITY_PREDICATE_CANT_PROCESS = null;
 
 
 /**
@@ -753,13 +733,13 @@ goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS = null;
  * in cases where the input vriables are equal.
  * @type {?string}
  */
-goog.testing.asserts.EQUALITY_PREDICATE_VARS_ARE_EQUAL = '';
+export var EQUALITY_PREDICATE_VARS_ARE_EQUAL = '';
 
 
 /**
  * @const {!Object<string, boolean>}
  */
-goog.testing.asserts.ARRAY_TYPES = {
+export var ARRAY_TYPES = {
   'Array': true,
   'Float32Array': true,
   'Float64Array': true,
@@ -781,7 +761,7 @@ goog.testing.asserts.ARRAY_TYPES = {
  *
  * @typedef {string|undefined}
  */
-goog.testing.asserts.ComparisonResult;
+export var ComparisonResult;
 
 /**
  * A equality predicate.
@@ -814,39 +794,39 @@ goog.testing.asserts.ComparisonResult;
  *   return undefined;
  * }
  *
- * @typedef {function(?, ?, !goog.testing.asserts.EqualityFunction):
- * ?goog.testing.asserts.ComparisonResult}
+ * @typedef {function(?, ?, !EqualityFunction):
+ * ?ComparisonResult}
  */
-goog.testing.asserts.EqualityFunction;
+export var EqualityFunction;
 
 /**
  * A map from prototype to custom equality matcher.
  *
- * @type {!Map<!Object, !goog.testing.asserts.EqualityFunction>}
+ * @type {!Map<!Object, !EqualityFunction>}
  * @private
  */
-goog.testing.asserts.CUSTOM_EQUALITY_MATCHERS = new Map();
+var CUSTOM_EQUALITY_MATCHERS = new Map();
 
 /**
  * Returns the custom equality predicate for a given prototype, or else
  * undefined.
  *
  * @param {?Object} prototype
- * @return {!goog.testing.asserts.EqualityFunction|undefined}
+ * @return {!EqualityFunction|undefined}
  * @private
  */
-goog.testing.asserts.getCustomEquality = function(prototype) {
+function getCustomEquality(prototype) {
   for (; (prototype != null) && (typeof prototype === 'object') &&
        (prototype !== Object.prototype);
        prototype = Object.getPrototypeOf(prototype)) {
-    const matcher = goog.testing.asserts.CUSTOM_EQUALITY_MATCHERS.get(
+    const matcher = CUSTOM_EQUALITY_MATCHERS.get(
         /** @type {!Object} */ (prototype));
     if (matcher) {
       return matcher;
     }
   }
   return undefined;
-};
+}
 
 /**
  * Returns the most specific custom equality predicate which can be applied to
@@ -854,42 +834,41 @@ goog.testing.asserts.getCustomEquality = function(prototype) {
  *
  * @param {!Object} obj1
  * @param {!Object} obj2
- * @return {!goog.testing.asserts.EqualityFunction|undefined}
+ * @return {!EqualityFunction|undefined}
  * @private
  */
-goog.testing.asserts.getMostSpecificCustomEquality = function(obj1, obj2) {
+function getMostSpecificCustomEquality(obj1, obj2) {
   for (let prototype = Object.getPrototypeOf(obj1); (prototype != null) &&
        (typeof prototype === 'object') && (prototype !== Object.prototype);
        prototype = Object.getPrototypeOf(prototype)) {
     if (prototype.isPrototypeOf(obj2)) {
-      return goog.testing.asserts.getCustomEquality(prototype);
+      return getCustomEquality(prototype);
     }
   }
 
   // Otherwise, obj1 and obj2 did not share a common ancestor other than
   // Object.prototype so we cannot have a comparator.
   return undefined;
-};
+}
 
 /**
  * Executes a custom equality function
  *
- * @param {!goog.testing.asserts.EqualityFunction} comparator
+ * @param {!EqualityFunction} comparator
  * @param {!Object} obj1
  * @param {!Object} obj2
  * @param {string} path of the current field being checked.
- * @return {?goog.testing.asserts.ComparisonResult}
+ * @return {?ComparisonResult}
  * @private
  */
-goog.testing.asserts.applyCustomEqualityFunction = function(
-    comparator, obj1, obj2, path) {
-  const /* !goog.testing.asserts.EqualityFunction */ callback =
+function applyCustomEqualityFunction(comparator, obj1, obj2, path) {
+  const /* !EqualityFunction */ callback =
       (left, right, unusedEq) => {
-        const result = goog.testing.asserts.findDifferences(left, right);
+        const result = findDifferences(left, right);
         return result ? (path ? path + ': ' : '') + result : undefined;
       };
   return comparator(obj1, obj2, callback);
-};
+}
 
 /**
  * Marks the given prototype as having equality semantics provided by the given
@@ -901,12 +880,12 @@ goog.testing.asserts.applyCustomEqualityFunction = function(
  * lowest common ancestor in the prototype hierarchy will be used.
  *
  * @param {!Object} prototype
- * @param {!goog.testing.asserts.EqualityFunction} fn
+ * @param {!EqualityFunction} fn
  */
-goog.testing.asserts.registerComparator = function(prototype, fn) {
+export function registerComparator(prototype, fn) {
   // First check that there is no comparator currently defined for this
   // prototype.
-  if (goog.testing.asserts.CUSTOM_EQUALITY_MATCHERS.has(prototype)) {
+  if (CUSTOM_EQUALITY_MATCHERS.has(prototype)) {
     throw new Error('duplicate comparator installation for ' + prototype);
   }
 
@@ -916,8 +895,8 @@ goog.testing.asserts.registerComparator = function(prototype, fn) {
     throw new Error('cannot customize root object comparator');
   }
 
-  goog.testing.asserts.CUSTOM_EQUALITY_MATCHERS.set(prototype, fn);
-};
+  CUSTOM_EQUALITY_MATCHERS.set(prototype, fn);
+}
 
 /**
  * Clears the custom equality function currently applied to the given prototype.
@@ -926,9 +905,9 @@ goog.testing.asserts.registerComparator = function(prototype, fn) {
  * @param {!Object} prototype
  * @return {boolean} whether a comparator was removed.
  */
-goog.testing.asserts.clearCustomComparator = function(prototype) {
-  return goog.testing.asserts.CUSTOM_EQUALITY_MATCHERS.delete(prototype);
-};
+export function clearCustomComparator(prototype) {
+  return CUSTOM_EQUALITY_MATCHERS.delete(prototype);
+}
 
 /**
  * Determines if two items of any type match, and formulates an error message
@@ -939,16 +918,14 @@ goog.testing.asserts.clearCustomComparator = function(prototype) {
  *     function that can be used to check equality of variables. It accepts 3
  *     arguments: type-of-variables, var1, var2 (in that order) and returns an
  *     error message if the variables are not equal,
- *     goog.testing.asserts.EQUALITY_PREDICATE_VARS_ARE_EQUAL if the variables
+ *     EQUALITY_PREDICATE_VARS_ARE_EQUAL if the variables
  *     are equal, or
- *     goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS if the predicate
+ *     EQUALITY_PREDICATE_CANT_PROCESS if the predicate
  *     couldn't check the input variables. The function will be called only if
  *     the types of var1 and var2 are identical.
  * @return {?string} Null on success, error message on failure.
  */
-goog.testing.asserts.findDifferences = function(
-    expected, actual, opt_equalityPredicate) {
-  'use strict';
+export function findDifferences(expected, actual, opt_equalityPredicate) {
   var failures = [];
   // Non-null if there an error at the root (with no path).  If so, we should
   // fail, but not add to the failures array (because it will be included at the
@@ -991,23 +968,22 @@ goog.testing.asserts.findDifferences = function(
   }
 
   const equalityPredicate = function(type, var1, var2) {
-    'use strict';
     // use the custom predicate if supplied.
     const customPredicateResult = opt_equalityPredicate ?
         opt_equalityPredicate(type, var1, var2) :
-        goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS;
+        EQUALITY_PREDICATE_CANT_PROCESS;
     if (customPredicateResult !==
-        goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS) {
+        EQUALITY_PREDICATE_CANT_PROCESS) {
       return customPredicateResult;
     }
     // otherwise use the default behavior.
     const typedPredicate = EQUALITY_PREDICATES[type];
     if (!typedPredicate) {
-      return goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS;
+      return EQUALITY_PREDICATE_CANT_PROCESS;
     }
     const equal = typedPredicate(var1, var2);
-    return equal ? goog.testing.asserts.EQUALITY_PREDICATE_VARS_ARE_EQUAL :
-                   goog.testing.asserts.getDefaultErrorMsg_(var1, var2);
+    return equal ? EQUALITY_PREDICATE_VARS_ARE_EQUAL :
+                   getDefaultErrorMsg_(var1, var2);
   };
 
   /**
@@ -1034,9 +1010,9 @@ goog.testing.asserts.findDifferences = function(
           const o1 = /** @type {!Object} */ (var1);
           const o2 = /** @type {!Object} */ (var2);
           const comparator =
-              goog.testing.asserts.getMostSpecificCustomEquality(o1, o2);
+              getMostSpecificCustomEquality(o1, o2);
           if (comparator) {
-            const result = goog.testing.asserts.applyCustomEqualityFunction(
+            const result = applyCustomEqualityFunction(
                 comparator, o1, o2, path);
             if (result != null) {
               if (path) {
@@ -1066,12 +1042,12 @@ goog.testing.asserts.findDifferences = function(
         var2 = new Uint8Array(/** @type {!ArrayBuffer} */ (var2));
       }
       const isArray =
-          isArrayBuffer || goog.testing.asserts.ARRAY_TYPES[typeOfVar1];
+          isArrayBuffer || ARRAY_TYPES[typeOfVar1];
       var errorMessage = equalityPredicate(typeOfVar1, var1, var2);
       if (errorMessage !=
-          goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS) {
+          EQUALITY_PREDICATE_CANT_PROCESS) {
         if (errorMessage !=
-            goog.testing.asserts.EQUALITY_PREDICATE_VARS_ARE_EQUAL) {
+            EQUALITY_PREDICATE_VARS_ARE_EQUAL) {
           if (path) {
             failures.push(path + ': ' + errorMessage);
           } else {
@@ -1086,7 +1062,7 @@ goog.testing.asserts.findDifferences = function(
       } else if (typeOfVar1 == 'String') {
         // If the comparer cannot process strings (eg, roughlyEquals).
         if (var1 != var2) {
-          const error = goog.testing.asserts.getDefaultErrorMsg_(var1, var2);
+          const error = getDefaultErrorMsg_(var1, var2);
           if (path) {
             failures.push(path + ': ' + error);
           } else {
@@ -1101,7 +1077,6 @@ goog.testing.asserts.findDifferences = function(
         if ((typeof Map != 'undefined' && var1 instanceof Map) ||
             (typeof Set != 'undefined' && var1 instanceof Set)) {
           var1.forEach(function(value, key) {
-            'use strict';
             if (var2.has(key)) {
               // For a map, the values must be compared, but with Set, checking
               // that the second set contains the first set's "keys" is
@@ -1118,7 +1093,6 @@ goog.testing.asserts.findDifferences = function(
           });
 
           var2.forEach(function(value, key) {
-            'use strict';
             if (!var1.has(key)) {
               failures.push(
                   key + ' not present in expected ' + (path || typeOfVar1));
@@ -1132,7 +1106,7 @@ goog.testing.asserts.findDifferences = function(
           // properties. This gets us into deep poo with things like
           // goog.structs.Map, at least on systems that support iteration.
           for (var prop in var1) {
-            if (isArray && goog.testing.asserts.isArrayIndexProp_(prop)) {
+            if (isArray && isArrayIndexProp_(prop)) {
               // Skip array indices for now. We'll handle them later.
               continue;
             }
@@ -1150,7 +1124,7 @@ goog.testing.asserts.findDifferences = function(
           // from var1. if there are, then by definition they don't
           // match.
           for (var prop in var2) {
-            if (isArray && goog.testing.asserts.isArrayIndexProp_(prop)) {
+            if (isArray && isArrayIndexProp_(prop)) {
               // Skip array indices for now. We'll handle them later.
               continue;
             }
@@ -1204,9 +1178,9 @@ goog.testing.asserts.findDifferences = function(
       }
     } else if (path) {
       failures.push(
-          path + ': ' + goog.testing.asserts.getDefaultErrorMsg_(var1, var2));
+          path + ': ' + getDefaultErrorMsg_(var1, var2));
     } else {
-      rootFailure = goog.testing.asserts.getDefaultErrorMsg_(var1, var2);
+      rootFailure = getDefaultErrorMsg_(var1, var2);
     }
   }
 
@@ -1215,10 +1189,10 @@ goog.testing.asserts.findDifferences = function(
   if (rootFailure) {
     return rootFailure;
   }
-  return failures.length == 0 ? null : goog.testing.asserts.getDefaultErrorMsg_(
+  return failures.length == 0 ? null : getDefaultErrorMsg_(
                                            expected, actual) +
           '\n   ' + failures.join('\n   ');
-};
+}
 
 
 /**
@@ -1243,18 +1217,18 @@ goog.testing.asserts.findDifferences = function(
  * @param {*} b Comparison object.
  * @param {*=} opt_c Comparison object, if an assertion message was provided.
  */
-goog.testing.asserts.assertObjectEquals = function(a, b, opt_c) {
-  'use strict';
+function assertObjectEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var v1 = nonCommentArg(1, 2, arguments);
   var v2 = nonCommentArg(2, 2, arguments);
   var failureMessage = commentArg(2, arguments) ? commentArg(2, arguments) : '';
-  var differences = goog.testing.asserts.findDifferences(v1, v2);
+  var differences = findDifferences(v1, v2);
 
   _assert(failureMessage, !differences, differences);
-};
+}
+export { assertObjectEquals_ as assertObjectEquals };
 /** @const */
-var assertObjectEquals = goog.testing.asserts.assertObjectEquals;
+var assertObjectEquals = assertObjectEquals_;
 
 
 /**
@@ -1265,32 +1239,31 @@ var assertObjectEquals = goog.testing.asserts.assertObjectEquals;
  * @param {*} c Comparison object or tolerance.
  * @param {*=} opt_d Tolerance, if an assertion message was provided.
  */
-goog.testing.asserts.assertObjectRoughlyEquals = function(a, b, c, opt_d) {
-  'use strict';
+function assertObjectRoughlyEquals_(a, b, c, opt_d) {
   _validateArguments(3, arguments);
   var v1 = nonCommentArg(1, 3, arguments);
   var v2 = nonCommentArg(2, 3, arguments);
   var tolerance = nonCommentArg(3, 3, arguments);
   var failureMessage = commentArg(3, arguments) ? commentArg(3, arguments) : '';
   var equalityPredicate = function(type, var1, var2) {
-    'use strict';
     var typedPredicate =
-        goog.testing.asserts.primitiveRoughEqualityPredicates_[type];
+        primitiveRoughEqualityPredicates_[type];
     if (!typedPredicate) {
-      return goog.testing.asserts.EQUALITY_PREDICATE_CANT_PROCESS;
+      return EQUALITY_PREDICATE_CANT_PROCESS;
     }
     var equal = typedPredicate(var1, var2, tolerance);
-    return equal ? goog.testing.asserts.EQUALITY_PREDICATE_VARS_ARE_EQUAL :
-                   goog.testing.asserts.getDefaultErrorMsg_(var1, var2) +
+    return equal ? EQUALITY_PREDICATE_VARS_ARE_EQUAL :
+                   getDefaultErrorMsg_(var1, var2) +
             ' which was more than ' + tolerance + ' away';
   };
   var differences =
-      goog.testing.asserts.findDifferences(v1, v2, equalityPredicate);
+      findDifferences(v1, v2, equalityPredicate);
 
   _assert(failureMessage, !differences, differences);
-};
+}
+export { assertObjectRoughlyEquals_ as assertObjectRoughlyEquals };
 /** @const */
-var assertObjectRoughlyEquals = goog.testing.asserts.assertObjectRoughlyEquals;
+var assertObjectRoughlyEquals = assertObjectRoughlyEquals_;
 
 /**
  * Compares two arbitrary objects for non-equalness.
@@ -1302,18 +1275,18 @@ var assertObjectRoughlyEquals = goog.testing.asserts.assertObjectRoughlyEquals;
  * @param {*} b Comparison object.
  * @param {*=} opt_c Comparison object, if an assertion message was provided.
  */
-goog.testing.asserts.assertObjectNotEquals = function(a, b, opt_c) {
-  'use strict';
+function assertObjectNotEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var v1 = nonCommentArg(1, 2, arguments);
   var v2 = nonCommentArg(2, 2, arguments);
   var failureMessage = commentArg(2, arguments) ? commentArg(2, arguments) : '';
-  var differences = goog.testing.asserts.findDifferences(v1, v2);
+  var differences = findDifferences(v1, v2);
 
   _assert(failureMessage, differences, 'Objects should not be equal');
-};
+}
+export { assertObjectNotEquals_ as assertObjectNotEquals };
 /** @const */
-var assertObjectNotEquals = goog.testing.asserts.assertObjectNotEquals;
+var assertObjectNotEquals = assertObjectNotEquals_;
 
 
 /**
@@ -1325,8 +1298,7 @@ var assertObjectNotEquals = goog.testing.asserts.assertObjectNotEquals;
  * @param {*} b The actual array (2 args) or the expected array (3 args).
  * @param {*=} opt_c The actual array (3 args only).
  */
-goog.testing.asserts.assertArrayEquals = function(a, b, opt_c) {
-  'use strict';
+function assertArrayEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var v1 = nonCommentArg(1, 2, arguments);
   var v2 = nonCommentArg(2, 2, arguments);
@@ -1342,12 +1314,13 @@ goog.testing.asserts.assertArrayEquals = function(a, b, opt_c) {
       failureMessage, typeOfVar2 == 'Array',
       'Expected an array for assertArrayEquals but found a ' + typeOfVar2);
 
-  goog.testing.asserts.assertObjectEquals(
+  assertObjectEquals_(
       failureMessage, Array.prototype.concat.call(v1),
       Array.prototype.concat.call(v2));
-};
+}
+export { assertArrayEquals_ as assertArrayEquals };
 /** @const */
-var assertArrayEquals = goog.testing.asserts.assertArrayEquals;
+var assertArrayEquals = assertArrayEquals_;
 
 
 /**
@@ -1358,8 +1331,7 @@ var assertArrayEquals = goog.testing.asserts.assertArrayEquals;
  * @param {Object} b Object #2 (2 arguments) or object #1 (3 arguments).
  * @param {Object=} opt_c Object #2 (3 arguments).
  */
-goog.testing.asserts.assertElementsEquals = function(a, b, opt_c) {
-  'use strict';
+function assertElementsEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
 
   var v1 = nonCommentArg(1, 2, arguments);
@@ -1367,18 +1339,19 @@ goog.testing.asserts.assertElementsEquals = function(a, b, opt_c) {
   var failureMessage = commentArg(2, arguments) ? commentArg(2, arguments) : '';
 
   if (!v1) {
-    goog.testing.asserts.assert(failureMessage, !v2);
+    assert_(failureMessage, !v2);
   } else {
-    goog.testing.asserts.assertEquals(
+    assertEquals_(
         'length mismatch: ' + failureMessage, v1.length, v2.length);
     for (var i = 0; i < v1.length; ++i) {
-      goog.testing.asserts.assertEquals(
+      assertEquals_(
           'mismatch at index ' + i + ': ' + failureMessage, v1[i], v2[i]);
     }
   }
-};
+}
+export { assertElementsEquals_ as assertElementsEquals };
 /** @const */
-var assertElementsEquals = goog.testing.asserts.assertElementsEquals;
+var assertElementsEquals = assertElementsEquals_;
 
 
 /**
@@ -1390,8 +1363,7 @@ var assertElementsEquals = goog.testing.asserts.assertElementsEquals;
  * @param {Object|number} c Object #2 (4 arguments) or tolerance (3 arguments).
  * @param {number=} opt_d tolerance (4 arguments).
  */
-goog.testing.asserts.assertElementsRoughlyEqual = function(a, b, c, opt_d) {
-  'use strict';
+function assertElementsRoughlyEqual_(a, b, c, opt_d) {
   _validateArguments(3, arguments);
 
   var v1 = nonCommentArg(1, 3, arguments);
@@ -1400,19 +1372,20 @@ goog.testing.asserts.assertElementsRoughlyEqual = function(a, b, c, opt_d) {
   var failureMessage = commentArg(3, arguments) ? commentArg(3, arguments) : '';
 
   if (!v1) {
-    goog.testing.asserts.assert(failureMessage, !v2);
+    assert_(failureMessage, !v2);
   } else {
-    goog.testing.asserts.assertEquals(
+    assertEquals_(
         'length mismatch: ' + failureMessage, v1.length, v2.length);
     for (var i = 0; i < v1.length; ++i) {
-      goog.testing.asserts.assertRoughlyEquals(
+      assertRoughlyEquals_(
           failureMessage, v1[i], v2[i], tolerance);
     }
   }
-};
+}
+export { assertElementsRoughlyEqual_ as assertElementsRoughlyEqual };
 /** @const */
 var assertElementsRoughlyEqual =
-    goog.testing.asserts.assertElementsRoughlyEqual;
+    assertElementsRoughlyEqual_;
 
 /**
  * Compares elements of two array-like or iterable objects using strict equality
@@ -1423,24 +1396,23 @@ var assertElementsRoughlyEqual =
  *     elements.
  * @param {!IArrayLike|!Iterable=} opt_c Actual elements.
  */
-goog.testing.asserts.assertSameElements = function(a, b, opt_c) {
-  'use strict';
+function assertSameElements_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var expected = nonCommentArg(1, 2, arguments);
   var actual = nonCommentArg(2, 2, arguments);
   var message = commentArg(2, arguments);
 
-  goog.testing.asserts.assertTrue(
+  assertTrue_(
       'Value of \'expected\' should be array-like or iterable',
-      goog.testing.asserts.isArrayLikeOrIterable_(expected));
+      isArrayLikeOrIterable_(expected));
 
-  goog.testing.asserts.assertTrue(
+  assertTrue_(
       'Value of \'actual\' should be array-like or iterable',
-      goog.testing.asserts.isArrayLikeOrIterable_(actual));
+      isArrayLikeOrIterable_(actual));
 
   // Clones expected and actual and converts them to real arrays.
-  expected = goog.testing.asserts.toArray_(expected);
-  actual = goog.testing.asserts.toArray_(actual);
+  expected = toArray_(expected);
+  actual = toArray_(actual);
   // TODO(user): It would be great to show only the difference
   // between the expected and actual elements.
   _assert(
@@ -1448,57 +1420,57 @@ goog.testing.asserts.assertSameElements = function(a, b, opt_c) {
           ' elements: [' + expected + '], ' +
           'got ' + actual.length + ' elements: [' + actual + ']');
 
-  var toFind = goog.testing.asserts.toArray_(expected);
+  var toFind = toArray_(expected);
   for (var i = 0; i < actual.length; i++) {
-    var index = goog.testing.asserts.indexOf_(toFind, actual[i]);
+    var index = indexOf_(toFind, actual[i]);
     _assert(
         message, index != -1,
         'Expected [' + expected + '], got [' + actual + ']');
     toFind.splice(index, 1);
   }
-};
+}
+export { assertSameElements_ as assertSameElements };
 /** @const */
-var assertSameElements = goog.testing.asserts.assertSameElements;
+var assertSameElements = assertSameElements_;
 
 /**
  * @param {*} obj Object to test.
  * @return {boolean} Whether given object is array-like or iterable.
  * @private
  */
-goog.testing.asserts.isArrayLikeOrIterable_ = function(obj) {
-  'use strict';
-  return goog.isArrayLike(obj) || goog.testing.asserts.isIterable_(obj);
-};
+function isArrayLikeOrIterable_(obj) {
+  return goog.isArrayLike(obj) || isIterable_(obj);
+}
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertEvaluatesToTrue = function(a, opt_b) {
-  'use strict';
+function assertEvaluatesToTrue_(a, opt_b) {
   _validateArguments(1, arguments);
   var value = nonCommentArg(1, 1, arguments);
   if (!value) {
     _assert(commentArg(1, arguments), false, 'Expected to evaluate to true');
   }
-};
+}
+export { assertEvaluatesToTrue_ as assertEvaluatesToTrue };
 /** @const */
-var assertEvaluatesToTrue = goog.testing.asserts.assertEvaluatesToTrue;
+var assertEvaluatesToTrue = assertEvaluatesToTrue_;
 
 /**
  * @param {*} a The value to assert (1 arg) or debug message (2 args).
  * @param {*=} opt_b The value to assert (2 args only).
  */
-goog.testing.asserts.assertEvaluatesToFalse = function(a, opt_b) {
-  'use strict';
+function assertEvaluatesToFalse_(a, opt_b) {
   _validateArguments(1, arguments);
   var value = nonCommentArg(1, 1, arguments);
   if (value) {
     _assert(commentArg(1, arguments), false, 'Expected to evaluate to false');
   }
-};
+}
+export { assertEvaluatesToFalse_ as assertEvaluatesToFalse };
 /** @const */
-var assertEvaluatesToFalse = goog.testing.asserts.assertEvaluatesToFalse;
+var assertEvaluatesToFalse = assertEvaluatesToFalse_;
 
 /**
  * Compares two HTML snippets.
@@ -1518,8 +1490,7 @@ var assertEvaluatesToFalse = goog.testing.asserts.assertEvaluatesToFalse;
  * @param {*} b The actual value (2 args) or the expected value (3 args).
  * @param {*=} opt_c The actual value (3 args only).
  */
-goog.testing.asserts.assertHTMLEquals = function(a, b, opt_c) {
-  'use strict';
+function assertHTMLEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var var1 = nonCommentArg(1, 2, arguments);
   var var2 = nonCommentArg(2, 2, arguments);
@@ -1528,11 +1499,12 @@ goog.testing.asserts.assertHTMLEquals = function(a, b, opt_c) {
 
   _assert(
       commentArg(2, arguments), var1Standardized === var2Standardized,
-      goog.testing.asserts.getDefaultErrorMsg_(
+      getDefaultErrorMsg_(
           var1Standardized, var2Standardized));
-};
+}
+export { assertHTMLEquals_ as assertHTMLEquals };
 /** @const */
-var assertHTMLEquals = goog.testing.asserts.assertHTMLEquals;
+var assertHTMLEquals = assertHTMLEquals_;
 
 
 /**
@@ -1548,8 +1520,7 @@ var assertHTMLEquals = goog.testing.asserts.assertHTMLEquals;
  * @param {string} c The expected value, or the actual value.
  * @param {string=} opt_d The actual value.
  */
-goog.testing.asserts.assertCSSValueEquals = function(a, b, c, opt_d) {
-  'use strict';
+function assertCSSValueEquals_(a, b, c, opt_d) {
   _validateArguments(3, arguments);
   var propertyName = nonCommentArg(1, 3, arguments);
   var expectedValue = nonCommentArg(2, 3, arguments);
@@ -1561,11 +1532,12 @@ goog.testing.asserts.assertCSSValueEquals = function(a, b, c, opt_d) {
   _assert(
       commentArg(3, arguments),
       expectedValueStandardized == actualValueStandardized,
-      goog.testing.asserts.getDefaultErrorMsg_(
+      getDefaultErrorMsg_(
           expectedValueStandardized, actualValueStandardized));
-};
+}
+export { assertCSSValueEquals_ as assertCSSValueEquals };
 /** @const */
-var assertCSSValueEquals = goog.testing.asserts.assertCSSValueEquals;
+var assertCSSValueEquals = assertCSSValueEquals_;
 
 
 /**
@@ -1573,8 +1545,7 @@ var assertCSSValueEquals = goog.testing.asserts.assertCSSValueEquals;
  * @param {*} b The actual value (2 args) or the expected value (3 args).
  * @param {*=} opt_c The actual value (3 args only).
  */
-goog.testing.asserts.assertHashEquals = function(a, b, opt_c) {
-  'use strict';
+function assertHashEquals_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var var1 = nonCommentArg(1, 2, arguments);
   var var2 = nonCommentArg(2, 2, arguments);
@@ -1593,9 +1564,10 @@ goog.testing.asserts.assertHashEquals = function(a, b, opt_c) {
         message, key in var1,
         'Actual hash had key ' + key + ' that was not expected');
   }
-};
+}
+export { assertHashEquals_ as assertHashEquals };
 /** @const */
-var assertHashEquals = goog.testing.asserts.assertHashEquals;
+var assertHashEquals = assertHashEquals_;
 
 
 /**
@@ -1604,21 +1576,21 @@ var assertHashEquals = goog.testing.asserts.assertHashEquals;
  * @param {*} c The tolerance (3 args) or the actual value (4 args).
  * @param {*=} opt_d The tolerance (4 args only).
  */
-goog.testing.asserts.assertRoughlyEquals = function(a, b, c, opt_d) {
-  'use strict';
+function assertRoughlyEquals_(a, b, c, opt_d) {
   _validateArguments(3, arguments);
   var expected = nonCommentArg(1, 3, arguments);
   var actual = nonCommentArg(2, 3, arguments);
   var tolerance = nonCommentArg(3, 3, arguments);
   _assert(
       commentArg(3, arguments),
-      goog.testing.asserts.numberRoughEqualityPredicate_(
+      numberRoughEqualityPredicate_(
           expected, actual, tolerance),
       'Expected ' + expected + ', but got ' + actual + ' which was more than ' +
           tolerance + ' away');
-};
+}
+export { assertRoughlyEquals_ as assertRoughlyEquals };
 /** @const */
-var assertRoughlyEquals = goog.testing.asserts.assertRoughlyEquals;
+var assertRoughlyEquals = assertRoughlyEquals_;
 
 
 /**
@@ -1633,18 +1605,18 @@ var assertRoughlyEquals = goog.testing.asserts.assertRoughlyEquals;
  *     (2 arguments).
  * @param {*=} opt_c The container.
  */
-goog.testing.asserts.assertContains = function(a, b, opt_c) {
-  'use strict';
+function assertContains_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var contained = nonCommentArg(1, 2, arguments);
   var container = nonCommentArg(2, 2, arguments);
   _assert(
       commentArg(2, arguments),
-      goog.testing.asserts.contains_(container, contained),
+      contains_(container, contained),
       'Expected \'' + container + '\' to contain \'' + contained + '\'');
-};
+}
+export { assertContains_ as assertContains };
 /** @const */
-var assertContains = goog.testing.asserts.assertContains;
+var assertContains = assertContains_;
 
 /**
  * Checks if the test value is not included in the given container. The
@@ -1657,18 +1629,18 @@ var assertContains = goog.testing.asserts.assertContains;
  *     (2 arguments).
  * @param {*=} opt_c The container.
  */
-goog.testing.asserts.assertNotContains = function(a, b, opt_c) {
-  'use strict';
+function assertNotContains_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var contained = nonCommentArg(1, 2, arguments);
   var container = nonCommentArg(2, 2, arguments);
   _assert(
       commentArg(2, arguments),
-      !goog.testing.asserts.contains_(container, contained),
+      !contains_(container, contained),
       'Expected \'' + container + '\' not to contain \'' + contained + '\'');
-};
+}
+export { assertNotContains_ as assertNotContains };
 /** @const */
-var assertNotContains = goog.testing.asserts.assertNotContains;
+var assertNotContains = assertNotContains_;
 
 
 /**
@@ -1679,8 +1651,7 @@ var assertNotContains = goog.testing.asserts.assertNotContains;
  *     (2 arguments).
  * @param {*=} opt_c The string to test.
  */
-goog.testing.asserts.assertRegExp = function(a, b, opt_c) {
-  'use strict';
+function assertRegExp_(a, b, opt_c) {
   _validateArguments(2, arguments);
   var regexp = nonCommentArg(1, 2, arguments);
   var string = nonCommentArg(2, 2, arguments);
@@ -1690,9 +1661,10 @@ goog.testing.asserts.assertRegExp = function(a, b, opt_c) {
   _assert(
       commentArg(2, arguments), regexp.test(string),
       'Expected \'' + string + '\' to match RegExp ' + regexp.toString());
-};
+}
+export { assertRegExp_ as assertRegExp };
 /** @const */
-var assertRegExp = goog.testing.asserts.assertRegExp;
+var assertRegExp = assertRegExp_;
 
 
 /**
@@ -1702,12 +1674,11 @@ var assertRegExp = goog.testing.asserts.assertRegExp;
  * @return {!Array<?>} Copy of the collection as array.
  * @private
  */
-goog.testing.asserts.toArray_ = function(obj) {
-  'use strict';
+function toArray_(obj) {
   var ret = [];
-  if (goog.testing.asserts.isIterable_(obj)) {
+  if (isIterable_(obj)) {
     var iterator =
-        goog.testing.asserts.getIterator_(/** @type {!Iterable} */ (obj));
+        getIterator_(/** @type {!Iterable} */ (obj));
 
     // Cannot use for..of syntax here as ES6 syntax is not available in Closure.
     // See b/117231092
@@ -1724,7 +1695,7 @@ goog.testing.asserts.toArray_ = function(obj) {
     ret[i] = obj[i];
   }
   return ret;
-};
+}
 
 // TODO(nnaze): Consider moving isIterable_ and getIterator_ functionality
 // into goog.iter.es6. See discussion in cl/217356297.
@@ -1734,26 +1705,24 @@ goog.testing.asserts.toArray_ = function(obj) {
  * @return {boolean} Whether the object is iterable (JS iterator protocol).
  * @private
  */
-goog.testing.asserts.isIterable_ = function(obj) {
-  'use strict';
+function isIterable_(obj) {
   return !!(
       typeof Symbol !== 'undefined' && Symbol.iterator && obj[Symbol.iterator]);
-};
+}
 
 /**
  * @param {!Iterable} iterable
  * @return {!Iterator} An iterator for obj.
- * @throws {!goog.testing.JsUnitException} If the given object is not iterable.
+ * @throws {!JsUnitException} If the given object is not iterable.
  * @private
  */
-goog.testing.asserts.getIterator_ = function(iterable) {
-  'use strict';
-  if (!goog.testing.asserts.isIterable_(iterable)) {
-    goog.testing.asserts.raiseException('parameter iterable is not iterable');
+function getIterator_(iterable) {
+  if (!isIterable_(iterable)) {
+    raiseException('parameter iterable is not iterable');
   }
 
   return iterable[Symbol.iterator]();
-};
+}
 
 
 /**
@@ -1764,8 +1733,7 @@ goog.testing.asserts.getIterator_ = function(iterable) {
  * @return {number} Index of the first occurrence or -1 if not found.
  * @private
  */
-goog.testing.asserts.indexOf_ = function(container, contained) {
-  'use strict';
+function indexOf_(container, contained) {
   if (typeof container.indexOf == 'function') {
     return /** @type {{indexOf: function(*): number}} */ (container).indexOf(
         contained);
@@ -1778,7 +1746,7 @@ goog.testing.asserts.indexOf_ = function(container, contained) {
     }
     return -1;
   }
-};
+}
 
 
 /**
@@ -1789,24 +1757,22 @@ goog.testing.asserts.indexOf_ = function(container, contained) {
  * @return {boolean} Whether the element is in the array.
  * @private
  */
-goog.testing.asserts.contains_ = function(container, contained) {
-  'use strict';
+function contains_(container, contained) {
   // TODO(user): Can we check for container.contains as well?
   // That would give us support for most goog.structs (though weird results
   // with anything else with a contains method, like goog.math.Range). Falling
   // back with container.some would catch all iterables, too.
-  return goog.testing.asserts.indexOf_(container, contained) != -1;
-};
+  return indexOf_(container, contained) != -1;
+}
 
 var standardizeHTML = function(html) {
-  'use strict';
   var translator = document.createElement('div');
 
-  goog.dom.safe.setInnerHtml(
+  safe.setInnerHtml(
       translator,
-      goog.html.uncheckedconversions
+      uncheckedconversions
           .safeHtmlFromStringKnownToSatisfyTypeContract(
-              goog.string.Const.from('HTML is never attached to DOM'), html));
+              Const.from('HTML is never attached to DOM'), html));
 
   // Trim whitespace from result (without relying on goog.string)
   return translator.innerHTML.replace(/^\s+|\s+$/g, '');
@@ -1821,7 +1787,6 @@ var standardizeHTML = function(html) {
  * @return {string} Normalized CSS value.
  */
 var standardizeCSSValue = function(propertyName, value) {
-  'use strict';
   var styleDeclaration = document.createElement('div').style;
   styleDeclaration[propertyName] = value;
   return styleDeclaration[propertyName];
@@ -1835,9 +1800,8 @@ var standardizeCSSValue = function(propertyName, value) {
  * @param {string} comment A summary for the exception.
  * @param {string=} opt_message A description of the exception.
  */
-goog.testing.asserts.raiseException = function(comment, opt_message) {
-  'use strict';
-  var e = new goog.testing.JsUnitException(comment, opt_message);
+export function raiseException(comment, opt_message) {
+  var e = new JsUnitException(comment, opt_message);
 
   var testCase = _getCurrentTestCase();
   if (testCase) {
@@ -1847,7 +1811,7 @@ goog.testing.asserts.raiseException = function(comment, opt_message) {
         'Failed to save thrown exception: no test case is installed.');
     throw e;
   }
-};
+}
 
 
 /**
@@ -1856,10 +1820,9 @@ goog.testing.asserts.raiseException = function(comment, opt_message) {
  * @return {boolean} If the property name is an array index.
  * @private
  */
-goog.testing.asserts.isArrayIndexProp_ = function(prop) {
-  'use strict';
+function isArrayIndexProp_(prop) {
   return prop === '0' || /^[1-9][0-9]*$/.test(prop);
-};
+}
 
 /** @define {boolean} */
 goog.EXPORT_ASSERTIONS = goog.define('goog.EXPORT_ASSERTIONS', true);

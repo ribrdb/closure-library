@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.style.bidiTest');
 goog.setTestOnly();
 
-const bidi = goog.require('goog.style.bidi');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as bidi from './bidi.js';
+import * as dom from '../dom/dom.js';
+import * as style from './style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Updates the calculated metrics.
 function updateInfo() {

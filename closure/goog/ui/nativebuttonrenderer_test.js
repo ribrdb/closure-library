@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.NativeButtonRendererTest');
 goog.setTestOnly();
 
-const Button = goog.require('goog.ui.Button');
-const Component = goog.require('goog.ui.Component');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const NativeButtonRenderer = goog.require('goog.ui.NativeButtonRenderer');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { Button } from './button.js';
+import { Component } from './component.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { NativeButtonRenderer } from './nativebuttonrenderer.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let sandbox;
 let renderer;

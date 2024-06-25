@@ -9,15 +9,7 @@
  * cause a circular dependency with {@link goog.ui.ButtonRenderer}.
  */
 
-goog.provide('goog.ui.ButtonSide');
-
-
-/**
- * Constants for button sides, see {@link goog.ui.Button.prototype.setCollapsed}
- * for details.
- * @enum {number}
- */
-goog.ui.ButtonSide = {
+ButtonSide = {
   /** Neither side. */
   NONE: 0,
   /** Left for LTR, right for RTL. */
@@ -27,3 +19,4 @@ goog.ui.ButtonSide = {
   /** Both sides. */
   BOTH: 3
 };
+export var ButtonSide;

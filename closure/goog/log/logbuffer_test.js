@@ -4,12 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.log.LogBufferTest');
 goog.setTestOnly();
 
-const Level = goog.require('goog.log.Level');
-const LogBuffer = goog.require('goog.log.LogBuffer');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as log from './log.js';
+import * as googLog from './log.js';
+const Level = log.Level;
+const LogBuffer = googLog.LogBuffer;
+import { testSuite } from '../testing/testsuite.js';
 
 const PLACEHOLDER_LEVELS = [
   Level.INFO,

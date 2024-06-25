@@ -4,35 +4,36 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.DateIntervalFormatTest');
 goog.setTestOnly('goog.i18n.DateIntervalFormatTest');
 
 let propertyReplacer;
 
-const DateIntervalFormat = goog.require('goog.i18n.DateIntervalFormat');
-const DateRange = goog.require('goog.date.DateRange');
-const DateTime = goog.require('goog.date.DateTime');
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-const DateTimeSymbolsType = goog.require('goog.i18n.DateTimeSymbolsType');
-const DateTimeSymbols_ar_EG = goog.require('goog.i18n.DateTimeSymbols_ar_EG');
-const DateTimeSymbols_en = goog.require('goog.i18n.DateTimeSymbols_en');
-const DateTimeSymbols_fr_CA = goog.require('goog.i18n.DateTimeSymbols_fr_CA');
-const DateTimeSymbols_gl = goog.require('goog.i18n.DateTimeSymbols_gl');
-const DateTimeSymbols_hi = goog.require('goog.i18n.DateTimeSymbols_hi');
-const DateTimeSymbols_vi = goog.require('goog.i18n.DateTimeSymbols_vi');
-const DateTimeSymbols_zh = goog.require('goog.i18n.DateTimeSymbols_zh');
-const GoogDate = goog.require('goog.date.Date');
-const Interval = goog.require('goog.date.Interval');
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TimeZone = goog.require('goog.i18n.TimeZone');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dateIntervalPatterns = goog.require('goog.i18n.dateIntervalPatterns');
-const dateIntervalSymbols = goog.require('goog.i18n.dateIntervalSymbols');
-const object = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const {addI18nMapping, assertI18nEquals} = goog.require('goog.testing.i18n.asserts');
-const {removeWhitespace} = goog.require('goog.testing.i18n.whitespace');
+import { DateIntervalFormat } from './dateintervalformat.js';
+import { DateRange } from '../date/daterange.js';
+import { DateTime, Date as GoogDate, Interval } from '../date/date.js';
+import { DateTimeFormat } from './datetimeformat.js';
+
+import {
+  DateTimeSymbolsType,
+  DateTimeSymbols_ar_EG,
+  DateTimeSymbols_en,
+  DateTimeSymbols_fr_CA,
+  DateTimeSymbols_gl,
+  DateTimeSymbols_hi,
+  DateTimeSymbols_vi,
+  DateTimeSymbols_zh,
+} from './datetimesymbols.js';
+
+import * as LocaleFeature from './localefeature.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TimeZone } from './timezone.js';
+import * as browser from '../labs/useragent/browser.js';
+import * as dateIntervalPatterns from './dateintervalpatterns.js';
+import * as dateIntervalSymbols from './dateintervalsymbols.js';
+import object from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import { addI18nMapping, assertI18nEquals } from '../testing/i18n/asserts.js';
+import { removeWhitespace } from '../testing/i18n/whitespace.js';
 
 /**
  * List of locales where native ECMAScript mode works.

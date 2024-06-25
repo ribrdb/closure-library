@@ -8,15 +8,14 @@
  * @fileoverview The utils for creating new stream parsers.
  */
 
-goog.module('goog.net.streams.streamParsers');
+import { Base64PbStreamParser } from './base64pbstreamparser.js';
 
-const Base64PbStreamParser = goog.require('goog.net.streams.Base64PbStreamParser');
-const JsonStreamParser = goog.require('goog.net.streams.JsonStreamParser');
-const PbJsonStreamParser = goog.require('goog.net.streams.PbJsonStreamParser');
-const PbStreamParser = goog.require('goog.net.streams.PbStreamParser');
-const StreamParser = goog.requireType('goog.net.streams.StreamParser');
-const XhrIo = goog.require('goog.net.XhrIo');
-const log = goog.require('goog.log');
+import { JsonStreamParser } from './jsonstreamparser.js';
+import { PbJsonStreamParser } from './pbjsonstreamparser.js';
+import { PbStreamParser } from './pbstreamparser.js';
+import { XhrIo } from '../xhrio.js';
+import * as log from '../../log/log.js';
+const StreamParser = goog.requireType('goog.net.streams.streamparser');
 
 
 /**
@@ -63,4 +62,4 @@ function getStreamParser(io) {
   return null;
 }
 
-exports = {getStreamParser};
+export default {getStreamParser};

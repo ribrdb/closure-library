@@ -8,392 +8,337 @@
  * @fileoverview Provides various matcher methods.
  */
 
-goog.provide('goog.labs.testing');
-goog.provide('goog.labs.testing.AllOfMatcher');
-goog.provide('goog.labs.testing.AnyNumberMatcher');
-goog.provide('goog.labs.testing.AnyObjectMatcher');
-goog.provide('goog.labs.testing.AnyOfMatcher');
-goog.provide('goog.labs.testing.AnyStringMatcher');
-goog.provide('goog.labs.testing.AnythingMatcher');
-goog.provide('goog.labs.testing.CloseToMatcher');
-goog.provide('goog.labs.testing.ContainsStringMatcher');
-goog.provide('goog.labs.testing.EndsWithMatcher');
-goog.provide('goog.labs.testing.EqualToIgnoringWhitespaceMatcher');
-goog.provide('goog.labs.testing.EqualToMatcher');
-goog.provide('goog.labs.testing.EqualsMatcher');
-goog.provide('goog.labs.testing.GreaterThanEqualToMatcher');
-goog.provide('goog.labs.testing.GreaterThanMatcher');
-goog.provide('goog.labs.testing.HasEntriesMatcher');
-goog.provide('goog.labs.testing.HasEntryMatcher');
-goog.provide('goog.labs.testing.HasKeyMatcher');
-goog.provide('goog.labs.testing.HasPropertyMatcher');
-goog.provide('goog.labs.testing.HasValueMatcher');
-goog.provide('goog.labs.testing.InstanceOfMatcher');
-goog.provide('goog.labs.testing.IsNotMatcher');
-goog.provide('goog.labs.testing.IsNullMatcher');
-goog.provide('goog.labs.testing.IsNullOrUndefinedMatcher');
-goog.provide('goog.labs.testing.IsUndefinedMatcher');
-goog.provide('goog.labs.testing.LessThanEqualToMatcher');
-goog.provide('goog.labs.testing.LessThanMatcher');
-goog.provide('goog.labs.testing.ObjectEqualsMatcher');
-goog.provide('goog.labs.testing.RegexMatcher');
-goog.provide('goog.labs.testing.StartsWithMatcher');
-goog.provide('goog.labs.testing.StringContainsInOrderMatcher');
+import * as decoratormatcher from './decoratormatcher.js';
 
-goog.require('goog.labs.testing.decoratormatcher');
-goog.require('goog.labs.testing.dictionarymatcher');
-goog.require('goog.labs.testing.logicmatcher');
-goog.require('goog.labs.testing.numbermatcher');
-goog.require('goog.labs.testing.objectmatcher');
-goog.require('goog.labs.testing.stringmatcher');
+import * as dictionarymatcher from './dictionarymatcher.js';
+import * as logicmatcher from './logicmatcher.js';
+import * as numbermatcher from './numbermatcher.js';
+import * as objectmatcher from './objectmatcher.js';
+import * as stringmatcher from './stringmatcher.js';
 
 /**
  * @const
  */
-goog.labs.testing.AnythingMatcher =
-    goog.labs.testing.decoratormatcher.AnythingMatcher;
+export var AnythingMatcher = decoratormatcher.AnythingMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.HasEntriesMatcher =
-    goog.labs.testing.dictionarymatcher.HasEntriesMatcher;
+export var HasEntriesMatcher = dictionarymatcher.HasEntriesMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.HasEntryMatcher =
-    goog.labs.testing.dictionarymatcher.HasEntryMatcher;
+export var HasEntryMatcher = dictionarymatcher.HasEntryMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.HasKeyMatcher =
-    goog.labs.testing.dictionarymatcher.HasKeyMatcher;
+export var HasKeyMatcher = dictionarymatcher.HasKeyMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.HasValueMatcher =
-    goog.labs.testing.dictionarymatcher.HasValueMatcher;
+export var HasValueMatcher = dictionarymatcher.HasValueMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.AllOfMatcher = goog.labs.testing.logicmatcher.AllOfMatcher;
+export var AllOfMatcher = logicmatcher.AllOfMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.AnyOfMatcher = goog.labs.testing.logicmatcher.AnyOfMatcher;
+export var AnyOfMatcher = logicmatcher.AnyOfMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.IsNotMatcher = goog.labs.testing.logicmatcher.IsNotMatcher;
+export var IsNotMatcher = logicmatcher.IsNotMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.AnyNumberMatcher =
-    goog.labs.testing.numbermatcher.AnyNumberMatcher;
+export var AnyNumberMatcher = numbermatcher.AnyNumberMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.CloseToMatcher =
-    goog.labs.testing.numbermatcher.CloseToMatcher;
+export var CloseToMatcher = numbermatcher.CloseToMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.EqualToMatcher =
-    goog.labs.testing.numbermatcher.EqualToMatcher;
+export var EqualToMatcher = numbermatcher.EqualToMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.GreaterThanEqualToMatcher =
-    goog.labs.testing.numbermatcher.GreaterThanEqualToMatcher;
+export var GreaterThanEqualToMatcher = numbermatcher.GreaterThanEqualToMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.GreaterThanMatcher =
-    goog.labs.testing.numbermatcher.GreaterThanMatcher;
+export var GreaterThanMatcher = numbermatcher.GreaterThanMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.LessThanEqualToMatcher =
-    goog.labs.testing.numbermatcher.LessThanEqualToMatcher;
+export var LessThanEqualToMatcher = numbermatcher.LessThanEqualToMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.LessThanMatcher =
-    goog.labs.testing.numbermatcher.LessThanMatcher;
+export var LessThanMatcher = numbermatcher.LessThanMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.AnyObjectMatcher =
-    goog.labs.testing.objectmatcher.AnyObjectMatcher;
+export var AnyObjectMatcher = objectmatcher.AnyObjectMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.HasPropertyMatcher =
-    goog.labs.testing.objectmatcher.HasPropertyMatcher;
+export var HasPropertyMatcher = objectmatcher.HasPropertyMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.InstanceOfMatcher =
-    goog.labs.testing.objectmatcher.InstanceOfMatcher;
+export var InstanceOfMatcher = objectmatcher.InstanceOfMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.IsNullMatcher = goog.labs.testing.objectmatcher.IsNullMatcher;
+export var IsNullMatcher = objectmatcher.IsNullMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.IsNullOrUndefinedMatcher =
-    goog.labs.testing.objectmatcher.IsNullOrUndefinedMatcher;
+export var IsNullOrUndefinedMatcher = objectmatcher.IsNullOrUndefinedMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.IsUndefinedMatcher =
-    goog.labs.testing.objectmatcher.IsUndefinedMatcher;
+export var IsUndefinedMatcher = objectmatcher.IsUndefinedMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.ObjectEqualsMatcher =
-    goog.labs.testing.objectmatcher.ObjectEqualsMatcher;
+export var ObjectEqualsMatcher = objectmatcher.ObjectEqualsMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.AnyStringMatcher =
-    goog.labs.testing.stringmatcher.AnyStringMatcher;
+export var AnyStringMatcher = stringmatcher.AnyStringMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.ContainsStringMatcher =
-    goog.labs.testing.stringmatcher.ContainsStringMatcher;
+export var ContainsStringMatcher = stringmatcher.ContainsStringMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.EndsWithMatcher =
-    goog.labs.testing.stringmatcher.EndsWithMatcher;
+export var EndsWithMatcher = stringmatcher.EndsWithMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.EqualToIgnoringWhitespaceMatcher =
-    goog.labs.testing.stringmatcher.EqualToIgnoringWhitespaceMatcher;
+export var EqualToIgnoringWhitespaceMatcher = stringmatcher.EqualToIgnoringWhitespaceMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.EqualsMatcher = goog.labs.testing.stringmatcher.EqualsMatcher;
+export var EqualsMatcher = stringmatcher.EqualsMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.RegexMatcher = goog.labs.testing.stringmatcher.RegexMatcher;
+export var RegexMatcher = stringmatcher.RegexMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.StartsWithMatcher =
-    goog.labs.testing.stringmatcher.StartsWithMatcher;
+export var StartsWithMatcher = stringmatcher.StartsWithMatcher;
 
 /**
  * @const
  */
-goog.labs.testing.StringContainsInOrderMatcher =
-    goog.labs.testing.stringmatcher.StringContainsInOrderMatcher;
+export var StringContainsInOrderMatcher = stringmatcher.StringContainsInOrderMatcher;
 
 // Globally-defined matchers
 
 /**
  * @const
  */
-var anything = goog.labs.testing.decoratormatcher.AnythingMatcher.anything;
+var anything = decoratormatcher.AnythingMatcher.anything;
 
 /**
  * @const
  */
 var describedAs =
-    goog.labs.testing.decoratormatcher.AnythingMatcher.describedAs;
+    decoratormatcher.AnythingMatcher.describedAs;
 
 /**
  * @const
  */
-var is = goog.labs.testing.decoratormatcher.AnythingMatcher.is;
+var is = decoratormatcher.AnythingMatcher.is;
 
 /**
  * @const
  */
 var hasEntries =
-    goog.labs.testing.dictionarymatcher.HasEntriesMatcher.hasEntries;
+    dictionarymatcher.HasEntriesMatcher.hasEntries;
 
 /**
  * @const
  */
-var hasEntry = goog.labs.testing.dictionarymatcher.HasEntryMatcher.hasEntry;
+var hasEntry = dictionarymatcher.HasEntryMatcher.hasEntry;
 
 /**
  * @const
  */
-var hasKey = goog.labs.testing.dictionarymatcher.HasKeyMatcher.hasKey;
+var hasKey = dictionarymatcher.HasKeyMatcher.hasKey;
 
 /**
  * @const
  */
-var hasValue = goog.labs.testing.dictionarymatcher.HasValueMatcher.hasValue;
+var hasValue = dictionarymatcher.HasValueMatcher.hasValue;
 
 /**
  * @const
  */
-var allOf = goog.labs.testing.logicmatcher.AllOfMatcher.allOf;
+var allOf = logicmatcher.AllOfMatcher.allOf;
 
 /**
  * @const
  */
-var anyOf = goog.labs.testing.logicmatcher.AnyOfMatcher.anyOf;
+var anyOf = logicmatcher.AnyOfMatcher.anyOf;
 
 /**
  * @const
  */
-var isNot = goog.labs.testing.logicmatcher.IsNotMatcher.isNot;
+var isNot = logicmatcher.IsNotMatcher.isNot;
 
 /**
  * @const
  */
-var anyNumber = goog.labs.testing.numbermatcher.AnyNumberMatcher.anyNumber;
+var anyNumber = numbermatcher.AnyNumberMatcher.anyNumber;
 
 /**
  * @const
  */
-var closeTo = goog.labs.testing.numbermatcher.CloseToMatcher.closeTo;
+var closeTo = numbermatcher.CloseToMatcher.closeTo;
 
 /**
  * @const
  */
-var equalTo = goog.labs.testing.numbermatcher.EqualToMatcher.equalTo;
+var equalTo = numbermatcher.EqualToMatcher.equalTo;
 
 /**
  * @const
  */
-var greaterThanEqualTo = goog.labs.testing.numbermatcher
+var greaterThanEqualTo = numbermatcher
                              .GreaterThanEqualToMatcher.greaterThanEqualTo;
 
 /**
  * @const
  */
 var greaterThan =
-    goog.labs.testing.numbermatcher.GreaterThanMatcher.greaterThan;
+    numbermatcher.GreaterThanMatcher.greaterThan;
 
 /**
  * @const
  */
 var lessThanEqualTo =
-    goog.labs.testing.numbermatcher.LessThanEqualToMatcher.lessThanEqualTo;
+    numbermatcher.LessThanEqualToMatcher.lessThanEqualTo;
 
 /**
  * @const
  */
-var lessThan = goog.labs.testing.numbermatcher.LessThanMatcher.lessThan;
+var lessThan = numbermatcher.LessThanMatcher.lessThan;
 
 /**
  * @const
  */
-var anyObject = goog.labs.testing.objectmatcher.AnyObjectMatcher.anyObject;
+var anyObject = objectmatcher.AnyObjectMatcher.anyObject;
 
 /**
  * @const
  */
 var hasProperty =
-    goog.labs.testing.objectmatcher.HasPropertyMatcher.hasProperty;
+    objectmatcher.HasPropertyMatcher.hasProperty;
 
 /**
  * @const
  */
 var instanceOfClass =
-    goog.labs.testing.objectmatcher.InstanceOfMatcher.instanceOfClass;
+    objectmatcher.InstanceOfMatcher.instanceOfClass;
 
 /**
  * @const
  */
-var isNull = goog.labs.testing.objectmatcher.IsNullMatcher.isNull;
+var isNull = objectmatcher.IsNullMatcher.isNull;
 
 /**
  * @const
  */
 var isNullOrUndefined =
-    goog.labs.testing.objectmatcher.IsNullOrUndefinedMatcher.isNullOrUndefined;
+    objectmatcher.IsNullOrUndefinedMatcher.isNullOrUndefined;
 
 /**
  * @const
  */
 var isUndefined =
-    goog.labs.testing.objectmatcher.IsUndefinedMatcher.isUndefined;
+    objectmatcher.IsUndefinedMatcher.isUndefined;
 
 /**
  * @const
  */
 var equalsObject =
-    goog.labs.testing.objectmatcher.ObjectEqualsMatcher.equalsObject;
+    objectmatcher.ObjectEqualsMatcher.equalsObject;
 
 /**
  * @const
  */
-var anyString = goog.labs.testing.stringmatcher.AnyStringMatcher.anyString;
+var anyString = stringmatcher.AnyStringMatcher.anyString;
 
 /**
  * @const
  */
 var containsString =
-    goog.labs.testing.stringmatcher.ContainsStringMatcher.containsString;
+    stringmatcher.ContainsStringMatcher.containsString;
 
 /**
  * @const
  */
-var endsWith = goog.labs.testing.stringmatcher.EndsWithMatcher.endsWith;
+var endsWith = stringmatcher.EndsWithMatcher.endsWith;
 
 /**
  * @const
  */
 var equalToIgnoringWhitespace =
-    goog.labs.testing.stringmatcher.EqualToIgnoringWhitespaceMatcher
+    stringmatcher.EqualToIgnoringWhitespaceMatcher
         .equalToIgnoringWhitespace;
 
 /**
  * @const
  */
-var equals = goog.labs.testing.stringmatcher.EqualsMatcher.equals;
+var equals = stringmatcher.EqualsMatcher.equals;
 
 /**
  * @const
  */
-var matchesRegex = goog.labs.testing.stringmatcher.RegexMatcher.matchesRegex;
+var matchesRegex = stringmatcher.RegexMatcher.matchesRegex;
 
 /**
  * @const
  */
-var startsWith = goog.labs.testing.stringmatcher.StartsWithMatcher.startsWith;
+var startsWith = stringmatcher.StartsWithMatcher.startsWith;
 
 /**
  * @const
  */
 var stringContainsInOrder =
-    goog.labs.testing.stringmatcher.StringContainsInOrderMatcher
+    stringmatcher.StringContainsInOrderMatcher
         .stringContainsInOrder;

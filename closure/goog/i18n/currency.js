@@ -23,52 +23,44 @@
  */
 
 
-goog.provide('goog.i18n.currency');
-
-
-/**
- * The mask of precision field.
- * @private
- */
-goog.i18n.currency.PRECISION_MASK_ = 0x07;
+PRECISION_MASK_ = 0x07;
 
 
 /**
  * Whether the currency sign should be positioned after the number.
  * @private
  */
-goog.i18n.currency.POSITION_FLAG_ = 0x10;
+var POSITION_FLAG_ = 0x10;
 
 
 /**
  * Whether a space should be inserted between the number and currency sign.
  * @private
  */
-goog.i18n.currency.SPACE_FLAG_ = 0x20;
+var SPACE_FLAG_ = 0x20;
 
 
 /**
  * Whether tier2 was enabled already by calling addTier2Support().
  * @private
  */
-goog.i18n.currency.tier2Enabled_ = false;
+var tier2Enabled_ = false;
 
 
 /**
  * Tests if currency is available.
  *
  * Note: If the currency is not available it might be in the tier2 currency set:
- * {@link goog.i18n.currency.CurrencyInfoTier2}. If that is the case call
- * {@link goog.i18n.currency.addTier2Support} before calling any other function
+ * {@link CurrencyInfoTier2}. If that is the case call
+ * {@link addTier2Support} before calling any other function
  * in this namespace.
  *
  * @param {string} currencyCode Currency code to tested.
  * @return {boolean} If the currency is available.
  */
-goog.i18n.currency.isAvailable = function(currencyCode) {
-  'use strict';
-  return currencyCode in goog.i18n.currency.CurrencyInfo;
-};
+export function isAvailable(currencyCode) {
+  return currencyCode in CurrencyInfo;
+}
 
 /**
  * This function will add tier2 currency support. Be default, only tier1
@@ -76,15 +68,14 @@ goog.i18n.currency.isAvailable = function(currencyCode) {
  * to support some of the rarely used currencies, it should call this function
  * before any other functions in this namespace.
  */
-goog.i18n.currency.addTier2Support = function() {
-  'use strict';
+addTier2Support = function() {
   // Protection from executing this these again and again.
-  if (!goog.i18n.currency.tier2Enabled_) {
-    for (const key in goog.i18n.currency.CurrencyInfoTier2) {
-      goog.i18n.currency.CurrencyInfo[key] =
-          goog.i18n.currency.CurrencyInfoTier2[key];
+  if (!tier2Enabled_) {
+    for (const key in CurrencyInfoTier2) {
+      CurrencyInfo[key] =
+          CurrencyInfoTier2[key];
     }
-    goog.i18n.currency.tier2Enabled_ = true;
+    tier2Enabled_ = true;
   }
 };
 
@@ -103,16 +94,15 @@ goog.i18n.currency.addTier2Support = function() {
  *   {@link goog.i18n.NumberFormat.Format.CURRENCY} and
  *   {@link goog.i18n.NumberFormat.CurrencyStyle.GLOBAL}
  */
-goog.i18n.currency.getGlobalCurrencyPattern = function(currencyCode) {
-  'use strict';
-  const info = goog.i18n.currency.CurrencyInfo[currencyCode];
+export function getGlobalCurrencyPattern(currencyCode) {
+  const info = CurrencyInfo[currencyCode];
   const patternNum = info[0];
   if (currencyCode == info[1]) {
-    return goog.i18n.currency.getCurrencyPattern_(patternNum, info[1]);
+    return getCurrencyPattern_(patternNum, info[1]);
   }
   return currencyCode + ' ' +
-      goog.i18n.currency.getCurrencyPattern_(patternNum, info[1]);
-};
+      getCurrencyPattern_(patternNum, info[1]);
+}
 
 
 /**
@@ -122,12 +112,11 @@ goog.i18n.currency.getGlobalCurrencyPattern = function(currencyCode) {
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {string} Global currency sign for given currency.
  */
-goog.i18n.currency.getGlobalCurrencySign = function(currencyCode) {
-  'use strict';
-  const info = goog.i18n.currency.CurrencyInfo[currencyCode];
+export function getGlobalCurrencySign(currencyCode) {
+  const info = CurrencyInfo[currencyCode];
   return (currencyCode == info[1]) ? currencyCode :
                                      currencyCode + ' ' + info[1];
-};
+}
 
 
 /**
@@ -140,15 +129,14 @@ goog.i18n.currency.getGlobalCurrencySign = function(currencyCode) {
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {string} Global currency sign for given currency.
  */
-goog.i18n.currency.getGlobalCurrencySignWithFallback = function(currencyCode) {
-  'use strict';
-  const info = goog.i18n.currency.CurrencyInfo[currencyCode];
+export function getGlobalCurrencySignWithFallback(currencyCode) {
+  const info = CurrencyInfo[currencyCode];
   if (!info) {
     return currencyCode;
   }
   return (currencyCode == info[1]) ? currencyCode :
                                      currencyCode + ' ' + info[1];
-};
+}
 
 
 /**
@@ -163,11 +151,10 @@ goog.i18n.currency.getGlobalCurrencySignWithFallback = function(currencyCode) {
  *   {@link goog.i18n.NumberFormat.Format.CURRENCY} and
  *   {@link goog.i18n.NumberFormat.CurrencyStyle.LOCAL}
  */
-goog.i18n.currency.getLocalCurrencyPattern = function(currencyCode) {
-  'use strict';
-  const info = goog.i18n.currency.CurrencyInfo[currencyCode];
-  return goog.i18n.currency.getCurrencyPattern_(info[0], info[1]);
-};
+export function getLocalCurrencyPattern(currencyCode) {
+  const info = CurrencyInfo[currencyCode];
+  return getCurrencyPattern_(info[0], info[1]);
+}
 
 
 /**
@@ -177,10 +164,9 @@ goog.i18n.currency.getLocalCurrencyPattern = function(currencyCode) {
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {string} Local currency sign for given currency.
  */
-goog.i18n.currency.getLocalCurrencySign = function(currencyCode) {
-  'use strict';
-  return goog.i18n.currency.CurrencyInfo[currencyCode][1];
-};
+export function getLocalCurrencySign(currencyCode) {
+  return CurrencyInfo[currencyCode][1];
+}
 
 
 /**
@@ -193,14 +179,13 @@ goog.i18n.currency.getLocalCurrencySign = function(currencyCode) {
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {string} Local currency sign for given currency.
  */
-goog.i18n.currency.getLocalCurrencySignWithFallback = function(currencyCode) {
-  'use strict';
-  if (currencyCode in goog.i18n.currency.CurrencyInfo) {
-    return goog.i18n.currency.CurrencyInfo[currencyCode][1];
+export function getLocalCurrencySignWithFallback(currencyCode) {
+  if (currencyCode in CurrencyInfo) {
+    return CurrencyInfo[currencyCode][1];
   } else {
     return currencyCode;
   }
-};
+}
 
 
 /**
@@ -218,11 +203,10 @@ goog.i18n.currency.getLocalCurrencySignWithFallback = function(currencyCode) {
  *   {@link goog.i18n.NumberFormat.Format.CURRENCY} and
  *   {@link goog.i18n.NumberFormat.CurrencyStyle.PORTABLE}
  */
-goog.i18n.currency.getPortableCurrencyPattern = function(currencyCode) {
-  'use strict';
-  const info = goog.i18n.currency.CurrencyInfo[currencyCode];
-  return goog.i18n.currency.getCurrencyPattern_(info[0], info[2]);
-};
+export function getPortableCurrencyPattern(currencyCode) {
+  const info = CurrencyInfo[currencyCode];
+  return getCurrencyPattern_(info[0], info[2]);
+}
 
 
 /**
@@ -232,10 +216,9 @@ goog.i18n.currency.getPortableCurrencyPattern = function(currencyCode) {
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {string} Portable currency sign for given currency.
  */
-goog.i18n.currency.getPortableCurrencySign = function(currencyCode) {
-  'use strict';
-  return goog.i18n.currency.CurrencyInfo[currencyCode][2];
-};
+export function getPortableCurrencySign(currencyCode) {
+  return CurrencyInfo[currencyCode][2];
+}
 
 
 /**
@@ -244,8 +227,7 @@ goog.i18n.currency.getPortableCurrencySign = function(currencyCode) {
  * @param {string} currencyCode String to check.
  * @return {boolean} Whether currencyCode is a 3-letter currency code.
  */
-goog.i18n.currency.isValid = function(currencyCode) {
-  'use strict';
+export function isValid(currencyCode) {
   if (!currencyCode || currencyCode.length !== 3) {
     return false;
   }
@@ -256,7 +238,7 @@ goog.i18n.currency.isValid = function(currencyCode) {
     }
   }
   return true;
-};
+}
 
 
 /**
@@ -269,15 +251,13 @@ goog.i18n.currency.isValid = function(currencyCode) {
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {string} Portable currency sign for given currency.
  */
-goog.i18n.currency.getPortableCurrencySignWithFallback = function(
-    currencyCode) {
-  'use strict';
-  if (currencyCode in goog.i18n.currency.CurrencyInfo) {
-    return goog.i18n.currency.CurrencyInfo[currencyCode][2];
+export function getPortableCurrencySignWithFallback(currencyCode) {
+  if (currencyCode in CurrencyInfo) {
+    return CurrencyInfo[currencyCode][2];
   } else {
     return currencyCode;
   }
-};
+}
 
 
 /**
@@ -296,11 +276,10 @@ goog.i18n.currency.getPortableCurrencySignWithFallback = function(
  * @param {string} currencyCode ISO-4217 3-letter currency code.
  * @return {boolean} true if currency should be positioned before amount field.
  */
-goog.i18n.currency.isPrefixSignPosition = function(currencyCode) {
-  'use strict';
-  return (goog.i18n.currency.CurrencyInfo[currencyCode][0] &
-          goog.i18n.currency.POSITION_FLAG_) == 0;
-};
+export function isPrefixSignPosition(currencyCode) {
+  return (CurrencyInfo[currencyCode][0] &
+          POSITION_FLAG_) == 0;
+}
 
 
 /**
@@ -313,27 +292,26 @@ goog.i18n.currency.isPrefixSignPosition = function(currencyCode) {
  * @return {string} currency pattern string.
  * @private
  */
-goog.i18n.currency.getCurrencyPattern_ = function(patternNum, sign) {
-  'use strict';
+function getCurrencyPattern_(patternNum, sign) {
   const strParts = ['#,##0'];
-  const precision = patternNum & goog.i18n.currency.PRECISION_MASK_;
+  const precision = patternNum & PRECISION_MASK_;
   if (precision > 0) {
     strParts.push('.');
     for (let i = 0; i < precision; i++) {
       strParts.push('0');
     }
   }
-  if ((patternNum & goog.i18n.currency.POSITION_FLAG_) == 0) {
+  if ((patternNum & POSITION_FLAG_) == 0) {
     strParts.unshift(
-        (patternNum & goog.i18n.currency.SPACE_FLAG_) ? "' " : "'");
+        (patternNum & SPACE_FLAG_) ? "' " : "'");
     strParts.unshift(sign);
     strParts.unshift("'");
   } else {
     strParts.push(
-        (patternNum & goog.i18n.currency.SPACE_FLAG_) ? " '" : "'", sign, "'");
+        (patternNum & SPACE_FLAG_) ? " '" : "'", sign, "'");
   }
   return strParts.join('');
-};
+}
 
 
 /**
@@ -348,15 +326,14 @@ goog.i18n.currency.getCurrencyPattern_ = function(patternNum, sign) {
  * @param {string} currencyCode 3-letter currency code.
  * @return {string} modified currency pattern string.
  */
-goog.i18n.currency.adjustPrecision = function(pattern, currencyCode) {
-  'use strict';
+export function adjustPrecision(pattern, currencyCode) {
   const strParts = ['0'];
-  const info = goog.i18n.currency.CurrencyInfo[currencyCode];
+  const info = CurrencyInfo[currencyCode];
   if (!info) {
     // If the currency code is unknown, do not modify the pattern.
     return pattern;
   }
-  const precision = info[0] & goog.i18n.currency.PRECISION_MASK_;
+  const precision = info[0] & PRECISION_MASK_;
   if (precision > 0) {
     strParts.push('.');
     for (let i = 0; i < precision; i++) {
@@ -364,7 +341,7 @@ goog.i18n.currency.adjustPrecision = function(pattern, currencyCode) {
     }
   }
   return pattern.replace(/0.00/g, strParts.join(''));
-};
+}
 
 
 /**
@@ -397,7 +374,7 @@ goog.i18n.currency.adjustPrecision = function(pattern, currencyCode) {
  *
  * @const {!Object<!Array<?>>}
  */
-goog.i18n.currency.CurrencyInfo = {
+export var CurrencyInfo = {
   'AED': [2, 'dh', '\u062f.\u0625.'],
   'ALL': [0, 'Lek', 'Lek'],
   'AUD': [2, '$', 'AU$'],
@@ -469,7 +446,7 @@ goog.i18n.currency.CurrencyInfo = {
  *
  * @const {!Object<!Array<?>>}
  */
-goog.i18n.currency.CurrencyInfoTier2 = {
+export var CurrencyInfoTier2 = {
   'AFN': [48, 'Af.', 'AFN'],
   'AMD': [32, 'Dram', 'dram'],
   'ANG': [2, 'NAf.', 'ANG'],
@@ -574,3 +551,5 @@ goog.i18n.currency.CurrencyInfoTier2 = {
   'ZMW': [0, 'ZMW', 'ZMW'],
   'ZWD': [0, '$', 'Z$']
 };
+export var PRECISION_MASK_;
+export var addTier2Support;

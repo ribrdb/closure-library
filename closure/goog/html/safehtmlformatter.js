@@ -5,13 +5,11 @@
  */
 
 
-goog.module('goog.html.SafeHtmlFormatter');
-goog.module.declareLegacyNamespace();
+import { SafeHtml } from './safehtml.js';
 
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const {ENABLE_ASSERTS, assert} = goog.require('goog.asserts');
-const {getRandomString, htmlEscape} = goog.require('goog.string');
-const {isVoidTag} = goog.require('goog.dom.tags');
+import { ENABLE_ASSERTS, assert } from '../asserts/asserts.js';
+import { getRandomString, htmlEscape } from '../string/string.js';
+import { isVoidTag } from '../dom/tags.js';
 
 /**
  * Formatter producing SafeHtml from a plain text format and HTML fragments.
@@ -192,4 +190,4 @@ SafeHtmlFormatter.Replacement;
 const MARKER = 'SafeHtmlFormatter:';
 
 
-exports = SafeHtmlFormatter;
+export { SafeHtmlFormatter };

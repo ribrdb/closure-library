@@ -95,16 +95,14 @@
  */
 
 
-goog.provide('goog.events.KeyHandler');
-goog.provide('goog.events.KeyHandler.EventType');
+import * as events from './events.js';
 
-goog.require('goog.events');
-goog.require('goog.events.BrowserEvent');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.events.KeyEvent');
-goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { EventTarget } from './eventtarget.js';
+import { EventType } from './eventtype.js';
+import { KeyCodes } from './keycodes.js';
+import { KeyEvent } from './keyevent.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
@@ -114,18 +112,17 @@ goog.require('goog.userAgent');
  * @param {boolean=} opt_capture Whether to listen for browser events in
  *     capture phase (defaults to false).
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @final
  */
-goog.events.KeyHandler = function(opt_element, opt_capture) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function KeyHandler(opt_element, opt_capture) {
+  EventTarget.call(this);
 
   if (opt_element) {
     this.attach(opt_element, opt_capture);
   }
-};
-goog.inherits(goog.events.KeyHandler, goog.events.EventTarget);
+}
+goog.inherits(KeyHandler, EventTarget);
 
 
 /**
@@ -133,31 +130,31 @@ goog.inherits(goog.events.KeyHandler, goog.events.EventTarget);
  * @type {?Element|?Document|null}
  * @private
  */
-goog.events.KeyHandler.prototype.element_ = null;
+KeyHandler.prototype.element_ = null;
 
 
 /**
  * The key for the key press listener.
- * @type {?goog.events.Key}
+ * @type {?events.Key}
  * @private
  */
-goog.events.KeyHandler.prototype.keyPressKey_ = null;
+KeyHandler.prototype.keyPressKey_ = null;
 
 
 /**
  * The key for the key down listener.
- * @type {?goog.events.Key}
+ * @type {?events.Key}
  * @private
  */
-goog.events.KeyHandler.prototype.keyDownKey_ = null;
+KeyHandler.prototype.keyDownKey_ = null;
 
 
 /**
  * The key for the key up listener.
- * @type {?goog.events.Key}
+ * @type {?events.Key}
  * @private
  */
-goog.events.KeyHandler.prototype.keyUpKey_ = null;
+KeyHandler.prototype.keyUpKey_ = null;
 
 
 /**
@@ -165,7 +162,7 @@ goog.events.KeyHandler.prototype.keyUpKey_ = null;
  * @private
  * @type {number}
  */
-goog.events.KeyHandler.prototype.lastKey_ = -1;
+KeyHandler.prototype.lastKey_ = -1;
 
 
 /**
@@ -174,7 +171,7 @@ goog.events.KeyHandler.prototype.lastKey_ = -1;
  * @private
  * @type {number}
  */
-goog.events.KeyHandler.prototype.keyCode_ = -1;
+KeyHandler.prototype.keyCode_ = -1;
 
 
 /**
@@ -183,15 +180,15 @@ goog.events.KeyHandler.prototype.keyCode_ = -1;
  * @type {boolean}
  * @private
  */
-goog.events.KeyHandler.prototype.altKey_ = false;
+KeyHandler.prototype.altKey_ = false;
 
 
 /**
  * Enum type for the events fired by the key handler
  * @const
- * @deprecated use `goog.events.KeyEvent.EventType` instead.
+ * @deprecated use `KeyEvent.EventType` instead.
  */
-goog.events.KeyHandler.EventType = goog.events.KeyEvent.EventType;
+KeyHandler.EventType = KeyEvent.EventType;
 
 
 /**
@@ -199,33 +196,33 @@ goog.events.KeyHandler.EventType = goog.events.KeyEvent.EventType;
  * @type {Object}
  * @private
  */
-goog.events.KeyHandler.safariKey_ = {
-  '3': goog.events.KeyCodes.ENTER,             // 13
-  '12': goog.events.KeyCodes.NUMLOCK,          // 144
-  '63232': goog.events.KeyCodes.UP,            // 38
-  '63233': goog.events.KeyCodes.DOWN,          // 40
-  '63234': goog.events.KeyCodes.LEFT,          // 37
-  '63235': goog.events.KeyCodes.RIGHT,         // 39
-  '63236': goog.events.KeyCodes.F1,            // 112
-  '63237': goog.events.KeyCodes.F2,            // 113
-  '63238': goog.events.KeyCodes.F3,            // 114
-  '63239': goog.events.KeyCodes.F4,            // 115
-  '63240': goog.events.KeyCodes.F5,            // 116
-  '63241': goog.events.KeyCodes.F6,            // 117
-  '63242': goog.events.KeyCodes.F7,            // 118
-  '63243': goog.events.KeyCodes.F8,            // 119
-  '63244': goog.events.KeyCodes.F9,            // 120
-  '63245': goog.events.KeyCodes.F10,           // 121
-  '63246': goog.events.KeyCodes.F11,           // 122
-  '63247': goog.events.KeyCodes.F12,           // 123
-  '63248': goog.events.KeyCodes.PRINT_SCREEN,  // 44
-  '63272': goog.events.KeyCodes.DELETE,        // 46
-  '63273': goog.events.KeyCodes.HOME,          // 36
-  '63275': goog.events.KeyCodes.END,           // 35
-  '63276': goog.events.KeyCodes.PAGE_UP,       // 33
-  '63277': goog.events.KeyCodes.PAGE_DOWN,     // 34
-  '63289': goog.events.KeyCodes.NUMLOCK,       // 144
-  '63302': goog.events.KeyCodes.INSERT         // 45
+KeyHandler.safariKey_ = {
+  '3': KeyCodes.ENTER,             // 13
+  '12': KeyCodes.NUMLOCK,          // 144
+  '63232': KeyCodes.UP,            // 38
+  '63233': KeyCodes.DOWN,          // 40
+  '63234': KeyCodes.LEFT,          // 37
+  '63235': KeyCodes.RIGHT,         // 39
+  '63236': KeyCodes.F1,            // 112
+  '63237': KeyCodes.F2,            // 113
+  '63238': KeyCodes.F3,            // 114
+  '63239': KeyCodes.F4,            // 115
+  '63240': KeyCodes.F5,            // 116
+  '63241': KeyCodes.F6,            // 117
+  '63242': KeyCodes.F7,            // 118
+  '63243': KeyCodes.F8,            // 119
+  '63244': KeyCodes.F9,            // 120
+  '63245': KeyCodes.F10,           // 121
+  '63246': KeyCodes.F11,           // 122
+  '63247': KeyCodes.F12,           // 123
+  '63248': KeyCodes.PRINT_SCREEN,  // 44
+  '63272': KeyCodes.DELETE,        // 46
+  '63273': KeyCodes.HOME,          // 36
+  '63275': KeyCodes.END,           // 35
+  '63276': KeyCodes.PAGE_UP,       // 33
+  '63277': KeyCodes.PAGE_DOWN,     // 34
+  '63289': KeyCodes.NUMLOCK,       // 144
+  '63302': KeyCodes.INSERT         // 45
 };
 
 
@@ -237,30 +234,30 @@ goog.events.KeyHandler.safariKey_ = {
  * @type {Object}
  * @private
  */
-goog.events.KeyHandler.keyIdentifier_ = {
-  'Up': goog.events.KeyCodes.UP,               // 38
-  'Down': goog.events.KeyCodes.DOWN,           // 40
-  'Left': goog.events.KeyCodes.LEFT,           // 37
-  'Right': goog.events.KeyCodes.RIGHT,         // 39
-  'Enter': goog.events.KeyCodes.ENTER,         // 13
-  'F1': goog.events.KeyCodes.F1,               // 112
-  'F2': goog.events.KeyCodes.F2,               // 113
-  'F3': goog.events.KeyCodes.F3,               // 114
-  'F4': goog.events.KeyCodes.F4,               // 115
-  'F5': goog.events.KeyCodes.F5,               // 116
-  'F6': goog.events.KeyCodes.F6,               // 117
-  'F7': goog.events.KeyCodes.F7,               // 118
-  'F8': goog.events.KeyCodes.F8,               // 119
-  'F9': goog.events.KeyCodes.F9,               // 120
-  'F10': goog.events.KeyCodes.F10,             // 121
-  'F11': goog.events.KeyCodes.F11,             // 122
-  'F12': goog.events.KeyCodes.F12,             // 123
-  'U+007F': goog.events.KeyCodes.DELETE,       // 46
-  'Home': goog.events.KeyCodes.HOME,           // 36
-  'End': goog.events.KeyCodes.END,             // 35
-  'PageUp': goog.events.KeyCodes.PAGE_UP,      // 33
-  'PageDown': goog.events.KeyCodes.PAGE_DOWN,  // 34
-  'Insert': goog.events.KeyCodes.INSERT        // 45
+KeyHandler.keyIdentifier_ = {
+  'Up': KeyCodes.UP,               // 38
+  'Down': KeyCodes.DOWN,           // 40
+  'Left': KeyCodes.LEFT,           // 37
+  'Right': KeyCodes.RIGHT,         // 39
+  'Enter': KeyCodes.ENTER,         // 13
+  'F1': KeyCodes.F1,               // 112
+  'F2': KeyCodes.F2,               // 113
+  'F3': KeyCodes.F3,               // 114
+  'F4': KeyCodes.F4,               // 115
+  'F5': KeyCodes.F5,               // 116
+  'F6': KeyCodes.F6,               // 117
+  'F7': KeyCodes.F7,               // 118
+  'F8': KeyCodes.F8,               // 119
+  'F9': KeyCodes.F9,               // 120
+  'F10': KeyCodes.F10,             // 121
+  'F11': KeyCodes.F11,             // 122
+  'F12': KeyCodes.F12,             // 123
+  'U+007F': KeyCodes.DELETE,       // 46
+  'Home': KeyCodes.HOME,           // 36
+  'End': KeyCodes.END,             // 35
+  'PageUp': KeyCodes.PAGE_UP,      // 33
+  'PageDown': KeyCodes.PAGE_DOWN,  // 34
+  'Insert': KeyCodes.INSERT        // 45
 };
 
 
@@ -273,48 +270,47 @@ goog.events.KeyHandler.keyIdentifier_ = {
  * @type {boolean}
  * @private
  */
-goog.events.KeyHandler.SAVE_ALT_FOR_KEYPRESS_ =
-    goog.userAgent.MAC && goog.userAgent.GECKO;
+KeyHandler.SAVE_ALT_FOR_KEYPRESS_ =
+    userAgent.MAC && userAgent.GECKO;
 
 
 /**
  * Records the keycode for browsers that only returns the keycode for key up/
  * down events. For browser/key combinations that doesn't trigger a key pressed
  * event it also fires the patched key event.
- * @param {goog.events.BrowserEvent} e The key down event.
+ * @param {BrowserEvent} e The key down event.
  * @private
  */
-goog.events.KeyHandler.prototype.handleKeyDown_ = function(e) {
-  'use strict';
+KeyHandler.prototype.handleKeyDown_ = function(e) {
   // Ctrl-Tab and Alt-Tab can cause the focus to be moved to another window
   // before we've caught a key-up event.  If the last-key was one of these we
   // reset the state.
-  if (goog.userAgent.WEBKIT || goog.userAgent.EDGE) {
-    if (this.lastKey_ == goog.events.KeyCodes.CTRL && !e.ctrlKey ||
-        this.lastKey_ == goog.events.KeyCodes.ALT && !e.altKey ||
-        goog.userAgent.MAC && this.lastKey_ == goog.events.KeyCodes.META &&
+  if (userAgent.WEBKIT || userAgent.EDGE) {
+    if (this.lastKey_ == KeyCodes.CTRL && !e.ctrlKey ||
+        this.lastKey_ == KeyCodes.ALT && !e.altKey ||
+        userAgent.MAC && this.lastKey_ == KeyCodes.META &&
             !e.metaKey) {
       this.resetState();
     }
   }
 
   if (this.lastKey_ == -1) {
-    if (e.ctrlKey && e.keyCode != goog.events.KeyCodes.CTRL) {
-      this.lastKey_ = goog.events.KeyCodes.CTRL;
-    } else if (e.altKey && e.keyCode != goog.events.KeyCodes.ALT) {
-      this.lastKey_ = goog.events.KeyCodes.ALT;
-    } else if (e.metaKey && e.keyCode != goog.events.KeyCodes.META) {
-      this.lastKey_ = goog.events.KeyCodes.META;
+    if (e.ctrlKey && e.keyCode != KeyCodes.CTRL) {
+      this.lastKey_ = KeyCodes.CTRL;
+    } else if (e.altKey && e.keyCode != KeyCodes.ALT) {
+      this.lastKey_ = KeyCodes.ALT;
+    } else if (e.metaKey && e.keyCode != KeyCodes.META) {
+      this.lastKey_ = KeyCodes.META;
     }
   }
 
-  if (!goog.events.KeyCodes.firesKeyPressEvent(
+  if (!KeyCodes.firesKeyPressEvent(
           e.keyCode, this.lastKey_, e.shiftKey, e.ctrlKey, e.altKey,
           e.metaKey)) {
     this.handleEvent(e);
   } else {
-    this.keyCode_ = goog.events.KeyCodes.normalizeKeyCode(e.keyCode);
-    if (goog.events.KeyHandler.SAVE_ALT_FOR_KEYPRESS_) {
+    this.keyCode_ = KeyCodes.normalizeKeyCode(e.keyCode);
+    if (KeyHandler.SAVE_ALT_FOR_KEYPRESS_) {
       this.altKey_ = e.altKey;
     }
   }
@@ -326,8 +322,7 @@ goog.events.KeyHandler.prototype.handleKeyDown_ = function(e) {
  * not generate a key up for meta key operations. This should only be called
  * when having finished with repeat key possibilities.
  */
-goog.events.KeyHandler.prototype.resetState = function() {
-  'use strict';
+KeyHandler.prototype.resetState = function() {
   this.lastKey_ = -1;
   this.keyCode_ = -1;
 };
@@ -337,11 +332,10 @@ goog.events.KeyHandler.prototype.resetState = function() {
  * Clears the stored previous key value, resetting the key repeat status. Uses
  * -1 because the Safari 3 Windows beta reports 0 for certain keys (like Home
  * and End.)
- * @param {goog.events.BrowserEvent} e The keyup event.
+ * @param {BrowserEvent} e The keyup event.
  * @private
  */
-goog.events.KeyHandler.prototype.handleKeyup_ = function(e) {
-  'use strict';
+KeyHandler.prototype.handleKeyup_ = function(e) {
   this.resetState();
   this.altKey_ = e.altKey;
 };
@@ -349,40 +343,39 @@ goog.events.KeyHandler.prototype.handleKeyup_ = function(e) {
 
 /**
  * Handles the events on the element.
- * @param {goog.events.BrowserEvent} e  The keyboard event sent from the
+ * @param {BrowserEvent} e  The keyboard event sent from the
  *     browser.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.events.KeyHandler.prototype.handleEvent = function(e) {
-  'use strict';
+KeyHandler.prototype.handleEvent = function(e) {
   var be = e.getBrowserEvent();
   var keyCode, charCode;
   var altKey = be.altKey;
 
   // IE reports the character code in the keyCode field for keypress events.
   // There are two exceptions however, Enter and Escape.
-  if (goog.userAgent.IE && e.type == goog.events.EventType.KEYPRESS) {
+  if (userAgent.IE && e.type == EventType.KEYPRESS) {
     keyCode = this.keyCode_;
-    charCode = keyCode != goog.events.KeyCodes.ENTER &&
-            keyCode != goog.events.KeyCodes.ESC ?
+    charCode = keyCode != KeyCodes.ENTER &&
+            keyCode != KeyCodes.ESC ?
         be.keyCode :
         0;
 
     // Safari reports the character code in the keyCode field for keypress
     // events but also has a charCode field.
   } else if (
-      (goog.userAgent.WEBKIT || goog.userAgent.EDGE) &&
-      e.type == goog.events.EventType.KEYPRESS) {
+      (userAgent.WEBKIT || userAgent.EDGE) &&
+      e.type == EventType.KEYPRESS) {
     keyCode = this.keyCode_;
     charCode = be.charCode >= 0 && be.charCode < 63232 &&
-            goog.events.KeyCodes.isCharacterKey(keyCode) ?
+            KeyCodes.isCharacterKey(keyCode) ?
         be.charCode :
         0;
 
     // Opera reports the keycode or the character code in the keyCode field.
   } else {
-    if (e.type == goog.events.EventType.KEYPRESS) {
-      if (goog.events.KeyHandler.SAVE_ALT_FOR_KEYPRESS_) {
+    if (e.type == EventType.KEYPRESS) {
+      if (KeyHandler.SAVE_ALT_FOR_KEYPRESS_) {
         altKey = this.altKey_;
       }
 
@@ -417,21 +410,21 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
 
     // On the Mac, shift-/ triggers a question mark char code and no key code
     // (WIN_KEY_FF_LINUX), so we synthesize the latter.
-    if (goog.userAgent.MAC && charCode == goog.events.KeyCodes.QUESTION_MARK &&
-        keyCode == goog.events.KeyCodes.WIN_KEY) {
-      keyCode = goog.events.KeyCodes.SLASH;
+    if (userAgent.MAC && charCode == KeyCodes.QUESTION_MARK &&
+        keyCode == KeyCodes.WIN_KEY) {
+      keyCode = KeyCodes.SLASH;
     }
   }
 
-  keyCode = goog.events.KeyCodes.normalizeKeyCode(keyCode);
+  keyCode = KeyCodes.normalizeKeyCode(keyCode);
   var key = keyCode;
 
   // Correct the key value for certain browser-specific quirks.
   if (keyCode) {
-    if (keyCode >= 63232 && keyCode in goog.events.KeyHandler.safariKey_) {
+    if (keyCode >= 63232 && keyCode in KeyHandler.safariKey_) {
       // NOTE(nicksantos): Safari 3 has fixed this problem,
       // this is only needed for Safari 2.
-      key = goog.events.KeyHandler.safariKey_[keyCode];
+      key = KeyHandler.safariKey_[keyCode];
     } else {
       // Safari returns 25 for Shift+Tab instead of 9.
       if (keyCode == 25 && e.shiftKey) {
@@ -440,10 +433,10 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
     }
   } else if (
       be.keyIdentifier &&
-      be.keyIdentifier in goog.events.KeyHandler.keyIdentifier_) {
+      be.keyIdentifier in KeyHandler.keyIdentifier_) {
     // This is needed for Safari Windows because it currently doesn't give a
     // keyCode/which for non printable keys.
-    key = goog.events.KeyHandler.keyIdentifier_[be.keyIdentifier];
+    key = KeyHandler.keyIdentifier_[be.keyIdentifier];
   }
 
   // If this was a redundant keypress event, we ignore it to avoid double-firing
@@ -451,8 +444,8 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
   // in the process of removing keypress events for non-printable characters
   // (https://bugzilla.mozilla.org/show_bug.cgi?id=968056) so we simulate this
   // logic here for older Gecko versions which still fire the events.
-  if (goog.userAgent.GECKO && e.type == goog.events.EventType.KEYPRESS &&
-      !goog.events.KeyCodes.firesKeyPressEvent(
+  if (userAgent.GECKO && e.type == EventType.KEYPRESS &&
+      !KeyCodes.firesKeyPressEvent(
           key, this.lastKey_, e.shiftKey, e.ctrlKey, altKey, e.metaKey)) {
     return;
   }
@@ -462,7 +455,7 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
   var repeat = key == this.lastKey_;
   this.lastKey_ = key;
 
-  var event = new goog.events.KeyEvent(key, charCode, repeat, be);
+  var event = new KeyEvent(key, charCode, repeat, be);
   event.altKey = altKey;
   this.dispatchEvent(event);
 };
@@ -473,8 +466,7 @@ goog.events.KeyHandler.prototype.handleEvent = function(e) {
  * @return {Element|Document|null} The element listened on for the real
  *     keyboard events.
  */
-goog.events.KeyHandler.prototype.getElement = function() {
-  'use strict';
+KeyHandler.prototype.getElement = function() {
   return this.element_;
 };
 
@@ -485,28 +477,27 @@ goog.events.KeyHandler.prototype.getElement = function() {
  * @param {boolean=} opt_capture Whether to listen for browser events in
  *     capture phase (defaults to false).
  */
-goog.events.KeyHandler.prototype.attach = function(element, opt_capture) {
-  'use strict';
+KeyHandler.prototype.attach = function(element, opt_capture) {
   if (this.keyUpKey_) {
     this.detach();
   }
 
   this.element_ = element;
 
-  this.keyPressKey_ = goog.events.listen(
-      this.element_, goog.events.EventType.KEYPRESS, this, opt_capture);
+  this.keyPressKey_ = events.listen(
+      this.element_, EventType.KEYPRESS, this, opt_capture);
 
   // Most browsers (Safari 2 being the notable exception) doesn't include the
   // keyCode in keypress events (IE has the char code in the keyCode field and
   // Mozilla only included the keyCode if there's no charCode). Thus we have to
   // listen for keydown to capture the keycode.
-  this.keyDownKey_ = goog.events.listen(
-      this.element_, goog.events.EventType.KEYDOWN, this.handleKeyDown_,
+  this.keyDownKey_ = events.listen(
+      this.element_, EventType.KEYDOWN, this.handleKeyDown_,
       opt_capture, this);
 
 
-  this.keyUpKey_ = goog.events.listen(
-      this.element_, goog.events.EventType.KEYUP, this.handleKeyup_,
+  this.keyUpKey_ = events.listen(
+      this.element_, EventType.KEYUP, this.handleKeyup_,
       opt_capture, this);
 };
 
@@ -514,12 +505,11 @@ goog.events.KeyHandler.prototype.attach = function(element, opt_capture) {
 /**
  * Removes the listeners that may exist.
  */
-goog.events.KeyHandler.prototype.detach = function() {
-  'use strict';
+KeyHandler.prototype.detach = function() {
   if (this.keyPressKey_) {
-    goog.events.unlistenByKey(this.keyPressKey_);
-    goog.events.unlistenByKey(this.keyDownKey_);
-    goog.events.unlistenByKey(this.keyUpKey_);
+    events.unlistenByKey(this.keyPressKey_);
+    events.unlistenByKey(this.keyDownKey_);
+    events.unlistenByKey(this.keyUpKey_);
     this.keyPressKey_ = null;
     this.keyDownKey_ = null;
     this.keyUpKey_ = null;
@@ -531,8 +521,7 @@ goog.events.KeyHandler.prototype.detach = function() {
 
 
 /** @override */
-goog.events.KeyHandler.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.KeyHandler.superClass_.disposeInternal.call(this);
+KeyHandler.prototype.disposeInternal = function() {
+  KeyHandler.superClass_.disposeInternal.call(this);
   this.detach();
 };

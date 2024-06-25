@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.positioning.MenuAnchoredPositionTest');
 goog.setTestOnly();
 
-const Corner = goog.require('goog.positioning.Corner');
-const MenuAnchoredPosition = goog.require('goog.positioning.MenuAnchoredPosition');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Corner } from './positioning.js';
+import { MenuAnchoredPosition } from './menuanchoredposition.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let offscreenAnchor;
 let onscreenAnchor;

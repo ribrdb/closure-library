@@ -9,10 +9,6 @@
  *
  * This file provides a goog.structs.Map interface based on native Map.
  */
-goog.module('goog.ui.Map');
-goog.module.declareLegacyNamespace();
-
-
 /**
  * Class for Hash Map datastructure.
  * @param {*=} map Map or Object to initialize the map with.
@@ -213,4 +209,4 @@ UiMap.prototype.toObject = function() {
   return obj;
 };
 
-exports = UiMap;
+export { UiMap };

@@ -8,14 +8,13 @@
  * activated via MockClock.
  */
 
-goog.module('goog.async.runNextTickTest');
 goog.setTestOnly();
 
-const MockClock = goog.require('goog.testing.MockClock');
-const dispose = goog.require('goog.dispose');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const run = goog.require('goog.async.run');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MockClock } from '../testing/mockclock.js';
+import { dispose } from '../disposable/dispose.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { run } from './run.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockClock;
 

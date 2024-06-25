@@ -11,12 +11,10 @@
  */
 
 
-goog.provide('goog.i18n.BidiFormatter');
+import { SafeHtml } from '../html/safehtml.js';
 
-goog.require('goog.html.SafeHtml');
-goog.require('goog.i18n.bidi');
-goog.require('goog.i18n.bidi.Dir');
-goog.require('goog.i18n.bidi.Format');
+import * as bidi from './bidi.js';
+import { Dir, Format } from './bidi.js';
 
 
 
@@ -60,9 +58,9 @@ goog.require('goog.i18n.bidi.Format');
  *
  * See http://wiki/Main/TemplatesAndBiDi for more information.
  *
- * @param {goog.i18n.bidi.Dir|number|boolean|null} contextDir The context
+ * @param {Dir|number|boolean|null} contextDir The context
  *     directionality, in one of the following formats:
- *     1. A goog.i18n.bidi.Dir constant. NEUTRAL is treated the same as null,
+ *     1. A Dir constant. NEUTRAL is treated the same as null,
  *        i.e. unknown, for backward compatibility with legacy calls.
  *     2. A number (positive = LTR, negative = RTL, 0 = unknown).
  *     3. A boolean (true = RTL, false = LTR).
@@ -74,15 +72,14 @@ goog.require('goog.i18n.bidi.Format');
  * @constructor
  * @final
  */
-goog.i18n.BidiFormatter = function(contextDir, opt_alwaysSpan) {
-  'use strict';
+export function BidiFormatter(contextDir, opt_alwaysSpan) {
   /**
-   * The overall directionality of the context in which the formatter is being
-   * used.
-   * @type {?goog.i18n.bidi.Dir}
-   * @private
-   */
-  this.contextDir_ = goog.i18n.bidi.toDir(contextDir, true /* opt_noNeutral */);
+     * The overall directionality of the context in which the formatter is being
+     * used.
+     * @type {?Dir}
+     * @private
+     */
+  this.contextDir_ = bidi.toDir(contextDir, true /* opt_noNeutral */);
 
   /**
    * Whether {@link #spanWrap} and similar methods should always use the same
@@ -92,14 +89,13 @@ goog.i18n.BidiFormatter = function(contextDir, opt_alwaysSpan) {
    * @private
    */
   this.alwaysSpan_ = !!opt_alwaysSpan;
-};
+}
 
 
 /**
- * @return {?goog.i18n.bidi.Dir} The context directionality.
+ * @return {?Dir} The context directionality.
  */
-goog.i18n.BidiFormatter.prototype.getContextDir = function() {
-  'use strict';
+BidiFormatter.prototype.getContextDir = function() {
   return this.contextDir_;
 };
 
@@ -107,24 +103,22 @@ goog.i18n.BidiFormatter.prototype.getContextDir = function() {
 /**
  * @return {boolean} Whether alwaysSpan is set.
  */
-goog.i18n.BidiFormatter.prototype.getAlwaysSpan = function() {
-  'use strict';
+BidiFormatter.prototype.getAlwaysSpan = function() {
   return this.alwaysSpan_;
 };
 
 
 /**
- * @param {goog.i18n.bidi.Dir|number|boolean|null} contextDir The context
+ * @param {Dir|number|boolean|null} contextDir The context
  *     directionality, in one of the following formats:
- *     1. A goog.i18n.bidi.Dir constant. NEUTRAL is treated the same as null,
+ *     1. A Dir constant. NEUTRAL is treated the same as null,
  *        i.e. unknown.
  *     2. A number (positive = LTR, negative = RTL, 0 = unknown).
  *     3. A boolean (true = RTL, false = LTR).
  *     4. A null for unknown directionality.
  */
-goog.i18n.BidiFormatter.prototype.setContextDir = function(contextDir) {
-  'use strict';
-  this.contextDir_ = goog.i18n.bidi.toDir(contextDir, true /* opt_noNeutral */);
+BidiFormatter.prototype.setContextDir = function(contextDir) {
+  this.contextDir_ = bidi.toDir(contextDir, true /* opt_noNeutral */);
 };
 
 
@@ -134,37 +128,35 @@ goog.i18n.BidiFormatter.prototype.setContextDir = function(contextDir) {
  *     context, so that the DOM structure of the output does not depend on the
  *     combination of directionalities.
  */
-goog.i18n.BidiFormatter.prototype.setAlwaysSpan = function(alwaysSpan) {
-  'use strict';
+BidiFormatter.prototype.setAlwaysSpan = function(alwaysSpan) {
   this.alwaysSpan_ = alwaysSpan;
 };
 
 
 /**
  * Returns the directionality of input argument `str`.
- * Identical to {@link goog.i18n.bidi.estimateDirection}.
+ * Identical to {@link bidi.estimateDirection}.
  *
  * @param {string} str The input text.
  * @param {boolean=} opt_isHtml Whether `str` is HTML / HTML-escaped.
  *     Default: false.
- * @return {goog.i18n.bidi.Dir} Estimated overall directionality of `str`.
+ * @return {Dir} Estimated overall directionality of `str`.
  */
-goog.i18n.BidiFormatter.prototype.estimateDirection =
-    goog.i18n.bidi.estimateDirection;
+BidiFormatter.prototype.estimateDirection =
+    bidi.estimateDirection;
 
 
 /**
  * Returns true if two given directionalities are opposite.
  * Note: the implementation is based on the numeric values of the Dir enum.
  *
- * @param {?goog.i18n.bidi.Dir} dir1 1st directionality.
- * @param {?goog.i18n.bidi.Dir} dir2 2nd directionality.
+ * @param {?Dir} dir1 1st directionality.
+ * @param {?Dir} dir2 2nd directionality.
  * @return {boolean} Whether the directionalities are opposite.
  * @private
  */
-goog.i18n.BidiFormatter.prototype.areDirectionalitiesOpposite_ = function(
+BidiFormatter.prototype.areDirectionalitiesOpposite_ = function(
     dir1, dir2) {
-  'use strict';
   return Number(dir1) * Number(dir2) < 0;
 };
 
@@ -176,26 +168,25 @@ goog.i18n.BidiFormatter.prototype.areDirectionalitiesOpposite_ = function(
  * Otherwise returns the empty string.
  *
  * @param {string} str The input text.
- * @param {goog.i18n.bidi.Dir} dir `str`'s overall directionality.
+ * @param {Dir} dir `str`'s overall directionality.
  * @param {boolean=} opt_isHtml Whether `str` is HTML / HTML-escaped.
  *     Default: false.
  * @param {boolean=} opt_dirReset Whether to perform the reset. Default: false.
  * @return {string} A unicode BiDi mark or the empty string.
  * @private
  */
-goog.i18n.BidiFormatter.prototype.dirResetIfNeeded_ = function(
+BidiFormatter.prototype.dirResetIfNeeded_ = function(
     str, dir, opt_isHtml, opt_dirReset) {
-  'use strict';
   // endsWithRtl and endsWithLtr are called only if needed (short-circuit).
   if (opt_dirReset &&
       (this.areDirectionalitiesOpposite_(dir, this.contextDir_) ||
-       (this.contextDir_ == goog.i18n.bidi.Dir.LTR &&
-        goog.i18n.bidi.endsWithRtl(str, opt_isHtml)) ||
-       (this.contextDir_ == goog.i18n.bidi.Dir.RTL &&
-        goog.i18n.bidi.endsWithLtr(str, opt_isHtml)))) {
-    return this.contextDir_ == goog.i18n.bidi.Dir.LTR ?
-        goog.i18n.bidi.Format.LRM :
-        goog.i18n.bidi.Format.RLM;
+       (this.contextDir_ == Dir.LTR &&
+        bidi.endsWithRtl(str, opt_isHtml)) ||
+       (this.contextDir_ == Dir.RTL &&
+        bidi.endsWithLtr(str, opt_isHtml)))) {
+    return this.contextDir_ == Dir.LTR ?
+        Format.LRM :
+        Format.RLM;
   } else {
     return '';
   }
@@ -217,8 +208,7 @@ goog.i18n.BidiFormatter.prototype.dirResetIfNeeded_ = function(
  *     Default: false.
  * @return {string} "rtl" or "ltr", according to the logic described above.
  */
-goog.i18n.BidiFormatter.prototype.dirAttrValue = function(str, opt_isHtml) {
-  'use strict';
+BidiFormatter.prototype.dirAttrValue = function(str, opt_isHtml) {
   return this.knownDirAttrValue(this.estimateDirection(str, opt_isHtml));
 };
 
@@ -228,13 +218,12 @@ goog.i18n.BidiFormatter.prototype.dirAttrValue = function(str, opt_isHtml) {
  * case it's NEUTRAL, returns "rtl" if the context directionality is RTL, and
  * "ltr" otherwise.
  *
- * @param {goog.i18n.bidi.Dir} dir A directionality.
+ * @param {Dir} dir A directionality.
  * @return {string} "rtl" or "ltr", according to the logic described above.
  */
-goog.i18n.BidiFormatter.prototype.knownDirAttrValue = function(dir) {
-  'use strict';
-  var resolvedDir = dir == goog.i18n.bidi.Dir.NEUTRAL ? this.contextDir_ : dir;
-  return resolvedDir == goog.i18n.bidi.Dir.RTL ? 'rtl' : 'ltr';
+BidiFormatter.prototype.knownDirAttrValue = function(dir) {
+  var resolvedDir = dir == Dir.NEUTRAL ? this.contextDir_ : dir;
+  return resolvedDir == Dir.RTL ? 'rtl' : 'ltr';
 };
 
 
@@ -249,8 +238,7 @@ goog.i18n.BidiFormatter.prototype.knownDirAttrValue = function(dir) {
  * @return {string} 'dir="rtl"' for RTL text in non-RTL context; 'dir="ltr"' for
  *     LTR text in non-LTR context; else, the empty string.
  */
-goog.i18n.BidiFormatter.prototype.dirAttr = function(str, opt_isHtml) {
-  'use strict';
+BidiFormatter.prototype.dirAttr = function(str, opt_isHtml) {
   return this.knownDirAttr(this.estimateDirection(str, opt_isHtml));
 };
 
@@ -260,16 +248,15 @@ goog.i18n.BidiFormatter.prototype.dirAttr = function(str, opt_isHtml) {
  * it is not the same as the context directionality. Otherwise, returns the
  * empty string.
  *
- * @param {goog.i18n.bidi.Dir} dir A directionality.
+ * @param {Dir} dir A directionality.
  * @return {string} 'dir="rtl"' for RTL text in non-RTL context; 'dir="ltr"' for
  *     LTR text in non-LTR context; else, the empty string.
  */
-goog.i18n.BidiFormatter.prototype.knownDirAttr = function(dir) {
-  'use strict';
+BidiFormatter.prototype.knownDirAttr = function(dir) {
   if (dir != this.contextDir_) {
-    return dir == goog.i18n.bidi.Dir.RTL ?
+    return dir == Dir.RTL ?
         'dir="rtl"' :
-        dir == goog.i18n.bidi.Dir.LTR ? 'dir="ltr"' : '';
+        dir == Dir.LTR ? 'dir="ltr"' : '';
   }
   return '';
 };
@@ -290,15 +277,14 @@ goog.i18n.BidiFormatter.prototype.knownDirAttr = function(dir) {
  * trailing unicode BiDi mark matching the context directionality is appened
  * (LRM or RLM).
  *
- * @param {!goog.html.SafeHtml} html The input HTML.
+ * @param {!SafeHtml} html The input HTML.
  * @param {boolean=} opt_dirReset Whether to append a trailing unicode bidi mark
  *     matching the context directionality, when needed, to prevent the possible
  *     garbling of whatever may follow `html`. Default: true.
- * @return {!goog.html.SafeHtml} Input text after applying the processing.
+ * @return {!SafeHtml} Input text after applying the processing.
  */
-goog.i18n.BidiFormatter.prototype.spanWrapSafeHtml = function(
+BidiFormatter.prototype.spanWrapSafeHtml = function(
     html, opt_dirReset) {
-  'use strict';
   return this.spanWrapSafeHtmlWithKnownDir(null, html, opt_dirReset);
 };
 
@@ -316,19 +302,18 @@ goog.i18n.BidiFormatter.prototype.spanWrapSafeHtml = function(
  * `html` are opposite to the context directionality, a trailing unicode
  * BiDi mark matching the context directionality is appened (LRM or RLM).
  *
- * @param {?goog.i18n.bidi.Dir} dir `html`'s overall directionality, or
+ * @param {?Dir} dir `html`'s overall directionality, or
  *     null if unknown and needs to be estimated.
- * @param {!goog.html.SafeHtml} html The input HTML.
+ * @param {!SafeHtml} html The input HTML.
  * @param {boolean=} opt_dirReset Whether to append a trailing unicode bidi mark
  *     matching the context directionality, when needed, to prevent the possible
  *     garbling of whatever may follow `html`. Default: true.
- * @return {!goog.html.SafeHtml} Input text after applying the processing.
+ * @return {!SafeHtml} Input text after applying the processing.
  */
-goog.i18n.BidiFormatter.prototype.spanWrapSafeHtmlWithKnownDir = function(
+BidiFormatter.prototype.spanWrapSafeHtmlWithKnownDir = function(
     dir, html, opt_dirReset) {
-  'use strict';
   if (dir == null) {
-    dir = this.estimateDirection(goog.html.SafeHtml.unwrap(html), true);
+    dir = this.estimateDirection(SafeHtml.unwrap(html), true);
   }
   return this.spanWrapWithKnownDir_(dir, html, opt_dirReset);
 };
@@ -338,34 +323,33 @@ goog.i18n.BidiFormatter.prototype.spanWrapSafeHtmlWithKnownDir = function(
  * The internal implementation of spanWrapSafeHtmlWithKnownDir for non-null dir,
  * to help the compiler optimize.
  *
- * @param {goog.i18n.bidi.Dir} dir `str`'s overall directionality.
- * @param {!goog.html.SafeHtml} html The input HTML.
+ * @param {Dir} dir `str`'s overall directionality.
+ * @param {!SafeHtml} html The input HTML.
  * @param {boolean=} opt_dirReset Whether to append a trailing unicode bidi mark
  *     matching the context directionality, when needed, to prevent the possible
  *     garbling of whatever may follow `str`. Default: true.
- * @return {!goog.html.SafeHtml} Input text after applying the above processing.
+ * @return {!SafeHtml} Input text after applying the above processing.
  * @private
  */
-goog.i18n.BidiFormatter.prototype.spanWrapWithKnownDir_ = function(
+BidiFormatter.prototype.spanWrapWithKnownDir_ = function(
     dir, html, opt_dirReset) {
-  'use strict';
   opt_dirReset = opt_dirReset || (opt_dirReset == undefined);
 
   var result;
   // Whether to add the "dir" attribute.
   var dirCondition =
-      dir != goog.i18n.bidi.Dir.NEUTRAL && dir != this.contextDir_;
+      dir != Dir.NEUTRAL && dir != this.contextDir_;
   if (this.alwaysSpan_ || dirCondition) {  // Wrap is needed
     var dirAttribute;
     if (dirCondition) {
-      dirAttribute = dir == goog.i18n.bidi.Dir.RTL ? 'rtl' : 'ltr';
+      dirAttribute = dir == Dir.RTL ? 'rtl' : 'ltr';
     }
-    result = goog.html.SafeHtml.create('span', {'dir': dirAttribute}, html);
+    result = SafeHtml.create('span', {'dir': dirAttribute}, html);
   } else {
     result = html;
   }
-  var str = goog.html.SafeHtml.unwrap(html);
-  result = goog.html.SafeHtml.concat(
+  var str = SafeHtml.unwrap(html);
+  result = SafeHtml.concat(
       result, this.dirResetIfNeeded_(str, dir, true, opt_dirReset));
   return result;
 };
@@ -399,9 +383,8 @@ goog.i18n.BidiFormatter.prototype.spanWrapWithKnownDir_ = function(
  *     garbling of whatever may follow `str`. Default: true.
  * @return {string} Input text after applying the above processing.
  */
-goog.i18n.BidiFormatter.prototype.unicodeWrap = function(
+BidiFormatter.prototype.unicodeWrap = function(
     str, opt_isHtml, opt_dirReset) {
-  'use strict';
   return this.unicodeWrapWithKnownDir(null, str, opt_isHtml, opt_dirReset);
 };
 
@@ -425,7 +408,7 @@ goog.i18n.BidiFormatter.prototype.unicodeWrap = function(
  * Does *not* do HTML-escaping regardless of the value of `opt_isHtml`.
  * The return value can be HTML-escaped as necessary.
  *
- * @param {?goog.i18n.bidi.Dir} dir `str`'s overall directionality, or
+ * @param {?Dir} dir `str`'s overall directionality, or
  *     null if unknown and needs to be estimated.
  * @param {string} str The input text.
  * @param {boolean=} opt_isHtml Whether `str` is HTML / HTML-escaped.
@@ -435,9 +418,8 @@ goog.i18n.BidiFormatter.prototype.unicodeWrap = function(
  *     garbling of whatever may follow `str`. Default: true.
  * @return {string} Input text after applying the above processing.
  */
-goog.i18n.BidiFormatter.prototype.unicodeWrapWithKnownDir = function(
+BidiFormatter.prototype.unicodeWrapWithKnownDir = function(
     dir, str, opt_isHtml, opt_dirReset) {
-  'use strict';
   if (dir == null) {
     dir = this.estimateDirection(str, opt_isHtml);
   }
@@ -449,7 +431,7 @@ goog.i18n.BidiFormatter.prototype.unicodeWrapWithKnownDir = function(
  * The internal implementation of unicodeWrapWithKnownDir for non-null dir, to
  * help the compiler optimize.
  *
- * @param {goog.i18n.bidi.Dir} dir `str`'s overall directionality.
+ * @param {Dir} dir `str`'s overall directionality.
  * @param {string} str The input text.
  * @param {boolean=} opt_isHtml Whether `str` is HTML / HTML-escaped.
  *     Default: false.
@@ -459,17 +441,16 @@ goog.i18n.BidiFormatter.prototype.unicodeWrapWithKnownDir = function(
  * @return {string} Input text after applying the above processing.
  * @private
  */
-goog.i18n.BidiFormatter.prototype.unicodeWrapWithKnownDir_ = function(
+BidiFormatter.prototype.unicodeWrapWithKnownDir_ = function(
     dir, str, opt_isHtml, opt_dirReset) {
-  'use strict';
   opt_dirReset = opt_dirReset || (opt_dirReset == undefined);
   var result = [];
-  if (dir != goog.i18n.bidi.Dir.NEUTRAL && dir != this.contextDir_) {
+  if (dir != Dir.NEUTRAL && dir != this.contextDir_) {
     result.push(
-        dir == goog.i18n.bidi.Dir.RTL ? goog.i18n.bidi.Format.RLE :
-                                        goog.i18n.bidi.Format.LRE);
+        dir == Dir.RTL ? Format.RLE :
+                                        Format.LRE);
     result.push(str);
-    result.push(goog.i18n.bidi.Format.PDF);
+    result.push(Format.PDF);
   } else {
     result.push(str);
   }
@@ -490,8 +471,7 @@ goog.i18n.BidiFormatter.prototype.unicodeWrapWithKnownDir_ = function(
  * @return {string} A Unicode bidi mark matching the global directionality or
  *     the empty string.
  */
-goog.i18n.BidiFormatter.prototype.markAfter = function(str, opt_isHtml) {
-  'use strict';
+BidiFormatter.prototype.markAfter = function(str, opt_isHtml) {
   return this.markAfterKnownDir(null, str, opt_isHtml);
 };
 
@@ -501,7 +481,7 @@ goog.i18n.BidiFormatter.prototype.markAfter = function(str, opt_isHtml) {
  * if the given directionality or the exit directionality of `str` are
  * opposite to the context directionality. Otherwise returns the empty string.
  *
- * @param {?goog.i18n.bidi.Dir} dir `str`'s overall directionality, or
+ * @param {?Dir} dir `str`'s overall directionality, or
  *     null if unknown and needs to be estimated.
  * @param {string} str The input text.
  * @param {boolean=} opt_isHtml Whether `str` is HTML / HTML-escaped.
@@ -509,9 +489,8 @@ goog.i18n.BidiFormatter.prototype.markAfter = function(str, opt_isHtml) {
  * @return {string} A Unicode bidi mark matching the global directionality or
  *     the empty string.
  */
-goog.i18n.BidiFormatter.prototype.markAfterKnownDir = function(
+BidiFormatter.prototype.markAfterKnownDir = function(
     dir, str, opt_isHtml) {
-  'use strict';
   if (dir == null) {
     dir = this.estimateDirection(str, opt_isHtml);
   }
@@ -527,13 +506,12 @@ goog.i18n.BidiFormatter.prototype.markAfterKnownDir = function(
  * @return {string} LRM for LTR context directionality and RLM for RTL context
  *     directionality.
  */
-goog.i18n.BidiFormatter.prototype.mark = function() {
-  'use strict';
+BidiFormatter.prototype.mark = function() {
   switch (this.contextDir_) {
-    case (goog.i18n.bidi.Dir.LTR):
-      return goog.i18n.bidi.Format.LRM;
-    case (goog.i18n.bidi.Dir.RTL):
-      return goog.i18n.bidi.Format.RLM;
+    case (Dir.LTR):
+      return Format.LRM;
+    case (Dir.RTL):
+      return Format.RLM;
     default:
       return '';
   }
@@ -547,10 +525,9 @@ goog.i18n.BidiFormatter.prototype.mark = function() {
  * @return {string} 'right' for RTL context directionality and 'left' for other
  *     context directionality.
  */
-goog.i18n.BidiFormatter.prototype.startEdge = function() {
-  'use strict';
-  return this.contextDir_ == goog.i18n.bidi.Dir.RTL ? goog.i18n.bidi.RIGHT :
-                                                      goog.i18n.bidi.LEFT;
+BidiFormatter.prototype.startEdge = function() {
+  return this.contextDir_ == Dir.RTL ? bidi.RIGHT :
+                                                      bidi.LEFT;
 };
 
 
@@ -561,8 +538,7 @@ goog.i18n.BidiFormatter.prototype.startEdge = function() {
  * @return {string} 'left' for RTL context directionality and 'right' for other
  *     context directionality.
  */
-goog.i18n.BidiFormatter.prototype.endEdge = function() {
-  'use strict';
-  return this.contextDir_ == goog.i18n.bidi.Dir.RTL ? goog.i18n.bidi.LEFT :
-                                                      goog.i18n.bidi.RIGHT;
+BidiFormatter.prototype.endEdge = function() {
+  return this.contextDir_ == Dir.RTL ? bidi.LEFT :
+                                                      bidi.RIGHT;
 };

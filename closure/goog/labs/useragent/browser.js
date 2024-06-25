@@ -12,16 +12,14 @@
  * goog.labs.userAgent.device respectively.)
  */
 
-goog.module('goog.labs.userAgent.browser');
-goog.module.declareLegacyNamespace();
+import util from './util.js';
 
-const util = goog.require('goog.labs.userAgent.util');
-const {AsyncValue, Version} = goog.require('goog.labs.userAgent.highEntropy.highEntropyValue');
-const {ChromiumRebrand} = goog.require('goog.labs.userAgent.chromiumRebrands');
-const {assert, assertExists} = goog.require('goog.asserts');
-const {compareVersions} = goog.require('goog.string.internal');
-const {fullVersionList} = goog.require('goog.labs.userAgent.highEntropy.highEntropyData');
-const {useClientHints} = goog.require('goog.labs.userAgent');
+import { AsyncValue, Version } from './highentropy/highentropyvalue.js';
+import { ChromiumRebrand } from './chromium_rebrands.js';
+import { assert, assertExists } from '../../asserts/asserts.js';
+import { compareVersions } from '../../string/internal.js';
+import { fullVersionList } from './highentropy/highentropydata.js';
+import { useClientHints } from './useragent.js';
 
 // TODO(nnaze): Refactor to remove excessive exclusion logic in matching
 // functions.
@@ -86,7 +84,7 @@ const Brand = {
    */
   SILK: 'Silk',
 };
-exports.Brand = Brand;
+export { Brand };
 
 /** @typedef {(!Brand|!ChromiumRebrand)} */
 let AllBrandsInternal;
@@ -95,7 +93,7 @@ let AllBrandsInternal;
  * All possible valid values to pass to various UACH Brand-accepting functions.
  * @typedef {(!Brand|!ChromiumRebrand)}
  */
-exports.AllBrands;
+export let AllBrands;
 
 /**
  * @param {boolean=} ignoreClientHintsFlag Iff truthy, the `useClientHints`
@@ -239,53 +237,53 @@ function matchAndroidBrowser() {
 
 /** @return {boolean} Whether the user's browser is Opera. */
 const isOpera = matchOpera;
-exports.isOpera = isOpera;
+export { isOpera };
 
 /** @return {boolean} Whether the user's browser is IE. */
 const isIE = matchIE;
-exports.isIE = isIE;
+export { isIE };
 
 /** @return {boolean} Whether the user's browser is EdgeHTML based Edge. */
 const isEdge = matchEdgeHtml;
-exports.isEdge = isEdge;
+export { isEdge };
 
 /** @return {boolean} Whether the user's browser is Chromium based Edge. */
 const isEdgeChromium = matchEdgeChromium;
-exports.isEdgeChromium = isEdgeChromium;
+export { isEdgeChromium };
 
 /** @return {boolean} Whether the user's browser is Chromium based Opera. */
 const isOperaChromium = matchOperaChromium;
-exports.isOperaChromium = isOperaChromium;
+export { isOperaChromium };
 
 /** @return {boolean} Whether the user's browser is Firefox. */
 const isFirefox = matchFirefox;
-exports.isFirefox = isFirefox;
+export { isFirefox };
 
 /** @return {boolean} Whether the user's browser is Safari. */
 const isSafari = matchSafari;
-exports.isSafari = isSafari;
+export { isSafari };
 
 /**
  * @return {boolean} Whether the user's browser is Coast (Opera's Webkit-based
  *     iOS browser).
  */
 const isCoast = matchCoast;
-exports.isCoast = isCoast;
+export { isCoast };
 
 /** @return {boolean} Whether the user's browser is iOS Webview. */
 const isIosWebview = matchIosWebview;
-exports.isIosWebview = isIosWebview;
+export { isIosWebview };
 
 /**
  * @return {boolean} Whether the user's browser is any Chromium based browser (
  *     Chrome, Blink-based Opera (15+) and Edge Chromium).
  */
 const isChrome = matchChrome;
-exports.isChrome = isChrome;
+export { isChrome };
 
 /** @return {boolean} Whether the user's browser is the Android browser. */
 const isAndroidBrowser = matchAndroidBrowser;
-exports.isAndroidBrowser = isAndroidBrowser;
+export { isAndroidBrowser };
 
 /**
  * For more information, see:
@@ -298,7 +296,7 @@ function isSilk() {
   // matchUserAgentDataBrand (akin to isChrome, etc.)
   return util.matchUserAgent('Silk');
 }
-exports.isSilk = isSilk;
+export { isSilk };
 
 /**
  * A helper function that returns a function mapping a list of candidate
@@ -399,7 +397,7 @@ function getVersion() {
   const tuple = versionTuples[2];
   return tuple && tuple[1] || '';
 }
-exports.getVersion = getVersion;
+export { getVersion };
 
 /**
  * Returns whether the current browser's version is at least as high as the
@@ -424,7 +422,7 @@ exports.getVersion = getVersion;
 function isVersionOrHigher(version) {
   return compareVersions(getVersion(), version) >= 0;
 }
-exports.isVersionOrHigher = isVersionOrHigher;
+export { isVersionOrHigher };
 
 /**
  * A helper function to determine IE version. More information:
@@ -587,7 +585,7 @@ function isAtLeast(brand, majorVersion) {
       'Major version must be an integer');
   return versionOf_(brand) >= majorVersion;
 }
-exports.isAtLeast = isAtLeast;
+export { isAtLeast };
 
 /**
  * Returns true if the current browser matches the given brand and is at most
@@ -605,7 +603,7 @@ function isAtMost(brand, majorVersion) {
       'Major version must be an integer');
   return versionOf_(brand) <= majorVersion;
 }
-exports.isAtMost = isAtMost;
+export { isAtMost };
 
 /**
  * Loads the high-entropy browser brand/version data and wraps the correct
@@ -711,7 +709,7 @@ async function loadFullVersions() {
   }
   preUachHasLoaded = true;
 }
-exports.loadFullVersions = loadFullVersions;
+export { loadFullVersions };
 
 /**
  * Resets module-local caches used by functionality in this module.
@@ -719,7 +717,7 @@ exports.loadFullVersions = loadFullVersions;
  * labs.userAgent tests).
  * @package
  */
-exports.resetForTesting = () => {
+export let resetForTesting = () => {
   preUachHasLoaded = false;
   fullVersionList.resetForTesting();
 };
@@ -762,7 +760,7 @@ function fullVersionOf(browser) {
   }
   return new HighEntropyBrandVersion(browser, useUach, fallbackVersionString);
 }
-exports.fullVersionOf = fullVersionOf;
+export { fullVersionOf };
 
 
 /**
@@ -800,4 +798,4 @@ function getVersionStringForLogging(browser) {
     return getFullVersionFromUserAgentString(browser);
   }
 }
-exports.getVersionStringForLogging = getVersionStringForLogging;
+export { getVersionStringForLogging };

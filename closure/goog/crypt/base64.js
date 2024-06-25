@@ -10,19 +10,18 @@
  * in [0, 255].
  */
 
-goog.provide('goog.crypt.base64');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.crypt');
-goog.require('goog.string.internal');
-goog.require('goog.userAgent');
-goog.require('goog.userAgent.product');
+import * as crypt from './crypt.js';
+import * as internal from '../string/internal.js';
+import * as userAgent from '../useragent/useragent.js';
+import * as product from '../useragent/product.js';
 
 /**
  * Default alphabet, shared between alphabets. Only 62 characters.
  * @private {string}
  */
-goog.crypt.base64.DEFAULT_ALPHABET_COMMON_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+var DEFAULT_ALPHABET_COMMON_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
     'abcdefghijklmnopqrstuvwxyz' +
     '0123456789';
 
@@ -30,12 +29,11 @@ goog.crypt.base64.DEFAULT_ALPHABET_COMMON_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
 /**
  * Alphabet characters for Alphabet.DEFAULT encoding.
  * For characters without padding, please consider using
- * `goog.crypt.baseN.BASE_64` instead.
+ * `crypt.baseN.BASE_64` instead.
  *
  * @type {string}
  */
-goog.crypt.base64.ENCODED_VALS =
-    goog.crypt.base64.DEFAULT_ALPHABET_COMMON_ + '+/=';
+export var ENCODED_VALS = DEFAULT_ALPHABET_COMMON_ + '+/=';
 
 
 /**
@@ -43,12 +41,11 @@ goog.crypt.base64.ENCODED_VALS =
  * The dot padding is no Internet Standard, according to RFC 4686.
  * https://tools.ietf.org/html/rfc4648
  * For characters without padding, please consider using
- * `goog.crypt.baseN.BASE_64_URL_SAFE` instead.
+ * `crypt.baseN.BASE_64_URL_SAFE` instead.
  *
  * @type {string}
  */
-goog.crypt.base64.ENCODED_VALS_WEBSAFE =
-    goog.crypt.base64.DEFAULT_ALPHABET_COMMON_ + '-_.';
+export var ENCODED_VALS_WEBSAFE = DEFAULT_ALPHABET_COMMON_ + '-_.';
 
 
 /**
@@ -58,7 +55,7 @@ goog.crypt.base64.ENCODED_VALS_WEBSAFE =
  * https://tools.ietf.org/html/rfc4648
  * @enum {number}
  */
-goog.crypt.base64.Alphabet = {
+export var Alphabet = {
   /** Section 4 "base64". */
   DEFAULT: 0,
   /** Section 4 "base64", omitting padding per Section 3.2. */
@@ -77,7 +74,7 @@ goog.crypt.base64.Alphabet = {
  * @const {string}
  * @private
  */
-goog.crypt.base64.paddingChars_ = '=.';
+var paddingChars_ = '=.';
 
 
 /**
@@ -87,10 +84,9 @@ goog.crypt.base64.paddingChars_ = '=.';
  * @return {boolean}
  * @private
  */
-goog.crypt.base64.isPadding_ = function(char) {
-  'use strict';
-  return goog.string.internal.contains(goog.crypt.base64.paddingChars_, char);
-};
+function isPadding_(char) {
+  return internal.contains(paddingChars_, char);
+}
 
 
 // Static lookup maps, lazily populated by init_()
@@ -99,10 +95,10 @@ goog.crypt.base64.isPadding_ = function(char) {
  * For each `Alphabet`, maps from bytes to characters.
  *
  * @see https://jsperf.com/char-lookups
- * @type {!Object<!goog.crypt.base64.Alphabet, !Array<string>>}
+ * @type {!Object<!Alphabet, !Array<string>>}
  * @private
  */
-goog.crypt.base64.byteToCharMaps_ = {};
+var byteToCharMaps_ = {};
 
 /**
  * Maps characters to bytes.
@@ -115,7 +111,7 @@ goog.crypt.base64.byteToCharMaps_ = {};
  * @type {?Object<string, number>}
  * @private
  */
-goog.crypt.base64.charToByteMap_ = null;
+var charToByteMap_ = null;
 
 
 /**
@@ -124,17 +120,15 @@ goog.crypt.base64.charToByteMap_ = null;
  * removal in per-browser compilations.
  * @private {boolean}
  */
-goog.crypt.base64.ASSUME_NATIVE_SUPPORT_ =
-    goog.userAgent.GECKO || goog.userAgent.WEBKIT;
+var ASSUME_NATIVE_SUPPORT_ = userAgent.GECKO || userAgent.WEBKIT;
 
 
 /**
  * Does this browser have a working btoa function?
  * @private {boolean}
  */
-goog.crypt.base64.HAS_NATIVE_ENCODE_ =
-    goog.crypt.base64.ASSUME_NATIVE_SUPPORT_ ||
-    typeof (goog.global.btoa) == 'function';
+var HAS_NATIVE_ENCODE_ = ASSUME_NATIVE_SUPPORT_ ||
+typeof (goog.global.btoa) == 'function';
 
 
 /**
@@ -143,10 +137,9 @@ goog.crypt.base64.HAS_NATIVE_ENCODE_ =
  *  - IE (10+) added atob() but it does not tolerate whitespace on the input.
  * @private {boolean}
  */
-goog.crypt.base64.HAS_NATIVE_DECODE_ =
-    goog.crypt.base64.ASSUME_NATIVE_SUPPORT_ ||
-    (!goog.userAgent.product.SAFARI && !goog.userAgent.IE &&
-     typeof (goog.global.atob) == 'function');
+var HAS_NATIVE_DECODE_ = ASSUME_NATIVE_SUPPORT_ ||
+(!product.SAFARI && !userAgent.IE &&
+ typeof (goog.global.atob) == 'function');
 
 
 /**
@@ -154,23 +147,22 @@ goog.crypt.base64.HAS_NATIVE_DECODE_ =
  *
  * @param {Array<number>|Uint8Array} input An array of bytes (numbers with
  *     value in [0, 255]) to encode.
- * @param {!goog.crypt.base64.Alphabet=} alphabet Base 64 alphabet to
+ * @param {!Alphabet=} alphabet Base 64 alphabet to
  *     use in encoding. Alphabet.DEFAULT is used by default.
  * @return {string} The base64 encoded string.
  */
-goog.crypt.base64.encodeByteArray = function(input, alphabet) {
-  'use strict';
+export function encodeByteArray(input, alphabet) {
   // Assert avoids runtime dependency on goog.isArrayLike, which helps reduce
   // size of jscompiler output, and which yields slight performance increase.
-  goog.asserts.assert(
+  asserts.assert(
       goog.isArrayLike(input), 'encodeByteArray takes an array as a parameter');
 
   if (alphabet === undefined) {
-    alphabet = goog.crypt.base64.Alphabet.DEFAULT;
+    alphabet = Alphabet.DEFAULT;
   }
-  goog.crypt.base64.init_();
+  init_();
 
-  const byteToCharMap = goog.crypt.base64.byteToCharMaps_[alphabet];
+  const byteToCharMap = byteToCharMaps_[alphabet];
   const output = new Array(Math.floor(input.length / 3));
   const paddingChar = byteToCharMap[64] || '';
 
@@ -212,7 +204,7 @@ goog.crypt.base64.encodeByteArray = function(input, alphabet) {
   }
 
   return output.join('');
-};
+}
 
 
 /**
@@ -223,13 +215,13 @@ goog.crypt.base64.encodeByteArray = function(input, alphabet) {
  *
  * @param {string} input A string to encode.  Must not contain characters
  *     outside of the Latin-1 range (i.e. charCode > 255).
- * @param {!goog.crypt.base64.Alphabet=} alphabet Base 64 alphabet to
+ * @param {!Alphabet=} alphabet Base 64 alphabet to
  *     use in encoding. Alphabet.DEFAULT is used by default.
  * @return {string} The base64 encoded string.
  */
-goog.crypt.base64.encodeBinaryString = function(input, alphabet) {
-  return goog.crypt.base64.encodeString(input, alphabet, true);
-};
+export function encodeBinaryString(input, alphabet) {
+  return encodeString(input, alphabet, true);
+}
 
 
 /**
@@ -237,22 +229,21 @@ goog.crypt.base64.encodeBinaryString = function(input, alphabet) {
  *
  * @param {string} input A string to encode.  Must not contain characters
  *     outside of the Latin-1 range (i.e. charCode > 255).
- * @param {!goog.crypt.base64.Alphabet=} alphabet Base 64 alphabet to
+ * @param {!Alphabet=} alphabet Base 64 alphabet to
  *     use in encoding. Alphabet.DEFAULT is used by default.
  * @param {boolean=} throwSync Whether to throw synchronously on unicode.  Note
  *     that if not using a custom alphabet, the throw will always be sync.
  * @return {string} The base64 encoded string.
  */
-goog.crypt.base64.encodeString = function(input, alphabet, throwSync) {
-  'use strict';
+export function encodeString(input, alphabet, throwSync) {
   // Shortcut for browsers that implement
   // a native base64 encoder in the form of "btoa/atob"
-  if (goog.crypt.base64.HAS_NATIVE_ENCODE_ && !alphabet) {
+  if (HAS_NATIVE_ENCODE_ && !alphabet) {
     return goog.global.btoa(input);
   }
-  return goog.crypt.base64.encodeByteArray(
-      goog.crypt.stringToByteArray(input, throwSync), alphabet);
-};
+  return encodeByteArray(
+      crypt.stringToByteArray(input, throwSync), alphabet);
+}
 
 
 /**
@@ -260,13 +251,13 @@ goog.crypt.base64.encodeString = function(input, alphabet, throwSync) {
  * encoded as UTF-8.
  *
  * @param {string} input A string to encode.
- * @param {!goog.crypt.base64.Alphabet=} alphabet Base 64 alphabet to
+ * @param {!Alphabet=} alphabet Base 64 alphabet to
  *     use in encoding. Alphabet.DEFAULT is used by default.
  * @return {string} The base64 encoded string.
  */
-goog.crypt.base64.encodeStringUtf8 = function(input, alphabet) {
-  return goog.crypt.base64.encodeText(input, alphabet);
-};
+export function encodeStringUtf8(input, alphabet) {
+  return encodeText(input, alphabet);
+}
 
 
 /**
@@ -274,20 +265,19 @@ goog.crypt.base64.encodeStringUtf8 = function(input, alphabet) {
  * encoded as UTF-8.
  *
  * @param {string} input A string to encode.
- * @param {!goog.crypt.base64.Alphabet=} alphabet Base 64 alphabet to
+ * @param {!Alphabet=} alphabet Base 64 alphabet to
  *     use in encoding. Alphabet.DEFAULT is used by default.
  * @return {string} The base64 encoded string.
  */
-goog.crypt.base64.encodeText = function(input, alphabet) {
-  'use strict';
+export function encodeText(input, alphabet) {
   // Shortcut for browsers that implement
   // a native base64 encoder in the form of "btoa/atob"
-  if (goog.crypt.base64.HAS_NATIVE_ENCODE_ && !alphabet) {
+  if (HAS_NATIVE_ENCODE_ && !alphabet) {
     return goog.global.btoa(unescape(encodeURIComponent(input)));
   }
-  return goog.crypt.base64.encodeByteArray(
-      goog.crypt.stringToUtf8ByteArray(input), alphabet);
-};
+  return encodeByteArray(
+      crypt.stringToUtf8ByteArray(input), alphabet);
+}
 
 
 /**
@@ -304,11 +294,10 @@ goog.crypt.base64.encodeText = function(input, alphabet) {
  *     use the custom decoder on browsers without native support.
  * @return {string} string representing the decoded value.
  */
-goog.crypt.base64.decodeToBinaryString = function(input, useCustomDecoder) {
-  'use strict';
+export function decodeToBinaryString(input, useCustomDecoder) {
   // Shortcut for browsers that implement
   // a native base64 encoder in the form of "btoa/atob"
-  if (goog.crypt.base64.HAS_NATIVE_DECODE_ && !useCustomDecoder) {
+  if (HAS_NATIVE_DECODE_ && !useCustomDecoder) {
     return goog.global.atob(input);
   }
   var output = '';
@@ -316,10 +305,10 @@ goog.crypt.base64.decodeToBinaryString = function(input, useCustomDecoder) {
     output += String.fromCharCode(b);
   }
 
-  goog.crypt.base64.decodeStringInternal_(input, pushByte);
+  decodeStringInternal_(input, pushByte);
 
   return output;
-};
+}
 
 
 /**
@@ -332,7 +321,7 @@ goog.crypt.base64.decodeToBinaryString = function(input, useCustomDecoder) {
  *     use the custom decoder on browsers without native support.
  * @return {string} string representing the decoded value.
  */
-goog.crypt.base64.decodeString = goog.crypt.base64.decodeToBinaryString;
+export var decodeString = decodeToBinaryString;
 
 
 /**
@@ -347,9 +336,9 @@ goog.crypt.base64.decodeString = goog.crypt.base64.decodeToBinaryString;
  *     use the custom decoder on browsers without native support.
  * @return {string} string representing the decoded value.
  */
-goog.crypt.base64.decodeStringUtf8 = function(input, useCustomDecoder) {
-  return goog.crypt.base64.decodeToText(input, useCustomDecoder);
-};
+export function decodeStringUtf8(input, useCustomDecoder) {
+  return decodeToText(input, useCustomDecoder);
+}
 
 
 /**
@@ -364,11 +353,10 @@ goog.crypt.base64.decodeStringUtf8 = function(input, useCustomDecoder) {
  *     use the custom decoder on browsers without native support.
  * @return {string} string representing the decoded value.
  */
-goog.crypt.base64.decodeToText = function(input, useCustomDecoder) {
-  'use strict';
+export function decodeToText(input, useCustomDecoder) {
   return decodeURIComponent(
-      escape(goog.crypt.base64.decodeString(input, useCustomDecoder)));
-};
+      escape(decodeString(input, useCustomDecoder)));
+}
 
 
 /**
@@ -390,17 +378,16 @@ goog.crypt.base64.decodeToText = function(input, useCustomDecoder) {
  * @param {boolean=} opt_ignored Unused parameter, retained for compatibility.
  * @return {!Array<number>} bytes representing the decoded value.
  */
-goog.crypt.base64.decodeStringToByteArray = function(input, opt_ignored) {
-  'use strict';
+export function decodeStringToByteArray(input, opt_ignored) {
   var output = [];
   function pushByte(b) {
     output.push(b);
   }
 
-  goog.crypt.base64.decodeStringInternal_(input, pushByte);
+  decodeStringInternal_(input, pushByte);
 
   return output;
-};
+}
 
 
 /**
@@ -424,8 +411,7 @@ goog.crypt.base64.decodeStringToByteArray = function(input, opt_ignored) {
  *     input maybe encoded with either supported alphabet (or a mix thereof).
  * @return {!Uint8Array} bytes representing the decoded value.
  */
-goog.crypt.base64.decodeStringToUint8Array = function(input) {
-  'use strict';
+export function decodeStringToUint8Array(input) {
   var len = input.length;
   // Approximate the length of the array needed for output.
   // Our method varies according to the format of the input, which we can
@@ -456,10 +442,10 @@ goog.crypt.base64.decodeStringToUint8Array = function(input) {
     // so rounding down is appropriate to have a buffer at least as large as
     // output.
     approxByteLength = Math.floor(approxByteLength);
-  } else if (goog.crypt.base64.isPadding_(input[len - 1])) {
+  } else if (isPadding_(input[len - 1])) {
     // The string has a round length, and has some padding.
     // Reduce the byte length according to the quantity of padding.
-    if (goog.crypt.base64.isPadding_(input[len - 2])) {
+    if (isPadding_(input[len - 2])) {
       approxByteLength -= 2;
     } else {
       approxByteLength -= 1;
@@ -471,7 +457,7 @@ goog.crypt.base64.decodeStringToUint8Array = function(input) {
     output[outLen++] = b;
   }
 
-  goog.crypt.base64.decodeStringInternal_(input, pushByte);
+  decodeStringInternal_(input, pushByte);
 
   // Trim unused trailing bytes if necessary, this only happens if the input
   // included extra whitespace or extra padding that caused our estimate to be
@@ -481,7 +467,7 @@ goog.crypt.base64.decodeStringToUint8Array = function(input) {
   // to avoid potential poor performance from chrome.
   // See https://bugs.chromium.org/p/v8/issues/detail?id=7161
   return outLen !== approxByteLength ? output.subarray(0, outLen) : output;
-};
+}
 
 
 /**
@@ -489,9 +475,8 @@ goog.crypt.base64.decodeStringToUint8Array = function(input) {
  * @param {function(number):void} pushByte result accumulator.
  * @private
  */
-goog.crypt.base64.decodeStringInternal_ = function(input, pushByte) {
-  'use strict';
-  goog.crypt.base64.init_();
+function decodeStringInternal_(input, pushByte) {
+  init_();
 
   var nextCharIndex = 0;
   /**
@@ -501,11 +486,11 @@ goog.crypt.base64.decodeStringInternal_ = function(input, pushByte) {
   function getByte(default_val) {
     while (nextCharIndex < input.length) {
       var ch = input.charAt(nextCharIndex++);
-      var b = goog.crypt.base64.charToByteMap_[ch];
+      var b = charToByteMap_[ch];
       if (b != null) {
         return b;  // Common case: decoded the char.
       }
-      if (!goog.string.internal.isEmptyOrWhitespace(ch)) {
+      if (!internal.isEmptyOrWhitespace(ch)) {
         throw new Error('Unknown base64 encoding at char: ' + ch);
       }
       // We encountered whitespace: loop around to the next input char.
@@ -545,7 +530,7 @@ goog.crypt.base64.decodeStringInternal_ = function(input, pushByte) {
       }
     }
   }
-};
+}
 
 
 /**
@@ -553,17 +538,16 @@ goog.crypt.base64.decodeStringInternal_ = function(input, pushByte) {
  * accessing any of the static map variables.
  * @private
  */
-goog.crypt.base64.init_ = function() {
-  'use strict';
-  if (goog.crypt.base64.charToByteMap_) {
+function init_() {
+  if (charToByteMap_) {
     return;
   }
-  goog.crypt.base64.charToByteMap_ = {};
+  charToByteMap_ = {};
 
   // We want quick mappings back and forth, so we precompute encoding maps.
 
   /** @type {!Array<string>} */
-  var commonChars = goog.crypt.base64.DEFAULT_ALPHABET_COMMON_.split('');
+  var commonChars = DEFAULT_ALPHABET_COMMON_.split('');
   var specialChars = [
     '+/=',  // DEFAULT
     '+/',   // NO_PADDING
@@ -573,24 +557,23 @@ goog.crypt.base64.init_ = function() {
   ];
 
   for (var i = 0; i < 5; i++) {
-    // `i` is each value of the `goog.crypt.base64.Alphabet` enum
+    /* `i` is each value of the `Alphabet` enum*/
     var chars = commonChars.concat(specialChars[i].split(''));
 
     // Sets byte-to-char map
-    goog.crypt.base64
-        .byteToCharMaps_[/** @type {!goog.crypt.base64.Alphabet} */ (i)] =
+    byteToCharMaps_[ (i)] =
         chars;
 
     // Sets char-to-byte map
     for (var j = 0; j < chars.length; j++) {
       var char = chars[j];
 
-      var existingByte = goog.crypt.base64.charToByteMap_[char];
+      var existingByte = charToByteMap_[char];
       if (existingByte === undefined) {
-        goog.crypt.base64.charToByteMap_[char] = j;
+        charToByteMap_[char] = j;
       } else {
-        goog.asserts.assert(existingByte === j);
+        asserts.assert(existingByte === j);
       }
     }
   }
-};
+}

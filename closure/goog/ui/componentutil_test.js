@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ComponentUtilTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const ComponentUtil = goog.require('goog.ui.ComponentUtil');
-const MouseAsMouseEventType = goog.require('goog.events.MouseAsMouseEventType');
-const PointerAsMouseEventType = goog.require('goog.events.PointerAsMouseEventType');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Component } from './component.js';
+import * as ComponentUtil from './componentutil.js';
+import { MouseAsMouseEventType } from '../events/mouseasmouseeventtype.js';
+import { PointerAsMouseEventType } from '../events/pointerasmouseeventtype.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let component;
 

@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.html.safeHtmlFormatterTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SafeHtmlFormatter = goog.require('goog.html.SafeHtmlFormatter');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const googString = goog.require('goog.string');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeHtml } from './safehtml.js';
+import { SafeHtmlFormatter } from './safehtmlformatter.js';
+import { SafeUrl } from './safeurl.js';
+import * as googString from '../string/string.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let stubs;
 

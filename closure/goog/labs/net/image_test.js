@@ -6,14 +6,13 @@
 
 /** @fileoverview Unit tests for goog.labs.net.Image. */
 
-goog.module('goog.labs.net.imageTest');
 goog.setTestOnly();
 
-const TestCase = goog.require('goog.testing.TestCase');
-const googString = goog.require('goog.string');
-const netImage = goog.require('goog.labs.net.image');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TestCase } from '../../testing/testcase.js';
+import * as googString from '../../string/string.js';
+import * as netImage from './image.js';
+import { recordFunction } from '../../testing/recordfunction.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   setUpPage() {

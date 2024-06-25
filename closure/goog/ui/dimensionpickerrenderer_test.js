@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.DimensionPickerRendererTest');
 goog.setTestOnly();
 
-const DimensionPicker = goog.require('goog.ui.DimensionPicker');
-const DimensionPickerRenderer = goog.require('goog.ui.DimensionPickerRenderer');
-const LivePriority = goog.require('goog.a11y.aria.LivePriority');
-const googArray = goog.require('goog.array');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DimensionPicker } from './dimensionpicker.js';
+import { DimensionPickerRenderer } from './dimensionpickerrenderer.js';
+import { LivePriority } from '../a11y/aria/attributes.js';
+import * as googArray from '../array/array.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let renderer;
 let picker;

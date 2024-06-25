@@ -19,14 +19,13 @@
  * will evaluate to 'value' with the above injected data.
  */
 
-goog.module('goog.soy.InjectedDataSupplier');
-goog.module.declareLegacyNamespace();
+goog.declareModuleId('goog.soy.InjectedDataSupplier');
 
 /**
  * An interface for a supplier that provides Soy injected data.
  * @interface
  */
-exports = class InjectedDataSupplier {
+export default class InjectedDataSupplier {
   /**
    * Gets the injected data. Implementation may assume that
    * `goog.soy.Renderer` will treat the returned data as

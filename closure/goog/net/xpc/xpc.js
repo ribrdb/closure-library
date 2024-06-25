@@ -10,7 +10,7 @@
  * with pages from the same domain, but doing that is kinda
  * pointless).
  *
- * The only publicly visible class is goog.net.xpc.CrossPageChannel.
+ * The only publicly visible class is CrossPageChannel.
  *
  * Note: The preferred name for the main class would have been
  * CrossDomainChannel.  But as there already is a class named like
@@ -24,21 +24,14 @@
  * @suppress {underscore}
  */
 
-goog.provide('goog.net.xpc');
-goog.provide('goog.net.xpc.CfgFields');
-goog.provide('goog.net.xpc.ChannelStates');
-goog.provide('goog.net.xpc.TransportNames');
-goog.provide('goog.net.xpc.TransportTypes');
-goog.provide('goog.net.xpc.UriCfgFields');
-
-goog.require('goog.log');
+import * as log from '../../log/log.js';
 
 
 /**
  * Enum used to identify transport types.
  * @enum {number}
  */
-goog.net.xpc.TransportTypes = {
+export var TransportTypes = {
   UNDEFINED: 0,
   NATIVE_MESSAGING: 1,
 };
@@ -49,7 +42,7 @@ goog.net.xpc.TransportTypes = {
  * transport class names for createTransport_() to work.
  * @const {!Object<string,string>}
  */
-goog.net.xpc.TransportNames = {
+export var TransportNames = {
   '1': 'NativeMessagingTransport',
 };
 
@@ -61,7 +54,7 @@ goog.net.xpc.TransportNames = {
  * Field names used on configuration object.
  * @const
  */
-goog.net.xpc.CfgFields = {
+export var CfgFields = {
   /**
    * Channel name identifier.
    * Both peers have to be initialized with
@@ -94,13 +87,13 @@ goog.net.xpc.CfgFields = {
    */
   IFRAME_ID: 'ifrid',
   /**
-   * Transport type identifier.
-   * The transport type to use. Possible values are entries from
-   * goog.net.xpc.TransportTypes or a Transport constructor fuction. If not
-   * present, the transport is determined automatically based on the useragent's
-   * capabilities.
-   * @const
-   */
+     * Transport type identifier.
+     * The transport type to use. Possible values are entries from
+     * TransportTypes or a Transport constructor fuction. If not
+     * present, the transport is determined automatically based on the useragent's
+     * capabilities.
+     * @const
+     */
   TRANSPORT: 'tp',
   /**
    * Local relay URI identifier (IframeRelayTransport-specific).
@@ -185,19 +178,19 @@ goog.net.xpc.CfgFields = {
  * Config properties that need to be URL sanitized.
  * @type {Array<string>}
  */
-goog.net.xpc.UriCfgFields = [
-  goog.net.xpc.CfgFields.PEER_URI,
-  goog.net.xpc.CfgFields.LOCAL_RELAY_URI,
-  goog.net.xpc.CfgFields.PEER_RELAY_URI,
-  goog.net.xpc.CfgFields.LOCAL_POLL_URI,
-  goog.net.xpc.CfgFields.PEER_POLL_URI,
+export var UriCfgFields = [
+  CfgFields.PEER_URI,
+  CfgFields.LOCAL_RELAY_URI,
+  CfgFields.PEER_RELAY_URI,
+  CfgFields.LOCAL_POLL_URI,
+  CfgFields.PEER_POLL_URI,
 ];
 
 
 /**
  * @enum {number}
  */
-goog.net.xpc.ChannelStates = {
+export var ChannelStates = {
   NOT_CONNECTED: 1,
   CONNECTED: 2,
   CLOSED: 3,
@@ -208,35 +201,35 @@ goog.net.xpc.ChannelStates = {
  * The name of the transport service (used for internal signalling).
  * @package @const {string}
  */
-goog.net.xpc.TRANSPORT_SERVICE = 'tp';
+export var TRANSPORT_SERVICE = 'tp';
 
 
 /**
  * Transport signaling message: setup.
  * @const {string}
  */
-goog.net.xpc.SETUP = 'SETUP';
+export var SETUP = 'SETUP';
 
 
 /**
  * Transport signaling message: setup for native transport protocol v2.
  * @const {string}
  */
-goog.net.xpc.SETUP_NTPV2 = 'SETUP_NTPV2';
+export var SETUP_NTPV2 = 'SETUP_NTPV2';
 
 
 /**
  * Transport signaling message: setup acknowledgement.
  * @package @const {string}
  */
-goog.net.xpc.SETUP_ACK = 'SETUP_ACK';
+export var SETUP_ACK = 'SETUP_ACK';
 
 
 /**
  * Transport signaling message: setup acknowledgement.
  * @const {string}
  */
-goog.net.xpc.SETUP_ACK_NTPV2 = 'SETUP_ACK_NTPV2';
+export var SETUP_ACK_NTPV2 = 'SETUP_ACK_NTPV2';
 
 
 /**
@@ -245,16 +238,15 @@ goog.net.xpc.SETUP_ACK_NTPV2 = 'SETUP_ACK_NTPV2';
  * @param {string=} opt_characters The characters used.
  * @return {string} The random string.
  */
-goog.net.xpc.getRandomString = function(length, opt_characters) {
-  'use strict';
-  const chars = opt_characters || goog.net.xpc.randomStringCharacters_;
-  const charsLength = chars.length;
-  let s = '';
-  while (length-- > 0) {
-    s += chars.charAt(Math.floor(Math.random() * charsLength));
-  }
-  return s;
-};
+export function getRandomString(length, opt_characters) {
+ const chars = opt_characters || randomStringCharacters_;
+ const charsLength = chars.length;
+ let s = '';
+ while (length-- > 0) {
+   s += chars.charAt(Math.floor(Math.random() * charsLength));
+ }
+ return s;
+}
 
 
 /**
@@ -262,12 +254,11 @@ goog.net.xpc.getRandomString = function(length, opt_characters) {
  * @type {string}
  * @private
  */
-goog.net.xpc.randomStringCharacters_ =
-    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+var randomStringCharacters_ = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 
 /**
  * The logger.
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  */
-goog.net.xpc.logger = goog.log.getLogger('goog.net.xpc');
+export var logger = log.getLogger('goog.net.xpc');

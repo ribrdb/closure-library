@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.ext.PathTest');
 goog.setTestOnly();
 
-const GoogRect = goog.require('goog.math.Rect');
-const Path = goog.require('goog.graphics.ext.Path');
-const graphics = goog.require('goog.graphics');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingGraphics = goog.require('goog.testing.graphics');
+import { Rect as GoogRect } from '../../math/rect.js';
+import { Path } from './path.js';
+import * as graphics from '../graphics.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingGraphics from '../../testing/graphics.js';
 
 testSuite({
   testClone() {

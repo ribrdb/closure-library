@@ -8,13 +8,12 @@
  * @fileoverview Unit tests for goog.collections.set.
  */
 
-goog.module('goog.collections.setsTest');
 goog.setTestOnly('goog.collections.setsTest');
 
-const StructsSet = goog.require('goog.structs.Set');
-const googIter = goog.require('goog.iter');
-const sets = goog.require('goog.collections.sets');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Set as StructsSet } from '../structs/set.js';
+import * as googIter from '../iter/iter.js';
+import * as sets from './sets.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 /**

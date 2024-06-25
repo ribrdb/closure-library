@@ -4,17 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.soyTest');
 goog.setTestOnly();
 
-const NodeType = goog.require('goog.dom.NodeType');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const functions = goog.require('goog.functions');
-const soy = goog.require('goog.soy');
+import { NodeType } from '../dom/nodetype.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as functions from '../functions/functions.js';
+import * as soy from './soy.js';
+
 /** @suppress {extraRequire} */
-const testHelper = goog.require('goog.soy.testHelper');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as testHelper from './soy_testhelper.js';
+
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Asserts that the function throws an error for unsafe templates.

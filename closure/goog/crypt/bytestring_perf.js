@@ -10,16 +10,15 @@
  */
 
 
-goog.provide('goog.crypt.byteArrayToStringPerf');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.dom');
-goog.require('goog.testing.PerformanceTable');
+import * as dom from '../dom/dom.js';
+import { PerformanceTable } from '../testing/performancetable.js';
 
 goog.setTestOnly('goog.crypt.byteArrayToStringPerf');
 
 
-var table = new goog.testing.PerformanceTable(goog.dom.getElement('perfTable'));
+var table = new PerformanceTable(dom.getElement('perfTable'));
 
 
 var BYTES_LENGTH = Math.pow(2, 20);
@@ -35,7 +34,7 @@ function getBytes() {
 
 function copyAndSpliceByteArray(bytes) {
   // Copy the passed byte array since we're going to destroy it.
-  var remainingBytes = goog.array.clone(bytes);
+  var remainingBytes = array.clone(bytes);
   var strings = [];
 
   // Convert each chunk to a string.
@@ -49,7 +48,7 @@ function copyAndSpliceByteArray(bytes) {
 function sliceByteArrayConcat(bytes) {
   var str = '';
   for (var i = 0; i < bytes.length; i += CHUNK_SIZE) {
-    var chunk = goog.array.slice(bytes, i, i + CHUNK_SIZE);
+    var chunk = array.slice(bytes, i, i + CHUNK_SIZE);
     str += String.fromCharCode.apply(null, chunk);
   }
   return str;
@@ -59,14 +58,14 @@ function sliceByteArrayConcat(bytes) {
 function sliceByteArrayJoin(bytes) {
   var strings = [];
   for (var i = 0; i < bytes.length; i += CHUNK_SIZE) {
-    var chunk = goog.array.slice(bytes, i, i + CHUNK_SIZE);
+    var chunk = array.slice(bytes, i, i + CHUNK_SIZE);
     strings.push(String.fromCharCode.apply(null, chunk));
   }
   return strings.join('');
 }
 
 function mapByteArray(bytes) {
-  var strings = goog.array.map(bytes, String.fromCharCode);
+  var strings = array.map(bytes, String.fromCharCode);
   return strings.join('');
 }
 

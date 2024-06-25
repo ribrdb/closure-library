@@ -5,37 +5,35 @@
  */
 
 /**
- * @fileoverview Similar functionality of {@link goog.ui.ButtonRenderer},
+ * @fileoverview Similar functionality of {@link ButtonRenderer},
  * but uses a <div> element instead of a <button> or <input> element.
  */
 
-goog.provide('goog.ui.FlatButtonRenderer');
+import { Role } from '../a11y/aria/roles.js';
 
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.asserts');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.ui.Button');
-goog.require('goog.ui.ButtonRenderer');
-goog.require('goog.ui.INLINE_BLOCK_CLASSNAME');
-goog.require('goog.ui.registry');
-goog.requireType('goog.ui.Control');
+import * as asserts from '../asserts/asserts.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import { Button } from './button.js';
+import { ButtonRenderer } from './buttonrenderer.js';
+import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
+import * as registry from './registry.js';
+goog.requireType('goog.ui.control');
 
 
 
 /**
- * Flat renderer for {@link goog.ui.Button}s.  Flat buttons can contain
+ * Flat renderer for {@link Button}s.  Flat buttons can contain
  * almost arbitrary HTML content, will flow like inline elements, but can be
  * styled like block-level elements.
  * @constructor
- * @extends {goog.ui.ButtonRenderer}
+ * @extends {ButtonRenderer}
  */
-goog.ui.FlatButtonRenderer = function() {
-  'use strict';
-  goog.ui.ButtonRenderer.call(this);
-};
-goog.inherits(goog.ui.FlatButtonRenderer, goog.ui.ButtonRenderer);
-goog.addSingletonGetter(goog.ui.FlatButtonRenderer);
+export function FlatButtonRenderer() {
+ ButtonRenderer.call(this);
+}
+goog.inherits(FlatButtonRenderer, ButtonRenderer);
+goog.addSingletonGetter(FlatButtonRenderer);
 
 
 /**
@@ -43,53 +41,50 @@ goog.addSingletonGetter(goog.ui.FlatButtonRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.FlatButtonRenderer.CSS_CLASS = goog.getCssName('goog-flat-button');
+FlatButtonRenderer.CSS_CLASS = goog.getCssName('goog-flat-button');
 
 
 /**
  * Returns the control's contents wrapped in a div element, with
  * the renderer's own CSS class and additional state-specific classes applied
  * to it, and the button's disabled attribute set or cleared as needed.
- * Overrides {@link goog.ui.ButtonRenderer#createDom}.
+ * Overrides {@link ButtonRenderer#createDom}.
  * @param {goog.ui.Control} button Button to render.
  * @return {!Element} Root element for the button.
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.FlatButtonRenderer.prototype.createDom = function(button) {
-  'use strict';
-  var classNames = this.getClassNames(button);
-  var element = button.getDomHelper().createDom(
-      goog.dom.TagName.DIV,
-      goog.ui.INLINE_BLOCK_CLASSNAME + ' ' + classNames.join(' '),
-      button.getContent());
-  this.setTooltip(element, button.getTooltip());
-  return element;
+FlatButtonRenderer.prototype.createDom = function(button) {
+ var classNames = this.getClassNames(button);
+ var element = button.getDomHelper().createDom(
+     TagName.DIV,
+     INLINE_BLOCK_CLASSNAME + ' ' + classNames.join(' '),
+     button.getContent());
+ this.setTooltip(element, button.getTooltip());
+ return element;
 };
 
 
 /**
  * Returns the ARIA role to be applied to flat buttons.
- * @return {goog.a11y.aria.Role|undefined} ARIA role.
+ * @return {Role|undefined} ARIA role.
  * @override
  */
-goog.ui.FlatButtonRenderer.prototype.getAriaRole = function() {
-  'use strict';
-  return goog.a11y.aria.Role.BUTTON;
+FlatButtonRenderer.prototype.getAriaRole = function() {
+ return Role.BUTTON;
 };
 
 
 /**
  * Returns true if this renderer can decorate the element.  Overrides
- * {@link goog.ui.ButtonRenderer#canDecorate} by returning true if the
+ * {@link ButtonRenderer#canDecorate} by returning true if the
  * element is a DIV, false otherwise.
  * @param {Element} element Element to decorate.
  * @return {boolean} Whether the renderer can decorate the element.
  * @override
  */
-goog.ui.FlatButtonRenderer.prototype.canDecorate = function(element) {
-  'use strict';
-  return element.tagName == goog.dom.TagName.DIV;
+FlatButtonRenderer.prototype.canDecorate = function(element) {
+ return element.tagName == TagName.DIV;
 };
 
 
@@ -97,33 +92,31 @@ goog.ui.FlatButtonRenderer.prototype.canDecorate = function(element) {
  * Takes an existing element and decorates it with the flat button control.
  * Initializes the control's ID, content, tooltip, value, and state based
  * on the ID of the element, its child nodes, and its CSS classes, respectively.
- * Returns the element.  Overrides {@link goog.ui.ButtonRenderer#decorate}.
+ * Returns the element.  Overrides {@link ButtonRenderer#decorate}.
  * @param {goog.ui.Control} button Button instance to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
  */
-goog.ui.FlatButtonRenderer.prototype.decorate = function(button, element) {
-  'use strict';
-  goog.asserts.assert(element);
-  goog.dom.classlist.add(element, goog.ui.INLINE_BLOCK_CLASSNAME);
-  return goog.ui.FlatButtonRenderer.superClass_.decorate.call(
-      this, button, element);
+FlatButtonRenderer.prototype.decorate = function(button, element) {
+ asserts.assert(element);
+ classlist.add(element, INLINE_BLOCK_CLASSNAME);
+ return FlatButtonRenderer.superClass_.decorate.call(
+     this, button, element);
 };
 
 
 /**
  * Flat buttons can't use the value attribute since they are div elements.
- * Overrides {@link goog.ui.ButtonRenderer#getValue} to prevent trying to
+ * Overrides {@link ButtonRenderer#getValue} to prevent trying to
  * access the element's value.
  * @param {Element} element The button control's root element.
  * @return {string} Value not valid for flat buttons.
  * @override
  */
-goog.ui.FlatButtonRenderer.prototype.getValue = function(element) {
-  'use strict';
-  // Flat buttons don't store their value in the DOM.
-  return '';
+FlatButtonRenderer.prototype.getValue = function(element) {
+ // Flat buttons don't store their value in the DOM.
+ return '';
 };
 
 
@@ -133,16 +126,14 @@ goog.ui.FlatButtonRenderer.prototype.getValue = function(element) {
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.FlatButtonRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.FlatButtonRenderer.CSS_CLASS;
+FlatButtonRenderer.prototype.getCssClass = function() {
+ return FlatButtonRenderer.CSS_CLASS;
 };
 
 
 // Register a decorator factory function for Flat Buttons.
-goog.ui.registry.setDecoratorByClassName(
-    goog.ui.FlatButtonRenderer.CSS_CLASS, function() {
-      'use strict';
-      // Uses goog.ui.Button, but with FlatButtonRenderer.
-      return new goog.ui.Button(null, goog.ui.FlatButtonRenderer.getInstance());
-    });
+registry.setDecoratorByClassName(
+    FlatButtonRenderer.CSS_CLASS, function() {
+ // Uses goog.ui.Button, but with FlatButtonRenderer.
+ return new Button(null, FlatButtonRenderer.getInstance());
+});

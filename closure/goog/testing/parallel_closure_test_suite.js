@@ -10,16 +10,15 @@
  *
  */
 
-goog.module('goog.testing.parallelClosureTestSuite');
 goog.setTestOnly('goog.testing.parallelClosureTestSuite');
 
-const MultiTestRunner = goog.require('goog.testing.MultiTestRunner');
-const Promise = goog.require('goog.Promise');
-const TestCase = goog.require('goog.testing.TestCase');
-const asserts = goog.require('goog.asserts');
-const events = goog.require('goog.events');
-const json = goog.require('goog.json');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MultiTestRunner } from './multitestrunner.js';
+import { Promise } from '../promise/promise.js';
+import { TestCase } from './testcase.js';
+import * as asserts from '../asserts/asserts.js';
+import * as events from '../events/events.js';
+import * as json from '../json/json.js';
+import { testSuite } from './testsuite.js';
 
 /** @type {?MultiTestRunner} */
 let testRunner = null;
@@ -143,4 +142,4 @@ if (goog.global['G_parallelTestRunner']) {
 
 // Export test methods/vars so they can also be tested.
 testObj['processAllTestResults'] = processAllTestResults;
-exports = testObj;
+export { testObj };

@@ -8,18 +8,7 @@
  * @fileoverview Names of standard colors with their associated hex values.
  */
 
-goog.provide('goog.color.names');
-
-
-/**
- * A map that contains a lot of colors that are recognised by various browsers.
- * This list is way larger than the minimal one dictated by W3C.
- * The keys of this map are the lowercase "readable" names of the colors, while
- * the values are the "hex" values.
- *
- * @type {!Object<string, string>}
- */
-goog.color.names = {
+names = {
   'aliceblue': '#f0f8ff',
   'antiquewhite': '#faebd7',
   'aqua': '#00ffff',
@@ -168,3 +157,4 @@ goog.color.names = {
   'yellow': '#ffff00',
   'yellowgreen': '#9acd32'
 };
+export var names;

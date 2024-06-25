@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.BidiInputTest');
 goog.setTestOnly();
 
-const BidiInput = goog.require('goog.ui.BidiInput');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BidiInput } from './bidiinput.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   setUp() {

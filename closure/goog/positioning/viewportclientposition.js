@@ -8,17 +8,15 @@
  * @fileoverview Client viewport positioning class.
  */
 
-goog.provide('goog.positioning.ViewportClientPosition');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.math.Coordinate');
-goog.require('goog.positioning');
-goog.require('goog.positioning.ClientPosition');
-goog.require('goog.positioning.Overflow');
-goog.require('goog.positioning.OverflowStatus');
-goog.require('goog.style');
-goog.requireType('goog.math.Box');
-goog.requireType('goog.math.Size');
+import { Coordinate } from '../math/coordinate.js';
+import * as positioning from './positioning.js';
+import { Overflow, OverflowStatus } from './positioning.js';
+import { ClientPosition } from './clientposition.js';
+import * as style from '../style/style.js';
+goog.requireType('goog.math.box');
+goog.requireType('goog.math.size');
 
 
 
@@ -26,18 +24,17 @@ goog.requireType('goog.math.Size');
  * Encapsulates a popup position where the popup is positioned relative to the
  * window (client) coordinates, and made to stay within the viewport.
  *
- * @param {number|goog.math.Coordinate} arg1 Left position or coordinate.
+ * @param {number|Coordinate} arg1 Left position or coordinate.
  * @param {number=} opt_arg2 Top position if arg1 is a number representing the
  *     left position, ignored otherwise.
  * @constructor
- * @extends {goog.positioning.ClientPosition}
+ * @extends {ClientPosition}
  */
-goog.positioning.ViewportClientPosition = function(arg1, opt_arg2) {
-  'use strict';
-  goog.positioning.ClientPosition.call(this, arg1, opt_arg2);
-};
+export function ViewportClientPosition(arg1, opt_arg2) {
+    ClientPosition.call(this, arg1, opt_arg2);
+}
 goog.inherits(
-    goog.positioning.ViewportClientPosition, goog.positioning.ClientPosition);
+    ViewportClientPosition, ClientPosition);
 
 
 /**
@@ -45,76 +42,74 @@ goog.inherits(
  * @type {number}
  * @private
  */
-goog.positioning.ViewportClientPosition.prototype.lastResortOverflow_ = 0;
+ViewportClientPosition.prototype.lastResortOverflow_ = 0;
 
 
 /**
  * Set the last-resort overflow strategy, if the popup fails to fit.
- * @param {number} overflow A bitmask of goog.positioning.Overflow strategies.
+ * @param {number} overflow A bitmask of Overflow strategies.
  */
-goog.positioning.ViewportClientPosition.prototype.setLastResortOverflow =
+ViewportClientPosition.prototype.setLastResortOverflow =
     function(overflow) {
-  'use strict';
-  this.lastResortOverflow_ = overflow;
-};
+        this.lastResortOverflow_ = overflow;
+    };
 
 
 /**
  * Repositions the popup according to the current state.
  *
  * @param {Element} element The DOM element of the popup.
- * @param {goog.positioning.Corner} popupCorner The corner of the popup
+ * @param {positioning.Corner} popupCorner The corner of the popup
  *     element that that should be positioned adjacent to the anchorElement.
- *     One of the goog.positioning.Corner constants.
+ *     One of the positioning.Corner constants.
  * @param {goog.math.Box=} opt_margin A margin specified in pixels.
  * @param {goog.math.Size=} opt_preferredSize Preferred size fo the element.
  * @override
  */
-goog.positioning.ViewportClientPosition.prototype.reposition = function(
+ViewportClientPosition.prototype.reposition = function(
     element, popupCorner, opt_margin, opt_preferredSize) {
-  'use strict';
-  var viewportElt = goog.style.getClientViewportElement(element);
-  var viewport = goog.style.getVisibleRectForElement(viewportElt);
-  var scrollEl = goog.dom.getDomHelper(element).getDocumentScrollElement();
-  var clientPos = new goog.math.Coordinate(
-      this.coordinate.x + scrollEl.scrollLeft,
-      this.coordinate.y + scrollEl.scrollTop);
+    var viewportElt = style.getClientViewportElement(element);
+    var viewport = style.getVisibleRectForElement(viewportElt);
+    var scrollEl = dom.getDomHelper(element).getDocumentScrollElement();
+    var clientPos = new Coordinate(
+        this.coordinate.x + scrollEl.scrollLeft,
+        this.coordinate.y + scrollEl.scrollTop);
 
-  var failXY =
-      goog.positioning.Overflow.FAIL_X | goog.positioning.Overflow.FAIL_Y;
-  var corner = popupCorner;
+    var failXY =
+        Overflow.FAIL_X | Overflow.FAIL_Y;
+    var corner = popupCorner;
 
-  // Try the requested position.
-  var status = goog.positioning.positionAtCoordinate(
-      clientPos, element, corner, opt_margin, viewport, failXY,
-      opt_preferredSize);
-  if ((status & goog.positioning.OverflowStatus.FAILED) == 0) {
-    return;
-  }
+    // Try the requested position.
+    var status = positioning.positionAtCoordinate(
+        clientPos, element, corner, opt_margin, viewport, failXY,
+        opt_preferredSize);
+    if ((status & OverflowStatus.FAILED) == 0) {
+      return;
+    }
 
-  // Outside left or right edge of viewport, try try to flip it horizontally.
-  if (status & goog.positioning.OverflowStatus.FAILED_LEFT ||
-      status & goog.positioning.OverflowStatus.FAILED_RIGHT) {
-    corner = goog.positioning.flipCornerHorizontal(corner);
-  }
+    // Outside left or right edge of viewport, try try to flip it horizontally.
+    if (status & OverflowStatus.FAILED_LEFT ||
+        status & OverflowStatus.FAILED_RIGHT) {
+      corner = positioning.flipCornerHorizontal(corner);
+    }
 
-  // Outside top or bottom edge of viewport, try try to flip it vertically.
-  if (status & goog.positioning.OverflowStatus.FAILED_TOP ||
-      status & goog.positioning.OverflowStatus.FAILED_BOTTOM) {
-    corner = goog.positioning.flipCornerVertical(corner);
-  }
+    // Outside top or bottom edge of viewport, try try to flip it vertically.
+    if (status & OverflowStatus.FAILED_TOP ||
+        status & OverflowStatus.FAILED_BOTTOM) {
+      corner = positioning.flipCornerVertical(corner);
+    }
 
-  // Try flipped position.
-  status = goog.positioning.positionAtCoordinate(
-      clientPos, element, corner, opt_margin, viewport, failXY,
-      opt_preferredSize);
-  if ((status & goog.positioning.OverflowStatus.FAILED) == 0) {
-    return;
-  }
+    // Try flipped position.
+    status = positioning.positionAtCoordinate(
+        clientPos, element, corner, opt_margin, viewport, failXY,
+        opt_preferredSize);
+    if ((status & OverflowStatus.FAILED) == 0) {
+      return;
+    }
 
-  // If that failed, the viewport is simply too small to contain the popup.
-  // Revert to the original position.
-  goog.positioning.positionAtCoordinate(
-      clientPos, element, popupCorner, opt_margin, viewport,
-      this.lastResortOverflow_, opt_preferredSize);
+    // If that failed, the viewport is simply too small to contain the popup.
+    // Revert to the original position.
+    positioning.positionAtCoordinate(
+        clientPos, element, popupCorner, opt_margin, viewport,
+        this.lastResortOverflow_, opt_preferredSize);
 };

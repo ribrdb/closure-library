@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.CircularBufferTest');
 goog.setTestOnly();
 
-const CircularBuffer = goog.require('goog.structs.CircularBuffer');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CircularBuffer } from './circularbuffer.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testCircularBuffer() {

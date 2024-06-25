@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.locale.countryLanguageNamesTest');
 goog.setTestOnly();
 
-const locale = goog.require('goog.locale');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as locale from './locale.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let LocaleNameConstants_en;
 

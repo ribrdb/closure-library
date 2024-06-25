@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.TextRangeTest');
 goog.setTestOnly();
 
-const Coordinate = goog.require('goog.math.Coordinate');
-const DomControlRange = goog.require('goog.dom.ControlRange');
-const DomTextRange = goog.require('goog.dom.TextRange');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Range = goog.require('goog.dom.Range');
-const dom = goog.require('goog.dom');
-const product = goog.require('goog.userAgent.product');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Coordinate } from '../math/coordinate.js';
+import { ControlRange as DomControlRange } from './controlrange.js';
+import { TextRange as DomTextRange } from './textrange.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import * as Range from './range.js';
+import * as dom from './dom.js';
+import * as product from '../useragent/product.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let logo;
 let logo2;

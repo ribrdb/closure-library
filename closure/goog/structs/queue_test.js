@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.QueueTest');
 goog.setTestOnly();
 
-const Queue = goog.require('goog.structs.Queue');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Queue } from './queue.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function stringifyQueue(q) {
   const values = q.getValues();

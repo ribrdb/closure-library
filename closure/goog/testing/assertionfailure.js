@@ -8,11 +8,10 @@
  * Utilities intended for testing assertion functions.
  */
 
-goog.module('goog.testing.safe.assertionFailure');
 goog.setTestOnly();
 
-const asserts = goog.require('goog.asserts');
-const testingAsserts = goog.require('goog.testing.asserts');
+import * as asserts from '../asserts/asserts.js';
+import * as testingAsserts from './asserts.js';
 
 /**
  * Tests that f raises exactaly one AssertionError and runs f while disabling
@@ -26,7 +25,7 @@ const testingAsserts = goog.require('goog.testing.asserts');
  * @param {number=} opt_number of time the assertion should throw. Default is 1.
  * @return {*} the return value of f.
  */
-exports.withAssertionFailure = function(f, opt_message, opt_number) {
+export let withAssertionFailure = function(f, opt_message, opt_number) {
   try {
     if (!opt_number) {
       opt_number = 1;

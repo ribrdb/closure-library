@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for Uri. */
 
-goog.module('goog.UriTest');
 goog.setTestOnly();
 
-const Uri = goog.require('goog.Uri');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Uri } from './uri.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Tests, that creating URI from components and then
 // getting the components back yields equal results.

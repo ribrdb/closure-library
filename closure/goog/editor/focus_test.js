@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.focusTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const focus = goog.require('goog.editor.focus');
-const selection = goog.require('goog.dom.selection');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserFeature } from './browserfeature.js';
+import * as focus from './focus.js';
+import * as selection from '../dom/selection.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   setUp() {

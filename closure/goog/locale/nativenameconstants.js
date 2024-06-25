@@ -14,13 +14,7 @@
 /**
  * Namespace for native country and language names
  */
-goog.provide('goog.locale.nativeNameConstants');
-
-/**
- * Native country and language names
- * @const {!Object<string, !Object<string, string>>}
- */
-goog.locale.nativeNameConstants = {
+nativeNameConstants = {
   'COUNTRY': {
     'AC': 'Ascension Island',
     'AD': 'Andorra',
@@ -1421,3 +1415,4 @@ goog.locale.nativeNameConstants = {
     'zza': 'Zaza'
   }
 };
+export var nativeNameConstants;

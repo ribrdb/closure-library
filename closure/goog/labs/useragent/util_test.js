@@ -6,12 +6,11 @@
 
 /** @fileoverview Unit tests for goog.labs.userAgent.engine. */
 
-goog.module('goog.labs.userAgent.utilTest');
 goog.setTestOnly();
 
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const util = goog.require('goog.labs.userAgent.util');
+import { testAgents } from './test_agents.js';
+import { testSuite } from '../../testing/testsuite.js';
+import util from './util.js';
 
 testSuite({
   tearDown() {

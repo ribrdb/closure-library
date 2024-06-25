@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.BlobHasherTest');
 goog.setTestOnly();
 
-const BlobHasher = goog.require('goog.crypt.BlobHasher');
-const Md5 = goog.require('goog.crypt.Md5');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const crypt = goog.require('goog.crypt');
-const events = goog.require('goog.events');
-const fs = goog.require('goog.fs');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BlobHasher } from './blobhasher.js';
+import { Md5 } from './md5.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as crypt from './crypt.js';
+import * as events from '../events/events.js';
+import * as fs from '../fs/fs.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * A browser-independent mock of goog.fs.sliceBlob. The actual implementation

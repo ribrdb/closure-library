@@ -9,12 +9,8 @@
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 
-goog.provide('goog.module.testdata.errorMod');
+import { ModuleManager } from '../modulemanager.js';
 
-goog.setTestOnly('goog.module.testdata.errorMod');
-
-goog.require('goog.module.ModuleManager');
-
-goog.module.ModuleManager.getInstance().beforeLoadModuleCode('errorMod');
+ModuleManager.getInstance().beforeLoadModuleCode('errorMod');
 
 throw new Error('errorMod should not load.');

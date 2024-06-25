@@ -10,12 +10,11 @@
  * enable type checking
  */
 
-goog.module('goog.crypt.hash32Test');
 goog.setTestOnly();
 
-const TestCase = goog.require('goog.testing.TestCase');
-const hash32 = goog.require('goog.crypt.hash32');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TestCase } from '../testing/testcase.js';
+import * as hash32 from './hash32.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // NOTE: This test uses a custom test case, see end of script block
 

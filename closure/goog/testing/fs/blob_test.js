@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fs.BlobTest');
 goog.setTestOnly();
 
-const FsBlob = goog.require('goog.testing.fs.Blob');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Blob as FsBlob } from './blob.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../testsuite.js';
 
 const hasArrayBuffer = (globalThis.ArrayBuffer !== undefined);
 

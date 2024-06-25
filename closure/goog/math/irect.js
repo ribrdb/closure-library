@@ -9,29 +9,21 @@
  * like objects to be used with goog.math.Rect.
  */
 
-goog.provide('goog.math.IRect');
-
-
-/**
- * Record for representing rectangular regions, allows compatibility between
- * things like ClientRect and goog.math.Rect.
- *
- * @record
- */
-goog.math.IRect = function() {};
+IRect = function() {};
 
 
 /** @type {number} */
-goog.math.IRect.prototype.left;
+IRect.prototype.left;
 
 
 /** @type {number} */
-goog.math.IRect.prototype.top;
+IRect.prototype.top;
 
 
 /** @type {number} */
-goog.math.IRect.prototype.width;
+IRect.prototype.width;
 
 
 /** @type {number} */
-goog.math.IRect.prototype.height;
+IRect.prototype.height;
+export var IRect;

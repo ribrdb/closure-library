@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.string.formatTest');
 goog.setTestOnly();
 
-const stringFormat = goog.require('goog.string.format');
-const testSuite = goog.require('goog.testing.testSuite');
+import { format as stringFormat } from './stringformat.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // The discussion on naming this functionality is going on.
 

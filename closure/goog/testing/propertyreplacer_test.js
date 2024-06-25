@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.PropertyReplacerTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const asserts = goog.require('goog.testing.asserts');
-const dom = goog.require('goog.dom');
-const isVersion = goog.require('goog.userAgent.product.isVersion');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from './propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import * as asserts from './asserts.js';
+import * as dom from '../dom/dom.js';
+import { isVersion } from '../useragent/product_isversion.js';
+import * as product from '../useragent/product.js';
+import { testSuite } from './testsuite.js';
 
 function isSafari8() {
   return product.SAFARI && isVersion('8.0');

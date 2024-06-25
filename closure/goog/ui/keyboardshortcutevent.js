@@ -7,29 +7,27 @@
 /**
  * @fileoverview The event type emitted by the KeyboardShortcutHandler.
  */
-goog.provide('goog.ui.KeyboardShortcutEvent');
+import { Event } from '../events/event.js';
 
-goog.require('goog.events.Event');
-goog.require('goog.events.EventTarget');
+import { EventTarget } from '../events/eventtarget.js';
 
 /**
  * Object representing a keyboard shortcut event.
  * @param {string} type Event type.
  * @param {string} identifier Task identifier for the triggered shortcut.
- * @param {Node|goog.events.EventTarget} target Target the original key press
+ * @param {Node|EventTarget} target Target the original key press
  *     event originated from.
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @constructor
  * @final
  */
-goog.ui.KeyboardShortcutEvent = function(type, identifier, target) {
-  'use strict';
-  goog.events.Event.call(this, type, target);
+export function KeyboardShortcutEvent(type, identifier, target) {
+ Event.call(this, type, target);
 
-  /**
-   * Task identifier for the triggered shortcut
-   * @type {string}
-   */
-  this.identifier = identifier;
-};
-goog.inherits(goog.ui.KeyboardShortcutEvent, goog.events.Event);
+ /**
+  * Task identifier for the triggered shortcut
+  * @type {string}
+  */
+ this.identifier = identifier;
+}
+goog.inherits(KeyboardShortcutEvent, Event);

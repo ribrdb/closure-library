@@ -4,14 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.ExpectedFailuresTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const JsUnitException = goog.require('goog.testing.JsUnitException');
-const Level = goog.require('goog.log.Level');
-const log = goog.require('goog.log');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ExpectedFailures } from './expectedfailures.js';
+import { JsUnitException } from './jsunitexception.js';
+import * as googLog from '../log/log.js';
+import * as log from '../log/log.js';
+const Level = googLog.Level;
+import { testSuite } from './testsuite.js';
 
 let count;
 let expectedFailures;

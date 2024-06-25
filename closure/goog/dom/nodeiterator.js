@@ -8,10 +8,9 @@
  * @fileoverview Iterator subclass for DOM tree traversal.
  */
 
-goog.provide('goog.dom.NodeIterator');
+import { TagIterator } from './tagiterator.js';
 
-goog.require('goog.dom.TagIterator');
-goog.require('goog.iter');
+import * as iter from '../iter/iter.js';
 
 
 
@@ -52,16 +51,14 @@ goog.require('goog.iter');
  *     to the starting node and its children.
  * @param {number=} opt_depth The starting tree depth.
  * @constructor
- * @extends {goog.dom.TagIterator}
+ * @extends {TagIterator}
  * @final
  */
-goog.dom.NodeIterator = function(
-    opt_node, opt_reversed, opt_unconstrained, opt_depth) {
-  'use strict';
-  goog.dom.TagIterator.call(
-      this, opt_node, opt_reversed, opt_unconstrained, null, opt_depth);
-};
-goog.inherits(goog.dom.NodeIterator, goog.dom.TagIterator);
+export function NodeIterator(opt_node, opt_reversed, opt_unconstrained, opt_depth) {
+ TagIterator.call(
+     this, opt_node, opt_reversed, opt_unconstrained, null, opt_depth);
+}
+goog.inherits(NodeIterator, TagIterator);
 
 
 /**
@@ -69,13 +66,12 @@ goog.inherits(goog.dom.NodeIterator, goog.dom.TagIterator);
  * @return {!IIterableResult<!Node>}
  * @override
  */
-goog.dom.NodeIterator.prototype.next = function() {
-  'use strict';
-  do {
-    // also updates `this.node` reference on iteration.
-    const it = goog.dom.NodeIterator.superClass_.next.call(this);
-    if (it.done) return it;
-  } while (this.isEndTag());
+NodeIterator.prototype.next = function() {
+ do {
+   // also updates `this.node` reference on iteration.
+   const it = NodeIterator.superClass_.next.call(this);
+   if (it.done) return it;
+ } while (this.isEndTag());
 
-  return goog.iter.createEs6IteratorYield(/** @type {!Node} */ (this.node));
+ return iter.createEs6IteratorYield(/** @type {!Node} */ (this.node));
 };

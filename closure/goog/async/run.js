@@ -3,13 +3,11 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.async.run');
-goog.module.declareLegacyNamespace();
+import { WorkQueue } from './workqueue.js';
 
-const WorkQueue = goog.require('goog.async.WorkQueue');
-const asyncStackTag = goog.require('goog.debug.asyncStackTag');
-const nextTick = goog.require('goog.async.nextTick');
-const throwException = goog.require('goog.async.throwException');
+import asyncStackTag from '../debug/asyncstacktag.js';
+import { nextTick } from './nexttick.js';
+import { throwException } from './throwexception.js';
 
 /**
  * @define {boolean} If true, use the global Promise to implement run
@@ -124,4 +122,4 @@ run.processWorkQueue = () => {
   workQueueScheduled = false;
 };
 
-exports = run;
+export { run };

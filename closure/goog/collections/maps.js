@@ -9,9 +9,6 @@
  * Maps).
  */
 
-goog.module('goog.collections.maps');
-goog.module.declareLegacyNamespace();
-
 /**
  * A MapLike implements the same public interface as an ES6 Map, without tying
  * the underlying code directly to the implementation. Any additions to this
@@ -56,7 +53,7 @@ class MapLike {
    */
   has(key) {};
 }
-exports.MapLike = MapLike;
+export { MapLike };
 
 /**
  * Iterates over each entry in the given entries and sets the entry in
@@ -73,7 +70,7 @@ function setAll(map, entries) {
     map.set(k, v);
   }
 }
-exports.setAll = setAll;
+export { setAll };
 
 /**
  * Determines if a given map contains the given value, optionally using
@@ -94,7 +91,7 @@ function hasValue(map, val, valueEqualityFn = defaultEqualityFn) {
   }
   return false;
 }
-exports.hasValue = hasValue;
+export { hasValue };
 
 /** @const {function(?,?): boolean} */
 const defaultEqualityFn = (a, b) => a === b;
@@ -120,7 +117,7 @@ function equals(map, otherMap, valueEqualityFn = defaultEqualityFn) {
   }
   return true;
 }
-exports.equals = equals;
+export { equals };
 
 /**
  * Returns a new ES6 Map in which all the keys and values from the
@@ -141,7 +138,7 @@ function transpose(map) {
   }
   return transposed;
 }
-exports.transpose = transpose;
+export { transpose };
 
 /**
  * ToObject returns a new object whose properties are the keys from the Map.
@@ -156,4 +153,4 @@ function toObject(map) {
   }
   return obj;
 }
-exports.toObject = toObject;
+export { toObject };

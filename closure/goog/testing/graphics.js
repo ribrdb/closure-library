@@ -9,10 +9,9 @@
  */
 
 goog.setTestOnly('goog.testing.graphics');
-goog.provide('goog.testing.graphics');
 
-goog.require('goog.graphics.Path');
-goog.require('goog.testing.asserts');
+import { Path } from '../graphics/path.js';
+import * as asserts from './asserts.js';
 
 
 /**
@@ -20,14 +19,13 @@ goog.require('goog.testing.asserts');
  * @type {Array<string>}
  * @private
  */
-goog.testing.graphics.SEGMENT_NAMES_ = function() {
-  'use strict';
+var SEGMENT_NAMES_ = function() {
   var arr = [];
-  arr[goog.graphics.Path.Segment.MOVETO] = 'M';
-  arr[goog.graphics.Path.Segment.LINETO] = 'L';
-  arr[goog.graphics.Path.Segment.CURVETO] = 'C';
-  arr[goog.graphics.Path.Segment.ARCTO] = 'A';
-  arr[goog.graphics.Path.Segment.CLOSE] = 'X';
+  arr[Path.Segment.MOVETO] = 'M';
+  arr[Path.Segment.LINETO] = 'L';
+  arr[Path.Segment.CURVETO] = 'C';
+  arr[Path.Segment.ARCTO] = 'A';
+  arr[Path.Segment.CLOSE] = 'X';
   return arr;
 }();
 
@@ -36,14 +34,12 @@ goog.testing.graphics.SEGMENT_NAMES_ = function() {
  * Test if the given path matches the expected array of commands and parameters.
  * @param {Array<string|number>} expected The expected array of commands and
  *     parameters.
- * @param {goog.graphics.Path} path The path to test against.
+ * @param {Path} path The path to test against.
  */
-goog.testing.graphics.assertPathEquals = function(expected, path) {
-  'use strict';
+export function assertPathEquals(expected, path) {
   var actual = [];
   path.forEachSegment(function(seg, args) {
-    'use strict';
-    actual.push(goog.testing.graphics.SEGMENT_NAMES_[seg]);
+    actual.push(SEGMENT_NAMES_[seg]);
     Array.prototype.push.apply(actual, args);
   });
   assertEquals(expected.length, actual.length);
@@ -55,4 +51,4 @@ goog.testing.graphics.assertPathEquals = function(expected, path) {
       assertEquals(expected[i], actual[i]);
     }
   }
-};
+}

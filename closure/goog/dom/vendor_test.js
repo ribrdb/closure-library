@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.vendorTest');
 goog.setTestOnly();
 
-const MockUserAgent = goog.require('goog.testing.MockUserAgent');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dispose = goog.require('goog.dispose');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
-const userAgentTestUtil = goog.require('goog.userAgentTestUtil');
-const vendor = goog.require('goog.dom.vendor');
+import { MockUserAgent } from '../testing/mockuseragent.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
+import * as userAgentTestUtil from '../useragent/useragenttestutil.js';
+import * as vendor from './vendor.js';
 
 let documentMode;
 let mockUserAgent;

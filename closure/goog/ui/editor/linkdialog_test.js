@@ -4,36 +4,35 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.editor.LinkDialogTest');
 goog.setTestOnly();
 
-const AbstractDialog = goog.require('goog.ui.editor.AbstractDialog');
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const Const = goog.require('goog.string.Const');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const EventHandler = goog.require('goog.events.EventHandler');
-const EventType = goog.require('goog.events.EventType');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Link = goog.require('goog.editor.Link');
-const LinkDialog = goog.require('goog.ui.editor.LinkDialog');
-const MockControl = goog.require('goog.testing.MockControl');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const asserts = goog.require('goog.testing.asserts');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const googWindow = goog.require('goog.window');
-const messages = goog.require('goog.ui.editor.messages');
-const mockmatchers = goog.require('goog.testing.mockmatchers');
-const safe = goog.require('goog.dom.safe');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { AbstractDialog } from './abstractdialog.js';
+import * as mockmatchers from '../../testing/mockmatchers.js';
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+import { BrowserFeature } from '../../editor/browserfeature.js';
+import { Const } from '../../string/const.js';
+import * as dom from '../../dom/dom.js';
+import { DomHelper } from '../../dom/dom.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { EventType } from '../../events/eventtype.js';
+import * as testingEvents from '../../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../../testing/events/events.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { Link } from '../../editor/link.js';
+import { LinkDialog } from './linkdialog.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { TagName } from '../../dom/tagname.js';
+import { TrustedResourceUrl } from '../../html/trustedresourceurl.js';
+import * as asserts from '../../testing/asserts.js';
+import * as events from '../../events/events.js';
+import * as googWindow from '../../window/window.js';
+import * as messages from './messages.js';
+import * as safe from '../../dom/safe.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as testingDom from '../../testing/dom.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let dialog;
 let mockCtrl;

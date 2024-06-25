@@ -11,13 +11,12 @@
  * @see ../../demos/autocompleteremote.html
  */
 
-goog.provide('goog.ui.ac.Remote');
+import { AutoComplete } from './autocomplete.js';
 
-goog.require('goog.ui.ac.AutoComplete');
-goog.require('goog.ui.ac.InputHandler');
-goog.require('goog.ui.ac.RemoteArrayMatcher');
-goog.require('goog.ui.ac.Renderer');
-goog.requireType('goog.structs.Map');
+import { InputHandler } from './inputhandler.js';
+import { RemoteArrayMatcher } from './remotearraymatcher.js';
+import { Renderer } from './renderer.js';
+goog.requireType('goog.structs.map');
 
 
 
@@ -31,23 +30,22 @@ goog.requireType('goog.structs.Map');
  * @param {boolean=} opt_useSimilar Whether to use similar matches; e.g.
  *     "gost" => "ghost".
  * @constructor
- * @extends {goog.ui.ac.AutoComplete}
+ * @extends {AutoComplete}
  */
-goog.ui.ac.Remote = function(url, input, opt_multi, opt_useSimilar) {
-  'use strict';
-  var matcher = new goog.ui.ac.RemoteArrayMatcher(url, !opt_useSimilar);
-  this.matcher_ = matcher;
+export function Remote(url, input, opt_multi, opt_useSimilar) {
+ var matcher = new RemoteArrayMatcher(url, !opt_useSimilar);
+ this.matcher_ = matcher;
 
-  var renderer = new goog.ui.ac.Renderer();
+ var renderer = new Renderer();
 
-  var inputhandler = new goog.ui.ac.InputHandler(null, null, !!opt_multi, 300);
+ var inputhandler = new InputHandler(null, null, !!opt_multi, 300);
 
-  goog.ui.ac.AutoComplete.call(this, matcher, renderer, inputhandler);
+ AutoComplete.call(this, matcher, renderer, inputhandler);
 
-  inputhandler.attachAutoComplete(this);
-  inputhandler.attachInputs(input);
-};
-goog.inherits(goog.ui.ac.Remote, goog.ui.ac.AutoComplete);
+ inputhandler.attachAutoComplete(this);
+ inputhandler.attachInputs(input);
+}
+goog.inherits(Remote, AutoComplete);
 
 
 /**
@@ -55,20 +53,20 @@ goog.inherits(goog.ui.ac.Remote, goog.ui.ac.AutoComplete);
  * @param {boolean} useStandardHighlighting true if standard highlighting used.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.Remote.prototype.setUseStandardHighlighting = function(
+Remote.prototype.setUseStandardHighlighting = function(
     useStandardHighlighting) {
-  'use strict';
-  this.renderer_.setUseStandardHighlighting(useStandardHighlighting);
+ this.renderer_.setUseStandardHighlighting(useStandardHighlighting);
 };
 
 
 /**
  * Gets the attached InputHandler object.
- * @return {goog.ui.ac.InputHandler} The input handler.
+ * @return {InputHandler} The input handler.
  */
-goog.ui.ac.Remote.prototype.getInputHandler = function() {
-  'use strict';
-  return /** @type {goog.ui.ac.InputHandler} */ (this.selectionHandler_);
+Remote.prototype.getInputHandler = function() {
+ return (
+  /** @type {InputHandler} */ (this.selectionHandler_)
+ );
 };
 
 
@@ -77,9 +75,8 @@ goog.ui.ac.Remote.prototype.getInputHandler = function() {
  * @param {string} method The send method; default: GET.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.Remote.prototype.setMethod = function(method) {
-  'use strict';
-  this.matcher_.setMethod(method);
+Remote.prototype.setMethod = function(method) {
+ this.matcher_.setMethod(method);
 };
 
 
@@ -88,9 +85,8 @@ goog.ui.ac.Remote.prototype.setMethod = function(method) {
  * @param {string} content Post data.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.Remote.prototype.setContent = function(content) {
-  'use strict';
-  this.matcher_.setContent(content);
+Remote.prototype.setContent = function(content) {
+ this.matcher_.setContent(content);
 };
 
 
@@ -100,9 +96,8 @@ goog.ui.ac.Remote.prototype.setContent = function(content) {
  *     request.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.Remote.prototype.setHeaders = function(headers) {
-  'use strict';
-  this.matcher_.setHeaders(headers);
+Remote.prototype.setHeaders = function(headers) {
+ this.matcher_.setHeaders(headers);
 };
 
 
@@ -112,7 +107,6 @@ goog.ui.ac.Remote.prototype.setHeaders = function(headers) {
  *     incomplete request will be aborted; 0 means no timeout is set.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.ui.ac.Remote.prototype.setTimeoutInterval = function(interval) {
-  'use strict';
-  this.matcher_.setTimeoutInterval(interval);
+Remote.prototype.setTimeoutInterval = function(interval) {
+ this.matcher_.setTimeoutInterval(interval);
 };

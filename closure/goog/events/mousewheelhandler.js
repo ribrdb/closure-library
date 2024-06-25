@@ -19,17 +19,15 @@
  * @see ../demos/mousewheelhandler.html
  */
 
-goog.provide('goog.events.MouseWheelEvent');
-goog.provide('goog.events.MouseWheelHandler');
-goog.provide('goog.events.MouseWheelHandler.EventType');
+goog.declareModuleId('goog.events.mousewheelhandler');
 
-goog.require('goog.dom');
-goog.require('goog.events');
-goog.require('goog.events.BrowserEvent');
-goog.require('goog.events.EventTarget');
-goog.require('goog.math');
-goog.require('goog.style');
-goog.require('goog.userAgent');
+import * as dom from '../dom/dom.js';
+import * as events from './events.js';
+import { BrowserEvent } from './browserevent.js';
+import { EventTarget } from './eventtarget.js';
+import * as math from '../math/math.js';
+import * as style from '../style/style.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
@@ -41,11 +39,10 @@ goog.require('goog.userAgent');
  * @param {boolean=} opt_capture Whether to handle the mouse wheel event in
  *     capture phase.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.events.MouseWheelHandler = function(element, opt_capture) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function MouseWheelHandler(element, opt_capture) {
+  EventTarget.call(this);
 
   /**
    * This is the element that we will listen to the real mouse wheel events on.
@@ -54,7 +51,7 @@ goog.events.MouseWheelHandler = function(element, opt_capture) {
    */
   this.element_ = element;
 
-  var rtlElement = goog.dom.isElement(this.element_) ?
+  var rtlElement = dom.isElement(this.element_) ?
       /** @type {Element} */ (this.element_) :
                              (this.element_ ?
                                   /** @type {Document} */ (this.element_).body :
@@ -65,25 +62,25 @@ goog.events.MouseWheelHandler = function(element, opt_capture) {
    * @type {boolean}
    * @private
    */
-  this.isRtl_ = !!rtlElement && goog.style.isRightToLeft(rtlElement);
+  this.isRtl_ = !!rtlElement && style.isRightToLeft(rtlElement);
 
-  var type = goog.userAgent.GECKO ? 'DOMMouseScroll' : 'mousewheel';
+  var type = userAgent.GECKO ? 'DOMMouseScroll' : 'mousewheel';
 
   /**
-   * The key returned from the goog.events.listen.
-   * @type {goog.events.Key}
-   * @private
-   */
-  this.listenKey_ = goog.events.listen(this.element_, type, this, opt_capture);
-};
-goog.inherits(goog.events.MouseWheelHandler, goog.events.EventTarget);
+     * The key returned from the events.listen.
+     * @type {events.Key}
+     * @private
+     */
+  this.listenKey_ = events.listen(this.element_, type, this, opt_capture);
+}
+goog.inherits(MouseWheelHandler, EventTarget);
 
 
 /**
  * Enum type for the events fired by the mouse wheel handler.
  * @enum {string}
  */
-goog.events.MouseWheelHandler.EventType = {
+MouseWheelHandler.EventType = {
   MOUSEWHEEL: 'mousewheel'
 };
 
@@ -93,7 +90,7 @@ goog.events.MouseWheelHandler.EventType = {
  * @type {number|undefined}
  * @private
  */
-goog.events.MouseWheelHandler.prototype.maxDeltaX_;
+MouseWheelHandler.prototype.maxDeltaX_;
 
 
 /**
@@ -101,15 +98,14 @@ goog.events.MouseWheelHandler.prototype.maxDeltaX_;
  * @type {number|undefined}
  * @private
  */
-goog.events.MouseWheelHandler.prototype.maxDeltaY_;
+MouseWheelHandler.prototype.maxDeltaY_;
 
 
 /**
  * @param {number} maxDeltaX Maximum magnitude for x delta on each mousewheel
  *     event. Should be non-negative.
  */
-goog.events.MouseWheelHandler.prototype.setMaxDeltaX = function(maxDeltaX) {
-  'use strict';
+MouseWheelHandler.prototype.setMaxDeltaX = function(maxDeltaX) {
   this.maxDeltaX_ = maxDeltaX;
 };
 
@@ -118,19 +114,17 @@ goog.events.MouseWheelHandler.prototype.setMaxDeltaX = function(maxDeltaX) {
  * @param {number} maxDeltaY Maximum magnitude for y delta on each mousewheel
  *     event. Should be non-negative.
  */
-goog.events.MouseWheelHandler.prototype.setMaxDeltaY = function(maxDeltaY) {
-  'use strict';
+MouseWheelHandler.prototype.setMaxDeltaY = function(maxDeltaY) {
   this.maxDeltaY_ = maxDeltaY;
 };
 
 
 /**
  * Handles the events on the element.
- * @param {goog.events.BrowserEvent} e The underlying browser event.
+ * @param {BrowserEvent} e The underlying browser event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.MouseWheelHandler.prototype.handleEvent = function(e) {
-  'use strict';
+MouseWheelHandler.prototype.handleEvent = function(e) {
   var deltaX = 0;
   var deltaY = 0;
   var detail = 0;
@@ -143,14 +137,14 @@ goog.events.MouseWheelHandler.prototype.handleEvent = function(e) {
     // See bug https://bugs.webkit.org/show_bug.cgi?id=24368
     var wheelDeltaScaleFactor = 40;
 
-    detail = goog.events.MouseWheelHandler.smartScale_(
+    detail = MouseWheelHandler.smartScale_(
         -be.wheelDelta, wheelDeltaScaleFactor);
     if (be.wheelDeltaX !== undefined) {
       // Webkit has two properties to indicate directional scroll, and
       // can scroll both directions at once.
-      deltaX = goog.events.MouseWheelHandler.smartScale_(
+      deltaX = MouseWheelHandler.smartScale_(
           -be.wheelDeltaX, wheelDeltaScaleFactor);
-      deltaY = goog.events.MouseWheelHandler.smartScale_(
+      deltaY = MouseWheelHandler.smartScale_(
           -be.wheelDeltaY, wheelDeltaScaleFactor);
     } else {
       deltaY = detail;
@@ -179,10 +173,10 @@ goog.events.MouseWheelHandler.prototype.handleEvent = function(e) {
   }
 
   if (typeof this.maxDeltaX_ === 'number') {
-    deltaX = goog.math.clamp(deltaX, -this.maxDeltaX_, this.maxDeltaX_);
+    deltaX = math.clamp(deltaX, -this.maxDeltaX_, this.maxDeltaX_);
   }
   if (typeof this.maxDeltaY_ === 'number') {
-    deltaY = goog.math.clamp(deltaY, -this.maxDeltaY_, this.maxDeltaY_);
+    deltaY = math.clamp(deltaY, -this.maxDeltaY_, this.maxDeltaY_);
   }
   // Don't clamp 'detail', since it could be ambiguous which axis it refers to
   // and because it's informally deprecated anyways.
@@ -191,7 +185,7 @@ goog.events.MouseWheelHandler.prototype.handleEvent = function(e) {
   if (this.isRtl_) {
     deltaX = -deltaX;
   }
-  var newEvent = new goog.events.MouseWheelEvent(detail, be, deltaX, deltaY);
+  var newEvent = new MouseWheelEvent(detail, be, deltaX, deltaY);
   this.dispatchEvent(newEvent);
 };
 
@@ -206,9 +200,8 @@ goog.events.MouseWheelHandler.prototype.handleEvent = function(e) {
  *     scaleFactor does not appear to be applicable.
  * @private
  */
-goog.events.MouseWheelHandler.smartScale_ = function(
+MouseWheelHandler.smartScale_ = function(
     mouseWheelDelta, scaleFactor) {
-  'use strict';
   // The basic problem here is that in Webkit on Mac and Linux, we can get two
   // very different types of mousewheel events: from continuous devices
   // (touchpads, Mighty Mouse) or non-continuous devices (normal wheel mice).
@@ -221,7 +214,7 @@ goog.events.MouseWheelHandler.smartScale_ = function(
   // Detailed discussion:
   //   https://bugs.webkit.org/show_bug.cgi?id=29601
   //   http://trac.webkit.org/browser/trunk/WebKit/chromium/src/mac/WebInputEventFactory.mm#L1063
-  if (goog.userAgent.WEBKIT && (goog.userAgent.MAC || goog.userAgent.LINUX) &&
+  if (userAgent.WEBKIT && (userAgent.MAC || userAgent.LINUX) &&
       (mouseWheelDelta % scaleFactor) != 0) {
     return mouseWheelDelta;
   } else {
@@ -231,10 +224,9 @@ goog.events.MouseWheelHandler.smartScale_ = function(
 
 
 /** @override */
-goog.events.MouseWheelHandler.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.MouseWheelHandler.superClass_.disposeInternal.call(this);
-  goog.events.unlistenByKey(this.listenKey_);
+MouseWheelHandler.prototype.disposeInternal = function() {
+  MouseWheelHandler.superClass_.disposeInternal.call(this);
+  events.unlistenByKey(this.listenKey_);
   this.listenKey_ = null;
 };
 
@@ -251,14 +243,13 @@ goog.events.MouseWheelHandler.prototype.disposeInternal = function() {
  * @param {number} deltaY The number of rows the user scrolled in the Y
  *     direction.
  * @constructor
- * @extends {goog.events.BrowserEvent}
+ * @extends {BrowserEvent}
  * @final
  */
-goog.events.MouseWheelEvent = function(detail, browserEvent, deltaX, deltaY) {
-  'use strict';
-  goog.events.BrowserEvent.call(this, browserEvent);
+export function MouseWheelEvent(detail, browserEvent, deltaX, deltaY) {
+  BrowserEvent.call(this, browserEvent);
 
-  this.type = goog.events.MouseWheelHandler.EventType.MOUSEWHEEL;
+  this.type = MouseWheelHandler.EventType.MOUSEWHEEL;
 
   /**
    * The number of lines the user scrolled
@@ -287,5 +278,5 @@ goog.events.MouseWheelEvent = function(detail, browserEvent, deltaX, deltaY) {
    * @type {number}
    */
   this.deltaY = deltaY;
-};
-goog.inherits(goog.events.MouseWheelEvent, goog.events.BrowserEvent);
+}
+goog.inherits(MouseWheelEvent, BrowserEvent);

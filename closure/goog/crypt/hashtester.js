@@ -8,26 +8,24 @@
  * @fileoverview Unit tests for the abstract cryptographic hash interface.
  */
 
-goog.provide('goog.crypt.hashTester');
+import * as crypt from './crypt.js';
 
-goog.require('goog.crypt');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.reflect');
-goog.require('goog.testing.PerformanceTable');
-goog.require('goog.testing.PseudoRandom');
-goog.require('goog.testing.asserts');
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as reflect from '../reflect/reflect.js';
+import { PerformanceTable } from '../testing/performancetable.js';
+import { PseudoRandom } from '../testing/pseudorandom.js';
+import * as asserts from '../testing/asserts.js';
 goog.setTestOnly('hashTester');
-goog.requireType('goog.crypt.Hash');
+goog.requireType('goog.crypt.hash');
 
 
 /**
  * Runs basic tests.
  *
- * @param {!goog.crypt.Hash} hash A hash instance.
+ * @param {!crypt.Hash} hash A hash instance.
  */
-goog.crypt.hashTester.runBasicTests = function(hash) {
-  'use strict';
+export function runBasicTests(hash) {
   // Compute first hash.
   hash.update([97, 158]);
   var golden1 = hash.digest();
@@ -38,15 +36,15 @@ goog.crypt.hashTester.runBasicTests = function(hash) {
   var golden2 = hash.digest();
   assertTrue(
       'Two different inputs resulted in a hash collision',
-      !!goog.testing.asserts.findDifferences(golden1, golden2));
+      !!asserts.findDifferences(golden1, golden2));
 
   // Empty hash.
   hash.reset();
   var empty = hash.digest();
   assertTrue(
       'Empty hash collided with a non-trivial one',
-      !!goog.testing.asserts.findDifferences(golden1, empty) &&
-          !!goog.testing.asserts.findDifferences(golden2, empty));
+      !!asserts.findDifferences(golden1, empty) &&
+          !!asserts.findDifferences(golden2, empty));
 
   // Zero-length array update.
   hash.reset();
@@ -73,7 +71,7 @@ goog.crypt.hashTester.runBasicTests = function(hash) {
   hash.update([158, 97]);
   assertTrue(
       'Swapping bytes resulted in a hash collision',
-      !!goog.testing.asserts.findDifferences(golden1, hash.digest()));
+      !!asserts.findDifferences(golden1, hash.digest()));
 
   // Compare array and string input.
   hash.reset();
@@ -96,17 +94,16 @@ goog.crypt.hashTester.runBasicTests = function(hash) {
   assertArrayEquals(
       'Updating with an explicit buffer length did not work', golden1,
       hash.digest());
-};
+}
 
 
 /**
  * Runs block tests.
  *
- * @param {!goog.crypt.Hash} hash A hash instance.
+ * @param {!crypt.Hash} hash A hash instance.
  * @param {number} blockBytes Size of the hash block.
  */
-goog.crypt.hashTester.runBlockTests = function(hash, blockBytes) {
-  'use strict';
+export function runBlockTests(hash, blockBytes) {
   // Compute a message which is 1 byte shorter than hash block size.
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   var message = '';
@@ -143,7 +140,7 @@ goog.crypt.hashTester.runBlockTests = function(hash, blockBytes) {
 
   // Test single overflow with an array.
   hash.reset();
-  hash.update(goog.crypt.stringToByteArray(message + '123'));
+  hash.update(crypt.stringToByteArray(message + '123'));
   assertArrayEquals(golden1, hash.digest());
 
   // Almost fill a block, then overflow this and the next block.
@@ -160,25 +157,24 @@ goog.crypt.hashTester.runBlockTests = function(hash, blockBytes) {
 
   // Test double overflow with an array.
   hash.reset();
-  hash.update(goog.crypt.stringToByteArray(message));
-  hash.update(goog.crypt.stringToByteArray(message + '123'));
+  hash.update(crypt.stringToByteArray(message));
+  hash.update(crypt.stringToByteArray(message + '123'));
   assertArrayEquals(golden2, hash.digest());
-};
+}
 
 
 /**
  * Runs performance tests.
  *
- * @param {function():!goog.crypt.Hash} hashFactory A hash factory.
+ * @param {function():!crypt.Hash} hashFactory A hash factory.
  * @param {string} hashName Name of the hashing function.
  */
-goog.crypt.hashTester.runPerfTests = function(hashFactory, hashName) {
-  'use strict';
-  var body = goog.dom.getDocument().body;
-  var perfTable = goog.dom.createElement(goog.dom.TagName.DIV);
-  goog.dom.appendChild(body, perfTable);
+export function runPerfTests(hashFactory, hashName) {
+  var body = dom.getDocument().body;
+  var perfTable = dom.createElement(TagName.DIV);
+  dom.appendChild(body, perfTable);
 
-  var table = new goog.testing.PerformanceTable(perfTable);
+  var table = new PerformanceTable(perfTable);
 
   function runPerfTest(byteLength, updateCount) {
     var label =
@@ -187,18 +183,17 @@ goog.crypt.hashTester.runPerfTests = function(hashFactory, hashName) {
 
     function run(data, dataType) {
       table.run(function() {
-        'use strict';
         var hash = hashFactory();
         for (var i = 0; i < updateCount; i++) {
           hash.update(data, byteLength);
         }
         // Prevent JsCompiler optimizations from invalidating the benchmark.
-        goog.reflect.sinkValue(hash.digest());
+        reflect.sinkValue(hash.digest());
       }, label + ' (' + dataType + ')');
     }
 
-    var byteArray = goog.crypt.hashTester.createRandomByteArray_(byteLength);
-    var byteString = goog.crypt.hashTester.createByteString_(byteArray);
+    var byteArray = createRandomByteArray_(byteLength);
+    var byteString = createByteString_(byteArray);
 
     run(byteArray, 'byte array');
     run(byteString, 'byte string');
@@ -210,7 +205,7 @@ goog.crypt.hashTester.runPerfTests = function(hashFactory, hashName) {
 
   runPerfTest(MESSAGE_LENGTH_LONG, 1);
   runPerfTest(MESSAGE_LENGTH_SHORT, MESSAGE_COUNT_SHORT);
-};
+}
 
 
 /**
@@ -220,9 +215,8 @@ goog.crypt.hashTester.runPerfTests = function(hashFactory, hashName) {
  * @return {!Array<number>} An array of bytes.
  * @private
  */
-goog.crypt.hashTester.createRandomByteArray_ = function(length) {
-  'use strict';
-  var random = new goog.testing.PseudoRandom(0);
+function createRandomByteArray_(length) {
+  var random = new PseudoRandom(0);
   var bytes = [];
 
   for (var i = 0; i < length; ++i) {
@@ -232,7 +226,7 @@ goog.crypt.hashTester.createRandomByteArray_ = function(length) {
   }
 
   return bytes;
-};
+}
 
 
 /**
@@ -242,12 +236,10 @@ goog.crypt.hashTester.createRandomByteArray_ = function(length) {
  * @return {string} The string encoded by the bytes.
  * @private
  */
-goog.crypt.hashTester.createByteString_ = function(bytes) {
-  'use strict';
+function createByteString_(bytes) {
   var str = '';
   bytes.forEach(function(b) {
-    'use strict';
     str += String.fromCharCode(b);
   });
   return str;
-};
+}

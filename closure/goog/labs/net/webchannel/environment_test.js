@@ -8,12 +8,11 @@
  * @fileoverview Unit tests for goog.labs.net.webChannel.environment.
  */
 
-goog.module('goog.labs.net.webChannel.EnvironmentTest');
 goog.setTestOnly('goog.labs.net.webChannel.EnvironmentTest');
 
-const environment = goog.require('goog.labs.net.webChannel.environment');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as environment from './environment.js';
+import { testSuite } from '../../../testing/testsuite.js';
+import * as userAgent from '../../../useragent/useragent.js';
 
 testSuite({
   testPollingRequiredForEdge: /**

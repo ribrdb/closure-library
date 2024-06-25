@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.structs.TreeNodeTest');
 goog.setTestOnly();
 
-const TreeNode = goog.require('goog.structs.TreeNode');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TreeNode } from './treenode.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testConstructor() {

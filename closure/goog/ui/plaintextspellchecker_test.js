@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PlainTextSpellCheckerTest');
 goog.setTestOnly();
 
-const AbstractSpellChecker = goog.require('goog.ui.AbstractSpellChecker');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const PlainTextSpellChecker = goog.require('goog.ui.PlainTextSpellChecker');
-const SpellCheck = goog.require('goog.spell.SpellCheck');
-const Timer = goog.require('goog.Timer');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AbstractSpellChecker } from './abstractspellchecker.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { PlainTextSpellChecker } from './plaintextspellchecker.js';
+import { SpellCheck } from '../spell/spellcheck.js';
+import { Timer } from '../timer/timer.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../testing/events/events.js';
+import { testSuite } from '../testing/testsuite.js';
 
 const missspelling = 'missspelling';
 const iggnore = 'iggnore';

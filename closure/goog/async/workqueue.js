@@ -4,11 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.async.WorkQueue');
-goog.module.declareLegacyNamespace();
+import { FreeList } from './freelist.js';
 
-const FreeList = goog.require('goog.async.FreeList');
-const {assert} = goog.require('goog.asserts');
+import { assert } from '../asserts/asserts.js';
 
 // TODO(johnlenz): generalize the WorkQueue if this is used by more
 // than goog.async.run.
@@ -119,4 +117,4 @@ class WorkItem {
   }
 }
 
-exports = WorkQueue;
+export { WorkQueue };

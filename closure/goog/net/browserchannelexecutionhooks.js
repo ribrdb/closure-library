@@ -8,9 +8,6 @@
  * @fileoverview Execution hooks for BrowserChannel. Allows applications to
  * receive a callback when BrowserChannel is processing requests.
  */
-goog.module('goog.net.browserchannelinternal.hooks');
-goog.module.declareLegacyNamespace();
-
 /**
  * Allows the application to set an execution hooks for when BrowserChannel
  * starts processing requests. This is useful to track timing or logging
@@ -20,7 +17,7 @@ goog.module.declareLegacyNamespace();
 const setStartThreadExecutionHook = function(startHook) {
   startExecutionHook = startHook;
 };
-exports.setStartThreadExecutionHook = setStartThreadExecutionHook;
+export { setStartThreadExecutionHook };
 
 
 /**
@@ -32,7 +29,7 @@ exports.setStartThreadExecutionHook = setStartThreadExecutionHook;
 function setEndThreadExecutionHook(endHook) {
   endExecutionHook = endHook;
 }
-exports.setEndThreadExecutionHook = setEndThreadExecutionHook;
+export { setEndThreadExecutionHook };
 
 
 /**
@@ -59,7 +56,7 @@ let endExecutionHook = function() {};
 function onStartExecution() {
   startExecutionHook();
 }
-exports.onStartExecution = onStartExecution;
+export { onStartExecution };
 
 
 /**
@@ -68,7 +65,7 @@ exports.onStartExecution = onStartExecution;
 function onEndExecution() {
   endExecutionHook();
 }
-exports.onEndExecution = onEndExecution;
+export { onEndExecution };
 
 
 /**
@@ -91,4 +88,4 @@ function setTimeout(fn, ms) {
     }
   }, ms);
 }
-exports.setTimeout = setTimeout;
+export { setTimeout };

@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.vec.RayTest');
 goog.setTestOnly();
 
-const Ray = goog.require('goog.vec.Ray');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Ray } from './ray.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testConstructor() {

@@ -29,77 +29,71 @@
  * - getCssClass
  */
 
-goog.provide('goog.ui.SliderBase');
-goog.provide('goog.ui.SliderBase.AnimationFactory');
-goog.provide('goog.ui.SliderBase.Orientation');
+import { Timer } from '../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.a11y.aria');
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.a11y.aria.State');
-goog.require('goog.asserts');
-goog.require('goog.disposeAll');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.classlist');
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.events.KeyHandler');
-goog.require('goog.events.MouseWheelHandler');
-goog.require('goog.functions');
-goog.require('goog.fx.AnimationParallelQueue');
-goog.require('goog.fx.Dragger');
-goog.require('goog.fx.Transition');
-goog.require('goog.fx.dom.ResizeHeight');
-goog.require('goog.fx.dom.ResizeWidth');
-goog.require('goog.fx.dom.Slide');
-goog.require('goog.math');
-goog.require('goog.math.Coordinate');
-goog.require('goog.style');
-goog.require('goog.style.bidi');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.RangeModel');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.events.KeyEvent');
-goog.requireType('goog.events.MouseWheelEvent');
-goog.requireType('goog.fx.AnimationEvent');
-goog.requireType('goog.fx.DragEvent');
-goog.requireType('goog.fx.TransitionBase');
+import * as aria from '../a11y/aria/aria.js';
+import { Role } from '../a11y/aria/roles.js';
+import { State } from '../a11y/aria/attributes.js';
+import * as asserts from '../asserts/asserts.js';
+import { disposeAll } from '../disposable/disposeall.js';
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import * as classlist from '../dom/classlist.js';
+import * as events from '../events/events.js';
+import { EventType } from '../events/eventtype.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { KeyHandler } from '../events/keyhandler.js';
+import { MouseWheelHandler } from '../events/mousewheelhandler.js';
+import * as functions from '../functions/functions.js';
+import { AnimationParallelQueue } from '../fx/animationqueue.js';
+import { Dragger } from '../fx/dragger.js';
+import { Transition } from '../fx/transition.js';
+import { ResizeHeight, ResizeWidth, Slide } from '../fx/dom.js';
+import * as math from '../math/math.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as style from '../style/style.js';
+import * as bidi from '../style/bidi.js';
+import { Component } from './component.js';
+import { RangeModel } from './rangemodel.js';
+goog.requireType('goog.events.event');
+goog.requireType('goog.events.keyevent');
+goog.requireType('goog.events.mousewheelhandler');
+goog.requireType('goog.fx.animation');
+goog.requireType('goog.fx.dragger');
+goog.requireType('goog.fx.transitionbase');
 
 
 
 /**
  * This creates a SliderBase object.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @param {(function(number):?string)=} opt_labelFn An optional function mapping
  *     slider values to a description of the value.
  * @constructor
- * @extends {goog.ui.Component}
+ * @extends {Component}
  */
-goog.ui.SliderBase = function(opt_domHelper, opt_labelFn) {
-  'use strict';
-  goog.ui.Component.call(this, opt_domHelper);
+export function SliderBase(opt_domHelper, opt_labelFn) {
+  Component.call(this, opt_domHelper);
 
   /**
-   * The factory to use to generate additional animations when animating to a
-   * new value.
-   * @type {?goog.ui.SliderBase.AnimationFactory}
-   * @private
-   */
+     * The factory to use to generate additional animations when animating to a
+     * new value.
+     * @type {?SliderBase.AnimationFactory}
+     * @private
+     */
   this.additionalAnimations_ = null;
 
   /**
-   * The model for the range of the slider.
-   * @protected {!goog.ui.RangeModel}
-   */
-  this.rangeModel = new goog.ui.RangeModel();
+     * The model for the range of the slider.
+     * @protected {!RangeModel}
+     */
+  this.rangeModel = new RangeModel();
 
   /**
    * A function mapping slider values to text description.
    * @private {function(number):?string}
    */
-  this.labelFn_ = opt_labelFn || goog.functions.NULL;
+  this.labelFn_ = opt_labelFn || functions.NULL;
 
   /**
    * Whether to move the focus to the top level element when dragging the
@@ -109,11 +103,11 @@ goog.ui.SliderBase = function(opt_domHelper, opt_labelFn) {
   this.focusElementOnSliderDrag_ = true;
 
   // Don't use getHandler because it gets cleared in exitDocument.
-  goog.events.listen(
-      this.rangeModel, goog.ui.Component.EventType.CHANGE,
+  events.listen(
+      this.rangeModel, Component.EventType.CHANGE,
       this.handleRangeModelChange, false, this);
-};
-goog.inherits(goog.ui.SliderBase, goog.ui.Component);
+}
+goog.inherits(SliderBase, Component);
 
 
 /**
@@ -122,26 +116,26 @@ goog.inherits(goog.ui.SliderBase, goog.ui.Component);
  * value and extent together; in this case, they can simply be ignored.
  * @enum {string}
  */
-goog.ui.SliderBase.EventType = {
+SliderBase.EventType = {
   /** User started dragging the value thumb */
-  DRAG_VALUE_START: goog.events.getUniqueId('dragvaluestart'),
+  DRAG_VALUE_START: events.getUniqueId('dragvaluestart'),
   /** User is done dragging the value thumb */
-  DRAG_VALUE_END: goog.events.getUniqueId('dragvalueend'),
+  DRAG_VALUE_END: events.getUniqueId('dragvalueend'),
   /** User started dragging the extent thumb */
-  DRAG_EXTENT_START: goog.events.getUniqueId('dragextentstart'),
+  DRAG_EXTENT_START: events.getUniqueId('dragextentstart'),
   /** User is done dragging the extent thumb */
-  DRAG_EXTENT_END: goog.events.getUniqueId('dragextentend'),
+  DRAG_EXTENT_END: events.getUniqueId('dragextentend'),
   // Note that the following two events are sent twice, once for the value
   // dragger, and once of the extent dragger. If you need to differentiate
   // between the two, or if your code relies on receiving a single event per
   // START/END event, it should listen to one of the VALUE/EXTENT-specific
   // events.
   /** User started dragging a thumb */
-  DRAG_START: goog.events.getUniqueId('dragstart'),
+  DRAG_START: events.getUniqueId('dragstart'),
   /** User is done dragging a thumb */
-  DRAG_END: goog.events.getUniqueId('dragend'),
+  DRAG_END: events.getUniqueId('dragend'),
   /** Animation on the value thumb ends */
-  ANIMATION_END: goog.events.getUniqueId('animationend')
+  ANIMATION_END: events.getUniqueId('animationend')
 };
 
 
@@ -150,7 +144,7 @@ goog.ui.SliderBase.EventType = {
  *
  * @enum {string}
  */
-goog.ui.SliderBase.Orientation = {
+SliderBase.Orientation = {
   VERTICAL: 'vertical',
   HORIZONTAL: 'horizontal'
 };
@@ -158,27 +152,27 @@ goog.ui.SliderBase.Orientation = {
 
 /**
  * Orientation of the slider.
- * @type {goog.ui.SliderBase.Orientation}
+ * @type {SliderBase.Orientation}
  * @private
  */
-goog.ui.SliderBase.prototype.orientation_ =
-    goog.ui.SliderBase.Orientation.HORIZONTAL;
+SliderBase.prototype.orientation_ =
+    SliderBase.Orientation.HORIZONTAL;
 
 
-/** @private {goog.fx.AnimationParallelQueue} */
-goog.ui.SliderBase.prototype.currentAnimation_;
+/** @private {AnimationParallelQueue} */
+SliderBase.prototype.currentAnimation_;
 
 
-/** @private {!goog.Timer} */
-goog.ui.SliderBase.prototype.incTimer_;
+/** @private {!Timer} */
+SliderBase.prototype.incTimer_;
 
 
 /** @private {boolean} */
-goog.ui.SliderBase.prototype.incrementing_;
+SliderBase.prototype.incrementing_;
 
 
 /** @private {number} */
-goog.ui.SliderBase.prototype.lastMousePosition_;
+SliderBase.prototype.lastMousePosition_;
 
 
 /**
@@ -188,7 +182,7 @@ goog.ui.SliderBase.prototype.lastMousePosition_;
  * @type {number}
  * @private
  */
-goog.ui.SliderBase.MOUSE_DOWN_INCREMENT_INTERVAL_ = 200;
+SliderBase.MOUSE_DOWN_INCREMENT_INTERVAL_ = 200;
 
 
 /**
@@ -196,7 +190,7 @@ goog.ui.SliderBase.MOUSE_DOWN_INCREMENT_INTERVAL_ = 200;
  * @type {number}
  * @private
  */
-goog.ui.SliderBase.ANIMATION_INTERVAL_ = 100;
+SliderBase.ANIMATION_INTERVAL_ = 100;
 
 
 /**
@@ -204,7 +198,7 @@ goog.ui.SliderBase.ANIMATION_INTERVAL_ = 100;
  * @type {HTMLDivElement}
  * @protected
  */
-goog.ui.SliderBase.prototype.valueThumb;
+SliderBase.prototype.valueThumb;
 
 
 /**
@@ -212,7 +206,7 @@ goog.ui.SliderBase.prototype.valueThumb;
  * @type {HTMLDivElement}
  * @protected
  */
-goog.ui.SliderBase.prototype.extentThumb;
+SliderBase.prototype.extentThumb;
 
 
 /**
@@ -220,7 +214,7 @@ goog.ui.SliderBase.prototype.extentThumb;
  * @type {HTMLDivElement}
  * @protected
  */
-goog.ui.SliderBase.prototype.rangeHighlight;
+SliderBase.prototype.rangeHighlight;
 
 
 /**
@@ -228,39 +222,39 @@ goog.ui.SliderBase.prototype.rangeHighlight;
  * @type {HTMLDivElement}
  * @private
  */
-goog.ui.SliderBase.prototype.thumbToMove_;
+SliderBase.prototype.thumbToMove_;
 
 
 /**
  * The object handling keyboard events.
- * @type {goog.events.KeyHandler}
+ * @type {KeyHandler}
  * @private
  */
-goog.ui.SliderBase.prototype.keyHandler_;
+SliderBase.prototype.keyHandler_;
 
 
 /**
  * The object handling mouse wheel events.
- * @type {goog.events.MouseWheelHandler}
+ * @type {MouseWheelHandler}
  * @private
  */
-goog.ui.SliderBase.prototype.mouseWheelHandler_;
+SliderBase.prototype.mouseWheelHandler_;
 
 
 /**
  * The Dragger for dragging the valueThumb.
- * @type {goog.fx.Dragger}
+ * @type {Dragger}
  * @private
  */
-goog.ui.SliderBase.prototype.valueDragger_;
+SliderBase.prototype.valueDragger_;
 
 
 /**
  * The Dragger for dragging the extentThumb.
- * @type {goog.fx.Dragger}
+ * @type {Dragger}
  * @private
  */
-goog.ui.SliderBase.prototype.extentDragger_;
+SliderBase.prototype.extentDragger_;
 
 
 /**
@@ -268,7 +262,7 @@ goog.ui.SliderBase.prototype.extentDragger_;
  * @private
  * @type {boolean}
  */
-goog.ui.SliderBase.prototype.isAnimating_ = false;
+SliderBase.prototype.isAnimating_ = false;
 
 
 /**
@@ -276,7 +270,7 @@ goog.ui.SliderBase.prototype.isAnimating_ = false;
  * @private
  * @type {boolean}
  */
-goog.ui.SliderBase.prototype.moveToPointEnabled_ = false;
+SliderBase.prototype.moveToPointEnabled_ = false;
 
 
 /**
@@ -285,7 +279,7 @@ goog.ui.SliderBase.prototype.moveToPointEnabled_ = false;
  * @private
  * @type {number}
  */
-goog.ui.SliderBase.prototype.blockIncrement_ = 10;
+SliderBase.prototype.blockIncrement_ = 10;
 
 
 /**
@@ -294,7 +288,7 @@ goog.ui.SliderBase.prototype.blockIncrement_ = 10;
  * @private
  * @type {number}
  */
-goog.ui.SliderBase.prototype.minExtent_ = 0;
+SliderBase.prototype.minExtent_ = 0;
 
 
 /**
@@ -302,7 +296,7 @@ goog.ui.SliderBase.prototype.minExtent_ = 0;
  * @private
  * @type {boolean}
  */
-goog.ui.SliderBase.prototype.isHandleMouseWheel_ = true;
+SliderBase.prototype.isHandleMouseWheel_ = true;
 
 
 /**
@@ -310,7 +304,7 @@ goog.ui.SliderBase.prototype.isHandleMouseWheel_ = true;
  * @private
  * @type {number}
  */
-goog.ui.SliderBase.prototype.mouseDownTime_ = 0;
+SliderBase.prototype.mouseDownTime_ = 0;
 
 
 /**
@@ -319,7 +313,7 @@ goog.ui.SliderBase.prototype.mouseDownTime_ = 0;
  * @type {number}
  * @const
  */
-goog.ui.SliderBase.prototype.MOUSE_DOWN_DELAY_ = 1000;
+SliderBase.prototype.MOUSE_DOWN_DELAY_ = 1000;
 
 
 /**
@@ -327,7 +321,7 @@ goog.ui.SliderBase.prototype.MOUSE_DOWN_DELAY_ = 1000;
  * @private
  * @type {boolean}
  */
-goog.ui.SliderBase.prototype.enabled_ = true;
+SliderBase.prototype.enabled_ = true;
 
 
 /**
@@ -338,7 +332,7 @@ goog.ui.SliderBase.prototype.enabled_ = true;
  * @type {boolean}
  * @private
  */
-goog.ui.SliderBase.prototype.flipForRtl_ = false;
+SliderBase.prototype.flipForRtl_ = false;
 
 
 /**
@@ -349,8 +343,7 @@ goog.ui.SliderBase.prototype.flipForRtl_ = false;
  * @param {boolean} flipForRtl True if the slider should be flipped for RTL,
  *     false otherwise.
  */
-goog.ui.SliderBase.prototype.enableFlipForRtl = function(flipForRtl) {
-  'use strict';
+SliderBase.prototype.enableFlipForRtl = function(flipForRtl) {
   this.flipForRtl_ = flipForRtl;
 };
 
@@ -359,19 +352,18 @@ goog.ui.SliderBase.prototype.enableFlipForRtl = function(flipForRtl) {
 /**
  * Returns the CSS class applied to the slider element for the given
  * orientation. Subclasses must override this method.
- * @param {goog.ui.SliderBase.Orientation} orient The orientation.
+ * @param {SliderBase.Orientation} orient The orientation.
  * @return {string} The CSS class applied to slider elements.
  * @protected
  */
-goog.ui.SliderBase.prototype.getCssClass = goog.abstractMethod;
+SliderBase.prototype.getCssClass = goog.abstractMethod;
 
 
 /** @override */
-goog.ui.SliderBase.prototype.createDom = function() {
-  'use strict';
-  goog.ui.SliderBase.superClass_.createDom.call(this);
+SliderBase.prototype.createDom = function() {
+  SliderBase.superClass_.createDom.call(this);
   var element = this.getDomHelper().createDom(
-      goog.dom.TagName.DIV, this.getCssClass(this.orientation_));
+      TagName.DIV, this.getCssClass(this.orientation_));
   this.decorateInternal(element);
 };
 
@@ -383,7 +375,7 @@ goog.ui.SliderBase.prototype.createDom = function() {
  * @type {function() : void}
  * @protected
  */
-goog.ui.SliderBase.prototype.createThumbs = goog.abstractMethod;
+SliderBase.prototype.createThumbs = goog.abstractMethod;
 
 
 /**
@@ -391,7 +383,7 @@ goog.ui.SliderBase.prototype.createThumbs = goog.abstractMethod;
  * @type {string}
  * @private
  */
-goog.ui.SliderBase.SLIDER_DRAGGING_CSS_CLASS_ =
+SliderBase.SLIDER_DRAGGING_CSS_CLASS_ =
     goog.getCssName('goog-slider-dragging');
 
 
@@ -400,7 +392,7 @@ goog.ui.SliderBase.SLIDER_DRAGGING_CSS_CLASS_ =
  * @type {string}
  * @private
  */
-goog.ui.SliderBase.THUMB_DRAGGING_CSS_CLASS_ =
+SliderBase.THUMB_DRAGGING_CSS_CLASS_ =
     goog.getCssName('goog-slider-thumb-dragging');
 
 
@@ -409,16 +401,15 @@ goog.ui.SliderBase.THUMB_DRAGGING_CSS_CLASS_ =
  * @type {string}
  * @private
  */
-goog.ui.SliderBase.DISABLED_CSS_CLASS_ =
+SliderBase.DISABLED_CSS_CLASS_ =
     goog.getCssName('goog-slider-disabled');
 
 
 /** @override */
-goog.ui.SliderBase.prototype.decorateInternal = function(element) {
-  'use strict';
-  goog.ui.SliderBase.superClass_.decorateInternal.call(this, element);
-  goog.asserts.assert(element);
-  goog.dom.classlist.add(element, this.getCssClass(this.orientation_));
+SliderBase.prototype.decorateInternal = function(element) {
+  SliderBase.superClass_.decorateInternal.call(this, element);
+  asserts.assert(element);
+  classlist.add(element, this.getCssClass(this.orientation_));
   this.createThumbs();
   this.setAriaRoles();
 };
@@ -430,20 +421,19 @@ goog.ui.SliderBase.prototype.decorateInternal = function(element) {
  * @override
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.SliderBase.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.SliderBase.superClass_.enterDocument.call(this);
+SliderBase.prototype.enterDocument = function() {
+  SliderBase.superClass_.enterDocument.call(this);
 
   // Attach the events
-  this.valueDragger_ = new goog.fx.Dragger(this.valueThumb);
-  this.extentDragger_ = new goog.fx.Dragger(this.extentThumb);
+  this.valueDragger_ = new Dragger(this.valueThumb);
+  this.extentDragger_ = new Dragger(this.extentThumb);
   this.valueDragger_.enableRightPositioningForRtl(this.flipForRtl_);
   this.extentDragger_.enableRightPositioningForRtl(this.flipForRtl_);
 
   // The slider is handling the positioning so make the defaultActions empty.
   this.valueDragger_.defaultAction = this.extentDragger_.defaultAction =
       () => {};
-  this.keyHandler_ = new goog.events.KeyHandler(this.getElement());
+  this.keyHandler_ = new KeyHandler(this.getElement());
   this.enableEventHandlers_(true);
 
   this.getElement().tabIndex = 0;
@@ -456,32 +446,31 @@ goog.ui.SliderBase.prototype.enterDocument = function() {
  * @param {boolean} enable Whether to attach or detach the event handlers.
  * @private
  */
-goog.ui.SliderBase.prototype.enableEventHandlers_ = function(enable) {
-  'use strict';
+SliderBase.prototype.enableEventHandlers_ = function(enable) {
   if (enable) {
     this.getHandler()
         .listen(
-            this.valueDragger_, goog.fx.Dragger.EventType.BEFOREDRAG,
+            this.valueDragger_, Dragger.EventType.BEFOREDRAG,
             this.handleBeforeDrag_)
         .listen(
-            this.extentDragger_, goog.fx.Dragger.EventType.BEFOREDRAG,
+            this.extentDragger_, Dragger.EventType.BEFOREDRAG,
             this.handleBeforeDrag_)
         .listen(
             this.valueDragger_,
-            [goog.fx.Dragger.EventType.START, goog.fx.Dragger.EventType.END],
+            [Dragger.EventType.START, Dragger.EventType.END],
             this.handleThumbDragStartEnd_)
         .listen(
             this.extentDragger_,
-            [goog.fx.Dragger.EventType.START, goog.fx.Dragger.EventType.END],
+            [Dragger.EventType.START, Dragger.EventType.END],
             this.handleThumbDragStartEnd_)
         .listen(
-            this.keyHandler_, goog.events.KeyHandler.EventType.KEY,
+            this.keyHandler_, KeyHandler.EventType.KEY,
             this.handleKeyDown_)
         .listen(
-            this.getElement(), goog.events.EventType.CLICK,
+            this.getElement(), EventType.CLICK,
             this.handleMouseDownAndClick_)
         .listen(
-            this.getElement(), goog.events.EventType.MOUSEDOWN,
+            this.getElement(), EventType.MOUSEDOWN,
             this.handleMouseDownAndClick_);
     if (this.isHandleMouseWheel()) {
       this.enableMouseWheelHandling_(true);
@@ -489,27 +478,27 @@ goog.ui.SliderBase.prototype.enableEventHandlers_ = function(enable) {
   } else {
     this.getHandler()
         .unlisten(
-            this.valueDragger_, goog.fx.Dragger.EventType.BEFOREDRAG,
+            this.valueDragger_, Dragger.EventType.BEFOREDRAG,
             this.handleBeforeDrag_)
         .unlisten(
-            this.extentDragger_, goog.fx.Dragger.EventType.BEFOREDRAG,
+            this.extentDragger_, Dragger.EventType.BEFOREDRAG,
             this.handleBeforeDrag_)
         .unlisten(
             this.valueDragger_,
-            [goog.fx.Dragger.EventType.START, goog.fx.Dragger.EventType.END],
+            [Dragger.EventType.START, Dragger.EventType.END],
             this.handleThumbDragStartEnd_)
         .unlisten(
             this.extentDragger_,
-            [goog.fx.Dragger.EventType.START, goog.fx.Dragger.EventType.END],
+            [Dragger.EventType.START, Dragger.EventType.END],
             this.handleThumbDragStartEnd_)
         .unlisten(
-            this.keyHandler_, goog.events.KeyHandler.EventType.KEY,
+            this.keyHandler_, KeyHandler.EventType.KEY,
             this.handleKeyDown_)
         .unlisten(
-            this.getElement(), goog.events.EventType.CLICK,
+            this.getElement(), EventType.CLICK,
             this.handleMouseDownAndClick_)
         .unlisten(
-            this.getElement(), goog.events.EventType.MOUSEDOWN,
+            this.getElement(), EventType.MOUSEDOWN,
             this.handleMouseDownAndClick_);
     if (this.isHandleMouseWheel()) {
       this.enableMouseWheelHandling_(false);
@@ -519,10 +508,9 @@ goog.ui.SliderBase.prototype.enableEventHandlers_ = function(enable) {
 
 
 /** @override */
-goog.ui.SliderBase.prototype.exitDocument = function() {
-  'use strict';
-  goog.ui.SliderBase.base(this, 'exitDocument');
-  goog.disposeAll(
+SliderBase.prototype.exitDocument = function() {
+  SliderBase.base(this, 'exitDocument');
+  disposeAll(
       this.valueDragger_, this.extentDragger_, this.keyHandler_,
       this.mouseWheelHandler_);
 };
@@ -534,12 +522,11 @@ goog.ui.SliderBase.prototype.exitDocument = function() {
  * @param {goog.fx.DragEvent} e  The drag event used to drag the thumb.
  * @private
  */
-goog.ui.SliderBase.prototype.handleBeforeDrag_ = function(e) {
-  'use strict';
+SliderBase.prototype.handleBeforeDrag_ = function(e) {
   var thumbToDrag =
       e.dragger == this.valueDragger_ ? this.valueThumb : this.extentThumb;
   var value;
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     var availHeight = this.getElement().clientHeight - thumbToDrag.offsetHeight;
     value = (availHeight - e.top) / availHeight *
             (this.getMaximum() - this.getMinimum()) +
@@ -570,26 +557,25 @@ goog.ui.SliderBase.prototype.handleBeforeDrag_ = function(e) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.SliderBase.prototype.handleThumbDragStartEnd_ = function(e) {
-  'use strict';
-  var isDragStart = e.type == goog.fx.Dragger.EventType.START;
-  goog.dom.classlist.enable(
-      goog.asserts.assertElement(this.getElement()),
-      goog.ui.SliderBase.SLIDER_DRAGGING_CSS_CLASS_, isDragStart);
-  goog.dom.classlist.enable(
-      goog.asserts.assertElement(e.target.handle),
-      goog.ui.SliderBase.THUMB_DRAGGING_CSS_CLASS_, isDragStart);
+SliderBase.prototype.handleThumbDragStartEnd_ = function(e) {
+  var isDragStart = e.type == Dragger.EventType.START;
+  classlist.enable(
+      asserts.assertElement(this.getElement()),
+      SliderBase.SLIDER_DRAGGING_CSS_CLASS_, isDragStart);
+  classlist.enable(
+      asserts.assertElement(e.target.handle),
+      SliderBase.THUMB_DRAGGING_CSS_CLASS_, isDragStart);
   var isValueDragger = e.dragger == this.valueDragger_;
   if (isDragStart) {
-    this.dispatchEvent(goog.ui.SliderBase.EventType.DRAG_START);
+    this.dispatchEvent(SliderBase.EventType.DRAG_START);
     this.dispatchEvent(
-        isValueDragger ? goog.ui.SliderBase.EventType.DRAG_VALUE_START :
-                         goog.ui.SliderBase.EventType.DRAG_EXTENT_START);
+        isValueDragger ? SliderBase.EventType.DRAG_VALUE_START :
+                         SliderBase.EventType.DRAG_EXTENT_START);
   } else {
-    this.dispatchEvent(goog.ui.SliderBase.EventType.DRAG_END);
+    this.dispatchEvent(SliderBase.EventType.DRAG_END);
     this.dispatchEvent(
-        isValueDragger ? goog.ui.SliderBase.EventType.DRAG_VALUE_END :
-                         goog.ui.SliderBase.EventType.DRAG_EXTENT_END);
+        isValueDragger ? SliderBase.EventType.DRAG_VALUE_END :
+                         SliderBase.EventType.DRAG_EXTENT_END);
   }
 };
 
@@ -597,42 +583,41 @@ goog.ui.SliderBase.prototype.handleThumbDragStartEnd_ = function(e) {
 /**
  * Event handler for the key down event. This is used to update the value
  * based on the key pressed.
- * @param {goog.events.KeyEvent} e  The keyboard event object.
+ * @param {events.KeyEvent} e  The keyboard event object.
  * @private
  */
-goog.ui.SliderBase.prototype.handleKeyDown_ = function(e) {
-  'use strict';
+SliderBase.prototype.handleKeyDown_ = function(e) {
   var handled = true;
   switch (e.keyCode) {
-    case goog.events.KeyCodes.HOME:
+    case KeyCodes.HOME:
       this.animatedSetValue(this.getMinimum());
       break;
-    case goog.events.KeyCodes.END:
+    case KeyCodes.END:
       this.animatedSetValue(this.getMaximum());
       break;
-    case goog.events.KeyCodes.PAGE_UP:
+    case KeyCodes.PAGE_UP:
       this.moveThumbs(this.getBlockIncrement());
       break;
-    case goog.events.KeyCodes.PAGE_DOWN:
+    case KeyCodes.PAGE_DOWN:
       this.moveThumbs(-this.getBlockIncrement());
       break;
-    case goog.events.KeyCodes.LEFT:
+    case KeyCodes.LEFT:
       var sign = this.flipForRtl_ && this.isRightToLeft() ? 1 : -1;
       this.moveThumbs(
           e.shiftKey ? sign * this.getBlockIncrement() :
                        sign * this.getUnitIncrement());
       break;
-    case goog.events.KeyCodes.DOWN:
+    case KeyCodes.DOWN:
       this.moveThumbs(
           e.shiftKey ? -this.getBlockIncrement() : -this.getUnitIncrement());
       break;
-    case goog.events.KeyCodes.RIGHT:
+    case KeyCodes.RIGHT:
       var sign = this.flipForRtl_ && this.isRightToLeft() ? -1 : 1;
       this.moveThumbs(
           e.shiftKey ? sign * this.getBlockIncrement() :
                        sign * this.getUnitIncrement());
       break;
-    case goog.events.KeyCodes.UP:
+    case KeyCodes.UP:
       this.moveThumbs(
           e.shiftKey ? this.getBlockIncrement() : this.getUnitIncrement());
       break;
@@ -649,11 +634,10 @@ goog.ui.SliderBase.prototype.handleKeyDown_ = function(e) {
 
 /**
  * Handler for the mouse down event and click event.
- * @param {goog.events.Event} e  The mouse event object.
+ * @param {events.Event} e  The mouse event object.
  * @private
  */
-goog.ui.SliderBase.prototype.handleMouseDownAndClick_ = function(e) {
-  'use strict';
+SliderBase.prototype.handleMouseDownAndClick_ = function(e) {
   if (this.focusElementOnSliderDrag_ && this.getElement().focus) {
     this.getElement().focus();
   }
@@ -661,9 +645,9 @@ goog.ui.SliderBase.prototype.handleMouseDownAndClick_ = function(e) {
   // Known Element.
   var target = /** @type {Element} */ (e.target);
 
-  if (!goog.dom.contains(this.valueThumb, target) &&
-      !goog.dom.contains(this.extentThumb, target)) {
-    var isClick = e.type == goog.events.EventType.CLICK;
+  if (!dom.contains(this.valueThumb, target) &&
+      !dom.contains(this.extentThumb, target)) {
+    var isClick = e.type == EventType.CLICK;
     if (isClick && Date.now() < this.mouseDownTime_ + this.MOUSE_DOWN_DELAY_) {
       // Ignore a click event that comes a short moment after a mousedown
       // event.  This happens for desktop.  For devices with both a touch
@@ -688,11 +672,10 @@ goog.ui.SliderBase.prototype.handleMouseDownAndClick_ = function(e) {
 
 /**
  * Handler for the mouse wheel event.
- * @param {goog.events.MouseWheelEvent} e  The mouse wheel event object.
+ * @param {events.MouseWheelEvent} e  The mouse wheel event object.
  * @private
  */
-goog.ui.SliderBase.prototype.handleMouseWheel_ = function(e) {
-  'use strict';
+SliderBase.prototype.handleMouseWheel_ = function(e) {
   // Just move one unit increment per mouse wheel event
   var direction = e.detail > 0 ? -1 : 1;
   this.moveThumbs(direction * this.getUnitIncrement());
@@ -703,33 +686,32 @@ goog.ui.SliderBase.prototype.handleMouseWheel_ = function(e) {
 /**
  * Starts the animation that causes the thumb to increment/decrement by the
  * block increment when the user presses down on the background.
- * @param {goog.events.Event} e  The mouse event object.
+ * @param {events.Event} e  The mouse event object.
  * @private
  */
-goog.ui.SliderBase.prototype.startBlockIncrementing_ = function(e) {
-  'use strict';
+SliderBase.prototype.startBlockIncrementing_ = function(e) {
   this.storeMousePos_(e);
   this.thumbToMove_ = this.getClosestThumb_(this.getValueFromMousePosition(e));
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     this.incrementing_ = this.lastMousePosition_ < this.thumbToMove_.offsetTop;
   } else {
     this.incrementing_ = this.lastMousePosition_ >
         this.getOffsetStart_(this.thumbToMove_) + this.thumbToMove_.offsetWidth;
   }
 
-  var doc = goog.dom.getOwnerDocument(this.getElement());
+  var doc = dom.getOwnerDocument(this.getElement());
   this.getHandler()
       .listen(
-          doc, goog.events.EventType.MOUSEUP, this.stopBlockIncrementing_, true)
+          doc, EventType.MOUSEUP, this.stopBlockIncrementing_, true)
       .listen(
-          this.getElement(), goog.events.EventType.MOUSEMOVE,
+          this.getElement(), EventType.MOUSEMOVE,
           this.storeMousePos_);
 
   if (!this.incTimer_) {
     this.incTimer_ =
-        new goog.Timer(goog.ui.SliderBase.MOUSE_DOWN_INCREMENT_INTERVAL_);
+        new Timer(SliderBase.MOUSE_DOWN_INCREMENT_INTERVAL_);
     this.getHandler().listen(
-        this.incTimer_, goog.Timer.TICK, this.handleTimerTick_);
+        this.incTimer_, Timer.TICK, this.handleTimerTick_);
   }
   this.handleTimerTick_();
   this.incTimer_.start();
@@ -742,10 +724,9 @@ goog.ui.SliderBase.prototype.startBlockIncrementing_ = function(e) {
  * startBlockIncrementing_.
  * @private
  */
-goog.ui.SliderBase.prototype.handleTimerTick_ = function() {
-  'use strict';
+SliderBase.prototype.handleTimerTick_ = function() {
   var value;
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     var mouseY = this.lastMousePosition_;
     var thumbY = this.thumbToMove_.offsetTop;
     if (this.incrementing_) {
@@ -788,32 +769,30 @@ goog.ui.SliderBase.prototype.handleTimerTick_ = function() {
  * event handlers.
  * @private
  */
-goog.ui.SliderBase.prototype.stopBlockIncrementing_ = function() {
-  'use strict';
+SliderBase.prototype.stopBlockIncrementing_ = function() {
   if (this.incTimer_) {
     this.incTimer_.stop();
   }
 
-  var doc = goog.dom.getOwnerDocument(this.getElement());
+  var doc = dom.getOwnerDocument(this.getElement());
   this.getHandler()
       .unlisten(
-          doc, goog.events.EventType.MOUSEUP, this.stopBlockIncrementing_, true)
+          doc, EventType.MOUSEUP, this.stopBlockIncrementing_, true)
       .unlisten(
-          this.getElement(), goog.events.EventType.MOUSEMOVE,
+          this.getElement(), EventType.MOUSEMOVE,
           this.storeMousePos_);
 };
 
 
 /**
  * Returns the relative mouse position to the slider.
- * @param {goog.events.Event} e  The mouse event object.
+ * @param {events.Event} e  The mouse event object.
  * @return {number} The relative mouse position to the slider.
  * @private
  */
-goog.ui.SliderBase.prototype.getRelativeMousePos_ = function(e) {
-  'use strict';
-  var coord = goog.style.getRelativePosition(e, this.getElement());
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+SliderBase.prototype.getRelativeMousePos_ = function(e) {
+  var coord = style.getRelativePosition(e, this.getElement());
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     return coord.y;
   } else {
     if (this.flipForRtl_ && this.isRightToLeft()) {
@@ -827,25 +806,23 @@ goog.ui.SliderBase.prototype.getRelativeMousePos_ = function(e) {
 
 /**
  * Stores the current mouse position so that it can be used in the timer.
- * @param {goog.events.Event} e  The mouse event object.
+ * @param {events.Event} e  The mouse event object.
  * @private
  */
-goog.ui.SliderBase.prototype.storeMousePos_ = function(e) {
-  'use strict';
+SliderBase.prototype.storeMousePos_ = function(e) {
   this.lastMousePosition_ = this.getRelativeMousePos_(e);
 };
 
 
 /**
  * Returns the value to use for the current mouse position
- * @param {goog.events.Event} e  The mouse event object.
+ * @param {events.Event} e  The mouse event object.
  * @return {number} The value that this mouse position represents.
  */
-goog.ui.SliderBase.prototype.getValueFromMousePosition = function(e) {
-  'use strict';
+SliderBase.prototype.getValueFromMousePosition = function(e) {
   var min = this.getMinimum();
   var max = this.getMaximum();
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     var thumbH = this.valueThumb.offsetHeight;
     var availH = this.getElement().clientHeight - thumbH;
     var y = this.getRelativeMousePos_(e) - thumbH / 2;
@@ -864,8 +841,7 @@ goog.ui.SliderBase.prototype.getValueFromMousePosition = function(e) {
  * @return {number} The position of the specified thumb.
  * @private
  */
-goog.ui.SliderBase.prototype.getThumbPosition_ = function(thumb) {
-  'use strict';
+SliderBase.prototype.getThumbPosition_ = function(thumb) {
   if (thumb == this.valueThumb) {
     return this.rangeModel.getValue();
   } else if (thumb == this.extentThumb) {
@@ -883,8 +859,7 @@ goog.ui.SliderBase.prototype.getThumbPosition_ = function(thumb) {
  * dragged state.
  * @return {boolean} Whether a dragger is currently being dragged.
  */
-goog.ui.SliderBase.prototype.isDragging = function() {
-  'use strict';
+SliderBase.prototype.isDragging = function() {
   return this.valueDragger_.isDragging() || this.extentDragger_.isDragging();
 };
 
@@ -900,18 +875,17 @@ goog.ui.SliderBase.prototype.isDragging = function() {
  * @param {number} delta The delta by which to move the selected range.
  * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
-goog.ui.SliderBase.prototype.moveThumbs = function(delta) {
-  'use strict';
+SliderBase.prototype.moveThumbs = function(delta) {
   // Assume that a small delta is supposed to be at least a step.
   if (Math.abs(delta) < this.getStep()) {
-    delta = goog.math.sign(delta) * this.getStep();
+    delta = math.sign(delta) * this.getStep();
   }
   var newMinPos = this.getThumbPosition_(this.valueThumb) + delta;
   var newMaxPos = this.getThumbPosition_(this.extentThumb) + delta;
   // correct min / max positions to be within bounds
-  newMinPos = goog.math.clamp(
+  newMinPos = math.clamp(
       newMinPos, this.getMinimum(), this.getMaximum() - this.minExtent_);
-  newMaxPos = goog.math.clamp(
+  newMaxPos = math.clamp(
       newMaxPos, this.getMinimum() + this.minExtent_, this.getMaximum());
   // Set value and extent atomically
   this.setValueAndExtent(newMinPos, newMaxPos - newMinPos);
@@ -931,8 +905,7 @@ goog.ui.SliderBase.prototype.moveThumbs = function(delta) {
  * @param {number} position The position to move the thumb to.
  * @private
  */
-goog.ui.SliderBase.prototype.setThumbPosition_ = function(thumb, position) {
-  'use strict';
+SliderBase.prototype.setThumbPosition_ = function(thumb, position) {
   // Round first so that all computations and checks are consistent.
   var roundedPosition = this.rangeModel.roundToStepWithMin(position);
   var value =
@@ -957,8 +930,7 @@ goog.ui.SliderBase.prototype.setThumbPosition_ = function(thumb, position) {
  * @param {number} value The value to which to set the value.
  * @param {number} extent The value to which to set the extent.
  */
-goog.ui.SliderBase.prototype.setValueAndExtent = function(value, extent) {
-  'use strict';
+SliderBase.prototype.setValueAndExtent = function(value, extent) {
   if (this.getMinimum() <= value && value <= this.getMaximum() - extent &&
       this.minExtent_ <= extent && extent <= this.getMaximum() - value) {
     if (value == this.getValue() && extent == this.getExtent()) {
@@ -980,8 +952,7 @@ goog.ui.SliderBase.prototype.setValueAndExtent = function(value, extent) {
 /**
  * @return {number} The minimum value.
  */
-goog.ui.SliderBase.prototype.getMinimum = function() {
-  'use strict';
+SliderBase.prototype.getMinimum = function() {
   return this.rangeModel.getMinimum();
 };
 
@@ -990,8 +961,7 @@ goog.ui.SliderBase.prototype.getMinimum = function() {
  * Sets the minimum number.
  * @param {number} min The minimum value.
  */
-goog.ui.SliderBase.prototype.setMinimum = function(min) {
-  'use strict';
+SliderBase.prototype.setMinimum = function(min) {
   this.rangeModel.setMinimum(min);
 };
 
@@ -999,8 +969,7 @@ goog.ui.SliderBase.prototype.setMinimum = function(min) {
 /**
  * @return {number} The maximum value.
  */
-goog.ui.SliderBase.prototype.getMaximum = function() {
-  'use strict';
+SliderBase.prototype.getMaximum = function() {
   return this.rangeModel.getMaximum();
 };
 
@@ -1009,8 +978,7 @@ goog.ui.SliderBase.prototype.getMaximum = function() {
  * Sets the maximum number.
  * @param {number} max The maximum value.
  */
-goog.ui.SliderBase.prototype.setMaximum = function(max) {
-  'use strict';
+SliderBase.prototype.setMaximum = function(max) {
   this.rangeModel.setMaximum(max);
 };
 
@@ -1018,8 +986,7 @@ goog.ui.SliderBase.prototype.setMaximum = function(max) {
 /**
  * @return {HTMLDivElement} The value thumb element.
  */
-goog.ui.SliderBase.prototype.getValueThumb = function() {
-  'use strict';
+SliderBase.prototype.getValueThumb = function() {
   return this.valueThumb;
 };
 
@@ -1027,8 +994,7 @@ goog.ui.SliderBase.prototype.getValueThumb = function() {
 /**
  * @return {HTMLDivElement} The extent thumb element.
  */
-goog.ui.SliderBase.prototype.getExtentThumb = function() {
-  'use strict';
+SliderBase.prototype.getExtentThumb = function() {
   return this.extentThumb;
 };
 
@@ -1038,8 +1004,7 @@ goog.ui.SliderBase.prototype.getExtentThumb = function() {
  * @return {HTMLDivElement} The thumb that is closest to the given position.
  * @private
  */
-goog.ui.SliderBase.prototype.getClosestThumb_ = function(position) {
-  'use strict';
+SliderBase.prototype.getClosestThumb_ = function(position) {
   if (position <=
       (this.rangeModel.getValue() + this.rangeModel.getExtent() / 2)) {
     return this.valueThumb;
@@ -1052,14 +1017,13 @@ goog.ui.SliderBase.prototype.getClosestThumb_ = function(position) {
 /**
  * Call back when the internal range model changes. Sub-classes may override
  * and re-enter this method to update a11y state. Consider protected.
- * @param {goog.events.Event} e The event object.
+ * @param {events.Event} e The event object.
  * @protected
  */
-goog.ui.SliderBase.prototype.handleRangeModelChange = function(e) {
-  'use strict';
+SliderBase.prototype.handleRangeModelChange = function(e) {
   this.updateUi_();
   this.updateAriaStates();
-  this.dispatchEvent(goog.ui.Component.EventType.CHANGE);
+  this.dispatchEvent(Component.EventType.CHANGE);
 };
 
 
@@ -1068,15 +1032,14 @@ goog.ui.SliderBase.prototype.handleRangeModelChange = function(e) {
  * when first created as well as when the value and the orientation changes.
  * @private
  */
-goog.ui.SliderBase.prototype.updateUi_ = function() {
-  'use strict';
+SliderBase.prototype.updateUi_ = function() {
   if (this.valueThumb && !this.isAnimating_) {
     var minCoord = this.getThumbCoordinateForValue(
         this.getThumbPosition_(this.valueThumb));
     var maxCoord = this.getThumbCoordinateForValue(
         this.getThumbPosition_(this.extentThumb));
 
-    if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+    if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
       this.valueThumb.style.top = minCoord.y + 'px';
       this.extentThumb.style.top = maxCoord.y + 'px';
       if (this.rangeHighlight) {
@@ -1112,9 +1075,8 @@ goog.ui.SliderBase.prototype.updateUi_ = function() {
  *     range highlight.
  * @private
  */
-goog.ui.SliderBase.prototype.calculateRangeHighlightPositioning_ = function(
+SliderBase.prototype.calculateRangeHighlightPositioning_ = function(
     firstThumbPos, secondThumbPos, thumbSize) {
-  'use strict';
   // Highlight is inset by half the thumb size, from the edges of the thumb.
   var highlightInset = Math.ceil(thumbSize / 2);
   var size = secondThumbPos - firstThumbPos + thumbSize - 2 * highlightInset;
@@ -1127,11 +1089,10 @@ goog.ui.SliderBase.prototype.calculateRangeHighlightPositioning_ = function(
 /**
  * Returns the position to move the handle to for a given value
  * @param {number} val  The value to get the coordinate for.
- * @return {!goog.math.Coordinate} Coordinate with either x or y set.
+ * @return {!Coordinate} Coordinate with either x or y set.
  */
-goog.ui.SliderBase.prototype.getThumbCoordinateForValue = function(val) {
-  'use strict';
-  var coord = new goog.math.Coordinate;
+SliderBase.prototype.getThumbCoordinateForValue = function(val) {
+  var coord = new Coordinate;
   if (this.valueThumb) {
     var min = this.getMinimum();
     var max = this.getMaximum();
@@ -1140,7 +1101,7 @@ goog.ui.SliderBase.prototype.getThumbCoordinateForValue = function(val) {
     // the slider min & max are same numbers (i.e. 1).
     var ratio = (val == min && min == max) ? 0 : (val - min) / (max - min);
 
-    if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+    if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
       var thumbHeight = this.valueThumb.offsetHeight;
       var h = this.getElement().clientHeight - thumbHeight;
       var bottom = Math.round(ratio * h);
@@ -1170,16 +1131,15 @@ goog.ui.SliderBase.prototype.getThumbCoordinateForValue = function(val) {
  * @param {number} v Value to set and animate to.
  * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */
-goog.ui.SliderBase.prototype.animatedSetValue = function(v) {
-  'use strict';
+SliderBase.prototype.animatedSetValue = function(v) {
   // the value might be out of bounds
-  v = goog.math.clamp(v, this.getMinimum(), this.getMaximum());
+  v = math.clamp(v, this.getMinimum(), this.getMaximum());
 
   if (this.isAnimating_) {
     this.currentAnimation_.stop(true);
     this.currentAnimation_.dispose();
   }
-  var animations = new goog.fx.AnimationParallelQueue();
+  var animations = new AnimationParallelQueue();
   var end;
 
   var thumb = this.getClosestThumb_(v);
@@ -1196,21 +1156,21 @@ goog.ui.SliderBase.prototype.animatedSetValue = function(v) {
     v = previousThumbValue + delta;
 
     // The resulting value may be out of bounds, sanitize.
-    v = goog.math.clamp(v, this.getMinimum(), this.getMaximum());
+    v = math.clamp(v, this.getMinimum(), this.getMaximum());
   }
 
   this.setThumbPosition_(thumb, v);
   var coord = this.getThumbCoordinateForValue(this.getThumbPosition_(thumb));
 
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     end = [this.getOffsetStart_(thumb), coord.y];
   } else {
     end = [coord.x, thumb.offsetTop];
   }
 
-  var slide = new goog.fx.dom.Slide(
+  var slide = new Slide(
       thumb, [previousCoord.x, previousCoord.y], end,
-      goog.ui.SliderBase.ANIMATION_INTERVAL_);
+      SliderBase.ANIMATION_INTERVAL_);
   slide.enableRightPositioningForRtl(this.flipForRtl_);
   animations.add(slide);
   if (this.rangeHighlight) {
@@ -1221,16 +1181,15 @@ goog.ui.SliderBase.prototype.animatedSetValue = function(v) {
   // Create additional animations to play if a factory has been set.
   if (this.additionalAnimations_) {
     var additionalAnimations = this.additionalAnimations_.createAnimations(
-        previousValue, v, goog.ui.SliderBase.ANIMATION_INTERVAL_);
+        previousValue, v, SliderBase.ANIMATION_INTERVAL_);
     additionalAnimations.forEach(function(animation) {
-      'use strict';
       animations.add(animation);
     });
   }
 
   this.currentAnimation_ = animations;
   this.getHandler().listen(
-      animations, goog.fx.Transition.EventType.END, this.endAnimation_);
+      animations, Transition.EventType.END, this.endAnimation_);
 
   this.isAnimating_ = true;
   animations.play(false);
@@ -1240,8 +1199,7 @@ goog.ui.SliderBase.prototype.animatedSetValue = function(v) {
 /**
  * @return {boolean} True if the slider is animating, false otherwise.
  */
-goog.ui.SliderBase.prototype.isAnimating = function() {
-  'use strict';
+SliderBase.prototype.isAnimating = function() {
   return this.isAnimating_;
 };
 
@@ -1254,12 +1212,11 @@ goog.ui.SliderBase.prototype.isAnimating = function() {
  * ensuring that all animations are played at the same time.
  * @see #animatedSetValue
  *
- * @param {goog.ui.SliderBase.AnimationFactory} factory The animation factory to
+ * @param {SliderBase.AnimationFactory} factory The animation factory to
  *     use.  This will not change the default animations played by the slider.
  *     It will only allow for additional animations.
  */
-goog.ui.SliderBase.prototype.setAdditionalAnimations = function(factory) {
-  'use strict';
+SliderBase.prototype.setAdditionalAnimations = function(factory) {
   this.additionalAnimations_ = factory;
 };
 
@@ -1272,14 +1229,13 @@ goog.ui.SliderBase.prototype.setAdditionalAnimations = function(factory) {
  * @param {number} previousValue The previous value of the slider.
  * @param {number} previousExtent The previous extent of the
  *     slider.
- * @param {goog.math.Coordinate} newCoord The new pixel coordinate of the
+ * @param {Coordinate} newCoord The new pixel coordinate of the
  *     thumb that's moving.
- * @param {goog.fx.AnimationParallelQueue} animations The animation queue.
+ * @param {AnimationParallelQueue} animations The animation queue.
  * @private
  */
-goog.ui.SliderBase.prototype.addRangeHighlightAnimations_ = function(
+SliderBase.prototype.addRangeHighlightAnimations_ = function(
     thumb, previousValue, previousExtent, newCoord, animations) {
-  'use strict';
   var previousMinCoord = this.getThumbCoordinateForValue(previousValue);
   var previousMaxCoord =
       this.getThumbCoordinateForValue(previousValue + previousExtent);
@@ -1291,12 +1247,12 @@ goog.ui.SliderBase.prototype.addRangeHighlightAnimations_ = function(
     maxCoord = newCoord;
   }
 
-  if (this.orientation_ == goog.ui.SliderBase.Orientation.VERTICAL) {
+  if (this.orientation_ == SliderBase.Orientation.VERTICAL) {
     var previousHighlightPositioning = this.calculateRangeHighlightPositioning_(
         previousMaxCoord.y, previousMinCoord.y, this.valueThumb.offsetHeight);
     var highlightPositioning = this.calculateRangeHighlightPositioning_(
         maxCoord.y, minCoord.y, this.valueThumb.offsetHeight);
-    var slide = new goog.fx.dom.Slide(
+    var slide = new Slide(
         this.rangeHighlight,
         [
           this.getOffsetStart_(this.rangeHighlight),
@@ -1305,10 +1261,10 @@ goog.ui.SliderBase.prototype.addRangeHighlightAnimations_ = function(
         [
           this.getOffsetStart_(this.rangeHighlight), highlightPositioning.offset
         ],
-        goog.ui.SliderBase.ANIMATION_INTERVAL_);
-    var resizeHeight = new goog.fx.dom.ResizeHeight(
+        SliderBase.ANIMATION_INTERVAL_);
+    var resizeHeight = new ResizeHeight(
         this.rangeHighlight, previousHighlightPositioning.size,
-        highlightPositioning.size, goog.ui.SliderBase.ANIMATION_INTERVAL_);
+        highlightPositioning.size, SliderBase.ANIMATION_INTERVAL_);
     slide.enableRightPositioningForRtl(this.flipForRtl_);
     resizeHeight.enableRightPositioningForRtl(this.flipForRtl_);
     animations.add(slide);
@@ -1318,14 +1274,14 @@ goog.ui.SliderBase.prototype.addRangeHighlightAnimations_ = function(
         previousMinCoord.x, previousMaxCoord.x, this.valueThumb.offsetWidth);
     var highlightPositioning = this.calculateRangeHighlightPositioning_(
         minCoord.x, maxCoord.x, this.valueThumb.offsetWidth);
-    var slide = new goog.fx.dom.Slide(
+    var slide = new Slide(
         this.rangeHighlight,
         [previousHighlightPositioning.offset, this.rangeHighlight.offsetTop],
         [highlightPositioning.offset, this.rangeHighlight.offsetTop],
-        goog.ui.SliderBase.ANIMATION_INTERVAL_);
-    var resizeWidth = new goog.fx.dom.ResizeWidth(
+        SliderBase.ANIMATION_INTERVAL_);
+    var resizeWidth = new ResizeWidth(
         this.rangeHighlight, previousHighlightPositioning.size,
-        highlightPositioning.size, goog.ui.SliderBase.ANIMATION_INTERVAL_);
+        highlightPositioning.size, SliderBase.ANIMATION_INTERVAL_);
     slide.enableRightPositioningForRtl(this.flipForRtl_);
     resizeWidth.enableRightPositioningForRtl(this.flipForRtl_);
     animations.add(slide);
@@ -1340,19 +1296,17 @@ goog.ui.SliderBase.prototype.addRangeHighlightAnimations_ = function(
  *     object.
  * @private
  */
-goog.ui.SliderBase.prototype.endAnimation_ = function(e) {
-  'use strict';
+SliderBase.prototype.endAnimation_ = function(e) {
   this.isAnimating_ = false;
-  this.dispatchEvent(goog.ui.SliderBase.EventType.ANIMATION_END);
+  this.dispatchEvent(SliderBase.EventType.ANIMATION_END);
 };
 
 
 /**
  * Changes the orientation.
- * @param {goog.ui.SliderBase.Orientation} orient The orientation.
+ * @param {SliderBase.Orientation} orient The orientation.
  */
-goog.ui.SliderBase.prototype.setOrientation = function(orient) {
-  'use strict';
+SliderBase.prototype.setOrientation = function(orient) {
   if (this.orientation_ != orient) {
     var oldCss = this.getCssClass(this.orientation_);
     var newCss = this.getCssClass(orient);
@@ -1360,8 +1314,8 @@ goog.ui.SliderBase.prototype.setOrientation = function(orient) {
 
     // Update the DOM
     if (this.getElement()) {
-      goog.dom.classlist.swap(
-          goog.asserts.assert(this.getElement()), oldCss, newCss);
+      classlist.swap(
+          asserts.assert(this.getElement()), oldCss, newCss);
       // we need to reset the left and top, plus range highlight
       var pos = (this.flipForRtl_ && this.isRightToLeft()) ? 'right' : 'left';
       this.valueThumb.style[pos] = this.valueThumb.style.top = '';
@@ -1377,18 +1331,16 @@ goog.ui.SliderBase.prototype.setOrientation = function(orient) {
 
 
 /**
- * @return {goog.ui.SliderBase.Orientation} the orientation of the slider.
+ * @return {SliderBase.Orientation} the orientation of the slider.
  */
-goog.ui.SliderBase.prototype.getOrientation = function() {
-  'use strict';
+SliderBase.prototype.getOrientation = function() {
   return this.orientation_;
 };
 
 
 /** @override */
-goog.ui.SliderBase.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.SliderBase.superClass_.disposeInternal.call(this);
+SliderBase.prototype.disposeInternal = function() {
+  SliderBase.superClass_.disposeInternal.call(this);
   if (this.incTimer_) {
     this.incTimer_.dispose();
   }
@@ -1427,8 +1379,7 @@ goog.ui.SliderBase.prototype.disposeInternal = function() {
  * @return {number} The amount to increment/decrement for page up/down as well
  *     as when holding down the mouse button on the background.
  */
-goog.ui.SliderBase.prototype.getBlockIncrement = function() {
-  'use strict';
+SliderBase.prototype.getBlockIncrement = function() {
   return this.blockIncrement_;
 };
 
@@ -1439,8 +1390,7 @@ goog.ui.SliderBase.prototype.getBlockIncrement = function() {
  *
  * @param {number} value The value to set the block increment to.
  */
-goog.ui.SliderBase.prototype.setBlockIncrement = function(value) {
-  'use strict';
+SliderBase.prototype.setBlockIncrement = function(value) {
   this.blockIncrement_ = value;
 };
 
@@ -1450,8 +1400,7 @@ goog.ui.SliderBase.prototype.setBlockIncrement = function(value) {
  *
  * @param {number} value The minimal value for the extent.
  */
-goog.ui.SliderBase.prototype.setMinExtent = function(value) {
-  'use strict';
+SliderBase.prototype.setMinExtent = function(value) {
   this.minExtent_ = value;
 };
 
@@ -1462,15 +1411,14 @@ goog.ui.SliderBase.prototype.setMinExtent = function(value) {
  * @private
  * @type {number}
  */
-goog.ui.SliderBase.prototype.unitIncrement_ = 1;
+SliderBase.prototype.unitIncrement_ = 1;
 
 
 /**
  * @return {number} The amount to increment/decrement for up, down, left and
  *     right arrow keys and mouse wheel events.
  */
-goog.ui.SliderBase.prototype.getUnitIncrement = function() {
-  'use strict';
+SliderBase.prototype.getUnitIncrement = function() {
   return this.unitIncrement_;
 };
 
@@ -1480,8 +1428,7 @@ goog.ui.SliderBase.prototype.getUnitIncrement = function() {
  * keys and mouse wheel events.
  * @param {number} value  The value to set the unit increment to.
  */
-goog.ui.SliderBase.prototype.setUnitIncrement = function(value) {
-  'use strict';
+SliderBase.prototype.setUnitIncrement = function(value) {
   this.unitIncrement_ = value;
 };
 
@@ -1489,8 +1436,7 @@ goog.ui.SliderBase.prototype.setUnitIncrement = function(value) {
 /**
  * @return {?number} The step value used to determine how to round the value.
  */
-goog.ui.SliderBase.prototype.getStep = function() {
-  'use strict';
+SliderBase.prototype.getStep = function() {
   return this.rangeModel.getStep();
 };
 
@@ -1500,8 +1446,7 @@ goog.ui.SliderBase.prototype.getStep = function() {
  * value.
  * @param {?number} step  The step size.
  */
-goog.ui.SliderBase.prototype.setStep = function(step) {
-  'use strict';
+SliderBase.prototype.setStep = function(step) {
   this.rangeModel.setStep(step);
 };
 
@@ -1510,8 +1455,7 @@ goog.ui.SliderBase.prototype.setStep = function(step) {
  * @return {boolean} Whether clicking on the backgtround should move directly to
  *     that point.
  */
-goog.ui.SliderBase.prototype.getMoveToPointEnabled = function() {
-  'use strict';
+SliderBase.prototype.getMoveToPointEnabled = function() {
   return this.moveToPointEnabled_;
 };
 
@@ -1521,8 +1465,7 @@ goog.ui.SliderBase.prototype.getMoveToPointEnabled = function() {
  * @param {boolean} val Whether clicking on the background should move directly
  *     to that point.
  */
-goog.ui.SliderBase.prototype.setMoveToPointEnabled = function(val) {
-  'use strict';
+SliderBase.prototype.setMoveToPointEnabled = function(val) {
   this.moveToPointEnabled_ = val;
 };
 
@@ -1530,8 +1473,7 @@ goog.ui.SliderBase.prototype.setMoveToPointEnabled = function(val) {
 /**
  * @return {number} The value of the underlying range model.
  */
-goog.ui.SliderBase.prototype.getValue = function() {
-  'use strict';
+SliderBase.prototype.getValue = function() {
   return this.rangeModel.getValue();
 };
 
@@ -1543,8 +1485,7 @@ goog.ui.SliderBase.prototype.getValue = function() {
  * CHANGE event fires.
  * @param {number} value The value.
  */
-goog.ui.SliderBase.prototype.setValue = function(value) {
-  'use strict';
+SliderBase.prototype.setValue = function(value) {
   // Set the position through the thumb method to enforce constraints.
   this.setThumbPosition_(this.valueThumb, value);
 };
@@ -1553,8 +1494,7 @@ goog.ui.SliderBase.prototype.setValue = function(value) {
 /**
  * @return {number} The value of the extent of the underlying range model.
  */
-goog.ui.SliderBase.prototype.getExtent = function() {
-  'use strict';
+SliderBase.prototype.getExtent = function() {
   return this.rangeModel.getExtent();
 };
 
@@ -1566,8 +1506,7 @@ goog.ui.SliderBase.prototype.getExtent = function() {
  * CHANGE event fires.
  * @param {number} extent The value to which to set the extent.
  */
-goog.ui.SliderBase.prototype.setExtent = function(extent) {
-  'use strict';
+SliderBase.prototype.setExtent = function(extent) {
   // Set the position through the thumb method to enforce constraints.
   this.setThumbPosition_(
       this.extentThumb, (this.rangeModel.getValue() + extent));
@@ -1579,9 +1518,8 @@ goog.ui.SliderBase.prototype.setExtent = function(extent) {
  * You must call this if you had set the slider's value when it was invisible.
  * @param {boolean} visible Whether to show the slider.
  */
-goog.ui.SliderBase.prototype.setVisible = function(visible) {
-  'use strict';
-  goog.style.setElementShown(this.getElement(), visible);
+SliderBase.prototype.setVisible = function(visible) {
+  style.setElementShown(this.getElement(), visible);
   if (visible) {
     this.updateUi_();
   }
@@ -1592,12 +1530,11 @@ goog.ui.SliderBase.prototype.setVisible = function(visible) {
  * Set a11y roles and state.
  * @protected
  */
-goog.ui.SliderBase.prototype.setAriaRoles = function() {
-  'use strict';
+SliderBase.prototype.setAriaRoles = function() {
   var el = this.getElement();
-  goog.asserts.assert(
+  asserts.assert(
       el, 'The DOM element for the slider base cannot be null.');
-  goog.a11y.aria.setRole(el, goog.a11y.aria.Role.SLIDER);
+  aria.setRole(el, Role.SLIDER);
   this.updateAriaStates();
 };
 
@@ -1606,19 +1543,18 @@ goog.ui.SliderBase.prototype.setAriaRoles = function() {
  * Set a11y roles and state when values change.
  * @protected
  */
-goog.ui.SliderBase.prototype.updateAriaStates = function() {
-  'use strict';
+SliderBase.prototype.updateAriaStates = function() {
   var element = this.getElement();
   if (element) {
-    goog.a11y.aria.setState(
-        element, goog.a11y.aria.State.VALUEMIN, this.getMinimum());
-    goog.a11y.aria.setState(
-        element, goog.a11y.aria.State.VALUEMAX, this.getMaximum());
-    goog.a11y.aria.setState(
-        element, goog.a11y.aria.State.VALUENOW, this.getValue());
+    aria.setState(
+        element, State.VALUEMIN, this.getMinimum());
+    aria.setState(
+        element, State.VALUEMAX, this.getMaximum());
+    aria.setState(
+        element, State.VALUENOW, this.getValue());
     // Passing an empty value to setState will restore the default.
-    goog.a11y.aria.setState(
-        element, goog.a11y.aria.State.VALUETEXT, this.getTextValue() || '');
+    aria.setState(
+        element, State.VALUETEXT, this.getTextValue() || '');
   }
 };
 
@@ -1629,8 +1565,7 @@ goog.ui.SliderBase.prototype.updateAriaStates = function() {
  *
  * @param {boolean} enable Whether to enable mouse wheel handling.
  */
-goog.ui.SliderBase.prototype.setHandleMouseWheel = function(enable) {
-  'use strict';
+SliderBase.prototype.setHandleMouseWheel = function(enable) {
   if (this.isInDocument() && enable != this.isHandleMouseWheel()) {
     this.enableMouseWheelHandling_(enable);
   }
@@ -1642,8 +1577,7 @@ goog.ui.SliderBase.prototype.setHandleMouseWheel = function(enable) {
 /**
  * @return {boolean} Whether the slider handles mousewheel.
  */
-goog.ui.SliderBase.prototype.isHandleMouseWheel = function() {
-  'use strict';
+SliderBase.prototype.isHandleMouseWheel = function() {
   return this.isHandleMouseWheel_;
 };
 
@@ -1653,21 +1587,20 @@ goog.ui.SliderBase.prototype.isHandleMouseWheel = function() {
  * @param {boolean} enable Whether to enable mouse wheel handling.
  * @private
  */
-goog.ui.SliderBase.prototype.enableMouseWheelHandling_ = function(enable) {
-  'use strict';
+SliderBase.prototype.enableMouseWheelHandling_ = function(enable) {
   if (enable) {
     if (!this.mouseWheelHandler_) {
       this.mouseWheelHandler_ =
-          new goog.events.MouseWheelHandler(this.getElement());
+          new MouseWheelHandler(this.getElement());
     }
     this.getHandler().listen(
         this.mouseWheelHandler_,
-        goog.events.MouseWheelHandler.EventType.MOUSEWHEEL,
+        MouseWheelHandler.EventType.MOUSEWHEEL,
         this.handleMouseWheel_, {passive: false});
   } else {
     this.getHandler().unlisten(
         this.mouseWheelHandler_,
-        goog.events.MouseWheelHandler.EventType.MOUSEWHEEL,
+        MouseWheelHandler.EventType.MOUSEWHEEL,
         this.handleMouseWheel_, {passive: false});
   }
 };
@@ -1675,18 +1608,17 @@ goog.ui.SliderBase.prototype.enableMouseWheelHandling_ = function(enable) {
 
 /**
  * Enables or disables the slider. A disabled slider will ignore all
- * user-initiated events. Also fires goog.ui.Component.EventType.ENABLE/DISABLE
+ * user-initiated events. Also fires Component.EventType.ENABLE/DISABLE
  * event as appropriate.
  * @param {boolean} enable Whether to enable the slider or not.
  */
-goog.ui.SliderBase.prototype.setEnabled = function(enable) {
-  'use strict';
+SliderBase.prototype.setEnabled = function(enable) {
   if (this.enabled_ == enable) {
     return;
   }
 
-  var eventType = enable ? goog.ui.Component.EventType.ENABLE :
-                           goog.ui.Component.EventType.DISABLE;
+  var eventType = enable ? Component.EventType.ENABLE :
+                           Component.EventType.DISABLE;
   if (this.dispatchEvent(eventType)) {
     this.enabled_ = enable;
     this.enableEventHandlers_(enable);
@@ -1696,9 +1628,9 @@ goog.ui.SliderBase.prototype.setEnabled = function(enable) {
       // handlers be appropriately unlistened.
       this.stopBlockIncrementing_();
     }
-    goog.dom.classlist.enable(
-        goog.asserts.assert(this.getElement()),
-        goog.ui.SliderBase.DISABLED_CSS_CLASS_, !enable);
+    classlist.enable(
+        asserts.assert(this.getElement()),
+        SliderBase.DISABLED_CSS_CLASS_, !enable);
   }
 };
 
@@ -1706,8 +1638,7 @@ goog.ui.SliderBase.prototype.setEnabled = function(enable) {
 /**
  * @return {boolean} Whether the slider is enabled or not.
  */
-goog.ui.SliderBase.prototype.isEnabled = function() {
-  'use strict';
+SliderBase.prototype.isEnabled = function() {
   return this.enabled_;
 };
 
@@ -1719,9 +1650,8 @@ goog.ui.SliderBase.prototype.isEnabled = function() {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.SliderBase.prototype.getOffsetStart_ = function(element) {
-  'use strict';
-  return this.flipForRtl_ ? goog.style.bidi.getOffsetStart(element) :
+SliderBase.prototype.getOffsetStart_ = function(element) {
+  return this.flipForRtl_ ? bidi.getOffsetStart(element) :
                             element.offsetLeft;
 };
 
@@ -1730,8 +1660,7 @@ goog.ui.SliderBase.prototype.getOffsetStart_ = function(element) {
  * @return {?string} The text value for the slider's current value, or null if
  *     unavailable.
  */
-goog.ui.SliderBase.prototype.getTextValue = function() {
-  'use strict';
+SliderBase.prototype.getTextValue = function() {
   return this.labelFn_(this.getValue());
 };
 
@@ -1741,9 +1670,8 @@ goog.ui.SliderBase.prototype.getTextValue = function() {
  * dragged.
  * @param {boolean} focusElementOnSliderDrag
  */
-goog.ui.SliderBase.prototype.setFocusElementOnSliderDrag = function(
+SliderBase.prototype.setFocusElementOnSliderDrag = function(
     focusElementOnSliderDrag) {
-  'use strict';
   this.focusElementOnSliderDrag_ = focusElementOnSliderDrag;
 };
 
@@ -1753,7 +1681,7 @@ goog.ui.SliderBase.prototype.setFocusElementOnSliderDrag = function(
  * a new value.
  * @interface
  */
-goog.ui.SliderBase.AnimationFactory = function() {};
+SliderBase.AnimationFactory = function() {};
 
 
 /**
@@ -1762,6 +1690,6 @@ goog.ui.SliderBase.AnimationFactory = function() {};
  * @param {number} previousValue The previous value (before animation).
  * @param {number} newValue The new value (after animation).
  * @param {number} interval The animation interval.
- * @return {!Array<!goog.fx.TransitionBase>} The additional animations to play.
+ * @return {!Array<!TransitionBase>} The additional animations to play.
  */
-goog.ui.SliderBase.AnimationFactory.prototype.createAnimations;
+SliderBase.AnimationFactory.prototype.createAnimations;

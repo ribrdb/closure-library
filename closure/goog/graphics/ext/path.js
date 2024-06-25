@@ -10,46 +10,44 @@
  */
 
 
-goog.provide('goog.graphics.ext.Path');
+goog.declareModuleId('goog.graphics.ext.path');
 
-goog.require('goog.graphics.AffineTransform');
-goog.require('goog.graphics.Path');
-goog.require('goog.math.Rect');
+import { AffineTransform } from '../affinetransform.js';
+import { Path as graphicsPath } from '../path.js';
+import { Rect } from '../../math/rect.js';
 
 
 
 /**
  * Creates a path object
  * @constructor
- * @extends {goog.graphics.Path}
+ * @extends {graphicsPath}
  * @final
  */
-goog.graphics.ext.Path = function() {
-  'use strict';
-  goog.graphics.Path.call(this);
-};
-goog.inherits(goog.graphics.ext.Path, goog.graphics.Path);
+export function Path() {
+  graphicsPath.call(this);
+}
+goog.inherits(Path, graphicsPath);
 
 
 /**
  * Optional cached or user specified bounding box.  A user may wish to
  * precompute a bounding box to save time and include more accurate
  * computations.
- * @type {goog.math.Rect?}
+ * @type {Rect?}
  * @private
  */
-goog.graphics.ext.Path.prototype.bounds_ = null;
+Path.prototype.bounds_ = null;
 
 
 /**
  * Clones the path.
- * @return {!goog.graphics.ext.Path} A clone of this path.
+ * @return {!Path} A clone of this path.
  * @override
  */
-goog.graphics.ext.Path.prototype.clone = function() {
-  'use strict';
+Path.prototype.clone = function() {
   const output = /** @type {goog.graphics.ext.Path} */
-      (goog.graphics.ext.Path.superClass_.clone.call(this));
+      (Path.superClass_.clone.call(this));
   output.bounds_ = this.bounds_ && this.bounds_.clone();
   return output;
 };
@@ -58,13 +56,12 @@ goog.graphics.ext.Path.prototype.clone = function() {
 /**
  * Transforms the path. Only simple paths are transformable. Attempting
  * to transform a non-simple path will throw an error.
- * @param {!goog.graphics.AffineTransform} tx The transformation to perform.
- * @return {!goog.graphics.ext.Path} The path itself.
+ * @param {!AffineTransform} tx The transformation to perform.
+ * @return {!Path} The path itself.
  * @override
  */
-goog.graphics.ext.Path.prototype.transform = function(tx) {
-  'use strict';
-  goog.graphics.ext.Path.superClass_.transform.call(this, tx);
+Path.prototype.transform = function(tx) {
+  Path.superClass_.transform.call(this, tx);
 
   // Make sure the precomputed bounds are cleared when the path is transformed.
   this.bounds_ = null;
@@ -82,40 +79,37 @@ goog.graphics.ext.Path.prototype.transform = function(tx) {
  *     by this number.
  * @param {number} yFactor After translation, all y coordinates are multiplied
  *     by this number.
- * @return {!goog.graphics.ext.Path} The path itself.
+ * @return {!Path} The path itself.
  */
-goog.graphics.ext.Path.prototype.modifyBounds = function(
+Path.prototype.modifyBounds = function(
     deltaX, deltaY, xFactor, yFactor) {
-  'use strict';
   if (!this.isSimple()) {
-    const simple = goog.graphics.Path.createSimplifiedPath(this);
+    const simple = graphicsPath.createSimplifiedPath(this);
     this.clear();
     this.appendPath(simple);
   }
 
   return this.transform(
-      goog.graphics.AffineTransform.getScaleInstance(xFactor, yFactor)
+      AffineTransform.getScaleInstance(xFactor, yFactor)
           .translate(deltaX, deltaY));
 };
 
 
 /**
  * Set the precomputed bounds.
- * @param {goog.math.Rect?} bounds The bounds to use, or set to null to clear
+ * @param {Rect?} bounds The bounds to use, or set to null to clear
  *     and recompute on the next call to getBoundingBox.
  */
-goog.graphics.ext.Path.prototype.useBoundingBox = function(bounds) {
-  'use strict';
+Path.prototype.useBoundingBox = function(bounds) {
   this.bounds_ = bounds && bounds.clone();
 };
 
 
 /**
- * @return {goog.math.Rect?} The bounding box of the path, or null if the
+ * @return {Rect?} The bounding box of the path, or null if the
  *     path is empty.
  */
-goog.graphics.ext.Path.prototype.getBoundingBox = function() {
-  'use strict';
+Path.prototype.getBoundingBox = function() {
   if (!this.bounds_ && !this.isEmpty()) {
     let minY;
     let minX = minY = Number.POSITIVE_INFINITY;
@@ -123,9 +117,8 @@ goog.graphics.ext.Path.prototype.getBoundingBox = function() {
     let maxX = maxY = Number.NEGATIVE_INFINITY;
 
     const simplePath =
-        this.isSimple() ? this : goog.graphics.Path.createSimplifiedPath(this);
+        this.isSimple() ? this : graphicsPath.createSimplifiedPath(this);
     simplePath.forEachSegment(function(type, points) {
-      'use strict';
       for (let i = 0, len = points.length; i < len; i += 2) {
         minX = Math.min(minX, points[i]);
         maxX = Math.max(maxX, points[i]);
@@ -134,7 +127,7 @@ goog.graphics.ext.Path.prototype.getBoundingBox = function() {
       }
     });
 
-    this.bounds_ = new goog.math.Rect(minX, minY, maxX - minX, maxY - minY);
+    this.bounds_ = new Rect(minX, minY, maxX - minX, maxY - minY);
   }
 
   return this.bounds_;

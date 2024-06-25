@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.StrictMockTest');
 goog.setTestOnly();
 
-const StrictMock = goog.require('goog.testing.StrictMock');
-const testSuite = goog.require('goog.testing.testSuite');
+import { StrictMock } from './strictmock.js';
+import { testSuite } from './testsuite.js';
 
 // The object that we will be mocking
 class RealObject {

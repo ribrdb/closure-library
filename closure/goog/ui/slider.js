@@ -14,7 +14,7 @@
  * Note that you won't be able to see these elements unless they are styled.
  *
  * Slider orientation is horizontal by default.
- * Use setOrientation(goog.ui.Slider.Orientation.VERTICAL) for a vertical
+ * Use setOrientation(Slider.Orientation.VERTICAL) for a vertical
  * slider.
  *
  * Decorate Example:
@@ -24,7 +24,7 @@
  *
  * JavaScript code:
  * <code>
- *   var slider = new goog.ui.Slider;
+ *   var slider = new Slider;
  *   slider.decorate(document.getElementById('slider'));
  * </code>
  *
@@ -35,31 +35,28 @@
 // which allows to select sub-ranges within a range using two thumbs. All we do
 // is we co-locate the two thumbs into one.
 
-goog.provide('goog.ui.Slider');
-goog.provide('goog.ui.Slider.Orientation');
+import * as aria from '../a11y/aria/aria.js';
 
-goog.require('goog.a11y.aria');
-goog.require('goog.a11y.aria.Role');
-goog.require('goog.dom');
-goog.require('goog.dom.TagName');
-goog.require('goog.ui.SliderBase');
+import { Role } from '../a11y/aria/roles.js';
+import * as dom from '../dom/dom.js';
+import { TagName } from '../dom/tagname.js';
+import { SliderBase } from './sliderbase.js';
 
 
 
 /**
  * This creates a slider object.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @param {(function(number):?string)=} opt_labelFn An optional function mapping
  *     slider values to a description of the value.
  * @constructor
- * @extends {goog.ui.SliderBase}
+ * @extends {SliderBase}
  */
-goog.ui.Slider = function(opt_domHelper, opt_labelFn) {
-  'use strict';
-  goog.ui.SliderBase.call(this, opt_domHelper, opt_labelFn);
-  this.rangeModel.setExtent(0);
-};
-goog.inherits(goog.ui.Slider, goog.ui.SliderBase);
+export function Slider(opt_domHelper, opt_labelFn) {
+ SliderBase.call(this, opt_domHelper, opt_labelFn);
+ this.rangeModel.setExtent(0);
+}
+goog.inherits(Slider, SliderBase);
 
 
 /**
@@ -68,36 +65,35 @@ goog.inherits(goog.ui.Slider, goog.ui.SliderBase);
  *
  * @enum {string}
  */
-goog.ui.Slider.Orientation = goog.ui.SliderBase.Orientation;
+Slider.Orientation = SliderBase.Orientation;
 
 
 /**
  * The prefix we use for the CSS class names for the slider and its elements.
  * @type {string}
  */
-goog.ui.Slider.CSS_CLASS_PREFIX = goog.getCssName('goog-slider');
+Slider.CSS_CLASS_PREFIX = goog.getCssName('goog-slider');
 
 
 /**
  * CSS class name for the single thumb element.
  * @type {string}
  */
-goog.ui.Slider.THUMB_CSS_CLASS =
-    goog.getCssName(goog.ui.Slider.CSS_CLASS_PREFIX, 'thumb');
+Slider.THUMB_CSS_CLASS =
+    goog.getCssName(Slider.CSS_CLASS_PREFIX, 'thumb');
 
 
 /**
  * Returns CSS class applied to the slider element.
- * @param {goog.ui.SliderBase.Orientation} orient Orientation of the slider.
+ * @param {SliderBase.Orientation} orient Orientation of the slider.
  * @return {string} The CSS class applied to the slider element.
  * @protected
  * @override
  */
-goog.ui.Slider.prototype.getCssClass = function(orient) {
-  'use strict';
-  return orient == goog.ui.SliderBase.Orientation.VERTICAL ?
-      goog.getCssName(goog.ui.Slider.CSS_CLASS_PREFIX, 'vertical') :
-      goog.getCssName(goog.ui.Slider.CSS_CLASS_PREFIX, 'horizontal');
+Slider.prototype.getCssClass = function(orient) {
+ return orient == SliderBase.Orientation.VERTICAL ?
+     goog.getCssName(Slider.CSS_CLASS_PREFIX, 'vertical') :
+     goog.getCssName(Slider.CSS_CLASS_PREFIX, 'horizontal');
 };
 
 
@@ -106,24 +102,22 @@ goog.ui.Slider.prototype.getCssClass = function(orient) {
  * @return {string} The CSS class applied to the slider's thumb element.
  * @protected
  */
-goog.ui.Slider.prototype.getThumbCssClass = function() {
-  'use strict';
-  return goog.ui.Slider.THUMB_CSS_CLASS;
+Slider.prototype.getThumbCssClass = function() {
+ return Slider.THUMB_CSS_CLASS;
 };
 
 
 /** @override */
-goog.ui.Slider.prototype.createThumbs = function() {
-  'use strict';
-  // find thumb
-  var element = this.getElement();
-  var thumb = goog.dom.getElementsByTagNameAndClass(
-      null, this.getThumbCssClass(), element)[0];
-  if (!thumb) {
-    thumb = this.createThumb_();
-    element.appendChild(thumb);
-  }
-  this.valueThumb = this.extentThumb = /** @type {!HTMLDivElement} */ (thumb);
+Slider.prototype.createThumbs = function() {
+ // find thumb
+ var element = this.getElement();
+ var thumb = dom.getElementsByTagNameAndClass(
+     null, this.getThumbCssClass(), element)[0];
+ if (!thumb) {
+   thumb = this.createThumb_();
+   element.appendChild(thumb);
+ }
+ this.valueThumb = this.extentThumb = /** @type {!HTMLDivElement} */ (thumb);
 };
 
 
@@ -132,10 +126,9 @@ goog.ui.Slider.prototype.createThumbs = function() {
  * @return {!HTMLDivElement} The created thumb element.
  * @private
  */
-goog.ui.Slider.prototype.createThumb_ = function() {
-  'use strict';
-  var thumb = this.getDomHelper().createDom(
-      goog.dom.TagName.DIV, this.getThumbCssClass());
-  goog.a11y.aria.setRole(thumb, goog.a11y.aria.Role.BUTTON);
-  return /** @type {!HTMLDivElement} */ (thumb);
+Slider.prototype.createThumb_ = function() {
+ var thumb = this.getDomHelper().createDom(
+     TagName.DIV, this.getThumbCssClass());
+ aria.setRole(thumb, Role.BUTTON);
+ return /** @type {!HTMLDivElement} */ (thumb);
 };

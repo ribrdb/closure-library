@@ -19,43 +19,41 @@
  * 5. Each array: length [0, 5), and may be nested too
  */
 
-goog.provide('goog.labs.testing.JsonFuzzing');
+import * as string from '../../string/string.js';
 
-goog.require('goog.string');
-goog.require('goog.testing.PseudoRandom');
+import { PseudoRandom } from '../../testing/pseudorandom.js';
 
 
 
 /**
  * The JSON fuzzing generator.
  *
- * @param {!goog.labs.testing.JsonFuzzing.Options=} opt_options Configuration
+ * @param {!JsonFuzzing.Options=} opt_options Configuration
  *     for the fuzzing json generator.
  * @param {number=} opt_seed The seed for the random generator.
  * @constructor
  * @struct
  */
-goog.labs.testing.JsonFuzzing = function(opt_options, opt_seed) {
-  'use strict';
+export function JsonFuzzing(opt_options, opt_seed) {
   /**
-   * The config options.
-   * @private {!goog.labs.testing.JsonFuzzing.Options}
-   */
+     * The config options.
+     * @private {!JsonFuzzing.Options}
+     */
   this.options_ =
       opt_options || {jsonSize: 10, numFields: 5, arraySize: 5, maxDepth: 5};
 
   /**
-   * The random generator
-   * @private {!goog.testing.PseudoRandom}
-   */
-  this.random_ = new goog.testing.PseudoRandom(opt_seed);
+     * The random generator
+     * @private {!PseudoRandom}
+     */
+  this.random_ = new PseudoRandom(opt_seed);
 
   /**
    * The depth limit, which defaults to 5.
    * @private {number}
    */
   this.maxDepth_ = this.options_.maxDepth;
-};
+}
 
 
 /**
@@ -73,7 +71,7 @@ goog.labs.testing.JsonFuzzing = function(opt_options, opt_seed) {
  *   maxDepth: number
  * }}
  */
-goog.labs.testing.JsonFuzzing.Options;
+JsonFuzzing.Options;
 
 
 /**
@@ -83,8 +81,7 @@ goog.labs.testing.JsonFuzzing.Options;
  *
  * @return {!Array} A new JSON compliant array object.
  */
-goog.labs.testing.JsonFuzzing.prototype.newArray = function() {
-  'use strict';
+JsonFuzzing.prototype.newArray = function() {
   const result = [];
   const depth = 0;
 
@@ -106,8 +103,7 @@ goog.labs.testing.JsonFuzzing.prototype.newArray = function() {
  * @param {number} max Exclusive
  * @return {number} A random integer
  */
-goog.labs.testing.JsonFuzzing.prototype.nextInt = function(min, max) {
-  'use strict';
+JsonFuzzing.prototype.nextInt = function(min, max) {
   const random = this.random_.random();
 
   return Math.floor(random * (max - min)) + min;
@@ -120,8 +116,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextInt = function(min, max) {
  * @return {number} 0 for message and 1 for array.
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextElmType_ = function() {
-  'use strict';
+JsonFuzzing.prototype.nextElmType_ = function() {
   const random = this.random_.random();
 
   if (random < 0.5) {
@@ -137,7 +132,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextElmType_ = function() {
  * @enum {number}
  * @private
  */
-goog.labs.testing.JsonFuzzing.FieldType_ = {
+JsonFuzzing.FieldType_ = {
   /**
    * Message field.
    */
@@ -173,12 +168,11 @@ goog.labs.testing.JsonFuzzing.FieldType_ = {
 /**
  * Get a new field type, randomly.
  *
- * @return {!goog.labs.testing.JsonFuzzing.FieldType_} the field type.
+ * @return {!JsonFuzzing.FieldType_} the field type.
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextFieldType_ = function() {
-  'use strict';
-  const FieldType = goog.labs.testing.JsonFuzzing.FieldType_;
+JsonFuzzing.prototype.nextFieldType_ = function() {
+  const FieldType = JsonFuzzing.FieldType_;
 
   const random = this.random_.random();
 
@@ -205,8 +199,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextFieldType_ = function() {
  * @return {!Object} a random element, msg or array
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextElm_ = function(depth) {
-  'use strict';
+JsonFuzzing.prototype.nextElm_ = function(depth) {
   switch (this.nextElmType_()) {
     case 0:
       return this.nextMessage_(depth);
@@ -225,8 +218,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextElm_ = function(depth) {
  * @return {!Object} a random message.
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextMessage_ = function(depth) {
-  'use strict';
+JsonFuzzing.prototype.nextMessage_ = function(depth) {
   if (depth > this.maxDepth_) {
     return {};
   }
@@ -246,7 +238,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextMessage_ = function(depth) {
         result['f' + i] = this.nextArray_(depth++);
         continue;
       case 2:
-        result['f' + i] = goog.string.getRandomString();
+        result['f' + i] = string.getRandomString();
         continue;
       case 3:
         result['f' + i] = this.nextNumber_();
@@ -273,8 +265,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextMessage_ = function(depth) {
  * @return {!Array} a random array.
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextArray_ = function(depth) {
-  'use strict';
+JsonFuzzing.prototype.nextArray_ = function(depth) {
   if (depth > this.maxDepth_) {
     return [];
   }
@@ -294,7 +285,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextArray_ = function(depth) {
         result.push(this.nextArray_(depth++));
         continue;
       case 2:
-        result.push(goog.string.getRandomString());
+        result.push(string.getRandomString());
         continue;
       case 3:
         result.push(this.nextNumber_());
@@ -320,8 +311,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextArray_ = function(depth) {
  * @return {boolean} a random boolean.
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextBoolean_ = function() {
-  'use strict';
+JsonFuzzing.prototype.nextBoolean_ = function() {
   const random = this.random_.random();
 
   return random < 0.5;
@@ -334,8 +324,7 @@ goog.labs.testing.JsonFuzzing.prototype.nextBoolean_ = function() {
  * @return {number} a random number..
  * @private
  */
-goog.labs.testing.JsonFuzzing.prototype.nextNumber_ = function() {
-  'use strict';
+JsonFuzzing.prototype.nextNumber_ = function() {
   let result = this.random_.random();
 
   let random = this.random_.random();

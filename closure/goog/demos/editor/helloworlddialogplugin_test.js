@@ -4,30 +4,34 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.demos.editor.HelloWorldDialogPluginTest');
 goog.setTestOnly('goog.demos.editor.HelloWorldDialogPluginTest');
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const Command = goog.require('goog.demos.editor.HelloWorldDialogPlugin.Command');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Field = goog.require('goog.editor.Field');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const HelloWorldDialog = goog.require('goog.demos.editor.HelloWorldDialog');
-const HelloWorldDialogPlugin = goog.require('goog.demos.editor.HelloWorldDialogPlugin');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockRange = goog.require('goog.testing.MockRange');
-const NodeType = goog.require('goog.dom.NodeType');
-const OkEvent = goog.require('goog.demos.editor.HelloWorldDialog.OkEvent');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const googDom = goog.require('goog.dom');
-const googEditorRange = goog.require('goog.editor.range');
-const googTestingEditorDom = goog.require('goog.testing.editor.dom');
-const googTestingEvents = goog.require('goog.testing.events');
-const googUserAgent = goog.require('goog.userAgent');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+
+import {
+  HelloWorldDialogPlugin as editorHelloWorldDialogPlugin,
+  HelloWorldDialogPlugin,
+} from './helloworlddialogplugin.js';
+
+const Command = editorHelloWorldDialogPlugin.Command;
+import { ExpectedFailures } from '../../testing/expectedfailures.js';
+import { Field } from '../../editor/field.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { HelloWorldDialog, HelloWorldDialog as editorHelloWorldDialog } from './helloworlddialog.js';
+const OkEvent = editorHelloWorldDialog.OkEvent;
+import { MockControl } from '../../testing/mockcontrol.js';
+import { MockRange } from '../../testing/mockrange.js';
+import { NodeType } from '../../dom/nodetype.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as googDom from '../../dom/dom.js';
+import * as googEditorRange from '../../editor/range.js';
+import * as googTestingEditorDom from '../../testing/editor/dom.js';
+import * as googTestingEvents from '../../testing/events/events.js';
+import * as googUserAgent from '../../useragent/useragent.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let plugin;
 let mockCtrl;

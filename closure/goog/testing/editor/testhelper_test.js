@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.editor.TestHelperTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const node = goog.require('goog.editor.node');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { TagName } from '../../dom/tagname.js';
+import { TestHelper } from './testhelper.js';
+import * as dom from '../../dom/dom.js';
+import * as node from '../../editor/node.js';
+import { testSuite } from '../testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let root;
 let helper;

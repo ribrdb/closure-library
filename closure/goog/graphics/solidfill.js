@@ -10,10 +10,7 @@
  */
 
 
-goog.provide('goog.graphics.SolidFill');
-
-
-goog.require('goog.graphics.Fill');
+import { Fill } from './fill.js';
 
 
 
@@ -25,44 +22,41 @@ goog.require('goog.graphics.Fill');
  *    must be greater than or equal to zero (transparent) and less than or
  *    equal to 1 (opaque).
  * @constructor
- * @extends {goog.graphics.Fill}
+ * @extends {Fill}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-goog.graphics.SolidFill = function(color, opt_opacity) {
-  'use strict';
-  /**
-   * The color with which to fill.
-   * @type {string}
-   * @private
-   */
-  this.color_ = color;
+export function SolidFill(color, opt_opacity) {
+ /**
+  * The color with which to fill.
+  * @type {string}
+  * @private
+  */
+ this.color_ = color;
 
 
-  /**
-   * The opacity of the fill.
-   * @type {number}
-   * @private
-   */
-  this.opacity_ = opt_opacity == null ? 1.0 : opt_opacity;
-};
-goog.inherits(goog.graphics.SolidFill, goog.graphics.Fill);
+ /**
+  * The opacity of the fill.
+  * @type {number}
+  * @private
+  */
+ this.opacity_ = opt_opacity == null ? 1.0 : opt_opacity;
+}
+goog.inherits(SolidFill, Fill);
 
 
 /**
  * @return {string} The color of this fill.
  */
-goog.graphics.SolidFill.prototype.getColor = function() {
-  'use strict';
-  return this.color_;
+SolidFill.prototype.getColor = function() {
+ return this.color_;
 };
 
 
 /**
  * @return {number} The opacity of this fill.
  */
-goog.graphics.SolidFill.prototype.getOpacity = function() {
-  'use strict';
-  return this.opacity_;
+SolidFill.prototype.getOpacity = function() {
+ return this.opacity_;
 };

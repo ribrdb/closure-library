@@ -17,15 +17,13 @@
  * http://icu-project.org/apiref/icu4j/com/ibm/icu/text/RelativeDateTimeFormatter.html
  */
 
-goog.module('goog.i18n.RelativeDateTimeFormat');
-
 // For referencing goog.i18n.USE_ECMASCRIPT_I18N_RDTF to determine compile-time
 // choice of ECMAScript vs. JavaScript implementation and data.
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
+import * as LocaleFeature from './localefeature.js';
 
-const MessageFormat = goog.require('goog.i18n.MessageFormat');
-const asserts = goog.require('goog.asserts');
-const relativeDateTimeSymbols = goog.require('goog.i18n.relativeDateTimeSymbols');
+import { MessageFormat } from './messageformat.js';
+import * as asserts from '../asserts/asserts.js';
+import * as relativeDateTimeSymbols from './relativedatetimesymbols.js';
 
 /**
  * @constructor
@@ -435,4 +433,4 @@ RelativeDateTimeFormat.prototype.hasNativeRdtf = function() {
   return (Boolean(intl && intl.RelativeTimeFormat));
 };
 
-exports = RelativeDateTimeFormat;
+export { RelativeDateTimeFormat };

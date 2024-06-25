@@ -8,11 +8,10 @@
  * @fileoverview Unit tests for goog.testing.i18n.asserts.
  */
 
-goog.module('goog.testing.i18n.assertsTest');
 goog.setTestOnly();
 
-const asserts = goog.require('goog.testing.i18n.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as asserts from './asserts.js';
+import { testSuite } from '../testsuite.js';
 
 // Add this mapping for testing only
 asserts.addI18nMapping('mappedValue', 'newValue');

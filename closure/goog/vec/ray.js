@@ -13,39 +13,37 @@
  * except where noted.
  *
  */
-goog.provide('goog.vec.Ray');
+import * as Vec3 from './vec3.js';
 
-goog.require('goog.vec.Vec3');
-goog.requireType('goog.vec.AnyType');
+goog.requireType('goog.vec.vec');
 
 
 
 /**
  * Constructs a new ray with an optional origin and direction. If not specified,
  * the default is [0, 0, 0].
- * @param {goog.vec.Vec3.AnyType=} opt_origin The optional origin.
- * @param {goog.vec.Vec3.AnyType=} opt_dir The optional direction.
+ * @param {Vec3.AnyType=} opt_origin The optional origin.
+ * @param {Vec3.AnyType=} opt_dir The optional direction.
  * @constructor
  * @final
  */
-goog.vec.Ray = function(opt_origin, opt_dir) {
-  'use strict';
-  /**
-   * @type {goog.vec.Vec3.Float64}
+export function Ray(opt_origin, opt_dir) {
+ /**
+   * @type {Vec3.Float64}
    */
-  this.origin = goog.vec.Vec3.createFloat64();
-  if (opt_origin) {
-    goog.vec.Vec3.setFromArray(this.origin, opt_origin);
-  }
+ this.origin = Vec3.createFloat64();
+ if (opt_origin) {
+   Vec3.setFromArray(this.origin, opt_origin);
+ }
 
-  /**
-   * @type {goog.vec.Vec3.Float64}
+ /**
+   * @type {Vec3.Float64}
    */
-  this.dir = goog.vec.Vec3.createFloat64();
-  if (opt_dir) {
-    goog.vec.Vec3.setFromArray(this.dir, opt_dir);
-  }
-};
+ this.dir = Vec3.createFloat64();
+ if (opt_dir) {
+   Vec3.setFromArray(this.dir, opt_dir);
+ }
+}
 
 
 /**
@@ -53,10 +51,9 @@ goog.vec.Ray = function(opt_origin, opt_dir) {
  * @param {goog.vec.AnyType} origin The new origin.
  * @param {goog.vec.AnyType} dir The new direction.
  */
-goog.vec.Ray.prototype.set = function(origin, dir) {
-  'use strict';
-  goog.vec.Vec3.setFromArray(this.origin, origin);
-  goog.vec.Vec3.setFromArray(this.dir, dir);
+Ray.prototype.set = function(origin, dir) {
+ Vec3.setFromArray(this.origin, origin);
+ Vec3.setFromArray(this.dir, dir);
 };
 
 
@@ -64,9 +61,8 @@ goog.vec.Ray.prototype.set = function(origin, dir) {
  * Sets the origin of the ray.
  * @param {goog.vec.AnyType} origin the new origin.
  */
-goog.vec.Ray.prototype.setOrigin = function(origin) {
-  'use strict';
-  goog.vec.Vec3.setFromArray(this.origin, origin);
+Ray.prototype.setOrigin = function(origin) {
+ Vec3.setFromArray(this.origin, origin);
 };
 
 
@@ -74,19 +70,17 @@ goog.vec.Ray.prototype.setOrigin = function(origin) {
  * Sets the direction of the ray.
  * @param {goog.vec.AnyType} dir The new direction.
  */
-goog.vec.Ray.prototype.setDir = function(dir) {
-  'use strict';
-  goog.vec.Vec3.setFromArray(this.dir, dir);
+Ray.prototype.setDir = function(dir) {
+ Vec3.setFromArray(this.dir, dir);
 };
 
 
 /**
  * Returns true if this ray is equal to the other ray.
- * @param {goog.vec.Ray} other The other ray.
+ * @param {Ray} other The other ray.
  * @return {boolean} True if this ray is equal to the other ray.
  */
-goog.vec.Ray.prototype.equals = function(other) {
-  'use strict';
-  return other != null && goog.vec.Vec3.equals(this.origin, other.origin) &&
-      goog.vec.Vec3.equals(this.dir, other.dir);
+Ray.prototype.equals = function(other) {
+ return other != null && Vec3.equals(this.origin, other.origin) &&
+     Vec3.equals(this.dir, other.dir);
 };

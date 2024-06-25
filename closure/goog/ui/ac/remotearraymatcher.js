@@ -8,16 +8,15 @@
  * @fileoverview Class that retrieves autocomplete matches via an ajax call.
  */
 
-goog.provide('goog.ui.ac.RemoteArrayMatcher');
+import { Disposable } from '../../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.Uri');
-goog.require('goog.events');
-goog.require('goog.net.EventType');
-goog.require('goog.net.XhrIo');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.net.XmlHttpFactory');
-goog.requireType('goog.structs.Map');
+import { Uri } from '../../uri/uri.js';
+import * as events from '../../events/events.js';
+import { EventType } from '../../net/eventtype.js';
+import { XhrIo } from '../../net/xhrio.js';
+goog.requireType('goog.events.event');
+goog.requireType('goog.net.xmlhttpfactory');
+goog.requireType('goog.structs.map');
 
 
 
@@ -32,38 +31,36 @@ goog.requireType('goog.structs.Map');
  * @param {goog.net.XmlHttpFactory=} opt_xmlHttpFactory Specify the
  *     XmlHttpFactory used to retrieve the matches.
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  */
-goog.ui.ac.RemoteArrayMatcher = function(
-    url, opt_noSimilar, opt_xmlHttpFactory) {
-  'use strict';
-  goog.Disposable.call(this);
+export function RemoteArrayMatcher(url, opt_noSimilar, opt_xmlHttpFactory) {
+ Disposable.call(this);
 
-  /**
-   * The base URL for the ajax call.  The token and max_matches are added as
-   * query params.
-   * @type {string}
-   * @private
-   */
-  this.url_ = url;
+ /**
+  * The base URL for the ajax call.  The token and max_matches are added as
+  * query params.
+  * @type {string}
+  * @private
+  */
+ this.url_ = url;
 
-  /**
-   * Whether similar matches should be found as well.  This is sent as a hint
-   * to the server only.
-   * @type {boolean}
-   * @private
-   */
-  this.useSimilar_ = !opt_noSimilar;
+ /**
+  * Whether similar matches should be found as well.  This is sent as a hint
+  * to the server only.
+  * @type {boolean}
+  * @private
+  */
+ this.useSimilar_ = !opt_noSimilar;
 
-  /**
+ /**
    * The XhrIo object used for making remote requests.  When a new request
    * is made, the current one is aborted and the new one sent.
-   * @type {goog.net.XhrIo}
+   * @type {XhrIo}
    * @private
    */
-  this.xhr_ = new goog.net.XhrIo(opt_xmlHttpFactory);
-};
-goog.inherits(goog.ui.ac.RemoteArrayMatcher, goog.Disposable);
+ this.xhr_ = new XhrIo(opt_xmlHttpFactory);
+}
+goog.inherits(RemoteArrayMatcher, Disposable);
 
 
 /**
@@ -71,7 +68,7 @@ goog.inherits(goog.ui.ac.RemoteArrayMatcher, goog.Disposable);
  * @type {string}
  * @private
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.method_ = 'GET';
+RemoteArrayMatcher.prototype.method_ = 'GET';
 
 
 /**
@@ -79,7 +76,7 @@ goog.ui.ac.RemoteArrayMatcher.prototype.method_ = 'GET';
  * @type {string|undefined}
  * @private
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.content_ = undefined;
+RemoteArrayMatcher.prototype.content_ = undefined;
 
 
 /**
@@ -87,24 +84,23 @@ goog.ui.ac.RemoteArrayMatcher.prototype.content_ = undefined;
  * @type {?Object|?goog.structs.Map}
  * @private
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.headers_ = null;
+RemoteArrayMatcher.prototype.headers_ = null;
 
 
 /**
  * Key to the listener on XHR. Used to clear previous listeners.
- * @type {?goog.events.Key}
+ * @type {?events.Key}
  * @private
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.lastListenerKey_ = null;
+RemoteArrayMatcher.prototype.lastListenerKey_ = null;
 
 
 /**
  * Set the send method ("GET", "POST").
  * @param {string} method The send method; default: GET.
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.setMethod = function(method) {
-  'use strict';
-  this.method_ = method;
+RemoteArrayMatcher.prototype.setMethod = function(method) {
+ this.method_ = method;
 };
 
 
@@ -112,9 +108,8 @@ goog.ui.ac.RemoteArrayMatcher.prototype.setMethod = function(method) {
  * Set the post data.
  * @param {string} content Post data.
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.setContent = function(content) {
-  'use strict';
-  this.content_ = content;
+RemoteArrayMatcher.prototype.setContent = function(content) {
+ this.content_ = content;
 };
 
 
@@ -123,9 +118,8 @@ goog.ui.ac.RemoteArrayMatcher.prototype.setContent = function(content) {
  * @param {Object|goog.structs.Map} headers Map of headers to add to the
  *     request.
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.setHeaders = function(headers) {
-  'use strict';
-  this.headers_ = headers;
+RemoteArrayMatcher.prototype.setHeaders = function(headers) {
+ this.headers_ = headers;
 };
 
 
@@ -134,10 +128,9 @@ goog.ui.ac.RemoteArrayMatcher.prototype.setHeaders = function(headers) {
  * @param {number} interval Number of milliseconds after which an
  *     incomplete request will be aborted; 0 means no timeout is set.
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.setTimeoutInterval = function(
+RemoteArrayMatcher.prototype.setTimeoutInterval = function(
     interval) {
-  'use strict';
-  this.xhr_.setTimeoutInterval(interval);
+ this.xhr_.setTimeoutInterval(interval);
 };
 
 
@@ -154,14 +147,13 @@ goog.ui.ac.RemoteArrayMatcher.prototype.setTimeoutInterval = function(
  * @return {?string} The complete url. Return null if no request should be sent.
  * @protected
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.buildUrl = function(
+RemoteArrayMatcher.prototype.buildUrl = function(
     uri, token, maxMatches, useSimilar, opt_fullString) {
-  'use strict';
-  var url = new goog.Uri(uri);
-  url.setParameterValue('token', token);
-  url.setParameterValue('max_matches', String(maxMatches));
-  url.setParameterValue('use_similar', String(Number(useSimilar)));
-  return url.toString();
+ var url = new Uri(uri);
+ url.setParameterValue('token', token);
+ url.setParameterValue('max_matches', String(maxMatches));
+ url.setParameterValue('use_similar', String(Number(useSimilar)));
+ return url.toString();
 };
 
 
@@ -176,10 +168,9 @@ goog.ui.ac.RemoteArrayMatcher.prototype.buildUrl = function(
  * @return {boolean} Whether new matches be requested.
  * @protected
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.shouldRequestMatches = function(
+RemoteArrayMatcher.prototype.shouldRequestMatches = function(
     uri, token, maxMatches, useSimilar, opt_fullString) {
-  'use strict';
-  return true;
+ return true;
 };
 
 
@@ -190,19 +181,18 @@ goog.ui.ac.RemoteArrayMatcher.prototype.shouldRequestMatches = function(
  * @return {Array<string>} The array of suggestions.
  * @protected
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.parseResponseText = function(
+RemoteArrayMatcher.prototype.parseResponseText = function(
     responseText) {
-  'use strict';
-  var matches = [];
-  // If there is no response text, JSON.parse will throw a syntax error.
-  if (responseText) {
+ var matches = [];
+ // If there is no response text, JSON.parse will throw a syntax error.
+ if (responseText) {
 
-    try {
-      matches = JSON.parse(responseText);
-    } catch (exception) {
-    }
-  }
-  return /** @type {Array<string>} */ (matches);
+   try {
+     matches = JSON.parse(responseText);
+   } catch (exception) {
+   }
+ }
+ return /** @type {Array<string>} */ (matches);
 };
 
 
@@ -210,14 +200,13 @@ goog.ui.ac.RemoteArrayMatcher.prototype.parseResponseText = function(
  * Handles the XHR response.
  * @param {string} token The XHR autocomplete token.
  * @param {Function} matchHandler The AutoComplete match handler.
- * @param {goog.events.Event} event The XHR success event.
+ * @param {events.Event} event The XHR success event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.xhrCallback = function(
+RemoteArrayMatcher.prototype.xhrCallback = function(
     token, matchHandler, event) {
-  'use strict';
-  var text = event.target.getResponseText();
-  matchHandler(token, this.parseResponseText(text));
+ var text = event.target.getResponseText();
+ matchHandler(token, this.parseResponseText(text));
 };
 
 
@@ -232,45 +221,43 @@ goog.ui.ac.RemoteArrayMatcher.prototype.xhrCallback = function(
  *     matching.
  * @param {string=} opt_fullString The full string from the input box.
  */
-goog.ui.ac.RemoteArrayMatcher.prototype.requestMatchingRows = function(
+RemoteArrayMatcher.prototype.requestMatchingRows = function(
     token, maxMatches, matchHandler, opt_fullString) {
-  'use strict';
-  if (!this.shouldRequestMatches(
-          this.url_, token, maxMatches, this.useSimilar_, opt_fullString)) {
-    return;
-  }
-  // Set the query params on the URL.
-  var url = this.buildUrl(
-      this.url_, token, maxMatches, this.useSimilar_, opt_fullString);
-  if (!url) {
-    // Do nothing if there is no URL.
-    return;
-  }
+ if (!this.shouldRequestMatches(
+         this.url_, token, maxMatches, this.useSimilar_, opt_fullString)) {
+   return;
+ }
+ // Set the query params on the URL.
+ var url = this.buildUrl(
+     this.url_, token, maxMatches, this.useSimilar_, opt_fullString);
+ if (!url) {
+   // Do nothing if there is no URL.
+   return;
+ }
 
-  // The callback evals the server response and calls the match handler on
-  // the array of matches.
-  var callback = goog.bind(this.xhrCallback, this, token, matchHandler);
+ // The callback evals the server response and calls the match handler on
+ // the array of matches.
+ var callback = goog.bind(this.xhrCallback, this, token, matchHandler);
 
-  // Abort the current request and issue the new one; prevent requests from
-  // being queued up by the browser with a slow server
-  if (this.xhr_.isActive()) {
-    this.xhr_.abort();
-  }
-  // This ensures if previous XHR is aborted or ends with error, the
-  // corresponding success-callbacks are cleared.
-  if (this.lastListenerKey_) {
-    goog.events.unlistenByKey(this.lastListenerKey_);
-  }
-  // Listen once ensures successful callback gets cleared by itself.
-  this.lastListenerKey_ =
-      goog.events.listenOnce(this.xhr_, goog.net.EventType.SUCCESS, callback);
-  this.xhr_.send(url, this.method_, this.content_, this.headers_);
+ // Abort the current request and issue the new one; prevent requests from
+ // being queued up by the browser with a slow server
+ if (this.xhr_.isActive()) {
+   this.xhr_.abort();
+ }
+ // This ensures if previous XHR is aborted or ends with error, the
+ // corresponding success-callbacks are cleared.
+ if (this.lastListenerKey_) {
+   events.unlistenByKey(this.lastListenerKey_);
+ }
+ // Listen once ensures successful callback gets cleared by itself.
+ this.lastListenerKey_ =
+     events.listenOnce(this.xhr_, EventType.SUCCESS, callback);
+ this.xhr_.send(url, this.method_, this.content_, this.headers_);
 };
 
 
 /** @override */
-goog.ui.ac.RemoteArrayMatcher.prototype.disposeInternal = function() {
-  'use strict';
-  this.xhr_.dispose();
-  goog.ui.ac.RemoteArrayMatcher.superClass_.disposeInternal.call(this);
+RemoteArrayMatcher.prototype.disposeInternal = function() {
+ this.xhr_.dispose();
+ RemoteArrayMatcher.superClass_.disposeInternal.call(this);
 };

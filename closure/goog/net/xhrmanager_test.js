@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.XhrManagerTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.net.EventType');
-const TestingNetXhrIo = goog.requireType('goog.testing.net.XhrIo');
-const XhrIo = goog.require('goog.net.XhrIo');
-const XhrIoPool = goog.require('goog.testing.net.XhrIoPool');
-const XhrManager = goog.require('goog.net.XhrManager');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventType } from './eventtype.js';
+import { XhrIo } from './xhrio.js';
+import { XhrIoPool } from '../testing/net/xhriopool.js';
+import { XhrManager } from './xhrmanager.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from '../events/events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+const TestingNetXhrIo = goog.requireType('goog.testing.net.xhrio');
 
 /** @type {XhrManager} */
 let xhrManager;

@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.format.JsonPrettyPrinterTest');
 goog.setTestOnly();
 
-const JsonPrettyPrinter = goog.require('goog.format.JsonPrettyPrinter');
-const testSuite = goog.require('goog.testing.testSuite');
+import { JsonPrettyPrinter } from './jsonprettyprinter.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let formatter;
 

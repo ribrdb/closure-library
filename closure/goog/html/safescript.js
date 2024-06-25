@@ -10,13 +10,11 @@
  * TODO(xtof): Link to document stating type contract.
  */
 
-goog.module('goog.html.SafeScript');
-goog.module.declareLegacyNamespace();
+import { Const } from '../string/const.js';
 
-const Const = goog.require('goog.string.Const');
-const TypedString = goog.require('goog.string.TypedString');
-const trustedtypes = goog.require('goog.html.trustedtypes');
-const {fail} = goog.require('goog.asserts');
+import { TypedString } from '../string/typedstring.js';
+import * as trustedtypes from './trustedtypes.js';
+import { fail } from '../asserts/asserts.js';
 
 /**
  * Token used to ensure that object is created only from this file. No code
@@ -249,4 +247,4 @@ SafeScript.EMPTY = /** @type {!SafeScript} */ ({
 }.valueOf());
 
 
-exports = SafeScript;
+export { SafeScript };

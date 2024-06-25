@@ -10,9 +10,7 @@
  * see: http://www.w3.org/TR/webstorage/#the-sessionstorage-attribute.
  */
 
-goog.provide('goog.storage.mechanism.HTML5SessionStorage');
-
-goog.require('goog.storage.mechanism.HTML5WebStorage');
+import { HTML5WebStorage } from './html5webstorage.js';
 
 
 
@@ -21,21 +19,20 @@ goog.require('goog.storage.mechanism.HTML5WebStorage');
  *
  * @constructor
  * @struct
- * @extends {goog.storage.mechanism.HTML5WebStorage}
+ * @extends {HTML5WebStorage}
  */
-goog.storage.mechanism.HTML5SessionStorage = function() {
-  'use strict';
-  var storage = null;
+export function HTML5SessionStorage() {
+ var storage = null;
 
-  try {
-    // May throw an exception in cases where the session storage object is
-    // visible but access to it is disabled. For example, accessing the file
-    // in local mode in Firefox throws 'Operation is not supported' exception.
-    storage = window.sessionStorage || null;
-  } catch (e) {
-  }
-  goog.storage.mechanism.HTML5SessionStorage.base(this, 'constructor', storage);
-};
+ try {
+   // May throw an exception in cases where the session storage object is
+   // visible but access to it is disabled. For example, accessing the file
+   // in local mode in Firefox throws 'Operation is not supported' exception.
+   storage = window.sessionStorage || null;
+ } catch (e) {
+ }
+ HTML5SessionStorage.base(this, 'constructor', storage);
+}
 goog.inherits(
-    goog.storage.mechanism.HTML5SessionStorage,
-    goog.storage.mechanism.HTML5WebStorage);
+    HTML5SessionStorage,
+    HTML5WebStorage);

@@ -8,24 +8,8 @@
  * @fileoverview Useful compiler idioms.
  */
 
-goog.provide('goog.reflect');
-
-
-/**
- * Syntax for object literal casts.
- * @see http://go/jscompiler-renaming
- * @see https://goo.gl/CRs09P
- *
- * Use this if you have an object literal whose keys need to have the same names
- * as the properties of some class even after they are renamed by the compiler.
- *
- * @param {!Function} type Type to cast to.
- * @param {Object} object Object literal to cast.
- * @return {Object} The object literal.
- */
-goog.reflect.object = function(type, object) {
-  'use strict';
-  return object;
+object_ = function(type, object) {
+ return object;
 };
 
 /**
@@ -35,7 +19,7 @@ goog.reflect.object = function(type, object) {
  *
  * Use this if you have an need to access a property as a string, but want
  * to also have the property renamed by the compiler. In contrast to
- * goog.reflect.object, this method takes an instance of an object.
+ * object, this method takes an instance of an object.
  *
  * Properties must be simple names (not qualified names).
  *
@@ -44,34 +28,32 @@ goog.reflect.object = function(type, object) {
  *     for renaming
  * @return {string} The renamed property.
  */
-goog.reflect.objectProperty = function(prop, object) {
-  'use strict';
-  return prop;
-};
+export function objectProperty(prop, object) {
+ return prop;
+}
 
 /**
  * To assert to the compiler that an operation is needed when it would
  * otherwise be stripped. For example:
  * <code>
  *     // Force a layout
- *     goog.reflect.sinkValue(dialog.offsetHeight);
+ *     sinkValue(dialog.offsetHeight);
  * </code>
  * @param {T} x
  * @return {T}
  * @template T
  */
-goog.reflect.sinkValue = function(x) {
-  'use strict';
-  goog.reflect.sinkValue[' '](x);
-  return x;
-};
+export function sinkValue(x) {
+ sinkValue[' '](x);
+ return x;
+}
 
 
 /**
  * The compiler should optimize this function away iff no one ever uses
- * goog.reflect.sinkValue.
+ * sinkValue.
  */
-goog.reflect.sinkValue[' '] = function() {};
+sinkValue[' '] = function() {};
 
 
 /**
@@ -81,15 +63,14 @@ goog.reflect.sinkValue[' '] = function() {};
  * @return {boolean} Whether the property is accessible. Will also return true
  *     if obj is null.
  */
-goog.reflect.canAccessProperty = function(obj, prop) {
-  'use strict';
-  try {
-    goog.reflect.sinkValue(obj[prop]);
-    return true;
-  } catch (e) {
-  }
-  return false;
-};
+export function canAccessProperty(obj, prop) {
+ try {
+   sinkValue(obj[prop]);
+   return true;
+ } catch (e) {
+ }
+ return false;
+}
 
 
 /**
@@ -103,7 +84,7 @@ goog.reflect.canAccessProperty = function(obj, prop) {
  * the value was never used, it would still always be stored in the cache.
  *
  * Providing a side-effect free `valueFn` and `opt_keyFn`
- * allows unused calls to `goog.reflect.cache` to be pruned.
+ * allows unused calls to `cache` to be pruned.
  *
  * @param {!Object<K, V>} cacheObj The object that contains the cached values.
  * @param {?} key The key to lookup in the cache. If it is not string or number
@@ -120,13 +101,14 @@ goog.reflect.canAccessProperty = function(obj, prop) {
  * @template K
  * @template V
  */
-goog.reflect.cache = function(cacheObj, key, valueFn, opt_keyFn) {
-  'use strict';
-  const storedKey = opt_keyFn ? opt_keyFn(key) : key;
+export function cache(cacheObj, key, valueFn, opt_keyFn) {
+ const storedKey = opt_keyFn ? opt_keyFn(key) : key;
 
-  if (Object.prototype.hasOwnProperty.call(cacheObj, storedKey)) {
-    return cacheObj[storedKey];
-  }
+ if (Object.prototype.hasOwnProperty.call(cacheObj, storedKey)) {
+   return cacheObj[storedKey];
+ }
 
-  return (cacheObj[storedKey] = valueFn(key));
-};
+ return (cacheObj[storedKey] = valueFn(key));
+}
+var object_;
+export { object_ as object };

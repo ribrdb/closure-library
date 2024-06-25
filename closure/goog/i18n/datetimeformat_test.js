@@ -8,75 +8,77 @@
  * @fileoverview
  * @suppress {missingRequire} swapping implementation using fully qualified name
  */
-goog.module('goog.i18n.DateTimeFormatTest');
 goog.setTestOnly();
 
 
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
+import * as LocaleFeature from './localefeature.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Date as DateDate, DateTime } from '../date/date.js';
+import { DateTimeFormat } from './datetimeformat.js';
+
+/** @suppress {extraRequire} */
+import {
+  DateTimePatterns,
+  DateTimePatterns_ar_EG,
+  DateTimePatterns_bg,
+  DateTimePatterns_bn,
+  DateTimePatterns_de,
+  DateTimePatterns_en as DateTimePatterns_en_GB,
+  DateTimePatterns_fa,
+  DateTimePatterns_fr,
+  DateTimePatterns_ja,
+  DateTimePatterns_sv,
+  DateTimePatterns_zh_HK,
+} from './datetimepatterns.js';
+
+import { DateTimePatterns_en_XA, DateTimePatterns_zh_Hant_TW } from './datetimepatternsext.js';
+
+/** @suppress {extraRequire} */
+import {
+  DateTimeSymbols,
+  DateTimeSymbols_ar,
+  DateTimeSymbols_ar_EG,
+  DateTimeSymbols_bg,
+  DateTimeSymbols_bn,
+  DateTimeSymbols_de,
+  DateTimeSymbols_en,
+  DateTimeSymbols_en_GB,
+  DateTimeSymbols_en_IE,
+  DateTimeSymbols_en_IN,
+  DateTimeSymbols_en_US,
+  DateTimeSymbols_fa,
+  DateTimeSymbols_fr,
+  DateTimeSymbols_ja,
+  DateTimeSymbols_ml,
+  DateTimeSymbols_mr,
+  DateTimeSymbols_my,
+  DateTimeSymbols_ne,
+  DateTimeSymbols_sv,
+  DateTimeSymbols_zh_HK,
+  DateTimeSymbols_zh_TW,
+} from './datetimesymbols.js';
+
+import {
+  DateTimeSymbols_ar_AE,
+  DateTimeSymbols_ar_SA,
+  DateTimeSymbols_bn_BD,
+  DateTimeSymbols_en_XA,
+  DateTimeSymbols_fr_DJ,
+  DateTimeSymbols_he_IL,
+  DateTimeSymbols_ro_RO,
+  DateTimeSymbols_zh_Hant_TW,
+} from './datetimesymbolsext.js';
+
+import { TimeZone } from './timezone.js';
+import { addI18nMapping, assertI18nEquals } from '../testing/i18n/asserts.js';
+import { removeWhitespace } from '../testing/i18n/whitespace.js';
+import { DayPeriods_zh_Hant, setDayPeriods } from './dayperiodsymbols.js';
+import { UtcDateTime } from '../date/utcdatetime.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Note that exact formatted output equivalence between Closure and
 // ECMAScript implementations is not required in all cases.
 const replacer = new PropertyReplacer();
-
-const DateDate = goog.require('goog.date.Date');
-const DateTime = goog.require('goog.date.DateTime');
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-/** @suppress {extraRequire} */
-const DateTimePatterns = goog.require('goog.i18n.DateTimePatterns');
-const DateTimePatterns_ar_EG = goog.require('goog.i18n.DateTimePatterns_ar_EG');
-const DateTimePatterns_bg = goog.require('goog.i18n.DateTimePatterns_bg');
-const DateTimePatterns_bn = goog.require('goog.i18n.DateTimePatterns_bn');
-const DateTimePatterns_de = goog.require('goog.i18n.DateTimePatterns_de');
-const DateTimePatterns_en = goog.require('goog.i18n.DateTimePatterns_en');
-const DateTimePatterns_en_GB = goog.require('goog.i18n.DateTimePatterns_en');
-const DateTimePatterns_en_XA = goog.require('goog.i18n.DateTimePatterns_en_XA');
-const DateTimePatterns_fa = goog.require('goog.i18n.DateTimePatterns_fa');
-const DateTimePatterns_fr = goog.require('goog.i18n.DateTimePatterns_fr');
-const DateTimePatterns_ja = goog.require('goog.i18n.DateTimePatterns_ja');
-const DateTimePatterns_sv = goog.require('goog.i18n.DateTimePatterns_sv');
-const DateTimePatterns_zh_HK = goog.require('goog.i18n.DateTimePatterns_zh_HK');
-const DateTimePatterns_zh_Hant_TW = goog.require('goog.i18n.DateTimePatterns_zh_Hant_TW');
-/** @suppress {extraRequire} */
-const DateTimeSymbols = goog.require('goog.i18n.DateTimeSymbols');
-const DateTimeSymbols_ar = goog.require('goog.i18n.DateTimeSymbols_ar');
-const DateTimeSymbols_ar_AE = goog.require('goog.i18n.DateTimeSymbols_ar_AE');
-const DateTimeSymbols_ar_EG = goog.require('goog.i18n.DateTimeSymbols_ar_EG');
-const DateTimeSymbols_ar_SA = goog.require('goog.i18n.DateTimeSymbols_ar_SA');
-const DateTimeSymbols_bg = goog.require('goog.i18n.DateTimeSymbols_bg');
-const DateTimeSymbols_bn = goog.require('goog.i18n.DateTimeSymbols_bn');
-const DateTimeSymbols_bn_BD = goog.require('goog.i18n.DateTimeSymbols_bn_BD');
-const DateTimeSymbols_de = goog.require('goog.i18n.DateTimeSymbols_de');
-const DateTimeSymbols_en = goog.require('goog.i18n.DateTimeSymbols_en');
-const DateTimeSymbols_en_GB = goog.require('goog.i18n.DateTimeSymbols_en_GB');
-const DateTimeSymbols_en_IE = goog.require('goog.i18n.DateTimeSymbols_en_IE');
-const DateTimeSymbols_en_IN = goog.require('goog.i18n.DateTimeSymbols_en_IN');
-const DateTimeSymbols_en_US = goog.require('goog.i18n.DateTimeSymbols_en_US');
-const DateTimeSymbols_en_XA = goog.require('goog.i18n.DateTimeSymbols_en_XA');
-const DateTimeSymbols_fa = goog.require('goog.i18n.DateTimeSymbols_fa');
-const DateTimeSymbols_fr = goog.require('goog.i18n.DateTimeSymbols_fr');
-const DateTimeSymbols_fr_DJ = goog.require('goog.i18n.DateTimeSymbols_fr_DJ');
-const DateTimeSymbols_he_IL = goog.require('goog.i18n.DateTimeSymbols_he_IL');
-const DateTimeSymbols_ja = goog.require('goog.i18n.DateTimeSymbols_ja');
-const DateTimeSymbols_ml = goog.require('goog.i18n.DateTimeSymbols_ml');
-const DateTimeSymbols_mr = goog.require('goog.i18n.DateTimeSymbols_mr');
-const DateTimeSymbols_my = goog.require('goog.i18n.DateTimeSymbols_my');
-const DateTimeSymbols_ne = goog.require('goog.i18n.DateTimeSymbols_ne');
-const DateTimeSymbols_ro_RO = goog.require('goog.i18n.DateTimeSymbols_ro_RO');
-const DateTimeSymbols_sv = goog.require('goog.i18n.DateTimeSymbols_sv');
-const DateTimeSymbols_zh_HK = goog.require('goog.i18n.DateTimeSymbols_zh_HK');
-const DateTimeSymbols_zh_Hant_TW = goog.require('goog.i18n.DateTimeSymbols_zh_Hant_TW');
-const DateTimeSymbols_zh_TW = goog.require('goog.i18n.DateTimeSymbols_zh_TW');
-const TimeZone = goog.require('goog.i18n.TimeZone');
-
-const {addI18nMapping, assertI18nEquals} = goog.require('goog.testing.i18n.asserts');
-const {removeWhitespace} = goog.require('goog.testing.i18n.whitespace');
-
-const {DayPeriods_zh_Hant, setDayPeriods} = goog.require('goog.i18n.DayPeriods');
-
-const UtcDateTime = goog.require('goog.date.UtcDateTime');
-
-const testSuite = goog.require('goog.testing.testSuite');
 
 // Initial values
 replacer.replace(goog.i18n, 'DateTimePatterns', DateTimePatterns_en);

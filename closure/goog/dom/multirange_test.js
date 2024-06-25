@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.MultiRangeTest');
 goog.setTestOnly();
 
-const MultiRange = goog.require('goog.dom.MultiRange');
-const Range = goog.require('goog.dom.Range');
-const dom = goog.require('goog.dom');
-const iter = goog.require('goog.iter');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MultiRange } from './multirange.js';
+import * as Range from './range.js';
+import * as dom from './dom.js';
+import * as iter from '../iter/iter.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let range;
 

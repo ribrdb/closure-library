@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.TraceTest');
 goog.setTestOnly();
 
-const StopTraceDetail = goog.requireType('goog.debug.StopTraceDetail');
-const Trace = goog.require('goog.debug.Trace');
-const googArray = goog.require('goog.array');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+const StopTraceDetail = goog.requireType('goog.debug.tracer');
+import { Trace } from './tracer.js';
+import * as googArray from '../array/array.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** @type {!Function} */
 const recorder = recordFunction();

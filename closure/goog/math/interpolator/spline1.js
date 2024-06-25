@@ -11,23 +11,21 @@
  * See http://en.wikipedia.org/wiki/Spline_interpolation.
  */
 
-goog.provide('goog.math.interpolator.Spline1');
+import * as array from '../../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.math');
-goog.require('goog.math.interpolator.Interpolator1');
-goog.require('goog.math.tdma');
+import * as asserts from '../../asserts/asserts.js';
+import * as math from '../math.js';
+import { Interpolator1 } from './interpolator1.js';
+import * as tdma from '../tdma.js';
 
 
 
 /**
  * A one dimensional cubic spline interpolator with natural boundary conditions.
- * @implements {goog.math.interpolator.Interpolator1}
+ * @implements {Interpolator1}
  * @constructor
  */
-goog.math.interpolator.Spline1 = function() {
-  'use strict';
+export function Spline1() {
   /**
    * The abscissa of the data points.
    * @type {!Array<number>}
@@ -42,13 +40,12 @@ goog.math.interpolator.Spline1 = function() {
    * @private
    */
   this.coeffs_ = [[0, 0, 0, Number.NaN]];
-};
+}
 
 
 /** @override */
-goog.math.interpolator.Spline1.prototype.setData = function(x, y) {
-  'use strict';
-  goog.asserts.assert(
+Spline1.prototype.setData = function(x, y) {
+  asserts.assert(
       x.length == y.length,
       'input arrays to setData should have the same length');
   if (x.length > 0) {
@@ -62,13 +59,12 @@ goog.math.interpolator.Spline1.prototype.setData = function(x, y) {
 
 
 /** @override */
-goog.math.interpolator.Spline1.prototype.interpolate = function(x) {
-  'use strict';
-  let pos = goog.array.binarySearch(this.x_, x);
+Spline1.prototype.interpolate = function(x) {
+  let pos = array.binarySearch(this.x_, x);
   if (pos < 0) {
     pos = -pos - 2;
   }
-  pos = goog.math.clamp(pos, 0, this.coeffs_.length - 1);
+  pos = math.clamp(pos, 0, this.coeffs_.length - 1);
 
   const d = x - this.x_[pos];
   const d2 = d * d;
@@ -86,8 +82,7 @@ goog.math.interpolator.Spline1.prototype.interpolate = function(x) {
  * @return {!Array<!Array<number>>} The spline interval coefficients.
  * @private
  */
-goog.math.interpolator.Spline1.prototype.computeSplineCoeffs_ = function(x, y) {
-  'use strict';
+Spline1.prototype.computeSplineCoeffs_ = function(x, y) {
   const nIntervals = x.length - 1;
   const dx = new Array(nIntervals);
   const delta = new Array(nIntervals);
@@ -135,9 +130,8 @@ goog.math.interpolator.Spline1.prototype.computeSplineCoeffs_ = function(x, y) {
  * @return {!Array<number>} The Spline derivative at each data point.
  * @protected
  */
-goog.math.interpolator.Spline1.prototype.computeDerivatives = function(
+Spline1.prototype.computeDerivatives = function(
     dx, slope) {
-  'use strict';
   const nIntervals = dx.length;
 
   // Compute the main diagonal of the system of equations.
@@ -177,7 +171,7 @@ goog.math.interpolator.Spline1.prototype.computeDerivatives = function(
       subDiag[nIntervals - 1];
 
   // Solve the system of equations.
-  const deriv = goog.math.tdma.solve(subDiag, mainDiag, supDiag, vecRight);
+  const deriv = tdma.solve(subDiag, mainDiag, supDiag, vecRight);
 
   return deriv;
 };
@@ -190,9 +184,8 @@ goog.math.interpolator.Spline1.prototype.computeDerivatives = function(
  * points passed to setData.
  * @override
  */
-goog.math.interpolator.Spline1.prototype.getInverse = function() {
-  'use strict';
-  const interpolator = new goog.math.interpolator.Spline1();
+Spline1.prototype.getInverse = function() {
+  const interpolator = new Spline1();
   const y = [];
   for (let i = 0; i < this.x_.length; i++) {
     y[i] = this.interpolate(this.x_[i]);

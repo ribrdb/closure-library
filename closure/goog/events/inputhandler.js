@@ -25,15 +25,13 @@
  * @see ../demos/inputhandler.html
  */
 
-goog.provide('goog.events.InputHandler');
-goog.provide('goog.events.InputHandler.EventType');
+import { Timer } from '../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.events.BrowserEvent');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.KeyCodes');
-goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { EventHandler } from './eventhandler.js';
+import { EventTarget } from './eventtarget.js';
+import { KeyCodes } from './keycodes.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
@@ -43,11 +41,10 @@ goog.require('goog.userAgent');
  * @param {Element} element  The element that you want to listen for input
  *     events on.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.events.InputHandler = function(element) {
-  'use strict';
-  goog.events.InputHandler.base(this, 'constructor');
+export function InputHandler(element) {
+  InputHandler.base(this, 'constructor');
 
   /**
    * Id of a timer used to postpone firing input event in emulation mode.
@@ -72,13 +69,13 @@ goog.events.InputHandler = function(element) {
   //   event.
   // IE9 supports input events when characters are inserted, but not deleted.
   // WebKit before version 531 did not support input events for textareas.
-  var emulateInputEvents = goog.userAgent.IE || goog.userAgent.EDGE;
+  var emulateInputEvents = userAgent.IE || userAgent.EDGE;
 
   /**
-   * @type {goog.events.EventHandler<!goog.events.InputHandler>}
-   * @private
-   */
-  this.eventHandler_ = new goog.events.EventHandler(this);
+       * @type {EventHandler<!InputHandler>}
+       * @private
+       */
+  this.eventHandler_ = new EventHandler(this);
 
   // Even if input event emulation is enabled, still listen for input events
   // since they may be partially supported by the browser (such as IE9).
@@ -92,32 +89,31 @@ goog.events.InputHandler = function(element) {
       emulateInputEvents ? ['keydown', 'paste', 'cut', 'drop', 'input'] :
                            'input',
       this);
-};
-goog.inherits(goog.events.InputHandler, goog.events.EventTarget);
+}
+goog.inherits(InputHandler, EventTarget);
 
 
 /**
  * Enum type for the events fired by the input handler
  * @enum {string}
  */
-goog.events.InputHandler.EventType = {
+InputHandler.EventType = {
   INPUT: 'input'
 };
 
 
 /**
  * This handles the underlying events and dispatches a new event as needed.
- * @param {goog.events.BrowserEvent} e The underlying browser event.
+ * @param {BrowserEvent} e The underlying browser event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.InputHandler.prototype.handleEvent = function(e) {
-  'use strict';
+InputHandler.prototype.handleEvent = function(e) {
   if (e.type == 'input') {
     // http://stackoverflow.com/questions/18389732/changing-placeholder-triggers-input-event-in-ie-10
     // IE 10+ fires an input event when there are inputs with placeholders.
     // It fires the event with keycode 0, so if we detect it we don't
     // propagate the input event.
-    if (goog.userAgent.IE && e.keyCode == 0 && e.charCode == 0) {
+    if (userAgent.IE && e.keyCode == 0 && e.charCode == 0) {
       return;
     }
     // This event happens after all the other events we listen to, so cancel
@@ -129,7 +125,7 @@ goog.events.InputHandler.prototype.handleEvent = function(e) {
   } else {
     // Filter out key events that don't modify text.
     if (e.type == 'keydown' &&
-        !goog.events.KeyCodes.isTextModifyingKeyEvent(e)) {
+        !KeyCodes.isTextModifyingKeyEvent(e)) {
       return;
     }
 
@@ -145,7 +141,7 @@ goog.events.InputHandler.prototype.handleEvent = function(e) {
     // event. This means that ENTER when used to commit will fire a spurious
     // input event, but it's better to have a false positive than let some input
     // slip through the cracks.
-    if (goog.userAgent.IE && e.keyCode == goog.events.KeyCodes.WIN_IME) {
+    if (userAgent.IE && e.keyCode == KeyCodes.WIN_IME) {
       valueBeforeKey = null;
     }
 
@@ -158,13 +154,12 @@ goog.events.InputHandler.prototype.handleEvent = function(e) {
     // until value is updated.
     this.cancelTimerIfSet_();
     this.timer_ =
-        goog.Timer
+        Timer
             .callOnce(/**
                          @suppress {strictMissingProperties} Part of the
                          go/strict_warnings_migration
                        */
                       function() {
-                        'use strict';
                         this.timer_ = null;
                         if (this.element_.value != valueBeforeKey) {
                           this.dispatchEvent(inputEvent);
@@ -179,10 +174,9 @@ goog.events.InputHandler.prototype.handleEvent = function(e) {
  * Cancels timer if it is set, does nothing otherwise.
  * @private
  */
-goog.events.InputHandler.prototype.cancelTimerIfSet_ = function() {
-  'use strict';
+InputHandler.prototype.cancelTimerIfSet_ = function() {
   if (this.timer_ != null) {
-    goog.Timer.clear(this.timer_);
+    Timer.clear(this.timer_);
     this.timer_ = null;
   }
 };
@@ -190,22 +184,20 @@ goog.events.InputHandler.prototype.cancelTimerIfSet_ = function() {
 
 /**
  * Creates an input event from the browser event.
- * @param {goog.events.BrowserEvent} be A browser event.
- * @return {!goog.events.BrowserEvent} An input event.
+ * @param {BrowserEvent} be A browser event.
+ * @return {!BrowserEvent} An input event.
  * @private
  */
-goog.events.InputHandler.prototype.createInputEvent_ = function(be) {
-  'use strict';
-  var e = new goog.events.BrowserEvent(be.getBrowserEvent());
-  e.type = goog.events.InputHandler.EventType.INPUT;
+InputHandler.prototype.createInputEvent_ = function(be) {
+  var e = new BrowserEvent(be.getBrowserEvent());
+  e.type = InputHandler.EventType.INPUT;
   return e;
 };
 
 
 /** @override */
-goog.events.InputHandler.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.InputHandler.base(this, 'disposeInternal');
+InputHandler.prototype.disposeInternal = function() {
+  InputHandler.base(this, 'disposeInternal');
   this.eventHandler_.dispose();
   this.cancelTimerIfSet_();
   delete this.element_;

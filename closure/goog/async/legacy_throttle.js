@@ -8,9 +8,6 @@
  * @fileoverview Provides a deprecated alias for goog.async.Throttle
  * @deprecated Use goog.async.Throttle instead.
  */
-goog.module('goog.Throttle');
-goog.module.declareLegacyNamespace();
+import { Throttle } from './throttle.js';
 
-const Throttle = goog.require('goog.async.Throttle');
-
-exports = Throttle;
+export { Throttle };

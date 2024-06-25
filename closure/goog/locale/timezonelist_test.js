@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.locale.TimeZoneListTest');
 goog.setTestOnly();
 
-const locale = goog.require('goog.locale');
-const testSuite = goog.require('goog.testing.testSuite');
-const timezonelist = goog.require('goog.locale.timezonelist');
+import * as locale from './locale.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as timezonelist from './timezonelist.js';
 
 /* Uncomment to display complete listing in the unit tested invocations.
 

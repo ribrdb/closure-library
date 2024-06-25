@@ -15,21 +15,20 @@
  * @see ../demos/hsvpalette.html
  */
 
-goog.provide('goog.ui.HsvPalette');
+import * as googColor from '../color/color.js';
 
-goog.require('goog.color');
-goog.require('goog.dom.InputType');
-goog.require('goog.dom.TagName');
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.events.InputHandler');
-goog.require('goog.style');
-goog.require('goog.style.bidi');
-goog.require('goog.ui.Component');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.BrowserEvent');
-goog.requireType('goog.events.Event');
-goog.requireType('goog.math.Rect');
+import { InputType } from '../dom/inputtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../events/events.js';
+import { EventType } from '../events/eventtype.js';
+import { InputHandler } from '../events/inputhandler.js';
+import * as style from '../style/style.js';
+import * as bidi from '../style/bidi.js';
+import { Component } from './component.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.browserevent');
+goog.requireType('goog.events.event');
+goog.requireType('goog.math.rect');
 
 
 
@@ -40,30 +39,29 @@ goog.requireType('goog.math.Rect');
  * @param {string=} opt_color Optional initial color (default is red).
  * @param {string=} opt_class Optional base for creating classnames (default is
  *     goog.getCssName('goog-hsv-palette')).
- * @extends {goog.ui.Component}
+ * @extends {Component}
  * @constructor
  */
-goog.ui.HsvPalette = function(opt_domHelper, opt_color, opt_class) {
-  'use strict';
-  goog.ui.Component.call(this, opt_domHelper);
+export function HsvPalette(opt_domHelper, opt_color, opt_class) {
+ Component.call(this, opt_domHelper);
 
-  this.setColorInternal(opt_color || '#f00');
+ this.setColorInternal(opt_color || '#f00');
 
-  /**
-   * The base class name for the component.
-   * @type {string}
-   * @protected
-   */
-  this.className = opt_class || goog.getCssName('goog-hsv-palette');
+ /**
+  * The base class name for the component.
+  * @type {string}
+  * @protected
+  */
+ this.className = opt_class || goog.getCssName('goog-hsv-palette');
 
-  /**
-   * The document which is being listened to.
-   * type {HTMLDocument}
-   * @private
-   */
-  this.document_ = this.getDomHelper().getDocument();
-};
-goog.inherits(goog.ui.HsvPalette, goog.ui.Component);
+ /**
+  * The document which is being listened to.
+  * type {HTMLDocument}
+  * @private
+  */
+ this.document_ = this.getDomHelper().getDocument();
+}
+goog.inherits(HsvPalette, Component);
 // TODO(user): Make this inherit from goog.ui.Control and split this into
 // a control and a renderer.
 
@@ -73,7 +71,7 @@ goog.inherits(goog.ui.HsvPalette, goog.ui.Component);
  * specification, such as #ff0000 for red.
  * @private
  */
-goog.ui.HsvPalette.MSG_HSV_PALETTE_HEX_COLOR_ = goog.getMsg('Hex color');
+HsvPalette.MSG_HSV_PALETTE_HEX_COLOR_ = goog.getMsg('Hex color');
 
 
 /**
@@ -81,7 +79,7 @@ goog.ui.HsvPalette.MSG_HSV_PALETTE_HEX_COLOR_ = goog.getMsg('Hex color');
  * @type {HTMLElement}
  * @private
  */
-goog.ui.HsvPalette.prototype.hsImageEl_;
+HsvPalette.prototype.hsImageEl_;
 
 
 /**
@@ -89,7 +87,7 @@ goog.ui.HsvPalette.prototype.hsImageEl_;
  * @type {HTMLElement}
  * @private
  */
-goog.ui.HsvPalette.prototype.hsHandleEl_;
+HsvPalette.prototype.hsHandleEl_;
 
 
 /**
@@ -97,7 +95,7 @@ goog.ui.HsvPalette.prototype.hsHandleEl_;
  * @type {HTMLElement}
  * @protected
  */
-goog.ui.HsvPalette.prototype.valueBackgroundImageElement;
+HsvPalette.prototype.valueBackgroundImageElement;
 
 
 /**
@@ -105,7 +103,7 @@ goog.ui.HsvPalette.prototype.valueBackgroundImageElement;
  * @type {HTMLElement}
  * @private
  */
-goog.ui.HsvPalette.prototype.vHandleEl_;
+HsvPalette.prototype.vHandleEl_;
 
 
 /**
@@ -113,7 +111,7 @@ goog.ui.HsvPalette.prototype.vHandleEl_;
  * @type {Element}
  * @protected
  */
-goog.ui.HsvPalette.prototype.swatchElement;
+HsvPalette.prototype.swatchElement;
 
 
 /**
@@ -121,51 +119,50 @@ goog.ui.HsvPalette.prototype.swatchElement;
  * @type {Element}
  * @protected
  */
-goog.ui.HsvPalette.prototype.inputElement;
+HsvPalette.prototype.inputElement;
 
 
 /**
  * Input handler object for the hex value input field.
- * @type {goog.events.InputHandler}
+ * @type {InputHandler}
  * @private
  */
-goog.ui.HsvPalette.prototype.inputHandler_;
+HsvPalette.prototype.inputHandler_;
 
 
 /**
  * Listener key for the mousemove event (during a drag operation).
- * @type {goog.events.Key}
+ * @type {events.Key}
  * @protected
  */
-goog.ui.HsvPalette.prototype.mouseMoveListener;
+HsvPalette.prototype.mouseMoveListener;
 
 
 /**
  * Listener key for the mouseup event (during a drag operation).
- * @type {goog.events.Key}
+ * @type {events.Key}
  * @protected
  */
-goog.ui.HsvPalette.prototype.mouseUpListener;
+HsvPalette.prototype.mouseUpListener;
 
 
-/** @private {!goog.color.Hsv} */
-goog.ui.HsvPalette.prototype.hsv_;
+/** @private {!googColor.Hsv} */
+HsvPalette.prototype.hsv_;
 
 
 /**
  * Hex representation of the color.
  * @protected {string}
  */
-goog.ui.HsvPalette.prototype.color;
+HsvPalette.prototype.color;
 
 
 /**
  * Gets the color that is currently selected in this color picker.
  * @return {string} The string of the selected color.
  */
-goog.ui.HsvPalette.prototype.getColor = function() {
-  'use strict';
-  return this.color;
+HsvPalette.prototype.getColor = function() {
+ return this.color;
 };
 
 
@@ -175,9 +172,8 @@ goog.ui.HsvPalette.prototype.getColor = function() {
  * this method.
  * @return {number} The current alpha value.
  */
-goog.ui.HsvPalette.prototype.getAlpha = function() {
-  'use strict';
-  return 1;
+HsvPalette.prototype.getAlpha = function() {
+ return 1;
 };
 
 
@@ -186,17 +182,16 @@ goog.ui.HsvPalette.prototype.getAlpha = function() {
  * @protected
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.HsvPalette.prototype.updateInput = function() {
-  'use strict';
-  var parsed;
-  try {
-    parsed = goog.color.parse(this.inputElement.value).hex;
-  } catch (e) {
-    // ignore
-  }
-  if (this.color != parsed) {
-    this.inputElement.value = this.color;
-  }
+HsvPalette.prototype.updateInput = function() {
+ var parsed;
+ try {
+   parsed = googColor.parse(this.inputElement.value).hex;
+ } catch (e) {
+   // ignore
+ }
+ if (this.color != parsed) {
+   this.inputElement.value = this.color;
+ }
 };
 
 
@@ -206,16 +201,15 @@ goog.ui.HsvPalette.prototype.updateInput = function() {
  * @param {boolean=} opt_disableDispatchEvent (optional) Whether the event
  * should not be fired.
  */
-goog.ui.HsvPalette.prototype.setColor = function(
+HsvPalette.prototype.setColor = function(
     color, opt_disableDispatchEvent) {
-  'use strict';
-  if (color != this.color) {
-    this.setColorInternal(color);
-    this.updateUi();
-    if (!opt_disableDispatchEvent) {
-      this.dispatchEvent(goog.ui.Component.EventType.ACTION);
-    }
-  }
+ if (color != this.color) {
+   this.setColorInternal(color);
+   this.updateUi();
+   if (!opt_disableDispatchEvent) {
+     this.dispatchEvent(Component.EventType.ACTION);
+   }
+ }
 };
 
 
@@ -224,16 +218,15 @@ goog.ui.HsvPalette.prototype.setColor = function(
  * @param {string} color The selected color.
  * @protected
  */
-goog.ui.HsvPalette.prototype.setColorInternal = function(color) {
-  'use strict';
-  var rgbHex = goog.color.parse(color).hex;
-  var rgbArray = goog.color.hexToRgb(rgbHex);
-  this.hsv_ = goog.color.rgbArrayToHsv(rgbArray);
-  // Hue is divided by 360 because the documentation for goog.color is currently
-  // incorrect.
-  // TODO(user): Fix this, see http://1324469 .
-  this.hsv_[0] = this.hsv_[0] / 360;
-  this.color = rgbHex;
+HsvPalette.prototype.setColorInternal = function(color) {
+ var rgbHex = googColor.parse(color).hex;
+ var rgbArray = googColor.hexToRgb(rgbHex);
+ this.hsv_ = googColor.rgbArrayToHsv(rgbArray);
+ // Hue is divided by 360 because the documentation for goog.color is currently
+ // incorrect.
+ // TODO(user): Fix this, see http://1324469 .
+ this.hsv_[0] = this.hsv_[0] / 360;
+ this.color = rgbHex;
 };
 
 
@@ -244,14 +237,13 @@ goog.ui.HsvPalette.prototype.setColorInternal = function(color) {
  * @param {?number=} opt_saturation (optional) saturation in [0, 1].
  * @param {?number=} opt_value (optional) value in [0, 255].
  */
-goog.ui.HsvPalette.prototype.setHsv = function(
+HsvPalette.prototype.setHsv = function(
     opt_hue, opt_saturation, opt_value) {
-  'use strict';
-  if (opt_hue != null || opt_saturation != null || opt_value != null) {
-    this.setHsv_(opt_hue, opt_saturation, opt_value);
-    this.updateUi();
-    this.dispatchEvent(goog.ui.Component.EventType.ACTION);
-  }
+ if (opt_hue != null || opt_saturation != null || opt_value != null) {
+   this.setHsv_(opt_hue, opt_saturation, opt_value);
+   this.updateUi();
+   this.dispatchEvent(Component.EventType.ACTION);
+ }
 };
 
 
@@ -262,17 +254,16 @@ goog.ui.HsvPalette.prototype.setHsv = function(
  * @param {?number=} opt_value (optional) value in [0, 255].
  * @private
  */
-goog.ui.HsvPalette.prototype.setHsv_ = function(
+HsvPalette.prototype.setHsv_ = function(
     opt_hue, opt_saturation, opt_value) {
-  'use strict';
-  this.hsv_[0] = (opt_hue != null) ? opt_hue : this.hsv_[0];
-  this.hsv_[1] = (opt_saturation != null) ? opt_saturation : this.hsv_[1];
-  this.hsv_[2] = (opt_value != null) ? opt_value : this.hsv_[2];
-  // Hue is multiplied by 360 because the documentation for goog.color is
-  // currently incorrect.
-  // TODO(user): Fix this, see http://1324469 .
-  this.color = goog.color.hsvArrayToHex(
-      [this.hsv_[0] * 360, this.hsv_[1], this.hsv_[2]]);
+ this.hsv_[0] = (opt_hue != null) ? opt_hue : this.hsv_[0];
+ this.hsv_[1] = (opt_saturation != null) ? opt_saturation : this.hsv_[1];
+ this.hsv_[2] = (opt_value != null) ? opt_value : this.hsv_[2];
+ // Hue is multiplied by 360 because the documentation for goog.color is
+ // currently incorrect.
+ // TODO(user): Fix this, see http://1324469 .
+ this.color = googColor.hsvArrayToHex(
+     [this.hsv_[0] * 360, this.hsv_[1], this.hsv_[2]]);
 };
 
 
@@ -283,61 +274,59 @@ goog.ui.HsvPalette.prototype.setHsv_ = function(
  * @return {boolean} Returns always false.
  * @override
  */
-goog.ui.HsvPalette.prototype.canDecorate = function(element) {
-  'use strict';
-  return false;
+HsvPalette.prototype.canDecorate = function(element) {
+ return false;
 };
 
 
 /** @override */
-goog.ui.HsvPalette.prototype.createDom = function() {
-  'use strict';
-  var dom = this.getDomHelper();
-  var noalpha = '';
+HsvPalette.prototype.createDom = function() {
+ var dom = this.getDomHelper();
+ var noalpha = '';
 
-  var backdrop = dom.createDom(
-      goog.dom.TagName.DIV, goog.getCssName(this.className, 'hs-backdrop'));
+ var backdrop = dom.createDom(
+     TagName.DIV, goog.getCssName(this.className, 'hs-backdrop'));
 
-  this.hsHandleEl_ = /** @type {!HTMLElement} */ (
-      dom.createDom(
-          goog.dom.TagName.DIV, goog.getCssName(this.className, 'hs-handle')));
+ this.hsHandleEl_ = /** @type {!HTMLElement} */ (
+     dom.createDom(
+         TagName.DIV, goog.getCssName(this.className, 'hs-handle')));
 
-  this.hsImageEl_ = /** @type {!HTMLElement} */ (
-      dom.createDom(
-          goog.dom.TagName.DIV, goog.getCssName(this.className, 'hs-image'),
-          this.hsHandleEl_));
+ this.hsImageEl_ = /** @type {!HTMLElement} */ (
+     dom.createDom(
+         TagName.DIV, goog.getCssName(this.className, 'hs-image'),
+         this.hsHandleEl_));
 
-  this.valueBackgroundImageElement = /** @type {!HTMLElement} */ (
-      dom.createDom(
-          goog.dom.TagName.DIV, goog.getCssName(this.className, 'v-image')));
+ this.valueBackgroundImageElement = /** @type {!HTMLElement} */ (
+     dom.createDom(
+         TagName.DIV, goog.getCssName(this.className, 'v-image')));
 
-  this.vHandleEl_ = /** @type {!HTMLElement} */ (
-      dom.createDom(
-          goog.dom.TagName.DIV, goog.getCssName(this.className, 'v-handle')));
+ this.vHandleEl_ = /** @type {!HTMLElement} */ (
+     dom.createDom(
+         TagName.DIV, goog.getCssName(this.className, 'v-handle')));
 
-  this.swatchElement = dom.createDom(
-      goog.dom.TagName.DIV, goog.getCssName(this.className, 'swatch'));
+ this.swatchElement = dom.createDom(
+     TagName.DIV, goog.getCssName(this.className, 'swatch'));
 
-  this.inputElement = dom.createDom(goog.dom.TagName.INPUT, {
-    'class': goog.getCssName(this.className, 'input'),
-    'aria-label': goog.ui.HsvPalette.MSG_HSV_PALETTE_HEX_COLOR_,
-    'type': goog.dom.InputType.TEXT,
-    'dir': 'ltr'
-  });
-  // Spellcheck is not necessary, so setting it to false on the inputElement.
-  this.inputElement.spellcheck = false;
+ this.inputElement = dom.createDom(TagName.INPUT, {
+   'class': goog.getCssName(this.className, 'input'),
+   'aria-label': HsvPalette.MSG_HSV_PALETTE_HEX_COLOR_,
+   'type': InputType.TEXT,
+   'dir': 'ltr'
+ });
+ // Spellcheck is not necessary, so setting it to false on the inputElement.
+ this.inputElement.spellcheck = false;
 
-  var labelElement =
-      dom.createDom(goog.dom.TagName.LABEL, null, this.inputElement);
+ var labelElement =
+     dom.createDom(TagName.LABEL, null, this.inputElement);
 
-  var element = dom.createDom(
-      goog.dom.TagName.DIV, this.className + noalpha, backdrop, this.hsImageEl_,
-      this.valueBackgroundImageElement, this.vHandleEl_, this.swatchElement,
-      labelElement);
+ var element = dom.createDom(
+     TagName.DIV, this.className + noalpha, backdrop, this.hsImageEl_,
+     this.valueBackgroundImageElement, this.vHandleEl_, this.swatchElement,
+     labelElement);
 
-  this.setElementInternal(element);
+ this.setElementInternal(element);
 
-  // TODO(arv): Set tabIndex
+ // TODO(arv): Set tabIndex
 };
 
 
@@ -346,47 +335,45 @@ goog.ui.HsvPalette.prototype.createDom = function() {
  * current content of the element.
  * @override
  */
-goog.ui.HsvPalette.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.HsvPalette.superClass_.enterDocument.call(this);
+HsvPalette.prototype.enterDocument = function() {
+ HsvPalette.superClass_.enterDocument.call(this);
 
-  // TODO(user): Accessibility.
+ // TODO(user): Accessibility.
 
-  this.updateUi();
+ this.updateUi();
 
-  var handler = this.getHandler();
-  handler.listen(
-      this.getElement(), goog.events.EventType.MOUSEDOWN, this.handleMouseDown);
+ var handler = this.getHandler();
+ handler.listen(
+     this.getElement(), EventType.MOUSEDOWN, this.handleMouseDown);
 
-  // Cannot create InputHandler in createDom because IE throws an exception
-  // on document.activeElement
-  if (!this.inputHandler_) {
-    this.inputHandler_ = new goog.events.InputHandler(this.inputElement);
-  }
+ // Cannot create InputHandler in createDom because IE throws an exception
+ // on document.activeElement
+ if (!this.inputHandler_) {
+   this.inputHandler_ = new InputHandler(this.inputElement);
+ }
 
-  handler.listen(
-      this.inputHandler_, goog.events.InputHandler.EventType.INPUT,
-      this.handleInput);
+ handler.listen(
+     this.inputHandler_, InputHandler.EventType.INPUT,
+     this.handleInput);
 };
 
 
 /** @override */
-goog.ui.HsvPalette.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.HsvPalette.superClass_.disposeInternal.call(this);
+HsvPalette.prototype.disposeInternal = function() {
+ HsvPalette.superClass_.disposeInternal.call(this);
 
-  delete this.hsImageEl_;
-  delete this.hsHandleEl_;
-  delete this.valueBackgroundImageElement;
-  delete this.vHandleEl_;
-  delete this.swatchElement;
-  delete this.inputElement;
-  if (this.inputHandler_) {
-    this.inputHandler_.dispose();
-    delete this.inputHandler_;
-  }
-  goog.events.unlistenByKey(this.mouseMoveListener);
-  goog.events.unlistenByKey(this.mouseUpListener);
+ delete this.hsImageEl_;
+ delete this.hsHandleEl_;
+ delete this.valueBackgroundImageElement;
+ delete this.vHandleEl_;
+ delete this.swatchElement;
+ delete this.inputElement;
+ if (this.inputHandler_) {
+   this.inputHandler_.dispose();
+   delete this.inputHandler_;
+ }
+ events.unlistenByKey(this.mouseMoveListener);
+ events.unlistenByKey(this.mouseUpListener);
 };
 
 
@@ -395,82 +382,80 @@ goog.ui.HsvPalette.prototype.disposeInternal = function() {
  * palette.
  * @protected
  */
-goog.ui.HsvPalette.prototype.updateUi = function() {
-  'use strict';
-  if (this.isInDocument()) {
-    var h = this.hsv_[0];
-    var s = this.hsv_[1];
-    var v = this.hsv_[2];
+HsvPalette.prototype.updateUi = function() {
+ if (this.isInDocument()) {
+   var h = this.hsv_[0];
+   var s = this.hsv_[1];
+   var v = this.hsv_[2];
 
-    var left = this.hsImageEl_.offsetWidth * h;
+   var left = this.hsImageEl_.offsetWidth * h;
 
-    // We don't use a flipped gradient image in RTL, so we need to flip the
-    // offset in RTL so that it still hovers over the correct color on the
-    // gradiant.
-    if (this.isRightToLeft()) {
-      left = this.hsImageEl_.offsetWidth - left;
-    }
+   // We don't use a flipped gradient image in RTL, so we need to flip the
+   // offset in RTL so that it still hovers over the correct color on the
+   // gradiant.
+   if (this.isRightToLeft()) {
+     left = this.hsImageEl_.offsetWidth - left;
+   }
 
-    // We also need to account for the handle size.
-    var handleOffset = Math.ceil(this.hsHandleEl_.offsetWidth / 2);
-    left -= handleOffset;
+   // We also need to account for the handle size.
+   var handleOffset = Math.ceil(this.hsHandleEl_.offsetWidth / 2);
+   left -= handleOffset;
 
-    var top = this.hsImageEl_.offsetHeight * (1 - s);
-    // Account for the handle size.
-    top -= Math.ceil(this.hsHandleEl_.offsetHeight / 2);
+   var top = this.hsImageEl_.offsetHeight * (1 - s);
+   // Account for the handle size.
+   top -= Math.ceil(this.hsHandleEl_.offsetHeight / 2);
 
-    goog.style.bidi.setPosition(
-        this.hsHandleEl_, left, top, this.isRightToLeft());
+   bidi.setPosition(
+       this.hsHandleEl_, left, top, this.isRightToLeft());
 
-    top = this.valueBackgroundImageElement.offsetTop -
-        Math.floor(this.vHandleEl_.offsetHeight / 2) +
-        this.valueBackgroundImageElement.offsetHeight * ((255 - v) / 255);
+   top = this.valueBackgroundImageElement.offsetTop -
+       Math.floor(this.vHandleEl_.offsetHeight / 2) +
+       this.valueBackgroundImageElement.offsetHeight * ((255 - v) / 255);
 
-    this.vHandleEl_.style.top = top + 'px';
-    goog.style.setOpacity(this.hsImageEl_, (v / 255));
+   this.vHandleEl_.style.top = top + 'px';
+   style.setOpacity(this.hsImageEl_, (v / 255));
 
-    goog.style.setStyle(
-        this.valueBackgroundImageElement, 'background-color',
-        goog.color.hsvToHex(this.hsv_[0] * 360, this.hsv_[1], 255));
+   style.setStyle(
+       this.valueBackgroundImageElement, 'background-color',
+       googColor.hsvToHex(this.hsv_[0] * 360, this.hsv_[1], 255));
 
-    goog.style.setStyle(this.swatchElement, 'background-color', this.color);
-    goog.style.setStyle(
-        this.swatchElement, 'color',
-        (this.hsv_[2] > 255 / 2) ? '#000' : '#fff');
-    this.updateInput();
-  }
+   style.setStyle(this.swatchElement, 'background-color', this.color);
+   style.setStyle(
+       this.swatchElement, 'color',
+       (this.hsv_[2] > 255 / 2) ? '#000' : '#fff');
+   this.updateInput();
+ }
 };
 
 
 /**
  * Handles mousedown events on palette UI elements.
- * @param {goog.events.BrowserEvent} e Event object.
+ * @param {events.BrowserEvent} e Event object.
  * @protected
  */
-goog.ui.HsvPalette.prototype.handleMouseDown = function(e) {
-  'use strict';
-  if (e.target == this.valueBackgroundImageElement ||
-      e.target == this.vHandleEl_) {
-    // Setup value change listeners
-    var b = goog.style.getBounds(this.valueBackgroundImageElement);
-    this.handleMouseMoveV_(b, e);
-    this.mouseMoveListener = goog.events.listen(
-        this.document_, goog.events.EventType.MOUSEMOVE,
-        goog.bind(this.handleMouseMoveV_, this, b));
-    this.mouseUpListener = goog.events.listen(
-        this.document_, goog.events.EventType.MOUSEUP, this.handleMouseUp,
-        false, this);
-  } else if (e.target == this.hsImageEl_ || e.target == this.hsHandleEl_) {
-    // Setup hue/saturation change listeners
-    var b = goog.style.getBounds(this.hsImageEl_);
-    this.handleMouseMoveHs_(b, e);
-    this.mouseMoveListener = goog.events.listen(
-        this.document_, goog.events.EventType.MOUSEMOVE,
-        goog.bind(this.handleMouseMoveHs_, this, b));
-    this.mouseUpListener = goog.events.listen(
-        this.document_, goog.events.EventType.MOUSEUP, this.handleMouseUp,
-        false, this);
-  }
+HsvPalette.prototype.handleMouseDown = function(e) {
+ if (e.target == this.valueBackgroundImageElement ||
+     e.target == this.vHandleEl_) {
+   // Setup value change listeners
+   var b = style.getBounds(this.valueBackgroundImageElement);
+   this.handleMouseMoveV_(b, e);
+   this.mouseMoveListener = events.listen(
+       this.document_, EventType.MOUSEMOVE,
+       goog.bind(this.handleMouseMoveV_, this, b));
+   this.mouseUpListener = events.listen(
+       this.document_, EventType.MOUSEUP, this.handleMouseUp,
+       false, this);
+ } else if (e.target == this.hsImageEl_ || e.target == this.hsHandleEl_) {
+   // Setup hue/saturation change listeners
+   var b = style.getBounds(this.hsImageEl_);
+   this.handleMouseMoveHs_(b, e);
+   this.mouseMoveListener = events.listen(
+       this.document_, EventType.MOUSEMOVE,
+       goog.bind(this.handleMouseMoveHs_, this, b));
+   this.mouseUpListener = events.listen(
+       this.document_, EventType.MOUSEUP, this.handleMouseUp,
+       false, this);
+ }
 };
 
 
@@ -479,20 +464,19 @@ goog.ui.HsvPalette.prototype.handleMouseDown = function(e) {
  * slider has started.
  * @param {goog.math.Rect} b Boundaries of the value slider object at the start
  *     of the drag operation.
- * @param {goog.events.BrowserEvent} e Event object.
+ * @param {events.BrowserEvent} e Event object.
  * @private
  */
-goog.ui.HsvPalette.prototype.handleMouseMoveV_ = function(b, e) {
-  'use strict';
-  e.preventDefault();
-  var vportPos = this.getDomHelper().getDocumentScroll();
+HsvPalette.prototype.handleMouseMoveV_ = function(b, e) {
+ e.preventDefault();
+ var vportPos = this.getDomHelper().getDocumentScroll();
 
-  var height =
-      Math.min(Math.max(vportPos.y + e.clientY, b.top), b.top + b.height);
+ var height =
+     Math.min(Math.max(vportPos.y + e.clientY, b.top), b.top + b.height);
 
-  var newV = Math.round(255 * (b.top + b.height - height) / b.height);
+ var newV = Math.round(255 * (b.top + b.height - height) / b.height);
 
-  this.setHsv(null, null, newV);
+ this.setHsv(null, null, newV);
 };
 
 
@@ -501,46 +485,43 @@ goog.ui.HsvPalette.prototype.handleMouseMoveV_ = function(b, e) {
  * hue/saturation slider has started.
  * @param {goog.math.Rect} b Boundaries of the value slider object at the start
  *     of the drag operation.
- * @param {goog.events.BrowserEvent} e Event object.
+ * @param {events.BrowserEvent} e Event object.
  * @private
  */
-goog.ui.HsvPalette.prototype.handleMouseMoveHs_ = function(b, e) {
-  'use strict';
-  e.preventDefault();
-  var vportPos = this.getDomHelper().getDocumentScroll();
-  var newH =
-      (Math.min(Math.max(vportPos.x + e.clientX, b.left), b.left + b.width) -
-       b.left) /
-      b.width;
-  var newS =
-      (-Math.min(Math.max(vportPos.y + e.clientY, b.top), b.top + b.height) +
-       b.top + b.height) /
-      b.height;
-  this.setHsv(newH, newS, null);
+HsvPalette.prototype.handleMouseMoveHs_ = function(b, e) {
+ e.preventDefault();
+ var vportPos = this.getDomHelper().getDocumentScroll();
+ var newH =
+     (Math.min(Math.max(vportPos.x + e.clientX, b.left), b.left + b.width) -
+      b.left) /
+     b.width;
+ var newS =
+     (-Math.min(Math.max(vportPos.y + e.clientY, b.top), b.top + b.height) +
+      b.top + b.height) /
+     b.height;
+ this.setHsv(newH, newS, null);
 };
 
 
 /**
  * Handles mouseup events on the document, which ends a drag operation.
- * @param {goog.events.Event} e Event object.
+ * @param {events.Event} e Event object.
  * @protected
  */
-goog.ui.HsvPalette.prototype.handleMouseUp = function(e) {
-  'use strict';
-  goog.events.unlistenByKey(this.mouseMoveListener);
-  goog.events.unlistenByKey(this.mouseUpListener);
+HsvPalette.prototype.handleMouseUp = function(e) {
+ events.unlistenByKey(this.mouseMoveListener);
+ events.unlistenByKey(this.mouseUpListener);
 };
 
 
 /**
  * Handles input events on the hex value input field.
- * @param {goog.events.Event} e Event object.
+ * @param {events.Event} e Event object.
  * @protected
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.HsvPalette.prototype.handleInput = function(e) {
-  'use strict';
-  if (/^#?[0-9a-f]{6}$/i.test(this.inputElement.value)) {
-    this.setColor(this.inputElement.value);
-  }
+HsvPalette.prototype.handleInput = function(e) {
+ if (/^#?[0-9a-f]{6}$/i.test(this.inputElement.value)) {
+   this.setColor(this.inputElement.value);
+ }
 };

@@ -13,13 +13,11 @@
  * @see ../demos/focushandler.html
  */
 
-goog.provide('goog.events.FocusHandler');
-goog.provide('goog.events.FocusHandler.EventType');
+import * as events from './events.js';
 
-goog.require('goog.events');
-goog.require('goog.events.BrowserEvent');
-goog.require('goog.events.EventTarget');
-goog.require('goog.userAgent');
+import { BrowserEvent } from './browserevent.js';
+import { EventTarget } from './eventtarget.js';
+import * as userAgent from '../useragent/useragent.js';
 
 
 
@@ -28,49 +26,48 @@ goog.require('goog.userAgent');
  * loses focus.
  * @param {Element|Document} element  The node to listen on.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @final
  */
-goog.events.FocusHandler = function(element) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function FocusHandler(element) {
+ EventTarget.call(this);
 
-  /**
-   * This is the element that we will listen to the real focus events on.
-   * @type {Element|Document}
-   * @private
-   */
-  this.element_ = element;
+ /**
+  * This is the element that we will listen to the real focus events on.
+  * @type {Element|Document}
+  * @private
+  */
+ this.element_ = element;
 
-  // In IE we use focusin/focusout and in other browsers we use a capturing
-  // listner for focus/blur
-  var typeIn = goog.userAgent.IE ? 'focusin' : 'focus';
-  var typeOut = goog.userAgent.IE ? 'focusout' : 'blur';
+ // In IE we use focusin/focusout and in other browsers we use a capturing
+ // listner for focus/blur
+ var typeIn = userAgent.IE ? 'focusin' : 'focus';
+ var typeOut = userAgent.IE ? 'focusout' : 'blur';
 
-  /**
+ /**
    * Store the listen key so it easier to unlisten in dispose.
    * @private
-   * @type {goog.events.Key}
+   * @type {events.Key}
    */
-  this.listenKeyIn_ =
-      goog.events.listen(this.element_, typeIn, this, !goog.userAgent.IE);
+ this.listenKeyIn_ =
+     events.listen(this.element_, typeIn, this, !userAgent.IE);
 
-  /**
+ /**
    * Store the listen key so it easier to unlisten in dispose.
    * @private
-   * @type {goog.events.Key}
+   * @type {events.Key}
    */
-  this.listenKeyOut_ =
-      goog.events.listen(this.element_, typeOut, this, !goog.userAgent.IE);
-};
-goog.inherits(goog.events.FocusHandler, goog.events.EventTarget);
+ this.listenKeyOut_ =
+     events.listen(this.element_, typeOut, this, !userAgent.IE);
+}
+goog.inherits(FocusHandler, EventTarget);
 
 
 /**
  * Enum type for the events fired by the focus handler
  * @enum {string}
  */
-goog.events.FocusHandler.EventType = {
+FocusHandler.EventType = {
   FOCUSIN: 'focusin',
   FOCUSOUT: 'focusout'
 };
@@ -78,24 +75,22 @@ goog.events.FocusHandler.EventType = {
 
 /**
  * This handles the underlying events and dispatches a new event.
- * @param {goog.events.BrowserEvent} e  The underlying browser event.
+ * @param {BrowserEvent} e  The underlying browser event.
  */
-goog.events.FocusHandler.prototype.handleEvent = function(e) {
-  'use strict';
-  var be = e.getBrowserEvent();
-  var event = new goog.events.BrowserEvent(be);
-  event.type = e.type == 'focusin' || e.type == 'focus' ?
-      goog.events.FocusHandler.EventType.FOCUSIN :
-      goog.events.FocusHandler.EventType.FOCUSOUT;
-  this.dispatchEvent(event);
+FocusHandler.prototype.handleEvent = function(e) {
+ var be = e.getBrowserEvent();
+ var event = new BrowserEvent(be);
+ event.type = e.type == 'focusin' || e.type == 'focus' ?
+     FocusHandler.EventType.FOCUSIN :
+     FocusHandler.EventType.FOCUSOUT;
+ this.dispatchEvent(event);
 };
 
 
 /** @override */
-goog.events.FocusHandler.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.FocusHandler.superClass_.disposeInternal.call(this);
-  goog.events.unlistenByKey(this.listenKeyIn_);
-  goog.events.unlistenByKey(this.listenKeyOut_);
-  delete this.element_;
+FocusHandler.prototype.disposeInternal = function() {
+ FocusHandler.superClass_.disposeInternal.call(this);
+ events.unlistenByKey(this.listenKeyIn_);
+ events.unlistenByKey(this.listenKeyOut_);
+ delete this.element_;
 };

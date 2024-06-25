@@ -8,16 +8,7 @@
  * @fileoverview Constant declarations for common key values.
  */
 
-goog.provide('goog.events.Keys');
-
-
-/**
- * Key values for common characters.
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
- * @enum {string}
- */
-goog.events.Keys = {
+Keys = {
   ALT: 'Meta',
   ALTGRAPH: 'AltGraph',
   BACKSPACE: 'Backspace',
@@ -38,3 +29,4 @@ goog.events.Keys = {
   TAB: 'Tab',
   UP: 'ArrowUp',
 };
+export var Keys;

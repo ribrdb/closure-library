@@ -4,17 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.eventTargetTester');
 goog.setTestOnly();
 
-const GoogEventsEvent = goog.require('goog.events.Event');
-const GoogEventsEventTarget = goog.require('goog.events.EventTarget');
-const GoogEventsListenable = goog.require('goog.events.Listenable');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const recordFunction = goog.require('goog.testing.recordFunction');
+import { Event as GoogEventsEvent } from './event.js';
+import { EventTarget as GoogEventsEventTarget } from './eventtarget.js';
+import { Listenable as GoogEventsListenable } from './listenable.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from './events.js';
+import { recordFunction } from '../testing/recordfunction.js';
+
 /** @suppress {extraRequire} */
-goog.require('goog.testing.asserts');
+import * as asserts from '../testing/asserts.js';
 
 let dispatchEvent;
 let eventTargets;
@@ -72,8 +72,8 @@ function assertListenerIsCalled(listener, numCount) {
   assertEquals(
       'Listeners is not called the correct number of times.', numCount,
       listener.getCallCount());
-  listener[exports.ALREADY_CHECKED_PROP] = true;
-  listener[exports.NUM_CALLED_PROP] = numCount;
+  listener[ALREADY_CHECKED_PROP] = true;
+  listener[NUM_CALLED_PROP] = numCount;
 }
 
 
@@ -84,14 +84,14 @@ function assertListenerIsCalled(listener, numCount) {
  */
 function assertNoOtherListenerIsCalled() {
   listeners.forEach(function(l, index) {
-    if (!l[exports.ALREADY_CHECKED_PROP]) {
+    if (!l[ALREADY_CHECKED_PROP]) {
       assertEquals(
           'Listeners ' + index + ' is unexpectedly called.', 0,
           l.getCallCount());
     } else {
       assertEquals(
           'Listeners ' + index + ' is unexpectedly called.',
-          l[exports.NUM_CALLED_PROP], l.getCallCount());
+          l[NUM_CALLED_PROP], l.getCallCount());
     }
   });
 }
@@ -103,7 +103,7 @@ function assertNoOtherListenerIsCalled() {
 function resetListeners() {
   listeners.forEach(function(l) {
     l.reset();
-    l[exports.ALREADY_CHECKED_PROP] = false;
+    l[ALREADY_CHECKED_PROP] = false;
   });
 }
 
@@ -160,7 +160,7 @@ class TestEvent extends GoogEventsEvent {
   }
 }
 
-exports = {
+export default {
   assertListenerIsCalled,
   assertNoOtherListenerIsCalled,
   createListener,

@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.CanvasGraphicsTest');
 goog.setTestOnly();
 
-const CanvasGraphics = goog.require('goog.graphics.CanvasGraphics');
-const SolidFill = goog.require('goog.graphics.SolidFill');
-const Stroke = goog.require('goog.graphics.Stroke');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { CanvasGraphics } from './canvasgraphics.js';
+import { SolidFill } from './solidfill.js';
+import { Stroke } from './stroke.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let graphics;
 

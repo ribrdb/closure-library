@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.TimeZoneTest');
 goog.setTestOnly();
 
-const TimeZone = goog.require('goog.i18n.TimeZone');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TimeZone } from './timezone.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Where could such data be found
 // In js_i18n_data in http://go/i18n_dir, we have a bunch of files with names

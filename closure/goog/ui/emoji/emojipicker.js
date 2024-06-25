@@ -16,18 +16,17 @@
  * @see ../../demos/popupemojipicker.html
  */
 
-goog.provide('goog.ui.emoji.EmojiPicker');
+import { TagName } from '../../dom/tagname.js';
 
-goog.require('goog.dom.TagName');
-goog.require('goog.style');
-goog.require('goog.ui.Component');
-goog.require('goog.ui.TabPane');
-goog.require('goog.ui.emoji.Emoji');
-goog.require('goog.ui.emoji.EmojiPalette');
-goog.require('goog.ui.emoji.EmojiPaletteRenderer');
-goog.require('goog.ui.emoji.ProgressiveEmojiPaletteRenderer');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.ui.TabPaneEvent');
+import * as style from '../../style/style.js';
+import { Component } from '../component.js';
+import { TabPane } from '../tabpane.js';
+import { Emoji } from './emoji.js';
+import { EmojiPalette } from './emojipalette.js';
+import { EmojiPaletteRenderer } from './emojipaletterenderer.js';
+import { ProgressiveEmojiPaletteRenderer } from './progressiveemojipaletterenderer.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.ui.tabpane');
 
 
 
@@ -37,7 +36,7 @@ goog.requireType('goog.ui.TabPaneEvent');
  * pages of emoji.
  *
  * When a user selects an emoji, by either clicking or pressing enter, the
- * picker fires a goog.ui.Component.EventType.ACTION event with the id. The
+ * picker fires a Component.EventType.ACTION event with the id. The
  * client listens on this event and in the handler can retrieve the id of the
  * selected emoji and do something with it, for instance, inserting an image
  * tag into a rich text control. An emoji picker does not maintain state. That
@@ -52,12 +51,11 @@ goog.requireType('goog.ui.TabPaneEvent');
  *     the cells in the emoji table, to prevent jittering. Should be the same
  *     size as the emoji.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
- * @extends {goog.ui.Component}
+ * @extends {Component}
  * @constructor
  */
-goog.ui.emoji.EmojiPicker = function(defaultImgUrl, opt_domHelper) {
-  'use strict';
-  goog.ui.Component.call(this, opt_domHelper);
+export function EmojiPicker(defaultImgUrl, opt_domHelper) {
+  Component.call(this, opt_domHelper);
 
   this.defaultImgUrl_ = defaultImgUrl;
 
@@ -70,11 +68,11 @@ goog.ui.emoji.EmojiPicker = function(defaultImgUrl, opt_domHelper) {
   this.emoji_ = [];
 
   /**
-   * Pages of this emoji picker.
-   *
-   * @type {Array<goog.ui.emoji.EmojiPalette>}
-   * @private
-   */
+     * Pages of this emoji picker.
+     *
+     * @type {Array<EmojiPalette>}
+     * @private
+     */
   this.pages_ = [];
 
   /**
@@ -87,17 +85,17 @@ goog.ui.emoji.EmojiPicker = function(defaultImgUrl, opt_domHelper) {
   this.pageLoadStatus_ = [];
 
   /**
-   * Tabpane to hold the pages of this emojipicker.
-   *
-   * @type {?goog.ui.TabPane}
-   * @private
-   */
+     * Tabpane to hold the pages of this emojipicker.
+     *
+     * @type {?TabPane}
+     * @private
+     */
   this.tabPane_ = null;
 
   this.getHandler().listen(
-      this, goog.ui.Component.EventType.ACTION, this.onEmojiPaletteAction_);
-};
-goog.inherits(goog.ui.emoji.EmojiPicker, goog.ui.Component);
+      this, Component.EventType.ACTION, this.onEmojiPaletteAction_);
+}
+goog.inherits(EmojiPicker, Component);
 
 
 /**
@@ -105,7 +103,7 @@ goog.inherits(goog.ui.emoji.EmojiPicker, goog.ui.Component);
  *
  * @type {number}
  */
-goog.ui.emoji.EmojiPicker.DEFAULT_NUM_ROWS = 5;
+EmojiPicker.DEFAULT_NUM_ROWS = 5;
 
 
 /**
@@ -113,24 +111,24 @@ goog.ui.emoji.EmojiPicker.DEFAULT_NUM_ROWS = 5;
  *
  * @type {number}
  */
-goog.ui.emoji.EmojiPicker.DEFAULT_NUM_COLS = 10;
+EmojiPicker.DEFAULT_NUM_COLS = 10;
 
 
 /**
  * Default location of the tabs in relation to the emoji grids.
  *
- * @type {goog.ui.TabPane.TabLocation}
+ * @type {TabPane.TabLocation}
  */
-goog.ui.emoji.EmojiPicker.DEFAULT_TAB_LOCATION =
-    goog.ui.TabPane.TabLocation.TOP;
+EmojiPicker.DEFAULT_TAB_LOCATION =
+    TabPane.TabLocation.TOP;
 
 
-/** @private {goog.ui.emoji.Emoji} */
-goog.ui.emoji.EmojiPicker.prototype.selectedEmoji_;
+/** @private {Emoji} */
+EmojiPicker.prototype.selectedEmoji_;
 
 
-/** @private {goog.ui.emoji.EmojiPaletteRenderer} */
-goog.ui.emoji.EmojiPicker.prototype.renderer_;
+/** @private {EmojiPaletteRenderer} */
+EmojiPicker.prototype.renderer_;
 
 
 /**
@@ -139,8 +137,8 @@ goog.ui.emoji.EmojiPicker.prototype.renderer_;
  * @type {number}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.numRows_ =
-    goog.ui.emoji.EmojiPicker.DEFAULT_NUM_ROWS;
+EmojiPicker.prototype.numRows_ =
+    EmojiPicker.DEFAULT_NUM_ROWS;
 
 
 /**
@@ -149,8 +147,8 @@ goog.ui.emoji.EmojiPicker.prototype.numRows_ =
  * @type {number}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.numCols_ =
-    goog.ui.emoji.EmojiPicker.DEFAULT_NUM_COLS;
+EmojiPicker.prototype.numCols_ =
+    EmojiPicker.DEFAULT_NUM_COLS;
 
 
 /**
@@ -161,17 +159,17 @@ goog.ui.emoji.EmojiPicker.prototype.numCols_ =
  * @type {boolean}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.autoSizeByColumnCount_ = true;
+EmojiPicker.prototype.autoSizeByColumnCount_ = true;
 
 
 /**
  * Location of the tabs for the picker tabpane.
  *
- * @type {goog.ui.TabPane.TabLocation}
+ * @type {TabPane.TabLocation}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.tabLocation_ =
-    goog.ui.emoji.EmojiPicker.DEFAULT_TAB_LOCATION;
+EmojiPicker.prototype.tabLocation_ =
+    EmojiPicker.DEFAULT_TAB_LOCATION;
 
 
 /**
@@ -179,7 +177,7 @@ goog.ui.emoji.EmojiPicker.prototype.tabLocation_ =
  * @type {boolean}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.focusable_ = true;
+EmojiPicker.prototype.focusable_ = true;
 
 
 /**
@@ -190,7 +188,7 @@ goog.ui.emoji.EmojiPicker.prototype.focusable_ = true;
  * @type {string}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.defaultImgUrl_;
+EmojiPicker.prototype.defaultImgUrl_;
 
 
 /**
@@ -202,7 +200,7 @@ goog.ui.emoji.EmojiPicker.prototype.defaultImgUrl_;
  * @type {string|undefined}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.urlPrefix_;
+EmojiPicker.prototype.urlPrefix_;
 
 
 /**
@@ -215,7 +213,7 @@ goog.ui.emoji.EmojiPicker.prototype.urlPrefix_;
  * @type {boolean}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.delayedLoad_ = false;
+EmojiPicker.prototype.delayedLoad_ = false;
 
 
 /**
@@ -228,7 +226,7 @@ goog.ui.emoji.EmojiPicker.prototype.delayedLoad_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.progressiveRender_ = false;
+EmojiPicker.prototype.progressiveRender_ = false;
 
 
 /**
@@ -240,7 +238,7 @@ goog.ui.emoji.EmojiPicker.prototype.progressiveRender_ = false;
  * @type {boolean}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.manualLoadOfAnimatedEmoji_ = false;
+EmojiPicker.prototype.manualLoadOfAnimatedEmoji_ = false;
 
 
 /**
@@ -249,7 +247,7 @@ goog.ui.emoji.EmojiPicker.prototype.manualLoadOfAnimatedEmoji_ = false;
  * @type {number}
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.activePage_ = -1;
+EmojiPicker.prototype.activePage_ = -1;
 
 
 /**
@@ -259,9 +257,8 @@ goog.ui.emoji.EmojiPicker.prototype.activePage_ = -1;
  * @param {Array<Array<string>>} emojiGroup A new group of emoji to be added
  *    Each internal array contains [emojiUrl, emojiId].
  */
-goog.ui.emoji.EmojiPicker.prototype.addEmojiGroup = function(
+EmojiPicker.prototype.addEmojiGroup = function(
     title, emojiGroup) {
-  'use strict';
   this.emoji_.push({title: title, emoji: emojiGroup});
 };
 
@@ -271,8 +268,7 @@ goog.ui.emoji.EmojiPicker.prototype.addEmojiGroup = function(
  *
  * @return {number} number of rows per grid.
  */
-goog.ui.emoji.EmojiPicker.prototype.getNumRows = function() {
-  'use strict';
+EmojiPicker.prototype.getNumRows = function() {
   return this.numRows_;
 };
 
@@ -282,8 +278,7 @@ goog.ui.emoji.EmojiPicker.prototype.getNumRows = function() {
  *
  * @return {number} number of columns per grid.
  */
-goog.ui.emoji.EmojiPicker.prototype.getNumColumns = function() {
-  'use strict';
+EmojiPicker.prototype.getNumColumns = function() {
   return this.numCols_;
 };
 
@@ -294,8 +289,7 @@ goog.ui.emoji.EmojiPicker.prototype.getNumColumns = function() {
  *
  * @param {number} numRows Number of rows per grid.
  */
-goog.ui.emoji.EmojiPicker.prototype.setNumRows = function(numRows) {
-  'use strict';
+EmojiPicker.prototype.setNumRows = function(numRows) {
   this.numRows_ = numRows;
 };
 
@@ -306,8 +300,7 @@ goog.ui.emoji.EmojiPicker.prototype.setNumRows = function(numRows) {
  *
  * @param {number} numCols Number of columns per grid.
  */
-goog.ui.emoji.EmojiPicker.prototype.setNumColumns = function(numCols) {
-  'use strict';
+EmojiPicker.prototype.setNumColumns = function(numCols) {
   this.numCols_ = numCols;
 };
 
@@ -318,9 +311,8 @@ goog.ui.emoji.EmojiPicker.prototype.setNumColumns = function(numCols) {
  *
  * @param {boolean} autoSize Whether to automatically size the picker.
  */
-goog.ui.emoji.EmojiPicker.prototype.setAutoSizeByColumnCount = function(
+EmojiPicker.prototype.setAutoSizeByColumnCount = function(
     autoSize) {
-  'use strict';
   this.autoSizeByColumnCount_ = autoSize;
 };
 
@@ -329,10 +321,9 @@ goog.ui.emoji.EmojiPicker.prototype.setAutoSizeByColumnCount = function(
  * Sets the location of the tabs in relation to the emoji grids. This should
  * only be called before the picker has been rendered.
  *
- * @param {goog.ui.TabPane.TabLocation} tabLocation The location of the tabs.
+ * @param {TabPane.TabLocation} tabLocation The location of the tabs.
  */
-goog.ui.emoji.EmojiPicker.prototype.setTabLocation = function(tabLocation) {
-  'use strict';
+EmojiPicker.prototype.setTabLocation = function(tabLocation) {
   this.tabLocation_ = tabLocation;
 };
 
@@ -345,8 +336,7 @@ goog.ui.emoji.EmojiPicker.prototype.setTabLocation = function(tabLocation) {
  *
  * @param {boolean} shouldDelay Whether to delay loading the images.
  */
-goog.ui.emoji.EmojiPicker.prototype.setDelayedLoad = function(shouldDelay) {
-  'use strict';
+EmojiPicker.prototype.setDelayedLoad = function(shouldDelay) {
   this.delayedLoad_ = shouldDelay;
 };
 
@@ -360,9 +350,8 @@ goog.ui.emoji.EmojiPicker.prototype.setDelayedLoad = function(shouldDelay) {
  *
  * @param {boolean} manual Whether to load animated emoji manually.
  */
-goog.ui.emoji.EmojiPicker.prototype.setManualLoadOfAnimatedEmoji = function(
+EmojiPicker.prototype.setManualLoadOfAnimatedEmoji = function(
     manual) {
-  'use strict';
   this.manualLoadOfAnimatedEmoji_ = manual;
 };
 
@@ -373,8 +362,7 @@ goog.ui.emoji.EmojiPicker.prototype.setManualLoadOfAnimatedEmoji = function(
  * handler to handle keyboard events while focused.
  * @return {boolean} Whether the component is focusable.
  */
-goog.ui.emoji.EmojiPicker.prototype.isFocusable = function() {
-  'use strict';
+EmojiPicker.prototype.isFocusable = function() {
   return this.focusable_;
 };
 
@@ -385,13 +373,12 @@ goog.ui.emoji.EmojiPicker.prototype.isFocusable = function() {
  * handle keyboard events while focused.
  * @param {boolean} focusable Whether the component is focusable.
  */
-goog.ui.emoji.EmojiPicker.prototype.setFocusable = function(focusable) {
-  'use strict';
+EmojiPicker.prototype.setFocusable = function(focusable) {
   this.focusable_ = focusable;
   for (let i = 0; i < this.pages_.length; i++) {
     if (this.pages_[i]) {
       this.pages_[i].setSupportedState(
-          goog.ui.Component.State.FOCUSED, focusable);
+          Component.State.FOCUSED, focusable);
     }
   }
 };
@@ -402,8 +389,7 @@ goog.ui.emoji.EmojiPicker.prototype.setFocusable = function(focusable) {
  *
  * @param {string} urlPrefix Prefix that should be prepended to all URLs.
  */
-goog.ui.emoji.EmojiPicker.prototype.setUrlPrefix = function(urlPrefix) {
-  'use strict';
+EmojiPicker.prototype.setUrlPrefix = function(urlPrefix) {
   this.urlPrefix_ = urlPrefix;
 };
 
@@ -414,9 +400,8 @@ goog.ui.emoji.EmojiPicker.prototype.setUrlPrefix = function(urlPrefix) {
  *
  * @param {boolean} progressive Whether this picker should render progressively.
  */
-goog.ui.emoji.EmojiPicker.prototype.setProgressiveRender = function(
+EmojiPicker.prototype.setProgressiveRender = function(
     progressive) {
-  'use strict';
   this.progressiveRender_ = progressive;
 };
 
@@ -427,8 +412,7 @@ goog.ui.emoji.EmojiPicker.prototype.setProgressiveRender = function(
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.emoji.EmojiPicker.prototype.adjustNumRowsIfNecessary_ = function() {
-  'use strict';
+EmojiPicker.prototype.adjustNumRowsIfNecessary_ = function() {
   let currentMax = 0;
 
   for (let i = 0; i < this.emoji_.length; i++) {
@@ -447,8 +431,7 @@ goog.ui.emoji.EmojiPicker.prototype.adjustNumRowsIfNecessary_ = function() {
  * Causes the emoji imgs to be loaded into the picker. Used for delayed loading.
  * No-op if delayed loading is not set.
  */
-goog.ui.emoji.EmojiPicker.prototype.loadImages = function() {
-  'use strict';
+EmojiPicker.prototype.loadImages = function() {
   if (!this.delayedLoad_) {
     return;
   }
@@ -463,9 +446,8 @@ goog.ui.emoji.EmojiPicker.prototype.loadImages = function() {
  * @override
  * @suppress {deprecated,strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.emoji.EmojiPicker.prototype.createDom = function() {
-  'use strict';
-  this.setElementInternal(this.getDomHelper().createDom(goog.dom.TagName.DIV));
+EmojiPicker.prototype.createDom = function() {
+  this.setElementInternal(this.getDomHelper().createDom(TagName.DIV));
 
   if (this.autoSizeByColumnCount_) {
     this.adjustNumRowsIfNecessary_();
@@ -479,15 +461,15 @@ goog.ui.emoji.EmojiPicker.prototype.createDom = function() {
   if (this.emoji_.length > 1) {
     // Give the tabpane a div to use as its content element, since tabpane
     // overwrites the CSS class of the element it's passed
-    const div = this.getDomHelper().createDom(goog.dom.TagName.DIV);
+    const div = this.getDomHelper().createDom(TagName.DIV);
     this.getElement().appendChild(div);
-    this.tabPane_ = new goog.ui.TabPane(
+    this.tabPane_ = new TabPane(
         div, this.tabLocation_, this.getDomHelper(), true /* use MOUSEDOWN */);
   }
 
   this.renderer_ = this.progressiveRender_ ?
-      new goog.ui.emoji.ProgressiveEmojiPaletteRenderer(this.defaultImgUrl_) :
-      new goog.ui.emoji.EmojiPaletteRenderer(this.defaultImgUrl_);
+      new ProgressiveEmojiPaletteRenderer(this.defaultImgUrl_) :
+      new EmojiPaletteRenderer(this.defaultImgUrl_);
 
   for (let i = 0; i < this.emoji_.length; i++) {
     const emoji = this.emoji_[i].emoji;
@@ -504,8 +486,7 @@ goog.ui.emoji.EmojiPicker.prototype.createDom = function() {
 /**
  * Used by unittests to manually load the animated emoji for this picker.
  */
-goog.ui.emoji.EmojiPicker.prototype.manuallyLoadAnimatedEmoji = function() {
-  'use strict';
+EmojiPicker.prototype.manuallyLoadAnimatedEmoji = function() {
   for (let i = 0; i < this.pages_.length; i++) {
     this.pages_[i].loadAnimatedEmoji();
   }
@@ -519,23 +500,22 @@ goog.ui.emoji.EmojiPicker.prototype.manuallyLoadAnimatedEmoji = function() {
  * @param {Array<Array<string>>} emoji Emoji for this page. See
  *     {@link addEmojiGroup} for more details.
  * @param {number} index Index of the page in the emojipicker.
- * @return {goog.ui.emoji.EmojiPalette} the emoji page.
+ * @return {EmojiPalette} the emoji page.
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.createEmojiPage_ = function(emoji, index) {
-  'use strict';
+EmojiPicker.prototype.createEmojiPage_ = function(emoji, index) {
   // Safeguard against trying to create the same page twice
   if (this.pageLoadStatus_[index]) {
     return null;
   }
 
-  const palette = new goog.ui.emoji.EmojiPalette(
+  const palette = new EmojiPalette(
       emoji, this.urlPrefix_, this.renderer_, this.getDomHelper());
   if (!this.manualLoadOfAnimatedEmoji_) {
     palette.loadAnimatedEmoji();
   }
   palette.setSize(this.numCols_, this.numRows_);
-  palette.setSupportedState(goog.ui.Component.State.FOCUSED, this.focusable_);
+  palette.setSupportedState(Component.State.FOCUSED, this.focusable_);
   palette.createDom();
   palette.setParent(this);
 
@@ -554,8 +534,7 @@ goog.ui.emoji.EmojiPicker.prototype.createEmojiPage_ = function(emoji, index) {
  *     default img.
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.getPlaceholderEmoji_ = function(emoji) {
-  'use strict';
+EmojiPicker.prototype.getPlaceholderEmoji_ = function(emoji) {
   const placeholderEmoji = [];
 
   for (let i = 0; i < emoji.length; i++) {
@@ -572,20 +551,19 @@ goog.ui.emoji.EmojiPicker.prototype.getPlaceholderEmoji_ = function(emoji) {
  *
  * @param {Array<Array<string>>} emoji Emoji for this page. See
  *     {@link addEmojiGroup} for more details.
- * @return {!goog.ui.emoji.EmojiPalette} the emoji page.
+ * @return {!EmojiPalette} the emoji page.
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.createPlaceholderEmojiPage_ = function(
+EmojiPicker.prototype.createPlaceholderEmojiPage_ = function(
     emoji) {
-  'use strict';
   const placeholderEmoji = this.getPlaceholderEmoji_(emoji);
 
-  const palette = new goog.ui.emoji.EmojiPalette(
+  const palette = new EmojiPalette(
       placeholderEmoji,
       null,  // no url prefix
       this.renderer_, this.getDomHelper());
   palette.setSize(this.numCols_, this.numRows_);
-  palette.setSupportedState(goog.ui.Component.State.FOCUSED, this.focusable_);
+  palette.setSupportedState(Component.State.FOCUSED, this.focusable_);
   palette.createDom();
   palette.setParent(this);
 
@@ -600,8 +578,7 @@ goog.ui.emoji.EmojiPicker.prototype.createPlaceholderEmojiPage_ = function(
  * @return {boolean} Returns always false.
  * @override
  */
-goog.ui.emoji.EmojiPicker.prototype.canDecorate = function(element) {
-  'use strict';
+EmojiPicker.prototype.canDecorate = function(element) {
   return false;
 };
 
@@ -610,9 +587,8 @@ goog.ui.emoji.EmojiPicker.prototype.canDecorate = function(element) {
  * @override
  * @suppress {deprecated,strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.emoji.EmojiPicker.prototype.enterDocument = function() {
-  'use strict';
-  goog.ui.emoji.EmojiPicker.superClass_.enterDocument.call(this);
+EmojiPicker.prototype.enterDocument = function() {
+  EmojiPicker.superClass_.enterDocument.call(this);
 
   for (let i = 0; i < this.pages_.length; i++) {
     this.pages_[i].enterDocument();
@@ -626,7 +602,7 @@ goog.ui.emoji.EmojiPicker.prototype.enterDocument = function() {
       // was not provided in the emoji group params
       const title = this.emoji_[i].title || (i + 1);
       this.tabPane_.addPage(
-          new goog.ui.TabPane.TabPage(pageElement, title, this.getDomHelper()));
+          new TabPane.TabPage(pageElement, title, this.getDomHelper()));
     } else {
       this.getElement().appendChild(/** @type {!Node} */ (pageElement));
     }
@@ -638,11 +614,11 @@ goog.ui.emoji.EmojiPicker.prototype.enterDocument = function() {
   // to run after the picker has been constructed.
   if (this.tabPane_) {
     this.getHandler().listen(
-        this.tabPane_, goog.ui.TabPane.Events.CHANGE, this.onPageChanged_);
+        this.tabPane_, TabPane.Events.CHANGE, this.onPageChanged_);
 
     // Make the tabpane unselectable so that changing tabs doesn't disturb the
     // cursor
-    goog.style.setUnselectable(this.tabPane_.getElement(), true);
+    style.setUnselectable(this.tabPane_.getElement(), true);
   }
 
   this.getElement().unselectable = 'on';
@@ -650,9 +626,8 @@ goog.ui.emoji.EmojiPicker.prototype.enterDocument = function() {
 
 
 /** @override */
-goog.ui.emoji.EmojiPicker.prototype.exitDocument = function() {
-  'use strict';
-  goog.ui.emoji.EmojiPicker.superClass_.exitDocument.call(this);
+EmojiPicker.prototype.exitDocument = function() {
+  EmojiPicker.superClass_.exitDocument.call(this);
   for (let i = 0; i < this.pages_.length; i++) {
     this.pages_[i].exitDocument();
   }
@@ -660,9 +635,8 @@ goog.ui.emoji.EmojiPicker.prototype.exitDocument = function() {
 
 
 /** @override */
-goog.ui.emoji.EmojiPicker.prototype.disposeInternal = function() {
-  'use strict';
-  goog.ui.emoji.EmojiPicker.superClass_.disposeInternal.call(this);
+EmojiPicker.prototype.disposeInternal = function() {
+  EmojiPicker.superClass_.disposeInternal.call(this);
 
   if (this.tabPane_) {
     this.tabPane_.dispose();
@@ -679,8 +653,7 @@ goog.ui.emoji.EmojiPicker.prototype.disposeInternal = function() {
 /**
  * @return {string} CSS class for the root element of EmojiPicker.
  */
-goog.ui.emoji.EmojiPicker.prototype.getCssClass = function() {
-  'use strict';
+EmojiPicker.prototype.getCssClass = function() {
   return goog.getCssName('goog-ui-emojipicker');
 };
 
@@ -692,11 +665,10 @@ goog.ui.emoji.EmojiPicker.prototype.getCssClass = function() {
  * e.g., in a listener on goog.ui.component.EventType.ACTION that wants to use
  * the just-selected emoji.
  *
- * @return {goog.ui.emoji.Emoji} The currently selected emoji from this picker.
+ * @return {Emoji} The currently selected emoji from this picker.
  */
-goog.ui.emoji.EmojiPicker.prototype.getSelectedEmoji = function() {
-  'use strict';
-  return this.urlPrefix_ ? new goog.ui.emoji.Emoji(
+EmojiPicker.prototype.getSelectedEmoji = function() {
+  return this.urlPrefix_ ? new Emoji(
                                this.urlPrefix_ + this.selectedEmoji_.getUrl(),
                                this.selectedEmoji_.getId()) :
                            this.selectedEmoji_;
@@ -707,8 +679,7 @@ goog.ui.emoji.EmojiPicker.prototype.getSelectedEmoji = function() {
  *
  * @return {number} The number of emoji groups in this picker.
  */
-goog.ui.emoji.EmojiPicker.prototype.getNumEmojiGroups = function() {
-  'use strict';
+EmojiPicker.prototype.getNumEmojiGroups = function() {
   return this.emoji_.length;
 };
 
@@ -718,11 +689,10 @@ goog.ui.emoji.EmojiPicker.prototype.getNumEmojiGroups = function() {
  * ONLY FOR TESTING.
  *
  * @param {number} index Index of the page to return.
- * @return {goog.ui.emoji.EmojiPalette?} the page at the specified index or null
+ * @return {EmojiPalette?} the page at the specified index or null
  *     if none exists.
  */
-goog.ui.emoji.EmojiPicker.prototype.getPage = function(index) {
-  'use strict';
+EmojiPicker.prototype.getPage = function(index) {
   return this.pages_[index];
 };
 
@@ -731,11 +701,10 @@ goog.ui.emoji.EmojiPicker.prototype.getPage = function(index) {
  * Returns all the pages from the picker. This should be considered protected,
  * and is ONLY FOR TESTING.
  *
- * @return {Array<goog.ui.emoji.EmojiPalette>?} the pages in the picker or
+ * @return {Array<EmojiPalette>?} the pages in the picker or
  *     null if none exist.
  */
-goog.ui.emoji.EmojiPicker.prototype.getPages = function() {
-  'use strict';
+EmojiPicker.prototype.getPages = function() {
   return this.pages_;
 };
 
@@ -744,21 +713,19 @@ goog.ui.emoji.EmojiPicker.prototype.getPages = function() {
  * Returns the tabpane if this is a multipage picker. This should be considered
  * protected, and is ONLY FOR TESTING.
  *
- * @return {goog.ui.TabPane} the tabpane if it is a multipage picker,
+ * @return {TabPane} the tabpane if it is a multipage picker,
  *     or null if it does not exist or is a single page picker.
  */
-goog.ui.emoji.EmojiPicker.prototype.getTabPane = function() {
-  'use strict';
+EmojiPicker.prototype.getTabPane = function() {
   return this.tabPane_;
 };
 
 
 /**
- * @return {goog.ui.emoji.EmojiPalette} The active page of the emoji picker.
+ * @return {EmojiPalette} The active page of the emoji picker.
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.getActivePage_ = function() {
-  'use strict';
+EmojiPicker.prototype.getActivePage_ = function() {
   return this.pages_[this.activePage_];
 };
 
@@ -766,11 +733,10 @@ goog.ui.emoji.EmojiPicker.prototype.getActivePage_ = function() {
 /**
  * Handles actions from the EmojiPalettes that this picker contains.
  *
- * @param {goog.ui.Component.EventType} e The event object.
+ * @param {Component.EventType} e The event object.
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.onEmojiPaletteAction_ = function(e) {
-  'use strict';
+EmojiPicker.prototype.onEmojiPaletteAction_ = function(e) {
   this.selectedEmoji_ = this.getActivePage_().getSelectedEmoji();
 };
 
@@ -778,11 +744,10 @@ goog.ui.emoji.EmojiPicker.prototype.onEmojiPaletteAction_ = function(e) {
 /**
  * Handles changes in the active page in the tabpane.
  *
- * @param {goog.ui.TabPaneEvent} e The event object.
+ * @param {TabPaneEvent} e The event object.
  * @private
  */
-goog.ui.emoji.EmojiPicker.prototype.onPageChanged_ = function(e) {
-  'use strict';
+EmojiPicker.prototype.onPageChanged_ = function(e) {
   const index = /** @type {number} */ (e.page.getIndex());
   this.loadPage_(index);
   this.activePage_ = index;
@@ -795,8 +760,7 @@ goog.ui.emoji.EmojiPicker.prototype.onPageChanged_ = function(e) {
  * @private
  * @suppress {deprecated,strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.ui.emoji.EmojiPicker.prototype.loadPage_ = function(index) {
-  'use strict';
+EmojiPicker.prototype.loadPage_ = function(index) {
   if (index < 0 || index > this.pages_.length) {
     throw new Error('Index out of bounds');
   }
@@ -810,7 +774,7 @@ goog.ui.emoji.EmojiPicker.prototype.loadPage_ = function(index) {
       this.tabPane_.removePage(index);
       const title = this.emoji_[index].title || (index + 1);
       this.tabPane_.addPage(
-          new goog.ui.TabPane.TabPage(pageElement, title, this.getDomHelper()),
+          new TabPane.TabPage(pageElement, title, this.getDomHelper()),
           index);
       this.tabPane_.setSelectedIndex(index);
     } else {

@@ -10,7 +10,7 @@
  * optimizations and tweaks (see http://en.wikipedia.org/wiki/MD5).
  *
  * Usage:
- *   var md5 = new goog.crypt.Md5();
+ *   var md5 = new Md5();
  *   md5.update(bytes);
  *   var hash = md5.digest();
  *
@@ -23,22 +23,19 @@
  *   IE8 (in a VM)           ~13 Mbit/s
  */
 
-goog.provide('goog.crypt.Md5');
-
-goog.require('goog.crypt.Hash');
+import { Hash } from './hash.js';
 
 
 
 /**
  * MD5 cryptographic hash constructor.
  * @constructor
- * @extends {goog.crypt.Hash}
+ * @extends {Hash}
  * @final
  * @struct
  */
-goog.crypt.Md5 = function() {
-  'use strict';
-  goog.crypt.Md5.base(this, 'constructor');
+export function Md5() {
+  Md5.base(this, 'constructor');
 
   /** @const {number} */
   this.blockSize = 512 / 8;
@@ -72,8 +69,8 @@ goog.crypt.Md5 = function() {
   this.totalLength_ = 0;
 
   this.reset();
-};
-goog.inherits(goog.crypt.Md5, goog.crypt.Hash);
+}
+goog.inherits(Md5, Hash);
 
 
 /**
@@ -83,7 +80,7 @@ goog.inherits(goog.crypt.Md5, goog.crypt.Hash);
  * @type {Array<number>}
  * @private
  *
-goog.crypt.Md5.S_ = [
+Md5.S_ = [
   7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
   5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
   4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
@@ -98,7 +95,7 @@ goog.crypt.Md5.S_ = [
  * @type {Array<number>}
  * @private
  *
-goog.crypt.Md5.T_ = [
+Md5.T_ = [
   0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
   0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501,
   0x698098d8, 0x8b44f7af, 0xffff5bb1, 0x895cd7be,
@@ -120,8 +117,7 @@ goog.crypt.Md5.T_ = [
 
 
 /** @override */
-goog.crypt.Md5.prototype.reset = function() {
-  'use strict';
+Md5.prototype.reset = function() {
   this.chain_[0] = 0x67452301;
   this.chain_[1] = 0xefcdab89;
   this.chain_[2] = 0x98badcfe;
@@ -139,8 +135,7 @@ goog.crypt.Md5.prototype.reset = function() {
  * @param {number=} opt_offset Offset of the block in the buffer.
  * @private
  */
-goog.crypt.Md5.prototype.compress_ = function(buf, opt_offset) {
-  'use strict';
+Md5.prototype.compress_ = function(buf, opt_offset) {
   if (!opt_offset) {
     opt_offset = 0;
   }
@@ -170,35 +165,35 @@ goog.crypt.Md5.prototype.compress_ = function(buf, opt_offset) {
   var sum = 0;
 
   /*
-   * This is an abbreviated implementation, it is left here commented out for
-   * reference purposes. See below for an unrolled version in use.
-   *
-  var f, n, tmp;
-  for (var i = 0; i < 64; ++i) {
+     * This is an abbreviated implementation, it is left here commented out for
+     * reference purposes. See below for an unrolled version in use.
+     *
+    var f, n, tmp;
+    for (var i = 0; i < 64; ++i) {
 
-    if (i < 16) {
-      f = (D ^ (B & (C ^ D)));
-      n = i;
-    } else if (i < 32) {
-      f = (C ^ (D & (B ^ C)));
-      n = (5 * i + 1) % 16;
-    } else if (i < 48) {
-      f = (B ^ C ^ D);
-      n = (3 * i + 5) % 16;
-    } else {
-      f = (C ^ (B | (~D)));
-      n = (7 * i) % 16;
+      if (i < 16) {
+        f = (D ^ (B & (C ^ D)));
+        n = i;
+      } else if (i < 32) {
+        f = (C ^ (D & (B ^ C)));
+        n = (5 * i + 1) % 16;
+      } else if (i < 48) {
+        f = (B ^ C ^ D);
+        n = (3 * i + 5) % 16;
+      } else {
+        f = (C ^ (B | (~D)));
+        n = (7 * i) % 16;
+      }
+
+      tmp = D;
+      D = C;
+      C = B;
+      sum = (A + f + Md5.T_[i] + X[n]) & 0xffffffff;
+      B += ((sum << Md5.S_[i]) & 0xffffffff) |
+           (sum >>> (32 - Md5.S_[i]));
+      A = tmp;
     }
-
-    tmp = D;
-    D = C;
-    C = B;
-    sum = (A + f + goog.crypt.Md5.T_[i] + X[n]) & 0xffffffff;
-    B += ((sum << goog.crypt.Md5.S_[i]) & 0xffffffff) |
-         (sum >>> (32 - goog.crypt.Md5.S_[i]));
-    A = tmp;
-  }
-   */
+     */
 
   /*
    * This is an unrolled MD5 implementation, which gives ~30% speedup compared
@@ -343,8 +338,7 @@ goog.crypt.Md5.prototype.compress_ = function(buf, opt_offset) {
 
 
 /** @override */
-goog.crypt.Md5.prototype.update = function(bytes, opt_length) {
-  'use strict';
+Md5.prototype.update = function(bytes, opt_length) {
   if (opt_length === undefined) {
     opt_length = bytes.length;
   }
@@ -398,8 +392,7 @@ goog.crypt.Md5.prototype.update = function(bytes, opt_length) {
 
 
 /** @override */
-goog.crypt.Md5.prototype.digest = function() {
-  'use strict';
+Md5.prototype.digest = function() {
   // This must accommodate at least 1 padding byte (0x80), 8 bytes of
   // total bitlength, and must end at a 64-byte boundary.
   var pad = new Array(

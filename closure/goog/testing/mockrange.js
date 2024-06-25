@@ -5,32 +5,30 @@
  */
 
 /**
- * @fileoverview LooseMock of goog.dom.AbstractRange.
+ * @fileoverview LooseMock of AbstractRange.
  */
 
 goog.setTestOnly('goog.testing.MockRange');
-goog.provide('goog.testing.MockRange');
 
-goog.require('goog.dom.AbstractRange');
-goog.require('goog.dom.SavedCaretRange');
-goog.require('goog.testing.LooseMock');
+import { AbstractRange } from '../dom/abstractrange.js';
+import { SavedCaretRange } from '../dom/savedcaretrange.js';
+import { LooseMock } from './loosemock.js';
 
 
 
 /**
- * LooseMock of goog.dom.AbstractRange. Useful because the mock framework cannot
+ * LooseMock of AbstractRange. Useful because the mock framework cannot
  * simply create a mock out of an abstract class, and cannot create a mock out
  * of classes that implements __iterator__ because it relies on the default
  * behavior of iterating through all of an object's properties.
  * @constructor
- * @extends {goog.testing.LooseMock}
+ * @extends {LooseMock}
  * @final
  */
-goog.testing.MockRange = function() {
-  'use strict';
-  goog.testing.LooseMock.call(this, goog.testing.MockRange.ConcreteRange_);
-};
-goog.inherits(goog.testing.MockRange, goog.testing.LooseMock);
+export function MockRange() {
+ LooseMock.call(this, MockRange.ConcreteRange_);
+}
+goog.inherits(MockRange, LooseMock);
 
 
 // *** Private helper class ************************************************* //
@@ -38,18 +36,17 @@ goog.inherits(goog.testing.MockRange, goog.testing.LooseMock);
 
 
 /**
- * Concrete subclass of goog.dom.AbstractRange that simply sets the abstract
+ * Concrete subclass of AbstractRange that simply sets the abstract
  * method __iterator__ to undefined so that javascript defaults to iterating
  * through all of the object's properties.
  * @constructor
- * @extends {goog.dom.AbstractRange}
+ * @extends {AbstractRange}
  * @private
  */
-goog.testing.MockRange.ConcreteRange_ = function() {
-  'use strict';
-  goog.dom.AbstractRange.call(this);
+MockRange.ConcreteRange_ = function() {
+ AbstractRange.call(this);
 };
-goog.inherits(goog.testing.MockRange.ConcreteRange_, goog.dom.AbstractRange);
+goog.inherits(MockRange.ConcreteRange_, AbstractRange);
 
 
 /**
@@ -57,14 +54,13 @@ goog.inherits(goog.testing.MockRange.ConcreteRange_, goog.dom.AbstractRange);
  * properties.
  * @override
  */
-goog.testing.MockRange.ConcreteRange_.prototype.__iterator__ =
+MockRange.ConcreteRange_.prototype.__iterator__ =
     // This isn't really type-safe.
     /** @type {?} */ (undefined);
 
 /** @override */
-goog.testing.MockRange.ConcreteRange_.prototype.saveUsingCarets = function() {
-  'use strict';
-  return (this.getStartNode() && this.getEndNode()) ?
-      new goog.dom.SavedCaretRange(this) :
-      null;
+MockRange.ConcreteRange_.prototype.saveUsingCarets = function() {
+ return (this.getStartNode() && this.getEndNode()) ?
+     new SavedCaretRange(this) :
+     null;
 };

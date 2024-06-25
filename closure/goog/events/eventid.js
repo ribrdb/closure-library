@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.events.EventId');
+goog.declareModuleId('goog.events.eventid');
 
 
 
 /**
  * A templated class that is used when registering for events. Typical usage:
  *
- *    /** @type {goog.events.EventId<MyEventObj>} *\
- *    var myEventId = new goog.events.EventId(
+ *    /** @type {EventId<MyEventObj>} *\
+ *    var myEventId = new EventId(
  *        goog.events.getUniqueId(('someEvent'));
  *
  *    // No need to cast or declare here since the compiler knows the
@@ -25,17 +25,15 @@ goog.provide('goog.events.EventId');
  * @struct
  * @final
  */
-goog.events.EventId = function(eventId) {
-  'use strict';
-  /** @const */ this.id = eventId;
-};
+export function EventId(eventId) {
+ /** @const */ this.id = eventId;
+}
 
 
 /**
  * @override
  * @return {string}
  */
-goog.events.EventId.prototype.toString = function() {
-  'use strict';
-  return this.id;
+EventId.prototype.toString = function() {
+ return this.id;
 };

@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.math.interpolator.Spline1Test');
 goog.setTestOnly();
 
-const Spline1 = goog.require('goog.math.interpolator.Spline1');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Spline1 } from './spline1.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 testSuite({
   testSpline() {

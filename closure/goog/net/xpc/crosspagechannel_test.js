@@ -4,32 +4,31 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.xpc.CrossPageChannelTest');
 goog.setTestOnly('goog.net.xpc.CrossPageChannelTest');
 
-const CfgFields = goog.require('goog.net.xpc.CfgFields');
-const ChannelStates = goog.require('goog.net.xpc.ChannelStates');
-const CrossPageChannel = goog.require('goog.net.xpc.CrossPageChannel');
-const CrossPageChannelRole = goog.require('goog.net.xpc.CrossPageChannelRole');
-const Disposable = goog.require('goog.Disposable');
-const GoogPromise = goog.require('goog.Promise');
-const Level = goog.require('goog.log.Level');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Resolver = goog.require('goog.promise.Resolver');
-const TagName = goog.require('goog.dom.TagName');
-const TestCase = goog.require('goog.testing.TestCase');
-const Timer = goog.require('goog.Timer');
-const TransportTypes = goog.require('goog.net.xpc.TransportTypes');
-const Uri = goog.require('goog.Uri');
-const browser = goog.require('goog.labs.userAgent.browser');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const log = goog.require('goog.log');
-const object = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const xpc = goog.require('goog.net.xpc');
+import * as xpc from './xpc.js';
+import { CfgFields, ChannelStates, TransportTypes } from './xpc.js';
+import { CrossPageChannel } from './crosspagechannel.js';
+import { CrossPageChannelRole } from './crosspagechannelrole.js';
+import { Disposable } from '../../disposable/disposable.js';
+import { Promise as GoogPromise } from '../../promise/promise.js';
+import * as googLog from '../../log/log.js';
+import * as log from '../../log/log.js';
+const Level = googLog.Level;
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { Resolver } from '../../promise/resolver.js';
+import { TagName } from '../../dom/tagname.js';
+import { TestCase } from '../../testing/testcase.js';
+import { Timer } from '../../timer/timer.js';
+import { Uri } from '../../uri/uri.js';
+import * as browser from '../../labs/useragent/browser.js';
+import { dispose } from '../../disposable/dispose.js';
+import * as dom from '../../dom/dom.js';
+import object from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
+
 /** @suppress {extraRequire} Needed for G_testRunner.log() */
-goog.require('goog.testing.jsunit');
+import * as jsunit from '../../testing/jsunit.js';
 
 
 // Set this to false when working on this test.  It needs to be true for

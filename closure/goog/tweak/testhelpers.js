@@ -10,18 +10,20 @@
  * @package
  */
 
-goog.provide('goog.tweak.testhelpers');
-
 goog.setTestOnly();
 
-goog.require('goog.tweak');
-goog.require('goog.tweak.BooleanGroup');
-goog.require('goog.tweak.BooleanInGroupSetting');
-goog.require('goog.tweak.BooleanSetting');
-goog.require('goog.tweak.ButtonAction');
-goog.require('goog.tweak.NumericSetting');
-goog.require('goog.tweak.Registry');
-goog.require('goog.tweak.StringSetting');
+import * as tweak from './tweak.js';
+
+import {
+    BooleanGroup,
+    BooleanInGroupSetting,
+    BooleanSetting,
+    ButtonAction,
+    NumericSetting,
+    StringSetting,
+} from './entries.js';
+
+import { Registry } from './registry.js';
 
 
 var boolEntry;
@@ -45,63 +47,63 @@ var buttonEntry;
  */
 function createRegistryEntries(queryParams) {
   // Initialize the registry with the given query string.
-  var registry = new goog.tweak.Registry(queryParams);
-  goog.tweak.registry_ = registry;
+  var registry = new Registry(queryParams);
+  tweak.registry_ = registry;
 
-  boolEntry = new goog.tweak.BooleanSetting('Bool', 'The bool1');
+  boolEntry = new BooleanSetting('Bool', 'The bool1');
   registry.register(boolEntry);
 
-  boolEntry2 = new goog.tweak.BooleanSetting('Bool2', 'The bool2');
+  boolEntry2 = new BooleanSetting('Bool2', 'The bool2');
   boolEntry2.setDefaultValue(true);
   registry.register(boolEntry2);
 
-  strEntry = new goog.tweak.StringSetting('Str', 'The str1');
+  strEntry = new StringSetting('Str', 'The str1');
   strEntry.setParamName('s');
   registry.register(strEntry);
 
-  strEntry2 = new goog.tweak.StringSetting('Str2', 'The str2');
+  strEntry2 = new StringSetting('Str2', 'The str2');
   strEntry2.setDefaultValue('foo');
   registry.register(strEntry2);
 
-  strEnumEntry = new goog.tweak.StringSetting('Enum', 'The enum');
+  strEnumEntry = new StringSetting('Enum', 'The enum');
   strEnumEntry.setValidValues(['A', 'B', 'C']);
   strEnumEntry.setRestartRequired(false);
   registry.register(strEnumEntry);
 
-  numEntry = new goog.tweak.NumericSetting('Num', 'The num');
+  numEntry = new NumericSetting('Num', 'The num');
   numEntry.setDefaultValue(99);
   registry.register(numEntry);
 
-  numEnumEntry = new goog.tweak.NumericSetting('Enum2', 'The 2nd enum');
+  numEnumEntry = new NumericSetting('Enum2', 'The 2nd enum');
   numEnumEntry.setValidValues([1, 2, 3]);
   numEnumEntry.setRestartRequired(false);
   numEnumEntry.label = 'Enum the second&';
   registry.register(numEnumEntry);
 
-  boolGroup = new goog.tweak.BooleanGroup('BoolGroup', 'The bool group');
+  boolGroup = new BooleanGroup('BoolGroup', 'The bool group');
   registry.register(boolGroup);
 
   boolOneEntry =
-      new goog.tweak.BooleanInGroupSetting('BoolOne', 'Desc for 1', boolGroup);
+      new BooleanInGroupSetting('BoolOne', 'Desc for 1', boolGroup);
   boolOneEntry.setToken('B1');
   boolOneEntry.setRestartRequired(false);
   boolGroup.addChild(boolOneEntry);
   registry.register(boolOneEntry);
 
   boolTwoEntry =
-      new goog.tweak.BooleanInGroupSetting('BoolTwo', 'Desc for 2', boolGroup);
+      new BooleanInGroupSetting('BoolTwo', 'Desc for 2', boolGroup);
   boolTwoEntry.setDefaultValue(true);
   boolGroup.addChild(boolTwoEntry);
   registry.register(boolTwoEntry);
 
-  buttonEntry = new goog.tweak.ButtonAction('Button', 'The Btn', () => {});
+  buttonEntry = new ButtonAction('Button', 'The Btn', () => {});
   buttonEntry.label = '<btn>';
   registry.register(buttonEntry);
 
   var nsBoolGroup =
-      new goog.tweak.BooleanGroup('foo.bar.BoolGroup', 'Namespaced Bool Group');
+      new BooleanGroup('foo.bar.BoolGroup', 'Namespaced Bool Group');
   registry.register(nsBoolGroup);
-  var nsBool = new goog.tweak.BooleanInGroupSetting(
+  var nsBool = new BooleanInGroupSetting(
       'foo.bar.BoolOne', 'Desc for Namespaced 1', nsBoolGroup);
   nsBoolGroup.addChild(nsBool);
   registry.register(nsBool);

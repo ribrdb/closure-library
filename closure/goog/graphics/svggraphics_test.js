@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.SvgGraphicsTest');
 goog.setTestOnly();
 
-const AffineTransform = goog.require('goog.graphics.AffineTransform');
-const SolidFill = goog.require('goog.graphics.SolidFill');
-const SvgGraphics = goog.require('goog.graphics.SvgGraphics');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AffineTransform } from './affinetransform.js';
+import { SolidFill } from './solidfill.js';
+import { SvgGraphics } from './svggraphics.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let graphics;
 

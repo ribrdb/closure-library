@@ -9,29 +9,28 @@
  * @suppress {missingRequire} swapping XmlHttp
  */
 
-goog.module('goog.module.ModuleLoaderTest');
 goog.setTestOnly();
 
-const BulkLoader = goog.require('goog.net.BulkLoader');
-const Const = goog.require('goog.string.Const');
-const EventObserver = goog.require('goog.testing.events.EventObserver');
-const GoogPromise = goog.require('goog.Promise');
-const ModuleLoader = goog.require('goog.module.ModuleLoader');
-const ModuleManager = goog.require('goog.module.ModuleManager');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const TestCase = goog.require('goog.testing.TestCase');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const XmlHttp = goog.require('goog.net.XmlHttp');
-const activeModuleManager = goog.require('goog.loader.activeModuleManager');
-const dispose = goog.require('goog.dispose');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BulkLoader } from '../net/bulkloader.js';
+import { Const } from '../string/const.js';
+import { EventObserver } from '../testing/events/eventobserver.js';
+import { Promise as GoogPromise } from '../promise/promise.js';
+import { ModuleLoader } from './moduleloader.js';
+import { ModuleManager } from './modulemanager.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import { TestCase } from '../testing/testcase.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import { XmlHttp } from '../net/xmlhttp.js';
+import activeModuleManager from '../loader/activemodulemanager.js';
+import { dispose } from '../disposable/dispose.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as googArray from '../array/array.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /**
  * @suppress {strictMissingProperties} suppression added to enable type

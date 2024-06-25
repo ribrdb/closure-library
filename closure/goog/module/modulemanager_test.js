@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.module.ModuleManagerTest');
 goog.setTestOnly();
 
-const BaseModule = goog.require('goog.module.BaseModule');
-const MockClock = goog.require('goog.testing.MockClock');
-const ModuleLoadFailure = goog.require('goog.module.ModuleLoadFailure');
-const ModuleManager = goog.require('goog.module.ModuleManager');
-const functions = goog.require('goog.functions');
-const googArray = goog.require('goog.array');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.testing');
+import { BaseModule } from './basemodule.js';
+import { MockClock } from '../testing/mockclock.js';
+import { ModuleLoadFailure } from './moduleloadfailure.js';
+import { ModuleManager } from './modulemanager.js';
+import * as functions from '../functions/functions.js';
+import * as googArray from '../array/array.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../testing/functionmock.js';
 
 let clock;
 let requestCount = 0;

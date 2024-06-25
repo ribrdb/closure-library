@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.MenuButtonRendererTest');
 goog.setTestOnly();
 
-const Button = goog.require('goog.ui.Button');
-const MenuButton = goog.require('goog.ui.MenuButton');
-const MenuButtonRenderer = goog.require('goog.ui.MenuButtonRenderer');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const rendererasserts = goog.require('goog.testing.ui.rendererasserts');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Button } from './button.js';
+import { MenuButton } from './menubutton.js';
+import { MenuButtonRenderer } from './menubuttonrenderer.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import rendererasserts from '../testing/ui/rendererasserts.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let decoratedButton;
 let renderedButton;

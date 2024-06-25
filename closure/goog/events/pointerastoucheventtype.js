@@ -4,9 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.events.PointerAsTouchEventType');
-
-goog.require('goog.events.PointerTouchFallbackEventType');
+import { PointerTouchFallbackEventType } from './pointertouchfallbackeventtype.js';
 
 
 /**
@@ -14,9 +12,9 @@ goog.require('goog.events.PointerTouchFallbackEventType');
  * corresponding `POINTER*` event types.
  * @enum {string}
  */
-goog.events.PointerAsTouchEventType = {
-  TOUCHCANCEL: goog.events.PointerTouchFallbackEventType.POINTERCANCEL,
-  TOUCHEND: goog.events.PointerTouchFallbackEventType.POINTERUP,
-  TOUCHMOVE: goog.events.PointerTouchFallbackEventType.POINTERMOVE,
-  TOUCHSTART: goog.events.PointerTouchFallbackEventType.POINTERDOWN
+export var PointerAsTouchEventType = {
+  TOUCHCANCEL: PointerTouchFallbackEventType.POINTERCANCEL,
+  TOUCHEND: PointerTouchFallbackEventType.POINTERUP,
+  TOUCHMOVE: PointerTouchFallbackEventType.POINTERMOVE,
+  TOUCHSTART: PointerTouchFallbackEventType.POINTERDOWN
 };

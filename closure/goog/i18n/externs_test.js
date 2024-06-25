@@ -30,12 +30,10 @@
 /**
  * Namespaces for Closure classes with Intl implementations.
  */
-goog.module('goog.i18n.externsTest');
 goog.setTestOnly();
 
-const browser = goog.require('goog.labs.userAgent.browser');
-
-const testSuite = goog.require('goog.testing.testSuite');
+import * as browser from '../labs/useragent/browser.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Check that all the resolved options are legal. If an option is not

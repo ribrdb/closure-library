@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.eventsTest');
 goog.setTestOnly();
 
-const CaptureSimulationMode = goog.require('goog.events.CaptureSimulationMode');
-const ErrorHandler = goog.require('goog.debug.ErrorHandler');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const Listener = goog.require('goog.events.Listener');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TagName = goog.require('goog.dom.TagName');
-const disposeAll = goog.require('goog.disposeAll');
-const dom = goog.require('goog.dom');
-const entryPointRegistry = goog.require('goog.debug.entryPointRegistry');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
-const {AssertionError} = goog.require('goog.asserts');
+import * as events from './events.js';
+import { CaptureSimulationMode } from './events.js';
+import { ErrorHandler } from '../debug/errorhandler.js';
+import { EventType } from './eventtype.js';
+import { Event as GoogEvent } from './event.js';
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import { Listener } from './listener.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { TagName } from '../dom/tagname.js';
+import { disposeAll } from '../disposable/disposeall.js';
+import * as dom from '../dom/dom.js';
+import * as entryPointRegistry from '../debug/entrypointregistry.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
+import { AssertionError } from '../asserts/asserts.js';
 
 /** @suppress {visibility} suppression added to enable type checking */
 const originalHandleBrowserEvent = events.handleBrowserEvent_;

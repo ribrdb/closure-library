@@ -4,23 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.IframeIoTest');
 goog.setTestOnly('goog.net.IframeIoTest');
 
-const DivConsole = goog.require('goog.debug.DivConsole');
-const Event = goog.require('goog.testing.events.Event');
-const EventType = goog.require('goog.events.EventType');
-const IframeIo = goog.require('goog.net.IframeIo');
-const Level = goog.require('goog.log.Level');
-const TEST_ONLY = goog.require('goog.net.IframeIo.TEST_ONLY');
-const TagName = goog.require('goog.dom.TagName');
-const debug = goog.require('goog.debug');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const log = goog.require('goog.log');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
-const userAgent = goog.require('goog.userAgent');
+import { DivConsole } from '../debug/divconsole.js';
+import * as testingEvents from '../testing/events/events.js';
+import { Event } from '../testing/events/events.js';
+import { EventType } from '../events/eventtype.js';
+import { IframeIo, IframeIo as netIframeIo } from './iframeio.js';
+const TEST_ONLY = netIframeIo.TEST_ONLY;
+import * as googLog from '../log/log.js';
+import * as log from '../log/log.js';
+const Level = googLog.Level;
+import { TagName } from '../dom/tagname.js';
+import * as debug from '../debug/debug.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // MANUAL TESTS - The tests should be run in the browser from the Closure Test
 // Server

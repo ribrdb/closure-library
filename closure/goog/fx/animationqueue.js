@@ -12,17 +12,14 @@
  * @see ../demos/animationqueue.html
  */
 
-goog.provide('goog.fx.AnimationParallelQueue');
-goog.provide('goog.fx.AnimationQueue');
-goog.provide('goog.fx.AnimationSerialQueue');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.events');
-goog.require('goog.fx.Animation');
-goog.require('goog.fx.Transition');
-goog.require('goog.fx.TransitionBase');
-goog.requireType('goog.events.Event');
+import * as asserts from '../asserts/asserts.js';
+import * as events from '../events/events.js';
+import { Animation } from './animation.js';
+import { Transition } from './transition.js';
+import { TransitionBase } from './transitionbase.js';
+goog.requireType('goog.events.event');
 
 
 
@@ -31,56 +28,53 @@ goog.requireType('goog.events.Event');
  *
  * @constructor
  * @struct
- * @extends {goog.fx.TransitionBase}
+ * @extends {TransitionBase}
  */
-goog.fx.AnimationQueue = function() {
-  'use strict';
-  goog.fx.AnimationQueue.base(this, 'constructor');
+export function AnimationQueue() {
+  AnimationQueue.base(this, 'constructor');
 
   /**
-   * An array holding all animations in the queue.
-   * @type {Array<goog.fx.TransitionBase>}
-   * @protected
-   */
+     * An array holding all animations in the queue.
+     * @type {Array<TransitionBase>}
+     * @protected
+     */
   this.queue = [];
-};
-goog.inherits(goog.fx.AnimationQueue, goog.fx.TransitionBase);
+}
+goog.inherits(AnimationQueue, TransitionBase);
 
 
 /**
  * Pushes an Animation to the end of the queue.
- * @param {goog.fx.TransitionBase} animation The animation to add to the queue.
+ * @param {TransitionBase} animation The animation to add to the queue.
  */
-goog.fx.AnimationQueue.prototype.add = function(animation) {
-  'use strict';
-  goog.asserts.assert(
+AnimationQueue.prototype.add = function(animation) {
+  asserts.assert(
       this.isStopped(),
       'Not allowed to add animations to a running animation queue.');
 
-  if (goog.array.contains(this.queue, animation)) {
+  if (array.contains(this.queue, animation)) {
     return;
   }
 
   this.queue.push(animation);
-  goog.events.listen(
-      animation, goog.fx.Transition.EventType.FINISH, this.onAnimationFinish,
+  events.listen(
+      animation, Transition.EventType.FINISH, this.onAnimationFinish,
       false, this);
 };
 
 
 /**
  * Removes an Animation from the queue.
- * @param {goog.fx.Animation} animation The animation to remove.
+ * @param {Animation} animation The animation to remove.
  */
-goog.fx.AnimationQueue.prototype.remove = function(animation) {
-  'use strict';
-  goog.asserts.assert(
+AnimationQueue.prototype.remove = function(animation) {
+  asserts.assert(
       this.isStopped(),
       'Not allowed to remove animations from a running animation queue.');
 
-  if (goog.array.remove(this.queue, animation)) {
-    goog.events.unlisten(
-        animation, goog.fx.Transition.EventType.FINISH, this.onAnimationFinish,
+  if (array.remove(this.queue, animation)) {
+    events.unlisten(
+        animation, Transition.EventType.FINISH, this.onAnimationFinish,
         false, this);
   }
 };
@@ -88,25 +82,23 @@ goog.fx.AnimationQueue.prototype.remove = function(animation) {
 
 /**
  * Handles the event that an animation has finished.
- * @param {goog.events.Event} e The finishing event.
+ * @param {events.Event} e The finishing event.
  * @protected
  */
-goog.fx.AnimationQueue.prototype.onAnimationFinish = goog.abstractMethod;
+AnimationQueue.prototype.onAnimationFinish = goog.abstractMethod;
 
 
 /**
  * Disposes of the animations.
  * @override
  */
-goog.fx.AnimationQueue.prototype.disposeInternal = function() {
-  'use strict';
+AnimationQueue.prototype.disposeInternal = function() {
   this.queue.forEach(function(animation) {
-    'use strict';
     animation.dispose();
   });
   this.queue.length = 0;
 
-  goog.fx.AnimationQueue.base(this, 'disposeInternal');
+  AnimationQueue.base(this, 'disposeInternal');
 };
 
 
@@ -115,11 +107,10 @@ goog.fx.AnimationQueue.prototype.disposeInternal = function() {
  * Constructor for AnimationParallelQueue object.
  * @constructor
  * @struct
- * @extends {goog.fx.AnimationQueue}
+ * @extends {AnimationQueue}
  */
-goog.fx.AnimationParallelQueue = function() {
-  'use strict';
-  goog.fx.AnimationParallelQueue.base(this, 'constructor');
+export function AnimationParallelQueue() {
+  AnimationParallelQueue.base(this, 'constructor');
 
   /**
    * Number of finished animations.
@@ -127,13 +118,12 @@ goog.fx.AnimationParallelQueue = function() {
    * @private
    */
   this.finishedCounter_ = 0;
-};
-goog.inherits(goog.fx.AnimationParallelQueue, goog.fx.AnimationQueue);
+}
+goog.inherits(AnimationParallelQueue, AnimationQueue);
 
 
 /** @override */
-goog.fx.AnimationParallelQueue.prototype.play = function(opt_restart) {
-  'use strict';
+AnimationParallelQueue.prototype.play = function(opt_restart) {
   if (this.queue.length == 0) {
     return false;
   }
@@ -156,7 +146,6 @@ goog.fx.AnimationParallelQueue.prototype.play = function(opt_restart) {
   this.setStatePlaying();
 
   this.queue.forEach(function(anim) {
-    'use strict';
     if (!resuming || anim.isPaused()) {
       anim.play(opt_restart);
     }
@@ -167,11 +156,9 @@ goog.fx.AnimationParallelQueue.prototype.play = function(opt_restart) {
 
 
 /** @override */
-goog.fx.AnimationParallelQueue.prototype.pause = function() {
-  'use strict';
+AnimationParallelQueue.prototype.pause = function() {
   if (this.isPlaying()) {
     this.queue.forEach(function(anim) {
-      'use strict';
       if (anim.isPlaying()) {
         anim.pause();
       }
@@ -184,10 +171,8 @@ goog.fx.AnimationParallelQueue.prototype.pause = function() {
 
 
 /** @override */
-goog.fx.AnimationParallelQueue.prototype.stop = function(opt_gotoEnd) {
-  'use strict';
+AnimationParallelQueue.prototype.stop = function(opt_gotoEnd) {
   this.queue.forEach(function(anim) {
-    'use strict';
     if (!anim.isStopped()) {
       anim.stop(opt_gotoEnd);
     }
@@ -202,8 +187,7 @@ goog.fx.AnimationParallelQueue.prototype.stop = function(opt_gotoEnd) {
 
 
 /** @override */
-goog.fx.AnimationParallelQueue.prototype.onAnimationFinish = function(e) {
-  'use strict';
+AnimationParallelQueue.prototype.onAnimationFinish = function(e) {
   this.finishedCounter_++;
   if (this.finishedCounter_ == this.queue.length) {
     this.endTime = goog.now();
@@ -221,11 +205,10 @@ goog.fx.AnimationParallelQueue.prototype.onAnimationFinish = function(e) {
  * Constructor for AnimationSerialQueue object.
  * @constructor
  * @struct
- * @extends {goog.fx.AnimationQueue}
+ * @extends {AnimationQueue}
  */
-goog.fx.AnimationSerialQueue = function() {
-  'use strict';
-  goog.fx.AnimationSerialQueue.base(this, 'constructor');
+export function AnimationSerialQueue() {
+  AnimationSerialQueue.base(this, 'constructor');
 
   /**
    * Current animation in queue currently active.
@@ -233,13 +216,12 @@ goog.fx.AnimationSerialQueue = function() {
    * @private
    */
   this.current_ = 0;
-};
-goog.inherits(goog.fx.AnimationSerialQueue, goog.fx.AnimationQueue);
+}
+goog.inherits(AnimationSerialQueue, AnimationQueue);
 
 
 /** @override */
-goog.fx.AnimationSerialQueue.prototype.play = function(opt_restart) {
-  'use strict';
+AnimationSerialQueue.prototype.play = function(opt_restart) {
   if (this.queue.length == 0) {
     return false;
   }
@@ -272,8 +254,7 @@ goog.fx.AnimationSerialQueue.prototype.play = function(opt_restart) {
 
 
 /** @override */
-goog.fx.AnimationSerialQueue.prototype.pause = function() {
-  'use strict';
+AnimationSerialQueue.prototype.pause = function() {
   if (this.isPlaying()) {
     this.queue[this.current_].pause();
     this.setStatePaused();
@@ -283,8 +264,7 @@ goog.fx.AnimationSerialQueue.prototype.pause = function() {
 
 
 /** @override */
-goog.fx.AnimationSerialQueue.prototype.stop = function(opt_gotoEnd) {
-  'use strict';
+AnimationSerialQueue.prototype.stop = function(opt_gotoEnd) {
   this.setStateStopped();
   this.endTime = goog.now();
 
@@ -308,8 +288,7 @@ goog.fx.AnimationSerialQueue.prototype.stop = function(opt_gotoEnd) {
 
 
 /** @override */
-goog.fx.AnimationSerialQueue.prototype.onAnimationFinish = function(e) {
-  'use strict';
+AnimationSerialQueue.prototype.onAnimationFinish = function(e) {
   if (this.isPlaying()) {
     this.current_++;
     if (this.current_ < this.queue.length) {

@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.events.EventHandlerTest');
 goog.setTestOnly();
 
-const EventHandler = goog.require('goog.events.EventHandler');
-const GoogEventTarget = goog.require('goog.events.EventTarget');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventHandler } from './eventhandler.js';
+import { EventTarget as GoogEventTarget } from './eventtarget.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from './events.js';
+import * as functions from '../functions/functions.js';
+import { recordFunction } from '../testing/recordfunction.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let a;
 let b;

@@ -11,9 +11,8 @@
  */
 
 goog.setTestOnly('goog.testing.PseudoRandom');
-goog.provide('goog.testing.PseudoRandom');
 
-goog.require('goog.Disposable');
+import { Disposable } from '../disposable/disposable.js';
 
 
 
@@ -24,24 +23,23 @@ goog.require('goog.Disposable');
  * @param {number=} opt_seed The seed to use.
  * @param {boolean=} opt_install Whether to install the PseudoRandom at
  *     construction time.
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  * @constructor
  * @final
  */
-goog.testing.PseudoRandom = function(opt_seed, opt_install) {
-  'use strict';
-  goog.Disposable.call(this);
+export function PseudoRandom(opt_seed, opt_install) {
+ Disposable.call(this);
 
-  if (opt_seed === undefined) {
-    opt_seed = goog.testing.PseudoRandom.seedUniquifier_++ + goog.now();
-  }
-  this.seed(opt_seed);
+ if (opt_seed === undefined) {
+   opt_seed = PseudoRandom.seedUniquifier_++ + goog.now();
+ }
+ this.seed(opt_seed);
 
-  if (opt_install) {
-    this.install();
-  }
-};
-goog.inherits(goog.testing.PseudoRandom, goog.Disposable);
+ if (opt_install) {
+   this.install();
+ }
+}
+goog.inherits(PseudoRandom, Disposable);
 
 
 /**
@@ -49,43 +47,43 @@ goog.inherits(goog.testing.PseudoRandom, goog.Disposable);
  * @type {number}
  * @private
  */
-goog.testing.PseudoRandom.seedUniquifier_ = 0;
+PseudoRandom.seedUniquifier_ = 0;
 
 
 /**
  * Constant used as part of the algorithm.
  * @type {number}
  */
-goog.testing.PseudoRandom.A = 48271;
+PseudoRandom.A = 48271;
 
 
 /**
  * Constant used as part of the algorithm. 2^31 - 1.
  * @type {number}
  */
-goog.testing.PseudoRandom.M = 2147483647;
+PseudoRandom.M = 2147483647;
 
 
 /**
  * Constant used as part of the algorithm. It is equal to M / A.
  * @type {number}
  */
-goog.testing.PseudoRandom.Q = 44488;
+PseudoRandom.Q = 44488;
 
 
 /**
  * Constant used as part of the algorithm. It is equal to M % A.
  * @type {number}
  */
-goog.testing.PseudoRandom.R = 3399;
+PseudoRandom.R = 3399;
 
 
 /**
  * Constant used as part of the algorithm to get values from range [0, 1).
  * @type {number}
  */
-goog.testing.PseudoRandom.ONE_OVER_M_MINUS_ONE =
-    1.0 / (goog.testing.PseudoRandom.M - 1);
+PseudoRandom.ONE_OVER_M_MINUS_ONE =
+    1.0 / (PseudoRandom.M - 1);
 
 
 /**
@@ -94,7 +92,7 @@ goog.testing.PseudoRandom.ONE_OVER_M_MINUS_ONE =
  * @type {number}
  * @private
  */
-goog.testing.PseudoRandom.prototype.seed_ = 1;
+PseudoRandom.prototype.seed_ = 1;
 
 
 /**
@@ -102,7 +100,7 @@ goog.testing.PseudoRandom.prototype.seed_ = 1;
  * @type {boolean}
  * @private
  */
-goog.testing.PseudoRandom.prototype.installed_;
+PseudoRandom.prototype.installed_;
 
 
 /**
@@ -110,39 +108,36 @@ goog.testing.PseudoRandom.prototype.installed_;
  * @type {function(): number}
  * @private
  */
-goog.testing.PseudoRandom.prototype.mathRandom_;
+PseudoRandom.prototype.mathRandom_;
 
 
 /**
  * Installs this PseudoRandom as the system number generator.
  */
-goog.testing.PseudoRandom.prototype.install = function() {
-  'use strict';
-  if (!this.installed_) {
-    this.mathRandom_ = Math.random;
-    Math.random = goog.bind(this.random, this);
-    this.installed_ = true;
-  }
+PseudoRandom.prototype.install = function() {
+ if (!this.installed_) {
+   this.mathRandom_ = Math.random;
+   Math.random = goog.bind(this.random, this);
+   this.installed_ = true;
+ }
 };
 
 
 /** @override */
-goog.testing.PseudoRandom.prototype.disposeInternal = function() {
-  'use strict';
-  goog.testing.PseudoRandom.superClass_.disposeInternal.call(this);
-  this.uninstall();
+PseudoRandom.prototype.disposeInternal = function() {
+ PseudoRandom.superClass_.disposeInternal.call(this);
+ this.uninstall();
 };
 
 
 /**
  * Uninstalls the PseudoRandom.
  */
-goog.testing.PseudoRandom.prototype.uninstall = function() {
-  'use strict';
-  if (this.installed_) {
-    Math.random = this.mathRandom_;
-    this.installed_ = false;
-  }
+PseudoRandom.prototype.uninstall = function() {
+ if (this.installed_) {
+   Math.random = this.mathRandom_;
+   this.installed_ = false;
+ }
 };
 
 
@@ -151,28 +146,26 @@ goog.testing.PseudoRandom.prototype.uninstall = function() {
  *
  * @param {number=} opt_seed The seed to use.
  */
-goog.testing.PseudoRandom.prototype.seed = function(opt_seed) {
-  'use strict';
-  this.seed_ = (opt_seed || 0) % (goog.testing.PseudoRandom.M - 1);
-  if (this.seed_ <= 0) {
-    this.seed_ += goog.testing.PseudoRandom.M - 1;
-  }
+PseudoRandom.prototype.seed = function(opt_seed) {
+ this.seed_ = (opt_seed || 0) % (PseudoRandom.M - 1);
+ if (this.seed_ <= 0) {
+   this.seed_ += PseudoRandom.M - 1;
+ }
 };
 
 
 /**
  * @return {number} The next number in the sequence.
  */
-goog.testing.PseudoRandom.prototype.random = function() {
-  'use strict';
-  var hi = Math.floor(this.seed_ / goog.testing.PseudoRandom.Q);
-  var lo = this.seed_ % goog.testing.PseudoRandom.Q;
-  var test =
-      goog.testing.PseudoRandom.A * lo - goog.testing.PseudoRandom.R * hi;
-  if (test > 0) {
-    this.seed_ = test;
-  } else {
-    this.seed_ = test + goog.testing.PseudoRandom.M;
-  }
-  return (this.seed_ - 1) * goog.testing.PseudoRandom.ONE_OVER_M_MINUS_ONE;
+PseudoRandom.prototype.random = function() {
+ var hi = Math.floor(this.seed_ / PseudoRandom.Q);
+ var lo = this.seed_ % PseudoRandom.Q;
+ var test =
+     PseudoRandom.A * lo - PseudoRandom.R * hi;
+ if (test > 0) {
+   this.seed_ = test;
+ } else {
+   this.seed_ = test + PseudoRandom.M;
+ }
+ return (this.seed_ - 1) * PseudoRandom.ONE_OVER_M_MINUS_ONE;
 };

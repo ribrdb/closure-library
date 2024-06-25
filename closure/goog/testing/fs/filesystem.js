@@ -1,3 +1,4 @@
+goog.declareModuleId('goog.testing.fs.filesystem');
 /**
  * @license
  * Copyright The Closure Library Authors.
@@ -9,10 +10,9 @@
  */
 
 goog.setTestOnly('goog.testing.fs.FileSystem');
-goog.provide('goog.testing.fs.FileSystem');
 
-goog.require('goog.fs.FileSystem');
-goog.require('goog.testing.fs.DirectoryEntry');
+import { FileSystem as fsFileSystem } from '../../fs/filesystem.js';
+import { DirectoryEntry } from './entry.js';
 
 
 
@@ -21,39 +21,36 @@ goog.require('goog.testing.fs.DirectoryEntry');
  *
  * @param {string=} opt_name The name of the filesystem.
  * @constructor
- * @implements {goog.fs.FileSystem}
+ * @implements {fsFileSystem}
  * @final
  */
-goog.testing.fs.FileSystem = function(opt_name) {
-  'use strict';
-  /**
-   * The name of the filesystem.
-   * @type {string}
-   * @private
-   */
-  this.name_ = opt_name || 'goog.testing.fs.FileSystem';
+export function FileSystem(opt_name) {
+ /**
+  * The name of the filesystem.
+  * @type {string}
+  * @private
+  */
+ this.name_ = opt_name || 'goog.testing.fs.FileSystem';
 
-  /**
+ /**
    * The root entry of the filesystem.
-   * @type {!goog.testing.fs.DirectoryEntry}
+   * @type {!DirectoryEntry}
    * @private
    */
-  this.root_ = new goog.testing.fs.DirectoryEntry(this, null, '', {});
-};
+ this.root_ = new DirectoryEntry(this, null, '', {});
+}
 
 
 /** @override */
-goog.testing.fs.FileSystem.prototype.getName = function() {
-  'use strict';
-  return this.name_;
+FileSystem.prototype.getName = function() {
+ return this.name_;
 };
 
 
 /**
  * @override
- * @return {!goog.testing.fs.DirectoryEntry}
+ * @return {!DirectoryEntry}
  */
-goog.testing.fs.FileSystem.prototype.getRoot = function() {
-  'use strict';
-  return this.root_;
+FileSystem.prototype.getRoot = function() {
+ return this.root_;
 };

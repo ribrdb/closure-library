@@ -8,14 +8,12 @@
  * @fileoverview SHA-384  cryptographic hash.
  *
  * Usage:
- *   var sha384 = new goog.crypt.Sha384();
+ *   var sha384 = new Sha384();
  *   sha384.update(bytes);
  *   var hash = sha384.digest();
  */
 
-goog.provide('goog.crypt.Sha384');
-
-goog.require('goog.crypt.Sha2_64bit');
+import { Sha2_64bit } from './sha2_64bit.js';
 
 
 
@@ -23,21 +21,20 @@ goog.require('goog.crypt.Sha2_64bit');
  * Constructs a SHA-384 cryptographic hash.
  *
  * @constructor
- * @extends {goog.crypt.Sha2_64bit}
+ * @extends {Sha2_64bit}
  * @final
  * @struct
  */
-goog.crypt.Sha384 = function() {
-  'use strict';
-  goog.crypt.Sha384.base(
-      this, 'constructor', 6 /* numHashBlocks */,
-      goog.crypt.Sha384.INIT_HASH_BLOCK_);
-};
-goog.inherits(goog.crypt.Sha384, goog.crypt.Sha2_64bit);
+export function Sha384() {
+ Sha384.base(
+     this, 'constructor', 6 /* numHashBlocks */,
+     Sha384.INIT_HASH_BLOCK_);
+}
+goog.inherits(Sha384, Sha2_64bit);
 
 
 /** @private {!Array<number>} */
-goog.crypt.Sha384.INIT_HASH_BLOCK_ = [
+Sha384.INIT_HASH_BLOCK_ = [
   // Section 5.3.4 of
   // csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf
   0xcbbb9d5d, 0xc1059ed8,  // H0

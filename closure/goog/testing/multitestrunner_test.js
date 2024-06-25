@@ -4,26 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MultiTestRunnerTest');
 goog.setTestOnly('goog.testing.MultiTestRunnerTest');
 
-const jsunit = goog.require('goog.testing.jsunit');
+import * as jsunit from './jsunit.js';
+import { MockControl } from './mockcontrol.js';
+import { MultiTestRunner } from './multitestrunner.js';
+import { Promise } from '../promise/promise.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import { TestCase } from './testcase.js';
+import * as array from '../array/array.js';
+import * as asserts from './asserts.js';
+import * as events from '../events/events.js';
+import { testSuite } from './testsuite.js';
+import * as testingEvents from './events/events.js';
 
 // Delay running the tests after page load. This test has some asynchronous
 // behavior that interacts with page load detection.
 /** @suppress {constantProperty} suppression added to enable type checking */
 jsunit.AUTO_RUN_DELAY_IN_MS = 500;
-
-const MockControl = goog.require('goog.testing.MockControl');
-const MultiTestRunner = goog.require('goog.testing.MultiTestRunner');
-const Promise = goog.require('goog.Promise');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const array = goog.require('goog.array');
-const asserts = goog.require('goog.testing.asserts');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
 
 const ALL_TESTS = [
   'testdata/fake_passing_test.html', 'testdata/fake_failing_test.html',

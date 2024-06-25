@@ -7,9 +7,7 @@
 /**
  * @fileoverview Utilities for HTML element tag names.
  */
-goog.provide('goog.dom.tags');
-
-goog.require('goog.object');
+import object from '../object/object.js';
 
 
 /**
@@ -17,7 +15,7 @@ goog.require('goog.object');
  * http://www.w3.org/TR/html-markup/syntax.html#void-elements.
  * @const @private {!Object<string, boolean>}
  */
-goog.dom.tags.VOID_TAGS_ = goog.object.createSet(
+var VOID_TAGS_ = object.createSet(
     'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input',
     'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr');
 
@@ -28,7 +26,6 @@ goog.dom.tags.VOID_TAGS_ = goog.object.createSet(
  * @param {string} tagName The tag name in lower case.
  * @return {boolean}
  */
-goog.dom.tags.isVoidTag = function(tagName) {
-  'use strict';
-  return goog.dom.tags.VOID_TAGS_[tagName] === true;
-};
+export function isVoidTag(tagName) {
+ return VOID_TAGS_[tagName] === true;
+}

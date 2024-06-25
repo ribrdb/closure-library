@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.BrowserFeatureTest');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.dom.BrowserFeature');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as BrowserFeature from './browserfeature.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let context2d = null;
 let contextwebgl = null;

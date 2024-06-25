@@ -4,25 +4,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.ControlRendererTest');
 goog.setTestOnly();
 
-const Component = goog.require('goog.ui.Component');
-const Control = goog.require('goog.ui.Control');
-const ControlRenderer = goog.require('goog.ui.ControlRenderer');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const NodeType = goog.require('goog.dom.NodeType');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const Role = goog.require('goog.a11y.aria.Role');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const googObject = goog.require('goog.object');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { Component } from './component.js';
+import { Control } from './control.js';
+import { ControlRenderer } from './controlrenderer.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { NodeType } from '../dom/nodetype.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { Role } from '../a11y/aria/roles.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import googObject from '../object/object.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let control;
 let controlRenderer;

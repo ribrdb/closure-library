@@ -19,13 +19,12 @@
 // constructor at all. You can run the conversion tool yourself to see what it
 // does on this file: blaze run //javascript/refactoring/es6_classes:convert.
 
-goog.provide('goog.graphics.ext.Shape');
+import { StrokeAndFillElement } from './strokeandfillelement.js';
 
-goog.require('goog.graphics.ext.StrokeAndFillElement');
-goog.requireType('goog.graphics.Path');
-goog.requireType('goog.graphics.ext.Group');
-goog.requireType('goog.graphics.ext.Path');
-goog.requireType('goog.math.Rect');
+goog.requireType('goog.graphics.path');
+goog.requireType('goog.graphics.ext.group');
+goog.requireType('goog.graphics.ext.path');
+goog.requireType('goog.math.rect');
 
 
 
@@ -36,19 +35,18 @@ goog.requireType('goog.math.Rect');
  * @param {boolean=} opt_autoSize Optional flag to specify the path should
  *     automatically resize to fit the element.  Defaults to false.
  * @constructor
- * @extends {goog.graphics.ext.StrokeAndFillElement}
+ * @extends {StrokeAndFillElement}
  * @final
  */
-goog.graphics.ext.Shape = function(group, path, opt_autoSize) {
-  'use strict';
-  this.autoSize_ = !!opt_autoSize;
+export function Shape(group, path, opt_autoSize) {
+ this.autoSize_ = !!opt_autoSize;
 
-  const graphics = group.getGraphicsImplementation();
-  const wrapper = graphics.drawPath(path, null, null, group.getWrapper());
-  goog.graphics.ext.StrokeAndFillElement.call(this, group, wrapper);
-  this.setPath(path);
-};
-goog.inherits(goog.graphics.ext.Shape, goog.graphics.ext.StrokeAndFillElement);
+ const graphics = group.getGraphicsImplementation();
+ const wrapper = graphics.drawPath(path, null, null, group.getWrapper());
+ StrokeAndFillElement.call(this, group, wrapper);
+ this.setPath(path);
+}
+goog.inherits(Shape, StrokeAndFillElement);
 
 
 /**
@@ -57,7 +55,7 @@ goog.inherits(goog.graphics.ext.Shape, goog.graphics.ext.StrokeAndFillElement);
  * @type {boolean}
  * @private
  */
-goog.graphics.ext.Shape.prototype.autoSize_ = false;
+Shape.prototype.autoSize_ = false;
 
 
 /**
@@ -65,7 +63,7 @@ goog.graphics.ext.Shape.prototype.autoSize_ = false;
  * @type {goog.graphics.Path}
  * @private
  */
-goog.graphics.ext.Shape.prototype.path_;
+Shape.prototype.path_;
 
 
 /**
@@ -73,7 +71,7 @@ goog.graphics.ext.Shape.prototype.path_;
  * @type {goog.math.Rect?}
  * @private
  */
-goog.graphics.ext.Shape.prototype.boundingBox_ = null;
+Shape.prototype.boundingBox_ = null;
 
 
 /**
@@ -81,16 +79,15 @@ goog.graphics.ext.Shape.prototype.boundingBox_ = null;
  * @type {goog.graphics.Path}
  * @private
  */
-goog.graphics.ext.Shape.prototype.scaledPath_;
+Shape.prototype.scaledPath_;
 
 
 /**
  * Get the path drawn by this shape.
  * @return {goog.graphics.Path?} The path drawn by this shape.
  */
-goog.graphics.ext.Shape.prototype.getPath = function() {
-  'use strict';
-  return this.path_;
+Shape.prototype.getPath = function() {
+ return this.path_;
 };
 
 
@@ -98,15 +95,14 @@ goog.graphics.ext.Shape.prototype.getPath = function() {
  * Set the path to draw.
  * @param {goog.graphics.ext.Path} path The path to draw.
  */
-goog.graphics.ext.Shape.prototype.setPath = function(path) {
-  'use strict';
-  this.path_ = path;
+Shape.prototype.setPath = function(path) {
+ this.path_ = path;
 
-  if (this.autoSize_) {
-    this.boundingBox_ = path.getBoundingBox();
-  }
+ if (this.autoSize_) {
+   this.boundingBox_ = path.getBoundingBox();
+ }
 
-  this.scaleAndSetPath_();
+ this.scaleAndSetPath_();
 };
 
 
@@ -115,20 +111,19 @@ goog.graphics.ext.Shape.prototype.setPath = function(path) {
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.Shape.prototype.scaleAndSetPath_ = function() {
-  'use strict';
-  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  this.scaledPath_ = this.boundingBox_ ?
-      this.path_.clone().modifyBounds(
-          -this.boundingBox_.left, -this.boundingBox_.top,
-          this.getWidth() / (this.boundingBox_.width || 1),
-          this.getHeight() / (this.boundingBox_.height || 1)) :
-      this.path_;
+Shape.prototype.scaleAndSetPath_ = function() {
+ /** @suppress {strictMissingProperties} Added to tighten compiler checks */
+ this.scaledPath_ = this.boundingBox_ ?
+     this.path_.clone().modifyBounds(
+         -this.boundingBox_.left, -this.boundingBox_.top,
+         this.getWidth() / (this.boundingBox_.width || 1),
+         this.getHeight() / (this.boundingBox_.height || 1)) :
+     this.path_;
 
-  const wrapper = this.getWrapper();
-  if (wrapper) {
-    wrapper.setPath(this.scaledPath_);
-  }
+ const wrapper = this.getWrapper();
+ if (wrapper) {
+   wrapper.setPath(this.scaledPath_);
+ }
 };
 
 
@@ -137,12 +132,11 @@ goog.graphics.ext.Shape.prototype.scaleAndSetPath_ = function() {
  * @protected
  * @override
  */
-goog.graphics.ext.Shape.prototype.redraw = function() {
-  'use strict';
-  goog.graphics.ext.Shape.superClass_.redraw.call(this);
-  if (this.autoSize_) {
-    this.scaleAndSetPath_();
-  }
+Shape.prototype.redraw = function() {
+ Shape.superClass_.redraw.call(this);
+ if (this.autoSize_) {
+   this.scaleAndSetPath_();
+ }
 };
 
 
@@ -151,8 +145,7 @@ goog.graphics.ext.Shape.prototype.redraw = function() {
  * @protected
  * @override
  */
-goog.graphics.ext.Shape.prototype.checkParentDependent = function() {
-  'use strict';
-  return this.autoSize_ ||
-      goog.graphics.ext.Shape.superClass_.checkParentDependent.call(this);
+Shape.prototype.checkParentDependent = function() {
+ return this.autoSize_ ||
+     Shape.superClass_.checkParentDependent.call(this);
 };

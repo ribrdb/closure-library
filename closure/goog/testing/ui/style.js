@@ -8,14 +8,12 @@
  * @fileoverview Tools for testing Closure renderers against static markup
  * spec pages.
  */
-goog.module('goog.testing.ui.style');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly();
 
-const asserts = goog.require('goog.asserts');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const testingAsserts = goog.require('goog.testing.asserts');
+import * as asserts from '../../asserts/asserts.js';
+import * as classlist from '../../dom/classlist.js';
+import * as dom from '../../dom/dom.js';
+import * as testingAsserts from '../asserts.js';
 
 /**
  * Uses document.write to add an iFrame to the page with the reference path in
@@ -127,7 +125,7 @@ function assertStructureMatchesReferenceInner(element, reference) {
   }
 }
 
-exports = {
+export default {
   assertStructureMatchesReference,
   getElementChildren,
   getReferenceNode,

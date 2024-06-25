@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.messaging.MultiChannelTest');
 goog.setTestOnly();
 
-const IgnoreArgument = goog.require('goog.testing.mockmatchers.IgnoreArgument');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockMessageChannel = goog.require('goog.testing.messaging.MockMessageChannel');
-const MultiChannel = goog.require('goog.messaging.MultiChannel');
-const testSuite = goog.require('goog.testing.testSuite');
+import { IgnoreArgument } from '../testing/mockmatchers.js';
+import { MockControl } from '../testing/mockcontrol.js';
+import { MockMessageChannel } from '../testing/messaging/mockmessagechannel.js';
+import { MultiChannel } from './multichannel.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let mockControl;
 let mockChannel;

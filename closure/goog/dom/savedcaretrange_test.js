@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.SavedCaretRangeTest');
 goog.setTestOnly();
 
-const Range = goog.require('goog.dom.Range');
-const SavedCaretRange = goog.require('goog.dom.SavedCaretRange');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
-const userAgent = goog.require('goog.userAgent');
+import * as Range from './range.js';
+import { SavedCaretRange } from './savedcaretrange.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /*
    TODO(user): Look into why removeCarets test doesn't pass.

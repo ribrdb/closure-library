@@ -10,10 +10,9 @@
  */
 
 
-goog.provide('goog.graphics.ext.Ellipse');
+import { StrokeAndFillElement } from './strokeandfillelement.js';
 
-goog.require('goog.graphics.ext.StrokeAndFillElement');
-goog.requireType('goog.graphics.ext.Group');
+goog.requireType('goog.graphics.ext.group');
 
 
 
@@ -21,18 +20,17 @@ goog.requireType('goog.graphics.ext.Group');
  * Wrapper for a graphics ellipse element.
  * @param {goog.graphics.ext.Group} group Parent for this element.
  * @constructor
- * @extends {goog.graphics.ext.StrokeAndFillElement}
+ * @extends {StrokeAndFillElement}
  * @final
  */
-goog.graphics.ext.Ellipse = function(group) {
-  'use strict';
-  // Initialize with some stock values.
-  const wrapper = group.getGraphicsImplementation().drawEllipse(
-      1, 1, 2, 2, null, null, group.getWrapper());
-  goog.graphics.ext.StrokeAndFillElement.call(this, group, wrapper);
-};
+export function Ellipse(group) {
+ // Initialize with some stock values.
+ const wrapper = group.getGraphicsImplementation().drawEllipse(
+     1, 1, 2, 2, null, null, group.getWrapper());
+ StrokeAndFillElement.call(this, group, wrapper);
+}
 goog.inherits(
-    goog.graphics.ext.Ellipse, goog.graphics.ext.StrokeAndFillElement);
+    Ellipse, StrokeAndFillElement);
 
 
 /**
@@ -41,15 +39,14 @@ goog.inherits(
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.graphics.ext.Ellipse.prototype.redraw = function() {
-  'use strict';
-  goog.graphics.ext.Ellipse.superClass_.redraw.call(this);
+Ellipse.prototype.redraw = function() {
+ Ellipse.superClass_.redraw.call(this);
 
-  // Our position is already transformed in transform_, but because this is an
-  // ellipse we need to position the center.
-  const xRadius = this.getWidth() / 2;
-  const yRadius = this.getHeight() / 2;
-  const wrapper = this.getWrapper();
-  wrapper.setCenter(xRadius, yRadius);
-  wrapper.setRadius(xRadius, yRadius);
+ // Our position is already transformed in transform_, but because this is an
+ // ellipse we need to position the center.
+ const xRadius = this.getWidth() / 2;
+ const yRadius = this.getHeight() / 2;
+ const wrapper = this.getWrapper();
+ wrapper.setCenter(xRadius, yRadius);
+ wrapper.setRadius(xRadius, yRadius);
 };

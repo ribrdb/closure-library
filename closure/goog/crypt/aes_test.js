@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.crypt.AesTest');
 goog.setTestOnly();
 
-const Aes = goog.require('goog.crypt.Aes');
-const crypt = goog.require('goog.crypt');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Aes } from './aes.js';
+import * as crypt from './crypt.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** Override define value */
 Aes['ENABLE_TEST_MODE'] = true;

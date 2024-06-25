@@ -8,11 +8,9 @@
  * @fileoverview Definition of Statistics events for BrowserChannels.
  */
 
-goog.module('goog.net.browserchannelinternal.stats');
-goog.module.declareLegacyNamespace();
+import { Event } from '../events/event.js';
 
-const Event = goog.require('goog.events.Event');
-const EventTarget = goog.require('goog.events.EventTarget');
+import { EventTarget } from '../events/eventtarget.js';
 
 /**
  * Enum that identifies events for statistics that are interesting to track.
@@ -111,7 +109,7 @@ const Stat = {
   /** ActiveX is blocked by the machine's admin settings. */
   ACTIVE_X_BLOCKED: 22,
 };
-exports.Stat = Stat;
+export { Stat };
 
 /**
  * Helper function to call the stat event callback.
@@ -120,7 +118,7 @@ exports.Stat = Stat;
 const notifyStatEvent = function(stat) {
   statEventTarget.dispatchEvent(new StatEvent(statEventTarget, stat));
 };
-exports.notifyStatEvent = notifyStatEvent;
+export { notifyStatEvent };
 
 /**
  * Returns the singleton event target for stat events.
@@ -129,7 +127,7 @@ exports.notifyStatEvent = notifyStatEvent;
 const getStatEventTarget = function() {
   return statEventTarget;
 };
-exports.getStatEventTarget = getStatEventTarget;
+export { getStatEventTarget };
 
 /**
  * Singleton event target for firing stat events
@@ -145,7 +143,7 @@ const statEventTarget = new EventTarget();
  * on the EventTarget returned by getStatEventTarget.
  */
 const STAT_EVENT = 'statevent';
-exports.STAT_EVENT = STAT_EVENT;
+export { STAT_EVENT };
 
 
 /**
@@ -168,4 +166,4 @@ class StatEvent extends Event {
     this.stat = stat;
   }
 }
-exports.StatEvent = StatEvent;
+export { StatEvent };

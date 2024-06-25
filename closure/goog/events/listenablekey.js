@@ -7,16 +7,16 @@
 /**
  * @fileoverview An interface that describes a single registered listener.
  */
-goog.provide('goog.events.ListenableKey');
+goog.declareModuleId('goog.events.listenablekey');
 
-goog.requireType('goog.events.Listenable');
+goog.requireType('goog.events.listenable');
 
 
 /**
  * An interface that describes a single registered listener.
  * @interface
  */
-goog.events.ListenableKey = function() {};
+export function ListenableKey() {}
 
 
 /**
@@ -24,7 +24,7 @@ goog.events.ListenableKey = function() {};
  * @type {number}
  * @private
  */
-goog.events.ListenableKey.counter_ = 0;
+ListenableKey.counter_ = 0;
 
 
 /**
@@ -32,9 +32,8 @@ goog.events.ListenableKey.counter_ = 0;
  * @return {number} A number to be used to fill ListenableKey#key
  *     field.
  */
-goog.events.ListenableKey.reserveKey = function() {
-  'use strict';
-  return ++goog.events.ListenableKey.counter_;
+ListenableKey.reserveKey = function() {
+ return ++ListenableKey.counter_;
 };
 
 
@@ -42,39 +41,39 @@ goog.events.ListenableKey.reserveKey = function() {
  * The source event target.
  * @type {?Object|?goog.events.Listenable}
  */
-goog.events.ListenableKey.prototype.src;
+ListenableKey.prototype.src;
 
 
 /**
  * The event type the listener is listening to.
  * @type {string}
  */
-goog.events.ListenableKey.prototype.type;
+ListenableKey.prototype.type;
 
 
 /**
  * The listener function.
  * @type {function(?):?|{handleEvent:function(?):?}|null}
  */
-goog.events.ListenableKey.prototype.listener;
+ListenableKey.prototype.listener;
 
 
 /**
  * Whether the listener works on capture phase.
  * @type {boolean}
  */
-goog.events.ListenableKey.prototype.capture;
+ListenableKey.prototype.capture;
 
 
 /**
  * The 'this' object for the listener function's scope.
  * @type {?Object|undefined}
  */
-goog.events.ListenableKey.prototype.handler;
+ListenableKey.prototype.handler;
 
 
 /**
  * A globally unique number to identify the key.
  * @type {number}
  */
-goog.events.ListenableKey.prototype.key;
+ListenableKey.prototype.key;

@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for the CSS specificity calculator. */
 
-goog.module('goog.html.CssSpecificityTest');
 goog.setTestOnly();
 
-const CssSpecificity = goog.require('goog.html.CssSpecificity');
-const testSuite = goog.require('goog.testing.testSuite');
+import CssSpecificity from './cssspecificity.js';
+import { testSuite } from '../testing/testsuite.js';
 
 
 /**

@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.events.OnlineHandlerTest');
 goog.setTestOnly();
 
-const EventObserver = goog.require('goog.testing.events.EventObserver');
-const NetworkStatusMonitor = goog.require('goog.net.NetworkStatusMonitor');
-const OnlineHandler = goog.require('goog.testing.events.OnlineHandler');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventObserver } from './eventobserver.js';
+import { NetworkStatusMonitor } from '../../net/networkstatusmonitor.js';
+import { OnlineHandler } from './onlinehandler.js';
+import * as events from '../../events/events.js';
+import { testSuite } from '../testsuite.js';
 
 let handler;
 

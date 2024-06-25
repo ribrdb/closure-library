@@ -36,11 +36,9 @@
  * </code>
  */
 
-goog.module('goog.asserts');
-goog.module.declareLegacyNamespace();
+import * as DebugError from '../debug/error.js';
 
-const DebugError = goog.require('goog.debug.Error');
-const NodeType = goog.require('goog.dom.NodeType');
+import { NodeType } from '../dom/nodetype.js';
 
 
 // NOTE: this needs to be exported directly and referenced via the exports
@@ -48,7 +46,7 @@ const NodeType = goog.require('goog.dom.NodeType');
 /**
  * @define {boolean} Whether to strip out asserts or to leave them in.
  */
-exports.ENABLE_ASSERTS = goog.define('goog.asserts.ENABLE_ASSERTS', goog.DEBUG);
+export let ENABLE_ASSERTS = goog.define('goog.asserts.ENABLE_ASSERTS', goog.DEBUG);
 
 
 
@@ -71,7 +69,7 @@ function AssertionError(messagePattern, messageArgs) {
   this.messagePattern = messagePattern;
 }
 goog.inherits(AssertionError, DebugError);
-exports.AssertionError = AssertionError;
+export { AssertionError };
 
 /** @override @type {string} */
 AssertionError.prototype.name = 'AssertionError';
@@ -82,7 +80,7 @@ AssertionError.prototype.name = 'AssertionError';
  * @param {!AssertionError} e The exception to be handled.
  * @return {void}
  */
-exports.DEFAULT_ERROR_HANDLER = function(e) {
+export let DEFAULT_ERROR_HANDLER = function(e) {
   throw e;
 };
 
@@ -91,7 +89,7 @@ exports.DEFAULT_ERROR_HANDLER = function(e) {
  * The handler responsible for throwing or logging assertion errors.
  * @type {function(!AssertionError)}
  */
-let errorHandler_ = exports.DEFAULT_ERROR_HANDLER;
+let errorHandler_ = DEFAULT_ERROR_HANDLER;
 
 
 /**
@@ -153,8 +151,8 @@ function doAssertFailure(defaultMessage, defaultArgs, givenMessage, givenArgs) {
  * @param {function(!AssertionError)} errorHandler
  * @return {void}
  */
-exports.setErrorHandler = function(errorHandler) {
-  if (exports.ENABLE_ASSERTS) {
+export let setErrorHandler = function(errorHandler) {
+  if (ENABLE_ASSERTS) {
     errorHandler_ = errorHandler;
   }
 };
@@ -171,8 +169,8 @@ exports.setErrorHandler = function(errorHandler) {
  * @throws {AssertionError} When the condition evaluates to false.
  * @closurePrimitive {asserts.truthy}
  */
-exports.assert = function(condition, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && !condition) {
+export let assert = function(condition, opt_message, var_args) {
+  if (ENABLE_ASSERTS && !condition) {
     doAssertFailure(
         '', null, opt_message, Array.prototype.slice.call(arguments, 2));
   }
@@ -202,8 +200,8 @@ exports.assert = function(condition, opt_message, var_args) {
  * @throws {!AssertionError} When `value` is `null` or `undefined`.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertExists = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && value == null) {
+export let assertExists = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && value == null) {
     doAssertFailure(
         'Expected to exist: %s.', [value], opt_message,
         Array.prototype.slice.call(arguments, 2));
@@ -232,8 +230,8 @@ exports.assertExists = function(value, opt_message, var_args) {
  * @throws {AssertionError} Failure.
  * @closurePrimitive {asserts.fail}
  */
-exports.fail = function(opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS) {
+export let fail = function(opt_message, var_args) {
+  if (ENABLE_ASSERTS) {
     errorHandler_(new AssertionError(
         'Failure' + (opt_message ? ': ' + opt_message : ''),
         Array.prototype.slice.call(arguments, 1)));
@@ -250,8 +248,8 @@ exports.fail = function(opt_message, var_args) {
  * @throws {AssertionError} When the value is not a number.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertNumber = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && typeof value !== 'number') {
+export let assertNumber = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && typeof value !== 'number') {
     doAssertFailure(
         'Expected number but got %s: %s.', [goog.typeOf(value), value],
         opt_message, Array.prototype.slice.call(arguments, 2));
@@ -269,8 +267,8 @@ exports.assertNumber = function(value, opt_message, var_args) {
  * @throws {AssertionError} When the value is not a string.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertString = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && typeof value !== 'string') {
+export let assertString = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && typeof value !== 'string') {
     doAssertFailure(
         'Expected string but got %s: %s.', [goog.typeOf(value), value],
         opt_message, Array.prototype.slice.call(arguments, 2));
@@ -289,8 +287,8 @@ exports.assertString = function(value, opt_message, var_args) {
  * @throws {AssertionError} When the value is not a function.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertFunction = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && typeof value !== 'function') {
+export let assertFunction = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && typeof value !== 'function') {
     doAssertFailure(
         'Expected function but got %s: %s.', [goog.typeOf(value), value],
         opt_message, Array.prototype.slice.call(arguments, 2));
@@ -308,8 +306,8 @@ exports.assertFunction = function(value, opt_message, var_args) {
  * @throws {AssertionError} When the value is not an object.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertObject = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && !goog.isObject(value)) {
+export let assertObject = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && !goog.isObject(value)) {
     doAssertFailure(
         'Expected object but got %s: %s.', [goog.typeOf(value), value],
         opt_message, Array.prototype.slice.call(arguments, 2));
@@ -327,8 +325,8 @@ exports.assertObject = function(value, opt_message, var_args) {
  * @throws {AssertionError} When the value is not an array.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertArray = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && !Array.isArray(value)) {
+export let assertArray = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && !Array.isArray(value)) {
     doAssertFailure(
         'Expected array but got %s: %s.', [goog.typeOf(value), value],
         opt_message, Array.prototype.slice.call(arguments, 2));
@@ -347,8 +345,8 @@ exports.assertArray = function(value, opt_message, var_args) {
  * @throws {AssertionError} When the value is not a boolean.
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertBoolean = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && typeof value !== 'boolean') {
+export let assertBoolean = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS && typeof value !== 'boolean') {
     doAssertFailure(
         'Expected boolean but got %s: %s.', [goog.typeOf(value), value],
         opt_message, Array.prototype.slice.call(arguments, 2));
@@ -368,8 +366,8 @@ exports.assertBoolean = function(value, opt_message, var_args) {
  * @closurePrimitive {asserts.matchesReturn}
  * @deprecated Use goog.asserts.dom.assertIsElement instead.
  */
-exports.assertElement = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS &&
+export let assertElement = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS &&
       (!goog.isObject(value) ||
        /** @type {!Node} */ (value).nodeType != NodeType.ELEMENT)) {
     doAssertFailure(
@@ -401,8 +399,8 @@ exports.assertElement = function(value, opt_message, var_args) {
  * @template T
  * @closurePrimitive {asserts.matchesReturn}
  */
-exports.assertInstanceof = function(value, type, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS && !(value instanceof type)) {
+export let assertInstanceof = function(value, type, opt_message, var_args) {
+  if (ENABLE_ASSERTS && !(value instanceof type)) {
     doAssertFailure(
         'Expected instanceof %s but got %s.', [getType(type), getType(value)],
         opt_message, Array.prototype.slice.call(arguments, 3));
@@ -422,8 +420,8 @@ exports.assertInstanceof = function(value, type, opt_message, var_args) {
  *     a non-finite number such as NaN, Infinity or -Infinity.
  * @return {number} The value initially passed in.
  */
-exports.assertFinite = function(value, opt_message, var_args) {
-  if (exports.ENABLE_ASSERTS &&
+export let assertFinite = function(value, opt_message, var_args) {
+  if (ENABLE_ASSERTS &&
       (typeof value != 'number' || !isFinite(value))) {
     doAssertFailure(
         'Expected %s to be a finite number but it is not.', [value],

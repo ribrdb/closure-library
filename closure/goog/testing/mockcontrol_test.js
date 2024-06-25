@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockControlTest');
 goog.setTestOnly();
 
-const Mock = goog.require('goog.testing.Mock');
-const MockControl = goog.require('goog.testing.MockControl');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Mock } from './mock.js';
+import { MockControl } from './mockcontrol.js';
+import { testSuite } from './testsuite.js';
 
 // Emulate the behavior of a mock.
 class MockMock {

@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.testing.environmentTest');
 goog.setTestOnly();
 
-const Environment = goog.require('goog.labs.testing.Environment');
-const MockControl = goog.require('goog.testing.MockControl');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const TestCase = goog.require('goog.testing.TestCase');
-const asserts = goog.require('goog.asserts');
-const testingTestSuite = goog.require('goog.testing.testSuite');
-const {EnvironmentBase} = goog.require('goog.labs.testing.EnvironmentBase');
+import { Environment } from './environment.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { PropertyReplacer } from '../../testing/propertyreplacer.js';
+import { TestCase } from '../../testing/testcase.js';
+import * as asserts from '../../asserts/asserts.js';
+import { testSuite as testingTestSuite } from '../../testing/testsuite.js';
+import { EnvironmentBase } from './environmentbase.js';
 
 let testCase = null;
 let mockControl = null;

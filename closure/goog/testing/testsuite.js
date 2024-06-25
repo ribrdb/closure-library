@@ -3,12 +3,10 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-goog.module('goog.testing.testSuite');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly('goog.testing.testSuite');
 
-const Environment = goog.require('goog.labs.testing.Environment');
-const TestCase = goog.require('goog.testing.TestCase');
+import { Environment } from '../labs/testing/environment.js';
+import { TestCase } from './testcase.js';
 
 /** @record */
 class TestSuiteOptions {
@@ -74,4 +72,4 @@ testSuite.resetForTesting = function() {
   initialized = false;
 };
 
-exports = testSuite;
+export { testSuite };

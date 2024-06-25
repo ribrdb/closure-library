@@ -11,7 +11,7 @@
  * <ol>
  *   <li>Instead of writing your large test in foo_test.html, write it in
  * foo_test_template.html</li>
- *   <li>Add a call to `goog.testing.ShardingTestCase.shardByFileName()`
+ *   <li>Add a call to `ShardingTestCase.shardByFileName()`
  * near the top of your test, before any test cases or setup methods.</li>
  *   <li>Symlink foo_test_template.html into different sharded test files
  * named foo_1of4_test.html, foo_2of4_test.html, etc, using `ln -s`.</li>
@@ -24,10 +24,9 @@
  */
 
 goog.setTestOnly('goog.testing.ShardingTestCase');
-goog.provide('goog.testing.ShardingTestCase');
 
-goog.require('goog.asserts');
-goog.require('goog.testing.TestCase');
+import * as asserts from '../asserts/asserts.js';
+import { TestCase } from './testcase.js';
 
 
 
@@ -37,31 +36,30 @@ goog.require('goog.testing.TestCase');
  *     <strong>1-indexed</strong>.
  * @param {number} numShards Number of shards to split up test cases into.
  * @param {string=} opt_name The name of the test case.
- * @extends {goog.testing.TestCase}
+ * @extends {TestCase}
  * @constructor
  * @final
  */
-goog.testing.ShardingTestCase = function(shardIndex, numShards, opt_name) {
-  'use strict';
-  goog.testing.ShardingTestCase.base(this, 'constructor', opt_name);
+export function ShardingTestCase(shardIndex, numShards, opt_name) {
+ ShardingTestCase.base(this, 'constructor', opt_name);
 
-  goog.asserts.assert(shardIndex > 0, 'Shard index should be positive');
-  goog.asserts.assert(numShards > 0, 'Number of shards should be positive');
-  goog.asserts.assert(shardIndex <= numShards, 'Shard index out of bounds');
+ asserts.assert(shardIndex > 0, 'Shard index should be positive');
+ asserts.assert(numShards > 0, 'Number of shards should be positive');
+ asserts.assert(shardIndex <= numShards, 'Shard index out of bounds');
 
-  /**
-   * @type {number}
-   * @private
-   */
-  this.shardIndex_ = shardIndex;
+ /**
+  * @type {number}
+  * @private
+  */
+ this.shardIndex_ = shardIndex;
 
-  /**
-   * @type {number}
-   * @private
-   */
-  this.numShards_ = numShards;
-};
-goog.inherits(goog.testing.ShardingTestCase, goog.testing.TestCase);
+ /**
+  * @type {number}
+  * @private
+  */
+ this.numShards_ = numShards;
+}
+goog.inherits(ShardingTestCase, TestCase);
 
 
 /**
@@ -70,7 +68,7 @@ goog.inherits(goog.testing.ShardingTestCase, goog.testing.TestCase);
  * @type {boolean}
  * @private
  */
-goog.testing.ShardingTestCase.prototype.sharded_ = false;
+ShardingTestCase.prototype.sharded_ = false;
 
 
 /**
@@ -78,25 +76,24 @@ goog.testing.ShardingTestCase.prototype.sharded_ = false;
  * run tests, which will run a single shard of the tests present on the page.
  * @override
  */
-goog.testing.ShardingTestCase.prototype.runTests = function() {
-  'use strict';
-  if (!this.sharded_) {
-    var numTests = this.getCount();
-    goog.asserts.assert(
-        numTests >= this.numShards_,
-        'Must have at least as many tests as shards!');
-    var shardSize = Math.ceil(numTests / this.numShards_);
-    var startIndex = (this.shardIndex_ - 1) * shardSize;
-    var endIndex = startIndex + shardSize;
-    goog.asserts.assert(
-        this.order == goog.testing.TestCase.Order.SORTED,
-        'Only SORTED order is allowed for sharded tests');
-    this.setTests(this.getTests().slice(startIndex, endIndex));
-    this.sharded_ = true;
-  }
+ShardingTestCase.prototype.runTests = function() {
+ if (!this.sharded_) {
+   var numTests = this.getCount();
+   asserts.assert(
+       numTests >= this.numShards_,
+       'Must have at least as many tests as shards!');
+   var shardSize = Math.ceil(numTests / this.numShards_);
+   var startIndex = (this.shardIndex_ - 1) * shardSize;
+   var endIndex = startIndex + shardSize;
+   asserts.assert(
+       this.order == TestCase.Order.SORTED,
+       'Only SORTED order is allowed for sharded tests');
+   this.setTests(this.getTests().slice(startIndex, endIndex));
+   this.sharded_ = true;
+ }
 
-  // Call original runTests method to execute the tests.
-  goog.testing.ShardingTestCase.base(this, 'runTests');
+ // Call original runTests method to execute the tests.
+ ShardingTestCase.base(this, 'runTests');
 };
 
 
@@ -105,16 +102,15 @@ goog.testing.ShardingTestCase.prototype.runTests = function() {
  * formatted like 'foo_1of5_test.html'.
  * @param {string=} opt_name A descriptive name for the test case.
  */
-goog.testing.ShardingTestCase.shardByFileName = function(opt_name) {
-  'use strict';
-  var path = window.location.pathname;
-  var shardMatch = path.match(/_(\d+)of(\d+)_test\.(js|html)/);
-  goog.asserts.assert(
-      shardMatch, 'Filename must be of the form "foo_1of5_test.{js,html}"');
-  var shardIndex = parseInt(shardMatch[1], 10);
-  var numShards = parseInt(shardMatch[2], 10);
+ShardingTestCase.shardByFileName = function(opt_name) {
+ var path = window.location.pathname;
+ var shardMatch = path.match(/_(\d+)of(\d+)_test\.(js|html)/);
+ asserts.assert(
+     shardMatch, 'Filename must be of the form "foo_1of5_test.{js,html}"');
+ var shardIndex = parseInt(shardMatch[1], 10);
+ var numShards = parseInt(shardMatch[2], 10);
 
-  var testCase =
-      new goog.testing.ShardingTestCase(shardIndex, numShards, opt_name);
-  goog.testing.TestCase.initializeTestRunner(testCase);
+ var testCase =
+     new ShardingTestCase(shardIndex, numShards, opt_name);
+ TestCase.initializeTestRunner(testCase);
 };

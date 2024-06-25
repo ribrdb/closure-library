@@ -32,7 +32,7 @@
  * hence cause XSS - like innerHTML. For example, Dialog might expose a
  * setContent method which takes a string and sets the innerHTML property of
  * an element with it. In this case a setSafeHtmlContent function could be
- * added, consuming goog.html.SafeHtml instead of string, and using
+ * added, consuming SafeHtml instead of string, and using
  * goog.dom.safe.setInnerHtml instead of directly setting innerHTML.
  * setContent could then internally use legacyconversions to create a SafeHtml
  * from string and pass the SafeHtml to setSafeHtmlContent. In this scenario
@@ -42,7 +42,7 @@
  * 2. Automated refactoring of application code which handles HTML as string
  * but needs to call a function which only takes goog.html types. For example,
  * in the Dialog scenario from (1) an alternative option would be to refactor
- * setContent to accept goog.html.SafeHtml instead of string and then refactor
+ * setContent to accept SafeHtml instead of string and then refactor
  * all current callers to use legacyconversions to pass SafeHtml. This is
  * generally preferable to (1) because it keeps the library clean of
  * legacyconversions, and makes code sites in application code that are
@@ -55,14 +55,13 @@
  */
 
 
-goog.provide('goog.html.legacyconversions');
+import { SafeHtml } from './safehtml.js';
 
-goog.require('goog.html.SafeHtml');
-goog.require('goog.html.SafeScript');
-goog.require('goog.html.SafeStyle');
-goog.require('goog.html.SafeStyleSheet');
-goog.require('goog.html.SafeUrl');
-goog.require('goog.html.TrustedResourceUrl');
+import { SafeScript } from './safescript.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeStyleSheet } from './safestylesheet.js';
+import { SafeUrl } from './safeurl.js';
+import { TrustedResourceUrl } from './trustedresourceurl.js';
 
 
 /**
@@ -72,15 +71,14 @@ goog.require('goog.html.TrustedResourceUrl');
  * Please read fileoverview documentation before using.
  *
  * @param {string} html A string to be converted to SafeHtml.
- * @return {!goog.html.SafeHtml} The value of html, wrapped in a SafeHtml
+ * @return {!SafeHtml} The value of html, wrapped in a SafeHtml
  *     object.
  */
-goog.html.legacyconversions.safeHtmlFromString = function(html) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_();
-  return goog.html.SafeHtml.createSafeHtmlSecurityPrivateDoNotAccessOrElse(
-      html);
-};
+export function safeHtmlFromString(html) {
+ reportCallback_();
+ return SafeHtml.createSafeHtmlSecurityPrivateDoNotAccessOrElse(
+     html);
+}
 
 
 /**
@@ -90,15 +88,14 @@ goog.html.legacyconversions.safeHtmlFromString = function(html) {
  * Please read fileoverview documentation before using.
  *
  * @param {string} script A string to be converted to SafeScript.
- * @return {!goog.html.SafeScript} The value of script, wrapped in a SafeScript
+ * @return {!SafeScript} The value of script, wrapped in a SafeScript
  *     object.
  */
-goog.html.legacyconversions.safeScriptFromString = function(script) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_();
-  return goog.html.SafeScript.createSafeScriptSecurityPrivateDoNotAccessOrElse(
-      script);
-};
+export function safeScriptFromString(script) {
+ reportCallback_();
+ return SafeScript.createSafeScriptSecurityPrivateDoNotAccessOrElse(
+     script);
+}
 
 
 /**
@@ -108,15 +105,14 @@ goog.html.legacyconversions.safeScriptFromString = function(script) {
  * Please read fileoverview documentation before using.
  *
  * @param {string} style A string to be converted to SafeStyle.
- * @return {!goog.html.SafeStyle} The value of style, wrapped in a SafeStyle
+ * @return {!SafeStyle} The value of style, wrapped in a SafeStyle
  *     object.
  */
-goog.html.legacyconversions.safeStyleFromString = function(style) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_();
-  return goog.html.SafeStyle.createSafeStyleSecurityPrivateDoNotAccessOrElse(
-      style);
-};
+export function safeStyleFromString(style) {
+ reportCallback_();
+ return SafeStyle.createSafeStyleSecurityPrivateDoNotAccessOrElse(
+     style);
+}
 
 
 /**
@@ -126,15 +122,14 @@ goog.html.legacyconversions.safeStyleFromString = function(style) {
  * Please read fileoverview documentation before using.
  *
  * @param {string} styleSheet A string to be converted to SafeStyleSheet.
- * @return {!goog.html.SafeStyleSheet} The value of style sheet, wrapped in
+ * @return {!SafeStyleSheet} The value of style sheet, wrapped in
  *     a SafeStyleSheet object.
  */
-goog.html.legacyconversions.safeStyleSheetFromString = function(styleSheet) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_();
-  return goog.html.SafeStyleSheet
-      .createSafeStyleSheetSecurityPrivateDoNotAccessOrElse(styleSheet);
-};
+export function safeStyleSheetFromString(styleSheet) {
+ reportCallback_();
+ return SafeStyleSheet
+     .createSafeStyleSheetSecurityPrivateDoNotAccessOrElse(styleSheet);
+}
 
 
 /**
@@ -144,14 +139,13 @@ goog.html.legacyconversions.safeStyleSheetFromString = function(styleSheet) {
  * Please read fileoverview documentation before using.
  *
  * @param {string} url A string to be converted to SafeUrl.
- * @return {!goog.html.SafeUrl} The value of url, wrapped in a SafeUrl
+ * @return {!SafeUrl} The value of url, wrapped in a SafeUrl
  *     object.
  */
-goog.html.legacyconversions.safeUrlFromString = function(url) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_();
-  return goog.html.SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
-};
+export function safeUrlFromString(url) {
+ reportCallback_();
+ return SafeUrl.createSafeUrlSecurityPrivateDoNotAccessOrElse(url);
+}
 
 
 /**
@@ -161,20 +155,19 @@ goog.html.legacyconversions.safeUrlFromString = function(url) {
  * Please read fileoverview documentation before using.
  *
  * @param {string} url A string to be converted to TrustedResourceUrl.
- * @return {!goog.html.TrustedResourceUrl} The value of url, wrapped in a
+ * @return {!TrustedResourceUrl} The value of url, wrapped in a
  *     TrustedResourceUrl object.
  */
-goog.html.legacyconversions.trustedResourceUrlFromString = function(url) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_();
-  return goog.html.TrustedResourceUrl
-      .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(url);
-};
+export function trustedResourceUrlFromString(url) {
+ reportCallback_();
+ return TrustedResourceUrl
+     .createTrustedResourceUrlSecurityPrivateDoNotAccessOrElse(url);
+}
 
 /**
  * @private {function(): undefined}
  */
-goog.html.legacyconversions.reportCallback_ = function() {};
+function reportCallback_() {}
 
 
 /**
@@ -184,7 +177,6 @@ goog.html.legacyconversions.reportCallback_ = function() {};
  *
  * @param {function(): undefined} callback Error callback as defined above.
  */
-goog.html.legacyconversions.setReportCallback = function(callback) {
-  'use strict';
-  goog.html.legacyconversions.reportCallback_ = callback;
-};
+export function setReportCallback(callback) {
+ reportCallback_ = callback;
+}

@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.delegate.DelegateRegistryTest');
 goog.setTestOnly();
 
-const DelegateRegistry = goog.require('goog.delegate.DelegateRegistry');
-const testSuite = goog.require('goog.testing.testSuite');
-const {zip} = goog.require('goog.array');
+import { DelegateRegistry } from './delegateregistry.js';
+import { testSuite } from '../testing/testsuite.js';
+import { zip } from '../array/array.js';
 
 /** Always throws. */
 const THROW = () => {

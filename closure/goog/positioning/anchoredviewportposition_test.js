@@ -4,16 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.positioning.AnchoredViewportPositionTest');
 goog.setTestOnly();
 
-const AnchoredViewportPosition = goog.require('goog.positioning.AnchoredViewportPosition');
-const Box = goog.require('goog.math.Box');
-const Corner = goog.require('goog.positioning.Corner');
-const OverflowStatus = goog.require('goog.positioning.OverflowStatus');
-const googDom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AnchoredViewportPosition } from './anchoredviewportposition.js';
+import { Box } from '../math/box.js';
+import { Corner, OverflowStatus } from './positioning.js';
+import * as googDom from '../dom/dom.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let anchor;
 let doc;

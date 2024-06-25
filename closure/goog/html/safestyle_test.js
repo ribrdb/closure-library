@@ -6,15 +6,14 @@
 
 /** @fileoverview Unit tests for SafeStyle and its builders. */
 
-goog.module('goog.html.safeStyleTest');
 goog.setTestOnly();
 
-const Const = goog.require('goog.string.Const');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const SafeStyle = goog.require('goog.html.SafeStyle');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const googObject = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Const } from '../string/const.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { SafeStyle } from './safestyle.js';
+import { SafeUrl } from './safeurl.js';
+import googObject from '../object/object.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /**
  * Asserts that created SafeStyle matches expected value.

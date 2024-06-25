@@ -4,23 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.seamlessfield_test');
 goog.setTestOnly();
 
-const BrowserFeature = goog.require('goog.editor.BrowserFeature');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const Field = goog.require('goog.editor.Field');
-const MockClock = goog.require('goog.testing.MockClock');
-const MockRange = goog.require('goog.testing.MockRange');
-const Range = goog.require('goog.dom.Range');
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const SeamlessField = goog.require('goog.editor.SeamlessField');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const functions = goog.require('goog.functions');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { BrowserFeature } from './browserfeature.js';
+import * as dom from '../dom/dom.js';
+import { DomHelper } from '../dom/dom.js';
+import { Field } from './field.js';
+import { MockClock } from '../testing/mockclock.js';
+import { MockRange } from '../testing/mockrange.js';
+import * as Range from '../dom/range.js';
+import { SafeHtml } from '../html/safehtml.js';
+import { SeamlessField } from './seamlessfield.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../events/events.js';
+import * as functions from '../functions/functions.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let fieldElem;
 let fieldElemClone;

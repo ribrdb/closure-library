@@ -8,30 +8,31 @@
  * @fileoverview
  * @suppress {missingRequire} Swapping using fully qualified name
  */
-goog.module('goog.i18n.DateTimeParseTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const replacer = new PropertyReplacer();
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { DateLike, Date as GoogDate } from '../date/date.js';
+import { DateTimeFormat } from './datetimeformat.js';
+import { DateTimeParse } from './datetimeparse.js';
 
-const DateLike = goog.require('goog.date.DateLike');
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-const DateTimeParse = goog.require('goog.i18n.DateTimeParse');
 /** @suppress {extraRequire} */
-const DateTimePatterns_ru = goog.require('goog.i18n.DateTimePatterns_ru');
-const DateTimeSymbols_ca = goog.require('goog.i18n.DateTimeSymbols_ca');
-const DateTimeSymbols_en = goog.require('goog.i18n.DateTimeSymbols_en');
-const DateTimeSymbols_fa = goog.require('goog.i18n.DateTimeSymbols_fa');
-const DateTimeSymbols_fr = goog.require('goog.i18n.DateTimeSymbols_fr');
-const DateTimeSymbols_ko = goog.require('goog.i18n.DateTimeSymbols_ko');
-const DateTimeSymbols_pl = goog.require('goog.i18n.DateTimeSymbols_pl');
-const DateTimeSymbols_ru = goog.require('goog.i18n.DateTimeSymbols_ru');
-const DateTimeSymbols_zh = goog.require('goog.i18n.DateTimeSymbols_zh');
-const DateTimeSymbols_zh_TW = goog.require('goog.i18n.DateTimeSymbols_zh_TW');
-const GoogDate = goog.require('goog.date.Date');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DateTimePatterns_ru } from './datetimepatterns.js';
 
-const {DayPeriods_zh_Hant, setDayPeriods} = goog.require('goog.i18n.DayPeriods');
+import {
+  DateTimeSymbols_ca,
+  DateTimeSymbols_en,
+  DateTimeSymbols_fa,
+  DateTimeSymbols_fr,
+  DateTimeSymbols_ko,
+  DateTimeSymbols_pl,
+  DateTimeSymbols_ru,
+  DateTimeSymbols_zh,
+  DateTimeSymbols_zh_TW,
+} from './datetimesymbols.js';
+
+import { testSuite } from '../testing/testsuite.js';
+import { DayPeriods_zh_Hant, setDayPeriods } from './dayperiodsymbols.js';
+const replacer = new PropertyReplacer();
 
 const DATETIMESYMBOLS =
     goog.reflect.objectProperty('DateTimeSymbols', goog.i18n);

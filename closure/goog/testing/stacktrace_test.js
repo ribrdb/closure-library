@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.stacktraceTest');
 goog.setTestOnly();
 
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const Frame = goog.require('goog.testing.stacktrace.Frame');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const asserts = goog.require('goog.testing.asserts');
-const functions = goog.require('goog.functions');
-const googString = goog.require('goog.string');
-const stacktrace = goog.require('goog.testing.stacktrace');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { ExpectedFailures } from './expectedfailures.js';
+import * as stacktrace from './stacktrace.js';
+import { Frame } from './stacktrace.js';
+import { PropertyReplacer } from './propertyreplacer.js';
+import { StrictMock } from './strictmock.js';
+import * as asserts from './asserts.js';
+import * as functions from '../functions/functions.js';
+import * as googString from '../string/string.js';
+import { testSuite } from './testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 const stubs = new PropertyReplacer();
 let expectedFailures;

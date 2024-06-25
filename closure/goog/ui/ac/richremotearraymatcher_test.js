@@ -9,16 +9,17 @@
  * @suppress {missingRequire} Stubbing goog.net.XhrIo
  */
 
-goog.module('goog.ui.ac.RichRemoteArrayMatcherTest');
 goog.setTestOnly();
 
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const MockControl = goog.require('goog.testing.MockControl');
-const NetXhrIo = goog.require('goog.testing.net.XhrIo');
-const RichRemoteArrayMatcher = goog.require('goog.ui.ac.RichRemoteArrayMatcher');
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { XhrIo as NetXhrIo } from '../../testing/net/xhrio.js';
+import { RichRemoteArrayMatcher } from './richremotearraymatcher.js';
+
 /** @suppress {extraRequire} */
-const XhrIo = goog.require('goog.net.XhrIo');
-const testSuite = goog.require('goog.testing.testSuite');
+import { XhrIo } from '../../net/xhrio.js';
+
+import { testSuite } from '../../testing/testsuite.js';
 
 const url = 'http://www.google.com';
 const token = 'goog';

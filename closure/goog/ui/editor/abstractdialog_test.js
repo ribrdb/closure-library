@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.editor.AbstractDialogTest');
 goog.setTestOnly();
 
-const AbstractDialog = goog.require('goog.ui.editor.AbstractDialog');
-const ArgumentMatcher = goog.require('goog.testing.mockmatchers.ArgumentMatcher');
-const DomHelper = goog.require('goog.dom.DomHelper');
-const EventHandler = goog.require('goog.events.EventHandler');
-const GoogEvent = goog.require('goog.events.Event');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const MockControl = goog.require('goog.testing.MockControl');
-const TagName = goog.require('goog.dom.TagName');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { AbstractDialog } from './abstractdialog.js';
+import { ArgumentMatcher } from '../../testing/mockmatchers.js';
+import * as dom from '../../dom/dom.js';
+import { DomHelper } from '../../dom/dom.js';
+import { EventHandler } from '../../events/eventhandler.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { KeyCodes } from '../../events/keycodes.js';
+import { MockControl } from '../../testing/mockcontrol.js';
+import { TagName } from '../../dom/tagname.js';
+import * as classlist from '../../dom/classlist.js';
+import * as events from '../../testing/events/events.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 function shouldRunTests() {
   // Test disabled in IE7 due to flakiness. See b/4269021.

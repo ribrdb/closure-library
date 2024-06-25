@@ -8,11 +8,10 @@
  * @fileoverview Provides functions to parse and manipulate email addresses.
  */
 
-goog.provide('goog.format.EmailAddress');
+import * as bidi from '../i18n/bidi.js';
 
-goog.require('goog.i18n.bidi');
-goog.require('goog.object');
-goog.require('goog.string');
+import object from '../object/object.js';
+import * as string from '../string/string.js';
 
 /**
  * Formats an email address string for display, and allows for extraction of
@@ -21,22 +20,21 @@ goog.require('goog.string');
  * @param {string=} opt_name The name associated with the email address.
  * @constructor
  */
-goog.format.EmailAddress = function(opt_address, opt_name) {
-  'use strict';
-  /**
-   * The name or personal string associated with the address.
-   * @type {string}
-   * @private
-   */
-  this.name_ = opt_name || '';
+export function EmailAddress(opt_address, opt_name) {
+ /**
+  * The name or personal string associated with the address.
+  * @type {string}
+  * @private
+  */
+ this.name_ = opt_name || '';
 
-  /**
-   * The email address.
-   * @type {string}
-   * @protected
-   */
-  this.address = opt_address || '';
-};
+ /**
+  * The email address.
+  * @type {string}
+  * @protected
+  */
+ this.address = opt_address || '';
+}
 
 
 /**
@@ -44,7 +42,7 @@ goog.format.EmailAddress = function(opt_address, opt_name) {
  * @type {string}
  * @private
  */
-goog.format.EmailAddress.OPENERS_ = '"<([';
+EmailAddress.OPENERS_ = '"<([';
 
 
 /**
@@ -52,7 +50,7 @@ goog.format.EmailAddress.OPENERS_ = '"<([';
  * @type {string}
  * @private
  */
-goog.format.EmailAddress.CLOSERS_ = '">)]';
+EmailAddress.CLOSERS_ = '">)]';
 
 
 /**
@@ -62,7 +60,7 @@ goog.format.EmailAddress.CLOSERS_ = '">)]';
  * @const
  * @package
  */
-goog.format.EmailAddress.SPECIAL_CHARS = '()<>@:\\\".[]';
+EmailAddress.SPECIAL_CHARS = '()<>@:\\\".[]';
 
 
 /**
@@ -71,7 +69,7 @@ goog.format.EmailAddress.SPECIAL_CHARS = '()<>@:\\\".[]';
  * @const
  * @private
  */
-goog.format.EmailAddress.ADDRESS_SEPARATORS_ = ',;';
+EmailAddress.ADDRESS_SEPARATORS_ = ',;';
 
 
 /**
@@ -81,9 +79,9 @@ goog.format.EmailAddress.ADDRESS_SEPARATORS_ = ',;';
  * @const
  * @private
  */
-goog.format.EmailAddress.CHARS_REQUIRE_QUOTES_ =
-    goog.format.EmailAddress.SPECIAL_CHARS +
-    goog.format.EmailAddress.ADDRESS_SEPARATORS_;
+EmailAddress.CHARS_REQUIRE_QUOTES_ =
+    EmailAddress.SPECIAL_CHARS +
+    EmailAddress.ADDRESS_SEPARATORS_;
 
 
 /**
@@ -91,7 +89,7 @@ goog.format.EmailAddress.CHARS_REQUIRE_QUOTES_ =
  * @type {RegExp}
  * @private
  */
-goog.format.EmailAddress.ALL_DOUBLE_QUOTES_ = /\"/g;
+EmailAddress.ALL_DOUBLE_QUOTES_ = /\"/g;
 
 
 /**
@@ -99,7 +97,7 @@ goog.format.EmailAddress.ALL_DOUBLE_QUOTES_ = /\"/g;
  * @type {RegExp}
  * @private
  */
-goog.format.EmailAddress.ESCAPED_DOUBLE_QUOTES_ = /\\\"/g;
+EmailAddress.ESCAPED_DOUBLE_QUOTES_ = /\\\"/g;
 
 
 /**
@@ -107,7 +105,7 @@ goog.format.EmailAddress.ESCAPED_DOUBLE_QUOTES_ = /\\\"/g;
  * @type {RegExp}
  * @private
  */
-goog.format.EmailAddress.ALL_BACKSLASHES_ = /\\/g;
+EmailAddress.ALL_BACKSLASHES_ = /\\/g;
 
 
 /**
@@ -115,14 +113,14 @@ goog.format.EmailAddress.ALL_BACKSLASHES_ = /\\/g;
  * @type {RegExp}
  * @private
  */
-goog.format.EmailAddress.ESCAPED_BACKSLASHES_ = /\\\\/g;
+EmailAddress.ESCAPED_BACKSLASHES_ = /\\\\/g;
 
 
 /**
  * A string representing the RegExp for the local part of an email address.
  * @private {string}
  */
-goog.format.EmailAddress.LOCAL_PART_REGEXP_STR_ =
+EmailAddress.LOCAL_PART_REGEXP_STR_ =
     '[+a-zA-Z0-9_.!#$%&\'*\\/=?^`{|}~-]+';
 
 
@@ -130,40 +128,40 @@ goog.format.EmailAddress.LOCAL_PART_REGEXP_STR_ =
  * A string representing the RegExp for the domain part of an email address.
  * @private {string}
  */
-goog.format.EmailAddress.DOMAIN_PART_REGEXP_STR_ =
+EmailAddress.DOMAIN_PART_REGEXP_STR_ =
     '([a-zA-Z0-9-]+\\.)+[a-zA-Z0-9]{2,63}';
 
 /**
  * A RegExp to match the local part of an email address.
  * @private {!RegExp}
  */
-goog.format.EmailAddress.LOCAL_PART_ =
-    new RegExp('^' + goog.format.EmailAddress.LOCAL_PART_REGEXP_STR_ + '$');
+EmailAddress.LOCAL_PART_ =
+    new RegExp('^' + EmailAddress.LOCAL_PART_REGEXP_STR_ + '$');
 
 
 /**
  * A RegExp to match the domain part of an email address.
  * @private {!RegExp}
  */
-goog.format.EmailAddress.DOMAIN_PART_ =
-    new RegExp('^' + goog.format.EmailAddress.DOMAIN_PART_REGEXP_STR_ + '$');
+EmailAddress.DOMAIN_PART_ =
+    new RegExp('^' + EmailAddress.DOMAIN_PART_REGEXP_STR_ + '$');
 
 
 /**
  * A RegExp to match an email address.
  * @private {!RegExp}
  */
-goog.format.EmailAddress.EMAIL_ADDRESS_ = new RegExp(
-    '^' + goog.format.EmailAddress.LOCAL_PART_REGEXP_STR_ + '@' +
-    goog.format.EmailAddress.DOMAIN_PART_REGEXP_STR_ + '$');
+EmailAddress.EMAIL_ADDRESS_ = new RegExp(
+    '^' + EmailAddress.LOCAL_PART_REGEXP_STR_ + '@' +
+    EmailAddress.DOMAIN_PART_REGEXP_STR_ + '$');
 
 /**
  * Regular expression for bidi format character replacement in text.
  * @type {!RegExp}
  * @private
  */
-goog.format.EmailAddress.ALL_BIDI_FORMAT_CHARS_ = new RegExp(
-    '[' + goog.object.getValues(goog.i18n.bidi.Format).join('') + ']', 'g');
+EmailAddress.ALL_BIDI_FORMAT_CHARS_ = new RegExp(
+    '[' + object.getValues(bidi.Format).join('') + ']', 'g');
 
 
 /**
@@ -171,9 +169,8 @@ goog.format.EmailAddress.ALL_BIDI_FORMAT_CHARS_ = new RegExp(
  * @return {string} The name or personal portion of the address.
  * @final
  */
-goog.format.EmailAddress.prototype.getName = function() {
-  'use strict';
-  return this.name_;
+EmailAddress.prototype.getName = function() {
+ return this.name_;
 };
 
 
@@ -182,9 +179,8 @@ goog.format.EmailAddress.prototype.getName = function() {
  * @return {string} The email address.
  * @final
  */
-goog.format.EmailAddress.prototype.getAddress = function() {
-  'use strict';
-  return this.address;
+EmailAddress.prototype.getAddress = function() {
+ return this.address;
 };
 
 
@@ -193,9 +189,8 @@ goog.format.EmailAddress.prototype.getAddress = function() {
  * @param {string} name The name to associate.
  * @final
  */
-goog.format.EmailAddress.prototype.setName = function(name) {
-  'use strict';
-  this.name_ = name;
+EmailAddress.prototype.setName = function(name) {
+ this.name_ = name;
 };
 
 
@@ -204,9 +199,8 @@ goog.format.EmailAddress.prototype.setName = function(name) {
  * @param {string} address The email address.
  * @final
  */
-goog.format.EmailAddress.prototype.setAddress = function(address) {
-  'use strict';
-  this.address = address;
+EmailAddress.prototype.setAddress = function(address) {
+ this.address = address;
 };
 
 
@@ -217,9 +211,8 @@ goog.format.EmailAddress.prototype.setAddress = function(address) {
  * @return {string} The cleaned address.
  * @override
  */
-goog.format.EmailAddress.prototype.toString = function() {
-  'use strict';
-  return this.toStringInternal(goog.format.EmailAddress.CHARS_REQUIRE_QUOTES_);
+EmailAddress.prototype.toString = function() {
+ return this.toStringInternal(EmailAddress.CHARS_REQUIRE_QUOTES_);
 };
 
 
@@ -232,15 +225,14 @@ goog.format.EmailAddress.prototype.toString = function() {
  * @return {boolean}
  * @private
  */
-goog.format.EmailAddress.isQuoteNeeded_ = function(name, specialChars) {
-  'use strict';
-  for (var i = 0; i < specialChars.length; i++) {
-    var specialChar = specialChars[i];
-    if (goog.string.contains(name, specialChar)) {
-      return true;
-    }
-  }
-  return false;
+EmailAddress.isQuoteNeeded_ = function(name, specialChars) {
+ for (var i = 0; i < specialChars.length; i++) {
+   var specialChar = specialChars[i];
+   if (string.contains(name, specialChar)) {
+     return true;
+   }
+ }
+ return false;
 };
 
 
@@ -253,27 +245,26 @@ goog.format.EmailAddress.isQuoteNeeded_ = function(name, specialChars) {
  * @return {string} The cleaned address.
  * @protected
  */
-goog.format.EmailAddress.prototype.toStringInternal = function(specialChars) {
-  'use strict';
-  var name = this.getName();
+EmailAddress.prototype.toStringInternal = function(specialChars) {
+ var name = this.getName();
 
-  // We intentionally remove double quotes in the name because escaping
-  // them to \" looks ugly.
-  name = name.replace(goog.format.EmailAddress.ALL_DOUBLE_QUOTES_, '');
+ // We intentionally remove double quotes in the name because escaping
+ // them to \" looks ugly.
+ name = name.replace(EmailAddress.ALL_DOUBLE_QUOTES_, '');
 
-  // If the name has special characters, we need to quote it and escape \'s.
-  if (goog.format.EmailAddress.isQuoteNeeded_(name, specialChars)) {
-    name = '"' +
-        name.replace(goog.format.EmailAddress.ALL_BACKSLASHES_, '\\\\') + '"';
-  }
+ // If the name has special characters, we need to quote it and escape \'s.
+ if (EmailAddress.isQuoteNeeded_(name, specialChars)) {
+   name = '"' +
+       name.replace(EmailAddress.ALL_BACKSLASHES_, '\\\\') + '"';
+ }
 
-  if (name == '') {
-    return this.address;
-  }
-  if (this.address == '') {
-    return name;
-  }
-  return name + ' <' + this.address + '>';
+ if (name == '') {
+   return this.address;
+ }
+ if (this.address == '') {
+   return name;
+ }
+ return name + ' <' + this.address + '>';
 };
 
 
@@ -281,9 +272,8 @@ goog.format.EmailAddress.prototype.toStringInternal = function(specialChars) {
  * Determines if the current object is a valid email address.
  * @return {boolean} Whether the email address is valid.
  */
-goog.format.EmailAddress.prototype.isValid = function() {
-  'use strict';
-  return goog.format.EmailAddress.isValidAddrSpec(this.address);
+EmailAddress.prototype.isValid = function() {
+ return EmailAddress.isValidAddrSpec(this.address);
 };
 
 
@@ -294,9 +284,8 @@ goog.format.EmailAddress.prototype.isValid = function() {
  * @param {string} str The email address to check.
  * @return {boolean} Whether the provided string is a valid address.
  */
-goog.format.EmailAddress.isValidAddress = function(str) {
-  'use strict';
-  return goog.format.EmailAddress.parse(str).isValid();
+EmailAddress.isValidAddress = function(str) {
+ return EmailAddress.parse(str).isValid();
 };
 
 
@@ -305,11 +294,10 @@ goog.format.EmailAddress.isValidAddress = function(str) {
  * @param {string} str The email address to check.
  * @return {boolean} Whether the provided string is a valid address spec.
  */
-goog.format.EmailAddress.isValidAddrSpec = function(str) {
-  'use strict';
-  // This is a fairly naive implementation, but it covers 99% of use cases.
-  // For more details, see http://en.wikipedia.org/wiki/Email_address#Syntax
-  return goog.format.EmailAddress.EMAIL_ADDRESS_.test(str);
+EmailAddress.isValidAddrSpec = function(str) {
+ // This is a fairly naive implementation, but it covers 99% of use cases.
+ // For more details, see http://en.wikipedia.org/wiki/Email_address#Syntax
+ return EmailAddress.EMAIL_ADDRESS_.test(str);
 };
 
 
@@ -319,9 +307,8 @@ goog.format.EmailAddress.isValidAddrSpec = function(str) {
  * @param {string} str The local part to check.
  * @return {boolean} Whether the provided string is a valid local part.
  */
-goog.format.EmailAddress.isValidLocalPartSpec = function(str) {
-  'use strict';
-  return goog.format.EmailAddress.LOCAL_PART_.test(str);
+EmailAddress.isValidLocalPartSpec = function(str) {
+ return EmailAddress.LOCAL_PART_.test(str);
 };
 
 
@@ -331,9 +318,8 @@ goog.format.EmailAddress.isValidLocalPartSpec = function(str) {
  * @param {string} str The domain part to check.
  * @return {boolean} Whether the provided string is a valid domain part.
  */
-goog.format.EmailAddress.isValidDomainPartSpec = function(str) {
-  'use strict';
-  return goog.format.EmailAddress.DOMAIN_PART_.test(str);
+EmailAddress.isValidDomainPartSpec = function(str) {
+ return EmailAddress.DOMAIN_PART_.test(str);
 };
 
 
@@ -341,41 +327,40 @@ goog.format.EmailAddress.isValidDomainPartSpec = function(str) {
  * Parses an email address of the form "name" &lt;address&gt; ("name" is
  * optional) into an email address.
  * @param {string} addr The address string.
- * @param {function(new: goog.format.EmailAddress, string=,string=)} ctor
+ * @param {function(new: EmailAddress, string=,string=)} ctor
  *     EmailAddress constructor to instantiate the output address.
- * @return {!goog.format.EmailAddress} The parsed address.
+ * @return {!EmailAddress} The parsed address.
  * @protected
  */
-goog.format.EmailAddress.parseInternal = function(addr, ctor) {
-  'use strict';
-  addr = goog.format.EmailAddress.stripBidiChars_(addr);
-  var name = '';
-  var address = '';
-  for (var i = 0; i < addr.length;) {
-    var token = goog.format.EmailAddress.getToken_(addr, i);
-    if (token.charAt(0) == '<' && token.indexOf('>') != -1) {
-      var end = token.indexOf('>');
-      address = token.substring(1, end);
-    } else if (address == '') {
-      name += token;
-    }
-    i += token.length;
-  }
+EmailAddress.parseInternal = function(addr, ctor) {
+ addr = EmailAddress.stripBidiChars_(addr);
+ var name = '';
+ var address = '';
+ for (var i = 0; i < addr.length;) {
+   var token = EmailAddress.getToken_(addr, i);
+   if (token.charAt(0) == '<' && token.indexOf('>') != -1) {
+     var end = token.indexOf('>');
+     address = token.substring(1, end);
+   } else if (address == '') {
+     name += token;
+   }
+   i += token.length;
+ }
 
-  // Check if it's a simple email address of the form "jlim@google.com".
-  if (address == '' && name.indexOf('@') != -1) {
-    address = name;
-    name = '';
-  }
+ // Check if it's a simple email address of the form "jlim@google.com".
+ if (address == '' && name.indexOf('@') != -1) {
+   address = name;
+   name = '';
+ }
 
-  name = goog.string.collapseWhitespace(name);
-  name = goog.string.stripQuotes(name, '\'');
-  name = goog.string.stripQuotes(name, '"');
-  // Replace escaped quotes and slashes.
-  name = name.replace(goog.format.EmailAddress.ESCAPED_DOUBLE_QUOTES_, '"');
-  name = name.replace(goog.format.EmailAddress.ESCAPED_BACKSLASHES_, '\\');
-  address = goog.string.collapseWhitespace(address);
-  return new ctor(address, name);
+ name = string.collapseWhitespace(name);
+ name = string.stripQuotes(name, '\'');
+ name = string.stripQuotes(name, '"');
+ // Replace escaped quotes and slashes.
+ name = name.replace(EmailAddress.ESCAPED_DOUBLE_QUOTES_, '"');
+ name = name.replace(EmailAddress.ESCAPED_BACKSLASHES_, '\\');
+ address = string.collapseWhitespace(address);
+ return new ctor(address, name);
 };
 
 
@@ -383,11 +368,10 @@ goog.format.EmailAddress.parseInternal = function(addr, ctor) {
  * Parses an email address of the form "name" &lt;address&gt; into
  * an email address.
  * @param {string} addr The address string.
- * @return {!goog.format.EmailAddress} The parsed address.
+ * @return {!EmailAddress} The parsed address.
  */
-goog.format.EmailAddress.parse = function(addr) {
-  'use strict';
-  return goog.format.EmailAddress.parseInternal(addr, goog.format.EmailAddress);
+EmailAddress.parse = function(addr) {
+ return EmailAddress.parseInternal(addr, EmailAddress);
 };
 
 
@@ -398,40 +382,39 @@ goog.format.EmailAddress.parse = function(addr) {
  * @param {function(string)} parser The parser to employ.
  * @param {function(string):boolean} separatorChecker Accepts a character and
  *    returns whether it should be considered an address separator.
- * @return {!Array<!goog.format.EmailAddress>} The parsed emails.
+ * @return {!Array<!EmailAddress>} The parsed emails.
  * @protected
  */
-goog.format.EmailAddress.parseListInternal = function(
+EmailAddress.parseListInternal = function(
     str, parser, separatorChecker) {
-  'use strict';
-  var result = [];
-  var email = '';
-  var token;
+ var result = [];
+ var email = '';
+ var token;
 
-  // Remove non-UNIX-style newlines that would otherwise cause getToken_ to
-  // choke. Remove multiple consecutive whitespace characters for the same
-  // reason.
-  str = goog.string.collapseWhitespace(str);
+ // Remove non-UNIX-style newlines that would otherwise cause getToken_ to
+ // choke. Remove multiple consecutive whitespace characters for the same
+ // reason.
+ str = string.collapseWhitespace(str);
 
-  for (var i = 0; i < str.length;) {
-    token = goog.format.EmailAddress.getToken_(str, i);
-    if (separatorChecker(token) || (token == ' ' && parser(email).isValid())) {
-      if (!goog.string.isEmptyOrWhitespace(email)) {
-        result.push(parser(email));
-      }
-      email = '';
-      i++;
-      continue;
-    }
-    email += token;
-    i += token.length;
-  }
+ for (var i = 0; i < str.length;) {
+   token = EmailAddress.getToken_(str, i);
+   if (separatorChecker(token) || (token == ' ' && parser(email).isValid())) {
+     if (!string.isEmptyOrWhitespace(email)) {
+       result.push(parser(email));
+     }
+     email = '';
+     i++;
+     continue;
+   }
+   email += token;
+   i += token.length;
+ }
 
-  // Add the final token.
-  if (!goog.string.isEmptyOrWhitespace(email)) {
-    result.push(parser(email));
-  }
-  return result;
+ // Add the final token.
+ if (!string.isEmptyOrWhitespace(email)) {
+   result.push(parser(email));
+ }
+ return result;
 };
 
 
@@ -439,13 +422,12 @@ goog.format.EmailAddress.parseListInternal = function(
  * Parses a string containing email addresses of the form
  * "name" &lt;address&gt; into an array of email addresses.
  * @param {string} str The address list.
- * @return {!Array<!goog.format.EmailAddress>} The parsed emails.
+ * @return {!Array<!EmailAddress>} The parsed emails.
  */
-goog.format.EmailAddress.parseList = function(str) {
-  'use strict';
-  return goog.format.EmailAddress.parseListInternal(
-      str, goog.format.EmailAddress.parse,
-      goog.format.EmailAddress.isAddressSeparator);
+EmailAddress.parseList = function(str) {
+ return EmailAddress.parseListInternal(
+     str, EmailAddress.parse,
+     EmailAddress.isAddressSeparator);
 };
 
 
@@ -456,29 +438,28 @@ goog.format.EmailAddress.parseList = function(str) {
  * @return {string} the token.
  * @private
  */
-goog.format.EmailAddress.getToken_ = function(str, pos) {
-  'use strict';
-  var ch = str.charAt(pos);
-  var p = goog.format.EmailAddress.OPENERS_.indexOf(ch);
-  if (p == -1) {
-    return ch;
-  }
-  if (goog.format.EmailAddress.isEscapedDlQuote_(str, pos)) {
-    // If an opener is an escaped quote we do not treat it as a real opener
-    // and keep accumulating the token.
-    return ch;
-  }
-  var closerChar = goog.format.EmailAddress.CLOSERS_.charAt(p);
-  var endPos = str.indexOf(closerChar, pos + 1);
+EmailAddress.getToken_ = function(str, pos) {
+ var ch = str.charAt(pos);
+ var p = EmailAddress.OPENERS_.indexOf(ch);
+ if (p == -1) {
+   return ch;
+ }
+ if (EmailAddress.isEscapedDlQuote_(str, pos)) {
+   // If an opener is an escaped quote we do not treat it as a real opener
+   // and keep accumulating the token.
+   return ch;
+ }
+ var closerChar = EmailAddress.CLOSERS_.charAt(p);
+ var endPos = str.indexOf(closerChar, pos + 1);
 
-  // If the closer is a quote we go forward skipping escaped quotes until we
-  // hit the real closing one.
-  while (endPos >= 0 &&
-         goog.format.EmailAddress.isEscapedDlQuote_(str, endPos)) {
-    endPos = str.indexOf(closerChar, endPos + 1);
-  }
-  var token = (endPos >= 0) ? str.substring(pos, endPos + 1) : ch;
-  return token;
+ // If the closer is a quote we go forward skipping escaped quotes until we
+ // hit the real closing one.
+ while (endPos >= 0 &&
+        EmailAddress.isEscapedDlQuote_(str, endPos)) {
+   endPos = str.indexOf(closerChar, endPos + 1);
+ }
+ var token = (endPos >= 0) ? str.substring(pos, endPos + 1) : ch;
+ return token;
 };
 
 
@@ -490,16 +471,15 @@ goog.format.EmailAddress.getToken_ = function(str, pos) {
  * @return {boolean} true if the char is escaped double quote.
  * @private
  */
-goog.format.EmailAddress.isEscapedDlQuote_ = function(str, pos) {
-  'use strict';
-  if (str.charAt(pos) != '"') {
-    return false;
-  }
-  var slashCount = 0;
-  for (var idx = pos - 1; idx >= 0 && str.charAt(idx) == '\\'; idx--) {
-    slashCount++;
-  }
-  return ((slashCount % 2) != 0);
+EmailAddress.isEscapedDlQuote_ = function(str, pos) {
+ if (str.charAt(pos) != '"') {
+   return false;
+ }
+ var slashCount = 0;
+ for (var idx = pos - 1; idx >= 0 && str.charAt(idx) == '\\'; idx--) {
+   slashCount++;
+ }
+ return ((slashCount % 2) != 0);
 };
 
 
@@ -507,20 +487,18 @@ goog.format.EmailAddress.isEscapedDlQuote_ = function(str, pos) {
  * @param {string} ch The character to test.
  * @return {boolean} Whether the provided character is an address separator.
  */
-goog.format.EmailAddress.isAddressSeparator = function(ch) {
-  'use strict';
-  return goog.string.contains(goog.format.EmailAddress.ADDRESS_SEPARATORS_, ch);
+EmailAddress.isAddressSeparator = function(ch) {
+ return string.contains(EmailAddress.ADDRESS_SEPARATORS_, ch);
 };
 
 /**
  * Returns the input text without Unicode formatting characters
  * and directionality string constants as defined in {@link
- * goog.i18n.bidi.Format}.
+ * bidi.Format}.
  * @param {string} str The given string.
  * @return {string} The given string cleaned of formatting characters.
  * @private
  */
-goog.format.EmailAddress.stripBidiChars_ = function(str) {
-  'use strict';
-  return str.replace(goog.format.EmailAddress.ALL_BIDI_FORMAT_CHARS_, '');
+EmailAddress.stripBidiChars_ = function(str) {
+ return str.replace(EmailAddress.ALL_BIDI_FORMAT_CHARS_, '');
 };

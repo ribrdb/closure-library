@@ -26,7 +26,7 @@
  * provided.
  */
 
-goog.provide('goog.net.streams.NodeReadableStream');
+goog.declareModuleId('goog.net.streams.nodereadablestream');
 
 
 
@@ -35,14 +35,14 @@ goog.provide('goog.net.streams.NodeReadableStream');
  *
  * @interface
  */
-goog.net.streams.NodeReadableStream = function() {};
+export function NodeReadableStream() {}
 
 
 /**
  * Read events for the stream.
  * @enum {string}
  */
-goog.net.streams.NodeReadableStream.EventType = {
+NodeReadableStream.EventType = {
   READABLE: 'readable',
   DATA: 'data',
   END: 'end',
@@ -67,9 +67,9 @@ goog.net.streams.NodeReadableStream.EventType = {
  * @param {string} eventType The event type
  * @param {function(!Object=)} callback The call back to handle the event with
  * an optional input object
- * @return {goog.net.streams.NodeReadableStream} this object
+ * @return {NodeReadableStream} this object
  */
-goog.net.streams.NodeReadableStream.prototype.on = goog.abstractMethod;
+NodeReadableStream.prototype.on = goog.abstractMethod;
 
 
 /**
@@ -78,9 +78,9 @@ goog.net.streams.NodeReadableStream.prototype.on = goog.abstractMethod;
  * @param {string} eventType The event type
  * @param {function(!Object=)} callback The call back to handle the event with
  * an optional input object
- * @return {goog.net.streams.NodeReadableStream} this object
+ * @return {NodeReadableStream} this object
  */
-goog.net.streams.NodeReadableStream.prototype.addListener = goog.abstractMethod;
+NodeReadableStream.prototype.addListener = goog.abstractMethod;
 
 
 /**
@@ -88,9 +88,9 @@ goog.net.streams.NodeReadableStream.prototype.addListener = goog.abstractMethod;
  *
  * @param {string} eventType The event type
  * @param {function(!Object=)} callback The call back to unregister
- * @return {goog.net.streams.NodeReadableStream} this object
+ * @return {NodeReadableStream} this object
  */
-goog.net.streams.NodeReadableStream.prototype.removeListener =
+NodeReadableStream.prototype.removeListener =
     goog.abstractMethod;
 
 
@@ -100,6 +100,6 @@ goog.net.streams.NodeReadableStream.prototype.removeListener =
  * @param {string} eventType The event type
  * @param {function(!Object=)} callback The call back to handle the event with
  * an optional input object
- * @return {goog.net.streams.NodeReadableStream} this object
+ * @return {NodeReadableStream} this object
  */
-goog.net.streams.NodeReadableStream.prototype.once = goog.abstractMethod;
+NodeReadableStream.prototype.once = goog.abstractMethod;

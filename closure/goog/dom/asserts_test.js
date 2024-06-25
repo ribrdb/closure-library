@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.dom.assertsTest');
 goog.setTestOnly();
 
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const asserts = goog.require('goog.dom.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import { StrictMock } from '../testing/strictmock.js';
+import * as asserts from './asserts.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let stubs;
 

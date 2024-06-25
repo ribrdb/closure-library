@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.Base64PbStreamParserTest');
 goog.setTestOnly('goog.net.streams.Base64PbStreamParserTest');
 
-const Base64PbStreamParser = goog.require('goog.net.streams.Base64PbStreamParser');
-const base64 = goog.require('goog.crypt.base64');
-const object = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Base64PbStreamParser } from './base64pbstreamparser.js';
+import * as base64 from '../../crypt/base64.js';
+import object from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 // Static test data
 // clang-format off

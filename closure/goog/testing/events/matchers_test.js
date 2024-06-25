@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.events.EventMatcherTest');
 goog.setTestOnly();
 
-const EventMatcher = goog.require('goog.testing.events.EventMatcher');
-const GoogEvent = goog.require('goog.events.Event');
-const testSuite = goog.require('goog.testing.testSuite');
+import { EventMatcher } from './matchers.js';
+import { Event as GoogEvent } from '../../events/event.js';
+import { testSuite } from '../testsuite.js';
 
 testSuite({
   /** @suppress {checkTypes} suppression added to enable type checking */

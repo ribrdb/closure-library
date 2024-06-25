@@ -4,19 +4,18 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.plugins.HeaderFormatterTest');
 goog.setTestOnly();
 
-const BasicTextFormatter = goog.require('goog.editor.plugins.BasicTextFormatter');
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Command = goog.require('goog.editor.Command');
-const FieldMock = goog.require('goog.testing.editor.FieldMock');
-const HeaderFormatter = goog.require('goog.editor.plugins.HeaderFormatter');
-const LooseMock = goog.require('goog.testing.LooseMock');
-const TestHelper = goog.require('goog.testing.editor.TestHelper');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BasicTextFormatter } from './basictextformatter.js';
+import { BrowserEvent } from '../../events/browserevent.js';
+import { Command } from '../command.js';
+import { FieldMock } from '../../testing/editor/fieldmock.js';
+import { HeaderFormatter } from './headerformatter.js';
+import { LooseMock } from '../../testing/loosemock.js';
+import { TestHelper } from '../../testing/editor/testhelper.js';
+import * as dom from '../../dom/dom.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 let field;
 let editableField;

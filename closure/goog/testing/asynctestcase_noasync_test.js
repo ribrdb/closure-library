@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.AsyncTestCaseSyncTest');
 goog.setTestOnly();
 
-const AsyncTestCase = goog.require('goog.testing.AsyncTestCase');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AsyncTestCase } from './asynctestcase.js';
+import { testSuite } from './testsuite.js';
 
 // Has the setUp() function been called.
 const setUpCalled = false;

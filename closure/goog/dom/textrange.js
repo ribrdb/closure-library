@@ -9,36 +9,34 @@
  */
 
 
-goog.provide('goog.dom.TextRange');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.dom');
-goog.require('goog.dom.AbstractRange');
-goog.require('goog.dom.RangeType');
-goog.require('goog.dom.SavedCaretRange');
-goog.require('goog.dom.SavedRange');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.TextRangeIterator');
-goog.require('goog.dom.browserrange');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.browserrange.AbstractRange');
+import * as dom from './dom.js';
+import { AbstractRange, RangeType } from './abstractrange.js';
+import { SavedCaretRange } from './savedcaretrange.js';
+import { SavedRange } from './savedrange.js';
+import { TagName } from './tagname.js';
+import { TextRangeIterator } from './textrangeiterator.js';
+import * as browserrange from './browserrange/browserrange.js';
+import * as userAgent from '../useragent/useragent.js';
+import * as RangeUtils from './range.js';
+goog.requireType('goog.dom.browserrange.abstractrange');
 
 
 
 /**
  * Create a new text selection with no properties.  Do not use this constructor:
- * use one of the goog.dom.Range.createFrom* methods instead.
+ * use one of the dom.Range.createFrom* methods instead.
  * @constructor
- * @extends {goog.dom.AbstractRange}
+ * @extends {AbstractRange}
  * @final
  */
-goog.dom.TextRange = function() {
-  'use strict';
+export function TextRange() {
   /**
-   * The browser specific range wrapper.  This can be null if one of the other
-   * representations of the range is specified.
-   * @private {goog.dom.browserrange.AbstractRange?}
-   */
+     * The browser specific range wrapper.  This can be null if one of the other
+     * representations of the range is specified.
+     * @private {browserrange.AbstractRange?}
+     */
   this.browserRangeWrapper_ = null;
 
   /**
@@ -74,38 +72,36 @@ goog.dom.TextRange = function() {
    * @private {boolean}
    */
   this.isReversed_ = false;
-};
-goog.inherits(goog.dom.TextRange, goog.dom.AbstractRange);
+}
+goog.inherits(TextRange, AbstractRange);
 
 
 /**
  * Create a new range wrapper from the given browser range object.  Do not use
- * this method directly - please use goog.dom.Range.createFrom* instead.
+ * this method directly - please use dom.Range.createFrom* instead.
  * @param {Range|TextRange} range The browser range object.
  * @param {boolean=} opt_isReversed Whether the focus node is before the anchor
  *     node.
- * @return {!goog.dom.TextRange} A range wrapper object.
+ * @return {!TextRange} A range wrapper object.
  */
-goog.dom.TextRange.createFromBrowserRange = function(range, opt_isReversed) {
-  'use strict';
-  return goog.dom.TextRange.createFromBrowserRangeWrapper_(
-      goog.dom.browserrange.createRange(range), opt_isReversed);
+TextRange.createFromBrowserRange = function(range, opt_isReversed) {
+  return TextRange.createFromBrowserRangeWrapper_(
+      browserrange.createRange(range), opt_isReversed);
 };
 
 
 /**
  * Create a new range wrapper from the given browser range wrapper.
- * @param {goog.dom.browserrange.AbstractRange} browserRange The browser range
+ * @param {browserrange.AbstractRange} browserRange The browser range
  *     wrapper.
  * @param {boolean=} opt_isReversed Whether the focus node is before the anchor
  *     node.
- * @return {!goog.dom.TextRange} A range wrapper object.
+ * @return {!TextRange} A range wrapper object.
  * @private
  */
-goog.dom.TextRange.createFromBrowserRangeWrapper_ = function(
+TextRange.createFromBrowserRangeWrapper_ = function(
     browserRange, opt_isReversed) {
-  'use strict';
-  var range = new goog.dom.TextRange();
+  var range = new TextRange();
 
   // Initialize the range as a browser range wrapper type range.
   range.browserRangeWrapper_ = browserRange;
@@ -117,45 +113,42 @@ goog.dom.TextRange.createFromBrowserRangeWrapper_ = function(
 
 /**
  * Create a new range wrapper that selects the given node's text.  Do not use
- * this method directly - please use goog.dom.Range.createFrom* instead.
+ * this method directly - please use dom.Range.createFrom* instead.
  * @param {Node} node The node to select.
  * @param {boolean=} opt_isReversed Whether the focus node is before the anchor
  *     node.
- * @return {!goog.dom.TextRange} A range wrapper object.
+ * @return {!TextRange} A range wrapper object.
  */
-goog.dom.TextRange.createFromNodeContents = function(node, opt_isReversed) {
-  'use strict';
-  return goog.dom.TextRange.createFromBrowserRangeWrapper_(
-      goog.dom.browserrange.createRangeFromNodeContents(node), opt_isReversed);
+TextRange.createFromNodeContents = function(node, opt_isReversed) {
+  return TextRange.createFromBrowserRangeWrapper_(
+      browserrange.createRangeFromNodeContents(node), opt_isReversed);
 };
 
 
 /**
  * Create a new range wrapper that selects the area between the given nodes,
  * accounting for the given offsets.  Do not use this method directly - please
- * use goog.dom.Range.createFrom* instead.
+ * use dom.Range.createFrom* instead.
  * @param {Node} anchorNode The node to start with.
  * @param {number} anchorOffset The offset within the node to start.
  * @param {Node} focusNode The node to end with.
  * @param {number} focusOffset The offset within the node to end.
- * @return {!goog.dom.TextRange} A range wrapper object.
+ * @return {!TextRange} A range wrapper object.
  */
-goog.dom.TextRange.createFromNodes = function(
+TextRange.createFromNodes = function(
     anchorNode, anchorOffset, focusNode, focusOffset) {
-  'use strict';
-  var range = new goog.dom.TextRange();
-  const RangeUtils = goog.module.get('goog.dom.Range');
+  var range = new TextRange();
   range.isReversed_ =
       RangeUtils.isReversed(anchorNode, anchorOffset, focusNode, focusOffset);
 
   // Avoid selecting terminal elements directly
-  if (goog.dom.isElement(anchorNode) && !goog.dom.canHaveChildren(anchorNode)) {
+  if (dom.isElement(anchorNode) && !dom.canHaveChildren(anchorNode)) {
     var parent = anchorNode.parentNode;
     anchorOffset = Array.prototype.indexOf.call(parent.childNodes, anchorNode);
     anchorNode = parent;
   }
 
-  if (goog.dom.isElement(focusNode) && !goog.dom.canHaveChildren(focusNode)) {
+  if (dom.isElement(focusNode) && !dom.canHaveChildren(focusNode)) {
     var parent = focusNode.parentNode;
     focusOffset = Array.prototype.indexOf.call(parent.childNodes, focusNode);
     focusNode = parent;
@@ -182,12 +175,11 @@ goog.dom.TextRange.createFromNodes = function(
 
 
 /**
- * @return {!goog.dom.TextRange} A clone of this range.
+ * @return {!TextRange} A clone of this range.
  * @override
  */
-goog.dom.TextRange.prototype.clone = function() {
-  'use strict';
-  var range = new goog.dom.TextRange();
+TextRange.prototype.clone = function() {
+  var range = new TextRange();
   range.browserRangeWrapper_ =
       this.browserRangeWrapper_ && this.browserRangeWrapper_.clone();
   range.startNode_ = this.startNode_;
@@ -201,28 +193,25 @@ goog.dom.TextRange.prototype.clone = function() {
 
 
 /** @override */
-goog.dom.TextRange.prototype.getType = function() {
-  'use strict';
-  return goog.dom.RangeType.TEXT;
+TextRange.prototype.getType = function() {
+  return RangeType.TEXT;
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getBrowserRangeObject = function() {
-  'use strict';
+TextRange.prototype.getBrowserRangeObject = function() {
   return this.getBrowserRangeWrapper_().getBrowserRange();
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.setBrowserRangeObject = function(nativeRange) {
-  'use strict';
+TextRange.prototype.setBrowserRangeObject = function(nativeRange) {
   // Test if it's a control range by seeing if a control range only method
   // exists.
-  if (goog.dom.AbstractRange.isNativeControlRange(nativeRange)) {
+  if (AbstractRange.isNativeControlRange(nativeRange)) {
     return false;
   }
-  this.browserRangeWrapper_ = goog.dom.browserrange.createRange(nativeRange);
+  this.browserRangeWrapper_ = browserrange.createRange(nativeRange);
   this.clearCachedValues_();
   return true;
 };
@@ -232,57 +221,50 @@ goog.dom.TextRange.prototype.setBrowserRangeObject = function(nativeRange) {
  * Clear all cached values.
  * @private
  */
-goog.dom.TextRange.prototype.clearCachedValues_ = function() {
-  'use strict';
+TextRange.prototype.clearCachedValues_ = function() {
   this.startNode_ = this.startOffset_ = this.endNode_ = this.endOffset_ = null;
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getTextRangeCount = function() {
-  'use strict';
+TextRange.prototype.getTextRangeCount = function() {
   return 1;
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getTextRange = function(i) {
-  'use strict';
+TextRange.prototype.getTextRange = function(i) {
   return this;
 };
 
 
 /**
- * @return {!goog.dom.browserrange.AbstractRange} The range wrapper object.
+ * @return {!browserrange.AbstractRange} The range wrapper object.
  * @private
  */
-goog.dom.TextRange.prototype.getBrowserRangeWrapper_ = function() {
-  'use strict';
+TextRange.prototype.getBrowserRangeWrapper_ = function() {
   return this.browserRangeWrapper_ ||
-      (this.browserRangeWrapper_ = goog.dom.browserrange.createRangeFromNodes(
+      (this.browserRangeWrapper_ = browserrange.createRangeFromNodes(
            this.getStartNode(), this.getStartOffset(), this.getEndNode(),
            this.getEndOffset()));
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getContainer = function() {
-  'use strict';
+TextRange.prototype.getContainer = function() {
   return this.getBrowserRangeWrapper_().getContainer();
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getStartNode = function() {
-  'use strict';
+TextRange.prototype.getStartNode = function() {
   return this.startNode_ ||
       (this.startNode_ = this.getBrowserRangeWrapper_().getStartNode());
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getStartOffset = function() {
-  'use strict';
+TextRange.prototype.getStartOffset = function() {
   return this.startOffset_ != null ?
       this.startOffset_ :
       (this.startOffset_ = this.getBrowserRangeWrapper_().getStartOffset());
@@ -290,23 +272,20 @@ goog.dom.TextRange.prototype.getStartOffset = function() {
 
 
 /** @override */
-goog.dom.TextRange.prototype.getStartPosition = function() {
-  'use strict';
+TextRange.prototype.getStartPosition = function() {
   return this.getBrowserRangeWrapper_().getStartPosition();
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getEndNode = function() {
-  'use strict';
+TextRange.prototype.getEndNode = function() {
   return this.endNode_ ||
       (this.endNode_ = this.getBrowserRangeWrapper_().getEndNode());
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getEndOffset = function() {
-  'use strict';
+TextRange.prototype.getEndOffset = function() {
   return this.endOffset_ != null ?
       this.endOffset_ :
       (this.endOffset_ = this.getBrowserRangeWrapper_().getEndOffset());
@@ -314,8 +293,7 @@ goog.dom.TextRange.prototype.getEndOffset = function() {
 
 
 /** @override */
-goog.dom.TextRange.prototype.getEndPosition = function() {
-  'use strict';
+TextRange.prototype.getEndPosition = function() {
   return this.getBrowserRangeWrapper_().getEndPosition();
 };
 
@@ -328,9 +306,8 @@ goog.dom.TextRange.prototype.getEndPosition = function() {
  * @param {number} endOffset The offset within the node to end.
  * @param {boolean} isReversed Whether the range is reversed.
  */
-goog.dom.TextRange.prototype.moveToNodes = function(
+TextRange.prototype.moveToNodes = function(
     startNode, startOffset, endNode, endOffset, isReversed) {
-  'use strict';
   this.startNode_ = startNode;
   this.startOffset_ = startOffset;
   this.endNode_ = endNode;
@@ -341,8 +318,7 @@ goog.dom.TextRange.prototype.moveToNodes = function(
 
 
 /** @override */
-goog.dom.TextRange.prototype.isReversed = function() {
-  'use strict';
+TextRange.prototype.isReversed = function() {
   return this.isReversed_;
 };
 
@@ -351,26 +327,24 @@ goog.dom.TextRange.prototype.isReversed = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.dom.TextRange.prototype.containsRange = function(
+TextRange.prototype.containsRange = function(
     otherRange, opt_allowPartial) {
-  'use strict';
   var otherRangeType = otherRange.getType();
-  if (otherRangeType == goog.dom.RangeType.TEXT) {
+  if (otherRangeType == RangeType.TEXT) {
     return this.getBrowserRangeWrapper_().containsRange(
         otherRange.getBrowserRangeWrapper_(), opt_allowPartial);
-  } else if (otherRangeType == goog.dom.RangeType.CONTROL) {
+  } else if (otherRangeType == RangeType.CONTROL) {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     var elements = otherRange.getElements();
-    var fn = opt_allowPartial ? goog.array.some : goog.array.every;
+    var fn = opt_allowPartial ? array.some : array.every;
     return fn(
         elements,
         /**
-         * @this {goog.dom.TextRange}
-         * @param {!Element} el
-         * @return {boolean}
-         */
+                 * @this {TextRange}
+                 * @param {!Element} el
+                 * @return {boolean}
+                 */
         function(el) {
-          'use strict';
           return this.containsNode(el, opt_allowPartial);
         },
         this);
@@ -380,10 +354,9 @@ goog.dom.TextRange.prototype.containsRange = function(
 
 
 /** @override */
-goog.dom.TextRange.prototype.containsNode = function(node, opt_allowPartial) {
-  'use strict';
+TextRange.prototype.containsNode = function(node, opt_allowPartial) {
   return this.containsRange(
-      goog.dom.TextRange.createFromNodeContents(node), opt_allowPartial);
+      TextRange.createFromNodeContents(node), opt_allowPartial);
 };
 
 
@@ -393,9 +366,8 @@ goog.dom.TextRange.prototype.containsNode = function(node, opt_allowPartial) {
  * @param {Node} node The node to check.
  * @return {boolean} Whether the given node is in the given document.
  */
-goog.dom.TextRange.isAttachedNode = function(node) {
-  'use strict';
-  if (goog.userAgent.IE && !goog.userAgent.isDocumentModeOrHigher(9)) {
+TextRange.isAttachedNode = function(node) {
+  if (userAgent.IE && !userAgent.isDocumentModeOrHigher(9)) {
     var returnValue = false;
 
     try {
@@ -407,38 +379,34 @@ goog.dom.TextRange.isAttachedNode = function(node) {
     }
     return !!returnValue;
   } else {
-    return goog.dom.contains(node.ownerDocument.body, node);
+    return dom.contains(node.ownerDocument.body, node);
   }
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.isRangeInDocument = function() {
-  'use strict';
+TextRange.prototype.isRangeInDocument = function() {
   // Ensure any cached nodes are in the document.
   return (!this.startNode_ ||
-          goog.dom.TextRange.isAttachedNode(this.startNode_)) &&
-      (!this.endNode_ || goog.dom.TextRange.isAttachedNode(this.endNode_));
+          TextRange.isAttachedNode(this.startNode_)) &&
+      (!this.endNode_ || TextRange.isAttachedNode(this.endNode_));
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.isCollapsed = function() {
-  'use strict';
+TextRange.prototype.isCollapsed = function() {
   return this.getBrowserRangeWrapper_().isCollapsed();
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getText = function() {
-  'use strict';
+TextRange.prototype.getText = function() {
   return this.getBrowserRangeWrapper_().getText();
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.getHtmlFragment = function() {
-  'use strict';
+TextRange.prototype.getHtmlFragment = function() {
   // TODO(robbyw): Generalize the code in browserrange so it is static and
   // just takes an iterator.  This would mean we don't always have to create a
   // browser range.
@@ -447,8 +415,7 @@ goog.dom.TextRange.prototype.getHtmlFragment = function() {
 
 
 /** @override */
-goog.dom.TextRange.prototype.getValidHtml = function() {
-  'use strict';
+TextRange.prototype.getValidHtml = function() {
   return this.getBrowserRangeWrapper_().getValidHtml();
 };
 
@@ -457,8 +424,7 @@ goog.dom.TextRange.prototype.getValidHtml = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-goog.dom.TextRange.prototype.getPastableHtml = function() {
-  'use strict';
+TextRange.prototype.getPastableHtml = function() {
   // TODO(robbyw): Get any attributes the table or tr has.
 
   var html = this.getValidHtml();
@@ -475,12 +441,12 @@ goog.dom.TextRange.prototype.getPastableHtml = function() {
   } else if (html.match(/^\s*<li\b/i)) {
     // Match html starting with an LI.
     var container = /** @type {!Element} */ (this.getContainer());
-    var tagType = goog.dom.TagName.UL;
+    var tagType = TagName.UL;
     while (container) {
-      if (container.tagName == goog.dom.TagName.OL) {
-        tagType = goog.dom.TagName.OL;
+      if (container.tagName == TagName.OL) {
+        tagType = TagName.OL;
         break;
-      } else if (container.tagName == goog.dom.TagName.UL) {
+      } else if (container.tagName == TagName.UL) {
         break;
       }
       container = container.parentNode;
@@ -496,12 +462,11 @@ goog.dom.TextRange.prototype.getPastableHtml = function() {
  * Returns a TextRangeIterator over the contents of the range.  Regardless of
  * the direction of the range, the iterator will move in document order.
  * @param {boolean=} opt_keys Unused for this iterator.
- * @return {!goog.dom.TextRangeIterator} An iterator over tags in the range.
+ * @return {!TextRangeIterator} An iterator over tags in the range.
  * @override
  */
-goog.dom.TextRange.prototype.__iterator__ = function(opt_keys) {
-  'use strict';
-  return new goog.dom.TextRangeIterator(
+TextRange.prototype.__iterator__ = function(opt_keys) {
+  return new TextRangeIterator(
       this.getStartNode(), this.getStartOffset(), this.getEndNode(),
       this.getEndOffset());
 };
@@ -511,15 +476,13 @@ goog.dom.TextRange.prototype.__iterator__ = function(opt_keys) {
 
 
 /** @override */
-goog.dom.TextRange.prototype.select = function() {
-  'use strict';
+TextRange.prototype.select = function() {
   this.getBrowserRangeWrapper_().select(this.isReversed_);
 };
 
 
 /** @override */
-goog.dom.TextRange.prototype.removeContents = function() {
-  'use strict';
+TextRange.prototype.removeContents = function() {
   this.getBrowserRangeWrapper_().removeContents();
   this.clearCachedValues_();
 };
@@ -535,8 +498,7 @@ goog.dom.TextRange.prototype.removeContents = function() {
  * @return {Element} The surrounding element (same as the argument on Mozilla,
  *    but not on IE), or null if unsuccessful.
  */
-goog.dom.TextRange.prototype.surroundContents = function(element) {
-  'use strict';
+TextRange.prototype.surroundContents = function(element) {
   var output = this.getBrowserRangeWrapper_().surroundContents(element);
   this.clearCachedValues_();
   return output;
@@ -544,8 +506,7 @@ goog.dom.TextRange.prototype.surroundContents = function(element) {
 
 
 /** @override */
-goog.dom.TextRange.prototype.insertNode = function(node, before) {
-  'use strict';
+TextRange.prototype.insertNode = function(node, before) {
   var output = this.getBrowserRangeWrapper_().insertNode(node, before);
   this.clearCachedValues_();
   return output;
@@ -553,8 +514,7 @@ goog.dom.TextRange.prototype.insertNode = function(node, before) {
 
 
 /** @override */
-goog.dom.TextRange.prototype.surroundWithNodes = function(startNode, endNode) {
-  'use strict';
+TextRange.prototype.surroundWithNodes = function(startNode, endNode) {
   this.getBrowserRangeWrapper_().surroundWithNodes(startNode, endNode);
   this.clearCachedValues_();
 };
@@ -564,16 +524,14 @@ goog.dom.TextRange.prototype.surroundWithNodes = function(startNode, endNode) {
 
 
 /** @override */
-goog.dom.TextRange.prototype.saveUsingDom = function() {
-  'use strict';
-  return new goog.dom.DomSavedTextRange_(this);
+TextRange.prototype.saveUsingDom = function() {
+  return new dom.DomSavedTextRange_(this);
 };
 
 /** @override */
-goog.dom.TextRange.prototype.saveUsingCarets = function() {
-  'use strict';
+TextRange.prototype.saveUsingCarets = function() {
   return (this.getStartNode() && this.getEndNode()) ?
-      new goog.dom.SavedCaretRange(this) :
+      new SavedCaretRange(this) :
       null;
 };
 
@@ -582,8 +540,7 @@ goog.dom.TextRange.prototype.saveUsingCarets = function() {
 
 
 /** @override */
-goog.dom.TextRange.prototype.collapse = function(toAnchor) {
-  'use strict';
+TextRange.prototype.collapse = function(toAnchor) {
   var toStart = this.isReversed() ? !toAnchor : toAnchor;
 
   if (this.browserRangeWrapper_) {
@@ -609,14 +566,13 @@ goog.dom.TextRange.prototype.collapse = function(toAnchor) {
 
 /**
  * A SavedRange implementation using DOM endpoints.
- * @param {goog.dom.AbstractRange} range The range to save.
+ * @param {AbstractRange} range The range to save.
  * @constructor
- * @extends {goog.dom.SavedRange}
+ * @extends {SavedRange}
  * @private
  */
-goog.dom.DomSavedTextRange_ = function(range) {
-  'use strict';
-  goog.dom.DomSavedTextRange_.base(this, 'constructor');
+dom.DomSavedTextRange_ = function(range) {
+  dom.DomSavedTextRange_.base(this, 'constructor');
 
   /**
    * The anchor node.
@@ -646,25 +602,22 @@ goog.dom.DomSavedTextRange_ = function(range) {
    */
   this.focusOffset_ = range.getFocusOffset();
 };
-goog.inherits(goog.dom.DomSavedTextRange_, goog.dom.SavedRange);
+goog.inherits(dom.DomSavedTextRange_, SavedRange);
 
 
 /**
- * @return {!goog.dom.AbstractRange} The restored range.
+ * @return {!AbstractRange} The restored range.
  * @override
  */
-goog.dom.DomSavedTextRange_.prototype.restoreInternal = function() {
-  'use strict';
-  const RangeUtils = goog.module.get('goog.dom.Range');
+dom.DomSavedTextRange_.prototype.restoreInternal = function() {
   return RangeUtils.createFromNodes(
       this.anchorNode_, this.anchorOffset_, this.focusNode_, this.focusOffset_);
 };
 
 
 /** @override */
-goog.dom.DomSavedTextRange_.prototype.disposeInternal = function() {
-  'use strict';
-  goog.dom.DomSavedTextRange_.superClass_.disposeInternal.call(this);
+dom.DomSavedTextRange_.prototype.disposeInternal = function() {
+  dom.DomSavedTextRange_.superClass_.disposeInternal.call(this);
 
   this.anchorNode_ = null;
   this.focusNode_ = null;

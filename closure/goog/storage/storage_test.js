@@ -6,16 +6,15 @@
 
 /** @fileoverview Unit tests for the storage interface. */
 
-goog.module('goog.storage.storage_test');
 goog.setTestOnly();
 
-const ErrorCode = goog.require('goog.storage.ErrorCode');
-const FakeMechanism = goog.require('goog.testing.storage.FakeMechanism');
-const StorageStorage = goog.require('goog.storage.Storage');
-const asserts = goog.require('goog.testing.asserts');
-const functions = goog.require('goog.functions');
-const storageTester = goog.require('goog.storage.storageTester');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ErrorCode } from './errorcode.js';
+import { FakeMechanism } from '../testing/storage/fakemechanism.js';
+import { Storage as StorageStorage } from './storage.js';
+import * as asserts from '../testing/asserts.js';
+import * as functions from '../functions/functions.js';
+import * as storageTester from './storagetester.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testBasicOperations() {

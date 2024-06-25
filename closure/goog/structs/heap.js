@@ -25,11 +25,9 @@
 //     interface?
 
 
-goog.module('goog.structs.Heap');
-goog.module.declareLegacyNamespace();
+import { Node } from './node.js';
 
-const Node = goog.require('goog.structs.Node');
-const object = goog.require('goog.object');
+import object from '../object/object.js';
 
 
 /**
@@ -313,4 +311,4 @@ class Heap {
     this.nodes_.length = 0;
   }
 }
-exports = Heap;
+export { Heap };

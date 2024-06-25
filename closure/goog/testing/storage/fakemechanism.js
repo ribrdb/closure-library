@@ -8,13 +8,12 @@
  * @fileoverview Provides a fake storage mechanism for testing.
  */
 
-goog.module('goog.testing.storage.FakeMechanism');
-goog.module.declareLegacyNamespace();
 goog.setTestOnly('goog.testing.storage.FakeMechanism');
 
-const IterableMechanism = goog.require('goog.storage.mechanism.IterableMechanism');
-const Iterator = goog.require('goog.iter.Iterator');
-const {ShimIterable} = goog.require('goog.iter.es6');
+import { IterableMechanism } from '../../storage/mechanism/iterablemechanism.js';
+import { Iterator } from '../../iter/iter.js';
+import es6 from '../../iter/es6.js';
+const {ShimIterable} = es6;
 
 
 
@@ -87,4 +86,4 @@ FakeMechanism.prototype.__iterator__ = function(opt_keys) {
                     ShimIterable.of(this.storage_.values()).toGoog();
 };
 
-exports = FakeMechanism;
+export { FakeMechanism };

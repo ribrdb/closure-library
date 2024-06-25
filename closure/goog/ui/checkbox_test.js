@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.CheckboxTest');
 goog.setTestOnly();
 
-const Checkbox = goog.require('goog.ui.Checkbox');
-const CheckboxRenderer = goog.require('goog.ui.CheckboxRenderer');
-const Component = goog.require('goog.ui.Component');
-const ControlRenderer = goog.require('goog.ui.ControlRenderer');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Role = goog.require('goog.a11y.aria.Role');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const decorate = goog.require('goog.ui.decorate');
-const dom = goog.require('goog.dom');
-const googEvents = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { Checkbox } from './checkbox.js';
+import { CheckboxRenderer } from './checkboxrenderer.js';
+import { Component } from './component.js';
+import { ControlRenderer } from './controlrenderer.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { Role } from '../a11y/aria/roles.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import { decorate } from './decorate.js';
+import * as dom from '../dom/dom.js';
+import * as googEvents from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 let checkbox;
 

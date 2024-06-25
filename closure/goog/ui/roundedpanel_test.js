@@ -4,14 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.RoundedPanelTest');
 goog.setTestOnly();
 
-const CssRoundedPanel = goog.require('goog.ui.CssRoundedPanel');
-const GraphicsRoundedPanel = goog.require('goog.ui.GraphicsRoundedPanel');
-const RoundedPanel = goog.require('goog.ui.RoundedPanel');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import * as RoundedPanel from './roundedpanel.js';
+import { CssRoundedPanel, GraphicsRoundedPanel } from './roundedpanel.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 testSuite({
   /**

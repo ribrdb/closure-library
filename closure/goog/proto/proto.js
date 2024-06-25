@@ -8,18 +8,15 @@
  * @fileoverview Protocol buffer serializer.
  */
 
-goog.provide('goog.proto');
-
-
-goog.require('goog.proto.Serializer');
+import { Serializer } from './serializer.js';
 
 
 /**
  * Instance of the serializer object.
- * @type {goog.proto.Serializer}
+ * @type {Serializer}
  * @private
  */
-goog.proto.serializer_ = null;
+var serializer_ = null;
 
 
 /**
@@ -27,10 +24,9 @@ goog.proto.serializer_ = null;
  * @param {Object} object The object to serialize.
  * @return {string} The serialized protocol buffer string.
  */
-goog.proto.serialize = function(object) {
-  'use strict';
-  if (!goog.proto.serializer_) {
-    goog.proto.serializer_ = new goog.proto.Serializer;
-  }
-  return goog.proto.serializer_.serialize(object);
-};
+export function serialize(object) {
+ if (!serializer_) {
+   serializer_ = new Serializer;
+ }
+ return serializer_.serialize(object);
+}

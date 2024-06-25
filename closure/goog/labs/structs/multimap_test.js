@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.labs.structs.MultimapTest');
 goog.setTestOnly();
 
-const Multimap = goog.require('goog.labs.structs.Multimap');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Multimap } from './multimap.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let map;
 

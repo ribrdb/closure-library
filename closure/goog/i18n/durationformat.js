@@ -9,13 +9,12 @@
  * into a human-readable, locale-sensitive string in a user friendly way and a
  * locale sensitive manner.
  */
-goog.module('goog.i18n.DurationFormat');
+import * as DurationSymbols from './durationsymbols.js';
 
-const DurationSymbols = goog.require('goog.i18n.DurationSymbols');
-const MessageFormat = goog.require('goog.i18n.MessageFormat');
-const {DurationSymbols: DurationSymbolsTypes, DurationSymbolsFormatStyles} = goog.require('goog.i18n.DurationSymbolTypes');
-const {ListFormat, ListFormatStyle, ListFormatType} = goog.require('goog.i18n.listFormat');
-const {assert, assertNumber, assertObject} = goog.require('goog.asserts');
+import { MessageFormat } from './messageformat.js';
+import { DurationSymbols as DurationSymbolsTypes, DurationSymbolsFormatStyles } from './durationsymboltypes.js';
+import { ListFormat, ListFormatStyle, ListFormatType } from './listformat.js';
+import { assert, assertNumber, assertObject } from '../asserts/asserts.js';
 
 /**
  * Choices for options bag 'type' in DurationFormat's constructor.
@@ -26,7 +25,7 @@ const DurationFormatStyle = {
   LONG: 1,
   NARROW: 2,
 };
-exports.DurationFormatStyle = DurationFormatStyle;
+export { DurationFormatStyle };
 
 /**
  * Available keys for the input object of public method format.
@@ -41,7 +40,7 @@ const DurationFormatUnit = {
   MINUTE: 'minutes',
   SECOND: 'seconds'
 };
-exports.DurationFormatUnit = DurationFormatUnit;
+export { DurationFormatUnit };
 
 /**
  * Collection of duration unit and time for a locale.
@@ -55,10 +54,7 @@ exports.DurationFormatUnit = DurationFormatUnit;
  *   years: (number|undefined)
  * }}
  */
-let DurationLike; /* The data for the locale */
-
-/** @typedef {!DurationLike} */
-exports.DurationLike;
+export let DurationLike;
 
 /**
  * Collection of duration display style.
@@ -66,10 +62,7 @@ exports.DurationLike;
  *   style: DurationFormatStyle!
  * }}
  */
-let DurationFormatOptions; /* The data for the display style */
-
-/** @typedef {!DurationFormatOptions} */
-exports.DurationFormatOptions;
+export let DurationFormatOptions;
 
 class DurationFormat {
   /**
@@ -285,4 +278,4 @@ class DurationFormat {
   };
 }
 
-exports.DurationFormat = DurationFormat;
+export { DurationFormat };

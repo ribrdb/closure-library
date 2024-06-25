@@ -9,13 +9,12 @@
  */
 
 /** @suppress {extraProvide} */
-goog.module('goog.crypt.CbcTest');
 goog.setTestOnly();
 
-const Aes = goog.require('goog.crypt.Aes');
-const Cbc = goog.require('goog.crypt.Cbc');
-const crypt = goog.require('goog.crypt');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Aes } from './aes.js';
+import { Cbc } from './cbc.js';
+import * as crypt from './crypt.js';
+import { testSuite } from '../testing/testsuite.js';
 
 function stringToBytes(s) {
   const bytes = new Array(s.length);

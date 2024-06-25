@@ -4,20 +4,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.LabelInputTest');
 goog.setTestOnly();
 
-const EventType = goog.require('goog.events.EventType');
-const GoogTestingEvent = goog.require('goog.testing.events.Event');
-const LabelInput = goog.require('goog.ui.LabelInput');
-const MockClock = goog.require('goog.testing.MockClock');
-const State = goog.require('goog.a11y.aria.State');
-const aria = goog.require('goog.a11y.aria');
-const classlist = goog.require('goog.dom.classlist');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.testing.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { EventType } from '../events/eventtype.js';
+import * as events from '../testing/events/events.js';
+import { Event as GoogTestingEvent } from '../testing/events/events.js';
+import { LabelInput } from './labelinput.js';
+import { MockClock } from '../testing/mockclock.js';
+import { State } from '../a11y/aria/attributes.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as classlist from '../dom/classlist.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let labelInput;
 let mockClock;

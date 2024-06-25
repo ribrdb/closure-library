@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PopupTest');
 goog.setTestOnly();
 
-const AnchoredPosition = goog.require('goog.positioning.AnchoredPosition');
-const Corner = goog.require('goog.positioning.Corner');
-const Popup = goog.require('goog.ui.Popup');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AnchoredPosition } from '../positioning/anchoredposition.js';
+import { Corner } from '../positioning/positioning.js';
+import { Popup } from './popup.js';
+import * as style from '../style/style.js';
+import { testSuite } from '../testing/testsuite.js';
 
 /** This is used to round pixel values on FF3 Mac. */
 function assertRoundedEquals(a, b, c) {

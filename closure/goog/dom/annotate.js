@@ -9,17 +9,15 @@
  *   in a DOM tree. Adapted from Gmail code.
  */
 
-goog.provide('goog.dom.annotate');
-goog.provide('goog.dom.annotate.AnnotateFn');
+import * as array from '../array/array.js';
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.object');
+import * as asserts from '../asserts/asserts.js';
+import * as dom from './dom.js';
+import { NodeType } from './nodetype.js';
+import { TagName } from './tagname.js';
+import * as safe from './safe.js';
+import { SafeHtml } from '../html/safehtml.js';
+import object from '../object/object.js';
 
 
 /**
@@ -27,9 +25,9 @@ goog.require('goog.object');
  *   (1) the number of the term that is "hit",
  *   (2) the HTML (search term) to be annotated,
  * and returns the annotated term as an HTML.
- * @typedef {function(number, !goog.html.SafeHtml): !goog.html.SafeHtml}
+ * @typedef {function(number, !SafeHtml): !SafeHtml}
  */
-goog.dom.annotate.AnnotateFn;
+export var AnnotateFn;
 
 
 /**
@@ -42,7 +40,7 @@ goog.dom.annotate.AnnotateFn;
  *   The matchWholeWordOnly value is a per-term attribute because some terms
  *   may be CJK, while others are not. (For correctness, matchWholeWordOnly
  *   should always be false for CJK terms.).
- * @param {goog.dom.annotate.AnnotateFn} annotateFn
+ * @param {AnnotateFn} annotateFn
  * @param {*=} opt_ignoreCase  Whether to ignore the case of the query
  *   terms when looking for matches.
  * @param {Array<string>=} opt_classesToSkip  Nodes with one of these CSS class
@@ -52,18 +50,16 @@ goog.dom.annotate.AnnotateFn;
  *
  * @return {boolean} Whether any terms were annotated.
  */
-goog.dom.annotate.annotateTerms = function(
-    node, terms, annotateFn, opt_ignoreCase, opt_classesToSkip, opt_maxMs) {
-  'use strict';
+export function annotateTerms(node, terms, annotateFn, opt_ignoreCase, opt_classesToSkip, opt_maxMs) {
   if (opt_ignoreCase) {
-    terms = goog.dom.annotate.lowercaseTerms_(terms);
+    terms = lowercaseTerms_(terms);
   }
   var stopTime = +opt_maxMs > 0 ? Date.now() + opt_maxMs : 0;
 
-  return goog.dom.annotate.annotateTermsInNode_(
+  return annotateTermsInNode_(
       node, terms, annotateFn, opt_ignoreCase, opt_classesToSkip || [],
       stopTime, 0);
-};
+}
 
 
 /**
@@ -72,15 +68,15 @@ goog.dom.annotate.annotateTerms = function(
  * @type {number}
  * @private
  */
-goog.dom.annotate.MAX_RECURSION_ = 200;
+var MAX_RECURSION_ = 200;
 
 
 /**
  * The node types whose descendants should not be affected by annotation.
  * @private {!Object<string, boolean>}
  */
-goog.dom.annotate.NODES_TO_SKIP_ = goog.object.createSet(
-    goog.dom.TagName.SCRIPT, goog.dom.TagName.STYLE, goog.dom.TagName.TEXTAREA);
+var NODES_TO_SKIP_ = object.createSet(
+    TagName.SCRIPT, TagName.STYLE, TagName.TEXTAREA);
 
 
 /**
@@ -92,7 +88,7 @@ goog.dom.annotate.NODES_TO_SKIP_ = goog.object.createSet(
  *     The matchWholeWordOnly value is a per-term attribute because some terms
  *     may be CJK, while others are not. (For correctness, matchWholeWordOnly
  *     should always be false for CJK terms.).
- * @param {goog.dom.annotate.AnnotateFn} annotateFn
+ * @param {AnnotateFn} annotateFn
  * @param {*} ignoreCase  Whether to ignore the case of the query terms
  *     when looking for matches.
  * @param {Array<string>} classesToSkip  Nodes with one of these CSS class
@@ -103,19 +99,24 @@ goog.dom.annotate.NODES_TO_SKIP_ = goog.object.createSet(
  * @return {boolean} Whether any terms were annotated.
  * @private
  */
-goog.dom.annotate.annotateTermsInNode_ = function(
-    node, terms, annotateFn, ignoreCase, classesToSkip, stopTime,
-    recursionLevel) {
-  'use strict';
+function annotateTermsInNode_(
+  node,
+  terms,
+  annotateFn,
+  ignoreCase,
+  classesToSkip,
+  stopTime,
+  recursionLevel
+) {
   if ((stopTime > 0 && Date.now() >= stopTime) ||
-      recursionLevel > goog.dom.annotate.MAX_RECURSION_) {
+      recursionLevel > MAX_RECURSION_) {
     return false;
   }
 
   var annotated = false;
 
-  if (node.nodeType == goog.dom.NodeType.TEXT) {
-    var html = goog.dom.annotate.helpAnnotateText_(
+  if (node.nodeType == NodeType.TEXT) {
+    var html = helpAnnotateText_(
         node.nodeValue, terms, annotateFn, ignoreCase);
     if (html != null) {
       // Replace the text with the annotated html. First we put the html into
@@ -123,8 +124,8 @@ goog.dom.annotate.annotateTermsInNode_ = function(
       // element as a side effect, we'll only actually use the temporary node's
       // children.
       var tempNode =
-          goog.dom.getDomHelper(node).createElement(goog.dom.TagName.SPAN);
-      goog.dom.safe.setInnerHtml(tempNode, html);
+          dom.getDomHelper(node).createElement(TagName.SPAN);
+      safe.setInnerHtml(tempNode, html);
 
       var parentNode = node.parentNode;
       var nodeToInsert;
@@ -139,12 +140,10 @@ goog.dom.annotate.annotateTermsInNode_ = function(
     }
   } else if (
       node.hasChildNodes() &&
-      !goog.dom.annotate
-           .NODES_TO_SKIP_[/** @type {!Element} */ (node).tagName]) {
+      !NODES_TO_SKIP_[/** @type {!Element} */ (node).tagName]) {
     var classes = /** @type {!Element} */ (node).className.split(/\s+/);
-    var skip = goog.array.some(classes, function(className) {
-      'use strict';
-      return goog.array.contains(classesToSkip, className);
+    var skip = array.some(classes, function(className) {
+      return array.contains(classesToSkip, className);
     });
 
     if (!skip) {
@@ -152,7 +151,7 @@ goog.dom.annotate.annotateTermsInNode_ = function(
       var curNode = node.firstChild;
       while (curNode) {
         var nextNode = curNode.nextSibling;
-        var curNodeAnnotated = goog.dom.annotate.annotateTermsInNode_(
+        var curNodeAnnotated = annotateTermsInNode_(
             curNode, terms, annotateFn, ignoreCase, classesToSkip, stopTime,
             recursionLevel);
         annotated = annotated || curNodeAnnotated;
@@ -162,7 +161,7 @@ goog.dom.annotate.annotateTermsInNode_ = function(
   }
 
   return annotated;
-};
+}
 
 
 /**
@@ -178,7 +177,7 @@ goog.dom.annotate.annotateTermsInNode_ = function(
  * @type {RegExp}
  * @private
  */
-goog.dom.annotate.NONWORD_RE_ = /\W/;
+var NONWORD_RE_ = /\W/;
 
 
 /**
@@ -193,21 +192,19 @@ goog.dom.annotate.NONWORD_RE_ = /\W/;
  *   The matchWholeWordOnly value is a per-term attribute because some terms
  *   may be CJK, while others are not. (For correctness, matchWholeWordOnly
  *   should always be false for CJK terms.).
- * @param {goog.dom.annotate.AnnotateFn} annotateFn
+ * @param {AnnotateFn} annotateFn
  * @param {*=} opt_ignoreCase  Whether to ignore the case of the query
  *   terms when looking for matches.
- * @return {goog.html.SafeHtml} The HTML equivalent of `text` with terms
+ * @return {SafeHtml} The HTML equivalent of `text` with terms
  *   annotated, or null if the text did not contain any of the terms.
  */
-goog.dom.annotate.annotateText = function(
-    text, terms, annotateFn, opt_ignoreCase) {
-  'use strict';
+export function annotateText(text, terms, annotateFn, opt_ignoreCase) {
   if (opt_ignoreCase) {
-    terms = goog.dom.annotate.lowercaseTerms_(terms);
+    terms = lowercaseTerms_(terms);
   }
-  return goog.dom.annotate.helpAnnotateText_(
+  return helpAnnotateText_(
       text, terms, annotateFn, opt_ignoreCase);
-};
+}
 
 
 /**
@@ -223,16 +220,14 @@ goog.dom.annotate.annotateText = function(
  *   The matchWholeWordOnly value is a per-term attribute because some terms
  *   may be CJK, while others are not. (For correctness, matchWholeWordOnly
  *   should always be false for CJK terms.).
- * @param {goog.dom.annotate.AnnotateFn} annotateFn
+ * @param {AnnotateFn} annotateFn
  * @param {*} ignoreCase  Whether to ignore the case of the query terms
  *   when looking for matches.
- * @return {goog.html.SafeHtml} The HTML equivalent of `text` with terms
+ * @return {SafeHtml} The HTML equivalent of `text` with terms
  *   annotated, or null if the text did not contain any of the terms.
  * @private
  */
-goog.dom.annotate.helpAnnotateText_ = function(
-    text, terms, annotateFn, ignoreCase) {
-  'use strict';
+function helpAnnotateText_(text, terms, annotateFn, ignoreCase) {
   var hit = false;
   var textToSearch = ignoreCase ? text.toLowerCase() : text;
   var textLen = textToSearch.length;
@@ -260,10 +255,10 @@ goog.dom.annotate.helpAnnotateText_ = function(
           var nextCharPos = hitPos + termLen;
           if (!matchWholeWordOnly ||
               ((prevCharPos < 0 ||
-                goog.dom.annotate.NONWORD_RE_.test(
+                NONWORD_RE_.test(
                     textToSearch.charAt(prevCharPos))) &&
                (nextCharPos >= textLen ||
-                goog.dom.annotate.NONWORD_RE_.test(
+                NONWORD_RE_.test(
                     textToSearch.charAt(nextCharPos))))) {
             hits.push(hitPos);
             hit = true;
@@ -290,13 +285,13 @@ goog.dom.annotate.helpAnnotateText_ = function(
         // (it's always the first in the array because we're shifting
         // hits off the front of the array as we process them)
         // this is the next candidate to consider for the next overall hit
-        if (!goog.array.isEmpty(hits)) {
+        if (!array.isEmpty(hits)) {
           var hitPos = hits[0];
 
           // Discard any hits embedded in the previous hit.
           while (hitPos >= 0 && hitPos < pos) {
             hits.shift();
-            hitPos = goog.array.isEmpty(hits) ? -1 : hits[0];
+            hitPos = array.isEmpty(hits) ? -1 : hits[0];
           }
 
           if (hitPos >= 0 && (posOfNextHit < 0 || hitPos < posOfNextHit)) {
@@ -308,7 +303,7 @@ goog.dom.annotate.helpAnnotateText_ = function(
 
       // Quit if there are no more hits.
       if (posOfNextHit < 0) break;
-      goog.asserts.assertNumber(termIndexOfNextHit);
+      asserts.assertNumber(termIndexOfNextHit);
 
       // Remove the next hit from our hit list.
       termHits[termIndexOfNextHit].shift();
@@ -318,21 +313,21 @@ goog.dom.annotate.helpAnnotateText_ = function(
 
       // Append the annotated term.
       var termLen = terms[termIndexOfNextHit][0].length;
-      var termHtml = goog.html.SafeHtml.htmlEscape(
+      var termHtml = SafeHtml.htmlEscape(
           text.slice(posOfNextHit, posOfNextHit + termLen));
       html.push(
-          annotateFn(goog.asserts.assertNumber(termIndexOfNextHit), termHtml));
+          annotateFn(asserts.assertNumber(termIndexOfNextHit), termHtml));
 
       pos = posOfNextHit + termLen;
     }
 
     // Append everything after the last hit.
     html.push(text.slice(pos));
-    return goog.html.SafeHtml.concat(html);
+    return SafeHtml.concat(html);
   } else {
     return null;
   }
-};
+}
 
 
 /**
@@ -344,12 +339,11 @@ goog.dom.annotate.helpAnnotateText_ = function(
  *   [{string} searchTerm, {boolean} matchWholeWordOnly] tuples.
  * @private
  */
-goog.dom.annotate.lowercaseTerms_ = function(terms) {
-  'use strict';
+function lowercaseTerms_(terms) {
   var lowercaseTerms = [];
   for (var i = 0; i < terms.length; ++i) {
     var term = terms[i];
     lowercaseTerms[i] = [term[0].toLowerCase(), term[1]];
   }
   return lowercaseTerms;
-};
+}

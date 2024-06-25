@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.storage.mechanism.PrefixedMechanismTest');
 goog.setTestOnly();
 
-const HTML5LocalStorage = goog.require('goog.storage.mechanism.HTML5LocalStorage');
-const PrefixedMechanism = goog.require('goog.storage.mechanism.PrefixedMechanism');
-const iterableMechanismTests = goog.require('goog.storage.mechanism.iterableMechanismTests');
-const mechanismSeparationTests = goog.require('goog.storage.mechanism.mechanismSeparationTests');
-const mechanismSharingTests = goog.require('goog.storage.mechanism.mechanismSharingTests');
-const mechanismTests = goog.require('goog.storage.mechanism.mechanismTests');
-const testSuite = goog.require('goog.testing.testSuite');
+import { HTML5LocalStorage } from './html5localstorage.js';
+import { PrefixedMechanism } from './prefixedmechanism.js';
+import * as iterableMechanismTests from './iterablemechanismtests.js';
+import * as mechanismSeparationTests from './mechanismseparationtests.js';
+import * as mechanismSharingTests from './mechanismsharingtests.js';
+import * as mechanismTests from './mechanismtests.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let submechanism = null;
 let mechanism;

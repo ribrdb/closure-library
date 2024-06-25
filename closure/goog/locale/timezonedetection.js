@@ -9,10 +9,9 @@
  * This work is based on Charlie Luo and Hong Yan's time zone detection work
  * for CBG.
  */
-goog.provide('goog.locale.timeZoneDetection');
+import * as asserts from '../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.locale.TimeZoneFingerprint');
+import { TimeZoneFingerprint } from './timezonefingerprint.js';
 
 
 /**
@@ -21,7 +20,7 @@ goog.require('goog.locale.TimeZoneFingerprint');
  * user's timezone as reported by the browser.
  * @define {boolean}
  */
-goog.locale.timeZoneDetection.USE_NATIVE_TIMEZONE_DETECTION = goog.define(
+export var USE_NATIVE_TIMEZONE_DETECTION = goog.define(
     'goog.locale.timeZoneDetection.USE_NATIVE_TIMEZONE_DETECTION',
     goog.FEATURESET_YEAR >= 2021);
 
@@ -32,14 +31,13 @@ goog.locale.timeZoneDetection.USE_NATIVE_TIMEZONE_DETECTION = goog.define(
  * assumed to support the native API.
  * @define {boolean}
  */
-goog.locale.timeZoneDetection.INCLUDE_FINGERPRINT_DETECTION = goog.define(
+export var INCLUDE_FINGERPRINT_DETECTION = goog.define(
     'goog.locale.timeZoneDetection.INCLUDE_FINGERPRINT_DETECTION',
-    !goog.locale.timeZoneDetection.USE_NATIVE_TIMEZONE_DETECTION);
+    !USE_NATIVE_TIMEZONE_DETECTION);
 
 
 /** @private {boolean} */
-goog.locale.timeZoneDetection.useNativeTimezoneDetection_ =
-    goog.locale.timeZoneDetection.USE_NATIVE_TIMEZONE_DETECTION;
+var useNativeTimezoneDetection_ = USE_NATIVE_TIMEZONE_DETECTION;
 
 
 /**
@@ -47,10 +45,9 @@ goog.locale.timeZoneDetection.useNativeTimezoneDetection_ =
  * can be tested.
  * @param {boolean} useNative
  */
-goog.locale.timeZoneDetection.useNativeTimezoneDetectionForTesting = function(
-    useNative) {
-  goog.locale.timeZoneDetection.useNativeTimezoneDetection_ = useNative;
-};
+export function useNativeTimezoneDetectionForTesting(useNative) {
+  useNativeTimezoneDetection_ = useNative;
+}
 
 
 /**
@@ -58,7 +55,7 @@ goog.locale.timeZoneDetection.useNativeTimezoneDetectionForTesting = function(
  * @type {Array<number>}
  * @private
  */
-goog.locale.timeZoneDetection.TZ_POKE_POINTS_ = [
+var TZ_POKE_POINTS_ = [
   1109635200, 1128902400, 1130657000, 1143333000, 1143806400, 1145000000,
   1146380000, 1152489600, 1159800000, 1159500000, 1162095000, 1162075000,
   1162105500
@@ -68,18 +65,17 @@ goog.locale.timeZoneDetection.TZ_POKE_POINTS_ = [
 /**
  * Calculates time zone fingerprint by poking time zone offsets for 13
  * preselected time points.
- * See {@link goog.locale.timeZoneDetection.TZ_POKE_POINTS_}
+ * See {@link TZ_POKE_POINTS_}
  * @param {Date} date Date for calculating the fingerprint.
  * @return {number} Fingerprint of user's time zone setting.
  */
-goog.locale.timeZoneDetection.getFingerprint = function(date) {
-  'use strict';
+export function getFingerprint(date) {
   var hash = 0;
   var stdOffset;
   var isComplex = false;
-  for (var i = 0; i < goog.locale.timeZoneDetection.TZ_POKE_POINTS_.length;
+  for (var i = 0; i < TZ_POKE_POINTS_.length;
        i++) {
-    date.setTime(goog.locale.timeZoneDetection.TZ_POKE_POINTS_[i] * 1000);
+    date.setTime(TZ_POKE_POINTS_[i] * 1000);
     var offset = date.getTimezoneOffset() / 30 + 48;
     if (i == 0) {
       stdOffset = offset;
@@ -89,7 +85,7 @@ goog.locale.timeZoneDetection.getFingerprint = function(date) {
     hash = (hash << 2) ^ offset;
   }
   return isComplex ? hash : /** @type {number} */ (stdOffset);
-};
+}
 
 
 /**
@@ -97,8 +93,8 @@ goog.locale.timeZoneDetection.getFingerprint = function(date) {
  * functionality is enabled.
  * @private
  */
-goog.locale.timeZoneDetection.getNatively_ = function() {
-  if (!goog.locale.timeZoneDetection.useNativeTimezoneDetection_) {
+function getNatively_() {
+  if (!useNativeTimezoneDetection_) {
     return null;
   }
   if (typeof Intl == 'undefined' || typeof Intl.DateTimeFormat == 'undefined') {
@@ -109,7 +105,7 @@ goog.locale.timeZoneDetection.getNatively_ = function() {
     return null;
   }
   return dateTimeFormat.resolvedOptions().timeZone || null;
-};
+}
 
 
 /**
@@ -121,22 +117,21 @@ goog.locale.timeZoneDetection.getNatively_ = function() {
  *     current date.
  * @return {string} Time zone ID of best guess.
  */
-goog.locale.timeZoneDetection.detectTimeZone = function(opt_country, opt_date) {
-  'use strict';
-  goog.asserts.assert(
-      goog.locale.timeZoneDetection.USE_NATIVE_TIMEZONE_DETECTION ||
-          goog.locale.timeZoneDetection.INCLUDE_FINGERPRINT_DETECTION,
+export function detectTimeZone(opt_country, opt_date) {
+  asserts.assert(
+      USE_NATIVE_TIMEZONE_DETECTION ||
+          INCLUDE_FINGERPRINT_DETECTION,
       'At least one of USE_NATIVE_TIMEZONE_DETECTION or ' +
           'INCLUDE_FINGERPRINT_DETECTION must be true');
-  const nativeResult = goog.locale.timeZoneDetection.getNatively_();
+  const nativeResult = getNatively_();
   if (nativeResult != null) {
     return nativeResult;
   }
-  if (!goog.locale.timeZoneDetection.useNativeTimezoneDetection_ ||
-      goog.locale.timeZoneDetection.INCLUDE_FINGERPRINT_DETECTION) {
+  if (!useNativeTimezoneDetection_ ||
+      INCLUDE_FINGERPRINT_DETECTION) {
     var date = opt_date || new Date();
-    var fingerprint = goog.locale.timeZoneDetection.getFingerprint(date);
-    var timeZoneList = goog.locale.TimeZoneFingerprint[fingerprint];
+    var fingerprint = getFingerprint(date);
+    var timeZoneList = TimeZoneFingerprint[fingerprint];
     // Timezones in goog.locale.TimeZoneDetection.TimeZoneMap are in the format
     // US-America/Los_Angeles. Country code needs to be stripped before a
     // timezone is returned.
@@ -152,7 +147,7 @@ goog.locale.timeZoneDetection.detectTimeZone = function(opt_country, opt_date) {
     }
   }
   return '';
-};
+}
 
 
 /**
@@ -165,12 +160,10 @@ goog.locale.timeZoneDetection.detectTimeZone = function(opt_country, opt_date) {
  *     current date.
  * @return {!Array<string>} Array of time zone IDs.
  */
-goog.locale.timeZoneDetection.getTimeZoneList = function(
-    opt_country, opt_date) {
-  'use strict';
+export function getTimeZoneList(opt_country, opt_date) {
   var date = opt_date || new Date();
-  var fingerprint = goog.locale.timeZoneDetection.getFingerprint(date);
-  var timeZoneList = goog.locale.TimeZoneFingerprint[fingerprint];
+  var fingerprint = getFingerprint(date);
+  var timeZoneList = TimeZoneFingerprint[fingerprint];
   if (!timeZoneList) {
     return [];
   }
@@ -181,4 +174,4 @@ goog.locale.timeZoneDetection.getTimeZoneList = function(
     }
   }
   return chosenList;
-};
+}

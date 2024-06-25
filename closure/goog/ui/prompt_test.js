@@ -4,22 +4,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PromptTest');
 goog.setTestOnly();
 
-const BidiInput = goog.require('goog.ui.BidiInput');
-const Dialog = goog.require('goog.ui.Dialog');
-const InputHandler = goog.require('goog.events.InputHandler');
-const KeyCodes = goog.require('goog.events.KeyCodes');
-const Prompt = goog.require('goog.ui.Prompt');
-const dispose = goog.require('goog.dispose');
-const events = goog.require('goog.testing.events');
-const functions = goog.require('goog.functions');
-const googString = goog.require('goog.string');
-const product = goog.require('goog.userAgent.product');
-const selection = goog.require('goog.dom.selection');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgent = goog.require('goog.userAgent');
+import { BidiInput } from './bidiinput.js';
+import { Dialog } from './dialog.js';
+import { InputHandler } from '../events/inputhandler.js';
+import { KeyCodes } from '../events/keycodes.js';
+import { Prompt } from './prompt.js';
+import { dispose } from '../disposable/dispose.js';
+import * as events from '../testing/events/events.js';
+import * as functions from '../functions/functions.js';
+import * as googString from '../string/string.js';
+import * as product from '../useragent/product.js';
+import * as selection from '../dom/selection.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as userAgent from '../useragent/useragent.js';
 
 let prompt;
 

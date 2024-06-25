@@ -6,17 +6,16 @@
 
 /** @fileoverview Unit tests for userAgentBrowser. */
 
-goog.module('goog.labs.userAgent.browserTest');
 goog.setTestOnly();
 
-const googObject = goog.require('goog.object');
-const testAgentData = goog.require('goog.labs.userAgent.testAgentData');
-const testAgents = goog.require('goog.labs.userAgent.testAgents');
-const testSuite = goog.require('goog.testing.testSuite');
-const userAgentBrowser = goog.require('goog.labs.userAgent.browser');
-const util = goog.require('goog.labs.userAgent.util');
-const {ChromiumRebrand} = goog.require('goog.labs.userAgent.chromiumRebrands');
-const {setUseClientHintsForTesting} = goog.require('goog.labs.userAgent');
+import googObject from '../../object/object.js';
+import * as testAgentData from './test_agentdata.js';
+import { testAgents } from './test_agents.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as userAgentBrowser from './browser.js';
+import util from './util.js';
+import { ChromiumRebrand } from './chromium_rebrands.js';
+import { setUseClientHintsForTesting } from './useragent.js';
 
 /*
  * Map of browser name to checking method.

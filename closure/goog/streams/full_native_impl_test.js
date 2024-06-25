@@ -4,12 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.streams.fullNativeImplTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const {TestCases} = goog.require('goog.streams.fullTestCases');
-const {newReadableStream} = goog.require('goog.streams.fullNativeImpl');
+import { testSuite } from '../testing/testsuite.js';
+import fullTestCases from './full_test_cases.js';
+const {TestCases} = fullTestCases;
+import fullNativeImpl from './full_native_impl.js';
+const {newReadableStream} = fullNativeImpl;
 
 let nativeImplementation = false;
 

@@ -6,15 +6,14 @@
 
 /** @fileoverview Tests for {@link goog.html.sanitizer.CssPropertySanitizer} */
 
-goog.module('goog.html.sanitizer.CssPropertySanitizerTest');
 goog.setTestOnly();
 
-const CssPropertySanitizer = goog.require('goog.html.sanitizer.CssPropertySanitizer');
-const SafeUrl = goog.require('goog.html.SafeUrl');
-const googFunctions = goog.require('goog.functions');
-const noclobber = goog.require('goog.html.sanitizer.noclobber');
-const product = goog.require('goog.userAgent.product');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as CssPropertySanitizer from './csspropertysanitizer.js';
+import { SafeUrl } from '../safeurl.js';
+import * as googFunctions from '../../functions/functions.js';
+import noclobber from './noclobber.js';
+import * as product from '../../useragent/product.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 
 const NAME = 'foo';

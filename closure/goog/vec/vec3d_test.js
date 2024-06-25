@@ -11,12 +11,11 @@
 //                                                                           //
 ////////////////////////// NOTE ABOUT EDITING THIS FILE ///////////////////////
 
-goog.module('goog.vec.vec3dTest');
 goog.setTestOnly();
 
-const testSuite = goog.require('goog.testing.testSuite');
-const vec = goog.require('goog.vec');
-const vec3d = goog.require('goog.vec.vec3d');
+import { testSuite } from '../testing/testsuite.js';
+import * as vec from './vec.js';
+import * as vec3d from './vec3d.js';
 
 testSuite({
   testCreate() {

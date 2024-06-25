@@ -9,9 +9,7 @@
  * IMPLEMANTATIONS OF THE INTERFACES PROVIDED HERE. These exist to provide
  * a super type for the native-wrapped impl and the ponyfill impl.
  */
-goog.module('goog.streams.fullTypes');
-
-const liteTypes = goog.require('goog.streams.liteTypes');
+import * as liteTypes from './lite_types.js';
 
 /**
  * The underlying source for a ReadableStream.
@@ -172,7 +170,7 @@ class ReadableStreamDefaultController {
   }
 }
 
-exports = {
+export default {
   ReadableStream,
   ReadableStreamAsyncIterator,
   ReadableStreamDefaultController,

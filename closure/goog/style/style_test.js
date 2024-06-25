@@ -6,33 +6,32 @@
 
 /** @fileoverview Shared unit tests for styles. */
 
-goog.module('goog.style_test');
 goog.setTestOnly();
 
-const Box = goog.require('goog.math.Box');
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Const = goog.require('goog.string.Const');
-const Coordinate = goog.require('goog.math.Coordinate');
-const ExpectedFailures = goog.require('goog.testing.ExpectedFailures');
-const GoogRect = goog.require('goog.math.Rect');
-const MockUserAgent = goog.require('goog.testing.MockUserAgent');
-const Size = goog.require('goog.math.Size');
-const TagName = goog.require('goog.dom.TagName');
-const TrustedResourceUrl = goog.require('goog.html.TrustedResourceUrl');
-const UserAgents = goog.require('goog.userAgentTestUtil.UserAgents');
-const color = goog.require('goog.color');
-const dispose = goog.require('goog.dispose');
-const googArray = goog.require('goog.array');
-const googDom = goog.require('goog.dom');
-const googObject = goog.require('goog.object');
-const googStyle = goog.require('goog.style');
-const isSafari = goog.require('goog.labs.userAgent.browser');
-const jsunit = goog.require('goog.testing.jsunit');
-const safe = goog.require('goog.dom.safe');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
-const userAgent = goog.require('goog.userAgent');
-const userAgentTestUtil = goog.require('goog.userAgentTestUtil');
+import { Box } from '../math/box.js';
+import { BrowserEvent } from '../events/browserevent.js';
+import { Const } from '../string/const.js';
+import { Coordinate } from '../math/coordinate.js';
+import { ExpectedFailures } from '../testing/expectedfailures.js';
+import { Rect as GoogRect } from '../math/rect.js';
+import { MockUserAgent } from '../testing/mockuseragent.js';
+import { Size } from '../math/size.js';
+import { TagName } from '../dom/tagname.js';
+import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
+import * as userAgentTestUtil from '../useragent/useragenttestutil.js';
+import { UserAgents } from '../useragent/useragenttestutil.js';
+import * as color from '../color/color.js';
+import { dispose } from '../disposable/dispose.js';
+import * as googArray from '../array/array.js';
+import * as googDom from '../dom/dom.js';
+import googObject from '../object/object.js';
+import * as googStyle from './style.js';
+import * as isSafari from '../labs/useragent/browser.js';
+import * as jsunit from '../testing/jsunit.js';
+import * as safe from '../dom/safe.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
+import * as userAgent from '../useragent/useragent.js';
 
 // Delay running the tests after page load. This test has some asynchronous
 // behavior that interacts with page load detection.

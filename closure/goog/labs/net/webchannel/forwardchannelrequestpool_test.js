@@ -9,13 +9,12 @@
  * @suppress {accessControls} Private methods are accessed for test purposes.
  */
 
-goog.module('goog.labs.net.webChannel.ForwardChannelRequestPoolTest');
 goog.setTestOnly('goog.labs.net.webChannel.ForwardChannelRequestPoolTest');
 
-const ChannelRequest = goog.require('goog.labs.net.webChannel.ChannelRequest');
-const ForwardChannelRequestPool = goog.require('goog.labs.net.webChannel.ForwardChannelRequestPool');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ChannelRequest } from './channelrequest.js';
+import { ForwardChannelRequestPool } from './forwardchannelrequestpool.js';
+import { PropertyReplacer } from '../../../testing/propertyreplacer.js';
+import { testSuite } from '../../../testing/testsuite.js';
 
 const propertyReplacer = new PropertyReplacer();
 const req = new ChannelRequest(null, null);

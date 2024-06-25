@@ -29,16 +29,15 @@
  * @see ../demos/wheelhandler.html
  */
 
-goog.provide('goog.events.WheelHandler');
+import * as dom from '../dom/dom.js';
 
-goog.require('goog.dom');
-goog.require('goog.events');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.WheelEvent');
-goog.require('goog.style');
-goog.require('goog.userAgent');
-goog.require('goog.userAgent.product');
-goog.requireType('goog.events.BrowserEvent');
+import * as events from './events.js';
+import { EventTarget } from './eventtarget.js';
+import { WheelEvent } from './wheelevent.js';
+import * as style from '../style/style.js';
+import * as userAgent from '../useragent/useragent.js';
+import * as product from '../useragent/product.js';
+goog.requireType('goog.events.browserevent');
 
 
 
@@ -49,11 +48,10 @@ goog.requireType('goog.events.BrowserEvent');
  * @param {boolean=} opt_capture Whether to handle the wheel event in capture
  *     phase.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.events.WheelHandler = function(element, opt_capture) {
-  'use strict';
-  goog.events.WheelHandler.base(this, 'constructor');
+export function WheelHandler(element, opt_capture) {
+  WheelHandler.base(this, 'constructor');
 
   /**
    * This is the element that we will listen to the real wheel events on.
@@ -61,7 +59,7 @@ goog.events.WheelHandler = function(element, opt_capture) {
    */
   this.element_ = element;
 
-  var rtlElement = goog.dom.isElement(this.element_) ?
+  var rtlElement = dom.isElement(this.element_) ?
       /** @type {!Element} */ (this.element_) :
                               /** @type {!Document} */ (this.element_).body;
 
@@ -69,44 +67,42 @@ goog.events.WheelHandler = function(element, opt_capture) {
    * True if the element exists and is RTL, false otherwise.
    * @private {boolean}
    */
-  this.isRtl_ = !!rtlElement && goog.style.isRightToLeft(rtlElement);
+  this.isRtl_ = !!rtlElement && style.isRightToLeft(rtlElement);
 
   /**
-   * The key returned from the goog.events.listen.
-   * @private {goog.events.Key}
-   */
-  this.listenKey_ = goog.events.listen(
-      this.element_, goog.events.WheelHandler.getDomEventType(), this,
+     * The key returned from the events.listen.
+     * @private {events.Key}
+     */
+  this.listenKey_ = events.listen(
+      this.element_, WheelHandler.getDomEventType(), this,
       opt_capture);
-};
-goog.inherits(goog.events.WheelHandler, goog.events.EventTarget);
+}
+goog.inherits(WheelHandler, EventTarget);
 
 
 /**
  * Returns the dom event type.
  * @return {string} The dom event type.
  */
-goog.events.WheelHandler.getDomEventType = function() {
-  'use strict';
+WheelHandler.getDomEventType = function() {
   // Prefer to use wheel events whenever supported.
-  if (goog.userAgent.GECKO || goog.userAgent.IE ||
-      goog.userAgent.product.CHROME) {
+  if (userAgent.GECKO || userAgent.IE ||
+      product.CHROME) {
     return 'wheel';
   }
 
   // Legacy events. Still the best we have on Opera and Safari.
-  return goog.userAgent.GECKO ? 'DOMMouseScroll' : 'mousewheel';
+  return userAgent.GECKO ? 'DOMMouseScroll' : 'mousewheel';
 };
 
 
 /**
  * Handles the events on the element.
- * @param {!goog.events.BrowserEvent} e The underlying browser event.
+ * @param {!events.BrowserEvent} e The underlying browser event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.events.WheelHandler.prototype.handleEvent = function(e) {
-  'use strict';
-  var deltaMode = goog.events.WheelEvent.DeltaMode.PIXEL;
+WheelHandler.prototype.handleEvent = function(e) {
+  var deltaMode = WheelEvent.DeltaMode.PIXEL;
   var deltaX = 0;
   var deltaY = 0;
   var deltaZ = 0;
@@ -127,7 +123,7 @@ goog.events.WheelHandler.prototype.handleEvent = function(e) {
     }
   } else {  // Historical Gecko
     // Gecko returns multiple of 3 (representing the number of lines)
-    deltaMode = goog.events.WheelEvent.DeltaMode.LINE;
+    deltaMode = WheelEvent.DeltaMode.LINE;
     // Firefox 3.1 adds an axis field to the event to indicate axis.
     if (be.axis !== undefined && be.axis === be.HORIZONTAL_AXIS) {
       deltaX = be.detail;
@@ -140,15 +136,14 @@ goog.events.WheelHandler.prototype.handleEvent = function(e) {
     deltaX = -deltaX;
   }
   var newEvent =
-      new goog.events.WheelEvent(be, deltaMode, deltaX, deltaY, deltaZ);
+      new WheelEvent(be, deltaMode, deltaX, deltaY, deltaZ);
   this.dispatchEvent(newEvent);
 };
 
 
 /** @override */
-goog.events.WheelHandler.prototype.disposeInternal = function() {
-  'use strict';
-  goog.events.WheelHandler.superClass_.disposeInternal.call(this);
-  goog.events.unlistenByKey(this.listenKey_);
+WheelHandler.prototype.disposeInternal = function() {
+  WheelHandler.superClass_.disposeInternal.call(this);
+  events.unlistenByKey(this.listenKey_);
   this.listenKey_ = null;
 };

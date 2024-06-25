@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.string.linkifyTest');
 goog.setTestOnly();
 
-const SafeHtml = goog.require('goog.html.SafeHtml');
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const googString = goog.require('goog.string');
-const linkify = goog.require('goog.string.linkify');
-const safe = goog.require('goog.dom.safe');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingDom = goog.require('goog.testing.dom');
+import { SafeHtml } from '../html/safehtml.js';
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as googString from './string.js';
+import * as linkify from './linkify.js';
+import * as safe from '../dom/safe.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingDom from '../testing/dom.js';
 
 /** @type {!HTMLDivElement} */
 const div = dom.createElement(TagName.DIV);

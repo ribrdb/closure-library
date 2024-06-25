@@ -8,23 +8,20 @@
  * @fileoverview Renderer for {@link goog.ui.MenuHeader}s.
  */
 
-goog.provide('goog.ui.MenuHeaderRenderer');
-
-goog.require('goog.ui.ControlRenderer');
+import { ControlRenderer } from './controlrenderer.js';
 
 
 
 /**
  * Renderer for menu headers.
  * @constructor
- * @extends {goog.ui.ControlRenderer}
+ * @extends {ControlRenderer}
  */
-goog.ui.MenuHeaderRenderer = function() {
-  'use strict';
-  goog.ui.ControlRenderer.call(this);
-};
-goog.inherits(goog.ui.MenuHeaderRenderer, goog.ui.ControlRenderer);
-goog.addSingletonGetter(goog.ui.MenuHeaderRenderer);
+export function MenuHeaderRenderer() {
+ ControlRenderer.call(this);
+}
+goog.inherits(MenuHeaderRenderer, ControlRenderer);
+goog.addSingletonGetter(MenuHeaderRenderer);
 
 
 /**
@@ -32,7 +29,7 @@ goog.addSingletonGetter(goog.ui.MenuHeaderRenderer);
  * by this renderer.
  * @type {string}
  */
-goog.ui.MenuHeaderRenderer.CSS_CLASS = goog.getCssName('goog-menuheader');
+MenuHeaderRenderer.CSS_CLASS = goog.getCssName('goog-menuheader');
 
 
 /**
@@ -41,7 +38,6 @@ goog.ui.MenuHeaderRenderer.CSS_CLASS = goog.getCssName('goog-menuheader');
  * @return {string} Renderer-specific CSS class.
  * @override
  */
-goog.ui.MenuHeaderRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.MenuHeaderRenderer.CSS_CLASS;
+MenuHeaderRenderer.prototype.getCssClass = function() {
+ return MenuHeaderRenderer.CSS_CLASS;
 };

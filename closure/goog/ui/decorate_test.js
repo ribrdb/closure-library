@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.decorateTest');
 goog.setTestOnly();
 
-const decorate = goog.require('goog.ui.decorate');
-const registry = goog.require('goog.ui.registry');
-const testSuite = goog.require('goog.testing.testSuite');
+import { decorate } from './decorate.js';
+import * as registry from './registry.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Fake component and renderer implementations, for testing only.
 // UnknownComponent has no default renderer or decorator registered.

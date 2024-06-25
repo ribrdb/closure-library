@@ -10,17 +10,16 @@
  * @see ../demos/advancedtooltip.html
  */
 
-goog.provide('goog.ui.AdvancedTooltip');
+import * as events from '../events/events.js';
 
-goog.require('goog.events');
-goog.require('goog.events.EventType');
-goog.require('goog.math.Box');
-goog.require('goog.math.Coordinate');
-goog.require('goog.style');
-goog.require('goog.ui.Tooltip');
-goog.require('goog.userAgent');
-goog.requireType('goog.dom.DomHelper');
-goog.requireType('goog.events.BrowserEvent');
+import { EventType } from '../events/eventtype.js';
+import { Box } from '../math/box.js';
+import { Coordinate } from '../math/coordinate.js';
+import * as style from '../style/style.js';
+import { Tooltip } from './tooltip.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.dom.dom');
+goog.requireType('goog.events.browserevent');
 
 
 
@@ -34,13 +33,12 @@ goog.requireType('goog.events.BrowserEvent');
  * @param {?string=} opt_str Text message to display in tooltip.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
- * @extends {goog.ui.Tooltip}
+ * @extends {Tooltip}
  */
-goog.ui.AdvancedTooltip = function(opt_el, opt_str, opt_domHelper) {
-  'use strict';
-  goog.ui.Tooltip.call(this, opt_el, opt_str, opt_domHelper);
-};
-goog.inherits(goog.ui.AdvancedTooltip, goog.ui.Tooltip);
+export function AdvancedTooltip(opt_el, opt_str, opt_domHelper) {
+  Tooltip.call(this, opt_el, opt_str, opt_domHelper);
+}
+goog.inherits(AdvancedTooltip, Tooltip);
 
 
 /**
@@ -50,7 +48,7 @@ goog.inherits(goog.ui.AdvancedTooltip, goog.ui.Tooltip);
  * @type {boolean}
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.cursorTracking_ = false;
+AdvancedTooltip.prototype.cursorTracking_ = false;
 
 
 /**
@@ -60,35 +58,35 @@ goog.ui.AdvancedTooltip.prototype.cursorTracking_ = false;
  * @type {number}
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.cursorTrackingHideDelayMs_ = 100;
+AdvancedTooltip.prototype.cursorTrackingHideDelayMs_ = 100;
 
 
 /**
  * Box object representing a margin around the tooltip where the cursor is
  * allowed without dismissing the tooltip.
  *
- * @type {goog.math.Box}
+ * @type {Box}
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.hotSpotPadding_;
+AdvancedTooltip.prototype.hotSpotPadding_;
 
 
 /**
  * Bounding box.
  *
- * @type {goog.math.Box}
+ * @type {Box}
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.boundingBox_;
+AdvancedTooltip.prototype.boundingBox_;
 
 
 /**
  * Anchor bounding box.
  *
- * @type {goog.math.Box}
+ * @type {Box}
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.anchorBox_;
+AdvancedTooltip.prototype.anchorBox_;
 
 
 /**
@@ -97,27 +95,25 @@ goog.ui.AdvancedTooltip.prototype.anchorBox_;
  * @type {boolean}
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.tracking_ = false;
+AdvancedTooltip.prototype.tracking_ = false;
 
 
 /**
  * Sets margin around the tooltip where the cursor is allowed without dismissing
  * the tooltip.
  *
- * @param {goog.math.Box=} opt_box The margin around the tooltip.
+ * @param {Box=} opt_box The margin around the tooltip.
  */
-goog.ui.AdvancedTooltip.prototype.setHotSpotPadding = function(opt_box) {
-  'use strict';
+AdvancedTooltip.prototype.setHotSpotPadding = function(opt_box) {
   this.hotSpotPadding_ = opt_box || null;
 };
 
 
 /**
- * @return {goog.math.Box} box The margin around the tooltip where the cursor is
+ * @return {Box} box The margin around the tooltip where the cursor is
  *     allowed without dismissing the tooltip.
  */
-goog.ui.AdvancedTooltip.prototype.getHotSpotPadding = function() {
-  'use strict';
+AdvancedTooltip.prototype.getHotSpotPadding = function() {
   return this.hotSpotPadding_;
 };
 
@@ -128,8 +124,7 @@ goog.ui.AdvancedTooltip.prototype.getHotSpotPadding = function() {
  *
  * @param {boolean} b Whether to track the cursor.
  */
-goog.ui.AdvancedTooltip.prototype.setCursorTracking = function(b) {
-  'use strict';
+AdvancedTooltip.prototype.setCursorTracking = function(b) {
   this.cursorTracking_ = b;
 };
 
@@ -139,8 +134,7 @@ goog.ui.AdvancedTooltip.prototype.setCursorTracking = function(b) {
  *     if it moves away from the tooltip and keep it open if it moves towards
  *     it.
  */
-goog.ui.AdvancedTooltip.prototype.getCursorTracking = function() {
-  'use strict';
+AdvancedTooltip.prototype.getCursorTracking = function() {
   return this.cursorTracking_;
 };
 
@@ -151,9 +145,8 @@ goog.ui.AdvancedTooltip.prototype.getCursorTracking = function() {
  *
  * @param {number} delay The delay in milliseconds.
  */
-goog.ui.AdvancedTooltip.prototype.setCursorTrackingHideDelayMs = function(
+AdvancedTooltip.prototype.setCursorTrackingHideDelayMs = function(
     delay) {
-  'use strict';
   this.cursorTrackingHideDelayMs_ = delay;
 };
 
@@ -163,8 +156,7 @@ goog.ui.AdvancedTooltip.prototype.setCursorTrackingHideDelayMs = function(
  *     cursor tracking is enabled and the cursor is moving away from the
  *     tooltip.
  */
-goog.ui.AdvancedTooltip.prototype.getCursorTrackingHideDelayMs = function() {
-  'use strict';
+AdvancedTooltip.prototype.getCursorTrackingHideDelayMs = function() {
   return this.cursorTrackingHideDelayMs_;
 };
 
@@ -174,18 +166,17 @@ goog.ui.AdvancedTooltip.prototype.getCursorTrackingHideDelayMs = function() {
  * @protected
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.onShow = function() {
-  'use strict';
-  goog.ui.AdvancedTooltip.superClass_.onShow.call(this);
+AdvancedTooltip.prototype.onShow = function() {
+  AdvancedTooltip.superClass_.onShow.call(this);
 
-  this.boundingBox_ = goog.style.getBounds(this.getElement()).toBox();
+  this.boundingBox_ = style.getBounds(this.getElement()).toBox();
   if (this.anchor) {
-    this.anchorBox_ = goog.style.getBounds(this.anchor).toBox();
+    this.anchorBox_ = style.getBounds(this.anchor).toBox();
   }
 
   this.tracking_ = this.cursorTracking_;
-  goog.events.listen(
-      this.getDomHelper().getDocument(), goog.events.EventType.MOUSEMOVE,
+  events.listen(
+      this.getDomHelper().getDocument(), EventType.MOUSEMOVE,
       this.handleMouseMove, false, this);
 };
 
@@ -195,17 +186,16 @@ goog.ui.AdvancedTooltip.prototype.onShow = function() {
  * @protected
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.onHide = function() {
-  'use strict';
-  goog.events.unlisten(
-      this.getDomHelper().getDocument(), goog.events.EventType.MOUSEMOVE,
+AdvancedTooltip.prototype.onHide = function() {
+  events.unlisten(
+      this.getDomHelper().getDocument(), EventType.MOUSEMOVE,
       this.handleMouseMove, false, this);
 
   this.boundingBox_ = null;
   this.anchorBox_ = null;
   this.tracking_ = false;
 
-  goog.ui.AdvancedTooltip.superClass_.onHide.call(this);
+  AdvancedTooltip.superClass_.onHide.call(this);
 };
 
 
@@ -213,8 +203,7 @@ goog.ui.AdvancedTooltip.prototype.onHide = function() {
  * Returns true if the mouse is in the tooltip.
  * @return {boolean} True if the mouse is in the tooltip.
  */
-goog.ui.AdvancedTooltip.prototype.isMouseInTooltip = function() {
-  'use strict';
+AdvancedTooltip.prototype.isMouseInTooltip = function() {
   return this.isCoordinateInTooltip(this.cursorPosition);
 };
 
@@ -222,23 +211,22 @@ goog.ui.AdvancedTooltip.prototype.isMouseInTooltip = function() {
 /**
  * Checks whether the supplied coordinate is inside the tooltip, including
  * padding if any.
- * @param {goog.math.Coordinate} coord Coordinate being tested.
+ * @param {Coordinate} coord Coordinate being tested.
  * @return {boolean} Whether the coord is in the tooltip.
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.isCoordinateInTooltip = function(coord) {
-  'use strict';
+AdvancedTooltip.prototype.isCoordinateInTooltip = function(coord) {
   // Check if coord is inside the bounding box of the tooltip
   if (this.hotSpotPadding_) {
-    var offset = goog.style.getPageOffset(this.getElement());
-    var size = goog.style.getSize(this.getElement());
+    var offset = style.getPageOffset(this.getElement());
+    var size = style.getSize(this.getElement());
     return offset.x - this.hotSpotPadding_.left <= coord.x &&
         coord.x <= offset.x + size.width + this.hotSpotPadding_.right &&
         offset.y - this.hotSpotPadding_.top <= coord.y &&
         coord.y <= offset.y + size.height + this.hotSpotPadding_.bottom;
   }
 
-  return goog.ui.AdvancedTooltip.superClass_.isCoordinateInTooltip.call(
+  return AdvancedTooltip.superClass_.isCoordinateInTooltip.call(
       this, coord);
 };
 
@@ -248,13 +236,12 @@ goog.ui.AdvancedTooltip.prototype.isCoordinateInTooltip = function(coord) {
  * a tooltip that has been triggered by a child of this tooltip.
  * Called from handleMouseMove to determine if hide timer should be started,
  * and from maybeHide to determine if tooltip should be hidden.
- * @param {goog.math.Coordinate} coord Coordinate being tested.
+ * @param {Coordinate} coord Coordinate being tested.
  * @return {boolean} Whether coordinate is in the anchor, the tooltip, or any
  *     tooltip whose anchor is a child of this tooltip.
  * @private
  */
-goog.ui.AdvancedTooltip.prototype.isCoordinateActive_ = function(coord) {
-  'use strict';
+AdvancedTooltip.prototype.isCoordinateActive_ = function(coord) {
   if ((this.anchorBox_ && this.anchorBox_.contains(coord)) ||
       this.isCoordinateInTooltip(coord)) {
     return true;
@@ -272,8 +259,7 @@ goog.ui.AdvancedTooltip.prototype.isCoordinateActive_ = function(coord) {
  * @param {?Element|undefined} el Anchor when hide timer was started.
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.maybeHide = function(el) {
-  'use strict';
+AdvancedTooltip.prototype.maybeHide = function(el) {
   this.hideTimer = undefined;
   if (el == this.anchor) {
     // Check if cursor is inside the bounding box of the tooltip or the element
@@ -283,7 +269,7 @@ goog.ui.AdvancedTooltip.prototype.maybeHide = function(el) {
         !this.getActiveElement() && !this.hasActiveChild()) {
       // Under certain circumstances gecko fires ghost mouse events with the
       // coordinates 0, 0 regardless of the cursors position.
-      if (goog.userAgent.GECKO && this.cursorPosition.x == 0 &&
+      if (userAgent.GECKO && this.cursorPosition.x == 0 &&
           this.cursorPosition.y == 0) {
         return;
       }
@@ -296,23 +282,22 @@ goog.ui.AdvancedTooltip.prototype.maybeHide = function(el) {
 /**
  * Handler for mouse move events.
  *
- * @param {goog.events.BrowserEvent} event Event object.
+ * @param {events.BrowserEvent} event Event object.
  * @protected
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.handleMouseMove = function(event) {
-  'use strict';
+AdvancedTooltip.prototype.handleMouseMove = function(event) {
   var startTimer = this.isVisible();
   if (this.boundingBox_) {
     var scroll = this.getDomHelper().getDocumentScroll();
-    var c = new goog.math.Coordinate(
+    var c = new Coordinate(
         event.clientX + scroll.x, event.clientY + scroll.y);
     if (this.isCoordinateActive_(c)) {
       startTimer = false;
     } else if (this.tracking_) {
       var prevDist =
-          goog.math.Box.distance(this.boundingBox_, this.cursorPosition);
-      var currDist = goog.math.Box.distance(this.boundingBox_, c);
+          Box.distance(this.boundingBox_, this.cursorPosition);
+      var currDist = Box.distance(this.boundingBox_, c);
       startTimer = currDist >= prevDist;
     }
   }
@@ -328,23 +313,22 @@ goog.ui.AdvancedTooltip.prototype.handleMouseMove = function(event) {
     if (childTooltip) {
       childTooltip.setActiveElement(null);
     }
-  } else if (this.getState() == goog.ui.Tooltip.State.WAITING_TO_HIDE) {
+  } else if (this.getState() == Tooltip.State.WAITING_TO_HIDE) {
     this.clearHideTimer();
   }
 
-  goog.ui.AdvancedTooltip.superClass_.handleMouseMove.call(this, event);
+  AdvancedTooltip.superClass_.handleMouseMove.call(this, event);
 };
 
 
 /**
  * Handler for mouse over events for the tooltip element.
  *
- * @param {goog.events.BrowserEvent} event Event object.
+ * @param {events.BrowserEvent} event Event object.
  * @protected
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.handleTooltipMouseOver = function(event) {
-  'use strict';
+AdvancedTooltip.prototype.handleTooltipMouseOver = function(event) {
   if (this.getActiveElement() != this.getElement()) {
     this.tracking_ = false;
     this.setActiveElement(this.getElement());
@@ -357,10 +341,9 @@ goog.ui.AdvancedTooltip.prototype.handleTooltipMouseOver = function(event) {
  * @return {number} Hide delay to use.
  * @override
  */
-goog.ui.AdvancedTooltip.prototype.getHideDelayMs = function() {
-  'use strict';
+AdvancedTooltip.prototype.getHideDelayMs = function() {
   return this.tracking_ ? this.cursorTrackingHideDelayMs_ :
-                          goog.ui.AdvancedTooltip.base(this, 'getHideDelayMs');
+                          AdvancedTooltip.base(this, 'getHideDelayMs');
 };
 
 
@@ -369,4 +352,4 @@ goog.ui.AdvancedTooltip.prototype.getHideDelayMs = function() {
  * @deprecated Not ever necessary to call this function. Hot spot is calculated
  *     as necessary.
  */
-goog.ui.AdvancedTooltip.prototype.resetHotSpot = function() {};
+AdvancedTooltip.prototype.resetHotSpot = function() {};

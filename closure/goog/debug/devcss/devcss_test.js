@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.debug.DevCssTest');
 goog.setTestOnly();
 
-const DevCss = goog.require('goog.debug.DevCss');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DevCss } from './devcss.js';
+import * as style from '../../style/style.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 let el;
 

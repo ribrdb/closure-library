@@ -8,17 +8,15 @@
  * @fileoverview Renderer for {@link goog.ui.TriStateMenuItem}s.
  */
 
-goog.provide('goog.ui.TriStateMenuItemRenderer');
-
-goog.forwardDeclare('goog.ui.TriStateMenuItem.State');  // TODO(user): remove this
-goog.require('goog.asserts');
-goog.require('goog.dom.classlist');
-goog.require('goog.ui.MenuItemRenderer');
-goog.requireType('goog.ui.Control');
+goog.forwardDeclare('goog.ui.tristatemenuitem');
+import * as asserts from '../asserts/asserts.js';
+import * as classlist from '../dom/classlist.js';
+import { MenuItemRenderer } from './menuitemrenderer.js';
+goog.requireType('goog.ui.control');
 
 
 /**
- * Default renderer for {@link goog.ui.TriStateMenuItemRenderer}s. Each item has
+ * Default renderer for {@link TriStateMenuItemRenderer}s. Each item has
  * the following structure:
  *
  *    <div class="goog-tristatemenuitem">
@@ -27,22 +25,21 @@ goog.requireType('goog.ui.Control');
  *    </div>
  *
  * @constructor
- * @extends {goog.ui.MenuItemRenderer}
+ * @extends {MenuItemRenderer}
  * @final
  */
-goog.ui.TriStateMenuItemRenderer = function() {
-  'use strict';
-  goog.ui.MenuItemRenderer.call(this);
-};
-goog.inherits(goog.ui.TriStateMenuItemRenderer, goog.ui.MenuItemRenderer);
-goog.addSingletonGetter(goog.ui.TriStateMenuItemRenderer);
+export function TriStateMenuItemRenderer() {
+ MenuItemRenderer.call(this);
+}
+goog.inherits(TriStateMenuItemRenderer, MenuItemRenderer);
+goog.addSingletonGetter(TriStateMenuItemRenderer);
 
 
 /**
  * CSS class name the renderer applies to menu item elements.
  * @type {string}
  */
-goog.ui.TriStateMenuItemRenderer.CSS_CLASS =
+TriStateMenuItemRenderer.CSS_CLASS =
     goog.getCssName('goog-tristatemenuitem');
 
 
@@ -58,34 +55,32 @@ goog.ui.TriStateMenuItemRenderer.CSS_CLASS =
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  * @suppress {missingRequire} TODO(user): remove this
  */
-goog.ui.TriStateMenuItemRenderer.prototype.decorate = function(item, element) {
-  'use strict';
-  element = goog.ui.TriStateMenuItemRenderer.superClass_.decorate.call(
-      this, item, element);
-  this.setCheckable(item, element, true);
+TriStateMenuItemRenderer.prototype.decorate = function(item, element) {
+ element = TriStateMenuItemRenderer.superClass_.decorate.call(
+     this, item, element);
+ this.setCheckable(item, element, true);
 
-  goog.asserts.assert(element);
+ asserts.assert(element);
 
-  if (goog.dom.classlist.contains(
-          element, goog.getCssName(this.getCssClass(), 'fully-checked'))) {
-    item.setCheckedState(/** @suppress {missingRequire} */
-        goog.ui.TriStateMenuItem.State.FULLY_CHECKED);
-  } else if (
-      goog.dom.classlist.contains(
-          element, goog.getCssName(this.getCssClass(), 'partially-checked'))) {
-    /** @suppress {missingRequire} */
-    item.setCheckedState(goog.ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
-  } else {
-    /** @suppress {missingRequire} */
-    item.setCheckedState(goog.ui.TriStateMenuItem.State.NOT_CHECKED);
-  }
+ if (classlist.contains(
+         element, goog.getCssName(this.getCssClass(), 'fully-checked'))) {
+   item.setCheckedState(/** @suppress {missingRequire} */
+       goog.ui.TriStateMenuItem.State.FULLY_CHECKED);
+ } else if (
+     classlist.contains(
+         element, goog.getCssName(this.getCssClass(), 'partially-checked'))) {
+   /** @suppress {missingRequire} */
+   item.setCheckedState(goog.ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
+ } else {
+   /** @suppress {missingRequire} */
+   item.setCheckedState(goog.ui.TriStateMenuItem.State.NOT_CHECKED);
+ }
 
-  return element;
+ return element;
 };
 
 
 /** @override */
-goog.ui.TriStateMenuItemRenderer.prototype.getCssClass = function() {
-  'use strict';
-  return goog.ui.TriStateMenuItemRenderer.CSS_CLASS;
+TriStateMenuItemRenderer.prototype.getCssClass = function() {
+ return TriStateMenuItemRenderer.CSS_CLASS;
 };

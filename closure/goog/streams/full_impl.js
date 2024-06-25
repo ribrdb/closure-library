@@ -7,12 +7,11 @@
 /**
  * @fileoverview A full ponyfill of the ReadableStream native API.
  */
-goog.module('goog.streams.fullImpl');
+import { NativeResolver } from '../promise/nativeresolver.js';
 
-const NativeResolver = goog.require('goog.promise.NativeResolver');
-const fullTypes = goog.require('goog.streams.fullTypes');
-const liteImpl = goog.require('goog.streams.liteImpl');
-const {assert, assertNumber} = goog.require('goog.asserts');
+import fullTypes from './full_types.js';
+import liteImpl from './lite_impl.js';
+import { assert, assertNumber } from '../asserts/asserts.js';
 
 /**
  * @typedef {function(!ReadableStreamDefaultController):
@@ -562,7 +561,7 @@ class QueueWithSizes {
   }
 }
 
-exports = {
+export default {
   ReadableStream,
   ReadableStreamAsyncIterator,
   ReadableStreamDefaultController,

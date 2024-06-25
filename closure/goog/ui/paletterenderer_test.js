@@ -4,18 +4,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.ui.PaletteRendererTest');
 goog.setTestOnly();
 
-const Palette = goog.require('goog.ui.Palette');
-const PaletteRenderer = goog.require('goog.ui.PaletteRenderer');
-const Role = goog.require('goog.a11y.aria.Role');
-const State = goog.require('goog.a11y.aria.State');
-const TagName = goog.require('goog.dom.TagName');
-const aria = goog.require('goog.a11y.aria');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.html.testing');
+import { Palette } from './palette.js';
+import { PaletteRenderer } from './paletterenderer.js';
+import { Role } from '../a11y/aria/roles.js';
+import { State } from '../a11y/aria/attributes.js';
+import { TagName } from '../dom/tagname.js';
+import * as aria from '../a11y/aria/aria.js';
+import * as dom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testing from '../html/testing.js';
 
 let sandbox;
 const items = [

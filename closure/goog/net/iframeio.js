@@ -51,8 +51,8 @@
  * - Have the user click the file input
  * - Create an IframeIo instance
  *   <pre>
- *   const io = new goog.net.IframeIo;
- *   goog.events.listen(io, goog.net.EventType.COMPLETE,
+ *   const io = new IframeIo;
+ *   events.listen(io, netEventType.COMPLETE,
  *       function() { alert('Sent'); });
  *   io.sendFromForm(document.getElementById('form'));
  *   </pre>
@@ -68,7 +68,7 @@
  *
  * A) In the application code there should be an externed reference to
  * <code>handleIncrementalData()</code>.  e.g.
- * goog.exportSymbol('GG_iframeFn', goog.net.IframeIo.handleIncrementalData);
+ * goog.exportSymbol('GG_iframeFn', IframeIo.handleIncrementalData);
  *
  * B) The response page should them call this method directly, an example
  * response would look something like this:
@@ -90,7 +90,7 @@
  * </pre>
  *
  * Your application should then listen, on the IframeIo instance, to the event
- * goog.net.EventType.INCREMENTAL_DATA.  The event object contains a
+ * netEventType.INCREMENTAL_DATA.  The event object contains a
  * 'data' member which is the content from the D() calls above.
  *
  * NOTE: There can be problems if you save a reference to the data object in IE.
@@ -105,74 +105,70 @@
  * the current status of the request (completed, success or error) by
  * listening for events on the IframeIo object itself. The following events
  * will be sent:
- * - goog.net.EventType.COMPLETE: when the request is completed
+ * - netEventType.COMPLETE: when the request is completed
  *   (either successfully or unsuccessfully). You can find out about the result
  *   using the isSuccess() and getLastError
  *   methods.
- * - goog.net.EventType.SUCCESS</code>: when the request was completed
+ * - netEventType.SUCCESS</code>: when the request was completed
  *   successfully
- * - goog.net.EventType.ERROR: when the request failed
- * - goog.net.EventType.ABORT: when the request has been aborted
+ * - netEventType.ERROR: when the request failed
+ * - netEventType.ABORT: when the request has been aborted
  *
  * Example:
  * <pre>
- * const io = new goog.net.IframeIo();
- * goog.events.listen(io, goog.net.EventType.COMPLETE,
+ * const io = new IframeIo();
+ * events.listen(io, netEventType.COMPLETE,
  *   function() { alert('request complete'); });
  * io.sendFromForm(...);
  * </pre>
  */
 
-goog.provide('goog.net.IframeIo');
-goog.provide('goog.net.IframeIo.IncrementalDataEvent');
-goog.provide('goog.net.IframeIo.TEST_ONLY');
+import { Timer } from '../timer/timer.js';
 
-goog.require('goog.Timer');
-goog.require('goog.Uri');
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.debug.formatter');
-goog.require('goog.dom');
-goog.require('goog.dom.InputType');
-goog.require('goog.dom.TagName');
-goog.require('goog.dom.safe');
-goog.require('goog.events');
-goog.require('goog.events.Event');
-goog.require('goog.events.EventTarget');
-goog.require('goog.events.EventType');
-goog.require('goog.html.legacyconversions');
-goog.require('goog.html.uncheckedconversions');
-goog.require('goog.json');
-goog.require('goog.log');
-goog.require('goog.log.Level');
-goog.require('goog.net.ErrorCode');
-goog.require('goog.net.EventType');
-goog.require('goog.reflect');
-goog.require('goog.string');
-goog.require('goog.string.Const');
-goog.require('goog.structs');
-goog.require('goog.userAgent');
-goog.requireType('goog.events.BrowserEvent');
+import { Uri } from '../uri/uri.js';
+import * as array from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import * as formatter from '../debug/formatter.js';
+import * as googDom from '../dom/dom.js';
+import { InputType } from '../dom/inputtype.js';
+import { TagName } from '../dom/tagname.js';
+import * as safe from '../dom/safe.js';
+import * as events from '../events/events.js';
+import { Event } from '../events/event.js';
+import { EventTarget } from '../events/eventtarget.js';
+import { EventType } from '../events/eventtype.js';
+import * as legacyconversions from '../html/legacyconversions.js';
+import * as uncheckedconversions from '../html/uncheckedconversions.js';
+import * as json from '../json/json.js';
+import * as log from '../log/log.js';
+import * as googLog from '../log/log.js';
+import { ErrorCode } from './errorcode.js';
+import { EventType as netEventType } from './eventtype.js';
+import * as reflect from '../reflect/reflect.js';
+import * as string from '../string/string.js';
+import { Const } from '../string/const.js';
+import * as structs from '../structs/structs.js';
+import * as userAgent from '../useragent/useragent.js';
+goog.requireType('goog.events.browserevent');
 goog.requireType('goog.html.SafeHtml');
-goog.requireType('goog.structs.Map');
+goog.requireType('goog.structs.map');
 
 
 
 /**
  * Class for managing requests via iFrames.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  */
-goog.net.IframeIo = function() {
-  'use strict';
-  goog.net.IframeIo.base(this, 'constructor');
+export function IframeIo() {
+  IframeIo.base(this, 'constructor');
 
   /**
    * Name for this IframeIo and frame
    * @type {string}
    * @private
    */
-  this.name_ = goog.net.IframeIo.getNextName_();
+  this.name_ = IframeIo.getNextName_();
 
   /**
    * An array of iframes that have been finished with.  We need them to be
@@ -183,12 +179,12 @@ goog.net.IframeIo = function() {
   this.iframesForDisposal_ = [];
 
   // Create a lookup from names to instances of IframeIo.  This is a helper
-  // function to be used in conjunction with goog.net.IframeIo.getInstanceByName
+  /* function to be used in conjunction with IframeIo.getInstanceByName*/
   // to find the IframeIo object associated with a particular iframe.  Used in
   // incremental scripts etc.
-  goog.net.IframeIo.instances_[this.name_] = this;
-};
-goog.inherits(goog.net.IframeIo, goog.events.EventTarget);
+  IframeIo.instances_[this.name_] = this;
+}
+goog.inherits(IframeIo, EventTarget);
 
 
 /**
@@ -196,14 +192,14 @@ goog.inherits(goog.net.IframeIo, goog.events.EventTarget);
  * @type {Object}
  * @private
  */
-goog.net.IframeIo.instances_ = {};
+IframeIo.instances_ = {};
 
 
 /**
  * Prefix for frame names
  * @type {string}
  */
-goog.net.IframeIo.FRAME_NAME_PREFIX = 'closure_frame';
+IframeIo.FRAME_NAME_PREFIX = 'closure_frame';
 
 
 /**
@@ -211,7 +207,7 @@ goog.net.IframeIo.FRAME_NAME_PREFIX = 'closure_frame';
  * browsers
  * @type {string}
  */
-goog.net.IframeIo.INNER_FRAME_SUFFIX = '_inner';
+IframeIo.INNER_FRAME_SUFFIX = '_inner';
 
 
 /**
@@ -220,7 +216,7 @@ goog.net.IframeIo.INNER_FRAME_SUFFIX = '_inner';
  * that occurred as a result of the response to finish.
  * @type {number}
  */
-goog.net.IframeIo.IFRAME_DISPOSE_DELAY_MS = 2000;
+IframeIo.IFRAME_DISPOSE_DELAY_MS = 2000;
 
 
 /**
@@ -228,7 +224,7 @@ goog.net.IframeIo.IFRAME_DISPOSE_DELAY_MS = 2000;
  * @type {number}
  * @private
  */
-goog.net.IframeIo.counter_ = 0;
+IframeIo.counter_ = 0;
 
 
 /**
@@ -236,29 +232,28 @@ goog.net.IframeIo.counter_ = 0;
  * @type {HTMLFormElement}
  * @private
  */
-goog.net.IframeIo.form_;
+IframeIo.form_;
 
 
 /**
  * Static send that creates a short lived instance of IframeIo to send the
  * request.
- * @param {goog.Uri|string} uri Uri of the request, it is up the caller to
+ * @param {Uri|string} uri Uri of the request, it is up the caller to
  *     manage query string params.
  * @param {Function=} opt_callback Event handler for when request is completed.
  * @param {string=} opt_method Default is GET, POST uses a form to submit the
  *     request.
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
- * @param {Object|goog.structs.Map=} opt_data Map of key-value pairs that
+ * @param {Object|structs.Map=} opt_data Map of key-value pairs that
  *     will be posted to the server via the iframe's form.
  */
-goog.net.IframeIo.send = function(
+IframeIo.send = function(
     uri, opt_callback, opt_method, opt_noCache, opt_data) {
-  'use strict';
-  const io = new goog.net.IframeIo();
-  goog.events.listen(io, goog.net.EventType.READY, io.dispose, false, io);
+  const io = new IframeIo();
+  events.listen(io, netEventType.READY, io.dispose, false, io);
   if (opt_callback) {
-    goog.events.listen(io, goog.net.EventType.COMPLETE, opt_callback);
+    events.listen(io, netEventType.COMPLETE, opt_callback);
   }
   io.send(uri, opt_method, opt_noCache, opt_data);
 };
@@ -270,8 +265,7 @@ goog.net.IframeIo.send = function(
  * @param {string} fname The name to find.
  * @return {HTMLIFrameElement} The iframe element with that name.
  */
-goog.net.IframeIo.getIframeByName = function(fname) {
-  'use strict';
+IframeIo.getIframeByName = function(fname) {
   return window.frames[fname];
 };
 
@@ -279,11 +273,10 @@ goog.net.IframeIo.getIframeByName = function(fname) {
 /**
  * Find an instance of the IframeIo object by name.
  * @param {string} fname The name to find.
- * @return {goog.net.IframeIo} The instance of IframeIo.
+ * @return {IframeIo} The instance of IframeIo.
  */
-goog.net.IframeIo.getInstanceByName = function(fname) {
-  'use strict';
-  return goog.net.IframeIo.instances_[fname];
+IframeIo.getInstanceByName = function(fname) {
+  return IframeIo.instances_[fname];
 };
 
 
@@ -294,21 +287,20 @@ goog.net.IframeIo.getInstanceByName = function(fname) {
  * @param {Window} win The window object.
  * @param {Object} data The data object.
  */
-goog.net.IframeIo.handleIncrementalData = function(win, data) {
-  'use strict';
+IframeIo.handleIncrementalData = function(win, data) {
   // If this is the inner-frame, then we need to use the parent instead.
   const iframeName =
-      goog.string.endsWith(win.name, goog.net.IframeIo.INNER_FRAME_SUFFIX) ?
+      string.endsWith(win.name, IframeIo.INNER_FRAME_SUFFIX) ?
       win.parent.name :
       win.name;
 
   const iframeIoName = iframeName.substring(0, iframeName.lastIndexOf('_'));
-  const iframeIo = goog.net.IframeIo.getInstanceByName(iframeIoName);
+  const iframeIo = IframeIo.getInstanceByName(iframeIoName);
   if (iframeIo && iframeName == iframeIo.iframeName_) {
     iframeIo.handleIncrementalData_(data);
   } else {
-    const logger = goog.log.getLogger('goog.net.IframeIo');
-    goog.log.info(logger, 'Incremental iframe data routed for unknown iframe');
+    const logger = googLog.getLogger('goog.net.IframeIo');
+    googLog.info(logger, 'Incremental iframe data routed for unknown iframe');
   }
 };
 
@@ -317,9 +309,8 @@ goog.net.IframeIo.handleIncrementalData = function(win, data) {
  * @return {string} The next iframe name.
  * @private
  */
-goog.net.IframeIo.getNextName_ = function() {
-  'use strict';
-  return goog.net.IframeIo.FRAME_NAME_PREFIX + goog.net.IframeIo.counter_++;
+IframeIo.getNextName_ = function() {
+  return IframeIo.FRAME_NAME_PREFIX + IframeIo.counter_++;
 };
 
 
@@ -329,45 +320,41 @@ goog.net.IframeIo.getNextName_ = function() {
  * @return {!HTMLFormElement} The static form.
  * @private
  */
-goog.net.IframeIo.getForm_ = function() {
-  'use strict';
-  if (!goog.net.IframeIo.form_) {
-    goog.net.IframeIo.form_ = goog.dom.createDom(goog.dom.TagName.FORM);
-    goog.net.IframeIo.form_.acceptCharset = 'utf-8';
+IframeIo.getForm_ = function() {
+  if (!IframeIo.form_) {
+    IframeIo.form_ = googDom.createDom(TagName.FORM);
+    IframeIo.form_.acceptCharset = 'utf-8';
 
     // Hide the form and move it off screen
-    const s = goog.net.IframeIo.form_.style;
+    const s = IframeIo.form_.style;
     s.position = 'absolute';
     s.visibility = 'hidden';
     s.top = s.left = '-10px';
     s.width = s.height = '10px';
     s.overflow = 'hidden';
 
-    goog.dom.getDocument().body.appendChild(goog.net.IframeIo.form_);
+    googDom.getDocument().body.appendChild(IframeIo.form_);
   }
-  return goog.net.IframeIo.form_;
+  return IframeIo.form_;
 };
 
 
 /**
  * Adds the key value pairs from a map like data structure to a form
  * @param {HTMLFormElement} form The form to add to.
- * @param {Object|goog.structs.Map|goog.Uri.QueryData} data The data to add.
+ * @param {Object|structs.Map|Uri.QueryData} data The data to add.
  * @private
  */
-goog.net.IframeIo.addFormInputs_ = function(form, data) {
-  'use strict';
-  const helper = goog.dom.getDomHelper(form);
-  goog.structs.forEach(data, function(value, key) {
-    'use strict';
+IframeIo.addFormInputs_ = function(form, data) {
+  const helper = googDom.getDomHelper(form);
+  structs.forEach(data, function(value, key) {
     if (!Array.isArray(value)) {
       value = [value];
     }
-    goog.array.forEach(value, function(value) {
-      'use strict';
+    array.forEach(value, function(value) {
       const inp = helper.createDom(
-          goog.dom.TagName.INPUT,
-          {'type': goog.dom.InputType.HIDDEN, 'name': key, 'value': value});
+          TagName.INPUT,
+          {'type': InputType.HIDDEN, 'name': key, 'value': value});
       form.appendChild(inp);
     });
   });
@@ -376,10 +363,10 @@ goog.net.IframeIo.addFormInputs_ = function(form, data) {
 
 /**
  * Reference to a logger for the IframeIo objects
- * @type {goog.log.Logger}
+ * @type {log.Logger}
  * @private
  */
-goog.net.IframeIo.prototype.logger_ = goog.log.getLogger('goog.net.IframeIo');
+IframeIo.prototype.logger_ = googLog.getLogger('goog.net.IframeIo');
 
 
 /**
@@ -387,7 +374,7 @@ goog.net.IframeIo.prototype.logger_ = goog.log.getLogger('goog.net.IframeIo');
  * @type {?HTMLFormElement}
  * @private
  */
-goog.net.IframeIo.prototype.form_ = null;
+IframeIo.prototype.form_ = null;
 
 
 /**
@@ -396,7 +383,7 @@ goog.net.IframeIo.prototype.form_ = null;
  * @type {?HTMLIFrameElement}
  * @private
  */
-goog.net.IframeIo.prototype.iframe_ = null;
+IframeIo.prototype.iframe_ = null;
 
 
 /**
@@ -405,7 +392,7 @@ goog.net.IframeIo.prototype.iframe_ = null;
  * @type {?string}
  * @private
  */
-goog.net.IframeIo.prototype.iframeName_ = null;
+IframeIo.prototype.iframeName_ = null;
 
 
 /**
@@ -413,7 +400,7 @@ goog.net.IframeIo.prototype.iframeName_ = null;
  * @type {number}
  * @private
  */
-goog.net.IframeIo.prototype.nextIframeId_ = 0;
+IframeIo.prototype.nextIframeId_ = 0;
 
 
 /**
@@ -421,7 +408,7 @@ goog.net.IframeIo.prototype.nextIframeId_ = 0;
  * @type {boolean}
  * @private
  */
-goog.net.IframeIo.prototype.active_ = false;
+IframeIo.prototype.active_ = false;
 
 
 /**
@@ -429,7 +416,7 @@ goog.net.IframeIo.prototype.active_ = false;
  * @type {boolean}
  * @private
  */
-goog.net.IframeIo.prototype.complete_ = false;
+IframeIo.prototype.complete_ = false;
 
 
 /**
@@ -437,15 +424,15 @@ goog.net.IframeIo.prototype.complete_ = false;
  * @type {boolean}
  * @private
  */
-goog.net.IframeIo.prototype.success_ = false;
+IframeIo.prototype.success_ = false;
 
 
 /**
  * The URI for the last request.
- * @type {?goog.Uri}
+ * @type {?Uri}
  * @private
  */
-goog.net.IframeIo.prototype.lastUri_ = null;
+IframeIo.prototype.lastUri_ = null;
 
 
 /**
@@ -453,15 +440,15 @@ goog.net.IframeIo.prototype.lastUri_ = null;
  * @type {?string}
  * @private
  */
-goog.net.IframeIo.prototype.lastContent_ = null;
+IframeIo.prototype.lastContent_ = null;
 
 
 /**
  * Last error code
- * @type {goog.net.ErrorCode}
+ * @type {ErrorCode}
  * @private
  */
-goog.net.IframeIo.prototype.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
+IframeIo.prototype.lastErrorCode_ = ErrorCode.NO_ERROR;
 
 
 /**
@@ -469,7 +456,7 @@ goog.net.IframeIo.prototype.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
  * @type {?number}
  * @private
  */
-goog.net.IframeIo.prototype.firefoxSilentErrorTimeout_ = null;
+IframeIo.prototype.firefoxSilentErrorTimeout_ = null;
 
 
 /**
@@ -477,7 +464,7 @@ goog.net.IframeIo.prototype.firefoxSilentErrorTimeout_ = null;
  * @type {?number}
  * @private
  */
-goog.net.IframeIo.prototype.iframeDisposalTimer_ = null;
+IframeIo.prototype.iframeDisposalTimer_ = null;
 
 
 /**
@@ -487,7 +474,7 @@ goog.net.IframeIo.prototype.iframeDisposalTimer_ = null;
  * @type {boolean}
  * @private
  */
-goog.net.IframeIo.prototype.errorHandled_;
+IframeIo.prototype.errorHandled_;
 
 
 /**
@@ -495,19 +482,19 @@ goog.net.IframeIo.prototype.errorHandled_;
  * @type {boolean}
  * @private
  */
-goog.net.IframeIo.prototype.ignoreResponse_ = false;
+IframeIo.prototype.ignoreResponse_ = false;
 
 
 /** @private {Function} */
-goog.net.IframeIo.prototype.errorChecker_;
+IframeIo.prototype.errorChecker_;
 
 
 /** @private {Object} */
-goog.net.IframeIo.prototype.lastCustomError_;
+IframeIo.prototype.lastCustomError_;
 
 
 /** @private {?string} */
-goog.net.IframeIo.prototype.lastContentHtml_;
+IframeIo.prototype.lastContentHtml_;
 
 
 /**
@@ -521,21 +508,20 @@ goog.net.IframeIo.prototype.lastContentHtml_;
  * sendFromForm does some clever trickery (thanks jlim) in non-IE browsers to
  * stop a history entry being added for POST requests.
  *
- * @param {goog.Uri|string} uri Uri of the request.
+ * @param {Uri|string} uri Uri of the request.
  * @param {string=} opt_method Default is GET, POST uses a form to submit the
  *     request.
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
- * @param {Object|goog.structs.Map=} opt_data Map of key-value pairs.
+ * @param {Object|structs.Map=} opt_data Map of key-value pairs.
  */
-goog.net.IframeIo.prototype.send = function(
+IframeIo.prototype.send = function(
     uri, opt_method, opt_noCache, opt_data) {
-  'use strict';
   if (this.active_) {
     throw new Error('[goog.net.IframeIo] Unable to send, already active.');
   }
 
-  const uriObj = new goog.Uri(uri);
+  const uriObj = new Uri(uri);
   this.lastUri_ = uriObj;
   const method = opt_method ? opt_method.toUpperCase() : 'GET';
 
@@ -543,28 +529,28 @@ goog.net.IframeIo.prototype.send = function(
     uriObj.makeUnique();
   }
 
-  goog.log.info(
+  googLog.info(
       this.logger_, 'Sending iframe request: ' + uriObj + ' [' + method + ']');
 
   // Build a form for this request
-  this.form_ = goog.net.IframeIo.getForm_();
+  this.form_ = IframeIo.getForm_();
 
   if (method == 'GET') {
     // For GET requests, we assume that the caller didn't want the queryparams
     // already specified in the URI to be clobbered by the form, so we add the
     // params here.
-    goog.net.IframeIo.addFormInputs_(this.form_, uriObj.getQueryData());
+    IframeIo.addFormInputs_(this.form_, uriObj.getQueryData());
   }
 
   if (opt_data) {
     // Create form fields for each of the data values
-    goog.net.IframeIo.addFormInputs_(this.form_, opt_data);
+    IframeIo.addFormInputs_(this.form_, opt_data);
   }
 
   // Set the URI that the form will be posted
-  goog.dom.safe.setFormElementAction(
+  safe.setFormElementAction(
       this.form_,
-      goog.html.legacyconversions.safeUrlFromString(uriObj.toString()));
+      legacyconversions.safeUrlFromString(uriObj.toString()));
   this.form_.method = method;
 
   this.sendFormInternal_();
@@ -594,46 +580,44 @@ goog.net.IframeIo.prototype.send = function(
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
  */
-goog.net.IframeIo.prototype.sendFromForm = function(
+IframeIo.prototype.sendFromForm = function(
     form, opt_uri, opt_noCache) {
-  'use strict';
   if (this.active_) {
     throw new Error('[goog.net.IframeIo] Unable to send, already active.');
   }
 
-  const uri = new goog.Uri(opt_uri || form.action);
+  const uri = new Uri(opt_uri || form.action);
   if (opt_noCache) {
     uri.makeUnique();
   }
 
-  goog.log.info(this.logger_, 'Sending iframe request from form: ' + uri);
+  googLog.info(this.logger_, 'Sending iframe request from form: ' + uri);
 
   this.lastUri_ = uri;
   this.form_ = form;
-  goog.dom.safe.setFormElementAction(
-      goog.asserts.assert(this.form_), uri.toString());
+  safe.setFormElementAction(
+      asserts.assert(this.form_), uri.toString());
   this.sendFormInternal_();
 };
 
 
 /**
  * Abort the current Iframe request
- * @param {goog.net.ErrorCode=} opt_failureCode Optional error code to use -
+ * @param {ErrorCode=} opt_failureCode Optional error code to use -
  *     defaults to ABORT.
  */
-goog.net.IframeIo.prototype.abort = function(opt_failureCode) {
-  'use strict';
+IframeIo.prototype.abort = function(opt_failureCode) {
   if (this.active_) {
-    goog.log.info(this.logger_, 'Request aborted');
+    googLog.info(this.logger_, 'Request aborted');
     const requestIframe = this.getRequestIframe();
-    goog.asserts.assert(requestIframe);
-    goog.events.removeAll(requestIframe);
+    asserts.assert(requestIframe);
+    events.removeAll(requestIframe);
     this.complete_ = false;
     this.active_ = false;
     this.success_ = false;
-    this.lastErrorCode_ = opt_failureCode || goog.net.ErrorCode.ABORT;
+    this.lastErrorCode_ = opt_failureCode || ErrorCode.ABORT;
 
-    this.dispatchEvent(goog.net.EventType.ABORT);
+    this.dispatchEvent(netEventType.ABORT);
 
     this.makeReady_();
   }
@@ -641,18 +625,17 @@ goog.net.IframeIo.prototype.abort = function(opt_failureCode) {
 
 
 /** @override */
-goog.net.IframeIo.prototype.disposeInternal = function() {
-  'use strict';
-  goog.log.fine(this.logger_, 'Disposing iframeIo instance');
+IframeIo.prototype.disposeInternal = function() {
+  googLog.fine(this.logger_, 'Disposing iframeIo instance');
 
   // If there is an active request, abort it
   if (this.active_) {
-    goog.log.fine(this.logger_, 'Aborting active request');
+    googLog.fine(this.logger_, 'Aborting active request');
     this.abort();
   }
 
   // Call super-classes implementation (remove listeners)
-  goog.net.IframeIo.superClass_.disposeInternal.call(this);
+  IframeIo.superClass_.disposeInternal.call(this);
 
   // Add the current iframe to the list of iframes for disposal.
   if (this.iframe_) {
@@ -667,17 +650,16 @@ goog.net.IframeIo.prototype.disposeInternal = function() {
   this.form_ = null;
   this.lastCustomError_ = this.lastContent_ = this.lastContentHtml_ = null;
   this.lastUri_ = null;
-  this.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
+  this.lastErrorCode_ = ErrorCode.NO_ERROR;
 
-  delete goog.net.IframeIo.instances_[this.name_];
+  delete IframeIo.instances_[this.name_];
 };
 
 
 /**
  * @return {boolean} True if transfer is complete.
  */
-goog.net.IframeIo.prototype.isComplete = function() {
-  'use strict';
+IframeIo.prototype.isComplete = function() {
   return this.complete_;
 };
 
@@ -685,8 +667,7 @@ goog.net.IframeIo.prototype.isComplete = function() {
 /**
  * @return {boolean} True if transfer was successful.
  */
-goog.net.IframeIo.prototype.isSuccess = function() {
-  'use strict';
+IframeIo.prototype.isSuccess = function() {
   return this.success_;
 };
 
@@ -694,8 +675,7 @@ goog.net.IframeIo.prototype.isSuccess = function() {
 /**
  * @return {boolean} True if a transfer is in progress.
  */
-goog.net.IframeIo.prototype.isActive = function() {
-  'use strict';
+IframeIo.prototype.isActive = function() {
   return this.active_;
 };
 
@@ -705,8 +685,7 @@ goog.net.IframeIo.prototype.isActive = function() {
  * Assumes plain text!
  * @return {?string} Result from the server.
  */
-goog.net.IframeIo.prototype.getResponseText = function() {
-  'use strict';
+IframeIo.prototype.getResponseText = function() {
   return this.lastContent_;
 };
 
@@ -715,8 +694,7 @@ goog.net.IframeIo.prototype.getResponseText = function() {
  * Returns the last response html (i.e. the innerHtml of the iframe).
  * @return {?string} Result from the server.
  */
-goog.net.IframeIo.prototype.getResponseHtml = function() {
-  'use strict';
+IframeIo.prototype.getResponseHtml = function() {
   return this.lastContentHtml_;
 };
 
@@ -727,9 +705,8 @@ goog.net.IframeIo.prototype.getResponseHtml = function() {
  * Use JSON.parse(this.getResponseText()) in the other cases.
  * @return {Object} The parsed content.
  */
-goog.net.IframeIo.prototype.getResponseJson = function() {
-  'use strict';
-  return goog.json.parse(this.lastContent_);
+IframeIo.prototype.getResponseJson = function() {
+  return json.parse(this.lastContent_);
 };
 
 
@@ -738,8 +715,7 @@ goog.net.IframeIo.prototype.getResponseJson = function() {
  * used to mirror the XhrIo interface.
  * @return {HTMLDocument} The document object from the last request.
  */
-goog.net.IframeIo.prototype.getResponseXml = function() {
-  'use strict';
+IframeIo.prototype.getResponseXml = function() {
   if (!this.iframe_) return null;
 
   return this.getContentDocument_();
@@ -748,20 +724,18 @@ goog.net.IframeIo.prototype.getResponseXml = function() {
 
 /**
  * Get the uri of the last request.
- * @return {goog.Uri} Uri of last request.
+ * @return {Uri} Uri of last request.
  */
-goog.net.IframeIo.prototype.getLastUri = function() {
-  'use strict';
+IframeIo.prototype.getLastUri = function() {
   return this.lastUri_;
 };
 
 
 /**
  * Gets the last error code.
- * @return {goog.net.ErrorCode} Last error code.
+ * @return {ErrorCode} Last error code.
  */
-goog.net.IframeIo.prototype.getLastErrorCode = function() {
-  'use strict';
+IframeIo.prototype.getLastErrorCode = function() {
   return this.lastErrorCode_;
 };
 
@@ -770,9 +744,8 @@ goog.net.IframeIo.prototype.getLastErrorCode = function() {
  * Gets the last error message.
  * @return {string} Last error message.
  */
-goog.net.IframeIo.prototype.getLastError = function() {
-  'use strict';
-  return goog.net.ErrorCode.getDebugMessage(this.lastErrorCode_);
+IframeIo.prototype.getLastError = function() {
+  return ErrorCode.getDebugMessage(this.lastErrorCode_);
 };
 
 
@@ -780,8 +753,7 @@ goog.net.IframeIo.prototype.getLastError = function() {
  * Gets the last custom error.
  * @return {Object} Last custom error.
  */
-goog.net.IframeIo.prototype.getLastCustomError = function() {
-  'use strict';
+IframeIo.prototype.getLastCustomError = function() {
   return this.lastCustomError_;
 };
 
@@ -792,8 +764,7 @@ goog.net.IframeIo.prototype.getLastCustomError = function() {
  * @param {Function} fn Callback that expects a document object as it's single
  *     argument.
  */
-goog.net.IframeIo.prototype.setErrorChecker = function(fn) {
-  'use strict';
+IframeIo.prototype.setErrorChecker = function(fn) {
   this.errorChecker_ = fn;
 };
 
@@ -804,8 +775,7 @@ goog.net.IframeIo.prototype.setErrorChecker = function(fn) {
  * @return {Function} A callback that expects a document object as it's single
  *     argument.
  */
-goog.net.IframeIo.prototype.getErrorChecker = function() {
-  'use strict';
+IframeIo.prototype.getErrorChecker = function() {
   return this.errorChecker_;
 };
 
@@ -813,8 +783,7 @@ goog.net.IframeIo.prototype.getErrorChecker = function() {
 /**
  * @return {boolean} Whether the server response is being ignored.
  */
-goog.net.IframeIo.prototype.isIgnoringResponse = function() {
-  'use strict';
+IframeIo.prototype.isIgnoringResponse = function() {
   return this.ignoreResponse_;
 };
 
@@ -828,8 +797,7 @@ goog.net.IframeIo.prototype.isIgnoringResponse = function() {
  * only clean up its resources (iframes and forms) when it is disposed.
  * @param {boolean} ignore Whether to ignore the server response.
  */
-goog.net.IframeIo.prototype.setIgnoreResponse = function(ignore) {
-  'use strict';
+IframeIo.prototype.setIgnoreResponse = function(ignore) {
   this.ignoreResponse_ = ignore;
 };
 
@@ -839,11 +807,10 @@ goog.net.IframeIo.prototype.setIgnoreResponse = function(ignore) {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.net.IframeIo.prototype.sendFormInternal_ = function() {
-  'use strict';
+IframeIo.prototype.sendFormInternal_ = function() {
   this.active_ = true;
   this.complete_ = false;
-  this.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
+  this.lastErrorCode_ = ErrorCode.NO_ERROR;
 
   // Make Iframe
   this.createIframe_();
@@ -851,62 +818,62 @@ goog.net.IframeIo.prototype.sendFormInternal_ = function() {
   // For all other browsers we do some trickery to ensure that there is no
   // entry on the history stack. Thanks go to jlim for the prototype for this
 
-  goog.log.fine(this.logger_, 'Setting up iframes and cloning form');
+  googLog.fine(this.logger_, 'Setting up iframes and cloning form');
 
   this.appendIframe_();
 
   const innerFrameName =
-      this.iframeName_ + goog.net.IframeIo.INNER_FRAME_SUFFIX;
+      this.iframeName_ + IframeIo.INNER_FRAME_SUFFIX;
 
   // Open and document.write another iframe into the iframe
-  const doc = goog.dom.getFrameContentDocument(this.iframe_);
+  const doc = googDom.getFrameContentDocument(this.iframe_);
   let html;
   if (document.baseURI) {
     // On Safari 4 and 5 the new iframe doesn't inherit the current baseURI.
-    html = goog.net.IframeIo.createIframeHtmlWithBaseUri_(innerFrameName);
+    html = IframeIo.createIframeHtmlWithBaseUri_(innerFrameName);
   } else {
-    html = goog.net.IframeIo.createIframeHtml_(innerFrameName);
+    html = IframeIo.createIframeHtml_(innerFrameName);
   }
-  goog.dom.safe.documentWrite(doc, html);
+  safe.documentWrite(doc, html);
 
   // Listen for the iframe's load
   if (!this.ignoreResponse_) {
-    goog.events.listen(
-        doc.getElementById(innerFrameName), goog.events.EventType.LOAD,
+    events.listen(
+        doc.getElementById(innerFrameName), EventType.LOAD,
         this.onIframeLoaded_, false, this);
   }
 
   // Fix text areas, since importNode won't clone changes to the value
-  const textareas = goog.dom.getElementsByTagName(
-      goog.dom.TagName.TEXTAREA, goog.asserts.assert(this.form_));
+  const textareas = googDom.getElementsByTagName(
+      TagName.TEXTAREA, asserts.assert(this.form_));
   for (let i = 0, n = textareas.length; i < n; i++) {
     // The childnodes represent the initial child nodes for the text area
     // appending a text node essentially resets the initial value ready for
     // it to be clones - while maintaining HTML escaping.
     const value = textareas[i].value;
-    if (goog.dom.getRawTextContent(textareas[i]) != value) {
-      goog.dom.setTextContent(textareas[i], value);
+    if (googDom.getRawTextContent(textareas[i]) != value) {
+      googDom.setTextContent(textareas[i], value);
       textareas[i].value = value;
     }
   }
 
   // Append a cloned form to the iframe
-  let clone = doc.importNode(goog.asserts.assert(this.form_), true);
+  let clone = doc.importNode(asserts.assert(this.form_), true);
   clone.target = innerFrameName;
   // Work around crbug.com/66987
   clone.action = this.form_.action;
   doc.body.appendChild(clone);
 
   // Fix select boxes, importNode won't override the default value
-  const selects = goog.dom.getElementsByTagName(
-      goog.dom.TagName.SELECT, goog.asserts.assert(this.form_));
-  const clones = goog.dom.getElementsByTagName(
-      goog.dom.TagName.SELECT, /** @type {!Element} */ (clone));
+  const selects = googDom.getElementsByTagName(
+      TagName.SELECT, asserts.assert(this.form_));
+  const clones = googDom.getElementsByTagName(
+      TagName.SELECT, /** @type {!Element} */ (clone));
   for (let i = 0, n = selects.length; i < n; i++) {
     const selectsOptions =
-        goog.dom.getElementsByTagName(goog.dom.TagName.OPTION, selects[i]);
+        googDom.getElementsByTagName(TagName.OPTION, selects[i]);
     const clonesOptions =
-        goog.dom.getElementsByTagName(goog.dom.TagName.OPTION, clones[i]);
+        googDom.getElementsByTagName(TagName.OPTION, clones[i]);
     for (let j = 0, m = selectsOptions.length; j < m; j++) {
       clonesOptions[j].selected = selectsOptions[j].selected;
     }
@@ -916,14 +883,14 @@ goog.net.IframeIo.prototype.sendFormInternal_ = function() {
   // attribute for <input type="file"> nodes, which results in an empty
   // upload if the clone is submitted.  Check, and if the clone failed, submit
   // using the original form instead.
-  const inputs = goog.dom.getElementsByTagName(
-      goog.dom.TagName.INPUT, goog.asserts.assert(this.form_));
-  const inputClones = goog.dom.getElementsByTagName(
-      goog.dom.TagName.INPUT, /** @type {!Element} */ (clone));
+  const inputs = googDom.getElementsByTagName(
+      TagName.INPUT, asserts.assert(this.form_));
+  const inputClones = googDom.getElementsByTagName(
+      TagName.INPUT, /** @type {!Element} */ (clone));
   for (let i = 0, n = inputs.length; i < n; i++) {
-    if (inputs[i].type == goog.dom.InputType.FILE) {
+    if (inputs[i].type == InputType.FILE) {
       if (inputs[i].value != inputClones[i].value) {
-        goog.log.fine(
+        googLog.fine(
             this.logger_,
             'File input value not cloned properly.  Will ' +
                 'submit using original form.');
@@ -934,7 +901,7 @@ goog.net.IframeIo.prototype.sendFormInternal_ = function() {
     }
   }
 
-  goog.log.fine(this.logger_, 'Submitting form');
+  googLog.fine(this.logger_, 'Submitting form');
 
 
   try {
@@ -942,11 +909,11 @@ goog.net.IframeIo.prototype.sendFormInternal_ = function() {
     clone.submit();
     doc.close();
 
-    if (goog.userAgent.GECKO) {
+    if (userAgent.GECKO) {
       // This tests if firefox silently fails, this can happen, for example,
       // when the server resets the connection because of a large file upload
       this.firefoxSilentErrorTimeout_ =
-          goog.Timer.callOnce(this.testForFirefoxSilentError_, 250, this);
+          Timer.callOnce(this.testForFirefoxSilentError_, 250, this);
     }
 
   } catch (e) {
@@ -955,20 +922,20 @@ goog.net.IframeIo.prototype.sendFormInternal_ = function() {
     // pointing to a file that doesn't exist, causing the browser to fire an
     // exception.
 
-    goog.log.error(
+    googLog.error(
         this.logger_,
         'Error when submitting form: ' +
-            goog.debug.formatter.HtmlFormatter.exposeException(e));
+            formatter.HtmlFormatter.exposeException(e));
 
     if (!this.ignoreResponse_) {
-      goog.events.unlisten(
-          doc.getElementById(innerFrameName), goog.events.EventType.LOAD,
+      events.unlisten(
+          doc.getElementById(innerFrameName), EventType.LOAD,
           this.onIframeLoaded_, false, this);
     }
 
     doc.close();
 
-    this.handleError_(goog.net.ErrorCode.FILE_NOT_FOUND);
+    this.handleError_(ErrorCode.FILE_NOT_FOUND);
   }
 };
 
@@ -978,12 +945,11 @@ goog.net.IframeIo.prototype.sendFormInternal_ = function() {
  * @return {!goog.html.SafeHtml}
  * @private
  */
-goog.net.IframeIo.createIframeHtml_ = function(innerFrameName) {
-  'use strict';
-  const innerFrameNameEscaped = goog.string.htmlEscape(innerFrameName);
-  return goog.html.uncheckedconversions
+IframeIo.createIframeHtml_ = function(innerFrameName) {
+  const innerFrameNameEscaped = string.htmlEscape(innerFrameName);
+  return uncheckedconversions
       .safeHtmlFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
+          Const.from(
               'Short HTML snippet, input escaped, for performance'),
           '<body><iframe id="' + innerFrameNameEscaped + '" name="' +
               innerFrameNameEscaped + '"></iframe>');
@@ -995,15 +961,14 @@ goog.net.IframeIo.createIframeHtml_ = function(innerFrameName) {
  * @return {!goog.html.SafeHtml}
  * @private
  */
-goog.net.IframeIo.createIframeHtmlWithBaseUri_ = function(innerFrameName) {
-  'use strict';
-  const innerFrameNameEscaped = goog.string.htmlEscape(innerFrameName);
-  return goog.html.uncheckedconversions
+IframeIo.createIframeHtmlWithBaseUri_ = function(innerFrameName) {
+  const innerFrameNameEscaped = string.htmlEscape(innerFrameName);
+  return uncheckedconversions
       .safeHtmlFromStringKnownToSatisfyTypeContract(
-          goog.string.Const.from(
+          Const.from(
               'Short HTML snippet, input escaped, safe URL, for performance'),
           '<head><base href="' +
-              goog.string.htmlEscape(/** @type {string} */ (document.baseURI)) +
+              string.htmlEscape(/** @type {string} */ (document.baseURI)) +
               '"></head>' +
               '<body><iframe id="' + innerFrameNameEscaped + '" name="' +
               innerFrameNameEscaped + '"></iframe>');
@@ -1013,28 +978,27 @@ goog.net.IframeIo.createIframeHtmlWithBaseUri_ = function(innerFrameName) {
 /**
  * Handles the load event of the iframe for IE, determines if the request was
  * successful or not, handles clean up and dispatching of appropriate events.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {events.BrowserEvent} e The browser event.
  * @private
  */
-goog.net.IframeIo.prototype.onIeReadyStateChange_ = function(e) {
-  'use strict';
+IframeIo.prototype.onIeReadyStateChange_ = function(e) {
   if (this.iframe_.readyState == 'complete') {
-    goog.events.unlisten(
-        this.iframe_, goog.events.EventType.READYSTATECHANGE,
+    events.unlisten(
+        this.iframe_, EventType.READYSTATECHANGE,
         this.onIeReadyStateChange_, false, this);
     let doc;
 
     try {
-      doc = goog.dom.getFrameContentDocument(this.iframe_);
+      doc = googDom.getFrameContentDocument(this.iframe_);
 
       // IE serves about:blank when it cannot load the resource while offline.
-      if (goog.userAgent.IE && doc.location == 'about:blank' &&
+      if (userAgent.IE && doc.location == 'about:blank' &&
           !navigator.onLine) {
-        this.handleError_(goog.net.ErrorCode.OFFLINE);
+        this.handleError_(ErrorCode.OFFLINE);
         return;
       }
     } catch (ex) {
-      this.handleError_(goog.net.ErrorCode.ACCESS_DENIED);
+      this.handleError_(ErrorCode.ACCESS_DENIED);
       return;
     }
     this.handleLoad_(/** @type {!HTMLDocument} */ (doc));
@@ -1044,18 +1008,17 @@ goog.net.IframeIo.prototype.onIeReadyStateChange_ = function(e) {
 
 /**
  * Handles the load event of the iframe for non-IE browsers.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {events.BrowserEvent} e The browser event.
  * @private
  */
-goog.net.IframeIo.prototype.onIframeLoaded_ = function(e) {
-  'use strict';
-  goog.events.unlisten(
-      this.getRequestIframe(), goog.events.EventType.LOAD, this.onIframeLoaded_,
+IframeIo.prototype.onIframeLoaded_ = function(e) {
+  events.unlisten(
+      this.getRequestIframe(), EventType.LOAD, this.onIframeLoaded_,
       false, this);
   try {
     this.handleLoad_(this.getContentDocument_());
   } catch (ex) {
-    this.handleError_(goog.net.ErrorCode.ACCESS_DENIED);
+    this.handleError_(ErrorCode.ACCESS_DENIED);
   }
 };
 
@@ -1065,9 +1028,8 @@ goog.net.IframeIo.prototype.onIframeLoaded_ = function(e) {
  * @param {HTMLDocument} contentDocument The frame's document.
  * @private
  */
-goog.net.IframeIo.prototype.handleLoad_ = function(contentDocument) {
-  'use strict';
-  goog.log.fine(this.logger_, 'Iframe loaded');
+IframeIo.prototype.handleLoad_ = function(contentDocument) {
+  googLog.fine(this.logger_, 'Iframe loaded');
 
   this.complete_ = true;
   this.active_ = false;
@@ -1083,7 +1045,7 @@ goog.net.IframeIo.prototype.handleLoad_ = function(contentDocument) {
     this.lastContent_ = body.textContent || body.innerText;
     this.lastContentHtml_ = body.innerHTML;
   } catch (ex) {
-    errorCode = goog.net.ErrorCode.ACCESS_DENIED;
+    errorCode = ErrorCode.ACCESS_DENIED;
   }
 
   // Use a callback function, defined by the application, to analyse the
@@ -1093,25 +1055,25 @@ goog.net.IframeIo.prototype.handleLoad_ = function(contentDocument) {
   if (!errorCode && typeof this.errorChecker_ == 'function') {
     customError = this.errorChecker_(contentDocument);
     if (customError) {
-      errorCode = goog.net.ErrorCode.CUSTOM_ERROR;
+      errorCode = ErrorCode.CUSTOM_ERROR;
     }
   }
 
-  goog.log.log(
-      this.logger_, goog.log.Level.FINER, 'Last content: ' + this.lastContent_);
-  goog.log.log(
-      this.logger_, goog.log.Level.FINER, 'Last uri: ' + this.lastUri_);
+  googLog.log(
+      this.logger_, googLog.Level.FINER, 'Last content: ' + this.lastContent_);
+  googLog.log(
+      this.logger_, googLog.Level.FINER, 'Last uri: ' + this.lastUri_);
 
   if (errorCode) {
-    goog.log.fine(this.logger_, 'Load event occurred but failed');
+    googLog.fine(this.logger_, 'Load event occurred but failed');
     this.handleError_(errorCode, customError);
 
   } else {
-    goog.log.fine(this.logger_, 'Load succeeded');
+    googLog.fine(this.logger_, 'Load succeeded');
     this.success_ = true;
-    this.lastErrorCode_ = goog.net.ErrorCode.NO_ERROR;
-    this.dispatchEvent(goog.net.EventType.COMPLETE);
-    this.dispatchEvent(goog.net.EventType.SUCCESS);
+    this.lastErrorCode_ = ErrorCode.NO_ERROR;
+    this.dispatchEvent(netEventType.COMPLETE);
+    this.dispatchEvent(netEventType.SUCCESS);
 
     this.makeReady_();
   }
@@ -1120,25 +1082,24 @@ goog.net.IframeIo.prototype.handleLoad_ = function(contentDocument) {
 
 /**
  * Handles errors.
- * @param {goog.net.ErrorCode} errorCode Error code.
+ * @param {ErrorCode} errorCode Error code.
  * @param {Object=} opt_customError If error is CUSTOM_ERROR, this is the
  *     client-provided custom error.
  * @private
  */
-goog.net.IframeIo.prototype.handleError_ = function(
+IframeIo.prototype.handleError_ = function(
     errorCode, opt_customError) {
-  'use strict';
   if (!this.errorHandled_) {
     this.success_ = false;
     this.active_ = false;
     this.complete_ = true;
     this.lastErrorCode_ = errorCode;
-    if (errorCode == goog.net.ErrorCode.CUSTOM_ERROR) {
-      goog.asserts.assert(opt_customError !== undefined);
+    if (errorCode == ErrorCode.CUSTOM_ERROR) {
+      asserts.assert(opt_customError !== undefined);
       this.lastCustomError_ = opt_customError;
     }
-    this.dispatchEvent(goog.net.EventType.COMPLETE);
-    this.dispatchEvent(goog.net.EventType.ERROR);
+    this.dispatchEvent(netEventType.COMPLETE);
+    this.dispatchEvent(netEventType.ERROR);
 
     this.makeReady_();
 
@@ -1153,9 +1114,8 @@ goog.net.IframeIo.prototype.handleError_ = function(
  * @param {Object} data Data.
  * @private
  */
-goog.net.IframeIo.prototype.handleIncrementalData_ = function(data) {
-  'use strict';
-  this.dispatchEvent(new goog.net.IframeIo.IncrementalDataEvent(data));
+IframeIo.prototype.handleIncrementalData_ = function(data) {
+  this.dispatchEvent(new IframeIo.IncrementalDataEvent(data));
 };
 
 
@@ -1164,12 +1124,11 @@ goog.net.IframeIo.prototype.handleIncrementalData_ = function(data) {
  * the form.
  * @private
  */
-goog.net.IframeIo.prototype.makeReady_ = function() {
-  'use strict';
-  goog.log.info(this.logger_, 'Ready for new requests');
+IframeIo.prototype.makeReady_ = function() {
+  googLog.info(this.logger_, 'Ready for new requests');
   this.scheduleIframeDisposal_();
   this.disposeForm_();
-  this.dispatchEvent(goog.net.EventType.READY);
+  this.dispatchEvent(netEventType.READY);
 };
 
 
@@ -1178,15 +1137,14 @@ goog.net.IframeIo.prototype.makeReady_ = function() {
  * request so that requests don't create history entries.
  * @private
  */
-goog.net.IframeIo.prototype.createIframe_ = function() {
-  'use strict';
-  goog.log.fine(this.logger_, 'Creating iframe');
+IframeIo.prototype.createIframe_ = function() {
+  googLog.fine(this.logger_, 'Creating iframe');
 
   this.iframeName_ = this.name_ + '_' + (this.nextIframeId_++).toString(36);
 
-  const dom = goog.dom.getDomHelper(this.form_);
+  const dom = googDom.getDomHelper(this.form_);
   this.iframe_ = dom.createDom(
-      goog.dom.TagName.IFRAME,
+      TagName.IFRAME,
       {'name': this.iframeName_, 'id': this.iframeName_});
 
   const s = this.iframe_.style;
@@ -1198,7 +1156,7 @@ goog.net.IframeIo.prototype.createIframe_ = function() {
 
   // There are reports that safari 2.0.3 has a bug where absolutely positioned
   // iframes can't have their src set.
-  if (!goog.userAgent.WEBKIT) {
+  if (!userAgent.WEBKIT) {
     s.position = 'absolute';
     s.top = s.left = '-10px';
   } else {
@@ -1211,9 +1169,8 @@ goog.net.IframeIo.prototype.createIframe_ = function() {
  * Appends the Iframe to the document body.
  * @private
  */
-goog.net.IframeIo.prototype.appendIframe_ = function() {
-  'use strict';
-  goog.dom.getDomHelper(this.form_)
+IframeIo.prototype.appendIframe_ = function() {
+  googDom.getDomHelper(this.form_)
       .getDocument()
       .body.appendChild(/** @type {!Node} */ (this.iframe_));
 };
@@ -1227,8 +1184,7 @@ goog.net.IframeIo.prototype.appendIframe_ = function() {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.net.IframeIo.prototype.scheduleIframeDisposal_ = function() {
-  'use strict';
+IframeIo.prototype.scheduleIframeDisposal_ = function() {
   const iframe = this.iframe_;
 
   // There shouldn't be a case where the iframe is null and we get to this
@@ -1245,17 +1201,17 @@ goog.net.IframeIo.prototype.scheduleIframeDisposal_ = function() {
   }
 
   if (this.iframeDisposalTimer_) {
-    goog.Timer.clear(this.iframeDisposalTimer_);
+    Timer.clear(this.iframeDisposalTimer_);
     this.iframeDisposalTimer_ = null;
   }
 
-  if (goog.userAgent.GECKO) {
+  if (userAgent.GECKO) {
     // For FF and Presto Opera, we must dispose the iframe async,
     // but it doesn't need to be done as soon as possible.
     // We therefore schedule it for 2s out, so as not to
     // affect any other actions that may have been triggered by the request.
-    this.iframeDisposalTimer_ = goog.Timer.callOnce(
-        this.disposeIframes_, goog.net.IframeIo.IFRAME_DISPOSE_DELAY_MS, this);
+    this.iframeDisposalTimer_ = Timer.callOnce(
+        this.disposeIframes_, IframeIo.IFRAME_DISPOSE_DELAY_MS, this);
 
   } else {
     // For non-Gecko browsers we dispose straight away.
@@ -1272,18 +1228,17 @@ goog.net.IframeIo.prototype.scheduleIframeDisposal_ = function() {
  * Disposes any iframes.
  * @private
  */
-goog.net.IframeIo.prototype.disposeIframes_ = function() {
-  'use strict';
+IframeIo.prototype.disposeIframes_ = function() {
   if (this.iframeDisposalTimer_) {
     // Clear the timer
-    goog.Timer.clear(this.iframeDisposalTimer_);
+    Timer.clear(this.iframeDisposalTimer_);
     this.iframeDisposalTimer_ = null;
   }
 
   while (this.iframesForDisposal_.length != 0) {
     const iframe = this.iframesForDisposal_.pop();
-    goog.log.info(this.logger_, 'Disposing iframe');
-    goog.dom.removeNode(iframe);
+    googLog.info(this.logger_, 'Disposing iframe');
+    googDom.removeNode(iframe);
   }
 };
 
@@ -1294,10 +1249,9 @@ goog.net.IframeIo.prototype.disposeIframes_ = function() {
  * issues when another iframe uses this form right after the first iframe.
  * @private
  */
-goog.net.IframeIo.prototype.clearForm_ = function() {
-  'use strict';
-  if (this.form_ && this.form_ == goog.net.IframeIo.form_) {
-    goog.dom.removeChildren(this.form_);
+IframeIo.prototype.clearForm_ = function() {
+  if (this.form_ && this.form_ == IframeIo.form_) {
+    googDom.removeChildren(this.form_);
   }
 };
 
@@ -1308,8 +1262,7 @@ goog.net.IframeIo.prototype.clearForm_ = function() {
  * request.
  * @private
  */
-goog.net.IframeIo.prototype.disposeForm_ = function() {
-  'use strict';
+IframeIo.prototype.disposeForm_ = function() {
   this.clearForm_();
   this.form_ = null;
 };
@@ -1319,11 +1272,11 @@ goog.net.IframeIo.prototype.disposeForm_ = function() {
  * @return {HTMLDocument} The appropriate content document.
  * @private
  */
-goog.net.IframeIo.prototype.getContentDocument_ = function() {
-  'use strict';
+IframeIo.prototype.getContentDocument_ = function() {
   if (this.iframe_) {
-    return /** @type {!HTMLDocument} */ (
-        goog.dom.getFrameContentDocument(this.getRequestIframe()));
+    return (
+      /** @type {!HTMLDocument} */ (googDom.getFrameContentDocument(this.getRequestIframe()))
+    );
   }
   return null;
 };
@@ -1333,13 +1286,12 @@ goog.net.IframeIo.prototype.getContentDocument_ = function() {
  * @return {?HTMLIFrameElement} The appropriate iframe to use for requests
  *     (created in sendForm_).
  */
-goog.net.IframeIo.prototype.getRequestIframe = function() {
-  'use strict';
+IframeIo.prototype.getRequestIframe = function() {
   if (this.iframe_) {
-    return /** @type {?HTMLIFrameElement} */ (
-        goog.dom.getFrameContentDocument(this.iframe_)
-            .getElementById(
-                this.iframeName_ + goog.net.IframeIo.INNER_FRAME_SUFFIX));
+    return (
+      /** @type {?HTMLIFrameElement} */ (googDom.getFrameContentDocument(this.iframe_)
+            .getElementById(this.iframeName_ + IframeIo.INNER_FRAME_SUFFIX))
+    );
   }
   return null;
 };
@@ -1350,34 +1302,33 @@ goog.net.IframeIo.prototype.getRequestIframe = function() {
  * reset by the server or is made to an illegal URL.
  * @private
  */
-goog.net.IframeIo.prototype.testForFirefoxSilentError_ = function() {
-  'use strict';
+IframeIo.prototype.testForFirefoxSilentError_ = function() {
   if (this.active_) {
     const doc = this.getContentDocument_();
 
     // This is a hack to test of the document has loaded with a page that
     // we can't access, such as a network error, that won't report onload
     // or onerror events.
-    if (doc && !goog.reflect.canAccessProperty(doc, 'documentUri')) {
+    if (doc && !reflect.canAccessProperty(doc, 'documentUri')) {
       if (!this.ignoreResponse_) {
-        goog.events.unlisten(
-            this.getRequestIframe(), goog.events.EventType.LOAD,
+        events.unlisten(
+            this.getRequestIframe(), EventType.LOAD,
             this.onIframeLoaded_, false, this);
       }
 
       if (navigator.onLine) {
-        goog.log.warning(this.logger_, 'Silent Firefox error detected');
-        this.handleError_(goog.net.ErrorCode.FF_SILENT_ERROR);
+        googLog.warning(this.logger_, 'Silent Firefox error detected');
+        this.handleError_(ErrorCode.FF_SILENT_ERROR);
       } else {
-        goog.log.warning(
+        googLog.warning(
             this.logger_, 'Firefox is offline so report offline error ' +
                 'instead of silent error');
-        this.handleError_(goog.net.ErrorCode.OFFLINE);
+        this.handleError_(ErrorCode.OFFLINE);
       }
       return;
     }
     this.firefoxSilentErrorTimeout_ =
-        goog.Timer.callOnce(this.testForFirefoxSilentError_, 250, this);
+        Timer.callOnce(this.testForFirefoxSilentError_, 250, this);
   }
 };
 
@@ -1386,13 +1337,12 @@ goog.net.IframeIo.prototype.testForFirefoxSilentError_ = function() {
 /**
  * Class for representing incremental data events.
  * @param {Object} data The data associated with the event.
- * @extends {goog.events.Event}
+ * @extends {Event}
  * @constructor
  * @final
  */
-goog.net.IframeIo.IncrementalDataEvent = function(data) {
-  'use strict';
-  goog.events.Event.call(this, goog.net.EventType.INCREMENTAL_DATA);
+IframeIo.IncrementalDataEvent = function(data) {
+  Event.call(this, netEventType.INCREMENTAL_DATA);
 
   /**
    * The data associated with the event.
@@ -1400,7 +1350,7 @@ goog.net.IframeIo.IncrementalDataEvent = function(data) {
    */
   this.data = data;
 };
-goog.inherits(goog.net.IframeIo.IncrementalDataEvent, goog.events.Event);
+goog.inherits(IframeIo.IncrementalDataEvent, Event);
 
 
 
@@ -1408,6 +1358,6 @@ goog.inherits(goog.net.IframeIo.IncrementalDataEvent, goog.events.Event);
  * Test-only exports.
  * @const
  */
-goog.net.IframeIo.TEST_ONLY = {
-  getForm: goog.net.IframeIo.getForm_,
+IframeIo.TEST_ONLY = {
+  getForm: IframeIo.getForm_,
 };

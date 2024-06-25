@@ -4,15 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.MockTest');
 goog.setTestOnly();
 
-const Mock = goog.require('goog.testing.Mock');
-const MockControl = goog.require('goog.testing.MockControl');
-const MockExpectation = goog.require('goog.testing.MockExpectation');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
-const testing = goog.require('goog.testing');
+import { Mock, MockExpectation } from './mock.js';
+import { MockControl } from './mockcontrol.js';
+import * as googArray from '../array/array.js';
+import { testSuite } from './testsuite.js';
+import * as testing from './functionmock.js';
 
 // The object that we will be mocking
 class RealObject {

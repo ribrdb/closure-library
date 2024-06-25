@@ -9,9 +9,6 @@
  * resources.
  */
 
-goog.module('goog.dispose');
-goog.module.declareLegacyNamespace();
-
 /**
  * Calls `dispose` on the argument if it supports it. If obj is not an
  *     object with a dispose() method, this is a no-op.
@@ -22,4 +19,4 @@ function dispose(obj) {
     obj.dispose();
   }
 }
-exports = dispose;
+export { dispose };

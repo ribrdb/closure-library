@@ -4,16 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.fs.DirectoryEntryTest');
 goog.setTestOnly();
 
-const FsDirectoryEntry = goog.require('goog.fs.DirectoryEntry');
-const FsError = goog.require('goog.fs.Error');
-const FsFileSystem = goog.require('goog.testing.fs.FileSystem');
-const MockClock = goog.require('goog.testing.MockClock');
-const TestCase = goog.require('goog.testing.TestCase');
-const googArray = goog.require('goog.array');
-const testSuite = goog.require('goog.testing.testSuite');
+import { DirectoryEntry as FsDirectoryEntry } from '../../fs/entry.js';
+import { Error as FsError } from '../../fs/error.js';
+import { FileSystem as FsFileSystem } from './filesystem.js';
+import { MockClock } from '../mockclock.js';
+import { TestCase } from '../testcase.js';
+import * as googArray from '../../array/array.js';
+import { testSuite } from '../testsuite.js';
 
 const Behavior = FsDirectoryEntry.Behavior;
 let dir;

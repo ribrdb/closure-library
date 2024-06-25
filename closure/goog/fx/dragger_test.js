@@ -4,21 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.fx.DraggerTest');
 goog.setTestOnly();
 
-const BrowserEvent = goog.require('goog.events.BrowserEvent');
-const Dragger = goog.require('goog.fx.Dragger');
-const EventType = goog.require('goog.events.EventType');
-const GoogEvent = goog.require('goog.events.Event');
-const GoogRect = goog.require('goog.math.Rect');
-const StrictMock = goog.require('goog.testing.StrictMock');
-const TagName = goog.require('goog.dom.TagName');
-const bidi = goog.require('goog.style.bidi');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const testSuite = goog.require('goog.testing.testSuite');
-const testingEvents = goog.require('goog.testing.events');
+import { BrowserEvent } from '../events/browserevent.js';
+import { Dragger } from './dragger.js';
+import { EventType } from '../events/eventtype.js';
+import { Event as GoogEvent } from '../events/event.js';
+import { Rect as GoogRect } from '../math/rect.js';
+import { StrictMock } from '../testing/strictmock.js';
+import { TagName } from '../dom/tagname.js';
+import * as bidi from '../style/bidi.js';
+import * as dom from '../dom/dom.js';
+import * as events from '../events/events.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as testingEvents from '../testing/events/events.js';
 
 /** @suppress {visibility} suppression added to enable type checking */
 const HAS_SET_CAPTURE = Dragger.HAS_SET_CAPTURE_;

@@ -9,10 +9,7 @@
  * matcher's matches method to test if a matcher matches assertThat's arguments.
  */
 
-goog.module('goog.labs.testing.MatcherError');
-goog.module.declareLegacyNamespace();
-
-const DebugError = goog.require('goog.debug.Error');
+import * as DebugError from '../../debug/error.js';
 
 /**
  * Error thrown when a Matcher fails to match the input value.
@@ -26,4 +23,4 @@ function MatcherError(message) {
 }
 goog.inherits(MatcherError, DebugError);
 
-exports = MatcherError;
+export { MatcherError };

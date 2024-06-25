@@ -8,13 +8,12 @@
  * @fileoverview Shared code for classes_test.html & classes_quirks_test.html.
  */
 
-goog.module('goog.dom.classes_test');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const classes = goog.require('goog.dom.classes');
-const dom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { TagName } from './tagname.js';
+import * as classes from './classes.js';
+import * as dom from './dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testGet() {

@@ -11,11 +11,10 @@
  * @see ../demos/cssspriteanimation.html
  */
 
-goog.provide('goog.fx.CssSpriteAnimation');
+import { Animation } from './animation.js';
 
-goog.require('goog.fx.Animation');
-goog.requireType('goog.math.Box');
-goog.requireType('goog.math.Size');
+goog.requireType('goog.math.box');
+goog.requireType('goog.math.size');
 
 
 
@@ -44,62 +43,58 @@ goog.requireType('goog.math.Size');
  *
  * @constructor
  * @struct
- * @extends {goog.fx.Animation}
+ * @extends {Animation}
  * @final
  */
-goog.fx.CssSpriteAnimation = function(
-    element, size, box, time, opt_acc, opt_disableLoop) {
-  'use strict';
-  var start = [box.left, box.top];
-  // We never draw for the end so we do not need to subtract for the size
-  var end = [box.right, box.bottom];
-  goog.fx.CssSpriteAnimation.base(
-      this, 'constructor', start, end, time, opt_acc);
+export function CssSpriteAnimation(element, size, box, time, opt_acc, opt_disableLoop) {
+ var start = [box.left, box.top];
+ // We never draw for the end so we do not need to subtract for the size
+ var end = [box.right, box.bottom];
+ CssSpriteAnimation.base(
+     this, 'constructor', start, end, time, opt_acc);
 
-  /**
-   * HTML element that will be used in the animation.
-   * @type {Element}
-   * @private
-   */
-  this.element_ = element;
+ /**
+  * HTML element that will be used in the animation.
+  * @type {Element}
+  * @private
+  */
+ this.element_ = element;
 
-  /**
-   * The size of an individual sprite in the image sprite.
-   * @type {goog.math.Size}
-   * @private
-   */
-  this.size_ = size;
+ /**
+  * The size of an individual sprite in the image sprite.
+  * @type {goog.math.Size}
+  * @private
+  */
+ this.size_ = size;
 
-  /**
-   * Whether the animation should be halted after a single loop of the images
-   * in the sprite.
-   * @type {boolean}
-   * @private
-   */
-  this.disableLoop_ = !!opt_disableLoop;
-};
-goog.inherits(goog.fx.CssSpriteAnimation, goog.fx.Animation);
+ /**
+  * Whether the animation should be halted after a single loop of the images
+  * in the sprite.
+  * @type {boolean}
+  * @private
+  */
+ this.disableLoop_ = !!opt_disableLoop;
+}
+goog.inherits(CssSpriteAnimation, Animation);
 
 
 /** @override */
-goog.fx.CssSpriteAnimation.prototype.onAnimate = function() {
-  'use strict';
-  // Round to nearest sprite.
-  var x = -Math.floor(this.coords[0] / this.size_.width) * this.size_.width;
-  var y = -Math.floor(this.coords[1] / this.size_.height) * this.size_.height;
-  this.element_.style.backgroundPosition = x + 'px ' + y + 'px';
+CssSpriteAnimation.prototype.onAnimate = function() {
+ // Round to nearest sprite.
+ var x = -Math.floor(this.coords[0] / this.size_.width) * this.size_.width;
+ var y = -Math.floor(this.coords[1] / this.size_.height) * this.size_.height;
+ this.element_.style.backgroundPosition = x + 'px ' + y + 'px';
 
-  goog.fx.CssSpriteAnimation.base(this, 'onAnimate');
+ CssSpriteAnimation.base(this, 'onAnimate');
 };
 
 
 /** @override */
-goog.fx.CssSpriteAnimation.prototype.onFinish = function() {
-  'use strict';
-  if (!this.disableLoop_) {
-    this.play(true);
-  }
-  goog.fx.CssSpriteAnimation.base(this, 'onFinish');
+CssSpriteAnimation.prototype.onFinish = function() {
+ if (!this.disableLoop_) {
+   this.play(true);
+ }
+ CssSpriteAnimation.base(this, 'onFinish');
 };
 
 
@@ -108,22 +103,20 @@ goog.fx.CssSpriteAnimation.prototype.onFinish = function() {
  * by the animation. Allows to apply CSS styling for background position on the
  * same element when the sprite animation is not runniing.
  */
-goog.fx.CssSpriteAnimation.prototype.clearSpritePosition = function() {
-  'use strict';
-  var style = this.element_.style;
-  style.backgroundPosition = '';
+CssSpriteAnimation.prototype.clearSpritePosition = function() {
+ var style = this.element_.style;
+ style.backgroundPosition = '';
 
-  if (typeof style.backgroundPositionX != 'undefined') {
-    // IE needs to clear x and y to actually clear the position
-    style.backgroundPositionX = '';
-    style.backgroundPositionY = '';
-  }
+ if (typeof style.backgroundPositionX != 'undefined') {
+   // IE needs to clear x and y to actually clear the position
+   style.backgroundPositionX = '';
+   style.backgroundPositionY = '';
+ }
 };
 
 
 /** @override */
-goog.fx.CssSpriteAnimation.prototype.disposeInternal = function() {
-  'use strict';
-  goog.fx.CssSpriteAnimation.superClass_.disposeInternal.call(this);
-  this.element_ = null;
+CssSpriteAnimation.prototype.disposeInternal = function() {
+ CssSpriteAnimation.superClass_.disposeInternal.call(this);
+ this.element_ = null;
 };

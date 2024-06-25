@@ -32,11 +32,10 @@
  * library, stop unit-testing it.
  */
 
-goog.provide('goog.testing.i18n.asserts');
 goog.setTestOnly('goog.testing.i18n.asserts');
 
-goog.require('goog.testing.asserts');
-goog.require('goog.testing.i18n.whitespace');
+import * as asserts from '../asserts.js';
+import * as whitespace from './whitespace.js';
 
 
 /**
@@ -45,7 +44,7 @@ goog.require('goog.testing.i18n.whitespace');
  * @const {!Object<string, string>}
  * @private
  */
-goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_ = {
+var EXPECTED_VALUE_MAP_ = {
     // NOTE: Add mappings for each test file using addI18nMapping.
 };
 
@@ -58,8 +57,7 @@ goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_ = {
  * @param {string|null|undefined} b The actual or expected.
  * @param {string=} opt_c Null or the actual value.
  */
-goog.testing.i18n.asserts.assertI18nEquals = function(a, b, opt_c) {
-  'use strict';
+export function assertI18nEquals(a, b, opt_c) {
   let expected;
   let actual;
   let msg;  // The comment to be added, if any
@@ -86,9 +84,9 @@ goog.testing.i18n.asserts.assertI18nEquals = function(a, b, opt_c) {
 
   // Compare with all horizontal white space characters removed, making
   // this less brittle.
-  const wsFixedActual = goog.testing.i18n.whitespace.removeWhitespace(actual);
+  const wsFixedActual = whitespace.removeWhitespace(actual);
   const wsFixedExpected =
-      goog.testing.i18n.whitespace.removeWhitespace(expected);
+      whitespace.removeWhitespace(expected);
 
   // Now, check if the expected string and the actual result differ only
   // in whitespace by stripping white space characters from each.
@@ -99,11 +97,11 @@ goog.testing.i18n.asserts.assertI18nEquals = function(a, b, opt_c) {
   // Also handle an alternate expected string, similarly ignoring whitespace.
   // Note that expected can be null!
   const alternativeExpected =
-      goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_[expected] ||
-      goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_[wsFixedExpected];
+      EXPECTED_VALUE_MAP_[expected] ||
+      EXPECTED_VALUE_MAP_[wsFixedExpected];
   if (alternativeExpected &&
       wsFixedActual ===
-          goog.testing.i18n.whitespace.removeWhitespace(alternativeExpected)) {
+          whitespace.removeWhitespace(alternativeExpected)) {
     return;
   }
 
@@ -115,7 +113,7 @@ goog.testing.i18n.asserts.assertI18nEquals = function(a, b, opt_c) {
   } else {
     assertEquals(wsFixedExpected, wsFixedActual);
   }
-};
+}
 
 
 /**
@@ -126,23 +124,22 @@ goog.testing.i18n.asserts.assertI18nEquals = function(a, b, opt_c) {
  * @param {string} needle The substring to search for.
  * @param {string} haystack The string to search within.
  */
-goog.testing.i18n.asserts.assertI18nContains = function(needle, haystack) {
-  'use strict';
+export function assertI18nContains(needle, haystack) {
   if (needle === haystack) {
     return;
   }
 
-  const newNeedle = goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_[needle];
+  const newNeedle = EXPECTED_VALUE_MAP_[needle];
   if (haystack.indexOf(newNeedle) !== -1) {
     return;
   }
 
-  const wsFixedNeedle = goog.testing.i18n.whitespace.removeWhitespace(needle);
+  const wsFixedNeedle = whitespace.removeWhitespace(needle);
   const wsFixedHaystack =
-      goog.testing.i18n.whitespace.removeWhitespace(haystack);
+      whitespace.removeWhitespace(haystack);
 
   assertContains(wsFixedNeedle, wsFixedHaystack);
-};
+}
 
 
 /**
@@ -152,10 +149,9 @@ goog.testing.i18n.asserts.assertI18nContains = function(needle, haystack) {
  * @param {string} expected The expected string in assertI18nEquals.
  * @param {string} equivalent A string which is i18n-equal.
  */
-goog.testing.i18n.asserts.addI18nMapping = function(expected, equivalent) {
-  'use strict';
-  if (goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_.hasOwnProperty(expected)) {
+export function addI18nMapping(expected, equivalent) {
+  if (EXPECTED_VALUE_MAP_.hasOwnProperty(expected)) {
     throw new RangeError('Mapping for string already exists');
   }
-  goog.testing.i18n.asserts.EXPECTED_VALUE_MAP_[expected] = equivalent;
-};
+  EXPECTED_VALUE_MAP_[expected] = equivalent;
+}

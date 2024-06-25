@@ -6,11 +6,10 @@
 
 /** @fileoverview Unit tests for WireV8. */
 
-goog.module('goog.labs.net.webChannel.WireV8Test');
 goog.setTestOnly();
 
-const WireV8 = goog.require('goog.labs.net.webChannel.WireV8');
-const testSuite = goog.require('goog.testing.testSuite');
+import { WireV8 } from './wirev8.js';
+import { testSuite } from '../../../testing/testsuite.js';
 
 let wireCodec;
 

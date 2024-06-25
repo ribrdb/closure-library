@@ -4,24 +4,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.provide('goog.events.PointerAsMouseEventType');
+import { PointerFallbackEventType } from './pointerfallbackeventtype.js';
 
-goog.require('goog.events.PointerFallbackEventType');
-goog.require('goog.events.MouseEvents');
+import { MouseEvents } from './mouseevents.js';
 
 
 /**
  * An alias for `goog.events.EventType.MOUSE*` event types that is overridden by
  * corresponding `POINTER*` event types.
- * @const {!goog.events.MouseEvents}
+ * @const {!MouseEvents}
  */
-goog.events.PointerAsMouseEventType = {
-  MOUSEDOWN: goog.events.PointerFallbackEventType.POINTERDOWN,
-  MOUSEUP: goog.events.PointerFallbackEventType.POINTERUP,
-  MOUSECANCEL: goog.events.PointerFallbackEventType.POINTERCANCEL,
-  MOUSEMOVE: goog.events.PointerFallbackEventType.POINTERMOVE,
-  MOUSEOVER: goog.events.PointerFallbackEventType.POINTEROVER,
-  MOUSEOUT: goog.events.PointerFallbackEventType.POINTEROUT,
-  MOUSEENTER: goog.events.PointerFallbackEventType.POINTERENTER,
-  MOUSELEAVE: goog.events.PointerFallbackEventType.POINTERLEAVE
+export var PointerAsMouseEventType = {
+  MOUSEDOWN: PointerFallbackEventType.POINTERDOWN,
+  MOUSEUP: PointerFallbackEventType.POINTERUP,
+  MOUSECANCEL: PointerFallbackEventType.POINTERCANCEL,
+  MOUSEMOVE: PointerFallbackEventType.POINTERMOVE,
+  MOUSEOVER: PointerFallbackEventType.POINTEROVER,
+  MOUSEOUT: PointerFallbackEventType.POINTEROUT,
+  MOUSEENTER: PointerFallbackEventType.POINTERENTER,
+  MOUSELEAVE: PointerFallbackEventType.POINTERLEAVE
 };

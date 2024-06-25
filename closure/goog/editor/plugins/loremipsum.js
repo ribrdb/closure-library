@@ -10,17 +10,16 @@
  * fields.
  */
 
-goog.provide('goog.editor.plugins.LoremIpsum');
+import * as asserts from '../../asserts/asserts.js';
 
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.editor.Command');
-goog.require('goog.editor.Field');
-goog.require('goog.editor.Plugin');
-goog.require('goog.editor.node');
-goog.require('goog.functions');
-goog.require('goog.html.SafeHtml');
-goog.require('goog.userAgent');
+import * as dom from '../../dom/dom.js';
+import { Command } from '../command.js';
+import { Field } from '../field.js';
+import { Plugin } from '../plugin.js';
+import * as node from '../node.js';
+import * as functions from '../../functions/functions.js';
+import { SafeHtml } from '../../html/safehtml.js';
+import * as userAgent from '../../useragent/useragent.js';
 
 
 
@@ -28,12 +27,11 @@ goog.require('goog.userAgent');
  * A plugin that manages lorem ipsum state of editable fields.
  * @param {string} message The lorem ipsum message.
  * @constructor
- * @extends {goog.editor.Plugin}
+ * @extends {Plugin}
  * @final
  */
-goog.editor.plugins.LoremIpsum = function(message) {
-  'use strict';
-  goog.editor.Plugin.call(this);
+export function LoremIpsum(message) {
+  Plugin.call(this);
 
   /**
    * The lorem ipsum message.
@@ -41,18 +39,18 @@ goog.editor.plugins.LoremIpsum = function(message) {
    * @private
    */
   this.message_ = message;
-};
-goog.inherits(goog.editor.plugins.LoremIpsum, goog.editor.Plugin);
+}
+goog.inherits(LoremIpsum, Plugin);
 
 
 /** @override */
-goog.editor.plugins.LoremIpsum.prototype.getTrogClassId =
-    goog.functions.constant('LoremIpsum');
+LoremIpsum.prototype.getTrogClassId =
+    functions.constant('LoremIpsum');
 
 
 /** @override */
-goog.editor.plugins.LoremIpsum.prototype.activeOnUneditableFields =
-    goog.functions.TRUE;
+LoremIpsum.prototype.activeOnUneditableFields =
+    functions.TRUE;
 
 
 /**
@@ -60,7 +58,7 @@ goog.editor.plugins.LoremIpsum.prototype.activeOnUneditableFields =
  * @type {boolean}
  * @private
  */
-goog.editor.plugins.LoremIpsum.prototype.usingLorem_ = false;
+LoremIpsum.prototype.usingLorem_ = false;
 
 
 /**
@@ -69,9 +67,8 @@ goog.editor.plugins.LoremIpsum.prototype.usingLorem_ = false;
  * @return {boolean} The result.
  * @override
  */
-goog.editor.plugins.LoremIpsum.prototype.queryCommandValue = function(command) {
-  'use strict';
-  return command == goog.editor.Command.USING_LOREM && this.usingLorem_;
+LoremIpsum.prototype.queryCommandValue = function(command) {
+  return command == Command.USING_LOREM && this.usingLorem_;
 };
 
 
@@ -83,34 +80,31 @@ goog.editor.plugins.LoremIpsum.prototype.queryCommandValue = function(command) {
  *     after clearing lorem. Should be a boolean.
  * @override
  */
-goog.editor.plugins.LoremIpsum.prototype.execCommand = function(
+LoremIpsum.prototype.execCommand = function(
     command, opt_placeCursor) {
-  'use strict';
-  if (command == goog.editor.Command.CLEAR_LOREM) {
+  if (command == Command.CLEAR_LOREM) {
     this.clearLorem_(!!opt_placeCursor);
-  } else if (command == goog.editor.Command.UPDATE_LOREM) {
+  } else if (command == Command.UPDATE_LOREM) {
     this.updateLorem_();
   }
 };
 
 
 /** @override */
-goog.editor.plugins.LoremIpsum.prototype.isSupportedCommand = function(
+LoremIpsum.prototype.isSupportedCommand = function(
     command) {
-  'use strict';
-  return command == goog.editor.Command.CLEAR_LOREM ||
-      command == goog.editor.Command.UPDATE_LOREM ||
-      command == goog.editor.Command.USING_LOREM;
+  return command == Command.CLEAR_LOREM ||
+      command == Command.UPDATE_LOREM ||
+      command == Command.USING_LOREM;
 };
 
 
 /**
- * Set the lorem ipsum text in a goog.editor.Field if needed.
+ * Set the lorem ipsum text in a Field if needed.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.plugins.LoremIpsum.prototype.updateLorem_ = function() {
-  'use strict';
+LoremIpsum.prototype.updateLorem_ = function() {
   // Try to apply lorem ipsum if:
   // 1) We have lorem ipsum text
   // 2) There's not a dialog open, as that screws
@@ -120,7 +114,7 @@ goog.editor.plugins.LoremIpsum.prototype.updateLorem_ = function() {
   // 4) The field is not currently active (doesn't have focus).
   var fieldObj = this.getFieldObject();
   if (!this.usingLorem_ && !fieldObj.inModalMode() &&
-      goog.editor.Field.getActiveFieldId() != fieldObj.id) {
+      Field.getActiveFieldId() != fieldObj.id) {
     var field = fieldObj.getElement();
     if (!field) {
       // Fallback on the original element. This is needed by
@@ -128,8 +122,8 @@ goog.editor.plugins.LoremIpsum.prototype.updateLorem_ = function() {
       field = fieldObj.getOriginalElement();
     }
 
-    goog.asserts.assert(field);
-    if (goog.editor.node.isEmpty(field)) {
+    asserts.assert(field);
+    if (node.isEmpty(field)) {
       this.usingLorem_ = true;
 
       // Save the old font style so it can be restored when we
@@ -137,7 +131,7 @@ goog.editor.plugins.LoremIpsum.prototype.updateLorem_ = function() {
       this.oldFontStyle_ = field.style.fontStyle;
       field.style.fontStyle = 'italic';
       fieldObj.setSafeHtml(
-          true, goog.html.SafeHtml.htmlEscapePreservingNewlines(this.message_),
+          true, SafeHtml.htmlEscapePreservingNewlines(this.message_),
           true);
     }
   }
@@ -156,9 +150,8 @@ goog.editor.plugins.LoremIpsum.prototype.updateLorem_ = function() {
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
-goog.editor.plugins.LoremIpsum.prototype.clearLorem_ = function(
+LoremIpsum.prototype.clearLorem_ = function(
     opt_placeCursor) {
-  'use strict';
   // Don't mess with lorem state when a dialog is open as that screws
   // with the dialog's ability to properly restore the selection
   // on dialog close (since the DOM nodes would get clobbered)
@@ -171,7 +164,7 @@ goog.editor.plugins.LoremIpsum.prototype.clearLorem_ = function(
       field = fieldObj.getOriginalElement();
     }
 
-    goog.asserts.assert(field);
+    asserts.assert(field);
     this.usingLorem_ = false;
     field.style.fontStyle = this.oldFontStyle_;
     fieldObj.setSafeHtml(true, null, true);
@@ -181,8 +174,8 @@ goog.editor.plugins.LoremIpsum.prototype.clearLorem_ = function(
     // we need to figure out where it's necessary and remove it where it's
     // not. Safari never places the cursor on its own willpower.
     if (opt_placeCursor && fieldObj.isLoaded()) {
-      if (goog.userAgent.WEBKIT) {
-        goog.dom.getOwnerDocument(fieldObj.getElement()).body.focus();
+      if (userAgent.WEBKIT) {
+        dom.getOwnerDocument(fieldObj.getElement()).body.focus();
         fieldObj.focusAndPlaceCursorAtStart();
       }
     }

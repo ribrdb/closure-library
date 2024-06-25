@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.AsyncTestCaseTest');
 goog.setTestOnly();
 
-const AsyncTestCase = goog.require('goog.testing.AsyncTestCase');
-const DebugError = goog.require('goog.debug.Error');
-const asserts = goog.require('goog.testing.asserts');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AsyncTestCase } from './asynctestcase.js';
+import * as DebugError from '../debug/error.js';
+import * as asserts from './asserts.js';
+import { testSuite } from './testsuite.js';
 
 testSuite({
   testControlBreakingExceptionThrown() {

@@ -10,11 +10,12 @@
  * demand.
  */
 
-goog.provide('goog.module.BaseModule');
+goog.declareModuleId('goog.module.basemodule');
 
-goog.require('goog.Disposable');
+import { Disposable } from '../disposable/disposable.js';
+
 /** @suppress {extraRequire} */
-goog.require('goog.module');
+import { module } from './module.js';
 
 
 
@@ -23,17 +24,16 @@ goog.require('goog.module');
  * be dynamically loaded.
  *
  * @constructor
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  */
-goog.module.BaseModule = function() {
-  'use strict';
-  goog.Disposable.call(this);
-};
-goog.inherits(goog.module.BaseModule, goog.Disposable);
+export function BaseModule() {
+ Disposable.call(this);
+}
+goog.inherits(BaseModule, Disposable);
 
 
 /**
  * Performs any load-time initialization that the module requires.
  * @param {Object} context The module context.
  */
-goog.module.BaseModule.prototype.initialize = function(context) {};
+BaseModule.prototype.initialize = function(context) {};

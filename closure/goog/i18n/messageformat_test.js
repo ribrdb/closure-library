@@ -4,14 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.MessageFormatTest');
 goog.setTestOnly();
 
-const MessageFormat = goog.require('goog.i18n.MessageFormat');
-const NumberFormatSymbols_hr = goog.require('goog.i18n.NumberFormatSymbols_hr');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const pluralRules = goog.require('goog.i18n.pluralRules');
-const testSuite = goog.require('goog.testing.testSuite');
+import { MessageFormat } from './messageformat.js';
+import { NumberFormatSymbols_hr } from './numberformatsymbols.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as pluralRules from './pluralrules.js';
+import { testSuite } from '../testing/testsuite.js';
 
 // Testing stubs that autoreset after each test run.
 const stubs = new PropertyReplacer();

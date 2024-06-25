@@ -9,9 +9,8 @@
  */
 
 goog.setTestOnly('goog.testing.PropertyReplacer');
-goog.provide('goog.testing.PropertyReplacer');
 
-goog.require('goog.asserts');
+import * as asserts from '../asserts/asserts.js';
 
 
 
@@ -24,7 +23,7 @@ goog.require('goog.asserts');
  *
  * Example usage:
  *
- *     var stubs = new goog.testing.PropertyReplacer();
+ *     var stubs = new PropertyReplacer();
  *
  *     function setUp() {
  *       // Mock functions used in all test cases.
@@ -57,8 +56,7 @@ goog.require('goog.asserts');
  * @constructor
  * @final
  */
-goog.testing.PropertyReplacer = function() {
-  'use strict';
+export function PropertyReplacer() {
   /**
    * Stores the values changed by the set() method in chronological order.
    * Its items are objects with 3 fields: 'object', 'key', 'value'. The
@@ -68,14 +66,14 @@ goog.testing.PropertyReplacer = function() {
    * @private
    */
   this.original_ = [];
-};
+}
 
 
 /**
  * Indicates that a key didn't exist before having been set by the set() method.
  * @private @const
  */
-goog.testing.PropertyReplacer.NO_SUCH_KEY_ = {};
+PropertyReplacer.NO_SUCH_KEY_ = {};
 
 
 /**
@@ -87,8 +85,7 @@ goog.testing.PropertyReplacer.NO_SUCH_KEY_ = {};
  * @private
  * @suppress {unusedLocalVariables}
  */
-goog.testing.PropertyReplacer.hasKey_ = function(obj, key) {
-  'use strict';
+PropertyReplacer.hasKey_ = function(obj, key) {
   if (!(key in obj)) {
     return false;
   }
@@ -127,12 +124,11 @@ goog.testing.PropertyReplacer.hasKey_ = function(obj, key) {
  * @throws {Error} In case of trying to set a read-only property
  * @private
  */
-goog.testing.PropertyReplacer.deleteKey_ = function(obj, key) {
-  'use strict';
+PropertyReplacer.deleteKey_ = function(obj, key) {
   try {
     delete obj[key];
     // Delete has no effect for built-in properties of DOM nodes in FF.
-    if (!goog.testing.PropertyReplacer.hasKey_(obj, key)) {
+    if (!PropertyReplacer.hasKey_(obj, key)) {
       return;
     }
   } catch (e) {
@@ -159,10 +155,9 @@ goog.testing.PropertyReplacer.deleteKey_ = function(obj, key) {
  * @param {{ object: ?, key: string, value: ? }} original Original state
  * @private
  */
-goog.testing.PropertyReplacer.restoreOriginal_ = function(original) {
-  'use strict';
-  if (original.value == goog.testing.PropertyReplacer.NO_SUCH_KEY_) {
-    goog.testing.PropertyReplacer.deleteKey_(original.object, original.key);
+PropertyReplacer.restoreOriginal_ = function(original) {
+  if (original.value == PropertyReplacer.NO_SUCH_KEY_) {
+    PropertyReplacer.deleteKey_(original.object, original.key);
   } else {
     original.object[original.key] = original.value;
   }
@@ -177,12 +172,11 @@ goog.testing.PropertyReplacer.restoreOriginal_ = function(original) {
  * @param {*} value The new value to set.
  * @throws {Error} In case of trying to set a read-only property.
  */
-goog.testing.PropertyReplacer.prototype.set = function(obj, key, value) {
-  'use strict';
-  goog.asserts.assert(obj);
-  var origValue = goog.testing.PropertyReplacer.hasKey_(obj, key) ?
+PropertyReplacer.prototype.set = function(obj, key, value) {
+  asserts.assert(obj);
+  var origValue = PropertyReplacer.hasKey_(obj, key) ?
       obj[key] :
-      goog.testing.PropertyReplacer.NO_SUCH_KEY_;
+      PropertyReplacer.NO_SUCH_KEY_;
   this.original_.push({object: obj, key: key, value: origValue});
   obj[key] = value;
 
@@ -215,9 +209,8 @@ goog.testing.PropertyReplacer.prototype.set = function(obj, key, value) {
        `undefined`, or vice versa.
  * @throws {Error} In case of missing key or type mismatch.
  */
-goog.testing.PropertyReplacer.prototype.replace = function(
+PropertyReplacer.prototype.replace = function(
     obj, key, value, opt_allowNullOrUndefined) {
-  'use strict';
   if (!(key in obj)) {
     throw new Error('Cannot replace missing property "' + key + '" in ' + obj);
   }
@@ -245,8 +238,7 @@ goog.testing.PropertyReplacer.prototype.replace = function(
  * @param {string} path The path to create or alter, e.g. 'goog.ui.Menu'.
  * @param {*} value The value to set.
  */
-goog.testing.PropertyReplacer.prototype.setPath = function(path, value) {
-  'use strict';
+PropertyReplacer.prototype.setPath = function(path, value) {
   var parts = path.split('.');
   var obj = goog.global;
   for (var i = 0; i < parts.length - 1; i++) {
@@ -270,11 +262,10 @@ goog.testing.PropertyReplacer.prototype.setPath = function(path, value) {
  *     alter. See the constraints in the class description.
  * @param {string} key The key to delete.
  */
-goog.testing.PropertyReplacer.prototype.remove = function(obj, key) {
-  'use strict';
-  if (obj && goog.testing.PropertyReplacer.hasKey_(obj, key)) {
+PropertyReplacer.prototype.remove = function(obj, key) {
+  if (obj && PropertyReplacer.hasKey_(obj, key)) {
     this.original_.push({object: obj, key: key, value: obj[key]});
-    goog.testing.PropertyReplacer.deleteKey_(obj, key);
+    PropertyReplacer.deleteKey_(obj, key);
   }
 };
 
@@ -286,12 +277,11 @@ goog.testing.PropertyReplacer.prototype.remove = function(obj, key) {
  * @param {string} key The key to restore the original value for.
  * @throws {Error} In case the object/key pair hadn't been modified earlier.
  */
-goog.testing.PropertyReplacer.prototype.restore = function(obj, key) {
-  'use strict';
+PropertyReplacer.prototype.restore = function(obj, key) {
   for (var i = this.original_.length - 1; i >= 0; i--) {
     var original = this.original_[i];
     if (original.object === obj && original.key == key) {
-      goog.testing.PropertyReplacer.restoreOriginal_(original);
+      PropertyReplacer.restoreOriginal_(original);
       this.original_.splice(i, 1);
       return;
     }
@@ -301,12 +291,11 @@ goog.testing.PropertyReplacer.prototype.restore = function(obj, key) {
 
 
 /**
- * Resets all changes made by goog.testing.PropertyReplacer.prototype.set.
+ * Resets all changes made by PropertyReplacer.prototype.set.
  */
-goog.testing.PropertyReplacer.prototype.reset = function() {
-  'use strict';
+PropertyReplacer.prototype.reset = function() {
   for (var i = this.original_.length - 1; i >= 0; i--) {
-    goog.testing.PropertyReplacer.restoreOriginal_(this.original_[i]);
+    PropertyReplacer.restoreOriginal_(this.original_[i]);
     delete this.original_[i];
   }
   this.original_.length = 0;

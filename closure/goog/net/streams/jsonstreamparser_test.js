@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.JsonStreamParserTest');
 goog.setTestOnly();
 
-const JsonFuzzing = goog.require('goog.labs.testing.JsonFuzzing');
-const JsonStreamParser = goog.require('goog.net.streams.JsonStreamParser');
-const asserts = goog.require('goog.testing.asserts');
-const googJson = goog.require('goog.json');
-const testSuite = goog.require('goog.testing.testSuite');
-const utils = goog.require('goog.uri.utils');
+import { JsonFuzzing } from '../../labs/testing/json_fuzzing.js';
+import { JsonStreamParser } from './jsonstreamparser.js';
+import * as asserts from '../../testing/asserts.js';
+import * as googJson from '../../json/json.js';
+import { testSuite } from '../../testing/testsuite.js';
+import * as utils from '../../uri/utils.js';
 
 let debug;
 

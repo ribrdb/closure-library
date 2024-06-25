@@ -9,12 +9,11 @@
  */
 
 goog.setTestOnly('goog.testing.StrictMock');
-goog.provide('goog.testing.StrictMock');
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.testing.Mock');
-goog.requireType('goog.testing.MockExpectation');
+import * as array from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import { Mock } from './mock.js';
+goog.requireType('goog.testing.mock');
 
 
 
@@ -31,31 +30,28 @@ goog.requireType('goog.testing.MockExpectation');
  * @param {boolean=} opt_createProxy An optional argument denoting that
  *     a proxy for the target mock should be created.
  * @constructor
- * @extends {goog.testing.Mock}
+ * @extends {Mock}
  * @final
  */
-goog.testing.StrictMock = function(
-    objectToMock, opt_mockStaticMethods, opt_createProxy) {
-  'use strict';
-  goog.testing.Mock.call(
+export function StrictMock(objectToMock, opt_mockStaticMethods, opt_createProxy) {
+  Mock.call(
       this, objectToMock, opt_mockStaticMethods, opt_createProxy);
 
   /**
-   * An array of MockExpectations.
-   * @type {!Array<!goog.testing.MockExpectation>}
-   * @private
-   */
+     * An array of MockExpectations.
+     * @type {!Array<!MockExpectation>}
+     * @private
+     */
   this.$expectations_ = [];
 
-  /** @private {!Set<!goog.testing.MockExpectation>} */
+  /** @private {!Set<!MockExpectation>} */
   this.awaitingExpectations_ = new Set();
-};
-goog.inherits(goog.testing.StrictMock, goog.testing.Mock);
+}
+goog.inherits(StrictMock, Mock);
 
 
 /** @override */
-goog.testing.StrictMock.prototype.$recordExpectation = function() {
-  'use strict';
+StrictMock.prototype.$recordExpectation = function() {
   if (this.$pendingExpectation) {
     this.$expectations_.push(this.$pendingExpectation);
     this.awaitingExpectations_.add(this.$pendingExpectation);
@@ -64,8 +60,7 @@ goog.testing.StrictMock.prototype.$recordExpectation = function() {
 
 
 /** @override */
-goog.testing.StrictMock.prototype.$recordCall = function(name, args) {
-  'use strict';
+StrictMock.prototype.$recordCall = function(name, args) {
   if (this.$expectations_.length == 0) {
     this.$throwCallException(name, args);
   }
@@ -111,27 +106,25 @@ goog.testing.StrictMock.prototype.$recordCall = function(name, args) {
 
 
 /** @override */
-goog.testing.StrictMock.prototype.$reset = function() {
-  'use strict';
-  goog.testing.StrictMock.superClass_.$reset.call(this);
+StrictMock.prototype.$reset = function() {
+  StrictMock.superClass_.$reset.call(this);
 
-  goog.array.clear(this.$expectations_);
+  array.clear(this.$expectations_);
   this.awaitingExpectations_.clear();
 };
 
 
 /** @override */
-goog.testing.StrictMock.prototype.$waitAndVerify = function() {
-  'use strict';
+StrictMock.prototype.$waitAndVerify = function() {
   for (var i = 0; i < this.$expectations_.length; i++) {
     var expectation = this.$expectations_[i];
-    goog.asserts.assert(
+    asserts.assert(
         !isFinite(expectation.maxCalls) ||
             expectation.minCalls == expectation.maxCalls,
         'Mock expectations cannot have a loose number of expected calls to ' +
             'use $waitAndVerify.');
   }
-  var promise = goog.testing.StrictMock.base(this, '$waitAndVerify');
+  var promise = StrictMock.base(this, '$waitAndVerify');
   this.maybeFinishedWithExpectations_();
   return promise;
 };
@@ -139,14 +132,12 @@ goog.testing.StrictMock.prototype.$waitAndVerify = function() {
 /**
  * @private
  */
-goog.testing.StrictMock.prototype.maybeFinishedWithExpectations_ = function() {
-  'use strict';
+StrictMock.prototype.maybeFinishedWithExpectations_ = function() {
   var unresolvedExpectations =
       this.$expectations_
           .filter(function(expectation) {
-            'use strict';
-            return expectation.actualCalls < expectation.minCalls;
-          })
+        return expectation.actualCalls < expectation.minCalls;
+      })
           .length;
   if (this.waitingForExpectations && !unresolvedExpectations) {
     this.waitingForExpectations.resolve();
@@ -155,9 +146,8 @@ goog.testing.StrictMock.prototype.maybeFinishedWithExpectations_ = function() {
 
 
 /** @override */
-goog.testing.StrictMock.prototype.$verify = function() {
-  'use strict';
-  goog.testing.StrictMock.superClass_.$verify.call(this);
+StrictMock.prototype.$verify = function() {
+  StrictMock.superClass_.$verify.call(this);
 
   while (this.$expectations_.length > 0) {
     var expectation = this.$expectations_[0];

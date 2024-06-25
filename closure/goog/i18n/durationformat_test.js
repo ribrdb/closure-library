@@ -9,16 +9,14 @@
  * @suppress {missingRequire} Swapping using fully qualified name
  */
 
-goog.module('goog.i18n.DurationFormatTest');
 goog.setTestOnly('goog.i18n.DurationFormatTest');
 
-const DurationSymbols = goog.require('goog.i18n.DurationSymbols');
-const DurationSymbolsExt = goog.require('goog.i18n.DurationSymbolsExt');
-const NumberFormatSymbols_ar_EG = goog.require('goog.i18n.NumberFormatSymbols_ar_EG');
-const NumberFormatSymbols_en = goog.require('goog.i18n.NumberFormatSymbols_en');
-const testSuite = goog.require('goog.testing.testSuite');
-const {DurationFormat, DurationFormatStyle, DurationFormatUnit} = goog.require('goog.i18n.DurationFormat');
-const {assertI18nEquals} = goog.require('goog.testing.i18n.asserts');
+import * as DurationSymbols from './durationsymbols.js';
+import * as DurationSymbolsExt from './durationsymbolsext.js';
+import { NumberFormatSymbols_ar_EG, NumberFormatSymbols_en } from './numberformatsymbols.js';
+import { testSuite } from '../testing/testsuite.js';
+import { DurationFormat, DurationFormatStyle, DurationFormatUnit } from './durationformat.js';
+import { assertI18nEquals } from '../testing/i18n/asserts.js';
 
 /** @suppress {visibility} suppression added to enable type checking */
 const Plurals_en = goog.i18n.pluralRules.enSelect_;

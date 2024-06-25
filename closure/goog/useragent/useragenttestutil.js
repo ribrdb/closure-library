@@ -6,82 +6,80 @@
 
 /**
  * @fileoverview Shared test function to reset the constants in
- * goog.userAgent.*
+ * userAgent.*
  */
 
-goog.provide('goog.userAgentTestUtil');
-goog.provide('goog.userAgentTestUtil.UserAgents');
+import * as browser from '../labs/useragent/browser.js';
 
-goog.require('goog.labs.userAgent.browser');
-goog.require('goog.labs.userAgent.engine');
-goog.require('goog.labs.userAgent.platform');
-goog.require('goog.object');
-goog.require('goog.userAgent');
-goog.require('goog.userAgent.keyboard');
-goog.require('goog.userAgent.platform');
-goog.require('goog.userAgent.product');
+import engine from '../labs/useragent/engine.js';
+import platform from '../labs/useragent/platform.js';
+import object from '../object/object.js';
+import * as userAgent from './useragent.js';
+import * as keyboard from './keyboard.js';
+import * as userAgentPlatform from './platform.js';
+import * as product from './product.js';
+
 /** @suppress {extraRequire} */
-goog.require('goog.userAgent.product.isVersion');
+import { isVersion } from './product_isversion.js';
 
 goog.setTestOnly('goog.userAgentTestUtil');
 
 
 /**
- * Rerun the initialization code to set all of the goog.userAgent constants.
+ * Rerun the initialization code to set all of the userAgent constants.
  * @suppress {accessControls}
  */
-goog.userAgentTestUtil.reinitializeUserAgent = function() {
-  'use strict';
+reinitializeUserAgent = function() {
   // Unfortunately we can't isolate the useragent setting in a function
   // we can call, because things rely on it compiling to nothing when
   // one of the ASSUME flags is set, and the compiler isn't smart enough
   // to do that when the setting is done inside a function that's inlined.
-  goog.userAgent.OPERA = goog.labs.userAgent.browser.isOpera();
-  goog.userAgent.IE = goog.labs.userAgent.browser.isIE();
-  goog.userAgent.EDGE = goog.labs.userAgent.engine.isEdge();
-  goog.userAgent.EDGE_OR_IE = goog.userAgent.EDGE || goog.userAgent.IE;
-  goog.userAgent.GECKO = goog.labs.userAgent.engine.isGecko();
-  goog.userAgent.WEBKIT = goog.labs.userAgent.engine.isWebKit();
-  goog.userAgent.MOBILE = goog.userAgent.isMobile_();
-  goog.userAgent.SAFARI = goog.userAgent.WEBKIT;
+  userAgent.OPERA = browser.isOpera();
+  userAgent.IE = browser.isIE();
+  userAgent.EDGE = engine.isEdge();
+  userAgent.EDGE_OR_IE = userAgent.EDGE || userAgent.IE;
+  userAgent.GECKO = engine.isGecko();
+  userAgent.WEBKIT = engine.isWebKit();
+  userAgent.MOBILE = userAgent.isMobile_();
+  userAgent.SAFARI = userAgent.WEBKIT;
 
   // Platform in goog.userAgent.
-  goog.userAgent.PLATFORM = goog.userAgent.determinePlatform_();
+  userAgent.PLATFORM = userAgent.determinePlatform_();
 
-  goog.userAgent.MAC = goog.labs.userAgent.platform.isMacintosh();
-  goog.userAgent.WINDOWS = goog.labs.userAgent.platform.isWindows();
-  goog.userAgent.LINUX = goog.userAgent.isLegacyLinux_();
-  goog.userAgent.ANDROID = goog.labs.userAgent.platform.isAndroid();
-  goog.userAgent.IPAD = goog.labs.userAgent.platform.isIpad();
-  goog.userAgent.IPHONE = goog.labs.userAgent.platform.isIphone();
-  goog.userAgent.IPOD = goog.labs.userAgent.platform.isIpod();
-  goog.userAgent.KAIOS = goog.labs.userAgent.platform.isKaiOS();
-  goog.userAgent.VERSION = goog.userAgent.determineVersion_();
+  userAgent.MAC = platform.isMacintosh();
+  userAgent.WINDOWS = platform.isWindows();
+  userAgent.LINUX = userAgent.isLegacyLinux_();
+  userAgent.ANDROID = platform.isAndroid();
+  userAgent.IPAD = platform.isIpad();
+  userAgent.IPHONE = platform.isIphone();
+  userAgent.IPOD = platform.isIpod();
+  userAgent.KAIOS = platform.isKaiOS();
+  userAgent.VERSION = userAgent.determineVersion_();
 
   // Platform in goog.userAgent.platform.
-  goog.userAgent.platform.VERSION = goog.userAgent.platform.determineVersion_();
+  userAgentPlatform.VERSION = userAgentPlatform.determineVersion_();
 
   // Update goog.userAgent.product
-  goog.userAgent.product.ANDROID =
-      goog.labs.userAgent.browser.isAndroidBrowser();
-  goog.userAgent.product.CHROME = goog.labs.userAgent.browser.isChrome();
-  goog.userAgent.product.EDGE = goog.labs.userAgent.browser.isEdge();
-  goog.userAgent.product.FIREFOX = goog.labs.userAgent.browser.isFirefox();
-  goog.userAgent.product.IE = goog.labs.userAgent.browser.isIE();
-  goog.userAgent.product.IPAD = goog.labs.userAgent.platform.isIpad();
-  goog.userAgent.product.IPHONE = goog.userAgent.product.isIphoneOrIpod_();
-  goog.userAgent.product.OPERA = goog.labs.userAgent.browser.isOpera();
-  goog.userAgent.product.SAFARI = goog.userAgent.product.isSafariDesktop_();
+  product.ANDROID =
+      browser.isAndroidBrowser();
+  product.CHROME = browser.isChrome();
+  product.EDGE = browser.isEdge();
+  product.FIREFOX = browser.isFirefox();
+  product.IE = browser.isIE();
+  product.IPAD = platform.isIpad();
+  product.IPHONE = product.isIphoneOrIpod_();
+  product.OPERA = browser.isOpera();
+  product.SAFARI = product.isSafariDesktop_();
 
   // Still uses its own implementation.
-  goog.userAgent.product.VERSION = goog.userAgent.product.determineVersion_();
+  product.VERSION = product.determineVersion_();
 
   // goog.userAgent.keyboard
-  goog.userAgent.keyboard.MAC_KEYBOARD =
-      goog.userAgent.keyboard.determineMacKeyboard_();
+  keyboard.MAC_KEYBOARD =
+      keyboard.determineMacKeyboard_();
 
   // Reset cache so calls to isVersionOrHigher don't use cached version.
-  goog.object.clear(goog.userAgent.isVersionOrHigherCache_);
+  object.clear(userAgent.isVersionOrHigherCache_);
 };
 
 
@@ -89,7 +87,7 @@ goog.userAgentTestUtil.reinitializeUserAgent = function() {
  * Browser definitions.
  * @enum {string}
  */
-goog.userAgentTestUtil.UserAgents = {
+export var UserAgents = {
   GECKO: 'GECKO',
   IE: 'IE',
   OPERA: 'OPERA',
@@ -103,20 +101,20 @@ goog.userAgentTestUtil.UserAgents = {
  * @param {string} agent Value in UserAgents.
  * @return {boolean} Whether the user agent has been detected.
  */
-goog.userAgentTestUtil.getUserAgentDetected = function(agent) {
-  'use strict';
+export function getUserAgentDetected(agent) {
   switch (agent) {
-    case goog.userAgentTestUtil.UserAgents.GECKO:
-      return goog.userAgent.GECKO;
-    case goog.userAgentTestUtil.UserAgents.IE:
-      return goog.userAgent.IE;
-    case goog.userAgentTestUtil.UserAgents.EDGE:
-      return goog.userAgent.EDGE;
-    case goog.userAgentTestUtil.UserAgents.OPERA:
-      return goog.userAgent.OPERA;
-    case goog.userAgentTestUtil.UserAgents.WEBKIT:
-      return goog.userAgent.WEBKIT;
+    case UserAgents.GECKO:
+      return userAgent.GECKO;
+    case UserAgents.IE:
+      return userAgent.IE;
+    case UserAgents.EDGE:
+      return userAgent.EDGE;
+    case UserAgents.OPERA:
+      return userAgent.OPERA;
+    case UserAgents.WEBKIT:
+      return userAgent.WEBKIT;
   }
 
   throw new Error('Unrecognized user agent');
-};
+}
+export var reinitializeUserAgent;

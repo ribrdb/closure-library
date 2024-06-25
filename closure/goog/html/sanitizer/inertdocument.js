@@ -9,9 +9,6 @@
  * execute JS or make network requests while parsing HTML.
  */
 
-goog.module('goog.html.sanitizer.inertDocument');
-goog.module.declareLegacyNamespace();
-
 /**
  * Creates an DOM Document object that will not execute scripts or make
  * network requests while parsing HTML.
@@ -22,4 +19,4 @@ function createInertDocument() {
   return document.implementation.createHTMLDocument('');
 }
 
-exports = {createInertDocument};
+export default {createInertDocument};

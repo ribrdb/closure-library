@@ -11,17 +11,14 @@
  * inspiration from the DojoToolkit's modifications to my code)
  */
 
-goog.provide('goog.fx.Animation');
-goog.provide('goog.fx.Animation.EventType');
-goog.provide('goog.fx.Animation.State');
-goog.provide('goog.fx.AnimationEvent');
+goog.declareModuleId('goog.fx.animation');
 
-goog.require('goog.asserts');
-goog.require('goog.events.Event');
-goog.require('goog.fx.Transition');
-goog.require('goog.fx.TransitionBase');
-goog.require('goog.fx.anim');
-goog.require('goog.fx.anim.Animated');
+import * as asserts from '../asserts/asserts.js';
+import { Event } from '../events/event.js';
+import { Transition } from './transition.js';
+import { TransitionBase } from './transitionbase.js';
+import * as fxAnim from './anim/anim.js';
+import { Animated } from './anim/anim.js';
 
 
 
@@ -33,95 +30,93 @@ goog.require('goog.fx.anim.Animated');
  * @param {Function=} opt_acc Acceleration function, returns 0-1 for inputs 0-1.
  * @constructor
  * @struct
- * @implements {goog.fx.anim.Animated}
- * @implements {goog.fx.Transition}
- * @extends {goog.fx.TransitionBase}
+ * @implements {Animated}
+ * @implements {Transition}
+ * @extends {TransitionBase}
  */
-goog.fx.Animation = function(start, end, duration, opt_acc) {
-  'use strict';
-  goog.fx.Animation.base(this, 'constructor');
+export function Animation(start, end, duration, opt_acc) {
+ Animation.base(this, 'constructor');
 
-  if (!Array.isArray(start) || !Array.isArray(end)) {
-    throw new Error('Start and end parameters must be arrays');
-  }
+ if (!Array.isArray(start) || !Array.isArray(end)) {
+   throw new Error('Start and end parameters must be arrays');
+ }
 
-  if (start.length != end.length) {
-    throw new Error('Start and end points must be the same length');
-  }
+ if (start.length != end.length) {
+   throw new Error('Start and end points must be the same length');
+ }
 
-  /**
-   * Start point.
-   * @type {Array<number>}
-   * @protected
-   */
-  this.startPoint = start;
+ /**
+  * Start point.
+  * @type {Array<number>}
+  * @protected
+  */
+ this.startPoint = start;
 
-  /**
-   * End point.
-   * @type {Array<number>}
-   * @protected
-   */
-  this.endPoint = end;
+ /**
+  * End point.
+  * @type {Array<number>}
+  * @protected
+  */
+ this.endPoint = end;
 
-  /**
-   * Duration of animation in milliseconds.
-   * @type {number}
-   * @protected
-   */
-  this.duration = duration;
+ /**
+  * Duration of animation in milliseconds.
+  * @type {number}
+  * @protected
+  */
+ this.duration = duration;
 
-  /**
-   * Acceleration function, which must return a number between 0 and 1 for
-   * inputs between 0 and 1.
-   * @type {Function|undefined}
-   * @private
-   */
-  this.accel_ = opt_acc;
+ /**
+  * Acceleration function, which must return a number between 0 and 1 for
+  * inputs between 0 and 1.
+  * @type {Function|undefined}
+  * @private
+  */
+ this.accel_ = opt_acc;
 
-  /**
-   * Current coordinate for animation.
-   * @type {Array<number>}
-   * @protected
-   */
-  this.coords = [];
+ /**
+  * Current coordinate for animation.
+  * @type {Array<number>}
+  * @protected
+  */
+ this.coords = [];
 
-  /**
-   * Whether the animation should use "right" rather than "left" to position
-   * elements in RTL.  This is a temporary flag to allow clients to transition
-   * to the new behavior at their convenience.  At some point it will be the
-   * default.
-   * @type {boolean}
-   * @private
-   */
-  this.useRightPositioningForRtl_ = false;
+ /**
+  * Whether the animation should use "right" rather than "left" to position
+  * elements in RTL.  This is a temporary flag to allow clients to transition
+  * to the new behavior at their convenience.  At some point it will be the
+  * default.
+  * @type {boolean}
+  * @private
+  */
+ this.useRightPositioningForRtl_ = false;
 
-  /**
-   * Current frame rate.
-   * @private {number}
-   */
-  this.fps_ = 0;
+ /**
+  * Current frame rate.
+  * @private {number}
+  */
+ this.fps_ = 0;
 
-  /**
-   * Percent of the way through the animation.
-   * @protected {number}
-   */
-  this.progress = 0;
+ /**
+  * Percent of the way through the animation.
+  * @protected {number}
+  */
+ this.progress = 0;
 
-  /**
-   * Timestamp for when last frame was run.
-   * @protected {?number}
-   */
-  this.lastFrame = null;
-};
-goog.inherits(goog.fx.Animation, goog.fx.TransitionBase);
+ /**
+  * Timestamp for when last frame was run.
+  * @protected {?number}
+  */
+ this.lastFrame = null;
+}
+goog.inherits(Animation, TransitionBase);
 
 
 /**
  * @return {number} The duration of this animation in milliseconds.
  */
-goog.fx.Animation.prototype.getDuration = function() {
-  'use strict';
-  return this.duration;
+Animation.prototype.getDuration = function() {
+ return this.duration;
 };
 
 
@@ -133,10 +128,9 @@ goog.fx.Animation.prototype.getDuration = function() {
  * @param {boolean} useRightPositioningForRtl True if "right" should be used for
  *     positioning, false if "left" should be used for positioning.
  */
-goog.fx.Animation.prototype.enableRightPositioningForRtl = function(
+Animation.prototype.enableRightPositioningForRtl = function(
     useRightPositioningForRtl) {
-  'use strict';
-  this.useRightPositioningForRtl_ = useRightPositioningForRtl;
+ this.useRightPositioningForRtl_ = useRightPositioningForRtl;
 };
 
 
@@ -148,9 +142,8 @@ goog.fx.Animation.prototype.enableRightPositioningForRtl = function(
  * @return {boolean} True if "right" should be used for positioning, false if
  *     "left" should be used for positioning.
  */
-goog.fx.Animation.prototype.isRightPositioningForRtlEnabled = function() {
-  'use strict';
-  return this.useRightPositioningForRtl_;
+Animation.prototype.isRightPositioningForRtlEnabled = function() {
+ return this.useRightPositioningForRtl_;
 };
 
 
@@ -158,49 +151,49 @@ goog.fx.Animation.prototype.isRightPositioningForRtlEnabled = function() {
  * Events fired by the animation.
  * @enum {string}
  */
-goog.fx.Animation.EventType = {
+Animation.EventType = {
   /**
-   * Dispatched when played for the first time OR when it is resumed.
-   * @deprecated Use goog.fx.Transition.EventType.PLAY.
-   */
-  PLAY: goog.fx.Transition.EventType.PLAY,
+     * Dispatched when played for the first time OR when it is resumed.
+     * @deprecated Use Transition.EventType.PLAY.
+     */
+  PLAY: Transition.EventType.PLAY,
 
   /**
-   * Dispatched only when the animation starts from the beginning.
-   * @deprecated Use goog.fx.Transition.EventType.BEGIN.
-   */
-  BEGIN: goog.fx.Transition.EventType.BEGIN,
+     * Dispatched only when the animation starts from the beginning.
+     * @deprecated Use Transition.EventType.BEGIN.
+     */
+  BEGIN: Transition.EventType.BEGIN,
 
   /**
-   * Dispatched only when animation is restarted after a pause.
-   * @deprecated Use goog.fx.Transition.EventType.RESUME.
-   */
-  RESUME: goog.fx.Transition.EventType.RESUME,
+     * Dispatched only when animation is restarted after a pause.
+     * @deprecated Use Transition.EventType.RESUME.
+     */
+  RESUME: Transition.EventType.RESUME,
 
   /**
-   * Dispatched when animation comes to the end of its duration OR stop
-   * is called.
-   * @deprecated Use goog.fx.Transition.EventType.END.
-   */
-  END: goog.fx.Transition.EventType.END,
+     * Dispatched when animation comes to the end of its duration OR stop
+     * is called.
+     * @deprecated Use Transition.EventType.END.
+     */
+  END: Transition.EventType.END,
 
   /**
-   * Dispatched only when stop is called.
-   * @deprecated Use goog.fx.Transition.EventType.STOP.
-   */
-  STOP: goog.fx.Transition.EventType.STOP,
+     * Dispatched only when stop is called.
+     * @deprecated Use Transition.EventType.STOP.
+     */
+  STOP: Transition.EventType.STOP,
 
   /**
-   * Dispatched only when animation comes to its end naturally.
-   * @deprecated Use goog.fx.Transition.EventType.FINISH.
-   */
-  FINISH: goog.fx.Transition.EventType.FINISH,
+     * Dispatched only when animation comes to its end naturally.
+     * @deprecated Use Transition.EventType.FINISH.
+     */
+  FINISH: Transition.EventType.FINISH,
 
   /**
-   * Dispatched when an animation is paused.
-   * @deprecated Use goog.fx.Transition.EventType.PAUSE.
-   */
-  PAUSE: goog.fx.Transition.EventType.PAUSE,
+     * Dispatched when an animation is paused.
+     * @deprecated Use Transition.EventType.PAUSE.
+     */
+  PAUSE: Transition.EventType.PAUSE,
 
   /**
    * Dispatched each frame of the animation.  This is where the actual animator
@@ -216,26 +209,25 @@ goog.fx.Animation.EventType = {
 
 
 /**
- * @deprecated Use goog.fx.anim.TIMEOUT.
+ * @deprecated Use fxAnim.TIMEOUT.
  */
-goog.fx.Animation.TIMEOUT = goog.fx.anim.TIMEOUT;
+Animation.TIMEOUT = fxAnim.TIMEOUT;
 
 
 /**
  * Enum for the possible states of an animation.
- * @deprecated Use goog.fx.Transition.State instead.
+ * @deprecated Use Transition.State instead.
  * @enum {number}
  */
-goog.fx.Animation.State = goog.fx.TransitionBase.State;
+Animation.State = TransitionBase.State;
 
 
 /**
- * @deprecated Use goog.fx.anim.setAnimationWindow.
+ * @deprecated Use fxAnim.setAnimationWindow.
  * @param {Window} animationWindow The window in which to animate elements.
  */
-goog.fx.Animation.setAnimationWindow = function(animationWindow) {
-  'use strict';
-  goog.fx.anim.setAnimationWindow(animationWindow);
+Animation.setAnimationWindow = function(animationWindow) {
+ fxAnim.setAnimationWindow(animationWindow);
 };
 
 
@@ -246,43 +238,42 @@ goog.fx.Animation.setAnimationWindow = function(animationWindow) {
  * @return {boolean} Whether animation was started.
  * @override
  */
-goog.fx.Animation.prototype.play = function(opt_restart) {
-  'use strict';
-  if (opt_restart || this.isStopped()) {
-    this.progress = 0;
-    this.coords = this.startPoint;
-  } else if (this.isPlaying()) {
-    return false;
-  }
+Animation.prototype.play = function(opt_restart) {
+ if (opt_restart || this.isStopped()) {
+   this.progress = 0;
+   this.coords = this.startPoint;
+ } else if (this.isPlaying()) {
+   return false;
+ }
 
-  goog.fx.anim.unregisterAnimation(this);
+ fxAnim.unregisterAnimation(this);
 
-  var now = /** @type {number} */ (goog.now());
+ var now = /** @type {number} */ (goog.now());
 
-  this.startTime = now;
-  if (this.isPaused()) {
-    this.startTime -= this.duration * this.progress;
-  }
+ this.startTime = now;
+ if (this.isPaused()) {
+   this.startTime -= this.duration * this.progress;
+ }
 
-  this.endTime = this.startTime + this.duration;
-  this.lastFrame = this.startTime;
+ this.endTime = this.startTime + this.duration;
+ this.lastFrame = this.startTime;
 
-  if (!this.progress) {
-    this.onBegin();
-  }
+ if (!this.progress) {
+   this.onBegin();
+ }
 
-  this.onPlay();
+ this.onPlay();
 
-  if (this.isPaused()) {
-    this.onResume();
-  }
+ if (this.isPaused()) {
+   this.onResume();
+ }
 
-  this.setStatePlaying();
+ this.setStatePlaying();
 
-  goog.fx.anim.registerAnimation(this);
-  this.cycle(now);
+ fxAnim.registerAnimation(this);
+ this.cycle(now);
 
-  return true;
+ return true;
 };
 
 
@@ -292,19 +283,18 @@ goog.fx.Animation.prototype.play = function(opt_restart) {
  *     end coords.
  * @override
  */
-goog.fx.Animation.prototype.stop = function(opt_gotoEnd) {
-  'use strict';
-  goog.fx.anim.unregisterAnimation(this);
-  this.setStateStopped();
+Animation.prototype.stop = function(opt_gotoEnd) {
+ fxAnim.unregisterAnimation(this);
+ this.setStateStopped();
 
-  if (opt_gotoEnd) {
-    this.progress = 1;
-  }
+ if (opt_gotoEnd) {
+   this.progress = 1;
+ }
 
-  this.updateCoords_(this.progress);
+ this.updateCoords_(this.progress);
 
-  this.onStop();
-  this.onEnd();
+ this.onStop();
+ this.onEnd();
 };
 
 
@@ -312,13 +302,12 @@ goog.fx.Animation.prototype.stop = function(opt_gotoEnd) {
  * Pauses the animation (iff it's playing).
  * @override
  */
-goog.fx.Animation.prototype.pause = function() {
-  'use strict';
-  if (this.isPlaying()) {
-    goog.fx.anim.unregisterAnimation(this);
-    this.setStatePaused();
-    this.onPause();
-  }
+Animation.prototype.pause = function() {
+ if (this.isPlaying()) {
+   fxAnim.unregisterAnimation(this);
+   this.setStatePaused();
+   this.onPause();
+ }
 };
 
 
@@ -326,9 +315,8 @@ goog.fx.Animation.prototype.pause = function() {
  * @return {number} The current progress of the animation, the number
  *     is between 0 and 1 inclusive.
  */
-goog.fx.Animation.prototype.getProgress = function() {
-  'use strict';
-  return this.progress;
+Animation.prototype.getProgress = function() {
+ return this.progress;
 };
 
 
@@ -336,17 +324,16 @@ goog.fx.Animation.prototype.getProgress = function() {
  * Sets the progress of the animation.
  * @param {number} progress The new progress of the animation.
  */
-goog.fx.Animation.prototype.setProgress = function(progress) {
-  'use strict';
-  this.progress = progress;
-  if (this.isPlaying()) {
-    var now = goog.now();
-    // If the animation is already playing, we recompute startTime and endTime
-    // such that the animation plays consistently, that is:
-    // now = startTime + progress * duration.
-    this.startTime = now - this.duration * this.progress;
-    this.endTime = this.startTime + this.duration;
-  }
+Animation.prototype.setProgress = function(progress) {
+ this.progress = progress;
+ if (this.isPlaying()) {
+   var now = goog.now();
+   // If the animation is already playing, we recompute startTime and endTime
+   // such that the animation plays consistently, that is:
+   // now = startTime + progress * duration.
+   this.startTime = now - this.duration * this.progress;
+   this.endTime = this.startTime + this.duration;
+ }
 };
 
 
@@ -356,13 +343,12 @@ goog.fx.Animation.prototype.setProgress = function(progress) {
  * @override
  * @protected
  */
-goog.fx.Animation.prototype.disposeInternal = function() {
-  'use strict';
-  if (!this.isStopped()) {
-    this.stop(false);
-  }
-  this.onDestroy();
-  goog.fx.Animation.base(this, 'disposeInternal');
+Animation.prototype.disposeInternal = function() {
+ if (!this.isStopped()) {
+   this.stop(false);
+ }
+ this.onDestroy();
+ Animation.base(this, 'disposeInternal');
 };
 
 
@@ -371,16 +357,14 @@ goog.fx.Animation.prototype.disposeInternal = function() {
  * handlers to clean up memory.
  * @deprecated Use dispose() instead.
  */
-goog.fx.Animation.prototype.destroy = function() {
-  'use strict';
-  this.dispose();
+Animation.prototype.destroy = function() {
+ this.dispose();
 };
 
 
 /** @override */
-goog.fx.Animation.prototype.onAnimationFrame = function(now) {
-  'use strict';
-  this.cycle(now);
+Animation.prototype.onAnimationFrame = function(now) {
+ this.cycle(now);
 };
 
 
@@ -388,39 +372,38 @@ goog.fx.Animation.prototype.onAnimationFrame = function(now) {
  * Handles the actual iteration of the animation in a timeout
  * @param {number} now The current time.
  */
-goog.fx.Animation.prototype.cycle = function(now) {
-  'use strict';
-  goog.asserts.assertNumber(this.startTime);
-  goog.asserts.assertNumber(this.endTime);
-  goog.asserts.assertNumber(this.lastFrame);
-  // Happens in rare system clock reset.
-  if (now < this.startTime) {
-    this.endTime = now + this.endTime - this.startTime;
-    this.startTime = now;
-  }
-  this.progress = (now - this.startTime) / (this.endTime - this.startTime);
+Animation.prototype.cycle = function(now) {
+ asserts.assertNumber(this.startTime);
+ asserts.assertNumber(this.endTime);
+ asserts.assertNumber(this.lastFrame);
+ // Happens in rare system clock reset.
+ if (now < this.startTime) {
+   this.endTime = now + this.endTime - this.startTime;
+   this.startTime = now;
+ }
+ this.progress = (now - this.startTime) / (this.endTime - this.startTime);
 
-  if (this.progress > 1) {
-    this.progress = 1;
-  }
+ if (this.progress > 1) {
+   this.progress = 1;
+ }
 
-  this.fps_ = 1000 / (now - this.lastFrame);
-  this.lastFrame = now;
+ this.fps_ = 1000 / (now - this.lastFrame);
+ this.lastFrame = now;
 
-  this.updateCoords_(this.progress);
+ this.updateCoords_(this.progress);
 
-  // Animation has finished.
-  if (this.progress == 1) {
-    this.setStateStopped();
-    goog.fx.anim.unregisterAnimation(this);
+ // Animation has finished.
+ if (this.progress == 1) {
+   this.setStateStopped();
+   fxAnim.unregisterAnimation(this);
 
-    this.onFinish();
-    this.onEnd();
+   this.onFinish();
+   this.onEnd();
 
-    // Animation is still under way.
-  } else if (this.isPlaying()) {
-    this.onAnimate();
-  }
+   // Animation is still under way.
+ } else if (this.isPlaying()) {
+   this.onAnimate();
+ }
 };
 
 
@@ -430,16 +413,15 @@ goog.fx.Animation.prototype.cycle = function(now) {
  * @param {number} t Percentage of the way through the animation as a decimal.
  * @private
  */
-goog.fx.Animation.prototype.updateCoords_ = function(t) {
-  'use strict';
-  if (typeof this.accel_ === 'function') {
-    t = this.accel_(t);
-  }
-  this.coords = new Array(this.startPoint.length);
-  for (var i = 0; i < this.startPoint.length; i++) {
-    this.coords[i] =
-        (this.endPoint[i] - this.startPoint[i]) * t + this.startPoint[i];
-  }
+Animation.prototype.updateCoords_ = function(t) {
+ if (typeof this.accel_ === 'function') {
+   t = this.accel_(t);
+ }
+ this.coords = new Array(this.startPoint.length);
+ for (var i = 0; i < this.startPoint.length; i++) {
+   this.coords[i] =
+       (this.endPoint[i] - this.startPoint[i]) * t + this.startPoint[i];
+ }
 };
 
 
@@ -448,9 +430,8 @@ goog.fx.Animation.prototype.updateCoords_ = function(t) {
  * of listening to the event.
  * @protected
  */
-goog.fx.Animation.prototype.onAnimate = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Animation.EventType.ANIMATE);
+Animation.prototype.onAnimate = function() {
+ this.dispatchAnimationEvent(Animation.EventType.ANIMATE);
 };
 
 
@@ -459,16 +440,14 @@ goog.fx.Animation.prototype.onAnimate = function() {
  * of listening to the event.
  * @protected
  */
-goog.fx.Animation.prototype.onDestroy = function() {
-  'use strict';
-  this.dispatchAnimationEvent(goog.fx.Animation.EventType.DESTROY);
+Animation.prototype.onDestroy = function() {
+ this.dispatchAnimationEvent(Animation.EventType.DESTROY);
 };
 
 
 /** @override */
-goog.fx.Animation.prototype.dispatchAnimationEvent = function(type) {
-  'use strict';
-  this.dispatchEvent(new goog.fx.AnimationEvent(type, this));
+Animation.prototype.dispatchAnimationEvent = function(type) {
+ this.dispatchEvent(new AnimationEvent(type, this));
 };
 
 
@@ -476,70 +455,69 @@ goog.fx.Animation.prototype.dispatchAnimationEvent = function(type) {
 /**
  * Class for an animation event object.
  * @param {string} type Event type.
- * @param {goog.fx.Animation} anim An animation object.
+ * @param {Animation} anim An animation object.
  * @constructor
  * @struct
- * @extends {goog.events.Event}
+ * @extends {Event}
  */
-goog.fx.AnimationEvent = function(type, anim) {
-  'use strict';
-  goog.fx.AnimationEvent.base(this, 'constructor', type);
+export function AnimationEvent(type, anim) {
+ AnimationEvent.base(this, 'constructor', type);
 
-  /**
-   * The current coordinates.
-   * @type {Array<number>}
-   */
-  this.coords = anim.coords;
+ /**
+  * The current coordinates.
+  * @type {Array<number>}
+  */
+ this.coords = anim.coords;
 
-  /**
-   * The x coordinate.
-   * @type {number}
-   */
-  this.x = anim.coords[0];
+ /**
+  * The x coordinate.
+  * @type {number}
+  */
+ this.x = anim.coords[0];
 
-  /**
-   * The y coordinate.
-   * @type {number}
-   */
-  this.y = anim.coords[1];
+ /**
+  * The y coordinate.
+  * @type {number}
+  */
+ this.y = anim.coords[1];
 
-  /**
-   * The z coordinate.
-   * @type {number}
-   */
-  this.z = anim.coords[2];
+ /**
+  * The z coordinate.
+  * @type {number}
+  */
+ this.z = anim.coords[2];
 
-  /**
-   * The current duration.
-   * @type {number}
-   */
-  this.duration = anim.duration;
+ /**
+  * The current duration.
+  * @type {number}
+  */
+ this.duration = anim.duration;
 
-  /**
-   * The current progress.
-   * @type {number}
-   */
-  this.progress = anim.getProgress();
+ /**
+  * The current progress.
+  * @type {number}
+  */
+ this.progress = anim.getProgress();
 
-  /**
-   * Frames per second so far.
-   */
-  this.fps = anim.fps_;
+ /**
+  * Frames per second so far.
+  */
+ this.fps = anim.fps_;
 
-  /**
-   * The state of the animation.
-   * @type {number}
-   */
-  this.state = anim.getStateInternal();
+ /**
+  * The state of the animation.
+  * @type {number}
+  */
+ this.state = anim.getStateInternal();
 
-  /**
-   * The animation object.
-   * @type {goog.fx.Animation}
-   */
-  // TODO(arv): This can be removed as this is the same as the target
-  this.anim = anim;
-};
-goog.inherits(goog.fx.AnimationEvent, goog.events.Event);
+ /**
+    * The animation object.
+    * @type {Animation}
+    */
+ // TODO(arv): This can be removed as this is the same as the target
+ this.anim = anim;
+}
+goog.inherits(AnimationEvent, Event);
 
 
 /**
@@ -547,7 +525,6 @@ goog.inherits(goog.fx.AnimationEvent, goog.events.Event);
  * @return {!Array<number>} An array of the coordinates rounded to
  *     the nearest integer.
  */
-goog.fx.AnimationEvent.prototype.coordsAsInts = function() {
-  'use strict';
-  return this.coords.map(Math.round);
+AnimationEvent.prototype.coordsAsInts = function() {
+ return this.coords.map(Math.round);
 };

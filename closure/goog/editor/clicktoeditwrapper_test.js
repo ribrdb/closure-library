@@ -4,17 +4,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.editor.ClickToEditWrapperTest');
 goog.setTestOnly();
 
-const ClickToEditWrapper = goog.require('goog.editor.ClickToEditWrapper');
-const MockClock = goog.require('goog.testing.MockClock');
-const Range = goog.require('goog.dom.Range');
-const SeamlessField = goog.require('goog.editor.SeamlessField');
-const TagName = goog.require('goog.dom.TagName');
-const events = goog.require('goog.testing.events');
-const googDom = goog.require('goog.dom');
-const testSuite = goog.require('goog.testing.testSuite');
+import { ClickToEditWrapper } from './clicktoeditwrapper.js';
+import { MockClock } from '../testing/mockclock.js';
+import * as Range from '../dom/range.js';
+import { SeamlessField } from './seamlessfield.js';
+import { TagName } from '../dom/tagname.js';
+import * as events from '../testing/events/events.js';
+import * as googDom from '../dom/dom.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let FIELD;
 let CLOCK;

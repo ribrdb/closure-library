@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.testing.DeferredTestCaseTest');
 goog.setTestOnly();
 
-const Deferred = goog.require('goog.async.Deferred');
-const DeferredTestCase = goog.require('goog.testing.DeferredTestCase');
-const TestCase = goog.require('goog.testing.TestCase');
-const TestRunner = goog.require('goog.testing.TestRunner');
-const recordFunction = goog.require('goog.testing.recordFunction');
-const testSuite = goog.require('goog.testing.testSuite');
+import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
+import { DeferredTestCase } from './deferredtestcase.js';
+import { TestCase } from './testcase.js';
+import { TestRunner } from './testrunner.js';
+import { recordFunction } from './recordfunction.js';
+import { testSuite } from './testsuite.js';
 
 const deferredTestCase = DeferredTestCase.createAndInstall(document.title);
 let testTestCase;

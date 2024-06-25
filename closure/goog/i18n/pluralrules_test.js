@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.i18n.pluralRulesTest');
 goog.setTestOnly();
 
-const LocaleFeature = goog.require('goog.i18n.LocaleFeature');
-const PropertyReplacer = goog.require('goog.testing.PropertyReplacer');
-const pluralRules = goog.require('goog.i18n.pluralRules');
-const testSuite = goog.require('goog.testing.testSuite');
+import * as LocaleFeature from './localefeature.js';
+import { PropertyReplacer } from '../testing/propertyreplacer.js';
+import * as pluralRules from './pluralrules.js';
+import { testSuite } from '../testing/testsuite.js';
 
 let propertyReplacer;
 

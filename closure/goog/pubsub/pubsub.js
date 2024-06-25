@@ -8,11 +8,10 @@
  * @fileoverview  Topic-based publish/subscribe channel implementation.
  */
 
-goog.provide('goog.pubsub.PubSub');
+import { Disposable } from '../disposable/disposable.js';
 
-goog.require('goog.Disposable');
-goog.require('goog.array');
-goog.require('goog.async.run');
+import * as array from '../array/array.js';
+import { run } from '../async/run.js';
 
 
 
@@ -29,11 +28,10 @@ goog.require('goog.async.run');
  * @constructor
  * @param {boolean=} opt_async Enable asynchronous behavior.  Recommended for
  *     new code.  See notes on the publish() method.
- * @extends {goog.Disposable}
+ * @extends {Disposable}
  */
-goog.pubsub.PubSub = function(opt_async) {
-  'use strict';
-  goog.pubsub.PubSub.base(this, 'constructor');
+export function PubSub(opt_async) {
+  PubSub.base(this, 'constructor');
 
   /**
    * The next available subscription key.  Internally, this is an index into the
@@ -90,8 +88,8 @@ goog.pubsub.PubSub = function(opt_async) {
    * @private @const {boolean}
    */
   this.async_ = Boolean(opt_async);
-};
-goog.inherits(goog.pubsub.PubSub, goog.Disposable);
+}
+goog.inherits(PubSub, Disposable);
 
 
 /**
@@ -109,8 +107,7 @@ goog.inherits(goog.pubsub.PubSub, goog.Disposable);
  *     called (the global scope if none).
  * @return {number} Subscription key.
  */
-goog.pubsub.PubSub.prototype.subscribe = function(topic, fn, opt_context) {
-  'use strict';
+PubSub.prototype.subscribe = function(topic, fn, opt_context) {
   var keys = this.topics_[topic];
   if (!keys) {
     // First subscription to this topic; initialize subscription key array.
@@ -146,8 +143,7 @@ goog.pubsub.PubSub.prototype.subscribe = function(topic, fn, opt_context) {
  *     called (the global scope if none).
  * @return {number} Subscription key.
  */
-goog.pubsub.PubSub.prototype.subscribeOnce = function(topic, fn, opt_context) {
-  'use strict';
+PubSub.prototype.subscribeOnce = function(topic, fn, opt_context) {
   // Keep track of whether the function was called.  This is necessary because
   // in async mode, multiple calls could be scheduled before the function has
   // the opportunity to unsubscribe itself.
@@ -155,7 +151,6 @@ goog.pubsub.PubSub.prototype.subscribeOnce = function(topic, fn, opt_context) {
 
   // Behold the power of lexical closures!
   var key = this.subscribe(topic, function(var_args) {
-    'use strict';
     if (!called) {
       called = true;
 
@@ -180,15 +175,13 @@ goog.pubsub.PubSub.prototype.subscribeOnce = function(topic, fn, opt_context) {
  *     called (the global scope if none).
  * @return {boolean} Whether a matching subscription was removed.
  */
-goog.pubsub.PubSub.prototype.unsubscribe = function(topic, fn, opt_context) {
-  'use strict';
+PubSub.prototype.unsubscribe = function(topic, fn, opt_context) {
   var keys = this.topics_[topic];
   if (keys) {
     // Find the subscription key for the given combination of topic, function,
     // and context object.
     var subscriptions = this.subscriptions_;
     var key = keys.find(function(k) {
-      'use strict';
       return subscriptions[k + 1] == fn && subscriptions[k + 2] == opt_context;
     });
     // Zero is not a valid key.
@@ -209,8 +202,7 @@ goog.pubsub.PubSub.prototype.unsubscribe = function(topic, fn, opt_context) {
  * @param {number} key Subscription key.
  * @return {boolean} Whether a matching subscription was removed.
  */
-goog.pubsub.PubSub.prototype.unsubscribeByKey = function(key) {
-  'use strict';
+PubSub.prototype.unsubscribeByKey = function(key) {
   var topic = this.subscriptions_[key];
   if (topic) {
     // Subscription tuple found.
@@ -223,7 +215,7 @@ goog.pubsub.PubSub.prototype.unsubscribeByKey = function(key) {
       this.subscriptions_[key + 1] = () => {};
     } else {
       if (keys) {
-        goog.array.remove(keys, key);
+        array.remove(keys, key);
       }
       delete this.subscriptions_[key];
       delete this.subscriptions_[key + 1];
@@ -240,7 +232,7 @@ goog.pubsub.PubSub.prototype.unsubscribeByKey = function(key) {
  * the order in which they were added, passing all arguments along.
  *
  * If this object was created with async=true, subscribed functions are called
- * via goog.async.run().  Otherwise, the functions are called directly, and if
+ * via run().  Otherwise, the functions are called directly, and if
  * any of them throw an uncaught error, publishing is aborted.
  *
  * @param {string} topic Topic to publish to.
@@ -248,8 +240,7 @@ goog.pubsub.PubSub.prototype.unsubscribeByKey = function(key) {
  *     function.
  * @return {boolean} Whether any subscriptions were called.
  */
-goog.pubsub.PubSub.prototype.publish = function(topic, var_args) {
-  'use strict';
+PubSub.prototype.publish = function(topic, var_args) {
   var keys = this.topics_[topic];
   if (keys) {
     // Copy var_args to a new array so they can be passed to subscribers.
@@ -266,7 +257,7 @@ goog.pubsub.PubSub.prototype.publish = function(topic, var_args) {
       // the function to be applied to the arguments in the appropriate context.
       for (i = 0; i < keys.length; i++) {
         var key = keys[i];
-        goog.pubsub.PubSub.runAsync_(
+        PubSub.runAsync_(
             this.subscriptions_[key + 1], this.subscriptions_[key + 2], args);
       }
     } else {
@@ -316,10 +307,8 @@ goog.pubsub.PubSub.prototype.publish = function(topic, var_args) {
  * @param {!Array} args The arguments to pass to `func`.
  * @private
  */
-goog.pubsub.PubSub.runAsync_ = function(func, context, args) {
-  'use strict';
-  goog.async.run(function() {
-    'use strict';
+PubSub.runAsync_ = function(func, context, args) {
+  run(function() {
     func.apply(context, args);
   });
 };
@@ -329,8 +318,7 @@ goog.pubsub.PubSub.runAsync_ = function(func, context, args) {
  * Clears the subscription list for a topic, or all topics if unspecified.
  * @param {string=} opt_topic Topic to clear (all topics if unspecified).
  */
-goog.pubsub.PubSub.prototype.clear = function(opt_topic) {
-  'use strict';
+PubSub.prototype.clear = function(opt_topic) {
   if (opt_topic) {
     var keys = this.topics_[opt_topic];
     if (keys) {
@@ -353,8 +341,7 @@ goog.pubsub.PubSub.prototype.clear = function(opt_topic) {
  * @param {string=} opt_topic The topic (all topics if unspecified).
  * @return {number} Number of subscriptions to the topic.
  */
-goog.pubsub.PubSub.prototype.getCount = function(opt_topic) {
-  'use strict';
+PubSub.prototype.getCount = function(opt_topic) {
   if (opt_topic) {
     var keys = this.topics_[opt_topic];
     return keys ? keys.length : 0;
@@ -370,9 +357,8 @@ goog.pubsub.PubSub.prototype.getCount = function(opt_topic) {
 
 
 /** @override */
-goog.pubsub.PubSub.prototype.disposeInternal = function() {
-  'use strict';
-  goog.pubsub.PubSub.base(this, 'disposeInternal');
+PubSub.prototype.disposeInternal = function() {
+  PubSub.base(this, 'disposeInternal');
   this.clear();
   this.pendingKeys_.length = 0;
 };

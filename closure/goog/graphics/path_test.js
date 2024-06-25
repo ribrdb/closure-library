@@ -4,13 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.graphics.PathTest');
 goog.setTestOnly();
 
-const AffineTransform = goog.require('goog.graphics.AffineTransform');
-const Path = goog.require('goog.graphics.Path');
-const graphics = goog.require('goog.testing.graphics');
-const testSuite = goog.require('goog.testing.testSuite');
+import { AffineTransform } from './affinetransform.js';
+import { Path } from './path.js';
+import * as graphics from '../testing/graphics.js';
+import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
   testConstructor() {

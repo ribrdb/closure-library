@@ -4,15 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.style.transformTest');
 goog.setTestOnly();
 
-const TagName = goog.require('goog.dom.TagName');
-const dom = goog.require('goog.dom');
-const style = goog.require('goog.style');
-const testSuite = goog.require('goog.testing.testSuite');
-const transform = goog.require('goog.style.transform');
-const userAgent = goog.require('goog.userAgent');
+import { TagName } from '../dom/tagname.js';
+import * as dom from '../dom/dom.js';
+import * as style from './style.js';
+import { testSuite } from '../testing/testsuite.js';
+import * as transform from './transform.js';
+import * as userAgent from '../useragent/useragent.js';
 
 /**
  * Floating point equality tolerance.

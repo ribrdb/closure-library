@@ -12,42 +12,38 @@
  * @see http://code.google.com/p/closure-library/wiki/IntroToComponents
  */
 
-goog.provide('goog.ui.Component');
-goog.provide('goog.ui.Component.Error');
-goog.provide('goog.ui.Component.EventType');
-goog.provide('goog.ui.Component.State');
+goog.declareModuleId('goog.ui.component');
 
-goog.require('goog.array');
-goog.require('goog.asserts');
-goog.require('goog.dom');
-goog.require('goog.dom.NodeType');
-goog.require('goog.dom.TagName');
-goog.require('goog.events.EventHandler');
-goog.require('goog.events.EventTarget');
-goog.require('goog.object');
-goog.require('goog.style');
-goog.require('goog.ui.IdGenerator');
+import * as array from '../array/array.js';
+import * as asserts from '../asserts/asserts.js';
+import * as dom from '../dom/dom.js';
+import { NodeType } from '../dom/nodetype.js';
+import { TagName } from '../dom/tagname.js';
+import { EventHandler } from '../events/eventhandler.js';
+import { EventTarget } from '../events/eventtarget.js';
+import googObject from '../object/object.js';
+import * as style from '../style/style.js';
+import { IdGenerator } from './idgenerator.js';
 
 
 
 /**
  * Default implementation of UI component.
  *
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
- * @extends {goog.events.EventTarget}
+ * @extends {EventTarget}
  * @suppress {underscore}
  */
-goog.ui.Component = function(opt_domHelper) {
-  'use strict';
-  goog.events.EventTarget.call(this);
+export function Component(opt_domHelper) {
+  EventTarget.call(this);
   /**
-   * DomHelper used to interact with the document, allowing components to be
-   * created in a different window.
-   * @protected {!goog.dom.DomHelper}
-   * @suppress {underscore|visibility}
-   */
-  this.dom_ = opt_domHelper || goog.dom.getDomHelper();
+     * DomHelper used to interact with the document, allowing components to be
+     * created in a different window.
+     * @protected {!dom.DomHelper}
+     * @suppress {underscore|visibility}
+     */
+  this.dom_ = opt_domHelper || dom.getDomHelper();
 
   /**
    * Whether the component is rendered right-to-left.  Right-to-left is set
@@ -55,14 +51,14 @@ goog.ui.Component = function(opt_domHelper) {
    * been set by calling {@link #setRightToLeft} explicitly.
    * @private {?boolean}
    */
-  this.rightToLeft_ = goog.ui.Component.defaultRightToLeft_;
+  this.rightToLeft_ = Component.defaultRightToLeft_;
 
   /**
-   * Unique ID of the component, lazily initialized in {@link
-   * goog.ui.Component#getId} if needed.  This property is strictly private and
-   * must not be accessed directly outside of this class!
-   * @private {?string}
-   */
+     * Unique ID of the component, lazily initialized in {@link
+     * Component#getId} if needed.  This property is strictly private and
+     * must not be accessed directly outside of this class!
+     * @private {?string}
+     */
   this.id_ = null;
 
   /**
@@ -79,10 +75,10 @@ goog.ui.Component = function(opt_domHelper) {
   this.element_ = null;
 
   /**
-   * Event handler.
-   * Code search: http://go/component_code_search
-   * @private {goog.events.EventHandler|undefined}
-   */
+     * Event handler.
+     * Code search: http://go/component_code_search
+     * @private {EventHandler|undefined}
+     */
   this.googUiComponentHandler_ = void 0;
 
   /**
@@ -92,18 +88,18 @@ goog.ui.Component = function(opt_domHelper) {
   this.model_ = null;
 
   /**
-   * Parent component to which events will be propagated.  This property is
-   * strictly private and must not be accessed directly outside of this class!
-   * @private {goog.ui.Component?}
-   */
+     * Parent component to which events will be propagated.  This property is
+     * strictly private and must not be accessed directly outside of this class!
+     * @private {Component?}
+     */
   this.parent_ = null;
 
   /**
-   * Array of child components.  Lazily initialized on first use.  Must be kept
-   * in sync with `childIndex_`.  This property is strictly private and
-   * must not be accessed directly outside of this class!
-   * @private {?Array<?goog.ui.Component>}
-   */
+     * Array of child components.  Lazily initialized on first use.  Must be kept
+     * in sync with `childIndex_`.  This property is strictly private and
+     * must not be accessed directly outside of this class!
+     * @private {?Array<?Component>}
+     */
   this.children_ = null;
 
   /**
@@ -140,8 +136,8 @@ goog.ui.Component = function(opt_domHelper) {
    * @private {boolean}
    */
   this.pointerEventsEnabled_ = false;
-};
-goog.inherits(goog.ui.Component, goog.events.EventTarget);
+}
+goog.inherits(Component, EventTarget);
 
 
 /**
@@ -150,16 +146,16 @@ goog.inherits(goog.ui.Component, goog.events.EventTarget);
  *     document, and avoid calling enterDocument if it isn't. If false, we
  *     maintain legacy behavior (always call enterDocument from decorate).
  */
-goog.ui.Component.ALLOW_DETACHED_DECORATION =
+Component.ALLOW_DETACHED_DECORATION =
     goog.define('goog.ui.Component.ALLOW_DETACHED_DECORATION', false);
 
 
 /**
  * Generator for unique IDs.
- * @type {goog.ui.IdGenerator}
+ * @type {IdGenerator}
  * @private
  */
-goog.ui.Component.prototype.idGenerator_ = goog.ui.IdGenerator.getInstance();
+Component.prototype.idGenerator_ = IdGenerator.getInstance();
 
 
 // TODO(gboyer): See if we can remove this and just check goog.i18n.bidi.IS_RTL.
@@ -169,7 +165,7 @@ goog.ui.Component.prototype.idGenerator_ = goog.ui.IdGenerator.getInstance();
  *     1: Left-to-right.
  *     -1: Right-to-left.
  */
-goog.ui.Component.DEFAULT_BIDI_DIR =
+Component.DEFAULT_BIDI_DIR =
     goog.define('goog.ui.Component.DEFAULT_BIDI_DIR', 0);
 
 
@@ -178,10 +174,10 @@ goog.ui.Component.DEFAULT_BIDI_DIR =
  * @type {?boolean}
  * @private
  */
-goog.ui.Component.defaultRightToLeft_ =
-    (goog.ui.Component.DEFAULT_BIDI_DIR == 1) ?
+Component.defaultRightToLeft_ =
+    (Component.DEFAULT_BIDI_DIR == 1) ?
     false :
-    (goog.ui.Component.DEFAULT_BIDI_DIR == -1) ? true : null;
+    (Component.DEFAULT_BIDI_DIR == -1) ? true : null;
 
 
 /**
@@ -191,7 +187,7 @@ goog.ui.Component.defaultRightToLeft_ =
  * the corresponding state change.
  * @enum {string}
  */
-goog.ui.Component.EventType = {
+Component.EventType = {
   /** Dispatched before the component becomes visible. */
   BEFORE_SHOW: 'beforeshow',
 
@@ -266,7 +262,7 @@ goog.ui.Component.EventType = {
  * Errors thrown by the component.
  * @enum {string}
  */
-goog.ui.Component.Error = {
+Component.Error = {
   /**
    * Error when a method is not supported.
    */
@@ -320,60 +316,60 @@ goog.ui.Component.Error = {
  * all states.
  * @enum {number}
  */
-goog.ui.Component.State = {
+Component.State = {
   /**
    * Union of all supported component states.
    */
   ALL: 0xFF,
 
   /**
-   * Component is disabled.
-   * @see goog.ui.Component.EventType.DISABLE
-   * @see goog.ui.Component.EventType.ENABLE
-   */
+     * Component is disabled.
+     * @see Component.EventType.DISABLE
+     * @see Component.EventType.ENABLE
+     */
   DISABLED: 0x01,
 
   /**
-   * Component is highlighted.
-   * @see goog.ui.Component.EventType.HIGHLIGHT
-   * @see goog.ui.Component.EventType.UNHIGHLIGHT
-   */
+     * Component is highlighted.
+     * @see Component.EventType.HIGHLIGHT
+     * @see Component.EventType.UNHIGHLIGHT
+     */
   HOVER: 0x02,
 
   /**
-   * Component is active (or "pressed").
-   * @see goog.ui.Component.EventType.ACTIVATE
-   * @see goog.ui.Component.EventType.DEACTIVATE
-   */
+     * Component is active (or "pressed").
+     * @see Component.EventType.ACTIVATE
+     * @see Component.EventType.DEACTIVATE
+     */
   ACTIVE: 0x04,
 
   /**
-   * Component is selected.
-   * @see goog.ui.Component.EventType.SELECT
-   * @see goog.ui.Component.EventType.UNSELECT
-   */
+     * Component is selected.
+     * @see Component.EventType.SELECT
+     * @see Component.EventType.UNSELECT
+     */
   SELECTED: 0x08,
 
   /**
-   * Component is checked.
-   * @see goog.ui.Component.EventType.CHECK
-   * @see goog.ui.Component.EventType.UNCHECK
-   */
+     * Component is checked.
+     * @see Component.EventType.CHECK
+     * @see Component.EventType.UNCHECK
+     */
   CHECKED: 0x10,
 
   /**
-   * Component has focus.
-   * @see goog.ui.Component.EventType.FOCUS
-   * @see goog.ui.Component.EventType.BLUR
-   */
+     * Component has focus.
+     * @see Component.EventType.FOCUS
+     * @see Component.EventType.BLUR
+     */
   FOCUSED: 0x20,
 
   /**
-   * Component is opened (expanded).  Applies to tree nodes, menu buttons,
-   * submenus, zippys (zippies?), etc.
-   * @see goog.ui.Component.EventType.OPEN
-   * @see goog.ui.Component.EventType.CLOSE
-   */
+     * Component is opened (expanded).  Applies to tree nodes, menu buttons,
+     * submenus, zippys (zippies?), etc.
+     * @see Component.EventType.OPEN
+     * @see Component.EventType.CLOSE
+     */
   OPENED: 0x40
 };
 
@@ -381,42 +377,41 @@ goog.ui.Component.State = {
 /**
  * Static helper method; returns the type of event components are expected to
  * dispatch when transitioning to or from the given state.
- * @param {goog.ui.Component.State} state State to/from which the component
+ * @param {Component.State} state State to/from which the component
  *     is transitioning.
  * @param {boolean} isEntering Whether the component is entering or leaving the
  *     state.
- * @return {goog.ui.Component.EventType} Event type to dispatch.
+ * @return {Component.EventType} Event type to dispatch.
  */
-goog.ui.Component.getStateTransitionEvent = function(state, isEntering) {
-  'use strict';
+Component.getStateTransitionEvent = function(state, isEntering) {
   switch (state) {
-    case goog.ui.Component.State.DISABLED:
-      return isEntering ? goog.ui.Component.EventType.DISABLE :
-                          goog.ui.Component.EventType.ENABLE;
-    case goog.ui.Component.State.HOVER:
-      return isEntering ? goog.ui.Component.EventType.HIGHLIGHT :
-                          goog.ui.Component.EventType.UNHIGHLIGHT;
-    case goog.ui.Component.State.ACTIVE:
-      return isEntering ? goog.ui.Component.EventType.ACTIVATE :
-                          goog.ui.Component.EventType.DEACTIVATE;
-    case goog.ui.Component.State.SELECTED:
-      return isEntering ? goog.ui.Component.EventType.SELECT :
-                          goog.ui.Component.EventType.UNSELECT;
-    case goog.ui.Component.State.CHECKED:
-      return isEntering ? goog.ui.Component.EventType.CHECK :
-                          goog.ui.Component.EventType.UNCHECK;
-    case goog.ui.Component.State.FOCUSED:
-      return isEntering ? goog.ui.Component.EventType.FOCUS :
-                          goog.ui.Component.EventType.BLUR;
-    case goog.ui.Component.State.OPENED:
-      return isEntering ? goog.ui.Component.EventType.OPEN :
-                          goog.ui.Component.EventType.CLOSE;
+    case Component.State.DISABLED:
+      return isEntering ? Component.EventType.DISABLE :
+                          Component.EventType.ENABLE;
+    case Component.State.HOVER:
+      return isEntering ? Component.EventType.HIGHLIGHT :
+                          Component.EventType.UNHIGHLIGHT;
+    case Component.State.ACTIVE:
+      return isEntering ? Component.EventType.ACTIVATE :
+                          Component.EventType.DEACTIVATE;
+    case Component.State.SELECTED:
+      return isEntering ? Component.EventType.SELECT :
+                          Component.EventType.UNSELECT;
+    case Component.State.CHECKED:
+      return isEntering ? Component.EventType.CHECK :
+                          Component.EventType.UNCHECK;
+    case Component.State.FOCUSED:
+      return isEntering ? Component.EventType.FOCUS :
+                          Component.EventType.BLUR;
+    case Component.State.OPENED:
+      return isEntering ? Component.EventType.OPEN :
+                          Component.EventType.CLOSE;
     default:
       // Fall through.
   }
 
   // Invalid state.
-  throw new Error(goog.ui.Component.Error.STATE_INVALID);
+  throw new Error(Component.Error.STATE_INVALID);
 };
 
 
@@ -428,9 +423,8 @@ goog.ui.Component.getStateTransitionEvent = function(state, isEntering) {
  * @param {?boolean} rightToLeft Whether the components should be rendered
  *     right-to-left. Null iff components should determine their directionality.
  */
-goog.ui.Component.setDefaultRightToLeft = function(rightToLeft) {
-  'use strict';
-  goog.ui.Component.defaultRightToLeft_ = rightToLeft;
+Component.setDefaultRightToLeft = function(rightToLeft) {
+  Component.defaultRightToLeft_ = rightToLeft;
 };
 
 
@@ -439,8 +433,7 @@ goog.ui.Component.setDefaultRightToLeft = function(rightToLeft) {
  * doesn't already have an ID, generates one on the fly.
  * @return {string} Unique component ID.
  */
-goog.ui.Component.prototype.getId = function() {
-  'use strict';
+Component.prototype.getId = function() {
   return this.id_ || (this.id_ = this.idGenerator_.getNextUniqueId());
 };
 
@@ -453,12 +446,11 @@ goog.ui.Component.prototype.getId = function() {
  * that conflicts with the new ID.
  * @param {string} id Unique component ID.
  */
-goog.ui.Component.prototype.setId = function(id) {
-  'use strict';
+Component.prototype.setId = function(id) {
   if (this.parent_ && this.parent_.childIndex_) {
     // Update the parent's child index.
-    goog.object.remove(this.parent_.childIndex_, this.id_);
-    goog.object.add(this.parent_.childIndex_, id, this);
+    googObject.remove(this.parent_.childIndex_, this.id_);
+    googObject.add(this.parent_.childIndex_, id, this);
   }
 
   // Update the component ID.
@@ -470,8 +462,7 @@ goog.ui.Component.prototype.setId = function(id) {
  * Gets the component's element.
  * @return {?Element} The element for the component.
  */
-goog.ui.Component.prototype.getElement = function() {
-  'use strict';
+Component.prototype.getElement = function() {
   return this.element_;
 };
 
@@ -483,10 +474,9 @@ goog.ui.Component.prototype.getElement = function() {
  * assertion is enabled).
  * @return {!Element} The element for the component.
  */
-goog.ui.Component.prototype.getElementStrict = function() {
-  'use strict';
+Component.prototype.getElementStrict = function() {
   var el = this.element_;
-  goog.asserts.assert(
+  asserts.assert(
       el, 'Can not call getElementStrict before rendering/decorating.');
   return el;
 };
@@ -504,8 +494,7 @@ goog.ui.Component.prototype.getElementStrict = function() {
  *
  * @param {Element} element Root element for the component.
  */
-goog.ui.Component.prototype.setElementInternal = function(element) {
-  'use strict';
+Component.prototype.setElementInternal = function(element) {
   this.element_ = element;
 };
 
@@ -516,8 +505,7 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
  * @param {string} className The name of the class to look for.
  * @return {!IArrayLike<!Element>} The items found with the class name provided.
  */
-goog.ui.Component.prototype.getElementsByClass = function(className) {
-  'use strict';
+Component.prototype.getElementsByClass = function(className) {
   return this.element_ ?
       this.dom_.getElementsByClass(className, this.element_) :
       [];
@@ -530,8 +518,7 @@ goog.ui.Component.prototype.getElementsByClass = function(className) {
  * @param {string} className The name of the class to look for.
  * @return {Element} The first item with the class name provided.
  */
-goog.ui.Component.prototype.getElementByClass = function(className) {
-  'use strict';
+Component.prototype.getElementByClass = function(className) {
   return this.element_ ? this.dom_.getElementByClass(className, this.element_) :
                          null;
 };
@@ -544,10 +531,9 @@ goog.ui.Component.prototype.getElementByClass = function(className) {
  * @param {string} className The name of the class to look for.
  * @return {!Element} The first item with the class name provided.
  */
-goog.ui.Component.prototype.getRequiredElementByClass = function(className) {
-  'use strict';
+Component.prototype.getRequiredElementByClass = function(className) {
   var el = this.getElementByClass(className);
-  goog.asserts.assert(
+  asserts.assert(
       el, 'Expected element in component with class: %s', className);
   return el;
 };
@@ -556,20 +542,19 @@ goog.ui.Component.prototype.getRequiredElementByClass = function(className) {
 /**
  * Returns the event handler for this component, lazily created the first time
  * this method is called.
- * @return {!goog.events.EventHandler<T>} Event handler for this component.
+ * @return {!EventHandler<T>} Event handler for this component.
  * @protected
  * @this {T}
  * @template T
  */
-goog.ui.Component.prototype.getHandler = function() {
-  'use strict';
+Component.prototype.getHandler = function() {
   // TODO(user): templated "this" values currently result in "this" being
   // "unknown" in the body of the function.
   var self = /** @type {goog.ui.Component} */ (this);
   if (!self.googUiComponentHandler_) {
-    self.googUiComponentHandler_ = new goog.events.EventHandler(self);
+    self.googUiComponentHandler_ = new EventHandler(self);
   }
-  return goog.asserts.assert(self.googUiComponentHandler_);
+  return asserts.assert(self.googUiComponentHandler_);
 };
 
 
@@ -579,59 +564,55 @@ goog.ui.Component.prototype.getHandler = function() {
  * component to itself as a child.  Callers must use `removeChild`
  * or `removeChildAt` to remove components from their containers before
  * calling this method.
- * @see goog.ui.Component#removeChild
- * @see goog.ui.Component#removeChildAt
- * @param {goog.ui.Component} parent The parent component.
+ * @see Component#removeChild
+ * @see Component#removeChildAt
+ * @param {Component} parent The parent component.
  */
-goog.ui.Component.prototype.setParent = function(parent) {
-  'use strict';
+Component.prototype.setParent = function(parent) {
   if (this == parent) {
     // Attempting to add a child to itself is an error.
-    throw new Error(goog.ui.Component.Error.PARENT_UNABLE_TO_BE_SET);
+    throw new Error(Component.Error.PARENT_UNABLE_TO_BE_SET);
   }
 
   if (parent && this.parent_ && this.id_ && this.parent_.getChild(this.id_) &&
       this.parent_ != parent) {
     // This component is already the child of some parent, so it should be
     // removed using removeChild/removeChildAt first.
-    throw new Error(goog.ui.Component.Error.PARENT_UNABLE_TO_BE_SET);
+    throw new Error(Component.Error.PARENT_UNABLE_TO_BE_SET);
   }
 
   this.parent_ = parent;
-  goog.ui.Component.superClass_.setParentEventTarget.call(this, parent);
+  Component.superClass_.setParentEventTarget.call(this, parent);
 };
 
 
 /**
  * Returns the component's parent, if any.
- * @return {goog.ui.Component?} The parent component.
+ * @return {Component?} The parent component.
  */
-goog.ui.Component.prototype.getParent = function() {
-  'use strict';
+Component.prototype.getParent = function() {
   return this.parent_;
 };
 
 
 /**
- * Overrides {@link goog.events.EventTarget#setParentEventTarget} to throw an
+ * Overrides {@link EventTarget#setParentEventTarget} to throw an
  * error if the parent component is set, and the argument is not the parent.
  * @override
  */
-goog.ui.Component.prototype.setParentEventTarget = function(parent) {
-  'use strict';
+Component.prototype.setParentEventTarget = function(parent) {
   if (this.parent_ && this.parent_ != parent) {
-    throw new Error(goog.ui.Component.Error.NOT_SUPPORTED);
+    throw new Error(Component.Error.NOT_SUPPORTED);
   }
-  goog.ui.Component.superClass_.setParentEventTarget.call(this, parent);
+  Component.superClass_.setParentEventTarget.call(this, parent);
 };
 
 
 /**
  * Returns the dom helper that is being used on this component.
- * @return {!goog.dom.DomHelper} The dom helper used on this component.
+ * @return {!dom.DomHelper} The dom helper used on this component.
  */
-goog.ui.Component.prototype.getDomHelper = function() {
-  'use strict';
+Component.prototype.getDomHelper = function() {
   return this.dom_;
 };
 
@@ -640,8 +621,7 @@ goog.ui.Component.prototype.getDomHelper = function() {
  * Determines whether the component has been added to the document.
  * @return {boolean} TRUE if rendered. Otherwise, FALSE.
  */
-goog.ui.Component.prototype.isInDocument = function() {
-  'use strict';
+Component.prototype.isInDocument = function() {
   return this.inDocument_;
 };
 
@@ -650,9 +630,8 @@ goog.ui.Component.prototype.isInDocument = function() {
  * Creates the initial DOM representation for the component.  The default
  * implementation is to set this.element_ = div.
  */
-goog.ui.Component.prototype.createDom = function() {
-  'use strict';
-  this.element_ = this.dom_.createElement(goog.dom.TagName.DIV);
+Component.prototype.createDom = function() {
+  this.element_ = this.dom_.createElement(TagName.DIV);
 };
 
 
@@ -671,8 +650,7 @@ goog.ui.Component.prototype.createDom = function() {
  * @param {Element=} opt_parentElement Optional parent element to render the
  *    component into.
  */
-goog.ui.Component.prototype.render = function(opt_parentElement) {
-  'use strict';
+Component.prototype.render = function(opt_parentElement) {
   this.render_(opt_parentElement);
 };
 
@@ -685,8 +663,7 @@ goog.ui.Component.prototype.render = function(opt_parentElement) {
  *
  * @param {Node} sibling Node to render the component before.
  */
-goog.ui.Component.prototype.renderBefore = function(sibling) {
-  'use strict';
+Component.prototype.renderBefore = function(sibling) {
   this.render_(/** @type {Element} */ (sibling.parentNode), sibling);
 };
 
@@ -709,11 +686,10 @@ goog.ui.Component.prototype.renderBefore = function(sibling) {
  *    be rendered.  If left out the node is appended to the parent element.
  * @private
  */
-goog.ui.Component.prototype.render_ = function(
+Component.prototype.render_ = function(
     opt_parentElement, opt_beforeNode) {
-  'use strict';
   if (this.inDocument_) {
-    throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+    throw new Error(Component.Error.ALREADY_RENDERED);
   }
 
   if (!this.element_) {
@@ -743,34 +719,33 @@ goog.ui.Component.prototype.render_ = function(
  * Decorates the element for the UI component. If the element is in the
  * document, the enterDocument method will be called.
  *
- * If goog.ui.Component.ALLOW_DETACHED_DECORATION is false, the caller must
+ * If Component.ALLOW_DETACHED_DECORATION is false, the caller must
  * pass an element that is in the document.
  *
  * @param {Element} element Element to decorate.
  */
-goog.ui.Component.prototype.decorate = function(element) {
-  'use strict';
+Component.prototype.decorate = function(element) {
   if (this.inDocument_) {
-    throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+    throw new Error(Component.Error.ALREADY_RENDERED);
   } else if (element && this.canDecorate(element)) {
     this.wasDecorated_ = true;
 
     // Set the DOM helper of the component to match the decorated element.
-    var doc = goog.dom.getOwnerDocument(element);
+    var doc = dom.getOwnerDocument(element);
     if (!this.dom_ || this.dom_.getDocument() != doc) {
-      this.dom_ = goog.dom.getDomHelper(element);
+      this.dom_ = dom.getDomHelper(element);
     }
 
     // Call specific component decorate logic.
     this.decorateInternal(element);
 
     // If supporting detached decoration, check that element is in doc.
-    if (!goog.ui.Component.ALLOW_DETACHED_DECORATION ||
-        goog.dom.contains(doc, element)) {
+    if (!Component.ALLOW_DETACHED_DECORATION ||
+        dom.contains(doc, element)) {
       this.enterDocument();
     }
   } else {
-    throw new Error(goog.ui.Component.Error.DECORATE_INVALID);
+    throw new Error(Component.Error.DECORATE_INVALID);
   }
 };
 
@@ -781,8 +756,7 @@ goog.ui.Component.prototype.decorate = function(element) {
  * @param {Element} element Element to decorate.
  * @return {boolean} True if the element can be decorated, false otherwise.
  */
-goog.ui.Component.prototype.canDecorate = function(element) {
-  'use strict';
+Component.prototype.canDecorate = function(element) {
   return true;
 };
 
@@ -790,8 +764,7 @@ goog.ui.Component.prototype.canDecorate = function(element) {
 /**
  * @return {boolean} Whether the component was decorated.
  */
-goog.ui.Component.prototype.wasDecorated = function() {
-  'use strict';
+Component.prototype.wasDecorated = function() {
   return this.wasDecorated_;
 };
 
@@ -804,8 +777,7 @@ goog.ui.Component.prototype.wasDecorated = function() {
  * @param {Element} element Element to decorate.
  * @protected
  */
-goog.ui.Component.prototype.decorateInternal = function(element) {
-  'use strict';
+Component.prototype.decorateInternal = function(element) {
   this.element_ = element;
 };
 
@@ -817,16 +789,14 @@ goog.ui.Component.prototype.decorateInternal = function(element) {
  * If the component contains child components, this call is propagated to its
  * children.
  */
-goog.ui.Component.prototype.enterDocument = function() {
-  'use strict';
+Component.prototype.enterDocument = function() {
   this.inDocument_ = true;
 
   // Propagate enterDocument to child components that have a DOM, if any.
   // If a child was decorated before entering the document (permitted when
-  // goog.ui.Component.ALLOW_DETACHED_DECORATION is true), its enterDocument
+  /* Component.ALLOW_DETACHED_DECORATION is true), its enterDocument*/
   // will be called here.
   this.forEachChild(function(child) {
-    'use strict';
     if (!child.isInDocument() && child.getElement()) {
       child.enterDocument();
     }
@@ -845,11 +815,9 @@ goog.ui.Component.prototype.enterDocument = function() {
  * It should be possible for the component to be rendered again once this method
  * has been called.
  */
-goog.ui.Component.prototype.exitDocument = function() {
-  'use strict';
+Component.prototype.exitDocument = function() {
   // Propagate exitDocument to child components that have been rendered, if any.
   this.forEachChild(function(child) {
-    'use strict';
     if (child.isInDocument()) {
       child.exitDocument();
     }
@@ -871,8 +839,7 @@ goog.ui.Component.prototype.exitDocument = function() {
  * @override
  * @protected
  */
-goog.ui.Component.prototype.disposeInternal = function() {
-  'use strict';
+Component.prototype.disposeInternal = function() {
   if (this.inDocument_) {
     this.exitDocument();
   }
@@ -884,13 +851,12 @@ goog.ui.Component.prototype.disposeInternal = function() {
 
   // Disposes of the component's children, if any.
   this.forEachChild(function(child) {
-    'use strict';
     child.dispose();
   });
 
   // Detach the component's element from the DOM, unless it was decorated.
   if (!this.wasDecorated_ && this.element_) {
-    goog.dom.removeNode(this.element_);
+    dom.removeNode(this.element_);
   }
 
   this.children_ = null;
@@ -899,7 +865,7 @@ goog.ui.Component.prototype.disposeInternal = function() {
   this.model_ = null;
   this.parent_ = null;
 
-  goog.ui.Component.superClass_.disposeInternal.call(this);
+  Component.superClass_.disposeInternal.call(this);
 };
 
 
@@ -910,8 +876,7 @@ goog.ui.Component.prototype.disposeInternal = function() {
  * @param {string} idFragment A partial id.
  * @return {string} Unique element id.
  */
-goog.ui.Component.prototype.makeId = function(idFragment) {
-  'use strict';
+Component.prototype.makeId = function(idFragment) {
   return this.getId() + '.' + idFragment;
 };
 
@@ -923,8 +888,7 @@ goog.ui.Component.prototype.makeId = function(idFragment) {
  * @param {Object} object The object that will be used to create the ids.
  * @return {!Object<string, string>} An object of id keys to generated ids.
  */
-goog.ui.Component.prototype.makeIds = function(object) {
-  'use strict';
+Component.prototype.makeIds = function(object) {
   var ids = {};
   for (var key in object) {
     ids[key] = this.makeId(object[key]);
@@ -937,8 +901,7 @@ goog.ui.Component.prototype.makeIds = function(object) {
  * Returns the model associated with the UI component.
  * @return {*} The model.
  */
-goog.ui.Component.prototype.getModel = function() {
-  'use strict';
+Component.prototype.getModel = function() {
   return this.model_;
 };
 
@@ -947,8 +910,7 @@ goog.ui.Component.prototype.getModel = function() {
  * Sets the model associated with the UI component.
  * @param {*} obj The model.
  */
-goog.ui.Component.prototype.setModel = function(obj) {
-  'use strict';
+Component.prototype.setModel = function(obj) {
   this.model_ = obj;
 };
 
@@ -959,8 +921,7 @@ goog.ui.Component.prototype.setModel = function(obj) {
  * @param {string} id Id generated with makeId().
  * @return {string} Fragment.
  */
-goog.ui.Component.prototype.getFragmentFromId = function(id) {
-  'use strict';
+Component.prototype.getFragmentFromId = function(id) {
   return id.substring(this.getId().length + 1);
 };
 
@@ -972,10 +933,9 @@ goog.ui.Component.prototype.getFragmentFromId = function(id) {
  * @return {Element} The element with the unique id, or null if it cannot be
  *     found.
  */
-goog.ui.Component.prototype.getElementByFragment = function(idFragment) {
-  'use strict';
+Component.prototype.getElementByFragment = function(idFragment) {
   if (!this.inDocument_) {
-    throw new Error(goog.ui.Component.Error.NOT_IN_DOCUMENT);
+    throw new Error(Component.Error.NOT_IN_DOCUMENT);
   }
   return this.dom_.getElement(this.makeId(idFragment));
 };
@@ -983,15 +943,14 @@ goog.ui.Component.prototype.getElementByFragment = function(idFragment) {
 
 /**
  * Adds the specified component as the last child of this component.  See
- * {@link goog.ui.Component#addChildAt} for detailed semantics.
+ * {@link Component#addChildAt} for detailed semantics.
  *
- * @see goog.ui.Component#addChildAt
- * @param {goog.ui.Component} child The new child component.
+ * @see Component#addChildAt
+ * @param {Component} child The new child component.
  * @param {boolean=} opt_render If true, the child component will be rendered
  *    into the parent.
  */
-goog.ui.Component.prototype.addChild = function(child, opt_render) {
-  'use strict';
+Component.prototype.addChild = function(child, opt_render) {
   // TODO(gboyer): addChildAt(child, this.getChildCount(), false) will
   // reposition any already-rendered child to the end.  Instead, perhaps
   // addChild(child, false) should never reposition the child; instead, clients
@@ -1037,27 +996,26 @@ goog.ui.Component.prototype.addChild = function(child, opt_render) {
  * Finally, this method also throws an error if the new child already has a
  * different parent, or the given index is out of bounds.
  *
- * @see goog.ui.Component#addChild
- * @param {goog.ui.Component} child The new child component.
+ * @see Component#addChild
+ * @param {Component} child The new child component.
  * @param {number} index 0-based index at which the new child component is to be
  *    added; must be between 0 and the current child count (inclusive).
  * @param {boolean=} opt_render If true, the child component will be rendered
  *    into the parent.
  * @return {void} Nada.
  */
-goog.ui.Component.prototype.addChildAt = function(child, index, opt_render) {
-  'use strict';
-  goog.asserts.assert(!!child, 'Provided element must not be null.');
+Component.prototype.addChildAt = function(child, index, opt_render) {
+  asserts.assert(!!child, 'Provided element must not be null.');
 
   if (child.inDocument_ && (opt_render || !this.inDocument_)) {
     // Adding a child that's already in the document is an error, except if the
     // parent is also in the document and opt_render is false (e.g. decorate()).
-    throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+    throw new Error(Component.Error.ALREADY_RENDERED);
   }
 
   if (index < 0 || index > this.getChildCount()) {
     // Allowing sparse child arrays would lead to strange behavior, so we don't.
-    throw new Error(goog.ui.Component.Error.CHILD_INDEX_OUT_OF_BOUNDS);
+    throw new Error(Component.Error.CHILD_INDEX_OUT_OF_BOUNDS);
   }
 
   // Create the index and the child array on first use.
@@ -1068,19 +1026,19 @@ goog.ui.Component.prototype.addChildAt = function(child, index, opt_render) {
 
   // Moving child within component, remove old reference.
   if (child.getParent() == this) {
-    goog.object.set(this.childIndex_, child.getId(), child);
-    goog.array.remove(this.children_, child);
+    googObject.set(this.childIndex_, child.getId(), child);
+    array.remove(this.children_, child);
 
     // Add the child to this component.  goog.object.add() throws an error if
     // a child with the same ID already exists.
   } else {
-    goog.object.add(this.childIndex_, child.getId(), child);
+    googObject.add(this.childIndex_, child.getId(), child);
   }
 
   // Set the parent of the child to this component.  This throws an error if
   // the child is already contained by another component.
   child.setParent(this);
-  goog.array.insertAt(this.children_, child, index);
+  array.insertAt(this.children_, child, index);
 
   if (child.inDocument_ && this.inDocument_ && child.getParent() == this) {
     // Changing the position of an existing child, move the DOM node (if
@@ -1118,7 +1076,7 @@ goog.ui.Component.prototype.addChildAt = function(child, index, opt_render) {
       child.element_.parentNode &&
       // Under some circumstances, IE8 implicitly creates a Document Fragment
       // for detached nodes, so ensure the parent is an Element as it should be.
-      child.element_.parentNode.nodeType == goog.dom.NodeType.ELEMENT) {
+      child.element_.parentNode.nodeType == NodeType.ELEMENT) {
     // We don't touch the DOM, but if the parent is in the document, and the
     // child element is in the document but not marked as such, then we call
     // enterDocument on the child.
@@ -1137,8 +1095,7 @@ goog.ui.Component.prototype.addChildAt = function(child, index, opt_render) {
  * complex DOM structures must override this method.
  * @return {Element} Element to contain child elements (null if none).
  */
-goog.ui.Component.prototype.getContentElement = function() {
-  'use strict';
+Component.prototype.getContentElement = function() {
   return this.element_;
 };
 
@@ -1149,10 +1106,9 @@ goog.ui.Component.prototype.getContentElement = function() {
  * is set if it has not been already.
  * @return {boolean} Whether the control is rendered right-to-left.
  */
-goog.ui.Component.prototype.isRightToLeft = function() {
-  'use strict';
+Component.prototype.isRightToLeft = function() {
   if (this.rightToLeft_ == null) {
-    this.rightToLeft_ = goog.style.isRightToLeft(
+    this.rightToLeft_ = style.isRightToLeft(
         this.inDocument_ ? this.element_ : this.dom_.getDocument().body);
   }
   return this.rightToLeft_;
@@ -1166,10 +1122,9 @@ goog.ui.Component.prototype.isRightToLeft = function() {
  * @param {boolean} rightToLeft Whether the component is rendered
  *     right-to-left.
  */
-goog.ui.Component.prototype.setRightToLeft = function(rightToLeft) {
-  'use strict';
+Component.prototype.setRightToLeft = function(rightToLeft) {
   if (this.inDocument_) {
-    throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+    throw new Error(Component.Error.ALREADY_RENDERED);
   }
   this.rightToLeft_ = rightToLeft;
 };
@@ -1179,8 +1134,7 @@ goog.ui.Component.prototype.setRightToLeft = function(rightToLeft) {
  * Returns true if the component has children.
  * @return {boolean} True if the component has children.
  */
-goog.ui.Component.prototype.hasChildren = function() {
-  'use strict';
+Component.prototype.hasChildren = function() {
   return !!this.children_ && this.children_.length != 0;
 };
 
@@ -1189,8 +1143,7 @@ goog.ui.Component.prototype.hasChildren = function() {
  * Returns the number of children of this component.
  * @return {number} The number of children.
  */
-goog.ui.Component.prototype.getChildCount = function() {
-  'use strict';
+Component.prototype.getChildCount = function() {
   return this.children_ ? this.children_.length : 0;
 };
 
@@ -1200,14 +1153,12 @@ goog.ui.Component.prototype.getChildCount = function() {
  * empty array if the component has no children.
  * @return {!Array<string>} Child component IDs.
  */
-goog.ui.Component.prototype.getChildIds = function() {
-  'use strict';
+Component.prototype.getChildIds = function() {
   var ids = [];
 
   // We don't use goog.object.getKeys(this.childIndex_) because we want to
   // return the IDs in the correct order as determined by this.children_.
   this.forEachChild(function(child) {
-    'use strict';
     // addChild()/addChildAt() guarantee that the child array isn't sparse.
     ids.push(child.getId());
   });
@@ -1219,14 +1170,13 @@ goog.ui.Component.prototype.getChildIds = function() {
 /**
  * Returns the child with the given ID, or null if no such child exists.
  * @param {string} id Child component ID.
- * @return {goog.ui.Component?} The child with the given ID; null if none.
+ * @return {Component?} The child with the given ID; null if none.
  */
-goog.ui.Component.prototype.getChild = function(id) {
-  'use strict';
+Component.prototype.getChild = function(id) {
   // Use childIndex_ for O(1) access by ID.
   return (this.childIndex_ && id) ?
-      /** @type {goog.ui.Component} */ (
-          goog.object.get(this.childIndex_, id)) ||
+      /** @type {Component} */ (
+          googObject.get(this.childIndex_, id)) ||
           null :
       null;
 };
@@ -1235,10 +1185,9 @@ goog.ui.Component.prototype.getChild = function(id) {
 /**
  * Returns the child at the given index, or null if the index is out of bounds.
  * @param {number} index 0-based index.
- * @return {goog.ui.Component?} The child at the given index; null if none.
+ * @return {Component?} The child at the given index; null if none.
  */
-goog.ui.Component.prototype.getChildAt = function(index) {
-  'use strict';
+Component.prototype.getChildAt = function(index) {
   // Use children_ for access by index.
   return this.children_ ? this.children_[index] || null : null;
 };
@@ -1254,8 +1203,7 @@ goog.ui.Component.prototype.getChildAt = function(index) {
  * @param {T=} opt_obj Used as the 'this' object in f when called.
  * @template T
  */
-goog.ui.Component.prototype.forEachChild = function(f, opt_obj) {
-  'use strict';
+Component.prototype.forEachChild = function(f, opt_obj) {
   if (this.children_) {
     this.children_.forEach(f, opt_obj);
   }
@@ -1265,11 +1213,10 @@ goog.ui.Component.prototype.forEachChild = function(f, opt_obj) {
 /**
  * Returns the 0-based index of the given child component, or -1 if no such
  * child is found.
- * @param {goog.ui.Component?} child The child component.
+ * @param {Component?} child The child component.
  * @return {number} 0-based index of the child component; -1 if not found.
  */
-goog.ui.Component.prototype.indexOfChild = function(child) {
-  'use strict';
+Component.prototype.indexOfChild = function(child) {
   return (this.children_ && child) ? this.children_.indexOf(child) : -1;
 };
 
@@ -1285,15 +1232,14 @@ goog.ui.Component.prototype.indexOfChild = function(child) {
  * document.  Otherwise it is the caller's responsibility to clean up the child
  * component's DOM.
  *
- * @see goog.ui.Component#removeChildAt
- * @param {string|goog.ui.Component|null} child The ID of the child to remove,
+ * @see Component#removeChildAt
+ * @param {string|Component|null} child The ID of the child to remove,
  *    or the child component itself.
  * @param {boolean=} opt_unrender If true, calls `exitDocument` on the
  *    removed child component, and detaches its DOM from the document.
- * @return {?goog.ui.Component} The removed component, if any.
+ * @return {?Component} The removed component, if any.
  */
-goog.ui.Component.prototype.removeChild = function(child, opt_unrender) {
-  'use strict';
+Component.prototype.removeChild = function(child, opt_unrender) {
   if (child) {
     // Normalize child to be the object and id to be the ID string.  This also
     // ensures that the child is really ours.
@@ -1301,15 +1247,15 @@ goog.ui.Component.prototype.removeChild = function(child, opt_unrender) {
     child = this.getChild(id);
 
     if (id && child) {
-      goog.object.remove(this.childIndex_, id);
-      goog.array.remove(this.children_, child);
+      googObject.remove(this.childIndex_, id);
+      array.remove(this.children_, child);
 
       if (opt_unrender) {
         // Remove the child component's DOM from the document.  We have to call
         // exitDocument first (see documentation).
         child.exitDocument();
         if (child.element_) {
-          goog.dom.removeNode(child.element_);
+          dom.removeNode(child.element_);
         }
       }
 
@@ -1320,7 +1266,7 @@ goog.ui.Component.prototype.removeChild = function(child, opt_unrender) {
   }
 
   if (!child) {
-    throw new Error(goog.ui.Component.Error.NOT_OUR_CHILD);
+    throw new Error(Component.Error.NOT_OUR_CHILD);
   }
 
   return /** @type {!goog.ui.Component} */ (child);
@@ -1330,17 +1276,16 @@ goog.ui.Component.prototype.removeChild = function(child, opt_unrender) {
 /**
  * Removes the child at the given index from this component, and returns it.
  * Throws an error if the argument is out of bounds, or if the specified child
- * isn't found in the parent.  See {@link goog.ui.Component#removeChild} for
+ * isn't found in the parent.  See {@link Component#removeChild} for
  * detailed semantics.
  *
- * @see goog.ui.Component#removeChild
+ * @see Component#removeChild
  * @param {number} index 0-based index of the child to remove.
  * @param {boolean=} opt_unrender If true, calls `exitDocument` on the
  *    removed child component, and detaches its DOM from the document.
- * @return {goog.ui.Component} The removed component, if any.
+ * @return {Component} The removed component, if any.
  */
-goog.ui.Component.prototype.removeChildAt = function(index, opt_unrender) {
-  'use strict';
+Component.prototype.removeChildAt = function(index, opt_unrender) {
   // removeChild(null) will throw error.
   return this.removeChild(this.getChildAt(index), opt_unrender);
 };
@@ -1349,13 +1294,12 @@ goog.ui.Component.prototype.removeChildAt = function(index, opt_unrender) {
 /**
  * Removes every child component attached to this one and returns them.
  *
- * @see goog.ui.Component#removeChild
+ * @see Component#removeChild
  * @param {boolean=} opt_unrender If true, calls {@link #exitDocument} on the
  *    removed child components, and detaches their DOM from the document.
- * @return {!Array<goog.ui.Component>} The removed components if any.
+ * @return {!Array<Component>} The removed components if any.
  */
-goog.ui.Component.prototype.removeChildren = function(opt_unrender) {
-  'use strict';
+Component.prototype.removeChildren = function(opt_unrender) {
   var removedChildren = [];
   while (this.hasChildren()) {
     removedChildren.push(this.removeChildAt(0, opt_unrender));
@@ -1370,8 +1314,7 @@ goog.ui.Component.prototype.removeChildren = function(opt_unrender) {
  * input.
  * @return {boolean}
  */
-goog.ui.Component.prototype.pointerEventsEnabled = function() {
-  'use strict';
+Component.prototype.pointerEventsEnabled = function() {
   return this.pointerEventsEnabled_;
 };
 
@@ -1383,10 +1326,9 @@ goog.ui.Component.prototype.pointerEventsEnabled = function() {
  * types.
  * @param {boolean} enable
  */
-goog.ui.Component.prototype.setPointerEventsEnabled = function(enable) {
-  'use strict';
+Component.prototype.setPointerEventsEnabled = function(enable) {
   if (this.inDocument_) {
-    throw new Error(goog.ui.Component.Error.ALREADY_RENDERED);
+    throw new Error(Component.Error.ALREADY_RENDERED);
   }
   this.pointerEventsEnabled_ = enable;
 };

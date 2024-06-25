@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-goog.module('goog.net.streams.PbJsonStreamParserTest');
 goog.setTestOnly('goog.net.streams.PbJsonStreamParserTest');
 
-const PbJsonStreamParser = goog.require('goog.net.streams.PbJsonStreamParser');
-const object = goog.require('goog.object');
-const testSuite = goog.require('goog.testing.testSuite');
+import { PbJsonStreamParser } from './pbjsonstreamparser.js';
+import object from '../../object/object.js';
+import { testSuite } from '../../testing/testsuite.js';
 
 
 /**
