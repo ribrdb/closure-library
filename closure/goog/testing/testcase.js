@@ -1892,7 +1892,7 @@ TestCase.prototype.cleanStackTrace_ = function(stack, errMsg) {
   var index = 0;
   while (index < stack.length) {
     var extraFrameIndex = stack.search(
-        /\s*(\bat\b)?\s*(goog\.labs\.testing\.EnvironmentTestCase_\.)?goog\.testing\.(Continuation_\.(prototype\.)?run|TestCase\.(prototype\.)?(execute|cycleTests|startNextBatch_|safeRunTest_|invokeFunction_?))/);
+        /\s*(\bat\b)?\s*(EnvironmentTestCase_\.)?(Continuation_\.(prototype\.)?run|TestCase\.(prototype\.)?(execute|cycleTests|startNextBatch_|safeRunTest_|invokeFunction_?))/);
     if (extraFrameIndex < 0) {
       break;
     }
