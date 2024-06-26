@@ -104,7 +104,7 @@ export var FIREFOX = PRODUCT_KNOWN_ ?
  * @return {boolean}
  * @private
  */
-function isIphoneOrIpod_() {
+export function isIphoneOrIpod_() {
  return platform.isIphone() ||
      platform.isIpod();
 }
@@ -154,7 +154,7 @@ export var CHROME = PRODUCT_KNOWN_ ?
  * @return {boolean} Whether the browser is Safari on desktop.
  * @private
  */
-function isSafariDesktop_() {
+export function isSafariDesktop_() {
  return browser.isSafari() &&
      !platform.isIos();
 }

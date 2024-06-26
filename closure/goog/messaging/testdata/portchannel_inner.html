@@ -13,16 +13,14 @@ See the COPYING file for details.
   CLOSURE_DEFINES["goog.ENABLE_DEBUG_LOADER"]=true;
 </script>
 
-<!-- MOE:insert <script src="../../base.js"></script> -->
-<script>
-goog.require('goog.messaging.PortChannel');
-</script>
+<script src="../../base.js"></script>
 </head>
 <body>
-<script>
+<script type=module>
+import { PortChannel } from '../portchannel.js';
 
 var peerOrigin = window.location.protocol + '//' + window.location.host;
-var channel = goog.messaging.PortChannel.forGlobalWindow(peerOrigin);
+var channel = PortChannel.forGlobalWindow(peerOrigin);
 channel.registerService('ping', function(msg) {
   channel.send('pong', msg);
 });

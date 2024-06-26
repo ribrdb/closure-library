@@ -23,9 +23,11 @@ import * as testingAsserts from '../asserts.js';
  * @param {string} referencePath A path to a reference HTML file.
  */
 function writeReferenceFrame(referencePath) {
-  document.write(
-      '<iframe id="reference" name="reference" ' +
-      'src="' + referencePath + '"></iframe>');
+  const iframe = dom.createDom('iframe', {
+    'id': 'reference',
+    'name': 'reference',
+    'src': referencePath});
+  document.body.appendChild(iframe);
 }
 
 /**

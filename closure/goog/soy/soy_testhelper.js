@@ -343,3 +343,7 @@ function elementToInnerHtml(elem) {
   }
   return innerHtml;
 }
+
+goog.exportSymbol('example', example);
+goog.exportSymbol('elementToInnerHtml', elementToInnerHtml);
+goog.exportSymbol('fragmentToHtml', fragmentToHtml);

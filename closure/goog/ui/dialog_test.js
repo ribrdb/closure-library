@@ -789,7 +789,7 @@ testSuite({
     dialog.createDom();
     assertNotNull(dialog.getElement());
     assertFalse(
-        aria.hasState(dialog.getElementStrict(), aria.State.DESCRIBEDBY));
+        aria.hasState(dialog.getElementStrict(), State.DESCRIBEDBY));
   },
 
   testIsAriaDescribedByContent_trueSetsAriaDescribedByLabelToContentId() {
@@ -801,10 +801,10 @@ testSuite({
     dialog.createDom();
     assertNotNull(dialog.getElement());
     assertTrue(
-        aria.hasState(dialog.getElementStrict(), aria.State.DESCRIBEDBY));
+        aria.hasState(dialog.getElementStrict(), State.DESCRIBEDBY));
     assertEquals(
         dialog.getContentElement().id,
-        aria.getState(dialog.getElementStrict(), aria.State.DESCRIBEDBY));
+        aria.getState(dialog.getElementStrict(), State.DESCRIBEDBY));
   },
 
   testDefaultOpacityIsAppliedOnRender() {

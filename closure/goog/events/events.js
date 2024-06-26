@@ -800,7 +800,7 @@ export function protectBrowserEventEntryPoint(errorHandler) {
  * @this {EventTarget} The object or Element that fired the event.
  * @private
  */
-function handleBrowserEvent_(listener, opt_evt) {
+var handleBrowserEvent_ = function(listener, opt_evt) {
   if (listener.removed) {
     return true;
   }
@@ -940,3 +940,11 @@ entryPointRegistry.register(
       handleBrowserEvent_ =
           transformer(handleBrowserEvent_);
     });
+
+export function setHandlerForTests_(handle) {
+  if (!COMPILED) 
+    handleBrowserEvent_ = handle;
+}
+export function getHandlerForTests_() {
+  return handleBrowserEvent_;
+}

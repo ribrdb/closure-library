@@ -19,6 +19,7 @@ import * as googEvents from '../events/events.js';
 import { recordFunction } from '../testing/recordfunction.js';
 import * as style from '../style/style.js';
 import { testSuite } from '../testing/testsuite.js';
+import { BrowserEvent } from '../events/browserevent.js';
 
 let palette;
 let nodes;
@@ -234,7 +235,7 @@ testSuite({
 
     // Click somewhere in the palette, but not inside a cell.
     /** @suppress {checkTypes} suppression added to enable type checking */
-    const mouseUp = new googEvents.BrowserEvent(
+    const mouseUp = new BrowserEvent(
         {type: 'mouseup', button: 1, target: palette});
     palette.handleMouseUp(mouseUp);
 

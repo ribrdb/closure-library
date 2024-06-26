@@ -339,7 +339,7 @@ testSuite({
   testAddFormInputs() {
     const form = dom.createElement(TagName.FORM);
     IframeIo.addFormInputs_(form, {'a': 1, 'b': 2, 'c': 3});
-    const inputs = dom.getElementsByTagName(dom.TagName.INPUT, form);
+    const inputs = dom.getElementsByTagName(TagName.INPUT, form);
     assertEquals(3, inputs.length);
     for (let i = 0; i < inputs.length; i++) {
       assertEquals('hidden', inputs[i].type);

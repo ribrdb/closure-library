@@ -13,7 +13,7 @@ import { MultiTestRunner } from './multitestrunner.js';
 import { PropertyReplacer } from './propertyreplacer.js';
 import { TestCase } from './testcase.js';
 import * as dom from '../dom/dom.js';
-import * as parallelClosureTestSuite from './parallel_closure_test_suite.js';
+import {testObj as parallelClosureTestSuite} from './parallel_closure_test_suite.js';
 import { testSuite } from './testsuite.js';
 
 const mocks = new MockControl();

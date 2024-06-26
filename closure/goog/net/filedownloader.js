@@ -29,7 +29,7 @@ import { Disposable } from '../disposable/disposable.js';
 import * as asserts from '../asserts/asserts.js';
 import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
 import * as hash32 from '../crypt/hash32.js';
-import * as Error from '../debug/error.js';
+import {DebugError as Error} from '../debug/error.js';
 import { dispose } from '../disposable/dispose.js';
 import * as events from '../events/events.js';
 import { EventHandler } from '../events/eventhandler.js';

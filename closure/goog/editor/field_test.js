@@ -562,7 +562,7 @@ testSuite({
     editableField.makeEditable();
 
     testingEvents.fireBrowserEvent(
-        new GoogTestingEvent('cut', editableField.getElement()));
+        new TestEvent('cut', editableField.getElement()));
     assertEquals(
         'Cut event should be on a timer', 0, delayedChanges.getCallCount());
     clock.tick(1000);
@@ -571,7 +571,7 @@ testSuite({
         delayedChanges.getCallCount());
 
     testingEvents.fireBrowserEvent(
-        new GoogTestingEvent('paste', editableField.getElement()));
+        new TestEvent('paste', editableField.getElement()));
     assertEquals(
         'Paste event should be on a timer', 1, delayedChanges.getCallCount());
     clock.tick(1000);

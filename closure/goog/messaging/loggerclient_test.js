@@ -21,7 +21,7 @@ let logger;
 testSuite({
   setUp() {
     /** Used computed properties to avoid compiler checks of the define */
-    debug['FORCE_SLOPPY_STACKS'] = false;
+    debug.$set('FORCE_SLOPPY_STACKS', false);
     mockControl = new MockControl();
     channel = new MockMessageChannel(mockControl);
     client = new LoggerClient(channel, 'log');

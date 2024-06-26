@@ -41,6 +41,8 @@ testSuite({
     dom.removeChildren(dom.getElement('sandbox'));
   },
 
+  shouldRunTests,
+
   testGeneratedButton() {
     button.render(dom.getElement('sandbox'));
     style.assertStructureMatchesReference(

@@ -66,7 +66,7 @@ let initialized = false;
  */
 testSuite.resetForTesting = function() {
   const name = TestCase.getActiveTestCase().getName();
-  if (name !== 'environment_test' && name !== 'testsuite_test') {
+  if (!name.includes('environment_test') && !name.includes('testsuite_test')) {
     throw new Error(name);
   }
   initialized = false;

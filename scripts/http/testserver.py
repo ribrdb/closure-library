@@ -38,6 +38,9 @@ class TestServer(SimpleHTTPRequestHandler):
         self.send_header("Content-Length", str(len(result)))
         self.end_headers()
         return io.BytesIO(result)
+    
+    def do_POST(self):
+        return self.do_GET()
 
 if __name__ == "__main__":
     server = ThreadingHTTPServer(("localhost", 8080), TestServer)

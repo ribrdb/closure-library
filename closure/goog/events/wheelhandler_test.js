@@ -23,6 +23,9 @@ import * as testingEvents from '../testing/events/events.js';
 
 /** @suppress {extraRequire} */
 import * as userAgent from '../useragent/useragent.js';
+import * as product from '../useragent/product.js';
+import * as productIsVersion from '../useragent/product_isversion.js';
+import { dispose } from '../disposable/dispose.js';
 
 let log;
 const stubs = new PropertyReplacer();
@@ -41,7 +44,7 @@ let mouseWheelEventRtl;
 let mouseWheelHandler;
 let mouseWheelHandlerRtl;
 
-// Be sure to call this after setting up goog.userAgent mock and not before.
+// Be sure to call this after setting up userAgent mock and not before.
 function createHandlerAndListen() {
   /** @suppress {checkTypes} suppression added to enable type checking */
   mouseWheelHandler = new WheelHandler(dom.getElement('foo'));
@@ -156,29 +159,24 @@ testSuite({
   },
 
   setUp() {
-    stubs.remove(goog, 'userAgent');
-    /** @suppress {checkTypes} suppression added to enable type checking */
-    goog.userAgent = {
-      product: {
-        CHROME: false,
-        version: 0,
-        isVersion: function(version) {
-          return googString.compareVersions(this.version, version) >= 0;
-        },
-      },
-      GECKO: false,
-      IE: false,
-      version: 0,
-      isVersionOrHigher: function(version) {
-        return googString.compareVersions(this.version, version) >= 0;
-      },
-    };
+
+    stubs.set(product, 'CHROME', false);
+    stubs.set(productIsVersion, 'VERSION', 0);
+    stubs.set(productIsVersion, 'isVersion', function(version) {
+      return googString.compareVersions(productIsVersion.VERSION, version) >= 0;
+    });
+    stubs.set(userAgent, 'GECKO', false);
+    stubs.set(userAgent, 'IE', false);
+    stubs.set(userAgent, 'VERSION', 0);
+    stubs.set(userAgent, 'isVersionOrHigher', function(version) {
+      return googString.compareVersions(userAgent.VERSION, version) >= 0;
+    });
   },
 
   tearDown() {
     stubs.reset();
-    goog.dispose(mouseWheelHandler);
-    goog.dispose(mouseWheelHandlerRtl);
+    dispose(mouseWheelHandler);
+    dispose(mouseWheelHandlerRtl);
     mouseWheelHandlerRtl = null;
     mouseWheelHandler = null;
     mouseWheelEvent = null;
@@ -201,25 +199,25 @@ testSuite({
     assertEquals(LEGACY_TYPE, WheelHandler.getDomEventType());
 
     // Gecko start to support wheel with version 17.
-    goog.userAgent.GECKO = true;
+    userAgent.$set('GECKO', true);
     assertEquals(PREFERRED_TYPE, WheelHandler.getDomEventType());
-    goog.userAgent.GECKO = false;
+    userAgent.$set('GECKO', false);
 
     // IE started with version 9.
-    goog.userAgent.IE = true;
+    userAgent.$set('IE', true);
     assertEquals(PREFERRED_TYPE, WheelHandler.getDomEventType());
-    goog.userAgent.IE = false;
+    userAgent.$set('IE', false);
 
     // Chrome started with version 31.
-    goog.userAgent.product.CHROME = true;
+    product.$set('CHROME', true);
     assertEquals(PREFERRED_TYPE, WheelHandler.getDomEventType());
-    goog.userAgent.product.CHROME = false;
+    product.$set('CHROME', false);
   },
 
   testPreferredStyleWheel() {
     // Enable 'wheel'
-    goog.userAgent.IE = true;
-    goog.userAgent.version = 9;
+    userAgent.$set('IE', true);
+    userAgent.$set('version', 9);
     createHandlerAndListen();
 
     handleEvent(createFakePreferredEvent(DeltaMode.PIXEL, 10, 20, 30));
@@ -251,7 +249,7 @@ testSuite({
   },
 
   testLegacyGeckoStyleWheel() {
-    goog.userAgent.GECKO = true;
+    userAgent.$set('GECKO', true);
     createHandlerAndListen();
 
     // Test no axis.
@@ -271,7 +269,7 @@ testSuite({
   },
 
   testLegacyIeStyleWheel() {
-    goog.userAgent.IE = true;
+    userAgent.$set('IE', true);
 
     createHandlerAndListen();
 
@@ -287,7 +285,7 @@ testSuite({
   },
 
   testNullBody() {
-    goog.userAgent.IE = true;
+    userAgent.$set('IE', true);
     const documentObjectWithNoBody = {};
     testingEvents.mixinListenable(documentObjectWithNoBody);
     /** @suppress {checkTypes} suppression added to enable type checking */

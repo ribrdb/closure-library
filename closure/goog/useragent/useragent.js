@@ -173,7 +173,7 @@ export var WEBKIT = BROWSER_KNOWN_ ?
  * @return {boolean} Whether the user agent is running on a mobile device.
  * @private
  */
-function isMobile_() {
+export function isMobile_() {
  return WEBKIT &&
      util.matchUserAgent('Mobile');
 }
@@ -205,7 +205,7 @@ export var SAFARI = WEBKIT;
  *     (on Rhino, for example).
  * @private
  */
-function determinePlatform_() {
+export function determinePlatform_() {
  var navigator = getNavigatorTyped();
  return navigator && navigator.platform || '';
 }
@@ -306,7 +306,7 @@ export var WINDOWS = PLATFORM_KNOWN_ ?
  * @return {boolean}
  * @private
  */
-function isLegacyLinux_() {
+export function isLegacyLinux_() {
  return platform.isLinux() ||
      platform.isChromeOS();
 }
@@ -385,7 +385,7 @@ export var KAIOS = PLATFORM_KNOWN_ ?
  *     agent.
  * @private
  */
-function determineVersion_() {
+export function determineVersion_() {
  // All browsers have different ways to detect the version and they all have
  // different naming schemes.
  // version is a string rather than a number because it may contain 'b', 'a',
@@ -448,7 +448,7 @@ function getVersionRegexResult_() {
  * @return {number|undefined} Returns the document mode (for testing).
  * @private
  */
-function getDocumentMode_() {
+export function getDocumentMode_() {
  // NOTE(user): goog.userAgent may be used in context where there is no DOM.
  var doc = goog.global['document'];
  return doc ? doc['documentMode'] : undefined;

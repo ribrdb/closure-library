@@ -135,7 +135,7 @@ export function setRotation(element, degrees) {
  *     is IE9.
  * @private
  */
-var getTransformProperty_ = functions.cacheReturnValue(function() {
+export var getTransformProperty_ = functions.cacheReturnValue(function() {
   return userAgent.IE && userAgent.DOCUMENT_MODE == 9 ?
       '-ms-transform' :
       'transform';

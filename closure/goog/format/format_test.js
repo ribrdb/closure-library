@@ -189,47 +189,44 @@ testSuite({
   testInsertWordBreaks() {
     // HTML that gets inserted is browser dependent, ensure for the test it is
     // a constant - browser dependent HTML is for display purposes only.
-    propertyReplacer.set(format, 'WORD_BREAK_HTML', '<wbr>');
+    const wbr = (s)=>s.replaceAll('<wbr>', format.WORD_BREAK_HTML);
 
     const insertWordBreaks = format.insertWordBreaks;
 
     assertEquals('abcdef', insertWordBreaks('abcdef', 10));
-    assertEquals('ab<wbr>cd<wbr>ef', insertWordBreaks('abcdef', 2));
+    assertEquals(wbr('ab<wbr>cd<wbr>ef'), insertWordBreaks('abcdef', 2));
     assertEquals(
-        'a<wbr>b<wbr>c<wbr>d<wbr>e<wbr>f', insertWordBreaks('abcdef', 1));
+        wbr('a<wbr>b<wbr>c<wbr>d<wbr>e<wbr>f'), insertWordBreaks('abcdef', 1));
 
     assertEquals(
-        'a&amp;b=<wbr>=fal<wbr>se', insertWordBreaks('a&amp;b==false', 4));
+        wbr('a&amp;b=<wbr>=fal<wbr>se'), insertWordBreaks('a&amp;b==false', 4));
     assertEquals(
-        '&lt;&amp;&gt;&raquo;<wbr>&laquo;',
+        wbr('&lt;&amp;&gt;&raquo;<wbr>&laquo;'),
         insertWordBreaks('&lt;&amp;&gt;&raquo;&laquo;', 4));
 
-    assertEquals('a<wbr>b<wbr>c d<wbr>e<wbr>f', insertWordBreaks('abc def', 1));
-    assertEquals('ab<wbr>c de<wbr>f', insertWordBreaks('abc def', 2));
+    assertEquals(wbr('a<wbr>b<wbr>c d<wbr>e<wbr>f'), insertWordBreaks('abc def', 1));
+    assertEquals(wbr('ab<wbr>c de<wbr>f'), insertWordBreaks('abc def', 2));
     assertEquals('abc def', insertWordBreaks('abc def', 3));
     assertEquals('abc def', insertWordBreaks('abc def', 4));
 
-    assertEquals('a<b>cd</b>e<wbr>f', insertWordBreaks('a<b>cd</b>ef', 4));
+    assertEquals(wbr('a<b>cd</b>e<wbr>f'), insertWordBreaks('a<b>cd</b>ef', 4));
     assertEquals(
-        'Thi<wbr>s is a <a href="">lin<wbr>k</a>.',
+        wbr('Thi<wbr>s is a <a href="">lin<wbr>k</a>.'),
         insertWordBreaks('This is a <a href="">link</a>.', 3));
     assertEquals(
-        '<abc a="&amp;&amp;&amp;&amp;&amp;">a<wbr>b',
+        wbr('<abc a="&amp;&amp;&amp;&amp;&amp;">a<wbr>b'),
         insertWordBreaks('<abc a="&amp;&amp;&amp;&amp;&amp;">ab', 1));
 
-    assertEquals('ab\u0300<wbr>cd', insertWordBreaks('ab\u0300cd', 2));
-    assertEquals('ab\u036F<wbr>cd', insertWordBreaks('ab\u036Fcd', 2));
-    assertEquals('ab<wbr>\u0370c<wbr>d', insertWordBreaks('ab\u0370cd', 2));
-    assertEquals('ab<wbr>\uFE1Fc<wbr>d', insertWordBreaks('ab\uFE1Fcd', 2));
+    assertEquals(wbr('ab\u0300<wbr>cd'), insertWordBreaks('ab\u0300cd', 2));
+    assertEquals(wbr('ab\u036F<wbr>cd'), insertWordBreaks('ab\u036Fcd', 2));
+    assertEquals(wbr('ab<wbr>\u0370c<wbr>d'), insertWordBreaks('ab\u0370cd', 2));
+    assertEquals(wbr('ab<wbr>\uFE1Fc<wbr>d'), insertWordBreaks('ab\uFE1Fcd', 2));
     assertEquals(
-        'ab\u0300<wbr>c\u0301<wbr>de<wbr>f',
+        wbr('ab\u0300<wbr>c\u0301<wbr>de<wbr>f'),
         insertWordBreaks('ab\u0300c\u0301def', 2));
   },
 
   testInsertWordBreaksWithFormattingCharacters() {
-    // HTML that gets inserted is browser dependent, ensure for the test it is
-    // a constant - browser dependent HTML is for display purposes only.
-    propertyReplacer.set(format, 'WORD_BREAK_HTML', '<wbr>');
     const insertWordBreaks = format.insertWordBreaks;
 
     // A date in Arabic-Indic digits with Right-to-Left Marks (U+200F).
@@ -278,20 +275,21 @@ testSuite({
   testInsertWordBreaksBasic() {
     // HTML that gets inserted is browser dependent, ensure for the test it is
     // a constant - browser dependent HTML is for display purposes only.
-    propertyReplacer.set(format, 'WORD_BREAK_HTML', '<wbr>');
+    const wbr = (s)=>s.replaceAll('<wbr>', format.WORD_BREAK_HTML);
+
     const insertWordBreaksBasic = format.insertWordBreaksBasic;
 
     assertEquals('abcdef', insertWordBreaksBasic('abcdef', 10));
-    assertEquals('ab<wbr>cd<wbr>ef', insertWordBreaksBasic('abcdef', 2));
+    assertEquals(wbr('ab<wbr>cd<wbr>ef'), insertWordBreaksBasic('abcdef', 2));
     assertEquals(
-        'a<wbr>b<wbr>c<wbr>d<wbr>e<wbr>f', insertWordBreaksBasic('abcdef', 1));
+        wbr('a<wbr>b<wbr>c<wbr>d<wbr>e<wbr>f'), insertWordBreaksBasic('abcdef', 1));
     assertEquals(
-        'ab\u0300<wbr>c\u0301<wbr>de<wbr>f',
+        wbr('ab\u0300<wbr>c\u0301<wbr>de<wbr>f'),
         insertWordBreaksBasic('ab\u0300c\u0301def', 2));
 
     assertEquals(
         'Inserting word breaks into the word "Russia" should work fine.',
-        '\u0420\u043E<wbr>\u0441\u0441<wbr>\u0438\u044F',
+        wbr('\u0420\u043E<wbr>\u0441\u0441<wbr>\u0438\u044F'),
         insertWordBreaksBasic('\u0420\u043E\u0441\u0441\u0438\u044F', 2));
 
     // The word 'Internet' in Hindi.
@@ -303,7 +301,7 @@ testSuite({
     // The word 'Internet' in Hindi broken into slashes.
     assertEquals(
         'Hindi can have word breaks inserted between slashes',
-        `${hindiInternet}<wbr>/${hindiInternet}<wbr>.${hindiInternet}`,
+        wbr(`${hindiInternet}<wbr>/${hindiInternet}<wbr>.${hindiInternet}`),
         insertWordBreaksBasic(
             `${hindiInternet}/${hindiInternet}.${hindiInternet}`, 2));
   },

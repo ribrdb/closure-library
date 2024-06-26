@@ -37,12 +37,12 @@ let mockClock;
 // dynamic menu positioning if the menu doesn't fit in the window.)
 const oldPositionFn = positioning.positionAtCoordinate;
 /** @suppress {checkTypes} suppression added to enable type checking */
-positioning.positionAtCoordinate =
+positioning.$set('positionAtCoordinate',
     (absolutePos, movableElement, movableElementCorner, margin = undefined,
      overflow = undefined) =>
         oldPositionFn.call(
             null, absolutePos, movableElement, movableElementCorner, margin,
-            Overflow.IGNORE);
+            Overflow.IGNORE));
 
 function assertKeyHandlingIsCorrect(keyToOpenSubMenu, keyToCloseSubMenu) {
   menu.setFocusable(true);

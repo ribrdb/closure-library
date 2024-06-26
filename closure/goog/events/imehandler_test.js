@@ -17,6 +17,7 @@ import googObject from '../object/object.js';
 import * as googString from '../string/string.js';
 import * as googUserAgent from '../useragent/useragent.js';
 import { testSuite } from '../testing/testsuite.js';
+import { compareVersions } from '../string/internal.js';
 
 let sandbox;
 let imeHandler;
@@ -102,12 +103,8 @@ function setUserAgent(userAgent) {
 }
 
 function setVersion(version) {
-  googUserAgent.VERSION = version;
-  /**
-   * @suppress {visibility,checkTypes,constantProperty} suppression added to
-   * enable type checking
-   */
-  googUserAgent.isVersionOrHigherCache_ = {};
+  googUserAgent.$set('VERSION', version);
+  googUserAgent.$set('isVersionOrHigher',  (q)=>compareVersions(version, q) >= 0);
 }
 
 function assertImeMode() {

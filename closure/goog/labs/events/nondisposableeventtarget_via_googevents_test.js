@@ -11,6 +11,7 @@ import eventTargetTester from '../../events/eventtargettester.js';
 import * as events from '../../events/events.js';
 import { testSuite } from '../../testing/testsuite.js';
 import * as testing from '../../testing/functionmock.js';
+import { recordFunction } from '../../testing/recordfunction.js';
 
 const KeyType = eventTargetTester.KeyType;
 const EventType = eventTargetTester.EventType;
@@ -62,7 +63,7 @@ testSuite({
 
   testListenWithObject() {
     const obj = {};
-    obj.handleEvent = testing.recordFunction();
+    obj.handleEvent = recordFunction();
     events.listen(eventTargetTester.getTargets()[0], EventType.A, obj);
     eventTargetTester.getTargets()[0].dispatchEvent(EventType.A);
     assertEquals(1, obj.handleEvent.getCallCount());

@@ -15,6 +15,7 @@ import { CachingMatcher } from './cachingmatcher.js';
 import { MockControl } from '../../testing/mockcontrol.js';
 import * as mockmatchers from '../../testing/mockmatchers.js';
 import { testSuite } from '../../testing/testsuite.js';
+import * as throttle from '../../async/throttle.js';
 
 let ignoreArgument = mockmatchers.ignoreArgument;
 
@@ -23,7 +24,7 @@ let ignoreArgument = mockmatchers.ignoreArgument;
  * @suppress {missingProvide,checkTypes} suppression added to enable type
  * checking
  */
-goog.async.Throttle = class {
+throttle.$set('Throttle', class {
   constructor(fn, time, self) {
     this.fn = fn;
     this.time = time;
@@ -42,7 +43,7 @@ goog.async.Throttle = class {
     this.fn.call(this.self);
     this.numFires = 0;
   }
-};
+});
 
 // Actual tests.
 let mockControl;

@@ -20,7 +20,7 @@ import * as userAgent from './useragent.js';
  * @private
  * @return {string} The platform version.
  */
-function determineVersion_() {
+export function determineVersion_() {
   var re;
   if (userAgent.WINDOWS) {
     re = /Windows NT ([0-9.]+)/;

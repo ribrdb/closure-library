@@ -52,7 +52,7 @@ testSuite({
     field.makeEditable();
     field.focusAndPlaceCursorAtStart();
     const textNode = testingDom.findTextNode('http://www.google.com/', fieldEl);
-    events.fireKeySequence(field.getElement(), KeyCodes.K, {ctrlKey: true});
+    events.fireKeySequence(field.getElement(), KeyCodes.K, {ctrlKey: true, metaKey: true});
 
     /** @suppress {checkTypes} suppression added to enable type checking */
     const href = dom.getElementsByTagName(TagName.A, field.getElement())[0];

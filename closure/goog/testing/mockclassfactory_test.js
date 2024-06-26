@@ -10,7 +10,7 @@ import { LooseMock } from './loosemock.js';
 import { MockClassFactory } from './mockclassfactory.js';
 import { StrictMock } from './strictmock.js';
 import { testSuite } from './testsuite.js';
-import * as testing from './functionmock.js';
+import * as matchers from './mockmatchers.js';
 
 /** A fake namespace. */
 const fake = {};
@@ -66,7 +66,6 @@ fake.ChildClass.prototype.overridden = function() {
 };
 
 const mockClassFactory = new MockClassFactory();
-const matchers = testing.mockmatchers;
 
 
 testSuite({

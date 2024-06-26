@@ -20,6 +20,7 @@ import * as classlist from '../dom/classlist.js';
 import * as colorAlpha from '../color/alpha.js';
 import * as style from '../style/style.js';
 import { testSuite } from '../testing/testsuite.js';
+import * as dom from '../dom/dom.js';
 
 let samplePalette;
 const stubs = new PropertyReplacer();
@@ -94,7 +95,7 @@ testSuite({
   /** @suppress {visibility} suppression added to enable type checking */
   testHandleMouseMoveAlpha() {
     samplePalette.render(document.getElementById('sandbox'));
-    stubs.set(goog.dom, 'getPageScroll', () => new Coordinate(0, 0));
+    stubs.set(dom, 'getPageScroll', () => new Coordinate(0, 0));
 
     // Lowering the opacity of a dark, opaque red should yield a
     // more transparent red.

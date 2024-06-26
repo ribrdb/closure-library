@@ -167,7 +167,7 @@ testSuite({
 
 
   testFormatDayNotShort() {
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
 
     const fn = relative.formatDay;
     assertI18nEquals('Sep 25', fn(timestamp('25 September 2009 10:31:06')));
@@ -175,7 +175,7 @@ testSuite({
   },
 
   testFormatDay() {
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
 
     const fn = relative.formatDay;
     const formatter = new DateTimeFormat(DateTimeFormat.Format.SHORT_DATE);
@@ -229,14 +229,14 @@ testSuite({
     // ended that year, at a time after it ended that day)
     const daylightSavingEndMs = 1636358236277;
     goog.now = () => daylightSavingEndMs;
-    assertI18nEquals('today', relative.formatDay(daylightSavingEndMs));
+    assertI18nEquals('Today', relative.formatDay(daylightSavingEndMs));
 
     // March 14, 2021 11:12:34 pm PDT-07:00 (end of the day DST began)
     const daylightSavingStartMs = 1615788754000;
     // March 15, 2021 00:12:34 am PDT-07:00 (the day _after_ DST began)
     const nextDayMs = daylightSavingStartMs + 3600000;
     goog.now = () => daylightSavingStartMs;
-    assertI18nEquals('tomorrow', relative.formatDay(nextDayMs));
+    assertI18nEquals('Tomorrow', relative.formatDay(nextDayMs));
   },
 
   testGetDateString() {
@@ -293,7 +293,7 @@ testSuite({
     stubs.replace(goog, 'LOCALE', 'es');
 
     // Spanish locale 'es'
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
     stubs.set(DateTimeSymbolsModule, 'DateTimeSymbols', DateTimeSymbols_es);
     stubs.set(DateTimePatternsModule, 'DateTimePatterns', DateTimePatterns_es);
 
@@ -352,7 +352,7 @@ testSuite({
     // Frence locale 'fr'
     stubs.replace(goog, 'LOCALE', 'fr');
 
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
     stubs.set(DateTimeSymbolsModule, 'DateTimeSymbols', DateTimeSymbols_fr);
     stubs.set(DateTimePatternsModule, 'DateTimePatterns', DateTimePatterns_fr);
 
@@ -409,7 +409,7 @@ testSuite({
     stubs.replace(goog, 'LOCALE', 'ar');
 
     // Arabic locale 'ar'
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
     stubs.set(DateTimeSymbolsModule, 'DateTimeSymbols', DateTimeSymbols_ar);
     stubs.set(DateTimePatternsModule, 'DateTimePatterns', DateTimePatterns_ar);
 
@@ -431,7 +431,7 @@ testSuite({
   /* Tests for non-ASCII digits in formatter results */
 
   testFormatRelativeForPastDatesPersianDigits() {
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
     stubs.set(DateTimeSymbolsModule, 'DateTimeSymbols', DateTimeSymbols_fa);
     stubs.set(DateTimePatternsModule, 'DateTimePatterns', DateTimePatterns_fa);
     stubs.set(NumberFormatSymbolsModule, 'NumberFormatSymbols', NumberFormatSymbols_fa);
@@ -502,7 +502,7 @@ testSuite({
   },
 
   testFormatRelativeForFutureDatesBengaliDigits() {
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
     stubs.set(DateTimeSymbolsModule, 'DateTimeSymbols', DateTimeSymbols_bn);
     stubs.set(DateTimePatternsModule, 'DateTimePatterns', DateTimePatterns_bn);
     stubs.set(NumberFormatSymbolsModule, 'NumberFormatSymbols', NumberFormatSymbols_bn);
@@ -577,7 +577,7 @@ testSuite({
   },
 
   testFormatRelativeForFutureDatesNorwegian() {
-    stubs.set(relative, 'monthDateFormatter_', null);
+    relative.resetMonthDateFormatter_()
     stubs.set(DateTimeSymbolsModule, 'DateTimeSymbols', DateTimeSymbols_no);
     stubs.set(DateTimePatternsModule, 'DateTimePatterns', DateTimePatterns_no);
     stubs.set(NumberFormatSymbolsModule, 'NumberFormatSymbols', NumberFormatSymbols_no);

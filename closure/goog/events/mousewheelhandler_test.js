@@ -23,6 +23,7 @@ import * as testingEvents from '../testing/events/events.js';
 
 /** @suppress {extraRequire} */
 import * as userAgent from '../useragent/useragent.js';
+import { dispose } from '../disposable/dispose.js';
 
 let log;
 const stubs = new PropertyReplacer();
@@ -39,7 +40,7 @@ let mouseWheelHandler;
 let mouseWheelHandlerRtl;
 
 function runWebKitContinuousAndDiscreteEventsTest() {
-  userAgent.isVersionOrHigher = functions.TRUE;
+  userAgent.$set('isVersionOrHigher', functions.TRUE);
 
   createHandlerAndListen();
 
@@ -152,8 +153,8 @@ testSuite({
 
   tearDown() {
     stubs.reset();
-    goog.dispose(mouseWheelHandler);
-    goog.dispose(mouseWheelHandlerRtl);
+    dispose(mouseWheelHandler);
+    dispose(mouseWheelHandlerRtl);
     mouseWheelHandlerRtl = null;
     mouseWheelHandler = null;
     mouseWheelEvent = null;
@@ -285,7 +286,7 @@ testSuite({
     goog.userAgent =
         {OPERA: false, IE: false, GECKO: false, WEBKIT: true, WINDOWS: false};
 
-    userAgent.isVersionOrHigher = functions.FALSE;
+    userAgent.$set('isVersionOrHigher', functions.FALSE);
 
     createHandlerAndListen();
 

@@ -19,7 +19,7 @@
 
 // clang-format off
 
-import { ListFormatSymbols as ListSymbols } from './listsymbols.js';
+import * as ListSymbols from './listsymbols.js';
 
 /**
  * @type {!ListSymbols.ListFormatSymbols}

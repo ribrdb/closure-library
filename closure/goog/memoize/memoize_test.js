@@ -6,7 +6,7 @@
 
 goog.setTestOnly();
 
-import { memoize } from './memoize.js';
+import { clearCache, memoize } from './memoize.js';
 import { testSuite } from '../testing/testsuite.js';
 
 testSuite({
@@ -116,7 +116,7 @@ testSuite({
     assertEquals('identity(1)==1', 1, identity(1));
     assertEquals('Expected memozation', 1, computed);
 
-    memoize.clearCache(globalThis);
+    clearCache(globalThis);
     assertEquals('identity(1)==1', 1, identity(1));
     assertEquals('identity(1)==1', 1, identity(1));
     assertEquals('Expected cleared memoization cache', 2, computed);

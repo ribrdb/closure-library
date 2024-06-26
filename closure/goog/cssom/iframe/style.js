@@ -282,7 +282,7 @@ function makeColorRuleImportant_(cssText) {
  * @constructor
  * @private
  */
-function CssSelector_(opt_selectorString) {
+export function CssSelector_(opt_selectorString) {
   /** @type {!Array<!CssSelectorPart_>|undefined} */
   this.parts;
 

@@ -13,6 +13,7 @@ import { TagName } from '../dom/tagname.js';
 import { Timer } from '../timer/timer.js';
 import * as dom from '../dom/dom.js';
 import { testSuite } from '../testing/testsuite.js';
+import * as iframeloadmonitor from './iframeloadmonitor.js';
 
 
 const stubs = new PropertyReplacer();
@@ -102,7 +103,7 @@ testSuite({
       };
     }
     FakeIframeLoadMonitor.LOAD_EVENT = 'ifload';
-    stubs.replace(goog.net, 'IframeLoadMonitor', FakeIframeLoadMonitor);
+    stubs.replace(iframeloadmonitor, 'IframeLoadMonitor', FakeIframeLoadMonitor);
 
     const frames =
         [dom.createDom(TagName.IFRAME), dom.createDom(TagName.IFRAME)];

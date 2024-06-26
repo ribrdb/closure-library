@@ -174,7 +174,7 @@ testSuite({
      * @suppress {strictPrimitiveOperators} suppression added to enable type
      * checking
      */
-    userAgent.isDocumentMode = (mode) => mode <= userAgent.DOCUMENT_MODE;
+    userAgent.$set('isDocumentMode', (mode) => mode <= userAgent.DOCUMENT_MODE);
   },
 
   /**
@@ -182,51 +182,51 @@ testSuite({
    * @suppress {const}
    */
   testIe8StyleKeyHandling() {
-    userAgent.IE = true;
-    userAgent.GECKO = false;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', true);
+    userAgent.$set('GECKO', false);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
     /** @suppress {checkTypes} suppression added to enable type checking */
-    userAgent.VERSION = 8;
-    userAgent.DOCUMENT_MODE = 8;
+    userAgent.$set('VERSION', 8);
+    userAgent.$set('DOCUMENT_MODE', 8);
 
     assertIe8StyleKeyHandling();
   },
 
   /** Tests the key handler for the IE 8 and lower behavior. */
   testIe8StyleKeyHandlingInIe9DocumentMode() {
-    userAgent.IE = true;
-    userAgent.GECKO = false;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', true);
+    userAgent.$set('GECKO', false);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
     /** @suppress {checkTypes} suppression added to enable type checking */
-    userAgent.VERSION = 9;  // Try IE9 in IE8 document mode.
+    userAgent.$set('VERSION', 9);  // Try IE9 in IE8 document mode.
     /**
      * @suppress {constantProperty} suppression added to enable type checking
      */
-    userAgent.DOCUMENT_MODE = 8;
+    userAgent.$set('DOCUMENT_MODE', 8);
 
     assertIe8StyleKeyHandling();
   },
 
   /** Tests special cases for IE9. */
   testIe9StyleKeyHandling() {
-    userAgent.IE = true;
-    userAgent.GECKO = false;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', true);
+    userAgent.$set('GECKO', false);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
     /** @suppress {checkTypes} suppression added to enable type checking */
-    userAgent.VERSION = 9;
+    userAgent.$set('VERSION', 9);
     /**
      * @suppress {constantProperty} suppression added to enable type checking
      */
-    userAgent.DOCUMENT_MODE = 9;
+    userAgent.$set('DOCUMENT_MODE', 9);
 
     let keyEvent;
     const keyHandler = new KeyHandler();
@@ -254,12 +254,12 @@ testSuite({
    *    See: https://github.com/google/closure-library/issues/932
    */
   testGeckoStyleKeyHandling_legacyBehavior() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
 
     let eventsFired = 0;
     let keyEvent;
@@ -367,12 +367,12 @@ testSuite({
    *    See: https://github.com/google/closure-library/issues/883
    */
   testGeckoStyleKeyHandling_noKeyPressEventsOnNonPrintable() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
 
     let eventsFired = 0;
     let keyEvent;
@@ -479,12 +479,12 @@ testSuite({
    *    See: https://github.com/google/closure-library/issues/932
    */
   testGeckoStyleKeyHandling_includeBothExperiments() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
 
     let eventsFired = 0;
     let keyEvent;
@@ -583,14 +583,14 @@ testSuite({
 
   /** Tests the key handler for the Safari 3 behavior. */
   testSafari3StyleKeyHandling() {
-    userAgent.IE = false;
-    userAgent.GECKO = false;
-    userAgent.WEBKIT = true;
-    userAgent.MAC = true;
-    userAgent.WINDOWS = false;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', false);
+    userAgent.$set('WEBKIT', true);
+    userAgent.$set('MAC', true);
+    userAgent.$set('WINDOWS', false);
+    userAgent.$set('LINUX', false);
     /** @suppress {checkTypes} suppression added to enable type checking */
-    userAgent.VERSION = 525.3;
+    userAgent.$set('VERSION', 525.3);
 
     let keyEvent;
     const keyHandler = new KeyHandler();
@@ -712,13 +712,13 @@ testSuite({
   },
 
   testGeckoOnMacAltHandling() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = true;
-    userAgent.WINDOWS = false;
-    userAgent.LINUX = false;
-    userAgent.EDGE = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', true);
+    userAgent.$set('WINDOWS', false);
+    userAgent.$set('LINUX', false);
+    userAgent.$set('EDGE', false);
     /** @suppress {visibility} suppression added to enable type checking */
     KeyHandler.SAVE_ALT_FOR_KEYPRESS_ = true;
 
@@ -750,12 +750,12 @@ testSuite({
   },
 
   testGeckoEqualSign() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
 
     let keyEvent;
     const keyHandler = new KeyHandler();
@@ -775,12 +775,12 @@ testSuite({
   },
 
   testGeckoDash() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = false;
-    userAgent.WINDOWS = true;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', false);
+    userAgent.$set('WINDOWS', true);
+    userAgent.$set('LINUX', false);
 
     const keyEvents = [];
     const keyHandler = new KeyHandler();
@@ -801,12 +801,12 @@ testSuite({
   },
 
   testMacGeckoSlash() {
-    userAgent.IE = false;
-    userAgent.GECKO = true;
-    userAgent.WEBKIT = false;
-    userAgent.MAC = true;
-    userAgent.WINDOWS = false;
-    userAgent.LINUX = false;
+    userAgent.$set('IE', false);
+    userAgent.$set('GECKO', true);
+    userAgent.$set('WEBKIT', false);
+    userAgent.$set('MAC', true);
+    userAgent.$set('WINDOWS', false);
+    userAgent.$set('LINUX', false);
 
     let keyEvent;
     const keyHandler = new KeyHandler();

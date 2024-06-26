@@ -17,6 +17,7 @@ import { Deferred } from '../../../../third_party/closure/goog/mochikit/async/de
 
 /** @suppress {extraRequire} used in mocking */
 import * as googFs from '../../fs/fs.js';
+import * as googFsBlob from '../../fs/blob.js';
 
 /** @suppress {extraRequire} used in mocking */
 import * as googFsUrl from '../../fs/url.js';
@@ -154,8 +155,8 @@ export function sliceBlob(testBlob, start, opt_end) {
 export function install(stubs) {
  // Prevent warnings that goog.fs may get optimized away. It's true this is
  // unsafe in compiled code, but it's only meant for tests.
- const fs = goog.getObjectByName('goog.fs');
- const fsUrl = goog.getObjectByName('goog.fs.url');
+ const fs = googFs;
+ const fsUrl = googFsUrl;
  stubs.replace(fs, 'getTemporary', getTemporary);
  stubs.replace(fs, 'getPersistent', getPersistent);
  stubs.replace(fsUrl, 'createObjectUrl', createObjectUrl);
@@ -163,7 +164,7 @@ export function install(stubs) {
  stubs.replace(fsUrl, 'browserSupportsObjectUrls', function() {
   return true;
  });
- const fsBlob = goog.getObjectByName('goog.fs.blob');
+ const fsBlob = googFsBlob;
  stubs.replace(fsBlob, 'getBlob', getBlob);
  stubs.replace(
      fsBlob, 'getBlobWithProperties', getBlobWithProperties);

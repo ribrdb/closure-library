@@ -44,13 +44,13 @@ let expectedFailures;
 // TODO(nicksantos): Move this into a common location if we ever have enough
 // code for a general goog.testing.ui library.
 const originalPositionAtCoordinate = positioning.positionAtCoordinate;
-positioning.positionAtCoordinate = function(
+positioning.$set('positionAtCoordinate', function(
     absolutePos, movableElement, movableElementCorner, margin = undefined,
     viewport = undefined, overflow = undefined, preferredSize = undefined) {
   return originalPositionAtCoordinate.call(
       this, absolutePos, movableElement, movableElementCorner, margin, viewport,
       Overflow.IGNORE, preferredSize);
-};
+});
 
 /**
  * Creates an event for use in multiple tests.

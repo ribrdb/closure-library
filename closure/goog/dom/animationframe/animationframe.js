@@ -95,7 +95,7 @@ export function State() {}
  * a new event is created during the processing).
  * @private {!Array<!Array<TaskSet_>>}
  */
-var tasks_ = [[], []];
+export var tasks_ = [[], []];
 
 
 /**

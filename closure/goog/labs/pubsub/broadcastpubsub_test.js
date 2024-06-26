@@ -16,13 +16,14 @@ import * as log from '../../log/log.js';
 const Level = googLog.Level;
 import { MockClock } from '../../testing/mockclock.js';
 import { MockControl } from '../../testing/mockcontrol.js';
-import { Storage as StorageStorage } from '../../storage/storage.js';
 import { Map as StructsMap } from '../../structs/map.js';
 import * as googArray from '../../array/array.js';
 import * as googJson from '../../json/json.js';
 import { recordFunction } from '../../testing/recordfunction.js';
 import { testSuite } from '../../testing/testsuite.js';
 import * as userAgent from '../../useragent/useragent.js';
+import * as html5localstorage from '../../storage/mechanism/html5localstorage.js';
+import * as storage from '../../storage/storage.js';
 const MockInterface = goog.requireType('goog.testing.mockinterface');
 
 /** @type {BroadcastPubSub} */
@@ -107,7 +108,7 @@ testSuite({
     mockClock.tick();
     /** @suppress {missingRequire} */
     mockHTML5LocalStorageCtor = mockControl.createConstructorMock(
-        goog.storage.mechanism, 'HTML5LocalStorage');
+      html5localstorage, 'HTML5LocalStorage');
 
     mockHtml5LocalStorage = new StructsMap();
 
@@ -223,10 +224,10 @@ testSuite({
   testDispose() {
     mockHTML5LocalStorageCtor().$returns(mockHtml5LocalStorage);
     mockHTML5LocalStorageCtor().$returns(mockHtml5LocalStorage);
-    const mockStorage = mockControl.createLooseMock(StorageStorage);
+    const mockStorage = mockControl.createLooseMock(storage.Storage);
 
     const mockStorageCtor =
-        mockControl.createConstructorMock(goog.storage, 'Storage');
+        mockControl.createConstructorMock(storage, 'Storage');
 
     mockStorageCtor(mockHtml5LocalStorage).$returns(mockStorage);
     mockStorageCtor(mockHtml5LocalStorage).$returns(mockStorage);
@@ -550,10 +551,10 @@ testSuite({
     const now = Date.now();
 
     mockHTML5LocalStorageCtor().$returns(mockHtml5LocalStorage);
-    const mockStorage = mockControl.createLooseMock(StorageStorage);
+    const mockStorage = mockControl.createLooseMock(storage.Storage);
 
     const mockStorageCtor =
-        mockControl.createConstructorMock(goog.storage, 'Storage');
+        mockControl.createConstructorMock(storage, 'Storage');
 
     mockStorageCtor(mockHtml5LocalStorage).$returns(mockStorage);
     if (!isIe8) {

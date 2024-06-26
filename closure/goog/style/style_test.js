@@ -36,7 +36,7 @@ import * as userAgent from '../useragent/useragent.js';
 // Delay running the tests after page load. This test has some asynchronous
 // behavior that interacts with page load detection.
 /** @suppress {constantProperty} suppression added to enable type checking */
-jsunit.AUTO_RUN_DELAY_IN_MS = 500;
+// jsunit.AUTO_RUN_DELAY_IN_MS = 500;
 
 const isBorderBox = !googDom.isCss1CompatMode();
 const EPSILON = 2;
@@ -127,7 +127,7 @@ testSuite({
 
     // Prevent multiple vendor prefixed mock elements from poisoning the cache.
     /** @suppress {visibility} suppression added to enable type checking */
-    googStyle.styleNameCache_ = {};
+    googObject.clear(googStyle.styleNameCache_);
   },
 
   testSetStyle() {

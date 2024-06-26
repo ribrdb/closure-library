@@ -18,6 +18,7 @@ import * as userAgent from './useragent.js';
 import * as keyboard from './keyboard.js';
 import * as userAgentPlatform from './platform.js';
 import * as product from './product.js';
+import * as productIsVersion from './product_isversion.js';
 
 /** @suppress {extraRequire} */
 import { isVersion } from './product_isversion.js';
@@ -34,49 +35,49 @@ reinitializeUserAgent = function() {
   // we can call, because things rely on it compiling to nothing when
   // one of the ASSUME flags is set, and the compiler isn't smart enough
   // to do that when the setting is done inside a function that's inlined.
-  userAgent.OPERA = browser.isOpera();
-  userAgent.IE = browser.isIE();
-  userAgent.EDGE = engine.isEdge();
-  userAgent.EDGE_OR_IE = userAgent.EDGE || userAgent.IE;
-  userAgent.GECKO = engine.isGecko();
-  userAgent.WEBKIT = engine.isWebKit();
-  userAgent.MOBILE = userAgent.isMobile_();
-  userAgent.SAFARI = userAgent.WEBKIT;
+  userAgent.$set('OPERA', browser.isOpera());
+  userAgent.$set('IE', browser.isIE());
+  userAgent.$set('EDGE', engine.isEdge());
+  userAgent.$set('EDGE_OR_IE', userAgent.EDGE || userAgent.IE);
+  userAgent.$set('GECKO', engine.isGecko());
+  userAgent.$set('WEBKIT', engine.isWebKit());
+  userAgent.$set('MOBILE', userAgent.isMobile_());
+  userAgent.$set('SAFARI', userAgent.WEBKIT);
 
   // Platform in goog.userAgent.
-  userAgent.PLATFORM = userAgent.determinePlatform_();
+  userAgent.$set('PLATFORM', userAgent.determinePlatform_());
 
-  userAgent.MAC = platform.isMacintosh();
-  userAgent.WINDOWS = platform.isWindows();
-  userAgent.LINUX = userAgent.isLegacyLinux_();
-  userAgent.ANDROID = platform.isAndroid();
-  userAgent.IPAD = platform.isIpad();
-  userAgent.IPHONE = platform.isIphone();
-  userAgent.IPOD = platform.isIpod();
-  userAgent.KAIOS = platform.isKaiOS();
-  userAgent.VERSION = userAgent.determineVersion_();
+  userAgent.$set('MAC', platform.isMacintosh());
+  userAgent.$set('WINDOWS', platform.isWindows());
+  userAgent.$set('LINUX', userAgent.isLegacyLinux_());
+  userAgent.$set('ANDROID', platform.isAndroid());
+  userAgent.$set('IPAD', platform.isIpad());
+  userAgent.$set('IPHONE', platform.isIphone());
+  userAgent.$set('IPOD', platform.isIpod());
+  userAgent.$set('KAIOS', platform.isKaiOS());
+  userAgent.$set('VERSION', userAgent.determineVersion_());
 
   // Platform in goog.userAgent.platform.
-  userAgentPlatform.VERSION = userAgentPlatform.determineVersion_();
+  userAgentPlatform.$set('VERSION', userAgentPlatform.determineVersion_());
 
   // Update goog.userAgent.product
-  product.ANDROID =
-      browser.isAndroidBrowser();
-  product.CHROME = browser.isChrome();
-  product.EDGE = browser.isEdge();
-  product.FIREFOX = browser.isFirefox();
-  product.IE = browser.isIE();
-  product.IPAD = platform.isIpad();
-  product.IPHONE = product.isIphoneOrIpod_();
-  product.OPERA = browser.isOpera();
-  product.SAFARI = product.isSafariDesktop_();
+  product.$set('ANDROID',
+      browser.isAndroidBrowser());
+  product.$set('CHROME', browser.isChrome());
+  product.$set('EDGE', browser.isEdge());
+  product.$set('FIREFOX', browser.isFirefox());
+  product.$set('IE', browser.isIE());
+  product.$set('IPAD', platform.isIpad());
+  product.$set('IPHONE', product.isIphoneOrIpod_());
+  product.$set('OPERA', browser.isOpera());
+  product.$set('SAFARI', product.isSafariDesktop_());
 
   // Still uses its own implementation.
-  product.VERSION = product.determineVersion_();
+  productIsVersion.$set('VERSION', productIsVersion.determineVersion_());
 
   // goog.userAgent.keyboard
-  keyboard.MAC_KEYBOARD =
-      keyboard.determineMacKeyboard_();
+  keyboard.$set('MAC_KEYBOARD',
+      keyboard.determineMacKeyboard_());
 
   // Reset cache so calls to isVersionOrHigher don't use cached version.
   object.clear(userAgent.isVersionOrHigherCache_);

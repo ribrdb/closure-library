@@ -11,7 +11,9 @@ import { SafeHtml } from './safehtml.js';
 import { SafeHtmlFormatter } from './safehtmlformatter.js';
 import { SafeUrl } from './safeurl.js';
 import * as googString from '../string/string.js';
+import * as internal from '../string/internal.js';
 import { testSuite } from '../testing/testsuite.js';
+
 
 let stubs;
 
@@ -149,8 +151,8 @@ testSuite({
   },
 
   testDetectDoubleEscaping() {
-    stubs.set(googString, 'DETECT_DOUBLE_ESCAPING', true);
-    stubs.set(googString, 'ALL_RE_', /[\x00&<>"'e]/);
+    stubs.set(internal, 'DETECT_DOUBLE_ESCAPING', true);
+    // stubs.set(internal, 'ALL_RE', /[\x00&<>"'e]/);
     const formatter = new SafeHtmlFormatter();
     assertSameHtml('t&#101;st', formatter.format(formatter.text('test')));
   },

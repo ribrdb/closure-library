@@ -24,7 +24,7 @@ import * as asserts from '../asserts.js';
  *     are equal.
  * @private
  */
-function findDifferences_(expected, actual, path) {
+export function findDifferences_(expected, actual, path) {
   const fields = expected.getDescriptor().getFields();
   for (let i = 0; i < fields.length; i++) {
     const field = fields[i];

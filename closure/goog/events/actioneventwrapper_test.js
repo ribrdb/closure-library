@@ -9,11 +9,12 @@ goog.setTestOnly();
 import { EventHandler } from './eventhandler.js';
 import { KeyCodes } from './keycodes.js';
 import { Role } from '../a11y/aria/roles.js';
-import { actionEventWrapper } from './actioneventwrapper.js';
+import { ActionEventWrapper_, actionEventWrapper } from './actioneventwrapper.js';
 import * as aria from '../a11y/aria/aria.js';
 import * as googEvents from './events.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as testingEvents from '../testing/events/events.js';
+import { EventType } from './eventtype.js';
 
 let a;
 let buttonEl;
@@ -28,7 +29,7 @@ class Foo {
 
 function assertListenersExist(el, listenerCount, capt) {
   /** @suppress {visibility} suppression added to enable type checking */
-  const EVENT_TYPES = googEvents.ActionEventWrapper_.EVENT_TYPES_;
+  const EVENT_TYPES = ActionEventWrapper_.EVENT_TYPES_;
   for (let i = 0; i < EVENT_TYPES.length; ++i) {
     assertEquals(
         listenerCount,
@@ -272,8 +273,8 @@ testSuite({
     eh.listen(
         buttonEl,
         [
-          googEvents.EventType.KEYDOWN,
-          googEvents.EventType.KEYUP,
+          EventType.KEYDOWN,
+          EventType.KEYUP,
         ],
         listener);
 
@@ -294,8 +295,8 @@ testSuite({
     eh.listen(
         a,
         [
-          googEvents.EventType.KEYDOWN,
-          googEvents.EventType.KEYUP,
+          EventType.KEYDOWN,
+          EventType.KEYUP,
         ],
         listener);
 

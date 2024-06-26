@@ -160,6 +160,24 @@ class TestEvent extends GoogEventsEvent {
   }
 }
 
+
+/**
+ * Expando property used on "listener" function to determine if a
+ * listener has already been checked. This is what allows us to
+ * implement assertNoOtherListenerIsCalled.
+ * @type {string}
+ */
+const ALREADY_CHECKED_PROP = '__alreadyChecked';
+
+
+/**
+ * Expando property used on "listener" function to record the number
+ * of times it has been called the last time assertListenerIsCalled is
+ * done. This allows us to verify that it has not been called more
+ * times in assertNoOtherListenerIsCalled.
+ */
+const NUM_CALLED_PROP = '__numCalled';
+
 export default {
   assertListenerIsCalled,
   assertNoOtherListenerIsCalled,
@@ -272,22 +290,10 @@ export default {
   /** @const */
   TestEvent,
 
-  /**
-   * Expando property used on "listener" function to determine if a
-   * listener has already been checked. This is what allows us to
-   * implement assertNoOtherListenerIsCalled.
-   * @type {string}
-   */
-  ALREADY_CHECKED_PROP: '__alreadyChecked',
+  ALREADY_CHECKED_PROP,
 
 
-  /**
-   * Expando property used on "listener" function to record the number
-   * of times it has been called the last time assertListenerIsCalled is
-   * done. This allows us to verify that it has not been called more
-   * times in assertNoOtherListenerIsCalled.
-   */
-  NUM_CALLED_PROP: '__numCalled',
+  NUM_CALLED_PROP,
 
   commonTests: {
     testNoListener() {

@@ -19,7 +19,7 @@ testSuite({
 
   setUp() {
     /** @suppress {visibility} suppression added to enable type checking */
-    trustedtypes.cachedPolicy_ = undefined;  // reset the cache.
+    trustedtypes._reset();  // reset the cache.
   },
 
   tearDown() {

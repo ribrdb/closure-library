@@ -48,7 +48,7 @@ export var TIMEOUT = AnimationDelay.TIMEOUT;
  * @type {!Object<number, Animated>}
  * @private
  */
-var activeAnimations_ = {};
+export var activeAnimations_ = {};
 
 
 /**
@@ -65,6 +65,11 @@ var animationWindow_ = null;
  * @private
  */
 var animationDelay_ = null;
+
+/** @private */
+export function getAnimationDelay_() {
+  return animationDelay_;
+}
 
 
 /**
@@ -107,7 +112,7 @@ tearDown = function() {
   animationWindow_ = null;
   dispose(animationDelay_);
   animationDelay_ = null;
-  activeAnimations_ = {};
+  object.clear(activeAnimations_);
 };
 
 
@@ -189,7 +194,7 @@ function cancelAnimationFrame_() {
  * @param {number} now Current time in milliseconds.
  * @private
  */
-function cycleAnimations_(now) {
+export function cycleAnimations_(now) {
   object.forEach(activeAnimations_, function(anim) {
     anim.onAnimationFrame(now);
   });

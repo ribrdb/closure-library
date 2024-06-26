@@ -6,13 +6,13 @@
 
 goog.setTestOnly('goog.labs.mockTest');
 
-import { mock as labsMock, mock as googLabsMock, mock } from './mock.js';
-const TimeoutError = labsMock.TimeoutError;
-const VerificationError = googLabsMock.VerificationError;
+import * as mock from './mock.js';
+import { TimeoutError, VerificationError } from './mock.js';
 import * as array from '../../array/array.js';
-import { timeout as mockTimeout } from './timeoutmode.js';
+import * as mockTimeout from './timeoutmode.js';
 import * as string from '../../string/string.js';
 import { testSuite } from '../../testing/testsuite.js';
+import * as verification from './verificationmode.js';
 
 /** @suppress {extraRequire} Declares globals */
 /** @suppress {extraRequire} Declares globals */
@@ -280,9 +280,9 @@ testSuite({
     const mockObj = mock.mock(obj);
     mock.when(mockObj).property.get().thenReturn('test');
 
-    mock.verify(mockObj, mock.verification.times(0)).property.get();
+    mock.verify(mockObj, verification.times(0)).property.get();
     assertEquals('test', mockObj.property);
-    mock.verify(mockObj, mock.verification.times(1)).property.get();
+    mock.verify(mockObj, verification.times(1)).property.get();
     // Set is not defined.
     assertThrows(() => {
       mockObj.property = 42;
@@ -291,7 +291,7 @@ testSuite({
       mock.when(mockObj).property.set().thenReturn('test');
     });
     assertThrows(() => {
-      mock.verify(mockObj, mock.verification.times(0)).property.set();
+      mock.verify(mockObj, verification.times(0)).property.set();
     });
   },
 
@@ -308,17 +308,17 @@ testSuite({
 
     const mockObj = mock.mock(obj);
 
-    mock.verify(mockObj, mock.verification.times(0)).property.set(42);
+    mock.verify(mockObj, verification.times(0)).property.set(42);
     mockObj.property = 42;
-    mock.verify(mockObj, mock.verification.times(1)).property.set(42);
-    mock.verify(mockObj, mock.verification.times(0)).property.set(1);
+    mock.verify(mockObj, verification.times(1)).property.set(42);
+    mock.verify(mockObj, verification.times(0)).property.set(1);
     // Get is not defined.
     assertUndefined(mockObj.property);
     assertThrows(() => {
       mock.when(mockObj).property.get().thenReturn('test');
     });
     assertThrows(() => {
-      mock.verify(mockObj, mock.verification.times(0)).property.get();
+      mock.verify(mockObj, verification.times(0)).property.get();
     });
   },
 
@@ -343,8 +343,8 @@ testSuite({
     mockObj.property = 42;
     assertEquals(42, mockObj.property);
 
-    mock.verify(mockObj, mock.verification.times(2)).property.get();
-    mock.verify(mockObj, mock.verification.times(1)).property.set(42);
+    mock.verify(mockObj, verification.times(2)).property.get();
+    mock.verify(mockObj, verification.times(1)).property.set(42);
   },
 
   testMockFunctions() {
@@ -796,7 +796,7 @@ testSuite({
   async testWaitOnMultipleMethodCalls() {
     const mockParent = mock.mock(ParentClass);
     const timeoutMode = mockTimeout.timeout(150);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     setTimeout(/**
                   @suppress {strictMissingProperties} suppression added to
@@ -822,7 +822,7 @@ testSuite({
   async testMockFunctionWaitOnMultipleMethodCalls() {
     const mockFunc = mock.mockFunction();
     const timeoutMode = mockTimeout.timeout(150);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     setTimeout(() => {
       mockFunc();
@@ -958,7 +958,7 @@ testSuite({
    */
   async testWaitWithVerificationMode() {
     const mockParent = mock.mock(ParentClass);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     mockParent.method1();
 
@@ -980,7 +980,7 @@ testSuite({
     const func = function() {};
     const funcId = mock.getUid(func);
     const mockFunc = mock.mockFunction(func);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     mockFunc();
 
@@ -1023,7 +1023,7 @@ testSuite({
   async testWaitWithTimeoutAndVerificationMode() {
     const mockParent = mock.mock(ParentClass);
     const timeoutMode = mockTimeout.timeout(150);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     setTimeout(/**
                   @suppress {strictMissingProperties} suppression added to
@@ -1064,7 +1064,7 @@ testSuite({
     const funcId = mock.getUid(func);
     const mockFunc = mock.mockFunction(func);
     const timeoutMode = mockTimeout.timeout(150);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     setTimeout(() => {
       mockFunc();
@@ -1092,7 +1092,7 @@ testSuite({
   async testPassingVerificationModeBeforeTimeoutMode() {
     const mockParent = mock.mock(ParentClass);
     const timeoutMode = mockTimeout.timeout(150);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     setTimeout(/**
                   @suppress {strictMissingProperties} suppression added to
@@ -1133,7 +1133,7 @@ testSuite({
     const funcId = mock.getUid(func);
     const mockFunc = mock.mockFunction(func);
     const timeoutMode = mockTimeout.timeout(150);
-    const verificationMode = mock.verification.times(2);
+    const verificationMode = verification.times(2);
 
     setTimeout(() => {
       mockFunc();

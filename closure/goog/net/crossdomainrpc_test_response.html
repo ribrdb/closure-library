@@ -19,21 +19,10 @@ See the COPYING file for details.
   var CLOSURE_DEFINES = CLOSURE_DEFINES || {};
   CLOSURE_DEFINES["goog.ENABLE_DEBUG_LOADER"]=true;
 </script>
-<!-- MOE:begin_strip -->
-<script src="../../../../javascript/closure/base.js"></script>
-<!-- MOE:end_strip_and_replace
-<script type="text/javascript" src="../base.js"></script> -->
-<script type="text/javascript">
-goog.require('goog.Uri.QueryData');
-goog.require('goog.dom');
-goog.require('goog.events.EventTarget');
-goog.require('goog.json');
-goog.require('goog.log');
-goog.require('goog.net.EventType');
-goog.require('goog.userAgent');
-</script>
-<script type="text/javascript" src="crossdomainrpc.js"></script>
-<script type="text/javascript">
+<script src="../base.js"></script>
+<script type="module">
+import {CrossDomainRpc} from './crossdomainrpc.js';
+import * as useragent from '../useragent/useragent.js';
 function createPayload(size) {
   var chars = [];
   for (var i = 0; i < size; i++) {
@@ -49,12 +38,12 @@ var currentDirectory = location.href.substring(
 );
 
 var echo = {};
-echo[goog.net.CrossDomainRpc.PARAM_ECHO_REQUEST_ID] = 0;
-echo[goog.net.CrossDomainRpc.PARAM_ECHO_DUMMY_URI] = goog.userAgent.EDGE_OR_IE ?
+echo[CrossDomainRpc.PARAM_ECHO_REQUEST_ID] = 0;
+echo[CrossDomainRpc.PARAM_ECHO_DUMMY_URI] = useragent.EDGE_OR_IE ?
     currentDirectory + '/crossdomainrpc_test.gif' :
     currentDirectory + '/crossdomainrpc_test.css';
 
-goog.net.CrossDomainRpc.sendResponse(
+CrossDomainRpc.sendResponse(
     '({"result":"' + payload + '"})',
     true,              // is JSON
     echo,              // parameters to echo back

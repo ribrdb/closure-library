@@ -84,7 +84,7 @@ forceStandardsModeIframes = function() {
  * @return {string} The initial IFRAME content HTML.
  * @private
  */
-function getInitialIframeContent_(info, bodyHtml, style) {
+export function getInitialIframeContent_(info, bodyHtml, style) {
   var html = [];
 
   if (info.blended_ && info.standards_ ||

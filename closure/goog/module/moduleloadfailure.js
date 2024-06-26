@@ -61,7 +61,7 @@ class ModuleLoadFailure {
  * The possible reasons for a module load failure callback being fired.
  * @enum {number}
  */
-const Type = {
+ModuleLoadFailure.Type = {
   /** 401 Status. */
   UNAUTHORIZED: 0,
 
@@ -79,4 +79,3 @@ const Type = {
 };
 
 export { ModuleLoadFailure };
-export { Type };

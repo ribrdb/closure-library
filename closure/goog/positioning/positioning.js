@@ -285,7 +285,7 @@ export function getOffsetParentPageOffset(movableElement) {
  *     intersection is empty, returns the bounding rectangle.
  * @private
  */
-function getVisiblePart_(el) {
+export function getVisiblePart_(el) {
   var rect = style.getBounds(el);
   var visibleBox = style.getVisibleRectForElement(el);
   if (visibleBox) {
@@ -436,7 +436,7 @@ export function getPositionAtCoordinate(
  *     {@see OverflowStatus}.
  * @private
  */
-function adjustForViewport_(pos, size, viewport, overflow) {
+export function adjustForViewport_(pos, size, viewport, overflow) {
   var status = OverflowStatus.NONE;
 
   var ADJUST_X_EXCEPT_OFFSCREEN =

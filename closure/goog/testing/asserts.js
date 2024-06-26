@@ -136,7 +136,7 @@ var _trueTypeOf = function(something) {
   return result;
 };
 
-var _displayStringForValue = function(aVar) {
+globalThis._displayStringForValue = function(aVar) {
   var result;
   try {
     result = '<' + String(aVar) + '>';
@@ -149,6 +149,7 @@ var _displayStringForValue = function(aVar) {
   }
   return result;
 };
+goog.exportSymbol('_displayStringForValue', _displayStringForValue);
 
 /** @param {?} failureMessage */
 function fail_(failureMessage) {
@@ -162,11 +163,11 @@ export { fail_ as fail };
  */
 var fail = fail_;
 
-var argumentsIncludeComments = function(expectedNumberOfNonCommentArgs, args) {
+globalThis.argumentsIncludeComments = function(expectedNumberOfNonCommentArgs, args) {
   return args.length == expectedNumberOfNonCommentArgs + 1;
 };
 
-var commentArg = function(expectedNumberOfNonCommentArgs, args) {
+globalThis.commentArg = function(expectedNumberOfNonCommentArgs, args) {
   if (argumentsIncludeComments(expectedNumberOfNonCommentArgs, args)) {
     return args[0];
   }
@@ -174,14 +175,14 @@ var commentArg = function(expectedNumberOfNonCommentArgs, args) {
   return null;
 };
 
-var nonCommentArg = function(
+globalThis.nonCommentArg = function(
     desiredNonCommentArgIndex, expectedNumberOfNonCommentArgs, args) {
   return argumentsIncludeComments(expectedNumberOfNonCommentArgs, args) ?
       args[desiredNonCommentArgIndex] :
       args[desiredNonCommentArgIndex - 1];
 };
 
-var _validateArguments = function(expectedNumberOfNonCommentArgs, args) {
+globalThis._validateArguments = function(expectedNumberOfNonCommentArgs, args) {
   var valid = args.length == expectedNumberOfNonCommentArgs ||
       args.length == expectedNumberOfNonCommentArgs + 1 &&
           typeof args[0] === 'string';
@@ -200,7 +201,7 @@ var _validateArguments = function(expectedNumberOfNonCommentArgs, args) {
  * @suppress {missingRequire|undefinedVars|missingProperties}
  * @private
  */
-var _getCurrentTestCase = function() {
+globalThis._getCurrentTestCase = function() {
   // Some users of goog.testing.asserts do not use goog.testing.TestRunner and
   // they do not include goog.testing.TestCase. Exceptions will not be
   // completely correct for these users.
@@ -216,7 +217,7 @@ var _getCurrentTestCase = function() {
   return TestCase.getActiveTestCase();
 };
 
-var _assert = function(comment, booleanValue, failureMessage) {
+globalThis._assert = function(comment, booleanValue, failureMessage) {
   // If another framework has installed an adapter, tell it about the assertion.
   var adapter =
       typeof window !== 'undefined' && window['Closure assert adapter'];
@@ -1675,7 +1676,7 @@ var assertRegExp = assertRegExp_;
  * @return {!Array<?>} Copy of the collection as array.
  * @private
  */
-function toArray_(obj) {
+export function toArray_(obj) {
   var ret = [];
   if (isIterable_(obj)) {
     var iterator =

@@ -23,6 +23,7 @@ import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as testingEvents from '../testing/events/events.js';
+import { Event } from '../events/event.js';
 
 let popup;
 let main;
@@ -64,7 +65,7 @@ testSuite({
     };
     popup.render();
     popup.setVisible(true);
-    const event = new events.Event(
+    const event = new Event(
         EventType.ORIENTATIONCHANGE, popup.getDomHelper().getWindow());
 
     testingEvents.fireBrowserEvent(event);

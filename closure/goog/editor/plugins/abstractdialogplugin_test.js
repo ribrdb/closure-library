@@ -25,6 +25,7 @@ import * as events from '../../testing/events/events.js';
 import * as functions from '../../functions/functions.js';
 import { testSuite } from '../../testing/testsuite.js';
 import * as userAgent from '../../useragent/useragent.js';
+import * as range from '../range.js';
 
 let plugin;
 let mockCtrl;
@@ -45,8 +46,8 @@ function setUpMockRange() {
   mockSavedRange = mockCtrl.createLooseMock(SavedRange);
   mockSavedRange.restore();
 
-  stubs.setPath(
-      'goog.editor.range.saveUsingNormalizedCarets',
+  stubs.set(range, 
+      'saveUsingNormalizedCarets',
       functions.constant(mockSavedRange));
 }
 

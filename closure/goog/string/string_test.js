@@ -16,6 +16,7 @@ import { PropertyReplacer } from '../testing/propertyreplacer.js';
 import { TagName } from '../dom/tagname.js';
 import * as googString from './string.js';
 import { Unicode } from './string.js';
+import * as internal from './internal.js';
 import * as dom from '../dom/dom.js';
 import * as functions from '../functions/functions.js';
 import googObject from '../object/object.js';
@@ -609,7 +610,7 @@ testSuite({
   },
 
   testHtmlEscapeDetectDoubleEscaping() {
-    stubs.set(googString, 'DETECT_DOUBLE_ESCAPING', true);
+    stubs.set(internal, 'DETECT_DOUBLE_ESCAPING', true);
     assertEquals('&#101; &lt; pi', googString.htmlEscape('e < pi'));
     assertEquals('&#101; &lt; pi', googString.htmlEscape('e < pi', true));
   },

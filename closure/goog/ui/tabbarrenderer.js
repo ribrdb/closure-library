@@ -13,6 +13,7 @@ import { Role } from '../a11y/aria/roles.js';
 
 import object from '../object/object.js';
 import { ContainerRenderer } from './containerrenderer.js';
+import { TabBar } from './tabbar.js';
 goog.requireType('goog.ui.container');
 
 
@@ -128,10 +129,10 @@ TabBarRenderer.prototype.createClassByLocationMap_ = function() {
   * @suppress {missingRequire} goog.ui.TabBar
   */
  this.classByLocation_ = object.create(
-     goog.ui.TabBar.Location.TOP, goog.getCssName(baseClass, 'top'),
-     goog.ui.TabBar.Location.BOTTOM, goog.getCssName(baseClass, 'bottom'),
-     goog.ui.TabBar.Location.START, goog.getCssName(baseClass, 'start'),
-     goog.ui.TabBar.Location.END, goog.getCssName(baseClass, 'end'));
+     TabBar.Location.TOP, goog.getCssName(baseClass, 'top'),
+     TabBar.Location.BOTTOM, goog.getCssName(baseClass, 'bottom'),
+     TabBar.Location.START, goog.getCssName(baseClass, 'start'),
+     TabBar.Location.END, goog.getCssName(baseClass, 'end'));
 };
 
 

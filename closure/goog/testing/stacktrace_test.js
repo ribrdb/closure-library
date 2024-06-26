@@ -25,10 +25,6 @@ testSuite({
     expectedFailures = new ExpectedFailures();
   },
 
-  setUp() {
-    stubs.set(stacktrace, 'isClosureInspectorActive_', () => false);
-  },
-
   tearDown() {
     stubs.reset();
     expectedFailures.handleTearDown();

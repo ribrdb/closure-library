@@ -85,7 +85,7 @@ export function toHexString(ch) {
  * @return {string} The padded string.
  * @private
  */
-function padString_(str, length, ch) {
+export function padString_(str, length, ch) {
  while (str.length < length) {
    str = ch + str;
  }

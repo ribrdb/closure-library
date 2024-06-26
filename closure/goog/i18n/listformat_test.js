@@ -6,7 +6,7 @@
 
 goog.setTestOnly();
 
-import { ListFormatSymbols as ListSymbols } from './listsymbols.js';
+import * as ListSymbols from './listsymbols.js';
 import * as ListSymbolsExt from './listsymbolsext.js';
 import * as LocaleFeature from './localefeature.js';
 import { PropertyReplacer } from '../testing/propertyreplacer.js';

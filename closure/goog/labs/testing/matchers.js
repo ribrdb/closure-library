@@ -171,174 +171,174 @@ export var StringContainsInOrderMatcher = stringmatcher.StringContainsInOrderMat
 /**
  * @const
  */
-var anything = decoratormatcher.AnythingMatcher.anything;
+goog.global['anything'] = decoratormatcher.AnythingMatcher.anything;
 
 /**
  * @const
  */
-var describedAs =
+goog.global['describedAs'] =
     decoratormatcher.AnythingMatcher.describedAs;
 
 /**
  * @const
  */
-var is = decoratormatcher.AnythingMatcher.is;
+goog.global['is'] = decoratormatcher.AnythingMatcher.is;
 
 /**
  * @const
  */
-var hasEntries =
+goog.global['hasEntries'] =
     dictionarymatcher.HasEntriesMatcher.hasEntries;
 
 /**
  * @const
  */
-var hasEntry = dictionarymatcher.HasEntryMatcher.hasEntry;
+goog.global['hasEntry'] = dictionarymatcher.HasEntryMatcher.hasEntry;
 
 /**
  * @const
  */
-var hasKey = dictionarymatcher.HasKeyMatcher.hasKey;
+goog.global['hasKey'] = dictionarymatcher.HasKeyMatcher.hasKey;
 
 /**
  * @const
  */
-var hasValue = dictionarymatcher.HasValueMatcher.hasValue;
+goog.global['hasValue'] = dictionarymatcher.HasValueMatcher.hasValue;
 
 /**
  * @const
  */
-var allOf = logicmatcher.AllOfMatcher.allOf;
+goog.global['allOf'] = logicmatcher.AllOfMatcher.allOf;
 
 /**
  * @const
  */
-var anyOf = logicmatcher.AnyOfMatcher.anyOf;
+goog.global['anyOf'] = logicmatcher.AnyOfMatcher.anyOf;
 
 /**
  * @const
  */
-var isNot = logicmatcher.IsNotMatcher.isNot;
+goog.global['isNot'] = logicmatcher.IsNotMatcher.isNot;
 
 /**
  * @const
  */
-var anyNumber = numbermatcher.AnyNumberMatcher.anyNumber;
+goog.global['anyNumber'] = numbermatcher.AnyNumberMatcher.anyNumber;
 
 /**
  * @const
  */
-var closeTo = numbermatcher.CloseToMatcher.closeTo;
+goog.global['closeTo'] = numbermatcher.CloseToMatcher.closeTo;
 
 /**
  * @const
  */
-var equalTo = numbermatcher.EqualToMatcher.equalTo;
+goog.global['equalTo'] = numbermatcher.EqualToMatcher.equalTo;
 
 /**
  * @const
  */
-var greaterThanEqualTo = numbermatcher
+goog.global['greaterThanEqualTo'] = numbermatcher
                              .GreaterThanEqualToMatcher.greaterThanEqualTo;
 
 /**
  * @const
  */
-var greaterThan =
+goog.global['greaterThan'] =
     numbermatcher.GreaterThanMatcher.greaterThan;
 
 /**
  * @const
  */
-var lessThanEqualTo =
+goog.global['lessThanEqualTo'] =
     numbermatcher.LessThanEqualToMatcher.lessThanEqualTo;
 
 /**
  * @const
  */
-var lessThan = numbermatcher.LessThanMatcher.lessThan;
+goog.global['lessThan'] = numbermatcher.LessThanMatcher.lessThan;
 
 /**
  * @const
  */
-var anyObject = objectmatcher.AnyObjectMatcher.anyObject;
+goog.global['anyObject'] = objectmatcher.AnyObjectMatcher.anyObject;
 
 /**
  * @const
  */
-var hasProperty =
+goog.global['hasProperty'] =
     objectmatcher.HasPropertyMatcher.hasProperty;
 
 /**
  * @const
  */
-var instanceOfClass =
+goog.global['instanceOfClass'] =
     objectmatcher.InstanceOfMatcher.instanceOfClass;
 
 /**
  * @const
  */
-var isNull = objectmatcher.IsNullMatcher.isNull;
+goog.global['isNull'] = objectmatcher.IsNullMatcher.isNull;
 
 /**
  * @const
  */
-var isNullOrUndefined =
+goog.global['isNullOrUndefined'] =
     objectmatcher.IsNullOrUndefinedMatcher.isNullOrUndefined;
 
 /**
  * @const
  */
-var isUndefined =
+goog.global['isUndefined'] =
     objectmatcher.IsUndefinedMatcher.isUndefined;
 
 /**
  * @const
  */
-var equalsObject =
+goog.global['equalsObject'] =
     objectmatcher.ObjectEqualsMatcher.equalsObject;
 
 /**
  * @const
  */
-var anyString = stringmatcher.AnyStringMatcher.anyString;
+goog.global['anyString'] = stringmatcher.AnyStringMatcher.anyString;
 
 /**
  * @const
  */
-var containsString =
+goog.global['containsString'] =
     stringmatcher.ContainsStringMatcher.containsString;
 
 /**
  * @const
  */
-var endsWith = stringmatcher.EndsWithMatcher.endsWith;
+goog.global['endsWith'] = stringmatcher.EndsWithMatcher.endsWith;
 
 /**
  * @const
  */
-var equalToIgnoringWhitespace =
+goog.global['equalToIgnoringWhitespace'] =
     stringmatcher.EqualToIgnoringWhitespaceMatcher
         .equalToIgnoringWhitespace;
 
 /**
  * @const
  */
-var equals = stringmatcher.EqualsMatcher.equals;
+goog.global['equals'] = stringmatcher.EqualsMatcher.equals;
 
 /**
  * @const
  */
-var matchesRegex = stringmatcher.RegexMatcher.matchesRegex;
+goog.global['matchesRegex'] = stringmatcher.RegexMatcher.matchesRegex;
 
 /**
  * @const
  */
-var startsWith = stringmatcher.StartsWithMatcher.startsWith;
+goog.global['startsWith'] = stringmatcher.StartsWithMatcher.startsWith;
 
 /**
  * @const
  */
-var stringContainsInOrder =
+goog.global['stringContainsInOrder'] =
     stringmatcher.StringContainsInOrderMatcher
         .stringContainsInOrder;

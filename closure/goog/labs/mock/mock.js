@@ -21,7 +21,7 @@ import * as array from '../../array/array.js';
 
 import * as asserts from '../../asserts/asserts.js';
 import * as debug from '../../debug/debug.js';
-import * as Error from '../../debug/error.js';
+import {DebugError as Error} from '../../debug/error.js';
 import * as functions from '../../functions/functions.js';
 import * as timeoutmode from './timeoutmode.js';
 import * as verification from './verificationmode.js';
@@ -153,7 +153,7 @@ export function waitAndVerify(obj, ...verificationOrTimeoutModes) {
  * @param {!Function} func The function.
  * @return {string} The function name.
  */
-function getFunctionName_(func) {
+export function getFunctionName_(func) {
   let funcName = debug.getFunctionName(func);
   if (funcName == '' || funcName == '[Anonymous]') {
     funcName = '#anonymous' + getUid(func);
@@ -169,7 +169,7 @@ function getFunctionName_(func) {
  * @param {Array<?>=} opt_args The method arguments.
  * @return {string} The string representation of the method call.
  */
-function formatMethodCall_(methodName, opt_args) {
+export function formatMethodCall_(methodName, opt_args) {
   opt_args = opt_args || [];
   opt_args = opt_args.map(function(arg) {
     if (typeof arg === 'function') {
@@ -221,7 +221,7 @@ export function getUid(obj) {
  *     Defaults to true.
  * @return {string} The string representation of the object.
  */
-function formatValue_(obj, opt_id) {
+export function formatValue_(obj, opt_id) {
   const id = (opt_id !== undefined) ? opt_id : true;
   const previous = [];
   const output = [];

@@ -22,6 +22,7 @@ import * as events from '../events/events.js';
 import * as googColor from '../color/color.js';
 import * as style from '../style/style.js';
 import { testSuite } from '../testing/testsuite.js';
+import * as dom from '../dom/dom.js';
 
 let samplePalette;
 let eventWasFired;
@@ -177,7 +178,7 @@ testSuite({
   /** @suppress {visibility} suppression added to enable type checking */
   testHandleMouseMoveValue() {
     samplePalette.render(document.getElementById('sandbox'));
-    stubs.set(goog.dom, 'getPageScroll', () => new Coordinate(0, 0));
+    stubs.set(dom, 'getPageScroll', () => new Coordinate(0, 0));
 
     // Raising the value/brightness of a dark red should yield a lighter red.
     samplePalette.setColor('#630c00');
@@ -209,7 +210,7 @@ testSuite({
   /** @suppress {visibility} suppression added to enable type checking */
   testHandleMouseMoveHueSaturation() {
     samplePalette.render(document.getElementById('sandbox'));
-    stubs.set(goog.dom, 'getPageScroll', () => new Coordinate(0, 0));
+    stubs.set(dom, 'getPageScroll', () => new Coordinate(0, 0));
 
     // The following hue/saturation selection should yield a light yellow.
     style.setPageOffset(samplePalette.hsImageEl_, 0, 0);

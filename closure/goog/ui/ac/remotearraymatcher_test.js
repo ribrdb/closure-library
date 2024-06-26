@@ -12,11 +12,11 @@
 goog.setTestOnly();
 
 import { MockControl } from '../../testing/mockcontrol.js';
-import { XhrIo as NetXhrIo } from '../../testing/net/xhrio.js';
+import { XhrIo } from '../../testing/net/xhrio.js';
 import { RemoteArrayMatcher } from './remotearraymatcher.js';
 
 /** @suppress {extraRequire} */
-import { XhrIo } from '../../net/xhrio.js';
+import * as xhrio from '../../net/xhrio.js';
 
 import { testSuite } from '../../testing/testsuite.js';
 
@@ -33,7 +33,7 @@ let mockMatchHandler;
 
 testSuite({
   setUp() {
-    goog.net.XhrIo = /** @type {?} */ (NetXhrIo);
+    xhrio.$set('XhrIo', /** @type {?} */ (XhrIo));
     mockControl = new MockControl();
     mockMatchHandler = mockControl.createFunctionMock();
   },

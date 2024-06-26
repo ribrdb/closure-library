@@ -142,77 +142,77 @@ let mockClock;
 
 /** Used to simulate behavior of Windows/Firefox */
 function simulateWinFirefox() {
-  userAgent.MAC = false;
-  userAgent.WINDOWS = true;
-  userAgent.LINUX = false;
-  userAgent.IE = false;
-  userAgent.EDGE = false;
-  userAgent.EDGE_OR_IE = false;
-  userAgent.GECKO = true;
-  userAgent.WEBKIT = false;
+  userAgent.$set('MAC', false);
+  userAgent.$set('WINDOWS', true);
+  userAgent.$set('LINUX', false);
+  userAgent.$set('IE', false);
+  userAgent.$set('EDGE', false);
+  userAgent.$set('EDGE_OR_IE', false);
+  userAgent.$set('GECKO', true);
+  userAgent.$set('WEBKIT', false);
 }
 
 /** Used to simulate behavior of Windows/InternetExplorer7 */
 function simulateWinIe7() {
-  userAgent.MAC = false;
-  userAgent.WINDOWS = true;
-  userAgent.LINUX = false;
-  userAgent.IE = true;
-  userAgent.EDGE = false;
-  userAgent.EDGE_OR_IE = true;
-  userAgent.DOCUMENT_MODE = 7;
-  userAgent.GECKO = false;
-  userAgent.WEBKIT = false;
+  userAgent.$set('MAC', false);
+  userAgent.$set('WINDOWS', true);
+  userAgent.$set('LINUX', false);
+  userAgent.$set('IE', true);
+  userAgent.$set('EDGE', false);
+  userAgent.$set('EDGE_OR_IE', true);
+  userAgent.$set('DOCUMENT_MODE', 7);
+  userAgent.$set('GECKO', false);
+  userAgent.$set('WEBKIT', false);
 }
 
 /** Used to simulate behavior of Windows/Chrome */
 function simulateWinChrome() {
-  userAgent.MAC = false;
-  userAgent.WINDOWS = true;
-  userAgent.LINUX = false;
-  userAgent.IE = false;
-  userAgent.EDGE = false;
-  userAgent.EDGE_OR_IE = false;
-  userAgent.GECKO = false;
-  userAgent.WEBKIT = true;
-  userAgent.VERSION = '525';
+  userAgent.$set('MAC', false);
+  userAgent.$set('WINDOWS', true);
+  userAgent.$set('LINUX', false);
+  userAgent.$set('IE', false);
+  userAgent.$set('EDGE', false);
+  userAgent.$set('EDGE_OR_IE', false);
+  userAgent.$set('GECKO', false);
+  userAgent.$set('WEBKIT', true);
+  userAgent.$set('VERSION', '525');
 }
 
 /** Used to simulate behavior of Mac/Firefox */
 function simulateMacFirefox() {
-  userAgent.MAC = true;
-  userAgent.WINDOWS = false;
-  userAgent.LINUX = false;
-  userAgent.IE = false;
-  userAgent.EDGE = false;
-  userAgent.EDGE_OR_IE = false;
-  userAgent.GECKO = true;
-  userAgent.WEBKIT = false;
+  userAgent.$set('MAC', true);
+  userAgent.$set('WINDOWS', false);
+  userAgent.$set('LINUX', false);
+  userAgent.$set('IE', false);
+  userAgent.$set('EDGE', false);
+  userAgent.$set('EDGE_OR_IE', false);
+  userAgent.$set('GECKO', true);
+  userAgent.$set('WEBKIT', false);
 }
 
 /** Used to simulate behavior of Mac/Safari3 */
 function simulateMacSafari3() {
-  userAgent.MAC = true;
-  userAgent.WINDOWS = false;
-  userAgent.LINUX = false;
-  userAgent.IE = false;
-  userAgent.EDGE = false;
-  userAgent.EDGE_OR_IE = false;
-  userAgent.GECKO = false;
-  userAgent.WEBKIT = true;
-  userAgent.VERSION = '525';
+  userAgent.$set('MAC', true);
+  userAgent.$set('WINDOWS', false);
+  userAgent.$set('LINUX', false);
+  userAgent.$set('IE', false);
+  userAgent.$set('EDGE', false);
+  userAgent.$set('EDGE_OR_IE', false);
+  userAgent.$set('GECKO', false);
+  userAgent.$set('WEBKIT', true);
+  userAgent.$set('VERSION', '525');
 }
 
 /** Used to simulate behavior of Linux/Firefox */
 function simulateLinuxFirefox() {
-  userAgent.MAC = false;
-  userAgent.WINDOWS = false;
-  userAgent.LINUX = true;
-  userAgent.IE = false;
-  userAgent.EDGE = false;
-  userAgent.EDGE_OR_IE = false;
-  userAgent.GECKO = true;
-  userAgent.WEBKIT = false;
+  userAgent.$set('MAC', false);
+  userAgent.$set('WINDOWS', false);
+  userAgent.$set('LINUX', true);
+  userAgent.$set('IE', false);
+  userAgent.$set('EDGE', false);
+  userAgent.$set('EDGE_OR_IE', false);
+  userAgent.$set('GECKO', true);
+  userAgent.$set('WEBKIT', false);
 }
 
 testSuite({
@@ -230,13 +230,13 @@ testSuite({
   },
 
   tearDown() {
-    userAgent.MAC = oldMac;
-    userAgent.WINDOWS = oldWin;
-    userAgent.LINUX = oldLinux;
-    userAgent.IE = oldIe;
-    userAgent.GECKO = oldFf;
-    userAgent.WEBKIT = oldWebkit;
-    userAgent.VERSION = oldVersion;
+    userAgent.$set('MAC', oldMac);
+    userAgent.$set('WINDOWS', oldWin);
+    userAgent.$set('LINUX', oldLinux);
+    userAgent.$set('IE', oldIe);
+    userAgent.$set('GECKO', oldFf);
+    userAgent.$set('WEBKIT', oldWebkit);
+    userAgent.$set('VERSION', oldVersion);
     mockClock.dispose();
     mockElement.dispose();
   },

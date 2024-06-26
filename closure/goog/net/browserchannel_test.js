@@ -346,10 +346,10 @@ testSuite({
                 opt_retryId);
 
     // Mock out the stat notification code.
-    stats.notifyStatEvent = (stat) => {
+    stats.$set('notifyStatEvent', (stat) => {
       numStatEvents++;
       lastStatEvent = stat;
-    };
+    });
 
     BrowserChannel.notifyTimingEvent = (size, rtt, retries) => {
       numTimingEvents++;

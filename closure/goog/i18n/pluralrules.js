@@ -47,7 +47,7 @@ export var select;
  * @return {!Keyword} Default value.
  * @private
  */
-function defaultSelect_(n, precision) {
+export function defaultSelect_(n, precision) {
   return Keyword.OTHER;
 }
 /**
@@ -129,7 +129,7 @@ function get_e_(n) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function filSelect_(n, precision) {
+export function filSelect_(n, precision) {
   const i = n | 0;
   const vf = get_vf_(n, precision);
   if (vf.v == 0 && (i == 1 || i == 2 || i == 3) || vf.v == 0 && i % 10 != 4 && i % 10 != 6 && i % 10 != 9 || vf.v != 0 && vf.f % 10 != 4 && vf.f % 10 != 6 && vf.f % 10 != 9) {
@@ -146,7 +146,7 @@ function filSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function heSelect_(n, precision) {
+export function heSelect_(n, precision) {
   const i = n | 0;
   const vf = get_vf_(n, precision);
   if (i == 1 && vf.v == 0 || i == 0 && vf.v != 0) {
@@ -190,7 +190,7 @@ function brSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function srSelect_(n, precision) {
+export function srSelect_(n, precision) {
   const i = n | 0;
   const vf = get_vf_(n, precision);
   if (vf.v == 0 && i % 10 == 1 && i % 100 != 11 || vf.f % 10 == 1 && vf.f % 100 != 11) {
@@ -210,7 +210,7 @@ function srSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function roSelect_(n, precision) {
+export function roSelect_(n, precision) {
   const i = n | 0;
   const vf = get_vf_(n, precision);
   if (i == 1 && vf.v == 0) {
@@ -304,7 +304,7 @@ function ptSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function isSelect_(n, precision) {
+export function isSelect_(n, precision) {
   const i = n | 0;
   const vf = get_vf_(n, precision);
   const wt = get_wt_(vf.v, vf.f);
@@ -493,7 +493,7 @@ function ruSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function beSelect_(n, precision) {
+export function beSelect_(n, precision) {
   if (n % 10 == 1 && n % 100 != 11) {
     return Keyword.ONE;
   }
@@ -559,7 +559,7 @@ function gaSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function afSelect_(n, precision) {
+export function afSelect_(n, precision) {
   if (n == 1) {
     return Keyword.ONE;
   }
@@ -591,7 +591,7 @@ function mkSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function arSelect_(n, precision) {
+export function arSelect_(n, precision) {
   if (n == 0) {
     return Keyword.ZERO;
   }
@@ -687,7 +687,7 @@ function mtSelect_(n, precision) {
  * @return {!Keyword} Locale-specific plural value.
  * @private
  */
-function enSelect_(n, precision) {
+export function enSelect_(n, precision) {
   const i = n | 0;
   const vf = get_vf_(n, precision);
   if (i == 1 && vf.v == 0) {
@@ -718,7 +718,7 @@ function lnSelect_(n, precision) {
  * @return {function(number,number=) : !Keyword} Select function
  * @private
  */
-function mapToNativeSelect_() {
+export function mapToNativeSelect_() {
   const pluralLookup = {
     'zero':  Keyword.ZERO,
     'one':   Keyword.ONE,

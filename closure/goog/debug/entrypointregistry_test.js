@@ -24,7 +24,7 @@ testSuite({
       lastError = ex;
     });
     /** @suppress {visibility} suppression added to enable type checking */
-    entryPointRegistry.$set('refList_', []);
+    entryPointRegistry.refList_.length = 0;
   },
 
   testMonitorAndUnmonitor() {

@@ -17,6 +17,7 @@ import { DateRange } from '../date/daterange.js';
 
 /** @suppress {extraRequire} */
 import { DateTimeSymbols, DateTimeSymbols_en_US, DateTimeSymbols_zh_HK } from '../i18n/datetimesymbols.js';
+import * as datetimesymbols from '../i18n/datetimesymbols.js';
 
 import { KeyCodes } from '../events/keycodes.js';
 import { Role } from '../a11y/aria/roles.js';
@@ -48,7 +49,7 @@ testSuite({
   },
 
   testIsMonthOnLeft() {
-    goog.i18n.DateTimeSymbols = DateTimeSymbols_en_US;
+    datetimesymbols.$set('DateTimeSymbols', DateTimeSymbols_en_US);
     picker = new DatePicker();
     picker.create(sandbox);
     const head = $$('tr', 'goog-date-picker-head')[0];
@@ -61,7 +62,7 @@ testSuite({
   },
 
   testIsYearOnLeft() {
-    goog.i18n.DateTimeSymbols = DateTimeSymbols_zh_HK;
+    datetimesymbols.$set('DateTimeSymbols', DateTimeSymbols_zh_HK);
     picker = new DatePicker();
     picker.create(sandbox);
     const head = $$('tr', 'goog-date-picker-head')[0];

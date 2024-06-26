@@ -30,7 +30,7 @@ import * as googLocale from './locale.js';
  *    and ids.
  */
 export function getTimeZoneSelectedShortNames(opt_regionOrLang) {
- return googLocale.getTimeZoneNameList_(
+ return getTimeZoneNameList_(
      'TimeZoneSelectedShortNames', opt_regionOrLang);
 }
 
@@ -53,7 +53,7 @@ export function getTimeZoneSelectedShortNames(opt_regionOrLang) {
  *    and ids.
  */
 export function getTimeZoneSelectedLongNames(opt_regionOrLang) {
- return googLocale.getTimeZoneNameList_(
+ return getTimeZoneNameList_(
      'TimeZoneSelectedLongNames', opt_regionOrLang);
 }
 
@@ -96,7 +96,7 @@ export function getTimeZoneAllLongNames() {
  *    and ids.
  * @private
  */
-googLocale.getTimeZoneNameList_ = function(nameType, opt_resource) {
+function getTimeZoneNameList_(nameType, opt_resource) {
  var locale = googLocale.getLocale();
 
  if (!opt_resource) {

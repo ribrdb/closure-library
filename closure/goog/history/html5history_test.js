@@ -20,7 +20,7 @@ import { testSuite } from '../testing/testsuite.js';
 // Delay running the tests after page load. This test has some asynchronous
 // behavior that interacts with page load detection.
 /** @suppress {constantProperty} suppression added to enable type checking */
-jsunit.AUTO_RUN_DELAY_IN_MS = 500;
+// jsunit.AUTO_RUN_DELAY_IN_MS = 500;
 
 let mockControl;
 let mockWindow;

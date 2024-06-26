@@ -20,13 +20,6 @@ import * as internal from './internal.js';
 
 
 /**
- * @define {boolean} Enables HTML escaping of lowercase letter "e" which helps
- * with detection of double-escaping as this letter is frequently used.
- */
-export var DETECT_DOUBLE_ESCAPING = goog.define('goog.string.DETECT_DOUBLE_ESCAPING', false);
-
-
-/**
  * @define {boolean} Whether to force non-dom html unescaping.
  */
 export var FORCE_NON_DOM_HTML_UNESCAPING = goog.define('goog.string.FORCE_NON_DOM_HTML_UNESCAPING', false);
@@ -534,7 +527,7 @@ export var newLineToBr = internal.newLineToBr;
  */
 export function htmlEscape(str, opt_isLikelyToContainHtmlChars) {
   str = internal.htmlEscape(str, opt_isLikelyToContainHtmlChars);
-  if (DETECT_DOUBLE_ESCAPING) {
+  if (internal.DETECT_DOUBLE_ESCAPING) {
     str = str.replace(E_RE_, '&#101;');
   }
   return str;
@@ -596,7 +589,7 @@ export function unescapeEntitiesWithDocument(str, document) {
  *     will be used.
  * @return {string} The unescaped `str` string.
  */
-function unescapeEntitiesUsingDom_(str, opt_document) {
+export function unescapeEntitiesUsingDom_(str, opt_document) {
   /** @type {!Object<string, string>} */
   const seen = {'&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"'};
   /** @type {!Element} */
@@ -649,7 +642,7 @@ function unescapeEntitiesUsingDom_(str, opt_document) {
  * @param {string} str The string to unescape.
  * @return {string} An unescaped copy of `str`.
  */
-function unescapePureXmlEntities_(str) {
+export function unescapePureXmlEntities_(str) {
   return str.replace(/&([^;]+);/g, function(s, entity) {
     switch (entity) {
       case 'amp':

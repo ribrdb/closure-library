@@ -86,7 +86,7 @@ function setStyle_(element, value, style) {
  *
  * @private {!Object<string, string>}
  */
-var styleNameCache_ = {};
+export var styleNameCache_ = {};
 
 
 /**
@@ -98,7 +98,7 @@ var styleNameCache_ = {};
  * @return {string} Vendor-specific style.
  * @private
  */
-function getVendorJsStyleName_(element, style) {
+export function getVendorJsStyleName_(element, style) {
   var propertyName = styleNameCache_[style];
   if (!propertyName) {
     var camelStyle = string.toCamelCase(style);
@@ -128,7 +128,7 @@ function getVendorJsStyleName_(element, style) {
  * @return {string} Vendor-specific style.
  * @private
  */
-function getVendorStyleName_(element, style) {
+export function getVendorStyleName_(element, style) {
   var camelStyle = string.toCamelCase(style);
 
   if (element.style[camelStyle] === undefined) {

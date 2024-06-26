@@ -281,3 +281,17 @@ export function getNumber(id) {
   return getRegistry().getNumericSetting(id).getValue();
 }
 export var endBooleanGroup;
+
+/**
+ * 
+ * @param {Registry} registry 
+ * @private
+ */
+export function setRegistry_(registry) {
+  registry_ = registry;
+}
+
+/** @private */
+export function resetActiveBooleanGroup_() {
+  activeBooleanGroup_ = null;
+}

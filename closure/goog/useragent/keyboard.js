@@ -23,7 +23,7 @@ export var ASSUME_MAC_KEYBOARD = goog.define('goog.userAgent.keyboard.ASSUME_MAC
  * @return {boolean}
  * @private
  */
-function determineMacKeyboard_() {
+export function determineMacKeyboard_() {
  return platform.isMacintosh() ||
      platform.isIos();
 }

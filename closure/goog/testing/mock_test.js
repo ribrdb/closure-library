@@ -11,6 +11,7 @@ import { MockControl } from './mockcontrol.js';
 import * as googArray from '../array/array.js';
 import { testSuite } from './testsuite.js';
 import * as testing from './functionmock.js';
+import * as matchers from './mockmatchers.js';
 
 // The object that we will be mocking
 class RealObject {
@@ -23,7 +24,6 @@ class RealObject {
   }
 }
 
-const matchers = testing.mockmatchers;
 let mock;
 
 testSuite({

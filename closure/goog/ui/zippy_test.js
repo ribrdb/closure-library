@@ -16,6 +16,7 @@ import * as events from '../events/events.js';
 import googObject from '../object/object.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as testingEvents from '../testing/events/events.js';
+import { Role } from '../a11y/aria/roles.js';
 
 let buttonZippy;
 let contentlessZippy;
@@ -53,7 +54,7 @@ testSuite({
     headerlessZippy = new Zippy(null, fakeContentEl.cloneNode(true), true);
     buttonZippy = new Zippy(
         null, fakeContentEl.cloneNode(true), true, null, null,
-        aria.Role.BUTTON);
+        Role.BUTTON);
 
     lazyZippyCallCount = 0;
     lazyZippyContentEl = fakeContentEl.cloneNode(true);
@@ -178,7 +179,7 @@ testSuite({
 
   testAreaRoleOverride() {
     assertEquals(
-        'Aria role override is goog.a11y.aria.Role.BUTTON', aria.Role.BUTTON,
+        'Aria role override is goog.a11y.aria.Role.BUTTON', Role.BUTTON,
         buttonZippy.getAriaRole());
   },
 

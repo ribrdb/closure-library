@@ -10,6 +10,7 @@ import { PropertyReplacer } from '../testing/propertyreplacer.js';
 import * as dom from './dom.js';
 import * as forms from './forms.js';
 import { testSuite } from '../testing/testsuite.js';
+import * as googWindow from '../window/window.js';
 
 const stubs = new PropertyReplacer();
 
@@ -33,7 +34,7 @@ function mockWindowOpen(mockForm) {
       },
     },
   });
-  stubs.setPath('goog.window.openBlank', windowOpen);
+  stubs.set(googWindow, 'openBlank', windowOpen);
 }
 
 testSuite({

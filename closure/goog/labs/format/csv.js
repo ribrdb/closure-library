@@ -23,7 +23,7 @@
 
 import * as asserts from '../../asserts/asserts.js';
 
-import * as Error from '../../debug/error.js';
+import {DebugError as Error} from '../../debug/error.js';
 import object from '../../object/object.js';
 import * as string from '../../string/string.js';
 import * as newlines from '../../string/newlines.js';
@@ -382,7 +382,7 @@ var Sentinels_ = {
  * @return {boolean} Whether the string is a single character.
  * @private
  */
-function isCharacterString_(str) {
+export function isCharacterString_(str) {
   return typeof str === 'string' && str.length == 1;
 }
 
@@ -393,7 +393,7 @@ function isCharacterString_(str) {
  * @throws {asserts.AssertionError} If {@ code} is not a token.
  * @private
  */
-function assertToken_(o) {
+export function assertToken_(o) {
   if (typeof o === 'string') {
     asserts.assertString(o);
     asserts.assert(

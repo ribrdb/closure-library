@@ -27,7 +27,7 @@ import * as product from './product.js';
  *     contain 'b', 'a', and so on.
  * @private
  */
-function determineVersion_() {
+export function determineVersion_() {
   // All browsers have different ways to detect the version and they all have
   // different naming schemes.
 

@@ -24,7 +24,7 @@ import { testSuite } from '../testing/testsuite.js';
 import { AssertionError } from '../asserts/asserts.js';
 
 /** @suppress {visibility} suppression added to enable type checking */
-const originalHandleBrowserEvent = events.handleBrowserEvent_;
+const originalHandleBrowserEvent = events.getHandlerForTests_();
 let propertyReplacer;
 let et1;
 let et2;
@@ -147,9 +147,9 @@ testSuite({
 
   tearDown() {
     /** Use computed properties to avoid compiler checks of defines */
-    events['CAPTURE_SIMULATION_MODE'] = CaptureSimulationMode.ON;
+    events.$set('CAPTURE_SIMULATION_MODE', CaptureSimulationMode.ON);
     /** @suppress {visibility} suppression added to enable type checking */
-    events.handleBrowserEvent_ = originalHandleBrowserEvent;
+    events.setHandlerForTests_(originalHandleBrowserEvent);
     disposeAll(et1, et2, et3);
     events.removeAll(document.body);
     propertyReplacer.reset();
@@ -162,15 +162,15 @@ testSuite({
     events.protectBrowserEventEntryPoint(errorHandler);
 
     /** @suppress {visibility} suppression added to enable type checking */
-    const browserEventHandler = recordFunction(events.handleBrowserEvent_);
+    const browserEventHandler = recordFunction(events.getHandlerForTests_());
     /** @suppress {visibility} suppression added to enable type checking */
-    events.handleBrowserEvent_ = function() {
+    events.setHandlerForTests_(function() {
       try {
         browserEventHandler.apply(this, arguments);
       } catch (e) {
         // Ignored.
       }
-    };
+    });
 
     const err = Error('test');
     const body = document.body;
@@ -376,7 +376,7 @@ testSuite({
     events.removeAll(et3);
 
     /** Use computed properties to avoid compiler checks of defines */
-    events['CAPTURE_SIMULATION_MODE'] = CaptureSimulationMode.OFF_AND_FAIL;
+    events.$set('CAPTURE_SIMULATION_MODE', CaptureSimulationMode.OFF_AND_FAIL);
     count = 0;
 
     events.listen(et1, 'test', callbackCapture1, {capture: true});
@@ -491,7 +491,7 @@ testSuite({
 
     entryPointRegistry.monitorAll(monitor);
     assertTrue(monitor.wrap.getCallCount() >= 1);
-    assertEquals(replacement, events.handleBrowserEvent_);
+    assertEquals(replacement, events.getHandlerForTests_());
   },
 
   // Fixes bug http://b/6434926
@@ -767,7 +767,7 @@ testSuite({
 
   testCaptureSimulationModeOffAndFail() {
     /** Use computed properties to avoid compiler checks of defines */
-    events['CAPTURE_SIMULATION_MODE'] = CaptureSimulationMode.OFF_AND_FAIL;
+    events.$set('CAPTURE_SIMULATION_MODE', CaptureSimulationMode.OFF_AND_FAIL);
     const captureHandler = recordFunction();
 
     events.listen(document.body, 'click', captureHandler, true);
@@ -777,7 +777,7 @@ testSuite({
 
   testCaptureSimulationModeOffAndSilent() {
     /** Use computed properties to avoid compiler checks of defines */
-    events['CAPTURE_SIMULATION_MODE'] = CaptureSimulationMode.OFF_AND_SILENT;
+    events.$set('CAPTURE_SIMULATION_MODE', CaptureSimulationMode.OFF_AND_SILENT);
     const captureHandler = recordFunction();
 
     events.listen(document.body, 'click', captureHandler, true);

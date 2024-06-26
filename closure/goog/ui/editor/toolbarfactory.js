@@ -166,7 +166,7 @@ export function getLegacySizeFromPx(px) {
  * @type {!Array<number>}
  * @private
  */
-var LEGACY_SIZE_TO_PX_MAP_ = [10, 10, 13, 16, 18, 24, 32, 48];
+export var LEGACY_SIZE_TO_PX_MAP_ = [10, 10, 13, 16, 18, 24, 32, 48];
 
 
 /**

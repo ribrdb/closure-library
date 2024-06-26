@@ -17,6 +17,7 @@ import * as events from '../events/events.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as testingEvents from '../testing/events/events.js';
 import * as userAgent from '../useragent/useragent.js';
+import { EventType } from '../events/eventtype.js';
 
 const Modifiers = KeyboardShortcutHandler.Modifiers;
 
@@ -923,7 +924,7 @@ testSuite({
   testHandleEmptyBrowserEvent() {
     const rootDiv = dom.getElement('rootDiv');
     const emptyEvent = new BrowserEvent();
-    emptyEvent.type = events.EventType.KEYDOWN;
+    emptyEvent.type = EventType.KEYDOWN;
     emptyEvent.target = rootDiv;
     emptyEvent.key = 'g';
     emptyEvent.keyCode = KeyCodes.G;

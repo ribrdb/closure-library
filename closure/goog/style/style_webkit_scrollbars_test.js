@@ -27,8 +27,10 @@ testSuite({
     expectedFailures.handleTearDown();
 
     // Assert that the test loaded.
-    asserts.assert(testScrollbarWidth);
+    asserts.assert(styleScrollbarTester.testScrollbarWidth);
   },
+
+  testScrollbarWidth: styleScrollbarTester.testScrollbarWidth,
 
   testScrollBarWidth_webkitScrollbar() {
     expectedFailures.expectFailureFor(!userAgent.WEBKIT);

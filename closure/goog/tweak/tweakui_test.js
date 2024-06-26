@@ -76,7 +76,7 @@ testSuite({
 
   tearDown() {
     /** @suppress {visibility} suppression added to enable type checking */
-    tweak.activeBooleanGroup_ = null;
+    tweak.resetActiveBooleanGroup_();
     // When debugging a single test, don't clear out the DOM.
     if (window.location.search.indexOf('runTests') == -1) {
       dom.removeChildren(root);

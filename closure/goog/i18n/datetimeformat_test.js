@@ -78,7 +78,7 @@ import { removeWhitespace } from '../testing/i18n/whitespace.js';
 import { DayPeriods_zh_Hant, setDayPeriods } from './dayperiodsymbols.js';
 import { UtcDateTime } from '../date/utcdatetime.js';
 import { testSuite } from '../testing/testsuite.js';
-import { isIE } from '../labs/useragent/browser.js';
+import { isIE, isSafari } from '../labs/useragent/browser.js';
 
 // Note that exact formatted output equivalence between Closure and
 // ECMAScript implementations is not required in all cases.
@@ -551,9 +551,9 @@ testSuite({
       replacer.replace(datetimepatterns, 'DateTimePatterns', DateTimePatterns_sv);
       replacer.replace(datetimesymbols, 'DateTimeSymbols', DateTimeSymbols_sv);
       fmt = new DateTimeFormat(DateTimePatterns.WEEKDAY_MONTH_DAY_YEAR_MEDIUM);
-      assertEquals('tors, juni 28, 2012', fmt.format(date));
+      assertEquals('tors 28 juni 2012', fmt.format(date));
       fmt = new DateTimeFormat(DateTimePatterns.MONTH_DAY_YEAR_MEDIUM);
-      assertEquals('juni 28, 2012', fmt.format(date));
+      assertEquals('28 juni 2012', fmt.format(date));
     }
   },
 
@@ -620,9 +620,9 @@ testSuite({
       }
 
       replacer.replace(
-          goog.i18n, 'DateTimePatterns', DateTimePatterns_zh_Hant_TW);
+          datetimepatterns, 'DateTimePatterns', DateTimePatterns_zh_Hant_TW);
       replacer.replace(
-          goog.i18n, 'DateTimeSymbols', DateTimeSymbols_zh_Hant_TW);
+          datetimesymbols, 'DateTimeSymbols', DateTimeSymbols_zh_Hant_TW);
       replacer.replace(goog, 'LOCALE', 'zh_Hant_TW');
 
       // Set up for parts of the day in Chinese.
@@ -1750,7 +1750,7 @@ testSuite({
     let result = removeLtrMarkers(fmt.format(date)).replace(/2006,/g, '2006');
 
     // Safari includes 'at ' as part of the formatted result
-    if (goog.labs.userAgent.browser.isSafari()) {
+    if (isSafari()) {
       addI18nMapping('Jul 27, 2006 1:10:42 PM', 'Jul 27, 2006 at 1:10:42 PM');
     }
     assertI18nEquals(

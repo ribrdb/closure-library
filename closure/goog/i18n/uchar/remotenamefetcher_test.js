@@ -10,9 +10,9 @@
  */
 goog.setTestOnly();
 
-import { XhrIo as NetXhrIo } from '../../testing/net/xhrio.js';
+import { XhrIo as TestingNetXhrIo } from '../../testing/net/xhrio.js';
 import { RemoteNameFetcher } from './remotenamefetcher.js';
-import { XhrIo } from '../../net/xhrio.js';
+import * as xhrio from '../../net/xhrio.js';
 import { recordFunction } from '../../testing/recordfunction.js';
 import { testSuite } from '../../testing/testsuite.js';
 
@@ -22,7 +22,7 @@ testSuite({
   setUp() {
     // This will fail when XhrIo is converted to goog.module.
     /** @suppress {checkTypes} suppression added to enable type checking */
-    goog.net.XhrIo = NetXhrIo;
+    xhrio.$set('XhrIo', TestingNetXhrIo);
     nameFetcher = new RemoteNameFetcher('http://www.example.com');
   },
 

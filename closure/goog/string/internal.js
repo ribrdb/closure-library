@@ -10,6 +10,12 @@
  * delegate to these.
  */
 
+/**
+ * @define {boolean} Enables HTML escaping of lowercase letter "e" which helps
+ * with detection of double-escaping as this letter is frequently used.
+ */
+export var DETECT_DOUBLE_ESCAPING = goog.define('goog.string.DETECT_DOUBLE_ESCAPING', false);
+
 
 startsWith = function(str, prefix) {
   return str.lastIndexOf(prefix, 0) == 0;

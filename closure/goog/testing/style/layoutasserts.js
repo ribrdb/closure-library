@@ -24,7 +24,7 @@ import * as testingStyle from './style.js';
  * @param {Element|string} a The element or optionally the comment string.
  * @param {Element=} opt_b The element when a comment string is present.
  */
-const assertIsVisible = function(a, opt_b) {
+globalThis.assertIsVisible = function(a, opt_b) {
  _validateArguments(1, arguments);
  const element = nonCommentArg(1, 1, arguments);
 
@@ -40,7 +40,7 @@ const assertIsVisible = function(a, opt_b) {
  * @param {Element|string} a The element or optionally the comment string.
  * @param {Element=} opt_b The element when a comment string is present.
  */
-const assertNotVisible = function(a, opt_b) {
+globalThis.assertNotVisible = function(a, opt_b) {
  _validateArguments(1, arguments);
  const element = nonCommentArg(1, 1, arguments);
  if (!element) {
@@ -61,7 +61,7 @@ const assertNotVisible = function(a, opt_b) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertIntersect = function(a, b, opt_c) {
+globalThis.assertIntersect = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);
@@ -80,7 +80,7 @@ const assertIntersect = function(a, b, opt_c) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertNoIntersect = function(a, b, opt_c) {
+globalThis.assertNoIntersect = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);
@@ -99,7 +99,7 @@ const assertNoIntersect = function(a, b, opt_c) {
  *     is present.
  * @param {(Element|number)=} opt_c The second element if comment string is present.
  */
-const assertWidth = function(a, b, opt_c) {
+globalThis.assertWidth = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const width = nonCommentArg(2, 2, arguments);
@@ -124,7 +124,7 @@ const assertWidth = function(a, b, opt_c) {
  *     present.
  * @param {number=} opt_d The tolerance if comment string is present.
  */
-const assertWidthWithinTolerance = function(a, b, c, opt_d) {
+globalThis.assertWidthWithinTolerance = function(a, b, c, opt_d) {
  _validateArguments(3, arguments);
  const element = nonCommentArg(1, 3, arguments);
  const width = nonCommentArg(2, 3, arguments);
@@ -148,7 +148,7 @@ const assertWidthWithinTolerance = function(a, b, c, opt_d) {
  *     is present.
  * @param {(Element|number)=} opt_c The second element if comment string is present.
  */
-const assertHeight = function(a, b, opt_c) {
+globalThis.assertHeight = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const height = nonCommentArg(2, 2, arguments);
@@ -173,7 +173,7 @@ const assertHeight = function(a, b, opt_c) {
  *     present.
  * @param {number=} opt_d The tolerance if comment string is present.
  */
-const assertHeightWithinTolerance = function(a, b, c, opt_d) {
+globalThis.assertHeightWithinTolerance = function(a, b, c, opt_d) {
  _validateArguments(3, arguments);
  const element = nonCommentArg(1, 3, arguments);
  const height = nonCommentArg(2, 3, arguments);
@@ -197,7 +197,7 @@ const assertHeightWithinTolerance = function(a, b, c, opt_d) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertIsLeftOf = function(a, b, opt_c) {
+globalThis.assertIsLeftOf = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);
@@ -217,7 +217,7 @@ const assertIsLeftOf = function(a, b, opt_c) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertIsStrictlyLeftOf = function(a, b, opt_c) {
+globalThis.assertIsStrictlyLeftOf = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);
@@ -238,7 +238,7 @@ const assertIsStrictlyLeftOf = function(a, b, opt_c) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertIsAbove = function(a, b, opt_c) {
+globalThis.assertIsAbove = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);
@@ -258,7 +258,7 @@ const assertIsAbove = function(a, b, opt_c) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertIsStrictlyAbove = function(a, b, opt_c) {
+globalThis.assertIsStrictlyAbove = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);
@@ -280,7 +280,7 @@ const assertIsStrictlyAbove = function(a, b, opt_c) {
  *     is present.
  * @param {Element=} opt_c The second element if comment string is present.
  */
-const assertContained = function(a, b, opt_c) {
+globalThis.assertContained = function(a, b, opt_c) {
  _validateArguments(2, arguments);
  const element = nonCommentArg(1, 2, arguments);
  const otherElement = nonCommentArg(2, 2, arguments);

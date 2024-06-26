@@ -623,17 +623,17 @@ testSuite({
         };
 
     // Mock out the stat notification code.
-    requestStats.notifyStatEvent = (stat) => {
+    requestStats.$set('notifyStatEvent', (stat) => {
       numStatEvents++;
       lastStatEvent = stat;
-    };
+    });
 
-    requestStats.notifyTimingEvent = (size, rtt, retries) => {
+    requestStats.$set('notifyTimingEvent', (size, rtt, retries) => {
       numTimingEvents++;
       lastPostSize = size;
       lastPostRtt = rtt;
       lastPostRetryCount = retries;
-    };
+    });
   },
 
   setUp() {

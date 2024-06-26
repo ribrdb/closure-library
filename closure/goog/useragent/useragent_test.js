@@ -17,9 +17,9 @@ import util from '../labs/useragent/util.js';
 
 let documentMode;
 /** @suppress {visibility} */
-userAgent.getDocumentMode_ = function() {
+userAgent.$set('getDocumentMode_', function() {
   return documentMode;
-};
+});
 
 const propertyReplacer = new PropertyReplacer();
 

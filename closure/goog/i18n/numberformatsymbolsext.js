@@ -18,7 +18,7 @@
 
 // clang-format off
 
-import { NumberFormatSymbols, NumberFormatSymbols_u_nu_latn } from './numberformatsymbols.js';
+import { NumberFormatSymbols_af, NumberFormatSymbols_am, NumberFormatSymbols_ar, NumberFormatSymbols_az, NumberFormatSymbols_be, NumberFormatSymbols_bg, NumberFormatSymbols_bn, NumberFormatSymbols_bn_u_nu_latn, NumberFormatSymbols_br, NumberFormatSymbols_bs, NumberFormatSymbols_ca, NumberFormatSymbols_chr, NumberFormatSymbols_cs, NumberFormatSymbols_cy, NumberFormatSymbols_da, NumberFormatSymbols_de, NumberFormatSymbols_el, NumberFormatSymbols_en, NumberFormatSymbols_es, NumberFormatSymbols_et, NumberFormatSymbols_eu, NumberFormatSymbols_fi, NumberFormatSymbols_fil, NumberFormatSymbols_fr, NumberFormatSymbols_ga, NumberFormatSymbols_gl, NumberFormatSymbols_gsw, NumberFormatSymbols_gu, NumberFormatSymbols_haw, NumberFormatSymbols_he, NumberFormatSymbols_hi, NumberFormatSymbols_hr, NumberFormatSymbols_hu, NumberFormatSymbols_hy, NumberFormatSymbols_id, NumberFormatSymbols_it, NumberFormatSymbols_ka, NumberFormatSymbols_kk, NumberFormatSymbols_km, NumberFormatSymbols_kn, NumberFormatSymbols_ky, NumberFormatSymbols_ln, NumberFormatSymbols_lt, NumberFormatSymbols_lv, NumberFormatSymbols_mk, NumberFormatSymbols_ml, NumberFormatSymbols_mn, NumberFormatSymbols_mr, NumberFormatSymbols_mr_u_nu_latn, NumberFormatSymbols_ms, NumberFormatSymbols_mt, NumberFormatSymbols_nb, NumberFormatSymbols_ne, NumberFormatSymbols_ne_u_nu_latn, NumberFormatSymbols_nl, NumberFormatSymbols_or, NumberFormatSymbols_pa, NumberFormatSymbols_pl, NumberFormatSymbols_ro, NumberFormatSymbols_ru, NumberFormatSymbols_si, NumberFormatSymbols_sk, NumberFormatSymbols_sl, NumberFormatSymbols_sr, NumberFormatSymbols_sv, NumberFormatSymbols_sw, NumberFormatSymbols_ta, NumberFormatSymbols_te, NumberFormatSymbols_th, NumberFormatSymbols_tr, NumberFormatSymbols_uk, NumberFormatSymbols_ur, NumberFormatSymbols_uz, NumberFormatSymbols_zh, NumberFormatSymbols_zu  } from './numberformatsymbols.js';
 
 goog.requireType('goog.i18n.NumberFormatSymbolsType');
 
@@ -50,7 +50,7 @@ export var NumberFormatSymbols_af_NA = {
  * Number formatting symbols for locale af_ZA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_af_ZA = goog.i18n.NumberFormatSymbols_af;
+export var NumberFormatSymbols_af_ZA = NumberFormatSymbols_af;
 
 
 /**
@@ -133,14 +133,14 @@ export var NumberFormatSymbols_ak_GH = NumberFormatSymbols_ak;
  * Number formatting symbols for locale am_ET.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_am_ET = goog.i18n.NumberFormatSymbols_am;
+export var NumberFormatSymbols_am_ET = NumberFormatSymbols_am;
 
 
 /**
  * Number formatting symbols for locale ar_001.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ar_001 = goog.i18n.NumberFormatSymbols_ar;
+export var NumberFormatSymbols_ar_001 = NumberFormatSymbols_ar;
 
 
 /**
@@ -1136,7 +1136,7 @@ export var NumberFormatSymbols_ar_TN = {
  * Number formatting symbols for locale ar_XB.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ar_XB = goog.i18n.NumberFormatSymbols_ar;
+export var NumberFormatSymbols_ar_XB = NumberFormatSymbols_ar;
 
 
 /**
@@ -1309,28 +1309,28 @@ export var NumberFormatSymbols_ast_ES = NumberFormatSymbols_ast;
  * Number formatting symbols for locale az_Cyrl.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_az_Cyrl = goog.i18n.NumberFormatSymbols_az;
+export var NumberFormatSymbols_az_Cyrl = NumberFormatSymbols_az;
 
 
 /**
  * Number formatting symbols for locale az_Cyrl_AZ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_az_Cyrl_AZ = goog.i18n.NumberFormatSymbols_az;
+export var NumberFormatSymbols_az_Cyrl_AZ = NumberFormatSymbols_az;
 
 
 /**
  * Number formatting symbols for locale az_Latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_az_Latn = goog.i18n.NumberFormatSymbols_az;
+export var NumberFormatSymbols_az_Latn = NumberFormatSymbols_az;
 
 
 /**
  * Number formatting symbols for locale az_Latn_AZ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_az_Latn_AZ = goog.i18n.NumberFormatSymbols_az;
+export var NumberFormatSymbols_az_Latn_AZ = NumberFormatSymbols_az;
 
 
 /**
@@ -1383,7 +1383,7 @@ export var NumberFormatSymbols_bas_CM = {
  * Number formatting symbols for locale be_BY.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_be_BY = goog.i18n.NumberFormatSymbols_be;
+export var NumberFormatSymbols_be_BY = NumberFormatSymbols_be;
 
 
 /**
@@ -1450,7 +1450,7 @@ export var NumberFormatSymbols_bez_TZ = NumberFormatSymbols_bez;
  * Number formatting symbols for locale bg_BG.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_bg_BG = goog.i18n.NumberFormatSymbols_bg;
+export var NumberFormatSymbols_bg_BG = NumberFormatSymbols_bg;
 
 
 /**
@@ -1623,14 +1623,14 @@ export var NumberFormatSymbols_bm_ML = {
  * Number formatting symbols for locale bn_BD.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_bn_BD = goog.i18n.NumberFormatSymbols_bn;
+export var NumberFormatSymbols_bn_BD = NumberFormatSymbols_bn;
 
 
 /**
  * Number formatting symbols for locale bn_BD_u_nu_latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_bn_BD_u_nu_latn = goog.i18n.NumberFormatSymbols_bn_u_nu_latn;
+export var NumberFormatSymbols_bn_BD_u_nu_latn = NumberFormatSymbols_bn_u_nu_latn;
 
 
 /**
@@ -1736,7 +1736,7 @@ export var NumberFormatSymbols_bo_IN = {
  * Number formatting symbols for locale br_FR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_br_FR = goog.i18n.NumberFormatSymbols_br;
+export var NumberFormatSymbols_br_FR = NumberFormatSymbols_br;
 
 
 /**
@@ -1819,42 +1819,42 @@ export var NumberFormatSymbols_bs_Cyrl_BA = {
  * Number formatting symbols for locale bs_Latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_bs_Latn = goog.i18n.NumberFormatSymbols_bs;
+export var NumberFormatSymbols_bs_Latn = NumberFormatSymbols_bs;
 
 
 /**
  * Number formatting symbols for locale bs_Latn_BA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_bs_Latn_BA = goog.i18n.NumberFormatSymbols_bs;
+export var NumberFormatSymbols_bs_Latn_BA = NumberFormatSymbols_bs;
 
 
 /**
  * Number formatting symbols for locale ca_AD.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ca_AD = goog.i18n.NumberFormatSymbols_ca;
+export var NumberFormatSymbols_ca_AD = NumberFormatSymbols_ca;
 
 
 /**
  * Number formatting symbols for locale ca_ES.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ca_ES = goog.i18n.NumberFormatSymbols_ca;
+export var NumberFormatSymbols_ca_ES = NumberFormatSymbols_ca;
 
 
 /**
  * Number formatting symbols for locale ca_FR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ca_FR = goog.i18n.NumberFormatSymbols_ca;
+export var NumberFormatSymbols_ca_FR = NumberFormatSymbols_ca;
 
 
 /**
  * Number formatting symbols for locale ca_IT.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ca_IT = goog.i18n.NumberFormatSymbols_ca;
+export var NumberFormatSymbols_ca_IT = NumberFormatSymbols_ca;
 
 
 /**
@@ -2073,7 +2073,7 @@ export var NumberFormatSymbols_cgg_UG = {
  * Number formatting symbols for locale chr_US.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_chr_US = goog.i18n.NumberFormatSymbols_chr;
+export var NumberFormatSymbols_chr_US = NumberFormatSymbols_chr;
 
 
 /**
@@ -2324,7 +2324,7 @@ export var NumberFormatSymbols_ckb_IR_u_nu_latn = {
  * Number formatting symbols for locale cs_CZ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_cs_CZ = goog.i18n.NumberFormatSymbols_cs;
+export var NumberFormatSymbols_cs_CZ = NumberFormatSymbols_cs;
 
 
 /**
@@ -2361,21 +2361,21 @@ export var NumberFormatSymbols_cv_RU = NumberFormatSymbols_cv;
  * Number formatting symbols for locale cy_GB.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_cy_GB = goog.i18n.NumberFormatSymbols_cy;
+export var NumberFormatSymbols_cy_GB = NumberFormatSymbols_cy;
 
 
 /**
  * Number formatting symbols for locale da_DK.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_da_DK = goog.i18n.NumberFormatSymbols_da;
+export var NumberFormatSymbols_da_DK = NumberFormatSymbols_da;
 
 
 /**
  * Number formatting symbols for locale da_GL.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_da_GL = goog.i18n.NumberFormatSymbols_da;
+export var NumberFormatSymbols_da_GL = NumberFormatSymbols_da;
 
 
 /**
@@ -2412,21 +2412,21 @@ export var NumberFormatSymbols_dav_KE = NumberFormatSymbols_dav;
  * Number formatting symbols for locale de_BE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_de_BE = goog.i18n.NumberFormatSymbols_de;
+export var NumberFormatSymbols_de_BE = NumberFormatSymbols_de;
 
 
 /**
  * Number formatting symbols for locale de_DE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_de_DE = goog.i18n.NumberFormatSymbols_de;
+export var NumberFormatSymbols_de_DE = NumberFormatSymbols_de;
 
 
 /**
  * Number formatting symbols for locale de_IT.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_de_IT = goog.i18n.NumberFormatSymbols_de;
+export var NumberFormatSymbols_de_IT = NumberFormatSymbols_de;
 
 
 /**
@@ -2456,7 +2456,7 @@ export var NumberFormatSymbols_de_LI = {
  * Number formatting symbols for locale de_LU.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_de_LU = goog.i18n.NumberFormatSymbols_de;
+export var NumberFormatSymbols_de_LU = NumberFormatSymbols_de;
 
 
 /**
@@ -2804,21 +2804,21 @@ export var NumberFormatSymbols_ee_TG = {
  * Number formatting symbols for locale el_CY.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_el_CY = goog.i18n.NumberFormatSymbols_el;
+export var NumberFormatSymbols_el_CY = NumberFormatSymbols_el;
 
 
 /**
  * Number formatting symbols for locale el_GR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_el_GR = goog.i18n.NumberFormatSymbols_el;
+export var NumberFormatSymbols_el_GR = NumberFormatSymbols_el;
 
 
 /**
  * Number formatting symbols for locale en_001.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_001 = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_001 = NumberFormatSymbols_en;
 
 
 /**
@@ -2917,7 +2917,7 @@ export var NumberFormatSymbols_en_AI = {
  * Number formatting symbols for locale en_AS.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_AS = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_AS = NumberFormatSymbols_en;
 
 
 /**
@@ -3269,7 +3269,7 @@ export var NumberFormatSymbols_en_DE = {
  * Number formatting symbols for locale en_DG.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_DG = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_DG = NumberFormatSymbols_en;
 
 
 /**
@@ -3414,7 +3414,7 @@ export var NumberFormatSymbols_en_FK = {
  * Number formatting symbols for locale en_FM.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_FM = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_FM = NumberFormatSymbols_en;
 
 
 /**
@@ -3536,7 +3536,7 @@ export var NumberFormatSymbols_en_GM = {
  * Number formatting symbols for locale en_GU.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_GU = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_GU = NumberFormatSymbols_en;
 
 
 /**
@@ -3635,7 +3635,7 @@ export var NumberFormatSymbols_en_IM = {
  * Number formatting symbols for locale en_IO.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_IO = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_IO = NumberFormatSymbols_en;
 
 
 /**
@@ -3872,7 +3872,7 @@ export var NumberFormatSymbols_en_MG = {
  * Number formatting symbols for locale en_MH.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_MH = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_MH = NumberFormatSymbols_en;
 
 
 /**
@@ -3902,7 +3902,7 @@ export var NumberFormatSymbols_en_MO = {
  * Number formatting symbols for locale en_MP.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_MP = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_MP = NumberFormatSymbols_en;
 
 
 /**
@@ -4300,14 +4300,14 @@ export var NumberFormatSymbols_en_PN = {
  * Number formatting symbols for locale en_PR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_PR = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_PR = NumberFormatSymbols_en;
 
 
 /**
  * Number formatting symbols for locale en_PW.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_PW = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_PW = NumberFormatSymbols_en;
 
 
 /**
@@ -4567,7 +4567,7 @@ export var NumberFormatSymbols_en_SZ = {
  * Number formatting symbols for locale en_TC.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_TC = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_TC = NumberFormatSymbols_en;
 
 
 /**
@@ -4712,7 +4712,7 @@ export var NumberFormatSymbols_en_UG = {
  * Number formatting symbols for locale en_UM.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_UM = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_UM = NumberFormatSymbols_en;
 
 
 /**
@@ -4765,14 +4765,14 @@ export var NumberFormatSymbols_en_VC = {
  * Number formatting symbols for locale en_VG.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_VG = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_VG = NumberFormatSymbols_en;
 
 
 /**
  * Number formatting symbols for locale en_VI.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_VI = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_VI = NumberFormatSymbols_en;
 
 
 /**
@@ -4825,7 +4825,7 @@ export var NumberFormatSymbols_en_WS = {
  * Number formatting symbols for locale en_XA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_XA = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_XA = NumberFormatSymbols_en;
 
 
 /**
@@ -4855,7 +4855,7 @@ export var NumberFormatSymbols_en_ZM = {
  * Number formatting symbols for locale en_ZW.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_en_ZW = goog.i18n.NumberFormatSymbols_en;
+export var NumberFormatSymbols_en_ZW = NumberFormatSymbols_en;
 
 
 /**
@@ -5099,7 +5099,7 @@ export var NumberFormatSymbols_es_DO = {
  * Number formatting symbols for locale es_EA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_es_EA = goog.i18n.NumberFormatSymbols_es;
+export var NumberFormatSymbols_es_EA = NumberFormatSymbols_es;
 
 
 /**
@@ -5198,7 +5198,7 @@ export var NumberFormatSymbols_es_HN = {
  * Number formatting symbols for locale es_IC.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_es_IC = goog.i18n.NumberFormatSymbols_es;
+export var NumberFormatSymbols_es_IC = NumberFormatSymbols_es;
 
 
 /**
@@ -5412,14 +5412,14 @@ export var NumberFormatSymbols_es_VE = {
  * Number formatting symbols for locale et_EE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_et_EE = goog.i18n.NumberFormatSymbols_et;
+export var NumberFormatSymbols_et_EE = NumberFormatSymbols_et;
 
 
 /**
  * Number formatting symbols for locale eu_ES.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_eu_ES = goog.i18n.NumberFormatSymbols_eu;
+export var NumberFormatSymbols_eu_ES = NumberFormatSymbols_eu;
 
 
 /**
@@ -6468,14 +6468,14 @@ export var NumberFormatSymbols_ff_Latn_SN = {
  * Number formatting symbols for locale fi_FI.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fi_FI = goog.i18n.NumberFormatSymbols_fi;
+export var NumberFormatSymbols_fi_FI = NumberFormatSymbols_fi;
 
 
 /**
  * Number formatting symbols for locale fil_PH.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fil_PH = goog.i18n.NumberFormatSymbols_fil;
+export var NumberFormatSymbols_fil_PH = NumberFormatSymbols_fil;
 
 
 /**
@@ -6519,7 +6519,7 @@ export var NumberFormatSymbols_fo_FO = NumberFormatSymbols_fo;
  * Number formatting symbols for locale fr_BE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_BE = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_BE = NumberFormatSymbols_fr;
 
 
 /**
@@ -6595,7 +6595,7 @@ export var NumberFormatSymbols_fr_BJ = {
  * Number formatting symbols for locale fr_BL.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_BL = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_BL = NumberFormatSymbols_fr;
 
 
 /**
@@ -6786,7 +6786,7 @@ export var NumberFormatSymbols_fr_DZ = {
  * Number formatting symbols for locale fr_FR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_FR = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_FR = NumberFormatSymbols_fr;
 
 
 /**
@@ -6816,7 +6816,7 @@ export var NumberFormatSymbols_fr_GA = {
  * Number formatting symbols for locale fr_GF.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_GF = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_GF = NumberFormatSymbols_fr;
 
 
 /**
@@ -6846,7 +6846,7 @@ export var NumberFormatSymbols_fr_GN = {
  * Number formatting symbols for locale fr_GP.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_GP = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_GP = NumberFormatSymbols_fr;
 
 
 /**
@@ -6968,14 +6968,14 @@ export var NumberFormatSymbols_fr_MA = {
  * Number formatting symbols for locale fr_MC.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_MC = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_MC = NumberFormatSymbols_fr;
 
 
 /**
  * Number formatting symbols for locale fr_MF.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_MF = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_MF = NumberFormatSymbols_fr;
 
 
 /**
@@ -7028,7 +7028,7 @@ export var NumberFormatSymbols_fr_ML = {
  * Number formatting symbols for locale fr_MQ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_MQ = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_MQ = NumberFormatSymbols_fr;
 
 
 /**
@@ -7150,14 +7150,14 @@ export var NumberFormatSymbols_fr_PF = {
  * Number formatting symbols for locale fr_PM.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_PM = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_PM = NumberFormatSymbols_fr;
 
 
 /**
  * Number formatting symbols for locale fr_RE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_RE = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_RE = NumberFormatSymbols_fr;
 
 
 /**
@@ -7371,7 +7371,7 @@ export var NumberFormatSymbols_fr_WF = {
  * Number formatting symbols for locale fr_YT.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_fr_YT = goog.i18n.NumberFormatSymbols_fr;
+export var NumberFormatSymbols_fr_YT = NumberFormatSymbols_fr;
 
 
 /**
@@ -7461,7 +7461,7 @@ export var NumberFormatSymbols_ga_GB = {
  * Number formatting symbols for locale ga_IE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ga_IE = goog.i18n.NumberFormatSymbols_ga;
+export var NumberFormatSymbols_ga_IE = NumberFormatSymbols_ga;
 
 
 /**
@@ -7498,14 +7498,14 @@ export var NumberFormatSymbols_gd_GB = NumberFormatSymbols_gd;
  * Number formatting symbols for locale gl_ES.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_gl_ES = goog.i18n.NumberFormatSymbols_gl;
+export var NumberFormatSymbols_gl_ES = NumberFormatSymbols_gl;
 
 
 /**
  * Number formatting symbols for locale gsw_CH.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_gsw_CH = goog.i18n.NumberFormatSymbols_gsw;
+export var NumberFormatSymbols_gsw_CH = NumberFormatSymbols_gsw;
 
 
 /**
@@ -7535,14 +7535,14 @@ export var NumberFormatSymbols_gsw_FR = {
  * Number formatting symbols for locale gsw_LI.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_gsw_LI = goog.i18n.NumberFormatSymbols_gsw;
+export var NumberFormatSymbols_gsw_LI = NumberFormatSymbols_gsw;
 
 
 /**
  * Number formatting symbols for locale gu_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_gu_IN = goog.i18n.NumberFormatSymbols_gu;
+export var NumberFormatSymbols_gu_IN = NumberFormatSymbols_gu;
 
 
 /**
@@ -7685,35 +7685,35 @@ export var NumberFormatSymbols_ha_NG = NumberFormatSymbols_ha;
  * Number formatting symbols for locale haw_US.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_haw_US = goog.i18n.NumberFormatSymbols_haw;
+export var NumberFormatSymbols_haw_US = NumberFormatSymbols_haw;
 
 
 /**
  * Number formatting symbols for locale he_IL.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_he_IL = goog.i18n.NumberFormatSymbols_he;
+export var NumberFormatSymbols_he_IL = NumberFormatSymbols_he;
 
 
 /**
  * Number formatting symbols for locale hi_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_hi_IN = goog.i18n.NumberFormatSymbols_hi;
+export var NumberFormatSymbols_hi_IN = NumberFormatSymbols_hi;
 
 
 /**
  * Number formatting symbols for locale hi_Latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_hi_Latn = goog.i18n.NumberFormatSymbols_hi;
+export var NumberFormatSymbols_hi_Latn = NumberFormatSymbols_hi;
 
 
 /**
  * Number formatting symbols for locale hi_Latn_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_hi_Latn_IN = goog.i18n.NumberFormatSymbols_hi;
+export var NumberFormatSymbols_hi_Latn_IN = NumberFormatSymbols_hi;
 
 
 /**
@@ -7743,7 +7743,7 @@ export var NumberFormatSymbols_hr_BA = {
  * Number formatting symbols for locale hr_HR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_hr_HR = goog.i18n.NumberFormatSymbols_hr;
+export var NumberFormatSymbols_hr_HR = NumberFormatSymbols_hr;
 
 
 /**
@@ -7780,14 +7780,14 @@ export var NumberFormatSymbols_hsb_DE = NumberFormatSymbols_hsb;
  * Number formatting symbols for locale hu_HU.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_hu_HU = goog.i18n.NumberFormatSymbols_hu;
+export var NumberFormatSymbols_hu_HU = NumberFormatSymbols_hu;
 
 
 /**
  * Number formatting symbols for locale hy_AM.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_hy_AM = goog.i18n.NumberFormatSymbols_hy;
+export var NumberFormatSymbols_hy_AM = NumberFormatSymbols_hy;
 
 
 /**
@@ -7824,7 +7824,7 @@ export var NumberFormatSymbols_ia_001 = NumberFormatSymbols_ia;
  * Number formatting symbols for locale id_ID.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_id_ID = goog.i18n.NumberFormatSymbols_id;
+export var NumberFormatSymbols_id_ID = NumberFormatSymbols_id;
 
 
 /**
@@ -7937,21 +7937,21 @@ export var NumberFormatSymbols_it_CH = {
  * Number formatting symbols for locale it_IT.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_it_IT = goog.i18n.NumberFormatSymbols_it;
+export var NumberFormatSymbols_it_IT = NumberFormatSymbols_it;
 
 
 /**
  * Number formatting symbols for locale it_SM.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_it_SM = goog.i18n.NumberFormatSymbols_it;
+export var NumberFormatSymbols_it_SM = NumberFormatSymbols_it;
 
 
 /**
  * Number formatting symbols for locale it_VA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_it_VA = goog.i18n.NumberFormatSymbols_it;
+export var NumberFormatSymbols_it_VA = NumberFormatSymbols_it;
 
 
 /**
@@ -8087,7 +8087,7 @@ export var NumberFormatSymbols_jv_ID = NumberFormatSymbols_jv;
  * Number formatting symbols for locale ka_GE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ka_GE = goog.i18n.NumberFormatSymbols_ka;
+export var NumberFormatSymbols_ka_GE = NumberFormatSymbols_ka;
 
 
 /**
@@ -8320,7 +8320,7 @@ export var NumberFormatSymbols_ki_KE = NumberFormatSymbols_ki;
  * Number formatting symbols for locale kk_KZ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_kk_KZ = goog.i18n.NumberFormatSymbols_kk;
+export var NumberFormatSymbols_kk_KZ = NumberFormatSymbols_kk;
 
 
 /**
@@ -8433,14 +8433,14 @@ export var NumberFormatSymbols_kln_KE = NumberFormatSymbols_kln;
  * Number formatting symbols for locale km_KH.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_km_KH = goog.i18n.NumberFormatSymbols_km;
+export var NumberFormatSymbols_km_KH = NumberFormatSymbols_km;
 
 
 /**
  * Number formatting symbols for locale kn_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_kn_IN = goog.i18n.NumberFormatSymbols_kn;
+export var NumberFormatSymbols_kn_IN = NumberFormatSymbols_kn;
 
 
 /**
@@ -8809,7 +8809,7 @@ export var NumberFormatSymbols_kw_GB = NumberFormatSymbols_kw;
  * Number formatting symbols for locale ky_KG.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ky_KG = goog.i18n.NumberFormatSymbols_ky;
+export var NumberFormatSymbols_ky_KG = NumberFormatSymbols_ky;
 
 
 /**
@@ -8975,7 +8975,7 @@ export var NumberFormatSymbols_ln_AO = {
  * Number formatting symbols for locale ln_CD.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ln_CD = goog.i18n.NumberFormatSymbols_ln;
+export var NumberFormatSymbols_ln_CD = NumberFormatSymbols_ln;
 
 
 /**
@@ -9189,7 +9189,7 @@ export var NumberFormatSymbols_lrc_IR_u_nu_latn = {
  * Number formatting symbols for locale lt_LT.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_lt_LT = goog.i18n.NumberFormatSymbols_lt;
+export var NumberFormatSymbols_lt_LT = NumberFormatSymbols_lt;
 
 
 /**
@@ -9286,7 +9286,7 @@ export var NumberFormatSymbols_luy_KE = NumberFormatSymbols_luy;
  * Number formatting symbols for locale lv_LV.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_lv_LV = goog.i18n.NumberFormatSymbols_lv;
+export var NumberFormatSymbols_lv_LV = NumberFormatSymbols_lv;
 
 
 /**
@@ -9588,21 +9588,21 @@ export var NumberFormatSymbols_mi_NZ = NumberFormatSymbols_mi;
  * Number formatting symbols for locale mk_MK.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_mk_MK = goog.i18n.NumberFormatSymbols_mk;
+export var NumberFormatSymbols_mk_MK = NumberFormatSymbols_mk;
 
 
 /**
  * Number formatting symbols for locale ml_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ml_IN = goog.i18n.NumberFormatSymbols_ml;
+export var NumberFormatSymbols_ml_IN = NumberFormatSymbols_ml;
 
 
 /**
  * Number formatting symbols for locale mn_MN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_mn_MN = goog.i18n.NumberFormatSymbols_mn;
+export var NumberFormatSymbols_mn_MN = NumberFormatSymbols_mn;
 
 
 /**
@@ -9683,14 +9683,14 @@ export var NumberFormatSymbols_mni_Beng_IN_u_nu_latn = NumberFormatSymbols_mni_u
  * Number formatting symbols for locale mr_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_mr_IN = goog.i18n.NumberFormatSymbols_mr;
+export var NumberFormatSymbols_mr_IN = NumberFormatSymbols_mr;
 
 
 /**
  * Number formatting symbols for locale mr_IN_u_nu_latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_mr_IN_u_nu_latn = goog.i18n.NumberFormatSymbols_mr_u_nu_latn;
+export var NumberFormatSymbols_mr_IN_u_nu_latn = NumberFormatSymbols_mr_u_nu_latn;
 
 
 /**
@@ -9743,7 +9743,7 @@ export var NumberFormatSymbols_ms_ID = {
  * Number formatting symbols for locale ms_MY.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ms_MY = goog.i18n.NumberFormatSymbols_ms;
+export var NumberFormatSymbols_ms_MY = NumberFormatSymbols_ms;
 
 
 /**
@@ -9773,7 +9773,7 @@ export var NumberFormatSymbols_ms_SG = {
  * Number formatting symbols for locale mt_MT.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_mt_MT = goog.i18n.NumberFormatSymbols_mt;
+export var NumberFormatSymbols_mt_MT = NumberFormatSymbols_mt;
 
 
 /**
@@ -9994,14 +9994,14 @@ export var NumberFormatSymbols_naq_NA = NumberFormatSymbols_naq;
  * Number formatting symbols for locale nb_NO.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_nb_NO = goog.i18n.NumberFormatSymbols_nb;
+export var NumberFormatSymbols_nb_NO = NumberFormatSymbols_nb;
 
 
 /**
  * Number formatting symbols for locale nb_SJ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_nb_SJ = goog.i18n.NumberFormatSymbols_nb;
+export var NumberFormatSymbols_nb_SJ = NumberFormatSymbols_nb;
 
 
 /**
@@ -10084,14 +10084,14 @@ export var NumberFormatSymbols_ne_IN_u_nu_latn = {
  * Number formatting symbols for locale ne_NP.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ne_NP = goog.i18n.NumberFormatSymbols_ne;
+export var NumberFormatSymbols_ne_NP = NumberFormatSymbols_ne;
 
 
 /**
  * Number formatting symbols for locale ne_NP_u_nu_latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ne_NP_u_nu_latn = goog.i18n.NumberFormatSymbols_ne_u_nu_latn;
+export var NumberFormatSymbols_ne_NP_u_nu_latn = NumberFormatSymbols_ne_u_nu_latn;
 
 
 /**
@@ -10121,7 +10121,7 @@ export var NumberFormatSymbols_nl_AW = {
  * Number formatting symbols for locale nl_BE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_nl_BE = goog.i18n.NumberFormatSymbols_nl;
+export var NumberFormatSymbols_nl_BE = NumberFormatSymbols_nl;
 
 
 /**
@@ -10174,7 +10174,7 @@ export var NumberFormatSymbols_nl_CW = {
  * Number formatting symbols for locale nl_NL.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_nl_NL = goog.i18n.NumberFormatSymbols_nl;
+export var NumberFormatSymbols_nl_NL = NumberFormatSymbols_nl;
 
 
 /**
@@ -10478,7 +10478,7 @@ export var NumberFormatSymbols_om_KE = {
  * Number formatting symbols for locale or_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_or_IN = goog.i18n.NumberFormatSymbols_or;
+export var NumberFormatSymbols_or_IN = NumberFormatSymbols_or;
 
 
 /**
@@ -10630,14 +10630,14 @@ export var NumberFormatSymbols_pa_Arab_PK_u_nu_latn = {
  * Number formatting symbols for locale pa_Guru.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_pa_Guru = goog.i18n.NumberFormatSymbols_pa;
+export var NumberFormatSymbols_pa_Guru = NumberFormatSymbols_pa;
 
 
 /**
  * Number formatting symbols for locale pa_Guru_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_pa_Guru_IN = goog.i18n.NumberFormatSymbols_pa;
+export var NumberFormatSymbols_pa_Guru_IN = NumberFormatSymbols_pa;
 
 
 /**
@@ -10674,7 +10674,7 @@ export var NumberFormatSymbols_pcm_NG = NumberFormatSymbols_pcm;
  * Number formatting symbols for locale pl_PL.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_pl_PL = goog.i18n.NumberFormatSymbols_pl;
+export var NumberFormatSymbols_pl_PL = NumberFormatSymbols_pl;
 
 
 /**
@@ -11284,7 +11284,7 @@ export var NumberFormatSymbols_ro_MD = {
  * Number formatting symbols for locale ro_RO.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ro_RO = goog.i18n.NumberFormatSymbols_ro;
+export var NumberFormatSymbols_ro_RO = NumberFormatSymbols_ro;
 
 
 /**
@@ -11413,7 +11413,7 @@ export var NumberFormatSymbols_ru_MD = {
  * Number formatting symbols for locale ru_RU.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ru_RU = goog.i18n.NumberFormatSymbols_ru;
+export var NumberFormatSymbols_ru_RU = NumberFormatSymbols_ru;
 
 
 /**
@@ -12142,21 +12142,21 @@ export var NumberFormatSymbols_shi_Tfng_MA = NumberFormatSymbols_shi;
  * Number formatting symbols for locale si_LK.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_si_LK = goog.i18n.NumberFormatSymbols_si;
+export var NumberFormatSymbols_si_LK = NumberFormatSymbols_si;
 
 
 /**
  * Number formatting symbols for locale sk_SK.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_sk_SK = goog.i18n.NumberFormatSymbols_sk;
+export var NumberFormatSymbols_sk_SK = NumberFormatSymbols_sk;
 
 
 /**
  * Number formatting symbols for locale sl_SI.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_sl_SI = goog.i18n.NumberFormatSymbols_sl;
+export var NumberFormatSymbols_sl_SI = NumberFormatSymbols_sl;
 
 
 /**
@@ -12407,7 +12407,7 @@ export var NumberFormatSymbols_sq_XK = {
  * Number formatting symbols for locale sr_Cyrl.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_sr_Cyrl = goog.i18n.NumberFormatSymbols_sr;
+export var NumberFormatSymbols_sr_Cyrl = NumberFormatSymbols_sr;
 
 
 /**
@@ -12681,7 +12681,7 @@ export var NumberFormatSymbols_sv_FI = {
  * Number formatting symbols for locale sv_SE.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_sv_SE = goog.i18n.NumberFormatSymbols_sv;
+export var NumberFormatSymbols_sv_SE = NumberFormatSymbols_sv;
 
 
 /**
@@ -12734,7 +12734,7 @@ export var NumberFormatSymbols_sw_KE = {
  * Number formatting symbols for locale sw_TZ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_sw_TZ = goog.i18n.NumberFormatSymbols_sw;
+export var NumberFormatSymbols_sw_TZ = NumberFormatSymbols_sw;
 
 
 /**
@@ -12764,7 +12764,7 @@ export var NumberFormatSymbols_sw_UG = {
  * Number formatting symbols for locale ta_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ta_IN = goog.i18n.NumberFormatSymbols_ta;
+export var NumberFormatSymbols_ta_IN = NumberFormatSymbols_ta;
 
 
 /**
@@ -12840,7 +12840,7 @@ export var NumberFormatSymbols_ta_SG = {
  * Number formatting symbols for locale te_IN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_te_IN = goog.i18n.NumberFormatSymbols_te;
+export var NumberFormatSymbols_te_IN = NumberFormatSymbols_te;
 
 
 /**
@@ -12946,7 +12946,7 @@ export var NumberFormatSymbols_tg_TJ = NumberFormatSymbols_tg;
  * Number formatting symbols for locale th_TH.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_th_TH = goog.i18n.NumberFormatSymbols_th;
+export var NumberFormatSymbols_th_TH = NumberFormatSymbols_th;
 
 
 /**
@@ -13089,7 +13089,7 @@ export var NumberFormatSymbols_tr_CY = {
  * Number formatting symbols for locale tr_TR.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_tr_TR = goog.i18n.NumberFormatSymbols_tr;
+export var NumberFormatSymbols_tr_TR = NumberFormatSymbols_tr;
 
 
 /**
@@ -13232,7 +13232,7 @@ export var NumberFormatSymbols_ug_CN = NumberFormatSymbols_ug;
  * Number formatting symbols for locale uk_UA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_uk_UA = goog.i18n.NumberFormatSymbols_uk;
+export var NumberFormatSymbols_uk_UA = NumberFormatSymbols_uk;
 
 
 /**
@@ -13285,7 +13285,7 @@ export var NumberFormatSymbols_ur_IN_u_nu_latn = {
  * Number formatting symbols for locale ur_PK.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_ur_PK = goog.i18n.NumberFormatSymbols_ur;
+export var NumberFormatSymbols_ur_PK = NumberFormatSymbols_ur;
 
 
 /**
@@ -13430,14 +13430,14 @@ export var NumberFormatSymbols_uz_Cyrl_UZ = {
  * Number formatting symbols for locale uz_Latn.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_uz_Latn = goog.i18n.NumberFormatSymbols_uz;
+export var NumberFormatSymbols_uz_Latn = NumberFormatSymbols_uz;
 
 
 /**
  * Number formatting symbols for locale uz_Latn_UZ.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_uz_Latn_UZ = goog.i18n.NumberFormatSymbols_uz;
+export var NumberFormatSymbols_uz_Latn_UZ = NumberFormatSymbols_uz;
 
 
 /**
@@ -14018,14 +14018,14 @@ export var NumberFormatSymbols_zgh_MA = NumberFormatSymbols_zgh;
  * Number formatting symbols for locale zh_Hans.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_zh_Hans = goog.i18n.NumberFormatSymbols_zh;
+export var NumberFormatSymbols_zh_Hans = NumberFormatSymbols_zh;
 
 
 /**
  * Number formatting symbols for locale zh_Hans_CN.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_zh_Hans_CN = goog.i18n.NumberFormatSymbols_zh;
+export var NumberFormatSymbols_zh_Hans_CN = NumberFormatSymbols_zh;
 
 
 /**
@@ -14193,7 +14193,7 @@ export var NumberFormatSymbols_zh_Hant_TW = {
  * Number formatting symbols for locale zu_ZA.
  * @const {!NumberFormatSymbolsType.Type}
  */
-export var NumberFormatSymbols_zu_ZA = goog.i18n.NumberFormatSymbols_zu;
+export var NumberFormatSymbols_zu_ZA = NumberFormatSymbols_zu;
 
 
 /**

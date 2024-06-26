@@ -26,17 +26,17 @@ import {
 import { Registry } from './registry.js';
 
 
-var boolEntry;
-var boolEntry2;
-var strEntry;
-var strEntry2;
-var strEnumEntry;
-var numEntry;
-var numEnumEntry;
-var boolGroup;
-var boolOneEntry;
-var boolTwoEntry;
-var buttonEntry;
+globalThis.boolEntry = null;
+globalThis.boolEntry2 = null;
+globalThis.strEntry = null;
+globalThis.strEntry2 = null;
+globalThis.strEnumEntry = null;
+globalThis.numEntry = null;
+globalThis.numEnumEntry = null;
+globalThis.boolGroup = null;
+globalThis.boolOneEntry = null;
+globalThis.boolTwoEntry = null;
+globalThis.buttonEntry = null;
 
 
 /**
@@ -48,7 +48,7 @@ var buttonEntry;
 export function createRegistryEntries(queryParams) {
   // Initialize the registry with the given query string.
   var registry = new Registry(queryParams);
-  tweak.registry_ = registry;
+  tweak.setRegistry_(registry);
 
   boolEntry = new BooleanSetting('Bool', 'The bool1');
   registry.register(boolEntry);

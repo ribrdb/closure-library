@@ -321,7 +321,7 @@ function followCallChain_() {
  *     parsing failed.
  * @private
  */
-function parseStackFrame_(frameStr) {
+export function parseStackFrame_(frameStr) {
   // This match includes newer versions of Opera (15+).
   let m = frameStr.match(V8_STACK_FRAME_REGEXP_);
   if (m) {
@@ -410,7 +410,7 @@ function htmlEscape_(text) {
  * @return {string} Canonical, pretty printed stack trace.
  * @private
  */
-function framesToString_(frames) {
+export function framesToString_(frames) {
   // Removes the anonymous calls from the end of the stack trace (they come
   // from testrunner.js, testcase.js and asserts.js), so the stack trace will
   // end with the test... method.
@@ -451,7 +451,7 @@ function framesToString_(frames) {
  *     unrecognized frames will be nulled out.
  * @private
  */
-function parse_(stack) {
+export function parse_(stack) {
   const lines = stack.replace(/\s*$/, '').split('\n');
   const frames = [];
   for (let i = 0; i < lines.length; i++) {
@@ -477,7 +477,7 @@ export function canonicalize(stack) {
  * @return {string|!Array<!CallSite>}
  * @private
  */
-function getNativeStack_() {
+export function getNativeStack_() {
   const tmpError = new Error();
   if (tmpError.stack) {
     return tmpError.stack;

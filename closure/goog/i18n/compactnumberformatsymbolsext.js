@@ -18,19 +18,19 @@
 
 // clang-format off
 
-import { CompactNumberFormatSymbols } from './compactnumberformatsymbols.js';
+import { CompactNumberFormatSymbols_af, CompactNumberFormatSymbols_am, CompactNumberFormatSymbols_ar, CompactNumberFormatSymbols_az, CompactNumberFormatSymbols_be, CompactNumberFormatSymbols_bg, CompactNumberFormatSymbols_bn, CompactNumberFormatSymbols_br, CompactNumberFormatSymbols_bs, CompactNumberFormatSymbols_ca, CompactNumberFormatSymbols_chr, CompactNumberFormatSymbols_cs, CompactNumberFormatSymbols_cy, CompactNumberFormatSymbols_da, CompactNumberFormatSymbols_de, CompactNumberFormatSymbols_el, CompactNumberFormatSymbols_en, CompactNumberFormatSymbols_es, CompactNumberFormatSymbols_et, CompactNumberFormatSymbols_eu, CompactNumberFormatSymbols_fa, CompactNumberFormatSymbols_fi, CompactNumberFormatSymbols_fil, CompactNumberFormatSymbols_fr, CompactNumberFormatSymbols_ga, CompactNumberFormatSymbols_gl, CompactNumberFormatSymbols_gsw, CompactNumberFormatSymbols_gu, CompactNumberFormatSymbols_haw, CompactNumberFormatSymbols_he, CompactNumberFormatSymbols_hi, CompactNumberFormatSymbols_hr, CompactNumberFormatSymbols_hu, CompactNumberFormatSymbols_hy, CompactNumberFormatSymbols_id, CompactNumberFormatSymbols_is, CompactNumberFormatSymbols_it, CompactNumberFormatSymbols_ja, CompactNumberFormatSymbols_ka, CompactNumberFormatSymbols_kk, CompactNumberFormatSymbols_km, CompactNumberFormatSymbols_kn, CompactNumberFormatSymbols_ko, CompactNumberFormatSymbols_ky, CompactNumberFormatSymbols_ln, CompactNumberFormatSymbols_lo, CompactNumberFormatSymbols_lt, CompactNumberFormatSymbols_lv, CompactNumberFormatSymbols_mk, CompactNumberFormatSymbols_ml, CompactNumberFormatSymbols_mn, CompactNumberFormatSymbols_mr, CompactNumberFormatSymbols_ms, CompactNumberFormatSymbols_mt, CompactNumberFormatSymbols_my, CompactNumberFormatSymbols_nb, CompactNumberFormatSymbols_ne, CompactNumberFormatSymbols_nl, CompactNumberFormatSymbols_or, CompactNumberFormatSymbols_pa, CompactNumberFormatSymbols_pl, CompactNumberFormatSymbols_ro, CompactNumberFormatSymbols_ru, CompactNumberFormatSymbols_si, CompactNumberFormatSymbols_sk, CompactNumberFormatSymbols_sl, CompactNumberFormatSymbols_sq, CompactNumberFormatSymbols_sr, CompactNumberFormatSymbols_sv, CompactNumberFormatSymbols_sw, CompactNumberFormatSymbols_ta, CompactNumberFormatSymbols_te, CompactNumberFormatSymbols_th, CompactNumberFormatSymbols_tr, CompactNumberFormatSymbols_uk, CompactNumberFormatSymbols_ur, CompactNumberFormatSymbols_uz, CompactNumberFormatSymbols_vi, CompactNumberFormatSymbols_zh, CompactNumberFormatSymbols_zu   } from './compactnumberformatsymbols.js';
 
 
 /**
  * Compact number formatting symbols for locale af_NA.
  */
-CompactNumberFormatSymbols_af_NA = goog.i18n.CompactNumberFormatSymbols_af;
+CompactNumberFormatSymbols_af_NA = CompactNumberFormatSymbols_af;
 
 
 /**
  * Compact number formatting symbols for locale af_ZA.
  */
-CompactNumberFormatSymbols_af_ZA = goog.i18n.CompactNumberFormatSymbols_af;
+CompactNumberFormatSymbols_af_ZA = CompactNumberFormatSymbols_af;
 
 
 /**
@@ -138,169 +138,169 @@ CompactNumberFormatSymbols_ak_GH = CompactNumberFormatSymbols_ak;
 /**
  * Compact number formatting symbols for locale am_ET.
  */
-CompactNumberFormatSymbols_am_ET = goog.i18n.CompactNumberFormatSymbols_am;
+CompactNumberFormatSymbols_am_ET = CompactNumberFormatSymbols_am;
 
 
 /**
  * Compact number formatting symbols for locale ar_001.
  */
-CompactNumberFormatSymbols_ar_001 = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_001 = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_AE.
  */
-CompactNumberFormatSymbols_ar_AE = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_AE = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_BH.
  */
-CompactNumberFormatSymbols_ar_BH = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_BH = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_DJ.
  */
-CompactNumberFormatSymbols_ar_DJ = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_DJ = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_EH.
  */
-CompactNumberFormatSymbols_ar_EH = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_EH = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_ER.
  */
-CompactNumberFormatSymbols_ar_ER = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_ER = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_IL.
  */
-CompactNumberFormatSymbols_ar_IL = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_IL = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_IQ.
  */
-CompactNumberFormatSymbols_ar_IQ = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_IQ = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_JO.
  */
-CompactNumberFormatSymbols_ar_JO = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_JO = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_KM.
  */
-CompactNumberFormatSymbols_ar_KM = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_KM = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_KW.
  */
-CompactNumberFormatSymbols_ar_KW = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_KW = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_LB.
  */
-CompactNumberFormatSymbols_ar_LB = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_LB = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_LY.
  */
-CompactNumberFormatSymbols_ar_LY = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_LY = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_MA.
  */
-CompactNumberFormatSymbols_ar_MA = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_MA = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_MR.
  */
-CompactNumberFormatSymbols_ar_MR = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_MR = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_OM.
  */
-CompactNumberFormatSymbols_ar_OM = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_OM = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_PS.
  */
-CompactNumberFormatSymbols_ar_PS = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_PS = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_QA.
  */
-CompactNumberFormatSymbols_ar_QA = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_QA = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SA.
  */
-CompactNumberFormatSymbols_ar_SA = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SA = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SD.
  */
-CompactNumberFormatSymbols_ar_SD = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SD = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SO.
  */
-CompactNumberFormatSymbols_ar_SO = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SO = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SS.
  */
-CompactNumberFormatSymbols_ar_SS = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SS = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_SY.
  */
-CompactNumberFormatSymbols_ar_SY = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_SY = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_TD.
  */
-CompactNumberFormatSymbols_ar_TD = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_TD = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_TN.
  */
-CompactNumberFormatSymbols_ar_TN = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_TN = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_XB.
  */
-CompactNumberFormatSymbols_ar_XB = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_XB = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_YE.
  */
-CompactNumberFormatSymbols_ar_YE = goog.i18n.CompactNumberFormatSymbols_ar;
+CompactNumberFormatSymbols_ar_YE = CompactNumberFormatSymbols_ar;
 
 
 /**
@@ -625,13 +625,13 @@ CompactNumberFormatSymbols_az_Cyrl_AZ = {
 /**
  * Compact number formatting symbols for locale az_Latn.
  */
-CompactNumberFormatSymbols_az_Latn = goog.i18n.CompactNumberFormatSymbols_az;
+CompactNumberFormatSymbols_az_Latn = CompactNumberFormatSymbols_az;
 
 
 /**
  * Compact number formatting symbols for locale az_Latn_AZ.
  */
-CompactNumberFormatSymbols_az_Latn_AZ = goog.i18n.CompactNumberFormatSymbols_az;
+CompactNumberFormatSymbols_az_Latn_AZ = CompactNumberFormatSymbols_az;
 
 
 /**
@@ -688,7 +688,7 @@ CompactNumberFormatSymbols_bas_CM = CompactNumberFormatSymbols_bas;
 /**
  * Compact number formatting symbols for locale be_BY.
  */
-CompactNumberFormatSymbols_be_BY = goog.i18n.CompactNumberFormatSymbols_be;
+CompactNumberFormatSymbols_be_BY = CompactNumberFormatSymbols_be;
 
 
 /**
@@ -796,7 +796,7 @@ CompactNumberFormatSymbols_bez_TZ = CompactNumberFormatSymbols_bez;
 /**
  * Compact number formatting symbols for locale bg_BG.
  */
-CompactNumberFormatSymbols_bg_BG = goog.i18n.CompactNumberFormatSymbols_bg;
+CompactNumberFormatSymbols_bg_BG = CompactNumberFormatSymbols_bg;
 
 
 /**
@@ -955,13 +955,13 @@ CompactNumberFormatSymbols_bm_ML = CompactNumberFormatSymbols_bm;
 /**
  * Compact number formatting symbols for locale bn_BD.
  */
-CompactNumberFormatSymbols_bn_BD = goog.i18n.CompactNumberFormatSymbols_bn;
+CompactNumberFormatSymbols_bn_BD = CompactNumberFormatSymbols_bn;
 
 
 /**
  * Compact number formatting symbols for locale bn_IN.
  */
-CompactNumberFormatSymbols_bn_IN = goog.i18n.CompactNumberFormatSymbols_bn;
+CompactNumberFormatSymbols_bn_IN = CompactNumberFormatSymbols_bn;
 
 
 /**
@@ -1024,7 +1024,7 @@ CompactNumberFormatSymbols_bo_IN = CompactNumberFormatSymbols_bo;
 /**
  * Compact number formatting symbols for locale br_FR.
  */
-CompactNumberFormatSymbols_br_FR = goog.i18n.CompactNumberFormatSymbols_br;
+CompactNumberFormatSymbols_br_FR = CompactNumberFormatSymbols_br;
 
 
 /**
@@ -1285,37 +1285,37 @@ CompactNumberFormatSymbols_bs_Cyrl_BA = {
 /**
  * Compact number formatting symbols for locale bs_Latn.
  */
-CompactNumberFormatSymbols_bs_Latn = goog.i18n.CompactNumberFormatSymbols_bs;
+CompactNumberFormatSymbols_bs_Latn = CompactNumberFormatSymbols_bs;
 
 
 /**
  * Compact number formatting symbols for locale bs_Latn_BA.
  */
-CompactNumberFormatSymbols_bs_Latn_BA = goog.i18n.CompactNumberFormatSymbols_bs;
+CompactNumberFormatSymbols_bs_Latn_BA = CompactNumberFormatSymbols_bs;
 
 
 /**
  * Compact number formatting symbols for locale ca_AD.
  */
-CompactNumberFormatSymbols_ca_AD = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_AD = CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ca_ES.
  */
-CompactNumberFormatSymbols_ca_ES = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_ES = CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ca_FR.
  */
-CompactNumberFormatSymbols_ca_FR = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_FR = CompactNumberFormatSymbols_ca;
 
 
 /**
  * Compact number formatting symbols for locale ca_IT.
  */
-CompactNumberFormatSymbols_ca_IT = goog.i18n.CompactNumberFormatSymbols_ca;
+CompactNumberFormatSymbols_ca_IT = CompactNumberFormatSymbols_ca;
 
 
 /**
@@ -1542,7 +1542,7 @@ CompactNumberFormatSymbols_cgg_UG = CompactNumberFormatSymbols_cgg;
 /**
  * Compact number formatting symbols for locale chr_US.
  */
-CompactNumberFormatSymbols_chr_US = goog.i18n.CompactNumberFormatSymbols_chr;
+CompactNumberFormatSymbols_chr_US = CompactNumberFormatSymbols_chr;
 
 
 /**
@@ -1623,7 +1623,7 @@ CompactNumberFormatSymbols_ckb_IR = CompactNumberFormatSymbols_ckb;
 /**
  * Compact number formatting symbols for locale cs_CZ.
  */
-CompactNumberFormatSymbols_cs_CZ = goog.i18n.CompactNumberFormatSymbols_cs;
+CompactNumberFormatSymbols_cs_CZ = CompactNumberFormatSymbols_cs;
 
 
 /**
@@ -1680,19 +1680,19 @@ CompactNumberFormatSymbols_cv_RU = CompactNumberFormatSymbols_cv;
 /**
  * Compact number formatting symbols for locale cy_GB.
  */
-CompactNumberFormatSymbols_cy_GB = goog.i18n.CompactNumberFormatSymbols_cy;
+CompactNumberFormatSymbols_cy_GB = CompactNumberFormatSymbols_cy;
 
 
 /**
  * Compact number formatting symbols for locale da_DK.
  */
-CompactNumberFormatSymbols_da_DK = goog.i18n.CompactNumberFormatSymbols_da;
+CompactNumberFormatSymbols_da_DK = CompactNumberFormatSymbols_da;
 
 
 /**
  * Compact number formatting symbols for locale da_GL.
  */
-CompactNumberFormatSymbols_da_GL = goog.i18n.CompactNumberFormatSymbols_da;
+CompactNumberFormatSymbols_da_GL = CompactNumberFormatSymbols_da;
 
 
 /**
@@ -1749,31 +1749,31 @@ CompactNumberFormatSymbols_dav_KE = CompactNumberFormatSymbols_dav;
 /**
  * Compact number formatting symbols for locale de_BE.
  */
-CompactNumberFormatSymbols_de_BE = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_BE = CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_DE.
  */
-CompactNumberFormatSymbols_de_DE = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_DE = CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_IT.
  */
-CompactNumberFormatSymbols_de_IT = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_IT = CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_LI.
  */
-CompactNumberFormatSymbols_de_LI = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_LI = CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_LU.
  */
-CompactNumberFormatSymbols_de_LU = goog.i18n.CompactNumberFormatSymbols_de;
+CompactNumberFormatSymbols_de_LU = CompactNumberFormatSymbols_de;
 
 
 /**
@@ -2307,613 +2307,613 @@ CompactNumberFormatSymbols_ee_TG = CompactNumberFormatSymbols_ee;
 /**
  * Compact number formatting symbols for locale el_CY.
  */
-CompactNumberFormatSymbols_el_CY = goog.i18n.CompactNumberFormatSymbols_el;
+CompactNumberFormatSymbols_el_CY = CompactNumberFormatSymbols_el;
 
 
 /**
  * Compact number formatting symbols for locale el_GR.
  */
-CompactNumberFormatSymbols_el_GR = goog.i18n.CompactNumberFormatSymbols_el;
+CompactNumberFormatSymbols_el_GR = CompactNumberFormatSymbols_el;
 
 
 /**
  * Compact number formatting symbols for locale en_001.
  */
-CompactNumberFormatSymbols_en_001 = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_001 = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_150.
  */
-CompactNumberFormatSymbols_en_150 = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_150 = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AE.
  */
-CompactNumberFormatSymbols_en_AE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AG.
  */
-CompactNumberFormatSymbols_en_AG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AI.
  */
-CompactNumberFormatSymbols_en_AI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AS.
  */
-CompactNumberFormatSymbols_en_AS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AS = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_AT.
  */
-CompactNumberFormatSymbols_en_AT = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_AT = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BB.
  */
-CompactNumberFormatSymbols_en_BB = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BB = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BE.
  */
-CompactNumberFormatSymbols_en_BE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BI.
  */
-CompactNumberFormatSymbols_en_BI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BM.
  */
-CompactNumberFormatSymbols_en_BM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BS.
  */
-CompactNumberFormatSymbols_en_BS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BS = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BW.
  */
-CompactNumberFormatSymbols_en_BW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BW = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_BZ.
  */
-CompactNumberFormatSymbols_en_BZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_BZ = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CC.
  */
-CompactNumberFormatSymbols_en_CC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CC = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CH.
  */
-CompactNumberFormatSymbols_en_CH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CH = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CK.
  */
-CompactNumberFormatSymbols_en_CK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CK = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CM.
  */
-CompactNumberFormatSymbols_en_CM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CX.
  */
-CompactNumberFormatSymbols_en_CX = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CX = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CY.
  */
-CompactNumberFormatSymbols_en_CY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_CY = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DE.
  */
-CompactNumberFormatSymbols_en_DE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DG.
  */
-CompactNumberFormatSymbols_en_DG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DK.
  */
-CompactNumberFormatSymbols_en_DK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DK = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_DM.
  */
-CompactNumberFormatSymbols_en_DM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_DM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ER.
  */
-CompactNumberFormatSymbols_en_ER = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_ER = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FI.
  */
-CompactNumberFormatSymbols_en_FI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FJ.
  */
-CompactNumberFormatSymbols_en_FJ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FJ = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FK.
  */
-CompactNumberFormatSymbols_en_FK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FK = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_FM.
  */
-CompactNumberFormatSymbols_en_FM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_FM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GD.
  */
-CompactNumberFormatSymbols_en_GD = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GD = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GG.
  */
-CompactNumberFormatSymbols_en_GG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GH.
  */
-CompactNumberFormatSymbols_en_GH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GH = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GI.
  */
-CompactNumberFormatSymbols_en_GI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GM.
  */
-CompactNumberFormatSymbols_en_GM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GU.
  */
-CompactNumberFormatSymbols_en_GU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GU = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GY.
  */
-CompactNumberFormatSymbols_en_GY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_GY = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_HK.
  */
-CompactNumberFormatSymbols_en_HK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_HK = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IL.
  */
-CompactNumberFormatSymbols_en_IL = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_IL = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IM.
  */
-CompactNumberFormatSymbols_en_IM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_IM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IO.
  */
-CompactNumberFormatSymbols_en_IO = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_IO = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_JE.
  */
-CompactNumberFormatSymbols_en_JE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_JE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_JM.
  */
-CompactNumberFormatSymbols_en_JM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_JM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KE.
  */
-CompactNumberFormatSymbols_en_KE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KI.
  */
-CompactNumberFormatSymbols_en_KI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KN.
  */
-CompactNumberFormatSymbols_en_KN = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KN = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_KY.
  */
-CompactNumberFormatSymbols_en_KY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_KY = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_LC.
  */
-CompactNumberFormatSymbols_en_LC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_LC = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_LR.
  */
-CompactNumberFormatSymbols_en_LR = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_LR = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_LS.
  */
-CompactNumberFormatSymbols_en_LS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_LS = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MG.
  */
-CompactNumberFormatSymbols_en_MG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MH.
  */
-CompactNumberFormatSymbols_en_MH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MH = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MO.
  */
-CompactNumberFormatSymbols_en_MO = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MO = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MP.
  */
-CompactNumberFormatSymbols_en_MP = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MP = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MS.
  */
-CompactNumberFormatSymbols_en_MS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MS = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MT.
  */
-CompactNumberFormatSymbols_en_MT = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MT = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MU.
  */
-CompactNumberFormatSymbols_en_MU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MU = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MV.
  */
-CompactNumberFormatSymbols_en_MV = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MV = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MW.
  */
-CompactNumberFormatSymbols_en_MW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MW = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_MY.
  */
-CompactNumberFormatSymbols_en_MY = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_MY = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NA.
  */
-CompactNumberFormatSymbols_en_NA = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NA = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NF.
  */
-CompactNumberFormatSymbols_en_NF = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NF = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NG.
  */
-CompactNumberFormatSymbols_en_NG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NL.
  */
-CompactNumberFormatSymbols_en_NL = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NL = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NR.
  */
-CompactNumberFormatSymbols_en_NR = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NR = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NU.
  */
-CompactNumberFormatSymbols_en_NU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NU = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_NZ.
  */
-CompactNumberFormatSymbols_en_NZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_NZ = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PG.
  */
-CompactNumberFormatSymbols_en_PG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PH.
  */
-CompactNumberFormatSymbols_en_PH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PH = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PK.
  */
-CompactNumberFormatSymbols_en_PK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PK = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PN.
  */
-CompactNumberFormatSymbols_en_PN = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PN = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PR.
  */
-CompactNumberFormatSymbols_en_PR = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PR = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_PW.
  */
-CompactNumberFormatSymbols_en_PW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_PW = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_RW.
  */
-CompactNumberFormatSymbols_en_RW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_RW = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SB.
  */
-CompactNumberFormatSymbols_en_SB = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SB = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SC.
  */
-CompactNumberFormatSymbols_en_SC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SC = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SD.
  */
-CompactNumberFormatSymbols_en_SD = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SD = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SE.
  */
-CompactNumberFormatSymbols_en_SE = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SH.
  */
-CompactNumberFormatSymbols_en_SH = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SH = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SI.
  */
-CompactNumberFormatSymbols_en_SI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SL.
  */
-CompactNumberFormatSymbols_en_SL = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SL = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SS.
  */
-CompactNumberFormatSymbols_en_SS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SS = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SX.
  */
-CompactNumberFormatSymbols_en_SX = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SX = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_SZ.
  */
-CompactNumberFormatSymbols_en_SZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_SZ = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TC.
  */
-CompactNumberFormatSymbols_en_TC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TC = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TK.
  */
-CompactNumberFormatSymbols_en_TK = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TK = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TO.
  */
-CompactNumberFormatSymbols_en_TO = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TO = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TT.
  */
-CompactNumberFormatSymbols_en_TT = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TT = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TV.
  */
-CompactNumberFormatSymbols_en_TV = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TV = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_TZ.
  */
-CompactNumberFormatSymbols_en_TZ = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_TZ = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_UG.
  */
-CompactNumberFormatSymbols_en_UG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_UG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_UM.
  */
-CompactNumberFormatSymbols_en_UM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_UM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_US_POSIX.
  */
-CompactNumberFormatSymbols_en_US_POSIX = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_US_POSIX = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VC.
  */
-CompactNumberFormatSymbols_en_VC = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VC = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VG.
  */
-CompactNumberFormatSymbols_en_VG = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VI.
  */
-CompactNumberFormatSymbols_en_VI = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VI = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_VU.
  */
-CompactNumberFormatSymbols_en_VU = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_VU = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_WS.
  */
-CompactNumberFormatSymbols_en_WS = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_WS = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_XA.
  */
-CompactNumberFormatSymbols_en_XA = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_XA = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ZM.
  */
-CompactNumberFormatSymbols_en_ZM = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_ZM = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ZW.
  */
-CompactNumberFormatSymbols_en_ZW = goog.i18n.CompactNumberFormatSymbols_en;
+CompactNumberFormatSymbols_en_ZW = CompactNumberFormatSymbols_en;
 
 
 /**
@@ -3717,7 +3717,7 @@ CompactNumberFormatSymbols_es_DO = {
 /**
  * Compact number formatting symbols for locale es_EA.
  */
-CompactNumberFormatSymbols_es_EA = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_EA = CompactNumberFormatSymbols_es;
 
 
 /**
@@ -3806,7 +3806,7 @@ CompactNumberFormatSymbols_es_EC = {
 /**
  * Compact number formatting symbols for locale es_GQ.
  */
-CompactNumberFormatSymbols_es_GQ = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_GQ = CompactNumberFormatSymbols_es;
 
 
 /**
@@ -3978,7 +3978,7 @@ CompactNumberFormatSymbols_es_HN = {
 /**
  * Compact number formatting symbols for locale es_IC.
  */
-CompactNumberFormatSymbols_es_IC = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_IC = CompactNumberFormatSymbols_es;
 
 
 /**
@@ -4233,7 +4233,7 @@ CompactNumberFormatSymbols_es_PE = {
 /**
  * Compact number formatting symbols for locale es_PH.
  */
-CompactNumberFormatSymbols_es_PH = goog.i18n.CompactNumberFormatSymbols_es;
+CompactNumberFormatSymbols_es_PH = CompactNumberFormatSymbols_es;
 
 
 /**
@@ -4654,13 +4654,13 @@ CompactNumberFormatSymbols_es_VE = {
 /**
  * Compact number formatting symbols for locale et_EE.
  */
-CompactNumberFormatSymbols_et_EE = goog.i18n.CompactNumberFormatSymbols_et;
+CompactNumberFormatSymbols_et_EE = CompactNumberFormatSymbols_et;
 
 
 /**
  * Compact number formatting symbols for locale eu_ES.
  */
-CompactNumberFormatSymbols_eu_ES = goog.i18n.CompactNumberFormatSymbols_eu;
+CompactNumberFormatSymbols_eu_ES = CompactNumberFormatSymbols_eu;
 
 
 /**
@@ -4717,13 +4717,13 @@ CompactNumberFormatSymbols_ewo_CM = CompactNumberFormatSymbols_ewo;
 /**
  * Compact number formatting symbols for locale fa_AF.
  */
-CompactNumberFormatSymbols_fa_AF = goog.i18n.CompactNumberFormatSymbols_fa;
+CompactNumberFormatSymbols_fa_AF = CompactNumberFormatSymbols_fa;
 
 
 /**
  * Compact number formatting symbols for locale fa_IR.
  */
-CompactNumberFormatSymbols_fa_IR = goog.i18n.CompactNumberFormatSymbols_fa;
+CompactNumberFormatSymbols_fa_IR = CompactNumberFormatSymbols_fa;
 
 
 /**
@@ -5931,13 +5931,13 @@ CompactNumberFormatSymbols_ff_Latn_SN = CompactNumberFormatSymbols_ff;
 /**
  * Compact number formatting symbols for locale fi_FI.
  */
-CompactNumberFormatSymbols_fi_FI = goog.i18n.CompactNumberFormatSymbols_fi;
+CompactNumberFormatSymbols_fi_FI = CompactNumberFormatSymbols_fi;
 
 
 /**
  * Compact number formatting symbols for locale fil_PH.
  */
-CompactNumberFormatSymbols_fil_PH = goog.i18n.CompactNumberFormatSymbols_fil;
+CompactNumberFormatSymbols_fil_PH = CompactNumberFormatSymbols_fil;
 
 
 /**
@@ -6038,271 +6038,271 @@ CompactNumberFormatSymbols_fo_FO = CompactNumberFormatSymbols_fo;
 /**
  * Compact number formatting symbols for locale fr_BE.
  */
-CompactNumberFormatSymbols_fr_BE = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BE = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BF.
  */
-CompactNumberFormatSymbols_fr_BF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BF = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BI.
  */
-CompactNumberFormatSymbols_fr_BI = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BI = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BJ.
  */
-CompactNumberFormatSymbols_fr_BJ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BJ = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_BL.
  */
-CompactNumberFormatSymbols_fr_BL = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_BL = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CD.
  */
-CompactNumberFormatSymbols_fr_CD = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CD = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CF.
  */
-CompactNumberFormatSymbols_fr_CF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CF = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CG.
  */
-CompactNumberFormatSymbols_fr_CG = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CG = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CH.
  */
-CompactNumberFormatSymbols_fr_CH = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CH = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CI.
  */
-CompactNumberFormatSymbols_fr_CI = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CI = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_CM.
  */
-CompactNumberFormatSymbols_fr_CM = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_CM = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_DJ.
  */
-CompactNumberFormatSymbols_fr_DJ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_DJ = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_DZ.
  */
-CompactNumberFormatSymbols_fr_DZ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_DZ = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_FR.
  */
-CompactNumberFormatSymbols_fr_FR = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_FR = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GA.
  */
-CompactNumberFormatSymbols_fr_GA = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GA = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GF.
  */
-CompactNumberFormatSymbols_fr_GF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GF = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GN.
  */
-CompactNumberFormatSymbols_fr_GN = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GN = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GP.
  */
-CompactNumberFormatSymbols_fr_GP = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GP = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_GQ.
  */
-CompactNumberFormatSymbols_fr_GQ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_GQ = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_HT.
  */
-CompactNumberFormatSymbols_fr_HT = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_HT = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_KM.
  */
-CompactNumberFormatSymbols_fr_KM = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_KM = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_LU.
  */
-CompactNumberFormatSymbols_fr_LU = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_LU = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MA.
  */
-CompactNumberFormatSymbols_fr_MA = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MA = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MC.
  */
-CompactNumberFormatSymbols_fr_MC = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MC = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MF.
  */
-CompactNumberFormatSymbols_fr_MF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MF = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MG.
  */
-CompactNumberFormatSymbols_fr_MG = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MG = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_ML.
  */
-CompactNumberFormatSymbols_fr_ML = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_ML = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MQ.
  */
-CompactNumberFormatSymbols_fr_MQ = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MQ = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MR.
  */
-CompactNumberFormatSymbols_fr_MR = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MR = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_MU.
  */
-CompactNumberFormatSymbols_fr_MU = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_MU = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_NC.
  */
-CompactNumberFormatSymbols_fr_NC = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_NC = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_NE.
  */
-CompactNumberFormatSymbols_fr_NE = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_NE = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_PF.
  */
-CompactNumberFormatSymbols_fr_PF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_PF = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_PM.
  */
-CompactNumberFormatSymbols_fr_PM = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_PM = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_RE.
  */
-CompactNumberFormatSymbols_fr_RE = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_RE = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_RW.
  */
-CompactNumberFormatSymbols_fr_RW = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_RW = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_SC.
  */
-CompactNumberFormatSymbols_fr_SC = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_SC = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_SN.
  */
-CompactNumberFormatSymbols_fr_SN = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_SN = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_SY.
  */
-CompactNumberFormatSymbols_fr_SY = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_SY = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_TD.
  */
-CompactNumberFormatSymbols_fr_TD = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_TD = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_TG.
  */
-CompactNumberFormatSymbols_fr_TG = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_TG = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_TN.
  */
-CompactNumberFormatSymbols_fr_TN = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_TN = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_VU.
  */
-CompactNumberFormatSymbols_fr_VU = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_VU = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_WF.
  */
-CompactNumberFormatSymbols_fr_WF = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_WF = CompactNumberFormatSymbols_fr;
 
 
 /**
  * Compact number formatting symbols for locale fr_YT.
  */
-CompactNumberFormatSymbols_fr_YT = goog.i18n.CompactNumberFormatSymbols_fr;
+CompactNumberFormatSymbols_fr_YT = CompactNumberFormatSymbols_fr;
 
 
 /**
@@ -6448,13 +6448,13 @@ CompactNumberFormatSymbols_fy_NL = CompactNumberFormatSymbols_fy;
 /**
  * Compact number formatting symbols for locale ga_GB.
  */
-CompactNumberFormatSymbols_ga_GB = goog.i18n.CompactNumberFormatSymbols_ga;
+CompactNumberFormatSymbols_ga_GB = CompactNumberFormatSymbols_ga;
 
 
 /**
  * Compact number formatting symbols for locale ga_IE.
  */
-CompactNumberFormatSymbols_ga_IE = goog.i18n.CompactNumberFormatSymbols_ga;
+CompactNumberFormatSymbols_ga_IE = CompactNumberFormatSymbols_ga;
 
 
 /**
@@ -6549,31 +6549,31 @@ CompactNumberFormatSymbols_gd_GB = CompactNumberFormatSymbols_gd;
 /**
  * Compact number formatting symbols for locale gl_ES.
  */
-CompactNumberFormatSymbols_gl_ES = goog.i18n.CompactNumberFormatSymbols_gl;
+CompactNumberFormatSymbols_gl_ES = CompactNumberFormatSymbols_gl;
 
 
 /**
  * Compact number formatting symbols for locale gsw_CH.
  */
-CompactNumberFormatSymbols_gsw_CH = goog.i18n.CompactNumberFormatSymbols_gsw;
+CompactNumberFormatSymbols_gsw_CH = CompactNumberFormatSymbols_gsw;
 
 
 /**
  * Compact number formatting symbols for locale gsw_FR.
  */
-CompactNumberFormatSymbols_gsw_FR = goog.i18n.CompactNumberFormatSymbols_gsw;
+CompactNumberFormatSymbols_gsw_FR = CompactNumberFormatSymbols_gsw;
 
 
 /**
  * Compact number formatting symbols for locale gsw_LI.
  */
-CompactNumberFormatSymbols_gsw_LI = goog.i18n.CompactNumberFormatSymbols_gsw;
+CompactNumberFormatSymbols_gsw_LI = CompactNumberFormatSymbols_gsw;
 
 
 /**
  * Compact number formatting symbols for locale gu_IN.
  */
-CompactNumberFormatSymbols_gu_IN = goog.i18n.CompactNumberFormatSymbols_gu;
+CompactNumberFormatSymbols_gu_IN = CompactNumberFormatSymbols_gu;
 
 
 /**
@@ -6782,19 +6782,19 @@ CompactNumberFormatSymbols_ha_NG = CompactNumberFormatSymbols_ha;
 /**
  * Compact number formatting symbols for locale haw_US.
  */
-CompactNumberFormatSymbols_haw_US = goog.i18n.CompactNumberFormatSymbols_haw;
+CompactNumberFormatSymbols_haw_US = CompactNumberFormatSymbols_haw;
 
 
 /**
  * Compact number formatting symbols for locale he_IL.
  */
-CompactNumberFormatSymbols_he_IL = goog.i18n.CompactNumberFormatSymbols_he;
+CompactNumberFormatSymbols_he_IL = CompactNumberFormatSymbols_he;
 
 
 /**
  * Compact number formatting symbols for locale hi_IN.
  */
-CompactNumberFormatSymbols_hi_IN = goog.i18n.CompactNumberFormatSymbols_hi;
+CompactNumberFormatSymbols_hi_IN = CompactNumberFormatSymbols_hi;
 
 
 /**
@@ -6966,13 +6966,13 @@ CompactNumberFormatSymbols_hi_Latn_IN = {
 /**
  * Compact number formatting symbols for locale hr_BA.
  */
-CompactNumberFormatSymbols_hr_BA = goog.i18n.CompactNumberFormatSymbols_hr;
+CompactNumberFormatSymbols_hr_BA = CompactNumberFormatSymbols_hr;
 
 
 /**
  * Compact number formatting symbols for locale hr_HR.
  */
-CompactNumberFormatSymbols_hr_HR = goog.i18n.CompactNumberFormatSymbols_hr;
+CompactNumberFormatSymbols_hr_HR = CompactNumberFormatSymbols_hr;
 
 
 /**
@@ -7067,13 +7067,13 @@ CompactNumberFormatSymbols_hsb_DE = CompactNumberFormatSymbols_hsb;
 /**
  * Compact number formatting symbols for locale hu_HU.
  */
-CompactNumberFormatSymbols_hu_HU = goog.i18n.CompactNumberFormatSymbols_hu;
+CompactNumberFormatSymbols_hu_HU = CompactNumberFormatSymbols_hu;
 
 
 /**
  * Compact number formatting symbols for locale hy_AM.
  */
-CompactNumberFormatSymbols_hy_AM = goog.i18n.CompactNumberFormatSymbols_hy;
+CompactNumberFormatSymbols_hy_AM = CompactNumberFormatSymbols_hy;
 
 
 /**
@@ -7168,7 +7168,7 @@ CompactNumberFormatSymbols_ia_001 = CompactNumberFormatSymbols_ia;
 /**
  * Compact number formatting symbols for locale id_ID.
  */
-CompactNumberFormatSymbols_id_ID = goog.i18n.CompactNumberFormatSymbols_id;
+CompactNumberFormatSymbols_id_ID = CompactNumberFormatSymbols_id;
 
 
 /**
@@ -7314,37 +7314,37 @@ CompactNumberFormatSymbols_ii_CN = CompactNumberFormatSymbols_ii;
 /**
  * Compact number formatting symbols for locale is_IS.
  */
-CompactNumberFormatSymbols_is_IS = goog.i18n.CompactNumberFormatSymbols_is;
+CompactNumberFormatSymbols_is_IS = CompactNumberFormatSymbols_is;
 
 
 /**
  * Compact number formatting symbols for locale it_CH.
  */
-CompactNumberFormatSymbols_it_CH = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_CH = CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale it_IT.
  */
-CompactNumberFormatSymbols_it_IT = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_IT = CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale it_SM.
  */
-CompactNumberFormatSymbols_it_SM = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_SM = CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale it_VA.
  */
-CompactNumberFormatSymbols_it_VA = goog.i18n.CompactNumberFormatSymbols_it;
+CompactNumberFormatSymbols_it_VA = CompactNumberFormatSymbols_it;
 
 
 /**
  * Compact number formatting symbols for locale ja_JP.
  */
-CompactNumberFormatSymbols_ja_JP = goog.i18n.CompactNumberFormatSymbols_ja;
+CompactNumberFormatSymbols_ja_JP = CompactNumberFormatSymbols_ja;
 
 
 /**
@@ -7532,7 +7532,7 @@ CompactNumberFormatSymbols_jv_ID = CompactNumberFormatSymbols_jv;
 /**
  * Compact number formatting symbols for locale ka_GE.
  */
-CompactNumberFormatSymbols_ka_GE = goog.i18n.CompactNumberFormatSymbols_ka;
+CompactNumberFormatSymbols_ka_GE = CompactNumberFormatSymbols_ka;
 
 
 /**
@@ -7971,7 +7971,7 @@ CompactNumberFormatSymbols_ki_KE = CompactNumberFormatSymbols_ki;
 /**
  * Compact number formatting symbols for locale kk_KZ.
  */
-CompactNumberFormatSymbols_kk_KZ = goog.i18n.CompactNumberFormatSymbols_kk;
+CompactNumberFormatSymbols_kk_KZ = CompactNumberFormatSymbols_kk;
 
 
 /**
@@ -8130,25 +8130,25 @@ CompactNumberFormatSymbols_kln_KE = CompactNumberFormatSymbols_kln;
 /**
  * Compact number formatting symbols for locale km_KH.
  */
-CompactNumberFormatSymbols_km_KH = goog.i18n.CompactNumberFormatSymbols_km;
+CompactNumberFormatSymbols_km_KH = CompactNumberFormatSymbols_km;
 
 
 /**
  * Compact number formatting symbols for locale kn_IN.
  */
-CompactNumberFormatSymbols_kn_IN = goog.i18n.CompactNumberFormatSymbols_kn;
+CompactNumberFormatSymbols_kn_IN = CompactNumberFormatSymbols_kn;
 
 
 /**
  * Compact number formatting symbols for locale ko_KP.
  */
-CompactNumberFormatSymbols_ko_KP = goog.i18n.CompactNumberFormatSymbols_ko;
+CompactNumberFormatSymbols_ko_KP = CompactNumberFormatSymbols_ko;
 
 
 /**
  * Compact number formatting symbols for locale ko_KR.
  */
-CompactNumberFormatSymbols_ko_KR = goog.i18n.CompactNumberFormatSymbols_ko;
+CompactNumberFormatSymbols_ko_KR = CompactNumberFormatSymbols_ko;
 
 
 /**
@@ -8605,7 +8605,7 @@ CompactNumberFormatSymbols_kw_GB = CompactNumberFormatSymbols_kw;
 /**
  * Compact number formatting symbols for locale ky_KG.
  */
-CompactNumberFormatSymbols_ky_KG = goog.i18n.CompactNumberFormatSymbols_ky;
+CompactNumberFormatSymbols_ky_KG = CompactNumberFormatSymbols_ky;
 
 
 /**
@@ -8853,31 +8853,31 @@ CompactNumberFormatSymbols_lkt_US = CompactNumberFormatSymbols_lkt;
 /**
  * Compact number formatting symbols for locale ln_AO.
  */
-CompactNumberFormatSymbols_ln_AO = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_AO = CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale ln_CD.
  */
-CompactNumberFormatSymbols_ln_CD = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_CD = CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale ln_CF.
  */
-CompactNumberFormatSymbols_ln_CF = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_CF = CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale ln_CG.
  */
-CompactNumberFormatSymbols_ln_CG = goog.i18n.CompactNumberFormatSymbols_ln;
+CompactNumberFormatSymbols_ln_CG = CompactNumberFormatSymbols_ln;
 
 
 /**
  * Compact number formatting symbols for locale lo_LA.
  */
-CompactNumberFormatSymbols_lo_LA = goog.i18n.CompactNumberFormatSymbols_lo;
+CompactNumberFormatSymbols_lo_LA = CompactNumberFormatSymbols_lo;
 
 
 /**
@@ -8940,7 +8940,7 @@ CompactNumberFormatSymbols_lrc_IR = CompactNumberFormatSymbols_lrc;
 /**
  * Compact number formatting symbols for locale lt_LT.
  */
-CompactNumberFormatSymbols_lt_LT = goog.i18n.CompactNumberFormatSymbols_lt;
+CompactNumberFormatSymbols_lt_LT = CompactNumberFormatSymbols_lt;
 
 
 /**
@@ -9099,7 +9099,7 @@ CompactNumberFormatSymbols_luy_KE = CompactNumberFormatSymbols_luy;
 /**
  * Compact number formatting symbols for locale lv_LV.
  */
-CompactNumberFormatSymbols_lv_LV = goog.i18n.CompactNumberFormatSymbols_lv;
+CompactNumberFormatSymbols_lv_LV = CompactNumberFormatSymbols_lv;
 
 
 /**
@@ -9557,19 +9557,19 @@ CompactNumberFormatSymbols_mi_NZ = CompactNumberFormatSymbols_mi;
 /**
  * Compact number formatting symbols for locale mk_MK.
  */
-CompactNumberFormatSymbols_mk_MK = goog.i18n.CompactNumberFormatSymbols_mk;
+CompactNumberFormatSymbols_mk_MK = CompactNumberFormatSymbols_mk;
 
 
 /**
  * Compact number formatting symbols for locale ml_IN.
  */
-CompactNumberFormatSymbols_ml_IN = goog.i18n.CompactNumberFormatSymbols_ml;
+CompactNumberFormatSymbols_ml_IN = CompactNumberFormatSymbols_ml;
 
 
 /**
  * Compact number formatting symbols for locale mn_MN.
  */
-CompactNumberFormatSymbols_mn_MN = goog.i18n.CompactNumberFormatSymbols_mn;
+CompactNumberFormatSymbols_mn_MN = CompactNumberFormatSymbols_mn;
 
 
 /**
@@ -9632,37 +9632,37 @@ CompactNumberFormatSymbols_mni_Beng_IN = CompactNumberFormatSymbols_mni;
 /**
  * Compact number formatting symbols for locale mr_IN.
  */
-CompactNumberFormatSymbols_mr_IN = goog.i18n.CompactNumberFormatSymbols_mr;
+CompactNumberFormatSymbols_mr_IN = CompactNumberFormatSymbols_mr;
 
 
 /**
  * Compact number formatting symbols for locale ms_BN.
  */
-CompactNumberFormatSymbols_ms_BN = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_BN = CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale ms_ID.
  */
-CompactNumberFormatSymbols_ms_ID = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_ID = CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale ms_MY.
  */
-CompactNumberFormatSymbols_ms_MY = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_MY = CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale ms_SG.
  */
-CompactNumberFormatSymbols_ms_SG = goog.i18n.CompactNumberFormatSymbols_ms;
+CompactNumberFormatSymbols_ms_SG = CompactNumberFormatSymbols_ms;
 
 
 /**
  * Compact number formatting symbols for locale mt_MT.
  */
-CompactNumberFormatSymbols_mt_MT = goog.i18n.CompactNumberFormatSymbols_mt;
+CompactNumberFormatSymbols_mt_MT = CompactNumberFormatSymbols_mt;
 
 
 /**
@@ -9719,7 +9719,7 @@ CompactNumberFormatSymbols_mua_CM = CompactNumberFormatSymbols_mua;
 /**
  * Compact number formatting symbols for locale my_MM.
  */
-CompactNumberFormatSymbols_my_MM = goog.i18n.CompactNumberFormatSymbols_my;
+CompactNumberFormatSymbols_my_MM = CompactNumberFormatSymbols_my;
 
 
 /**
@@ -9827,13 +9827,13 @@ CompactNumberFormatSymbols_naq_NA = CompactNumberFormatSymbols_naq;
 /**
  * Compact number formatting symbols for locale nb_NO.
  */
-CompactNumberFormatSymbols_nb_NO = goog.i18n.CompactNumberFormatSymbols_nb;
+CompactNumberFormatSymbols_nb_NO = CompactNumberFormatSymbols_nb;
 
 
 /**
  * Compact number formatting symbols for locale nb_SJ.
  */
-CompactNumberFormatSymbols_nb_SJ = goog.i18n.CompactNumberFormatSymbols_nb;
+CompactNumberFormatSymbols_nb_SJ = CompactNumberFormatSymbols_nb;
 
 
 /**
@@ -9890,55 +9890,55 @@ CompactNumberFormatSymbols_nd_ZW = CompactNumberFormatSymbols_nd;
 /**
  * Compact number formatting symbols for locale ne_IN.
  */
-CompactNumberFormatSymbols_ne_IN = goog.i18n.CompactNumberFormatSymbols_ne;
+CompactNumberFormatSymbols_ne_IN = CompactNumberFormatSymbols_ne;
 
 
 /**
  * Compact number formatting symbols for locale ne_NP.
  */
-CompactNumberFormatSymbols_ne_NP = goog.i18n.CompactNumberFormatSymbols_ne;
+CompactNumberFormatSymbols_ne_NP = CompactNumberFormatSymbols_ne;
 
 
 /**
  * Compact number formatting symbols for locale nl_AW.
  */
-CompactNumberFormatSymbols_nl_AW = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_AW = CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_BE.
  */
-CompactNumberFormatSymbols_nl_BE = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_BE = CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_BQ.
  */
-CompactNumberFormatSymbols_nl_BQ = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_BQ = CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_CW.
  */
-CompactNumberFormatSymbols_nl_CW = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_CW = CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_NL.
  */
-CompactNumberFormatSymbols_nl_NL = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_NL = CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_SR.
  */
-CompactNumberFormatSymbols_nl_SR = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_SR = CompactNumberFormatSymbols_nl;
 
 
 /**
  * Compact number formatting symbols for locale nl_SX.
  */
-CompactNumberFormatSymbols_nl_SX = goog.i18n.CompactNumberFormatSymbols_nl;
+CompactNumberFormatSymbols_nl_SX = CompactNumberFormatSymbols_nl;
 
 
 /**
@@ -10294,7 +10294,7 @@ CompactNumberFormatSymbols_om_KE = CompactNumberFormatSymbols_om;
 /**
  * Compact number formatting symbols for locale or_IN.
  */
-CompactNumberFormatSymbols_or_IN = goog.i18n.CompactNumberFormatSymbols_or;
+CompactNumberFormatSymbols_or_IN = CompactNumberFormatSymbols_or;
 
 
 /**
@@ -10447,13 +10447,13 @@ CompactNumberFormatSymbols_pa_Arab_PK = {
 /**
  * Compact number formatting symbols for locale pa_Guru.
  */
-CompactNumberFormatSymbols_pa_Guru = goog.i18n.CompactNumberFormatSymbols_pa;
+CompactNumberFormatSymbols_pa_Guru = CompactNumberFormatSymbols_pa;
 
 
 /**
  * Compact number formatting symbols for locale pa_Guru_IN.
  */
-CompactNumberFormatSymbols_pa_Guru_IN = goog.i18n.CompactNumberFormatSymbols_pa;
+CompactNumberFormatSymbols_pa_Guru_IN = CompactNumberFormatSymbols_pa;
 
 
 /**
@@ -10548,7 +10548,7 @@ CompactNumberFormatSymbols_pcm_NG = CompactNumberFormatSymbols_pcm;
 /**
  * Compact number formatting symbols for locale pl_PL.
  */
-CompactNumberFormatSymbols_pl_PL = goog.i18n.CompactNumberFormatSymbols_pl;
+CompactNumberFormatSymbols_pl_PL = CompactNumberFormatSymbols_pl;
 
 
 /**
@@ -11733,13 +11733,13 @@ CompactNumberFormatSymbols_rn_BI = CompactNumberFormatSymbols_rn;
 /**
  * Compact number formatting symbols for locale ro_MD.
  */
-CompactNumberFormatSymbols_ro_MD = goog.i18n.CompactNumberFormatSymbols_ro;
+CompactNumberFormatSymbols_ro_MD = CompactNumberFormatSymbols_ro;
 
 
 /**
  * Compact number formatting symbols for locale ro_RO.
  */
-CompactNumberFormatSymbols_ro_RO = goog.i18n.CompactNumberFormatSymbols_ro;
+CompactNumberFormatSymbols_ro_RO = CompactNumberFormatSymbols_ro;
 
 
 /**
@@ -11796,37 +11796,37 @@ CompactNumberFormatSymbols_rof_TZ = CompactNumberFormatSymbols_rof;
 /**
  * Compact number formatting symbols for locale ru_BY.
  */
-CompactNumberFormatSymbols_ru_BY = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_BY = CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_KG.
  */
-CompactNumberFormatSymbols_ru_KG = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_KG = CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_KZ.
  */
-CompactNumberFormatSymbols_ru_KZ = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_KZ = CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_MD.
  */
-CompactNumberFormatSymbols_ru_MD = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_MD = CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_RU.
  */
-CompactNumberFormatSymbols_ru_RU = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_RU = CompactNumberFormatSymbols_ru;
 
 
 /**
  * Compact number formatting symbols for locale ru_UA.
  */
-CompactNumberFormatSymbols_ru_UA = goog.i18n.CompactNumberFormatSymbols_ru;
+CompactNumberFormatSymbols_ru_UA = CompactNumberFormatSymbols_ru;
 
 
 /**
@@ -12830,19 +12830,19 @@ CompactNumberFormatSymbols_shi_Tfng_MA = CompactNumberFormatSymbols_shi;
 /**
  * Compact number formatting symbols for locale si_LK.
  */
-CompactNumberFormatSymbols_si_LK = goog.i18n.CompactNumberFormatSymbols_si;
+CompactNumberFormatSymbols_si_LK = CompactNumberFormatSymbols_si;
 
 
 /**
  * Compact number formatting symbols for locale sk_SK.
  */
-CompactNumberFormatSymbols_sk_SK = goog.i18n.CompactNumberFormatSymbols_sk;
+CompactNumberFormatSymbols_sk_SK = CompactNumberFormatSymbols_sk;
 
 
 /**
  * Compact number formatting symbols for locale sl_SI.
  */
-CompactNumberFormatSymbols_sl_SI = goog.i18n.CompactNumberFormatSymbols_sl;
+CompactNumberFormatSymbols_sl_SI = CompactNumberFormatSymbols_sl;
 
 
 /**
@@ -13095,49 +13095,49 @@ CompactNumberFormatSymbols_so_SO = CompactNumberFormatSymbols_so;
 /**
  * Compact number formatting symbols for locale sq_AL.
  */
-CompactNumberFormatSymbols_sq_AL = goog.i18n.CompactNumberFormatSymbols_sq;
+CompactNumberFormatSymbols_sq_AL = CompactNumberFormatSymbols_sq;
 
 
 /**
  * Compact number formatting symbols for locale sq_MK.
  */
-CompactNumberFormatSymbols_sq_MK = goog.i18n.CompactNumberFormatSymbols_sq;
+CompactNumberFormatSymbols_sq_MK = CompactNumberFormatSymbols_sq;
 
 
 /**
  * Compact number formatting symbols for locale sq_XK.
  */
-CompactNumberFormatSymbols_sq_XK = goog.i18n.CompactNumberFormatSymbols_sq;
+CompactNumberFormatSymbols_sq_XK = CompactNumberFormatSymbols_sq;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl.
  */
-CompactNumberFormatSymbols_sr_Cyrl = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl = CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_BA.
  */
-CompactNumberFormatSymbols_sr_Cyrl_BA = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_BA = CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_ME.
  */
-CompactNumberFormatSymbols_sr_Cyrl_ME = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_ME = CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_RS.
  */
-CompactNumberFormatSymbols_sr_Cyrl_RS = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_RS = CompactNumberFormatSymbols_sr;
 
 
 /**
  * Compact number formatting symbols for locale sr_Cyrl_XK.
  */
-CompactNumberFormatSymbols_sr_Cyrl_XK = goog.i18n.CompactNumberFormatSymbols_sr;
+CompactNumberFormatSymbols_sr_Cyrl_XK = CompactNumberFormatSymbols_sr;
 
 
 /**
@@ -13532,25 +13532,25 @@ CompactNumberFormatSymbols_su_Latn_ID = CompactNumberFormatSymbols_su;
 /**
  * Compact number formatting symbols for locale sv_AX.
  */
-CompactNumberFormatSymbols_sv_AX = goog.i18n.CompactNumberFormatSymbols_sv;
+CompactNumberFormatSymbols_sv_AX = CompactNumberFormatSymbols_sv;
 
 
 /**
  * Compact number formatting symbols for locale sv_FI.
  */
-CompactNumberFormatSymbols_sv_FI = goog.i18n.CompactNumberFormatSymbols_sv;
+CompactNumberFormatSymbols_sv_FI = CompactNumberFormatSymbols_sv;
 
 
 /**
  * Compact number formatting symbols for locale sv_SE.
  */
-CompactNumberFormatSymbols_sv_SE = goog.i18n.CompactNumberFormatSymbols_sv;
+CompactNumberFormatSymbols_sv_SE = CompactNumberFormatSymbols_sv;
 
 
 /**
  * Compact number formatting symbols for locale sw_CD.
  */
-CompactNumberFormatSymbols_sw_CD = goog.i18n.CompactNumberFormatSymbols_sw;
+CompactNumberFormatSymbols_sw_CD = CompactNumberFormatSymbols_sw;
 
 
 /**
@@ -13639,43 +13639,43 @@ CompactNumberFormatSymbols_sw_KE = {
 /**
  * Compact number formatting symbols for locale sw_TZ.
  */
-CompactNumberFormatSymbols_sw_TZ = goog.i18n.CompactNumberFormatSymbols_sw;
+CompactNumberFormatSymbols_sw_TZ = CompactNumberFormatSymbols_sw;
 
 
 /**
  * Compact number formatting symbols for locale sw_UG.
  */
-CompactNumberFormatSymbols_sw_UG = goog.i18n.CompactNumberFormatSymbols_sw;
+CompactNumberFormatSymbols_sw_UG = CompactNumberFormatSymbols_sw;
 
 
 /**
  * Compact number formatting symbols for locale ta_IN.
  */
-CompactNumberFormatSymbols_ta_IN = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_IN = CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale ta_LK.
  */
-CompactNumberFormatSymbols_ta_LK = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_LK = CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale ta_MY.
  */
-CompactNumberFormatSymbols_ta_MY = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_MY = CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale ta_SG.
  */
-CompactNumberFormatSymbols_ta_SG = goog.i18n.CompactNumberFormatSymbols_ta;
+CompactNumberFormatSymbols_ta_SG = CompactNumberFormatSymbols_ta;
 
 
 /**
  * Compact number formatting symbols for locale te_IN.
  */
-CompactNumberFormatSymbols_te_IN = goog.i18n.CompactNumberFormatSymbols_te;
+CompactNumberFormatSymbols_te_IN = CompactNumberFormatSymbols_te;
 
 
 /**
@@ -13827,7 +13827,7 @@ CompactNumberFormatSymbols_tg_TJ = CompactNumberFormatSymbols_tg;
 /**
  * Compact number formatting symbols for locale th_TH.
  */
-CompactNumberFormatSymbols_th_TH = goog.i18n.CompactNumberFormatSymbols_th;
+CompactNumberFormatSymbols_th_TH = CompactNumberFormatSymbols_th;
 
 
 /**
@@ -14106,13 +14106,13 @@ CompactNumberFormatSymbols_to_TO = CompactNumberFormatSymbols_to;
 /**
  * Compact number formatting symbols for locale tr_CY.
  */
-CompactNumberFormatSymbols_tr_CY = goog.i18n.CompactNumberFormatSymbols_tr;
+CompactNumberFormatSymbols_tr_CY = CompactNumberFormatSymbols_tr;
 
 
 /**
  * Compact number formatting symbols for locale tr_TR.
  */
-CompactNumberFormatSymbols_tr_TR = goog.i18n.CompactNumberFormatSymbols_tr;
+CompactNumberFormatSymbols_tr_TR = CompactNumberFormatSymbols_tr;
 
 
 /**
@@ -14360,19 +14360,19 @@ CompactNumberFormatSymbols_ug_CN = CompactNumberFormatSymbols_ug;
 /**
  * Compact number formatting symbols for locale uk_UA.
  */
-CompactNumberFormatSymbols_uk_UA = goog.i18n.CompactNumberFormatSymbols_uk;
+CompactNumberFormatSymbols_uk_UA = CompactNumberFormatSymbols_uk;
 
 
 /**
  * Compact number formatting symbols for locale ur_IN.
  */
-CompactNumberFormatSymbols_ur_IN = goog.i18n.CompactNumberFormatSymbols_ur;
+CompactNumberFormatSymbols_ur_IN = CompactNumberFormatSymbols_ur;
 
 
 /**
  * Compact number formatting symbols for locale ur_PK.
  */
-CompactNumberFormatSymbols_ur_PK = goog.i18n.CompactNumberFormatSymbols_ur;
+CompactNumberFormatSymbols_ur_PK = CompactNumberFormatSymbols_ur;
 
 
 /**
@@ -14634,13 +14634,13 @@ CompactNumberFormatSymbols_uz_Cyrl_UZ = {
 /**
  * Compact number formatting symbols for locale uz_Latn.
  */
-CompactNumberFormatSymbols_uz_Latn = goog.i18n.CompactNumberFormatSymbols_uz;
+CompactNumberFormatSymbols_uz_Latn = CompactNumberFormatSymbols_uz;
 
 
 /**
  * Compact number formatting symbols for locale uz_Latn_UZ.
  */
-CompactNumberFormatSymbols_uz_Latn_UZ = goog.i18n.CompactNumberFormatSymbols_uz;
+CompactNumberFormatSymbols_uz_Latn_UZ = CompactNumberFormatSymbols_uz;
 
 
 /**
@@ -14715,7 +14715,7 @@ CompactNumberFormatSymbols_vai_Vaii_LR = CompactNumberFormatSymbols_vai;
 /**
  * Compact number formatting symbols for locale vi_VN.
  */
-CompactNumberFormatSymbols_vi_VN = goog.i18n.CompactNumberFormatSymbols_vi;
+CompactNumberFormatSymbols_vi_VN = CompactNumberFormatSymbols_vi;
 
 
 /**
@@ -15817,31 +15817,31 @@ CompactNumberFormatSymbols_zgh_MA = CompactNumberFormatSymbols_zgh;
 /**
  * Compact number formatting symbols for locale zh_Hans.
  */
-CompactNumberFormatSymbols_zh_Hans = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans = CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_CN.
  */
-CompactNumberFormatSymbols_zh_Hans_CN = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_CN = CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_HK.
  */
-CompactNumberFormatSymbols_zh_Hans_HK = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_HK = CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_MO.
  */
-CompactNumberFormatSymbols_zh_Hans_MO = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_MO = CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_Hans_SG.
  */
-CompactNumberFormatSymbols_zh_Hans_SG = goog.i18n.CompactNumberFormatSymbols_zh;
+CompactNumberFormatSymbols_zh_Hans_SG = CompactNumberFormatSymbols_zh;
 
 
 /**
@@ -16179,7 +16179,7 @@ CompactNumberFormatSymbols_zh_Hant_TW = {
 /**
  * Compact number formatting symbols for locale zu_ZA.
  */
-CompactNumberFormatSymbols_zu_ZA = goog.i18n.CompactNumberFormatSymbols_zu;
+CompactNumberFormatSymbols_zu_ZA = CompactNumberFormatSymbols_zu;
 
 
 /**

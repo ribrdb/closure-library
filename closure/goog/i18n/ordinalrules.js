@@ -59,7 +59,7 @@ function defaultSelect_(n, precision) {
  * @return {!Keyword} Locale-specific ordinal value.
  * @private
  */
-function cySelect_(n, precision) {
+export function cySelect_(n, precision) {
   if (n == 0 || n == 7 || n == 8 || n == 9) {
     return Keyword.ZERO;
   }
@@ -86,7 +86,7 @@ function cySelect_(n, precision) {
  * @return {!Keyword} Locale-specific ordinal value.
  * @private
  */
-function enSelect_(n, precision) {
+export function enSelect_(n, precision) {
   if (n % 10 == 1 && n % 100 != 11) {
     return Keyword.ONE;
   }
@@ -137,7 +137,7 @@ function itSelect_(n, precision) {
  * @return {!Keyword} Locale-specific ordinal value.
  * @private
  */
-function neSelect_(n, precision) {
+export function neSelect_(n, precision) {
   if (n >= 1 && n <= 4) {
     return Keyword.ONE;
   }
@@ -421,7 +421,7 @@ function bnSelect_(n, precision) {
  * @return {function(number,number=) : !Keyword} Select function
  * @private
  */
-function mapToNativeSelect_() {
+export function mapToNativeSelect_() {
   const pluralLookup = {
     'zero':  Keyword.ZERO,
     'one':   Keyword.ONE,

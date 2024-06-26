@@ -8,6 +8,7 @@ goog.setTestOnly();
 
 import { MessageFormat } from './messageformat.js';
 import { NumberFormatSymbols_hr } from './numberformatsymbols.js';
+import * as numberformatsymbols from './numberformatsymbols.js';
 import { PropertyReplacer } from '../testing/propertyreplacer.js';
 import * as pluralRules from './pluralrules.js';
 import { testSuite } from '../testing/testsuite.js';
@@ -279,7 +280,7 @@ testSuite({
   /** @suppress {visibility} suppression added to enable type checking */
   testSerbianSelectNestedInPlural() {
     stubs.set(pluralRules, 'select', pluralRules.beSelect_);
-    stubs.set(goog.i18n, 'NumberFormatSymbols', NumberFormatSymbols_hr);
+    stubs.set(numberformatsymbols, 'NumberFormatSymbols', NumberFormatSymbols_hr);
 
     const fmt = new MessageFormat(
         '{CIRCLES, plural, ' +

@@ -421,7 +421,7 @@ export function getResourceWithFallback(resourceName, opt_locale) {
  * @param {!Object} dataObj The resource object.
  * @param {string} localeName Locale ID.
  */
-var registerLocalNameConstants = registerLocaleNameConstants;
+goog.global.registerLocalNameConstants = registerLocaleNameConstants;
 
 /**
  * Registers the TimeZoneSelectedIds constants object for a given locale name.

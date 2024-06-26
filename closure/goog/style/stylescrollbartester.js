@@ -20,7 +20,7 @@ goog.setTestOnly('goog.styleScrollbarTester');
  * Tests the scrollbar width calculation. Assumes that there is an element with
  * id 'test-scrollbarwidth' in the page.
  */
-function testScrollbarWidth() {
+export function testScrollbarWidth() {
   var width = style.getScrollbarWidth();
   assertTrue(width > 0);
 

@@ -11,7 +11,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat
  */
 
-import { ListFormatSymbols as ListSymbols } from './listsymbols.js';
+import * as ListSymbols from './listsymbols.js';
 
 import * as LocaleFeature from './localefeature.js';
 import * as asserts from '../asserts/asserts.js';

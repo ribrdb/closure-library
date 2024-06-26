@@ -17,7 +17,7 @@ import * as asserts from '../asserts/asserts.js';
 import * as googDate from '../date/date.js';
 import { DateTimeFormat } from './datetimeformat.js';
 import { DateTimeSymbols } from './datetimesymbols.js';
-import { DayPeriods } from './dayperiodsymbols.js';
+import { DayPeriods, getDayPeriods } from './dayperiodsymbols.js';
 import object from '../object/object.js';
 goog.requireType('goog.i18n.datetimesymbols');
 
@@ -584,7 +584,7 @@ DateTimeParse.prototype.subParse_ = function(
       // Get the strings for the day periods for adjusting the time to AM/PM.
       // Also includes AM/PM data for fallback.
       /** {?DayPeriods} */
-      const localePeriods = DayPeriods.getDayPeriods();
+      const localePeriods = getDayPeriods();
       // Standard names such as 'noon', 'morning1', 'night2', etc.
       let periodNames = [];
       // The localized terms for the period names.

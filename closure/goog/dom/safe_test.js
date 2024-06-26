@@ -23,6 +23,7 @@ import * as googTesting from '../testing/functionmock.js';
 import * as isSafari from '../labs/useragent/browser.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as testing from '../html/testing.js';
+import { StrictMock } from '../testing/strictmock.js';
 
 let mockWindowOpen;
 
@@ -270,7 +271,7 @@ testSuite({
 
   testReplaceLocationSafeString() {
     /** @type {?} */
-    const mockLoc = new googTesting.StrictMock(window.location);
+    const mockLoc = new StrictMock(window.location);
     mockLoc.replace('http://example.com/');
     mockLoc.$replay();
     safe.replaceLocation(mockLoc, 'http://example.com/');
@@ -280,7 +281,7 @@ testSuite({
 
   testReplaceLocationEvilString() {
     /** @type {?} */
-    const mockLoc = new googTesting.StrictMock(window.location);
+    const mockLoc = new StrictMock(window.location);
     mockLoc.replace('about:invalid#zClosurez');
     mockLoc.$replay();
     withAssertionFailure(() => {
@@ -292,7 +293,7 @@ testSuite({
 
   testReplaceLocationSafeUrl() {
     /** @type {?} */
-    const mockLoc = new googTesting.StrictMock(window.location);
+    const mockLoc = new StrictMock(window.location);
     mockLoc.replace('about:blank');
     mockLoc.$replay();
     safe.replaceLocation(mockLoc, 'about:blank');

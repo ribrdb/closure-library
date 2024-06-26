@@ -388,6 +388,7 @@
     "getFileNameFromStyleSheet"
   ],
   "closure/goog/cssom/iframe/style.js": [
+    "CssSelector_",
     "NodeAncestry_",
     "getElementContext",
     "getBackgroundContext",
@@ -423,7 +424,7 @@
   ],
   "closure/goog/date/relative.js": [
     "Unit",
-    "monthDateFormatter_",
+    "resetMonthDateFormatter_",
     "TimeDeltaFormatter",
     "setTimeDeltaFormatter",
     "setCasingMode",
@@ -579,6 +580,7 @@
   "closure/goog/dom/animationframe/animationframe.js": [
     "Spec",
     "State",
+    "tasks_",
     "requestedFrame_",
     "createTask",
     "isRunning"
@@ -952,6 +954,7 @@
   "closure/goog/editor/icontent.js": [
     "FieldFormatInfo",
     "FieldStyleInfo",
+    "getInitialIframeContent_",
     "writeNormalInitialBlendedIframe",
     "writeNormalInitialIframe",
     "writeHttpsInitialIframe",
@@ -1136,7 +1139,9 @@
     "dispatchEvent",
     "protectBrowserEventEntryPoint",
     "getUniqueId",
-    "wrapListener"
+    "wrapListener",
+    "setHandlerForTests_",
+    "getHandlerForTests_"
   ],
   "closure/goog/events/eventtarget.js": [
     "EventTarget"
@@ -1337,9 +1342,12 @@
   "closure/goog/fx/anim/anim.js": [
     "Animated",
     "TIMEOUT",
+    "activeAnimations_",
+    "getAnimationDelay_",
     "registerAnimation",
     "unregisterAnimation",
     "setAnimationWindow",
+    "cycleAnimations_",
     "tearDown"
   ],
   "closure/goog/fx/animation.js": [
@@ -1474,6 +1482,8 @@
     "EllipseElement"
   ],
   "closure/goog/graphics/ext/coordinates.js": [
+    "isPercent_",
+    "isPixels_",
     "isSpecial",
     "computeValue",
     "getValue"
@@ -1679,6 +1689,7 @@
     "TrustedResourceUrl"
   ],
   "closure/goog/html/trustedtypes.js": [
+    "_reset",
     "getPolicyPrivateDoNotAccessOrElse",
     "POLICY_NAME"
   ],
@@ -8544,11 +8555,26 @@
   ],
   "closure/goog/i18n/ordinalrules.js": [
     "Keyword",
-    "select"
+    "select",
+    "cySelect_",
+    "enSelect_",
+    "neSelect_",
+    "mapToNativeSelect_"
   ],
   "closure/goog/i18n/pluralrules.js": [
     "Keyword",
-    "select"
+    "select",
+    "defaultSelect_",
+    "filSelect_",
+    "heSelect_",
+    "srSelect_",
+    "roSelect_",
+    "isSelect_",
+    "beSelect_",
+    "afSelect_",
+    "arSelect_",
+    "enSelect_",
+    "mapToNativeSelect_"
   ],
   "closure/goog/i18n/relativedatetimeformat.js": [
     "RelativeDateTimeFormat"
@@ -9387,6 +9413,7 @@
   ],
   "closure/goog/i18n/uchar.js": [
     "toHexString",
+    "padString_",
     "toCharCode",
     "fromCharCode",
     "getCodePointAround",
@@ -9498,7 +9525,9 @@
     "ENABLE_VERBOSE_DEBUGGING",
     "ParseError",
     "Token",
-    "parse"
+    "parse",
+    "isCharacterString_",
+    "assertToken_"
   ],
   "closure/goog/labs/mock/mock.js": [
     "mock",
@@ -9507,7 +9536,10 @@
     "spy",
     "verify",
     "waitAndVerify",
+    "getFunctionName_",
+    "formatMethodCall_",
     "getUid",
+    "formatValue_",
     "VerificationError",
     "TimeoutError",
     "StubBinder",
@@ -10054,8 +10086,7 @@
     "ModuleLoader"
   ],
   "closure/goog/module/moduleloadfailure.js": [
-    "ModuleLoadFailure",
-    "Type"
+    "ModuleLoadFailure"
   ],
   "closure/goog/module/modulemanager.js": [
     "ModuleManager"
@@ -10292,8 +10323,10 @@
     "OverflowStatus",
     "positionAtAnchor",
     "getOffsetParentPageOffset",
+    "getVisiblePart_",
     "positionAtCoordinate",
     "getPositionAtCoordinate",
+    "adjustForViewport_",
     "getEffectiveCorner",
     "flipCornerHorizontal",
     "flipCornerVertical",
@@ -10536,6 +10569,7 @@
     "Const"
   ],
   "closure/goog/string/internal.js": [
+    "DETECT_DOUBLE_ESCAPING",
     "endsWith",
     "caseInsensitiveStartsWith",
     "caseInsensitiveEndsWith",
@@ -10575,7 +10609,6 @@
     "split"
   ],
   "closure/goog/string/string.js": [
-    "DETECT_DOUBLE_ESCAPING",
     "FORCE_NON_DOM_HTML_UNESCAPING",
     "Unicode",
     "startsWith",
@@ -10614,6 +10647,8 @@
     "htmlEscape",
     "unescapeEntities",
     "unescapeEntitiesWithDocument",
+    "unescapeEntitiesUsingDom_",
+    "unescapePureXmlEntities_",
     "whitespaceEscape",
     "preserveSpaces",
     "stripQuotes",
@@ -10742,6 +10777,9 @@
   ],
   "closure/goog/style/style.js": [
     "setStyle",
+    "styleNameCache_",
+    "getVendorJsStyleName_",
+    "getVendorStyleName_",
     "getStyle",
     "getComputedStyle",
     "getCascadedStyle",
@@ -10811,13 +10849,17 @@
     "getScrollbarWidth",
     "getCssTranslation"
   ],
+  "closure/goog/style/stylescrollbartester.js": [
+    "testScrollbarWidth"
+  ],
   "closure/goog/style/transform.js": [
     "getTranslation",
     "setTranslation",
     "getScale",
     "setScale",
     "getRotation",
-    "setRotation"
+    "setRotation",
+    "getTransformProperty_"
   ],
   "closure/goog/style/transition.js": [
     "Css3Property",
@@ -10879,6 +10921,7 @@
     "assertContains",
     "assertNotContains",
     "assertRegExp",
+    "toArray_",
     "standardizeCSSValue",
     "raiseException"
   ],
@@ -11123,6 +11166,7 @@
     "PropertyReplacer"
   ],
   "closure/goog/testing/proto2/proto2.js": [
+    "findDifferences_",
     "assertEquals",
     "fromObject"
   ],
@@ -11145,8 +11189,12 @@
   ],
   "closure/goog/testing/stacktrace.js": [
     "Frame",
+    "parseStackFrame_",
     "setDeobfuscateFunctionName",
+    "framesToString_",
+    "parse_",
     "canonicalize",
+    "getNativeStack_",
     "get"
   ],
   "closure/goog/testing/storage/fakemechanism.js": [
@@ -11213,7 +11261,9 @@
     "getBoolean",
     "getString",
     "getNumber",
-    "endBooleanGroup"
+    "endBooleanGroup",
+    "setRegistry_",
+    "resetActiveBooleanGroup_"
   ],
   "closure/goog/tweak/tweakui.js": [
     "TweakUi",
@@ -11482,6 +11532,7 @@
     "addFontSize",
     "getPxFromLegacySize",
     "getLegacySizeFromPx",
+    "LEGACY_SIZE_TO_PX_MAP_",
     "addFormatOptions",
     "addFormatOption",
     "makeToolbar",
@@ -11686,6 +11737,8 @@
     "getDecoratorByClassName",
     "setDecoratorByClassName",
     "getDecorator",
+    "defaultRenderers_",
+    "decoratorFunctions_",
     "reset"
   ],
   "closure/goog/ui/richtextspellchecker.js": [
@@ -11912,9 +11965,11 @@
   ],
   "closure/goog/useragent/keyboard.js": [
     "ASSUME_MAC_KEYBOARD",
+    "determineMacKeyboard_",
     "MAC_KEYBOARD"
   ],
   "closure/goog/useragent/platform.js": [
+    "determineVersion_",
     "VERSION",
     "isVersion"
   ],
@@ -11929,13 +11984,16 @@
     "IE",
     "EDGE",
     "FIREFOX",
+    "isIphoneOrIpod_",
     "IPHONE",
     "IPAD",
     "ANDROID",
     "CHROME",
+    "isSafariDesktop_",
     "SAFARI"
   ],
   "closure/goog/useragent/product_isversion.js": [
+    "determineVersion_",
     "VERSION",
     "isVersion"
   ],
@@ -11956,8 +12014,10 @@
     "EDGE_OR_IE",
     "GECKO",
     "WEBKIT",
+    "isMobile_",
     "MOBILE",
     "SAFARI",
+    "determinePlatform_",
     "PLATFORM",
     "ASSUME_MAC",
     "ASSUME_WINDOWS",
@@ -11969,6 +12029,7 @@
     "ASSUME_KAIOS",
     "MAC",
     "WINDOWS",
+    "isLegacyLinux_",
     "LINUX",
     "ANDROID",
     "IPHONE",
@@ -11976,6 +12037,8 @@
     "IPOD",
     "IOS",
     "KAIOS",
+    "determineVersion_",
+    "getDocumentMode_",
     "VERSION",
     "compare",
     "isVersionOrHigherCache_",

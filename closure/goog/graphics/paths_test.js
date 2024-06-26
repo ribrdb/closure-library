@@ -1,4 +1,4 @@
-/**
+/*l
  * @license
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
@@ -11,6 +11,8 @@ import * as dom from '../dom/dom.js';
 import * as googGraphics from './graphics.js';
 import * as paths from './paths.js';
 import { testSuite } from '../testing/testsuite.js';
+import { SolidFill } from './solidfill.js';
+import { Stroke } from './stroke.js';
 
 // The purpose of this test is less about the actual unit test, and
 // more for drawing demos of shapes.
@@ -46,8 +48,8 @@ testSuite({
     const root = dom.getElement('root');
     const graphics = googGraphics.createGraphics(800, 600);
 
-    const blueFill = new googGraphics.SolidFill('blue');
-    const blackStroke = new googGraphics.Stroke(1, 'black');
+    const blueFill = new SolidFill('blue');
+    const blackStroke = new Stroke(1, 'black');
     graphics.drawPath(
         regularNGon($coord(20, 50), $coord(0, 20), 3), blackStroke, blueFill);
     graphics.drawPath(

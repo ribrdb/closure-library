@@ -7,7 +7,7 @@
 goog.setTestOnly();
 import { Deferred } from './deferred.js';
 import { testSuite } from '../../../../../closure/goog/testing/testsuite.js';
-
+Deferred.LONG_STACK_TRACES = true;
 testSuite({
   shouldRunTests() {
     return !!Error.captureStackTrace;

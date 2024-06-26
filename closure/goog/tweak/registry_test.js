@@ -23,7 +23,7 @@ testSuite({
 
   tearDown() {
     /** @suppress {visibility} suppression added to enable type checking */
-    tweak.registry_ = null;
+    tweak.setRegistry_(null);
   },
 
   testGetBaseEntry() {

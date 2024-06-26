@@ -34,7 +34,7 @@ const createHasString = (stringValue) => {
 
 testSuite({
   setUpPage() {
-    googString.getRandomString = functions.constant('RANDOM');
+    googString.$set('getRandomString', functions.constant('RANDOM'));
   },
 
   tearDown() {},

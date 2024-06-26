@@ -176,7 +176,7 @@ testSuite({
 
     assertTrue(
         'There should be an active timer',
-        fxAnim.animationDelay_ && fxAnim.animationDelay_.isActive());
+        fxAnim.getAnimationDelay_() && fxAnim.getAnimationDelay_().isActive());
     assertEquals(
         'There should be an active animations', 1,
         googObject.getCount(fxAnim.activeAnimations_));
@@ -188,7 +188,7 @@ testSuite({
         googObject.isEmpty(fxAnim.activeAnimations_));
     assertFalse(
         'There should be no active timer',
-        fxAnim.animationDelay_ && fxAnim.animationDelay_.isActive());
+        fxAnim.getAnimationDelay_() && fxAnim.getAnimationDelay_().isActive());
 
     anim.dispose();
   },

@@ -40,7 +40,7 @@ var specialCoordinateCache_ = {};
  * @return {boolean} Whether the coordinate contains the string '%'.
  * @private
  */
-function isPercent_(coord) {
+export function isPercent_(coord) {
   return string.contains(coord, '%');
 }
 
@@ -52,7 +52,7 @@ function isPercent_(coord) {
  * @return {boolean} Whether the coordinate contains the string 'px'.
  * @private
  */
-function isPixels_(coord) {
+export function isPixels_(coord) {
   return string.contains(coord, 'px');
 }
 

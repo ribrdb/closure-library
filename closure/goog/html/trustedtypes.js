@@ -22,6 +22,11 @@ POLICY_NAME = goog.define(
  */
 var cachedPolicy_;
 
+/** @private */
+export function _reset() {
+  cachedPolicy_ = undefined;
+}
+
 
 /**
  * Creates a (singleton) Trusted Type Policy for Safe HTML Types.

@@ -93,7 +93,12 @@ var shortTimeFormatter_;
  * @type {?DateTimeFormat}
  * @private
  */
-export var monthDateFormatter_;
+var monthDateFormatter_;
+
+/** @private */
+export function resetMonthDateFormatter_() {
+  monthDateFormatter_ = null;
+}
 
 
 /**
@@ -375,6 +380,7 @@ export function formatPast(dateMs) {
  */
 export function formatDay(dateMs, opt_formatter) {
   var today = new Date(goog.now());
+  console.log(today);
   const originalTimezoneOffset = today.getTimezoneOffset();
 
   today.setHours(0);

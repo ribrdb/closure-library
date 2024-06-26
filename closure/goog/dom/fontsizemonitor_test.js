@@ -201,7 +201,7 @@ testSuite({
        * @suppress {visibility,checkTypes,constantProperty} suppression added
        * to enable type checking
        */
-      userAgent.isVersionOrHigherCache_ = {};
+      userAgent.$set('isVersionOrHigherCache_', {});
 
       const frameCount = window.frames.length;
       const iframeElementCount =
