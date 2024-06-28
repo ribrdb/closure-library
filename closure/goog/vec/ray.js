@@ -15,7 +15,7 @@
  */
 import * as Vec3 from './vec3.js';
 
-goog.requireType('goog.vec.vec');
+const {AnyType} = goog.requireType('goog.vec.vec');
 
 
 
@@ -48,8 +48,8 @@ export function Ray(opt_origin, opt_dir) {
 
 /**
  * Sets the origin and direction of the ray.
- * @param {goog.vec.AnyType} origin The new origin.
- * @param {goog.vec.AnyType} dir The new direction.
+ * @param {AnyType} origin The new origin.
+ * @param {AnyType} dir The new direction.
  */
 Ray.prototype.set = function(origin, dir) {
  Vec3.setFromArray(this.origin, origin);
@@ -59,7 +59,7 @@ Ray.prototype.set = function(origin, dir) {
 
 /**
  * Sets the origin of the ray.
- * @param {goog.vec.AnyType} origin the new origin.
+ * @param {AnyType} origin the new origin.
  */
 Ray.prototype.setOrigin = function(origin) {
  Vec3.setFromArray(this.origin, origin);
@@ -68,7 +68,7 @@ Ray.prototype.setOrigin = function(origin) {
 
 /**
  * Sets the direction of the ray.
- * @param {goog.vec.AnyType} dir The new direction.
+ * @param {AnyType} dir The new direction.
  */
 Ray.prototype.setDir = function(dir) {
  Vec3.setFromArray(this.dir, dir);

@@ -11,7 +11,7 @@ import { MockControl } from '../../testing/mockcontrol.js';
 import { PropertyReplacer } from '../../testing/propertyreplacer.js';
 import { EnvironmentBase } from './environmentbase.js';
 
-/** @suppress {extraRequire} Declares globals */
+/** Declares globals */
 import * as jsunit from '../../testing/jsunit.js';
 
 

@@ -14,7 +14,7 @@ import * as dom from '../dom/dom.js';
 import { TagName } from '../dom/tagname.js';
 import { EventType } from '../events/eventtype.js';
 import { Cookies } from '../net/cookies.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 goog.requireType('goog.events.event');
@@ -107,7 +107,7 @@ export class CookieEditor extends Component {
       var value = this.textAreaElem_.value;
       if (value) {
         // Strip line breaks.
-        value = string.stripNewlines(value);
+        value = googString.stripNewlines(value);
       }
       if (Cookies.getInstance().isValidValue(value)) {
         Cookies.getInstance().set(this.cookieKey_, value);

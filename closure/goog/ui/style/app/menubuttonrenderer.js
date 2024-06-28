@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.style.app.MenuButton}s and
+ * @fileoverview Renderer for {@link MenuButton}s and
  * subclasses.
  */
 
@@ -18,14 +18,14 @@ import * as style from '../../../style/style.js';
 import { Menu } from '../../menu.js';
 import { MenuRenderer } from '../../menurenderer.js';
 import { ButtonRenderer } from './buttonrenderer.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menubutton');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
+const {MenuButton} = goog.requireType('goog.ui.menubutton');
 
 
 
 /**
- * Renderer for {@link goog.ui.style.app.MenuButton}s.  This implementation
+ * Renderer for {@link MenuButton}s.  This implementation
  * overrides {@link ButtonRenderer#createButton} to insert a
  * dropdown element into the content element after the specified content.
  * @constructor
@@ -129,7 +129,7 @@ MenuButtonRenderer.prototype.getContentElement = function(
  * the element.  Overrides {@link ButtonRenderer#decorate} by
  * looking for a child element that can be decorated by a menu, and if it
  * finds one, decorates it and attaches it to the menu button.
- * @param {goog.ui.Control} control MenuButton to decorate the element.
+ * @param {Control} control MenuButton to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
@@ -137,7 +137,7 @@ MenuButtonRenderer.prototype.getContentElement = function(
 MenuButtonRenderer.prototype.decorate = function(
     control, element) {
   const button = /** @type {MenuButton} */ (control);
-  // TODO(attila):  Add more robust support for subclasses of goog.ui.Menu.
+  // TODO(attila):  Add more robust support for subclasses of Menu.
   const menuElem = googDom.getElementsByTagNameAndClass(
       '*', MenuRenderer.CSS_CLASS, element)[0];
   if (menuElem) {
@@ -175,7 +175,7 @@ MenuButtonRenderer.prototype.decorate = function(
  *      </div>
  *    </div>
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
+ * @param {ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
@@ -200,7 +200,7 @@ MenuButtonRenderer.prototype.setContent = function(
 
 /**
  * Inserts dropdown element as last child of existing content.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure.
+ * @param {ControlContent} content Text caption or DOM structure.
  * @param {googDom.DomHelper} dom DOM helper, used for document ineraction.
  * @return {!Array<Node>} DOM structure to be set as the button's content.
  */

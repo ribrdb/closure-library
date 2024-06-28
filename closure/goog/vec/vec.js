@@ -16,12 +16,9 @@ goog.declareModuleId('goog.vec.vec');
  * On platforms that don't have native Float32Array or Float64Array support we
  * use a javascript implementation so that this math library can be used on all
  * platforms.
- * @suppress {extraRequire}
  */
-import { Float32Array } from './float32array.js';
-
-/** @suppress {extraRequire} */
-import { Float64Array } from './float64array.js';
+import './float32array.js';
+import './float64array.js';
 
 // All vector and matrix operations are based upon arrays of numbers using
 // either Float32Array, Float64Array, or a standard JavaScript Array of

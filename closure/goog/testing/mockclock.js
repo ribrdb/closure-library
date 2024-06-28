@@ -16,10 +16,7 @@ goog.declareModuleId('goog.testing.mockclock');
 goog.setTestOnly('goog.testing.MockClock');
 
 import { Disposable } from '../disposable/disposable.js';
-
-/** @suppress {extraRequire} */
 import { Promise as googPromise } from '../promise/promise.js';
-
 import { Thenable } from '../promise/thenable.js';
 import * as asserts from '../asserts/asserts.js';
 import { nextTick } from '../async/nexttick.js';

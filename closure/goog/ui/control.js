@@ -27,18 +27,15 @@ import { EventType } from '../events/eventtype.js';
 import { KeyCodes } from '../events/keycodes.js';
 import { KeyHandler } from '../events/keyhandler.js';
 import * as functions from '../functions/functions.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Component } from './component.js';
 import * as ComponentUtil from './componentutil.js';
-
-/** @suppress {extraRequire} */
 import { ControlContent } from './controlcontent.js';
-
 import { ControlRenderer } from './controlrenderer.js';
 import * as registry from './registry.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.a11y.aria.roles');
-goog.requireType('goog.events.keyevent');
+const {Role} = goog.requireType('goog.a11y.aria.roles');
+const {KeyEvent} = goog.requireType('goog.events.keyevent');
 
 
 
@@ -228,7 +225,7 @@ Control.prototype.allowTextSelection_ = false;
 
 /**
  * The control's preferred ARIA role.
- * @type {?goog.a11y.aria.Role}
+ * @type {?Role}
  * @private
  */
 Control.prototype.preferredAriaRole_ = null;
@@ -427,7 +424,7 @@ Control.prototype.createDom = function() {
  * cases where a different ARIA role is appropriate for a control because of the
  * context in which it's used.  E.g., a {@link goog.ui.MenuButton} added to a
  * {@link goog.ui.Select} should have an ARIA role of LISTBOX and not MENUITEM.
- * @return {?goog.a11y.aria.Role} This control's preferred ARIA role or null if
+ * @return {?Role} This control's preferred ARIA role or null if
  *     no preferred ARIA role is set.
  */
 Control.prototype.getPreferredAriaRole = function() {
@@ -441,7 +438,7 @@ Control.prototype.getPreferredAriaRole = function() {
  * different ARIA role is appropriate for a control because of the
  * context in which it's used.  E.g., a {@link goog.ui.MenuButton} added to a
  * {@link goog.ui.Select} should have an ARIA role of LISTBOX and not MENUITEM.
- * @param {goog.a11y.aria.Role} role This control's preferred ARIA role.
+ * @param {Role} role This control's preferred ARIA role.
  */
 Control.prototype.setPreferredAriaRole = function(role) {
   this.preferredAriaRole_ = role;
@@ -718,7 +715,7 @@ Control.prototype.getCaption = function() {
       Array.isArray(content) ?
       content.map(dom.getRawTextContent).join('') :
       dom.getTextContent(/** @type {!Node} */ (content));
-  return string.collapseBreakingSpaces(caption);
+  return googString.collapseBreakingSpaces(caption);
 };
 
 
@@ -1407,7 +1404,7 @@ Control.prototype.handleBlur = function(e) {
  * Attempts to handle a keyboard event, if the component is enabled and visible,
  * by calling {@link handleKeyEventInternal}.  Considered protected; should only
  * be used within this package and by subclasses.
- * @param {goog.events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} Whether the key event was handled.
  */
 Control.prototype.handleKeyEvent = function(e) {
@@ -1424,7 +1421,7 @@ Control.prototype.handleKeyEvent = function(e) {
  * Attempts to handle a keyboard event; returns true if the event was handled,
  * false otherwise.  Considered protected; should only be used within this
  * package and by subclasses.
- * @param {goog.events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} Whether the key event was handled.
  * @protected
  */

@@ -9,7 +9,7 @@
  */
 
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 /**
@@ -64,6 +64,6 @@ if (!ASSUME_NO_JSCRIPT) {
  *     newer than the given version.
  */
 export function isVersion(version) {
- return string.compareVersions(VERSION, version) >=
+ return googString.compareVersions(VERSION, version) >=
      0;
 }

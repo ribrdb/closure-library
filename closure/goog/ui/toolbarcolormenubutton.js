@@ -13,24 +13,24 @@ goog.declareModuleId('goog.ui.toolbarcolormenubutton');
 import { ColorMenuButton } from './colormenubutton.js';
 import { ToolbarColorMenuButtonRenderer } from './toolbarcolormenubuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.colormenubuttonrenderer');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menu');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ColorMenuButtonRenderer } = goog.requireType('goog.ui.colormenubuttonrenderer');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { Menu } = goog.requireType('goog.ui.menu');
 
 
 
 /**
  * A color menu button control for a toolbar.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
- * @param {goog.ui.Menu=} opt_menu Menu to render under the button when clicked;
+ * @param {Menu=} opt_menu Menu to render under the button when clicked;
  *     should contain at least one {@link goog.ui.ColorPalette} if present.
  * @param {ColorMenuButtonRenderer=} opt_renderer Optional
  *     renderer used to render or decorate the button; defaults to
  *     {@link ToolbarColorMenuButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {ColorMenuButton}

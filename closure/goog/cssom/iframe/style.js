@@ -44,7 +44,7 @@ import * as dom from '../../dom/dom.js';
 import { NodeType } from '../../dom/nodetype.js';
 import { TagName } from '../../dom/tagname.js';
 import * as classlist from '../../dom/classlist.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as style from '../../style/style.js';
 import * as userAgent from '../../useragent/useragent.js';
 
@@ -744,7 +744,7 @@ export function getElementContext(element, opt_forceRuleSetCacheUpdate, opt_copy
   var defaultProperties = {};
   for (var i = 0, prop; prop = inheritedProperties_[i];
        i++) {
-    defaultProperties[prop] = computedStyle[string.toCamelCase(prop)];
+    defaultProperties[prop] = computedStyle[googString.toCamelCase(prop)];
   }
   defaultPropertiesRuleSet.setDeclarationTextFromObject(defaultProperties);
   ruleSets.push(defaultPropertiesRuleSet);
@@ -765,7 +765,7 @@ export function getElementContext(element, opt_forceRuleSetCacheUpdate, opt_copy
   // Text formatting property values, to keep text nodes directly under BODY
   // looking right.
   for (i = 0; prop = textProperties_[i]; i++) {
-    bodyProperties[prop] = computedStyle[string.toCamelCase(prop)];
+    bodyProperties[prop] = computedStyle[googString.toCamelCase(prop)];
   }
   if (opt_copyBackgroundContext &&
       isTransparentValue_(

@@ -27,7 +27,7 @@ import { Unicode } from '../../string/string.js';
 import { Component } from '../../ui/component.js';
 import { Bubble } from '../../ui/editor/bubble.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

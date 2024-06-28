@@ -17,7 +17,7 @@ import { DateTimeFormat } from '../i18n/datetimeformat.js';
 
 import { DateTimePatterns } from '../i18n/datetimepatterns.js';
 import { RelativeDateTimeFormat } from '../i18n/relativedatetimeformat.js';
-goog.requireType('goog.date.date');
+const {DateTime} = goog.requireType('goog.date.date');
 
 /**
  * Number of milliseconds in a minute.
@@ -224,7 +224,7 @@ function formatMonth_(date) {
 
 /**
  * Returns a date in short-time format, e.g. 2:50 PM.
- * @param {!Date|!goog.date.DateTime} date The date object.
+ * @param {!Date|!DateTime} date The date object.
  * @return {string} The formatted string.
  * @private
  */
@@ -239,7 +239,7 @@ function formatShortTime_(date) {
 
 /**
  * Returns a date in full date format, e.g. Tuesday, March 24, 2009.
- * @param {!Date|!goog.date.DateTime} date The date object.
+ * @param {!Date|!DateTime} date The date object.
  * @return {string} The formatted string.
  * @private
  */
@@ -429,7 +429,7 @@ export function formatDay(dateMs, opt_formatter) {
  *   Monday, February 27, 2009 (4 days ago)
  *   Tuesday, March 20, 2005    // Too long ago for a relative date.
  *
- * @param {!Date|!goog.date.DateTime} date A date object.
+ * @param {!Date|!DateTime} date A date object.
  * @param {string=} opt_shortTimeMsg An optional short time message can be
  *     provided if available, so that it's not recalculated in this function.
  * @param {string=} opt_fullDateMsg An optional date message can be
@@ -451,7 +451,7 @@ export function getDateString(date, opt_shortTimeMsg, opt_fullDateMsg) {
  * the above {@see #getDateString} method who relied on it protecting against
  * future dates.
  *
- * @param {Date|goog.date.DateTime} date A date object.
+ * @param {Date|DateTime} date A date object.
  * @param {string=} opt_shortTimeMsg An optional short time message can be
  *     provided if available, so that it's not recalculated in this function.
  * @param {string=} opt_fullDateMsg An optional date message can be
@@ -472,7 +472,7 @@ export function getPastDateString(date, opt_shortTimeMsg, opt_fullDateMsg) {
  *   Monday, February 27, 2009 (4 days ago)
  *   Tuesday, March 20, 2005    // Too long ago for a relative date.
  *
- * @param {Date|goog.date.DateTime} date A date object.
+ * @param {Date|DateTime} date A date object.
  * @param {function(number) : string} relativeFormatter Function to use when
  *     formatting the relative date.
  * @param {string=} opt_shortTimeMsg An optional short time message can be

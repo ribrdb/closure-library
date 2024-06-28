@@ -10,7 +10,7 @@ import * as mock from './mock.js';
 import { TimeoutError, VerificationError } from './mock.js';
 import * as array from '../../array/array.js';
 import * as mockTimeout from './timeoutmode.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { testSuite } from '../../testing/testsuite.js';
 import * as verification from './verificationmode.js';
 
@@ -680,7 +680,7 @@ testSuite({
     // The mode description should be between the expected method
     // invocation and a newline.
     assertTrue(
-        string.contains(e.message, 'methodName() ' + modeDescription + '\n'));
+        googString.contains(e.message, 'methodName() ' + modeDescription + '\n'));
   },
 
 
@@ -1279,8 +1279,8 @@ testSuite({
     const f2 = function() {};
     const named = function myName() {};
 
-    assert(string.startsWith(mock.getFunctionName_(f1), '#anonymous'));
-    assert(string.startsWith(mock.getFunctionName_(f2), '#anonymous'));
+    assert(googString.startsWith(mock.getFunctionName_(f1), '#anonymous'));
+    assert(googString.startsWith(mock.getFunctionName_(f2), '#anonymous'));
     assertNotEquals(mock.getFunctionName_(f1), mock.getFunctionName_(f2));
     assertEquals('myName', mock.getFunctionName_(named));
   },

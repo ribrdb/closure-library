@@ -16,7 +16,7 @@
 
 import platform from '../labs/useragent/platform.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as userAgent from './useragent.js';
 import * as product from './product.js';
 
@@ -139,6 +139,6 @@ export var VERSION = determineVersion_();
  *     same as the given version.
  */
 export function isVersion(version) {
-  return string.compareVersions(VERSION, version) >=
+  return googString.compareVersions(VERSION, version) >=
       0;
 }

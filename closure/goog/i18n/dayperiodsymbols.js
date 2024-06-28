@@ -39,10 +39,7 @@ export let DayPeriodInfo;
  *    night2: (?DayPeriodInfo|undefined)
  *  }}
  */
-let DayPeriods;
-
-/** @typedef {{DayPeriods}} */
-export { DayPeriods };
+export let DayPeriods;
 
 /**
  * Data for dayperiods by locale.

@@ -24,13 +24,13 @@ import { Event } from '../../events/event.js';
 import { KeyCodes } from '../../events/keycodes.js';
 import { SafeHtml } from '../../html/safehtml.js';
 import { SafeStyle } from '../../html/safestyle.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { StringBuffer } from '../../string/stringbuffer.js';
 import * as googStyle from '../../style/style.js';
 import { Component } from '../component.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');  // circular
-goog.requireType('goog.ui.tree.treecontrol');
+const {DomHelper} = goog.requireType('goog.dom.dom');
+const {BrowserEvent} = goog.requireType('goog.events.browserevent');  // circular
+const {TreeControl} = goog.requireType('goog.ui.tree.treecontrol');
 
 
 
@@ -42,7 +42,7 @@ goog.requireType('goog.ui.tree.treecontrol');
  * @param {Object=} opt_config The configuration for the tree. See
  *    {@link BaseNode.defaultConfig}. If not specified the
  *    default config will be used.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {Component}
  */
@@ -69,7 +69,7 @@ export function BaseNode(content, opt_config, opt_domHelper) {
   /** @private {string} */
   this.expandedIconClass_;
 
-  /** @protected {goog.ui.tree.TreeControl} */
+  /** @protected {TreeControl} */
   this.tree;
 
   /** @private {BaseNode} */
@@ -331,7 +331,7 @@ BaseNode.prototype.add = function(child, opt_before) {
 BaseNode.prototype.removeChild = function(
     childNode, opt_unrender) {
   // In reality, this only accepts BaseNodes.
-  const child = /** @type {goog.ui.tree.BaseNode} */ (childNode);
+  const child = /** @type {BaseNode} */ (childNode);
 
   // if we remove selected or tree with the selected we should select this
   const tree = this.getTree();
@@ -420,7 +420,7 @@ BaseNode.prototype.onTimeoutSelect_ = function() {
 
 /**
  * Returns the tree.
- * @return {?goog.ui.tree.TreeControl}
+ * @return {?TreeControl}
  */
 BaseNode.prototype.getTree = goog.abstractMethod;
 
@@ -1192,7 +1192,7 @@ BaseNode.prototype.setText = function(s) {
  * @return {string} The plain text of the label.
  */
 BaseNode.prototype.getText = function() {
-  return string.unescapeEntities(SafeHtml.unwrap(this.html_));
+  return googString.unescapeEntities(SafeHtml.unwrap(this.html_));
 };
 
 
@@ -1293,7 +1293,7 @@ BaseNode.prototype.updateIcon_ = function() {
 
 /**
  * Handles mouse down event.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @protected
  * @suppress {strictMissingProperties}
  */
@@ -1315,7 +1315,7 @@ BaseNode.prototype.onMouseDown = function(e) {
 
 /**
  * Handles a click event.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @protected
  * @suppress {underscore|visibility}
  */
@@ -1324,7 +1324,7 @@ BaseNode.prototype.onClick_ = Event.preventDefault;
 
 /**
  * Handles a double click event.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @protected
  * @suppress {underscore|visibility|strictMissingProperties}
  */
@@ -1344,7 +1344,7 @@ BaseNode.prototype.onDoubleClick_ = function(e) {
 
 /**
  * Handles a key down event.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @return {boolean} The handled value.
  * @protected
  */
@@ -1465,7 +1465,7 @@ BaseNode.prototype.getPreviousShownNode = function() {
   if (this == tree) {
     return null;
   }
-  return /** @type {goog.ui.tree.BaseNode} */ (parent);
+  return /** @type {BaseNode} */ (parent);
 };
 
 
@@ -1496,7 +1496,7 @@ BaseNode.prototype.getConfig = function() {
 
 /**
  * Internal method that is used to set the tree control on the node.
- * @param {goog.ui.tree.TreeControl} tree The tree control.
+ * @param {TreeControl} tree The tree control.
  */
 BaseNode.prototype.setTreeInternal = function(tree) {
   if (this.tree != tree) {

@@ -25,11 +25,11 @@ import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
 import { Dragger } from './dragger.js';
 import { Coordinate } from '../math/coordinate.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.fx.dragger');
-goog.requireType('goog.math.rect');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const {DragEvent} = goog.requireType('goog.fx.dragger');
+const {Rect} = goog.requireType('goog.math.rect');
 
 
 
@@ -437,7 +437,7 @@ DragListGroup.prototype.setCurrDragItemClass = function(var_args) {
 DragListGroup.prototype.setDraggerElClass = function(draggerElClass) {
   asserts.assert(!this.isInitialized_);
   // Split space-separated classes up into an array.
-  this.draggerElClasses_ = string.trim(draggerElClass).split(' ');
+  this.draggerElClasses_ = googString.trim(draggerElClass).split(' ');
 };
 
 
@@ -586,7 +586,7 @@ DragListGroup.prototype.listenForDragEvents = function(dragItem) {
 
 /**
  * Handles mouse and touch events which may start a drag action.
- * @param {!events.BrowserEvent} e MOUSEDOWN or TOUCHSTART event.
+ * @param {!BrowserEvent} e MOUSEDOWN or TOUCHSTART event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -682,7 +682,7 @@ DragListGroup.prototype.createDragElementInternal = function(sourceEl) {
 
 /**
  * Handles the start of a drag action.
- * @param {!goog.fx.DragEvent} e Dragger.EventType.START event.
+ * @param {!DragEvent} e Dragger.EventType.START event.
  * @private
  */
 DragListGroup.prototype.handleDragStart_ = function(e) {
@@ -748,7 +748,7 @@ DragListGroup.prototype.handleDragStart_ = function(e) {
 /**
  * Update the dragger_.delta[X&Y] properties to place the dragged element under
  * the cursor mouse if that is not already the case.
- * @param {!goog.fx.DragEvent|!events.BrowserEvent} dragEvent MOUSEDOWN or
+ * @param {!DragEvent|!BrowserEvent} dragEvent MOUSEDOWN or
  *     TOUCHSTART event.
  * @private
  */
@@ -786,7 +786,7 @@ DragListGroup.prototype.maybeUpdateDraggerDeltaToPlaceElUnderCursor_ =
 /**
  * Handles a drag movement (i.e. DRAG event fired by the dragger).
  *
- * @param {goog.fx.DragEvent} dragEvent Event object fired by the dragger.
+ * @param {DragEvent} dragEvent Event object fired by the dragger.
  * @return {boolean} The return value for the event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -899,7 +899,7 @@ DragListGroup.prototype.cleanup_ = function(opt_e) {
  * Handles the end or the cancellation of a drag action, i.e. END or CLEANUP
  * event fired by the dragger.
  *
- * @param {!goog.fx.DragEvent} dragEvent Event object fired by the dragger.
+ * @param {!DragEvent} dragEvent Event object fired by the dragger.
  * @return {boolean} Whether the event was handled.
  * @private
  */
@@ -996,7 +996,7 @@ DragListGroup.prototype.getHandleForDragItem_ = function(dragItem) {
 
 /**
  * Handles a MOUSEOVER event fired on a drag item.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 DragListGroup.prototype.handleDragItemMouseover_ = function(e) {
@@ -1007,7 +1007,7 @@ DragListGroup.prototype.handleDragItemMouseover_ = function(e) {
 
 /**
  * Handles a MOUSEOUT event fired on a drag item.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 DragListGroup.prototype.handleDragItemMouseout_ = function(e) {
@@ -1018,7 +1018,7 @@ DragListGroup.prototype.handleDragItemMouseout_ = function(e) {
 
 /**
  * Handles a MOUSEOVER event fired on the handle element of a drag item.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 DragListGroup.prototype.handleDragItemHandleMouseover_ = function(e) {
@@ -1029,7 +1029,7 @@ DragListGroup.prototype.handleDragItemHandleMouseover_ = function(e) {
 
 /**
  * Handles a MOUSEOUT event fired on the handle element of a drag item.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 DragListGroup.prototype.handleDragItemHandleMouseout_ = function(e) {
@@ -1084,7 +1084,7 @@ DragListGroup.prototype.getHoverDragList_ = function(draggerElCenter) {
 /**
  * Checks whether a coordinate position resides inside a rectangle.
  * @param {Coordinate} pos The coordinate position.
- * @param {goog.math.Rect} rect The rectangle.
+ * @param {Rect} rect The rectangle.
  * @return {boolean} True if 'pos' is within the bounds of 'rect'.
  * @private
  */
@@ -1273,7 +1273,7 @@ DragListGroup.verticalDistanceFromItem_ = function(item, target) {
 /**
  * Private helper for getHoverNextItem_().
  * Given the bounds of an item, computes the item's bottom y-value.
- * @param {goog.math.Rect} itemBounds The bounds of the item.
+ * @param {Rect} itemBounds The bounds of the item.
  * @return {number} The item's bottom y-value.
  * @private
  */
@@ -1285,7 +1285,7 @@ DragListGroup.getBottomBound_ = function(itemBounds) {
 /**
  * Private helper for getHoverNextItem_().
  * Given the bounds of an item, computes the item's right x-value.
- * @param {goog.math.Rect} itemBounds The bounds of the item.
+ * @param {Rect} itemBounds The bounds of the item.
  * @return {number} The item's right x-value.
  * @private
  */
@@ -1297,7 +1297,7 @@ DragListGroup.getRightBound_ = function(itemBounds) {
 /**
  * Private helper for getHoverNextItem_().
  * Given the bounds of an item, computes the item's left x-value.
- * @param {goog.math.Rect} itemBounds The bounds of the item.
+ * @param {Rect} itemBounds The bounds of the item.
  * @return {number} The item's left x-value.
  * @private
  */
@@ -1358,7 +1358,7 @@ DragListGroup.prototype.insertCurrDragItem_ = function(
  * @param {!DragListGroup.EventType} type
  * @param {DragListGroup} dragListGroup A reference to the associated
  *     DragListGroup object.
- * @param {events.BrowserEvent|goog.fx.DragEvent} event The event fired
+ * @param {BrowserEvent|DragEvent} event The event fired
  *     by the browser or fired by the dragger.
  * @param {Element} currDragItem The current drag item being moved.
  * @param {Element} draggerEl The clone of the current drag item that's actually
@@ -1400,7 +1400,7 @@ export function DragListGroupEvent(
 
   /**
      * The event fired by the browser or fired by the dragger.
-     * @type {events.BrowserEvent|goog.fx.DragEvent}
+     * @type {BrowserEvent|DragEvent}
      */
   this.event = event;
 

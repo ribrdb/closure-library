@@ -15,8 +15,8 @@ import { Tab } from './tab.js';
 import { TabBar } from './tabbar.js';
 import { TabRenderer } from './tabrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -75,7 +75,7 @@ RoundedTabRenderer.prototype.getCssClass = function() {
  *      </table>
  *    </div>
  *
- * @param {goog.ui.Control} tab Tab to render.
+ * @param {Control} tab Tab to render.
  * @return {Element} Root element for the tab.
  * @override
  */
@@ -88,7 +88,7 @@ RoundedTabRenderer.prototype.createDom = function(tab) {
 /**
  * Decorates the element with the tab.  Overrides the superclass implementation
  * by wrapping the tab's content in a table that implements rounded corners.
- * @param {goog.ui.Control} tab Tab to decorate the element.
+ * @param {Control} tab Tab to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
@@ -113,7 +113,7 @@ RoundedTabRenderer.prototype.decorate = function(tab, element) {
 /**
  * Creates a table implementing a rounded corner tab.
  * @param {googDom.DomHelper} dom DOM helper to use for element construction.
- * @param {goog.ui.ControlContent} caption Text caption or DOM structure
+ * @param {ControlContent} caption Text caption or DOM structure
  *     to display as the tab's caption.
  * @param {TabBar.Location} location Tab bar location relative to the
  *     tab contents.
@@ -147,7 +147,7 @@ RoundedTabRenderer.prototype.createTab = function(
 /**
  * Creates a table row implementing the tab caption.
  * @param {googDom.DomHelper} dom DOM helper to use for element construction.
- * @param {goog.ui.ControlContent} caption Text caption or DOM structure
+ * @param {ControlContent} caption Text caption or DOM structure
  *     to display as the tab's caption.
  * @return {!Element} Tab caption table row.
  * @protected
@@ -195,7 +195,7 @@ RoundedTabRenderer.prototype.getContentElement = function(element) {
 };
 
 
-// Register a decorator factory function for goog.ui.Tabs using the rounded
+// Register a decorator factory function for Tabs using the rounded
 // tab renderer.
 registry.setDecoratorByClassName(
     RoundedTabRenderer.CSS_CLASS, function() {

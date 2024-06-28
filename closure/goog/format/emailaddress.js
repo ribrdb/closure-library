@@ -11,7 +11,7 @@
 import * as bidi from '../i18n/bidi.js';
 
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 /**
  * Formats an email address string for display, and allows for extraction of
@@ -228,7 +228,7 @@ EmailAddress.prototype.toString = function() {
 EmailAddress.isQuoteNeeded_ = function(name, specialChars) {
  for (var i = 0; i < specialChars.length; i++) {
    var specialChar = specialChars[i];
-   if (string.contains(name, specialChar)) {
+   if (googString.contains(name, specialChar)) {
      return true;
    }
  }
@@ -353,13 +353,13 @@ EmailAddress.parseInternal = function(addr, ctor) {
    name = '';
  }
 
- name = string.collapseWhitespace(name);
- name = string.stripQuotes(name, '\'');
- name = string.stripQuotes(name, '"');
+ name = googString.collapseWhitespace(name);
+ name = googString.stripQuotes(name, '\'');
+ name = googString.stripQuotes(name, '"');
  // Replace escaped quotes and slashes.
  name = name.replace(EmailAddress.ESCAPED_DOUBLE_QUOTES_, '"');
  name = name.replace(EmailAddress.ESCAPED_BACKSLASHES_, '\\');
- address = string.collapseWhitespace(address);
+ address = googString.collapseWhitespace(address);
  return new ctor(address, name);
 };
 
@@ -394,12 +394,12 @@ EmailAddress.parseListInternal = function(
  // Remove non-UNIX-style newlines that would otherwise cause getToken_ to
  // choke. Remove multiple consecutive whitespace characters for the same
  // reason.
- str = string.collapseWhitespace(str);
+ str = googString.collapseWhitespace(str);
 
  for (var i = 0; i < str.length;) {
    token = EmailAddress.getToken_(str, i);
    if (separatorChecker(token) || (token == ' ' && parser(email).isValid())) {
-     if (!string.isEmptyOrWhitespace(email)) {
+     if (!googString.isEmptyOrWhitespace(email)) {
        result.push(parser(email));
      }
      email = '';
@@ -411,7 +411,7 @@ EmailAddress.parseListInternal = function(
  }
 
  // Add the final token.
- if (!string.isEmptyOrWhitespace(email)) {
+ if (!googString.isEmptyOrWhitespace(email)) {
    result.push(parser(email));
  }
  return result;
@@ -488,7 +488,7 @@ EmailAddress.isEscapedDlQuote_ = function(str, pos) {
  * @return {boolean} Whether the provided character is an address separator.
  */
 EmailAddress.isAddressSeparator = function(ch) {
- return string.contains(EmailAddress.ADDRESS_SEPARATORS_, ch);
+ return googString.contains(EmailAddress.ADDRESS_SEPARATORS_, ch);
 };
 
 /**

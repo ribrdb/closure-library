@@ -12,7 +12,7 @@
 import * as array from '../array/array.js';
 
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 goog.requireType('goog.date.date');
 
 
@@ -188,8 +188,8 @@ TimeZone.composeGMTString_ = function(offset) {
   parts.push(offset <= 0 ? '+' : '-');
   offset = Math.abs(offset);
   parts.push(
-      string.padNumber(Math.floor(offset / 60) % 100, 2), ':',
-      string.padNumber(offset % 60, 2));
+      googString.padNumber(Math.floor(offset / 60) % 100, 2), ':',
+      googString.padNumber(offset % 60, 2));
   return parts.join('');
 };
 
@@ -210,7 +210,7 @@ TimeZone.composePosixTimeZoneID_ = function(offset) {
   parts.push(Math.floor(offset / 60) % 100);
   offset = offset % 60;
   if (offset != 0) {
-    parts.push(':', string.padNumber(offset, 2));
+    parts.push(':', googString.padNumber(offset, 2));
   }
   return parts.join('');
 };
@@ -338,8 +338,8 @@ TimeZone.prototype.getRFCTimeZoneString = function(date) {
   var parts = [offset < 0 ? '-' : '+'];
   offset = Math.abs(offset);
   parts.push(
-      string.padNumber(Math.floor(offset / 60) % 100, 2),
-      string.padNumber(offset % 60, 2));
+      googString.padNumber(Math.floor(offset / 60) % 100, 2),
+      googString.padNumber(offset % 60, 2));
   return parts.join('');
 };
 

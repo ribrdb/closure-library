@@ -17,10 +17,10 @@ import { EventHandler } from '../events/eventhandler.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
 import { Coordinate } from '../math/coordinate.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -342,7 +342,7 @@ DragDropDetector.prototype.initIframe_ = function() {
 /**
  * Enforce that anything dragged over the IFRAME is copied in to it, rather
  * than making it navigate to a different URL.
- * @param {goog.events.BrowserEvent} e The event to enforce copying on.
+ * @param {BrowserEvent} e The event to enforce copying on.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -358,7 +358,7 @@ DragDropDetector.enforceCopyEffect_ = function(e) {
 
 /**
  * Cover the screen with the iframe.
- * @param {goog.events.BrowserEvent} e The event that caused this function call.
+ * @param {BrowserEvent} e The event that caused this function call.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -402,7 +402,7 @@ DragDropDetector.prototype.uncoverScreen_ = function() {
 
 /**
  * Re-insert the INPUT into the DIV.  Does nothing when the DIV is off screen.
- * @param {goog.events.BrowserEvent} e The event that caused this function call.
+ * @param {BrowserEvent} e The event that caused this function call.
  * @private
  */
 DragDropDetector.prototype.switchToInput_ = function(e) {
@@ -416,7 +416,7 @@ DragDropDetector.prototype.switchToInput_ = function(e) {
 /**
  * Remove the text INPUT so the IFRAME is showing.  Does nothing when the DIV is
  * off screen.
- * @param {goog.events.BrowserEvent} e The event that caused this function call.
+ * @param {BrowserEvent} e The event that caused this function call.
  * @private
  */
 DragDropDetector.prototype.switchToIframe_ = function(e) {
@@ -429,7 +429,7 @@ DragDropDetector.prototype.switchToIframe_ = function(e) {
 
 /**
  * Handle a new drag event.
- * @param {goog.events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @return {boolean|undefined} Returns false in IE to cancel the event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -454,7 +454,7 @@ DragDropDetector.prototype.handleNewDrag_ = function(e) {
 
 /**
  * Handle mouse tracking.
- * @param {goog.events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @private
  */
 DragDropDetector.prototype.trackMouse_ = function(e) {
@@ -472,7 +472,7 @@ DragDropDetector.prototype.trackMouse_ = function(e) {
 
 /**
  * Handle a drop on the IE text INPUT.
- * @param {goog.events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -513,7 +513,7 @@ DragDropDetector.prototype.handleNodeInserted_ = function() {
 
   if (this.body_.innerHTML.indexOf('<') == -1) {
     // If the document contains no tags (i.e. is just text), try it out.
-    uri = string.trim(dom.getTextContent(this.body_));
+    uri = googString.trim(dom.getTextContent(this.body_));
 
     // See if it looks kind of like a url.
     if (!uri.match(DragDropDetector.URL_LIKE_REGEX_)) {

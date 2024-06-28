@@ -12,7 +12,7 @@ import { Component } from './component.js';
 
 import { MenuItem } from './menuitem.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.events.event');
 goog.requireType('goog.ui.controlcontent');
 
@@ -26,7 +26,7 @@ goog.requireType('goog.ui.controlcontent');
  *     display as the content of the item (use to add icons or styling to
  *     menus).
  * @param {*=} opt_model Data/model associated with the menu item.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper used for
  *     document interactions.
  * @constructor
  * @extends {MenuItem}

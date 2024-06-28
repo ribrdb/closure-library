@@ -24,7 +24,7 @@ import { Component } from './component.js';
 import { CustomButtonRenderer } from './custombuttonrenderer.js';
 import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.controlcontent');
 
 
@@ -99,7 +99,7 @@ ImagelessButtonRenderer.prototype.getContentElement = function(
  * by subclasses.
  * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
- * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
+ * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
  * @override
  */

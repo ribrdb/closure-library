@@ -25,8 +25,6 @@
  * (especially related to performance).
  */
 import * as googVec from './vec.js';
-
-/** @suppress {extraRequire} */
 import * as Quaternion from './quaternion.js';
 
 import * as vec3d from './vec3d.js';

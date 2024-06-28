@@ -19,7 +19,7 @@ import { EventType } from '../events/eventtype.js';
 import { AdvancedTooltip } from './advancedtooltip.js';
 import { PopupBase } from './popupbase.js';
 import { Tooltip } from './tooltip.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.positioning.abstractposition');
 
 

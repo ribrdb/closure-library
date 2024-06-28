@@ -12,7 +12,7 @@ goog.declareModuleId('goog.proto2.descriptor');
 
 import * as asserts from '../asserts/asserts.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 goog.requireType('goog.proto2.fielddescriptor');
 goog.requireType('goog.proto2.message');
 
@@ -177,7 +177,7 @@ Descriptor.prototype.findFieldByName = function(name) {
  * @return {goog.proto2.FieldDescriptor} The field found, if any.
  */
 Descriptor.prototype.findFieldByTag = function(tag) {
- asserts.assert(string.isNumeric(tag));
+ asserts.assert(googString.isNumeric(tag));
  return this.fields_[parseInt(tag, 10)] || null;
 };
 

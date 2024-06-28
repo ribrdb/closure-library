@@ -21,7 +21,7 @@ import { EventType } from '../events/eventtype.js';
 import { KeyCodes } from '../events/keycodes.js';
 import { SafeStyleSheet } from '../html/safestylesheet.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -410,7 +410,7 @@ TabPane.prototype.getElement = function() {
 
 /**
  * Click event handler for header element, handles clicks on tabs.
- * @param {events.BrowserEvent} event Click event.
+ * @param {BrowserEvent} event Click event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -436,7 +436,7 @@ TabPane.prototype.onHeaderClick_ = function(event) {
 /**
  * KeyDown event handler for header element. Arrow keys moves between pages.
  * Home and end selects the first/last page.
- * @param {events.BrowserEvent} event KeyDown event.
+ * @param {BrowserEvent} event KeyDown event.
  * @private
  * @suppress {strictPrimitiveOperators} Part of the go/strict_warnings_migration
  */

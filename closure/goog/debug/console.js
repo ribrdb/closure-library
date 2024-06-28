@@ -14,7 +14,6 @@
 import * as formatter from './formatter.js';
 
 import * as log from '../log/log.js';
-goog.requireType('goog.log.log');
 
 
 /**

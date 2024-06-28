@@ -26,9 +26,9 @@ import { Rect } from '../math/rect.js';
 import { Size } from '../math/size.js';
 import object from '../object/object.js';
 import * as reflect from '../reflect/reflect.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.event');
+const {Event} = goog.requireType('goog.events.event');
 
 
 /**
@@ -101,12 +101,12 @@ export var styleNameCache_ = {};
 export function getVendorJsStyleName_(element, style) {
   var propertyName = styleNameCache_[style];
   if (!propertyName) {
-    var camelStyle = string.toCamelCase(style);
+    var camelStyle = googString.toCamelCase(style);
     propertyName = camelStyle;
 
     if (element.style[camelStyle] === undefined) {
       var prefixedStyle = vendor.getVendorJsPrefix() +
-          string.toTitleCase(camelStyle);
+          googString.toTitleCase(camelStyle);
 
       if (element.style[prefixedStyle] !== undefined) {
         propertyName = prefixedStyle;
@@ -129,11 +129,11 @@ export function getVendorJsStyleName_(element, style) {
  * @private
  */
 export function getVendorStyleName_(element, style) {
-  var camelStyle = string.toCamelCase(style);
+  var camelStyle = googString.toCamelCase(style);
 
   if (element.style[camelStyle] === undefined) {
     var prefixedStyle = vendor.getVendorJsPrefix() +
-        string.toTitleCase(camelStyle);
+        googString.toTitleCase(camelStyle);
 
     if (element.style[prefixedStyle] !== undefined) {
       return vendor.getVendorPrefix() + '-' + style;
@@ -159,7 +159,7 @@ export function getStyle(element, property) {
   // For for browser specific styles as 'filter' is undefined
   // so we need to return '' explicitly to make it consistent across
   // browsers.
-  var styleValue = element.style[string.toCamelCase(property)];
+  var styleValue = element.style[googString.toCamelCase(property)];
 
   // Using typeof here because of a bug in Safari 5.1, where this value
   // was undefined, but === undefined returned false.
@@ -788,9 +788,9 @@ export function translateRectForAnotherFrame(rect, origBase, newBase) {
 /**
  * Returns the position of an element relative to another element in the
  * document.  A relative to B
- * @param {Element|Event|goog.events.Event} a Element or mouse event whose
+ * @param {Element|Event|Event} a Element or mouse event whose
  *     position we're calculating.
- * @param {Element|Event|goog.events.Event} b Element or mouse event position
+ * @param {Element|Event|Event} b Element or mouse event position
  *     is relative to.
  * @return {!Coordinate} The relative position.
  */
@@ -819,7 +819,7 @@ function getClientPositionForElement_(el) {
  * Returns the position of the event or the element's border box relative to
  * the client viewport. If an event is passed, and if this event is a "touch"
  * event, then the position of the first changedTouches will be returned.
- * @param {Element|Event|goog.events.Event} el Element or a mouse / touch event.
+ * @param {Element|Event|Event} el Element or a mouse / touch event.
  * @return {!Coordinate} The position.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -1068,7 +1068,7 @@ export function getBounds(element) {
  * @deprecated Use string.toCamelCase instead.
  */
 export function toCamelCase(selector) {
-  return string.toCamelCase(String(selector));
+  return googString.toCamelCase(String(selector));
 }
 
 
@@ -1079,7 +1079,7 @@ export function toCamelCase(selector) {
  * @deprecated Use string.toSelectorCase instead.
  */
 export function toSelectorCase(selector) {
-  return string.toSelectorCase(selector);
+  return googString.toSelectorCase(selector);
 }
 
 
@@ -1766,7 +1766,7 @@ export function getFontFamily(el) {
   // Sanitize for x-browser consistency:
   // Strip quotes because browsers aren't consistent with how they're
   // applied; Opera always encloses, Firefox sometimes, and IE never.
-  return string.stripQuotes(font, '"\'');
+  return googString.stripQuotes(font, '"\'');
 }
 
 
@@ -1883,8 +1883,8 @@ export function parseStyleAttribute(value) {
     var keyValue = pair.match(/\s*([\w-]+)\s*:(.+)/);
     if (keyValue) {
       var styleName = keyValue[1];
-      var styleValue = string.trim(keyValue[2]);
-      result[string.toCamelCase(styleName.toLowerCase())] = styleValue;
+      var styleValue = googString.trim(keyValue[2]);
+      result[googString.toCamelCase(styleName.toLowerCase())] = styleValue;
     }
   });
   return result;
@@ -1901,7 +1901,7 @@ export function parseStyleAttribute(value) {
 export function toStyleAttribute(obj) {
   var buffer = [];
   object.forEach(obj, function(value, key) {
-    buffer.push(string.toSelectorCase(key), ':', value, ';');
+    buffer.push(googString.toSelectorCase(key), ':', value, ';');
   });
   return buffer.join('');
 }

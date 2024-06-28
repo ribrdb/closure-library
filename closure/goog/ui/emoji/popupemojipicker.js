@@ -26,8 +26,8 @@ import { Corner } from '../../positioning/positioning.js';
 import { Component } from '../component.js';
 import { Popup } from '../popup.js';
 import { EmojiPicker } from './emojipicker.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 goog.requireType('goog.ui.popupbase');
 goog.requireType('goog.ui.tabpane');
@@ -41,7 +41,7 @@ goog.requireType('goog.ui.emoji.emoji');
  * @param {string} defaultImgUrl Url of the img that should be used to fill up
  *     the cells in the emoji table, to prevent jittering. Should be the same
  *     size as the emoji.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @extends {Component}
  * @constructor
  * @final
@@ -381,7 +381,7 @@ PopupEmojiPicker.prototype.getSelectedEmoji = function() {
  * Handles click events on the element this picker is attached to and shows the
  * emoji picker in a popup.
  *
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 PopupEmojiPicker.prototype.show_ = function(e) {

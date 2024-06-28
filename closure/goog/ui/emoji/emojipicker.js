@@ -25,7 +25,7 @@ import { Emoji } from './emoji.js';
 import { EmojiPalette } from './emojipalette.js';
 import { EmojiPaletteRenderer } from './emojipaletterenderer.js';
 import { ProgressiveEmojiPaletteRenderer } from './progressiveemojipaletterenderer.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.tabpane');
 
 
@@ -50,7 +50,7 @@ goog.requireType('goog.ui.tabpane');
  * @param {string} defaultImgUrl Url of the img that should be used to fill up
  *     the cells in the emoji table, to prevent jittering. Should be the same
  *     size as the emoji.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @extends {Component}
  * @constructor
  */

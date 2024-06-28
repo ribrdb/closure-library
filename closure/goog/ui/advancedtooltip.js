@@ -18,8 +18,8 @@ import { Coordinate } from '../math/coordinate.js';
 import * as style from '../style/style.js';
 import { Tooltip } from './tooltip.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -31,7 +31,7 @@ goog.requireType('goog.events.browserevent');
  * @param {Element|string=} opt_el Element to display tooltip for, either
  *     element reference or string id.
  * @param {?string=} opt_str Text message to display in tooltip.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {Tooltip}
  */

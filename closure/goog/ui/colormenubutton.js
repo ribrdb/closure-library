@@ -18,7 +18,7 @@ import { Component } from './component.js';
 import { Menu } from './menu.js';
 import { MenuButton } from './menubutton.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.events.event');
 goog.requireType('goog.ui.control');
 goog.requireType('goog.ui.controlcontent');
@@ -37,7 +37,7 @@ goog.requireType('goog.ui.menubuttonrenderer');
  *     should contain at least one {@link ColorPalette} if present.
  * @param {MenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to {@link ColorMenuButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {MenuButton}
@@ -91,7 +91,7 @@ ColorMenuButton.NO_COLOR = 'none';
  * containing default color palettes.
  * @param {Array<goog.ui.Control>=} opt_extraItems Optional extra menu items to
  *     add before the color palettes.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @return {!Menu} Color menu.
  */

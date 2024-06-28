@@ -17,9 +17,9 @@ import { CustomButtonRenderer } from './custombuttonrenderer.js';
 import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import { Menu } from './menu.js';
 import { MenuRenderer } from './menurenderer.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menubutton');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
+const {MenuButton} = goog.requireType('goog.ui.menubutton');
 
 
 
@@ -66,7 +66,7 @@ MenuButtonRenderer.prototype.getContentElement = function(element) {
  * the element.  Overrides {@link CustomButtonRenderer#decorate} by
  * looking for a child element that can be decorated by a menu, and if it
  * finds one, decorates it and attaches it to the menu button.
- * @param {goog.ui.Control} control MenuButton to decorate the element.
+ * @param {Control} control MenuButton to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
@@ -110,7 +110,7 @@ MenuButtonRenderer.prototype.decorate = function(control, element) {
  *      </div>
  *    </div>
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure
+ * @param {ControlContent} content Text caption or DOM structure
  *     to wrap in a box.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
@@ -130,7 +130,7 @@ MenuButtonRenderer.prototype.createButton = function(content, dom) {
  *      Contents...
  *    </div>
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure
+ * @param {ControlContent} content Text caption or DOM structure
  *     to wrap in a box.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.
@@ -149,7 +149,7 @@ MenuButtonRenderer.prototype.createCaption = function(content, dom) {
  *      Contents...
  *    </div>
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure
+ * @param {ControlContent} content Text caption or DOM structure
  *     to wrap in a box.
  * @param {string} cssClass The CSS class for the renderer.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.

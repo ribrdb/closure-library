@@ -24,11 +24,11 @@ import { Component } from './component.js';
 import { MenuButton } from './menubutton.js';
 import { MenuItem } from './menuitem.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.menuitemrenderer');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { Event } = goog.requireType('goog.events.event');
+const { ButtonRenderer } = goog.requireType('goog.ui.buttonrenderer');
+const { MenuItemRenderer } = goog.requireType('goog.ui.menuitemrenderer');
 
 
 
@@ -40,11 +40,11 @@ goog.requireType('goog.ui.menuitemrenderer');
  * The checkbox content fires the action events associated with the 'select all'
  * and 'select none' menu items.
  *
- * @param {goog.ui.ButtonRenderer=} opt_renderer Renderer used to render or
+ * @param {ButtonRenderer=} opt_renderer Renderer used to render or
  *     decorate the menu button; defaults to {@link MenuButtonRenderer}.
  * @param {MenuItemRenderer=} opt_itemRenderer Optional menu item
  *     renderer.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {MenuButton}
@@ -133,7 +133,7 @@ SelectionMenuButton.prototype.getCheckboxElement = function() {
 
 /**
  * Checkbox click handler.
- * @param {goog.events.BrowserEvent} e Checkbox click event.
+ * @param {BrowserEvent} e Checkbox click event.
  * @protected
  */
 SelectionMenuButton.prototype.handleCheckboxClick = function(e) {
@@ -155,7 +155,7 @@ SelectionMenuButton.prototype.handleCheckboxClick = function(e) {
 
 /**
  * Menu action handler to update checkbox checked state.
- * @param {goog.events.Event} e Menu action event.
+ * @param {Event} e Menu action event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

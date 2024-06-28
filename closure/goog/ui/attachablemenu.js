@@ -16,7 +16,7 @@ import * as dom from '../dom/dom.js';
 import * as classlist from '../dom/classlist.js';
 import { Event } from '../events/event.js';
 import { KeyCodes } from '../events/keycodes.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { ItemEvent } from './itemevent.js';
 import { MenuBase } from './menubase.js';
@@ -396,7 +396,7 @@ AttachableMenu.prototype.selectByName_ = function(
   }
 
   var start = index;
-  var re = new RegExp('^' + string.regExpEscape(prefix), 'i');
+  var re = new RegExp('^' + googString.regExpEscape(prefix), 'i');
   var skip = opt_skip && this.selectedElement_;
   var dir = opt_direction || 1;
 

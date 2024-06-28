@@ -31,7 +31,7 @@ import { EventType } from '../../../net/eventtype.js';
 import { WebChannel as netWebChannel } from '../webchannel.js';
 import { XmlHttp } from '../../../net/xmlhttp.js';
 import object from '../../../object/object.js';
-import * as string from '../../../string/string.js';
+import * as googString from '../../../string/string.js';
 import * as userAgent from '../../../useragent/useragent.js';
 goog.requireType('goog.uri.uri');
 goog.requireType('goog.events.event');
@@ -781,7 +781,7 @@ goog.scope(function() {
     if (this.xmlHttp_) {
       const value = this.xmlHttp_.getStreamingResponseHeader(
           WebChannel.X_HTTP_INITIAL_RESPONSE);
-      if (value && !string.isEmptyOrWhitespace(value)) {
+      if (value && !googString.isEmptyOrWhitespace(value)) {
         return value;
       }
     }

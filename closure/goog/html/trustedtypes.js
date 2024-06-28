@@ -9,7 +9,15 @@
  * https://github.com/WICG/trusted-types for details.
  */
 
-POLICY_NAME = goog.define(
+/**
+ * @define {string} Name for the Trusted Types policy used in Closure Safe
+ * Types. Differs from `goog.TRUSTED_TYPES_POLICY_NAME` in that the latter is
+ * also used for other purposes like the debug loader. If empty, Closure Safe
+ * Types will not use Trusted Types. Default is `goog.TRUSTED_TYPES_POLICY_NAME`
+ * plus the suffix `#html`, unless `goog.TRUSTED_TYPES_POLICY_NAME` is empty.
+ * @package
+ */
+export var POLICY_NAME = goog.define(
     'goog.html.trustedtypes.POLICY_NAME',
     goog.TRUSTED_TYPES_POLICY_NAME ? goog.TRUSTED_TYPES_POLICY_NAME + '#html' :
                                      '');
@@ -46,4 +54,3 @@ export function getPolicyPrivateDoNotAccessOrElse() {
 
  return cachedPolicy_;
 }
-export var POLICY_NAME;

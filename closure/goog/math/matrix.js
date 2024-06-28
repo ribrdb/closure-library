@@ -13,7 +13,7 @@ import * as array from '../array/array.js';
 import * as asserts from '../asserts/asserts.js';
 import * as math from './math.js';
 import { Size } from './size.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 
@@ -522,7 +522,7 @@ if (goog.DEBUG) {
       sb.push('[ ');
       row.forEach(function(val, y) {
         var strval = String(val);
-        sb.push(string.repeat(' ', maxLen - strval.length) + strval + ' ');
+        sb.push(googString.repeat(' ', maxLen - strval.length) + strval + ' ');
       });
       sb.push(']\n');
     });

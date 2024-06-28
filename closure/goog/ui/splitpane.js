@@ -34,8 +34,8 @@ import { Rect } from '../math/rect.js';
 import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.fx.dragger');
+const {Event} = goog.requireType('goog.events.event');
+const {DragEvent} = goog.requireType('goog.fx.dragger');
 
 
 
@@ -569,7 +569,7 @@ SplitPane.prototype.getOrientation = function() {
  */
 SplitPane.prototype.moveAndSize_ = function(element, rect) {
   style.setPosition(element, rect.left, rect.top);
-  // TODO(user): Add a goog.math.Size.max call for below.
+  // TODO(user): Add a Size.max call for below.
   style.setBorderBoxSize(
       element,
       new Size(Math.max(rect.width, 0), Math.max(rect.height, 0)));
@@ -762,7 +762,7 @@ SplitPane.prototype.snapIt_ = function() {
 
 /**
  * Handle the start drag event - set up the dragger.
- * @param {goog.events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 SplitPane.prototype.handleDragStart_ = function(e) {
@@ -835,7 +835,7 @@ SplitPane.prototype.getRelativeTop_ = function(top) {
 
 /**
  * Handle the drag event. Move the containers.
- * @param {!goog.fx.DragEvent} e The event.
+ * @param {!DragEvent} e The event.
  * @private
  */
 SplitPane.prototype.handleDrag_ = function(e) {
@@ -856,7 +856,7 @@ SplitPane.prototype.handleDrag_ = function(e) {
  * Handle the drag end event. If we're not doing continuous resize,
  * resize the component.  If we're doing continuous resize, the component
  * is already the correct size.
- * @param {!goog.fx.DragEvent} e The event.
+ * @param {!DragEvent} e The event.
  * @private
  */
 SplitPane.prototype.handleDragEnd_ = function(e) {
@@ -880,7 +880,7 @@ SplitPane.prototype.handleDragEnd_ = function(e) {
 /**
  * Handle the Double-click. Call the snapIt method which snaps the container
  * to the top or left.
- * @param {goog.events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 SplitPane.prototype.handleDoubleClick_ = function(e) {

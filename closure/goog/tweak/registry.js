@@ -16,7 +16,7 @@ goog.declareModuleId('goog.tweak.registry');
 import * as array from '../array/array.js';
 import * as asserts from '../asserts/asserts.js';
 import * as log from '../log/log.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 import {
   BasePrimitiveSetting,
@@ -84,8 +84,8 @@ Registry.parseQueryParams = function(queryParams) {
   for (var i = 0, il = parts.length; i < il; ++i) {
     var entry = parts[i].split('=');
     if (entry[0]) {
-      ret[string.urlDecode(entry[0]).toLowerCase()] =
-          string.urlDecode(entry[1] || '');
+      ret[googString.urlDecode(entry[0]).toLowerCase()] =
+          googString.urlDecode(entry[1] || '');
     }
   }
   return ret;
@@ -165,9 +165,7 @@ Registry.prototype.getBooleanSetting = function(id) {
   asserts.assertInstanceof(
       entry, BooleanSetting,
       'getBooleanSetting called on wrong type of BaseSetting');
-  return (
-    /** @type {!BooleanSetting} */ entry
-  );
+  return /** @type {!BooleanSetting} */ (entry);
 };
 
 
@@ -182,9 +180,7 @@ Registry.prototype.getStringSetting = function(id) {
   asserts.assertInstanceof(
       entry, StringSetting,
       'getStringSetting called on wrong type of BaseSetting');
-  return (
-    /** @type {!StringSetting} */ entry
-  );
+  return /** @type {!StringSetting} */ (entry);
 };
 
 
@@ -199,9 +195,7 @@ Registry.prototype.getNumericSetting = function(id) {
   asserts.assertInstanceof(
       entry, NumericSetting,
       'getNumericSetting called on wrong type of BaseSetting');
-  return (
-    /** @type {!NumericSetting} */ entry
-  );
+  return /** @type {!NumericSetting} */ (entry);
 };
 
 

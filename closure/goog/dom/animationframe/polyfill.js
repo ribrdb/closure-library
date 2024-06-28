@@ -10,7 +10,10 @@
  * Code based on https://gist.github.com/paulirish/1579671
  */
 
-ENABLED =
+/**
+ * @define {boolean} If true, will install the requestAnimationFrame polyfill.
+ */
+export var ENABLED =
     goog.define('goog.dom.animationFrame.polyfill.ENABLED', true);
 
 
@@ -48,5 +51,4 @@ install = function() {
     }
   }
 };
-export var ENABLED;
 export var install;

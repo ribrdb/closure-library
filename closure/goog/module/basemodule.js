@@ -14,7 +14,6 @@ goog.declareModuleId('goog.module.basemodule');
 
 import { Disposable } from '../disposable/disposable.js';
 
-/** @suppress {extraRequire} */
 import { module } from './module.js';
 
 

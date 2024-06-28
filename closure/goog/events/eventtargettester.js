@@ -13,7 +13,6 @@ import { dispose } from '../disposable/dispose.js';
 import * as events from './events.js';
 import { recordFunction } from '../testing/recordfunction.js';
 
-/** @suppress {extraRequire} */
 import * as asserts from '../testing/asserts.js';
 
 let dispatchEvent;

@@ -13,7 +13,7 @@ import { Plugin } from '../plugin.js';
 
 import { KeyCodes } from '../../events/keycodes.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -60,7 +60,7 @@ AbstractTabHandler.prototype.handleKeyboardShortcut =
 
 /**
  * Handle a tab key press.
- * @param {!goog.events.BrowserEvent} e The key event.
+ * @param {!BrowserEvent} e The key event.
  * @return {boolean} Whether this event was handled by this plugin.
  * @protected
  */

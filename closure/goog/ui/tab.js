@@ -16,7 +16,7 @@ import { Component } from './component.js';
 import { Control } from './control.js';
 import { TabRenderer } from './tabrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.controlcontent');
 
 
@@ -29,7 +29,7 @@ goog.requireType('goog.ui.controlcontent');
  *     display as the tab's caption (if any).
  * @param {TabRenderer=} opt_renderer Optional renderer used to render
  *     or decorate the tab.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Control}

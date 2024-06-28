@@ -15,11 +15,11 @@ goog.setTestOnly('goog.testing.fs');
 import { Timer } from '../../timer/timer.js';
 import { Deferred } from '../../../../third_party/closure/goog/mochikit/async/deferred.js';
 
-/** @suppress {extraRequire} used in mocking */
+/** used in mocking */
 import * as googFs from '../../fs/fs.js';
 import * as googFsBlob from '../../fs/blob.js';
 
-/** @suppress {extraRequire} used in mocking */
+/** used in mocking */
 import * as googFsUrl from '../../fs/url.js';
 
 import { PropertyReplacer } from '../propertyreplacer.js';

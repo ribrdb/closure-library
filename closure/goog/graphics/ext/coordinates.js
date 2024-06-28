@@ -22,7 +22,7 @@
  * element.js and groupelement.js.
  */
 
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 
 /**
@@ -41,7 +41,7 @@ var specialCoordinateCache_ = {};
  * @private
  */
 export function isPercent_(coord) {
-  return string.contains(coord, '%');
+  return googString.contains(coord, '%');
 }
 
 
@@ -53,7 +53,7 @@ export function isPercent_(coord) {
  * @private
  */
 export function isPixels_(coord) {
-  return string.contains(coord, 'px');
+  return googString.contains(coord, 'px');
 }
 
 

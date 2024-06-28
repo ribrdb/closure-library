@@ -27,7 +27,7 @@ import * as uncheckedconversions from '../../html/uncheckedconversions.js';
 import * as googIter from '../../iter/iter.js';
 import * as log from '../../log/log.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Unicode } from '../../string/string.js';
 import { Const } from '../../string/const.js';
 import * as googStyle from '../../style/style.js';
@@ -267,7 +267,7 @@ BasicTextFormatter.prototype.execCommandInternal =
               .getDocument()
               .getSelection();
             if (selection.rangeCount === 1) {
-              placeholderValue = string.createUniqueString();
+              placeholderValue = googString.createUniqueString();
               const placeholderNode = googDom.createDom(TagName.SPAN);
               const safePlaceholderAnchorContent =
                 SafeHtml.htmlEscape(placeholderValue);
@@ -686,7 +686,7 @@ BasicTextFormatter.prototype.convertBreaksToDivs_ =
           if (paragraph.getAttribute(attribute) == value) {
             paragraph.removeAttribute(attribute);
             if (
-              string.isBreakingWhitespace(
+              googString.isBreakingWhitespace(
                 googDom.getTextContent(paragraph)
               )
             ) {
@@ -1121,12 +1121,12 @@ BasicTextFormatter.prototype.createLink_ = function (
     // execCommand doesn't return the link to us, and we need a way to find
     // the newly created link in the dom, and the url is the only property
     // we have control over, so we set that to be unique and then find it.
-    var uniqueId = string.createUniqueString();
+    var uniqueId = googString.createUniqueString();
     this.execCommandHelper_("CreateLink", uniqueId);
     var setHrefAndLink = function (element, index, arr) {
       // We can't do straight comparison since the href can contain the
       // absolute url.
-      if (string.endsWith(element.href, uniqueId)) {
+      if (googString.endsWith(element.href, uniqueId)) {
         anchors.push(element);
       }
     };
@@ -1462,7 +1462,7 @@ BasicTextFormatter.prototype.fixSafariLists_ = function () {
       var range = node.ownerDocument.createRange();
       range.setStartAfter(previousElementSibling);
       range.setEndBefore(node);
-      if (!string.isEmptyOrWhitespace(range.toString())) {
+      if (!googString.isEmptyOrWhitespace(range.toString())) {
         return;
       }
       // Make sure both are lists of the same type (ordered or unordered)

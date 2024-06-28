@@ -15,7 +15,7 @@ import * as events from '../events/events.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 // TODO(arv): Move this to goog.events instead.

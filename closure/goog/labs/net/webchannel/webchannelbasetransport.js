@@ -25,7 +25,7 @@ import * as log from '../../../log/log.js';
 import { WebChannel } from '../webchannel.js';
 import { WebChannelTransport } from '../webchanneltransport.js';
 import object from '../../../object/object.js';
-import * as string from '../../../string/string.js';
+import * as googString from '../../../string/string.js';
 
 
 
@@ -148,7 +148,7 @@ goog.scope(function() {
     const httpHeadersOverwriteParam =
         opt_options && opt_options.httpHeadersOverwriteParam;
     if (httpHeadersOverwriteParam &&
-        !string.isEmptyOrWhitespace(httpHeadersOverwriteParam)) {
+        !googString.isEmptyOrWhitespace(httpHeadersOverwriteParam)) {
       this.channel_.setHttpHeadersOverwriteParam(httpHeadersOverwriteParam);
     }
 
@@ -167,7 +167,7 @@ goog.scope(function() {
     // has already been specified with messageUrlParams
     const httpSessionIdParam = opt_options && opt_options.httpSessionIdParam;
     if (httpSessionIdParam &&
-        !string.isEmptyOrWhitespace(httpSessionIdParam)) {
+        !googString.isEmptyOrWhitespace(httpSessionIdParam)) {
       this.channel_.setHttpSessionIdParam(httpSessionIdParam);
       if (object.containsKey(this.messageUrlParams_, httpSessionIdParam)) {
         object.remove(this.messageUrlParams_, httpSessionIdParam);

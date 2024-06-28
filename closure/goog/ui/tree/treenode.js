@@ -15,20 +15,20 @@
 import * as asserts from '../../asserts/asserts.js';
 
 import { BaseNode } from './basenode.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.html.SafeHtml');  // circular
-goog.requireType('goog.ui.tree.treecontrol');
+const {DomHelper} = goog.requireType('goog.dom.dom');
+const {SafeHtml} = goog.requireType('goog.html.SafeHtml');  // circular
+const {TreeControl} = goog.requireType('goog.ui.tree.treecontrol');
 
 
 
 /**
  * A single node in the tree.
- * @param {string|!goog.html.SafeHtml} content The content of the node label.
+ * @param {string|!SafeHtml} content The content of the node label.
  *     Strings are treated as plain-text and will be HTML escaped.
  * @param {Object=} opt_config The configuration for the tree. See
- *    goog.ui.tree.TreeControl.defaultConfig. If not specified, a default config
+ *    TreeControl.defaultConfig. If not specified, a default config
  *    will be used.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {BaseNode}
  */
@@ -40,7 +40,7 @@ goog.inherits(TreeNode, BaseNode);
 
 /**
  * Returns the tree.
- * @return {?goog.ui.tree.TreeControl} The tree.
+ * @return {?TreeControl} The tree.
  * @override
  */
 TreeNode.prototype.getTree = function() {

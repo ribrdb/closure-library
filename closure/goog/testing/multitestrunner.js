@@ -22,12 +22,12 @@ import * as classlist from '../dom/classlist.js';
 import { EventHandler } from '../events/eventhandler.js';
 import * as functions from '../functions/functions.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { TestCase } from './testcase.js';
 import { Component } from '../ui/component.js';
 import { ServerChart } from '../ui/serverchart.js';
 import { TableSorter } from '../ui/tablesorter.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -1075,11 +1075,11 @@ MultiTestRunner.prototype.drawProgressSegment_ = function(
  */
 MultiTestRunner.prototype.drawTestResult_ = function(
     test, success, report) {
-  var text = string.isEmptyOrWhitespace(report) ?
+  var text = googString.isEmptyOrWhitespace(report) ?
       'No report for ' + test + '\n' :
       report;
   var el = this.dom_.createDom(TagName.DIV);
-  text = string.htmlEscape(text).replace(/\n/g, '<br>');
+  text = googString.htmlEscape(text).replace(/\n/g, '<br>');
   if (success) {
     el.className = goog.getCssName('goog-testrunner-report-success');
   } else {
@@ -1099,9 +1099,9 @@ MultiTestRunner.prototype.drawTestResult_ = function(
  */
 MultiTestRunner.prototype.getTimeStamp_ = function() {
   var d = new Date;
-  return string.padNumber(d.getHours(), 2) + ':' +
-      string.padNumber(d.getMinutes(), 2) + ':' +
-      string.padNumber(d.getSeconds(), 2);
+  return googString.padNumber(d.getHours(), 2) + ':' +
+      googString.padNumber(d.getMinutes(), 2) + ':' +
+      googString.padNumber(d.getSeconds(), 2);
 };
 
 
@@ -1165,7 +1165,7 @@ MultiTestRunner.prototype.showTab_ = function(tab) {
 
 /**
  * Handles the start button being clicked.
- * @param {goog.events.BrowserEvent} e The click event.
+ * @param {BrowserEvent} e The click event.
  * @private
  */
 MultiTestRunner.prototype.onStartClicked_ = function(e) {
@@ -1175,7 +1175,7 @@ MultiTestRunner.prototype.onStartClicked_ = function(e) {
 
 /**
  * Handles the stop button being clicked.
- * @param {goog.events.BrowserEvent} e The click event.
+ * @param {BrowserEvent} e The click event.
  * @private
  */
 MultiTestRunner.prototype.onStopClicked_ = function(e) {
@@ -1186,7 +1186,7 @@ MultiTestRunner.prototype.onStopClicked_ = function(e) {
 
 /**
  * Handles the log tab being clicked.
- * @param {goog.events.BrowserEvent} e The click event.
+ * @param {BrowserEvent} e The click event.
  * @private
  */
 MultiTestRunner.prototype.onLogTabClicked_ = function(e) {
@@ -1196,7 +1196,7 @@ MultiTestRunner.prototype.onLogTabClicked_ = function(e) {
 
 /**
  * Handles the log tab being clicked.
- * @param {goog.events.BrowserEvent} e The click event.
+ * @param {BrowserEvent} e The click event.
  * @private
  */
 MultiTestRunner.prototype.onReportTabClicked_ = function(e) {
@@ -1206,7 +1206,7 @@ MultiTestRunner.prototype.onReportTabClicked_ = function(e) {
 
 /**
  * Handles the stats tab being clicked.
- * @param {goog.events.BrowserEvent} e The click event.
+ * @param {BrowserEvent} e The click event.
  * @private
  */
 MultiTestRunner.prototype.onStatsTabClicked_ = function(e) {
@@ -1481,7 +1481,7 @@ MultiTestRunner.TestFrame.prototype.createIframe_ = function() {
 
 /**
  * Handles the iframe loading.
- * @param {goog.events.BrowserEvent} e The load event.
+ * @param {BrowserEvent} e The load event.
  * @private
  */
 MultiTestRunner.TestFrame.prototype.onIframeLoaded_ = function(e) {

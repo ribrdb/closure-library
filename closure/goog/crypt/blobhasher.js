@@ -23,14 +23,14 @@ import * as asserts from '../asserts/asserts.js';
 import { EventTarget } from '../events/eventtarget.js';
 import * as fs from '../fs/fs.js';
 import * as log from '../log/log.js';
-goog.requireType('goog.crypt.hash');
+const {Hash} = goog.requireType('goog.crypt.hash');
 
 
 
 /**
  * Construct the hash computer.
  *
- * @param {!goog.crypt.Hash} hashFn The hash function to use.
+ * @param {!Hash} hashFn The hash function to use.
  * @param {number=} opt_blockSize Processing block size.
  * @constructor
  * @struct
@@ -42,7 +42,7 @@ export function BlobHasher(hashFn, opt_blockSize) {
 
   /**
    * The actual hash function.
-   * @type {!goog.crypt.Hash}
+   * @type {!Hash}
    * @private
    */
   this.hashFn_ = hashFn;

@@ -61,7 +61,7 @@ export { peek };
  * @return {T} Last item in array.
  * @template T
  */
-export { peek as last };
+export var last = peek;
 
 // NOTE(arv): Since most of the array functions are generic it allows you to
 // pass an array-like object. Strings have a length and are considered array-

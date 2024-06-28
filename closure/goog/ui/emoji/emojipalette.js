@@ -22,7 +22,7 @@ import { ImageLoader } from '../../net/imageloader.js';
 import { Palette } from '../palette.js';
 import { Emoji } from './emoji.js';
 import { EmojiPaletteRenderer } from './emojipaletterenderer.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.events.event');
 goog.requireType('goog.ui.paletterenderer');
 
@@ -35,7 +35,7 @@ goog.requireType('goog.ui.paletterenderer');
   * @param {?string=} opt_urlPrefix Prefix that should be prepended to all URL.
  * @param {PaletteRenderer=} opt_renderer Renderer used to render or
  *     decorate the palette; defaults to {@link PaletteRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @extends {Palette}
  * @constructor
  * @final

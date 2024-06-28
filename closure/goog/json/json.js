@@ -9,7 +9,14 @@
  */
 
 
-USE_NATIVE_JSON = goog.define('goog.json.USE_NATIVE_JSON', false);
+/**
+ * @define {boolean} If true, use the native JSON parsing API.
+ * NOTE: The default `goog.json.parse` implementation is able to handle
+ * invalid JSON. JSPB used to produce invalid JSON which is not the case
+ * anymore so this is safe to enable for parsing JSPB. Using native JSON is
+ * faster and safer than the default implementation using `eval`.
+ */
+export var USE_NATIVE_JSON = goog.define('goog.json.USE_NATIVE_JSON', false);
 
 
 /**
@@ -353,4 +360,3 @@ Serializer.prototype.serializeObject_ = function(obj, sb) {
   }
   sb.push('}');
 };
-export var USE_NATIVE_JSON;

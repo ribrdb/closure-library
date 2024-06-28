@@ -21,17 +21,17 @@ import { Corner } from '../positioning/positioning.js';
 import { ColorPicker } from './colorpicker.js';
 import { Component } from './component.js';
 import { Popup } from './popup.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.popupbase');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { Event } = goog.requireType('goog.events.event');
+const { PopupBase } = goog.requireType('goog.ui.popupbase');
 
 
 
 /**
  * Popup color picker widget.
  *
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @param {ColorPicker=} opt_colorPicker Optional color picker to use
  *     for this popup.
  * @extends {Component}
@@ -416,7 +416,7 @@ PopupColorPicker.prototype.setShowOnHover = function(showOnHover) {
 
 /**
  * Handles click events on the targets and shows the color picker.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 PopupColorPicker.prototype.show_ = function(e) {
@@ -453,7 +453,7 @@ PopupColorPicker.prototype.show_ = function(e) {
 
 /**
  * Handles the color change event.
- * @param {goog.events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 PopupColorPicker.prototype.onColorPicked_ = function(e) {

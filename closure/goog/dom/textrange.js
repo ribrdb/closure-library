@@ -20,7 +20,7 @@ import { TextRangeIterator } from './textrangeiterator.js';
 import * as browserrange from './browserrange/browserrange.js';
 import * as userAgent from '../useragent/useragent.js';
 import * as RangeUtils from './range.js';
-goog.requireType('goog.dom.browserrange.abstractrange');
+const {AbstractRange} = goog.requireType('goog.dom.browserrange.abstractrange');
 
 
 

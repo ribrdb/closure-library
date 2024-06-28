@@ -12,23 +12,23 @@ import { Select } from './select.js';
 
 import { ToolbarMenuButtonRenderer } from './toolbarmenubuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menu');
-goog.requireType('goog.ui.menubuttonrenderer');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { Menu } = goog.requireType('goog.ui.menu');
+const { MenuButtonRenderer } = goog.requireType('goog.ui.menubuttonrenderer');
 
 
 
 /**
  * A select control for a toolbar.
  *
- * @param {goog.ui.ControlContent} caption Default caption or existing DOM
+ * @param {ControlContent} caption Default caption or existing DOM
  *     structure to display as the button's caption when nothing is selected.
- * @param {goog.ui.Menu=} opt_menu Menu containing selection options.
- * @param {goog.ui.MenuButtonRenderer=} opt_renderer Renderer used to
+ * @param {Menu=} opt_menu Menu containing selection options.
+ * @param {MenuButtonRenderer=} opt_renderer Renderer used to
  *     render or decorate the control; defaults to
  *     {@link ToolbarMenuButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Select}

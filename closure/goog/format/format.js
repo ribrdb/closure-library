@@ -10,7 +10,7 @@
 
 import * as GraphemeBreak from '../i18n/graphemebreak.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
 
 
@@ -53,7 +53,7 @@ export function isConvertableScaledNumber(val) {
  * @return {number} Numeric value for string.
  */
 export function stringToNumericValue(stringValue) {
-  if (string.endsWith(stringValue, 'B')) {
+  if (googString.endsWith(stringValue, 'B')) {
     return stringToNumericValue_(
         stringValue, NUMERIC_SCALES_BINARY_);
   }

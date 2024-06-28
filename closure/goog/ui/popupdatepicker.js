@@ -20,9 +20,9 @@ import { Component } from './component.js';
 import { DatePicker } from './datepicker.js';
 import { Popup } from './popup.js';
 import { PopupBase } from './popupbase.js';
-goog.requireType('goog.date.date');
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
+const { Date } = goog.requireType('goog.date.date');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -32,7 +32,7 @@ goog.requireType('goog.events.event');
  *
  * @param {DatePicker=} opt_datePicker Optional DatePicker.  This
  *     enables the use of a custom date-picker instance.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @extends {Component}
  * @constructor
  */
@@ -168,7 +168,7 @@ PopupDatePicker.prototype.getPopup = function() {
 
 
 /**
- * @return {goog.date.Date?} The selected date, if any.  See
+ * @return {Date?} The selected date, if any.  See
  *     DatePicker.getDate().
  */
 PopupDatePicker.prototype.getDate = function() {
@@ -178,7 +178,7 @@ PopupDatePicker.prototype.getDate = function() {
 
 /**
  * Sets the selected date.  See DatePicker.setDate().
- * @param {goog.date.Date?} date The date to select.
+ * @param {Date?} date The date to select.
  */
 PopupDatePicker.prototype.setDate = function(date) {
  this.datePicker_.setDate(date);
@@ -312,7 +312,7 @@ PopupDatePicker.prototype.showPopup = function(element, opt_keepDate) {
 
 /**
  * Handles click events on the targets and shows the date picker.
- * @param {goog.events.Event} event The click event.
+ * @param {Event} event The click event.
  * @private
  */
 PopupDatePicker.prototype.showPopup_ = function(event) {
@@ -334,7 +334,7 @@ PopupDatePicker.prototype.hidePopup = function() {
 /**
  * Called when date selection is made.
  *
- * @param {!goog.events.Event} event The date change event.
+ * @param {!Event} event The date change event.
  * @private
  */
 PopupDatePicker.prototype.onDateSelected_ = function(event) {
@@ -348,7 +348,7 @@ PopupDatePicker.prototype.onDateSelected_ = function(event) {
 /**
  * Called when the date is changed.
  *
- * @param {!goog.events.Event} event The date change event.
+ * @param {!Event} event The date change event.
  * @private
  */
 PopupDatePicker.prototype.onDateChanged_ = function(event) {

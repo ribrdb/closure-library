@@ -32,7 +32,7 @@ goog.declareModuleId('goog.uri.uri');
 import * as array from '../array/array.js';
 import * as asserts from '../asserts/asserts.js';
 import * as maps from '../collections/maps.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as structs from '../structs/structs.js';
 import * as utils from './utils.js';
 import { ComponentIndex, StandardQueryParam } from './utils.js';
@@ -191,7 +191,7 @@ Uri.prototype.toString = function() {
           '@');
     }
 
-    out.push(Uri.removeDoubleEncoding_(string.urlEncode(domain)));
+    out.push(Uri.removeDoubleEncoding_(googString.urlEncode(domain)));
 
     var port = this.getPort();
     if (port != null) {
@@ -694,7 +694,7 @@ Uri.prototype.hasSameDomainAs = function(uri2) {
  */
 Uri.prototype.makeUnique = function() {
   this.enforceReadOnly();
-  this.setParameterValue(Uri.RANDOM_PARAM, string.getRandomString());
+  this.setParameterValue(Uri.RANDOM_PARAM, googString.getRandomString());
 
   return this;
 };
@@ -858,13 +858,13 @@ Uri.removeDotSegments = function(path) {
     return '';
 
   } else if (
-      !string.contains(path, './') && !string.contains(path, '/.')) {
+      !googString.contains(path, './') && !googString.contains(path, '/.')) {
     // This optimization detects uris which do not contain dot-segments,
     // and as a consequence do not require any processing.
     return path;
 
   } else {
-    var leadingSlash = string.startsWith(path, '/');
+    var leadingSlash = googString.startsWith(path, '/');
     var segments = path.split('/');
     var out = [];
 
@@ -1085,7 +1085,7 @@ Uri.QueryData.prototype.ensureKeyMapInitialized_ = function() {
     if (this.encodedQuery_) {
       var self = this;
       utils.parseQueryData(this.encodedQuery_, function(name, value) {
-        self.add(string.urlDecode(name), value);
+        self.add(googString.urlDecode(name), value);
       });
     }
   }
@@ -1391,14 +1391,14 @@ Uri.QueryData.prototype.toString = function() {
   const keys = Array.from(this.keyMap_.keys());
   for (var i = 0; i < keys.length; i++) {
     const key = keys[i];
-    const encodedKey = string.urlEncode(key);
+    const encodedKey = googString.urlEncode(key);
     const val = this.getValues(key);
     for (var j = 0; j < val.length; j++) {
       var param = encodedKey;
       // Ensure that null and undefined are encoded into the url as
       // literal strings.
       if (val[j] !== '') {
-        param += '=' + string.urlEncode(val[j]);
+        param += '=' + googString.urlEncode(val[j]);
       }
       sb.push(param);
     }

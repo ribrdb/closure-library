@@ -15,8 +15,8 @@ import { Component } from './component.js';
 import { Control } from './control.js';
 import { MenuHeaderRenderer } from './menuheaderrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -25,7 +25,7 @@ goog.requireType('goog.ui.controlcontent');
  * @param {ControlContent} content Text caption or DOM structure to
  *     display as the content of the item (use to add icons or styling to
  *     menus).
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper used for
  *     document interactions.
  * @param {MenuHeaderRenderer=} opt_renderer Optional renderer.
  * @constructor

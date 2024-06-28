@@ -16,10 +16,10 @@ import * as safe from '../dom/safe.js';
 import { SafeUrl } from '../html/safeurl.js';
 import * as uncheckedconversions from '../html/uncheckedconversions.js';
 import platform from '../labs/useragent/platform.js';
-import * as string from '../string/string.js';
+import * as strings from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.string.typedstring');
+const { TypedString } = goog.requireType('goog.string.typedstring');
 
 
 /**
@@ -108,7 +108,7 @@ export function open(linkRef, opt_options, opt_parentWin) {
     // '[object HTMLAnchorElement]'.  We check for the href first, then
     // assume that it's a goog.Uri or String otherwise.
     /**
-         * @type {string|!string.TypedString}
+         * @type {string|!TypedString}
          * @suppress {missingProperties}
          */
     var url =
@@ -236,7 +236,7 @@ export function open(linkRef, opt_options, opt_parentWin) {
         // in URIs, so this could do the wrong thing, but at least it will
         // do the wrong thing in only rare cases.
         // ugh.
-        if (string.contains(sanitizedLinkRef, ';')) {
+        if (strings.contains(sanitizedLinkRef, ';')) {
           sanitizedLinkRef =
               '\'' + sanitizedLinkRef.replace(/'/g, '%27') + '\'';
         }
@@ -268,7 +268,7 @@ export function open(linkRef, opt_options, opt_parentWin) {
                       'b/12014412, meta tag with sanitized URL'),
                   '<meta name="referrer" content="no-referrer">' +
                       '<meta http-equiv="refresh" content="0; url=' +
-                      string.htmlEscape(sanitizedLinkRef) + '">');
+                      strings.htmlEscape(sanitizedLinkRef) + '">');
 
       // During window loading `newWin.document` may be unset in some browsers.
       // Storing and checking a reference to the document prevents NPEs.

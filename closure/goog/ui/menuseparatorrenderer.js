@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.MenuSeparator}s.
+ * @fileoverview Renderer for {@link MenuSeparator}s.
  */
 
 import * as dom from '../dom/dom.js';
@@ -13,8 +13,8 @@ import * as dom from '../dom/dom.js';
 import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { ControlRenderer } from './controlrenderer.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -41,7 +41,7 @@ MenuSeparatorRenderer.CSS_CLASS = goog.getCssName('goog-menuseparator');
 /**
  * Returns an empty, styled menu separator DIV.  Overrides {@link
  * ControlRenderer#createDom}.
- * @param {goog.ui.Control} separator goog.ui.Separator to render.
+ * @param {Control} separator Separator to render.
  * @return {!Element} Root element for the separator.
  * @override
  */
@@ -54,7 +54,7 @@ MenuSeparatorRenderer.prototype.createDom = function(separator) {
 /**
  * Takes an existing element, and decorates it with the separator.  Overrides
  * {@link ControlRenderer#decorate}.
- * @param {goog.ui.Control} separator goog.ui.MenuSeparator to decorate the
+ * @param {Control} separator MenuSeparator to decorate the
  *     element.
  * @param {Element} element Element to decorate.
  * @return {!Element} Decorated element.
@@ -84,7 +84,7 @@ MenuSeparatorRenderer.prototype.decorate = function(
  * Overrides {@link ControlRenderer#setContent} to do nothing, since
  * separators are empty.
  * @param {Element} separator The separator's root element.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to be
+ * @param {ControlContent} content Text caption or DOM structure to be
  *    set as the separators's content (ignored).
  * @override
  */

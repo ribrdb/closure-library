@@ -26,13 +26,13 @@ const SanitizedHtml = goog.requireType('goog.soy.data');
  * for the stub.
  * @define {boolean}
  */
-export let shouldStub = goog.define('goog.soy.SHOULD_STUB', false);
+export var shouldStub = goog.define('goog.soy.SHOULD_STUB', false);
 
 /**
  * A define to always stub SoyJS with Incremental DOM templates.
  * @define {boolean}
  */
-export let alwaysStub = goog.define('goog.soy.ALWAYS_STUB', false);
+export var alwaysStub = goog.define('goog.soy.ALWAYS_STUB', false);
 
 let shouldStubAtRuntime_ = true;
 

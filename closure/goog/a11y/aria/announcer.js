@@ -17,7 +17,7 @@ import { LivePriority, State } from './attributes.js';
 import * as dom from '../../dom/dom.js';
 import { TagName } from '../../dom/tagname.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 
 
@@ -84,7 +84,7 @@ Announcer.prototype.say = function(message, opt_priority) {
  const lastMessageAnnounced = this.lastMessageAnnouncedPerPriority_[priority];
  const announceMessage =
      lastMessageAnnounced && lastMessageAnnounced === message ?
-     message + string.Unicode.NBSP :
+     message + googString.Unicode.NBSP :
      message;
  if (message) {
    this.lastMessageAnnouncedPerPriority_[priority] = announceMessage;

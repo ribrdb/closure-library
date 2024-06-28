@@ -6,7 +6,7 @@
 
 /**
  * @fileoverview A class for representing items in menus.
- * @see goog.ui.Menu
+ * @see Menu
  * @see ../demos/menuitem.html
  */
 
@@ -17,14 +17,14 @@ import * as array from '../array/array.js';
 import * as googDom from '../dom/dom.js';
 import * as classlist from '../dom/classlist.js';
 import { Coordinate } from '../math/coordinate.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Component } from './component.js';
 import { Control } from './control.js';
 import { MenuItemRenderer } from './menuitemrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.events.keycodes');
-goog.requireType('goog.ui.controlcontent');  // circular
-goog.requireType('goog.ui.menu');
+const {KeyCodes} = goog.requireType('goog.events.keycodes');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');  // circular
+const {Menu} = goog.requireType('goog.ui.menu');
 
 
 
@@ -56,7 +56,7 @@ goog.inherits(MenuItem, Control);
  * mnenomic key to 70 (F), when the user opens the menu and hits "F," the
  * menu item is triggered.
  *
- * @type {goog.events.KeyCodes}
+ * @type {KeyCodes}
  * @private
  */
 MenuItem.prototype.mnemonicKey_;
@@ -199,7 +199,7 @@ MenuItem.prototype.getCaption = function() {
                   }
                 })
             .join('');
-    return string.collapseBreakingSpaces(caption);
+    return googString.collapseBreakingSpaces(caption);
   }
   return MenuItem.superClass_.getCaption.call(this);
 };
@@ -227,7 +227,7 @@ MenuItem.prototype.getAccelerator = function() {
 
 /** @override */
 MenuItem.prototype.handleMouseUp = function(e) {
-  var parentMenu = /** @type {goog.ui.Menu} */ (this.getParent());
+  var parentMenu = /** @type {Menu} */ (this.getParent());
 
   if (parentMenu) {
     var oldCoords = parentMenu.openingCoords;
@@ -267,7 +267,7 @@ MenuItem.prototype.handleKeyEventInternal = function(e) {
 /**
  * Sets the mnemonic key code. The mnemonic is the key associated with this
  * action.
- * @param {goog.events.KeyCodes} key The key code.
+ * @param {KeyCodes} key The key code.
  */
 MenuItem.prototype.setMnemonic = function(key) {
   this.mnemonicKey_ = key;
@@ -277,7 +277,7 @@ MenuItem.prototype.setMnemonic = function(key) {
 /**
  * Gets the mnemonic key code. The mnemonic is the key associated with this
  * action.
- * @return {goog.events.KeyCodes} The key code of the mnemonic key.
+ * @return {KeyCodes} The key code of the mnemonic key.
  */
 MenuItem.prototype.getMnemonic = function() {
   return this.mnemonicKey_;
@@ -308,21 +308,21 @@ MenuItem.prototype.getPreferredAriaRole = function() {
 
 /**
  * @override
- * @return {goog.ui.Menu}
+ * @return {Menu}
  */
 MenuItem.prototype.getParent = function() {
   return (
-    /** @type {goog.ui.Menu} */ (Control.prototype.getParent.call(this))
+    /** @type {Menu} */ (Control.prototype.getParent.call(this))
   );
 };
 
 
 /**
  * @override
- * @return {goog.ui.Menu}
+ * @return {Menu}
  */
 MenuItem.prototype.getParentEventTarget = function() {
   return (
-    /** @type {goog.ui.Menu} */ (Control.prototype.getParentEventTarget.call(this))
+    /** @type {Menu} */ (Control.prototype.getParentEventTarget.call(this))
   );
 };

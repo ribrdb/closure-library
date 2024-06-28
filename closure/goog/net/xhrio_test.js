@@ -22,7 +22,7 @@ import * as functions from '../functions/functions.js';
 import object from '../object/object.js';
 import * as product from '../useragent/product.js';
 import { recordFunction } from '../testing/recordfunction.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { testSuite } from '../testing/testsuite.js';
 
 function MockXmlHttp() {
@@ -703,7 +703,7 @@ testSuite({
     const testingXhrIo = new TestingNetXhrIo();
 
     const propertyComparator = function(value, key, obj) {
-      if (string.endsWith(key, '_')) {
+      if (googString.endsWith(key, '_')) {
         // Ignore private properties/methods
         return true;
       } else if (typeof value == 'function' && typeof this[key] != 'function') {

@@ -12,8 +12,8 @@ import * as positioning from './positioning.js';
 
 import { Overflow, OverflowStatus } from './positioning.js';
 import { AnchoredPosition } from './anchoredposition.js';
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
+const {Box} = goog.requireType('goog.math.box');
+const {Size} = goog.requireType('goog.math.size');
 
 
 
@@ -34,7 +34,7 @@ goog.requireType('goog.math.size');
  * @param {boolean=} opt_adjust Whether the positioning should be adjusted until
  *     the element fits inside the viewport even if that means that the anchored
  *     corners are ignored.
- * @param {goog.math.Box=} opt_overflowConstraint Box object describing the
+ * @param {Box=} opt_overflowConstraint Box object describing the
  *     dimensions in which the movable element could be shown.
  * @constructor
  * @extends {AnchoredPosition}
@@ -60,7 +60,7 @@ export function AnchoredViewportPosition(anchorElement, corner, opt_adjust, opt_
 
  /**
   * The dimensions in which the movable element could be shown.
-  * @type {goog.math.Box|undefined}
+  * @type {Box|undefined}
   * @private
   */
  this.overflowConstraint_ = opt_overflowConstraint || undefined;
@@ -71,7 +71,7 @@ goog.inherits(
 
 
 /**
- * @return {goog.math.Box|undefined} The box object describing the
+ * @return {Box|undefined} The box object describing the
  *     dimensions in which the movable element will be shown.
  */
 AnchoredViewportPosition.prototype.getOverflowConstraint =
@@ -81,7 +81,7 @@ AnchoredViewportPosition.prototype.getOverflowConstraint =
 
 
 /**
- * @param {goog.math.Box|undefined} overflowConstraint Box object describing the
+ * @param {Box|undefined} overflowConstraint Box object describing the
  *     dimensions in which the movable element could be shown.
  */
 AnchoredViewportPosition.prototype.setOverflowConstraint =
@@ -115,8 +115,8 @@ AnchoredViewportPosition.prototype.setLastResortOverflow =
  * @param {Element} movableElement Element to position.
  * @param {positioning.Corner} movableCorner Corner of the movable element
  *     that should be positioned adjacent to the anchored element.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
- * @param {goog.math.Size=} opt_preferredSize The preferred size of the
+ * @param {Box=} opt_margin A margin specified in pixels.
+ * @param {Size=} opt_preferredSize The preferred size of the
  *     movableElement.
  * @override
  */

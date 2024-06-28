@@ -18,7 +18,7 @@ import * as events from '../events/events.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
 import { Size } from '../math/size.js';
-goog.requireType('goog.events.event');
+const {Event} = goog.requireType('goog.events.event');
 
 
 
@@ -147,7 +147,7 @@ ViewportSizeMonitor.prototype.disposeInternal = function() {
  * Handles window resize events by measuring the dimensions of the
  * viewport and dispatching a {@link EventType.RESIZE} event if the
  * current dimensions are different from the previous ones.
- * @param {events.Event} event The window resize event to handle.
+ * @param {Event} event The window resize event to handle.
  * @private
  */
 ViewportSizeMonitor.prototype.handleResize_ = function(event) {

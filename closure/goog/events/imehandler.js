@@ -37,7 +37,7 @@ import { EventTarget } from './eventtarget.js';
 import { EventType } from './eventtype.js';
 import { KeyCodes } from './keycodes.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -116,7 +116,7 @@ ImeHandler.EventType = {
 /**
  * An event fired by ImeHandler.
  * @param {ImeHandler.EventType} type The type.
- * @param {goog.events.BrowserEvent} reason The trigger for this event.
+ * @param {BrowserEvent} reason The trigger for this event.
  * @constructor
  * @extends {Event}
  * @final
@@ -126,7 +126,7 @@ ImeHandler.Event = function(type, reason) {
 
   /**
    * The event that triggered this.
-   * @type {goog.events.BrowserEvent}
+   * @type {BrowserEvent}
    */
   this.reason = reason;
 };
@@ -168,7 +168,7 @@ ImeHandler.prototype.isImeMode = function() {
 
 /**
  * Handles the compositionstart event.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleCompositionStart_ = function(e) {
@@ -178,7 +178,7 @@ ImeHandler.prototype.handleCompositionStart_ = function(e) {
 
 /**
  * Handles the compositionend event.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleCompositionEnd_ = function(e) {
@@ -188,7 +188,7 @@ ImeHandler.prototype.handleCompositionEnd_ = function(e) {
 
 /**
  * Handles the compositionupdate and text events.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleTextModifyingInput_ = function(e) {
@@ -200,7 +200,7 @@ ImeHandler.prototype.handleTextModifyingInput_ = function(e) {
 
 /**
  * Handles IME activation.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleImeActivate_ = function(e) {
@@ -232,7 +232,7 @@ ImeHandler.prototype.handleImeActivate_ = function(e) {
 
 /**
  * Handles the IME compose changes.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.processImeComposition_ = function(e) {
@@ -243,7 +243,7 @@ ImeHandler.prototype.processImeComposition_ = function(e) {
 
 /**
  * Handles IME deactivation.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleImeDeactivate_ = function(e) {
@@ -257,7 +257,7 @@ ImeHandler.prototype.handleImeDeactivate_ = function(e) {
 
 /**
  * Handles a key down event.
- * @param {!goog.events.BrowserEvent} e The event.
+ * @param {!BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleKeyDown_ = function(e) {
@@ -288,7 +288,7 @@ ImeHandler.prototype.handleKeyDown_ = function(e) {
 
 /**
  * Handles a textInput event.
- * @param {!goog.events.BrowserEvent} e The event.
+ * @param {!BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleTextInput_ = function(e) {
@@ -305,7 +305,7 @@ ImeHandler.prototype.handleTextInput_ = function(e) {
 /**
  * Handles the key up event for any IME activity. This handler is just used to
  * prevent activating IME unnecessary in Safari at this time.
- * @param {!goog.events.BrowserEvent} e The event.
+ * @param {!BrowserEvent} e The event.
  * @private
  */
 ImeHandler.prototype.handleKeyUpSafari4_ = function(e) {

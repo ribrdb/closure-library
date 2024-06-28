@@ -28,7 +28,7 @@ import { Rect } from '../math/rect.js';
 import * as style from '../style/style.js';
 import * as bidi from '../style/bidi.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

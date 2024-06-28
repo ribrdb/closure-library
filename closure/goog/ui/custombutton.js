@@ -12,7 +12,7 @@ import { Button } from './button.js';
 
 import { CustomButtonRenderer } from './custombuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.buttonrenderer');
 goog.requireType('goog.ui.controlcontent');
 
@@ -30,7 +30,7 @@ goog.requireType('goog.ui.controlcontent');
  * @param {ButtonRenderer=} opt_renderer Optional renderer used to
  *    render or decorate the button; defaults to
  *    {@link CustomButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *    document interaction.
  * @constructor
  * @extends {Button}

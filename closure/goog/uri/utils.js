@@ -43,7 +43,7 @@
 
 import * as asserts from '../asserts/asserts.js';
 
-import * as string from '../string/string.js';
+import * as strings from '../string/string.js';
 
 
 /**
@@ -611,7 +611,7 @@ export function parseQueryData(encodedQuery, callback) {
     } else {
       name = pairs[i];
     }
-    callback(name, value ? string.urlDecode(value) : '');
+    callback(name, value ? strings.urlDecode(value) : '');
   }
 }
 
@@ -711,7 +711,7 @@ function appendKeyValuePairs_(key, value, pairs) {
         // Check for empty string. Zero gets encoded into the url as literal
         // strings.  For empty string, skip the equal sign, to be consistent
         // with UriBuilder.java.
-        (value === '' ? '' : '=' + string.urlEncode(value)));
+        (value === '' ? '' : '=' + strings.urlEncode(value)));
   }
 }
 
@@ -822,7 +822,7 @@ export function appendParamsFromMap(uri, map) {
  * @return {string} The URI with the query parameter added.
  */
 export function appendParam(uri, key, opt_value) {
-  var value = (opt_value != null) ? '=' + string.urlEncode(opt_value) : '';
+  var value = (opt_value != null) ? '=' + strings.urlEncode(opt_value) : '';
   return appendQueryDataToUri_(uri, key + value);
 }
 
@@ -917,7 +917,7 @@ export function getParamValue(uri, keyEncoded) {
     }
     // Progress forth to the end of the "key=" or "key&" substring.
     foundIndex += keyEncoded.length + 1;
-    return string.urlDecode(
+    return strings.urlDecode(
         uri.slice(foundIndex, endPosition !== -1 ? endPosition : 0));
   }
 }
@@ -948,7 +948,7 @@ export function getParamValues(uri, keyEncoded) {
     // Progress forth to the end of the "key=" or "key&" substring.
     foundIndex += keyEncoded.length + 1;
     result.push(
-        string.urlDecode(uri.slice(foundIndex, Math.max(position, 0))));
+        strings.urlDecode(uri.slice(foundIndex, Math.max(position, 0))));
   }
 
   return result;
@@ -1061,11 +1061,11 @@ export function appendPath(baseUri, path) {
   assertNoFragmentsOrQueries_(baseUri);
 
   // Remove any trailing '/'
-  if (string.endsWith(baseUri, '/')) {
+  if (strings.endsWith(baseUri, '/')) {
     baseUri = baseUri.slice(0, -1);
   }
   // Remove any leading '/'
-  if (string.startsWith(path, '/')) {
+  if (strings.startsWith(path, '/')) {
     path = path.slice(1);
   }
   return '' + baseUri + '/' + path;
@@ -1080,7 +1080,7 @@ export function appendPath(baseUri, path) {
  */
 export function setPath(uri, path) {
   // Add any missing '/'.
-  if (!string.startsWith(path, '/')) {
+  if (!strings.startsWith(path, '/')) {
     path = '/' + path;
   }
   var parts = split(uri);
@@ -1114,5 +1114,5 @@ export var StandardQueryParam = {
 export function makeUnique(uri) {
   return setParam(
       uri, StandardQueryParam.RANDOM,
-      string.getRandomString());
+      strings.getRandomString());
 }

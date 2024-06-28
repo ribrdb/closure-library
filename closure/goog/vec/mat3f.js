@@ -290,9 +290,7 @@ export function setColumns(mat, vec0, vec1, vec2) {
   setColumn(mat, 0, vec0);
   setColumn(mat, 1, vec1);
   setColumn(mat, 2, vec2);
-  return (
-    /** @type {!googVec.mat3f.Type} */ mat
-  );
+  return /** @type {!Type} */ (mat);
 }
 
 
@@ -379,9 +377,7 @@ export function setRows(mat, vec0, vec1, vec2) {
   setRow(mat, 0, vec0);
   setRow(mat, 1, vec1);
   setRow(mat, 2, vec2);
-  return (
-    /** @type {!googVec.mat3f.Type} */ mat
-  );
+  return /** @type {!Type} */ (mat);
 }
 
 

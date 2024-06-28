@@ -23,8 +23,8 @@ import { Button } from '../../button.js';
 import { CustomButtonRenderer } from '../../custombuttonrenderer.js';
 import { INLINE_BLOCK_CLASSNAME } from '../../cssnames.js';
 import * as registry from '../../registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -101,9 +101,9 @@ ButtonRenderer.prototype.getContentElement = function(
  *
  * Used by both {@link #createDom} and {@link #decorate}.  To be overridden
  * by subclasses.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
+ * @param {ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
- * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
+ * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
  * @override
  */

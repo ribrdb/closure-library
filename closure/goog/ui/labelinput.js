@@ -36,7 +36,7 @@ import { EventHandler } from '../events/eventhandler.js';
 import { EventType } from '../events/eventtype.js';
 import { Component } from './component.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 
 
@@ -337,7 +337,7 @@ LabelInput.prototype.handleBlur_ = function(e) {
  *
  * IE and Chrome don't have this problem, Opera blurs in the input box
  * completely in a way that preventDefault on the escape key has no effect.
- * @param {goog.events.BrowserEvent} e The event object passed in to
+ * @param {BrowserEvent} e The event object passed in to
  *     the event handler.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration

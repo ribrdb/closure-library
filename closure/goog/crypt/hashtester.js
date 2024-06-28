@@ -17,13 +17,13 @@ import { PerformanceTable } from '../testing/performancetable.js';
 import { PseudoRandom } from '../testing/pseudorandom.js';
 import * as asserts from '../testing/asserts.js';
 goog.setTestOnly('hashTester');
-goog.requireType('goog.crypt.hash');
+const {Hash} = goog.requireType('goog.crypt.hash');
 
 
 /**
  * Runs basic tests.
  *
- * @param {!crypt.Hash} hash A hash instance.
+ * @param {!Hash} hash A hash instance.
  */
 export function runBasicTests(hash) {
   // Compute first hash.
@@ -100,7 +100,7 @@ export function runBasicTests(hash) {
 /**
  * Runs block tests.
  *
- * @param {!crypt.Hash} hash A hash instance.
+ * @param {!Hash} hash A hash instance.
  * @param {number} blockBytes Size of the hash block.
  */
 export function runBlockTests(hash, blockBytes) {
@@ -166,7 +166,7 @@ export function runBlockTests(hash, blockBytes) {
 /**
  * Runs performance tests.
  *
- * @param {function():!crypt.Hash} hashFactory A hash factory.
+ * @param {function():!Hash} hashFactory A hash factory.
  * @param {string} hashName Name of the hashing function.
  */
 export function runPerfTests(hashFactory, hashName) {

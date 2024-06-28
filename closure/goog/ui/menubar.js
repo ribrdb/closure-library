@@ -17,7 +17,7 @@
 import { Container } from './container.js';
 
 import { MenuBarRenderer } from './menubarrenderer.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.containerrenderer');
 
 
@@ -25,7 +25,7 @@ goog.requireType('goog.ui.containerrenderer');
  * The menuBar factory creates a new menu bar.
  * @param {ContainerRenderer=} opt_renderer Renderer used to render or
  *     decorate the menu bar; defaults to {@link MenuBarRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for document
+ * @param {DomHelper=} opt_domHelper DOM helper, used for document
  *     interaction.
  * @return {!Container} The created menu bar.
  */

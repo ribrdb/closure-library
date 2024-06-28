@@ -14,7 +14,6 @@ goog.declareModuleId('goog.events.event');
 /**
  * Event no longer depends on Disposable. Keep requiring
  * Disposable here to not break projects which assume this dependency.
- * @suppress {extraRequire}
  */
 import { Disposable } from '../disposable/disposable.js';
 

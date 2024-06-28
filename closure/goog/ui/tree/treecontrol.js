@@ -29,8 +29,8 @@ import { BaseNode } from './basenode.js';
 import { TreeNode } from './treenode.js';
 import { TypeAhead } from './typeahead.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -42,7 +42,7 @@ goog.requireType('goog.events.browserevent');
  * @param {Object=} opt_config The configuration for the tree. See
  *    TreeControl.defaultConfig. If not specified, a default config
  *    will be used.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {BaseNode}
  */
@@ -153,7 +153,7 @@ TreeControl.prototype.reveal = function() {
 
 /**
  * Handles focus on the tree.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @private
  */
 TreeControl.prototype.handleFocus_ = function(e) {
@@ -169,7 +169,7 @@ TreeControl.prototype.handleFocus_ = function(e) {
 
 /**
  * Handles blur on the tree.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @private
  */
 TreeControl.prototype.handleBlur_ = function(e) {
@@ -506,7 +506,7 @@ TreeControl.prototype.detachEvents_ = function() {
 
 /**
  * Handles mouse events.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @private
  */
 TreeControl.prototype.handleMouseEvent_ = function(e) {
@@ -530,7 +530,7 @@ TreeControl.prototype.handleMouseEvent_ = function(e) {
 
 /**
  * Handles key down on the tree.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @return {boolean} The handled value.
  */
 TreeControl.prototype.handleKeyEvent = function(e) {
@@ -551,7 +551,7 @@ TreeControl.prototype.handleKeyEvent = function(e) {
 
 /**
  * Finds the containing node given an event.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @return {BaseNode} The containing node or null if no node is
  *     found.
  * @private

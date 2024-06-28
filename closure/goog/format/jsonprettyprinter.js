@@ -13,7 +13,7 @@ import { SafeHtml } from '../html/safehtml.js';
 
 import * as googJson from '../json/json.js';
 import { Serializer } from '../json/json.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { format } from '../string/stringformat.js';
 
 
@@ -102,7 +102,7 @@ JsonPrettyPrinter.prototype.format_ = function(json) {
     return [];
   }
   if (typeof json === 'string') {
-    if (string.isEmptyOrWhitespace(json)) {
+    if (googString.isEmptyOrWhitespace(json)) {
       return [];
     }
     // Try to coerce a string into a JSON object.
@@ -258,7 +258,7 @@ JsonPrettyPrinter.prototype.printValue_ = function(
  */
 JsonPrettyPrinter.prototype.printSpaces_ = function(
     indent, outputBuffer) {
-  outputBuffer.push(string.repeat(this.delimiters_.space, indent));
+  outputBuffer.push(googString.repeat(this.delimiters_.space, indent));
 };
 
 

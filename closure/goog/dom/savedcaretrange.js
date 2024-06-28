@@ -1,7 +1,7 @@
 import * as dom from './dom.js';
 import { AbstractSavedCaretRange } from './savedrange.js';
 import { TagName } from './tagname.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { TextRange } from './textrange.js';
 /**
  * @license
@@ -16,7 +16,7 @@ import { TextRange } from './textrange.js';
 
 goog.declareModuleId('goog.dom.savedcaretrange');
 
-goog.requireType('goog.dom.abstractrange');
+const {AbstractRange} = goog.requireType('goog.dom.abstractrange');
 
 
 /**
@@ -24,10 +24,10 @@ goog.requireType('goog.dom.abstractrange');
  * This can be used to preserve the selection and restore while the DOM is
  * manipulated, or through an asynchronous call. Use dom.Range factory
  * methods to obtain an {@see dom.AbstractRange} instance, and use
- * {@see dom.AbstractRange#saveUsingCarets} to obtain a SavedCaretRange.
+ * {@see AbstractRange#saveUsingCarets} to obtain a SavedCaretRange.
  * For editor ranges under content-editable elements or design-mode iframes,
  * prefer using {@see goog.editor.range.saveUsingNormalizedCarets}.
- * @param {dom.AbstractRange} range The range being saved.
+ * @param {AbstractRange} range The range being saved.
  * @constructor
  * @extends {AbstractSavedCaretRange}
  */
@@ -39,14 +39,14 @@ export function SavedCaretRange(range) {
   * @type {string}
   * @private
   */
- this.startCaretId_ = string.createUniqueString();
+ this.startCaretId_ = googString.createUniqueString();
 
  /**
   * The DOM id of the caret at the end of the range.
   * @type {string}
   * @private
   */
- this.endCaretId_ = string.createUniqueString();
+ this.endCaretId_ = googString.createUniqueString();
 
  /**
   * Whether the range is reversed (anchor at the end).

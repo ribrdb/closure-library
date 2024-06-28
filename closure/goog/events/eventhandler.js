@@ -51,10 +51,10 @@ goog.declareModuleId('goog.events.eventhandler');
 import { Disposable } from '../disposable/disposable.js';
 import * as events from './events.js';
 import object from '../object/object.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.eventid');
-goog.requireType('goog.events.eventtarget');
-goog.requireType('goog.events.eventwrapper');
+const { Event } = goog.requireType('goog.events.event');
+const { EventId } = goog.requireType('goog.events.eventid');
+const { EventTarget } = goog.requireType('goog.events.eventtarget');
+const { EventWrapper } = goog.requireType('goog.events.eventwrapper');
 
 
 
@@ -99,7 +99,7 @@ EventHandler.typeArray_ = [];
  * EventHandler's handleEvent method will be used.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type to listen for or array of event types.
  * @param {function(this:SCOPE, EVENTOBJ):?|{handleEvent:function(?):?}|null=}
  *     opt_fn Optional callback function to be used as the listener or an object
@@ -111,7 +111,7 @@ EventHandler.typeArray_ = [];
  */
 EventHandler.prototype.listen = function(
     src, type, opt_fn, opt_options) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   return self.listen_(src, type, opt_fn, opt_options);
 };
 
@@ -121,7 +121,7 @@ EventHandler.prototype.listen = function(
  * EventHandler's handleEvent method will be used.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type to listen for or array of event types.
  * @param {function(this:T, EVENTOBJ):?|{handleEvent:function(this:T, ?):?}|
  *     null|undefined} fn Optional callback function to be used as the
@@ -134,7 +134,7 @@ EventHandler.prototype.listen = function(
  */
 EventHandler.prototype.listenWithScope = function(
     src, type, fn, options, scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   // TODO(mknichel): Deprecate this function.
   return self.listen_(src, type, fn, options, scope);
 };
@@ -145,7 +145,7 @@ EventHandler.prototype.listenWithScope = function(
  * EventHandler's handleEvent method will be used.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type to listen for or array of event types.
  * @param {function(EVENTOBJ):?|{handleEvent:function(?):?}|null=} opt_fn
  *     Optional callback function to be used as the listener or an object with
@@ -159,7 +159,7 @@ EventHandler.prototype.listenWithScope = function(
  */
 EventHandler.prototype.listen_ = function(
     src, type, opt_fn, opt_options, opt_scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   if (!Array.isArray(type)) {
     if (type) {
       EventHandler.typeArray_[0] = type.toString();
@@ -194,7 +194,7 @@ EventHandler.prototype.listen_ = function(
  * provided, each event type will be listened to once.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type to listen for or array of event types.
  * @param {function(this:SCOPE, EVENTOBJ):?|{handleEvent:function(?):?}|null=}
  * opt_fn
@@ -207,7 +207,7 @@ EventHandler.prototype.listen_ = function(
  */
 EventHandler.prototype.listenOnce = function(
     src, type, opt_fn, opt_options) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   return self.listenOnce_(src, type, opt_fn, opt_options);
 };
 
@@ -219,7 +219,7 @@ EventHandler.prototype.listenOnce = function(
  * provided, each event type will be listened to once.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type to listen for or array of event types.
  * @param {function(this:T, EVENTOBJ):?|{handleEvent:function(this:T, ?):?}|
  *     null|undefined} fn Optional callback function to be used as the
@@ -232,7 +232,7 @@ EventHandler.prototype.listenOnce = function(
  */
 EventHandler.prototype.listenOnceWithScope = function(
     src, type, fn, capture, scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   // TODO(mknichel): Deprecate this function.
   return self.listenOnce_(src, type, fn, capture, scope);
 };
@@ -245,7 +245,7 @@ EventHandler.prototype.listenOnceWithScope = function(
  * provided, each event type will be listened to once.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type to listen for or array of event types.
  * @param {function(EVENTOBJ):?|{handleEvent:function(?):?}|null=} opt_fn
  *    Optional callback function to be used as the listener or an object with
@@ -259,7 +259,7 @@ EventHandler.prototype.listenOnceWithScope = function(
  */
 EventHandler.prototype.listenOnce_ = function(
     src, type, opt_fn, opt_options, opt_scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       self.listenOnce_(src, type[i], opt_fn, opt_options, opt_scope);
@@ -286,12 +286,12 @@ EventHandler.prototype.listenOnce_ = function(
 
 /**
  * Adds an event listener with a specific event wrapper on a DOM Node or an
- * object that has implemented {@link events.EventTarget}. A listener can
+ * object that has implemented {@link EventTarget}. A listener can
  * only be added once to an object.
  *
- * @param {EventTarget|events.EventTarget} src The node to listen to
+ * @param {EventTarget|EventTarget} src The node to listen to
  *     events on.
- * @param {events.EventWrapper} wrapper Event wrapper to use.
+ * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(this:SCOPE, ?):?|{handleEvent:function(?):?}|null} listener
  *     Callback method, or an object with a handleEvent function.
  * @param {boolean=} opt_capt Whether to fire in capture phase (defaults to
@@ -302,7 +302,7 @@ EventHandler.prototype.listenOnce_ = function(
  */
 EventHandler.prototype.listenWithWrapper = function(
     src, wrapper, listener, opt_capt) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   // TODO(mknichel): Remove the opt_scope from this function and then
   // templatize it.
   return self.listenWithWrapper_(src, wrapper, listener, opt_capt);
@@ -311,12 +311,12 @@ EventHandler.prototype.listenWithWrapper = function(
 
 /**
  * Adds an event listener with a specific event wrapper on a DOM Node or an
- * object that has implemented {@link events.EventTarget}. A listener can
+ * object that has implemented {@link EventTarget}. A listener can
  * only be added once to an object.
  *
- * @param {EventTarget|events.EventTarget} src The node to listen to
+ * @param {EventTarget|EventTarget} src The node to listen to
  *     events on.
- * @param {events.EventWrapper} wrapper Event wrapper to use.
+ * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(this:T, ?):?|{handleEvent:function(this:T, ?):?}|null}
  *     listener Optional callback function to be used as the
  *     listener or an object with handleEvent function.
@@ -328,7 +328,7 @@ EventHandler.prototype.listenWithWrapper = function(
  */
 EventHandler.prototype.listenWithWrapperAndScope = function(
     src, wrapper, listener, capture, scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   // TODO(mknichel): Deprecate this function.
   return self.listenWithWrapper_(src, wrapper, listener, capture, scope);
 };
@@ -336,12 +336,12 @@ EventHandler.prototype.listenWithWrapperAndScope = function(
 
 /**
  * Adds an event listener with a specific event wrapper on a DOM Node or an
- * object that has implemented {@link events.EventTarget}. A listener can
+ * object that has implemented {@link EventTarget}. A listener can
  * only be added once to an object.
  *
- * @param {EventTarget|events.EventTarget} src The node to listen to
+ * @param {EventTarget|EventTarget} src The node to listen to
  *     events on.
- * @param {events.EventWrapper} wrapper Event wrapper to use.
+ * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener Callback
  *     method, or an object with a handleEvent function.
  * @param {boolean=} opt_capt Whether to fire in capture phase (defaults to
@@ -354,7 +354,7 @@ EventHandler.prototype.listenWithWrapperAndScope = function(
  */
 EventHandler.prototype.listenWithWrapper_ = function(
     src, wrapper, listener, opt_capt, opt_scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   wrapper.listen(
       src, listener, opt_capt, opt_scope || self.handler_ || self, self);
   return self;
@@ -379,7 +379,7 @@ EventHandler.prototype.getListenerCount = function() {
  * Unlistens on an event.
  * @param {events.ListenableType} src Event source.
  * @param {string|Array<string>|
- *     !events.EventId<EVENTOBJ>|!Array<!events.EventId<EVENTOBJ>>}
+ *     !EventId<EVENTOBJ>|!Array<!EventId<EVENTOBJ>>}
  *     type Event type or array of event types to unlisten to.
  * @param {function(this:?, EVENTOBJ):?|{handleEvent:function(?):?}|null=}
  *     opt_fn Optional callback function to be used as the listener or an object
@@ -392,7 +392,7 @@ EventHandler.prototype.getListenerCount = function() {
  */
 EventHandler.prototype.unlisten = function(
     src, type, opt_fn, opt_options, opt_scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
       self.unlisten(src, type[i], opt_fn, opt_options, opt_scope);
@@ -417,9 +417,9 @@ EventHandler.prototype.unlisten = function(
 /**
  * Removes an event listener which was added with listenWithWrapper().
  *
- * @param {EventTarget|events.EventTarget} src The target to stop
+ * @param {EventTarget|EventTarget} src The target to stop
  *     listening to events on.
- * @param {events.EventWrapper} wrapper Event wrapper to use.
+ * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener The
  *     listener function to remove.
  * @param {boolean=} opt_capt In DOM-compliant browsers, this determines
@@ -432,7 +432,7 @@ EventHandler.prototype.unlisten = function(
  */
 EventHandler.prototype.unlistenWithWrapper = function(
     src, wrapper, listener, opt_capt, opt_scope) {
-  var self = /** @type {!events.EventHandler} */ (this);
+  var self = /** @type {!EventHandler} */ (this);
   wrapper.unlisten(
       src, listener, opt_capt, opt_scope || self.handler_ || self, self);
   return self;
@@ -466,7 +466,7 @@ EventHandler.prototype.disposeInternal = function() {
 
 /**
  * Default event handler
- * @param {events.Event} e Event object.
+ * @param {Event} e Event object.
  */
 EventHandler.prototype.handleEvent = function(e) {
   throw new Error('EventHandler.handleEvent not implemented');

@@ -12,7 +12,7 @@ import * as asserts from '../asserts/asserts.js';
 
 import { SafeHtml } from '../html/safehtml.js';
 import * as uncheckedconversions from '../html/uncheckedconversions.js';
-import * as string from './string.js';
+import * as googString from './string.js';
 import { Const } from './const.js';
 
 
@@ -84,7 +84,7 @@ export function linkifyPlainTextAsHtml(text, opt_options) {
               // Preserve tabs by using style="white-space:pre"
               .replace(/(\t+)/g, '<span style="white-space:pre">$1</span>');
       if (preserveNewlines) {
-        modifiedHtml = string.newLineToBr(modifiedHtml);
+        modifiedHtml = googString.newLineToBr(modifiedHtml);
       }
       return uncheckedconversions
           .safeHtmlFromStringKnownToSatisfyTypeContract(
@@ -163,9 +163,9 @@ export function linkifyPlainTextAsHtml(text, opt_options) {
           // and ')' is false.
           function needEndingPunctuationForBalance(
               split, openSymbol, closeSymbol) {
-            return string.contains(split[2], closeSymbol) &&
-                string.countOf(split[1], openSymbol) >
-                string.countOf(split[1], closeSymbol);
+            return googString.contains(split[2], closeSymbol) &&
+                googString.countOf(split[1], openSymbol) >
+                googString.countOf(split[1], closeSymbol);
           }
           if (splitEndingPunctuation &&
               !needEndingPunctuationForBalance(

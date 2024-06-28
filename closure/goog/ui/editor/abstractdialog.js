@@ -14,7 +14,7 @@ import * as asserts from '../../asserts/asserts.js';
 import * as dom from '../../dom/dom.js';
 import * as classlist from '../../dom/classlist.js';
 import { EventTarget } from '../../events/eventtarget.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Dialog } from '../dialog.js';
 import { PopupBase } from '../popupbase.js';
 goog.requireType('goog.events.event');
@@ -199,7 +199,7 @@ AbstractDialog.Builder.prototype.addButton = function(
     label, handler, opt_buttonId) {
  // We don't care what the key is, just that we can match the button with the
  // handler function later.
- const key = opt_buttonId || string.createUniqueString();
+ const key = opt_buttonId || googString.createUniqueString();
  this.buttonSet_.set(key, label);
  this.buttonHandlers_[key] = handler;
  return this;

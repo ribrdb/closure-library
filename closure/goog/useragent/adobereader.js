@@ -15,7 +15,14 @@ import * as googString from '../string/string.js';
 import * as userAgent from './useragent.js';
 
 
+/**
+ * The version of the installed Adobe Reader plugin. Versions after 7
+ * will all be reported as '7'.
+ * @type {string}
+ */
 var version = '';
+export { version as VERSION };
+
 if (userAgent.IE) {
   var detectOnIe = function(classId) {
     try {
@@ -52,14 +59,6 @@ if (userAgent.IE) {
  * @type {boolean}
  */
 export let HAS_READER = !!version;
-
-
-/**
- * The version of the installed Adobe Reader plugin. Versions after 7
- * will all be reported as '7'.
- * @type {string}
- */
-export { version as VERSION };
 
 
 /**

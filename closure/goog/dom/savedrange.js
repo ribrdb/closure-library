@@ -13,7 +13,7 @@ goog.declareModuleId('goog.dom.savedrange');
 
 import { Disposable } from '../disposable/disposable.js';
 import * as log from '../log/log.js';
-goog.requireType('goog.dom.abstractrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -43,7 +43,7 @@ SavedRange.logger_ = log.getLogger('goog.dom.SavedRange');
  * this means the by default SavedRange objects are single use objects.
  * @param {boolean=} opt_stayAlive Whether this SavedRange should stay alive
  *     (not be disposed) after restoring the range. Defaults to false (dispose).
- * @return {goog.dom.AbstractRange} The restored range.
+ * @return {AbstractRange} The restored range.
  */
 SavedRange.prototype.restore = function(opt_stayAlive) {
  if (this.isDisposed()) {
@@ -61,7 +61,7 @@ SavedRange.prototype.restore = function(opt_stayAlive) {
 
 /**
  * Internal method to restore the saved range.
- * @return {goog.dom.AbstractRange} The restored range.
+ * @return {AbstractRange} The restored range.
  * @protected
  */
 SavedRange.prototype.restoreInternal = goog.abstractMethod;
@@ -80,7 +80,7 @@ goog.inherits(AbstractSavedCaretRange, SavedRange);
 /**
  * Gets the range that this SavedCaretRage represents, without selecting it
  * or removing the carets from the DOM.
- * @return {goog.dom.AbstractRange?} An abstract range.
+ * @return {AbstractRange?} An abstract range.
  */
 AbstractSavedCaretRange.prototype.toAbstractRange =
     goog.abstractMethod;
@@ -96,11 +96,11 @@ AbstractSavedCaretRange.prototype.getCaret = function(start) {};
 
 /**
  * Removes the carets from the current restoration document.
- * @param {!goog.dom.AbstractRange=} opt_range A range whose offsets have
+ * @param {!AbstractRange=} opt_range A range whose offsets have
  *     already been adjusted for caret removal; it will be adjusted if it is
  *     also affected by post-removal operations, such as text node
  *     normalization.
- * @return {?goog.dom.AbstractRange|undefined} The adjusted range, if opt_range
+ * @return {?AbstractRange|undefined} The adjusted range, if opt_range
  *     was provided.
  * @abstract
  */

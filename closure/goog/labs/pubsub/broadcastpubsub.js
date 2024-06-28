@@ -16,9 +16,9 @@ import * as math from '../../math/math.js';
 import { PubSub } from '../../pubsub/pubsub.js';
 import { Storage } from '../../storage/storage.js';
 import { HTML5LocalStorage } from '../../storage/mechanism/html5localstorage.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -109,7 +109,7 @@ BroadcastPubSub.STORAGE_KEY_ = '_closure_bps';
 
 /**
  * Handle the storage event and possibly dispatch topics.
- * @param {!goog.events.BrowserEvent} e Event object.
+ * @param {!BrowserEvent} e Event object.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -492,7 +492,7 @@ BroadcastPubSub.prototype.handleIe8StorageEvent_ = function() {
     // and modern IE don't dispatch the event to the window which made the
     // change. This code simulates that behavior in IE8.
     if (!(typeof key === 'string' &&
-          string.startsWith(
+          googString.startsWith(
               key, BroadcastPubSub.IE8_EVENTS_KEY_PREFIX_))) {
       continue;
     }

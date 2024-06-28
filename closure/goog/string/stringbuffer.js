@@ -8,6 +8,17 @@
  * @fileoverview Utility for fast string concatenation.
  */
 
+
+
+
+/**
+ * Utility class to facilitate string concatenation.
+ *
+ * @param {*=} opt_a1 Optional first initial item to append.
+ * @param {...*} var_args Other initial items to
+ *     append, e.g., new goog.string.StringBuffer('foo', 'bar').
+ * @constructor
+ */
 StringBuffer = function(opt_a1, var_args) {
  if (opt_a1 != null) {
    this.append.apply(this, arguments);

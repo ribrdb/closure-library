@@ -18,7 +18,7 @@ import * as classlist from '../dom/classlist.js';
 import { EventType } from '../events/eventtype.js';
 import * as functions from '../functions/functions.js';
 import { Component } from './component.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -180,7 +180,7 @@ TableSorter.prototype.setSortFunction = function(column, sortFunction) {
 
 /**
  * Sort the table contents by the values in the given column.
- * @param {goog.events.BrowserEvent} e The click event.
+ * @param {BrowserEvent} e The click event.
  * @private
  */
 TableSorter.prototype.sort_ = function(e) {

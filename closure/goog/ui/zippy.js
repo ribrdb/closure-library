@@ -24,7 +24,7 @@ import { EventType } from '../events/eventtype.js';
 import { KeyCodes } from '../events/keycodes.js';
 import { KeyHandler } from '../events/keyhandler.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.events.browserevent');
+const {BrowserEvent} = goog.requireType('goog.events.browserevent');
 
 
 
@@ -413,7 +413,7 @@ Zippy.prototype.enableMouseEventsHandling_ = function(header) {
  * KeyDown event handler for header element. Enter and space toggles expanded
  * state.
  *
- * @param {!goog.events.BrowserEvent} event KeyDown event.
+ * @param {!BrowserEvent} event KeyDown event.
  * @private
  */
 Zippy.prototype.onHeaderKeyDown_ = function(event) {
@@ -433,7 +433,7 @@ Zippy.prototype.onHeaderKeyDown_ = function(event) {
 /**
  * Click event handler for header element.
  *
- * @param {!goog.events.BrowserEvent} event Click event.
+ * @param {!BrowserEvent} event Click event.
  * @private
  */
 Zippy.prototype.onHeaderClick_ = function(event) {
@@ -447,7 +447,7 @@ Zippy.prototype.onHeaderClick_ = function(event) {
  * Please note that after the zippy state change is completed a TOGGLE event
  * will be dispatched. However, the TOGGLE event is dispatch on every toggle,
  * including programmatic call to `#toggle`.
- * @param {!goog.events.BrowserEvent} triggeringEvent
+ * @param {!BrowserEvent} triggeringEvent
  * @private
  */
 Zippy.prototype.dispatchActionEvent_ = function(triggeringEvent) {
@@ -463,7 +463,7 @@ Zippy.prototype.dispatchActionEvent_ = function(triggeringEvent) {
  * @param {string} type Event type.
  * @param {Zippy} target Zippy widget initiating event.
  * @param {boolean} expanded Expanded state.
- * @param {!goog.events.BrowserEvent=} opt_triggeringEvent
+ * @param {!BrowserEvent=} opt_triggeringEvent
  * @extends {Event}
  * @constructor
  * @final
@@ -480,7 +480,7 @@ export function ZippyEvent(type, target, expanded, opt_triggeringEvent) {
   /**
    * For ACTION events, the key or mouse event that triggered this event, if
    * there was one.
-   * @type {?goog.events.BrowserEvent}
+   * @type {?BrowserEvent}
    */
   this.triggeringEvent = opt_triggeringEvent || null;
 }

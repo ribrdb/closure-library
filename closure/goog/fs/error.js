@@ -21,7 +21,7 @@ import * as asserts from '../asserts/asserts.js';
 
 import { DebugError } from '../debug/error.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 /** @record */
 export function DOMErrorLike() {}
@@ -69,7 +69,7 @@ function Error_(error, action) {
     this.name = Error_.getNameFromCode_(code);
   }
   Error_.base(
-      this, 'constructor', string.subs('%s %s', this.name, action));
+      this, 'constructor', googString.subs('%s %s', this.name, action));
 }
 export { Error_ as Error };
 goog.inherits(Error_, DebugError);

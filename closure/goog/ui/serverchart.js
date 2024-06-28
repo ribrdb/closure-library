@@ -26,7 +26,7 @@ import dom from '../asserts/dom.js';
 import { TagName } from '../dom/tagname.js';
 import { Event } from '../events/event.js';
 import { Component } from './component.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -36,7 +36,7 @@ goog.requireType('goog.dom.dom');
  * @param {ServerChart.ChartType} type The chart type.
  * @param {number=} opt_width The width of the chart.
  * @param {number=} opt_height The height of the chart.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM Helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM Helper.
  * @param {string=} opt_uri Optional uri used to connect to the chart server, if
  *     different than ServerChart.CHART_SERVER_SCHEME_INDEPENDENT_URI.
  * @constructor

@@ -145,11 +145,11 @@ import * as googLog from '../log/log.js';
 import { ErrorCode } from './errorcode.js';
 import { EventType as netEventType } from './eventtype.js';
 import * as reflect from '../reflect/reflect.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as structs from '../structs/structs.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.html.SafeHtml');
 goog.requireType('goog.structs.map');
 
@@ -290,7 +290,7 @@ IframeIo.getInstanceByName = function(fname) {
 IframeIo.handleIncrementalData = function(win, data) {
   // If this is the inner-frame, then we need to use the parent instead.
   const iframeName =
-      string.endsWith(win.name, IframeIo.INNER_FRAME_SUFFIX) ?
+      googString.endsWith(win.name, IframeIo.INNER_FRAME_SUFFIX) ?
       win.parent.name :
       win.name;
 
@@ -946,7 +946,7 @@ IframeIo.prototype.sendFormInternal_ = function() {
  * @private
  */
 IframeIo.createIframeHtml_ = function(innerFrameName) {
-  const innerFrameNameEscaped = string.htmlEscape(innerFrameName);
+  const innerFrameNameEscaped = googString.htmlEscape(innerFrameName);
   return uncheckedconversions
       .safeHtmlFromStringKnownToSatisfyTypeContract(
           Const.from(
@@ -962,13 +962,13 @@ IframeIo.createIframeHtml_ = function(innerFrameName) {
  * @private
  */
 IframeIo.createIframeHtmlWithBaseUri_ = function(innerFrameName) {
-  const innerFrameNameEscaped = string.htmlEscape(innerFrameName);
+  const innerFrameNameEscaped = googString.htmlEscape(innerFrameName);
   return uncheckedconversions
       .safeHtmlFromStringKnownToSatisfyTypeContract(
           Const.from(
               'Short HTML snippet, input escaped, safe URL, for performance'),
           '<head><base href="' +
-              string.htmlEscape(/** @type {string} */ (document.baseURI)) +
+              googString.htmlEscape(/** @type {string} */ (document.baseURI)) +
               '"></head>' +
               '<body><iframe id="' + innerFrameNameEscaped + '" name="' +
               innerFrameNameEscaped + '"></iframe>');

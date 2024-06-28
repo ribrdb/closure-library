@@ -15,7 +15,6 @@
  */
 goog.declareModuleId('goog.vec.vec3');
 
-/** @suppress {extraRequire} */
 import * as googVec from './vec.js';
 
 /** @typedef {!googVec.Float32} */ export var Float32;

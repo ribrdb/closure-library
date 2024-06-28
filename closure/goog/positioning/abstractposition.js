@@ -10,9 +10,9 @@
 
 goog.declareModuleId('goog.positioning.abstractposition');
 
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
-goog.requireType('goog.positioning.positioning');
+const {Box} = goog.requireType('goog.math.box');
+const {Size} = goog.requireType('goog.math.size');
+const positioning = goog.requireType('goog.positioning.positioning');
 
 
 
@@ -28,10 +28,10 @@ export function AbstractPosition() {}
  * Repositions the element. Abstract method, should be overloaded.
  *
  * @param {Element} movableElement Element to position.
- * @param {goog.positioning.Corner} corner Corner of the movable element that
+ * @param {positioning.Corner} corner Corner of the movable element that
  *     should be positioned adjacent to the anchored element.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
- * @param {goog.math.Size=} opt_preferredSize PreferredSize of the
+ * @param {Box=} opt_margin A margin specified in pixels.
+ * @param {Size=} opt_preferredSize PreferredSize of the
  *     movableElement.
  */
 AbstractPosition.prototype.reposition = function(

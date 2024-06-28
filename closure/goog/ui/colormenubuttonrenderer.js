@@ -15,7 +15,7 @@ import * as color from '../color/color.js';
 import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { MenuButtonRenderer } from './menubuttonrenderer.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.control');
 goog.requireType('goog.ui.controlcontent');
 
@@ -56,7 +56,7 @@ ColorMenuButtonRenderer.CSS_CLASS =
  * bottom border of nonzero width and a default color that blends into its
  * background.
  * @param {goog.ui.ControlContent} content Text caption or DOM structure.
- * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
+ * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.
  * @override
  */
@@ -70,7 +70,7 @@ ColorMenuButtonRenderer.prototype.createCaption = function(
 /**
  * Wrap a caption in a div with the color-menu-button-indicator CSS class.
  * @param {goog.ui.ControlContent} content Text caption or DOM structure.
- * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
+ * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.
  */
 ColorMenuButtonRenderer.wrapCaption = function(content, dom) {

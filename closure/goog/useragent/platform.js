@@ -8,7 +8,7 @@
  * @fileoverview Utilities for getting details about the user's platform.
  */
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 import * as userAgent from './useragent.js';
 
@@ -70,6 +70,6 @@ export var VERSION = determineVersion_();
  *     same as the given version.
  */
 export function isVersion(version) {
-  return string.compareVersions(
+  return googString.compareVersions(
              VERSION, version) >= 0;
 }

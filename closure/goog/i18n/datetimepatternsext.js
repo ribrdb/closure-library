@@ -11,7 +11,7 @@
  * This file covers those locales that are not covered in
  * "datetimepatterns.js".
  *
- * @suppress {const,missingRequire,useOfGoogProvide} Suppress "missing require"
+ * @suppress {const,visibility} Suppress "missing require"
  *     warnings for names like DateTimePatterns_af.
  *     They are included by requiring DateTimePatterns.
  */
@@ -30,7 +30,7 @@
  */
 
 
-import { DateTimePatterns, DateTimePatterns_af, DateTimePatterns_am, DateTimePatterns_ar, DateTimePatterns_az, DateTimePatterns_be, DateTimePatterns_bg, DateTimePatterns_bn, DateTimePatterns_br, DateTimePatterns_bs, DateTimePatterns_ca, DateTimePatterns_chr, DateTimePatterns_cs, DateTimePatterns_cy, DateTimePatterns_da, DateTimePatterns_de, DateTimePatterns_el, DateTimePatterns_en, DateTimePatterns_es, DateTimePatterns_et, DateTimePatterns_eu, DateTimePatterns_fa, DateTimePatterns_fi, DateTimePatterns_fil, DateTimePatterns_fr, DateTimePatterns_ga, DateTimePatterns_gl, DateTimePatterns_gsw, DateTimePatterns_gu, DateTimePatterns_haw, DateTimePatterns_he, DateTimePatterns_hi, DateTimePatterns_hr, DateTimePatterns_hu, DateTimePatterns_hy, DateTimePatterns_id, DateTimePatterns_is, DateTimePatterns_it, DateTimePatterns_ja, DateTimePatterns_ka, DateTimePatterns_kk, DateTimePatterns_km, DateTimePatterns_kn, DateTimePatterns_ko, DateTimePatterns_ky, DateTimePatterns_ln, DateTimePatterns_lo, DateTimePatterns_lt, DateTimePatterns_lv, DateTimePatterns_mk, DateTimePatterns_ml, DateTimePatterns_mn, DateTimePatterns_mr, DateTimePatterns_ms, DateTimePatterns_mt, DateTimePatterns_my, DateTimePatterns_nb, DateTimePatterns_ne, DateTimePatterns_nl, DateTimePatterns_or, DateTimePatterns_pa, DateTimePatterns_pl, DateTimePatterns_ro, DateTimePatterns_ru, DateTimePatterns_si, DateTimePatterns_sk, DateTimePatterns_sl, DateTimePatterns_sq, DateTimePatterns_sr, DateTimePatterns_sv, DateTimePatterns_sw, DateTimePatterns_ta, DateTimePatterns_te, DateTimePatterns_th, DateTimePatterns_tr, DateTimePatterns_uk, DateTimePatterns_ur, DateTimePatterns_uz, DateTimePatterns_vi, DateTimePatterns_zh, DateTimePatterns_zu } from './datetimepatterns.js';
+import { DateTimePatterns, DateTimePatterns_af, DateTimePatterns_am, DateTimePatterns_ar, DateTimePatterns_az, DateTimePatterns_be, DateTimePatterns_bg, DateTimePatterns_bn, DateTimePatterns_br, DateTimePatterns_bs, DateTimePatterns_ca, DateTimePatterns_chr, DateTimePatterns_cs, DateTimePatterns_cy, DateTimePatterns_da, DateTimePatterns_de, DateTimePatterns_el, DateTimePatterns_en, DateTimePatterns_es, DateTimePatterns_et, DateTimePatterns_eu, DateTimePatterns_fa, DateTimePatterns_fi, DateTimePatterns_fil, DateTimePatterns_fr, DateTimePatterns_ga, DateTimePatterns_gl, DateTimePatterns_gsw, DateTimePatterns_gu, DateTimePatterns_haw, DateTimePatterns_he, DateTimePatterns_hi, DateTimePatterns_hr, DateTimePatterns_hu, DateTimePatterns_hy, DateTimePatterns_id, DateTimePatterns_is, DateTimePatterns_it, DateTimePatterns_ja, DateTimePatterns_ka, DateTimePatterns_kk, DateTimePatterns_km, DateTimePatterns_kn, DateTimePatterns_ko, DateTimePatterns_ky, DateTimePatterns_ln, DateTimePatterns_lo, DateTimePatterns_lt, DateTimePatterns_lv, DateTimePatterns_mk, DateTimePatterns_ml, DateTimePatterns_mn, DateTimePatterns_mr, DateTimePatterns_ms, DateTimePatterns_mt, DateTimePatterns_my, DateTimePatterns_nb, DateTimePatterns_ne, DateTimePatterns_nl, DateTimePatterns_or, DateTimePatterns_pa, DateTimePatterns_pl, DateTimePatterns_ro, DateTimePatterns_ru, DateTimePatterns_si, DateTimePatterns_sk, DateTimePatterns_sl, DateTimePatterns_sq, DateTimePatterns_sr, DateTimePatterns_sv, DateTimePatterns_sw, DateTimePatterns_ta, DateTimePatterns_te, DateTimePatterns_th, DateTimePatterns_tr, DateTimePatterns_uk, DateTimePatterns_ur, DateTimePatterns_uz, DateTimePatterns_vi, DateTimePatterns_zh, DateTimePatterns_zu, internalSetDateTimePatterns_ } from './datetimepatterns.js';
 
 
 /**
@@ -9342,2699 +9342,2699 @@ DateTimePatterns_zu_ZA = DateTimePatterns_zu;
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    DateTimePatterns = DateTimePatterns_af_NA;
+    internalSetDateTimePatterns_(DateTimePatterns_af_NA);
     break;
   case 'af_ZA':
   case 'af-ZA':
-    DateTimePatterns = DateTimePatterns_af_ZA;
+    internalSetDateTimePatterns_(DateTimePatterns_af_ZA);
     break;
   case 'agq':
-    DateTimePatterns = DateTimePatterns_agq;
+    internalSetDateTimePatterns_(DateTimePatterns_agq);
     break;
   case 'agq_CM':
   case 'agq-CM':
-    DateTimePatterns = DateTimePatterns_agq_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_agq_CM);
     break;
   case 'ak':
-    DateTimePatterns = DateTimePatterns_ak;
+    internalSetDateTimePatterns_(DateTimePatterns_ak);
     break;
   case 'ak_GH':
   case 'ak-GH':
-    DateTimePatterns = DateTimePatterns_ak_GH;
+    internalSetDateTimePatterns_(DateTimePatterns_ak_GH);
     break;
   case 'am_ET':
   case 'am-ET':
-    DateTimePatterns = DateTimePatterns_am_ET;
+    internalSetDateTimePatterns_(DateTimePatterns_am_ET);
     break;
   case 'ar_001':
   case 'ar-001':
-    DateTimePatterns = DateTimePatterns_ar_001;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_001);
     break;
   case 'ar_AE':
   case 'ar-AE':
-    DateTimePatterns = DateTimePatterns_ar_AE;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_AE);
     break;
   case 'ar_BH':
   case 'ar-BH':
-    DateTimePatterns = DateTimePatterns_ar_BH;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_BH);
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    DateTimePatterns = DateTimePatterns_ar_DJ;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_DJ);
     break;
   case 'ar_EH':
   case 'ar-EH':
-    DateTimePatterns = DateTimePatterns_ar_EH;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_EH);
     break;
   case 'ar_ER':
   case 'ar-ER':
-    DateTimePatterns = DateTimePatterns_ar_ER;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_ER);
     break;
   case 'ar_IL':
   case 'ar-IL':
-    DateTimePatterns = DateTimePatterns_ar_IL;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_IL);
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    DateTimePatterns = DateTimePatterns_ar_IQ;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_IQ);
     break;
   case 'ar_JO':
   case 'ar-JO':
-    DateTimePatterns = DateTimePatterns_ar_JO;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_JO);
     break;
   case 'ar_KM':
   case 'ar-KM':
-    DateTimePatterns = DateTimePatterns_ar_KM;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_KM);
     break;
   case 'ar_KW':
   case 'ar-KW':
-    DateTimePatterns = DateTimePatterns_ar_KW;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_KW);
     break;
   case 'ar_LB':
   case 'ar-LB':
-    DateTimePatterns = DateTimePatterns_ar_LB;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_LB);
     break;
   case 'ar_LY':
   case 'ar-LY':
-    DateTimePatterns = DateTimePatterns_ar_LY;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_LY);
     break;
   case 'ar_MA':
   case 'ar-MA':
-    DateTimePatterns = DateTimePatterns_ar_MA;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_MA);
     break;
   case 'ar_MR':
   case 'ar-MR':
-    DateTimePatterns = DateTimePatterns_ar_MR;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_MR);
     break;
   case 'ar_OM':
   case 'ar-OM':
-    DateTimePatterns = DateTimePatterns_ar_OM;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_OM);
     break;
   case 'ar_PS':
   case 'ar-PS':
-    DateTimePatterns = DateTimePatterns_ar_PS;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_PS);
     break;
   case 'ar_QA':
   case 'ar-QA':
-    DateTimePatterns = DateTimePatterns_ar_QA;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_QA);
     break;
   case 'ar_SA':
   case 'ar-SA':
-    DateTimePatterns = DateTimePatterns_ar_SA;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_SA);
     break;
   case 'ar_SD':
   case 'ar-SD':
-    DateTimePatterns = DateTimePatterns_ar_SD;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_SD);
     break;
   case 'ar_SO':
   case 'ar-SO':
-    DateTimePatterns = DateTimePatterns_ar_SO;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_SO);
     break;
   case 'ar_SS':
   case 'ar-SS':
-    DateTimePatterns = DateTimePatterns_ar_SS;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_SS);
     break;
   case 'ar_SY':
   case 'ar-SY':
-    DateTimePatterns = DateTimePatterns_ar_SY;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_SY);
     break;
   case 'ar_TD':
   case 'ar-TD':
-    DateTimePatterns = DateTimePatterns_ar_TD;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_TD);
     break;
   case 'ar_TN':
   case 'ar-TN':
-    DateTimePatterns = DateTimePatterns_ar_TN;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_TN);
     break;
   case 'ar_XB':
   case 'ar-XB':
-    DateTimePatterns = DateTimePatterns_ar_XB;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_XB);
     break;
   case 'ar_YE':
   case 'ar-YE':
-    DateTimePatterns = DateTimePatterns_ar_YE;
+    internalSetDateTimePatterns_(DateTimePatterns_ar_YE);
     break;
   case 'as':
-    DateTimePatterns = DateTimePatterns_as;
+    internalSetDateTimePatterns_(DateTimePatterns_as);
     break;
   case 'as_IN':
   case 'as-IN':
-    DateTimePatterns = DateTimePatterns_as_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_as_IN);
     break;
   case 'asa':
-    DateTimePatterns = DateTimePatterns_asa;
+    internalSetDateTimePatterns_(DateTimePatterns_asa);
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    DateTimePatterns = DateTimePatterns_asa_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_asa_TZ);
     break;
   case 'ast':
-    DateTimePatterns = DateTimePatterns_ast;
+    internalSetDateTimePatterns_(DateTimePatterns_ast);
     break;
   case 'ast_ES':
   case 'ast-ES':
-    DateTimePatterns = DateTimePatterns_ast_ES;
+    internalSetDateTimePatterns_(DateTimePatterns_ast_ES);
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    DateTimePatterns = DateTimePatterns_az_Cyrl;
+    internalSetDateTimePatterns_(DateTimePatterns_az_Cyrl);
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    DateTimePatterns = DateTimePatterns_az_Cyrl_AZ;
+    internalSetDateTimePatterns_(DateTimePatterns_az_Cyrl_AZ);
     break;
   case 'az_Latn':
   case 'az-Latn':
-    DateTimePatterns = DateTimePatterns_az_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_az_Latn);
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    DateTimePatterns = DateTimePatterns_az_Latn_AZ;
+    internalSetDateTimePatterns_(DateTimePatterns_az_Latn_AZ);
     break;
   case 'bas':
-    DateTimePatterns = DateTimePatterns_bas;
+    internalSetDateTimePatterns_(DateTimePatterns_bas);
     break;
   case 'bas_CM':
   case 'bas-CM':
-    DateTimePatterns = DateTimePatterns_bas_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_bas_CM);
     break;
   case 'be_BY':
   case 'be-BY':
-    DateTimePatterns = DateTimePatterns_be_BY;
+    internalSetDateTimePatterns_(DateTimePatterns_be_BY);
     break;
   case 'bem':
-    DateTimePatterns = DateTimePatterns_bem;
+    internalSetDateTimePatterns_(DateTimePatterns_bem);
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    DateTimePatterns = DateTimePatterns_bem_ZM;
+    internalSetDateTimePatterns_(DateTimePatterns_bem_ZM);
     break;
   case 'bez':
-    DateTimePatterns = DateTimePatterns_bez;
+    internalSetDateTimePatterns_(DateTimePatterns_bez);
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    DateTimePatterns = DateTimePatterns_bez_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_bez_TZ);
     break;
   case 'bg_BG':
   case 'bg-BG':
-    DateTimePatterns = DateTimePatterns_bg_BG;
+    internalSetDateTimePatterns_(DateTimePatterns_bg_BG);
     break;
   case 'bgc':
-    DateTimePatterns = DateTimePatterns_bgc;
+    internalSetDateTimePatterns_(DateTimePatterns_bgc);
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    DateTimePatterns = DateTimePatterns_bgc_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_bgc_IN);
     break;
   case 'bho':
-    DateTimePatterns = DateTimePatterns_bho;
+    internalSetDateTimePatterns_(DateTimePatterns_bho);
     break;
   case 'bho_IN':
   case 'bho-IN':
-    DateTimePatterns = DateTimePatterns_bho_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_bho_IN);
     break;
   case 'bm':
-    DateTimePatterns = DateTimePatterns_bm;
+    internalSetDateTimePatterns_(DateTimePatterns_bm);
     break;
   case 'bm_ML':
   case 'bm-ML':
-    DateTimePatterns = DateTimePatterns_bm_ML;
+    internalSetDateTimePatterns_(DateTimePatterns_bm_ML);
     break;
   case 'bn_BD':
   case 'bn-BD':
-    DateTimePatterns = DateTimePatterns_bn_BD;
+    internalSetDateTimePatterns_(DateTimePatterns_bn_BD);
     break;
   case 'bn_IN':
   case 'bn-IN':
-    DateTimePatterns = DateTimePatterns_bn_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_bn_IN);
     break;
   case 'bo':
-    DateTimePatterns = DateTimePatterns_bo;
+    internalSetDateTimePatterns_(DateTimePatterns_bo);
     break;
   case 'bo_CN':
   case 'bo-CN':
-    DateTimePatterns = DateTimePatterns_bo_CN;
+    internalSetDateTimePatterns_(DateTimePatterns_bo_CN);
     break;
   case 'bo_IN':
   case 'bo-IN':
-    DateTimePatterns = DateTimePatterns_bo_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_bo_IN);
     break;
   case 'br_FR':
   case 'br-FR':
-    DateTimePatterns = DateTimePatterns_br_FR;
+    internalSetDateTimePatterns_(DateTimePatterns_br_FR);
     break;
   case 'brx':
-    DateTimePatterns = DateTimePatterns_brx;
+    internalSetDateTimePatterns_(DateTimePatterns_brx);
     break;
   case 'brx_IN':
   case 'brx-IN':
-    DateTimePatterns = DateTimePatterns_brx_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_brx_IN);
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    DateTimePatterns = DateTimePatterns_bs_Cyrl;
+    internalSetDateTimePatterns_(DateTimePatterns_bs_Cyrl);
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    DateTimePatterns = DateTimePatterns_bs_Cyrl_BA;
+    internalSetDateTimePatterns_(DateTimePatterns_bs_Cyrl_BA);
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    DateTimePatterns = DateTimePatterns_bs_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_bs_Latn);
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    DateTimePatterns = DateTimePatterns_bs_Latn_BA;
+    internalSetDateTimePatterns_(DateTimePatterns_bs_Latn_BA);
     break;
   case 'ca_AD':
   case 'ca-AD':
-    DateTimePatterns = DateTimePatterns_ca_AD;
+    internalSetDateTimePatterns_(DateTimePatterns_ca_AD);
     break;
   case 'ca_ES':
   case 'ca-ES':
-    DateTimePatterns = DateTimePatterns_ca_ES;
+    internalSetDateTimePatterns_(DateTimePatterns_ca_ES);
     break;
   case 'ca_FR':
   case 'ca-FR':
-    DateTimePatterns = DateTimePatterns_ca_FR;
+    internalSetDateTimePatterns_(DateTimePatterns_ca_FR);
     break;
   case 'ca_IT':
   case 'ca-IT':
-    DateTimePatterns = DateTimePatterns_ca_IT;
+    internalSetDateTimePatterns_(DateTimePatterns_ca_IT);
     break;
   case 'ccp':
-    DateTimePatterns = DateTimePatterns_ccp;
+    internalSetDateTimePatterns_(DateTimePatterns_ccp);
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    DateTimePatterns = DateTimePatterns_ccp_BD;
+    internalSetDateTimePatterns_(DateTimePatterns_ccp_BD);
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    DateTimePatterns = DateTimePatterns_ccp_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ccp_IN);
     break;
   case 'ce':
-    DateTimePatterns = DateTimePatterns_ce;
+    internalSetDateTimePatterns_(DateTimePatterns_ce);
     break;
   case 'ce_RU':
   case 'ce-RU':
-    DateTimePatterns = DateTimePatterns_ce_RU;
+    internalSetDateTimePatterns_(DateTimePatterns_ce_RU);
     break;
   case 'ceb':
-    DateTimePatterns = DateTimePatterns_ceb;
+    internalSetDateTimePatterns_(DateTimePatterns_ceb);
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    DateTimePatterns = DateTimePatterns_ceb_PH;
+    internalSetDateTimePatterns_(DateTimePatterns_ceb_PH);
     break;
   case 'cgg':
-    DateTimePatterns = DateTimePatterns_cgg;
+    internalSetDateTimePatterns_(DateTimePatterns_cgg);
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    DateTimePatterns = DateTimePatterns_cgg_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_cgg_UG);
     break;
   case 'chr_US':
   case 'chr-US':
-    DateTimePatterns = DateTimePatterns_chr_US;
+    internalSetDateTimePatterns_(DateTimePatterns_chr_US);
     break;
   case 'ckb':
-    DateTimePatterns = DateTimePatterns_ckb;
+    internalSetDateTimePatterns_(DateTimePatterns_ckb);
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    DateTimePatterns = DateTimePatterns_ckb_Arab;
+    internalSetDateTimePatterns_(DateTimePatterns_ckb_Arab);
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    DateTimePatterns = DateTimePatterns_ckb_Arab_IQ;
+    internalSetDateTimePatterns_(DateTimePatterns_ckb_Arab_IQ);
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    DateTimePatterns = DateTimePatterns_ckb_Arab_IR;
+    internalSetDateTimePatterns_(DateTimePatterns_ckb_Arab_IR);
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    DateTimePatterns = DateTimePatterns_ckb_IQ;
+    internalSetDateTimePatterns_(DateTimePatterns_ckb_IQ);
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    DateTimePatterns = DateTimePatterns_ckb_IR;
+    internalSetDateTimePatterns_(DateTimePatterns_ckb_IR);
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    DateTimePatterns = DateTimePatterns_cs_CZ;
+    internalSetDateTimePatterns_(DateTimePatterns_cs_CZ);
     break;
   case 'cv':
-    DateTimePatterns = DateTimePatterns_cv;
+    internalSetDateTimePatterns_(DateTimePatterns_cv);
     break;
   case 'cv_RU':
   case 'cv-RU':
-    DateTimePatterns = DateTimePatterns_cv_RU;
+    internalSetDateTimePatterns_(DateTimePatterns_cv_RU);
     break;
   case 'cy_GB':
   case 'cy-GB':
-    DateTimePatterns = DateTimePatterns_cy_GB;
+    internalSetDateTimePatterns_(DateTimePatterns_cy_GB);
     break;
   case 'da_DK':
   case 'da-DK':
-    DateTimePatterns = DateTimePatterns_da_DK;
+    internalSetDateTimePatterns_(DateTimePatterns_da_DK);
     break;
   case 'da_GL':
   case 'da-GL':
-    DateTimePatterns = DateTimePatterns_da_GL;
+    internalSetDateTimePatterns_(DateTimePatterns_da_GL);
     break;
   case 'dav':
-    DateTimePatterns = DateTimePatterns_dav;
+    internalSetDateTimePatterns_(DateTimePatterns_dav);
     break;
   case 'dav_KE':
   case 'dav-KE':
-    DateTimePatterns = DateTimePatterns_dav_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_dav_KE);
     break;
   case 'de_BE':
   case 'de-BE':
-    DateTimePatterns = DateTimePatterns_de_BE;
+    internalSetDateTimePatterns_(DateTimePatterns_de_BE);
     break;
   case 'de_DE':
   case 'de-DE':
-    DateTimePatterns = DateTimePatterns_de_DE;
+    internalSetDateTimePatterns_(DateTimePatterns_de_DE);
     break;
   case 'de_IT':
   case 'de-IT':
-    DateTimePatterns = DateTimePatterns_de_IT;
+    internalSetDateTimePatterns_(DateTimePatterns_de_IT);
     break;
   case 'de_LI':
   case 'de-LI':
-    DateTimePatterns = DateTimePatterns_de_LI;
+    internalSetDateTimePatterns_(DateTimePatterns_de_LI);
     break;
   case 'de_LU':
   case 'de-LU':
-    DateTimePatterns = DateTimePatterns_de_LU;
+    internalSetDateTimePatterns_(DateTimePatterns_de_LU);
     break;
   case 'dje':
-    DateTimePatterns = DateTimePatterns_dje;
+    internalSetDateTimePatterns_(DateTimePatterns_dje);
     break;
   case 'dje_NE':
   case 'dje-NE':
-    DateTimePatterns = DateTimePatterns_dje_NE;
+    internalSetDateTimePatterns_(DateTimePatterns_dje_NE);
     break;
   case 'doi':
-    DateTimePatterns = DateTimePatterns_doi;
+    internalSetDateTimePatterns_(DateTimePatterns_doi);
     break;
   case 'doi_IN':
   case 'doi-IN':
-    DateTimePatterns = DateTimePatterns_doi_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_doi_IN);
     break;
   case 'dsb':
-    DateTimePatterns = DateTimePatterns_dsb;
+    internalSetDateTimePatterns_(DateTimePatterns_dsb);
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    DateTimePatterns = DateTimePatterns_dsb_DE;
+    internalSetDateTimePatterns_(DateTimePatterns_dsb_DE);
     break;
   case 'dua':
-    DateTimePatterns = DateTimePatterns_dua;
+    internalSetDateTimePatterns_(DateTimePatterns_dua);
     break;
   case 'dua_CM':
   case 'dua-CM':
-    DateTimePatterns = DateTimePatterns_dua_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_dua_CM);
     break;
   case 'dyo':
-    DateTimePatterns = DateTimePatterns_dyo;
+    internalSetDateTimePatterns_(DateTimePatterns_dyo);
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    DateTimePatterns = DateTimePatterns_dyo_SN;
+    internalSetDateTimePatterns_(DateTimePatterns_dyo_SN);
     break;
   case 'dz':
-    DateTimePatterns = DateTimePatterns_dz;
+    internalSetDateTimePatterns_(DateTimePatterns_dz);
     break;
   case 'dz_BT':
   case 'dz-BT':
-    DateTimePatterns = DateTimePatterns_dz_BT;
+    internalSetDateTimePatterns_(DateTimePatterns_dz_BT);
     break;
   case 'ebu':
-    DateTimePatterns = DateTimePatterns_ebu;
+    internalSetDateTimePatterns_(DateTimePatterns_ebu);
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    DateTimePatterns = DateTimePatterns_ebu_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_ebu_KE);
     break;
   case 'ee':
-    DateTimePatterns = DateTimePatterns_ee;
+    internalSetDateTimePatterns_(DateTimePatterns_ee);
     break;
   case 'ee_GH':
   case 'ee-GH':
-    DateTimePatterns = DateTimePatterns_ee_GH;
+    internalSetDateTimePatterns_(DateTimePatterns_ee_GH);
     break;
   case 'ee_TG':
   case 'ee-TG':
-    DateTimePatterns = DateTimePatterns_ee_TG;
+    internalSetDateTimePatterns_(DateTimePatterns_ee_TG);
     break;
   case 'el_CY':
   case 'el-CY':
-    DateTimePatterns = DateTimePatterns_el_CY;
+    internalSetDateTimePatterns_(DateTimePatterns_el_CY);
     break;
   case 'el_GR':
   case 'el-GR':
-    DateTimePatterns = DateTimePatterns_el_GR;
+    internalSetDateTimePatterns_(DateTimePatterns_el_GR);
     break;
   case 'en_001':
   case 'en-001':
-    DateTimePatterns = DateTimePatterns_en_001;
+    internalSetDateTimePatterns_(DateTimePatterns_en_001);
     break;
   case 'en_150':
   case 'en-150':
-    DateTimePatterns = DateTimePatterns_en_150;
+    internalSetDateTimePatterns_(DateTimePatterns_en_150);
     break;
   case 'en_AE':
   case 'en-AE':
-    DateTimePatterns = DateTimePatterns_en_AE;
+    internalSetDateTimePatterns_(DateTimePatterns_en_AE);
     break;
   case 'en_AG':
   case 'en-AG':
-    DateTimePatterns = DateTimePatterns_en_AG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_AG);
     break;
   case 'en_AI':
   case 'en-AI':
-    DateTimePatterns = DateTimePatterns_en_AI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_AI);
     break;
   case 'en_AS':
   case 'en-AS':
-    DateTimePatterns = DateTimePatterns_en_AS;
+    internalSetDateTimePatterns_(DateTimePatterns_en_AS);
     break;
   case 'en_AT':
   case 'en-AT':
-    DateTimePatterns = DateTimePatterns_en_AT;
+    internalSetDateTimePatterns_(DateTimePatterns_en_AT);
     break;
   case 'en_BB':
   case 'en-BB':
-    DateTimePatterns = DateTimePatterns_en_BB;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BB);
     break;
   case 'en_BE':
   case 'en-BE':
-    DateTimePatterns = DateTimePatterns_en_BE;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BE);
     break;
   case 'en_BI':
   case 'en-BI':
-    DateTimePatterns = DateTimePatterns_en_BI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BI);
     break;
   case 'en_BM':
   case 'en-BM':
-    DateTimePatterns = DateTimePatterns_en_BM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BM);
     break;
   case 'en_BS':
   case 'en-BS':
-    DateTimePatterns = DateTimePatterns_en_BS;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BS);
     break;
   case 'en_BW':
   case 'en-BW':
-    DateTimePatterns = DateTimePatterns_en_BW;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BW);
     break;
   case 'en_BZ':
   case 'en-BZ':
-    DateTimePatterns = DateTimePatterns_en_BZ;
+    internalSetDateTimePatterns_(DateTimePatterns_en_BZ);
     break;
   case 'en_CC':
   case 'en-CC':
-    DateTimePatterns = DateTimePatterns_en_CC;
+    internalSetDateTimePatterns_(DateTimePatterns_en_CC);
     break;
   case 'en_CH':
   case 'en-CH':
-    DateTimePatterns = DateTimePatterns_en_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_en_CH);
     break;
   case 'en_CK':
   case 'en-CK':
-    DateTimePatterns = DateTimePatterns_en_CK;
+    internalSetDateTimePatterns_(DateTimePatterns_en_CK);
     break;
   case 'en_CM':
   case 'en-CM':
-    DateTimePatterns = DateTimePatterns_en_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_CM);
     break;
   case 'en_CX':
   case 'en-CX':
-    DateTimePatterns = DateTimePatterns_en_CX;
+    internalSetDateTimePatterns_(DateTimePatterns_en_CX);
     break;
   case 'en_CY':
   case 'en-CY':
-    DateTimePatterns = DateTimePatterns_en_CY;
+    internalSetDateTimePatterns_(DateTimePatterns_en_CY);
     break;
   case 'en_DE':
   case 'en-DE':
-    DateTimePatterns = DateTimePatterns_en_DE;
+    internalSetDateTimePatterns_(DateTimePatterns_en_DE);
     break;
   case 'en_DG':
   case 'en-DG':
-    DateTimePatterns = DateTimePatterns_en_DG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_DG);
     break;
   case 'en_DK':
   case 'en-DK':
-    DateTimePatterns = DateTimePatterns_en_DK;
+    internalSetDateTimePatterns_(DateTimePatterns_en_DK);
     break;
   case 'en_DM':
   case 'en-DM':
-    DateTimePatterns = DateTimePatterns_en_DM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_DM);
     break;
   case 'en_ER':
   case 'en-ER':
-    DateTimePatterns = DateTimePatterns_en_ER;
+    internalSetDateTimePatterns_(DateTimePatterns_en_ER);
     break;
   case 'en_FI':
   case 'en-FI':
-    DateTimePatterns = DateTimePatterns_en_FI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_FI);
     break;
   case 'en_FJ':
   case 'en-FJ':
-    DateTimePatterns = DateTimePatterns_en_FJ;
+    internalSetDateTimePatterns_(DateTimePatterns_en_FJ);
     break;
   case 'en_FK':
   case 'en-FK':
-    DateTimePatterns = DateTimePatterns_en_FK;
+    internalSetDateTimePatterns_(DateTimePatterns_en_FK);
     break;
   case 'en_FM':
   case 'en-FM':
-    DateTimePatterns = DateTimePatterns_en_FM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_FM);
     break;
   case 'en_GD':
   case 'en-GD':
-    DateTimePatterns = DateTimePatterns_en_GD;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GD);
     break;
   case 'en_GG':
   case 'en-GG':
-    DateTimePatterns = DateTimePatterns_en_GG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GG);
     break;
   case 'en_GH':
   case 'en-GH':
-    DateTimePatterns = DateTimePatterns_en_GH;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GH);
     break;
   case 'en_GI':
   case 'en-GI':
-    DateTimePatterns = DateTimePatterns_en_GI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GI);
     break;
   case 'en_GM':
   case 'en-GM':
-    DateTimePatterns = DateTimePatterns_en_GM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GM);
     break;
   case 'en_GU':
   case 'en-GU':
-    DateTimePatterns = DateTimePatterns_en_GU;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GU);
     break;
   case 'en_GY':
   case 'en-GY':
-    DateTimePatterns = DateTimePatterns_en_GY;
+    internalSetDateTimePatterns_(DateTimePatterns_en_GY);
     break;
   case 'en_HK':
   case 'en-HK':
-    DateTimePatterns = DateTimePatterns_en_HK;
+    internalSetDateTimePatterns_(DateTimePatterns_en_HK);
     break;
   case 'en_IL':
   case 'en-IL':
-    DateTimePatterns = DateTimePatterns_en_IL;
+    internalSetDateTimePatterns_(DateTimePatterns_en_IL);
     break;
   case 'en_IM':
   case 'en-IM':
-    DateTimePatterns = DateTimePatterns_en_IM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_IM);
     break;
   case 'en_IO':
   case 'en-IO':
-    DateTimePatterns = DateTimePatterns_en_IO;
+    internalSetDateTimePatterns_(DateTimePatterns_en_IO);
     break;
   case 'en_JE':
   case 'en-JE':
-    DateTimePatterns = DateTimePatterns_en_JE;
+    internalSetDateTimePatterns_(DateTimePatterns_en_JE);
     break;
   case 'en_JM':
   case 'en-JM':
-    DateTimePatterns = DateTimePatterns_en_JM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_JM);
     break;
   case 'en_KE':
   case 'en-KE':
-    DateTimePatterns = DateTimePatterns_en_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_en_KE);
     break;
   case 'en_KI':
   case 'en-KI':
-    DateTimePatterns = DateTimePatterns_en_KI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_KI);
     break;
   case 'en_KN':
   case 'en-KN':
-    DateTimePatterns = DateTimePatterns_en_KN;
+    internalSetDateTimePatterns_(DateTimePatterns_en_KN);
     break;
   case 'en_KY':
   case 'en-KY':
-    DateTimePatterns = DateTimePatterns_en_KY;
+    internalSetDateTimePatterns_(DateTimePatterns_en_KY);
     break;
   case 'en_LC':
   case 'en-LC':
-    DateTimePatterns = DateTimePatterns_en_LC;
+    internalSetDateTimePatterns_(DateTimePatterns_en_LC);
     break;
   case 'en_LR':
   case 'en-LR':
-    DateTimePatterns = DateTimePatterns_en_LR;
+    internalSetDateTimePatterns_(DateTimePatterns_en_LR);
     break;
   case 'en_LS':
   case 'en-LS':
-    DateTimePatterns = DateTimePatterns_en_LS;
+    internalSetDateTimePatterns_(DateTimePatterns_en_LS);
     break;
   case 'en_MG':
   case 'en-MG':
-    DateTimePatterns = DateTimePatterns_en_MG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MG);
     break;
   case 'en_MH':
   case 'en-MH':
-    DateTimePatterns = DateTimePatterns_en_MH;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MH);
     break;
   case 'en_MO':
   case 'en-MO':
-    DateTimePatterns = DateTimePatterns_en_MO;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MO);
     break;
   case 'en_MP':
   case 'en-MP':
-    DateTimePatterns = DateTimePatterns_en_MP;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MP);
     break;
   case 'en_MS':
   case 'en-MS':
-    DateTimePatterns = DateTimePatterns_en_MS;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MS);
     break;
   case 'en_MT':
   case 'en-MT':
-    DateTimePatterns = DateTimePatterns_en_MT;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MT);
     break;
   case 'en_MU':
   case 'en-MU':
-    DateTimePatterns = DateTimePatterns_en_MU;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MU);
     break;
   case 'en_MV':
   case 'en-MV':
-    DateTimePatterns = DateTimePatterns_en_MV;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MV);
     break;
   case 'en_MW':
   case 'en-MW':
-    DateTimePatterns = DateTimePatterns_en_MW;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MW);
     break;
   case 'en_MY':
   case 'en-MY':
-    DateTimePatterns = DateTimePatterns_en_MY;
+    internalSetDateTimePatterns_(DateTimePatterns_en_MY);
     break;
   case 'en_NA':
   case 'en-NA':
-    DateTimePatterns = DateTimePatterns_en_NA;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NA);
     break;
   case 'en_NF':
   case 'en-NF':
-    DateTimePatterns = DateTimePatterns_en_NF;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NF);
     break;
   case 'en_NG':
   case 'en-NG':
-    DateTimePatterns = DateTimePatterns_en_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NG);
     break;
   case 'en_NL':
   case 'en-NL':
-    DateTimePatterns = DateTimePatterns_en_NL;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NL);
     break;
   case 'en_NR':
   case 'en-NR':
-    DateTimePatterns = DateTimePatterns_en_NR;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NR);
     break;
   case 'en_NU':
   case 'en-NU':
-    DateTimePatterns = DateTimePatterns_en_NU;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NU);
     break;
   case 'en_NZ':
   case 'en-NZ':
-    DateTimePatterns = DateTimePatterns_en_NZ;
+    internalSetDateTimePatterns_(DateTimePatterns_en_NZ);
     break;
   case 'en_PG':
   case 'en-PG':
-    DateTimePatterns = DateTimePatterns_en_PG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_PG);
     break;
   case 'en_PH':
   case 'en-PH':
-    DateTimePatterns = DateTimePatterns_en_PH;
+    internalSetDateTimePatterns_(DateTimePatterns_en_PH);
     break;
   case 'en_PK':
   case 'en-PK':
-    DateTimePatterns = DateTimePatterns_en_PK;
+    internalSetDateTimePatterns_(DateTimePatterns_en_PK);
     break;
   case 'en_PN':
   case 'en-PN':
-    DateTimePatterns = DateTimePatterns_en_PN;
+    internalSetDateTimePatterns_(DateTimePatterns_en_PN);
     break;
   case 'en_PR':
   case 'en-PR':
-    DateTimePatterns = DateTimePatterns_en_PR;
+    internalSetDateTimePatterns_(DateTimePatterns_en_PR);
     break;
   case 'en_PW':
   case 'en-PW':
-    DateTimePatterns = DateTimePatterns_en_PW;
+    internalSetDateTimePatterns_(DateTimePatterns_en_PW);
     break;
   case 'en_RW':
   case 'en-RW':
-    DateTimePatterns = DateTimePatterns_en_RW;
+    internalSetDateTimePatterns_(DateTimePatterns_en_RW);
     break;
   case 'en_SB':
   case 'en-SB':
-    DateTimePatterns = DateTimePatterns_en_SB;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SB);
     break;
   case 'en_SC':
   case 'en-SC':
-    DateTimePatterns = DateTimePatterns_en_SC;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SC);
     break;
   case 'en_SD':
   case 'en-SD':
-    DateTimePatterns = DateTimePatterns_en_SD;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SD);
     break;
   case 'en_SE':
   case 'en-SE':
-    DateTimePatterns = DateTimePatterns_en_SE;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SE);
     break;
   case 'en_SH':
   case 'en-SH':
-    DateTimePatterns = DateTimePatterns_en_SH;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SH);
     break;
   case 'en_SI':
   case 'en-SI':
-    DateTimePatterns = DateTimePatterns_en_SI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SI);
     break;
   case 'en_SL':
   case 'en-SL':
-    DateTimePatterns = DateTimePatterns_en_SL;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SL);
     break;
   case 'en_SS':
   case 'en-SS':
-    DateTimePatterns = DateTimePatterns_en_SS;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SS);
     break;
   case 'en_SX':
   case 'en-SX':
-    DateTimePatterns = DateTimePatterns_en_SX;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SX);
     break;
   case 'en_SZ':
   case 'en-SZ':
-    DateTimePatterns = DateTimePatterns_en_SZ;
+    internalSetDateTimePatterns_(DateTimePatterns_en_SZ);
     break;
   case 'en_TC':
   case 'en-TC':
-    DateTimePatterns = DateTimePatterns_en_TC;
+    internalSetDateTimePatterns_(DateTimePatterns_en_TC);
     break;
   case 'en_TK':
   case 'en-TK':
-    DateTimePatterns = DateTimePatterns_en_TK;
+    internalSetDateTimePatterns_(DateTimePatterns_en_TK);
     break;
   case 'en_TO':
   case 'en-TO':
-    DateTimePatterns = DateTimePatterns_en_TO;
+    internalSetDateTimePatterns_(DateTimePatterns_en_TO);
     break;
   case 'en_TT':
   case 'en-TT':
-    DateTimePatterns = DateTimePatterns_en_TT;
+    internalSetDateTimePatterns_(DateTimePatterns_en_TT);
     break;
   case 'en_TV':
   case 'en-TV':
-    DateTimePatterns = DateTimePatterns_en_TV;
+    internalSetDateTimePatterns_(DateTimePatterns_en_TV);
     break;
   case 'en_TZ':
   case 'en-TZ':
-    DateTimePatterns = DateTimePatterns_en_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_en_TZ);
     break;
   case 'en_UG':
   case 'en-UG':
-    DateTimePatterns = DateTimePatterns_en_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_UG);
     break;
   case 'en_UM':
   case 'en-UM':
-    DateTimePatterns = DateTimePatterns_en_UM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_UM);
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    DateTimePatterns = DateTimePatterns_en_US_POSIX;
+    internalSetDateTimePatterns_(DateTimePatterns_en_US_POSIX);
     break;
   case 'en_VC':
   case 'en-VC':
-    DateTimePatterns = DateTimePatterns_en_VC;
+    internalSetDateTimePatterns_(DateTimePatterns_en_VC);
     break;
   case 'en_VG':
   case 'en-VG':
-    DateTimePatterns = DateTimePatterns_en_VG;
+    internalSetDateTimePatterns_(DateTimePatterns_en_VG);
     break;
   case 'en_VI':
   case 'en-VI':
-    DateTimePatterns = DateTimePatterns_en_VI;
+    internalSetDateTimePatterns_(DateTimePatterns_en_VI);
     break;
   case 'en_VU':
   case 'en-VU':
-    DateTimePatterns = DateTimePatterns_en_VU;
+    internalSetDateTimePatterns_(DateTimePatterns_en_VU);
     break;
   case 'en_WS':
   case 'en-WS':
-    DateTimePatterns = DateTimePatterns_en_WS;
+    internalSetDateTimePatterns_(DateTimePatterns_en_WS);
     break;
   case 'en_XA':
   case 'en-XA':
-    DateTimePatterns = DateTimePatterns_en_XA;
+    internalSetDateTimePatterns_(DateTimePatterns_en_XA);
     break;
   case 'en_ZM':
   case 'en-ZM':
-    DateTimePatterns = DateTimePatterns_en_ZM;
+    internalSetDateTimePatterns_(DateTimePatterns_en_ZM);
     break;
   case 'en_ZW':
   case 'en-ZW':
-    DateTimePatterns = DateTimePatterns_en_ZW;
+    internalSetDateTimePatterns_(DateTimePatterns_en_ZW);
     break;
   case 'eo':
-    DateTimePatterns = DateTimePatterns_eo;
+    internalSetDateTimePatterns_(DateTimePatterns_eo);
     break;
   case 'eo_001':
   case 'eo-001':
-    DateTimePatterns = DateTimePatterns_eo_001;
+    internalSetDateTimePatterns_(DateTimePatterns_eo_001);
     break;
   case 'es_AR':
   case 'es-AR':
-    DateTimePatterns = DateTimePatterns_es_AR;
+    internalSetDateTimePatterns_(DateTimePatterns_es_AR);
     break;
   case 'es_BO':
   case 'es-BO':
-    DateTimePatterns = DateTimePatterns_es_BO;
+    internalSetDateTimePatterns_(DateTimePatterns_es_BO);
     break;
   case 'es_BR':
   case 'es-BR':
-    DateTimePatterns = DateTimePatterns_es_BR;
+    internalSetDateTimePatterns_(DateTimePatterns_es_BR);
     break;
   case 'es_BZ':
   case 'es-BZ':
-    DateTimePatterns = DateTimePatterns_es_BZ;
+    internalSetDateTimePatterns_(DateTimePatterns_es_BZ);
     break;
   case 'es_CL':
   case 'es-CL':
-    DateTimePatterns = DateTimePatterns_es_CL;
+    internalSetDateTimePatterns_(DateTimePatterns_es_CL);
     break;
   case 'es_CO':
   case 'es-CO':
-    DateTimePatterns = DateTimePatterns_es_CO;
+    internalSetDateTimePatterns_(DateTimePatterns_es_CO);
     break;
   case 'es_CR':
   case 'es-CR':
-    DateTimePatterns = DateTimePatterns_es_CR;
+    internalSetDateTimePatterns_(DateTimePatterns_es_CR);
     break;
   case 'es_CU':
   case 'es-CU':
-    DateTimePatterns = DateTimePatterns_es_CU;
+    internalSetDateTimePatterns_(DateTimePatterns_es_CU);
     break;
   case 'es_DO':
   case 'es-DO':
-    DateTimePatterns = DateTimePatterns_es_DO;
+    internalSetDateTimePatterns_(DateTimePatterns_es_DO);
     break;
   case 'es_EA':
   case 'es-EA':
-    DateTimePatterns = DateTimePatterns_es_EA;
+    internalSetDateTimePatterns_(DateTimePatterns_es_EA);
     break;
   case 'es_EC':
   case 'es-EC':
-    DateTimePatterns = DateTimePatterns_es_EC;
+    internalSetDateTimePatterns_(DateTimePatterns_es_EC);
     break;
   case 'es_GQ':
   case 'es-GQ':
-    DateTimePatterns = DateTimePatterns_es_GQ;
+    internalSetDateTimePatterns_(DateTimePatterns_es_GQ);
     break;
   case 'es_GT':
   case 'es-GT':
-    DateTimePatterns = DateTimePatterns_es_GT;
+    internalSetDateTimePatterns_(DateTimePatterns_es_GT);
     break;
   case 'es_HN':
   case 'es-HN':
-    DateTimePatterns = DateTimePatterns_es_HN;
+    internalSetDateTimePatterns_(DateTimePatterns_es_HN);
     break;
   case 'es_IC':
   case 'es-IC':
-    DateTimePatterns = DateTimePatterns_es_IC;
+    internalSetDateTimePatterns_(DateTimePatterns_es_IC);
     break;
   case 'es_NI':
   case 'es-NI':
-    DateTimePatterns = DateTimePatterns_es_NI;
+    internalSetDateTimePatterns_(DateTimePatterns_es_NI);
     break;
   case 'es_PA':
   case 'es-PA':
-    DateTimePatterns = DateTimePatterns_es_PA;
+    internalSetDateTimePatterns_(DateTimePatterns_es_PA);
     break;
   case 'es_PE':
   case 'es-PE':
-    DateTimePatterns = DateTimePatterns_es_PE;
+    internalSetDateTimePatterns_(DateTimePatterns_es_PE);
     break;
   case 'es_PH':
   case 'es-PH':
-    DateTimePatterns = DateTimePatterns_es_PH;
+    internalSetDateTimePatterns_(DateTimePatterns_es_PH);
     break;
   case 'es_PR':
   case 'es-PR':
-    DateTimePatterns = DateTimePatterns_es_PR;
+    internalSetDateTimePatterns_(DateTimePatterns_es_PR);
     break;
   case 'es_PY':
   case 'es-PY':
-    DateTimePatterns = DateTimePatterns_es_PY;
+    internalSetDateTimePatterns_(DateTimePatterns_es_PY);
     break;
   case 'es_SV':
   case 'es-SV':
-    DateTimePatterns = DateTimePatterns_es_SV;
+    internalSetDateTimePatterns_(DateTimePatterns_es_SV);
     break;
   case 'es_UY':
   case 'es-UY':
-    DateTimePatterns = DateTimePatterns_es_UY;
+    internalSetDateTimePatterns_(DateTimePatterns_es_UY);
     break;
   case 'es_VE':
   case 'es-VE':
-    DateTimePatterns = DateTimePatterns_es_VE;
+    internalSetDateTimePatterns_(DateTimePatterns_es_VE);
     break;
   case 'et_EE':
   case 'et-EE':
-    DateTimePatterns = DateTimePatterns_et_EE;
+    internalSetDateTimePatterns_(DateTimePatterns_et_EE);
     break;
   case 'eu_ES':
   case 'eu-ES':
-    DateTimePatterns = DateTimePatterns_eu_ES;
+    internalSetDateTimePatterns_(DateTimePatterns_eu_ES);
     break;
   case 'ewo':
-    DateTimePatterns = DateTimePatterns_ewo;
+    internalSetDateTimePatterns_(DateTimePatterns_ewo);
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    DateTimePatterns = DateTimePatterns_ewo_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_ewo_CM);
     break;
   case 'fa_AF':
   case 'fa-AF':
-    DateTimePatterns = DateTimePatterns_fa_AF;
+    internalSetDateTimePatterns_(DateTimePatterns_fa_AF);
     break;
   case 'fa_IR':
   case 'fa-IR':
-    DateTimePatterns = DateTimePatterns_fa_IR;
+    internalSetDateTimePatterns_(DateTimePatterns_fa_IR);
     break;
   case 'ff':
-    DateTimePatterns = DateTimePatterns_ff;
+    internalSetDateTimePatterns_(DateTimePatterns_ff);
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    DateTimePatterns = DateTimePatterns_ff_Adlm;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm);
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_BF;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_BF);
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_CM);
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_GH;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_GH);
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_GM;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_GM);
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_GN;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_GN);
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_GW;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_GW);
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_LR;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_LR);
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_MR;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_MR);
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_NE;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_NE);
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_NG);
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_SL;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_SL);
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    DateTimePatterns = DateTimePatterns_ff_Adlm_SN;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Adlm_SN);
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    DateTimePatterns = DateTimePatterns_ff_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn);
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    DateTimePatterns = DateTimePatterns_ff_Latn_BF;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_BF);
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    DateTimePatterns = DateTimePatterns_ff_Latn_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_CM);
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    DateTimePatterns = DateTimePatterns_ff_Latn_GH;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_GH);
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    DateTimePatterns = DateTimePatterns_ff_Latn_GM;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_GM);
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    DateTimePatterns = DateTimePatterns_ff_Latn_GN;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_GN);
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    DateTimePatterns = DateTimePatterns_ff_Latn_GW;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_GW);
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    DateTimePatterns = DateTimePatterns_ff_Latn_LR;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_LR);
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    DateTimePatterns = DateTimePatterns_ff_Latn_MR;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_MR);
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    DateTimePatterns = DateTimePatterns_ff_Latn_NE;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_NE);
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    DateTimePatterns = DateTimePatterns_ff_Latn_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_NG);
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    DateTimePatterns = DateTimePatterns_ff_Latn_SL;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_SL);
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    DateTimePatterns = DateTimePatterns_ff_Latn_SN;
+    internalSetDateTimePatterns_(DateTimePatterns_ff_Latn_SN);
     break;
   case 'fi_FI':
   case 'fi-FI':
-    DateTimePatterns = DateTimePatterns_fi_FI;
+    internalSetDateTimePatterns_(DateTimePatterns_fi_FI);
     break;
   case 'fil_PH':
   case 'fil-PH':
-    DateTimePatterns = DateTimePatterns_fil_PH;
+    internalSetDateTimePatterns_(DateTimePatterns_fil_PH);
     break;
   case 'fo':
-    DateTimePatterns = DateTimePatterns_fo;
+    internalSetDateTimePatterns_(DateTimePatterns_fo);
     break;
   case 'fo_DK':
   case 'fo-DK':
-    DateTimePatterns = DateTimePatterns_fo_DK;
+    internalSetDateTimePatterns_(DateTimePatterns_fo_DK);
     break;
   case 'fo_FO':
   case 'fo-FO':
-    DateTimePatterns = DateTimePatterns_fo_FO;
+    internalSetDateTimePatterns_(DateTimePatterns_fo_FO);
     break;
   case 'fr_BE':
   case 'fr-BE':
-    DateTimePatterns = DateTimePatterns_fr_BE;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_BE);
     break;
   case 'fr_BF':
   case 'fr-BF':
-    DateTimePatterns = DateTimePatterns_fr_BF;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_BF);
     break;
   case 'fr_BI':
   case 'fr-BI':
-    DateTimePatterns = DateTimePatterns_fr_BI;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_BI);
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    DateTimePatterns = DateTimePatterns_fr_BJ;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_BJ);
     break;
   case 'fr_BL':
   case 'fr-BL':
-    DateTimePatterns = DateTimePatterns_fr_BL;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_BL);
     break;
   case 'fr_CD':
   case 'fr-CD':
-    DateTimePatterns = DateTimePatterns_fr_CD;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_CD);
     break;
   case 'fr_CF':
   case 'fr-CF':
-    DateTimePatterns = DateTimePatterns_fr_CF;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_CF);
     break;
   case 'fr_CG':
   case 'fr-CG':
-    DateTimePatterns = DateTimePatterns_fr_CG;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_CG);
     break;
   case 'fr_CH':
   case 'fr-CH':
-    DateTimePatterns = DateTimePatterns_fr_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_CH);
     break;
   case 'fr_CI':
   case 'fr-CI':
-    DateTimePatterns = DateTimePatterns_fr_CI;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_CI);
     break;
   case 'fr_CM':
   case 'fr-CM':
-    DateTimePatterns = DateTimePatterns_fr_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_CM);
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    DateTimePatterns = DateTimePatterns_fr_DJ;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_DJ);
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    DateTimePatterns = DateTimePatterns_fr_DZ;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_DZ);
     break;
   case 'fr_FR':
   case 'fr-FR':
-    DateTimePatterns = DateTimePatterns_fr_FR;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_FR);
     break;
   case 'fr_GA':
   case 'fr-GA':
-    DateTimePatterns = DateTimePatterns_fr_GA;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_GA);
     break;
   case 'fr_GF':
   case 'fr-GF':
-    DateTimePatterns = DateTimePatterns_fr_GF;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_GF);
     break;
   case 'fr_GN':
   case 'fr-GN':
-    DateTimePatterns = DateTimePatterns_fr_GN;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_GN);
     break;
   case 'fr_GP':
   case 'fr-GP':
-    DateTimePatterns = DateTimePatterns_fr_GP;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_GP);
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    DateTimePatterns = DateTimePatterns_fr_GQ;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_GQ);
     break;
   case 'fr_HT':
   case 'fr-HT':
-    DateTimePatterns = DateTimePatterns_fr_HT;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_HT);
     break;
   case 'fr_KM':
   case 'fr-KM':
-    DateTimePatterns = DateTimePatterns_fr_KM;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_KM);
     break;
   case 'fr_LU':
   case 'fr-LU':
-    DateTimePatterns = DateTimePatterns_fr_LU;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_LU);
     break;
   case 'fr_MA':
   case 'fr-MA':
-    DateTimePatterns = DateTimePatterns_fr_MA;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MA);
     break;
   case 'fr_MC':
   case 'fr-MC':
-    DateTimePatterns = DateTimePatterns_fr_MC;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MC);
     break;
   case 'fr_MF':
   case 'fr-MF':
-    DateTimePatterns = DateTimePatterns_fr_MF;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MF);
     break;
   case 'fr_MG':
   case 'fr-MG':
-    DateTimePatterns = DateTimePatterns_fr_MG;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MG);
     break;
   case 'fr_ML':
   case 'fr-ML':
-    DateTimePatterns = DateTimePatterns_fr_ML;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_ML);
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    DateTimePatterns = DateTimePatterns_fr_MQ;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MQ);
     break;
   case 'fr_MR':
   case 'fr-MR':
-    DateTimePatterns = DateTimePatterns_fr_MR;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MR);
     break;
   case 'fr_MU':
   case 'fr-MU':
-    DateTimePatterns = DateTimePatterns_fr_MU;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_MU);
     break;
   case 'fr_NC':
   case 'fr-NC':
-    DateTimePatterns = DateTimePatterns_fr_NC;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_NC);
     break;
   case 'fr_NE':
   case 'fr-NE':
-    DateTimePatterns = DateTimePatterns_fr_NE;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_NE);
     break;
   case 'fr_PF':
   case 'fr-PF':
-    DateTimePatterns = DateTimePatterns_fr_PF;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_PF);
     break;
   case 'fr_PM':
   case 'fr-PM':
-    DateTimePatterns = DateTimePatterns_fr_PM;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_PM);
     break;
   case 'fr_RE':
   case 'fr-RE':
-    DateTimePatterns = DateTimePatterns_fr_RE;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_RE);
     break;
   case 'fr_RW':
   case 'fr-RW':
-    DateTimePatterns = DateTimePatterns_fr_RW;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_RW);
     break;
   case 'fr_SC':
   case 'fr-SC':
-    DateTimePatterns = DateTimePatterns_fr_SC;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_SC);
     break;
   case 'fr_SN':
   case 'fr-SN':
-    DateTimePatterns = DateTimePatterns_fr_SN;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_SN);
     break;
   case 'fr_SY':
   case 'fr-SY':
-    DateTimePatterns = DateTimePatterns_fr_SY;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_SY);
     break;
   case 'fr_TD':
   case 'fr-TD':
-    DateTimePatterns = DateTimePatterns_fr_TD;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_TD);
     break;
   case 'fr_TG':
   case 'fr-TG':
-    DateTimePatterns = DateTimePatterns_fr_TG;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_TG);
     break;
   case 'fr_TN':
   case 'fr-TN':
-    DateTimePatterns = DateTimePatterns_fr_TN;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_TN);
     break;
   case 'fr_VU':
   case 'fr-VU':
-    DateTimePatterns = DateTimePatterns_fr_VU;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_VU);
     break;
   case 'fr_WF':
   case 'fr-WF':
-    DateTimePatterns = DateTimePatterns_fr_WF;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_WF);
     break;
   case 'fr_YT':
   case 'fr-YT':
-    DateTimePatterns = DateTimePatterns_fr_YT;
+    internalSetDateTimePatterns_(DateTimePatterns_fr_YT);
     break;
   case 'fur':
-    DateTimePatterns = DateTimePatterns_fur;
+    internalSetDateTimePatterns_(DateTimePatterns_fur);
     break;
   case 'fur_IT':
   case 'fur-IT':
-    DateTimePatterns = DateTimePatterns_fur_IT;
+    internalSetDateTimePatterns_(DateTimePatterns_fur_IT);
     break;
   case 'fy':
-    DateTimePatterns = DateTimePatterns_fy;
+    internalSetDateTimePatterns_(DateTimePatterns_fy);
     break;
   case 'fy_NL':
   case 'fy-NL':
-    DateTimePatterns = DateTimePatterns_fy_NL;
+    internalSetDateTimePatterns_(DateTimePatterns_fy_NL);
     break;
   case 'ga_GB':
   case 'ga-GB':
-    DateTimePatterns = DateTimePatterns_ga_GB;
+    internalSetDateTimePatterns_(DateTimePatterns_ga_GB);
     break;
   case 'ga_IE':
   case 'ga-IE':
-    DateTimePatterns = DateTimePatterns_ga_IE;
+    internalSetDateTimePatterns_(DateTimePatterns_ga_IE);
     break;
   case 'gd':
-    DateTimePatterns = DateTimePatterns_gd;
+    internalSetDateTimePatterns_(DateTimePatterns_gd);
     break;
   case 'gd_GB':
   case 'gd-GB':
-    DateTimePatterns = DateTimePatterns_gd_GB;
+    internalSetDateTimePatterns_(DateTimePatterns_gd_GB);
     break;
   case 'gl_ES':
   case 'gl-ES':
-    DateTimePatterns = DateTimePatterns_gl_ES;
+    internalSetDateTimePatterns_(DateTimePatterns_gl_ES);
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    DateTimePatterns = DateTimePatterns_gsw_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_gsw_CH);
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    DateTimePatterns = DateTimePatterns_gsw_FR;
+    internalSetDateTimePatterns_(DateTimePatterns_gsw_FR);
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    DateTimePatterns = DateTimePatterns_gsw_LI;
+    internalSetDateTimePatterns_(DateTimePatterns_gsw_LI);
     break;
   case 'gu_IN':
   case 'gu-IN':
-    DateTimePatterns = DateTimePatterns_gu_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_gu_IN);
     break;
   case 'guz':
-    DateTimePatterns = DateTimePatterns_guz;
+    internalSetDateTimePatterns_(DateTimePatterns_guz);
     break;
   case 'guz_KE':
   case 'guz-KE':
-    DateTimePatterns = DateTimePatterns_guz_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_guz_KE);
     break;
   case 'gv':
-    DateTimePatterns = DateTimePatterns_gv;
+    internalSetDateTimePatterns_(DateTimePatterns_gv);
     break;
   case 'gv_IM':
   case 'gv-IM':
-    DateTimePatterns = DateTimePatterns_gv_IM;
+    internalSetDateTimePatterns_(DateTimePatterns_gv_IM);
     break;
   case 'ha':
-    DateTimePatterns = DateTimePatterns_ha;
+    internalSetDateTimePatterns_(DateTimePatterns_ha);
     break;
   case 'ha_GH':
   case 'ha-GH':
-    DateTimePatterns = DateTimePatterns_ha_GH;
+    internalSetDateTimePatterns_(DateTimePatterns_ha_GH);
     break;
   case 'ha_NE':
   case 'ha-NE':
-    DateTimePatterns = DateTimePatterns_ha_NE;
+    internalSetDateTimePatterns_(DateTimePatterns_ha_NE);
     break;
   case 'ha_NG':
   case 'ha-NG':
-    DateTimePatterns = DateTimePatterns_ha_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_ha_NG);
     break;
   case 'haw_US':
   case 'haw-US':
-    DateTimePatterns = DateTimePatterns_haw_US;
+    internalSetDateTimePatterns_(DateTimePatterns_haw_US);
     break;
   case 'he_IL':
   case 'he-IL':
-    DateTimePatterns = DateTimePatterns_he_IL;
+    internalSetDateTimePatterns_(DateTimePatterns_he_IL);
     break;
   case 'hi_IN':
   case 'hi-IN':
-    DateTimePatterns = DateTimePatterns_hi_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_hi_IN);
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    DateTimePatterns = DateTimePatterns_hi_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_hi_Latn);
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    DateTimePatterns = DateTimePatterns_hi_Latn_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_hi_Latn_IN);
     break;
   case 'hr_BA':
   case 'hr-BA':
-    DateTimePatterns = DateTimePatterns_hr_BA;
+    internalSetDateTimePatterns_(DateTimePatterns_hr_BA);
     break;
   case 'hr_HR':
   case 'hr-HR':
-    DateTimePatterns = DateTimePatterns_hr_HR;
+    internalSetDateTimePatterns_(DateTimePatterns_hr_HR);
     break;
   case 'hsb':
-    DateTimePatterns = DateTimePatterns_hsb;
+    internalSetDateTimePatterns_(DateTimePatterns_hsb);
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    DateTimePatterns = DateTimePatterns_hsb_DE;
+    internalSetDateTimePatterns_(DateTimePatterns_hsb_DE);
     break;
   case 'hu_HU':
   case 'hu-HU':
-    DateTimePatterns = DateTimePatterns_hu_HU;
+    internalSetDateTimePatterns_(DateTimePatterns_hu_HU);
     break;
   case 'hy_AM':
   case 'hy-AM':
-    DateTimePatterns = DateTimePatterns_hy_AM;
+    internalSetDateTimePatterns_(DateTimePatterns_hy_AM);
     break;
   case 'ia':
-    DateTimePatterns = DateTimePatterns_ia;
+    internalSetDateTimePatterns_(DateTimePatterns_ia);
     break;
   case 'ia_001':
   case 'ia-001':
-    DateTimePatterns = DateTimePatterns_ia_001;
+    internalSetDateTimePatterns_(DateTimePatterns_ia_001);
     break;
   case 'id_ID':
   case 'id-ID':
-    DateTimePatterns = DateTimePatterns_id_ID;
+    internalSetDateTimePatterns_(DateTimePatterns_id_ID);
     break;
   case 'ig':
-    DateTimePatterns = DateTimePatterns_ig;
+    internalSetDateTimePatterns_(DateTimePatterns_ig);
     break;
   case 'ig_NG':
   case 'ig-NG':
-    DateTimePatterns = DateTimePatterns_ig_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_ig_NG);
     break;
   case 'ii':
-    DateTimePatterns = DateTimePatterns_ii;
+    internalSetDateTimePatterns_(DateTimePatterns_ii);
     break;
   case 'ii_CN':
   case 'ii-CN':
-    DateTimePatterns = DateTimePatterns_ii_CN;
+    internalSetDateTimePatterns_(DateTimePatterns_ii_CN);
     break;
   case 'is_IS':
   case 'is-IS':
-    DateTimePatterns = DateTimePatterns_is_IS;
+    internalSetDateTimePatterns_(DateTimePatterns_is_IS);
     break;
   case 'it_CH':
   case 'it-CH':
-    DateTimePatterns = DateTimePatterns_it_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_it_CH);
     break;
   case 'it_IT':
   case 'it-IT':
-    DateTimePatterns = DateTimePatterns_it_IT;
+    internalSetDateTimePatterns_(DateTimePatterns_it_IT);
     break;
   case 'it_SM':
   case 'it-SM':
-    DateTimePatterns = DateTimePatterns_it_SM;
+    internalSetDateTimePatterns_(DateTimePatterns_it_SM);
     break;
   case 'it_VA':
   case 'it-VA':
-    DateTimePatterns = DateTimePatterns_it_VA;
+    internalSetDateTimePatterns_(DateTimePatterns_it_VA);
     break;
   case 'ja_JP':
   case 'ja-JP':
-    DateTimePatterns = DateTimePatterns_ja_JP;
+    internalSetDateTimePatterns_(DateTimePatterns_ja_JP);
     break;
   case 'jgo':
-    DateTimePatterns = DateTimePatterns_jgo;
+    internalSetDateTimePatterns_(DateTimePatterns_jgo);
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    DateTimePatterns = DateTimePatterns_jgo_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_jgo_CM);
     break;
   case 'jmc':
-    DateTimePatterns = DateTimePatterns_jmc;
+    internalSetDateTimePatterns_(DateTimePatterns_jmc);
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    DateTimePatterns = DateTimePatterns_jmc_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_jmc_TZ);
     break;
   case 'jv':
-    DateTimePatterns = DateTimePatterns_jv;
+    internalSetDateTimePatterns_(DateTimePatterns_jv);
     break;
   case 'jv_ID':
   case 'jv-ID':
-    DateTimePatterns = DateTimePatterns_jv_ID;
+    internalSetDateTimePatterns_(DateTimePatterns_jv_ID);
     break;
   case 'ka_GE':
   case 'ka-GE':
-    DateTimePatterns = DateTimePatterns_ka_GE;
+    internalSetDateTimePatterns_(DateTimePatterns_ka_GE);
     break;
   case 'kab':
-    DateTimePatterns = DateTimePatterns_kab;
+    internalSetDateTimePatterns_(DateTimePatterns_kab);
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    DateTimePatterns = DateTimePatterns_kab_DZ;
+    internalSetDateTimePatterns_(DateTimePatterns_kab_DZ);
     break;
   case 'kam':
-    DateTimePatterns = DateTimePatterns_kam;
+    internalSetDateTimePatterns_(DateTimePatterns_kam);
     break;
   case 'kam_KE':
   case 'kam-KE':
-    DateTimePatterns = DateTimePatterns_kam_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_kam_KE);
     break;
   case 'kde':
-    DateTimePatterns = DateTimePatterns_kde;
+    internalSetDateTimePatterns_(DateTimePatterns_kde);
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    DateTimePatterns = DateTimePatterns_kde_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_kde_TZ);
     break;
   case 'kea':
-    DateTimePatterns = DateTimePatterns_kea;
+    internalSetDateTimePatterns_(DateTimePatterns_kea);
     break;
   case 'kea_CV':
   case 'kea-CV':
-    DateTimePatterns = DateTimePatterns_kea_CV;
+    internalSetDateTimePatterns_(DateTimePatterns_kea_CV);
     break;
   case 'kgp':
-    DateTimePatterns = DateTimePatterns_kgp;
+    internalSetDateTimePatterns_(DateTimePatterns_kgp);
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    DateTimePatterns = DateTimePatterns_kgp_BR;
+    internalSetDateTimePatterns_(DateTimePatterns_kgp_BR);
     break;
   case 'khq':
-    DateTimePatterns = DateTimePatterns_khq;
+    internalSetDateTimePatterns_(DateTimePatterns_khq);
     break;
   case 'khq_ML':
   case 'khq-ML':
-    DateTimePatterns = DateTimePatterns_khq_ML;
+    internalSetDateTimePatterns_(DateTimePatterns_khq_ML);
     break;
   case 'ki':
-    DateTimePatterns = DateTimePatterns_ki;
+    internalSetDateTimePatterns_(DateTimePatterns_ki);
     break;
   case 'ki_KE':
   case 'ki-KE':
-    DateTimePatterns = DateTimePatterns_ki_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_ki_KE);
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    DateTimePatterns = DateTimePatterns_kk_KZ;
+    internalSetDateTimePatterns_(DateTimePatterns_kk_KZ);
     break;
   case 'kkj':
-    DateTimePatterns = DateTimePatterns_kkj;
+    internalSetDateTimePatterns_(DateTimePatterns_kkj);
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    DateTimePatterns = DateTimePatterns_kkj_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_kkj_CM);
     break;
   case 'kl':
-    DateTimePatterns = DateTimePatterns_kl;
+    internalSetDateTimePatterns_(DateTimePatterns_kl);
     break;
   case 'kl_GL':
   case 'kl-GL':
-    DateTimePatterns = DateTimePatterns_kl_GL;
+    internalSetDateTimePatterns_(DateTimePatterns_kl_GL);
     break;
   case 'kln':
-    DateTimePatterns = DateTimePatterns_kln;
+    internalSetDateTimePatterns_(DateTimePatterns_kln);
     break;
   case 'kln_KE':
   case 'kln-KE':
-    DateTimePatterns = DateTimePatterns_kln_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_kln_KE);
     break;
   case 'km_KH':
   case 'km-KH':
-    DateTimePatterns = DateTimePatterns_km_KH;
+    internalSetDateTimePatterns_(DateTimePatterns_km_KH);
     break;
   case 'kn_IN':
   case 'kn-IN':
-    DateTimePatterns = DateTimePatterns_kn_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_kn_IN);
     break;
   case 'ko_KP':
   case 'ko-KP':
-    DateTimePatterns = DateTimePatterns_ko_KP;
+    internalSetDateTimePatterns_(DateTimePatterns_ko_KP);
     break;
   case 'ko_KR':
   case 'ko-KR':
-    DateTimePatterns = DateTimePatterns_ko_KR;
+    internalSetDateTimePatterns_(DateTimePatterns_ko_KR);
     break;
   case 'kok':
-    DateTimePatterns = DateTimePatterns_kok;
+    internalSetDateTimePatterns_(DateTimePatterns_kok);
     break;
   case 'kok_IN':
   case 'kok-IN':
-    DateTimePatterns = DateTimePatterns_kok_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_kok_IN);
     break;
   case 'ks':
-    DateTimePatterns = DateTimePatterns_ks;
+    internalSetDateTimePatterns_(DateTimePatterns_ks);
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    DateTimePatterns = DateTimePatterns_ks_Arab;
+    internalSetDateTimePatterns_(DateTimePatterns_ks_Arab);
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    DateTimePatterns = DateTimePatterns_ks_Arab_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ks_Arab_IN);
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    DateTimePatterns = DateTimePatterns_ks_Deva;
+    internalSetDateTimePatterns_(DateTimePatterns_ks_Deva);
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    DateTimePatterns = DateTimePatterns_ks_Deva_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ks_Deva_IN);
     break;
   case 'ksb':
-    DateTimePatterns = DateTimePatterns_ksb;
+    internalSetDateTimePatterns_(DateTimePatterns_ksb);
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    DateTimePatterns = DateTimePatterns_ksb_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_ksb_TZ);
     break;
   case 'ksf':
-    DateTimePatterns = DateTimePatterns_ksf;
+    internalSetDateTimePatterns_(DateTimePatterns_ksf);
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    DateTimePatterns = DateTimePatterns_ksf_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_ksf_CM);
     break;
   case 'ksh':
-    DateTimePatterns = DateTimePatterns_ksh;
+    internalSetDateTimePatterns_(DateTimePatterns_ksh);
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    DateTimePatterns = DateTimePatterns_ksh_DE;
+    internalSetDateTimePatterns_(DateTimePatterns_ksh_DE);
     break;
   case 'ku':
-    DateTimePatterns = DateTimePatterns_ku;
+    internalSetDateTimePatterns_(DateTimePatterns_ku);
     break;
   case 'ku_TR':
   case 'ku-TR':
-    DateTimePatterns = DateTimePatterns_ku_TR;
+    internalSetDateTimePatterns_(DateTimePatterns_ku_TR);
     break;
   case 'kw':
-    DateTimePatterns = DateTimePatterns_kw;
+    internalSetDateTimePatterns_(DateTimePatterns_kw);
     break;
   case 'kw_GB':
   case 'kw-GB':
-    DateTimePatterns = DateTimePatterns_kw_GB;
+    internalSetDateTimePatterns_(DateTimePatterns_kw_GB);
     break;
   case 'ky_KG':
   case 'ky-KG':
-    DateTimePatterns = DateTimePatterns_ky_KG;
+    internalSetDateTimePatterns_(DateTimePatterns_ky_KG);
     break;
   case 'lag':
-    DateTimePatterns = DateTimePatterns_lag;
+    internalSetDateTimePatterns_(DateTimePatterns_lag);
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    DateTimePatterns = DateTimePatterns_lag_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_lag_TZ);
     break;
   case 'lb':
-    DateTimePatterns = DateTimePatterns_lb;
+    internalSetDateTimePatterns_(DateTimePatterns_lb);
     break;
   case 'lb_LU':
   case 'lb-LU':
-    DateTimePatterns = DateTimePatterns_lb_LU;
+    internalSetDateTimePatterns_(DateTimePatterns_lb_LU);
     break;
   case 'lg':
-    DateTimePatterns = DateTimePatterns_lg;
+    internalSetDateTimePatterns_(DateTimePatterns_lg);
     break;
   case 'lg_UG':
   case 'lg-UG':
-    DateTimePatterns = DateTimePatterns_lg_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_lg_UG);
     break;
   case 'lkt':
-    DateTimePatterns = DateTimePatterns_lkt;
+    internalSetDateTimePatterns_(DateTimePatterns_lkt);
     break;
   case 'lkt_US':
   case 'lkt-US':
-    DateTimePatterns = DateTimePatterns_lkt_US;
+    internalSetDateTimePatterns_(DateTimePatterns_lkt_US);
     break;
   case 'ln_AO':
   case 'ln-AO':
-    DateTimePatterns = DateTimePatterns_ln_AO;
+    internalSetDateTimePatterns_(DateTimePatterns_ln_AO);
     break;
   case 'ln_CD':
   case 'ln-CD':
-    DateTimePatterns = DateTimePatterns_ln_CD;
+    internalSetDateTimePatterns_(DateTimePatterns_ln_CD);
     break;
   case 'ln_CF':
   case 'ln-CF':
-    DateTimePatterns = DateTimePatterns_ln_CF;
+    internalSetDateTimePatterns_(DateTimePatterns_ln_CF);
     break;
   case 'ln_CG':
   case 'ln-CG':
-    DateTimePatterns = DateTimePatterns_ln_CG;
+    internalSetDateTimePatterns_(DateTimePatterns_ln_CG);
     break;
   case 'lo_LA':
   case 'lo-LA':
-    DateTimePatterns = DateTimePatterns_lo_LA;
+    internalSetDateTimePatterns_(DateTimePatterns_lo_LA);
     break;
   case 'lrc':
-    DateTimePatterns = DateTimePatterns_lrc;
+    internalSetDateTimePatterns_(DateTimePatterns_lrc);
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    DateTimePatterns = DateTimePatterns_lrc_IQ;
+    internalSetDateTimePatterns_(DateTimePatterns_lrc_IQ);
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    DateTimePatterns = DateTimePatterns_lrc_IR;
+    internalSetDateTimePatterns_(DateTimePatterns_lrc_IR);
     break;
   case 'lt_LT':
   case 'lt-LT':
-    DateTimePatterns = DateTimePatterns_lt_LT;
+    internalSetDateTimePatterns_(DateTimePatterns_lt_LT);
     break;
   case 'lu':
-    DateTimePatterns = DateTimePatterns_lu;
+    internalSetDateTimePatterns_(DateTimePatterns_lu);
     break;
   case 'lu_CD':
   case 'lu-CD':
-    DateTimePatterns = DateTimePatterns_lu_CD;
+    internalSetDateTimePatterns_(DateTimePatterns_lu_CD);
     break;
   case 'luo':
-    DateTimePatterns = DateTimePatterns_luo;
+    internalSetDateTimePatterns_(DateTimePatterns_luo);
     break;
   case 'luo_KE':
   case 'luo-KE':
-    DateTimePatterns = DateTimePatterns_luo_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_luo_KE);
     break;
   case 'luy':
-    DateTimePatterns = DateTimePatterns_luy;
+    internalSetDateTimePatterns_(DateTimePatterns_luy);
     break;
   case 'luy_KE':
   case 'luy-KE':
-    DateTimePatterns = DateTimePatterns_luy_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_luy_KE);
     break;
   case 'lv_LV':
   case 'lv-LV':
-    DateTimePatterns = DateTimePatterns_lv_LV;
+    internalSetDateTimePatterns_(DateTimePatterns_lv_LV);
     break;
   case 'mai':
-    DateTimePatterns = DateTimePatterns_mai;
+    internalSetDateTimePatterns_(DateTimePatterns_mai);
     break;
   case 'mai_IN':
   case 'mai-IN':
-    DateTimePatterns = DateTimePatterns_mai_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_mai_IN);
     break;
   case 'mas':
-    DateTimePatterns = DateTimePatterns_mas;
+    internalSetDateTimePatterns_(DateTimePatterns_mas);
     break;
   case 'mas_KE':
   case 'mas-KE':
-    DateTimePatterns = DateTimePatterns_mas_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_mas_KE);
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    DateTimePatterns = DateTimePatterns_mas_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_mas_TZ);
     break;
   case 'mer':
-    DateTimePatterns = DateTimePatterns_mer;
+    internalSetDateTimePatterns_(DateTimePatterns_mer);
     break;
   case 'mer_KE':
   case 'mer-KE':
-    DateTimePatterns = DateTimePatterns_mer_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_mer_KE);
     break;
   case 'mfe':
-    DateTimePatterns = DateTimePatterns_mfe;
+    internalSetDateTimePatterns_(DateTimePatterns_mfe);
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    DateTimePatterns = DateTimePatterns_mfe_MU;
+    internalSetDateTimePatterns_(DateTimePatterns_mfe_MU);
     break;
   case 'mg':
-    DateTimePatterns = DateTimePatterns_mg;
+    internalSetDateTimePatterns_(DateTimePatterns_mg);
     break;
   case 'mg_MG':
   case 'mg-MG':
-    DateTimePatterns = DateTimePatterns_mg_MG;
+    internalSetDateTimePatterns_(DateTimePatterns_mg_MG);
     break;
   case 'mgh':
-    DateTimePatterns = DateTimePatterns_mgh;
+    internalSetDateTimePatterns_(DateTimePatterns_mgh);
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    DateTimePatterns = DateTimePatterns_mgh_MZ;
+    internalSetDateTimePatterns_(DateTimePatterns_mgh_MZ);
     break;
   case 'mgo':
-    DateTimePatterns = DateTimePatterns_mgo;
+    internalSetDateTimePatterns_(DateTimePatterns_mgo);
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    DateTimePatterns = DateTimePatterns_mgo_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_mgo_CM);
     break;
   case 'mi':
-    DateTimePatterns = DateTimePatterns_mi;
+    internalSetDateTimePatterns_(DateTimePatterns_mi);
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    DateTimePatterns = DateTimePatterns_mi_NZ;
+    internalSetDateTimePatterns_(DateTimePatterns_mi_NZ);
     break;
   case 'mk_MK':
   case 'mk-MK':
-    DateTimePatterns = DateTimePatterns_mk_MK;
+    internalSetDateTimePatterns_(DateTimePatterns_mk_MK);
     break;
   case 'ml_IN':
   case 'ml-IN':
-    DateTimePatterns = DateTimePatterns_ml_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ml_IN);
     break;
   case 'mn_MN':
   case 'mn-MN':
-    DateTimePatterns = DateTimePatterns_mn_MN;
+    internalSetDateTimePatterns_(DateTimePatterns_mn_MN);
     break;
   case 'mni':
-    DateTimePatterns = DateTimePatterns_mni;
+    internalSetDateTimePatterns_(DateTimePatterns_mni);
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    DateTimePatterns = DateTimePatterns_mni_Beng;
+    internalSetDateTimePatterns_(DateTimePatterns_mni_Beng);
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    DateTimePatterns = DateTimePatterns_mni_Beng_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_mni_Beng_IN);
     break;
   case 'mr_IN':
   case 'mr-IN':
-    DateTimePatterns = DateTimePatterns_mr_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_mr_IN);
     break;
   case 'ms_BN':
   case 'ms-BN':
-    DateTimePatterns = DateTimePatterns_ms_BN;
+    internalSetDateTimePatterns_(DateTimePatterns_ms_BN);
     break;
   case 'ms_ID':
   case 'ms-ID':
-    DateTimePatterns = DateTimePatterns_ms_ID;
+    internalSetDateTimePatterns_(DateTimePatterns_ms_ID);
     break;
   case 'ms_MY':
   case 'ms-MY':
-    DateTimePatterns = DateTimePatterns_ms_MY;
+    internalSetDateTimePatterns_(DateTimePatterns_ms_MY);
     break;
   case 'ms_SG':
   case 'ms-SG':
-    DateTimePatterns = DateTimePatterns_ms_SG;
+    internalSetDateTimePatterns_(DateTimePatterns_ms_SG);
     break;
   case 'mt_MT':
   case 'mt-MT':
-    DateTimePatterns = DateTimePatterns_mt_MT;
+    internalSetDateTimePatterns_(DateTimePatterns_mt_MT);
     break;
   case 'mua':
-    DateTimePatterns = DateTimePatterns_mua;
+    internalSetDateTimePatterns_(DateTimePatterns_mua);
     break;
   case 'mua_CM':
   case 'mua-CM':
-    DateTimePatterns = DateTimePatterns_mua_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_mua_CM);
     break;
   case 'my_MM':
   case 'my-MM':
-    DateTimePatterns = DateTimePatterns_my_MM;
+    internalSetDateTimePatterns_(DateTimePatterns_my_MM);
     break;
   case 'mzn':
-    DateTimePatterns = DateTimePatterns_mzn;
+    internalSetDateTimePatterns_(DateTimePatterns_mzn);
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    DateTimePatterns = DateTimePatterns_mzn_IR;
+    internalSetDateTimePatterns_(DateTimePatterns_mzn_IR);
     break;
   case 'naq':
-    DateTimePatterns = DateTimePatterns_naq;
+    internalSetDateTimePatterns_(DateTimePatterns_naq);
     break;
   case 'naq_NA':
   case 'naq-NA':
-    DateTimePatterns = DateTimePatterns_naq_NA;
+    internalSetDateTimePatterns_(DateTimePatterns_naq_NA);
     break;
   case 'nb_NO':
   case 'nb-NO':
-    DateTimePatterns = DateTimePatterns_nb_NO;
+    internalSetDateTimePatterns_(DateTimePatterns_nb_NO);
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    DateTimePatterns = DateTimePatterns_nb_SJ;
+    internalSetDateTimePatterns_(DateTimePatterns_nb_SJ);
     break;
   case 'nd':
-    DateTimePatterns = DateTimePatterns_nd;
+    internalSetDateTimePatterns_(DateTimePatterns_nd);
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    DateTimePatterns = DateTimePatterns_nd_ZW;
+    internalSetDateTimePatterns_(DateTimePatterns_nd_ZW);
     break;
   case 'ne_IN':
   case 'ne-IN':
-    DateTimePatterns = DateTimePatterns_ne_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ne_IN);
     break;
   case 'ne_NP':
   case 'ne-NP':
-    DateTimePatterns = DateTimePatterns_ne_NP;
+    internalSetDateTimePatterns_(DateTimePatterns_ne_NP);
     break;
   case 'nl_AW':
   case 'nl-AW':
-    DateTimePatterns = DateTimePatterns_nl_AW;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_AW);
     break;
   case 'nl_BE':
   case 'nl-BE':
-    DateTimePatterns = DateTimePatterns_nl_BE;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_BE);
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    DateTimePatterns = DateTimePatterns_nl_BQ;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_BQ);
     break;
   case 'nl_CW':
   case 'nl-CW':
-    DateTimePatterns = DateTimePatterns_nl_CW;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_CW);
     break;
   case 'nl_NL':
   case 'nl-NL':
-    DateTimePatterns = DateTimePatterns_nl_NL;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_NL);
     break;
   case 'nl_SR':
   case 'nl-SR':
-    DateTimePatterns = DateTimePatterns_nl_SR;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_SR);
     break;
   case 'nl_SX':
   case 'nl-SX':
-    DateTimePatterns = DateTimePatterns_nl_SX;
+    internalSetDateTimePatterns_(DateTimePatterns_nl_SX);
     break;
   case 'nmg':
-    DateTimePatterns = DateTimePatterns_nmg;
+    internalSetDateTimePatterns_(DateTimePatterns_nmg);
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    DateTimePatterns = DateTimePatterns_nmg_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_nmg_CM);
     break;
   case 'nn':
-    DateTimePatterns = DateTimePatterns_nn;
+    internalSetDateTimePatterns_(DateTimePatterns_nn);
     break;
   case 'nn_NO':
   case 'nn-NO':
-    DateTimePatterns = DateTimePatterns_nn_NO;
+    internalSetDateTimePatterns_(DateTimePatterns_nn_NO);
     break;
   case 'nnh':
-    DateTimePatterns = DateTimePatterns_nnh;
+    internalSetDateTimePatterns_(DateTimePatterns_nnh);
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    DateTimePatterns = DateTimePatterns_nnh_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_nnh_CM);
     break;
   case 'nus':
-    DateTimePatterns = DateTimePatterns_nus;
+    internalSetDateTimePatterns_(DateTimePatterns_nus);
     break;
   case 'nus_SS':
   case 'nus-SS':
-    DateTimePatterns = DateTimePatterns_nus_SS;
+    internalSetDateTimePatterns_(DateTimePatterns_nus_SS);
     break;
   case 'nyn':
-    DateTimePatterns = DateTimePatterns_nyn;
+    internalSetDateTimePatterns_(DateTimePatterns_nyn);
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    DateTimePatterns = DateTimePatterns_nyn_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_nyn_UG);
     break;
   case 'om':
-    DateTimePatterns = DateTimePatterns_om;
+    internalSetDateTimePatterns_(DateTimePatterns_om);
     break;
   case 'om_ET':
   case 'om-ET':
-    DateTimePatterns = DateTimePatterns_om_ET;
+    internalSetDateTimePatterns_(DateTimePatterns_om_ET);
     break;
   case 'om_KE':
   case 'om-KE':
-    DateTimePatterns = DateTimePatterns_om_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_om_KE);
     break;
   case 'or_IN':
   case 'or-IN':
-    DateTimePatterns = DateTimePatterns_or_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_or_IN);
     break;
   case 'os':
-    DateTimePatterns = DateTimePatterns_os;
+    internalSetDateTimePatterns_(DateTimePatterns_os);
     break;
   case 'os_GE':
   case 'os-GE':
-    DateTimePatterns = DateTimePatterns_os_GE;
+    internalSetDateTimePatterns_(DateTimePatterns_os_GE);
     break;
   case 'os_RU':
   case 'os-RU':
-    DateTimePatterns = DateTimePatterns_os_RU;
+    internalSetDateTimePatterns_(DateTimePatterns_os_RU);
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    DateTimePatterns = DateTimePatterns_pa_Arab;
+    internalSetDateTimePatterns_(DateTimePatterns_pa_Arab);
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    DateTimePatterns = DateTimePatterns_pa_Arab_PK;
+    internalSetDateTimePatterns_(DateTimePatterns_pa_Arab_PK);
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    DateTimePatterns = DateTimePatterns_pa_Guru;
+    internalSetDateTimePatterns_(DateTimePatterns_pa_Guru);
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    DateTimePatterns = DateTimePatterns_pa_Guru_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_pa_Guru_IN);
     break;
   case 'pcm':
-    DateTimePatterns = DateTimePatterns_pcm;
+    internalSetDateTimePatterns_(DateTimePatterns_pcm);
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    DateTimePatterns = DateTimePatterns_pcm_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_pcm_NG);
     break;
   case 'pl_PL':
   case 'pl-PL':
-    DateTimePatterns = DateTimePatterns_pl_PL;
+    internalSetDateTimePatterns_(DateTimePatterns_pl_PL);
     break;
   case 'ps':
-    DateTimePatterns = DateTimePatterns_ps;
+    internalSetDateTimePatterns_(DateTimePatterns_ps);
     break;
   case 'ps_AF':
   case 'ps-AF':
-    DateTimePatterns = DateTimePatterns_ps_AF;
+    internalSetDateTimePatterns_(DateTimePatterns_ps_AF);
     break;
   case 'ps_PK':
   case 'ps-PK':
-    DateTimePatterns = DateTimePatterns_ps_PK;
+    internalSetDateTimePatterns_(DateTimePatterns_ps_PK);
     break;
   case 'pt_AO':
   case 'pt-AO':
-    DateTimePatterns = DateTimePatterns_pt_AO;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_AO);
     break;
   case 'pt_CH':
   case 'pt-CH':
-    DateTimePatterns = DateTimePatterns_pt_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_CH);
     break;
   case 'pt_CV':
   case 'pt-CV':
-    DateTimePatterns = DateTimePatterns_pt_CV;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_CV);
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    DateTimePatterns = DateTimePatterns_pt_GQ;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_GQ);
     break;
   case 'pt_GW':
   case 'pt-GW':
-    DateTimePatterns = DateTimePatterns_pt_GW;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_GW);
     break;
   case 'pt_LU':
   case 'pt-LU':
-    DateTimePatterns = DateTimePatterns_pt_LU;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_LU);
     break;
   case 'pt_MO':
   case 'pt-MO':
-    DateTimePatterns = DateTimePatterns_pt_MO;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_MO);
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    DateTimePatterns = DateTimePatterns_pt_MZ;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_MZ);
     break;
   case 'pt_ST':
   case 'pt-ST':
-    DateTimePatterns = DateTimePatterns_pt_ST;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_ST);
     break;
   case 'pt_TL':
   case 'pt-TL':
-    DateTimePatterns = DateTimePatterns_pt_TL;
+    internalSetDateTimePatterns_(DateTimePatterns_pt_TL);
     break;
   case 'qu':
-    DateTimePatterns = DateTimePatterns_qu;
+    internalSetDateTimePatterns_(DateTimePatterns_qu);
     break;
   case 'qu_BO':
   case 'qu-BO':
-    DateTimePatterns = DateTimePatterns_qu_BO;
+    internalSetDateTimePatterns_(DateTimePatterns_qu_BO);
     break;
   case 'qu_EC':
   case 'qu-EC':
-    DateTimePatterns = DateTimePatterns_qu_EC;
+    internalSetDateTimePatterns_(DateTimePatterns_qu_EC);
     break;
   case 'qu_PE':
   case 'qu-PE':
-    DateTimePatterns = DateTimePatterns_qu_PE;
+    internalSetDateTimePatterns_(DateTimePatterns_qu_PE);
     break;
   case 'raj':
-    DateTimePatterns = DateTimePatterns_raj;
+    internalSetDateTimePatterns_(DateTimePatterns_raj);
     break;
   case 'raj_IN':
   case 'raj-IN':
-    DateTimePatterns = DateTimePatterns_raj_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_raj_IN);
     break;
   case 'rm':
-    DateTimePatterns = DateTimePatterns_rm;
+    internalSetDateTimePatterns_(DateTimePatterns_rm);
     break;
   case 'rm_CH':
   case 'rm-CH':
-    DateTimePatterns = DateTimePatterns_rm_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_rm_CH);
     break;
   case 'rn':
-    DateTimePatterns = DateTimePatterns_rn;
+    internalSetDateTimePatterns_(DateTimePatterns_rn);
     break;
   case 'rn_BI':
   case 'rn-BI':
-    DateTimePatterns = DateTimePatterns_rn_BI;
+    internalSetDateTimePatterns_(DateTimePatterns_rn_BI);
     break;
   case 'ro_MD':
   case 'ro-MD':
-    DateTimePatterns = DateTimePatterns_ro_MD;
+    internalSetDateTimePatterns_(DateTimePatterns_ro_MD);
     break;
   case 'ro_RO':
   case 'ro-RO':
-    DateTimePatterns = DateTimePatterns_ro_RO;
+    internalSetDateTimePatterns_(DateTimePatterns_ro_RO);
     break;
   case 'rof':
-    DateTimePatterns = DateTimePatterns_rof;
+    internalSetDateTimePatterns_(DateTimePatterns_rof);
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    DateTimePatterns = DateTimePatterns_rof_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_rof_TZ);
     break;
   case 'ru_BY':
   case 'ru-BY':
-    DateTimePatterns = DateTimePatterns_ru_BY;
+    internalSetDateTimePatterns_(DateTimePatterns_ru_BY);
     break;
   case 'ru_KG':
   case 'ru-KG':
-    DateTimePatterns = DateTimePatterns_ru_KG;
+    internalSetDateTimePatterns_(DateTimePatterns_ru_KG);
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    DateTimePatterns = DateTimePatterns_ru_KZ;
+    internalSetDateTimePatterns_(DateTimePatterns_ru_KZ);
     break;
   case 'ru_MD':
   case 'ru-MD':
-    DateTimePatterns = DateTimePatterns_ru_MD;
+    internalSetDateTimePatterns_(DateTimePatterns_ru_MD);
     break;
   case 'ru_RU':
   case 'ru-RU':
-    DateTimePatterns = DateTimePatterns_ru_RU;
+    internalSetDateTimePatterns_(DateTimePatterns_ru_RU);
     break;
   case 'ru_UA':
   case 'ru-UA':
-    DateTimePatterns = DateTimePatterns_ru_UA;
+    internalSetDateTimePatterns_(DateTimePatterns_ru_UA);
     break;
   case 'rw':
-    DateTimePatterns = DateTimePatterns_rw;
+    internalSetDateTimePatterns_(DateTimePatterns_rw);
     break;
   case 'rw_RW':
   case 'rw-RW':
-    DateTimePatterns = DateTimePatterns_rw_RW;
+    internalSetDateTimePatterns_(DateTimePatterns_rw_RW);
     break;
   case 'rwk':
-    DateTimePatterns = DateTimePatterns_rwk;
+    internalSetDateTimePatterns_(DateTimePatterns_rwk);
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    DateTimePatterns = DateTimePatterns_rwk_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_rwk_TZ);
     break;
   case 'sa':
-    DateTimePatterns = DateTimePatterns_sa;
+    internalSetDateTimePatterns_(DateTimePatterns_sa);
     break;
   case 'sa_IN':
   case 'sa-IN':
-    DateTimePatterns = DateTimePatterns_sa_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_sa_IN);
     break;
   case 'sah':
-    DateTimePatterns = DateTimePatterns_sah;
+    internalSetDateTimePatterns_(DateTimePatterns_sah);
     break;
   case 'sah_RU':
   case 'sah-RU':
-    DateTimePatterns = DateTimePatterns_sah_RU;
+    internalSetDateTimePatterns_(DateTimePatterns_sah_RU);
     break;
   case 'saq':
-    DateTimePatterns = DateTimePatterns_saq;
+    internalSetDateTimePatterns_(DateTimePatterns_saq);
     break;
   case 'saq_KE':
   case 'saq-KE':
-    DateTimePatterns = DateTimePatterns_saq_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_saq_KE);
     break;
   case 'sat':
-    DateTimePatterns = DateTimePatterns_sat;
+    internalSetDateTimePatterns_(DateTimePatterns_sat);
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    DateTimePatterns = DateTimePatterns_sat_Olck;
+    internalSetDateTimePatterns_(DateTimePatterns_sat_Olck);
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    DateTimePatterns = DateTimePatterns_sat_Olck_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_sat_Olck_IN);
     break;
   case 'sbp':
-    DateTimePatterns = DateTimePatterns_sbp;
+    internalSetDateTimePatterns_(DateTimePatterns_sbp);
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    DateTimePatterns = DateTimePatterns_sbp_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_sbp_TZ);
     break;
   case 'sc':
-    DateTimePatterns = DateTimePatterns_sc;
+    internalSetDateTimePatterns_(DateTimePatterns_sc);
     break;
   case 'sc_IT':
   case 'sc-IT':
-    DateTimePatterns = DateTimePatterns_sc_IT;
+    internalSetDateTimePatterns_(DateTimePatterns_sc_IT);
     break;
   case 'sd':
-    DateTimePatterns = DateTimePatterns_sd;
+    internalSetDateTimePatterns_(DateTimePatterns_sd);
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    DateTimePatterns = DateTimePatterns_sd_Arab;
+    internalSetDateTimePatterns_(DateTimePatterns_sd_Arab);
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    DateTimePatterns = DateTimePatterns_sd_Arab_PK;
+    internalSetDateTimePatterns_(DateTimePatterns_sd_Arab_PK);
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    DateTimePatterns = DateTimePatterns_sd_Deva;
+    internalSetDateTimePatterns_(DateTimePatterns_sd_Deva);
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    DateTimePatterns = DateTimePatterns_sd_Deva_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_sd_Deva_IN);
     break;
   case 'se':
-    DateTimePatterns = DateTimePatterns_se;
+    internalSetDateTimePatterns_(DateTimePatterns_se);
     break;
   case 'se_FI':
   case 'se-FI':
-    DateTimePatterns = DateTimePatterns_se_FI;
+    internalSetDateTimePatterns_(DateTimePatterns_se_FI);
     break;
   case 'se_NO':
   case 'se-NO':
-    DateTimePatterns = DateTimePatterns_se_NO;
+    internalSetDateTimePatterns_(DateTimePatterns_se_NO);
     break;
   case 'se_SE':
   case 'se-SE':
-    DateTimePatterns = DateTimePatterns_se_SE;
+    internalSetDateTimePatterns_(DateTimePatterns_se_SE);
     break;
   case 'seh':
-    DateTimePatterns = DateTimePatterns_seh;
+    internalSetDateTimePatterns_(DateTimePatterns_seh);
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    DateTimePatterns = DateTimePatterns_seh_MZ;
+    internalSetDateTimePatterns_(DateTimePatterns_seh_MZ);
     break;
   case 'ses':
-    DateTimePatterns = DateTimePatterns_ses;
+    internalSetDateTimePatterns_(DateTimePatterns_ses);
     break;
   case 'ses_ML':
   case 'ses-ML':
-    DateTimePatterns = DateTimePatterns_ses_ML;
+    internalSetDateTimePatterns_(DateTimePatterns_ses_ML);
     break;
   case 'sg':
-    DateTimePatterns = DateTimePatterns_sg;
+    internalSetDateTimePatterns_(DateTimePatterns_sg);
     break;
   case 'sg_CF':
   case 'sg-CF':
-    DateTimePatterns = DateTimePatterns_sg_CF;
+    internalSetDateTimePatterns_(DateTimePatterns_sg_CF);
     break;
   case 'shi':
-    DateTimePatterns = DateTimePatterns_shi;
+    internalSetDateTimePatterns_(DateTimePatterns_shi);
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    DateTimePatterns = DateTimePatterns_shi_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_shi_Latn);
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    DateTimePatterns = DateTimePatterns_shi_Latn_MA;
+    internalSetDateTimePatterns_(DateTimePatterns_shi_Latn_MA);
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    DateTimePatterns = DateTimePatterns_shi_Tfng;
+    internalSetDateTimePatterns_(DateTimePatterns_shi_Tfng);
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    DateTimePatterns = DateTimePatterns_shi_Tfng_MA;
+    internalSetDateTimePatterns_(DateTimePatterns_shi_Tfng_MA);
     break;
   case 'si_LK':
   case 'si-LK':
-    DateTimePatterns = DateTimePatterns_si_LK;
+    internalSetDateTimePatterns_(DateTimePatterns_si_LK);
     break;
   case 'sk_SK':
   case 'sk-SK':
-    DateTimePatterns = DateTimePatterns_sk_SK;
+    internalSetDateTimePatterns_(DateTimePatterns_sk_SK);
     break;
   case 'sl_SI':
   case 'sl-SI':
-    DateTimePatterns = DateTimePatterns_sl_SI;
+    internalSetDateTimePatterns_(DateTimePatterns_sl_SI);
     break;
   case 'smn':
-    DateTimePatterns = DateTimePatterns_smn;
+    internalSetDateTimePatterns_(DateTimePatterns_smn);
     break;
   case 'smn_FI':
   case 'smn-FI':
-    DateTimePatterns = DateTimePatterns_smn_FI;
+    internalSetDateTimePatterns_(DateTimePatterns_smn_FI);
     break;
   case 'sn':
-    DateTimePatterns = DateTimePatterns_sn;
+    internalSetDateTimePatterns_(DateTimePatterns_sn);
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    DateTimePatterns = DateTimePatterns_sn_ZW;
+    internalSetDateTimePatterns_(DateTimePatterns_sn_ZW);
     break;
   case 'so':
-    DateTimePatterns = DateTimePatterns_so;
+    internalSetDateTimePatterns_(DateTimePatterns_so);
     break;
   case 'so_DJ':
   case 'so-DJ':
-    DateTimePatterns = DateTimePatterns_so_DJ;
+    internalSetDateTimePatterns_(DateTimePatterns_so_DJ);
     break;
   case 'so_ET':
   case 'so-ET':
-    DateTimePatterns = DateTimePatterns_so_ET;
+    internalSetDateTimePatterns_(DateTimePatterns_so_ET);
     break;
   case 'so_KE':
   case 'so-KE':
-    DateTimePatterns = DateTimePatterns_so_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_so_KE);
     break;
   case 'so_SO':
   case 'so-SO':
-    DateTimePatterns = DateTimePatterns_so_SO;
+    internalSetDateTimePatterns_(DateTimePatterns_so_SO);
     break;
   case 'sq_AL':
   case 'sq-AL':
-    DateTimePatterns = DateTimePatterns_sq_AL;
+    internalSetDateTimePatterns_(DateTimePatterns_sq_AL);
     break;
   case 'sq_MK':
   case 'sq-MK':
-    DateTimePatterns = DateTimePatterns_sq_MK;
+    internalSetDateTimePatterns_(DateTimePatterns_sq_MK);
     break;
   case 'sq_XK':
   case 'sq-XK':
-    DateTimePatterns = DateTimePatterns_sq_XK;
+    internalSetDateTimePatterns_(DateTimePatterns_sq_XK);
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    DateTimePatterns = DateTimePatterns_sr_Cyrl;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Cyrl);
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    DateTimePatterns = DateTimePatterns_sr_Cyrl_BA;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Cyrl_BA);
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    DateTimePatterns = DateTimePatterns_sr_Cyrl_ME;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Cyrl_ME);
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    DateTimePatterns = DateTimePatterns_sr_Cyrl_RS;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Cyrl_RS);
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    DateTimePatterns = DateTimePatterns_sr_Cyrl_XK;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Cyrl_XK);
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    DateTimePatterns = DateTimePatterns_sr_Latn_BA;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Latn_BA);
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    DateTimePatterns = DateTimePatterns_sr_Latn_ME;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Latn_ME);
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    DateTimePatterns = DateTimePatterns_sr_Latn_RS;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Latn_RS);
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    DateTimePatterns = DateTimePatterns_sr_Latn_XK;
+    internalSetDateTimePatterns_(DateTimePatterns_sr_Latn_XK);
     break;
   case 'su':
-    DateTimePatterns = DateTimePatterns_su;
+    internalSetDateTimePatterns_(DateTimePatterns_su);
     break;
   case 'su_Latn':
   case 'su-Latn':
-    DateTimePatterns = DateTimePatterns_su_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_su_Latn);
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    DateTimePatterns = DateTimePatterns_su_Latn_ID;
+    internalSetDateTimePatterns_(DateTimePatterns_su_Latn_ID);
     break;
   case 'sv_AX':
   case 'sv-AX':
-    DateTimePatterns = DateTimePatterns_sv_AX;
+    internalSetDateTimePatterns_(DateTimePatterns_sv_AX);
     break;
   case 'sv_FI':
   case 'sv-FI':
-    DateTimePatterns = DateTimePatterns_sv_FI;
+    internalSetDateTimePatterns_(DateTimePatterns_sv_FI);
     break;
   case 'sv_SE':
   case 'sv-SE':
-    DateTimePatterns = DateTimePatterns_sv_SE;
+    internalSetDateTimePatterns_(DateTimePatterns_sv_SE);
     break;
   case 'sw_CD':
   case 'sw-CD':
-    DateTimePatterns = DateTimePatterns_sw_CD;
+    internalSetDateTimePatterns_(DateTimePatterns_sw_CD);
     break;
   case 'sw_KE':
   case 'sw-KE':
-    DateTimePatterns = DateTimePatterns_sw_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_sw_KE);
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    DateTimePatterns = DateTimePatterns_sw_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_sw_TZ);
     break;
   case 'sw_UG':
   case 'sw-UG':
-    DateTimePatterns = DateTimePatterns_sw_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_sw_UG);
     break;
   case 'ta_IN':
   case 'ta-IN':
-    DateTimePatterns = DateTimePatterns_ta_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ta_IN);
     break;
   case 'ta_LK':
   case 'ta-LK':
-    DateTimePatterns = DateTimePatterns_ta_LK;
+    internalSetDateTimePatterns_(DateTimePatterns_ta_LK);
     break;
   case 'ta_MY':
   case 'ta-MY':
-    DateTimePatterns = DateTimePatterns_ta_MY;
+    internalSetDateTimePatterns_(DateTimePatterns_ta_MY);
     break;
   case 'ta_SG':
   case 'ta-SG':
-    DateTimePatterns = DateTimePatterns_ta_SG;
+    internalSetDateTimePatterns_(DateTimePatterns_ta_SG);
     break;
   case 'te_IN':
   case 'te-IN':
-    DateTimePatterns = DateTimePatterns_te_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_te_IN);
     break;
   case 'teo':
-    DateTimePatterns = DateTimePatterns_teo;
+    internalSetDateTimePatterns_(DateTimePatterns_teo);
     break;
   case 'teo_KE':
   case 'teo-KE':
-    DateTimePatterns = DateTimePatterns_teo_KE;
+    internalSetDateTimePatterns_(DateTimePatterns_teo_KE);
     break;
   case 'teo_UG':
   case 'teo-UG':
-    DateTimePatterns = DateTimePatterns_teo_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_teo_UG);
     break;
   case 'tg':
-    DateTimePatterns = DateTimePatterns_tg;
+    internalSetDateTimePatterns_(DateTimePatterns_tg);
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    DateTimePatterns = DateTimePatterns_tg_TJ;
+    internalSetDateTimePatterns_(DateTimePatterns_tg_TJ);
     break;
   case 'th_TH':
   case 'th-TH':
-    DateTimePatterns = DateTimePatterns_th_TH;
+    internalSetDateTimePatterns_(DateTimePatterns_th_TH);
     break;
   case 'ti':
-    DateTimePatterns = DateTimePatterns_ti;
+    internalSetDateTimePatterns_(DateTimePatterns_ti);
     break;
   case 'ti_ER':
   case 'ti-ER':
-    DateTimePatterns = DateTimePatterns_ti_ER;
+    internalSetDateTimePatterns_(DateTimePatterns_ti_ER);
     break;
   case 'ti_ET':
   case 'ti-ET':
-    DateTimePatterns = DateTimePatterns_ti_ET;
+    internalSetDateTimePatterns_(DateTimePatterns_ti_ET);
     break;
   case 'tk':
-    DateTimePatterns = DateTimePatterns_tk;
+    internalSetDateTimePatterns_(DateTimePatterns_tk);
     break;
   case 'tk_TM':
   case 'tk-TM':
-    DateTimePatterns = DateTimePatterns_tk_TM;
+    internalSetDateTimePatterns_(DateTimePatterns_tk_TM);
     break;
   case 'to':
-    DateTimePatterns = DateTimePatterns_to;
+    internalSetDateTimePatterns_(DateTimePatterns_to);
     break;
   case 'to_TO':
   case 'to-TO':
-    DateTimePatterns = DateTimePatterns_to_TO;
+    internalSetDateTimePatterns_(DateTimePatterns_to_TO);
     break;
   case 'tr_CY':
   case 'tr-CY':
-    DateTimePatterns = DateTimePatterns_tr_CY;
+    internalSetDateTimePatterns_(DateTimePatterns_tr_CY);
     break;
   case 'tr_TR':
   case 'tr-TR':
-    DateTimePatterns = DateTimePatterns_tr_TR;
+    internalSetDateTimePatterns_(DateTimePatterns_tr_TR);
     break;
   case 'tt':
-    DateTimePatterns = DateTimePatterns_tt;
+    internalSetDateTimePatterns_(DateTimePatterns_tt);
     break;
   case 'tt_RU':
   case 'tt-RU':
-    DateTimePatterns = DateTimePatterns_tt_RU;
+    internalSetDateTimePatterns_(DateTimePatterns_tt_RU);
     break;
   case 'twq':
-    DateTimePatterns = DateTimePatterns_twq;
+    internalSetDateTimePatterns_(DateTimePatterns_twq);
     break;
   case 'twq_NE':
   case 'twq-NE':
-    DateTimePatterns = DateTimePatterns_twq_NE;
+    internalSetDateTimePatterns_(DateTimePatterns_twq_NE);
     break;
   case 'tzm':
-    DateTimePatterns = DateTimePatterns_tzm;
+    internalSetDateTimePatterns_(DateTimePatterns_tzm);
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    DateTimePatterns = DateTimePatterns_tzm_MA;
+    internalSetDateTimePatterns_(DateTimePatterns_tzm_MA);
     break;
   case 'ug':
-    DateTimePatterns = DateTimePatterns_ug;
+    internalSetDateTimePatterns_(DateTimePatterns_ug);
     break;
   case 'ug_CN':
   case 'ug-CN':
-    DateTimePatterns = DateTimePatterns_ug_CN;
+    internalSetDateTimePatterns_(DateTimePatterns_ug_CN);
     break;
   case 'uk_UA':
   case 'uk-UA':
-    DateTimePatterns = DateTimePatterns_uk_UA;
+    internalSetDateTimePatterns_(DateTimePatterns_uk_UA);
     break;
   case 'ur_IN':
   case 'ur-IN':
-    DateTimePatterns = DateTimePatterns_ur_IN;
+    internalSetDateTimePatterns_(DateTimePatterns_ur_IN);
     break;
   case 'ur_PK':
   case 'ur-PK':
-    DateTimePatterns = DateTimePatterns_ur_PK;
+    internalSetDateTimePatterns_(DateTimePatterns_ur_PK);
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    DateTimePatterns = DateTimePatterns_uz_Arab;
+    internalSetDateTimePatterns_(DateTimePatterns_uz_Arab);
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    DateTimePatterns = DateTimePatterns_uz_Arab_AF;
+    internalSetDateTimePatterns_(DateTimePatterns_uz_Arab_AF);
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    DateTimePatterns = DateTimePatterns_uz_Cyrl;
+    internalSetDateTimePatterns_(DateTimePatterns_uz_Cyrl);
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    DateTimePatterns = DateTimePatterns_uz_Cyrl_UZ;
+    internalSetDateTimePatterns_(DateTimePatterns_uz_Cyrl_UZ);
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    DateTimePatterns = DateTimePatterns_uz_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_uz_Latn);
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    DateTimePatterns = DateTimePatterns_uz_Latn_UZ;
+    internalSetDateTimePatterns_(DateTimePatterns_uz_Latn_UZ);
     break;
   case 'vai':
-    DateTimePatterns = DateTimePatterns_vai;
+    internalSetDateTimePatterns_(DateTimePatterns_vai);
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    DateTimePatterns = DateTimePatterns_vai_Latn;
+    internalSetDateTimePatterns_(DateTimePatterns_vai_Latn);
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    DateTimePatterns = DateTimePatterns_vai_Latn_LR;
+    internalSetDateTimePatterns_(DateTimePatterns_vai_Latn_LR);
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    DateTimePatterns = DateTimePatterns_vai_Vaii;
+    internalSetDateTimePatterns_(DateTimePatterns_vai_Vaii);
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    DateTimePatterns = DateTimePatterns_vai_Vaii_LR;
+    internalSetDateTimePatterns_(DateTimePatterns_vai_Vaii_LR);
     break;
   case 'vi_VN':
   case 'vi-VN':
-    DateTimePatterns = DateTimePatterns_vi_VN;
+    internalSetDateTimePatterns_(DateTimePatterns_vi_VN);
     break;
   case 'vun':
-    DateTimePatterns = DateTimePatterns_vun;
+    internalSetDateTimePatterns_(DateTimePatterns_vun);
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    DateTimePatterns = DateTimePatterns_vun_TZ;
+    internalSetDateTimePatterns_(DateTimePatterns_vun_TZ);
     break;
   case 'wae':
-    DateTimePatterns = DateTimePatterns_wae;
+    internalSetDateTimePatterns_(DateTimePatterns_wae);
     break;
   case 'wae_CH':
   case 'wae-CH':
-    DateTimePatterns = DateTimePatterns_wae_CH;
+    internalSetDateTimePatterns_(DateTimePatterns_wae_CH);
     break;
   case 'wo':
-    DateTimePatterns = DateTimePatterns_wo;
+    internalSetDateTimePatterns_(DateTimePatterns_wo);
     break;
   case 'wo_SN':
   case 'wo-SN':
-    DateTimePatterns = DateTimePatterns_wo_SN;
+    internalSetDateTimePatterns_(DateTimePatterns_wo_SN);
     break;
   case 'xh':
-    DateTimePatterns = DateTimePatterns_xh;
+    internalSetDateTimePatterns_(DateTimePatterns_xh);
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    DateTimePatterns = DateTimePatterns_xh_ZA;
+    internalSetDateTimePatterns_(DateTimePatterns_xh_ZA);
     break;
   case 'xog':
-    DateTimePatterns = DateTimePatterns_xog;
+    internalSetDateTimePatterns_(DateTimePatterns_xog);
     break;
   case 'xog_UG':
   case 'xog-UG':
-    DateTimePatterns = DateTimePatterns_xog_UG;
+    internalSetDateTimePatterns_(DateTimePatterns_xog_UG);
     break;
   case 'yav':
-    DateTimePatterns = DateTimePatterns_yav;
+    internalSetDateTimePatterns_(DateTimePatterns_yav);
     break;
   case 'yav_CM':
   case 'yav-CM':
-    DateTimePatterns = DateTimePatterns_yav_CM;
+    internalSetDateTimePatterns_(DateTimePatterns_yav_CM);
     break;
   case 'yi':
-    DateTimePatterns = DateTimePatterns_yi;
+    internalSetDateTimePatterns_(DateTimePatterns_yi);
     break;
   case 'yi_001':
   case 'yi-001':
-    DateTimePatterns = DateTimePatterns_yi_001;
+    internalSetDateTimePatterns_(DateTimePatterns_yi_001);
     break;
   case 'yo':
-    DateTimePatterns = DateTimePatterns_yo;
+    internalSetDateTimePatterns_(DateTimePatterns_yo);
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    DateTimePatterns = DateTimePatterns_yo_BJ;
+    internalSetDateTimePatterns_(DateTimePatterns_yo_BJ);
     break;
   case 'yo_NG':
   case 'yo-NG':
-    DateTimePatterns = DateTimePatterns_yo_NG;
+    internalSetDateTimePatterns_(DateTimePatterns_yo_NG);
     break;
   case 'yrl':
-    DateTimePatterns = DateTimePatterns_yrl;
+    internalSetDateTimePatterns_(DateTimePatterns_yrl);
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    DateTimePatterns = DateTimePatterns_yrl_BR;
+    internalSetDateTimePatterns_(DateTimePatterns_yrl_BR);
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    DateTimePatterns = DateTimePatterns_yrl_CO;
+    internalSetDateTimePatterns_(DateTimePatterns_yrl_CO);
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    DateTimePatterns = DateTimePatterns_yrl_VE;
+    internalSetDateTimePatterns_(DateTimePatterns_yrl_VE);
     break;
   case 'yue':
-    DateTimePatterns = DateTimePatterns_yue;
+    internalSetDateTimePatterns_(DateTimePatterns_yue);
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    DateTimePatterns = DateTimePatterns_yue_Hans;
+    internalSetDateTimePatterns_(DateTimePatterns_yue_Hans);
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    DateTimePatterns = DateTimePatterns_yue_Hans_CN;
+    internalSetDateTimePatterns_(DateTimePatterns_yue_Hans_CN);
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    DateTimePatterns = DateTimePatterns_yue_Hant;
+    internalSetDateTimePatterns_(DateTimePatterns_yue_Hant);
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    DateTimePatterns = DateTimePatterns_yue_Hant_HK;
+    internalSetDateTimePatterns_(DateTimePatterns_yue_Hant_HK);
     break;
   case 'zgh':
-    DateTimePatterns = DateTimePatterns_zgh;
+    internalSetDateTimePatterns_(DateTimePatterns_zgh);
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    DateTimePatterns = DateTimePatterns_zgh_MA;
+    internalSetDateTimePatterns_(DateTimePatterns_zgh_MA);
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    DateTimePatterns = DateTimePatterns_zh_Hans;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hans);
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    DateTimePatterns = DateTimePatterns_zh_Hans_CN;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hans_CN);
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    DateTimePatterns = DateTimePatterns_zh_Hans_HK;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hans_HK);
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    DateTimePatterns = DateTimePatterns_zh_Hans_MO;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hans_MO);
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    DateTimePatterns = DateTimePatterns_zh_Hans_SG;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hans_SG);
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    DateTimePatterns = DateTimePatterns_zh_Hant;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hant);
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    DateTimePatterns = DateTimePatterns_zh_Hant_HK;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hant_HK);
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    DateTimePatterns = DateTimePatterns_zh_Hant_MO;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hant_MO);
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    DateTimePatterns = DateTimePatterns_zh_Hant_TW;
+    internalSetDateTimePatterns_(DateTimePatterns_zh_Hant_TW);
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    DateTimePatterns = DateTimePatterns_zu_ZA;
+    internalSetDateTimePatterns_(DateTimePatterns_zu_ZA);
     break;
 }
 export var DateTimePatterns_af_NA;

@@ -19,7 +19,7 @@ import * as events from '../events/events.js';
 import { Animation } from './animation.js';
 import { Transition } from './transition.js';
 import { TransitionBase } from './transitionbase.js';
-goog.requireType('goog.events.event');
+const {Event} = goog.requireType('goog.events.event');
 
 
 

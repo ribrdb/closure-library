@@ -21,7 +21,7 @@ import * as dom from '../dom/dom.js';
 import { EventHandler } from '../events/eventhandler.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -244,7 +244,7 @@ ActivityMonitor.prototype.removeDocument = function(doc) {
 
 /**
  * Updates the last event time when a user action occurs.
- * @param {goog.events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  * @private
  */
 ActivityMonitor.prototype.handleEvent_ = function(e) {

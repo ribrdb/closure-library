@@ -14,7 +14,7 @@
 
 import { InputType } from './inputtype.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 /**
@@ -356,7 +356,7 @@ function canonicalizePositionIe_(textfield, pos) {
     // We do this only for textarea because it is the only one which can
     // have a \r\n (input cannot have this).
     var value = textfield.value.substring(0, pos);
-    pos = string.canonicalizeNewlines(value).length;
+    pos = googString.canonicalizeNewlines(value).length;
   }
   return pos;
 }

@@ -13,7 +13,7 @@ import * as array from '../../array/array.js';
 
 import * as asserts from '../../asserts/asserts.js';
 import { EventType } from '../../events/eventtype.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 
 /**
@@ -39,11 +39,11 @@ export var TouchData;
 export function getTouchData(e) {
  let source = e;
  asserts.assert(
-     string.startsWith(e.type, 'touch') ||
-         string.startsWith(e.type, 'mouse'),
+     googString.startsWith(e.type, 'touch') ||
+         googString.startsWith(e.type, 'mouse'),
      'Event must be mouse or touch event.');
 
- if (string.startsWith(e.type, 'touch')) {
+ if (googString.startsWith(e.type, 'touch')) {
    asserts.assert(
        array.contains(
            [

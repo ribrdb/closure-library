@@ -25,12 +25,12 @@ import { TextElement } from './textelement.js';
 import { SafeHtml } from '../html/safehtml.js';
 import * as uncheckedconversions from '../html/uncheckedconversions.js';
 import * as math from '../math/math.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
-goog.requireType('goog.graphics.canvasgraphics');
-goog.requireType('goog.graphics.element');
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.stroke');
+const {CanvasGraphics} = goog.requireType('goog.graphics.canvasgraphics');
+const {Element:GraphicsElement} = goog.requireType('goog.graphics.element');
+const {Fill} = goog.requireType('goog.graphics.fill');
+const {Stroke} = goog.requireType('goog.graphics.stroke');
 
 
 
@@ -39,7 +39,7 @@ goog.requireType('goog.graphics.stroke');
  * This is an implementation of the GroupElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
- * @param {goog.graphics.CanvasGraphics} graphics The graphics creating
+ * @param {CanvasGraphics} graphics The graphics creating
  *     this element.
  * @constructor
  * @extends {GroupElement}
@@ -54,7 +54,7 @@ export function CanvasGroupElement(graphics) {
 
  /**
   * Children contained by this group.
-  * @type {Array<goog.graphics.Element>}
+  * @type {Array<GraphicsElement>}
   * @private
   */
  this.children_ = [];
@@ -88,7 +88,7 @@ CanvasGroupElement.prototype.setSize = function(width, height) {
 
 /**
  * Append a child to the group.  Does not draw it
- * @param {goog.graphics.Element} element The child to append.
+ * @param {GraphicsElement} element The child to append.
  */
 CanvasGroupElement.prototype.appendChild = function(element) {
  this.children_.push(element);
@@ -109,7 +109,7 @@ CanvasGroupElement.prototype.draw = function(ctx) {
 
 /**
  * Removes an element from the group.
- * @param {!goog.graphics.Element} elem the element to remove.
+ * @param {!GraphicsElement} elem the element to remove.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 CanvasGroupElement.prototype.removeElement = function(elem) {
@@ -133,14 +133,14 @@ CanvasGroupElement.prototype.removeElement = function(elem) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.CanvasGraphics} graphics  The graphics creating
+ * @param {CanvasGraphics} graphics  The graphics creating
  *     this element.
  * @param {number} cx Center X coordinate.
  * @param {number} cy Center Y coordinate.
  * @param {number} rx Radius length for the x-axis.
  * @param {number} ry Radius length for the y-axis.
- * @param {goog.graphics.Stroke} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill} fill The fill to use for this element.
+ * @param {Stroke} stroke The stroke to use for this element.
+ * @param {Fill} fill The fill to use for this element.
  * @constructor
  * @extends {EllipseElement}
  * @final
@@ -257,14 +257,14 @@ CanvasEllipseElement.prototype.draw = function(ctx) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.CanvasGraphics} graphics The graphics creating
+ * @param {CanvasGraphics} graphics The graphics creating
  *     this element.
  * @param {number} x X coordinate (left).
  * @param {number} y Y coordinate (top).
  * @param {number} w Width of rectangle.
  * @param {number} h Height of rectangle.
- * @param {goog.graphics.Stroke} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill} fill The fill to use for this element.
+ * @param {Stroke} stroke The stroke to use for this element.
+ * @param {Fill} fill The fill to use for this element.
  * @constructor
  * @extends {RectElement}
  * @final
@@ -368,11 +368,11 @@ CanvasRectElement.prototype.draw = function(ctx) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.CanvasGraphics} graphics The graphics creating
+ * @param {CanvasGraphics} graphics The graphics creating
  *     this element.
  * @param {!Path} path The path object to draw.
- * @param {goog.graphics.Stroke} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill} fill The fill to use for this element.
+ * @param {Stroke} stroke The stroke to use for this element.
+ * @param {Fill} fill The fill to use for this element.
  * @constructor
  * @extends {PathElement}
  * @final
@@ -458,7 +458,7 @@ CanvasPathElement.prototype.draw = function(ctx) {
  * This is an implementation of the TextElement interface.
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
- * @param {!goog.graphics.CanvasGraphics} graphics The graphics creating
+ * @param {!CanvasGraphics} graphics The graphics creating
  *     this element.
  * @param {string} text The text to draw.
  * @param {number} x1 X coordinate of start of line.
@@ -467,8 +467,8 @@ CanvasPathElement.prototype.draw = function(ctx) {
  * @param {number} y2 Y coordinate of end of line.
  * @param {?string} align Horizontal alignment: left (default), center, right.
  * @param {!Font} font Font describing the font properties.
- * @param {goog.graphics.Stroke} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill} fill The fill to use for this element.
+ * @param {Stroke} stroke The stroke to use for this element.
+ * @param {Fill} fill The fill to use for this element.
  * @constructor
  * @extends {TextElement}
  * @final
@@ -560,7 +560,7 @@ CanvasTextElement.prototype.setText = function(text) {
 
 /**
  * Sets the fill for this element.
- * @param {goog.graphics.Fill} fill The fill object.
+ * @param {Fill} fill The fill object.
  * @override
  */
 CanvasTextElement.prototype.setFill = function(fill) {
@@ -575,7 +575,7 @@ CanvasTextElement.prototype.setFill = function(fill) {
 
 /**
  * Sets the stroke for this element.
- * @param {goog.graphics.Stroke} stroke The stroke object.
+ * @param {Stroke} stroke The stroke object.
  * @override
  */
 CanvasTextElement.prototype.setStroke = function(stroke) {
@@ -656,7 +656,7 @@ CanvasTextElement.prototype.updateText_ = function() {
    // Special case vertical text
    var html = this.text_.split('')
                   .map(function(entry) {
-    return string.htmlEscape(entry);
+    return googString.htmlEscape(entry);
    })
                   .join('<br>');
    // Creating a SafeHtml for each character would be quite expensive, and it's
@@ -683,7 +683,7 @@ CanvasTextElement.prototype.updateText_ = function() {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.CanvasGraphics} graphics The graphics creating
+ * @param {CanvasGraphics} graphics The graphics creating
  *     this element.
  * @param {number} x X coordinate (left).
  * @param {number} y Y coordinate (top).

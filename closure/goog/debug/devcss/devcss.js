@@ -19,7 +19,7 @@ import * as cssom from '../../cssom/cssom.js';
 import * as classlist from '../../dom/classlist.js';
 import * as events from '../../events/events.js';
 import { EventType } from '../../events/eventtype.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
 
 
@@ -87,7 +87,7 @@ export function DevCss(opt_userAgent, opt_userAgentVersion) {
    * @private
    */
   this.isIe6OrLess_ = this.userAgent_ == DevCss.UserAgent.IE &&
-      string.compareVersions('7', this.userAgentVersion_) > 0;
+      googString.compareVersions('7', this.userAgentVersion_) > 0;
 
   if (this.isIe6OrLess_) {
     /**
@@ -237,7 +237,7 @@ DevCss.prototype.getRuleVersionAndCompare_ = function(
   }
 
   const comparison =
-      string.compareVersions(this.userAgentVersion_, ruleVersion);
+      googString.compareVersions(this.userAgentVersion_, ruleVersion);
   return [comparison, ruleVersion];
 };
 

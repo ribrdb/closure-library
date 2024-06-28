@@ -29,7 +29,7 @@ import { Box } from '../../math/box.js';
 import object from '../../object/object.js';
 import * as positioning from '../../positioning/positioning.js';
 import { Corner, Overflow, OverflowStatus } from '../../positioning/positioning.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Const } from '../../string/const.js';
 import * as googStyle from '../../style/style.js';
 import { Component } from '../component.js';
@@ -246,7 +246,7 @@ Bubble.prototype.hasPanelOfType = function(type) {
  */
 Bubble.prototype.addPanel = function(
     type, title, targetElement, contentFn, opt_preferTopPosition) {
- const id = string.createUniqueString();
+ const id = googString.createUniqueString();
  const panel = new Bubble.Panel_(
      this.dom_, id, type, title, targetElement, !opt_preferTopPosition);
  this.panels_[id] = panel;

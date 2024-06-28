@@ -22,13 +22,13 @@ import { EventType } from '../events/eventtype.js';
 import { FocusHandler } from '../events/focushandler.js';
 import { Transition } from '../fx/transition.js';
 import { Size } from '../math/size.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { ModalAriaVisibilityHelper } from './modalariavisibilityhelper.js';
 import { PopupBase } from './popupbase.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.eventtarget');
 
 
@@ -240,7 +240,7 @@ ModalPopup.prototype.createDom = function() {
 
   var element = this.getElement();
   asserts.assert(element);
-  var allClasses = string.trim(this.getCssClass()).split(' ');
+  var allClasses = googString.trim(this.getCssClass()).split(' ');
   classlist.addAll(element, allClasses);
   googDom.setFocusableTabIndex(element, true);
   style.setElementShown(element, false);
@@ -346,7 +346,7 @@ ModalPopup.prototype.canDecorate = function(element) {
 ModalPopup.prototype.decorateInternal = function(element) {
   // Decorate the modal popup area element.
   ModalPopup.base(this, 'decorateInternal', element);
-  var allClasses = string.trim(this.getCssClass()).split(' ');
+  var allClasses = googString.trim(this.getCssClass()).split(' ');
 
   classlist.addAll(asserts.assert(this.getElement()), allClasses);
 

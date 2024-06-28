@@ -16,7 +16,7 @@ import { Component } from './component.js';
 import { Control } from './control.js';
 import { MenuSeparatorRenderer } from './menuseparatorrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -26,7 +26,7 @@ goog.requireType('goog.dom.dom');
  * its appearance on mouseover, etc.
  * @param {MenuSeparatorRenderer=} opt_renderer Renderer to render or
  *    decorate the separator; defaults to {@link MenuSeparatorRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *    document interaction.
  * @constructor
  * @extends {Control}

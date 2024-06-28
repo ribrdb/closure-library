@@ -25,8 +25,8 @@ import { InputHandler } from '../events/inputhandler.js';
 import * as style from '../style/style.js';
 import * as bidi from '../style/bidi.js';
 import { Component } from './component.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 goog.requireType('goog.math.rect');
 
@@ -35,7 +35,7 @@ goog.requireType('goog.math.rect');
 /**
  * Creates an HSV palette. Allows a user to select the hue, saturation and
  * value/brightness.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @param {string=} opt_color Optional initial color (default is red).
  * @param {string=} opt_class Optional base for creating classnames (default is
  *     goog.getCssName('goog-hsv-palette')).

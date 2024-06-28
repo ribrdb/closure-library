@@ -32,7 +32,7 @@ import { XhrIo } from '../../../net/xhrio.js';
 import { XmlHttpFactory } from '../../../net/xmlhttpfactory.js';
 import * as HttpCors from '../../../net/rpc/httpcors.js';
 import object from '../../../object/object.js';
-import * as string from '../../../string/string.js';
+import * as googString from '../../../string/string.js';
 import * as structs from '../../../structs/structs.js';
 
 /**
@@ -1824,7 +1824,7 @@ WebChannelBase.prototype.onRequestData = function(request, responseText) {
       this.clearDeadBackchannelTimer_();
     }
 
-    if (!string.isEmptyOrWhitespace(responseText)) {
+    if (!googString.isEmptyOrWhitespace(responseText)) {
       let response = this.wireCodec_.decodeMessage(responseText);
       this.onInput_(/** @type {!Array<?>} */ (response), request);
     }

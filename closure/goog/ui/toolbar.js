@@ -15,7 +15,7 @@ goog.declareModuleId('goog.ui.toolbar');
 
 import { Container } from './container.js';
 import { ToolbarRenderer } from './toolbarrenderer.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -27,7 +27,7 @@ goog.requireType('goog.dom.dom');
  *     decorate the toolbar; defaults to {@link ToolbarRenderer}.
  * @param {?Container.Orientation=} opt_orientation Toolbar orientation;
  *     defaults to `HORIZONTAL`.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {Container}
  */

@@ -12,7 +12,7 @@
 import * as aria from '../a11y/aria/aria.js';
 
 import { State } from '../a11y/aria/attributes.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -25,7 +25,7 @@ goog.requireType('goog.dom.dom');
  * 'body' element.
  *
  * @param {!Element} element The given element.
- * @param {!goog.dom.DomHelper} domHelper DomHelper for the page.
+ * @param {!DomHelper} domHelper DomHelper for the page.
  * @constructor
  */
 export function ModalAriaVisibilityHelper(element, domHelper) {
@@ -35,7 +35,7 @@ export function ModalAriaVisibilityHelper(element, domHelper) {
   this.element_ = element;
 
   /**
-   * @private {!goog.dom.DomHelper}
+   * @private {!DomHelper}
    */
   this.dom_ = domHelper;
 }

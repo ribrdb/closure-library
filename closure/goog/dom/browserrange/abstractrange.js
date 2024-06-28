@@ -22,10 +22,10 @@ import { TagName } from '../tagname.js';
 import { TextRangeIterator } from '../textrangeiterator.js';
 import * as iter from '../../iter/iter.js';
 import { Coordinate } from '../../math/coordinate.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { StringBuffer } from '../../string/stringbuffer.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
+const {RangeIterator} = goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -234,7 +234,7 @@ AbstractRange.prototype.getHtmlFragment = function() {
  iter.forEach(this, function(node, ignore, it) {
   if (node.nodeType == NodeType.TEXT) {
     output.append(
-        string.htmlEscape(
+        googString.htmlEscape(
             node.nodeValue.substring(
                 it.getStartTextOffset(), it.getEndTextOffset())));
   } else if (node.nodeType == NodeType.ELEMENT) {
@@ -280,7 +280,7 @@ AbstractRange.prototype.getValidHtml =
  * Returns a RangeIterator over the contents of the range.  Regardless of the
  * direction of the range, the iterator will move in document order.
  * @param {boolean=} opt_keys Unused for this iterator.
- * @return {!dom.RangeIterator} An iterator over tags in the range.
+ * @return {!RangeIterator} An iterator over tags in the range.
  */
 AbstractRange.prototype.__iterator__ = function(
     opt_keys) {

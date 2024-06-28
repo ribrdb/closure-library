@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.MenuItem}s.
+ * @fileoverview Renderer for {@link MenuItem}s.
  */
 
 goog.declareModuleId('goog.ui.menuitemrenderer');
@@ -17,14 +17,14 @@ import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { Component } from './component.js';
 import { ControlRenderer } from './controlrenderer.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menuitem');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
+const {MenuItem} = goog.requireType('goog.ui.menuitem');
 
 
 
 /**
- * Default renderer for {@link goog.ui.MenuItem}s.  Each item has the following
+ * Default renderer for {@link MenuItem}s.  Each item has the following
  * structure:
  *
  *    <div class="goog-menuitem">
@@ -108,7 +108,7 @@ MenuItemRenderer.prototype.getAriaRole = function() {
 /**
  * Overrides {@link ControlRenderer#createDom} by adding extra markup
  * and stying to the menu item's element if it is selectable or checkable.
- * @param {goog.ui.Control} item Menu item to render.
+ * @param {Control} item Menu item to render.
  * @return {!Element} Root element for the item.
  * @override
  */
@@ -133,7 +133,7 @@ MenuItemRenderer.prototype.getContentElement = function(element) {
  * Overrides {@link ControlRenderer#decorate} by initializing the
  * menu item to checkable based on whether the element to be decorated has
  * extra stying indicating that it should be.
- * @param {goog.ui.Control} item Menu item instance to decorate the element.
+ * @param {Control} item Menu item instance to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
@@ -146,7 +146,7 @@ MenuItemRenderer.prototype.decorate = function(item, element) {
             this.createContent(element.childNodes, item.getDomHelper())));
   }
   if (classlist.contains(element, goog.getCssName('goog-option'))) {
-    (/** @type {goog.ui.MenuItem} */ (item)).setCheckable(true);
+    (/** @type {MenuItem} */ (item)).setCheckable(true);
     this.setCheckable(item, element, true);
   }
   return MenuItemRenderer.superClass_.decorate.call(
@@ -160,7 +160,7 @@ MenuItemRenderer.prototype.decorate = function(item, element) {
  * making sure that the checkbox structure (for selectable/checkable menu
  * items) is preserved.
  * @param {Element} element The item's root element.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to be
+ * @param {ControlContent} content Text caption or DOM structure to be
  *     set as the item's content.
  * @override
  */
@@ -196,7 +196,7 @@ MenuItemRenderer.prototype.hasContentStructure = function(element) {
 /**
  * Wraps the given text caption or existing DOM node(s) in a structural element
  * containing the menu item's contents.
- * @param {goog.ui.ControlContent} content Menu item contents.
+ * @param {ControlContent} content Menu item contents.
  * @param {googDom.DomHelper} dom DOM helper for document interaction.
  * @return {!Element} Menu item content element.
  * @protected
@@ -210,7 +210,7 @@ MenuItemRenderer.prototype.createContent = function(content, dom) {
 
 /**
  * Enables/disables radio button semantics on the menu item.
- * @param {goog.ui.Control} item Menu item to update.
+ * @param {Control} item Menu item to update.
  * @param {Element} element Menu item element to update (may be null if the
  *     item hasn't been rendered yet).
  * @param {boolean} selectable Whether the item should be selectable.
@@ -225,7 +225,7 @@ MenuItemRenderer.prototype.setSelectable = function(
 
 /**
  * Enables/disables checkbox semantics on the menu item.
- * @param {goog.ui.Control} item Menu item to update.
+ * @param {Control} item Menu item to update.
  * @param {Element} element Menu item element to update (may be null if the
  *     item hasn't been rendered yet).
  * @param {boolean} checkable Whether the item should be checkable.
@@ -262,7 +262,7 @@ MenuItemRenderer.prototype.hasCheckBoxStructure = function(element) {
  * Adds or removes extra markup and CSS styling to the menu item to make it
  * selectable or non-selectable, depending on the value of the
  * `selectable` argument.
- * @param {!goog.ui.Control} item Menu item to update.
+ * @param {!Control} item Menu item to update.
  * @param {!Element} element Menu item element to update.
  * @param {boolean} enable Whether to add or remove the checkbox structure.
  * @protected

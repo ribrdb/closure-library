@@ -21,7 +21,7 @@ import * as asserts from '../../asserts/asserts.js';
 import * as dom from '../../dom/dom.js';
 import { TagName } from '../../dom/tagname.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 
 /**
@@ -172,7 +172,7 @@ export function setState(element, stateName, value) {
  */
 export function toggleState(el, attr) {
   var val = getState(el, attr);
-  if (!string.isEmptyOrWhitespace(string.makeSafe(val)) &&
+  if (!googString.isEmptyOrWhitespace(googString.makeSafe(val)) &&
       !(val == 'true' || val == 'false')) {
     removeState(el, /** @type {!State} */ (attr));
     return;

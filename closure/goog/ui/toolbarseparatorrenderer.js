@@ -14,7 +14,7 @@ import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import { MenuSeparatorRenderer } from './menuseparatorrenderer.js';
-goog.requireType('goog.ui.control');
+const {Control} = goog.requireType('goog.ui.control');
 
 
 
@@ -45,7 +45,7 @@ ToolbarSeparatorRenderer.CSS_CLASS =
  *    <div class="goog-toolbar-separator goog-inline-block">&nbsp;</div>
  *
  * Overrides {@link MenuSeparatorRenderer#createDom}.
- * @param {goog.ui.Control} separator goog.ui.Separator to render.
+ * @param {Control} separator Separator to render.
  * @return {!Element} Root element for the separator.
  * @override
  */
@@ -61,7 +61,7 @@ ToolbarSeparatorRenderer.prototype.createDom = function(separator) {
 /**
  * Takes an existing element, and decorates it with the separator.  Overrides
  * {@link MenuSeparatorRenderer#decorate}.
- * @param {goog.ui.Control} separator goog.ui.Separator to decorate the element.
+ * @param {Control} separator Separator to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {!Element} Decorated element.
  * @override

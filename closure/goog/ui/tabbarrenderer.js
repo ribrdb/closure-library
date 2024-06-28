@@ -14,7 +14,7 @@ import { Role } from '../a11y/aria/roles.js';
 import object from '../object/object.js';
 import { ContainerRenderer } from './containerrenderer.js';
 import { TabBar } from './tabbar.js';
-goog.requireType('goog.ui.container');
+const {Container} = goog.requireType('goog.ui.container');
 
 
 
@@ -61,7 +61,7 @@ TabBarRenderer.prototype.getCssClass = function() {
  * Sets the tab bar's state based on the given CSS class name, encountered
  * during decoration.  Overrides the superclass implementation by recognizing
  * class names representing tab bar orientation and location.
- * @param {goog.ui.Container} tabBar Tab bar to configure.
+ * @param {Container} tabBar Tab bar to configure.
  * @param {string} className CSS class name.
  * @param {string} baseClass Base class name used as the root of state-specific
  *     class names (typically the renderer's own class name).
@@ -92,7 +92,7 @@ TabBarRenderer.prototype.setStateFromClassName = function(
  * Returns all CSS class names applicable to the tab bar, based on its state.
  * Overrides the superclass implementation by appending the location-specific
  * class name to the list.
- * @param {goog.ui.Container} tabBar Tab bar whose CSS classes are to be
+ * @param {Container} tabBar Tab bar whose CSS classes are to be
  *     returned.
  * @return {!Array<string>} Array of CSS class names applicable to the tab bar.
  * @override

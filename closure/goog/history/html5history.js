@@ -19,7 +19,7 @@ import * as events from '../events/events.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
 import { Event } from './event.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

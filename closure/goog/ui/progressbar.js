@@ -22,7 +22,7 @@ import { EventType } from '../events/eventtype.js';
 import { Component } from './component.js';
 import { RangeModel } from './rangemodel.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.event');
+const {Event} = goog.requireType('goog.events.event');
 
 
 
@@ -281,7 +281,7 @@ ProgressBar.prototype.orientation_ =
 
 /**
  * Call back when the internal range model changes
- * @param {events.Event} e The event object.
+ * @param {Event} e The event object.
  * @private
  */
 ProgressBar.prototype.handleChange_ = function(e) {

@@ -12,7 +12,7 @@ import { Separator } from './separator.js';
 
 import { ToolbarSeparatorRenderer } from './toolbarseparatorrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -22,7 +22,7 @@ goog.requireType('goog.dom.dom');
  * @param {ToolbarSeparatorRenderer=} opt_renderer Renderer to render or
  *    decorate the separator; defaults to
  *     {@link ToolbarSeparatorRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *    document interaction.
  * @constructor
  * @extends {Separator}

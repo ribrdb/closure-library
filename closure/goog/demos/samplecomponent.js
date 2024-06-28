@@ -15,7 +15,7 @@ import { EventType } from '../events/eventtype.js';
 import { KeyCodes } from '../events/keycodes.js';
 import { KeyHandler } from '../events/keyhandler.js';
 import { Component } from '../ui/component.js';
-goog.requireType('goog.events.event');
+const {Event} = goog.requireType('goog.events.event');
 
 
 
@@ -139,7 +139,7 @@ export class SampleComponent extends Component {
 
   /**
    * Handles DIV element clicks, causing the DIV's colour to change.
-   * @param {goog.events.Event} event The click event.
+   * @param {Event} event The click event.
    * @private
    */
   onDivClicked_(event) {
@@ -149,7 +149,7 @@ export class SampleComponent extends Component {
   /**
    * Fired when user presses a key while the DIV has focus. If the user presses
    * space or enter, the color will be changed.
-   * @param {goog.events.Event} event The key event.
+   * @param {Event} event The key event.
    * @private
    * @suppress {strictMissingProperties} missing 'keyCode' prop
    */

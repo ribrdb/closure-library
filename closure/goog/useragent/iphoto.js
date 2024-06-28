@@ -12,7 +12,7 @@
  */
 
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 import * as userAgent from './useragent.js';
 
@@ -75,6 +75,6 @@ export var VERSION;
  *     than a given version.
  */
 export function isVersion(version) {
- return string.compareVersions(VERSION, version) >=
+ return googString.compareVersions(VERSION, version) >=
      0;
 }

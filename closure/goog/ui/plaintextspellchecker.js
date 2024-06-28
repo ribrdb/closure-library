@@ -25,7 +25,7 @@ import * as style from '../style/style.js';
 import { AbstractSpellChecker } from './abstractspellchecker.js';
 import { Component } from './component.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 goog.requireType('goog.math.size');
 goog.requireType('goog.ui.popupmenu');
@@ -462,7 +462,7 @@ PlainTextSpellChecker.prototype.getElementProperties = function(
 
 /**
  * Handles the click events.
- * @param {goog.events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -480,7 +480,7 @@ PlainTextSpellChecker.prototype.onWordClick_ = function(event) {
 /**
  * Handles window resize events.
  *
- * @param {goog.events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @private
  */
 PlainTextSpellChecker.prototype.onWindowResize_ = function(event) {
@@ -558,7 +558,7 @@ PlainTextSpellChecker.prototype.initAccessibility_ = function() {
 
 /**
  * Handles key down for overlay.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @return {boolean} The handled value.
  */
 PlainTextSpellChecker.prototype.handleOverlayKeyEvent = function(e) {
@@ -622,7 +622,7 @@ PlainTextSpellChecker.prototype.onCorrectionAction = function(event) {
 /**
  * Restores focus when the suggestion menu is hidden.
  *
- * @param {goog.events.BrowserEvent} event Blur event.
+ * @param {BrowserEvent} event Blur event.
  * @private
  */
 PlainTextSpellChecker.prototype.onCorrectionHide_ = function(event) {

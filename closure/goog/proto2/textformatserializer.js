@@ -21,7 +21,7 @@ import object from '../object/object.js';
 import { FieldDescriptor } from './fielddescriptor.js';
 import { Message } from './message.js';
 import { Serializer } from './serializer.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 
@@ -154,7 +154,7 @@ TextFormatSerializer.prototype.serializeUnknown_ = function(
       // don't have a 'length' property to use for enumeration, so go through
       // all properties and ignore the ones that aren't legal keys.
       for (var key in value) {
-        var keyAsNumber = string.parseInt(key);
+        var keyAsNumber = googString.parseInt(key);
         asserts.assert(math.isInt(keyAsNumber));
         this.serializeUnknown_(keyAsNumber, value[key], printer);
       }
@@ -166,7 +166,7 @@ TextFormatSerializer.prototype.serializeUnknown_ = function(
   }
 
   if (typeof value === 'string') {
-    value = string.quote(value);
+    value = googString.quote(value);
   }
   printer.append(tag);
   printer.append(': ');
@@ -206,7 +206,7 @@ TextFormatSerializer.prototype.printFieldValue_ = function(
 
     case FieldDescriptor.FieldType.BYTES:
     case FieldDescriptor.FieldType.STRING:
-      value = string.quote(value.toString());
+      value = googString.quote(value.toString());
       printer.append(value);
       break;
 
@@ -727,7 +727,7 @@ TextFormatSerializer.Parser.getNumberFromString_ = function(num) {
 TextFormatSerializer.Parser.parseNumericalConstant_ = function(
     identifier) {
   if (/^-?inf(?:inity)?f?$/i.test(identifier)) {
-    return Infinity * (string.startsWith(identifier, '-') ? -1 : 1);
+    return Infinity * (googString.startsWith(identifier, '-') ? -1 : 1);
   }
 
   if (/^nanf?$/i.test(identifier)) {

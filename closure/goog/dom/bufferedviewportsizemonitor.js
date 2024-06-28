@@ -23,15 +23,15 @@ import { Delay } from '../async/delay.js';
 import * as events from '../events/events.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.dom.viewportsizemonitor');
-goog.requireType('goog.math.size');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ViewportSizeMonitor } = goog.requireType('goog.dom.viewportsizemonitor');
+const {Size} = goog.requireType('goog.math.size');
 
 
 
 /**
  * Creates a new BufferedViewportSizeMonitor.
- * @param {!goog.dom.ViewportSizeMonitor} viewportSizeMonitor The
+ * @param {!ViewportSizeMonitor} viewportSizeMonitor The
  *     underlying viewport size monitor.
  * @param {number=} opt_bufferMs The buffer time, in ms. If not specified, this
  *     value defaults to {@link #RESIZE_EVENT_DELAY_MS_}.
@@ -50,14 +50,14 @@ export function BufferedViewportSizeMonitor(viewportSizeMonitor, opt_bufferMs) {
 
  /**
   * The underlying viewport size monitor.
-  * @type {goog.dom.ViewportSizeMonitor}
+  * @type {ViewportSizeMonitor}
   * @private
   */
  this.viewportSizeMonitor_ = viewportSizeMonitor;
 
  /**
   * The current size of the viewport.
-  * @type {goog.math.Size}
+  * @type {Size}
   * @private
   */
  this.currentSize_ = this.viewportSizeMonitor_.getSize();
@@ -176,7 +176,7 @@ BufferedViewportSizeMonitor.prototype.onWindowResize_ = function() {
 
 /**
  * Returns the current size of the viewport.
- * @return {goog.math.Size?} The current viewport size.
+ * @return {Size?} The current viewport size.
  */
 BufferedViewportSizeMonitor.prototype.getSize = function() {
  return this.currentSize_ ? this.currentSize_.clone() : null;

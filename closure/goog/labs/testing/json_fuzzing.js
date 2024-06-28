@@ -19,7 +19,7 @@
  * 5. Each array: length [0, 5), and may be nested too
  */
 
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 import { PseudoRandom } from '../../testing/pseudorandom.js';
 
@@ -238,7 +238,7 @@ JsonFuzzing.prototype.nextMessage_ = function(depth) {
         result['f' + i] = this.nextArray_(depth++);
         continue;
       case 2:
-        result['f' + i] = string.getRandomString();
+        result['f' + i] = googString.getRandomString();
         continue;
       case 3:
         result['f' + i] = this.nextNumber_();
@@ -285,7 +285,7 @@ JsonFuzzing.prototype.nextArray_ = function(depth) {
         result.push(this.nextArray_(depth++));
         continue;
       case 2:
-        result.push(string.getRandomString());
+        result.push(googString.getRandomString());
         continue;
       case 3:
         result.push(this.nextNumber_());

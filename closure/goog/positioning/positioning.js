@@ -18,7 +18,7 @@ import { Rect } from '../math/rect.js';
 import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
 import * as bidi from '../style/bidi.js';
-goog.requireType('goog.math.box');
+const {Box} = goog.requireType('goog.math.box');
 
 
 /**
@@ -147,7 +147,7 @@ export var OverflowStatus = {
  *    applied. Positive coordinates move the popup closer to the center of the
  *    anchor element. Negative coordinates move the popup away from the center
  *    of the anchor element.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
+ * @param {Box=} opt_margin A margin specified in pixels.
  *    After the normal positioning algorithm is applied and any offset, the
  *    margin is then applied. Positive coordinates move the popup away from the
  *    spot it was positioned towards its center. Negative coordinates move it
@@ -156,7 +156,7 @@ export var OverflowStatus = {
  *     not specified. Bitmap, {@see Overflow}.
  * @param {Size=} opt_preferredSize The preferred size of the
  *     movableElement.
- * @param {goog.math.Box=} opt_viewport Box object describing the dimensions of
+ * @param {Box=} opt_viewport Box object describing the dimensions of
  *     the viewport. The viewport is specified relative to offsetParent of
  *     `movableElement`. In other words, the viewport can be thought of as
  *     describing a "position: absolute" element contained in the offsetParent.
@@ -304,12 +304,12 @@ export function getVisiblePart_(el) {
  * @param {Element} movableElement The element to be positioned.
  * @param {Corner} movableElementCorner The corner of the
  *     movableElement that that should be positioned.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
+ * @param {Box=} opt_margin A margin specified in pixels.
  *    After the normal positioning algorithm is applied and any offset, the
  *    margin is then applied. Positive coordinates move the popup away from the
  *    spot it was positioned towards its center. Negative coordinates move it
  *    towards the spot it was positioned away from its center.
- * @param {goog.math.Box=} opt_viewport Box object describing the dimensions of
+ * @param {Box=} opt_viewport Box object describing the dimensions of
  *     the viewport. Required if opt_overflow is specified.
  * @param {?number=} opt_overflow Overflow handling mode. Defaults to IGNORE if
  *     not specified, {@see Overflow}.
@@ -363,12 +363,12 @@ export function positionAtCoordinate(
  *     positioned.
  * @param {Corner} elementCorner The corner of the
  *     movableElement that that should be positioned.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
+ * @param {Box=} opt_margin A margin specified in pixels.
  *    After the normal positioning algorithm is applied and any offset, the
  *    margin is then applied. Positive coordinates move the popup away from the
  *    spot it was positioned towards its center. Negative coordinates move it
  *    towards the spot it was positioned away from its center.
- * @param {goog.math.Box=} opt_viewport Box object describing the dimensions of
+ * @param {Box=} opt_viewport Box object describing the dimensions of
  *     the viewport. Required if opt_overflow is specified.
  * @param {?number=} opt_overflow Overflow handling mode. Defaults to IGNORE
  *     if not specified, {@see Overflow}.
@@ -429,7 +429,7 @@ export function getPositionAtCoordinate(
  *     position is adjusted.
  * @param {Size} size Size of element, updated if the size is
  *     adjusted.
- * @param {goog.math.Box} viewport Bounding box describing the viewport.
+ * @param {Box} viewport Bounding box describing the viewport.
  * @param {number} overflow Overflow handling mode,
  *     {@see Overflow}.
  * @return {OverflowStatus} Status bitmap,
@@ -540,7 +540,7 @@ export function adjustForViewport_(pos, size, viewport, overflow) {
              0);
   }
 
-  return /** @type {!goog.positioning.OverflowStatus} */ (status);
+  return /** @type {!OverflowStatus} */ (status);
 }
 
 

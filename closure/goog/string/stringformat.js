@@ -14,7 +14,7 @@
  * at the tests.
  */
 
-import * as string from './string.js';
+import * as googString from './string.js';
 
 
 /* TODO(johnlenz): format should not accept undefined as a parameter*/
@@ -112,9 +112,9 @@ format.demuxes_['s'] = function(
   // Otherwise we should find out where to put spaces.
   if (flags.indexOf('-', 0) > -1) {
     replacement = replacement +
-        string.repeat(' ', Number(width) - replacement.length);
+        googString.repeat(' ', Number(width) - replacement.length);
   } else {
-    replacement = string.repeat(' ', Number(width) - replacement.length) +
+    replacement = googString.repeat(' ', Number(width) - replacement.length) +
         replacement;
   }
   return replacement;
@@ -174,12 +174,12 @@ format.demuxes_['f'] = function(
   // Find out which side to pad, and if it's left side, then which character to
   // pad, and set the sign on the left and padding in the middle.
   if (flags.indexOf('-', 0) >= 0) {
-    replacement = sign + replacement + string.repeat(' ', padCount);
+    replacement = sign + replacement + googString.repeat(' ', padCount);
   } else {
     // Decides which character to pad.
     const paddingChar = (flags.indexOf('0', 0) >= 0) ? '0' : ' ';
     replacement =
-        sign + string.repeat(paddingChar, padCount) + replacement;
+        sign + googString.repeat(paddingChar, padCount) + replacement;
   }
 
   return replacement;

@@ -12,23 +12,23 @@ import { MenuButton } from './menubutton.js';
 
 import { ToolbarMenuButtonRenderer } from './toolbarmenubuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menu');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ButtonRenderer } = goog.requireType('goog.ui.buttonrenderer');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { Menu } = goog.requireType('goog.ui.menu');
 
 
 
 /**
  * A menu button control for a toolbar.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
- * @param {goog.ui.Menu=} opt_menu Menu to render under the button when clicked.
- * @param {goog.ui.ButtonRenderer=} opt_renderer Optional renderer used to
+ * @param {Menu=} opt_menu Menu to render under the button when clicked.
+ * @param {ButtonRenderer=} opt_renderer Optional renderer used to
  *     render or decorate the button; defaults to
  *     {@link ToolbarMenuButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {MenuButton}

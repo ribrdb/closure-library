@@ -27,20 +27,20 @@ import { Menu } from './menu.js';
 import { MenuItem } from './menuitem.js';
 import { SubMenuRenderer } from './submenurenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menuheader');
-goog.requireType('goog.ui.menuitemrenderer');
-goog.requireType('goog.ui.menuseparator');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const {Event} = goog.requireType('goog.events.event');
+const {KeyEvent} = goog.requireType('goog.events.keyevent');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
+const {MenuHeader} = goog.requireType('goog.ui.menuheader');
+const {MenuItemRenderer} = goog.requireType('goog.ui.menuitemrenderer');
+const {MenuSeparator} = goog.requireType('goog.ui.menuseparator');
 
 
 
 /**
  * Class representing a submenu that can be added as an item to other menus.
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to
+ * @param {ControlContent} content Text caption or DOM structure to
  *     display as the content of the submenu (use to add icons or styling to
  *     menus).
  * @param {*=} opt_model Data/model associated with the menu item.
@@ -274,7 +274,7 @@ SubMenu.prototype.dismissSiblings_ = function() {
  * it is highlighted.  If the arrow keys or enter key is pressed the sub menu
  * takes control and delegates further key events to its menu until it is
  * dismissed.
- * @param {goog.events.KeyEvent} e A key event.
+ * @param {KeyEvent} e A key event.
  * @return {boolean} Whether the event was handled.
  * @override
  */
@@ -325,7 +325,7 @@ SubMenu.prototype.handleKeyEvent = function(e) {
  * Listens to the sub menus items and ensures that this menu item is selected
  * while dismissing the others.  This handles the case when the user mouses
  * over other items on their way to the sub menu.
- * @param {goog.events.Event} e Enter event to handle.
+ * @param {Event} e Enter event to handle.
  * @private
  */
 SubMenu.prototype.onChildEnter_ = function(e) {
@@ -340,7 +340,7 @@ SubMenu.prototype.onChildEnter_ = function(e) {
 /**
  * Listens to the parent menu's hide event and ensures that all submenus are
  * hidden at the same time.
- * @param {goog.events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 SubMenu.prototype.onParentHidden_ = function(e) {
@@ -359,7 +359,7 @@ SubMenu.prototype.onParentHidden_ = function(e) {
  * @override
  * Sets a timer to show the submenu and then dispatches an ENTER event to the
  * parent menu.
- * @param {goog.events.BrowserEvent} e Mouse event to handle.
+ * @param {BrowserEvent} e Mouse event to handle.
  */
 SubMenu.prototype.handleMouseOver = function(e) {
   if (this.isEnabled()) {
@@ -384,7 +384,7 @@ SubMenu.prototype.getMenuDelay = function() {
 /**
  * Overrides the default mouseup event handler, so that the ACTION isn't
  * dispatched for the submenu itself, instead the submenu is shown instantly.
- * @param {goog.events.Event} e The browser event.
+ * @param {Event} e The browser event.
  * @return {boolean} True if the action was allowed to proceed, false otherwise.
  * @override
  */

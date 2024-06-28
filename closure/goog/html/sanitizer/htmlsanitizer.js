@@ -37,7 +37,7 @@ import * as attributeallowlists from './attributeallowlists.js';
 import noclobber from './noclobber.js';
 import * as uncheckedconversions from '../uncheckedconversions.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Const } from '../../string/const.js';
 
 
@@ -166,11 +166,11 @@ export function HtmlSanitizer(opt_builder) {
   // with a default cleanUpAttribute function. data-* attributes are inert as
   // per HTML5 specs, so not much sanitization needed.
   builder.dataAttributeWhitelist_.forEach(function(dataAttr) {
-    if (!string.startsWith(dataAttr, 'data-')) {
+    if (!googString.startsWith(dataAttr, 'data-')) {
       throw new asserts.AssertionError(
           'Only "data-" attributes allowed, got: %s.', [dataAttr]);
     }
-    if (string.startsWith(
+    if (googString.startsWith(
             dataAttr, HTML_SANITIZER_BOOKKEEPING_PREFIX_)) {
       throw new asserts.AssertionError(
           'Attributes with "%s" prefix are not allowed, got: %s.',
@@ -185,7 +185,7 @@ export function HtmlSanitizer(opt_builder) {
   // '-' and that they are not part of the reserved names.
   builder.customElementTagWhitelist_.forEach(function(customTag) {
     customTag = customTag.toUpperCase();
-    if (!string.contains(customTag, '-') ||
+    if (!googString.contains(customTag, '-') ||
         HTML_SANITIZER_INVALID_CUSTOM_TAGS_[customTag]) {
       throw new asserts.AssertionError(
           'Only valid custom element tag names allowed, got: %s.', [customTag]);
@@ -915,7 +915,7 @@ HtmlSanitizer.sanitizeCssDeclarationList_ = function(
  * @private
  */
 HtmlSanitizer.cleanUpAttribute_ = function(attrValue) {
-  return string.trim(attrValue);
+  return googString.trim(attrValue);
 };
 
 
@@ -929,7 +929,7 @@ HtmlSanitizer.cleanUpAttribute_ = function(attrValue) {
  */
 HtmlSanitizer.allowedAttributeValues_ = function(
     allowedValues, attrValue, policyHints) {
-  var trimmed = string.trim(attrValue);
+  var trimmed = googString.trim(attrValue);
   return array.contains(allowedValues, trimmed.toLowerCase()) ? trimmed :
                                                                      null;
 };
@@ -944,7 +944,7 @@ HtmlSanitizer.allowedAttributeValues_ = function(
  */
 HtmlSanitizer.sanitizeUrlFragment_ = function(
     urlFragment, policyHints) {
-  var trimmed = string.trim(urlFragment);
+  var trimmed = googString.trim(urlFragment);
   if (trimmed && trimmed.charAt(0) == '#') {
     // We do not apply the name or token policy to Url Fragments by design.
     return trimmed;
@@ -963,7 +963,7 @@ HtmlSanitizer.sanitizeUrlFragment_ = function(
  */
 HtmlSanitizer.sanitizeName_ = function(
     namePolicy, attrName, policyHints) {
-  var trimmed = string.trim(attrName);
+  var trimmed = googString.trim(attrName);
   /* NOTE(user):
    * There are two cases to be concerned about - escaped quotes in attribute
    * values which is the responsibility of the serializer and illegal
@@ -1007,7 +1007,7 @@ HtmlSanitizer.sanitizeClasses_ = function(
  */
 HtmlSanitizer.sanitizeId_ = function(
     tokenPolicy, attrValue, policyHints) {
-  var trimmed = string.trim(attrValue);
+  var trimmed = googString.trim(attrValue);
   return tokenPolicy(trimmed, policyHints);
 };
 
@@ -1123,7 +1123,7 @@ HtmlSanitizer.prototype.getStyleContainerId_ = function() {
   // If the builder was configured to create a random unique ID, create one, but
   // do so only if STYLE is allowed to begin with.
   return randomStyleContainmentEnabled && randomStyleContainmentNecessary ?
-      'sanitizer-' + string.getRandomString() :
+      'sanitizer-' + googString.getRandomString() :
       this.styleContainerId_;
 };
 
@@ -1197,7 +1197,7 @@ HtmlSanitizer.prototype.createElementWithoutAttributes =
 HtmlSanitizer.prototype.processElementAttribute = function(
     dirtyElement, attribute) {
   var attributeName = attribute.name;
-  if (string.startsWith(
+  if (googString.startsWith(
           attributeName,
           HTML_SANITIZER_BOOKKEEPING_PREFIX_)) {
     // This is the namespace for the data attributes added by the sanitizer. We
@@ -1210,8 +1210,8 @@ HtmlSanitizer.prototype.processElementAttribute = function(
 
   // Create policy hints object
   var policyHints = {
-    tagName: string.trim(elementName).toLowerCase(),
-    attributeName: string.trim(attributeName).toLowerCase()
+    tagName: googString.trim(elementName).toLowerCase(),
+    attributeName: googString.trim(attributeName).toLowerCase()
   };
   var policyContext = HtmlSanitizer.getContext_(
       policyHints.attributeName, dirtyElement);

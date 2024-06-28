@@ -24,7 +24,7 @@ import { Component } from './component.js';
 import { Control } from './control.js';
 import { PaletteRenderer } from './paletterenderer.js';
 import { SelectionModel } from './selectionmodel.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 goog.requireType('goog.events.keyevent');
 goog.requireType('goog.ui.controlcontent');

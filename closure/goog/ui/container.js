@@ -30,9 +30,9 @@ import { Component } from './component.js';
 import * as ComponentUtil from './componentutil.js';
 import { ContainerRenderer } from './containerrenderer.js';
 import { Control } from './control.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const {Event} = goog.requireType('goog.events.event');
+const {KeyEvent} = goog.requireType('goog.events.keyevent');
 
 
 
@@ -418,7 +418,7 @@ Container.prototype.enterDocument = function() {
 
 
 /**
- * @param {!goog.events.BrowserEvent} e Event to handle.
+ * @param {!BrowserEvent} e Event to handle.
  * @private
  */
 Container.prototype.preventPointerCapture_ = function(e) {
@@ -494,7 +494,7 @@ Container.prototype.disposeInternal = function() {
 
 /**
  * Handles ENTER events raised by child controls when they are navigated to.
- * @param {goog.events.Event} e ENTER event to handle.
+ * @param {Event} e ENTER event to handle.
  * @return {boolean} Whether to prevent handleMouseOver from handling
  *    the event.
  */
@@ -507,7 +507,7 @@ Container.prototype.handleEnterItem = function(e) {
 /**
  * Handles HIGHLIGHT events dispatched by items in the container when
  * they are highlighted.
- * @param {goog.events.Event} e Highlight event to handle.
+ * @param {Event} e Highlight event to handle.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 Container.prototype.handleHighlightItem = function(e) {
@@ -555,7 +555,7 @@ Container.prototype.handleHighlightItem = function(e) {
 /**
  * Handles UNHIGHLIGHT events dispatched by items in the container when
  * they are unhighlighted.
- * @param {goog.events.Event} e Unhighlight event to handle.
+ * @param {Event} e Unhighlight event to handle.
  */
 Container.prototype.handleUnHighlightItem = function(e) {
   if (e.target == this.getHighlighted()) {
@@ -573,7 +573,7 @@ Container.prototype.handleUnHighlightItem = function(e) {
 /**
  * Handles OPEN events dispatched by items in the container when they are
  * opened.
- * @param {goog.events.Event} e Open event to handle.
+ * @param {Event} e Open event to handle.
  */
 Container.prototype.handleOpenItem = function(e) {
   var item = /** @type {Control} */ (e.target);
@@ -589,7 +589,7 @@ Container.prototype.handleOpenItem = function(e) {
 /**
  * Handles CLOSE events dispatched by items in the container when they are
  * closed.
- * @param {goog.events.Event} e Close event to handle.
+ * @param {Event} e Close event to handle.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 Container.prototype.handleCloseItem = function(e) {
@@ -612,7 +612,7 @@ Container.prototype.handleCloseItem = function(e) {
  * Handles mousedown events over the container.  The default implementation
  * sets the "mouse button pressed" flag and, if the container is focusable,
  * grabs keyboard focus.
- * @param {goog.events.BrowserEvent} e Mousedown event to handle.
+ * @param {BrowserEvent} e Mousedown event to handle.
  */
 Container.prototype.handleMouseDown = function(e) {
   if (this.enabled_) {
@@ -634,7 +634,7 @@ Container.prototype.handleMouseDown = function(e) {
 /**
  * Handles mouseup events over the document.  The default implementation
  * clears the "mouse button pressed" flag.
- * @param {goog.events.BrowserEvent} e Mouseup event to handle.
+ * @param {BrowserEvent} e Mouseup event to handle.
  */
 Container.prototype.handleDocumentMouseUp = function(e) {
   this.setMouseButtonPressed(false);
@@ -645,7 +645,7 @@ Container.prototype.handleDocumentMouseUp = function(e) {
  * Handles mouse events originating from nodes belonging to the controls hosted
  * in the container.  Locates the child control based on the DOM node that
  * dispatched the event, and forwards the event to the control for handling.
- * @param {goog.events.BrowserEvent} e Mouse event to handle.
+ * @param {BrowserEvent} e Mouse event to handle.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 Container.prototype.handleChildMouseEvents = function(e) {
@@ -708,7 +708,7 @@ Container.prototype.getOwnerControl = function(node) {
 /**
  * Handles focus events raised when the container's key event target receives
  * keyboard focus.
- * @param {goog.events.BrowserEvent} e Focus event to handle.
+ * @param {BrowserEvent} e Focus event to handle.
  */
 Container.prototype.handleFocus = function(e) {
   // No-op in the base class.
@@ -718,7 +718,7 @@ Container.prototype.handleFocus = function(e) {
 /**
  * Handles blur events raised when the container's key event target loses
  * keyboard focus.  The default implementation clears the highlight index.
- * @param {goog.events.BrowserEvent} e Blur event to handle.
+ * @param {BrowserEvent} e Blur event to handle.
  */
 Container.prototype.handleBlur = function(e) {
   this.setHighlightedIndex(-1);
@@ -734,7 +734,7 @@ Container.prototype.handleBlur = function(e) {
  * Attempts to handle a keyboard event, if the control is enabled, by calling
  * {@link handleKeyEventInternal}.  Considered protected; should only be used
  * within this package and by subclasses.
- * @param {goog.events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} Whether the key event was handled.
  */
 Container.prototype.handleKeyEvent = function(e) {
@@ -754,7 +754,7 @@ Container.prototype.handleKeyEvent = function(e) {
  * false otherwise.  If the container is enabled, and a child is highlighted,
  * calls the child control's `handleKeyEvent` method to give the control
  * a chance to handle the event first.
- * @param {goog.events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} Whether the event was handled by the container (or one of
  *     its children).
  */

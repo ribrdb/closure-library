@@ -35,8 +35,8 @@ import { EventType } from '../events/eventtype.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.rect');
+const {Event} = goog.requireType('goog.events.event');
+const {Rect} = goog.requireType('goog.math.rect');
 
 
 
@@ -96,14 +96,14 @@ export function ScrollFloater(opt_parentElement, opt_domHelper) {
 
   /**
    * Container element's bounding rectangle.
-   * @type {?goog.math.Rect}
+   * @type {?Rect}
    * @private
    */
   this.containerBounds_ = null;
 
   /**
    * Element's original bounding rectangle.
-   * @type {?goog.math.Rect}
+   * @type {?Rect}
    * @private
    */
   this.originalBounds_ = null;
@@ -366,7 +366,7 @@ ScrollFloater.prototype.setContainerElement = function(container) {
 /**
  * When a scroll event occurs, compares the element's position to the current
  * document scroll position, and stops or starts floating behavior if needed.
- * @param {goog.events.Event=} opt_e The event, which is ignored.
+ * @param {Event=} opt_e The event, which is ignored.
  * @private
  */
 ScrollFloater.prototype.handleScroll_ = function(opt_e) {

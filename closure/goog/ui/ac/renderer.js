@@ -25,7 +25,7 @@ import { EventType } from '../../events/eventtype.js';
 import { FadeInAndShow, FadeOutAndHide } from '../../fx/dom.js';
 import * as positioning from '../../positioning/positioning.js';
 import { Corner, Overflow } from '../../positioning/positioning.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as style from '../../style/style.js';
 import { IdGenerator } from '../idgenerator.js';
 import { AutoComplete } from './autocomplete.js';
@@ -599,7 +599,7 @@ Renderer.prototype.setMenuClasses_ = function(elem) {
   asserts.assert(elem);
   // Legacy clients may set the renderer's className to a space-separated list
   // or even have a trailing space.
-  classlist.addAll(elem, string.trim(this.className).split(' '));
+  classlist.addAll(elem, googString.trim(this.className).split(' '));
 };
 
 
@@ -959,7 +959,7 @@ Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
   if (Array.isArray(tokenOrArray)) {
     // Remove invalid tokens from the array, which may leave us with nothing.
     tokenOrArray = tokenOrArray.filter(function(str) {
-      return !string.isEmptyOrWhitespace(string.makeSafe(str));
+      return !googString.isEmptyOrWhitespace(googString.makeSafe(str));
     });
   }
 
@@ -967,14 +967,14 @@ Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
   // will match on any of them.
   if (this.highlightAllTokens_) {
     if (Array.isArray(tokenOrArray)) {
-      var tokenArray = tokenOrArray.map(string.regExpEscape);
+      var tokenArray = tokenOrArray.map(googString.regExpEscape);
       token = tokenArray.join('|');
     } else {
       // Remove excess whitespace from the string so bars will separate valid
       // tokens in the regular expression.
-      token = string.collapseWhitespace(tokenOrArray);
+      token = googString.collapseWhitespace(tokenOrArray);
 
-      token = string.regExpEscape(token);
+      token = googString.regExpEscape(token);
       token = token.replace(/ /g, '|');
     }
   } else {
@@ -985,7 +985,7 @@ Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
     // tokens in the array, but only accept the first match.
     if (Array.isArray(tokenOrArray)) {
       token = tokenOrArray.length > 0 ?
-          string.regExpEscape(tokenOrArray[0]) :
+          googString.regExpEscape(tokenOrArray[0]) :
           '';
     } else {
       // For the single-match string token, we refuse to match anything if
@@ -994,7 +994,7 @@ Renderer.prototype.getTokenRegExp_ = function(tokenOrArray) {
       // goog.string.isEmptyOrWhitespace(goog.string.makeSafe(tokenOrArray))
       // case.)
       if (!/^\W/.test(tokenOrArray)) {
-        token = string.regExpEscape(tokenOrArray);
+        token = googString.regExpEscape(tokenOrArray);
       }
     }
   }

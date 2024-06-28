@@ -12,12 +12,12 @@ import { MouseAsMouseEventType } from '../events/mouseasmouseeventtype.js';
 
 import { MouseEvents } from '../events/mouseevents.js';
 import { PointerAsMouseEventType } from '../events/pointerasmouseeventtype.js';
-goog.requireType('goog.ui.component');
+const {Component} = goog.requireType('goog.ui.component');
 
 
 
 /**
- * @param {!goog.ui.Component} component
+ * @param {!Component} component
  * @return {!MouseEvents} The browser events that should be listened
  *     to for the given mouse events.
  */

@@ -13,7 +13,7 @@
 goog.declareModuleId('goog.events.keycodes');
 
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 /**
@@ -179,7 +179,7 @@ export var KeyCodes = {
  * many standard keyboard layouts that key combination would mean "select all",
  * and not actually modify the text.
  *
- * @param {goog.events.BrowserEvent} e A key event.
+ * @param {BrowserEvent} e A key event.
  * @return {boolean} Whether it's a text modifying key.
  */
 KeyCodes.isTextModifyingKeyEvent = function(e) {

@@ -16,7 +16,7 @@ import { TagName } from '../dom/tagname.js';
 import * as safe from '../dom/safe.js';
 import { SafeHtml } from '../html/safehtml.js';
 import { Component } from './component.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -24,7 +24,7 @@ goog.requireType('goog.dom.dom');
  * Creates a formpost object.
  * @constructor
  * @extends {Component}
- * @param {goog.dom.DomHelper=} opt_dom The DOM helper.
+ * @param {DomHelper=} opt_dom The DOM helper.
  * @final
  */
 export function FormPost(opt_dom) {

@@ -20,7 +20,7 @@ import * as editorRange from '../range.js';
 import { SafeHtml } from '../../html/safehtml.js';
 import * as legacyconversions from '../../html/legacyconversions.js';
 import platform from '../../labs/useragent/platform.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
 goog.requireType('goog.dom.abstractrange');
 goog.requireType('goog.dom.savedcaretrange');
@@ -216,11 +216,11 @@ RemoveFormatting.prototype.pasteHtml_ = function(html) {
   // Use markers to set the extent of the selection so that we can reselect it
   // afterwards. This works better than builtin range manipulation in FF and IE
   // because their implementations are so self-inconsistent and buggy.
-  var startSpanId = string.createUniqueString();
-  var endSpanId = string.createUniqueString();
+  var startSpanId = googString.createUniqueString();
+  var endSpanId = googString.createUniqueString();
   html = '<span id="' + startSpanId + '"></span>' + html + '<span id="' +
       endSpanId + '"></span>';
-  var dummyNodeId = string.createUniqueString();
+  var dummyNodeId = googString.createUniqueString();
   var dummySpanText = '<span id="' + dummyNodeId + '"></span>';
 
   let parent = this.getFieldObject().getRange().getContainerElement();
@@ -230,7 +230,7 @@ RemoveFormatting.prototype.pasteHtml_ = function(html) {
   // outside of the anchor tag. If the parent element is an anchor tag, we add
   // dummy content to avoid that scenario, and remove it once we've finished
   // pasting.
-  const placeholderAnchorContent = string.createUniqueString();
+  const placeholderAnchorContent = googString.createUniqueString();
   if (parent.tagName == TagName.A) {
     const safePlaceholderAnchorContent =
         SafeHtml.htmlEscape(placeholderAnchorContent);
@@ -619,8 +619,8 @@ RemoveFormatting.prototype.removeFormattingWorker_ =
               // values, even in a pre tag, so this is useless for IE.
               var nodeValue = preTagLevel > 0 ?
                   node.nodeValue :
-                  string.stripNewlines(node.nodeValue);
-              nodeValue = string.htmlEscape(nodeValue);
+                  googString.stripNewlines(node.nodeValue);
+              nodeValue = googString.htmlEscape(nodeValue);
               sb.push(nodeValue);
               continue;
 
@@ -723,7 +723,7 @@ RemoveFormatting.prototype.removeFormattingWorker_ =
       }
 
       // Replace &nbsp; with white space.
-      return string.normalizeSpaces(sb.join(''));
+      return googString.normalizeSpaces(sb.join(''));
     };
 
 

@@ -12,21 +12,21 @@ import { Button } from './button.js';
 
 import { ToolbarButtonRenderer } from './toolbarbuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.controlcontent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ButtonRenderer } = goog.requireType('goog.ui.buttonrenderer');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
  * A button control for a toolbar.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
  * @param {ButtonRenderer=} opt_renderer Optional renderer used to
  *     render or decorate the button; defaults to
  *     {@link ToolbarButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Button}

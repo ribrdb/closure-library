@@ -13,10 +13,7 @@ import * as aria from '../a11y/aria/aria.js';
 import { Role } from '../a11y/aria/roles.js';
 import * as dom from '../dom/dom.js';
 import * as events from './events.js';
-
-/** @suppress {extraRequire} */
 import { EventHandler } from './eventhandler.js';
-
 import { EventType } from './eventtype.js';
 import { EventWrapper } from './eventwrapper.js';
 import { KeyCodes } from './keycodes.js';

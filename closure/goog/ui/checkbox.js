@@ -16,13 +16,13 @@ import * as aria from '../a11y/aria/aria.js';
 import { State } from '../a11y/aria/attributes.js';
 import { EventType } from '../events/eventtype.js';
 import { KeyCodes } from '../events/keycodes.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { CheckboxRenderer } from './checkboxrenderer.js';
 import { Component } from './component.js';
 import { Control } from './control.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -32,7 +32,7 @@ goog.requireType('goog.events.browserevent');
  * The checkbox can also be enabled/disabled and get focused and highlighted.
  *
  * @param {Checkbox.State=} opt_checked Checked state to set.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @param {CheckboxRenderer=} opt_renderer Renderer used to render or
  *     decorate the checkbox; defaults to {@link CheckboxRenderer}.
@@ -211,7 +211,7 @@ Checkbox.prototype.enterDocument = function() {
   // Set aria label.
   var checkboxElement = this.getElementStrict();
   if (this.label_ && checkboxElement != this.label_ &&
-      string.isEmptyOrWhitespace(
+      googString.isEmptyOrWhitespace(
           aria.getLabel(checkboxElement))) {
     if (!this.label_.id) {
       this.label_.id = this.makeId('lbl');
@@ -224,7 +224,7 @@ Checkbox.prototype.enterDocument = function() {
 
 /**
  * Handles the click event.
- * @param {!goog.events.BrowserEvent} e The event.
+ * @param {!BrowserEvent} e The event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */

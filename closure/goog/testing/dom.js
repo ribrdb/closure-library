@@ -24,7 +24,7 @@ import * as safe from '../dom/safe.js';
 import * as uncheckedconversions from '../html/uncheckedconversions.js';
 import * as iter from '../iter/iter.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as style from '../style/style.js';
 import * as testingAsserts from './asserts.js';
@@ -155,8 +155,8 @@ export function exposeRange(range) {
  * @private
  */
 function checkUserAgents_(userAgents) {
-  if (string.startsWith(userAgents, '!')) {
-    if (string.contains(userAgents, ' ')) {
+  if (googString.startsWith(userAgents, '!')) {
+    if (googString.contains(userAgents, ' ')) {
       throw new Error('Only a single negative user agent may be specified');
     }
     return !userAgent[userAgents.slice(1)];
@@ -208,7 +208,7 @@ function nodeFilter_(node) {
   if (node.nodeType == NodeType.TEXT) {
     // If a node is part of a string of text nodes and it has spaces in it,
     // we allow it since it's going to affect the merging of nodes done below.
-    if (string.isBreakingWhitespace(node.nodeValue) &&
+    if (googString.isBreakingWhitespace(node.nodeValue) &&
         (!node.previousSibling ||
          node.previousSibling.nodeType != NodeType.TEXT) &&
         (!node.nextSibling ||
@@ -379,8 +379,8 @@ export function assertHtmlContentsMatch(htmlPattern, actual, opt_strictAttribute
       }
 
       var expectedText = getExpectedText_(expectedNode);
-      if ((actualText && !string.isBreakingWhitespace(actualText)) ||
-          (expectedText && !string.isBreakingWhitespace(expectedText))) {
+      if ((actualText && !googString.isBreakingWhitespace(actualText)) ||
+          (expectedText && !googString.isBreakingWhitespace(expectedText))) {
         var normalizedActual = actualText.replace(/\s+/g, ' ');
         var normalizedExpected = expectedText.replace(/\s+/g, ' ');
 

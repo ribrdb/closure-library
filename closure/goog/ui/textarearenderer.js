@@ -25,7 +25,7 @@ import { TagName } from '../dom/tagname.js';
 
 import { Component } from './component.js';
 import { ControlRenderer } from './controlrenderer.js';
-goog.requireType('goog.ui.control');
+const {Control} = goog.requireType('goog.ui.control');
 
 
 
@@ -71,7 +71,7 @@ TextareaRenderer.prototype.decorate = function(control, element) {
 /**
  * Returns the textarea's contents wrapped in an HTML textarea element.  Sets
  * the textarea's disabled attribute as needed.
- * @param {goog.ui.Control} textarea Textarea to render.
+ * @param {Control} textarea Textarea to render.
  * @return {!Element} Root element for the Textarea control (an HTML textarea
  *     element).
  * @override
@@ -151,7 +151,7 @@ TextareaRenderer.prototype.updateAriaState = function() {};
  * Sets up the textarea control such that it doesn't waste time adding
  * functionality that is already natively supported by browser
  * textareas.
- * @param {goog.ui.Control} textarea Textarea control to configure.
+ * @param {Control} textarea Textarea control to configure.
  * @private
  */
 TextareaRenderer.prototype.setUpTextarea_ = function(textarea) {

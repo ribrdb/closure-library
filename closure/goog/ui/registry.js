@@ -12,17 +12,17 @@ import * as asserts from '../asserts/asserts.js';
 
 import * as classlist from '../dom/classlist.js';
 import object from '../object/object.js';
-goog.requireType('goog.ui.component');
-goog.requireType('goog.ui.controlrenderer');
+const {Component} = goog.requireType('goog.ui.component');
+const {ControlRenderer} = goog.requireType('goog.ui.controlrenderer');
 
 
 /**
- * Given a {@link goog.ui.Component} constructor, returns an instance of its
+ * Given a {@link Component} constructor, returns an instance of its
  * default renderer.  If the default renderer is a singleton, returns the
  * singleton instance; otherwise returns a new instance of the renderer class.
  * @param {!Function} componentCtor Component constructor function (for example
  *     `goog.ui.Button`).
- * @return {?goog.ui.ControlRenderer} Renderer instance (for example the
+ * @return {?ControlRenderer} Renderer instance (for example the
  *     singleton instance of `goog.ui.ButtonRenderer`), or null if
  *     no default renderer was found.
  */
@@ -52,7 +52,7 @@ export function getDefaultRenderer(componentCtor) {
 
 
 /**
- * Sets the default renderer for the given {@link goog.ui.Component}
+ * Sets the default renderer for the given {@link Component}
  * constructor.
  * @param {Function} componentCtor Component constructor function (for example
  *     `goog.ui.Button`).
@@ -77,11 +77,11 @@ export function setDefaultRenderer(componentCtor, rendererCtor) {
 
 
 /**
- * Returns the {@link goog.ui.Component} instance created by the decorator
+ * Returns the {@link Component} instance created by the decorator
  * factory function registered for the given CSS class name, or null if no
  * decorator factory function was found.
  * @param {string} className CSS class name.
- * @return {goog.ui.Component?} Component instance.
+ * @return {Component?} Component instance.
  */
 export function getDecoratorByClassName(className) {
   return className in decoratorFunctions_ ?
@@ -92,11 +92,11 @@ export function getDecoratorByClassName(className) {
 
 /**
  * Maps a CSS class name to a function that returns a new instance of
- * {@link goog.ui.Component} or a subclass, suitable to decorate an element
+ * {@link Component} or a subclass, suitable to decorate an element
  * that has the specified CSS class.
  * @param {string} className CSS class name.
  * @param {Function} decoratorFn No-argument function that returns a new
- *     instance of a {@link goog.ui.Component} to decorate an element.
+ *     instance of a {@link Component} to decorate an element.
  * @throws {Error} If the class name or the decorator function is invalid.
  */
 export function setDecoratorByClassName(className, decoratorFn) {
@@ -114,13 +114,13 @@ export function setDecoratorByClassName(className, decoratorFn) {
 
 
 /**
- * Returns an instance of {@link goog.ui.Component} or a subclass suitable to
+ * Returns an instance of {@link Component} or a subclass suitable to
  * decorate the given element, based on its CSS class.
  *
  * TODO(nnaze): Type of element should be {!Element}.
  *
  * @param {Element} element Element to decorate.
- * @return {goog.ui.Component?} Component to decorate the element (null if
+ * @return {Component?} Component to decorate the element (null if
  *     none).
  */
 export function getDecorator(element) {
@@ -146,7 +146,7 @@ reset = function() {
 
 
 /**
- * Map of {@link goog.ui.Component} constructor unique IDs to the constructors
+ * Map of {@link Component} constructor unique IDs to the constructors
  * of their default {@link goog.ui.Renderer}s.
  * @type {Object}
  * @private

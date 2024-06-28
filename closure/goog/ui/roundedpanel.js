@@ -24,8 +24,8 @@ import { Coordinate } from '../math/coordinate.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.graphics.abstractgraphics');
-goog.requireType('goog.math.size');
+const {AbstractGraphics} = goog.requireType('goog.graphics.abstractgraphics');
+const {Size} = goog.requireType('goog.math.size');
 
 
 /**
@@ -421,7 +421,7 @@ GraphicsRoundedPanel.prototype.endAngles_;
 
 /**
  * Graphics object for rendering the background.
- * @type {graphics.AbstractGraphics}
+ * @type {AbstractGraphics}
  * @private
  */
 GraphicsRoundedPanel.prototype.graphics_;
@@ -539,7 +539,7 @@ GraphicsRoundedPanel.prototype.disposeInternal = function() {
 /**
  * Calculates the start coordinates, circle centers, and angles, for the rounded
  * corners at each corner of the panel.
- * @param {math.Size} elementSize The size of element_.
+ * @param {Size} elementSize The size of element_.
  * @private
  */
 GraphicsRoundedPanel.prototype.calculateArcParameters_ = function(

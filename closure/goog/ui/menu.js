@@ -37,7 +37,7 @@ goog.declareModuleId('goog.ui.menu');
 
 import { TagName } from '../dom/tagname.js';
 import { Coordinate } from '../math/coordinate.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component, Component as uiComponent } from './component.js';
 import { Container, Container as uiContainer } from './container.js';
@@ -45,8 +45,8 @@ import { MenuHeader } from './menuheader.js';
 import { MenuItem } from './menuitem.js';
 import { MenuRenderer } from './menurenderer.js';
 import { MenuSeparator } from './menuseparator.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { Event } = goog.requireType('goog.events.event');
 
 // The dependencies MenuHeader, MenuItem, and MenuSeparator are implicit.
 // There are no references in the code, but we need to load these
@@ -57,7 +57,7 @@ goog.requireType('goog.events.event');
 // TODO(robbyw): Reverse constructor argument order for consistency.
 /**
  * A basic menu class.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @param {MenuRenderer=} opt_renderer Renderer used to render or
  *     decorate the container; defaults to {@link MenuRenderer}.
  * @constructor
@@ -342,7 +342,7 @@ Menu.prototype.getAllowHighlightDisabled = function() {
  * @param {boolean} show Whether to show or hide the menu.
  * @param {boolean=} opt_force If true, doesn't check whether the menu
  *     already has the requested visibility, and doesn't dispatch any events.
- * @param {goog.events.Event=} opt_e Mousedown event that caused this menu to
+ * @param {Event=} opt_e Mousedown event that caused this menu to
  *     be made visible (ignored if show is false).
  */
 Menu.prototype.setVisible = function(show, opt_force, opt_e) {
@@ -379,7 +379,7 @@ Menu.prototype.handleEnterItem = function(e) {
  * @return {boolean} Whether a matching prefix was found.
  */
 Menu.prototype.highlightNextPrefix = function(charStr) {
-  var re = new RegExp('^' + string.regExpEscape(charStr), 'i');
+  var re = new RegExp('^' + googString.regExpEscape(charStr), 'i');
   return this.highlightHelper(function(index, max) {
     // Index is >= -1 because it is set to -1 when nothing is selected.
     var start = index < 0 ? 0 : index;

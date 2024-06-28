@@ -27,7 +27,7 @@ import * as log from '../log/log.js';
 import { AbstractChannel } from './abstractchannel.js';
 import { DeferredChannel } from './deferredchannel.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
 goog.requireType('goog.events.event');
 goog.requireType('goog.messaging.messagechannel');
@@ -212,7 +212,7 @@ PortChannel.FLAG = '--goog.messaging.PortChannel';
  * @private
  */
 PortChannel.REQUIRES_SERIALIZATION_ = userAgent.WEBKIT &&
-    string.compareVersions(userAgent.VERSION, '533') < 0;
+    googString.compareVersions(userAgent.VERSION, '533') < 0;
 
 
 /**

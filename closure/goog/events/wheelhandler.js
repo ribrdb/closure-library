@@ -37,7 +37,7 @@ import { WheelEvent } from './wheelevent.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
 import * as product from '../useragent/product.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

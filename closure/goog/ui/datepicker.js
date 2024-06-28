@@ -31,7 +31,7 @@ import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { DefaultDatePickerRenderer } from './defaultdatepickerrenderer.js';
 import { IdGenerator } from './idgenerator.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.i18n.datetimesymbols');
 goog.requireType('goog.ui.datepickerrenderer');
 
@@ -1094,7 +1094,7 @@ DatePicker.prototype.disposeInternal = function() {
 
 /**
  * Click handler for date grid.
- * @param {goog.events.BrowserEvent} event Click event.
+ * @param {BrowserEvent} event Click event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -1117,7 +1117,7 @@ DatePicker.prototype.handleGridClick_ = function(event) {
 /**
  * Keypress handler for date grid.
  *
- * @param {goog.events.BrowserEvent} event Keypress event.
+ * @param {BrowserEvent} event Keypress event.
  * @private
  */
 DatePicker.prototype.handleGridKeyPress_ = function(event) {
@@ -1182,7 +1182,7 @@ DatePicker.prototype.handleGridKeyPress_ = function(event) {
 /**
  * Click handler for month button. Opens month selection menu.
  *
- * @param {goog.events.BrowserEvent} event Click event.
+ * @param {BrowserEvent} event Click event.
  * @private
  */
 DatePicker.prototype.showMonthMenu_ = function(event) {
@@ -1201,7 +1201,7 @@ DatePicker.prototype.showMonthMenu_ = function(event) {
 /**
  * Click handler for year button. Opens year selection menu.
  *
- * @param {goog.events.BrowserEvent} event Click event.
+ * @param {BrowserEvent} event Click event.
  * @private
  */
 DatePicker.prototype.showYearMenu_ = function(event) {
@@ -1316,7 +1316,7 @@ DatePicker.prototype.createMenu_ = function(
 /**
  * Click handler for menu.
  *
- * @param {goog.events.BrowserEvent} event Click event.
+ * @param {BrowserEvent} event Click event.
  * @private
  */
 DatePicker.prototype.handleMenuClick_ = function(event) {
@@ -1331,7 +1331,7 @@ DatePicker.prototype.handleMenuClick_ = function(event) {
 
 /**
  * Keypress handler for menu.
- * @param {goog.events.BrowserEvent} event Keypress event.
+ * @param {BrowserEvent} event Keypress event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

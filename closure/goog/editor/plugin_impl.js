@@ -17,11 +17,11 @@ import * as log from '../log/log.js';
 import object from '../object/object.js';
 import * as reflect from '../reflect/reflect.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.editor.field');
 // TODO(user): Remove the dependency on goog.editor.Command asap. Currently only
 // needed for execCommand issues with links.
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 /**
  * Abstract API for trogedit plugins.
@@ -68,7 +68,7 @@ goog.inherits(PluginImpl, EventTarget);
 
 
 /**
- * @return {goog.dom.DomHelper?} The dom helper object associated with the
+ * @return {DomHelper?} The dom helper object associated with the
  *     currently active field.
  */
 PluginImpl.prototype.getFieldDomHelper = function() {
@@ -266,7 +266,7 @@ PluginImpl.IRREPRESSIBLE_OPS = object.createSet(
 /**
  * Handles keydown. It is run before handleKeyboardShortcut and if it returns
  * true handleKeyboardShortcut will not be called.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @return {boolean} Whether the event was handled and thus should *not* be
  *     propagated to other plugins or handleKeyboardShortcut.
  */
@@ -276,7 +276,7 @@ PluginImpl.prototype.handleKeyDown;
 /**
  * Handles keypress. It is run before handleKeyboardShortcut and if it returns
  * true handleKeyboardShortcut will not be called.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @return {boolean} Whether the event was handled and thus should *not* be
  *     propagated to other plugins or handleKeyboardShortcut.
  */
@@ -285,7 +285,7 @@ PluginImpl.prototype.handleKeyPress;
 
 /**
  * Handles keyup.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @return {boolean} Whether the event was handled and thus should *not* be
  *     propagated to other plugins.
  */
@@ -294,7 +294,7 @@ PluginImpl.prototype.handleKeyUp;
 
 /**
  * Handles selection change.
- * @param {!goog.events.BrowserEvent=} opt_e The browser event.
+ * @param {!BrowserEvent=} opt_e The browser event.
  * @param {!Node=} opt_target The node the selection changed to.
  * @return {boolean} Whether the event was handled and thus should *not* be
  *     propagated to other plugins.
@@ -315,7 +315,7 @@ PluginImpl.prototype.handleSelectionChange;
  * in goog.editor.Field.POTENTIAL_SHORTCUT_KEYCODES_) are pressed without
  * ctrl/meta keys. We specifically don't invoke it when altKey is pressed since
  * alt key is used in many i18n UIs to enter certain characters.
- * @param {!goog.events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @param {string} key The key pressed.
  * @param {boolean} isModifierPressed Whether the ctrl/meta key was pressed or
  *     not.

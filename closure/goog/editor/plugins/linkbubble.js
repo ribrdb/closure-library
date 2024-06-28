@@ -19,12 +19,12 @@ import { Command } from '../command.js';
 import { Link } from '../link.js';
 import { AbstractBubblePlugin } from './abstractbubbleplugin.js';
 import * as functions from '../../functions/functions.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as style from '../../style/style.js';
 import * as messages from '../../ui/editor/messages.js';
 import * as utils from '../../uri/utils.js';
 import * as window from '../../window/window.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -403,7 +403,7 @@ LinkBubble.prototype.createBubbleContents = function(
           style: 'color:' + color
         },
         '');
-    var linkText = string.truncateMiddle(linkObj.linkText, 48);
+    var linkText = googString.truncateMiddle(linkObj.linkText, 48);
     // Actually creates a pseudo-link that can't be right-clicked to open in a
     // new tab, because that would avoid the logic to stop referrer leaks.
     this.createLink(
@@ -502,7 +502,7 @@ LinkBubble.prototype.getLinkToTextObj_ = function() {
 
 /**
  * Shows the link dialog.
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 LinkBubble.prototype.showLinkDialog_ = function(e) {
@@ -519,7 +519,7 @@ LinkBubble.prototype.showLinkDialog_ = function(e) {
 
 /**
  * Deletes the link associated with the bubble
- * @param {goog.events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 LinkBubble.prototype.deleteLink_ = function(e) {

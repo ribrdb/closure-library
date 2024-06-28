@@ -18,7 +18,7 @@ import * as classlist from '../../dom/classlist.js';
 import * as style from '../../style/style.js';
 import { PaletteRenderer } from '../paletterenderer.js';
 import { Emoji } from './emoji.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.ui.palette');
 goog.requireType('goog.ui.emoji.spriteinfo');
 
@@ -69,7 +69,7 @@ EmojiPaletteRenderer.getCssClass = function() {
 /**
  * Creates a palette item from the given emoji data.
  *
- * @param {goog.dom.DomHelper} dom DOM helper for constructing DOM elements.
+ * @param {DomHelper} dom DOM helper for constructing DOM elements.
  * @param {string} id Goomoji id for the emoji.
  * @param {goog.ui.emoji.SpriteInfo} spriteInfo Spriting info for the emoji.
  * @param {string} displayUrl URL of the image served for this cell, whether
@@ -133,7 +133,7 @@ EmojiPaletteRenderer.prototype.updateAnimatedPaletteItem =
 /**
  * Builds the inner contents of a palette item out of sprite metadata.
  *
- * @param {goog.dom.DomHelper} dom DOM helper for constructing DOM elements.
+ * @param {DomHelper} dom DOM helper for constructing DOM elements.
  * @param {goog.ui.emoji.SpriteInfo} spriteInfo The metadata to create the css
  *     for the sprite.
  * @param {string} displayUrl The URL of the image for this cell.

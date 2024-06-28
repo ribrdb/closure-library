@@ -15,7 +15,7 @@ import * as dom from '../dom/dom.js';
 import * as events from '../events/events.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { InputHandler } from '../events/inputhandler.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

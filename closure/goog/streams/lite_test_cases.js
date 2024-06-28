@@ -12,7 +12,6 @@ import {
   ReadableStreamUnderlyingSource,
 } from './lite_types.js';
 
-/** @suppress {extraRequire} */
 import * as jsunit from '../testing/jsunit.js';
 
 class TestCases {

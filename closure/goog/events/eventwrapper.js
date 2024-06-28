@@ -10,8 +10,8 @@
 
 goog.declareModuleId('goog.events.eventwrapper');
 
-goog.requireType('goog.events.eventhandler');
-goog.requireType('goog.events.events');
+const {EventHandler} = goog.requireType('goog.events.eventhandler');
+const {ListenableType} = goog.requireType('goog.events.events');
 
 
 
@@ -24,16 +24,16 @@ export function EventWrapper() {}
 
 /**
  * Adds an event listener using the wrapper on a DOM Node or an object that has
- * implemented {@link goog.events.EventTarget}. A listener can only be added
+ * implemented {@link EventTarget}. A listener can only be added
  * once to an object.
  *
- * @param {goog.events.ListenableType} src The node to listen to events on.
+ * @param {ListenableType} src The node to listen to events on.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener Callback
  *     method, or an object with a handleEvent function.
  * @param {boolean=} opt_capt Whether to fire in capture phase (defaults to
  *     false).
  * @param {Object=} opt_scope Element in whose scope to call the listener.
- * @param {goog.events.EventHandler=} opt_eventHandler Event handler to add
+ * @param {EventHandler=} opt_eventHandler Event handler to add
  *     listener to.
  */
 EventWrapper.prototype.listen = function(
@@ -43,13 +43,13 @@ EventWrapper.prototype.listen = function(
 /**
  * Removes an event listener added using EventWrapper.listen.
  *
- * @param {goog.events.ListenableType} src The node to remove listener from.
+ * @param {ListenableType} src The node to remove listener from.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener Callback
  *     method, or an object with a handleEvent function.
  * @param {boolean=} opt_capt Whether to fire in capture phase (defaults to
  *     false).
  * @param {Object=} opt_scope Element in whose scope to call the listener.
- * @param {goog.events.EventHandler=} opt_eventHandler Event handler to remove
+ * @param {EventHandler=} opt_eventHandler Event handler to remove
  *     listener from.
  */
 EventWrapper.prototype.unlisten = function(

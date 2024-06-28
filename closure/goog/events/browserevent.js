@@ -203,7 +203,7 @@ goog.inherits(BrowserEvent, Event);
  * as usual.
  */
 BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY =
-    goog.define('goog.events.BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY', false);
+    goog.define('BrowserEvent.USE_LAYER_XY_AS_OFFSET_XY', false);
 
 
 /**

@@ -14,9 +14,9 @@ import { Button } from './button.js';
 import { Component } from './component.js';
 import { CustomButtonRenderer } from './custombuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.controlcontent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ButtonRenderer } = goog.requireType('goog.ui.buttonrenderer');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -25,11 +25,11 @@ goog.requireType('goog.ui.controlcontent');
  * {@link CustomButtonRenderer} by default, though any
  * {@link ButtonRenderer} would work.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
  * @param {ButtonRenderer=} opt_renderer Renderer used to render or
  *     decorate the button; defaults to {@link CustomButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Button}

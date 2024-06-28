@@ -20,12 +20,12 @@ import * as dom from '../dom/dom.js';
 import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { ControlContent } from './controlcontent.js';
 import * as userAgent from '../useragent/useragent.js';  // circular
-goog.requireType('goog.ui.control');
+const {Control} = goog.requireType('goog.ui.control');
 
 
 
@@ -182,7 +182,7 @@ ControlRenderer.prototype.getAriaRole = function() {
 /**
  * Returns the control's contents wrapped in a DIV, with the renderer's own
  * CSS class and additional state-specific classes applied to it.
- * @param {goog.ui.Control} control Control to render.
+ * @param {Control} control Control to render.
  * @return {Element} Root element for the control.
  */
 ControlRenderer.prototype.createDom = function(control) {
@@ -214,7 +214,7 @@ ControlRenderer.prototype.getContentElement = function(element) {
  * to/from its root element. May add additional combined classes as needed in
  * IE6 and lower. Because of this, subclasses should use this method when
  * modifying class names on the control's root element.
- * @param {goog.ui.Control|Element} control Control instance (or root element)
+ * @param {Control|Element} control Control instance (or root element)
  *     to be updated.
  * @param {string} className CSS class name to add or remove.
  * @param {boolean} enable Whether to add or remove the class name.
@@ -235,7 +235,7 @@ ControlRenderer.prototype.enableClassName = function(
 /**
  * Updates the control's DOM by adding or removing the specified extra class
  * name to/from its element.
- * @param {goog.ui.Control} control Control to be updated.
+ * @param {Control} control Control to be updated.
  * @param {string} className CSS class name to add or remove.
  * @param {boolean} enable Whether to add or remove the class name.
  */
@@ -259,11 +259,11 @@ ControlRenderer.prototype.canDecorate = function(element) {
 
 
 /**
- * Default implementation of `decorate` for {@link goog.ui.Control}s.
+ * Default implementation of `decorate` for {@link Control}s.
  * Initializes the control's ID, content, and state based on the ID of the
  * element, its child nodes, and its CSS classes, respectively.  Returns the
  * element.
- * @param {goog.ui.Control} control Control instance to decorate the element.
+ * @param {Control} control Control instance to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  */
@@ -343,8 +343,8 @@ ControlRenderer.prototype.decorate = function(control, element) {
 /**
  * Initializes the control's DOM by configuring properties that can only be set
  * after the DOM has entered the document.  This implementation sets up BiDi
- * and keyboard focus.  Called from {@link goog.ui.Control#enterDocument}.
- * @param {goog.ui.Control} control Control whose DOM is to be initialized
+ * and keyboard focus.  Called from {@link Control#enterDocument}.
+ * @param {Control} control Control whose DOM is to be initialized
  *     as it enters the document.
  */
 ControlRenderer.prototype.initializeDom = function(control) {
@@ -390,7 +390,7 @@ ControlRenderer.prototype.setAriaRole = function(
  * universally supported ARIA properties and ARIA states that are only
  * supported by certain ARIA roles. Only attributes which are initialized to be
  * true will be set.
- * @param {!goog.ui.Control} control Control whose ARIA state will be updated.
+ * @param {!Control} control Control whose ARIA state will be updated.
  * @param {!Element} element Element whose ARIA state is to be updated.
  */
 ControlRenderer.prototype.setAriaStates = function(control, element) {
@@ -467,7 +467,7 @@ ControlRenderer.prototype.setRightToLeft = function(
 /**
  * Returns true if the control's key event target supports keyboard focus
  * (based on its `tabIndex` attribute), false otherwise.
- * @param {goog.ui.Control} control Control whose key event target is to be
+ * @param {Control} control Control whose key event target is to be
  *     checked.
  * @return {boolean} Whether the control's key event target is focusable.
  */
@@ -485,7 +485,7 @@ ControlRenderer.prototype.isFocusable = function(control) {
  * Updates the control's key event target to make it focusable or non-focusable
  * via its `tabIndex` attribute.  Does nothing if the control doesn't
  * support the `FOCUSED` state, or if it has no key event target.
- * @param {goog.ui.Control} control Control whose key event target is to be
+ * @param {Control} control Control whose key event target is to be
  *     updated.
  * @param {boolean} focusable Whether to enable keyboard focus support on the
  *     control's key event target.
@@ -536,7 +536,7 @@ ControlRenderer.prototype.setVisible = function(element, visible) {
 
 /**
  * Updates the appearance of the control in response to a state change.
- * @param {goog.ui.Control} control Control instance to update.
+ * @param {Control} control Control instance to update.
  * @param {Component.State} state State to enable or disable.
  * @param {boolean} enable Whether the control is entering or exiting the state.
  */
@@ -664,7 +664,7 @@ ControlRenderer.prototype.setContent = function(element, content) {
  * Returns the element within the component's DOM that should receive keyboard
  * focus (null if none).  The default implementation returns the control's root
  * element.
- * @param {goog.ui.Control} control Control whose key event target is to be
+ * @param {Control} control Control whose key event target is to be
  *     returned.
  * @return {Element} The key event target.
  */
@@ -736,7 +736,7 @@ ControlRenderer.prototype.getStructuralCssClass = function() {
  * </ol>
  * Since all controls have at least one renderer-specific CSS class name, this
  * method is guaranteed to return an array of at least one element.
- * @param {goog.ui.Control} control Control whose CSS classes are to be
+ * @param {Control} control Control whose CSS classes are to be
  *     returned.
  * @return {!Array<string>} Array of CSS class names applicable to the control.
  * @protected
@@ -874,7 +874,7 @@ ControlRenderer.prototype.createClassByStateMap_ = function() {
   // This ensures space-separated css classnames are not allowed, which some
   // ControlRenderers had been doing.  See http://b/13694665.
   var isValidClassName =
-      !string.contains(string.normalizeWhitespace(baseClass), ' ');
+      !googString.contains(googString.normalizeWhitespace(baseClass), ' ');
   asserts.assert(
       isValidClassName,
       'ControlRenderer has an invalid css class: \'' + baseClass + '\'');

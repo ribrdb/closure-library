@@ -39,7 +39,7 @@ import * as hooks from './browserchannelexecutionhooks.js';
 import * as stats from './browserchannelstats.js';
 import * as tmpnetwork from './tmpnetwork.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as structs from '../structs/structs.js';
 import { CircularBuffer } from '../structs/circularbuffer.js';
 goog.requireType('goog.debug.formatter');
@@ -109,7 +109,7 @@ export function BrowserChannel(
 
   /**
      * Parser for a response payload. The parser should return an array.
-     * @type {!string.Parser}
+     * @type {!googString.Parser}
      * @private
      */
   this.parser_ = new NativeJsonProcessor();
@@ -1187,7 +1187,7 @@ BrowserChannel.prototype.hasOutstandingRequests = function() {
 
 /**
  * Sets a new parser for the response payload.
- * @param {!string.Parser} parser Parser.
+ * @param {!googString.Parser} parser Parser.
  */
 BrowserChannel.prototype.setParser = function(parser) {
   this.parser_ = parser;
@@ -1689,7 +1689,7 @@ BrowserChannel.prototype.onRequestData = function(
     if (this.backChannelRequest_ == request) {
       this.clearDeadBackchannelTimer_();
     }
-    if (!string.isEmptyOrWhitespace(responseText)) {
+    if (!googString.isEmptyOrWhitespace(responseText)) {
       const response = this.parser_.parse(responseText);
       asserts.assert(Array.isArray(response));
       this.onInput_(/** @type {!Array<?>} */ (response));

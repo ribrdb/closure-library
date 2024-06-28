@@ -15,7 +15,7 @@ import { Timer } from '../../timer/timer.js';
 import { EventTarget } from '../../events/eventtarget.js';
 import { Error } from '../../fs/error.js';
 import { FileSaver } from '../../fs/filesaver.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Blob } from './blob.js';
 import { File } from './file.js';
 import { ProgressEvent } from './progressevent.js';
@@ -187,7 +187,7 @@ FileWriter.prototype.truncate = function(size) {
     const fileString = this.file_.toString();
     if (size > fileString.length) {
       this.file_.setDataInternal(
-          fileString + string.repeat('\0', size - fileString.length));
+          fileString + googString.repeat('\0', size - fileString.length));
     } else {
       this.file_.setDataInternal(fileString.substring(0, size));
     }

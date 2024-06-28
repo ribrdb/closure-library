@@ -12,7 +12,7 @@
 import * as asserts from '../../asserts/asserts.js';
 
 import { Matcher } from './matcher.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 
 
@@ -66,7 +66,7 @@ export function ContainsStringMatcher(value) {
 ContainsStringMatcher.prototype.matches =
     function(actualValue) {
      asserts.assertString(actualValue);
-     return string.contains(actualValue, this.value_);
+     return googString.contains(actualValue, this.value_);
     };
 
 
@@ -117,7 +117,7 @@ export function EndsWithMatcher(value) {
 EndsWithMatcher.prototype.matches = function(
     actualValue) {
  asserts.assertString(actualValue);
- return string.endsWith(actualValue, this.value_);
+ return googString.endsWith(actualValue, this.value_);
 };
 
 
@@ -172,10 +172,10 @@ export function EqualToIgnoringWhitespaceMatcher(value) {
 EqualToIgnoringWhitespaceMatcher.prototype
     .matches = function(actualValue) {
  asserts.assertString(actualValue);
- const collapsedActualValue = string.collapseWhitespace(actualValue);
- const collapsedExpectedValue = string.collapseWhitespace(this.value_);
+ const collapsedActualValue = googString.collapseWhitespace(actualValue);
+ const collapsedExpectedValue = googString.collapseWhitespace(this.value_);
 
- return string.caseInsensitiveCompare(
+ return googString.caseInsensitiveCompare(
             collapsedActualValue, collapsedExpectedValue) === 0;
 };
 
@@ -188,8 +188,8 @@ EqualToIgnoringWhitespaceMatcher.prototype
 EqualToIgnoringWhitespaceMatcher.prototype
     .describe = function(actualValue) {
  asserts.assertString(actualValue);
- const collapsedSuppliedValue = string.collapseWhitespace(actualValue);
- const collapsedExpectedString = string.collapseWhitespace(this.value_);
+ const collapsedSuppliedValue = googString.collapseWhitespace(actualValue);
+ const collapsedExpectedString = googString.collapseWhitespace(this.value_);
  return `"${actualValue}" collapses to "${
      collapsedSuppliedValue}" which is not equal(ignoring whitespace and case) to "${
      this.value_}" which collapses to "${collapsedExpectedString}"`;
@@ -334,7 +334,7 @@ export function StartsWithMatcher(value) {
 StartsWithMatcher.prototype.matches = function(
     actualValue) {
  asserts.assertString(actualValue);
- return string.startsWith(actualValue, this.value_);
+ return googString.startsWith(actualValue, this.value_);
 };
 
 
@@ -387,7 +387,7 @@ StringContainsInOrderMatcher.prototype.matches =
      asserts.assertString(actualValue);
      var currentIndex, previousIndex = 0;
      for (var i = 0; i < this.values_.length; i++) {
-       currentIndex = string.contains(actualValue, this.values_[i]);
+       currentIndex = googString.contains(actualValue, this.values_[i]);
        if (currentIndex < 0 || currentIndex < previousIndex) {
          return false;
        }

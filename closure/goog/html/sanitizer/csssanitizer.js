@@ -22,7 +22,7 @@ import inertDocument from './inertdocument.js';
 import noclobber from './noclobber.js';
 import * as uncheckedconversions from '../uncheckedconversions.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Const } from '../../string/const.js';
 import * as userAgent from '../../useragent/useragent.js';
 import * as product from '../../useragent/product.js';
@@ -400,6 +400,6 @@ function isDisallowedPropertyName_(propName) {
     // getPropertyValue doesn't deal with custom variables properly and will NOT
     // decode CSS escapes (but the browser will do so silently). Simply disallow
     // custom variables (http://www.w3.org/TR/css-variables/#defining-variables).
-    return string.startsWith(propName, '--') ||
-        string.startsWith(propName, 'var');
+    return googString.startsWith(propName, '--') ||
+        googString.startsWith(propName, 'var');
 }

@@ -31,7 +31,7 @@ import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { EventType } from '../events/eventtype.js';
 import { Component } from './component.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -351,7 +351,7 @@ Ratings.prototype.isEnabled = function() {
 
 /**
  * Handle the mouse moving over a star.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -373,7 +373,7 @@ Ratings.prototype.onMouseOver_ = function(e) {
 
 /**
  * Handle the mouse moving over a star.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -387,7 +387,7 @@ Ratings.prototype.onMouseOut_ = function(e) {
 
 /**
  * Handle the mouse moving over a star.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -404,7 +404,7 @@ Ratings.prototype.onClick_ = function(e) {
 
 /**
  * Handle the key down event. 0 = unselected in this case, 1 = the first rating
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 Ratings.prototype.onKeyDown_ = function(e) {

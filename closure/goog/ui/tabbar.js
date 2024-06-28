@@ -20,10 +20,10 @@ import { Tab } from './tab.js';
 
 import { TabBarRenderer } from './tabbarrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.component');
-goog.requireType('goog.ui.control');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { Event } = goog.requireType('goog.events.event');
+const { Component } = goog.requireType('goog.ui.component');
+const { Control } = goog.requireType('goog.ui.control');
 
 
 
@@ -47,7 +47,7 @@ goog.requireType('goog.ui.control');
  *     {@link TabBar.Location.TOP}.
  * @param {TabBarRenderer=} opt_renderer Renderer used to render or
  *     decorate the container; defaults to {@link TabBarRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper DOM helper, used for document
+ * @param {DomHelper=} opt_domHelper DOM helper, used for document
  *     interaction.
  * @constructor
  * @extends {Container}
@@ -99,7 +99,7 @@ TabBar.prototype.autoSelectTabs_ = true;
 
 /**
  * The currently selected tab (null if none).
- * @type {goog.ui.Control?}
+ * @type {Control?}
  * @private
  */
 TabBar.prototype.selectedTab_ = null;
@@ -129,13 +129,13 @@ TabBar.prototype.disposeInternal = function() {
  * @param {string|Component} tab Tab to remove.
  * @param {boolean=} opt_unrender Whether to call `exitDocument` on the
  *     removed tab, and detach its DOM from the document (defaults to false).
- * @return {?goog.ui.Control} The removed tab, if any.
+ * @return {?Control} The removed tab, if any.
  * @override
  */
 TabBar.prototype.removeChild = function(tab, opt_unrender) {
-  // This actually only accepts goog.ui.Controls. There's a TODO
+  // This actually only accepts Controls. There's a TODO
   // on the superclass method to fix this.
-  this.deselectIfSelected(/** @type {goog.ui.Control} */ (tab));
+  this.deselectIfSelected(/** @type {Control} */ (tab));
   return TabBar.superClass_.removeChild.call(this, tab, opt_unrender);
 };
 
@@ -200,7 +200,7 @@ TabBar.prototype.setHighlightedIndexFromKeyEvent = function(index) {
 
 
 /**
- * @return {goog.ui.Control?} The currently selected tab (null if none).
+ * @return {Control?} The currently selected tab (null if none).
  */
 TabBar.prototype.getSelectedTab = function() {
   return this.selectedTab_;
@@ -209,7 +209,7 @@ TabBar.prototype.getSelectedTab = function() {
 
 /**
  * Selects the given tab.
- * @param {goog.ui.Control?} tab Tab to select (null to select none).
+ * @param {Control?} tab Tab to select (null to select none).
  */
 TabBar.prototype.setSelectedTab = function(tab) {
   if (tab) {
@@ -247,7 +247,7 @@ TabBar.prototype.setSelectedTabIndex = function(index) {
  * then after the deselected tab).  Does nothing if the argument is not the
  * currently selected tab.  Called internally when a tab is removed, hidden,
  * or disabled, to ensure that another tab is selected instead.
- * @param {goog.ui.Control?} tab Tab to deselect (if any).
+ * @param {Control?} tab Tab to deselect (if any).
  * @protected
  */
 TabBar.prototype.deselectIfSelected = function(tab) {
@@ -278,7 +278,7 @@ TabBar.prototype.deselectIfSelected = function(tab) {
 /**
  * Returns true if the tab is selectable, false otherwise.  Only visible and
  * enabled tabs are selectable.
- * @param {goog.ui.Control} tab Tab to check.
+ * @param {Control} tab Tab to check.
  * @return {boolean} Whether the tab is selectable.
  * @protected
  */
@@ -289,7 +289,7 @@ TabBar.prototype.isSelectableTab = function(tab) {
 
 /**
  * Handles `SELECT` events dispatched by tabs as they become selected.
- * @param {goog.events.Event} e Select event to handle.
+ * @param {Event} e Select event to handle.
  * @protected
  */
 TabBar.prototype.handleTabSelect = function(e) {
@@ -303,7 +303,7 @@ TabBar.prototype.handleTabSelect = function(e) {
 
 /**
  * Handles `UNSELECT` events dispatched by tabs as they become deselected.
- * @param {goog.events.Event} e Unselect event to handle.
+ * @param {Event} e Unselect event to handle.
  * @protected
  */
 TabBar.prototype.handleTabUnselect = function(e) {
@@ -315,7 +315,7 @@ TabBar.prototype.handleTabUnselect = function(e) {
 
 /**
  * Handles `DISABLE` events displayed by tabs.
- * @param {goog.events.Event} e Disable event to handle.
+ * @param {Event} e Disable event to handle.
  * @protected
  */
 TabBar.prototype.handleTabDisable = function(e) {
@@ -325,7 +325,7 @@ TabBar.prototype.handleTabDisable = function(e) {
 
 /**
  * Handles `HIDE` events displayed by tabs.
- * @param {goog.events.Event} e Hide event to handle.
+ * @param {Event} e Hide event to handle.
  * @protected
  */
 TabBar.prototype.handleTabHide = function(e) {
@@ -337,7 +337,7 @@ TabBar.prototype.handleTabHide = function(e) {
  * Handles focus events dispatched by the tab bar's key event target.  If no tab
  * is currently highlighted, highlights the selected tab or the first tab if no
  * tab is selected either.
- * @param {goog.events.Event} e Focus event to handle.
+ * @param {Event} e Focus event to handle.
  * @protected
  * @override
  */

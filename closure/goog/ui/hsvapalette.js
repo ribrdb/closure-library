@@ -22,7 +22,7 @@ import { EventType } from '../events/eventtype.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { HsvPalette } from './hsvpalette.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.events.event');
 goog.requireType('goog.math.rect');
 
@@ -31,7 +31,7 @@ goog.requireType('goog.math.rect');
 /**
  * Creates an HSVA palette. Allows a user to select the hue, saturation,
  * value/brightness and alpha/opacity.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @param {string=} opt_color Optional initial color, without alpha (default is
  *     red).
  * @param {number=} opt_alpha Optional initial alpha (default is 1).

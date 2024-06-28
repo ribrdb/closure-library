@@ -16,7 +16,7 @@ import * as classlist from '../dom/classlist.js';
 import { EventType } from '../events/eventtype.js';
 import { ButtonRenderer } from './buttonrenderer.js';
 import { Component } from './component.js';
-goog.requireType('goog.ui.control');
+const {Control} = goog.requireType('goog.ui.control');
 
 
 
@@ -45,7 +45,7 @@ NativeButtonRenderer.prototype.getAriaRole = function() {
 /**
  * Returns the button's contents wrapped in a native HTML button element.  Sets
  * the button's disabled attribute as needed.
- * @param {goog.ui.Control} button Button to render.
+ * @param {Control} button Button to render.
  * @return {!Element} Root element for the button (a native HTML button
  *     element).
  * @override
@@ -106,7 +106,7 @@ NativeButtonRenderer.prototype.decorate = function(button, element) {
  */
 NativeButtonRenderer.prototype.initializeDom = function(button) {
  // WARNING:  This is a hack, and it is only applicable to native buttons,
- // which are special because they do natively what most goog.ui.Controls
+ // which are special because they do natively what most Controls
  // do programmatically.  Do not use your renderer's initializeDom method
  // to hook up event handlers!
  button.getHandler().listen(
@@ -204,7 +204,7 @@ NativeButtonRenderer.prototype.updateAriaState = function() {};
  * Sets up the button control such that it doesn't waste time adding
  * functionality that is already natively supported by native browser
  * buttons.
- * @param {goog.ui.Control} button Button control to configure.
+ * @param {Control} button Button control to configure.
  * @private
  */
 NativeButtonRenderer.prototype.setUpNativeButton_ = function(button) {

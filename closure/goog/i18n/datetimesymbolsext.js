@@ -11,14 +11,12 @@
  * This file covers those locales that are not covered in
  * "datetimesymbols.js".
  *
- * @suppress {const,missingRequire,useOfGoogProvide} Suppress "missing require"
- *     warnings for names like DateTimeSymbols_af.
- *     They are included by requiring DateTimeSymbols.
+ * @suppress {const,visibility} 
  */
 
 // clang-format off
 
-import { DateTimeSymbols, DateTimeSymbols_af, DateTimeSymbols_am, DateTimeSymbols_ar, DateTimeSymbols_az, DateTimeSymbols_be, DateTimeSymbols_bg, DateTimeSymbols_bn, DateTimeSymbols_br, DateTimeSymbols_bs, DateTimeSymbols_ca, DateTimeSymbols_chr, DateTimeSymbols_cs, DateTimeSymbols_cy, DateTimeSymbols_da, DateTimeSymbols_de, DateTimeSymbols_el, DateTimeSymbols_en, DateTimeSymbols_et, DateTimeSymbols_eu, DateTimeSymbols_fa, DateTimeSymbols_fi, DateTimeSymbols_fil, DateTimeSymbols_fr, DateTimeSymbols_ga, DateTimeSymbols_gl, DateTimeSymbols_gsw, DateTimeSymbols_gu, DateTimeSymbols_haw, DateTimeSymbols_he, DateTimeSymbols_hi, DateTimeSymbols_hr, DateTimeSymbols_hu, DateTimeSymbols_hy, DateTimeSymbols_id, DateTimeSymbols_is, DateTimeSymbols_it, DateTimeSymbols_ja, DateTimeSymbols_ka, DateTimeSymbols_kk, DateTimeSymbols_km, DateTimeSymbols_kn, DateTimeSymbols_ko, DateTimeSymbols_ky, DateTimeSymbols_ln, DateTimeSymbols_lo, DateTimeSymbols_lt, DateTimeSymbols_lv, DateTimeSymbols_mk, DateTimeSymbols_ml, DateTimeSymbols_mn, DateTimeSymbols_mr, DateTimeSymbols_ms, DateTimeSymbols_mt, DateTimeSymbols_my, DateTimeSymbols_nb, DateTimeSymbols_ne, DateTimeSymbols_nl, DateTimeSymbols_or, DateTimeSymbols_pa, DateTimeSymbols_pl, DateTimeSymbols_ro, DateTimeSymbols_ru, DateTimeSymbols_si, DateTimeSymbols_sk, DateTimeSymbols_sl, DateTimeSymbols_sq, DateTimeSymbols_sr, DateTimeSymbols_sv, DateTimeSymbols_sw, DateTimeSymbols_ta, DateTimeSymbols_te, DateTimeSymbols_th, DateTimeSymbols_tr, DateTimeSymbols_uk, DateTimeSymbols_ur, DateTimeSymbols_uz, DateTimeSymbols_vi, DateTimeSymbols_zh, DateTimeSymbols_zu  } from './datetimesymbols.js';
+import { DateTimeSymbols, DateTimeSymbols_af, DateTimeSymbols_am, DateTimeSymbols_ar, DateTimeSymbols_az, DateTimeSymbols_be, DateTimeSymbols_bg, DateTimeSymbols_bn, DateTimeSymbols_br, DateTimeSymbols_bs, DateTimeSymbols_ca, DateTimeSymbols_chr, DateTimeSymbols_cs, DateTimeSymbols_cy, DateTimeSymbols_da, DateTimeSymbols_de, DateTimeSymbols_el, DateTimeSymbols_en, DateTimeSymbols_et, DateTimeSymbols_eu, DateTimeSymbols_fa, DateTimeSymbols_fi, DateTimeSymbols_fil, DateTimeSymbols_fr, DateTimeSymbols_ga, DateTimeSymbols_gl, DateTimeSymbols_gsw, DateTimeSymbols_gu, DateTimeSymbols_haw, DateTimeSymbols_he, DateTimeSymbols_hi, DateTimeSymbols_hr, DateTimeSymbols_hu, DateTimeSymbols_hy, DateTimeSymbols_id, DateTimeSymbols_is, DateTimeSymbols_it, DateTimeSymbols_ja, DateTimeSymbols_ka, DateTimeSymbols_kk, DateTimeSymbols_km, DateTimeSymbols_kn, DateTimeSymbols_ko, DateTimeSymbols_ky, DateTimeSymbols_ln, DateTimeSymbols_lo, DateTimeSymbols_lt, DateTimeSymbols_lv, DateTimeSymbols_mk, DateTimeSymbols_ml, DateTimeSymbols_mn, DateTimeSymbols_mr, DateTimeSymbols_ms, DateTimeSymbols_mt, DateTimeSymbols_my, DateTimeSymbols_nb, DateTimeSymbols_ne, DateTimeSymbols_nl, DateTimeSymbols_or, DateTimeSymbols_pa, DateTimeSymbols_pl, DateTimeSymbols_ro, DateTimeSymbols_ru, DateTimeSymbols_si, DateTimeSymbols_sk, DateTimeSymbols_sl, DateTimeSymbols_sq, DateTimeSymbols_sr, DateTimeSymbols_sv, DateTimeSymbols_sw, DateTimeSymbols_ta, DateTimeSymbols_te, DateTimeSymbols_th, DateTimeSymbols_tr, DateTimeSymbols_uk, DateTimeSymbols_ur, DateTimeSymbols_uz, DateTimeSymbols_vi, DateTimeSymbols_zh, DateTimeSymbols_zu, internalSetDateTimeSymbols_  } from './datetimesymbols.js';
 
 /**
  * Date/time formatting symbols for locale af_NA.
@@ -16296,2698 +16294,2698 @@ export var DateTimeSymbols_zu_ZA = DateTimeSymbols_zu;
 switch (goog.LOCALE) {
   case 'af_NA':
   case 'af-NA':
-    DateTimeSymbols = DateTimeSymbols_af_NA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_af_NA);
     break;
   case 'af_ZA':
   case 'af-ZA':
-    DateTimeSymbols = DateTimeSymbols_af_ZA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_af_ZA);
     break;
   case 'agq':
-    DateTimeSymbols = DateTimeSymbols_agq;
+    internalSetDateTimeSymbols_(DateTimeSymbols_agq);
     break;
   case 'agq_CM':
   case 'agq-CM':
-    DateTimeSymbols = DateTimeSymbols_agq_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_agq_CM);
     break;
   case 'ak':
-    DateTimeSymbols = DateTimeSymbols_ak;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ak);
     break;
   case 'ak_GH':
   case 'ak-GH':
-    DateTimeSymbols = DateTimeSymbols_ak_GH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ak_GH);
     break;
   case 'am_ET':
   case 'am-ET':
-    DateTimeSymbols = DateTimeSymbols_am_ET;
+    internalSetDateTimeSymbols_(DateTimeSymbols_am_ET);
     break;
   case 'ar_001':
   case 'ar-001':
-    DateTimeSymbols = DateTimeSymbols_ar_001;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_001);
     break;
   case 'ar_AE':
   case 'ar-AE':
-    DateTimeSymbols = DateTimeSymbols_ar_AE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_AE);
     break;
   case 'ar_BH':
   case 'ar-BH':
-    DateTimeSymbols = DateTimeSymbols_ar_BH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_BH);
     break;
   case 'ar_DJ':
   case 'ar-DJ':
-    DateTimeSymbols = DateTimeSymbols_ar_DJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_DJ);
     break;
   case 'ar_EH':
   case 'ar-EH':
-    DateTimeSymbols = DateTimeSymbols_ar_EH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_EH);
     break;
   case 'ar_ER':
   case 'ar-ER':
-    DateTimeSymbols = DateTimeSymbols_ar_ER;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_ER);
     break;
   case 'ar_IL':
   case 'ar-IL':
-    DateTimeSymbols = DateTimeSymbols_ar_IL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_IL);
     break;
   case 'ar_IQ':
   case 'ar-IQ':
-    DateTimeSymbols = DateTimeSymbols_ar_IQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_IQ);
     break;
   case 'ar_JO':
   case 'ar-JO':
-    DateTimeSymbols = DateTimeSymbols_ar_JO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_JO);
     break;
   case 'ar_KM':
   case 'ar-KM':
-    DateTimeSymbols = DateTimeSymbols_ar_KM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_KM);
     break;
   case 'ar_KW':
   case 'ar-KW':
-    DateTimeSymbols = DateTimeSymbols_ar_KW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_KW);
     break;
   case 'ar_LB':
   case 'ar-LB':
-    DateTimeSymbols = DateTimeSymbols_ar_LB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_LB);
     break;
   case 'ar_LY':
   case 'ar-LY':
-    DateTimeSymbols = DateTimeSymbols_ar_LY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_LY);
     break;
   case 'ar_MA':
   case 'ar-MA':
-    DateTimeSymbols = DateTimeSymbols_ar_MA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_MA);
     break;
   case 'ar_MR':
   case 'ar-MR':
-    DateTimeSymbols = DateTimeSymbols_ar_MR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_MR);
     break;
   case 'ar_OM':
   case 'ar-OM':
-    DateTimeSymbols = DateTimeSymbols_ar_OM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_OM);
     break;
   case 'ar_PS':
   case 'ar-PS':
-    DateTimeSymbols = DateTimeSymbols_ar_PS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_PS);
     break;
   case 'ar_QA':
   case 'ar-QA':
-    DateTimeSymbols = DateTimeSymbols_ar_QA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_QA);
     break;
   case 'ar_SA':
   case 'ar-SA':
-    DateTimeSymbols = DateTimeSymbols_ar_SA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_SA);
     break;
   case 'ar_SD':
   case 'ar-SD':
-    DateTimeSymbols = DateTimeSymbols_ar_SD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_SD);
     break;
   case 'ar_SO':
   case 'ar-SO':
-    DateTimeSymbols = DateTimeSymbols_ar_SO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_SO);
     break;
   case 'ar_SS':
   case 'ar-SS':
-    DateTimeSymbols = DateTimeSymbols_ar_SS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_SS);
     break;
   case 'ar_SY':
   case 'ar-SY':
-    DateTimeSymbols = DateTimeSymbols_ar_SY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_SY);
     break;
   case 'ar_TD':
   case 'ar-TD':
-    DateTimeSymbols = DateTimeSymbols_ar_TD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_TD);
     break;
   case 'ar_TN':
   case 'ar-TN':
-    DateTimeSymbols = DateTimeSymbols_ar_TN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_TN);
     break;
   case 'ar_XB':
   case 'ar-XB':
-    DateTimeSymbols = DateTimeSymbols_ar_XB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_XB);
     break;
   case 'ar_YE':
   case 'ar-YE':
-    DateTimeSymbols = DateTimeSymbols_ar_YE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ar_YE);
     break;
   case 'as':
-    DateTimeSymbols = DateTimeSymbols_as;
+    internalSetDateTimeSymbols_(DateTimeSymbols_as);
     break;
   case 'as_IN':
   case 'as-IN':
-    DateTimeSymbols = DateTimeSymbols_as_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_as_IN);
     break;
   case 'asa':
-    DateTimeSymbols = DateTimeSymbols_asa;
+    internalSetDateTimeSymbols_(DateTimeSymbols_asa);
     break;
   case 'asa_TZ':
   case 'asa-TZ':
-    DateTimeSymbols = DateTimeSymbols_asa_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_asa_TZ);
     break;
   case 'ast':
-    DateTimeSymbols = DateTimeSymbols_ast;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ast);
     break;
   case 'ast_ES':
   case 'ast-ES':
-    DateTimeSymbols = DateTimeSymbols_ast_ES;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ast_ES);
     break;
   case 'az_Cyrl':
   case 'az-Cyrl':
-    DateTimeSymbols = DateTimeSymbols_az_Cyrl;
+    internalSetDateTimeSymbols_(DateTimeSymbols_az_Cyrl);
     break;
   case 'az_Cyrl_AZ':
   case 'az-Cyrl-AZ':
-    DateTimeSymbols = DateTimeSymbols_az_Cyrl_AZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_az_Cyrl_AZ);
     break;
   case 'az_Latn':
   case 'az-Latn':
-    DateTimeSymbols = DateTimeSymbols_az_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_az_Latn);
     break;
   case 'az_Latn_AZ':
   case 'az-Latn-AZ':
-    DateTimeSymbols = DateTimeSymbols_az_Latn_AZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_az_Latn_AZ);
     break;
   case 'bas':
-    DateTimeSymbols = DateTimeSymbols_bas;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bas);
     break;
   case 'bas_CM':
   case 'bas-CM':
-    DateTimeSymbols = DateTimeSymbols_bas_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bas_CM);
     break;
   case 'be_BY':
   case 'be-BY':
-    DateTimeSymbols = DateTimeSymbols_be_BY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_be_BY);
     break;
   case 'bem':
-    DateTimeSymbols = DateTimeSymbols_bem;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bem);
     break;
   case 'bem_ZM':
   case 'bem-ZM':
-    DateTimeSymbols = DateTimeSymbols_bem_ZM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bem_ZM);
     break;
   case 'bez':
-    DateTimeSymbols = DateTimeSymbols_bez;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bez);
     break;
   case 'bez_TZ':
   case 'bez-TZ':
-    DateTimeSymbols = DateTimeSymbols_bez_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bez_TZ);
     break;
   case 'bg_BG':
   case 'bg-BG':
-    DateTimeSymbols = DateTimeSymbols_bg_BG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bg_BG);
     break;
   case 'bgc':
-    DateTimeSymbols = DateTimeSymbols_bgc;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bgc);
     break;
   case 'bgc_IN':
   case 'bgc-IN':
-    DateTimeSymbols = DateTimeSymbols_bgc_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bgc_IN);
     break;
   case 'bho':
-    DateTimeSymbols = DateTimeSymbols_bho;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bho);
     break;
   case 'bho_IN':
   case 'bho-IN':
-    DateTimeSymbols = DateTimeSymbols_bho_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bho_IN);
     break;
   case 'bm':
-    DateTimeSymbols = DateTimeSymbols_bm;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bm);
     break;
   case 'bm_ML':
   case 'bm-ML':
-    DateTimeSymbols = DateTimeSymbols_bm_ML;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bm_ML);
     break;
   case 'bn_BD':
   case 'bn-BD':
-    DateTimeSymbols = DateTimeSymbols_bn_BD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bn_BD);
     break;
   case 'bn_IN':
   case 'bn-IN':
-    DateTimeSymbols = DateTimeSymbols_bn_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bn_IN);
     break;
   case 'bo':
-    DateTimeSymbols = DateTimeSymbols_bo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bo);
     break;
   case 'bo_CN':
   case 'bo-CN':
-    DateTimeSymbols = DateTimeSymbols_bo_CN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bo_CN);
     break;
   case 'bo_IN':
   case 'bo-IN':
-    DateTimeSymbols = DateTimeSymbols_bo_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bo_IN);
     break;
   case 'br_FR':
   case 'br-FR':
-    DateTimeSymbols = DateTimeSymbols_br_FR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_br_FR);
     break;
   case 'brx':
-    DateTimeSymbols = DateTimeSymbols_brx;
+    internalSetDateTimeSymbols_(DateTimeSymbols_brx);
     break;
   case 'brx_IN':
   case 'brx-IN':
-    DateTimeSymbols = DateTimeSymbols_brx_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_brx_IN);
     break;
   case 'bs_Cyrl':
   case 'bs-Cyrl':
-    DateTimeSymbols = DateTimeSymbols_bs_Cyrl;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bs_Cyrl);
     break;
   case 'bs_Cyrl_BA':
   case 'bs-Cyrl-BA':
-    DateTimeSymbols = DateTimeSymbols_bs_Cyrl_BA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bs_Cyrl_BA);
     break;
   case 'bs_Latn':
   case 'bs-Latn':
-    DateTimeSymbols = DateTimeSymbols_bs_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bs_Latn);
     break;
   case 'bs_Latn_BA':
   case 'bs-Latn-BA':
-    DateTimeSymbols = DateTimeSymbols_bs_Latn_BA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_bs_Latn_BA);
     break;
   case 'ca_AD':
   case 'ca-AD':
-    DateTimeSymbols = DateTimeSymbols_ca_AD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ca_AD);
     break;
   case 'ca_ES':
   case 'ca-ES':
-    DateTimeSymbols = DateTimeSymbols_ca_ES;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ca_ES);
     break;
   case 'ca_FR':
   case 'ca-FR':
-    DateTimeSymbols = DateTimeSymbols_ca_FR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ca_FR);
     break;
   case 'ca_IT':
   case 'ca-IT':
-    DateTimeSymbols = DateTimeSymbols_ca_IT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ca_IT);
     break;
   case 'ccp':
-    DateTimeSymbols = DateTimeSymbols_ccp;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ccp);
     break;
   case 'ccp_BD':
   case 'ccp-BD':
-    DateTimeSymbols = DateTimeSymbols_ccp_BD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ccp_BD);
     break;
   case 'ccp_IN':
   case 'ccp-IN':
-    DateTimeSymbols = DateTimeSymbols_ccp_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ccp_IN);
     break;
   case 'ce':
-    DateTimeSymbols = DateTimeSymbols_ce;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ce);
     break;
   case 'ce_RU':
   case 'ce-RU':
-    DateTimeSymbols = DateTimeSymbols_ce_RU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ce_RU);
     break;
   case 'ceb':
-    DateTimeSymbols = DateTimeSymbols_ceb;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ceb);
     break;
   case 'ceb_PH':
   case 'ceb-PH':
-    DateTimeSymbols = DateTimeSymbols_ceb_PH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ceb_PH);
     break;
   case 'cgg':
-    DateTimeSymbols = DateTimeSymbols_cgg;
+    internalSetDateTimeSymbols_(DateTimeSymbols_cgg);
     break;
   case 'cgg_UG':
   case 'cgg-UG':
-    DateTimeSymbols = DateTimeSymbols_cgg_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_cgg_UG);
     break;
   case 'chr_US':
   case 'chr-US':
-    DateTimeSymbols = DateTimeSymbols_chr_US;
+    internalSetDateTimeSymbols_(DateTimeSymbols_chr_US);
     break;
   case 'ckb':
-    DateTimeSymbols = DateTimeSymbols_ckb;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ckb);
     break;
   case 'ckb_Arab':
   case 'ckb-Arab':
-    DateTimeSymbols = DateTimeSymbols_ckb_Arab;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ckb_Arab);
     break;
   case 'ckb_Arab_IQ':
   case 'ckb-Arab-IQ':
-    DateTimeSymbols = DateTimeSymbols_ckb_Arab_IQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ckb_Arab_IQ);
     break;
   case 'ckb_Arab_IR':
   case 'ckb-Arab-IR':
-    DateTimeSymbols = DateTimeSymbols_ckb_Arab_IR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ckb_Arab_IR);
     break;
   case 'ckb_IQ':
   case 'ckb-IQ':
-    DateTimeSymbols = DateTimeSymbols_ckb_IQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ckb_IQ);
     break;
   case 'ckb_IR':
   case 'ckb-IR':
-    DateTimeSymbols = DateTimeSymbols_ckb_IR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ckb_IR);
     break;
   case 'cs_CZ':
   case 'cs-CZ':
-    DateTimeSymbols = DateTimeSymbols_cs_CZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_cs_CZ);
     break;
   case 'cv':
-    DateTimeSymbols = DateTimeSymbols_cv;
+    internalSetDateTimeSymbols_(DateTimeSymbols_cv);
     break;
   case 'cv_RU':
   case 'cv-RU':
-    DateTimeSymbols = DateTimeSymbols_cv_RU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_cv_RU);
     break;
   case 'cy_GB':
   case 'cy-GB':
-    DateTimeSymbols = DateTimeSymbols_cy_GB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_cy_GB);
     break;
   case 'da_DK':
   case 'da-DK':
-    DateTimeSymbols = DateTimeSymbols_da_DK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_da_DK);
     break;
   case 'da_GL':
   case 'da-GL':
-    DateTimeSymbols = DateTimeSymbols_da_GL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_da_GL);
     break;
   case 'dav':
-    DateTimeSymbols = DateTimeSymbols_dav;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dav);
     break;
   case 'dav_KE':
   case 'dav-KE':
-    DateTimeSymbols = DateTimeSymbols_dav_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dav_KE);
     break;
   case 'de_BE':
   case 'de-BE':
-    DateTimeSymbols = DateTimeSymbols_de_BE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_de_BE);
     break;
   case 'de_DE':
   case 'de-DE':
-    DateTimeSymbols = DateTimeSymbols_de_DE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_de_DE);
     break;
   case 'de_IT':
   case 'de-IT':
-    DateTimeSymbols = DateTimeSymbols_de_IT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_de_IT);
     break;
   case 'de_LI':
   case 'de-LI':
-    DateTimeSymbols = DateTimeSymbols_de_LI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_de_LI);
     break;
   case 'de_LU':
   case 'de-LU':
-    DateTimeSymbols = DateTimeSymbols_de_LU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_de_LU);
     break;
   case 'dje':
-    DateTimeSymbols = DateTimeSymbols_dje;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dje);
     break;
   case 'dje_NE':
   case 'dje-NE':
-    DateTimeSymbols = DateTimeSymbols_dje_NE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dje_NE);
     break;
   case 'doi':
-    DateTimeSymbols = DateTimeSymbols_doi;
+    internalSetDateTimeSymbols_(DateTimeSymbols_doi);
     break;
   case 'doi_IN':
   case 'doi-IN':
-    DateTimeSymbols = DateTimeSymbols_doi_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_doi_IN);
     break;
   case 'dsb':
-    DateTimeSymbols = DateTimeSymbols_dsb;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dsb);
     break;
   case 'dsb_DE':
   case 'dsb-DE':
-    DateTimeSymbols = DateTimeSymbols_dsb_DE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dsb_DE);
     break;
   case 'dua':
-    DateTimeSymbols = DateTimeSymbols_dua;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dua);
     break;
   case 'dua_CM':
   case 'dua-CM':
-    DateTimeSymbols = DateTimeSymbols_dua_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dua_CM);
     break;
   case 'dyo':
-    DateTimeSymbols = DateTimeSymbols_dyo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dyo);
     break;
   case 'dyo_SN':
   case 'dyo-SN':
-    DateTimeSymbols = DateTimeSymbols_dyo_SN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dyo_SN);
     break;
   case 'dz':
-    DateTimeSymbols = DateTimeSymbols_dz;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dz);
     break;
   case 'dz_BT':
   case 'dz-BT':
-    DateTimeSymbols = DateTimeSymbols_dz_BT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_dz_BT);
     break;
   case 'ebu':
-    DateTimeSymbols = DateTimeSymbols_ebu;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ebu);
     break;
   case 'ebu_KE':
   case 'ebu-KE':
-    DateTimeSymbols = DateTimeSymbols_ebu_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ebu_KE);
     break;
   case 'ee':
-    DateTimeSymbols = DateTimeSymbols_ee;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ee);
     break;
   case 'ee_GH':
   case 'ee-GH':
-    DateTimeSymbols = DateTimeSymbols_ee_GH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ee_GH);
     break;
   case 'ee_TG':
   case 'ee-TG':
-    DateTimeSymbols = DateTimeSymbols_ee_TG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ee_TG);
     break;
   case 'el_CY':
   case 'el-CY':
-    DateTimeSymbols = DateTimeSymbols_el_CY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_el_CY);
     break;
   case 'el_GR':
   case 'el-GR':
-    DateTimeSymbols = DateTimeSymbols_el_GR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_el_GR);
     break;
   case 'en_001':
   case 'en-001':
-    DateTimeSymbols = DateTimeSymbols_en_001;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_001);
     break;
   case 'en_150':
   case 'en-150':
-    DateTimeSymbols = DateTimeSymbols_en_150;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_150);
     break;
   case 'en_AE':
   case 'en-AE':
-    DateTimeSymbols = DateTimeSymbols_en_AE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_AE);
     break;
   case 'en_AG':
   case 'en-AG':
-    DateTimeSymbols = DateTimeSymbols_en_AG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_AG);
     break;
   case 'en_AI':
   case 'en-AI':
-    DateTimeSymbols = DateTimeSymbols_en_AI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_AI);
     break;
   case 'en_AS':
   case 'en-AS':
-    DateTimeSymbols = DateTimeSymbols_en_AS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_AS);
     break;
   case 'en_AT':
   case 'en-AT':
-    DateTimeSymbols = DateTimeSymbols_en_AT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_AT);
     break;
   case 'en_BB':
   case 'en-BB':
-    DateTimeSymbols = DateTimeSymbols_en_BB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BB);
     break;
   case 'en_BE':
   case 'en-BE':
-    DateTimeSymbols = DateTimeSymbols_en_BE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BE);
     break;
   case 'en_BI':
   case 'en-BI':
-    DateTimeSymbols = DateTimeSymbols_en_BI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BI);
     break;
   case 'en_BM':
   case 'en-BM':
-    DateTimeSymbols = DateTimeSymbols_en_BM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BM);
     break;
   case 'en_BS':
   case 'en-BS':
-    DateTimeSymbols = DateTimeSymbols_en_BS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BS);
     break;
   case 'en_BW':
   case 'en-BW':
-    DateTimeSymbols = DateTimeSymbols_en_BW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BW);
     break;
   case 'en_BZ':
   case 'en-BZ':
-    DateTimeSymbols = DateTimeSymbols_en_BZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_BZ);
     break;
   case 'en_CC':
   case 'en-CC':
-    DateTimeSymbols = DateTimeSymbols_en_CC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_CC);
     break;
   case 'en_CH':
   case 'en-CH':
-    DateTimeSymbols = DateTimeSymbols_en_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_CH);
     break;
   case 'en_CK':
   case 'en-CK':
-    DateTimeSymbols = DateTimeSymbols_en_CK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_CK);
     break;
   case 'en_CM':
   case 'en-CM':
-    DateTimeSymbols = DateTimeSymbols_en_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_CM);
     break;
   case 'en_CX':
   case 'en-CX':
-    DateTimeSymbols = DateTimeSymbols_en_CX;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_CX);
     break;
   case 'en_CY':
   case 'en-CY':
-    DateTimeSymbols = DateTimeSymbols_en_CY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_CY);
     break;
   case 'en_DE':
   case 'en-DE':
-    DateTimeSymbols = DateTimeSymbols_en_DE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_DE);
     break;
   case 'en_DG':
   case 'en-DG':
-    DateTimeSymbols = DateTimeSymbols_en_DG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_DG);
     break;
   case 'en_DK':
   case 'en-DK':
-    DateTimeSymbols = DateTimeSymbols_en_DK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_DK);
     break;
   case 'en_DM':
   case 'en-DM':
-    DateTimeSymbols = DateTimeSymbols_en_DM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_DM);
     break;
   case 'en_ER':
   case 'en-ER':
-    DateTimeSymbols = DateTimeSymbols_en_ER;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_ER);
     break;
   case 'en_FI':
   case 'en-FI':
-    DateTimeSymbols = DateTimeSymbols_en_FI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_FI);
     break;
   case 'en_FJ':
   case 'en-FJ':
-    DateTimeSymbols = DateTimeSymbols_en_FJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_FJ);
     break;
   case 'en_FK':
   case 'en-FK':
-    DateTimeSymbols = DateTimeSymbols_en_FK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_FK);
     break;
   case 'en_FM':
   case 'en-FM':
-    DateTimeSymbols = DateTimeSymbols_en_FM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_FM);
     break;
   case 'en_GD':
   case 'en-GD':
-    DateTimeSymbols = DateTimeSymbols_en_GD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GD);
     break;
   case 'en_GG':
   case 'en-GG':
-    DateTimeSymbols = DateTimeSymbols_en_GG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GG);
     break;
   case 'en_GH':
   case 'en-GH':
-    DateTimeSymbols = DateTimeSymbols_en_GH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GH);
     break;
   case 'en_GI':
   case 'en-GI':
-    DateTimeSymbols = DateTimeSymbols_en_GI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GI);
     break;
   case 'en_GM':
   case 'en-GM':
-    DateTimeSymbols = DateTimeSymbols_en_GM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GM);
     break;
   case 'en_GU':
   case 'en-GU':
-    DateTimeSymbols = DateTimeSymbols_en_GU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GU);
     break;
   case 'en_GY':
   case 'en-GY':
-    DateTimeSymbols = DateTimeSymbols_en_GY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_GY);
     break;
   case 'en_HK':
   case 'en-HK':
-    DateTimeSymbols = DateTimeSymbols_en_HK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_HK);
     break;
   case 'en_IL':
   case 'en-IL':
-    DateTimeSymbols = DateTimeSymbols_en_IL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_IL);
     break;
   case 'en_IM':
   case 'en-IM':
-    DateTimeSymbols = DateTimeSymbols_en_IM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_IM);
     break;
   case 'en_IO':
   case 'en-IO':
-    DateTimeSymbols = DateTimeSymbols_en_IO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_IO);
     break;
   case 'en_JE':
   case 'en-JE':
-    DateTimeSymbols = DateTimeSymbols_en_JE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_JE);
     break;
   case 'en_JM':
   case 'en-JM':
-    DateTimeSymbols = DateTimeSymbols_en_JM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_JM);
     break;
   case 'en_KE':
   case 'en-KE':
-    DateTimeSymbols = DateTimeSymbols_en_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_KE);
     break;
   case 'en_KI':
   case 'en-KI':
-    DateTimeSymbols = DateTimeSymbols_en_KI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_KI);
     break;
   case 'en_KN':
   case 'en-KN':
-    DateTimeSymbols = DateTimeSymbols_en_KN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_KN);
     break;
   case 'en_KY':
   case 'en-KY':
-    DateTimeSymbols = DateTimeSymbols_en_KY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_KY);
     break;
   case 'en_LC':
   case 'en-LC':
-    DateTimeSymbols = DateTimeSymbols_en_LC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_LC);
     break;
   case 'en_LR':
   case 'en-LR':
-    DateTimeSymbols = DateTimeSymbols_en_LR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_LR);
     break;
   case 'en_LS':
   case 'en-LS':
-    DateTimeSymbols = DateTimeSymbols_en_LS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_LS);
     break;
   case 'en_MG':
   case 'en-MG':
-    DateTimeSymbols = DateTimeSymbols_en_MG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MG);
     break;
   case 'en_MH':
   case 'en-MH':
-    DateTimeSymbols = DateTimeSymbols_en_MH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MH);
     break;
   case 'en_MO':
   case 'en-MO':
-    DateTimeSymbols = DateTimeSymbols_en_MO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MO);
     break;
   case 'en_MP':
   case 'en-MP':
-    DateTimeSymbols = DateTimeSymbols_en_MP;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MP);
     break;
   case 'en_MS':
   case 'en-MS':
-    DateTimeSymbols = DateTimeSymbols_en_MS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MS);
     break;
   case 'en_MT':
   case 'en-MT':
-    DateTimeSymbols = DateTimeSymbols_en_MT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MT);
     break;
   case 'en_MU':
   case 'en-MU':
-    DateTimeSymbols = DateTimeSymbols_en_MU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MU);
     break;
   case 'en_MV':
   case 'en-MV':
-    DateTimeSymbols = DateTimeSymbols_en_MV;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MV);
     break;
   case 'en_MW':
   case 'en-MW':
-    DateTimeSymbols = DateTimeSymbols_en_MW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MW);
     break;
   case 'en_MY':
   case 'en-MY':
-    DateTimeSymbols = DateTimeSymbols_en_MY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_MY);
     break;
   case 'en_NA':
   case 'en-NA':
-    DateTimeSymbols = DateTimeSymbols_en_NA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NA);
     break;
   case 'en_NF':
   case 'en-NF':
-    DateTimeSymbols = DateTimeSymbols_en_NF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NF);
     break;
   case 'en_NG':
   case 'en-NG':
-    DateTimeSymbols = DateTimeSymbols_en_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NG);
     break;
   case 'en_NL':
   case 'en-NL':
-    DateTimeSymbols = DateTimeSymbols_en_NL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NL);
     break;
   case 'en_NR':
   case 'en-NR':
-    DateTimeSymbols = DateTimeSymbols_en_NR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NR);
     break;
   case 'en_NU':
   case 'en-NU':
-    DateTimeSymbols = DateTimeSymbols_en_NU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NU);
     break;
   case 'en_NZ':
   case 'en-NZ':
-    DateTimeSymbols = DateTimeSymbols_en_NZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_NZ);
     break;
   case 'en_PG':
   case 'en-PG':
-    DateTimeSymbols = DateTimeSymbols_en_PG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_PG);
     break;
   case 'en_PH':
   case 'en-PH':
-    DateTimeSymbols = DateTimeSymbols_en_PH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_PH);
     break;
   case 'en_PK':
   case 'en-PK':
-    DateTimeSymbols = DateTimeSymbols_en_PK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_PK);
     break;
   case 'en_PN':
   case 'en-PN':
-    DateTimeSymbols = DateTimeSymbols_en_PN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_PN);
     break;
   case 'en_PR':
   case 'en-PR':
-    DateTimeSymbols = DateTimeSymbols_en_PR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_PR);
     break;
   case 'en_PW':
   case 'en-PW':
-    DateTimeSymbols = DateTimeSymbols_en_PW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_PW);
     break;
   case 'en_RW':
   case 'en-RW':
-    DateTimeSymbols = DateTimeSymbols_en_RW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_RW);
     break;
   case 'en_SB':
   case 'en-SB':
-    DateTimeSymbols = DateTimeSymbols_en_SB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SB);
     break;
   case 'en_SC':
   case 'en-SC':
-    DateTimeSymbols = DateTimeSymbols_en_SC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SC);
     break;
   case 'en_SD':
   case 'en-SD':
-    DateTimeSymbols = DateTimeSymbols_en_SD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SD);
     break;
   case 'en_SE':
   case 'en-SE':
-    DateTimeSymbols = DateTimeSymbols_en_SE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SE);
     break;
   case 'en_SH':
   case 'en-SH':
-    DateTimeSymbols = DateTimeSymbols_en_SH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SH);
     break;
   case 'en_SI':
   case 'en-SI':
-    DateTimeSymbols = DateTimeSymbols_en_SI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SI);
     break;
   case 'en_SL':
   case 'en-SL':
-    DateTimeSymbols = DateTimeSymbols_en_SL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SL);
     break;
   case 'en_SS':
   case 'en-SS':
-    DateTimeSymbols = DateTimeSymbols_en_SS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SS);
     break;
   case 'en_SX':
   case 'en-SX':
-    DateTimeSymbols = DateTimeSymbols_en_SX;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SX);
     break;
   case 'en_SZ':
   case 'en-SZ':
-    DateTimeSymbols = DateTimeSymbols_en_SZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_SZ);
     break;
   case 'en_TC':
   case 'en-TC':
-    DateTimeSymbols = DateTimeSymbols_en_TC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_TC);
     break;
   case 'en_TK':
   case 'en-TK':
-    DateTimeSymbols = DateTimeSymbols_en_TK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_TK);
     break;
   case 'en_TO':
   case 'en-TO':
-    DateTimeSymbols = DateTimeSymbols_en_TO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_TO);
     break;
   case 'en_TT':
   case 'en-TT':
-    DateTimeSymbols = DateTimeSymbols_en_TT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_TT);
     break;
   case 'en_TV':
   case 'en-TV':
-    DateTimeSymbols = DateTimeSymbols_en_TV;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_TV);
     break;
   case 'en_TZ':
   case 'en-TZ':
-    DateTimeSymbols = DateTimeSymbols_en_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_TZ);
     break;
   case 'en_UG':
   case 'en-UG':
-    DateTimeSymbols = DateTimeSymbols_en_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_UG);
     break;
   case 'en_UM':
   case 'en-UM':
-    DateTimeSymbols = DateTimeSymbols_en_UM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_UM);
     break;
   case 'en_US_POSIX':
   case 'en-US-POSIX':
-    DateTimeSymbols = DateTimeSymbols_en_US_POSIX;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_US_POSIX);
     break;
   case 'en_VC':
   case 'en-VC':
-    DateTimeSymbols = DateTimeSymbols_en_VC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_VC);
     break;
   case 'en_VG':
   case 'en-VG':
-    DateTimeSymbols = DateTimeSymbols_en_VG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_VG);
     break;
   case 'en_VI':
   case 'en-VI':
-    DateTimeSymbols = DateTimeSymbols_en_VI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_VI);
     break;
   case 'en_VU':
   case 'en-VU':
-    DateTimeSymbols = DateTimeSymbols_en_VU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_VU);
     break;
   case 'en_WS':
   case 'en-WS':
-    DateTimeSymbols = DateTimeSymbols_en_WS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_WS);
     break;
   case 'en_XA':
   case 'en-XA':
-    DateTimeSymbols = DateTimeSymbols_en_XA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_XA);
     break;
   case 'en_ZM':
   case 'en-ZM':
-    DateTimeSymbols = DateTimeSymbols_en_ZM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_ZM);
     break;
   case 'en_ZW':
   case 'en-ZW':
-    DateTimeSymbols = DateTimeSymbols_en_ZW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_en_ZW);
     break;
   case 'eo':
-    DateTimeSymbols = DateTimeSymbols_eo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_eo);
     break;
   case 'eo_001':
   case 'eo-001':
-    DateTimeSymbols = DateTimeSymbols_eo_001;
+    internalSetDateTimeSymbols_(DateTimeSymbols_eo_001);
     break;
   case 'es_AR':
   case 'es-AR':
-    DateTimeSymbols = DateTimeSymbols_es_AR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_AR);
     break;
   case 'es_BO':
   case 'es-BO':
-    DateTimeSymbols = DateTimeSymbols_es_BO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_BO);
     break;
   case 'es_BR':
   case 'es-BR':
-    DateTimeSymbols = DateTimeSymbols_es_BR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_BR);
     break;
   case 'es_BZ':
   case 'es-BZ':
-    DateTimeSymbols = DateTimeSymbols_es_BZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_BZ);
     break;
   case 'es_CL':
   case 'es-CL':
-    DateTimeSymbols = DateTimeSymbols_es_CL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_CL);
     break;
   case 'es_CO':
   case 'es-CO':
-    DateTimeSymbols = DateTimeSymbols_es_CO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_CO);
     break;
   case 'es_CR':
   case 'es-CR':
-    DateTimeSymbols = DateTimeSymbols_es_CR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_CR);
     break;
   case 'es_CU':
   case 'es-CU':
-    DateTimeSymbols = DateTimeSymbols_es_CU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_CU);
     break;
   case 'es_DO':
   case 'es-DO':
-    DateTimeSymbols = DateTimeSymbols_es_DO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_DO);
     break;
   case 'es_EA':
   case 'es-EA':
-    DateTimeSymbols = DateTimeSymbols_es_EA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_EA);
     break;
   case 'es_EC':
   case 'es-EC':
-    DateTimeSymbols = DateTimeSymbols_es_EC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_EC);
     break;
   case 'es_GQ':
   case 'es-GQ':
-    DateTimeSymbols = DateTimeSymbols_es_GQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_GQ);
     break;
   case 'es_GT':
   case 'es-GT':
-    DateTimeSymbols = DateTimeSymbols_es_GT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_GT);
     break;
   case 'es_HN':
   case 'es-HN':
-    DateTimeSymbols = DateTimeSymbols_es_HN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_HN);
     break;
   case 'es_IC':
   case 'es-IC':
-    DateTimeSymbols = DateTimeSymbols_es_IC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_IC);
     break;
   case 'es_NI':
   case 'es-NI':
-    DateTimeSymbols = DateTimeSymbols_es_NI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_NI);
     break;
   case 'es_PA':
   case 'es-PA':
-    DateTimeSymbols = DateTimeSymbols_es_PA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_PA);
     break;
   case 'es_PE':
   case 'es-PE':
-    DateTimeSymbols = DateTimeSymbols_es_PE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_PE);
     break;
   case 'es_PH':
   case 'es-PH':
-    DateTimeSymbols = DateTimeSymbols_es_PH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_PH);
     break;
   case 'es_PR':
   case 'es-PR':
-    DateTimeSymbols = DateTimeSymbols_es_PR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_PR);
     break;
   case 'es_PY':
   case 'es-PY':
-    DateTimeSymbols = DateTimeSymbols_es_PY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_PY);
     break;
   case 'es_SV':
   case 'es-SV':
-    DateTimeSymbols = DateTimeSymbols_es_SV;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_SV);
     break;
   case 'es_UY':
   case 'es-UY':
-    DateTimeSymbols = DateTimeSymbols_es_UY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_UY);
     break;
   case 'es_VE':
   case 'es-VE':
-    DateTimeSymbols = DateTimeSymbols_es_VE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_es_VE);
     break;
   case 'et_EE':
   case 'et-EE':
-    DateTimeSymbols = DateTimeSymbols_et_EE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_et_EE);
     break;
   case 'eu_ES':
   case 'eu-ES':
-    DateTimeSymbols = DateTimeSymbols_eu_ES;
+    internalSetDateTimeSymbols_(DateTimeSymbols_eu_ES);
     break;
   case 'ewo':
-    DateTimeSymbols = DateTimeSymbols_ewo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ewo);
     break;
   case 'ewo_CM':
   case 'ewo-CM':
-    DateTimeSymbols = DateTimeSymbols_ewo_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ewo_CM);
     break;
   case 'fa_AF':
   case 'fa-AF':
-    DateTimeSymbols = DateTimeSymbols_fa_AF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fa_AF);
     break;
   case 'fa_IR':
   case 'fa-IR':
-    DateTimeSymbols = DateTimeSymbols_fa_IR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fa_IR);
     break;
   case 'ff':
-    DateTimeSymbols = DateTimeSymbols_ff;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff);
     break;
   case 'ff_Adlm':
   case 'ff-Adlm':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm);
     break;
   case 'ff_Adlm_BF':
   case 'ff-Adlm-BF':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_BF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_BF);
     break;
   case 'ff_Adlm_CM':
   case 'ff-Adlm-CM':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_CM);
     break;
   case 'ff_Adlm_GH':
   case 'ff-Adlm-GH':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_GH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_GH);
     break;
   case 'ff_Adlm_GM':
   case 'ff-Adlm-GM':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_GM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_GM);
     break;
   case 'ff_Adlm_GN':
   case 'ff-Adlm-GN':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_GN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_GN);
     break;
   case 'ff_Adlm_GW':
   case 'ff-Adlm-GW':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_GW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_GW);
     break;
   case 'ff_Adlm_LR':
   case 'ff-Adlm-LR':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_LR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_LR);
     break;
   case 'ff_Adlm_MR':
   case 'ff-Adlm-MR':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_MR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_MR);
     break;
   case 'ff_Adlm_NE':
   case 'ff-Adlm-NE':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_NE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_NE);
     break;
   case 'ff_Adlm_NG':
   case 'ff-Adlm-NG':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_NG);
     break;
   case 'ff_Adlm_SL':
   case 'ff-Adlm-SL':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_SL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_SL);
     break;
   case 'ff_Adlm_SN':
   case 'ff-Adlm-SN':
-    DateTimeSymbols = DateTimeSymbols_ff_Adlm_SN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Adlm_SN);
     break;
   case 'ff_Latn':
   case 'ff-Latn':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn);
     break;
   case 'ff_Latn_BF':
   case 'ff-Latn-BF':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_BF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_BF);
     break;
   case 'ff_Latn_CM':
   case 'ff-Latn-CM':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_CM);
     break;
   case 'ff_Latn_GH':
   case 'ff-Latn-GH':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_GH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_GH);
     break;
   case 'ff_Latn_GM':
   case 'ff-Latn-GM':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_GM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_GM);
     break;
   case 'ff_Latn_GN':
   case 'ff-Latn-GN':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_GN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_GN);
     break;
   case 'ff_Latn_GW':
   case 'ff-Latn-GW':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_GW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_GW);
     break;
   case 'ff_Latn_LR':
   case 'ff-Latn-LR':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_LR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_LR);
     break;
   case 'ff_Latn_MR':
   case 'ff-Latn-MR':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_MR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_MR);
     break;
   case 'ff_Latn_NE':
   case 'ff-Latn-NE':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_NE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_NE);
     break;
   case 'ff_Latn_NG':
   case 'ff-Latn-NG':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_NG);
     break;
   case 'ff_Latn_SL':
   case 'ff-Latn-SL':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_SL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_SL);
     break;
   case 'ff_Latn_SN':
   case 'ff-Latn-SN':
-    DateTimeSymbols = DateTimeSymbols_ff_Latn_SN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ff_Latn_SN);
     break;
   case 'fi_FI':
   case 'fi-FI':
-    DateTimeSymbols = DateTimeSymbols_fi_FI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fi_FI);
     break;
   case 'fil_PH':
   case 'fil-PH':
-    DateTimeSymbols = DateTimeSymbols_fil_PH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fil_PH);
     break;
   case 'fo':
-    DateTimeSymbols = DateTimeSymbols_fo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fo);
     break;
   case 'fo_DK':
   case 'fo-DK':
-    DateTimeSymbols = DateTimeSymbols_fo_DK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fo_DK);
     break;
   case 'fo_FO':
   case 'fo-FO':
-    DateTimeSymbols = DateTimeSymbols_fo_FO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fo_FO);
     break;
   case 'fr_BE':
   case 'fr-BE':
-    DateTimeSymbols = DateTimeSymbols_fr_BE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_BE);
     break;
   case 'fr_BF':
   case 'fr-BF':
-    DateTimeSymbols = DateTimeSymbols_fr_BF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_BF);
     break;
   case 'fr_BI':
   case 'fr-BI':
-    DateTimeSymbols = DateTimeSymbols_fr_BI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_BI);
     break;
   case 'fr_BJ':
   case 'fr-BJ':
-    DateTimeSymbols = DateTimeSymbols_fr_BJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_BJ);
     break;
   case 'fr_BL':
   case 'fr-BL':
-    DateTimeSymbols = DateTimeSymbols_fr_BL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_BL);
     break;
   case 'fr_CD':
   case 'fr-CD':
-    DateTimeSymbols = DateTimeSymbols_fr_CD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_CD);
     break;
   case 'fr_CF':
   case 'fr-CF':
-    DateTimeSymbols = DateTimeSymbols_fr_CF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_CF);
     break;
   case 'fr_CG':
   case 'fr-CG':
-    DateTimeSymbols = DateTimeSymbols_fr_CG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_CG);
     break;
   case 'fr_CH':
   case 'fr-CH':
-    DateTimeSymbols = DateTimeSymbols_fr_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_CH);
     break;
   case 'fr_CI':
   case 'fr-CI':
-    DateTimeSymbols = DateTimeSymbols_fr_CI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_CI);
     break;
   case 'fr_CM':
   case 'fr-CM':
-    DateTimeSymbols = DateTimeSymbols_fr_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_CM);
     break;
   case 'fr_DJ':
   case 'fr-DJ':
-    DateTimeSymbols = DateTimeSymbols_fr_DJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_DJ);
     break;
   case 'fr_DZ':
   case 'fr-DZ':
-    DateTimeSymbols = DateTimeSymbols_fr_DZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_DZ);
     break;
   case 'fr_FR':
   case 'fr-FR':
-    DateTimeSymbols = DateTimeSymbols_fr_FR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_FR);
     break;
   case 'fr_GA':
   case 'fr-GA':
-    DateTimeSymbols = DateTimeSymbols_fr_GA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_GA);
     break;
   case 'fr_GF':
   case 'fr-GF':
-    DateTimeSymbols = DateTimeSymbols_fr_GF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_GF);
     break;
   case 'fr_GN':
   case 'fr-GN':
-    DateTimeSymbols = DateTimeSymbols_fr_GN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_GN);
     break;
   case 'fr_GP':
   case 'fr-GP':
-    DateTimeSymbols = DateTimeSymbols_fr_GP;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_GP);
     break;
   case 'fr_GQ':
   case 'fr-GQ':
-    DateTimeSymbols = DateTimeSymbols_fr_GQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_GQ);
     break;
   case 'fr_HT':
   case 'fr-HT':
-    DateTimeSymbols = DateTimeSymbols_fr_HT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_HT);
     break;
   case 'fr_KM':
   case 'fr-KM':
-    DateTimeSymbols = DateTimeSymbols_fr_KM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_KM);
     break;
   case 'fr_LU':
   case 'fr-LU':
-    DateTimeSymbols = DateTimeSymbols_fr_LU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_LU);
     break;
   case 'fr_MA':
   case 'fr-MA':
-    DateTimeSymbols = DateTimeSymbols_fr_MA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MA);
     break;
   case 'fr_MC':
   case 'fr-MC':
-    DateTimeSymbols = DateTimeSymbols_fr_MC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MC);
     break;
   case 'fr_MF':
   case 'fr-MF':
-    DateTimeSymbols = DateTimeSymbols_fr_MF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MF);
     break;
   case 'fr_MG':
   case 'fr-MG':
-    DateTimeSymbols = DateTimeSymbols_fr_MG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MG);
     break;
   case 'fr_ML':
   case 'fr-ML':
-    DateTimeSymbols = DateTimeSymbols_fr_ML;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_ML);
     break;
   case 'fr_MQ':
   case 'fr-MQ':
-    DateTimeSymbols = DateTimeSymbols_fr_MQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MQ);
     break;
   case 'fr_MR':
   case 'fr-MR':
-    DateTimeSymbols = DateTimeSymbols_fr_MR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MR);
     break;
   case 'fr_MU':
   case 'fr-MU':
-    DateTimeSymbols = DateTimeSymbols_fr_MU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_MU);
     break;
   case 'fr_NC':
   case 'fr-NC':
-    DateTimeSymbols = DateTimeSymbols_fr_NC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_NC);
     break;
   case 'fr_NE':
   case 'fr-NE':
-    DateTimeSymbols = DateTimeSymbols_fr_NE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_NE);
     break;
   case 'fr_PF':
   case 'fr-PF':
-    DateTimeSymbols = DateTimeSymbols_fr_PF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_PF);
     break;
   case 'fr_PM':
   case 'fr-PM':
-    DateTimeSymbols = DateTimeSymbols_fr_PM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_PM);
     break;
   case 'fr_RE':
   case 'fr-RE':
-    DateTimeSymbols = DateTimeSymbols_fr_RE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_RE);
     break;
   case 'fr_RW':
   case 'fr-RW':
-    DateTimeSymbols = DateTimeSymbols_fr_RW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_RW);
     break;
   case 'fr_SC':
   case 'fr-SC':
-    DateTimeSymbols = DateTimeSymbols_fr_SC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_SC);
     break;
   case 'fr_SN':
   case 'fr-SN':
-    DateTimeSymbols = DateTimeSymbols_fr_SN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_SN);
     break;
   case 'fr_SY':
   case 'fr-SY':
-    DateTimeSymbols = DateTimeSymbols_fr_SY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_SY);
     break;
   case 'fr_TD':
   case 'fr-TD':
-    DateTimeSymbols = DateTimeSymbols_fr_TD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_TD);
     break;
   case 'fr_TG':
   case 'fr-TG':
-    DateTimeSymbols = DateTimeSymbols_fr_TG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_TG);
     break;
   case 'fr_TN':
   case 'fr-TN':
-    DateTimeSymbols = DateTimeSymbols_fr_TN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_TN);
     break;
   case 'fr_VU':
   case 'fr-VU':
-    DateTimeSymbols = DateTimeSymbols_fr_VU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_VU);
     break;
   case 'fr_WF':
   case 'fr-WF':
-    DateTimeSymbols = DateTimeSymbols_fr_WF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_WF);
     break;
   case 'fr_YT':
   case 'fr-YT':
-    DateTimeSymbols = DateTimeSymbols_fr_YT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fr_YT);
     break;
   case 'fur':
-    DateTimeSymbols = DateTimeSymbols_fur;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fur);
     break;
   case 'fur_IT':
   case 'fur-IT':
-    DateTimeSymbols = DateTimeSymbols_fur_IT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fur_IT);
     break;
   case 'fy':
-    DateTimeSymbols = DateTimeSymbols_fy;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fy);
     break;
   case 'fy_NL':
   case 'fy-NL':
-    DateTimeSymbols = DateTimeSymbols_fy_NL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_fy_NL);
     break;
   case 'ga_GB':
   case 'ga-GB':
-    DateTimeSymbols = DateTimeSymbols_ga_GB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ga_GB);
     break;
   case 'ga_IE':
   case 'ga-IE':
-    DateTimeSymbols = DateTimeSymbols_ga_IE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ga_IE);
     break;
   case 'gd':
-    DateTimeSymbols = DateTimeSymbols_gd;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gd);
     break;
   case 'gd_GB':
   case 'gd-GB':
-    DateTimeSymbols = DateTimeSymbols_gd_GB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gd_GB);
     break;
   case 'gl_ES':
   case 'gl-ES':
-    DateTimeSymbols = DateTimeSymbols_gl_ES;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gl_ES);
     break;
   case 'gsw_CH':
   case 'gsw-CH':
-    DateTimeSymbols = DateTimeSymbols_gsw_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gsw_CH);
     break;
   case 'gsw_FR':
   case 'gsw-FR':
-    DateTimeSymbols = DateTimeSymbols_gsw_FR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gsw_FR);
     break;
   case 'gsw_LI':
   case 'gsw-LI':
-    DateTimeSymbols = DateTimeSymbols_gsw_LI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gsw_LI);
     break;
   case 'gu_IN':
   case 'gu-IN':
-    DateTimeSymbols = DateTimeSymbols_gu_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gu_IN);
     break;
   case 'guz':
-    DateTimeSymbols = DateTimeSymbols_guz;
+    internalSetDateTimeSymbols_(DateTimeSymbols_guz);
     break;
   case 'guz_KE':
   case 'guz-KE':
-    DateTimeSymbols = DateTimeSymbols_guz_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_guz_KE);
     break;
   case 'gv':
-    DateTimeSymbols = DateTimeSymbols_gv;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gv);
     break;
   case 'gv_IM':
   case 'gv-IM':
-    DateTimeSymbols = DateTimeSymbols_gv_IM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_gv_IM);
     break;
   case 'ha':
-    DateTimeSymbols = DateTimeSymbols_ha;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ha);
     break;
   case 'ha_GH':
   case 'ha-GH':
-    DateTimeSymbols = DateTimeSymbols_ha_GH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ha_GH);
     break;
   case 'ha_NE':
   case 'ha-NE':
-    DateTimeSymbols = DateTimeSymbols_ha_NE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ha_NE);
     break;
   case 'ha_NG':
   case 'ha-NG':
-    DateTimeSymbols = DateTimeSymbols_ha_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ha_NG);
     break;
   case 'haw_US':
   case 'haw-US':
-    DateTimeSymbols = DateTimeSymbols_haw_US;
+    internalSetDateTimeSymbols_(DateTimeSymbols_haw_US);
     break;
   case 'he_IL':
   case 'he-IL':
-    DateTimeSymbols = DateTimeSymbols_he_IL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_he_IL);
     break;
   case 'hi_IN':
   case 'hi-IN':
-    DateTimeSymbols = DateTimeSymbols_hi_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hi_IN);
     break;
   case 'hi_Latn':
   case 'hi-Latn':
-    DateTimeSymbols = DateTimeSymbols_hi_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hi_Latn);
     break;
   case 'hi_Latn_IN':
   case 'hi-Latn-IN':
-    DateTimeSymbols = DateTimeSymbols_hi_Latn_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hi_Latn_IN);
     break;
   case 'hr_BA':
   case 'hr-BA':
-    DateTimeSymbols = DateTimeSymbols_hr_BA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hr_BA);
     break;
   case 'hr_HR':
   case 'hr-HR':
-    DateTimeSymbols = DateTimeSymbols_hr_HR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hr_HR);
     break;
   case 'hsb':
-    DateTimeSymbols = DateTimeSymbols_hsb;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hsb);
     break;
   case 'hsb_DE':
   case 'hsb-DE':
-    DateTimeSymbols = DateTimeSymbols_hsb_DE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hsb_DE);
     break;
   case 'hu_HU':
   case 'hu-HU':
-    DateTimeSymbols = DateTimeSymbols_hu_HU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hu_HU);
     break;
   case 'hy_AM':
   case 'hy-AM':
-    DateTimeSymbols = DateTimeSymbols_hy_AM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_hy_AM);
     break;
   case 'ia':
-    DateTimeSymbols = DateTimeSymbols_ia;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ia);
     break;
   case 'ia_001':
   case 'ia-001':
-    DateTimeSymbols = DateTimeSymbols_ia_001;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ia_001);
     break;
   case 'id_ID':
   case 'id-ID':
-    DateTimeSymbols = DateTimeSymbols_id_ID;
+    internalSetDateTimeSymbols_(DateTimeSymbols_id_ID);
     break;
   case 'ig':
-    DateTimeSymbols = DateTimeSymbols_ig;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ig);
     break;
   case 'ig_NG':
   case 'ig-NG':
-    DateTimeSymbols = DateTimeSymbols_ig_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ig_NG);
     break;
   case 'ii':
-    DateTimeSymbols = DateTimeSymbols_ii;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ii);
     break;
   case 'ii_CN':
   case 'ii-CN':
-    DateTimeSymbols = DateTimeSymbols_ii_CN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ii_CN);
     break;
   case 'is_IS':
   case 'is-IS':
-    DateTimeSymbols = DateTimeSymbols_is_IS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_is_IS);
     break;
   case 'it_CH':
   case 'it-CH':
-    DateTimeSymbols = DateTimeSymbols_it_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_it_CH);
     break;
   case 'it_IT':
   case 'it-IT':
-    DateTimeSymbols = DateTimeSymbols_it_IT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_it_IT);
     break;
   case 'it_SM':
   case 'it-SM':
-    DateTimeSymbols = DateTimeSymbols_it_SM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_it_SM);
     break;
   case 'it_VA':
   case 'it-VA':
-    DateTimeSymbols = DateTimeSymbols_it_VA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_it_VA);
     break;
   case 'ja_JP':
   case 'ja-JP':
-    DateTimeSymbols = DateTimeSymbols_ja_JP;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ja_JP);
     break;
   case 'jgo':
-    DateTimeSymbols = DateTimeSymbols_jgo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_jgo);
     break;
   case 'jgo_CM':
   case 'jgo-CM':
-    DateTimeSymbols = DateTimeSymbols_jgo_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_jgo_CM);
     break;
   case 'jmc':
-    DateTimeSymbols = DateTimeSymbols_jmc;
+    internalSetDateTimeSymbols_(DateTimeSymbols_jmc);
     break;
   case 'jmc_TZ':
   case 'jmc-TZ':
-    DateTimeSymbols = DateTimeSymbols_jmc_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_jmc_TZ);
     break;
   case 'jv':
-    DateTimeSymbols = DateTimeSymbols_jv;
+    internalSetDateTimeSymbols_(DateTimeSymbols_jv);
     break;
   case 'jv_ID':
   case 'jv-ID':
-    DateTimeSymbols = DateTimeSymbols_jv_ID;
+    internalSetDateTimeSymbols_(DateTimeSymbols_jv_ID);
     break;
   case 'ka_GE':
   case 'ka-GE':
-    DateTimeSymbols = DateTimeSymbols_ka_GE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ka_GE);
     break;
   case 'kab':
-    DateTimeSymbols = DateTimeSymbols_kab;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kab);
     break;
   case 'kab_DZ':
   case 'kab-DZ':
-    DateTimeSymbols = DateTimeSymbols_kab_DZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kab_DZ);
     break;
   case 'kam':
-    DateTimeSymbols = DateTimeSymbols_kam;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kam);
     break;
   case 'kam_KE':
   case 'kam-KE':
-    DateTimeSymbols = DateTimeSymbols_kam_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kam_KE);
     break;
   case 'kde':
-    DateTimeSymbols = DateTimeSymbols_kde;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kde);
     break;
   case 'kde_TZ':
   case 'kde-TZ':
-    DateTimeSymbols = DateTimeSymbols_kde_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kde_TZ);
     break;
   case 'kea':
-    DateTimeSymbols = DateTimeSymbols_kea;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kea);
     break;
   case 'kea_CV':
   case 'kea-CV':
-    DateTimeSymbols = DateTimeSymbols_kea_CV;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kea_CV);
     break;
   case 'kgp':
-    DateTimeSymbols = DateTimeSymbols_kgp;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kgp);
     break;
   case 'kgp_BR':
   case 'kgp-BR':
-    DateTimeSymbols = DateTimeSymbols_kgp_BR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kgp_BR);
     break;
   case 'khq':
-    DateTimeSymbols = DateTimeSymbols_khq;
+    internalSetDateTimeSymbols_(DateTimeSymbols_khq);
     break;
   case 'khq_ML':
   case 'khq-ML':
-    DateTimeSymbols = DateTimeSymbols_khq_ML;
+    internalSetDateTimeSymbols_(DateTimeSymbols_khq_ML);
     break;
   case 'ki':
-    DateTimeSymbols = DateTimeSymbols_ki;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ki);
     break;
   case 'ki_KE':
   case 'ki-KE':
-    DateTimeSymbols = DateTimeSymbols_ki_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ki_KE);
     break;
   case 'kk_KZ':
   case 'kk-KZ':
-    DateTimeSymbols = DateTimeSymbols_kk_KZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kk_KZ);
     break;
   case 'kkj':
-    DateTimeSymbols = DateTimeSymbols_kkj;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kkj);
     break;
   case 'kkj_CM':
   case 'kkj-CM':
-    DateTimeSymbols = DateTimeSymbols_kkj_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kkj_CM);
     break;
   case 'kl':
-    DateTimeSymbols = DateTimeSymbols_kl;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kl);
     break;
   case 'kl_GL':
   case 'kl-GL':
-    DateTimeSymbols = DateTimeSymbols_kl_GL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kl_GL);
     break;
   case 'kln':
-    DateTimeSymbols = DateTimeSymbols_kln;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kln);
     break;
   case 'kln_KE':
   case 'kln-KE':
-    DateTimeSymbols = DateTimeSymbols_kln_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kln_KE);
     break;
   case 'km_KH':
   case 'km-KH':
-    DateTimeSymbols = DateTimeSymbols_km_KH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_km_KH);
     break;
   case 'kn_IN':
   case 'kn-IN':
-    DateTimeSymbols = DateTimeSymbols_kn_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kn_IN);
     break;
   case 'ko_KP':
   case 'ko-KP':
-    DateTimeSymbols = DateTimeSymbols_ko_KP;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ko_KP);
     break;
   case 'ko_KR':
   case 'ko-KR':
-    DateTimeSymbols = DateTimeSymbols_ko_KR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ko_KR);
     break;
   case 'kok':
-    DateTimeSymbols = DateTimeSymbols_kok;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kok);
     break;
   case 'kok_IN':
   case 'kok-IN':
-    DateTimeSymbols = DateTimeSymbols_kok_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kok_IN);
     break;
   case 'ks':
-    DateTimeSymbols = DateTimeSymbols_ks;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ks);
     break;
   case 'ks_Arab':
   case 'ks-Arab':
-    DateTimeSymbols = DateTimeSymbols_ks_Arab;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ks_Arab);
     break;
   case 'ks_Arab_IN':
   case 'ks-Arab-IN':
-    DateTimeSymbols = DateTimeSymbols_ks_Arab_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ks_Arab_IN);
     break;
   case 'ks_Deva':
   case 'ks-Deva':
-    DateTimeSymbols = DateTimeSymbols_ks_Deva;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ks_Deva);
     break;
   case 'ks_Deva_IN':
   case 'ks-Deva-IN':
-    DateTimeSymbols = DateTimeSymbols_ks_Deva_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ks_Deva_IN);
     break;
   case 'ksb':
-    DateTimeSymbols = DateTimeSymbols_ksb;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ksb);
     break;
   case 'ksb_TZ':
   case 'ksb-TZ':
-    DateTimeSymbols = DateTimeSymbols_ksb_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ksb_TZ);
     break;
   case 'ksf':
-    DateTimeSymbols = DateTimeSymbols_ksf;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ksf);
     break;
   case 'ksf_CM':
   case 'ksf-CM':
-    DateTimeSymbols = DateTimeSymbols_ksf_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ksf_CM);
     break;
   case 'ksh':
-    DateTimeSymbols = DateTimeSymbols_ksh;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ksh);
     break;
   case 'ksh_DE':
   case 'ksh-DE':
-    DateTimeSymbols = DateTimeSymbols_ksh_DE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ksh_DE);
     break;
   case 'ku':
-    DateTimeSymbols = DateTimeSymbols_ku;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ku);
     break;
   case 'ku_TR':
   case 'ku-TR':
-    DateTimeSymbols = DateTimeSymbols_ku_TR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ku_TR);
     break;
   case 'kw':
-    DateTimeSymbols = DateTimeSymbols_kw;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kw);
     break;
   case 'kw_GB':
   case 'kw-GB':
-    DateTimeSymbols = DateTimeSymbols_kw_GB;
+    internalSetDateTimeSymbols_(DateTimeSymbols_kw_GB);
     break;
   case 'ky_KG':
   case 'ky-KG':
-    DateTimeSymbols = DateTimeSymbols_ky_KG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ky_KG);
     break;
   case 'lag':
-    DateTimeSymbols = DateTimeSymbols_lag;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lag);
     break;
   case 'lag_TZ':
   case 'lag-TZ':
-    DateTimeSymbols = DateTimeSymbols_lag_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lag_TZ);
     break;
   case 'lb':
-    DateTimeSymbols = DateTimeSymbols_lb;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lb);
     break;
   case 'lb_LU':
   case 'lb-LU':
-    DateTimeSymbols = DateTimeSymbols_lb_LU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lb_LU);
     break;
   case 'lg':
-    DateTimeSymbols = DateTimeSymbols_lg;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lg);
     break;
   case 'lg_UG':
   case 'lg-UG':
-    DateTimeSymbols = DateTimeSymbols_lg_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lg_UG);
     break;
   case 'lkt':
-    DateTimeSymbols = DateTimeSymbols_lkt;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lkt);
     break;
   case 'lkt_US':
   case 'lkt-US':
-    DateTimeSymbols = DateTimeSymbols_lkt_US;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lkt_US);
     break;
   case 'ln_AO':
   case 'ln-AO':
-    DateTimeSymbols = DateTimeSymbols_ln_AO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ln_AO);
     break;
   case 'ln_CD':
   case 'ln-CD':
-    DateTimeSymbols = DateTimeSymbols_ln_CD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ln_CD);
     break;
   case 'ln_CF':
   case 'ln-CF':
-    DateTimeSymbols = DateTimeSymbols_ln_CF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ln_CF);
     break;
   case 'ln_CG':
   case 'ln-CG':
-    DateTimeSymbols = DateTimeSymbols_ln_CG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ln_CG);
     break;
   case 'lo_LA':
   case 'lo-LA':
-    DateTimeSymbols = DateTimeSymbols_lo_LA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lo_LA);
     break;
   case 'lrc':
-    DateTimeSymbols = DateTimeSymbols_lrc;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lrc);
     break;
   case 'lrc_IQ':
   case 'lrc-IQ':
-    DateTimeSymbols = DateTimeSymbols_lrc_IQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lrc_IQ);
     break;
   case 'lrc_IR':
   case 'lrc-IR':
-    DateTimeSymbols = DateTimeSymbols_lrc_IR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lrc_IR);
     break;
   case 'lt_LT':
   case 'lt-LT':
-    DateTimeSymbols = DateTimeSymbols_lt_LT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lt_LT);
     break;
   case 'lu':
-    DateTimeSymbols = DateTimeSymbols_lu;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lu);
     break;
   case 'lu_CD':
   case 'lu-CD':
-    DateTimeSymbols = DateTimeSymbols_lu_CD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lu_CD);
     break;
   case 'luo':
-    DateTimeSymbols = DateTimeSymbols_luo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_luo);
     break;
   case 'luo_KE':
   case 'luo-KE':
-    DateTimeSymbols = DateTimeSymbols_luo_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_luo_KE);
     break;
   case 'luy':
-    DateTimeSymbols = DateTimeSymbols_luy;
+    internalSetDateTimeSymbols_(DateTimeSymbols_luy);
     break;
   case 'luy_KE':
   case 'luy-KE':
-    DateTimeSymbols = DateTimeSymbols_luy_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_luy_KE);
     break;
   case 'lv_LV':
   case 'lv-LV':
-    DateTimeSymbols = DateTimeSymbols_lv_LV;
+    internalSetDateTimeSymbols_(DateTimeSymbols_lv_LV);
     break;
   case 'mai':
-    DateTimeSymbols = DateTimeSymbols_mai;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mai);
     break;
   case 'mai_IN':
   case 'mai-IN':
-    DateTimeSymbols = DateTimeSymbols_mai_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mai_IN);
     break;
   case 'mas':
-    DateTimeSymbols = DateTimeSymbols_mas;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mas);
     break;
   case 'mas_KE':
   case 'mas-KE':
-    DateTimeSymbols = DateTimeSymbols_mas_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mas_KE);
     break;
   case 'mas_TZ':
   case 'mas-TZ':
-    DateTimeSymbols = DateTimeSymbols_mas_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mas_TZ);
     break;
   case 'mer':
-    DateTimeSymbols = DateTimeSymbols_mer;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mer);
     break;
   case 'mer_KE':
   case 'mer-KE':
-    DateTimeSymbols = DateTimeSymbols_mer_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mer_KE);
     break;
   case 'mfe':
-    DateTimeSymbols = DateTimeSymbols_mfe;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mfe);
     break;
   case 'mfe_MU':
   case 'mfe-MU':
-    DateTimeSymbols = DateTimeSymbols_mfe_MU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mfe_MU);
     break;
   case 'mg':
-    DateTimeSymbols = DateTimeSymbols_mg;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mg);
     break;
   case 'mg_MG':
   case 'mg-MG':
-    DateTimeSymbols = DateTimeSymbols_mg_MG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mg_MG);
     break;
   case 'mgh':
-    DateTimeSymbols = DateTimeSymbols_mgh;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mgh);
     break;
   case 'mgh_MZ':
   case 'mgh-MZ':
-    DateTimeSymbols = DateTimeSymbols_mgh_MZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mgh_MZ);
     break;
   case 'mgo':
-    DateTimeSymbols = DateTimeSymbols_mgo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mgo);
     break;
   case 'mgo_CM':
   case 'mgo-CM':
-    DateTimeSymbols = DateTimeSymbols_mgo_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mgo_CM);
     break;
   case 'mi':
-    DateTimeSymbols = DateTimeSymbols_mi;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mi);
     break;
   case 'mi_NZ':
   case 'mi-NZ':
-    DateTimeSymbols = DateTimeSymbols_mi_NZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mi_NZ);
     break;
   case 'mk_MK':
   case 'mk-MK':
-    DateTimeSymbols = DateTimeSymbols_mk_MK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mk_MK);
     break;
   case 'ml_IN':
   case 'ml-IN':
-    DateTimeSymbols = DateTimeSymbols_ml_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ml_IN);
     break;
   case 'mn_MN':
   case 'mn-MN':
-    DateTimeSymbols = DateTimeSymbols_mn_MN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mn_MN);
     break;
   case 'mni':
-    DateTimeSymbols = DateTimeSymbols_mni;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mni);
     break;
   case 'mni_Beng':
   case 'mni-Beng':
-    DateTimeSymbols = DateTimeSymbols_mni_Beng;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mni_Beng);
     break;
   case 'mni_Beng_IN':
   case 'mni-Beng-IN':
-    DateTimeSymbols = DateTimeSymbols_mni_Beng_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mni_Beng_IN);
     break;
   case 'mr_IN':
   case 'mr-IN':
-    DateTimeSymbols = DateTimeSymbols_mr_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mr_IN);
     break;
   case 'ms_BN':
   case 'ms-BN':
-    DateTimeSymbols = DateTimeSymbols_ms_BN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ms_BN);
     break;
   case 'ms_ID':
   case 'ms-ID':
-    DateTimeSymbols = DateTimeSymbols_ms_ID;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ms_ID);
     break;
   case 'ms_MY':
   case 'ms-MY':
-    DateTimeSymbols = DateTimeSymbols_ms_MY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ms_MY);
     break;
   case 'ms_SG':
   case 'ms-SG':
-    DateTimeSymbols = DateTimeSymbols_ms_SG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ms_SG);
     break;
   case 'mt_MT':
   case 'mt-MT':
-    DateTimeSymbols = DateTimeSymbols_mt_MT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mt_MT);
     break;
   case 'mua':
-    DateTimeSymbols = DateTimeSymbols_mua;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mua);
     break;
   case 'mua_CM':
   case 'mua-CM':
-    DateTimeSymbols = DateTimeSymbols_mua_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mua_CM);
     break;
   case 'my_MM':
   case 'my-MM':
-    DateTimeSymbols = DateTimeSymbols_my_MM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_my_MM);
     break;
   case 'mzn':
-    DateTimeSymbols = DateTimeSymbols_mzn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mzn);
     break;
   case 'mzn_IR':
   case 'mzn-IR':
-    DateTimeSymbols = DateTimeSymbols_mzn_IR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_mzn_IR);
     break;
   case 'naq':
-    DateTimeSymbols = DateTimeSymbols_naq;
+    internalSetDateTimeSymbols_(DateTimeSymbols_naq);
     break;
   case 'naq_NA':
   case 'naq-NA':
-    DateTimeSymbols = DateTimeSymbols_naq_NA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_naq_NA);
     break;
   case 'nb_NO':
   case 'nb-NO':
-    DateTimeSymbols = DateTimeSymbols_nb_NO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nb_NO);
     break;
   case 'nb_SJ':
   case 'nb-SJ':
-    DateTimeSymbols = DateTimeSymbols_nb_SJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nb_SJ);
     break;
   case 'nd':
-    DateTimeSymbols = DateTimeSymbols_nd;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nd);
     break;
   case 'nd_ZW':
   case 'nd-ZW':
-    DateTimeSymbols = DateTimeSymbols_nd_ZW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nd_ZW);
     break;
   case 'ne_IN':
   case 'ne-IN':
-    DateTimeSymbols = DateTimeSymbols_ne_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ne_IN);
     break;
   case 'ne_NP':
   case 'ne-NP':
-    DateTimeSymbols = DateTimeSymbols_ne_NP;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ne_NP);
     break;
   case 'nl_AW':
   case 'nl-AW':
-    DateTimeSymbols = DateTimeSymbols_nl_AW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_AW);
     break;
   case 'nl_BE':
   case 'nl-BE':
-    DateTimeSymbols = DateTimeSymbols_nl_BE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_BE);
     break;
   case 'nl_BQ':
   case 'nl-BQ':
-    DateTimeSymbols = DateTimeSymbols_nl_BQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_BQ);
     break;
   case 'nl_CW':
   case 'nl-CW':
-    DateTimeSymbols = DateTimeSymbols_nl_CW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_CW);
     break;
   case 'nl_NL':
   case 'nl-NL':
-    DateTimeSymbols = DateTimeSymbols_nl_NL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_NL);
     break;
   case 'nl_SR':
   case 'nl-SR':
-    DateTimeSymbols = DateTimeSymbols_nl_SR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_SR);
     break;
   case 'nl_SX':
   case 'nl-SX':
-    DateTimeSymbols = DateTimeSymbols_nl_SX;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nl_SX);
     break;
   case 'nmg':
-    DateTimeSymbols = DateTimeSymbols_nmg;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nmg);
     break;
   case 'nmg_CM':
   case 'nmg-CM':
-    DateTimeSymbols = DateTimeSymbols_nmg_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nmg_CM);
     break;
   case 'nn':
-    DateTimeSymbols = DateTimeSymbols_nn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nn);
     break;
   case 'nn_NO':
   case 'nn-NO':
-    DateTimeSymbols = DateTimeSymbols_nn_NO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nn_NO);
     break;
   case 'nnh':
-    DateTimeSymbols = DateTimeSymbols_nnh;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nnh);
     break;
   case 'nnh_CM':
   case 'nnh-CM':
-    DateTimeSymbols = DateTimeSymbols_nnh_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nnh_CM);
     break;
   case 'nus':
-    DateTimeSymbols = DateTimeSymbols_nus;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nus);
     break;
   case 'nus_SS':
   case 'nus-SS':
-    DateTimeSymbols = DateTimeSymbols_nus_SS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nus_SS);
     break;
   case 'nyn':
-    DateTimeSymbols = DateTimeSymbols_nyn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nyn);
     break;
   case 'nyn_UG':
   case 'nyn-UG':
-    DateTimeSymbols = DateTimeSymbols_nyn_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_nyn_UG);
     break;
   case 'om':
-    DateTimeSymbols = DateTimeSymbols_om;
+    internalSetDateTimeSymbols_(DateTimeSymbols_om);
     break;
   case 'om_ET':
   case 'om-ET':
-    DateTimeSymbols = DateTimeSymbols_om_ET;
+    internalSetDateTimeSymbols_(DateTimeSymbols_om_ET);
     break;
   case 'om_KE':
   case 'om-KE':
-    DateTimeSymbols = DateTimeSymbols_om_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_om_KE);
     break;
   case 'or_IN':
   case 'or-IN':
-    DateTimeSymbols = DateTimeSymbols_or_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_or_IN);
     break;
   case 'os':
-    DateTimeSymbols = DateTimeSymbols_os;
+    internalSetDateTimeSymbols_(DateTimeSymbols_os);
     break;
   case 'os_GE':
   case 'os-GE':
-    DateTimeSymbols = DateTimeSymbols_os_GE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_os_GE);
     break;
   case 'os_RU':
   case 'os-RU':
-    DateTimeSymbols = DateTimeSymbols_os_RU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_os_RU);
     break;
   case 'pa_Arab':
   case 'pa-Arab':
-    DateTimeSymbols = DateTimeSymbols_pa_Arab;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pa_Arab);
     break;
   case 'pa_Arab_PK':
   case 'pa-Arab-PK':
-    DateTimeSymbols = DateTimeSymbols_pa_Arab_PK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pa_Arab_PK);
     break;
   case 'pa_Guru':
   case 'pa-Guru':
-    DateTimeSymbols = DateTimeSymbols_pa_Guru;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pa_Guru);
     break;
   case 'pa_Guru_IN':
   case 'pa-Guru-IN':
-    DateTimeSymbols = DateTimeSymbols_pa_Guru_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pa_Guru_IN);
     break;
   case 'pcm':
-    DateTimeSymbols = DateTimeSymbols_pcm;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pcm);
     break;
   case 'pcm_NG':
   case 'pcm-NG':
-    DateTimeSymbols = DateTimeSymbols_pcm_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pcm_NG);
     break;
   case 'pl_PL':
   case 'pl-PL':
-    DateTimeSymbols = DateTimeSymbols_pl_PL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pl_PL);
     break;
   case 'ps':
-    DateTimeSymbols = DateTimeSymbols_ps;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ps);
     break;
   case 'ps_AF':
   case 'ps-AF':
-    DateTimeSymbols = DateTimeSymbols_ps_AF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ps_AF);
     break;
   case 'ps_PK':
   case 'ps-PK':
-    DateTimeSymbols = DateTimeSymbols_ps_PK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ps_PK);
     break;
   case 'pt_AO':
   case 'pt-AO':
-    DateTimeSymbols = DateTimeSymbols_pt_AO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_AO);
     break;
   case 'pt_CH':
   case 'pt-CH':
-    DateTimeSymbols = DateTimeSymbols_pt_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_CH);
     break;
   case 'pt_CV':
   case 'pt-CV':
-    DateTimeSymbols = DateTimeSymbols_pt_CV;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_CV);
     break;
   case 'pt_GQ':
   case 'pt-GQ':
-    DateTimeSymbols = DateTimeSymbols_pt_GQ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_GQ);
     break;
   case 'pt_GW':
   case 'pt-GW':
-    DateTimeSymbols = DateTimeSymbols_pt_GW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_GW);
     break;
   case 'pt_LU':
   case 'pt-LU':
-    DateTimeSymbols = DateTimeSymbols_pt_LU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_LU);
     break;
   case 'pt_MO':
   case 'pt-MO':
-    DateTimeSymbols = DateTimeSymbols_pt_MO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_MO);
     break;
   case 'pt_MZ':
   case 'pt-MZ':
-    DateTimeSymbols = DateTimeSymbols_pt_MZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_MZ);
     break;
   case 'pt_ST':
   case 'pt-ST':
-    DateTimeSymbols = DateTimeSymbols_pt_ST;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_ST);
     break;
   case 'pt_TL':
   case 'pt-TL':
-    DateTimeSymbols = DateTimeSymbols_pt_TL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_pt_TL);
     break;
   case 'qu':
-    DateTimeSymbols = DateTimeSymbols_qu;
+    internalSetDateTimeSymbols_(DateTimeSymbols_qu);
     break;
   case 'qu_BO':
   case 'qu-BO':
-    DateTimeSymbols = DateTimeSymbols_qu_BO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_qu_BO);
     break;
   case 'qu_EC':
   case 'qu-EC':
-    DateTimeSymbols = DateTimeSymbols_qu_EC;
+    internalSetDateTimeSymbols_(DateTimeSymbols_qu_EC);
     break;
   case 'qu_PE':
   case 'qu-PE':
-    DateTimeSymbols = DateTimeSymbols_qu_PE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_qu_PE);
     break;
   case 'raj':
-    DateTimeSymbols = DateTimeSymbols_raj;
+    internalSetDateTimeSymbols_(DateTimeSymbols_raj);
     break;
   case 'raj_IN':
   case 'raj-IN':
-    DateTimeSymbols = DateTimeSymbols_raj_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_raj_IN);
     break;
   case 'rm':
-    DateTimeSymbols = DateTimeSymbols_rm;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rm);
     break;
   case 'rm_CH':
   case 'rm-CH':
-    DateTimeSymbols = DateTimeSymbols_rm_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rm_CH);
     break;
   case 'rn':
-    DateTimeSymbols = DateTimeSymbols_rn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rn);
     break;
   case 'rn_BI':
   case 'rn-BI':
-    DateTimeSymbols = DateTimeSymbols_rn_BI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rn_BI);
     break;
   case 'ro_MD':
   case 'ro-MD':
-    DateTimeSymbols = DateTimeSymbols_ro_MD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ro_MD);
     break;
   case 'ro_RO':
   case 'ro-RO':
-    DateTimeSymbols = DateTimeSymbols_ro_RO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ro_RO);
     break;
   case 'rof':
-    DateTimeSymbols = DateTimeSymbols_rof;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rof);
     break;
   case 'rof_TZ':
   case 'rof-TZ':
-    DateTimeSymbols = DateTimeSymbols_rof_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rof_TZ);
     break;
   case 'ru_BY':
   case 'ru-BY':
-    DateTimeSymbols = DateTimeSymbols_ru_BY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ru_BY);
     break;
   case 'ru_KG':
   case 'ru-KG':
-    DateTimeSymbols = DateTimeSymbols_ru_KG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ru_KG);
     break;
   case 'ru_KZ':
   case 'ru-KZ':
-    DateTimeSymbols = DateTimeSymbols_ru_KZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ru_KZ);
     break;
   case 'ru_MD':
   case 'ru-MD':
-    DateTimeSymbols = DateTimeSymbols_ru_MD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ru_MD);
     break;
   case 'ru_RU':
   case 'ru-RU':
-    DateTimeSymbols = DateTimeSymbols_ru_RU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ru_RU);
     break;
   case 'ru_UA':
   case 'ru-UA':
-    DateTimeSymbols = DateTimeSymbols_ru_UA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ru_UA);
     break;
   case 'rw':
-    DateTimeSymbols = DateTimeSymbols_rw;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rw);
     break;
   case 'rw_RW':
   case 'rw-RW':
-    DateTimeSymbols = DateTimeSymbols_rw_RW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rw_RW);
     break;
   case 'rwk':
-    DateTimeSymbols = DateTimeSymbols_rwk;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rwk);
     break;
   case 'rwk_TZ':
   case 'rwk-TZ':
-    DateTimeSymbols = DateTimeSymbols_rwk_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_rwk_TZ);
     break;
   case 'sa':
-    DateTimeSymbols = DateTimeSymbols_sa;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sa);
     break;
   case 'sa_IN':
   case 'sa-IN':
-    DateTimeSymbols = DateTimeSymbols_sa_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sa_IN);
     break;
   case 'sah':
-    DateTimeSymbols = DateTimeSymbols_sah;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sah);
     break;
   case 'sah_RU':
   case 'sah-RU':
-    DateTimeSymbols = DateTimeSymbols_sah_RU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sah_RU);
     break;
   case 'saq':
-    DateTimeSymbols = DateTimeSymbols_saq;
+    internalSetDateTimeSymbols_(DateTimeSymbols_saq);
     break;
   case 'saq_KE':
   case 'saq-KE':
-    DateTimeSymbols = DateTimeSymbols_saq_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_saq_KE);
     break;
   case 'sat':
-    DateTimeSymbols = DateTimeSymbols_sat;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sat);
     break;
   case 'sat_Olck':
   case 'sat-Olck':
-    DateTimeSymbols = DateTimeSymbols_sat_Olck;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sat_Olck);
     break;
   case 'sat_Olck_IN':
   case 'sat-Olck-IN':
-    DateTimeSymbols = DateTimeSymbols_sat_Olck_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sat_Olck_IN);
     break;
   case 'sbp':
-    DateTimeSymbols = DateTimeSymbols_sbp;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sbp);
     break;
   case 'sbp_TZ':
   case 'sbp-TZ':
-    DateTimeSymbols = DateTimeSymbols_sbp_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sbp_TZ);
     break;
   case 'sc':
-    DateTimeSymbols = DateTimeSymbols_sc;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sc);
     break;
   case 'sc_IT':
   case 'sc-IT':
-    DateTimeSymbols = DateTimeSymbols_sc_IT;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sc_IT);
     break;
   case 'sd':
-    DateTimeSymbols = DateTimeSymbols_sd;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sd);
     break;
   case 'sd_Arab':
   case 'sd-Arab':
-    DateTimeSymbols = DateTimeSymbols_sd_Arab;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sd_Arab);
     break;
   case 'sd_Arab_PK':
   case 'sd-Arab-PK':
-    DateTimeSymbols = DateTimeSymbols_sd_Arab_PK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sd_Arab_PK);
     break;
   case 'sd_Deva':
   case 'sd-Deva':
-    DateTimeSymbols = DateTimeSymbols_sd_Deva;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sd_Deva);
     break;
   case 'sd_Deva_IN':
   case 'sd-Deva-IN':
-    DateTimeSymbols = DateTimeSymbols_sd_Deva_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sd_Deva_IN);
     break;
   case 'se':
-    DateTimeSymbols = DateTimeSymbols_se;
+    internalSetDateTimeSymbols_(DateTimeSymbols_se);
     break;
   case 'se_FI':
   case 'se-FI':
-    DateTimeSymbols = DateTimeSymbols_se_FI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_se_FI);
     break;
   case 'se_NO':
   case 'se-NO':
-    DateTimeSymbols = DateTimeSymbols_se_NO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_se_NO);
     break;
   case 'se_SE':
   case 'se-SE':
-    DateTimeSymbols = DateTimeSymbols_se_SE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_se_SE);
     break;
   case 'seh':
-    DateTimeSymbols = DateTimeSymbols_seh;
+    internalSetDateTimeSymbols_(DateTimeSymbols_seh);
     break;
   case 'seh_MZ':
   case 'seh-MZ':
-    DateTimeSymbols = DateTimeSymbols_seh_MZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_seh_MZ);
     break;
   case 'ses':
-    DateTimeSymbols = DateTimeSymbols_ses;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ses);
     break;
   case 'ses_ML':
   case 'ses-ML':
-    DateTimeSymbols = DateTimeSymbols_ses_ML;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ses_ML);
     break;
   case 'sg':
-    DateTimeSymbols = DateTimeSymbols_sg;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sg);
     break;
   case 'sg_CF':
   case 'sg-CF':
-    DateTimeSymbols = DateTimeSymbols_sg_CF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sg_CF);
     break;
   case 'shi':
-    DateTimeSymbols = DateTimeSymbols_shi;
+    internalSetDateTimeSymbols_(DateTimeSymbols_shi);
     break;
   case 'shi_Latn':
   case 'shi-Latn':
-    DateTimeSymbols = DateTimeSymbols_shi_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_shi_Latn);
     break;
   case 'shi_Latn_MA':
   case 'shi-Latn-MA':
-    DateTimeSymbols = DateTimeSymbols_shi_Latn_MA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_shi_Latn_MA);
     break;
   case 'shi_Tfng':
   case 'shi-Tfng':
-    DateTimeSymbols = DateTimeSymbols_shi_Tfng;
+    internalSetDateTimeSymbols_(DateTimeSymbols_shi_Tfng);
     break;
   case 'shi_Tfng_MA':
   case 'shi-Tfng-MA':
-    DateTimeSymbols = DateTimeSymbols_shi_Tfng_MA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_shi_Tfng_MA);
     break;
   case 'si_LK':
   case 'si-LK':
-    DateTimeSymbols = DateTimeSymbols_si_LK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_si_LK);
     break;
   case 'sk_SK':
   case 'sk-SK':
-    DateTimeSymbols = DateTimeSymbols_sk_SK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sk_SK);
     break;
   case 'sl_SI':
   case 'sl-SI':
-    DateTimeSymbols = DateTimeSymbols_sl_SI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sl_SI);
     break;
   case 'smn':
-    DateTimeSymbols = DateTimeSymbols_smn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_smn);
     break;
   case 'smn_FI':
   case 'smn-FI':
-    DateTimeSymbols = DateTimeSymbols_smn_FI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_smn_FI);
     break;
   case 'sn':
-    DateTimeSymbols = DateTimeSymbols_sn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sn);
     break;
   case 'sn_ZW':
   case 'sn-ZW':
-    DateTimeSymbols = DateTimeSymbols_sn_ZW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sn_ZW);
     break;
   case 'so':
-    DateTimeSymbols = DateTimeSymbols_so;
+    internalSetDateTimeSymbols_(DateTimeSymbols_so);
     break;
   case 'so_DJ':
   case 'so-DJ':
-    DateTimeSymbols = DateTimeSymbols_so_DJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_so_DJ);
     break;
   case 'so_ET':
   case 'so-ET':
-    DateTimeSymbols = DateTimeSymbols_so_ET;
+    internalSetDateTimeSymbols_(DateTimeSymbols_so_ET);
     break;
   case 'so_KE':
   case 'so-KE':
-    DateTimeSymbols = DateTimeSymbols_so_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_so_KE);
     break;
   case 'so_SO':
   case 'so-SO':
-    DateTimeSymbols = DateTimeSymbols_so_SO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_so_SO);
     break;
   case 'sq_AL':
   case 'sq-AL':
-    DateTimeSymbols = DateTimeSymbols_sq_AL;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sq_AL);
     break;
   case 'sq_MK':
   case 'sq-MK':
-    DateTimeSymbols = DateTimeSymbols_sq_MK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sq_MK);
     break;
   case 'sq_XK':
   case 'sq-XK':
-    DateTimeSymbols = DateTimeSymbols_sq_XK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sq_XK);
     break;
   case 'sr_Cyrl':
   case 'sr-Cyrl':
-    DateTimeSymbols = DateTimeSymbols_sr_Cyrl;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Cyrl);
     break;
   case 'sr_Cyrl_BA':
   case 'sr-Cyrl-BA':
-    DateTimeSymbols = DateTimeSymbols_sr_Cyrl_BA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Cyrl_BA);
     break;
   case 'sr_Cyrl_ME':
   case 'sr-Cyrl-ME':
-    DateTimeSymbols = DateTimeSymbols_sr_Cyrl_ME;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Cyrl_ME);
     break;
   case 'sr_Cyrl_RS':
   case 'sr-Cyrl-RS':
-    DateTimeSymbols = DateTimeSymbols_sr_Cyrl_RS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Cyrl_RS);
     break;
   case 'sr_Cyrl_XK':
   case 'sr-Cyrl-XK':
-    DateTimeSymbols = DateTimeSymbols_sr_Cyrl_XK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Cyrl_XK);
     break;
   case 'sr_Latn_BA':
   case 'sr-Latn-BA':
-    DateTimeSymbols = DateTimeSymbols_sr_Latn_BA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Latn_BA);
     break;
   case 'sr_Latn_ME':
   case 'sr-Latn-ME':
-    DateTimeSymbols = DateTimeSymbols_sr_Latn_ME;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Latn_ME);
     break;
   case 'sr_Latn_RS':
   case 'sr-Latn-RS':
-    DateTimeSymbols = DateTimeSymbols_sr_Latn_RS;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Latn_RS);
     break;
   case 'sr_Latn_XK':
   case 'sr-Latn-XK':
-    DateTimeSymbols = DateTimeSymbols_sr_Latn_XK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sr_Latn_XK);
     break;
   case 'su':
-    DateTimeSymbols = DateTimeSymbols_su;
+    internalSetDateTimeSymbols_(DateTimeSymbols_su);
     break;
   case 'su_Latn':
   case 'su-Latn':
-    DateTimeSymbols = DateTimeSymbols_su_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_su_Latn);
     break;
   case 'su_Latn_ID':
   case 'su-Latn-ID':
-    DateTimeSymbols = DateTimeSymbols_su_Latn_ID;
+    internalSetDateTimeSymbols_(DateTimeSymbols_su_Latn_ID);
     break;
   case 'sv_AX':
   case 'sv-AX':
-    DateTimeSymbols = DateTimeSymbols_sv_AX;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sv_AX);
     break;
   case 'sv_FI':
   case 'sv-FI':
-    DateTimeSymbols = DateTimeSymbols_sv_FI;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sv_FI);
     break;
   case 'sv_SE':
   case 'sv-SE':
-    DateTimeSymbols = DateTimeSymbols_sv_SE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sv_SE);
     break;
   case 'sw_CD':
   case 'sw-CD':
-    DateTimeSymbols = DateTimeSymbols_sw_CD;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sw_CD);
     break;
   case 'sw_KE':
   case 'sw-KE':
-    DateTimeSymbols = DateTimeSymbols_sw_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sw_KE);
     break;
   case 'sw_TZ':
   case 'sw-TZ':
-    DateTimeSymbols = DateTimeSymbols_sw_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sw_TZ);
     break;
   case 'sw_UG':
   case 'sw-UG':
-    DateTimeSymbols = DateTimeSymbols_sw_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_sw_UG);
     break;
   case 'ta_IN':
   case 'ta-IN':
-    DateTimeSymbols = DateTimeSymbols_ta_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ta_IN);
     break;
   case 'ta_LK':
   case 'ta-LK':
-    DateTimeSymbols = DateTimeSymbols_ta_LK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ta_LK);
     break;
   case 'ta_MY':
   case 'ta-MY':
-    DateTimeSymbols = DateTimeSymbols_ta_MY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ta_MY);
     break;
   case 'ta_SG':
   case 'ta-SG':
-    DateTimeSymbols = DateTimeSymbols_ta_SG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ta_SG);
     break;
   case 'te_IN':
   case 'te-IN':
-    DateTimeSymbols = DateTimeSymbols_te_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_te_IN);
     break;
   case 'teo':
-    DateTimeSymbols = DateTimeSymbols_teo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_teo);
     break;
   case 'teo_KE':
   case 'teo-KE':
-    DateTimeSymbols = DateTimeSymbols_teo_KE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_teo_KE);
     break;
   case 'teo_UG':
   case 'teo-UG':
-    DateTimeSymbols = DateTimeSymbols_teo_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_teo_UG);
     break;
   case 'tg':
-    DateTimeSymbols = DateTimeSymbols_tg;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tg);
     break;
   case 'tg_TJ':
   case 'tg-TJ':
-    DateTimeSymbols = DateTimeSymbols_tg_TJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tg_TJ);
     break;
   case 'th_TH':
   case 'th-TH':
-    DateTimeSymbols = DateTimeSymbols_th_TH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_th_TH);
     break;
   case 'ti':
-    DateTimeSymbols = DateTimeSymbols_ti;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ti);
     break;
   case 'ti_ER':
   case 'ti-ER':
-    DateTimeSymbols = DateTimeSymbols_ti_ER;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ti_ER);
     break;
   case 'ti_ET':
   case 'ti-ET':
-    DateTimeSymbols = DateTimeSymbols_ti_ET;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ti_ET);
     break;
   case 'tk':
-    DateTimeSymbols = DateTimeSymbols_tk;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tk);
     break;
   case 'tk_TM':
   case 'tk-TM':
-    DateTimeSymbols = DateTimeSymbols_tk_TM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tk_TM);
     break;
   case 'to':
-    DateTimeSymbols = DateTimeSymbols_to;
+    internalSetDateTimeSymbols_(DateTimeSymbols_to);
     break;
   case 'to_TO':
   case 'to-TO':
-    DateTimeSymbols = DateTimeSymbols_to_TO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_to_TO);
     break;
   case 'tr_CY':
   case 'tr-CY':
-    DateTimeSymbols = DateTimeSymbols_tr_CY;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tr_CY);
     break;
   case 'tr_TR':
   case 'tr-TR':
-    DateTimeSymbols = DateTimeSymbols_tr_TR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tr_TR);
     break;
   case 'tt':
-    DateTimeSymbols = DateTimeSymbols_tt;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tt);
     break;
   case 'tt_RU':
   case 'tt-RU':
-    DateTimeSymbols = DateTimeSymbols_tt_RU;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tt_RU);
     break;
   case 'twq':
-    DateTimeSymbols = DateTimeSymbols_twq;
+    internalSetDateTimeSymbols_(DateTimeSymbols_twq);
     break;
   case 'twq_NE':
   case 'twq-NE':
-    DateTimeSymbols = DateTimeSymbols_twq_NE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_twq_NE);
     break;
   case 'tzm':
-    DateTimeSymbols = DateTimeSymbols_tzm;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tzm);
     break;
   case 'tzm_MA':
   case 'tzm-MA':
-    DateTimeSymbols = DateTimeSymbols_tzm_MA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_tzm_MA);
     break;
   case 'ug':
-    DateTimeSymbols = DateTimeSymbols_ug;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ug);
     break;
   case 'ug_CN':
   case 'ug-CN':
-    DateTimeSymbols = DateTimeSymbols_ug_CN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ug_CN);
     break;
   case 'uk_UA':
   case 'uk-UA':
-    DateTimeSymbols = DateTimeSymbols_uk_UA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uk_UA);
     break;
   case 'ur_IN':
   case 'ur-IN':
-    DateTimeSymbols = DateTimeSymbols_ur_IN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ur_IN);
     break;
   case 'ur_PK':
   case 'ur-PK':
-    DateTimeSymbols = DateTimeSymbols_ur_PK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_ur_PK);
     break;
   case 'uz_Arab':
   case 'uz-Arab':
-    DateTimeSymbols = DateTimeSymbols_uz_Arab;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uz_Arab);
     break;
   case 'uz_Arab_AF':
   case 'uz-Arab-AF':
-    DateTimeSymbols = DateTimeSymbols_uz_Arab_AF;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uz_Arab_AF);
     break;
   case 'uz_Cyrl':
   case 'uz-Cyrl':
-    DateTimeSymbols = DateTimeSymbols_uz_Cyrl;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uz_Cyrl);
     break;
   case 'uz_Cyrl_UZ':
   case 'uz-Cyrl-UZ':
-    DateTimeSymbols = DateTimeSymbols_uz_Cyrl_UZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uz_Cyrl_UZ);
     break;
   case 'uz_Latn':
   case 'uz-Latn':
-    DateTimeSymbols = DateTimeSymbols_uz_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uz_Latn);
     break;
   case 'uz_Latn_UZ':
   case 'uz-Latn-UZ':
-    DateTimeSymbols = DateTimeSymbols_uz_Latn_UZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_uz_Latn_UZ);
     break;
   case 'vai':
-    DateTimeSymbols = DateTimeSymbols_vai;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vai);
     break;
   case 'vai_Latn':
   case 'vai-Latn':
-    DateTimeSymbols = DateTimeSymbols_vai_Latn;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vai_Latn);
     break;
   case 'vai_Latn_LR':
   case 'vai-Latn-LR':
-    DateTimeSymbols = DateTimeSymbols_vai_Latn_LR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vai_Latn_LR);
     break;
   case 'vai_Vaii':
   case 'vai-Vaii':
-    DateTimeSymbols = DateTimeSymbols_vai_Vaii;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vai_Vaii);
     break;
   case 'vai_Vaii_LR':
   case 'vai-Vaii-LR':
-    DateTimeSymbols = DateTimeSymbols_vai_Vaii_LR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vai_Vaii_LR);
     break;
   case 'vi_VN':
   case 'vi-VN':
-    DateTimeSymbols = DateTimeSymbols_vi_VN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vi_VN);
     break;
   case 'vun':
-    DateTimeSymbols = DateTimeSymbols_vun;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vun);
     break;
   case 'vun_TZ':
   case 'vun-TZ':
-    DateTimeSymbols = DateTimeSymbols_vun_TZ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_vun_TZ);
     break;
   case 'wae':
-    DateTimeSymbols = DateTimeSymbols_wae;
+    internalSetDateTimeSymbols_(DateTimeSymbols_wae);
     break;
   case 'wae_CH':
   case 'wae-CH':
-    DateTimeSymbols = DateTimeSymbols_wae_CH;
+    internalSetDateTimeSymbols_(DateTimeSymbols_wae_CH);
     break;
   case 'wo':
-    DateTimeSymbols = DateTimeSymbols_wo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_wo);
     break;
   case 'wo_SN':
   case 'wo-SN':
-    DateTimeSymbols = DateTimeSymbols_wo_SN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_wo_SN);
     break;
   case 'xh':
-    DateTimeSymbols = DateTimeSymbols_xh;
+    internalSetDateTimeSymbols_(DateTimeSymbols_xh);
     break;
   case 'xh_ZA':
   case 'xh-ZA':
-    DateTimeSymbols = DateTimeSymbols_xh_ZA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_xh_ZA);
     break;
   case 'xog':
-    DateTimeSymbols = DateTimeSymbols_xog;
+    internalSetDateTimeSymbols_(DateTimeSymbols_xog);
     break;
   case 'xog_UG':
   case 'xog-UG':
-    DateTimeSymbols = DateTimeSymbols_xog_UG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_xog_UG);
     break;
   case 'yav':
-    DateTimeSymbols = DateTimeSymbols_yav;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yav);
     break;
   case 'yav_CM':
   case 'yav-CM':
-    DateTimeSymbols = DateTimeSymbols_yav_CM;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yav_CM);
     break;
   case 'yi':
-    DateTimeSymbols = DateTimeSymbols_yi;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yi);
     break;
   case 'yi_001':
   case 'yi-001':
-    DateTimeSymbols = DateTimeSymbols_yi_001;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yi_001);
     break;
   case 'yo':
-    DateTimeSymbols = DateTimeSymbols_yo;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yo);
     break;
   case 'yo_BJ':
   case 'yo-BJ':
-    DateTimeSymbols = DateTimeSymbols_yo_BJ;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yo_BJ);
     break;
   case 'yo_NG':
   case 'yo-NG':
-    DateTimeSymbols = DateTimeSymbols_yo_NG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yo_NG);
     break;
   case 'yrl':
-    DateTimeSymbols = DateTimeSymbols_yrl;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yrl);
     break;
   case 'yrl_BR':
   case 'yrl-BR':
-    DateTimeSymbols = DateTimeSymbols_yrl_BR;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yrl_BR);
     break;
   case 'yrl_CO':
   case 'yrl-CO':
-    DateTimeSymbols = DateTimeSymbols_yrl_CO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yrl_CO);
     break;
   case 'yrl_VE':
   case 'yrl-VE':
-    DateTimeSymbols = DateTimeSymbols_yrl_VE;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yrl_VE);
     break;
   case 'yue':
-    DateTimeSymbols = DateTimeSymbols_yue;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yue);
     break;
   case 'yue_Hans':
   case 'yue-Hans':
-    DateTimeSymbols = DateTimeSymbols_yue_Hans;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yue_Hans);
     break;
   case 'yue_Hans_CN':
   case 'yue-Hans-CN':
-    DateTimeSymbols = DateTimeSymbols_yue_Hans_CN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yue_Hans_CN);
     break;
   case 'yue_Hant':
   case 'yue-Hant':
-    DateTimeSymbols = DateTimeSymbols_yue_Hant;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yue_Hant);
     break;
   case 'yue_Hant_HK':
   case 'yue-Hant-HK':
-    DateTimeSymbols = DateTimeSymbols_yue_Hant_HK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_yue_Hant_HK);
     break;
   case 'zgh':
-    DateTimeSymbols = DateTimeSymbols_zgh;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zgh);
     break;
   case 'zgh_MA':
   case 'zgh-MA':
-    DateTimeSymbols = DateTimeSymbols_zgh_MA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zgh_MA);
     break;
   case 'zh_Hans':
   case 'zh-Hans':
-    DateTimeSymbols = DateTimeSymbols_zh_Hans;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hans);
     break;
   case 'zh_Hans_CN':
   case 'zh-Hans-CN':
-    DateTimeSymbols = DateTimeSymbols_zh_Hans_CN;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hans_CN);
     break;
   case 'zh_Hans_HK':
   case 'zh-Hans-HK':
-    DateTimeSymbols = DateTimeSymbols_zh_Hans_HK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hans_HK);
     break;
   case 'zh_Hans_MO':
   case 'zh-Hans-MO':
-    DateTimeSymbols = DateTimeSymbols_zh_Hans_MO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hans_MO);
     break;
   case 'zh_Hans_SG':
   case 'zh-Hans-SG':
-    DateTimeSymbols = DateTimeSymbols_zh_Hans_SG;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hans_SG);
     break;
   case 'zh_Hant':
   case 'zh-Hant':
-    DateTimeSymbols = DateTimeSymbols_zh_Hant;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hant);
     break;
   case 'zh_Hant_HK':
   case 'zh-Hant-HK':
-    DateTimeSymbols = DateTimeSymbols_zh_Hant_HK;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hant_HK);
     break;
   case 'zh_Hant_MO':
   case 'zh-Hant-MO':
-    DateTimeSymbols = DateTimeSymbols_zh_Hant_MO;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hant_MO);
     break;
   case 'zh_Hant_TW':
   case 'zh-Hant-TW':
-    DateTimeSymbols = DateTimeSymbols_zh_Hant_TW;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zh_Hant_TW);
     break;
   case 'zu_ZA':
   case 'zu-ZA':
-    DateTimeSymbols = DateTimeSymbols_zu_ZA;
+    internalSetDateTimeSymbols_(DateTimeSymbols_zu_ZA);
     break;
 }

@@ -15,8 +15,7 @@
  * The matrices are stored in column-major order.
  */
 import * as googVec from './vec.js';
-
-goog.requireType('goog.vec.vec3');
+const Vec3 = goog.requireType('goog.vec.vec3');
 
 
 /** @typedef {!googVec.Float32} */ export var Float32;
@@ -395,7 +394,7 @@ export function setDiagonalValues(mat, v00, v11, v22) {
  * Sets the diagonal values of the matrix from the given vector.
  *
  * @param {AnyType} mat The matrix to receive the values.
- * @param {googVec.Vec3.AnyType} vec The vector containing the values.
+ * @param {Vec3.AnyType} vec The vector containing the values.
  * @return {AnyType} return mat so that operations can be
  *     chained together.
  */
@@ -432,7 +431,7 @@ export function setColumnValues(mat, column, v0, v1, v2) {
  *
  * @param {AnyType} mat The matrix to receive the values.
  * @param {number} column The column index to set the values on.
- * @param {googVec.Vec3.AnyType} vec The vector elements for the column.
+ * @param {Vec3.AnyType} vec The vector elements for the column.
  * @return {AnyType} return mat so that operations can be
  *     chained together.
  */
@@ -451,9 +450,9 @@ export function setColumn(mat, column, vec) {
  *
  * @param {AnyType} mat The matrix supplying the values.
  * @param {number} column The column to get the values from.
- * @param {googVec.Vec3.AnyType} vec The vector elements to receive the
+ * @param {Vec3.AnyType} vec The vector elements to receive the
  *     column.
- * @return {googVec.Vec3.AnyType} return vec so that operations can be
+ * @return {Vec3.AnyType} return vec so that operations can be
  *     chained together.
  */
 export function getColumn(mat, column, vec) {
@@ -469,9 +468,9 @@ export function getColumn(mat, column, vec) {
  * Sets the columns of the matrix from the set of vector elements.
  *
  * @param {AnyType} mat The matrix to receive the values.
- * @param {googVec.Vec3.AnyType} vec0 The values for column 0.
- * @param {googVec.Vec3.AnyType} vec1 The values for column 1.
- * @param {googVec.Vec3.AnyType} vec2 The values for column 2.
+ * @param {Vec3.AnyType} vec0 The values for column 0.
+ * @param {Vec3.AnyType} vec1 The values for column 1.
+ * @param {Vec3.AnyType} vec2 The values for column 2.
  * @return {AnyType} return mat so that operations can be
  *     chained together.
  */
@@ -488,9 +487,9 @@ export function setColumns(mat, vec0, vec1, vec2) {
  * elements.
  *
  * @param {AnyType} mat The matrix supplying the columns.
- * @param {googVec.Vec3.AnyType} vec0 The vector to receive column 0.
- * @param {googVec.Vec3.AnyType} vec1 The vector to receive column 1.
- * @param {googVec.Vec3.AnyType} vec2 The vector to receive column 2.
+ * @param {Vec3.AnyType} vec0 The vector to receive column 0.
+ * @param {Vec3.AnyType} vec1 The vector to receive column 1.
+ * @param {Vec3.AnyType} vec2 The vector to receive column 2.
  */
 export function getColumns(mat, vec0, vec1, vec2) {
  getColumn(mat, 0, vec0);
@@ -523,7 +522,7 @@ export function setRowValues(mat, row, v0, v1, v2) {
  *
  * @param {AnyType} mat The matrix to receive the row values.
  * @param {number} row The index of the row.
- * @param {googVec.Vec3.AnyType} vec The vector containing the values.
+ * @param {Vec3.AnyType} vec The vector containing the values.
  * @return {AnyType} return mat so that operations can be
  *     chained together.
  */
@@ -540,8 +539,8 @@ export function setRow(mat, row, vec) {
  *
  * @param {AnyType} mat The matrix supplying the values.
  * @param {number} row The index of the row supplying the values.
- * @param {googVec.Vec3.AnyType} vec The vector to receive the row.
- * @return {googVec.Vec3.AnyType} return vec so that operations can be
+ * @param {Vec3.AnyType} vec The vector to receive the row.
+ * @return {Vec3.AnyType} return vec so that operations can be
  *     chained together.
  */
 export function getRow(mat, row, vec) {
@@ -556,9 +555,9 @@ export function getRow(mat, row, vec) {
  * Sets the rows of the matrix from the supplied vectors.
  *
  * @param {AnyType} mat The matrix to receive the values.
- * @param {googVec.Vec3.AnyType} vec0 The values for row 0.
- * @param {googVec.Vec3.AnyType} vec1 The values for row 1.
- * @param {googVec.Vec3.AnyType} vec2 The values for row 2.
+ * @param {Vec3.AnyType} vec0 The values for row 0.
+ * @param {Vec3.AnyType} vec1 The values for row 1.
+ * @param {Vec3.AnyType} vec2 The values for row 2.
  * @return {AnyType} return mat so that operations can be
  *     chained together.
  */
@@ -574,9 +573,9 @@ export function setRows(mat, vec0, vec1, vec2) {
  * Retrieves the rows of the matrix into the supplied vectors.
  *
  * @param {AnyType} mat The matrix to supplying the values.
- * @param {googVec.Vec3.AnyType} vec0 The vector to receive row 0.
- * @param {googVec.Vec3.AnyType} vec1 The vector to receive row 1.
- * @param {googVec.Vec3.AnyType} vec2 The vector to receive row 2.
+ * @param {Vec3.AnyType} vec0 The vector to receive row 0.
+ * @param {Vec3.AnyType} vec1 The vector to receive row 1.
+ * @param {Vec3.AnyType} vec2 The vector to receive row 2.
  */
 export function getRows(mat, vec0, vec1, vec2) {
  getRow(mat, 0, vec0);
@@ -855,10 +854,10 @@ export function equals(mat0, mat1) {
  * transformed matrix into resultVec.
  *
  * @param {AnyType} mat The matrix supplying the transformation.
- * @param {googVec.Vec3.AnyType} vec The vector to transform.
- * @param {googVec.Vec3.AnyType} resultVec The vector to
+ * @param {Vec3.AnyType} vec The vector to transform.
+ * @param {Vec3.AnyType} resultVec The vector to
  *     receive the results (may be vec).
- * @return {googVec.Vec3.AnyType} return resultVec so that operations can be
+ * @return {Vec3.AnyType} return resultVec so that operations can be
  *     chained together.
  */
 export function multVec3(mat, vec, resultVec) {
@@ -1192,11 +1191,11 @@ export function makeEulerZXZ(mat, theta1, theta2, theta3) {
  * rotation_x(theta) means rotation around the X axis of theta radians.
  *
  * @param {AnyType} mat The matrix.
- * @param {googVec.Vec3.AnyType} euler The ZXZ Euler angles in
+ * @param {Vec3.AnyType} euler The ZXZ Euler angles in
  *     radians as [theta1, theta2, theta3].
  * @param {boolean=} opt_theta2IsNegative Whether theta2 is in [-pi, 0] instead
  *     of the default [0, pi].
- * @return {googVec.Vec3.AnyType} return euler so that operations can be
+ * @return {Vec3.AnyType} return euler so that operations can be
  *     chained together.
  */
 export function toEulerZXZ(mat, euler, opt_theta2IsNegative) {

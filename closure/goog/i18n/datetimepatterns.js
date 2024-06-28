@@ -2693,3 +2693,11 @@ switch (goog.LOCALE) {
     DateTimePatterns = DateTimePatterns_zu;
     break;
 }
+
+/**
+ * @param {!DateTimePatternsType} patterns 
+ * @private
+ */
+export function internalSetDateTimePatterns_(patterns) {
+  DateTimePatterns = patterns;
+}

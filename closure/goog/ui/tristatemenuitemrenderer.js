@@ -5,14 +5,15 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.TriStateMenuItem}s.
+ * @fileoverview Renderer for {@link TriStateMenuItem}s.
  */
 
-goog.forwardDeclare('goog.ui.tristatemenuitem');
 import * as asserts from '../asserts/asserts.js';
 import * as classlist from '../dom/classlist.js';
 import { MenuItemRenderer } from './menuitemrenderer.js';
-goog.requireType('goog.ui.control');
+import { TriStateMenuItem } from './tristatemenuitem.js';
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlRenderer} = goog.requireType('goog.ui.controlrenderer');
 
 
 /**
@@ -44,10 +45,10 @@ TriStateMenuItemRenderer.CSS_CLASS =
 
 
 /**
- * Overrides {@link goog.ui.ControlRenderer#decorate} by initializing the
+ * Overrides {@link ControlRenderer#decorate} by initializing the
  * menu item to checkable based on whether the element to be decorated has
  * extra styling indicating that it should be.
- * @param {goog.ui.Control} item goog.ui.TriStateMenuItem to decorate
+ * @param {Control} item TriStateMenuItem to decorate
  *     the element.
  * @param {Element} element Element to decorate.
  * @return {!Element} Decorated element.
@@ -65,15 +66,15 @@ TriStateMenuItemRenderer.prototype.decorate = function(item, element) {
  if (classlist.contains(
          element, goog.getCssName(this.getCssClass(), 'fully-checked'))) {
    item.setCheckedState(/** @suppress {missingRequire} */
-       goog.ui.TriStateMenuItem.State.FULLY_CHECKED);
+       TriStateMenuItem.State.FULLY_CHECKED);
  } else if (
      classlist.contains(
          element, goog.getCssName(this.getCssClass(), 'partially-checked'))) {
    /** @suppress {missingRequire} */
-   item.setCheckedState(goog.ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
+   item.setCheckedState(TriStateMenuItem.State.PARTIALLY_CHECKED);
  } else {
    /** @suppress {missingRequire} */
-   item.setCheckedState(goog.ui.TriStateMenuItem.State.NOT_CHECKED);
+   item.setCheckedState(TriStateMenuItem.State.NOT_CHECKED);
  }
 
  return element;

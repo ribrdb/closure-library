@@ -21,7 +21,7 @@ import {
  SanitizedTrustedResourceUri,
 } from './data.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as asserts from '../testing/asserts.js';
 import * as userAgent from '../useragent/useragent.js';
 
@@ -112,7 +112,7 @@ example.textNodeTemplate = function(data, opt_injectedData) {
  assertNotNull(data);
  assertNotUndefined(data);
  return makeSanitizedContent(
-     string.htmlEscape(data.name),
+     googString.htmlEscape(data.name),
      SanitizedContentKind.HTML);
 };
 
@@ -126,7 +126,7 @@ example.singleRootTemplate = function(data, opt_injectedData) {
  assertNotNull(data);
  assertNotUndefined(data);
  return makeSanitizedContent(
-     '<span>' + string.htmlEscape(data.name) + '</span>',
+     '<span>' + googString.htmlEscape(data.name) + '</span>',
      SanitizedContentKind.HTML);
 };
 
@@ -140,7 +140,7 @@ example.multiRootTemplate = function(data, opt_injectedData) {
  assertNotNull(data);
  assertNotUndefined(data);
  return makeSanitizedContent(
-     '<div>Hello</div><div>' + string.htmlEscape(data.name) + '</div>',
+     '<div>Hello</div><div>' + googString.htmlEscape(data.name) + '</div>',
      SanitizedContentKind.HTML);
 };
 
@@ -155,8 +155,8 @@ example.injectedDataTemplate = function(data, opt_injectedData) {
  assertNotNull(data);
  assertNotUndefined(data);
  return makeSanitizedContent(
-     string.htmlEscape(data.name) +
-         string.htmlEscape(opt_injectedData.name),
+     googString.htmlEscape(data.name) +
+         googString.htmlEscape(opt_injectedData.name),
      SanitizedContentKind.HTML);
 };
 

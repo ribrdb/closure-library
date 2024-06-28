@@ -7,7 +7,7 @@
 /**
  * @fileoverview A map of listeners that provides utility functions to
  * deal with listeners on an event target. Used by
- * `goog.events.EventTarget`.
+ * `EventTarget`.
  *
  * WARNING: Do not use this class from outside goog.events package.
  *
@@ -17,20 +17,20 @@ import * as array from '../array/array.js';
 
 import { Listener } from './listener.js';
 import object from '../object/object.js';
-goog.requireType('goog.events.eventid');
-goog.requireType('goog.events.listenable');
-goog.requireType('goog.events.listenablekey');
+const {EventId} = goog.requireType('goog.events.eventid');
+const {Listenable} = goog.requireType('goog.events.listenable');
+const {ListenableKey} = goog.requireType('goog.events.listenablekey');
 
 
 
 /**
  * Creates a new listener map.
- * @param {EventTarget|goog.events.Listenable} src The src object.
+ * @param {EventTarget|Listenable} src The src object.
  * @constructor
  * @final
  */
 export function ListenerMap(src) {
-  /** @type {EventTarget|goog.events.Listenable} */
+  /** @type {EventTarget|Listenable} */
   this.src = src;
 
   /**
@@ -77,14 +77,14 @@ ListenerMap.prototype.getListenerCount = function() {
  * if any. On the other hand a normal listener will change existing
  * one-off listener to become a normal listener.
  *
- * @param {string|!goog.events.EventId} type The listener event type.
+ * @param {string|!EventId} type The listener event type.
  * @param {!Function} listener This listener callback method.
  * @param {boolean} callOnce Whether the listener is a one-off
  *     listener.
  * @param {boolean=} opt_useCapture The capture mode of the listener.
  * @param {Object=} opt_listenerScope Object in whose scope to call the
  *     listener.
- * @return {!goog.events.ListenableKey} Unique key for the listener.
+ * @return {!ListenableKey} Unique key for the listener.
  */
 ListenerMap.prototype.add = function(
     type, listener, callOnce, opt_useCapture, opt_listenerScope) {
@@ -117,7 +117,7 @@ ListenerMap.prototype.add = function(
 
 /**
  * Removes a matching listener.
- * @param {string|!goog.events.EventId} type The listener event type.
+ * @param {string|!EventId} type The listener event type.
  * @param {!Function} listener This listener callback method.
  * @param {boolean=} opt_useCapture The capture mode of the listener.
  * @param {Object=} opt_listenerScope Object in whose scope to call the
@@ -150,7 +150,7 @@ ListenerMap.prototype.remove = function(
 
 /**
  * Removes the given listener object.
- * @param {!goog.events.ListenableKey} listener The listener to remove.
+ * @param {!ListenableKey} listener The listener to remove.
  * @return {boolean} Whether the listener is removed.
  */
 ListenerMap.prototype.removeByKey = function(listener) {
@@ -174,7 +174,7 @@ ListenerMap.prototype.removeByKey = function(listener) {
 /**
  * Removes all listeners from this map. If opt_type is provided, only
  * listeners that match the given type are removed.
- * @param {string|!goog.events.EventId=} opt_type Type of event to remove.
+ * @param {string|!EventId=} opt_type Type of event to remove.
  * @return {number} Number of listeners removed.
  */
 ListenerMap.prototype.removeAll = function(opt_type) {
@@ -198,10 +198,10 @@ ListenerMap.prototype.removeAll = function(opt_type) {
 /**
  * Gets all listeners that match the given type and capture mode. The
  * returned array is a copy (but the listener objects are not).
- * @param {string|!goog.events.EventId} type The type of the listeners
+ * @param {string|!EventId} type The type of the listeners
  *     to retrieve.
  * @param {boolean} capture The capture mode of the listeners to retrieve.
- * @return {!Array<!goog.events.ListenableKey>} An array of matching
+ * @return {!Array<!ListenableKey>} An array of matching
  *     listeners.
  */
 ListenerMap.prototype.getListeners = function(type, capture) {
@@ -220,16 +220,16 @@ ListenerMap.prototype.getListeners = function(type, capture) {
 
 
 /**
- * Gets the goog.events.ListenableKey for the event or null if no such
+ * Gets the ListenableKey for the event or null if no such
  * listener is in use.
  *
- * @param {string|!goog.events.EventId} type The type of the listener
+ * @param {string|!EventId} type The type of the listener
  *     to retrieve.
  * @param {!Function} listener The listener function to get.
  * @param {boolean} capture Whether the listener is a capturing listener.
  * @param {Object=} opt_listenerScope Object in whose scope to call the
  *     listener.
- * @return {goog.events.ListenableKey} the found listener or null if not found.
+ * @return {ListenableKey} the found listener or null if not found.
  */
 ListenerMap.prototype.getListener = function(
     type, listener, capture, opt_listenerScope) {
@@ -248,7 +248,7 @@ ListenerMap.prototype.getListener = function(
  * parameters are unspecified, the function will match on the
  * remaining criteria.
  *
- * @param {string|!goog.events.EventId=} opt_type The type of the listener.
+ * @param {string|!EventId=} opt_type The type of the listener.
  * @param {boolean=} opt_capture The capture mode of the listener.
  * @return {boolean} Whether there is an active listener matching
  *     the requested type and/or capture phase.

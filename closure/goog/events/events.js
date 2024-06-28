@@ -50,12 +50,12 @@ import { BrowserEvent } from './browserevent.js';
 import BrowserFeature from './browserfeature.js';
 import { Listenable } from './listenable.js';
 import { ListenerMap } from './listenermap.js';
-goog.requireType('goog.debug.errorhandler');
-goog.requireType('goog.events.eventid');
-goog.requireType('goog.events.eventlike');
-goog.requireType('goog.events.eventwrapper');
-goog.requireType('goog.events.listenablekey');
-goog.requireType('goog.events.listener');
+const {ErrorHandler} = goog.requireType('goog.debug.errorhandler');
+const {EventId} = goog.requireType('goog.events.eventid');
+const {EventLike} = goog.requireType('goog.events.eventlike');
+const {EventWrapper} = goog.requireType('goog.events.eventwrapper');
+const {ListenableKey} = goog.requireType('goog.events.listenablekey');
+const {Listener} = goog.requireType('goog.events.listener');
 
 
 /**
@@ -174,7 +174,7 @@ export function listen(src, type, listener, opt_options, opt_handler) {
     var capture =
         goog.isObject(opt_options) ? !!opt_options.capture : !!opt_options;
     return src.listen(
-        /** @type {string|!goog.events.EventId} */ (type), listener, capture,
+        /** @type {string|!EventId} */ (type), listener, capture,
         opt_handler);
   } else {
     return listen_(
@@ -219,7 +219,7 @@ function listen_(src, type, listener, callOnce, opt_options, opt_handler) {
         new ListenerMap(src);
   }
 
-  var listenerObj = /** @type {goog.events.Listener} */ (
+  var listenerObj = /** @type {Listener} */ (
       listenerMap.add(type, listener, callOnce, capture, opt_handler));
 
   // If the listenerObj already has a proxy, it has been set up
@@ -321,7 +321,7 @@ export function listenOnce(src, type, listener, opt_options, opt_handler) {
     var capture =
         goog.isObject(opt_options) ? !!opt_options.capture : !!opt_options;
     return src.listenOnce(
-        /** @type {string|!goog.events.EventId} */ (type), listener, capture,
+        /** @type {string|!EventId} */ (type), listener, capture,
         opt_handler);
   } else {
     return listen_(
@@ -382,7 +382,7 @@ export function unlisten(src, type, listener, opt_options, opt_handler) {
   listener = wrapListener(listener);
   if (Listenable.isImplementedBy(src)) {
     return src.unlisten(
-        /** @type {string|!goog.events.EventId} */ (type), listener, capture,
+        /** @type {string|!EventId} */ (type), listener, capture,
         opt_handler);
   }
 
@@ -396,7 +396,7 @@ export function unlisten(src, type, listener, opt_options, opt_handler) {
       /** @type {!EventTarget} */ (src));
   if (listenerMap) {
     var listenerObj = listenerMap.getListener(
-        /** @type {string|!goog.events.EventId} */ (type), listener, capture,
+        /** @type {string|!EventId} */ (type), listener, capture,
         opt_handler);
     if (listenerObj) {
       return unlistenByKey(listenerObj);
@@ -499,7 +499,7 @@ export function unlistenWithWrapper(src, wrapper, listener, opt_capt, opt_handle
  */
 export function removeAll(obj, opt_type) {
   // TODO(chrishenry): Change the type of obj to
-  // (!EventTarget|!goog.events.Listenable).
+  // (!EventTarget|!Listenable).
 
   if (!obj) {
     return 0;
@@ -550,7 +550,7 @@ export function getListeners(obj, type, capture) {
   } else {
     if (!obj) {
       // TODO(chrishenry): We should tighten the API to accept
-      // !EventTarget|goog.events.Listenable, and add an assertion here.
+      // !EventTarget|Listenable, and add an assertion here.
       return [];
     }
 
@@ -780,7 +780,7 @@ export function dispatchEvent(src, e) {
  * Installs exception protection for the browser event entry point using the
  * given error handler.
  *
- * @param {goog.debug.ErrorHandler} errorHandler Error handler with which to
+ * @param {ErrorHandler} errorHandler Error handler with which to
  *     protect the entry point.
  */
 export function protectBrowserEventEntryPoint(errorHandler) {

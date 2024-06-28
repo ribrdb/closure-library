@@ -32,7 +32,7 @@ import * as xpc from './xpc.js';
 import { CfgFields as xpcCfgFields, ChannelStates, TransportTypes, UriCfgFields } from './xpc.js';
 import { CrossPageChannelRole } from './crosspagechannelrole.js';
 import { NativeMessagingTransport } from './nativemessagingtransport.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as utils from '../../uri/utils.js';
 import * as userAgent from '../../useragent/useragent.js';
 goog.requireType('goog.net.xpc.transport');
@@ -797,8 +797,8 @@ CrossPageChannel.prototype.updateChannelNameAndCatalog = function(
 CrossPageChannel.prototype.isMessageOriginAcceptable = function(
     opt_origin) {
   const peerHostname = this.cfg_[xpcCfgFields.PEER_HOSTNAME];
-  return string.isEmptyOrWhitespace(string.makeSafe(opt_origin)) ||
-      string.isEmptyOrWhitespace(string.makeSafe(peerHostname)) ||
+  return googString.isEmptyOrWhitespace(googString.makeSafe(opt_origin)) ||
+      googString.isEmptyOrWhitespace(googString.makeSafe(peerHostname)) ||
       opt_origin == this.cfg_[xpcCfgFields.PEER_HOSTNAME];
 };
 

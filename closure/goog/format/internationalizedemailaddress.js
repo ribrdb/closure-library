@@ -12,7 +12,7 @@
 
 import { EmailAddress } from './emailaddress.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 
@@ -225,7 +225,7 @@ InternationalizedEmailAddress.parse = function(addr) {
  * @return {boolean} Whether the provided character is an address separator.
  */
 InternationalizedEmailAddress.isAddressSeparator = function(ch) {
- return string.contains(
+ return googString.contains(
      InternationalizedEmailAddress.ADDRESS_SEPARATORS_, ch);
 };
 

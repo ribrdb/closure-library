@@ -23,7 +23,7 @@ import * as array from '../array/array.js';
 
 import { Integer } from '../math/integer.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 /**
@@ -146,8 +146,8 @@ IpAddress.fromString = function(address) {
  */
 IpAddress.fromUriString = function(address) {
   try {
-    if (string.startsWith(address, '[') &&
-        string.endsWith(address, ']')) {
+    if (googString.startsWith(address, '[') &&
+        googString.endsWith(address, ']')) {
       return new Ipv6Address(
           address.substring(1, address.length - 1));
     }
@@ -200,9 +200,9 @@ export function Ipv4Address(address) {
     }
 
     for (let i = 0; i < octets.length; i++) {
-      const parsedOctet = string.toNumber(octets[i]);
+      const parsedOctet = googString.toNumber(octets[i]);
       if (isNaN(parsedOctet) || parsedOctet < 0 || parsedOctet > 255 ||
-          (octets[i].length != 1 && string.startsWith(octets[i], '0'))) {
+          (octets[i].length != 1 && googString.startsWith(octets[i], '0'))) {
         throw new Error('In ' + address + ', octet ' + i + ' is not valid');
       }
       const intOctet = Integer.fromNumber(parsedOctet);

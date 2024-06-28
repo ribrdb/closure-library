@@ -14,14 +14,14 @@ import { DirectoryEntry, Entry, FileEntry } from './entry.js';
 import { Error } from './error.js';
 import { FileWriter } from './filewriter.js';
 import * as functions from '../functions/functions.js';
-import * as string from '../string/string.js';
-goog.requireType('goog.fs.filesystem');
+import * as googString from '../string/string.js';
+const {FileSystem} = goog.requireType('goog.fs.filesystem');
 
 
 
 /**
  * Base class for concrete implementations of Entry.
- * @param {!goog.fs.FileSystem} fs The wrapped filesystem.
+ * @param {!FileSystem} fs The wrapped filesystem.
  * @param {!Entry} entry The underlying Entry object.
  * @constructor
  * @implements {Entry}
@@ -30,7 +30,7 @@ export function EntryImpl(fs, entry) {
   /**
    * The wrapped filesystem.
    *
-   * @type {!goog.fs.FileSystem}
+   * @type {!FileSystem}
    * @private
    */
   this.fs_ = fs;
@@ -180,10 +180,10 @@ EntryImpl.prototype.getParent = function() {
  * A directory in a local FileSystem.
  *
  * This should not be instantiated directly. Instead, it should be accessed via
- * {@link goog.fs.FileSystem#getRoot} or
+ * {@link FileSystem#getRoot} or
  * {@link DirectoryEntry#getDirectoryEntry}.
  *
- * @param {!goog.fs.FileSystem} fs The wrapped filesystem.
+ * @param {!FileSystem} fs The wrapped filesystem.
  * @param {!DirectoryEntry} dir The underlying DirectoryEntry object.
  * @constructor
  * @extends {EntryImpl}
@@ -236,7 +236,7 @@ DirectoryEntryImpl.prototype.getDirectory = function(
 /** @override */
 DirectoryEntryImpl.prototype.createPath = function(path) {
   // If the path begins at the root, reinvoke createPath on the root directory.
-  if (string.startsWith(path, '/')) {
+  if (googString.startsWith(path, '/')) {
     const root = this.getFileSystem().getRoot();
     if (this.getFullPath() != root.getFullPath()) {
       return root.createPath(path);
@@ -338,7 +338,7 @@ DirectoryEntryImpl.prototype.getOptions_ = function(opt_behavior) {
  * This should not be instantiated directly. Instead, it should be accessed via
  * {@link DirectoryEntry#getFile}.
  *
- * @param {!goog.fs.FileSystem} fs The wrapped filesystem.
+ * @param {!FileSystem} fs The wrapped filesystem.
  * @param {!FileEntry} file The underlying FileEntry object.
  * @constructor
  * @extends {EntryImpl}

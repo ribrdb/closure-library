@@ -20,9 +20,9 @@
 import { TagName } from '../../dom/tagname.js';
 
 import { Event } from '../../events/event.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 // *** Public interface ***************************************************** //
@@ -31,7 +31,7 @@ goog.requireType('goog.dom.dom');
 
 /**
  * Creates a dialog to let the user enter a customized hello world message.
- * @param {goog.dom.DomHelper} domHelper DomHelper to be used to create the
+ * @param {DomHelper} domHelper DomHelper to be used to create the
  * dialog's dom structure.
  * @constructor
  * @extends {AbstractDialog}
@@ -166,6 +166,6 @@ HelloWorldDialog.prototype.getMessage_ = function() {
  */
 HelloWorldDialog.isValidHelloWorld_ = function(message) {
  message = message.toLowerCase();
- return string.contains(message, 'hello') &&
-     string.contains(message, 'world');
+ return googString.contains(message, 'hello') &&
+     googString.contains(message, 'world');
 };

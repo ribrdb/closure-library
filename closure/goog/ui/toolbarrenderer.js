@@ -15,7 +15,7 @@ import { Container } from './container.js';
 import { ContainerRenderer } from './containerrenderer.js';
 import { Separator } from './separator.js';
 import { ToolbarSeparatorRenderer } from './toolbarseparatorrenderer.js';
-goog.requireType('goog.ui.control');
+const {Control} = goog.requireType('goog.ui.control');
 
 
 
@@ -41,11 +41,11 @@ ToolbarRenderer.CSS_CLASS = goog.getCssName('goog-toolbar');
 
 
 /**
- * Inspects the element, and creates an instance of {@link goog.ui.Control} or
+ * Inspects the element, and creates an instance of {@link Control} or
  * an appropriate subclass best suited to decorate it.  Overrides the superclass
  * implementation by recognizing HR elements as separators.
  * @param {Element} element Element to decorate.
- * @return {goog.ui.Control?} A new control suitable to decorate the element
+ * @return {Control?} A new control suitable to decorate the element
  *     (null if none).
  * @override
  */

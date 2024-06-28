@@ -16,7 +16,6 @@ import { dispose } from '../disposable/dispose.js';
 import * as functions from '../functions/functions.js';
 import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
 
-/** @suppress {extraRequire} */
 import { module as googModule } from './module.js';
 
 import { BaseModule } from './basemodule.js';

@@ -44,14 +44,14 @@ import * as legacyconversions from '../html/legacyconversions.js';
 import platform from '../labs/useragent/platform.js';
 import * as log from '../log/log.js';
 import * as googLog from '../log/log.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Unicode } from '../string/string.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
 goog.requireType('goog.disposable.disposable');
 goog.requireType('goog.dom.abstractrange');
 goog.requireType('goog.dom.savedrange');
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.html.trustedresourceurl');
 
 
@@ -2600,7 +2600,7 @@ Field.prototype.clearFieldLoadListener_ = function() {
 Field.prototype.getIframeAttributes = function() {
   var iframeStyle = 'padding:0;' + this.getOriginalElement().style.cssText;
 
-  if (!string.endsWith(iframeStyle, ';')) {
+  if (!googString.endsWith(iframeStyle, ';')) {
     iframeStyle += ';';
   }
 

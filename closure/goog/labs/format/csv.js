@@ -25,7 +25,7 @@ import * as asserts from '../../asserts/asserts.js';
 
 import {DebugError as Error} from '../../debug/error.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as newlines from '../../string/newlines.js';
 
 
@@ -69,7 +69,7 @@ export function ParseError(text, index, opt_message) {
       this.position = {line: lineNumber, column: columnNumber};
 
       message +=
-          string.subs(' at line %s column %s', lineNumber, columnNumber);
+          googString.subs(' at line %s column %s', lineNumber, columnNumber);
       message += '\n' +
           ParseError.getLineDebugString_(
               info.line.getContent(), columnNumber);
@@ -118,7 +118,7 @@ ParseError.findLineInfo_ = function(str, index) {
  */
 ParseError.getLineDebugString_ = function(str, column) {
   let returnString = str + '\n';
-  returnString += string.repeat(' ', column - 1) + '^';
+  returnString += googString.repeat(' ', column - 1) + '^';
   return returnString;
 };
 

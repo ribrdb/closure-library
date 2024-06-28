@@ -44,17 +44,17 @@ import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { Menu } from './menu.js';
 import { PopupBase } from './popupbase.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.box');
-goog.requireType('goog.positioning.abstractposition');
-goog.requireType('goog.ui.menurenderer');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { Event } = goog.requireType('goog.events.event');
+const { Box } = goog.requireType('goog.math.box');
+const { AbstractPosition } = goog.requireType('goog.positioning.abstractposition');
+const { MenuRenderer } = goog.requireType('goog.ui.menurenderer');
 
 
 
 /**
  * A basic menu class.
- * @param {?goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {?DomHelper=} opt_domHelper Optional DOM helper.
  * @param {?MenuRenderer=} opt_renderer Renderer used to render or
  *     decorate the container; defaults to {@link MenuRenderer}.
  * @extends {Menu}
@@ -158,7 +158,7 @@ PopupMenu.prototype.enterDocument = function() {
  *     {@link EventType.CONTEXTMENU} events, false if it should
  *     show on {@link EventType.MOUSEDOWN} events. Default is
  *     MOUSEDOWN.
- * @param {?goog.math.Box=} opt_margin Margin for the popup used in positioning
+ * @param {?Box=} opt_margin Margin for the popup used in positioning
  *     algorithms.
  */
 PopupMenu.prototype.attach = function(
@@ -245,7 +245,7 @@ PopupMenu.prototype.onMenuKeyboardAction_ = function(element, e) {
  *     {@link EventType.CONTEXTMENU} events, false if it should
  *     show on {@link EventType.MOUSEDOWN} events. Default is
  *     MOUSEDOWN.
- * @param {?goog.math.Box=} opt_margin Margin for the popup used in positioning
+ * @param {?Box=} opt_margin Margin for the popup used in positioning
  *     algorithms.
  *
  * @return {?Object} An object that describes how the popup menu should be
@@ -415,11 +415,11 @@ PopupMenu.prototype.getShiftOverride = function() {
 
 /**
  * Show the menu using given positioning object.
- * @param {?goog.positioning.AbstractPosition} position The positioning
+ * @param {?AbstractPosition} position The positioning
  *     instance.
  * @param {Corner=} opt_menuCorner The corner of the menu to be
  *     positioned.
- * @param {?goog.math.Box=} opt_margin A margin specified in pixels.
+ * @param {?Box=} opt_margin A margin specified in pixels.
  * @param {?Element=} opt_anchor The element which acts as visual anchor for
  *     this menu.
  */
@@ -463,7 +463,7 @@ PopupMenu.prototype.showWithPosition = function(
 
   this.setHighlightedIndex(-1);
 
-  // setVisible dispatches a goog.ui.Component.EventType.SHOW event, which may
+  // setVisible dispatches a Component.EventType.SHOW event, which may
   // be canceled to prevent the menu from being shown.
   this.setVisible(true);
 };
@@ -532,7 +532,7 @@ PopupMenu.prototype.hide = function() {
     return;
   }
 
-  // setVisible dispatches a goog.ui.Component.EventType.HIDE event, which may
+  // setVisible dispatches a Component.EventType.HIDE event, which may
   // be canceled to prevent the menu from being hidden.
   this.setVisible(false);
   if (!this.isVisible()) {
@@ -566,7 +566,7 @@ PopupMenu.prototype.wasRecentlyHidden = function() {
 
 /**
  * Dismiss the popup menu when an action fires.
- * @param {?events.Event=} opt_e The optional event.
+ * @param {?Event=} opt_e The optional event.
  * @private
  */
 PopupMenu.prototype.onAction_ = function(opt_e) {

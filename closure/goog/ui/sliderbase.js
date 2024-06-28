@@ -55,12 +55,12 @@ import * as style from '../style/style.js';
 import * as bidi from '../style/bidi.js';
 import { Component } from './component.js';
 import { RangeModel } from './rangemodel.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
-goog.requireType('goog.events.mousewheelhandler');
-goog.requireType('goog.fx.animation');
-goog.requireType('goog.fx.dragger');
-goog.requireType('goog.fx.transitionbase');
+const {Event} = goog.requireType('goog.events.event');
+const {KeyEvent} = goog.requireType('goog.events.keyevent');
+const {MouseWheelEvent} = goog.requireType('goog.events.mousewheelhandler');
+const {AnimationEvent} = goog.requireType('goog.fx.animation');
+const {DragEvent} = goog.requireType('goog.fx.dragger');
+const {TransitionBase} = goog.requireType('goog.fx.transitionbase');
 
 
 
@@ -519,7 +519,7 @@ SliderBase.prototype.exitDocument = function() {
 /**
  * Handler for the before drag event. We use the event properties to determine
  * the new value.
- * @param {goog.fx.DragEvent} e  The drag event used to drag the thumb.
+ * @param {DragEvent} e  The drag event used to drag the thumb.
  * @private
  */
 SliderBase.prototype.handleBeforeDrag_ = function(e) {
@@ -553,7 +553,7 @@ SliderBase.prototype.handleBeforeDrag_ = function(e) {
 /**
  * Handler for the start/end drag event on the thumbs. Adds/removes
  * the "-dragging" CSS classes on the slider and thumb.
- * @param {goog.fx.DragEvent} e The drag event used to drag the thumb.
+ * @param {DragEvent} e The drag event used to drag the thumb.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -583,7 +583,7 @@ SliderBase.prototype.handleThumbDragStartEnd_ = function(e) {
 /**
  * Event handler for the key down event. This is used to update the value
  * based on the key pressed.
- * @param {events.KeyEvent} e  The keyboard event object.
+ * @param {KeyEvent} e  The keyboard event object.
  * @private
  */
 SliderBase.prototype.handleKeyDown_ = function(e) {
@@ -634,7 +634,7 @@ SliderBase.prototype.handleKeyDown_ = function(e) {
 
 /**
  * Handler for the mouse down event and click event.
- * @param {events.Event} e  The mouse event object.
+ * @param {Event} e  The mouse event object.
  * @private
  */
 SliderBase.prototype.handleMouseDownAndClick_ = function(e) {
@@ -672,7 +672,7 @@ SliderBase.prototype.handleMouseDownAndClick_ = function(e) {
 
 /**
  * Handler for the mouse wheel event.
- * @param {events.MouseWheelEvent} e  The mouse wheel event object.
+ * @param {MouseWheelEvent} e  The mouse wheel event object.
  * @private
  */
 SliderBase.prototype.handleMouseWheel_ = function(e) {
@@ -686,7 +686,7 @@ SliderBase.prototype.handleMouseWheel_ = function(e) {
 /**
  * Starts the animation that causes the thumb to increment/decrement by the
  * block increment when the user presses down on the background.
- * @param {events.Event} e  The mouse event object.
+ * @param {Event} e  The mouse event object.
  * @private
  */
 SliderBase.prototype.startBlockIncrementing_ = function(e) {
@@ -786,7 +786,7 @@ SliderBase.prototype.stopBlockIncrementing_ = function() {
 
 /**
  * Returns the relative mouse position to the slider.
- * @param {events.Event} e  The mouse event object.
+ * @param {Event} e  The mouse event object.
  * @return {number} The relative mouse position to the slider.
  * @private
  */
@@ -806,7 +806,7 @@ SliderBase.prototype.getRelativeMousePos_ = function(e) {
 
 /**
  * Stores the current mouse position so that it can be used in the timer.
- * @param {events.Event} e  The mouse event object.
+ * @param {Event} e  The mouse event object.
  * @private
  */
 SliderBase.prototype.storeMousePos_ = function(e) {
@@ -816,7 +816,7 @@ SliderBase.prototype.storeMousePos_ = function(e) {
 
 /**
  * Returns the value to use for the current mouse position
- * @param {events.Event} e  The mouse event object.
+ * @param {Event} e  The mouse event object.
  * @return {number} The value that this mouse position represents.
  */
 SliderBase.prototype.getValueFromMousePosition = function(e) {
@@ -1017,7 +1017,7 @@ SliderBase.prototype.getClosestThumb_ = function(position) {
 /**
  * Call back when the internal range model changes. Sub-classes may override
  * and re-enter this method to update a11y state. Consider protected.
- * @param {events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  */
 SliderBase.prototype.handleRangeModelChange = function(e) {
@@ -1292,7 +1292,7 @@ SliderBase.prototype.addRangeHighlightAnimations_ = function(
 
 /**
  * Sets the isAnimating_ field to false once the animation is done.
- * @param {goog.fx.AnimationEvent} e Event object passed by the animation
+ * @param {AnimationEvent} e Event object passed by the animation
  *     object.
  * @private
  */

@@ -14,7 +14,7 @@ import { AbstractRange } from '../../dom/abstractrange.js';
 import { NodeType } from '../../dom/nodetype.js';
 import { TagIterator, TagWalkType } from '../../dom/tagiterator.js';
 import * as googIter from '../../iter/iter.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as asserts from '../asserts.js';
 
 
@@ -197,7 +197,7 @@ export function assertRangeBetweenText(before, after, range, opt_stopAt) {
     assertTrue(
         'Expected <' + before + '> before range but found <' + previousText +
             '>',
-        string.endsWith(
+        googString.endsWith(
             /** @type {string} */ (previousText), before));
   }
   const nextText =
@@ -210,7 +210,7 @@ export function assertRangeBetweenText(before, after, range, opt_stopAt) {
         'Expected <' + after + '> after range but found nothing', nextText);
     assertTrue(
         'Expected <' + after + '> after range but found <' + nextText + '>',
-        string.startsWith(
+        googString.startsWith(
             /** @type {string} */ (nextText), after));
   }
 }

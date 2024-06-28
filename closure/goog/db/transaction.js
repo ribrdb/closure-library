@@ -16,7 +16,7 @@ import { ObjectStore } from './objectstore.js';
 import * as events from '../events/events.js';
 import { EventHandler } from '../events/eventhandler.js';
 import { EventTarget } from '../events/eventtarget.js';
-goog.requireType('goog.db.indexeddb');
+const {IndexedDb} = goog.requireType('goog.db.indexeddb');
 
 
 
@@ -24,10 +24,10 @@ goog.requireType('goog.db.indexeddb');
  * Creates a new transaction. Transactions contain methods for accessing object
  * stores and are created from the database object. Should not be created
  * directly, open a database and call createTransaction on it.
- * @see goog.db.IndexedDb#createTransaction
+ * @see IndexedDb#createTransaction
  *
  * @param {!IDBTransaction} tx IndexedDB transaction to back this wrapper.
- * @param {!goog.db.IndexedDb} db The database that this transaction modifies.
+ * @param {!IndexedDb} db The database that this transaction modifies.
  * @constructor
  * @extends {EventTarget}
  * @final
@@ -46,7 +46,7 @@ export function Transaction(tx, db) {
   /**
    * The database that this transaction modifies.
    *
-   * @type {!goog.db.IndexedDb}
+   * @type {!IndexedDb}
    * @private
    */
   this.db_ = db;
@@ -122,7 +122,7 @@ Transaction.prototype.getMode = function() {
 
 
 /**
- * @return {!goog.db.IndexedDb} The database that this transaction modifies.
+ * @return {!IndexedDb} The database that this transaction modifies.
  */
 Transaction.prototype.getDatabase = function() {
   return this.db_;
@@ -132,7 +132,7 @@ Transaction.prototype.getDatabase = function() {
 /**
  * Opens an object store to do operations on in this transaction. The requested
  * object store must be one that is in this transaction's scope.
- * @see goog.db.IndexedDb#createTransaction
+ * @see IndexedDb#createTransaction
  *
  * @param {string} name The name of the requested object store.
  * @return {!ObjectStore} The wrapped object store.

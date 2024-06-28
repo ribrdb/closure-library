@@ -36,7 +36,7 @@ import { SafeHtml as htmlSafeHtml } from '../html/safehtml.js';
 import { SafeStyleSheet } from '../html/safestylesheet.js';
 import * as log from '../log/log.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as userAgent from '../useragent/useragent.js';
 
@@ -376,7 +376,7 @@ FancyWindow.getStoredKeys_ = function() {
   for (var i = 0, len = window.localStorage.length; i < len; i++) {
     var key = window.localStorage.key(i);
     if (key != null &&
-        string.startsWith(
+        googString.startsWith(
             key, FancyWindow.LOCAL_STORE_PREFIX)) {
       storedKeys[key] = true;
     }

@@ -11,10 +11,10 @@
 import * as array from '../../array/array.js';
 
 import { KeyCodes } from '../../events/keycodes.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Trie } from '../../structs/trie.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.ui.tree.basenode');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { BaseNode } = goog.requireType('goog.ui.tree.basenode');
 
 
 
@@ -27,7 +27,7 @@ export function TypeAhead() {
   /**
      * Map of tree nodes to allow for quick access by characters in the label
      * text.
-     * @private {Trie<Array<goog.ui.tree.BaseNode>>}
+     * @private {Trie<Array<BaseNode>>}
      */
   this.nodeMap_ = new Trie();
 
@@ -46,7 +46,7 @@ export function TypeAhead() {
   /**
    * Matching nodes from the latest typeahead search. Used when more than
    * one node is present with the same label text.
-   * @private {?Array<?goog.ui.tree.BaseNode>}
+   * @private {?Array<?BaseNode>}
    */
   this.matchingNodes_ = null;
 
@@ -79,7 +79,7 @@ TypeAhead.Offset = {
 
 /**
  * Handles navigation keys.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @return {boolean} The handled value.
  */
 TypeAhead.prototype.handleNavigation = function(e) {
@@ -126,7 +126,7 @@ TypeAhead.prototype.handleNavigation = function(e) {
 
 /**
  * Handles the character presses.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  *    Expected event type is goog.events.KeyHandler.EventType.KEY.
  * @return {boolean} The handled value.
  */
@@ -143,7 +143,7 @@ TypeAhead.prototype.handleTypeAheadChar = function(e) {
     } else if (KeyCodes.isCharacterKey(e.keyCode)) {
       ch = String.fromCharCode(e.keyCode).toLowerCase();
     }
-    if (ch && string.isUnicodeChar(ch) && (ch != ' ' || this.buffer_)) {
+    if (ch && googString.isUnicodeChar(ch) && (ch != ' ' || this.buffer_)) {
       this.buffer_ += ch;
       handled = this.jumpToLabel_(this.buffer_);
     }
@@ -158,12 +158,12 @@ TypeAhead.prototype.handleTypeAheadChar = function(e) {
  * key and the node id is used as a value. In the case that the key already
  * exists, such as when more than one node exists with the same label, then this
  * function creates an array to hold the multiple nodes.
- * @param {goog.ui.tree.BaseNode} node Node to be added or updated.
+ * @param {BaseNode} node Node to be added or updated.
  */
 TypeAhead.prototype.setNodeInMap = function(node) {
   let labelText = node.getText();
   if (labelText &&
-      !string.isEmptyOrWhitespace(string.makeSafe(labelText))) {
+      !googString.isEmptyOrWhitespace(googString.makeSafe(labelText))) {
     // Typeahead is case insensitive, convert to lowercase.
     labelText = labelText.toLowerCase();
 
@@ -182,12 +182,12 @@ TypeAhead.prototype.setNodeInMap = function(node) {
 
 /**
  * Removes the given node from the nodemap.
- * @param {goog.ui.tree.BaseNode} node Node to be removed.
+ * @param {BaseNode} node Node to be removed.
  */
 TypeAhead.prototype.removeNodeFromMap = function(node) {
   let labelText = node.getText();
   if (labelText &&
-      !string.isEmptyOrWhitespace(string.makeSafe(labelText))) {
+      !googString.isEmptyOrWhitespace(googString.makeSafe(labelText))) {
     labelText = labelText.toLowerCase();
 
     const nodeList = this.nodeMap_.get(labelText);
@@ -290,7 +290,7 @@ TypeAhead.prototype.jumpTo_ = function(offset) {
 
 /**
  * Given a nodes array reveals and selects the node while using node index.
- * @param {Array<goog.ui.tree.BaseNode>|undefined} nodes Nodes array to select
+ * @param {Array<BaseNode>|undefined} nodes Nodes array to select
  *     the node from.
  * @return {boolean} Whether a matching node was found.
  * @private

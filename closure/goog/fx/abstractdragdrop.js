@@ -25,8 +25,8 @@ import { Dragger } from './dragger.js';
 import { Box } from '../math/box.js';
 import { Coordinate } from '../math/coordinate.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.fx.dragger');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { DragEvent } = goog.requireType('goog.fx.dragger');
 
 
 
@@ -505,7 +505,7 @@ AbstractDragDrop.prototype.createDraggerFor = function(
  * Event handler that's used to stop drag. Fires a drop event if over a valid
  * target.
  *
- * @param {goog.fx.DragEvent} event Drag event.
+ * @param {DragEvent} event Drag event.
  */
 AbstractDragDrop.prototype.endDrag = function(event) {
   var activeTarget = event.dragCanceled ? null : this.activeTarget_;
@@ -591,7 +591,7 @@ AbstractDragDrop.prototype.disposeDrag = function() {
  * Event handler for drag events. Determines the active drop target, if any, and
  * fires dragover and dragout events appropriately.
  *
- * @param {goog.fx.DragEvent} event Drag event.
+ * @param {DragEvent} event Drag event.
  * @private
  */
 AbstractDragDrop.prototype.moveDrag_ = function(event) {
@@ -1151,7 +1151,7 @@ AbstractDragDrop.prototype.getScrollPos = function() {
 
 /**
  * Get the position of a drag event.
- * @param {goog.fx.DragEvent} event Drag event.
+ * @param {DragEvent} event Drag event.
  * @return {!Coordinate} Position of the event.
  * @protected
  */
@@ -1388,7 +1388,7 @@ DragDropItem.prototype.getDraggableElements = function() {
 /**
  * Event handler for mouse down.
  *
- * @param {events.BrowserEvent} event Mouse down event.
+ * @param {BrowserEvent} event Mouse down event.
  * @private
  */
 DragDropItem.prototype.mouseDown_ = function(event) {
@@ -1416,7 +1416,7 @@ DragDropItem.prototype.setParent = function(parent) {
 /**
  * Adds mouse move, mouse out and mouse up handlers.
  *
- * @param {events.BrowserEvent} event Mouse down event.
+ * @param {BrowserEvent} event Mouse down event.
  * @param {Element} element Element.
  * @private
  */
@@ -1444,7 +1444,7 @@ DragDropItem.prototype.maybeStartDrag_ = function(event, element) {
  * Event handler for mouse move. Starts drag operation if moved more than the
  * threshold value.
  *
- * @param {events.BrowserEvent} event Mouse move or mouse out event.
+ * @BrowserEvent} event Mouse move or mouse out event.
  * @private
  */
 DragDropItem.prototype.mouseMove_ = function(event) {
@@ -1473,7 +1473,7 @@ DragDropItem.prototype.mouseMove_ = function(event) {
  * Event handler for mouse up. Removes mouse move, mouse out and mouse up event
  * handlers.
  *
- * @param {events.BrowserEvent} event Mouse up event.
+ * @param {BrowserEvent} event Mouse up event.
  * @private
  */
 DragDropItem.prototype.mouseUp_ = function(event) {

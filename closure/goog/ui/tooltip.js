@@ -31,9 +31,9 @@ import { Set } from '../structs/set.js';
 import * as style from '../style/style.js';
 import { Popup } from './popup.js';
 import { PopupBase } from './popupbase.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.html.SafeHtml');
-goog.requireType('goog.positioning.abstractposition');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { SafeHtml } = goog.requireType('goog.html.SafeHtml');
+const { AbstractPosition } =goog.requireType('goog.positioning.abstractposition');
 
 
 
@@ -369,7 +369,7 @@ Tooltip.prototype.setText = function(str) {
 
 /**
  * Sets tooltip message as HTML markup.
- * @param {!goog.html.SafeHtml} html HTML message to display in tooltip.
+ * @param {!SafeHtml} html HTML message to display in tooltip.
  */
 Tooltip.prototype.setSafeHtml = function(html) {
   var element = this.getElement();
@@ -563,7 +563,7 @@ Tooltip.prototype.onHide = function() {
  * over the same element.
  *
  * @param {Element} el Element to show tooltip for.
- * @param {positioning.AbstractPosition=} opt_pos Position to display popup
+ * @param {AbstractPosition=} opt_pos Position to display popup
  *     at.
  */
 Tooltip.prototype.maybeShow = function(el, opt_pos) {
@@ -614,7 +614,7 @@ Tooltip.prototype.setActiveElement = function(activeEl) {
  * Shows tooltip for a specific element.
  *
  * @param {Element} el Element to show tooltip for.
- * @param {positioning.AbstractPosition=} opt_pos Position to display popup
+ * @param {AbstractPosition=} opt_pos Position to display popup
  *     at.
  */
 Tooltip.prototype.showForElement = function(el, opt_pos) {
@@ -629,7 +629,7 @@ Tooltip.prototype.showForElement = function(el, opt_pos) {
  * Sets tooltip position and shows it.
  *
  * @param {Element} el Element to show tooltip for.
- * @param {positioning.AbstractPosition=} opt_pos Position to display popup
+ * @param {AbstractPosition=} opt_pos Position to display popup
  *     at.
  * @private
  */
@@ -678,7 +678,7 @@ Tooltip.prototype.hasActiveChild = function() {
 
 /**
  * Saves the current mouse cursor position to `this.cursorPosition`.
- * @param {events.BrowserEvent} event MOUSEOVER or MOUSEMOVE event.
+ * @param {BrowserEvent} event MOUSEOVER or MOUSEMOVE event.
  * @private
  */
 Tooltip.prototype.saveCursorPosition_ = function(event) {
@@ -691,7 +691,7 @@ Tooltip.prototype.saveCursorPosition_ = function(event) {
 /**
  * Handler for mouse over events.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  */
 Tooltip.prototype.handleMouseOver = function(event) {
@@ -737,7 +737,7 @@ Tooltip.prototype.getAnchorFromElement = function(el) {
 /**
  * Handler for mouse move events.
  *
- * @param {events.BrowserEvent} event MOUSEMOVE event.
+ * @param {BrowserEvent} event MOUSEMOVE event.
  * @protected
  */
 Tooltip.prototype.handleMouseMove = function(event) {
@@ -749,7 +749,7 @@ Tooltip.prototype.handleMouseMove = function(event) {
 /**
  * Handler for focus events.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  */
 Tooltip.prototype.handleFocus = function(event) {
@@ -774,7 +774,7 @@ Tooltip.prototype.handleFocus = function(event) {
  *
  * @param {Tooltip.Activation} activationType Information about what
  *    kind of event caused the popup to be shown.
- * @return {!positioning.AbstractPosition} The position object used
+ * @return {!AbstractPosition} The position object used
  *    to position the tooltip.
  * @protected
  */
@@ -808,7 +808,7 @@ Tooltip.prototype.checkForParentTooltip_ = function() {
 /**
  * Handler for mouse out and blur events.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  */
 Tooltip.prototype.handleMouseOutAndBlur = function(event) {
@@ -840,7 +840,7 @@ Tooltip.prototype.handleMouseOutAndBlur = function(event) {
 /**
  * Handler for mouse over events for the tooltip element.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  */
 Tooltip.prototype.handleTooltipMouseOver = function(event) {
@@ -855,7 +855,7 @@ Tooltip.prototype.handleTooltipMouseOver = function(event) {
 /**
  * Handler for mouse out events for the tooltip element.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  */
 Tooltip.prototype.handleTooltipMouseOut = function(event) {
@@ -874,7 +874,7 @@ Tooltip.prototype.handleTooltipMouseOut = function(event) {
  * the maybeShow method.
  *
  * @param {Element} el Element to show tooltip for.
- * @param {positioning.AbstractPosition=} opt_pos Position to display popup
+ * @param {AbstractPosition=} opt_pos Position to display popup
  *     at.
  * @protected
  */

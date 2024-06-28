@@ -15,14 +15,12 @@ import * as asserts from '../asserts/asserts.js';
 import { NodeType } from '../dom/nodetype.js';
 import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import * as registry from './registry.js';
 import * as userAgent from '../useragent/useragent.js';
 import { Container } from './container.js';
-goog.requireType('Container');
-goog.requireType('Container');
-goog.requireType('goog.ui.control');
+const { Control } = goog.requireType('goog.ui.control');
 
 
 
@@ -257,7 +255,7 @@ ContainerRenderer.prototype.decorateChildren = function(
           container.addChild(child);
           child.decorate(/** @type {!Element} */ (node));
         }
-      } else if (!node.nodeValue || string.trim(node.nodeValue) == '') {
+      } else if (!node.nodeValue || googString.trim(node.nodeValue) == '') {
         // Remove empty text node, otherwise madness ensues (e.g. controls that
         // use goog-inline-block will flicker and shift on hover on Gecko).
         element.removeChild(node);
@@ -275,12 +273,12 @@ ContainerRenderer.prototype.decorateChildren = function(
  * element's CSS class to find the appropriate control class to instantiate.
  * May be overridden in subclasses.
  * @param {Element} element Element to decorate.
- * @return {goog.ui.Control?} A new control suitable to decorate the element
+ * @return {Control?} A new control suitable to decorate the element
  *     (null if none).
  */
 ContainerRenderer.prototype.getDecoratorForChild = function(element) {
   return (
-    /** @type {goog.ui.Control} */ (registry.getDecorator(element))
+    /** @type {Control} */ (registry.getDecorator(element))
   );
 };
 

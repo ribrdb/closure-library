@@ -19,8 +19,6 @@ import * as keyboard from './keyboard.js';
 import * as userAgentPlatform from './platform.js';
 import * as product from './product.js';
 import * as productIsVersion from './product_isversion.js';
-
-/** @suppress {extraRequire} */
 import { isVersion } from './product_isversion.js';
 
 goog.setTestOnly('goog.userAgentTestUtil');

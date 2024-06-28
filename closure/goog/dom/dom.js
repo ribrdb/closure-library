@@ -35,7 +35,7 @@ import * as uncheckedconversions from '../html/uncheckedconversions.js';
 import { Coordinate } from '../math/coordinate.js';
 import { Size } from '../math/size.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Unicode } from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as userAgent from '../useragent/useragent.js';
@@ -515,8 +515,8 @@ export function setProperties(element, properties) {
     } else if (DIRECT_ATTRIBUTE_MAP_.hasOwnProperty(key)) {
       element.setAttribute(DIRECT_ATTRIBUTE_MAP_[key], val);
     } else if (
-        string.startsWith(key, 'aria-') ||
-        string.startsWith(key, 'data-')) {
+        googString.startsWith(key, 'aria-') ||
+        googString.startsWith(key, 'data-')) {
       element.setAttribute(key, val);
     } else {
       element[key] = val;
@@ -2263,7 +2263,7 @@ export function getNodeTextOffset(node, opt_offsetParent) {
   }
   // Trim left to deal with FF cases when there might be line breaks and empty
   // nodes at the front of the text
-  return string.trimLeft(buf.join('')).replace(/ +/g, ' ').length;
+  return googString.trimLeft(buf.join('')).replace(/ +/g, ' ').length;
 }
 
 

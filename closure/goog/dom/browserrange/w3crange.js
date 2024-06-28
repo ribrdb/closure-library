@@ -17,7 +17,7 @@ import { NodeType } from '../nodetype.js';
 import { RangeEndpoint } from '../rangeendpoint.js';
 import { TagName } from '../tagname.js';
 import { AbstractRange } from './abstractrange.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
 import { createFromNodes, createFromWindow } from '../range.js';
 import { canContainRangeEndpoint } from './browserrange.js';
@@ -209,8 +209,8 @@ W3cRange.prototype.getValidHtml = function() {
   div.appendChild(/** @type {!Node} */ (this.range_.cloneContents()));
   var result = div.innerHTML;
 
-  if (string.startsWith(result, '<') ||
-      !this.isCollapsed() && !string.contains(result, '<')) {
+  if (googString.startsWith(result, '<') ||
+      !this.isCollapsed() && !googString.contains(result, '<')) {
     // We attempt to mimic IE, which returns no containing element when a
     // only text nodes are selected, does return the containing element when
     // the selection is empty, and does return the element when multiple nodes

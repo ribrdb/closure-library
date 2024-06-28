@@ -15,13 +15,13 @@ import * as asserts from '../asserts/asserts.js';
 import { NodeType } from '../dom/nodetype.js';
 import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { ButtonRenderer } from './buttonrenderer.js';
 import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.button');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { Button } = goog.requireType('goog.ui.button');
+const { Control } = goog.requireType('goog.ui.control');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -60,12 +60,12 @@ CustomButtonRenderer.CSS_CLASS = goog.getCssName('goog-custom-button');
  *    </div>
  *
  * Overrides {@link ButtonRenderer#createDom}.
- * @param {goog.ui.Control} control goog.ui.Button to render.
+ * @param {Control} control Button to render.
  * @return {!Element} Root element for the button.
  * @override
  */
 CustomButtonRenderer.prototype.createDom = function(control) {
-  var button = /** @type {goog.ui.Button} */ (control);
+  var button = /** @type {Button} */ (control);
   var classNames = this.getClassNames(button);
   var buttonElement = button.getDomHelper().createDom(
       TagName.DIV,
@@ -114,9 +114,9 @@ CustomButtonRenderer.prototype.getContentElement = function(element) {
  *
  * Used by both {@link #createDom} and {@link #decorate}.  To be overridden
  * by subclasses.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
+ * @param {ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
- * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
+ * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
  */
 CustomButtonRenderer.prototype.createButton = function(content, dom) {
@@ -147,7 +147,7 @@ CustomButtonRenderer.prototype.canDecorate = function(element) {
 
 /**
  * Check if the button's element has a box structure.
- * @param {goog.ui.Button} button Button instance whose structure is being
+ * @param {Button} button Button instance whose structure is being
  *     checked.
  * @param {Element} element Element of the button.
  * @return {boolean} Whether the element has a box structure.
@@ -174,7 +174,7 @@ CustomButtonRenderer.prototype.hasBoxStructure = function(
  * Initializes the control's ID, content, tooltip, value, and state based
  * on the ID of the element, its child nodes, and its CSS classes, respectively.
  * Returns the element.  Overrides {@link ButtonRenderer#decorate}.
- * @param {goog.ui.Control} control Button instance to decorate the element.
+ * @param {Control} control Button instance to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
@@ -182,7 +182,7 @@ CustomButtonRenderer.prototype.hasBoxStructure = function(
 CustomButtonRenderer.prototype.decorate = function(control, element) {
   asserts.assert(element);
 
-  var button = /** @type {goog.ui.Button} */ (control);
+  var button = /** @type {Button} */ (control);
   // Trim text nodes in the element's child node list; otherwise madness
   // ensues (i.e. on Gecko, buttons will flicker and shift when moused over).
   CustomButtonRenderer.trimTextNodes_(element, true);
@@ -254,13 +254,13 @@ CustomButtonRenderer.trimTextNodes_ = function(element, fromStart) {
       if (node.nodeType == NodeType.TEXT) {
         // Found a text node.
         var text = node.nodeValue;
-        if (string.trim(text) == '') {
+        if (googString.trim(text) == '') {
           // Found an empty text node; remove it.
           element.removeChild(node);
         } else {
           // Found a non-empty text node; trim from the start/end, then exit.
-          node.nodeValue = fromStart ? string.trimLeft(text) :
-                                       string.trimRight(text);
+          node.nodeValue = fromStart ? googString.trimLeft(text) :
+                                       googString.trimRight(text);
           break;
         }
       } else {

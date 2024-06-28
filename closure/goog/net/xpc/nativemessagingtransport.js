@@ -23,8 +23,8 @@ import { TransportTypes } from './xpc.js';
 import { CrossPageChannel } from './crosspagechannel.js';
 import { CrossPageChannelRole } from './crosspagechannelrole.js';
 import { Transport } from './transport.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -38,7 +38,7 @@ goog.requireType('goog.events.browserevent');
  *     transport belongs to.
  * @param {string} peerHostname The hostname (protocol, domain, and port) of the
  *     peer.
- * @param {goog.dom.DomHelper=} opt_domHelper The dom helper to use for
+ * @param {DomHelper=} opt_domHelper The dom helper to use for
  *     finding the correct window/document.
  * @param {boolean=} opt_oneSidedHandshake If this is true, only the outer
  *     transport sends a SETUP message and expects a SETUP_ACK.  The inner

@@ -11,7 +11,6 @@
 
 import * as entryPointRegistry from '../debug/entrypointregistry.js';
 
-/** @suppress {extraRequire} */
 import { module } from './module.js';
 
 

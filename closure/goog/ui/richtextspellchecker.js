@@ -27,8 +27,8 @@ import * as style from '../style/style.js';
 import { AbstractSpellChecker } from './abstractspellchecker.js';
 import { Component } from './component.js';
 import { PopupMenu } from './popupmenu.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -260,7 +260,7 @@ RichTextSpellChecker.prototype.preChargeDictionary_ = function(
 
 /**
  * Starts actual processing after the dictionary is charged.
- * @param {goog.events.Event} e SpellCheck.EventType.READY event.
+ * @param {Event} e SpellCheck.EventType.READY event.
  * @private
  */
 RichTextSpellChecker.prototype.onDictionaryCharged_ = function(e) {
@@ -641,7 +641,7 @@ RichTextSpellChecker.prototype.getElementProperties = function(status) {
 
 /**
  * Handler for click events.
- * @param {goog.events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -681,7 +681,7 @@ RichTextSpellChecker.prototype.isEditorIframe = function() {
  * Handles keyboard events inside the editor to allow keyboard navigation
  * between misspelled words and activation of the suggestion menu.
  *
- * @param {goog.events.BrowserEvent} e the key event.
+ * @param {BrowserEvent} e the key event.
  * @return {boolean} The handled value.
  * @protected
  */
@@ -747,7 +747,7 @@ RichTextSpellChecker.prototype.onCorrectionAction = function(event) {
 /**
  * Restores focus when the suggestion menu is hidden.
  *
- * @param {goog.events.BrowserEvent} event Blur event.
+ * @param {BrowserEvent} event Blur event.
  * @private
  */
 RichTextSpellChecker.prototype.onCorrectionHide_ = function(event) {

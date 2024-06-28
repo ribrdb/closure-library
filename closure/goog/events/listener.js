@@ -12,7 +12,7 @@
 goog.declareModuleId('goog.events.listener');
 
 import { ListenableKey } from './listenablekey.js';
-goog.requireType('goog.events.listenable');
+const {Listenable} = goog.requireType('goog.events.listenable');
 
 
 
@@ -20,7 +20,7 @@ goog.requireType('goog.events.listenable');
  * Simple class that stores information about a listener
  * @param {function(?):?} listener Callback function.
  * @param {Function} proxy Wrapper for the listener that patches the event.
- * @param {EventTarget|goog.events.Listenable} src Source object for
+ * @param {EventTarget|Listenable} src Source object for
  *     the event.
  * @param {string} type Event type.
  * @param {boolean} capture Whether in capture or bubble phase.
@@ -46,7 +46,7 @@ export function Listener(listener, proxy, src, type, capture, opt_handler) {
 
  /**
   * Object or node that callback is listening to
-  * @type {EventTarget|goog.events.Listenable}
+  * @type {EventTarget|Listenable}
   */
  this.src = src;
 

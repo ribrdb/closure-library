@@ -13,7 +13,7 @@ goog.declareModuleId('goog.date.date');
 
 import * as asserts from '../asserts/asserts.js';
 import { DateTimeSymbols } from '../i18n/datetimesymbols.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 /**
@@ -321,7 +321,7 @@ export function max(date1, date2) {
  * @return {boolean} Whether the parsing succeeded.
  */
 export function setIso8601DateTime(dateTime, formatted) {
-  formatted = string.trim(formatted);
+  formatted = googString.trim(formatted);
   var delim = formatted.indexOf('T') == -1 ? ' ' : 'T';
   var parts = formatted.split(delim);
   return setIso8601DateOnly_(dateTime, parts[0]) &&
@@ -511,7 +511,7 @@ export function setIso8601TimeOnly_(d, formatted) {
  */
 export function padYear_(year) {
   const sign = year < 0 ? '-' : year >= 10000 ? '+' : '';
-  return sign + string.padNumber(Math.abs(year), sign ? 6 : 4);
+  return sign + googString.padNumber(Math.abs(year), sign ? 6 : 4);
 }
 
 
@@ -1118,8 +1118,8 @@ Date_.prototype.getTimezoneOffsetString = function() {
     var n = Math.abs(offset) / 60;
     var h = Math.floor(n);
     var m = (n - h) * 60;
-    tz = (offset > 0 ? '-' : '+') + string.padNumber(h, 2) + ':' +
-        string.padNumber(m, 2);
+    tz = (offset > 0 ? '-' : '+') + googString.padNumber(h, 2) + ':' +
+        googString.padNumber(m, 2);
   }
 
   return tz;
@@ -1316,8 +1316,8 @@ Date_.prototype.add = function(interval) {
 Date_.prototype.toIsoString = function(opt_verbose, opt_tz) {
   var str = [
     padYear_(this.getFullYear()),
-    string.padNumber(this.getMonth() + 1, 2),
-    string.padNumber(this.getDate(), 2)
+    googString.padNumber(this.getMonth() + 1, 2),
+    googString.padNumber(this.getDate(), 2)
   ];
 
   return str.join((opt_verbose) ? '-' : '') +
@@ -1338,8 +1338,8 @@ Date_.prototype.toIsoString = function(opt_verbose, opt_tz) {
 Date_.prototype.toUTCIsoString = function(opt_verbose, opt_tz) {
   var str = [
     padYear_(this.getUTCFullYear()),
-    string.padNumber(this.getUTCMonth() + 1, 2),
-    string.padNumber(this.getUTCDate(), 2)
+    googString.padNumber(this.getUTCMonth() + 1, 2),
+    googString.padNumber(this.getUTCDate(), 2)
   ];
 
   return str.join((opt_verbose) ? '-' : '') + (opt_tz ? 'Z' : '');
@@ -1707,15 +1707,15 @@ DateTime.prototype.toIsoString = function(opt_verbose, opt_tz) {
   var dateString = Date_.prototype.toIsoString.call(this, opt_verbose);
 
   if (opt_verbose) {
-    return dateString + 'T' + string.padNumber(this.getHours(), 2) + ':' +
-        string.padNumber(this.getMinutes(), 2) + ':' +
-        string.padNumber(this.getSeconds(), 2) +
+    return dateString + 'T' + googString.padNumber(this.getHours(), 2) + ':' +
+        googString.padNumber(this.getMinutes(), 2) + ':' +
+        googString.padNumber(this.getSeconds(), 2) +
         (opt_tz ? this.getTimezoneOffsetString() : '');
   }
 
-  return dateString + 'T' + string.padNumber(this.getHours(), 2) +
-      string.padNumber(this.getMinutes(), 2) +
-      string.padNumber(this.getSeconds(), 2) +
+  return dateString + 'T' + googString.padNumber(this.getHours(), 2) +
+      googString.padNumber(this.getMinutes(), 2) +
+      googString.padNumber(this.getSeconds(), 2) +
       (opt_tz ? this.getTimezoneOffsetString() : '');
 };
 
@@ -1730,9 +1730,9 @@ DateTime.prototype.toIsoString = function(opt_verbose, opt_tz) {
  */
 DateTime.prototype.toXmlDateTime = function(opt_timezone) {
   return Date_.prototype.toIsoString.call(this, true) + 'T' +
-      string.padNumber(this.getHours(), 2) + ':' +
-      string.padNumber(this.getMinutes(), 2) + ':' +
-      string.padNumber(this.getSeconds(), 2) +
+      googString.padNumber(this.getHours(), 2) + ':' +
+      googString.padNumber(this.getMinutes(), 2) + ':' +
+      googString.padNumber(this.getSeconds(), 2) +
       (opt_timezone ? this.getTimezoneOffsetString() : '');
 };
 
@@ -1753,14 +1753,14 @@ DateTime.prototype.toUTCIsoString = function(opt_verbose, opt_tz) {
   var dateStr = Date_.prototype.toUTCIsoString.call(this, opt_verbose);
 
   if (opt_verbose) {
-    return dateStr + 'T' + string.padNumber(this.getUTCHours(), 2) + ':' +
-        string.padNumber(this.getUTCMinutes(), 2) + ':' +
-        string.padNumber(this.getUTCSeconds(), 2) + (opt_tz ? 'Z' : '');
+    return dateStr + 'T' + googString.padNumber(this.getUTCHours(), 2) + ':' +
+        googString.padNumber(this.getUTCMinutes(), 2) + ':' +
+        googString.padNumber(this.getUTCSeconds(), 2) + (opt_tz ? 'Z' : '');
   }
 
-  return dateStr + 'T' + string.padNumber(this.getUTCHours(), 2) +
-      string.padNumber(this.getUTCMinutes(), 2) +
-      string.padNumber(this.getUTCSeconds(), 2) + (opt_tz ? 'Z' : '');
+  return dateStr + 'T' + googString.padNumber(this.getUTCHours(), 2) +
+      googString.padNumber(this.getUTCMinutes(), 2) +
+      googString.padNumber(this.getUTCSeconds(), 2) + (opt_tz ? 'Z' : '');
 };
 
 
@@ -1772,7 +1772,7 @@ DateTime.prototype.toUTCIsoString = function(opt_verbose, opt_tz) {
 DateTime.prototype.toUTCRfc3339String = function() {
   var date = this.toUTCIsoString(true);
   var millis = this.getUTCMilliseconds();
-  return (millis ? date + '.' + string.padNumber(millis, 3) : date) + 'Z';
+  return (millis ? date + '.' + googString.padNumber(millis, 3) : date) + 'Z';
 };
 
 
@@ -1838,10 +1838,10 @@ DateTime.prototype.toUsTimeString = function(
     hours = 12;
   }
 
-  var label = opt_padHours ? string.padNumber(hours, 2) : String(hours);
+  var label = opt_padHours ? googString.padNumber(hours, 2) : String(hours);
   var minutes = this.getMinutes();
   if (!opt_omitZeroMinutes || minutes > 0) {
-    label += ':' + string.padNumber(minutes, 2);
+    label += ':' + googString.padNumber(minutes, 2);
   }
 
   // by default, show am/pm suffix
@@ -1860,10 +1860,10 @@ DateTime.prototype.toUsTimeString = function(
  */
 DateTime.prototype.toIsoTimeString = function(opt_showSeconds) {
   var hours = this.getHours();
-  var label = string.padNumber(hours, 2) + ':' +
-      string.padNumber(this.getMinutes(), 2);
+  var label = googString.padNumber(hours, 2) + ':' +
+      googString.padNumber(this.getMinutes(), 2);
   if (opt_showSeconds === undefined || opt_showSeconds) {
-    label += ':' + string.padNumber(this.getSeconds(), 2);
+    label += ':' + googString.padNumber(this.getSeconds(), 2);
   }
   return label;
 };

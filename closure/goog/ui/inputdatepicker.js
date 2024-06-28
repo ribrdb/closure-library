@@ -18,13 +18,10 @@ import * as dom from '../dom/dom.js';
 import { InputType } from '../dom/inputtype.js';
 import { TagName } from '../dom/tagname.js';
 import { DateTimeParse } from '../i18n/datetimeparse.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Component } from './component.js';
 import { DatePicker } from './datepicker.js';
-
-/** @suppress {extraRequire} */
 import { LabelInput } from './labelinput.js';
-
 import { PopupBase } from './popupbase.js';
 import { PopupDatePicker } from './popupdatepicker.js';
 goog.requireType('goog.date.date');
@@ -202,7 +199,7 @@ InputDatePicker.prototype.setInputValueAsDate_ = function(date) {
  * @private
  */
 InputDatePicker.prototype.getInputValueAsDate_ = function() {
-  var value = string.trim(this.getInputValue());
+  var value = googString.trim(this.getInputValue());
   if (value) {
     var date = new DateTime();
     // DateTime needed as parse assumes it can call getHours(), getMinutes(),

@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.Menu}s.
+ * @fileoverview Renderer for {@link Menu}s.
  */
 
 goog.declareModuleId('goog.ui.menurenderer');
@@ -18,13 +18,13 @@ import * as dom from '../dom/dom.js';
 import { TagName } from '../dom/tagname.js';
 import { ContainerRenderer } from './containerrenderer.js';
 import { Separator } from './separator.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.menu');
+const {Control} = goog.requireType('goog.ui.control');
+const {Menu} = goog.requireType('goog.ui.menu');
 
 
 
 /**
- * Default renderer for {@link goog.ui.Menu}s, based on {@link
+ * Default renderer for {@link Menu}s, based on {@link
  * ContainerRenderer}.
  * @param {string=} opt_ariaRole Optional ARIA role used for the element.
  * @constructor
@@ -59,11 +59,11 @@ MenuRenderer.prototype.canDecorate = function(element) {
 
 
 /**
- * Inspects the element, and creates an instance of {@link goog.ui.Control} or
+ * Inspects the element, and creates an instance of {@link Control} or
  * an appropriate subclass best suited to decorate it.  Overrides the superclass
  * implementation by recognizing HR elements as separators.
  * @param {Element} element Element to decorate.
- * @return {goog.ui.Control?} A new control suitable to decorate the element
+ * @return {Control?} A new control suitable to decorate the element
  *     (null if none).
  * @override
  */
@@ -76,7 +76,7 @@ MenuRenderer.prototype.getDecoratorForChild = function(element) {
 
 /**
  * Returns whether the given element is contained in the menu's DOM.
- * @param {goog.ui.Menu} menu The menu to test.
+ * @param {Menu} menu The menu to test.
  * @param {Element} element The element to test.
  * @return {boolean} Whether the given element is contained in the menu.
  */

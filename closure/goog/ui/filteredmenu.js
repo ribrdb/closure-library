@@ -22,14 +22,14 @@ import * as events from '../events/events.js';
 import { EventType } from '../events/eventtype.js';
 import { InputHandler } from '../events/inputhandler.js';
 import { KeyCodes } from '../events/keycodes.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { FilterObservingMenuItem } from './filterobservingmenuitem.js';
 import { Menu } from './menu.js';
 import { MenuItem } from './menuitem.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.keyevent');
 goog.requireType('goog.ui.control');
 goog.requireType('goog.ui.menurenderer');
@@ -455,12 +455,12 @@ FilteredMenu.prototype.filterItems_ = function(str) {
     }
 
     if (matches) {
-      str = matches.length > 2 ? string.trim(matches[2]) : '';
+      str = matches.length > 2 ? googString.trim(matches[2]) : '';
     }
   }
 
   var matcher =
-      new RegExp('(^|[- ,_/.:])' + string.regExpEscape(str), 'i');
+      new RegExp('(^|[- ,_/.:])' + googString.regExpEscape(str), 'i');
   for (var child, i = this.filterFromIndex_; child = this.getChildAt(i); i++) {
     if (child instanceof FilterObservingMenuItem) {
       child.callObserver(str);

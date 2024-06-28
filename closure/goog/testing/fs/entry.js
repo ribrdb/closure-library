@@ -36,7 +36,7 @@ import { DirectoryEntryImpl } from '../../fs/entryimpl.js';
 import { Error } from '../../fs/error.js';
 import * as functions from '../../functions/functions.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { File } from './file.js';
 import { FileWriter } from './filewriter.js';
 goog.requireType('goog.testing.fs.filesystem');
@@ -453,7 +453,7 @@ DirectoryEntry.prototype.getEntry_ = function(
 
   const basename = /** @type {string} */ (array.peek(components)) || '';
   let dir =
-      string.startsWith(path, '/') ? this.getFileSystem().getRoot() : this;
+      googString.startsWith(path, '/') ? this.getFileSystem().getRoot() : this;
 
   components.slice(0, -1).forEach(function(p) {
     const subdir = dir.children[p];

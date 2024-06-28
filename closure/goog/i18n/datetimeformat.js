@@ -21,7 +21,7 @@ import * as DayPeriods from './dayperiodsymbols.js';
 import * as LocaleFeature from './localefeature.js';
 import * as NativeLocaleDigits from './nativelocaledigits.js';
 import { TimeZone } from './timezone.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 goog.requireType('goog.i18n.datetimesymbols');
 
 /**
@@ -717,7 +717,7 @@ DateTimeFormat.prototype.formatYear_ = function(count, date) {
     // http://www.unicode.org/reports/tr35/tr35-dates.html
     value = value % 100;
   }
-  return this.localizeNumbers_(string.padNumber(value, count));
+  return this.localizeNumbers_(googString.padNumber(value, count));
 };
 
 
@@ -750,7 +750,7 @@ DateTimeFormat.prototype.formatYearOfWeek_ = function(count, date) {
     // http://www.unicode.org/reports/tr35/tr35-dates.html
     value = value % 100;
   }
-  return this.localizeNumbers_(string.padNumber(value, count));
+  return this.localizeNumbers_(googString.padNumber(value, count));
 };
 
 
@@ -773,7 +773,7 @@ DateTimeFormat.prototype.formatMonth_ = function(count, date) {
     case 3:
       return this.dateTimeSymbols_.SHORTMONTHS[value];
     default:
-      return this.localizeNumbers_(string.padNumber(value + 1, count));
+      return this.localizeNumbers_(googString.padNumber(value + 1, count));
   }
 };
 
@@ -813,7 +813,7 @@ DateTimeFormat.validateDateHasTime_ = function(date) {
 DateTimeFormat.prototype.format24Hours_ = function(count, date) {
   DateTimeFormat.validateDateHasTime_(date);
   const hours = DateTimeFormat.getHours_(date) || 24;
-  return this.localizeNumbers_(string.padNumber(hours, count));
+  return this.localizeNumbers_(googString.padNumber(hours, count));
 };
 
 
@@ -835,7 +835,7 @@ DateTimeFormat.prototype.formatFractionalSeconds_ = function(
       /** @type {!Date|!googDate.DateTime} */ (date).getMilliseconds() / 1000;
   return this.localizeNumbers_(
       value.toFixed(Math.min(3, count)).slice(2) +
-      (count > 3 ? string.padNumber(0, count - 3) : ''));
+      (count > 3 ? googString.padNumber(0, count - 3) : ''));
 };
 
 
@@ -971,7 +971,7 @@ DateTimeFormat.prototype.formatFlexibleDayPeriods_ = function(
 DateTimeFormat.prototype.format1To12Hours_ = function(count, date) {
   DateTimeFormat.validateDateHasTime_(date);
   const hours = DateTimeFormat.getHours_(date) % 12 || 12;
-  return this.localizeNumbers_(string.padNumber(hours, count));
+  return this.localizeNumbers_(googString.padNumber(hours, count));
 };
 
 
@@ -987,7 +987,7 @@ DateTimeFormat.prototype.format1To12Hours_ = function(count, date) {
 DateTimeFormat.prototype.format0To11Hours_ = function(count, date) {
   DateTimeFormat.validateDateHasTime_(date);
   const hours = DateTimeFormat.getHours_(date) % 12;
-  return this.localizeNumbers_(string.padNumber(hours, count));
+  return this.localizeNumbers_(googString.padNumber(hours, count));
 };
 
 
@@ -1003,7 +1003,7 @@ DateTimeFormat.prototype.format0To11Hours_ = function(count, date) {
 DateTimeFormat.prototype.format0To23Hours_ = function(count, date) {
   DateTimeFormat.validateDateHasTime_(date);
   const hours = DateTimeFormat.getHours_(date);
-  return this.localizeNumbers_(string.padNumber(hours, count));
+  return this.localizeNumbers_(googString.padNumber(hours, count));
 };
 
 
@@ -1027,7 +1027,7 @@ DateTimeFormat.prototype.formatStandaloneDay_ = function(
     case 3:
       return this.dateTimeSymbols_.STANDALONESHORTWEEKDAYS[value];
     default:
-      return this.localizeNumbers_(string.padNumber(value, 1));
+      return this.localizeNumbers_(googString.padNumber(value, 1));
   }
 };
 
@@ -1052,7 +1052,7 @@ DateTimeFormat.prototype.formatStandaloneMonth_ = function(
     case 3:
       return this.dateTimeSymbols_.STANDALONESHORTMONTHS[value];
     default:
-      return this.localizeNumbers_(string.padNumber(value + 1, count));
+      return this.localizeNumbers_(googString.padNumber(value + 1, count));
   }
 };
 
@@ -1083,7 +1083,7 @@ DateTimeFormat.prototype.formatQuarter_ = function(count, date) {
  * @private
  */
 DateTimeFormat.prototype.formatDate_ = function(count, date) {
-  return this.localizeNumbers_(string.padNumber(date.getDate(), count));
+  return this.localizeNumbers_(googString.padNumber(date.getDate(), count));
 };
 
 
@@ -1099,7 +1099,7 @@ DateTimeFormat.prototype.formatDate_ = function(count, date) {
 DateTimeFormat.prototype.formatMinutes_ = function(count, date) {
   DateTimeFormat.validateDateHasTime_(date);
   return this.localizeNumbers_(
-      string.padNumber(DateTimeFormat.getMinutes_(date), count));
+      googString.padNumber(DateTimeFormat.getMinutes_(date), count));
 };
 
 
@@ -1114,7 +1114,7 @@ DateTimeFormat.prototype.formatMinutes_ = function(count, date) {
  */
 DateTimeFormat.prototype.formatSeconds_ = function(count, date) {
   DateTimeFormat.validateDateHasTime_(date);
-  return this.localizeNumbers_(string.padNumber(
+  return this.localizeNumbers_(googString.padNumber(
       /** @type {!googDate.DateTime} */ (date).getSeconds(), count));
 };
 
@@ -1134,7 +1134,7 @@ DateTimeFormat.prototype.formatWeekOfYear_ = function(count, date) {
       this.dateTimeSymbols_.FIRSTWEEKCUTOFFDAY,
       this.dateTimeSymbols_.FIRSTDAYOFWEEK);
 
-  return this.localizeNumbers_(string.padNumber(weekNum, count));
+  return this.localizeNumbers_(googString.padNumber(weekNum, count));
 };
 
 

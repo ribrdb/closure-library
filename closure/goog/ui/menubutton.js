@@ -36,15 +36,15 @@ import { MenuItem } from './menuitem.js';
 import { MenuRenderer } from './menurenderer.js';
 import { SubMenu } from './submenu.js';
 import * as registry from './registry.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.eventtarget');
-goog.requireType('goog.math.size');
-goog.requireType('goog.positioning.anchoredposition');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menuseparator');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const { Event } = goog.requireType('goog.events.event');
+const { EventTarget } = goog.requireType('goog.events.eventtarget');
+const {Size} = goog.requireType('goog.math.size');
+const {AnchoredPosition} = goog.requireType('goog.positioning.anchoredposition');
+const {ButtonRenderer} = goog.requireType('goog.ui.buttonrenderer');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
+const {MenuSeparator} = goog.requireType('goog.ui.menuseparator');
 
 
 
@@ -52,7 +52,7 @@ goog.requireType('goog.ui.menuseparator');
  * A menu button control.  Extends {@link Button} by composing a button
  * with a dropdown arrow and a popup menu.
  *
- * @param {goog.ui.ControlContent=} opt_content Text caption or existing DOM
+ * @param {ControlContent=} opt_content Text caption or existing DOM
  *     structure to display as the button's caption (if any).
  * @param {Menu=} opt_menu Menu to render under the button when clicked.
  * @param {ButtonRenderer=} opt_renderer Renderer used to render or
@@ -74,7 +74,7 @@ export function MenuButton(opt_content, opt_menu, opt_renderer, opt_domHelper, o
 
   /**
      * The menu position on this button.
-     * @type {!positioning.AnchoredPosition}
+     * @type {!AnchoredPosition}
      * @private
      */
   this.menuPosition_ = new MenuAnchoredPosition(
@@ -164,7 +164,7 @@ MenuButton.prototype.viewportBox_;
 
 /**
  * The original size.
- * @type {goog.math.Size|undefined}
+ * @type {Size|undefined}
  * @private
  */
 MenuButton.prototype.originalSize_;
@@ -241,7 +241,7 @@ MenuButton.prototype.disposeInternal = function() {
  * Handles mousedown events.  Invokes the superclass implementation to dispatch
  * an ACTIVATE event and activate the button.  Also toggles the visibility of
  * the attached menu.
- * @param {goog.events.Event} e Mouse event to handle.
+ * @param {Event} e Mouse event to handle.
  * @override
  * @protected
  */
@@ -260,7 +260,7 @@ MenuButton.prototype.handleMouseDown = function(e) {
 /**
  * Handles mouseup events.  Invokes the superclass implementation to dispatch
  * an ACTION event and deactivate the button.
- * @param {goog.events.Event} e Mouse event to handle.
+ * @param {Event} e Mouse event to handle.
  * @override
  * @protected
  */
@@ -278,7 +278,7 @@ MenuButton.prototype.handleMouseUp = function(e) {
  * `ACTION` event, because menu buttons exist only to reveal menus, not to
  * perform actions themselves.  Calls {@link #setActive} to deactivate the
  * button.
- * @param {goog.events.Event} e Mouse or key event that triggered the action.
+ * @param {Event} e Mouse or key event that triggered the action.
  * @return {boolean} Whether the action was allowed to proceed.
  * @override
  * @protected
@@ -293,7 +293,7 @@ MenuButton.prototype.performActionInternal = function(e) {
  * Handles mousedown events over the document.  If the mousedown happens over
  * an element unrelated to the component, hides the menu.
  * TODO(attila): Reconcile this with goog.ui.Popup (and handle frames/windows).
- * @param {goog.events.BrowserEvent} e Mouse event to handle.
+ * @param {BrowserEvent} e Mouse event to handle.
  * @protected
  */
 MenuButton.prototype.handleDocumentMouseDown = function(e) {
@@ -372,7 +372,7 @@ MenuButton.prototype.handleKeyEventInternal = function(e) {
 
 /**
  * Handles `ACTION` events dispatched by an activated menu item.
- * @param {goog.events.Event} e Action event to handle.
+ * @param {Event} e Action event to handle.
  * @protected
  */
 MenuButton.prototype.handleMenuAction = function(e) {
@@ -384,7 +384,7 @@ MenuButton.prototype.handleMenuAction = function(e) {
 /**
  * Handles `BLUR` events dispatched by the popup menu by closing it.
  * Only registered if the menu is focusable.
- * @param {goog.events.Event} e Blur event dispatched by a focusable menu.
+ * @param {Event} e Blur event dispatched by a focusable menu.
  */
 MenuButton.prototype.handleMenuBlur = function(e) {
   // Close the menu when it reports that it lost focus, unless the button is
@@ -399,7 +399,7 @@ MenuButton.prototype.handleMenuBlur = function(e) {
  * Handles blur events dispatched by the button's key event target when it
  * loses keyboard focus by closing the popup menu (unless it is focusable).
  * Only registered if the button is focusable.
- * @param {goog.events.Event} e Blur event dispatched by the menu button.
+ * @param {Event} e Blur event dispatched by the menu button.
  * @override
  * @protected
  */
@@ -469,7 +469,7 @@ MenuButton.prototype.setMenu = function(menu) {
  * setPositionElement, setAlignMenuToStart, and setScrollOnOverflow. Calling
  * this method will override settings by those methods.
  *
- * @param {positioning.AnchoredPosition} position The position of the
+ * @param {AnchoredPosition} position The position of the
  *     Menu the button. If the position has a null anchor, we will use the
  *     menubutton element as the anchor.
  */
@@ -526,7 +526,7 @@ MenuButton.prototype.setSelectFirstOnEnterOrSpace = function(select) {
 
 /**
  * Adds a new menu item at the end of the menu.
- * @param {MenuItem|MenuSeparator|goog.ui.Control} item Menu
+ * @param {MenuItem|MenuSeparator|Control} item Menu
  *     item to add to the menu.
  */
 MenuButton.prototype.addItem = function(item) {
@@ -746,7 +746,7 @@ MenuButton.prototype.hideMenu = function() {
 /**
  * Opens or closes the attached popup menu.
  * @param {boolean} open Whether to open or close the menu.
- * @param {goog.events.Event=} opt_e Event that caused the menu to be opened.
+ * @param {Event=} opt_e Event that caused the menu to be opened.
  * @override
  */
 MenuButton.prototype.setOpen = function(open, opt_e) {
@@ -883,7 +883,7 @@ MenuButton.prototype.positionMenu = function() {
 /**
  * Periodically repositions the menu while it is visible.
  *
- * @param {goog.events.Event} e An event object.
+ * @param {Event} e An event object.
  * @private
  */
 MenuButton.prototype.onTick_ = function(e) {
@@ -963,7 +963,7 @@ MenuButton.prototype.attachKeyDownEventListener_ = function(attach) {
 
 /**
  * Handles `HIGHLIGHT` events dispatched by the attached menu.
- * @param {goog.events.Event} e Highlight event to handle.
+ * @param {Event} e Highlight event to handle.
  */
 MenuButton.prototype.handleHighlightItem = function(e) {
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
@@ -978,7 +978,7 @@ MenuButton.prototype.handleHighlightItem = function(e) {
  * Handles `KEYDOWN` events dispatched by the button element. When the
  * button is focusable and the menu is present and visible, prevents the event
  * from propagating since the desired behavior is only to close the menu.
- * @param {goog.events.Event} e KeyDown event to handle.
+ * @param {Event} e KeyDown event to handle.
  * @private
  */
 MenuButton.prototype.handleKeyDownEvent_ = function(e) {
@@ -991,7 +991,7 @@ MenuButton.prototype.handleKeyDownEvent_ = function(e) {
 
 /**
  * Handles UNHIGHLIGHT events dispatched by the associated menu.
- * @param {goog.events.Event} e Unhighlight event to handle.
+ * @param {Event} e Unhighlight event to handle.
  */
 MenuButton.prototype.handleUnHighlightItem = function(e) {
   if (!this.menu_.getHighlighted()) {
@@ -1005,7 +1005,7 @@ MenuButton.prototype.handleUnHighlightItem = function(e) {
 
 /**
  * Handles `CLOSE` events dispatched by the associated menu.
- * @param {goog.events.Event} e Close event to handle.
+ * @param {Event} e Close event to handle.
  */
 MenuButton.prototype.handleCloseItem = function(e) {
   // When a submenu is closed by pressing left arrow, no highlight event is
@@ -1071,7 +1071,7 @@ MenuButton.prototype.attachPopupListeners_ = function(attach) {
   // Only listen for blur events dispatched by the menu if it is focusable.
   if (this.isFocusablePopupMenu()) {
     method.call(
-        handler, /** @type {!goog.events.EventTarget} */ (this.menu_),
+        handler, /** @type {!EventTarget} */ (this.menu_),
         Component.EventType.BLUR, this.handleMenuBlur);
   }
 

@@ -19,10 +19,7 @@ import { disposeAll } from '../disposable/disposeall.js';
 import { AbstractModuleManager } from '../loader/abstractmodulemanager.js';
 import activeModuleManager from '../loader/activemodulemanager.js';
 import * as log from '../log/log.js';
-
-/** @suppress {extraRequire} */
 import { module } from './module.js';
-
 import { ModuleInfo } from './moduleinfo.js';
 import { ModuleLoadCallback } from './moduleloadcallback.js';
 import { ModuleLoadFailure } from './moduleloadfailure.js';

@@ -15,7 +15,6 @@ import { dispose } from './dispose.js';
 
 /**
  * TODO(user): Remove this require.
- * @suppress {extraRequire}
  */
 import { disposeAll } from './disposeall.js';
 

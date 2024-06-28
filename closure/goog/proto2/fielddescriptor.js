@@ -11,7 +11,7 @@
 goog.declareModuleId('goog.proto2.fielddescriptor');
 
 import * as asserts from '../asserts/asserts.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 goog.requireType('goog.proto2.descriptor');
 goog.requireType('goog.proto2.message');
 
@@ -46,7 +46,7 @@ export function FieldDescriptor(messageType, tag, metadata) {
  this.parent_ = messageType;
 
  // Ensure that the tag is numeric.
- asserts.assert(string.isNumeric(tag));
+ asserts.assert(googString.isNumeric(tag));
 
  /**
   * The field's tag number.

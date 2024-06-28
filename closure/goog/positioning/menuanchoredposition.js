@@ -12,7 +12,7 @@
 import { AnchoredViewportPosition } from './anchoredviewportposition.js';
 
 import { Overflow } from './positioning.js';
-goog.requireType('goog.positioning.positioning');
+const {Corner} = goog.requireType('goog.positioning.positioning');
 
 
 
@@ -26,7 +26,7 @@ goog.requireType('goog.positioning.positioning');
  *
  * @param {Element} anchorElement Element the movable element should be
  *     anchored against.
- * @param {goog.positioning.Corner} corner Corner of anchored element the
+ * @param {Corner} corner Corner of anchored element the
  *     movable element should be positioned at.
  * @param {boolean=} opt_adjust Whether the positioning should be adjusted until
  *     the element fits inside the viewport even if that means that the anchored

@@ -15,20 +15,20 @@ import { Component } from './component.js';
 import { MenuItem } from './menuitem.js';
 import { TriStateMenuItemRenderer } from './tristatemenuitemrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menuitemrenderer');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { ControlContent } =goog.requireType('goog.ui.controlcontent');
+const { MenuItemRenderer } = goog.requireType('goog.ui.menuitemrenderer');
 
 
 
 /**
  * Class representing a three state checkbox menu item.
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure
+ * @param {ControlContent} content Text caption or DOM structure
  *     to display as the content of the item (use to add icons or styling to
  *     menus).
  * @param {Object=} opt_model Data/model associated with the menu item.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper used for
  *     document interactions.
  * @param {MenuItemRenderer=} opt_renderer Optional renderer.
  * @param {boolean=} opt_alwaysAllowPartial  If true, always allow partial

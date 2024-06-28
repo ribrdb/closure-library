@@ -25,7 +25,7 @@ import { KeyHandler } from '../events/keyhandler.js';
 import * as log from '../log/log.js';
 import { Corner } from '../positioning/positioning.js';
 import { MenuAnchoredPosition } from '../positioning/menuanchoredposition.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { ItemEvent } from './itemevent.js';
@@ -34,7 +34,7 @@ import { Menu } from './menu.js';
 import { MenuItem } from './menuitem.js';
 import { MenuSeparator } from './menuseparator.js';
 import * as registry from './registry.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 goog.requireType('goog.events.keyevent');
 goog.requireType('goog.ui.controlcontent');
@@ -151,7 +151,7 @@ ComboBox.prototype.input_ = null;
  * @type {Function}
  * @private
  */
-ComboBox.prototype.matchFunction_ = string.startsWith;
+ComboBox.prototype.matchFunction_ = googString.startsWith;
 
 
 /**
@@ -535,7 +535,7 @@ ComboBox.prototype.getValue = function() {
  * @return {string} HTML escaped token.
  */
 ComboBox.prototype.getToken = function() {
-  return string.htmlEscape(this.getTokenText_());
+  return googString.htmlEscape(this.getTokenText_());
 };
 
 
@@ -547,7 +547,7 @@ ComboBox.prototype.getToken = function() {
 ComboBox.prototype.getTokenText_ = function() {
   // TODO(user): Implement multi-input such that getToken returns a substring
   // of the whole input delimited by commas.
-  return string.trim(this.labelInput_.getValue().toLowerCase());
+  return googString.trim(this.labelInput_.getValue().toLowerCase());
 };
 
 
@@ -649,7 +649,7 @@ ComboBox.prototype.clearDismissTimer_ = function() {
 
 /**
  * Event handler for when the combo box area has been clicked.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -677,7 +677,7 @@ ComboBox.prototype.onComboMouseDown_ = function(e) {
 
 /**
  * Event handler for when the document is clicked.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 ComboBox.prototype.onDocClicked_ = function(e) {
@@ -717,7 +717,7 @@ ComboBox.prototype.onMenuSelected_ = function(e) {
 
 /**
  * Event handler for when the input box looses focus -- hide the menu
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 ComboBox.prototype.onInputBlur_ = function(e) {

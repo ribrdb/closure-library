@@ -16,8 +16,8 @@ import { EventHandler } from '../events/eventhandler.js';
 import { EventType } from '../events/eventtype.js';
 import { Coordinate } from '../math/coordinate.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.rect');
+const {Event} = goog.requireType('goog.events.event');
+const {Rect} = goog.requireType('goog.math.rect');
 
 
 
@@ -99,7 +99,7 @@ export function DragScrollSupport(containerNode, opt_margin, opt_externalMouseMo
 
  /**
   * The container bounds.
-  * @type {goog.math.Rect}
+  * @type {Rect}
   * @private
   */
  this.containerBounds_ = style.getBounds(containerNode);
@@ -118,7 +118,7 @@ export function DragScrollSupport(containerNode, opt_margin, opt_externalMouseMo
 
  /**
   * The bounding rectangle which if left triggers scrolling.
-  * @type {goog.math.Rect}
+  * @type {Rect}
   * @private
   */
  this.scrollBounds_ = opt_margin ?
@@ -185,8 +185,8 @@ DragScrollSupport.prototype.setHorizontalScrolling = function(
 /**
  * Constrains the container bounds with respect to the margin.
  *
- * @param {goog.math.Rect} bounds The container element.
- * @return {goog.math.Rect} The bounding rectangle used to calculate scrolling
+ * @param {Rect} bounds The container element.
+ * @return {Rect} The bounding rectangle used to calculate scrolling
  *     direction.
  * @private
  */
@@ -230,7 +230,7 @@ DragScrollSupport.prototype.setupListeners_ = function(
 /**
  * Handler for timer tick event, scrolls the container by one scroll step if
  * needed.
- * @param {goog.events.Event} event Timer tick event.
+ * @param {Event} event Timer tick event.
  * @private
  */
 DragScrollSupport.prototype.onTick_ = function(event) {
@@ -241,7 +241,7 @@ DragScrollSupport.prototype.onTick_ = function(event) {
 
 /**
  * Handler for mouse moves events.
- * @param {goog.events.Event} event Mouse move event.
+ * @param {Event} event Mouse move event.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 DragScrollSupport.prototype.onMouseMove = function(event) {

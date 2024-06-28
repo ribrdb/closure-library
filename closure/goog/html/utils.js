@@ -9,7 +9,7 @@
  * @fileoverview HTML processing utilities for HTML in string form.
  */
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 /**
@@ -27,7 +27,7 @@ import * as string from '../string/string.js';
  */
 export function stripHtmlTags(value) {
  // TODO(user): Make a version that extracts text attributes such as alt.
- return string.unescapeEntities(string.trim(
+ return googString.unescapeEntities(googString.trim(
      value
          .replace(
              HTML_TAG_REGEX_,

@@ -3918,3 +3918,11 @@ switch (goog.LOCALE) {
     DateTimeSymbols = DateTimeSymbols_zu;
     break;
 }
+
+/**
+ * @param {!DateTimeSymbolsType} symbols 
+ * @private
+ */
+export function internalSetDateTimeSymbols_(symbols) {
+  DateTimeSymbols = symbols;
+}

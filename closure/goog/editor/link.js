@@ -17,7 +17,7 @@ import { Command } from './command.js';
 import { Field } from './field.js';
 import * as node from './node.js';
 import * as range from './range.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as utils from '../uri/utils.js';
 import { ComponentIndex } from '../uri/utils.js';
 
@@ -203,10 +203,10 @@ Link.prototype.updateLinkDisplay_ = function(field, url) {
  *     a valid link address.
  */
 Link.prototype.getValidLinkFromText = function() {
-  var text = string.trim(this.getCurrentText());
+  var text = googString.trim(this.getCurrentText());
   if (Link.isLikelyUrl(text)) {
     if (text.search(/:/) < 0) {
-      return 'http://' + string.trimLeft(text);
+      return 'http://' + googString.trimLeft(text);
     }
     return text;
   } else if (Link.isLikelyEmailAddress(text)) {
@@ -359,5 +359,5 @@ Link.isLikelyEmailAddress = function(str) {
  * @return {boolean} Whether the url is a mailto link.
  */
 Link.isMailto = function(url) {
-  return !!url && string.startsWith(url, 'mailto:');
+  return !!url && googString.startsWith(url, 'mailto:');
 };

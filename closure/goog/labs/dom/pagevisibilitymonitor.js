@@ -18,7 +18,7 @@ import { EventType } from '../../events/eventtype.js';
 import PageVisibilityEvent from './pagevisibilityevent.js';
 import PageVisibilityState from './pagevisibilitystate.js';
 import { memoize } from '../../memoize/memoize.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 /**
  * This event handler allows you to catch page visibility change events.

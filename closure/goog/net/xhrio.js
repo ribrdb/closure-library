@@ -49,7 +49,7 @@ import { EventType } from './eventtype.js';
 import { HttpStatus } from './httpstatus.js';
 import { XmlHttp } from './xmlhttp.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as utils from '../uri/utils.js';
 import * as userAgent from '../useragent/useragent.js';
 goog.requireType('goog.uri.uri');
@@ -595,7 +595,7 @@ XhrIo.prototype.send = function(
   const contentTypeKey =
       Array.from(headers.keys())
           .find(
-              header => string.caseInsensitiveEquals(
+              header => googString.caseInsensitiveEquals(
                   XhrIo.CONTENT_TYPE_HEADER, header));
 
   const contentIsFormData =
@@ -1306,11 +1306,11 @@ XhrIo.prototype.getResponseHeaders = function() {
   const headersObject = {};
   const headersArray = this.getAllResponseHeaders().split('\r\n');
   for (let i = 0; i < headersArray.length; i++) {
-    if (string.isEmptyOrWhitespace(headersArray[i])) {
+    if (googString.isEmptyOrWhitespace(headersArray[i])) {
       continue;
     }
     const keyValue =
-        string.splitLimit(headersArray[i], ':', /* maxSplitCount= */ 1);
+        googString.splitLimit(headersArray[i], ':', /* maxSplitCount= */ 1);
     const key = keyValue[0];
     let value = keyValue[1];
 

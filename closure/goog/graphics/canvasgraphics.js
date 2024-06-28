@@ -30,7 +30,7 @@ import { Font } from './font.js';
 import { SolidFill } from './solidfill.js';
 import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.graphics.affinetransform');
 goog.requireType('goog.graphics.element');
 goog.requireType('goog.graphics.ellipseelement');
@@ -56,7 +56,7 @@ goog.requireType('goog.graphics.textelement');
  *     omitted or null, defaults to same as width.
  * @param {?number=} opt_coordHeight The coordinate height - if
  *     omitted or null, defaults to same as height.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
  * @constructor
  * @extends {AbstractGraphics}

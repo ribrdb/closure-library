@@ -15,7 +15,7 @@ import { TagName } from '../dom/tagname.js';
 import * as style from '../style/style.js';
 import { Palette } from './palette.js';
 import { PaletteRenderer } from './paletterenderer.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -30,7 +30,7 @@ goog.requireType('goog.dom.dom');
  *     format.
  * @param {PaletteRenderer=} opt_renderer Renderer used to render or
  *     decorate the palette; defaults to {@link PaletteRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Palette}

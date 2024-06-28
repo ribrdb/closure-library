@@ -21,7 +21,7 @@
 import * as asserts from '../../asserts/asserts.js';
 
 import { HtmlSanitizer } from './htmlsanitizer.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Const } from '../../string/const.js';
 goog.requireType('goog.html.sanitizer.htmlsanitizer');
 
@@ -47,7 +47,7 @@ export function alsoAllowTags(justification, builder, tags) {
     asserts.assertString(
         Const.unwrap(justification), 'must provide justification');
     asserts.assert(
-        !string.isEmptyOrWhitespace(Const.unwrap(justification)),
+        !googString.isEmptyOrWhitespace(Const.unwrap(justification)),
         'must provide non-empty justification');
     return builder.alsoAllowTagsPrivateDoNotAccessOrElse(tags);
 }
@@ -83,7 +83,7 @@ export function alsoAllowAttributes(justification, builder, attrs) {
     asserts.assertString(
         Const.unwrap(justification), 'must provide justification');
     asserts.assert(
-        !string.isEmptyOrWhitespace(Const.unwrap(justification)),
+        !googString.isEmptyOrWhitespace(Const.unwrap(justification)),
         'must provide non-empty justification');
     return builder.alsoAllowAttributesPrivateDoNotAccessOrElse(attrs);
 }

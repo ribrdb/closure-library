@@ -13,8 +13,8 @@
 
 import { Animation } from './animation.js';
 
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
+const {Box} = goog.requireType('goog.math.box');
+const {Size} = goog.requireType('goog.math.size');
 
 
 
@@ -27,8 +27,8 @@ goog.requireType('goog.math.size');
  * and size in a CSS rule for the relevant element.
  *
  * @param {Element} element The HTML element to animate the background for.
- * @param {goog.math.Size} size The size of one image in the image sprite.
- * @param {goog.math.Box} box The box describing the layout of the sprites to
+ * @param {Size} size The size of one image in the image sprite.
+ * @param {Box} box The box describing the layout of the sprites to
  *     use in the large image.  The sprites can be position horizontally or
  *     vertically and using a box here allows the implementation to know which
  *     way to go.
@@ -62,7 +62,7 @@ export function CssSpriteAnimation(element, size, box, time, opt_acc, opt_disabl
 
  /**
   * The size of an individual sprite in the image sprite.
-  * @type {goog.math.Size}
+  * @type {Size}
   * @private
   */
  this.size_ = size;

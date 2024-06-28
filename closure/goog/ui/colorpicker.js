@@ -19,7 +19,7 @@
 import { ColorPalette } from './colorpalette.js';
 
 import { Component } from './component.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.events.event');
 goog.requireType('goog.math.size');
 
@@ -28,7 +28,7 @@ goog.requireType('goog.math.size');
 /**
  * Create a new, empty color picker.
  *
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @param {ColorPalette=} opt_colorPalette Optional color palette to
  *     use for this color picker.
  * @extends {Component}
@@ -298,7 +298,7 @@ ColorPicker.prototype.createColorPalette_ = function(colors) {
 /**
  * Returns an unrendered instance of the color picker.  The colors and layout
  * are a simple color grid, the same as the old Gmail color picker.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @return {!ColorPicker} The unrendered instance.
  */
 ColorPicker.createSimpleColorGrid = function(opt_domHelper) {

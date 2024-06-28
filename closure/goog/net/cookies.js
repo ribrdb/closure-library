@@ -9,7 +9,7 @@
  */
 
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 
@@ -233,7 +233,7 @@ Cookies.prototype.get = function(name, opt_default) {
   const nameEq = name + '=';
   const parts = this.getParts_();
   for (let i = 0, part; i < parts.length; i++) {
-    part = string.trim(parts[i]);
+    part = googString.trim(parts[i]);
     // startsWith
     if (part.lastIndexOf(nameEq, 0) == 0) {
       return part.slice(nameEq.length);
@@ -388,7 +388,7 @@ Cookies.prototype.getKeyValues_ = function() {
   let index;
   let part;
   for (let i = 0; i < parts.length; i++) {
-    part = string.trim(parts[i]);
+    part = googString.trim(parts[i]);
     index = part.indexOf('=');
 
     if (index == -1) {  // empty name

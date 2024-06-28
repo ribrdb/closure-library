@@ -550,7 +550,7 @@ Component.prototype.getRequiredElementByClass = function(className) {
 Component.prototype.getHandler = function() {
   // TODO(user): templated "this" values currently result in "this" being
   // "unknown" in the body of the function.
-  var self = /** @type {goog.ui.Component} */ (this);
+  var self = /** @type {Component} */ (this);
   if (!self.googUiComponentHandler_) {
     self.googUiComponentHandler_ = new EventHandler(self);
   }
@@ -1269,7 +1269,7 @@ Component.prototype.removeChild = function(child, opt_unrender) {
     throw new Error(Component.Error.NOT_OUR_CHILD);
   }
 
-  return /** @type {!goog.ui.Component} */ (child);
+  return /** @type {!Component} */ (child);
 };
 
 

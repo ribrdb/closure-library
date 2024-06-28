@@ -13,7 +13,7 @@
 import * as events from '../../events/events.js';
 
 import { EventTarget } from '../../events/eventtarget.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -29,7 +29,7 @@ goog.requireType('goog.dom.dom');
  * NORMAL density. It requires support for MediaQueryList to detect changes to
  * the devicePixelRatio.
  *
- * @param {!goog.dom.DomHelper=} opt_domHelper The DomHelper which contains the
+ * @param {!DomHelper=} opt_domHelper The DomHelper which contains the
  *     document associated with the window to listen to. Defaults to the one in
  *     which this code is executing.
  * @constructor

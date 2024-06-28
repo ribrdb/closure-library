@@ -42,9 +42,7 @@ export function FunctionMock(opt_functionName, opt_strictness) {
       StrictMock;
   object.extend(fn, new base({}));
 
-  return (
-    /** @type {!MockInterface} */ fn
-  );
+  return /** @type {!MockInterface} */ (fn);
 }
 
 

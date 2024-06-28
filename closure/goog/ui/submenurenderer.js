@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.SubMenu}s.
+ * @fileoverview Renderer for {@link SubMenu}s.
  */
 
 import * as aria from '../a11y/aria/aria.js';
@@ -18,14 +18,14 @@ import * as classlist from '../dom/classlist.js';
 import * as style from '../style/style.js';
 import { Menu } from './menu.js';
 import { MenuItemRenderer } from './menuitemrenderer.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.submenu');
+const {Control} = goog.requireType('goog.ui.control');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
+const {SubMenu} = goog.requireType('goog.ui.submenu');
 
 
 
 /**
- * Default renderer for {@link goog.ui.SubMenu}s.  Each item has the following
+ * Default renderer for {@link SubMenu}s.  Each item has the following
  * structure:
  *
  *    <div class="goog-submenu">
@@ -65,14 +65,14 @@ SubMenuRenderer.CSS_CLASS_SUBMENU_ =
 /**
  * Overrides {@link MenuItemRenderer#createDom} by adding
  * the additional class 'goog-submenu' to the created element,
- * and passes the element to {@link goog.ui.SubMenuItemRenderer#addArrow_}
+ * and passes the element to {@link SubMenuItemRenderer#addArrow_}
  * to add an child element that can be styled to show an arrow.
- * @param {goog.ui.Control} control goog.ui.SubMenu to render.
+ * @param {Control} control SubMenu to render.
  * @return {!Element} Root element for the item.
  * @override
  */
 SubMenuRenderer.prototype.createDom = function(control) {
- var subMenu = /** @type {goog.ui.SubMenu} */ (control);
+ var subMenu = /** @type {SubMenu} */ (control);
  var element =
      SubMenuRenderer.superClass_.createDom.call(this, subMenu);
  asserts.assert(element);
@@ -85,18 +85,18 @@ SubMenuRenderer.prototype.createDom = function(control) {
 /**
  * Overrides {@link MenuItemRenderer#decorate} by adding
  * the additional class 'goog-submenu' to the decorated element,
- * and passing the element to {@link goog.ui.SubMenuItemRenderer#addArrow_}
+ * and passing the element to {@link SubMenuItemRenderer#addArrow_}
  * to add a child element that can be styled to show an arrow.
  * Also searches the element for a child with the class goog-menu. If a
  * matching child element is found, creates a Menu, uses it to
  * decorate the child element, and passes that menu to subMenu.setMenu.
- * @param {goog.ui.Control} control goog.ui.SubMenu to render.
+ * @param {Control} control SubMenu to render.
  * @param {Element} element Element to decorate.
  * @return {!Element} Root element for the item.
  * @override
  */
 SubMenuRenderer.prototype.decorate = function(control, element) {
- var subMenu = /** @type {goog.ui.SubMenu} */ (control);
+ var subMenu = /** @type {SubMenu} */ (control);
  element =
      SubMenuRenderer.superClass_.decorate.call(this, subMenu, element);
  asserts.assert(element);
@@ -125,7 +125,7 @@ SubMenuRenderer.prototype.decorate = function(control, element) {
  * caption or DOM structure.  Overrides the superclass immplementation by
  * making sure that the submenu arrow structure is preserved.
  * @param {Element} element The item's root element.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to be
+ * @param {ControlContent} content Text caption or DOM structure to be
  *     set as the item's content.
  * @override
  */
@@ -153,12 +153,12 @@ SubMenuRenderer.prototype.setContent = function(element, content) {
  * and the arrow will be moved up to be the first child in the SubMenu's
  * element. Otherwise the arrow will have the class goog-submenu-arrow-ltr,
  * and be kept as the last child of the SubMenu's element.
- * @param {goog.ui.Control} control goog.ui.SubMenu whose DOM is to be
+ * @param {Control} control SubMenu whose DOM is to be
  *     initialized as it enters the document.
  * @override
  */
 SubMenuRenderer.prototype.initializeDom = function(control) {
- var subMenu = /** @type {goog.ui.SubMenu} */ (control);
+ var subMenu = /** @type {SubMenu} */ (control);
  SubMenuRenderer.superClass_.initializeDom.call(this, subMenu);
  var element = subMenu.getContentElement();
  var arrow = subMenu.getDomHelper().getElementsByTagNameAndClass(
@@ -179,7 +179,7 @@ SubMenuRenderer.prototype.initializeDom = function(control) {
 /**
  * Appends a child node with the class goog.getCssName('goog-submenu-arrow') or
  * 'goog-submenu-arrow-rtl' which can be styled to show an arrow.
- * @param {goog.ui.SubMenu} subMenu SubMenu to render.
+ * @param {SubMenu} subMenu SubMenu to render.
  * @param {Element} element Element to decorate.
  * @private
  */
@@ -209,7 +209,7 @@ SubMenuRenderer.RIGHT_ARROW_ = '\u25BA';
 
 /**
  * Set the text content of an arrow.
- * @param {goog.ui.SubMenu} subMenu The sub menu that owns the arrow.
+ * @param {SubMenu} subMenu The sub menu that owns the arrow.
  * @param {Element} arrow The arrow element.
  * @private
  */

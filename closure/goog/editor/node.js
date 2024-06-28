@@ -19,7 +19,7 @@ import * as safe from '../dom/safe.js';
 import * as legacyconversions from '../html/legacyconversions.js';
 import * as iter from '../iter/iter.js';
 import object from '../object/object.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Unicode } from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
 
@@ -216,7 +216,7 @@ export function isImportant(node) {
  *     otherwise false.
  */
 export function isAllNonNbspWhiteSpace(textNode) {
-  return string.isBreakingWhitespace(textNode.nodeValue);
+  return googString.isBreakingWhitespace(textNode.nodeValue);
 }
 
 
@@ -241,7 +241,7 @@ export function isEmpty(node, opt_prohibitSingleNbsp) {
     }
   }
   return (!opt_prohibitSingleNbsp && nodeData == Unicode.NBSP) ||
-      string.isBreakingWhitespace(nodeData);
+      googString.isBreakingWhitespace(nodeData);
 }
 
 

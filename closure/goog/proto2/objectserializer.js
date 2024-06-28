@@ -13,7 +13,7 @@ import * as asserts from '../asserts/asserts.js';
 
 import { FieldDescriptor } from './fielddescriptor.js';
 import { Serializer } from './serializer.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 goog.requireType('goog.proto2.message');
 
 
@@ -104,7 +104,7 @@ ObjectSerializer.prototype.serialize = function(message) {
         key = field.getName();
         break;
       case ObjectSerializer.KeyOption.CAMEL_CASE_NAME:
-        key = string.toCamelCase(
+        key = googString.toCamelCase(
             field
                 .getName()
                 // goog.string.toCamelCase expects a hyphen delimited string but
@@ -200,7 +200,7 @@ ObjectSerializer.prototype.deserializeTo = function(message, data) {
     var field;
     var value = data[key];
 
-    var isNumeric = string.isNumeric(key);
+    var isNumeric = googString.isNumeric(key);
 
     if (isNumeric) {
       field = descriptor.findFieldByTag(key);
@@ -216,7 +216,7 @@ ObjectSerializer.prototype.deserializeTo = function(message, data) {
 
       if (this.keyOption_ ==
           ObjectSerializer.KeyOption.CAMEL_CASE_NAME) {
-        key = string
+        key = googString
                   .toSelectorCase(key)
                   // goog.string.toSelectorCase returns a hyphen delimited form
                   // of the name but protos usually use an underscore delimited

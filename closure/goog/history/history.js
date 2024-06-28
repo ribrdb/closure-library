@@ -156,7 +156,6 @@ import * as dom from '../dom/dom.js';
 import { InputType } from '../dom/inputtype.js';
 import * as safe from '../dom/safe.js';
 
-/** @suppress {extraRequire} */
 import { Event } from '../events/event.js';
 
 import { EventHandler } from '../events/eventhandler.js';
@@ -169,10 +168,10 @@ import { TrustedResourceUrl } from '../html/trustedresourceurl.js';
 import * as uncheckedconversions from '../html/uncheckedconversions.js';
 import * as device from '../labs/useragent/device.js';
 import { memoize } from '../memoize/memoize.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -549,7 +548,7 @@ History.prototype.onDocumentLoaded = function() {
 /**
  * Handler for the Gecko pageshow event. Restarts the history object so that the
  * correct state can be restored in the hash or iframe.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 History.prototype.onShow_ = function(e) {
@@ -568,7 +567,7 @@ History.prototype.onShow_ = function(e) {
  * This is very similar to {@link #check_}, except that it is not executed
  * continuously. It is only used when
  * `History.isOnHashChangeSupported()` is true.
- * @param {goog.events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 History.prototype.onHashChange_ = function(e) {
@@ -710,7 +709,7 @@ History.prototype.setHash_ = function(token, opt_replace) {
 
   // If a hash has already been set, then removing it programmatically will
   // reload the page. Once there is a hash, we won't remove it.
-  const hasHash = string.contains(loc.href, '#');
+  const hasHash = googString.contains(loc.href, '#');
 
   if (History.HASH_ALWAYS_REQUIRED || hasHash || token) {
     url += '#' + token;
@@ -748,7 +747,7 @@ History.prototype.setIframeToken_ = function(
     token, opt_replace, opt_title) {
   if (this.unsetIframe_ || token != this.getIframeToken_()) {
     this.unsetIframe_ = false;
-    token = string.urlEncode(token);
+    token = googString.urlEncode(token);
 
     if (userAgent.IE) {
       // Caching the iframe document results in document permission errors after
@@ -801,7 +800,7 @@ History.prototype.setIframeToken_ = function(
 History.prototype.getIframeToken_ = function() {
   if (userAgent.IE) {
     const doc = dom.getFrameContentDocument(this.iframe_);
-    return doc.body ? string.urlDecode(doc.body.innerHTML) : null;
+    return doc.body ? googString.urlDecode(doc.body.innerHTML) : null;
   } else {
     // In Safari, it is possible for the contentWindow of the iframe to not
     // be present when the page is loading after a reload.
@@ -811,7 +810,7 @@ History.prototype.getIframeToken_ = function() {
 
       try {
         // Iframe tokens are urlEncoded
-        hash = string.urlDecode(this.getLocationFragment_(contentWindow));
+        hash = googString.urlDecode(this.getLocationFragment_(contentWindow));
       } catch (e) {
         // An exception will be thrown if the location of the iframe can not be
         // accessed (permission denied). This can occur in FF if the server

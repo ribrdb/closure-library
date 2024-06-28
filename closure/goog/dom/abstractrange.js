@@ -16,9 +16,8 @@ import * as dom from './dom.js';
 import { NodeType } from './nodetype.js';
 import { TagIterator } from './tagiterator.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.dom.savedrange');
-goog.requireType('goog.dom.savedrange');
-goog.requireType('goog.math.coordinate');
+const {AbstractSavedCaretRange, SavedRange} = goog.requireType('goog.dom.savedrange');
+const {Coordinate} = goog.requireType('goog.math.coordinate');
 
 /**
  * Types of ranges.
@@ -161,7 +160,7 @@ AbstractRange.prototype.getStartOffset = goog.abstractMethod;
 
 
 /**
- * @return {goog.math.Coordinate} The coordinate of the selection start node
+ * @return {Coordinate} The coordinate of the selection start node
  *     and offset.
  */
 AbstractRange.prototype.getStartPosition = goog.abstractMethod;
@@ -182,7 +181,7 @@ AbstractRange.prototype.getEndOffset = goog.abstractMethod;
 
 
 /**
- * @return {goog.math.Coordinate} The coordinate of the selection end
+ * @return {Coordinate} The coordinate of the selection end
  *     node and offset.
  */
 AbstractRange.prototype.getEndPosition = goog.abstractMethod;

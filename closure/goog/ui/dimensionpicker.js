@@ -23,8 +23,7 @@ import * as ComponentUtil from './componentutil.js';
 import { Control } from './control.js';
 import { DimensionPickerRenderer } from './dimensionpickerrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.browserevent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.events.event');
 goog.requireType('goog.events.keyevent');
 
@@ -41,7 +40,7 @@ goog.requireType('goog.events.keyevent');
  * @param {DimensionPickerRenderer=} opt_renderer Renderer used to
  *     render or decorate the palette; defaults to
  *     {@link DimensionPickerRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Control}

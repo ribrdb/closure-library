@@ -17,7 +17,7 @@ import { Animation } from './animation.js';
 import { Transition } from './transition.js';
 import * as style from '../style/style.js';
 import * as bidi from '../style/bidi.js';
-goog.requireType('goog.events.eventhandler');
+const {EventHandler} = goog.requireType('goog.events.eventhandler');
 
 
 

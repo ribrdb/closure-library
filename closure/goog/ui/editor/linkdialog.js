@@ -24,7 +24,7 @@ import { EventHandler } from '../../events/eventhandler.js';
 import { InputHandler } from '../../events/inputhandler.js';
 import { SafeHtml } from '../../html/safehtml.js';
 import { SafeHtmlFormatter } from '../../html/safehtmlformatter.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Unicode } from '../../string/string.js';
 import * as style from '../../style/style.js';
 import { Button } from '../button.js';
@@ -831,7 +831,7 @@ LinkDialog.prototype.syncOkButton_ = function() {
     return;
   }
   this.getOkButtonElement().disabled =
-      string.isEmptyOrWhitespace(inputValue);
+      googString.isEmptyOrWhitespace(inputValue);
 };
 
 
@@ -877,7 +877,7 @@ LinkDialog.prototype.createOkEventFromWebTab_ = function() {
         LinkDialog.Id_.ON_WEB_INPUT);
   } else {
     if (linkURL.search(/:/) < 0) {
-      linkURL = 'http://' + string.trimLeft(linkURL);
+      linkURL = 'http://' + googString.trimLeft(linkURL);
     }
     return this.createOkEventFromUrl_(linkURL);
   }
@@ -913,7 +913,7 @@ LinkDialog.prototype.onWebTestLink_ = function() {
       this.dom.getElement(LinkDialog.Id_.ON_WEB_INPUT));
   let url = input.value;
   if (url.search(/:/) < 0) {
-    url = 'http://' + string.trimLeft(url);
+    url = 'http://' + googString.trimLeft(url);
   }
   if (this.dispatchEvent(
           new LinkDialog.BeforeTestLinkEvent(url))) {

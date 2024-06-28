@@ -23,10 +23,10 @@ import * as style from '../style.js';
 import { KeyCodes } from '../../events/keycodes.js';
 import * as functions from '../../functions/functions.js';
 import object from '../../object/object.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
 goog.requireType('goog.dom.abstractrange');
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 goog.requireType('goog.events.event');
 
 
@@ -81,7 +81,7 @@ EnterHandler.prototype.enable = function(fieldObject) {
  */
 EnterHandler.prototype.prepareContentsHtml = function(
     html) {
-  if (!html || string.isBreakingWhitespace(html)) {
+  if (!html || googString.isBreakingWhitespace(html)) {
     return BrowserFeature.COLLAPSES_EMPTY_NODES ?
         this.getNonCollapsingBlankHtml() :
         '';
@@ -349,7 +349,7 @@ EnterHandler.prototype.handleKeyUpInternal = function(e) {
 
 /**
  * Handles an enter keypress event on fields in Gecko.
- * @param {goog.events.BrowserEvent} e The key event.
+ * @param {BrowserEvent} e The key event.
  * @private
  */
 EnterHandler.prototype.handleEnterGecko_ = function(e) {
@@ -375,7 +375,7 @@ EnterHandler.prototype.handleEnterGecko_ = function(e) {
 
 /**
  * Handle an enter key press in WebKit.
- * @param {goog.events.BrowserEvent} e The key press event.
+ * @param {BrowserEvent} e The key press event.
  * @protected
  */
 EnterHandler.prototype.handleEnterWebkitInternal = function(
@@ -386,7 +386,7 @@ EnterHandler.prototype.handleEnterWebkitInternal = function(
  * Handle an enter key press on collapsed selection.  handleEnterGecko_ ensures
  * the selection is collapsed by deleting its contents if it is not.  The
  * default implementation does nothing.
- * @param {goog.events.BrowserEvent} e The key press event.
+ * @param {BrowserEvent} e The key press event.
  * @param {boolean} wasCollapsed Whether the selection was collapsed before
  *     the key press.  If it was not, code before this function has already
  *     cleared the contents of the selection.

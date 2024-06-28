@@ -20,7 +20,7 @@ import * as log from '../../log/log.js';
 import * as googLog from '../../log/log.js';
 import { CfgFields } from '../../net/xpc/xpc.js';
 import { CrossPageChannel } from '../../net/xpc/crosspagechannel.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 /**
  * Global function to kick off initialization in the containing document.

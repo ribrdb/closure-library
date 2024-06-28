@@ -13,8 +13,6 @@
 import * as dom from '../dom/dom.js';
 
 import { TagName } from '../dom/tagname.js';
-
-/** @suppress {extraRequire} Interface. */
 import { DatePickerRenderer } from './datepickerrenderer.js';
 
 

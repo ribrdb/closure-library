@@ -22,9 +22,9 @@ import { Event } from './event.js';
 import { Listenable } from './listenable.js';
 import { ListenerMap } from './listenermap.js';
 import object from '../object/object.js';
-goog.requireType('goog.events.eventid');
-goog.requireType('goog.events.eventlike');
-goog.requireType('goog.events.listenablekey');
+const {EventId} = goog.requireType('goog.events.eventid');
+const {EventLike} = goog.requireType('goog.events.eventlike');
+const {ListenableKey} = goog.requireType('goog.events.listenablekey');
 
 
 

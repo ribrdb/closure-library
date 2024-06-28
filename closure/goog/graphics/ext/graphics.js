@@ -25,7 +25,7 @@ import * as events from '../../events/events.js';
 import { EventType } from '../../events/eventtype.js';
 import * as graphics from '../graphics.js';
 import { Group } from './group.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.graphics.abstractgraphics');
 goog.requireType('goog.math.coordinate');
 goog.requireType('goog.math.size');
@@ -42,7 +42,7 @@ goog.requireType('goog.math.size');
  *     omitted or null, defaults to same as width.
  * @param {?number=} opt_coordHeight The coordinate height. - if
  *     omitted or null, defaults to same as height.
- * @param {goog.dom.DomHelper=} opt_domHelper The DOM helper object for the
+ * @param {DomHelper=} opt_domHelper The DOM helper object for the
  *     document we want to render in.
  * @param {boolean=} opt_isSimple Flag used to indicate the graphics object will
  *     be drawn to in a single pass, and the fastest implementation for this

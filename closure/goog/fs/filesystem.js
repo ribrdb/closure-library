@@ -10,7 +10,7 @@
 
 goog.declareModuleId('goog.fs.filesystem');
 
-goog.requireType('goog.fs.entry');
+const {Entry} = goog.requireType('goog.fs.entry');
 
 
 
@@ -29,6 +29,6 @@ FileSystem.prototype.getName = function() {};
 
 
 /**
- * @return {!goog.fs.DirectoryEntry} The root directory of the filesystem.
+ * @return {!DirectoryEntry} The root directory of the filesystem.
  */
 FileSystem.prototype.getRoot = function() {};

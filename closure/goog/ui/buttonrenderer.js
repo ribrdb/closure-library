@@ -17,7 +17,7 @@ import * as asserts from '../asserts/asserts.js';
 import { ButtonSide } from './buttonside.js';
 import { Component } from './component.js';
 import { ControlRenderer } from './controlrenderer.js';  // circular
-goog.requireType('goog.ui.button');
+const {Button} = goog.requireType('goog.ui.button');
 
 
 
@@ -195,7 +195,7 @@ ButtonRenderer.prototype.setTooltip = function(element, tooltip) {
  * Collapses the border on one or both sides of the button, allowing it to be
  * combined with the adjacent button(s), forming a single UI componenet with
  * multiple targets.
- * @param {goog.ui.Button} button Button to update.
+ * @param {Button} button Button to update.
  * @param {number} sides Bitmap of one or more {@link ButtonSide}s for
  *     which borders should be collapsed.
  * @protected

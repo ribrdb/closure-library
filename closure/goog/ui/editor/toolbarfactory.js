@@ -12,7 +12,7 @@
 import * as dom from '../../dom/dom.js';
 
 import { TagName } from '../../dom/tagname.js';
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import * as style from '../../style/style.js';
 import { Component } from '../component.js';
 import { Container } from '../container.js';
@@ -45,7 +45,7 @@ export function getPrimaryFont(fontSpec) {
   const fontName =
       (i != -1 ? fontSpec.substring(0, i) : fontSpec).toLowerCase();
   // Strip leading/trailing quotes from the font name (bug 1050118).
-  return string.stripQuotes(fontName, '"\'');
+  return googString.stripQuotes(fontName, '"\'');
 }
 
 

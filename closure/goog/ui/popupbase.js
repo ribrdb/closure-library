@@ -23,7 +23,7 @@ import { KeyCodes } from '../events/keycodes.js';
 import { Transition } from '../fx/transition.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

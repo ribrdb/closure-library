@@ -16,6 +16,18 @@
  *     Adding support for the other TypedArray classes here does not make sense
  *     since this vector math library only needs Float32Array.
  */
+
+
+/**
+ * Constructs a new Float32Array. The new array is initialized to all zeros.
+ *
+ * @param {Float32Array_|Array|ArrayBuffer|number} p0
+ *     The length of the array, or an array to initialize the contents of the
+ *     new Float32Array.
+ * @constructor
+ * @implements {IArrayLike<number>}
+ * @final
+ */
 Float32Array_ = function(p0) {
  /** @type {number} */
  this.length = /** @type {number} */ (/** @type {?} */ ((p0).length || p0));

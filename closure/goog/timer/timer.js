@@ -293,7 +293,7 @@ Timer.clear = function(timerId) {
 
 /**
  * @param {number} delay Milliseconds to wait.
- * @param {(RESULT|goog.Thenable<RESULT>|Thenable)=} opt_result The value
+ * @param {(RESULT|Thenable<RESULT>|Thenable)=} opt_result The value
  *     with which the promise will be resolved.
  * @return {!Promise<RESULT>} A promise that will be resolved after
  *     the specified delay, unless it is canceled first.

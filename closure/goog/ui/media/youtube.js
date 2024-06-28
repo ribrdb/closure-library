@@ -55,7 +55,7 @@
 
 import { TrustedResourceUrl } from '../../html/trustedresourceurl.js';
 
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 import { Const } from '../../string/const.js';
 import { MediaModel } from './mediamodel.js';
 
@@ -177,7 +177,7 @@ YoutubeModel.newInstance = function(
  * @return {string} The youtube URL.
  */
 YoutubeModel.buildUrl = function(videoId) {
- return 'https://www.youtube.com/watch?v=' + string.urlEncode(videoId);
+ return 'https://www.youtube.com/watch?v=' + googString.urlEncode(videoId);
 };
 
 

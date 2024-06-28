@@ -12,7 +12,7 @@
 
 import * as browser from '../labs/useragent/browser.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as product from '../useragent/product.js';
 
 
@@ -71,7 +71,7 @@ export function set(element, key, value) {
                      '');
   } else {
     element.setAttribute(
-        PREFIX_ + string.toSelectorCase(key), value);
+        PREFIX_ + googString.toSelectorCase(key), value);
   }
 }
 
@@ -101,7 +101,7 @@ export function get(element, key) {
     return value === undefined ? null : value;
   } else {
     return htmlElement.getAttribute(
-        PREFIX_ + string.toSelectorCase(key));
+        PREFIX_ + googString.toSelectorCase(key));
   }
 }
 
@@ -127,7 +127,7 @@ export function remove(element, key) {
     }
   } else {
     element.removeAttribute(
-        PREFIX_ + string.toSelectorCase(key));
+        PREFIX_ + googString.toSelectorCase(key));
   }
 }
 
@@ -151,10 +151,10 @@ export function has(element, key) {
     return key in htmlElement.dataset;
   } else if (htmlElement.hasAttribute) {
     return htmlElement.hasAttribute(
-        PREFIX_ + string.toSelectorCase(key));
+        PREFIX_ + googString.toSelectorCase(key));
   } else {
     return !!(htmlElement.getAttribute(
-        PREFIX_ + string.toSelectorCase(key)));
+        PREFIX_ + googString.toSelectorCase(key)));
   }
 }
 
@@ -177,9 +177,9 @@ export function getAll(element) {
     var attributes = element.attributes;
     for (var i = 0; i < attributes.length; ++i) {
       var attribute = attributes[i];
-      if (string.startsWith(attribute.name, PREFIX_)) {
+      if (googString.startsWith(attribute.name, PREFIX_)) {
         // We use slice(5), since it's faster than replacing 'data-' with ''.
-        var key = string.toCamelCase(attribute.name.slice(5));
+        var key = googString.toCamelCase(attribute.name.slice(5));
         dataset[key] = attribute.value;
       }
     }

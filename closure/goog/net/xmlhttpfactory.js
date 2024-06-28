@@ -11,7 +11,6 @@
 
 goog.declareModuleId('goog.net.xmlhttpfactory');
 
-/** @suppress {extraRequire} Typedef. */
 import { XhrLike } from './xhrlike.js';
 
 

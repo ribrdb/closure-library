@@ -14,7 +14,7 @@
 
 import { Serializer as jsonSerializer } from '../json/json.js';
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 
 
@@ -48,7 +48,7 @@ Serializer.prototype.serializeArray = function(arr, sb) {
     } else {
       sb.push(sep);
       if (emptySlots > 0) {
-        sb.push(string.repeat('null,', emptySlots));
+        sb.push(googString.repeat('null,', emptySlots));
         emptySlots = 0;
       }
       this.serializeInternal(arr[i], sb);

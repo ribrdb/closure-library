@@ -32,11 +32,11 @@ import { Keys } from '../events/keys.js';
 import { Dragger } from '../fx/dragger.js';
 import { SafeHtml } from '../html/safehtml.js';
 import { Rect } from '../math/rect.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { UiMap as Map } from './map.js';
 import { ModalPopup } from './modalpopup.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 
@@ -676,7 +676,7 @@ Dialog.prototype.setDraggingEnabled_ = function(enabled) {
   // split the string into an array (in case the dialog was set up with
   // multiple, space-separated class names).
   var classNames =
-      string.trim(goog.getCssName(this.class_, 'title-draggable'))
+      googString.trim(goog.getCssName(this.class_, 'title-draggable'))
           .split(' ');
 
   if (this.getElement()) {

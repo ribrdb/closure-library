@@ -9,7 +9,7 @@
  */
 
 
-import * as string from '../../string/string.js';
+import * as googString from '../../string/string.js';
 
 
 
@@ -103,7 +103,7 @@ ArrayMatcher.getPrefixMatchesForRows = function(
   var matches = [];
 
   if (token != '') {
-    var escapedToken = string.regExpEscape(token);
+    var escapedToken = googString.regExpEscape(token);
     var matcher = new RegExp('(^|\\W+)' + escapedToken, 'i');
 
     for (var i = 0; i < rows.length && matches.length < maxMatches; i++) {

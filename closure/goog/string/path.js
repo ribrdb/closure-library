@@ -11,7 +11,7 @@
 
 import * as array from '../array/array.js';
 
-import * as string from './string.js';
+import * as googString from './string.js';
 
 
 /**
@@ -84,9 +84,9 @@ export function join(var_args) {
 
   for (let i = 1; i < arguments.length; i++) {
     const arg = arguments[i];
-    if (string.startsWith(arg, '/')) {
+    if (googString.startsWith(arg, '/')) {
       path = arg;
-    } else if (path == '' || string.endsWith(path, '/')) {
+    } else if (path == '' || googString.endsWith(path, '/')) {
       path += arg;
     } else {
       path += '/' + arg;
@@ -111,10 +111,10 @@ export function normalizePath(path) {
 
   let initialSlashes = '';
   // POSIX will keep two slashes, but three or more will be collapsed to one.
-  if (string.startsWith(path, '/')) {
+  if (googString.startsWith(path, '/')) {
     initialSlashes = '/';
-    if (string.startsWith(path, '//') &&
-        !string.startsWith(path, '///')) {
+    if (googString.startsWith(path, '//') &&
+        !googString.startsWith(path, '///')) {
       initialSlashes = '//';
     }
   }

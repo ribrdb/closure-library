@@ -45,7 +45,7 @@ import { Component } from './component.js';
 import { MenuItem } from './menuitem.js';
 import { MenuSeparator } from './menuseparator.js';
 import { PopupMenu } from './popupmenu.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

@@ -11,7 +11,7 @@ import * as array from '../array/array.js';
 
 import * as asserts from '../asserts/asserts.js';
 import * as crypt from './crypt.js';
-goog.requireType('goog.crypt.blockcipher');
+const {BlockCipher} = goog.requireType('goog.crypt.blockcipher');
 
 /**
  * Implementation of Ctr mode for block ciphers.  See
@@ -20,7 +20,7 @@ goog.requireType('goog.crypt.blockcipher');
  * http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf
  * for the spec.
  *
- * @param {!crypt.BlockCipher} cipher The block cipher to use.
+ * @param {!BlockCipher} cipher The block cipher to use.
  * @constructor
  * @final
  * @struct
@@ -28,7 +28,7 @@ goog.requireType('goog.crypt.blockcipher');
 export function Ctr(cipher) {
  /**
    * Block cipher.
-   * @type {!crypt.BlockCipher}
+   * @type {!BlockCipher}
    * @private
    */
  this.cipher_ = cipher;

@@ -703,9 +703,7 @@ Trace_.prototype.getStat_ = function(type) {
     stat.type = type;
     this.stats_.set(type, stat);
   }
-  return (
-    /** @type {Trace_.Stat_} */ stat
-  );
+  return /** @type {Trace_.Stat_} */ (stat);
 };
 
 

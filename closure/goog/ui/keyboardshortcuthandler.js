@@ -23,7 +23,7 @@ import { KeyboardEventData } from './keyboardeventdata.js';
 import { KeyboardShortcutEvent } from './keyboardshortcutevent.js';
 import { SyntheticKeyboardEvent } from './synthetickeyboardevent.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
 
 
 

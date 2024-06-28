@@ -9,7 +9,6 @@
  * @suppress {missingRequire} Checkbox.State
  */
 
-goog.forwardDeclare('Checkbox');
 import * as aria from '../a11y/aria/aria.js';
 import { Role } from '../a11y/aria/roles.js';
 import { State } from '../a11y/aria/attributes.js';

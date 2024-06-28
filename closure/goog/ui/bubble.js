@@ -28,7 +28,7 @@ import { Const } from '../string/const.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { Popup } from './popup.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 goog.requireType('goog.positioning.abstractposition');
 
 
@@ -42,7 +42,7 @@ goog.requireType('goog.positioning.abstractposition');
  * @param {Object=} opt_config The configuration
  *     for the bubble. If not specified, the default configuration will be
  *     used. {@see Bubble.defaultConfig}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param {DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {Component}
  */

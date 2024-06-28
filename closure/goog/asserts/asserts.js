@@ -46,7 +46,7 @@ import { NodeType } from '../dom/nodetype.js';
 /**
  * @define {boolean} Whether to strip out asserts or to leave them in.
  */
-export let ENABLE_ASSERTS = goog.define('goog.asserts.ENABLE_ASSERTS', goog.DEBUG);
+export var ENABLE_ASSERTS = goog.define('goog.asserts.ENABLE_ASSERTS', goog.DEBUG);
 
 
 

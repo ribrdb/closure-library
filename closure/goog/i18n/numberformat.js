@@ -20,7 +20,7 @@ import { NumberFormatSymbols, NumberFormatSymbols_u_nu_latn } from './numberform
 import * as NumberFormatSymbolsType from './numberformatsymbolstype.js';
 import * as currency from './currency.js';
 import * as math from '../math/math.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 /**
  * Constructor of NumberFormat.
@@ -1295,14 +1295,14 @@ NumberFormat.prototype.subformatFixed_ = function(
     fracPart = fracPart.replace('.', '');
     // Append zeroes based on the exponent.
     const exp = parseInt(fracPartSplit[1], 10);
-    fracPart += string.repeat('0', exp - fracPart.length + 1);
+    fracPart += googString.repeat('0', exp - fracPart.length + 1);
   }
 
   // Add Math.pow(10, this.maximumFractionDigits) to fracPart. Uses string ops
   // to avoid complexity with scientific notation and overflows.
   if (this.maximumFractionDigits_ + 1 > fracPart.length) {
     const zeroesToAdd = this.maximumFractionDigits_ - fracPart.length;
-    fracPart = '1' + string.repeat('0', zeroesToAdd) + fracPart;
+    fracPart = '1' + googString.repeat('0', zeroesToAdd) + fracPart;
   }
 
   let fracLen = fracPart.length;

@@ -8,7 +8,7 @@
  * @fileoverview Vendor prefix getters.
  */
 
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 
 import * as userAgent from '../useragent/useragent.js';
 
@@ -65,7 +65,7 @@ export function getPrefixedPropertyName(propertyName, opt_object) {
   var prefix = getVendorJsPrefix();
   if (prefix) {
     prefix = prefix.toLowerCase();
-    var prefixedPropertyName = prefix + string.toTitleCase(propertyName);
+    var prefixedPropertyName = prefix + googString.toTitleCase(propertyName);
     return (opt_object === undefined || prefixedPropertyName in opt_object) ?
         prefixedPropertyName :
         null;

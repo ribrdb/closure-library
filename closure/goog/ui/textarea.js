@@ -23,9 +23,9 @@ import * as style from '../style/style.js';
 import { Control } from './control.js';
 import { TextareaRenderer } from './textarearenderer.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.box');
+const { BrowserEvent } = goog.requireType('goog.events.browserevent');
+const {Event} = goog.requireType('goog.events.event');
+const {Box} = goog.requireType('goog.math.box');
 
 
 
@@ -160,7 +160,7 @@ Textarea.prototype.scrollHeightIncludesBorder_ = false;
  * For storing the padding box size during enterDocument, to prevent possible
  * measurement differences that can happen after text zooming.
  * Note: runtime padding changes will cause problems with this.
- * @type {goog.math.Box}
+ * @type {Box}
  * @private
  */
 Textarea.prototype.paddingBox_;
@@ -170,7 +170,7 @@ Textarea.prototype.paddingBox_;
  * For storing the border box size during enterDocument, to prevent possible
  * measurement differences that can happen after text zooming.
  * Note: runtime border width changes will cause problems with this.
- * @type {goog.math.Box}
+ * @type {Box}
  * @private
  */
 Textarea.prototype.borderBox_;
@@ -575,7 +575,7 @@ Textarea.TEXTAREA_PLACEHOLDER_CLASS =
 
 /**
  * Called when the element goes out of focus.
- * @param {goog.events.Event=} opt_e The browser event.
+ * @param {Event=} opt_e The browser event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -594,7 +594,7 @@ Textarea.prototype.blur_ = function(opt_e) {
 
 /**
  * Resizes the textarea to grow/shrink to match its contents.
- * @param {goog.events.Event=} opt_e The browser event.
+ * @param {Event=} opt_e The browser event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -711,7 +711,7 @@ Textarea.prototype.shrink_ = function() {
  * the user's manually set height. Note that we cannot check size on mousedown
  * and then just compare here because we cannot capture mousedown on
  * the textarea resizer, while mouseup fires reliably.
- * @param {goog.events.BrowserEvent} e The mousedown event.
+ * @param {BrowserEvent} e The mousedown event.
  * @private
  */
 Textarea.prototype.mouseUpListener_ = function(e) {

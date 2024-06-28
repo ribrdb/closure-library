@@ -13,9 +13,9 @@
  */
 goog.declareModuleId('goog.fs.entry');
 
-goog.requireType('goog.mochikit.async.deferred');
-goog.requireType('goog.fs.filesystem');
-goog.requireType('goog.fs.filewriter');
+const {Deferred} = goog.requireType('goog.mochikit.async.deferred');
+const {FileSystem} = goog.requireType('goog.fs.filesystem');
+const {FileWriter} = goog.requireType('goog.fs.filewriter');
 
 
 
@@ -51,7 +51,7 @@ Entry.prototype.getFullPath = function() {};
 
 
 /**
- * @return {!goog.fs.FileSystem} The filesystem backing this entry.
+ * @return {!FileSystem} The filesystem backing this entry.
  */
 Entry.prototype.getFileSystem = function() {};
 
@@ -59,7 +59,7 @@ Entry.prototype.getFileSystem = function() {};
 /**
  * Retrieves the last modified date for this entry.
  *
- * @return {!goog.async.Deferred} The deferred Date for this entry. If an error
+ * @return {!Deferred} The deferred Date for this entry. If an error
  *     occurs, the errback is called with a {@link goog.fs.Error}.
  */
 Entry.prototype.getLastModified = function() {};
@@ -68,7 +68,7 @@ Entry.prototype.getLastModified = function() {};
 /**
  * Retrieves the metadata for this entry.
  *
- * @return {!goog.async.Deferred} The deferred Metadata for this entry. If an
+ * @return {!Deferred} The deferred Metadata for this entry. If an
  *     error occurs, the errback is called with a {@link goog.fs.Error}.
  */
 Entry.prototype.getMetadata = function() {};
@@ -80,7 +80,7 @@ Entry.prototype.getMetadata = function() {};
  * @param {!DirectoryEntry} parent The new parent directory.
  * @param {string=} opt_newName The new name of the entry. If omitted, the entry
  *     retains its original name.
- * @return {!goog.async.Deferred} The deferred {@link FileEntry} or
+ * @return {!Deferred} The deferred {@link FileEntry} or
  *     {@link DirectoryEntry} for the new entry. If an error occurs, the
  *     errback is called with a {@link goog.fs.Error}.
  */
@@ -93,7 +93,7 @@ Entry.prototype.moveTo = function(parent, opt_newName) {};
  * @param {!DirectoryEntry} parent The new parent directory.
  * @param {string=} opt_newName The name of the new entry. If omitted, the new
  *     entry has the same name as the original.
- * @return {!goog.async.Deferred} The deferred {@link FileEntry} or
+ * @return {!Deferred} The deferred {@link FileEntry} or
  *     {@link DirectoryEntry} for the new entry. If an error occurs, the
  *     errback is called with a {@link goog.fs.Error}.
  */
@@ -132,7 +132,7 @@ Entry.prototype.toUri = function(opt_mimeType) {};
 /**
  * Remove this entry.
  *
- * @return {!goog.async.Deferred} A deferred object. If the removal succeeds,
+ * @return {!Deferred} A deferred object. If the removal succeeds,
  *     the callback is called with true. If an error occurs, the errback is
  *     called a {@link goog.fs.Error}.
  */
@@ -142,7 +142,7 @@ Entry.prototype.remove = function() {};
 /**
  * Gets the parent directory.
  *
- * @return {!goog.async.Deferred} The deferred {@link DirectoryEntry}.
+ * @return {!Deferred} The deferred {@link DirectoryEntry}.
  *     If an error occurs, the errback is called with a {@link goog.fs.Error}.
  */
 Entry.prototype.getParent = function() {};
@@ -184,7 +184,7 @@ DirectoryEntry.Behavior = {
  * @param {string} path The path to the file, relative to this directory.
  * @param {DirectoryEntry.Behavior=} opt_behavior The behavior for
  *     handling an existing file, or the lack thereof.
- * @return {!goog.async.Deferred} The deferred {@link FileEntry}. If an
+ * @return {!Deferred} The deferred {@link FileEntry}. If an
  *     error occurs, the errback is called with a {@link goog.fs.Error}.
  */
 DirectoryEntry.prototype.getFile = function(path, opt_behavior) {};
@@ -196,7 +196,7 @@ DirectoryEntry.prototype.getFile = function(path, opt_behavior) {};
  * @param {string} path The path to the directory, relative to this directory.
  * @param {DirectoryEntry.Behavior=} opt_behavior The behavior for
  *     handling an existing directory, or the lack thereof.
- * @return {!goog.async.Deferred} The deferred {@link DirectoryEntry}.
+ * @return {!Deferred} The deferred {@link DirectoryEntry}.
  *     If an error occurs, the errback is called a {@link goog.fs.Error}.
  */
 DirectoryEntry.prototype.getDirectory = function(path, opt_behavior) {};
@@ -209,7 +209,7 @@ DirectoryEntry.prototype.getDirectory = function(path, opt_behavior) {};
  * @param {string} path The directory path to create. May be absolute or
  *     relative to the current directory. The parent directory ".." and current
  *     directory "." are supported.
- * @return {!goog.async.Deferred} A deferred {@link DirectoryEntry} for
+ * @return {!Deferred} A deferred {@link DirectoryEntry} for
  *     the requested path. If an error occurs, the errback is called with a
  *     {@link goog.fs.Error}.
  */
@@ -219,7 +219,7 @@ DirectoryEntry.prototype.createPath = function(path) {};
 /**
  * Gets a list of all entries in this directory.
  *
- * @return {!goog.async.Deferred} The deferred list of {@link Entry}
+ * @return {!Deferred} The deferred list of {@link Entry}
  *     results. If an error occurs, the errback is called with a
  *     {@link goog.fs.Error}.
  */
@@ -229,7 +229,7 @@ DirectoryEntry.prototype.listDirectory = function() {};
 /**
  * Removes this directory and all its contents.
  *
- * @return {!goog.async.Deferred} A deferred object. If the removal succeeds,
+ * @return {!Deferred} A deferred object. If the removal succeeds,
  *     the callback is called with true. If an error occurs, the errback is
  *     called a {@link goog.fs.Error}.
  */
@@ -249,7 +249,7 @@ export function FileEntry() {}
 /**
  * Create a writer for writing to the file.
  *
- * @return {!goog.async.Deferred<!goog.fs.FileWriter>} If an error occurs, the
+ * @return {!Deferred<!FileWriter>} If an error occurs, the
  *     errback is called with a {@link goog.fs.Error}.
  */
 FileEntry.prototype.createWriter = function() {};
@@ -258,7 +258,7 @@ FileEntry.prototype.createWriter = function() {};
 /**
  * Get the file contents as a File blob.
  *
- * @return {!goog.async.Deferred<!File>} If an error occurs, the errback is
+ * @return {!Deferred<!File>} If an error occurs, the errback is
  *     called with a {@link goog.fs.Error}.
  */
 FileEntry.prototype.file = function() {};

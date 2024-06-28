@@ -22,9 +22,9 @@ import { Component } from './component.js';
 import { Control } from './control.js';
 import { NativeButtonRenderer } from './nativebuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.keyevent');
-goog.requireType('goog.ui.controlcontent');
+const { DomHelper } = goog.requireType('goog.dom.dom');
+const { KeyEvent} = goog.requireType('goog.events.keyevent');
+const {ControlContent} = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -35,7 +35,7 @@ goog.requireType('goog.ui.controlcontent');
  *     structure to display as the button's caption (if any).
  * @param {ButtonRenderer=} opt_renderer Renderer used to render or
  *     decorate the button; defaults to {@link NativeButtonRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper, used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
  * @extends {Control}
@@ -184,7 +184,7 @@ Button.prototype.enterDocument = function() {
  * false otherwise.  If the button is enabled and the Enter/Space key was
  * pressed, handles the event by dispatching an `ACTION` event,
  * and returns true. Overrides {@link Control#handleKeyEventInternal}.
- * @param {goog.events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} Whether the key event was handled.
  * @protected
  * @override

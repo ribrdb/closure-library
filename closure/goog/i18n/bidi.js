@@ -12,7 +12,17 @@
 /**
  * Namespace for bidi supporting functions.
  */
-FORCE_RTL = goog.define('goog.i18n.bidi.FORCE_RTL', false);
+
+
+/**
+ * @define {boolean} FORCE_RTL forces the {@link goog.i18n.bidi.IS_RTL} constant
+ * to say that the current locale is a RTL locale.  This should only be used
+ * if you want to override the default behavior for deciding whether the
+ * current locale is RTL or not.
+ *
+ * {@see goog.i18n.bidi.IS_RTL}
+ */
+export var FORCE_RTL = goog.define('goog.i18n.bidi.FORCE_RTL', false);
 
 
 /**
@@ -886,4 +896,3 @@ DirectionalString.prototype
  * @return {?Dir} The known direction. Null if unknown.
  */
 DirectionalString.prototype.getDirection;
-export var FORCE_RTL;

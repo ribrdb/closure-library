@@ -12,8 +12,8 @@ goog.declareModuleId('goog.positioning.anchoredposition');
 
 import * as positioning from './positioning.js';
 import { AbstractPosition } from './abstractposition.js';
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
+const {Box} = goog.requireType('goog.math.box');
+const {Size} = goog.requireType('goog.math.size');
 
 
 
@@ -65,8 +65,8 @@ goog.inherits(
  * @param {Element} movableElement Element to position.
  * @param {positioning.Corner} movableCorner Corner of the movable element
  *     that should be positioned adjacent to the anchored element.
- * @param {goog.math.Box=} opt_margin A margin specifin pixels.
- * @param {goog.math.Size=} opt_preferredSize PreferredSize of the
+ * @param {Box=} opt_margin A margin specifin pixels.
+ * @param {Size=} opt_preferredSize PreferredSize of the
  *     movableElement (unused in this class).
  * @override
  */

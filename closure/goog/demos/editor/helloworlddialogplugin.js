@@ -15,7 +15,7 @@ import { AbstractDialogPlugin } from '../../editor/plugins/abstractdialogplugin.
 import * as editorRange from '../../editor/range.js';
 import * as functions from '../../functions/functions.js';
 import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 // *** Public interface ***************************************************** //
@@ -34,7 +34,7 @@ super(HelloWorldDialogPlugin.Command.HELLO_WORLD_DIALOG);
 
 /**
 * Creates a new instance of the dialog and registers for the relevant events.
-* @param {goog.dom.DomHelper} dialogDomHelper The dom helper to be used to
+* @param {DomHelper} dialogDomHelper The dom helper to be used to
 *     create the dialog.
 * @return {!HelloWorldDialog} The dialog.
 * @override

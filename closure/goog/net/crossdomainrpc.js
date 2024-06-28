@@ -67,7 +67,7 @@ import { SafeHtml } from '../html/safehtml.js';
 import * as log from '../log/log.js';
 import { EventType as netEventType } from './eventtype.js';
 import { HttpStatus } from './httpstatus.js';
-import * as string from '../string/string.js';
+import * as googString from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
 
 
@@ -721,8 +721,8 @@ CrossDomainRpc.sendResponse = function(
   // since the dummy-uri can be specified by the user, verify that it doesn't
   // use any other protocols. (Specifically we don't want users to use a
   // dummy-uri beginning with "javascript:").
-  if (!string.caseInsensitiveStartsWith(dummyUri, 'http://') &&
-      !string.caseInsensitiveStartsWith(dummyUri, 'https://')) {
+  if (!googString.caseInsensitiveStartsWith(dummyUri, 'http://') &&
+      !googString.caseInsensitiveStartsWith(dummyUri, 'https://')) {
     dummyUri = 'http://' + dummyUri;
   }
 

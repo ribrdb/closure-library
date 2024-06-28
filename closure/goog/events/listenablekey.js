@@ -9,7 +9,7 @@
  */
 goog.declareModuleId('goog.events.listenablekey');
 
-goog.requireType('goog.events.listenable');
+const {Listenable} = goog.requireType('goog.events.listenable');
 
 
 /**
@@ -39,7 +39,7 @@ ListenableKey.reserveKey = function() {
 
 /**
  * The source event target.
- * @type {?Object|?goog.events.Listenable}
+ * @type {?Object|?Listenable}
  */
 ListenableKey.prototype.src;
 

@@ -14,7 +14,7 @@ goog.declareModuleId('goog.ui.menuseparator');
 import { MenuSeparatorRenderer } from './menuseparatorrenderer.js';
 import { Separator } from './separator.js';
 import * as registry from './registry.js';
-goog.requireType('goog.dom.dom');
+const { DomHelper } = goog.requireType('goog.dom.dom');
 
 
 
@@ -22,7 +22,7 @@ goog.requireType('goog.dom.dom');
  * Class representing a menu separator.  A menu separator extends {@link
  * Separator} by always setting its renderer to {@link
  * MenuSeparatorRenderer}.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper used for
+ * @param {DomHelper=} opt_domHelper Optional DOM helper used for
  *     document interactions.
  * @constructor
  * @extends {Separator}

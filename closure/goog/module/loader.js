@@ -21,7 +21,6 @@ import { TagName } from '../dom/tagname.js';
 import * as safe from '../dom/safe.js';
 import * as legacyconversions from '../html/legacyconversions.js';
 
-/** @suppress {extraRequire} */
 import { module as googModule } from './module.js';
 
 import object from '../object/object.js';
