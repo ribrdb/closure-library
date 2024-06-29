@@ -30,9 +30,9 @@ import { Menu } from './menu.js';
 import { MenuItem } from './menuitem.js';
 import * as userAgent from '../useragent/useragent.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.keyevent');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.menurenderer');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
+const { Control } = goog.requireType('goog.ui.control');
+const { MenuRenderer } = goog.requireType('goog.ui.menurenderer');
 
 
 
@@ -393,7 +393,7 @@ FilteredMenu.prototype.hasPersistentVisibility = function(child) {
 
 /**
  * Handles filter input events.
- * @param {events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 FilteredMenu.prototype.handleFilterEvent = function(e) {
@@ -496,7 +496,7 @@ FilteredMenu.prototype.filterItems_ = function(str) {
 /**
  * Updates the content of the given menu item, bolding the part of its caption
  * from start and through the next len characters.
- * @param {!goog.ui.Control} child The control to bold content on.
+ * @param {!Control} child The control to bold content on.
  * @param {number} start The index at which to start bolding.
  * @param {number} len How many characters to bold.
  * @protected
@@ -532,7 +532,7 @@ FilteredMenu.prototype.boldContent = function(child, start, len) {
 /**
  * Handles the menu's behavior for a key event. The highlighted menu item will
  * be given the opportunity to handle the key behavior.
- * @param {events.KeyEvent} e A browser event.
+ * @param {KeyEvent} e A browser event.
  * @return {boolean} Whether the event was handled.
  * @override
  */
@@ -577,7 +577,7 @@ FilteredMenu.prototype.setHighlightedIndex = function(index) {
 
 /**
  * Handles clicks on the filter label. Focuses the input element.
- * @param {events.BrowserEvent} e A browser event.
+ * @param {BrowserEvent} e A browser event.
  * @private
  */
 FilteredMenu.prototype.onFilterLabelClick_ = function(e) {

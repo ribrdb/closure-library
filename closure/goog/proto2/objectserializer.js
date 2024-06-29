@@ -14,7 +14,7 @@ import * as asserts from '../asserts/asserts.js';
 import { FieldDescriptor } from './fielddescriptor.js';
 import { Serializer } from './serializer.js';
 import * as googString from '../string/string.js';
-goog.requireType('goog.proto2.message');
+const { Message } = goog.requireType('goog.proto2.message');
 
 
 
@@ -81,7 +81,7 @@ ObjectSerializer.KeyOption = {
 /**
  * Serializes a message to an object.
  *
- * @param {goog.proto2.Message} message The message to be serialized.
+ * @param {Message} message The message to be serialized.
  * @return {!Object} The serialized form of the message.
  * @override
  */
@@ -188,7 +188,7 @@ ObjectSerializer.prototype.getDeserializedValue = function(
  * Deserializes a message from an object and places the
  * data in the message.
  *
- * @param {goog.proto2.Message} message The message in which to
+ * @param {Message} message The message in which to
  *     place the information.
  * @param {*} data The data of the message.
  * @override

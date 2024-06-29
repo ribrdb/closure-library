@@ -13,8 +13,8 @@ import { Button } from './button.js';
 import { CustomButtonRenderer } from './custombuttonrenderer.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.controlcontent');
+const { ButtonRenderer } = goog.requireType('goog.ui.buttonrenderer');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -25,7 +25,7 @@ goog.requireType('goog.ui.controlcontent');
  * the {@link Button} constructor and get the same result.  Provided
  * for convenience.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *    structure to display as the button's caption.
  * @param {ButtonRenderer=} opt_renderer Optional renderer used to
  *    render or decorate the button; defaults to

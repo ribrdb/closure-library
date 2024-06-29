@@ -23,7 +23,7 @@ import * as asserts from '../../asserts/asserts.js';
 import { HtmlSanitizer } from './htmlsanitizer.js';
 import * as googString from '../../string/string.js';
 import { Const } from '../../string/const.js';
-goog.requireType('goog.html.sanitizer.htmlsanitizer');
+const { HtmlSanitizerAttributePolicy } = goog.requireType('goog.html.sanitizer.htmlsanitizer');
 
 
 /**

@@ -20,8 +20,8 @@ import { ColorPalette } from './colorpalette.js';
 
 import { Component } from './component.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.size');
+const { Event } = goog.requireType('goog.events.event');
+const { Size } = goog.requireType('goog.math.size');
 
 
 
@@ -115,7 +115,7 @@ ColorPicker.prototype.addColors = function(colors) {
 /**
  * Sets the size of the palette.  Will throw an error after the picker has been
  * rendered.
- * @param {goog.math.Size|number} size The size of the grid.
+ * @param {Size|number} size The size of the grid.
  */
 ColorPicker.prototype.setSize = function(size) {
   // TODO(user): The color picker should contain multiple palettes which will
@@ -129,7 +129,7 @@ ColorPicker.prototype.setSize = function(size) {
 
 /**
  * Gets the number of columns displayed.
- * @return {goog.math.Size?} The size of the grid.
+ * @return {Size?} The size of the grid.
  */
 ColorPicker.prototype.getSize = function() {
   return this.colorPalette_ ? this.colorPalette_.getSize() : null;
@@ -266,7 +266,7 @@ ColorPicker.prototype.focus = function() {
 /**
  * Handles actions from the color palette.
  *
- * @param {goog.events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 ColorPicker.prototype.onColorPaletteAction_ = function(e) {

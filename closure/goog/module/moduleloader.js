@@ -42,7 +42,7 @@ import * as log from '../log/log.js';
 import * as product from '../useragent/product.js';
 import * as safe from '../dom/safe.js';
 import * as userAgent from '../useragent/useragent.js';
-const ModuleInfo = goog.requireType('goog.module.moduleinfo');
+const {ModuleInfo} = goog.requireType('goog.module.moduleinfo');
 
 /**
  * A class that loads JavaScript modules.

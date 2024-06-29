@@ -12,15 +12,15 @@ goog.declareModuleId('goog.proto2.fielddescriptor');
 
 import * as asserts from '../asserts/asserts.js';
 import * as googString from '../string/string.js';
-goog.requireType('goog.proto2.descriptor');
-goog.requireType('goog.proto2.message');
+const { Descriptor } = goog.requireType('goog.proto2.descriptor');
+const { Message } = goog.requireType('goog.proto2.message');
 
 
 
 /**
  * A class which describes a field in a Protocol Buffer 2 Message.
  *
- * @param {function(new:goog.proto2.Message)} messageType Constructor for the
+ * @param {function(new:Message)} messageType Constructor for the
  *     message class to which the field described by this class belongs.
  * @param {number|string} tag The field's tag index.
  * @param {{
@@ -41,7 +41,7 @@ export function FieldDescriptor(messageType, tag, metadata) {
  /**
   * The message type that contains the field that this
   * descriptor describes.
-  * @private {function(new:goog.proto2.Message)}
+  * @private {function(new:Message)}
   */
  this.parent_ = messageType;
 
@@ -161,7 +161,7 @@ FieldDescriptor.prototype.getTag = function() {
 
 /**
  * Returns the descriptor describing the message that defined this field.
- * @return {!goog.proto2.Descriptor} The descriptor.
+ * @return {!Descriptor} The descriptor.
  */
 FieldDescriptor.prototype.getContainingType = function() {
  // Generated JS proto_library messages have getDescriptor() method which can
@@ -245,13 +245,13 @@ FieldDescriptor.prototype.deserializationConversionPermitted =
  * Returns the descriptor of the message type of this field. Only valid
  * for fields of type GROUP and MESSAGE.
  *
- * @return {!goog.proto2.Descriptor} The message descriptor.
+ * @return {!Descriptor} The message descriptor.
  */
 FieldDescriptor.prototype.getFieldMessageType = function() {
  // Generated JS proto_library messages have getDescriptor() method which can
  // be called with or without an instance.
  var messageClass =
-     /** @type {function(new:goog.proto2.Message)} */ (this.nativeType_);
+     /** @type {function(new:Message)} */ (this.nativeType_);
  return messageClass.prototype.getDescriptor();
 };
 

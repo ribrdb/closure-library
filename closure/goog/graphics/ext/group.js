@@ -14,7 +14,7 @@ goog.declareModuleId('goog.graphics.ext.group');
 
 import * as array from '../../array/array.js';
 import { Element } from './element.js';
-goog.requireType('goog.graphics.groupelement');
+const { GroupElement } = goog.requireType('goog.graphics.groupelement');
 
 
 
@@ -22,7 +22,7 @@ goog.requireType('goog.graphics.groupelement');
  * Wrapper for a graphics group.
  * @param {Group} group Parent for this element. Can
  *     be null if this is a Graphics instance.
- * @param {goog.graphics.GroupElement=} opt_wrapper The thin wrapper
+ * @param {GroupElement=} opt_wrapper The thin wrapper
  *     to wrap. If omitted, a new group will be created. Must be included
  *     when group is null.
  * @constructor
@@ -101,7 +101,7 @@ Group.prototype.forEachChild = function(f, opt_obj) {
 
 
 /**
- * @return {goog.graphics.GroupElement} The underlying thin wrapper.
+ * @return {GroupElement} The underlying thin wrapper.
  * @override
  */
 Group.prototype.getWrapper;

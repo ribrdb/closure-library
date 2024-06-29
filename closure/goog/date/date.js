@@ -332,7 +332,7 @@ export function setIso8601DateTime(dateTime, formatted) {
 /**
  * Sets date fields based on an ISO 8601 format string.
  *
- * @param {!Date} d Object whose fields will be set.
+ * @param {!Date_} d Object whose fields will be set.
  * @param {string} formatted A date expressed in ISO 8601 format.
  * @return {boolean} Whether the parsing succeeded.
  * @private
@@ -387,7 +387,7 @@ function setIso8601DateOnly_(d, formatted) {
  * Example: '1997-W01' lasts from 1996-12-30 to 1997-01-05.  January 1, 1997 is
  * a Wednesday. So W01's Monday is Dec.30, 1996, and Sunday is January 5, 1997.
  *
- * @param {!Date} d Object whose fields will be set.
+ * @param {!Date_} d Object whose fields will be set.
  * @param {number} week ISO week number.
  * @param {number} dayOfWeek ISO day of week.
  * @private
@@ -781,7 +781,7 @@ Interval.prototype.add = function(interval) {
 
 
 /**
- * @typedef {(?Date|?Date)}
+ * @typedef {(?Date|?Date_)}
  */
 export var DateLike;
 
@@ -791,7 +791,7 @@ export var DateLike;
  *
  * Implements most methods of the native js Date object (except the time related
  * ones, {@see DateTime}) and can be used interchangeably with it just
- * as if Date was a synonym of Date. To make this more transparent,
+ * as if Date_ was a synonym of Date. To make this more transparent,
  * Closure APIs should accept DateLike instead of the real Date
  * object.
  *
@@ -873,7 +873,7 @@ Date_.prototype.firstWeekCutOffDay_ =
 
 
 /**
- * @return {!Date} A clone of the date object.
+ * @return {!Date_} A clone of the date object.
  */
 Date_.prototype.clone = function() {
   var date = new Date_(this.date);
@@ -904,11 +904,11 @@ Date_.prototype.getYear = function() {
 
 
 /**
- * @return {month} The month of date, 0 = Jan, 11 = Dec.
+ * @return {month_} The month of date, 0 = Jan, 11 = Dec.
  */
 Date_.prototype.getMonth = function() {
   return (
-    /** @type {month} */ (this.date.getMonth())
+    /** @type {month_} */ (this.date.getMonth())
   );
 };
 
@@ -966,12 +966,12 @@ Date_.prototype.getUTCFullYear = function() {
 
 
 /**
- * @return {month} The month of date according to universal time,
+ * @return {month_} The month of date according to universal time,
  *     0 = Jan, 11 = Dec.
  */
 Date_.prototype.getUTCMonth = function() {
   return (
-    /** @type {month} */ (this.date.getUTCMonth())
+    /** @type {month_} */ (this.date.getUTCMonth())
   );
 };
 
@@ -1129,7 +1129,7 @@ Date_.prototype.getTimezoneOffsetString = function() {
 /**
  * Sets the date.
  *
- * @param {Date} date Date object to set date from.
+ * @param {Date_} date Date object to set date from.
  */
 Date_.prototype.set = function(date) {
   this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -1351,7 +1351,7 @@ Date_.prototype.toUTCIsoString = function(opt_verbose, opt_tz) {
  * Note: This ignores units more precise than days (hours and below)
  * and also ignores timezone considerations.
  *
- * @param {Date} other The date to compare.
+ * @param {Date_} other The date to compare.
  * @return {boolean} Whether the given date is equal to this one.
  */
 Date_.prototype.equals = function(other) {
@@ -1410,7 +1410,7 @@ Date_.compare = function(date1, date2) {
 /**
  * Parses an ISO 8601 string as a `Date`.
  * @param {string} formatted ISO 8601 string to parse.
- * @return {?Date} Parsed date or null if parse fails.
+ * @return {?Date_} Parsed date or null if parse fails.
  */
 Date_.fromIsoString = function(formatted) {
   var ret = new Date_(2000);
@@ -1437,7 +1437,7 @@ Date_.fromIsoString = function(formatted) {
  * @param {number=} opt_milliseconds Milliseconds, 0 - 999.
  * @constructor
  * @struct
- * @extends {Date}
+ * @extends {Date_}
  */
 export function DateTime(
   opt_year,
@@ -1779,7 +1779,7 @@ DateTime.prototype.toUTCRfc3339String = function() {
 /**
  * Tests whether given datetime is exactly equal to this DateTime.
  *
- * @param {Date} other The datetime to compare.
+ * @param {Date_} other The datetime to compare.
  * @return {boolean} Whether the given datetime is exactly equal to this one.
  * @override
  */

@@ -19,7 +19,7 @@ import { GeckoRange } from './geckorange.js';
 import { W3cRange } from './w3crange.js';
 import { WebKitRange } from './webkitrange.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.browserrange.abstractrange');
+const { AbstractRange } = goog.requireType('goog.dom.browserrange.abstractrange');
 
 
 /**
@@ -43,12 +43,15 @@ export var Error = {
  */
 export function createRange(range) {
   if (userAgent.WEBKIT) {
-    return new WebKitRange( (range));
+    return new WebKitRange(
+        /** @type {Range} */ (range));
   } else if (userAgent.GECKO) {
-    return new GeckoRange( (range));
+    return new GeckoRange(
+        /** @type {Range} */ (range));
   } else {
     // Default other browsers, including Opera, to W3c ranges.
-    return new W3cRange( (range));
+    return new W3cRange(
+        /** @type {Range} */ (range));
   }
 }
 

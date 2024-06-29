@@ -18,9 +18,9 @@ import * as functions from '../../functions/functions.js';
 import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
 import { LinkDialog } from '../../ui/editor/linkdialog.js';
 import * as utils from '../../uri/utils.js';
-goog.requireType('goog.editor.link');
-goog.requireType('goog.events.event');
-goog.requireType('goog.html.SafeHtml');
+const { Link } = goog.requireType('goog.editor.link');
+const { Event } = goog.requireType('goog.events.event');
+const { SafeHtml } = goog.requireType('goog.html.SafeHtml');
 
 
 
@@ -55,7 +55,7 @@ goog.inherits(
 
 /**
  * Link object that the dialog is editing.
- * @type {goog.editor.Link}
+ * @type {Link}
  * @protected
  */
 LinkDialogPlugin.prototype.currentLink_;
@@ -63,7 +63,7 @@ LinkDialogPlugin.prototype.currentLink_;
 
 /**
  * Optional warning to show about email addresses.
- * @type {goog.html.SafeHtml}
+ * @type {SafeHtml}
  * @private
  */
 LinkDialogPlugin.prototype.emailWarning_;
@@ -239,7 +239,7 @@ LinkDialogPlugin.prototype.stopTabNabbing = function() {
 /**
  * Sets the warning message to show to users about including email addresses on
  * public web pages.
- * @param {!goog.html.SafeHtml} emailWarning Warning message to show users about
+ * @param {!SafeHtml} emailWarning Warning message to show users about
  *     including email addresses on the web.
  */
 LinkDialogPlugin.prototype.setEmailWarning = function(
@@ -251,7 +251,7 @@ LinkDialogPlugin.prototype.setEmailWarning = function(
 /**
  * Handles execCommand by opening the dialog.
  * @param {string} command The command to execute.
- * @param {*=} opt_arg {@link A goog.editor.Link} object representing the link
+ * @param {*=} opt_arg {@link A Link} object representing the link
  *     being edited.
  * @return {*} Always returns true, indicating the dialog was shown.
  * @protected
@@ -259,7 +259,7 @@ LinkDialogPlugin.prototype.setEmailWarning = function(
  */
 LinkDialogPlugin.prototype.execCommandInternal = function(
     command, opt_arg) {
-  this.currentLink_ = /** @type {goog.editor.Link} */ (opt_arg);
+  this.currentLink_ = /** @type {Link} */ (opt_arg);
   return LinkDialogPlugin.base(
       this, 'execCommandInternal', command, opt_arg);
 };
@@ -267,7 +267,7 @@ LinkDialogPlugin.prototype.execCommandInternal = function(
 
 /**
  * Handles when the dialog closes.
- * @param {goog.events.Event} e The AFTER_HIDE event object.
+ * @param {Event} e The AFTER_HIDE event object.
  * @override
  * @protected
  */
@@ -289,7 +289,7 @@ LinkDialogPlugin.prototype.getEventHandler = function() {
 
 
 /**
- * @return {goog.editor.Link} The link being edited.
+ * @return {Link} The link being edited.
  * @protected
  */
 LinkDialogPlugin.prototype.getCurrentLink = function() {
@@ -301,7 +301,7 @@ LinkDialogPlugin.prototype.getCurrentLink = function() {
  * Creates a new instance of the dialog and registers for the relevant events.
  * @param {dom.DomHelper} dialogDomHelper The dom helper to be used to
  *     create the dialog.
- * @param {*=} opt_link The target link (should be a goog.editor.Link).
+ * @param {*=} opt_link The target link (should be a Link).
  * @return {!LinkDialog} The dialog.
  * @override
  * @protected
@@ -310,7 +310,7 @@ LinkDialogPlugin.prototype.createDialog = function(
     dialogDomHelper, opt_link) {
   var dialog = new LinkDialog(
       dialogDomHelper,
-      /** @type {goog.editor.Link} */ (opt_link));
+      /** @type {Link} */ (opt_link));
   if (this.emailWarning_) {
     dialog.setEmailWarning(this.emailWarning_);
   }
@@ -382,7 +382,7 @@ LinkDialogPlugin.prototype.handleOk = function(e) {
 /**
  * Apply the necessary properties to a link upon Ok being clicked in the dialog.
  * @param {HTMLAnchorElement} anchor The anchor to set properties on.
- * @param {goog.events.Event} e Event object.
+ * @param {Event} e Event object.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -413,7 +413,7 @@ LinkDialogPlugin.prototype.touchUpAnchorOnOk_ = function(
 
 /**
  * Handles the CANCEL event from the dialog by clearing the anchor if needed.
- * @param {goog.events.Event} e Event object.
+ * @param {Event} e Event object.
  * @protected
  */
 LinkDialogPlugin.prototype.handleCancel = function(e) {

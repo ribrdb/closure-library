@@ -17,14 +17,14 @@ import { DeferredChannel } from './deferredchannel.js';
 import { PortChannel } from './portchannel.js';
 import { PortNetwork } from './portnetwork.js';  // interface
 import object from '../object/object.js';
-goog.requireType('goog.messaging.messagechannel');
+const { MessageChannel } = goog.requireType('goog.messaging.messagechannel');
 
 
 
 /**
  * The leaf node of a network.
  *
- * @param {!goog.messaging.MessageChannel} operatorPort The channel for
+ * @param {!MessageChannel} operatorPort The channel for
  *     communicating with the operator. The other side of this channel should be
  *     passed to {@link goog.messaging.PortOperator#addPort}. Must be either a
  *     {@link PortChannel} or a decorator wrapping a PortChannel;
@@ -40,7 +40,7 @@ export function PortCaller(operatorPort) {
   /**
    * The channel to the {@link goog.messaging.PortOperator} for this network.
    *
-   * @type {!goog.messaging.MessageChannel}
+   * @type {!MessageChannel}
    * @private
    */
   this.operatorPort_ = operatorPort;
@@ -48,7 +48,7 @@ export function PortCaller(operatorPort) {
   /**
      * The collection of channels for communicating with other contexts in the
      * network. Each value can contain a {@link goog.aync.Deferred} and/or a
-     * {@link goog.messaging.MessageChannel}.
+     * {@link MessageChannel}.
      *
      * If the value contains a Deferred, then the channel is a
      * {@link DeferredChannel} wrapping that Deferred. The Deferred
@@ -66,7 +66,7 @@ export function PortCaller(operatorPort) {
      * doesn't necessarily contain a Deferred.
      *
      * @type {!Object<{deferred: Deferred,
-     *                  channel: !goog.messaging.MessageChannel}>}
+     *                  channel: !MessageChannel}>}
      * @private
      */
   this.connections_ = {};

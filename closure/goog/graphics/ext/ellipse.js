@@ -12,13 +12,13 @@
 
 import { StrokeAndFillElement } from './strokeandfillelement.js';
 
-goog.requireType('goog.graphics.ext.group');
+const { Group } = goog.requireType('goog.graphics.ext.group');
 
 
 
 /**
  * Wrapper for a graphics ellipse element.
- * @param {goog.graphics.ext.Group} group Parent for this element.
+ * @param {Group} group Parent for this element.
  * @constructor
  * @extends {StrokeAndFillElement}
  * @final

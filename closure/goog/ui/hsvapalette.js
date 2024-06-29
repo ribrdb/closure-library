@@ -23,8 +23,8 @@ import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { HsvPalette } from './hsvpalette.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.rect');
+const { Event } = goog.requireType('goog.events.event');
+const { Rect } = goog.requireType('goog.math.rect');
 
 
 
@@ -237,9 +237,9 @@ HsvaPalette.prototype.handleMouseDown = function(e) {
 /**
  * Handles mousemove events on the document once a drag operation on the alpha
  * slider has started.
- * @param {goog.math.Rect} b Boundaries of the value slider object at the start
+ * @param {Rect} b Boundaries of the value slider object at the start
  *     of the drag operation.
- * @param {events.Event} e Event object.
+ * @param {Event} e Event object.
  * @private
  */
 HsvaPalette.prototype.handleMouseMoveA_ = function(b, e) {

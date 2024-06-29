@@ -26,7 +26,7 @@ import { EmojiPalette } from './emojipalette.js';
 import { EmojiPaletteRenderer } from './emojipaletterenderer.js';
 import { ProgressiveEmojiPaletteRenderer } from './progressiveemojipaletterenderer.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.tabpane');
+const { TabPaneEvent } = goog.requireType('goog.ui.tabpane');
 
 
 
@@ -609,7 +609,7 @@ EmojiPicker.prototype.enterDocument = function() {
   }
 
   // Initialize listeners. Note that we need to initialize this listener
-  // after createDom, because addPage causes the goog.ui.TabPane.Events.CHANGE
+  // after createDom, because addPage causes the TabPane.Events.CHANGE
   // event to fire, but we only want the handler (which loads delayed images)
   // to run after the picker has been constructed.
   if (this.tabPane_) {

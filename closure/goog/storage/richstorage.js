@@ -15,14 +15,14 @@
 import { ErrorCode } from './errorcode.js';
 
 import { Storage } from './storage.js';
-goog.requireType('goog.storage.mechanism.mechanism');
+const { Mechanism } = goog.requireType('goog.storage.mechanism.mechanism');
 
 
 
 /**
  * Provides a storage for data with attached metadata.
  *
- * @param {!goog.storage.mechanism.Mechanism} mechanism The underlying
+ * @param {!Mechanism} mechanism The underlying
  *     storage mechanism.
  * @constructor
  * @struct
@@ -68,7 +68,7 @@ RichStorage.Wrapper = function(value) {
 RichStorage.Wrapper.wrapIfNecessary = function(value) {
   if (value === undefined ||
       value instanceof RichStorage.Wrapper) {
-    return /** @type {(!goog.storage.RichStorage.Wrapper|undefined)} */ (value);
+    return /** @type {(!RichStorage.Wrapper|undefined)} */ (value);
   }
   return new RichStorage.Wrapper(value);
 };

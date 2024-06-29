@@ -82,7 +82,7 @@ AnimationQueue.prototype.remove = function(animation) {
 
 /**
  * Handles the event that an animation has finished.
- * @param {events.Event} e The finishing event.
+ * @param {Event} e The finishing event.
  * @protected
  */
 AnimationQueue.prototype.onAnimationFinish = goog.abstractMethod;

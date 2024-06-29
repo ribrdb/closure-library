@@ -20,7 +20,7 @@ import { AdvancedTooltip } from './advancedtooltip.js';
 import { PopupBase } from './popupbase.js';
 import { Tooltip } from './tooltip.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.positioning.abstractposition');
+const { AbstractPosition } = goog.requireType('goog.positioning.abstractposition');
 
 
 
@@ -196,7 +196,7 @@ HoverCard.prototype.handleTriggerMouseOver_ = function(e) {
 /**
  * Triggers the hovercard to show after a delay.
  * @param {Element} anchorElement Element that is triggering the hovercard.
- * @param {goog.positioning.AbstractPosition=} opt_pos Position to display
+ * @param {AbstractPosition=} opt_pos Position to display
  *     hovercard.
  * @param {Object=} opt_data Data to pass to the onTrigger event.
  */
@@ -231,7 +231,7 @@ HoverCard.prototype.triggerForElement = function(
   var pos = opt_pos || this.getPosition();
   this.startShowTimer(
       anchorElement,
-      /** @type {goog.positioning.AbstractPosition} */ (pos));
+      /** @type {AbstractPosition} */ (pos));
 };
 
 
@@ -344,7 +344,7 @@ HoverCard.prototype.onHide = function() {
 /**
  * This mouse over event is only received if the anchor is already attached.
  * If it was attached manually, then it may need to be triggered.
- * @param {events.BrowserEvent} event Mouse over event.
+ * @param {BrowserEvent} event Mouse over event.
  * @override
  */
 HoverCard.prototype.handleMouseOver = function(event) {
@@ -366,7 +366,7 @@ HoverCard.prototype.handleMouseOver = function(event) {
 /**
  * If the mouse moves out of the trigger while we're being triggered, then
  * cancel it.
- * @param {events.BrowserEvent} event Mouse out or blur event.
+ * @param {BrowserEvent} event Mouse out or blur event.
  * @override
  */
 HoverCard.prototype.handleMouseOutAndBlur = function(event) {
@@ -390,7 +390,7 @@ HoverCard.prototype.handleMouseOutAndBlur = function(event) {
  * Called by timer from mouse over handler. If this is called and the hovercard
  * is not shown for whatever reason, then send a cancel trigger event.
  * @param {Element} el Element to show tooltip for.
- * @param {goog.positioning.AbstractPosition=} opt_pos Position to display popup
+ * @param {AbstractPosition=} opt_pos Position to display popup
  *     at.
  * @override
  */

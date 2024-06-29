@@ -8,7 +8,18 @@
  * @fileoverview Definition the RelativeTimeProvider class.
  */
 
-RelativeTimeProvider = function() {
+/**
+ * A simple object to keep track of a timestamp considered the start of
+ * something. The main use is for the logger system to maintain a start time
+ * that is occasionally reset. For example, in Gmail, we reset this relative
+ * time at the start of a user action so that timings are offset from the
+ * beginning of the action. This class also provides a singleton as the default
+ * behavior for most use cases is to share the same start time.
+ *
+ * @constructor
+ * @final
+ */
+export function RelativeTimeProvider() {
  /**
   * The start time.
   * @type {number}
@@ -61,4 +72,3 @@ RelativeTimeProvider.getDefaultInstance = function() {
  }
  return RelativeTimeProvider.defaultInstance_;
 };
-export var RelativeTimeProvider;

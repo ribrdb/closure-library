@@ -32,8 +32,8 @@ import { Component } from './component.js';
 import { DefaultDatePickerRenderer } from './defaultdatepickerrenderer.js';
 import { IdGenerator } from './idgenerator.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.i18n.datetimesymbols');
-goog.requireType('goog.ui.datepickerrenderer');
+const { DateTimeSymbolsType } = goog.requireType('goog.i18n.datetimesymbols');
+const { DatePickerRenderer } = goog.requireType('goog.ui.datepickerrenderer');
 
 
 

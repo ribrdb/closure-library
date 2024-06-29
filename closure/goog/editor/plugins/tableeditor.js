@@ -21,7 +21,7 @@ import * as editorNode from '../node.js';
 import * as editorRange from '../range.js';
 import object from '../../object/object.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -314,7 +314,7 @@ TableEditor.prototype.addIsTableEditableFunction = function(
 
 /**
  * Class representing the selected cell objects within a single  table.
- * @param {dom.AbstractRange} range Selected range from which to calculate
+ * @param {AbstractRange} range Selected range from which to calculate
  *     selected cells.
  * @param {function(Element):Element?} getParentTableFunction A function that
  *     finds the user-editable table from a given element.

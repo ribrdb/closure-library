@@ -13,7 +13,7 @@ import { Disposable } from '../disposable/disposable.js';
 
 import * as debug from '../debug/debug.js';
 import * as log from '../log/log.js';
-goog.requireType('goog.messaging.messagechannel');
+const { MessageChannel } = goog.requireType('goog.messaging.messagechannel');
 
 
 /**
@@ -21,7 +21,7 @@ goog.requireType('goog.messaging.messagechannel');
  * remote end to log. The remote end of the channel should use a
  * {goog.messaging.LoggerServer} with the same service name.
  *
- * @param {!goog.messaging.MessageChannel} channel The channel that on which to
+ * @param {!MessageChannel} channel The channel that on which to
  *     send the log messages.
  * @param {string} serviceName The name of the logging service to use.
  * @constructor
@@ -37,7 +37,7 @@ export function LoggerClient(channel, serviceName) {
 
   /**
    * The channel on which to send the log messages.
-   * @type {!goog.messaging.MessageChannel}
+   * @type {!MessageChannel}
    * @private
    */
   this.channel_ = channel;

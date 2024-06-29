@@ -132,7 +132,7 @@ Queue.prototype.defer = function(
     return;
   }
   this.steps_.push(new Step_( (stepName),
-      /** @type {function(!goog.testing.JsTdAsyncWrapper.Pool_=)} */ (fn)));
+      /** @type {function(!Pool_=)} */ (fn)));
 };
 
 

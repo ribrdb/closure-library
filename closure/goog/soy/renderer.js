@@ -10,16 +10,16 @@
  * templates.
  */
 
-const InjectedDataSupplier = goog.requireType('goog.soy.InjectedDataSupplier');
-const SafeHtml = goog.requireType('goog.html.SafeHtml');
-const SafeStyleSheet = goog.requireType('goog.html.SafeStyleSheet');
+const {InjectedDataSupplier} = goog.requireType('goog.soy.InjectedDataSupplier');
+const {SafeHtml} = goog.requireType('goog.html.SafeHtml');
+const {SafeStyleSheet} = goog.requireType('goog.html.SafeStyleSheet');
 import { SanitizedContent, SanitizedContentKind } from './data.js';
 import * as asserts from '../asserts/asserts.js';
 import * as dom from '../dom/dom.js';
 import * as soy from './soy.js';
-const SanitizedCss = goog.requireType('goog.soy.data');
-const SanitizedHtml = goog.requireType('goog.soy.data');
-const SanitizedUri = goog.requireType('goog.soy.data');
+const {SanitizedCss} = goog.requireType('goog.soy.data');
+const {SanitizedHtml} = goog.requireType('goog.soy.data');
+const {SanitizedUri} = goog.requireType('goog.soy.data');
 
 /**
  * Creates a new soy renderer. Note that the renderer will only be

@@ -10,7 +10,16 @@
  * Based heavily on coordinate.js by:
  */
 
-Coordinate3 = function(opt_x, opt_y, opt_z) {
+/**
+ * Class for representing coordinates and positions in 3 dimensions.
+ *
+ * @param {number=} opt_x X coordinate, defaults to 0.
+ * @param {number=} opt_y Y coordinate, defaults to 0.
+ * @param {number=} opt_z Z coordinate, defaults to 0.
+ * @struct
+ * @constructor
+ */
+export function Coordinate3(opt_x, opt_y, opt_z) {
  /**
   * X-value
   * @type {number}
@@ -147,4 +156,3 @@ Coordinate3.fromArray = function(a) {
 
  throw new Error('Conversion from an array requires an array of length 3');
 };
-export var Coordinate3;

@@ -22,7 +22,7 @@ import {
 } from './entries.js';
 
 import { Registry } from './registry.js';
-goog.requireType('goog.tweak.entries');
+const { BaseEntry } = goog.requireType('goog.tweak.entries');
 
 
 

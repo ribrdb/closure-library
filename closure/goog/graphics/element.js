@@ -20,7 +20,7 @@ import { EventTarget } from '../events/eventtarget.js';
 import { Listenable } from '../events/listenable.js';
 import { AffineTransform } from './affinetransform.js';
 import * as math from '../math/math.js';
-goog.requireType('goog.graphics.abstractgraphics');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
 
 
 
@@ -30,7 +30,7 @@ goog.requireType('goog.graphics.abstractgraphics');
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element  The DOM element to wrap.
- * @param {goog.graphics.AbstractGraphics} graphics  The graphics creating
+ * @param {AbstractGraphics} graphics  The graphics creating
  *     this element.
  * @constructor
  * @extends {EventTarget}
@@ -51,7 +51,7 @@ goog.inherits(Element, EventTarget);
 
 /**
  * The graphics object that contains this element.
- * @type {goog.graphics.AbstractGraphics?}
+ * @type {AbstractGraphics?}
  * @private
  */
 Element.prototype.graphics_ = null;
@@ -84,7 +84,7 @@ Element.prototype.getElement = function() {
 
 /**
  * Returns the graphics.
- * @return {goog.graphics.AbstractGraphics} The graphics that created the
+ * @return {AbstractGraphics} The graphics that created the
  *     element.
  */
 Element.prototype.getGraphics = function() {

@@ -10,7 +10,7 @@
 
 import * as googDate from './date.js';
 
-import { Date as dateDate, DateTime, Interval } from './date.js';
+import { Date as dateDate, DateTime, Interval, DateLike } from './date.js';
 
 
 
@@ -19,7 +19,7 @@ import { Date as dateDate, DateTime, Interval } from './date.js';
  * Defaults to current date and time if none is specified. The get... and the
  * getUTC... methods are equivalent.
  *
- * @param {number|dateDateLike=} opt_year Four digit UTC year or a
+ * @param {number|DateLike=} opt_year Four digit UTC year or a
  *     date-like object.  If not set, the created object will contain the
  *     date determined by goog.now().
  * @param {number=} opt_month UTC month, 0 = Jan, 11 = Dec.

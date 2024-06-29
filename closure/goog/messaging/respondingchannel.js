@@ -16,13 +16,13 @@ import { Promise } from '../promise/promise.js';
 import { dispose } from '../disposable/dispose.js';
 import * as log from '../log/log.js';
 import { MultiChannel } from './multichannel.js';
-goog.requireType('goog.messaging.messagechannel');
+const { MessageChannel } = goog.requireType('goog.messaging.messagechannel');
 
 
 
 /**
  * Creates a new RespondingChannel wrapping a single MessageChannel.
- * @param {goog.messaging.MessageChannel} messageChannel The messageChannel to
+ * @param {MessageChannel} messageChannel The messageChannel to
  *     to wrap and allow for responses. This channel must not have any existing
  *     services registered. All service registration must be done through the
  *     {@link RespondingChannel#registerService} api instead. The other end of

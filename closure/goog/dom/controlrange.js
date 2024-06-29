@@ -487,7 +487,7 @@ ControlRangeIterator.prototype.next = function() {
 
 /** @override */
 ControlRangeIterator.prototype.copyFrom = function(other) {
-  var that = /** @type {!dom.ControlRangeIterator} */ (other);
+  var that = /** @type {!ControlRangeIterator} */ (other);
   this.elements_ = that.elements_;
   this.startNode_ = that.startNode_;
   this.endNode_ = that.endNode_;

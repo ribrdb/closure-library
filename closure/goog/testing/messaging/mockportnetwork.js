@@ -16,14 +16,14 @@ import { PortNetwork } from '../../messaging/portnetwork.js';
 // interface
 import { MockMessageChannel } from './mockmessagechannel.js';
 
-goog.requireType('goog.testing.mockcontrol');
+const { MockControl } = goog.requireType('goog.testing.mockcontrol');
 
 
 
 /**
  * The fake PortNetwork.
  *
- * @param {!goog.testing.MockControl} mockControl The mock control for creating
+ * @param {!MockControl} mockControl The mock control for creating
  *     the mock message channels.
  * @constructor
  * @implements {PortNetwork}
@@ -32,7 +32,7 @@ goog.requireType('goog.testing.mockcontrol');
 export function MockPortNetwork(mockControl) {
  /**
   * The mock control for creating mock message channels.
-  * @type {!goog.testing.MockControl}
+  * @type {!MockControl}
   * @private
   */
  this.mockControl_ = mockControl;

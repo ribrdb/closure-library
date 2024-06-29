@@ -26,8 +26,8 @@ import * as editorRange from './range.js';
 import { BrowserEvent } from '../events/browserevent.js';
 import { EventHandler } from '../events/eventhandler.js';
 import { EventType } from '../events/eventtype.js';
-goog.requireType('goog.dom.abstractrange');
-goog.requireType('goog.dom.savedcaretrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
+const { SavedCaretRange } = goog.requireType('goog.dom.savedcaretrange');
 
 
 
@@ -56,7 +56,7 @@ export function ClickToEditWrapper(fieldObj) {
       dom.getDomHelper(fieldObj.getOriginalElement());
 
   /**
-     * @type {?dom.SavedCaretRange}
+     * @type {?SavedCaretRange}
      * @private
      */
   this.savedCaretRange_ = null;
@@ -363,8 +363,8 @@ ClickToEditWrapper.prototype.makeFieldEditable = function(field) {
 
 /**
  * Gets a saved caret range for the given range.
- * @param {dom.AbstractRange} range A range wrapper.
- * @return {dom.SavedCaretRange} The range, saved with carets, or null
+ * @param {AbstractRange} range A range wrapper.
+ * @return {SavedCaretRange} The range, saved with carets, or null
  *    if the range wrapper was null.
  * @private
  */

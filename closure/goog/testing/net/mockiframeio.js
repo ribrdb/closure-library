@@ -14,8 +14,8 @@ import { ErrorCode } from '../../net/errorcode.js';
 import { EventType } from '../../net/eventtype.js';
 import { IframeIo } from '../../net/iframeio.js';
 import { TestQueue } from '../testqueue.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.structs.map');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { Map } = goog.requireType('goog.structs.map');
 
 
 
@@ -84,7 +84,7 @@ MockIFrameIo.prototype.lastCustomError_ = null;
 
 /**
  * Last URI.
- * @type {?goog.Uri}
+ * @type {?Uri}
  * @private
  */
 MockIFrameIo.prototype.lastUri_ = null;
@@ -105,12 +105,12 @@ MockIFrameIo.prototype.complete_;
 /**
  * Simulates the iframe send.
  *
- * @param {goog.Uri|string} uri Uri of the request.
+ * @param {Uri|string} uri Uri of the request.
  * @param {string=} opt_method Default is GET, POST uses a form to submit the
  *     request.
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
- * @param {Object|goog.structs.Map=} opt_data Map of key-value pairs.
+ * @param {Object|Map=} opt_data Map of key-value pairs.
  */
 MockIFrameIo.prototype.send = function(
     uri, opt_method, opt_noCache, opt_data) {
@@ -247,7 +247,7 @@ MockIFrameIo.prototype.getResponseJson = function() {
 
 /**
  * Get the uri of the last request.
- * @return {goog.Uri} Uri of last request.
+ * @return {Uri} Uri of last request.
  */
 MockIFrameIo.prototype.getLastUri = function() {
  return this.lastUri_;

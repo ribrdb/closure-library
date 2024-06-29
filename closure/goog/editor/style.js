@@ -30,7 +30,7 @@ import { EventType } from '../events/eventtype.js';
 import object from '../object/object.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 /**
@@ -114,7 +114,7 @@ var SELECTABLE_INPUT_TYPES_ = object.createSet('text', 'file', 'url');
 
 /**
  * Prevent the default action on mousedown events.
- * @param {goog.events.Event} e The mouse down event.
+ * @param {Event} e The mouse down event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

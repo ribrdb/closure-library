@@ -21,7 +21,7 @@ import * as events from '../events/events.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { Set } from '../structs/set.js';
 import { ActivityMonitor } from './activitymonitor.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -212,7 +212,7 @@ IdleTimer.prototype.becomeIdle_ = function() {
 
 /**
  * Handler for idle timer events when the user does something interactive
- * @param {events.Event} e The event object.
+ * @param {Event} e The event object.
  * @private
  */
 IdleTimer.prototype.onActivity_ = function(e) {

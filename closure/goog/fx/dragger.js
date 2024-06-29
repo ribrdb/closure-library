@@ -305,7 +305,7 @@ Dragger.prototype.enableRightPositioningForRtl = function(
 Dragger.prototype.getHandler = function() {
  // TODO(user): templated "this" values currently result in "this" being
  // "unknown" in the body of the function.
- var self = /** @type {goog.fx.Dragger} */ (this);
+ var self = /** @type {Dragger} */ (this);
  return self.eventHandler_;
 };
 
@@ -422,7 +422,7 @@ Dragger.prototype.isRightToLeft_ = function() {
 
 /**
  * Event handler that is used to start the drag
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  */
 Dragger.prototype.startDrag = function(e) {
  var isMouseDown = e.type == EventType.MOUSEDOWN;
@@ -509,7 +509,7 @@ Dragger.prototype.setupDragHandlers = function() {
 
 /**
  * Fires a Dragger.EventType.START event.
- * @param {events.BrowserEvent} e Browser event that triggered the drag.
+ * @param {BrowserEvent} e Browser event that triggered the drag.
  * @return {boolean} False iff preventDefault was called on the DragEvent.
  * @private
  */
@@ -534,7 +534,7 @@ Dragger.prototype.cleanUpAfterDragging_ = function() {
 
 /**
  * Event handler that is used to end the drag.
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  * @param {boolean=} opt_dragCanceled Whether the drag has been canceled.
  */
 Dragger.prototype.endDrag = function(e, opt_dragCanceled) {
@@ -559,7 +559,7 @@ Dragger.prototype.endDrag = function(e, opt_dragCanceled) {
 
 /**
  * Event handler that is used to end the drag by cancelling it.
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  */
 Dragger.prototype.endDragCancel = function(e) {
  this.endDrag(e, true);
@@ -568,7 +568,7 @@ Dragger.prototype.endDragCancel = function(e) {
 
 /**
  * Event handler that is used on mouse / touch move to update the drag
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  * @private
  */
 Dragger.prototype.handleMove_ = function(e) {
@@ -648,7 +648,7 @@ Dragger.prototype.calculatePosition_ = function(dx, dy) {
 
 /**
  * Event handler for scroll target scrolling.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 Dragger.prototype.onScroll_ = function(e) {
@@ -660,7 +660,7 @@ Dragger.prototype.onScroll_ = function(e) {
 
 
 /**
- * @param {events.BrowserEvent} e The closure object
+ * @param {BrowserEvent} e The closure object
  *     representing the browser event that caused a drag event.
  * @param {number} x The new horizontal position for the drag element.
  * @param {number} y The new vertical position for the drag element.
@@ -755,7 +755,7 @@ Dragger.prototype.isDragging = function() {
  * @param {Dragger} dragobj Drag object initiating event.
  * @param {number} clientX X-coordinate relative to the viewport.
  * @param {number} clientY Y-coordinate relative to the viewport.
- * @param {events.BrowserEvent} browserEvent The closure object
+ * @param {BrowserEvent} browserEvent The closure object
  *   representing the browser event that caused this drag event.
  * @param {number=} opt_actX Optional actual x for drag if it has been limited.
  * @param {number=} opt_actY Optional actual y for drag if it has been limited.
@@ -791,7 +791,7 @@ export function DragEvent(
  /**
    * The closure object representing the browser event that caused this drag
    * event.
-   * @type {events.BrowserEvent}
+   * @type {BrowserEvent}
    */
  this.browserEvent = browserEvent;
 

@@ -557,11 +557,11 @@ function init_() {
   ];
 
   for (var i = 0; i < 5; i++) {
-    /* `i` is each value of the `Alphabet` enum*/
+    // `i` is each value of the `Alphabet` enum
     var chars = commonChars.concat(specialChars[i].split(''));
 
     // Sets byte-to-char map
-    byteToCharMaps_[ (i)] =
+    byteToCharMaps_[/** @type {!Alphabet} */ (i)] =
         chars;
 
     // Sets char-to-byte map

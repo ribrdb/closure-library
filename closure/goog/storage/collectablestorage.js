@@ -15,14 +15,14 @@ import * as iter from '../iter/iter.js';
 import { ErrorCode } from './errorcode.js';
 import { ExpiringStorage } from './expiringstorage.js';
 import { RichStorage } from './richstorage.js';
-goog.requireType('goog.storage.mechanism.IterableMechanism');
+const { IterableMechanism } = goog.requireType('goog.storage.mechanism.IterableMechanism');
 
 
 
 /**
  * Provides a storage with expiring keys and a collection method.
  *
- * @param {!goog.storage.mechanism.IterableMechanism} mechanism The underlying
+ * @param {!IterableMechanism} mechanism The underlying
  *     storage mechanism.
  * @constructor
  * @struct
@@ -120,7 +120,7 @@ CollectableStorage.prototype.collectInternal = function(
  */
 CollectableStorage.prototype.collect = function(opt_strict) {
   this.collectInternal(
-      /** @type {goog.storage.mechanism.IterableMechanism} */ (this.mechanism)
+      /** @type {IterableMechanism} */ (this.mechanism)
           .__iterator__(true),
       opt_strict);
 };

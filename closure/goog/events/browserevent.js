@@ -38,7 +38,7 @@
 goog.declareModuleId('goog.events.browserevent');
 
 import * as debug from '../debug/debug.js';
-import { Event } from './event.js';
+import { Event as GoogEvent } from './event.js';
 import { EventType } from './eventtype.js';
 import * as reflect from '../reflect/reflect.js';
 import * as userAgent from '../useragent/useragent.js';
@@ -51,7 +51,7 @@ import * as userAgent from '../useragent/useragent.js';
  * @param {Event=} opt_e Browser event object.
  * @param {EventTarget=} opt_currentTarget Current target for event.
  * @constructor
- * @extends {Event}
+ * @extends {GoogEvent}
  */
 export function BrowserEvent(opt_e, opt_currentTarget) {
  BrowserEvent.base(this, 'constructor', opt_e ? opt_e.type : '');
@@ -194,7 +194,7 @@ export function BrowserEvent(opt_e, opt_currentTarget) {
    this.init(opt_e, opt_currentTarget);
  }
 }
-goog.inherits(BrowserEvent, Event);
+goog.inherits(BrowserEvent, GoogEvent);
 
 /**
  * @define {boolean} If true, use the layerX and layerY properties of a native

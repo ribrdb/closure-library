@@ -35,20 +35,20 @@ import object from '../object/object.js';
 import * as googString from '../string/string.js';
 import { Const } from '../string/const.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.net.browserchannel');
-goog.requireType('goog.net.browsertestchannel');
-goog.requireType('goog.net.channeldebug');
-goog.requireType('goog.net.xhrio');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { BrowserChannel } = goog.requireType('goog.net.browserchannel');
+const { BrowserTestChannel } = goog.requireType('goog.net.browsertestchannel');
+const { ChannelDebug } = goog.requireType('goog.net.channeldebug');
+const { XhrIo } = goog.requireType('goog.net.xhrio');
 
 
 /**
  * Creates a ChannelRequest object which encapsulates a request to the server.
  * A new ChannelRequest is created for each request to the server.
  *
- * @param {goog.net.BrowserChannel|goog.net.BrowserTestChannel} channel
+ * @param {BrowserChannel|BrowserTestChannel} channel
  *     The BrowserChannel that owns this request.
- * @param {goog.net.ChannelDebug} channelDebug A ChannelDebug to use for
+ * @param {ChannelDebug} channelDebug A ChannelDebug to use for
  *     logging.
  * @param {string=} opt_sessionId  The session id for the channel.
  * @param {string|number=} opt_requestId  The request id for this request.
@@ -58,14 +58,14 @@ goog.requireType('goog.net.xhrio');
 export function ChannelRequest(channel, channelDebug, opt_sessionId, opt_requestId, opt_retryId) {
   /**
    * The BrowserChannel object that owns the request.
-   * @type {goog.net.BrowserChannel|goog.net.BrowserTestChannel}
+   * @type {BrowserChannel|BrowserTestChannel}
    * @private
    */
   this.channel_ = channel;
 
   /**
    * The channel debug to use for logging
-   * @type {goog.net.ChannelDebug}
+   * @type {ChannelDebug}
    * @private
    */
   this.channelDebug_ = channelDebug;
@@ -171,7 +171,7 @@ ChannelRequest.prototype.type_ = null;
 /**
  * The base Uri for the request. The includes all the parameters except the
  * one that indicates the retry number.
- * @type {goog.Uri?}
+ * @type {Uri?}
  * @private
  */
 ChannelRequest.prototype.baseUri_ = null;
@@ -179,7 +179,7 @@ ChannelRequest.prototype.baseUri_ = null;
 
 /**
  * The request Uri that was actually used for the most recent request attempt.
- * @type {goog.Uri?}
+ * @type {Uri?}
  * @private
  */
 ChannelRequest.prototype.requestUri_ = null;
@@ -195,7 +195,7 @@ ChannelRequest.prototype.postData_ = null;
 
 /**
  * The XhrLte request if the request is using XMLHTTP
- * @type {?goog.net.XhrIo}
+ * @type {?XhrIo}
  * @private
  */
 ChannelRequest.prototype.xmlHttp_ = null;
@@ -263,7 +263,7 @@ ChannelRequest.prototype.cancelled_ = false;
  * Useful for throttling when ready state is INTERACTIVE (partial data).
  * If set to zero no throttle is used.
  *
- * @see goog.net.BrowserChannel.prototype.readyStateChangeThrottleMs_
+ * @see BrowserChannel.prototype.readyStateChangeThrottleMs_
  *
  * @type {number}
  * @private
@@ -377,9 +377,9 @@ ChannelRequest.Error = {
 /**
  * Instantiates a ChannelRequest with the given parameters. Overidden in tests.
  *
- * @param {goog.net.BrowserChannel|goog.net.BrowserTestChannel} channel
+ * @param {BrowserChannel|BrowserTestChannel} channel
  *     The BrowserChannel that owns this request.
- * @param {goog.net.ChannelDebug} channelDebug A ChannelDebug to use for
+ * @param {ChannelDebug} channelDebug A ChannelDebug to use for
  *     logging.
  * @param {string=} opt_sessionId  The session id for the channel.
  * @param {string|number=} opt_requestId  The request id for this request.
@@ -480,7 +480,7 @@ ChannelRequest.prototype.setReadyStateChangeThrottle = function(
 /**
  * Uses XMLHTTP to send an HTTP POST to the server.
  *
- * @param {goog.Uri} uri  The uri of the request.
+ * @param {Uri} uri  The uri of the request.
  * @param {string} postData  The data for the post body.
  * @param {boolean} decodeChunks  Whether to the result is expected to be
  *     encoded for chunking and thus requires decoding.
@@ -499,7 +499,7 @@ ChannelRequest.prototype.xmlHttpPost = function(
 /**
  * Uses XMLHTTP to send an HTTP GET to the server.
  *
- * @param {goog.Uri} uri  The uri of the request.
+ * @param {Uri} uri  The uri of the request.
  * @param {boolean} decodeChunks  Whether to the result is expected to be
  *     encoded for chunking and thus requires decoding.
  * @param {?string} hostPrefix  The host prefix, if we might be using a
@@ -587,7 +587,7 @@ ChannelRequest.prototype.sendXmlHttp_ = function(hostPrefix) {
  * @private
  */
 ChannelRequest.prototype.readyStateChangeHandler_ = function(evt) {
-  const xhr = /** @type {goog.net.XhrIo} */ (evt.target);
+  const xhr = /** @type {XhrIo} */ (evt.target);
   const throttle = this.readyStateChangeThrottle_;
   if (throttle &&
       xhr.getReadyState() == XmlHttp.ReadyState.INTERACTIVE) {
@@ -603,7 +603,7 @@ ChannelRequest.prototype.readyStateChangeHandler_ = function(evt) {
 
 /**
  * XmlHttp handler
- * @param {goog.net.XhrIo} xmlhttp The XhrIo object for the current request.
+ * @param {XhrIo} xmlhttp The XhrIo object for the current request.
  * @private
  */
 ChannelRequest.prototype.xmlHttpHandler_ = function(xmlhttp) {
@@ -879,7 +879,7 @@ ChannelRequest.prototype.getNextChunk_ = function(responseText) {
  * Uses the Trident htmlfile ActiveX control to send a GET request in IE. This
  * is the innovation discovered that lets us get intermediate results in
  * Internet Explorer.  Thanks to http://go/kev
- * @param {goog.Uri} uri The uri to request from.
+ * @param {Uri} uri The uri to request from.
  * @param {boolean} usingSecondaryDomain Whether to use a secondary domain.
  */
 ChannelRequest.prototype.tridentGet = function(
@@ -1067,7 +1067,7 @@ ChannelRequest.prototype.onTridentDoneAsync_ = function(successful) {
  * Uses an IMG tag to send an HTTP get to the server. This is only currently
  * used to terminate the connection, as an IMG tag is the most reliable way to
  * send something to the server while the page is getting torn down.
- * @param {goog.Uri} uri The uri to send a request to.
+ * @param {Uri} uri The uri to send a request to.
  */
 ChannelRequest.prototype.sendUsingImgTag = function(uri) {
   this.type_ = ChannelRequest.Type_.IMG;

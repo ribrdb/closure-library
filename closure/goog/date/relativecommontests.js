@@ -29,7 +29,6 @@ import {
 } from '../i18n/datetimesymbols.js';
 import * as DateTimeSymbolsModule from '../i18n/datetimesymbols.js';
 
-/** @suppress {extraRequire} */
 import {
     NumberFormatSymbols,
     NumberFormatSymbols_bn,

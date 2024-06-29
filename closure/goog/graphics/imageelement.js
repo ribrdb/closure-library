@@ -13,7 +13,7 @@
 goog.declareModuleId('goog.graphics.imageelement');
 
 import { Element } from './element.js';
-goog.requireType('goog.graphics.abstractgraphics');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
 
 
 
@@ -24,7 +24,7 @@ goog.requireType('goog.graphics.abstractgraphics');
  * will return an implementation of this interface for you.
  *
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.AbstractGraphics} graphics The graphics creating
+ * @param {AbstractGraphics} graphics The graphics creating
  *     this element.
  * @constructor
  * @extends {Element}

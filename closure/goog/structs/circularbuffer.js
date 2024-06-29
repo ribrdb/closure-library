@@ -13,7 +13,13 @@
  */
 
 
-CircularBuffer = function(opt_maxSize) {
+/**
+ * Class for CircularBuffer.
+ * @param {number=} opt_maxSize The maximum size of the buffer.
+ * @constructor
+ * @template T
+ */
+export function CircularBuffer(opt_maxSize) {
   /**
    * Index of the next element in the circular array structure.
    * @private {number}
@@ -198,4 +204,3 @@ CircularBuffer.prototype.normalizeIndex_ = function(index) {
 
   return (this.nextPtr_ + Number(index)) % this.maxSize_;
 };
-export var CircularBuffer;

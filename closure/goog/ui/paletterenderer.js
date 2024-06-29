@@ -5,7 +5,7 @@
  */
 
 /**
- * @fileoverview Renderer for {@link goog.ui.Palette}s.
+ * @fileoverview Renderer for {@link Palette}s.
  */
 
 goog.declareModuleId('goog.ui.paletterenderer');
@@ -25,15 +25,15 @@ import * as googIter from '../iter/iter.js';
 import * as style from '../style/style.js';
 import { ControlRenderer } from './controlrenderer.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.math.size');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.palette');
+const { Size } = goog.requireType('goog.math.size');
+const { Control } = goog.requireType('goog.ui.control');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { Palette } = goog.requireType('goog.ui.palette');
 
 
 
 /**
- * Default renderer for {@link goog.ui.Palette}s.  Renders the palette as an
+ * Default renderer for {@link Palette}s.  Renders the palette as an
  * HTML table wrapped in a DIV, with one palette item per cell:
  *
  *    <div class="goog-palette">
@@ -88,7 +88,7 @@ PaletteRenderer.GRID_WIDTH_ATTRIBUTE = 'gridWidth';
  * Returns the palette items arranged in a table wrapped in a DIV, with the
  * renderer's own CSS class and additional state-specific classes applied to
  * it.
- * @param {goog.ui.Control} palette goog.ui.Palette to render.
+ * @param {Control} palette Palette to render.
  * @return {!Element} Root element for the palette.
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -101,7 +101,7 @@ PaletteRenderer.prototype.createDom = function(palette) {
       this.createGrid(
           /** @type {Array<Node>} */ (palette.getContent()), palette.getSize(),
           palette.getDomHelper()));
-  // It's safe to store grid width here since `goog.ui.Palette#setSize` cannot
+  // It's safe to store grid width here since `Palette#setSize` cannot
   // be called after createDom.
   dataset.set(
       element, PaletteRenderer.GRID_WIDTH_ATTRIBUTE,
@@ -116,7 +116,7 @@ PaletteRenderer.prototype.createDom = function(palette) {
  * created as needed.  If the table is too small, the items that don't fit
  * will not be rendered.
  * @param {Array<Node>} items Palette items.
- * @param {goog.math.Size} size Palette size (columns x rows); both dimensions
+ * @param {Size} size Palette size (columns x rows); both dimensions
  *     must be specified as numbers.
  * @param {googDom.DomHelper} dom DOM helper for document interaction.
  * @return {!Element} Palette table element.
@@ -240,7 +240,7 @@ PaletteRenderer.prototype.canDecorate = function(element) {
 /**
  * Overrides {@link ControlRenderer#decorate} to be a no-op, since
  * palettes don't support the decorate flow (for now).
- * @param {goog.ui.Control} palette Ignored.
+ * @param {Control} palette Ignored.
  * @param {Element} element Ignored.
  * @return {null} Always null.
  * @override
@@ -258,7 +258,7 @@ PaletteRenderer.prototype.decorate = function(palette, element) {
  * rows added to fit, if there are less items than the table has cells, then the
  * left over cells will be empty.
  * @param {Element} element Root element of the palette control.
- * @param {goog.ui.ControlContent} content Array of items to replace existing
+ * @param {ControlContent} content Array of items to replace existing
  *     palette items.
  * @override
  * @suppress {strictPrimitiveOperators}
@@ -318,7 +318,7 @@ PaletteRenderer.prototype.setContent = function(element, content) {
 /**
  * Returns the item corresponding to the given node, or null if the node is
  * neither a palette cell nor part of a palette item.
- * @param {goog.ui.Palette} palette Palette in which to look for the item.
+ * @param {Palette} palette Palette in which to look for the item.
  * @param {Node} node Node to look for.
  * @return {Node} The corresponding palette item (null if not found).
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -342,7 +342,7 @@ PaletteRenderer.prototype.getContainingItem = function(palette, node) {
 /**
  * Updates the highlight styling of the palette cell containing the given node
  * based on the value of the Boolean argument.
- * @param {goog.ui.Palette} palette Palette containing the item.
+ * @param {Palette} palette Palette containing the item.
  * @param {Node} node Item whose cell is to be highlighted or un-highlighted.
  * @param {boolean} highlight If true, the cell is highlighted; otherwise it is
  *     un-highlighted.
@@ -384,7 +384,7 @@ PaletteRenderer.prototype.getCellForItem = function(node) {
 /**
  * Updates the selection styling of the palette cell containing the given node
  * based on the value of the Boolean argument.
- * @param {goog.ui.Palette} palette Palette containing the item.
+ * @param {Palette} palette Palette containing the item.
  * @param {Node} node Item whose cell is to be selected or deselected.
  * @param {boolean} select If true, the cell is selected; otherwise it is
  *     deselected.

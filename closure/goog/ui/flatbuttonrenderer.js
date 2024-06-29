@@ -18,7 +18,7 @@ import { Button } from './button.js';
 import { ButtonRenderer } from './buttonrenderer.js';
 import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import * as registry from './registry.js';
-goog.requireType('goog.ui.control');
+const { Control } = goog.requireType('goog.ui.control');
 
 
 
@@ -49,7 +49,7 @@ FlatButtonRenderer.CSS_CLASS = goog.getCssName('goog-flat-button');
  * the renderer's own CSS class and additional state-specific classes applied
  * to it, and the button's disabled attribute set or cleared as needed.
  * Overrides {@link ButtonRenderer#createDom}.
- * @param {goog.ui.Control} button Button to render.
+ * @param {Control} button Button to render.
  * @return {!Element} Root element for the button.
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -93,7 +93,7 @@ FlatButtonRenderer.prototype.canDecorate = function(element) {
  * Initializes the control's ID, content, tooltip, value, and state based
  * on the ID of the element, its child nodes, and its CSS classes, respectively.
  * Returns the element.  Overrides {@link ButtonRenderer#decorate}.
- * @param {goog.ui.Control} button Button instance to decorate the element.
+ * @param {Control} button Button instance to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override

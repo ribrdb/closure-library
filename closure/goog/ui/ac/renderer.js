@@ -29,8 +29,8 @@ import * as googString from '../../string/string.js';
 import * as style from '../../style/style.js';
 import { IdGenerator } from '../idgenerator.js';
 import { AutoComplete } from './autocomplete.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.fx.animation');
+const { Event } = goog.requireType('goog.events.event');
+const { Animation } = goog.requireType('goog.fx.animation');
 
 
 
@@ -236,7 +236,7 @@ export function Renderer(
 
   /**
    * Animation in progress, if any.
-   * @type {goog.fx.Animation|undefined}
+   * @type {Animation|undefined}
    */
   this.animation_;
 }
@@ -537,7 +537,7 @@ Renderer.prototype.hiliteRow = function(index) {
       this.rowDivs_[index] :
       undefined;
 
-  var evtObj = /** @lends {events.Event.prototype} */ ({
+  var evtObj = /** @lends {Event.prototype} */ ({
     type: AutoComplete.EventType.ROW_HILITE,
     rowNode: rowDiv,
     row: row ? row.data : null
@@ -1055,14 +1055,14 @@ Renderer.prototype.getRowFromEventTarget_ = function(et) {
 /**
  * Handle the click events.  These are redirected to the AutoComplete object
  * which then makes a callback to select the correct row.
- * @param {events.Event} e Browser event object.
+ * @param {Event} e Browser event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 Renderer.prototype.handleClick_ = function(e) {
   var index = this.getRowFromEventTarget_(/** @type {Element} */ (e.target));
   if (index >= 0) {
-    this.dispatchEvent(/** @lends {events.Event.prototype} */ ({
+    this.dispatchEvent(/** @lends {Event.prototype} */ ({
       type: AutoComplete.EventType.SELECT,
       row: this.rows_[index].id
     }));
@@ -1073,7 +1073,7 @@ Renderer.prototype.handleClick_ = function(e) {
 
 /**
  * Handle the mousedown event and prevent the AC from losing focus.
- * @param {events.Event} e Browser event object.
+ * @param {Event} e Browser event object.
  * @private
  */
 Renderer.prototype.handleMouseDown_ = function(e) {
@@ -1087,7 +1087,7 @@ Renderer.prototype.handleMouseDown_ = function(e) {
  * which then makes a callback to set the correctly highlighted row.  This is
  * because the AutoComplete can move the focus as well, and there is no sense
  * duplicating the code
- * @param {events.Event} e Browser event object.
+ * @param {Event} e Browser event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

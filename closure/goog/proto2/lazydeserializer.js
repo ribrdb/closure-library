@@ -17,7 +17,7 @@ goog.declareModuleId('goog.proto2.lazydeserializer');
 import * as asserts from '../asserts/asserts.js';
 import { Message } from './message.js';
 import { Serializer } from './serializer.js';
-goog.requireType('goog.proto2.fielddescriptor');
+const { FieldDescriptor } = goog.requireType('goog.proto2.fielddescriptor');
 
 
 
@@ -53,7 +53,7 @@ LazyDeserializer.prototype.deserializeTo = function(message, data) {
  *
  * @param {Message} message The message in which to
  *     place the information.
- * @param {goog.proto2.FieldDescriptor} field The field for which to set the
+ * @param {FieldDescriptor} field The field for which to set the
  *     message value.
  * @param {*} data The serialized data for the field.
  *

@@ -28,7 +28,7 @@ import { Serializer } from '../json/json.js';
 import { CollectableStorage } from './collectablestorage.js';
 import { ErrorCode } from './errorcode.js';
 import { RichStorage } from './richstorage.js';
-goog.requireType('goog.storage.mechanism.IterableMechanism');
+const { IterableMechanism } = goog.requireType('goog.storage.mechanism.IterableMechanism');
 
 
 
@@ -38,7 +38,7 @@ goog.requireType('goog.storage.mechanism.IterableMechanism');
  * The values are encrypted using the key, a salt, and the secret, so
  * stream cipher initialization varies for each stored value.
  *
- * @param {!goog.storage.mechanism.IterableMechanism} mechanism The underlying
+ * @param {!IterableMechanism} mechanism The underlying
  *     storage mechanism.
  * @param {string} secret The secret key used to encrypt the storage.
  * @constructor

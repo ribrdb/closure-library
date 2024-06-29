@@ -144,7 +144,7 @@ PageVisibilityMonitor.prototype.getVisibilityState = function() {
 
 /**
  * Handles the events on the element.
- * @param {events.BrowserEvent} e The underlying browser event.
+ * @param {BrowserEvent} e The underlying browser event.
  * @private
  */
 PageVisibilityMonitor.prototype.handleChange_ = function(e) {

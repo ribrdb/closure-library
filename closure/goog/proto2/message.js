@@ -14,7 +14,7 @@ goog.declareModuleId('goog.proto2.message');
 import * as asserts from '../asserts/asserts.js';
 import { Descriptor } from './descriptor.js';
 import { FieldDescriptor } from './fielddescriptor.js';
-goog.requireType('goog.proto2.lazydeserializer');
+const { LazyDeserializer } = goog.requireType('goog.proto2.lazydeserializer');
 
 
 
@@ -41,7 +41,7 @@ export function Message() {
 
   /**
    * The lazy deserializer for this message instance, if any.
-   * @type {?goog.proto2.LazyDeserializer}
+   * @type {?LazyDeserializer}
    * @private
    */
   this.lazyDeserializer_ = null;
@@ -109,7 +109,7 @@ Message.descriptor_;
  * Initializes the message with a lazy deserializer and its associated data.
  * This method should be called by internal methods ONLY.
  *
- * @param {goog.proto2.LazyDeserializer} deserializer The lazy deserializer to
+ * @param {LazyDeserializer} deserializer The lazy deserializer to
  *   use to decode the data on the fly.
  *
  * @param {?} data The data to decode/deserialize.

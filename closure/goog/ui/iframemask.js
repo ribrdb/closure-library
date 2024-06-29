@@ -18,7 +18,7 @@ import * as domIframe from '../dom/iframe.js';
 import { EventHandler } from '../events/eventhandler.js';
 import { Pool } from '../structs/pool.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.events.eventtarget');
+const { EventTarget } = goog.requireType('goog.events.eventtarget');
 
 
 
@@ -210,7 +210,7 @@ IframeMask.prototype.setSnapElement = function(snapElement) {
 /**
  * Listens on the specified target, hiding and showing the iframe mask
  * when the given event types are dispatched.
- * @param {goog.events.EventTarget} target The event target to listen on.
+ * @param {EventTarget} target The event target to listen on.
  * @param {string} showEvent When this event fires, the mask will be applied.
  * @param {string} hideEvent When this event fires, the mask will be hidden.
  * @param {Element=} opt_snapElement When the mask is applied, it will

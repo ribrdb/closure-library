@@ -11,6 +11,42 @@
  * In addition to the interface definition, it contains several static
  * factories for creating common implementations of the interface.
  */
+
+
+/**
+ * A mode which defines how mock invocations should be verified.
+ * When an instance of `VerificationMode` is passed to
+ * `goog.labs.mock.verify`, then that instances's `#verify`
+ * method will be used to verify the invocation.
+ *
+ * If `#verify` returns false, then the test will fail and the
+ * description returned from `#describe` will be shown in the
+ * test failure message.  Sample usage:
+ *
+ * goog.module('my.package.MyClassTest');
+ * goog.setTestOnly('my.package.MyClassTest');
+ *
+ * var testSuite = goog.require('goog.testing.testSuite');
+ * var verification = goog.require('goog.labs.mock.verification');
+ *
+ * var times = verification.times;
+ *
+ * testSuite({
+ *   setUp: function() {
+ *     // Code creating instances of MyClass and mockObj.
+ *   },
+ *
+ *   testMyMethod_shouldDoSomething: function() {
+ *     myClassInstance.myMethod();
+ *
+ *     goog.labs.mock.verify(mockObj, times(1));
+ *   }
+ * });
+ *
+ * For an example implementation, see `TimesVerificationMode_`.
+ *
+ * @interface
+ */
 VerificationMode = function() {};
 
 

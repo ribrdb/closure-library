@@ -34,7 +34,7 @@ import { AbstractDialog } from './abstractdialog.js';
 import { TabPane } from './tabpane.js';
 import * as messages from './messages.js';
 import * as window from '../../window/window.js';
-goog.requireType('goog.ui.tab');
+const { Tab } = goog.requireType('goog.ui.tab');
 
 
 
@@ -959,7 +959,7 @@ LinkDialog.prototype.onUrlOrEmailInputChange_ = function() {
  * @private
  */
 LinkDialog.prototype.onChangeTab_ = function(e) {
-  const tab = /** @type {goog.ui.Tab} */ (e.target);
+  const tab = /** @type {Tab} */ (e.target);
 
   // Focus on the input field in the selected tab.
   const input = /** @type {!HTMLElement} */ (this.dom.getElement(

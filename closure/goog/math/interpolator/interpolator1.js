@@ -8,6 +8,10 @@
  * @fileoverview The base interface for one-dimensional data interpolation.
  */
 
+/**
+ * An interface for one dimensional data interpolation.
+ * @interface
+ */
 Interpolator1 = function() {};
 
 

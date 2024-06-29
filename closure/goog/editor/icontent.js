@@ -69,7 +69,7 @@ var useStandardsModeIframes_ = false;
 /**
  * Sets up goog.editor.icontent to always use standards-mode iframes.
  */
-forceStandardsModeIframes = function() {
+export function forceStandardsModeIframes() {
   useStandardsModeIframes_ = true;
 };
 
@@ -274,4 +274,3 @@ export function writeHttpsInitialIframe(info, doc, bodyHtml) {
   safe.setInnerHtml(
       body, legacyconversions.safeHtmlFromString(bodyHtml));
 }
-export var forceStandardsModeIframes;

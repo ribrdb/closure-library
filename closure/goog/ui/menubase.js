@@ -13,8 +13,8 @@ import { EventHandler } from '../events/eventhandler.js';
 import { EventType } from '../events/eventtype.js';
 import { KeyHandler } from '../events/keyhandler.js';
 import { Popup } from './popup.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
+const { Event } = goog.requireType('goog.events.event');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
 
 
 
@@ -131,7 +131,7 @@ MenuBase.prototype.setSelectedItem = function(item) {};
 /**
  * Mouse over handler for the menu. Derived classes should override.
  *
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  */
 MenuBase.prototype.onMouseOver = function(e) {};
@@ -140,7 +140,7 @@ MenuBase.prototype.onMouseOver = function(e) {};
 /**
  * Mouse out handler for the menu. Derived classes should override.
  *
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  */
 MenuBase.prototype.onMouseOut = function(e) {};
@@ -149,7 +149,7 @@ MenuBase.prototype.onMouseOut = function(e) {};
 /**
  * Mouse down handler for the menu. Derived classes should override.
  *
- * @param {!goog.events.Event} e The event object.
+ * @param {!Event} e The event object.
  * @protected
  */
 MenuBase.prototype.onMouseDown = function(e) {};
@@ -158,7 +158,7 @@ MenuBase.prototype.onMouseDown = function(e) {};
 /**
  * Mouse up handler for the menu. Derived classes should override.
  *
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @protected
  */
 MenuBase.prototype.onMouseUp = function(e) {};
@@ -167,7 +167,7 @@ MenuBase.prototype.onMouseUp = function(e) {};
 /**
  * Key down handler for the menu. Derived classes should override.
  *
- * @param {goog.events.KeyEvent} e The event object.
+ * @param {KeyEvent} e The event object.
  * @protected
  */
 MenuBase.prototype.onKeyDown = function(e) {};

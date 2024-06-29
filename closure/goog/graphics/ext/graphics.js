@@ -26,9 +26,9 @@ import { EventType } from '../../events/eventtype.js';
 import * as graphics from '../graphics.js';
 import { Group } from './group.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.graphics.abstractgraphics');
-goog.requireType('goog.math.coordinate');
-goog.requireType('goog.math.size');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
+const { Coordinate } = goog.requireType('goog.math.coordinate');
+const { Size } = goog.requireType('goog.math.size');
 
 
 
@@ -77,14 +77,14 @@ goog.inherits(Graphics, Group);
 
 /**
  * The root level graphics implementation.
- * @type {graphics.AbstractGraphics}
+ * @type {AbstractGraphics}
  * @private
  */
 Graphics.prototype.implementation_;
 
 
 /**
- * @return {graphics.AbstractGraphics} The graphics implementation layer.
+ * @return {AbstractGraphics} The graphics implementation layer.
  */
 Graphics.prototype.getImplementation = function() {
  return this.implementation_;
@@ -105,7 +105,7 @@ Graphics.prototype.setCoordSize = function(
 
 
 /**
- * @return {goog.math.Size} The coordinate size.
+ * @return {Size} The coordinate size.
  */
 Graphics.prototype.getCoordSize = function() {
  return this.implementation_.getCoordSize();
@@ -123,7 +123,7 @@ Graphics.prototype.setCoordOrigin = function(left, top) {
 
 
 /**
- * @return {!goog.math.Coordinate} The coordinate system position.
+ * @return {!Coordinate} The coordinate system position.
  */
 Graphics.prototype.getCoordOrigin = function() {
  return this.implementation_.getCoordOrigin();
@@ -146,7 +146,7 @@ Graphics.prototype.setPixelSize = function(
 
 
 /**
- * @return {goog.math.Size?} Returns the number of pixels spanned by the
+ * @return {Size?} Returns the number of pixels spanned by the
  *     surface, or null if the size could not be computed due to the size being
  *     specified in percentage points and the component not being in the
  *     document.

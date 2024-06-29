@@ -19,7 +19,7 @@ import { Animation } from '../fx/animation.js';
 import { Transition } from '../fx/transition.js';
 import * as easing from '../fx/easing.js';
 import { Zippy, ZippyEvent } from './zippy.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -179,7 +179,7 @@ AnimatedZippy.prototype.setExpanded = function(expanded) {
 /**
  * Called during animation
  *
- * @param {googEvents.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 AnimatedZippy.prototype.onAnimate_ = function(e) {

@@ -27,7 +27,7 @@ import { ButtonRenderer } from './buttonrenderer.js';
 import { Component } from './component.js';
 import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import * as registry from './registry.js';
-goog.requireType('goog.ui.control');
+const { Control } = goog.requireType('goog.ui.control');
 
 
 
@@ -69,7 +69,7 @@ Css3ButtonRenderer.prototype.getContentElement = function(element) {
  *    </div>
  *
  * Overrides {@link ButtonRenderer#createDom}.
- * @param {goog.ui.Control} control Button to render.
+ * @param {Control} control Button to render.
  * @return {!Element} Root element for the button.
  * @override
  */

@@ -63,7 +63,7 @@ function Error_(error, action) {
     this.code = Error_.getCodeFromName_(error.name);
   } else {
     const code =
-        /** @type {!goog.fs.Error.ErrorCode} */ (asserts.assertNumber(
+        /** @type {!Error_.ErrorCode} */ (asserts.assertNumber(
             /** @type {!DOMErrorLike} */ (error).code));
     this.code = code;
     this.name = Error_.getNameFromCode_(code);

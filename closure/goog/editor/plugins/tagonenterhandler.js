@@ -24,7 +24,7 @@ import * as functions from '../../functions/functions.js';
 import { Unicode } from '../../string/string.js';
 import * as googStyle from '../../style/style.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
+const {AbstractRange} = goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -382,7 +382,7 @@ TagOnEnterHandler.wrapInContainerW3c_ = function(
  * right before a BR and you delete that character, we don't want to
  * strip it. So we detect this case on keydown and mark the BR as not needing
  * removal.
- * @param {googDom.AbstractRange} range The closure range object.
+ * @param {AbstractRange} range The closure range object.
  * @param {boolean} isBackspace Whether this is handling the backspace key.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks

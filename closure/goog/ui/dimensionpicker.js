@@ -24,8 +24,8 @@ import { Control } from './control.js';
 import { DimensionPickerRenderer } from './dimensionpickerrenderer.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
+const { Event } = goog.requireType('goog.events.event');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
 
 
 
@@ -239,7 +239,7 @@ DimensionPicker.prototype.handleMouseUp = function(e) {
 /**
  * Handles window resize events.  Ensures no scrollbars are introduced by the
  * renderer's mouse catcher.
- * @param {goog.events.Event} e Resize event to handle.
+ * @param {Event} e Resize event to handle.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -251,7 +251,7 @@ DimensionPicker.prototype.handleWindowResize = function(e) {
 /**
  * Handle key events if supported, so the user can use the keyboard to
  * manipulate the highlighted rows and columns.
- * @param {goog.events.KeyEvent} e The key event object.
+ * @param {KeyEvent} e The key event object.
  * @return {boolean} Whether the key event was handled.
  * @override
  */
@@ -362,7 +362,7 @@ DimensionPicker.prototype.setValue = function(columns, opt_rows) {
 
 /**
  * Returns whether the given event intersects the grid element.
- * @param {?goog.events.Event} e Mouse event to handle.
+ * @param {?Event} e Mouse event to handle.
  * @return {boolean}
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -377,7 +377,7 @@ DimensionPicker.prototype.isEventOnGrid_ = function(e) {
 
 
 /**
- * @param {?goog.events.Event} e Mouse or pointer event to handle.
+ * @param {?Event} e Mouse or pointer event to handle.
  * @return {boolean}
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks

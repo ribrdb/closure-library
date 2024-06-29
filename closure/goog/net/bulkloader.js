@@ -17,13 +17,13 @@ import * as log from '../log/log.js';
 import { BulkLoaderHelper } from './bulkloaderhelper.js';
 import { EventType } from './eventtype.js';
 import { XhrIo } from './xhrio.js';
-goog.requireType('goog.uri.uri');
+const { Uri } = goog.requireType('goog.uri.uri');
 
 
 
 /**
  * Class used to load multiple URIs.
- * @param {Array<string|goog.Uri>} uris The URIs to load.
+ * @param {Array<string|Uri>} uris The URIs to load.
  * @constructor
  * @extends {EventTarget}
  * @final

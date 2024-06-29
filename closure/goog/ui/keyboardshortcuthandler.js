@@ -704,7 +704,7 @@ KeyboardShortcutHandler.prototype.initializeKeyListener = function(
 
 /**
  * Keyup handler for events initiated from the browser.
- * @param {!events.BrowserEvent} e The key event.
+ * @param {!BrowserEvent} e The key event.
  * @private
  */
 KeyboardShortcutHandler.prototype.handleBrowserKeyUp_ = function(e) {
@@ -774,7 +774,7 @@ KeyboardShortcutHandler.prototype.isPossiblePrintableKey_ = function(
 
 /**
  * Handler for when a keypress event is fired on Windows.
- * @param {!events.BrowserEvent} e The key event.
+ * @param {!BrowserEvent} e The key event.
  * @private
  */
 KeyboardShortcutHandler.prototype.handleWindowsBrowserKeyPress_ =
@@ -1020,7 +1020,7 @@ KeyboardShortcutHandler.makeStroke_ = function(
 
 /**
  * Keydown handler for events initiated from the browser.
- * @param {!events.BrowserEvent} event Keypress event.
+ * @param {!BrowserEvent} event Keypress event.
  * @private
  */
 KeyboardShortcutHandler.prototype.handleBrowserKeyDown_ = function(

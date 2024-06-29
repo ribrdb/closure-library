@@ -1,39 +1,4 @@
-/**
- * @license
- * Copyright The Closure Library Authors.
- * SPDX-License-Identifier: Apache-2.0
- */
-/**
- * @fileoverview Extended date/time patterns.
- *
- * File generated from CLDR ver. 43
- *
- * To reduce the file size (which may cause issues in some JS
- * developing environments), this file will only contain locales
- * that are frequently used by web applications. This is defined as
- * proto/closure_locales_data.txt and will change (most likely addition)
- * over time.  Rest of the data can be found in another file named
- * "datetimepatternsext.js", which will be generated at
- * the same time together with this file.
- *
- * @suppress {const,useOfGoogProvide}
- */
-
-// clang-format off
-
-/**
- * Only locales that can be enumerated in ICU are supported. For the rest
- * of the locales, it will fallback to 'en'.
- * The code is designed to work with Closure compiler using
- * ADVANCED_OPTIMIZATIONS. We will continue to add popular date/time
- * patterns over time. There is no intention to cover all possible
- * usages. If simple pattern works fine, it won't be covered here either.
- * For example, pattern 'MMM' will work well to get short month name for
- * almost all locales thus won't be included here.
- */
-
-
-goog.requireType('goog.i18n.DateTimePatternsType');
+const { DateTimePatternsType } = goog.requireType('goog.i18n.DateTimePatternsType');
 
 
 /**

@@ -542,7 +542,7 @@ AbstractSpellChecker.prototype.getSuggestions_ = function() {
 /**
  * Displays suggestions menu.
  * @param {Element} el Element to display menu for.
- * @param {events.BrowserEvent|Coordinate=} opt_pos Position to
+ * @param {BrowserEvent|Coordinate=} opt_pos Position to
  *     display menu at relative to the viewport (in client coordinates), or a
  *     mouse event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration

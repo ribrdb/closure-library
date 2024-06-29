@@ -22,7 +22,6 @@ import { TabBarRenderer } from './tabbarrenderer.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
 const { Event } = goog.requireType('goog.events.event');
-const { Component } = goog.requireType('goog.ui.component');
 const { Control } = goog.requireType('goog.ui.control');
 
 

@@ -48,11 +48,11 @@ import * as googString from '../string/string.js';
 import { Unicode } from '../string/string.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.disposable.disposable');
-goog.requireType('goog.dom.abstractrange');
-goog.requireType('goog.dom.savedrange');
+const { Disposable } = goog.requireType('goog.disposable.disposable');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
+const { SavedRange } = goog.requireType('goog.dom.savedrange');
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.html.trustedresourceurl');
+const { TrustedResourceUrl } = goog.requireType('goog.html.trustedresourceurl');
 
 
 
@@ -684,7 +684,7 @@ if ((userAgent.WINDOWS || platform.isAndroid()) &&
 
 /**
  * Returns true if the keypress generates a change in contents.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @param {boolean} testAllKeys True to test for all types of generating keys.
  *     False to test for only the keys found in
  *     Field.KEYS_CAUSING_CHANGES_.
@@ -705,7 +705,7 @@ Field.isGeneratingKey_ = function(e, testAllKeys) {
 /**
  * Returns true if the keypress generates a change in the contents.
  * due to a special key listed in Field.KEYS_CAUSING_CHANGES_
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @return {boolean} Whether the keypress generated a change in the contents.
  * @private
  */
@@ -940,7 +940,7 @@ Field.prototype.disposeInternal = function() {
 /**
  * Attach an wrapper to this field, to be thrown out when the field
  * is disposed.
- * @param {goog.Disposable} wrapper The wrapper to attach.
+ * @param {Disposable} wrapper The wrapper to attach.
  */
 Field.prototype.attachWrapper = function(wrapper) {
   this.wrappers_.push(wrapper);
@@ -972,7 +972,7 @@ Field.prototype.setFollowLinkInNewWindow = function(
 /**
  * Handle before change key events and fire the beforetab event if appropriate.
  * This needs to happen on keydown in IE and keypress in FF.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @return {boolean} Whether to still perform the default key action.  Only set
  *     to true if the actual event has already been canceled.
  * @private
@@ -1180,7 +1180,7 @@ Field.prototype.getInjectableContents = function(contents, styles) {
 
 /**
  * Handles keydown on the field.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 Field.prototype.handleKeyDown_ = function(e) {
@@ -1202,7 +1202,7 @@ Field.prototype.handleKeyDown_ = function(e) {
 
 /**
  * Handles keypress on the field.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 Field.prototype.handleKeyPress_ = function(e) {
@@ -1221,7 +1221,7 @@ Field.prototype.handleKeyPress_ = function(e) {
 
 /**
  * Handles keyup on the field.
- * @param {!events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -1241,7 +1241,7 @@ Field.prototype.handleKeyUp_ = function(e) {
  * Fires `BEFORESELECTIONCHANGE` and starts the selection change timer
  * (which will fire `SELECTIONCHANGE`) if the given event is a key event
  * that causes a selection change.
- * @param {!events.BrowserEvent} e The browser event.
+ * @param {!BrowserEvent} e The browser event.
  * @private
  */
 Field.prototype.maybeStartSelectionChangeTimer_ = function(e) {
@@ -1264,7 +1264,7 @@ Field.prototype.maybeStartSelectionChangeTimer_ = function(e) {
  * goog.ui.KeyboardShortcutHandler for performance reasons.  Since these
  * are handled on every key stroke, we do not want to be going out to the
  * event system every time.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -1389,7 +1389,7 @@ Field.prototype.queryCommandValueInternal_ = function(
  * state change)
  * @param {Function} handler The function to call if this is not an internal
  *     browser event.
- * @param {events.BrowserEvent} browserEvent The browser event.
+ * @param {BrowserEvent} browserEvent The browser event.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -1425,7 +1425,7 @@ Field.prototype.handleDomAttrChange = function(
 /**
  * Handle drop events. Deal with focus/selection issues and set the document
  * as changed.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 Field.prototype.handleDrop_ = function(e) {
@@ -1463,7 +1463,7 @@ Field.prototype.getEditableDomHelper = function() {
 
 
 /**
- * @return {dom.AbstractRange?} Closure range object wrapping the selection
+ * @return {AbstractRange?} Closure range object wrapping the selection
  *     in this field or null if this field is not currently editable.
  */
 Field.prototype.getRange = function() {
@@ -1475,7 +1475,7 @@ Field.prototype.getRange = function() {
 /**
  * Dispatch a selection change event, optionally caused by the given browser
  * event or selecting the given target.
- * @param {events.BrowserEvent=} opt_e Optional browser event causing this
+ * @param {BrowserEvent=} opt_e Optional browser event causing this
  *     event.
  * @param {Node=} opt_target The node the selection changed to.
  */
@@ -1530,7 +1530,7 @@ Field.prototype.dispatchBeforeChange = function() {
 /**
  * This dispatches the beforetab event on the editable field. If this event is
  * cancelled, then the default tab behavior is prevented.
- * @param {events.BrowserEvent} e The tab event.
+ * @param {BrowserEvent} e The tab event.
  * @private
  * @return {boolean} The result of dispatchEvent.
  */
@@ -1871,7 +1871,7 @@ Field.prototype.isSelectionEditable = function() {
 /**
  * Event handler for clicks in browsers that will follow a link when the user
  * clicks, even if it's editable. We stop the click manually
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 Field.cancelLinkClick_ = function(e) {
@@ -1884,7 +1884,7 @@ Field.cancelLinkClick_ = function(e) {
 
 /**
  * Handle mouse down inside the editable field.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -1907,7 +1907,7 @@ Field.prototype.handleMouseDown_ = function(e) {
 /**
  * Handle drag start. Needs to cancel listening for the mouse up event on the
  * window.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 Field.prototype.handleDragStart_ = function(e) {
@@ -1917,7 +1917,7 @@ Field.prototype.handleDragStart_ = function(e) {
 
 /**
  * Handle mouse up inside the editable field.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 Field.prototype.handleMouseUp_ = function(e) {
@@ -2230,7 +2230,7 @@ Field.prototype.placeCursorAtStartOrEnd_ = function(isStart) {
 /**
  * Restore a saved range, and set the focus on the field.
  * If no range is specified, we simply set the focus.
- * @param {dom.SavedRange=} opt_range A previously saved selected range.
+ * @param {SavedRange=} opt_range A previously saved selected range.
  */
 Field.prototype.restoreSavedRange = function(opt_range) {
   if (opt_range) {
@@ -2243,7 +2243,7 @@ Field.prototype.restoreSavedRange = function(opt_range) {
 /**
  * Makes a field editable.
  *
- * @param {!goog.html.TrustedResourceUrl=} opt_iframeSrc URL to set the iframe
+ * @param {!TrustedResourceUrl=} opt_iframeSrc URL to set the iframe
  *     src to if necessary.
  */
 Field.prototype.makeEditable = function(opt_iframeSrc) {
@@ -2269,7 +2269,7 @@ Field.prototype.makeEditable = function(opt_iframeSrc) {
 /**
  * Handles actually making something editable - creating necessary nodes,
  * injecting content, etc.
- * @param {!goog.html.TrustedResourceUrl=} opt_iframeSrc URL to set the iframe
+ * @param {!TrustedResourceUrl=} opt_iframeSrc URL to set the iframe
  *     src to if necessary.
  * @protected
  */
@@ -2436,7 +2436,7 @@ Field.prototype.shouldLoadAsynchronously = function() {
  * Start the editable iframe creation process for Mozilla or IE whitebox.
  * The iframes load asynchronously.
  *
- * @param {!goog.html.TrustedResourceUrl=} opt_iframeSrc URL to set the iframe
+ * @param {!TrustedResourceUrl=} opt_iframeSrc URL to set the iframe
  *     src to if necessary.
  * @private
  */

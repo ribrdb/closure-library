@@ -42,7 +42,7 @@ import { Menu } from './menu.js';
 import { MenuButton } from './menubutton.js';
 import { MenuItem } from './menuitem.js';
 import { Tooltip } from './tooltip.js';
-goog.requireType('goog.events.keyevent');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
 
 
 
@@ -697,7 +697,7 @@ CharPicker.prototype.handleOkClick_ = function(opt_event) {
 
 /**
  * Behaves exactly like the OK button on Enter key.
- * @param {events.KeyEvent} e Event for enter on the input field.
+ * @param {KeyEvent} e Event for enter on the input field.
  * @return {boolean} Indicates whether to propagate event.
  * @private
  */

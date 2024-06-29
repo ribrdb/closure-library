@@ -175,7 +175,7 @@ function getChildHelper_(parent, isReversed) {
       null :
       /** @type {Node} */
       (getFirstValue_(iter.filter(
-          new ChildIterator( (parent), isReversed),
+          new ChildIterator(/** @type {!Element} */ (parent), isReversed),
           isImportant)));
 }
 

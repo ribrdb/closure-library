@@ -9,8 +9,8 @@
  */
 import { NativeResolver } from '../promise/nativeresolver.js';
 
-import fullTypes from './full_types.js';
-import liteImpl from './lite_impl.js';
+import * as fullTypes from './full_types.js';
+import * as liteImpl from './lite_impl.js';
 import { assert, assertNumber } from '../asserts/asserts.js';
 
 /**

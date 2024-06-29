@@ -14,18 +14,18 @@ import { EventTarget } from '../../events/eventtarget.js';
 
 import * as functions from '../../functions/functions.js';
 import * as coordinates from './coordinates.js';
-goog.requireType('goog.graphics.abstractgraphics');
-goog.requireType('goog.graphics.element');
-goog.requireType('goog.graphics.ext.graphics');
-goog.requireType('goog.graphics.ext.group');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
+const { Element:GraphicsElement } = goog.requireType('goog.graphics.element');
+const { Graphics } = goog.requireType('goog.graphics.ext.graphics');
+const { Group } = goog.requireType('goog.graphics.ext.group');
 
 
 
 /**
  * Base class for a wrapper around the goog.graphics wrapper that enables
  * more advanced functionality.
- * @param {goog.graphics.ext.Group?} group Parent for this element.
- * @param {goog.graphics.Element} wrapper The thin wrapper to wrap.
+ * @param {Group?} group Parent for this element.
+ * @param {GraphicsElement} wrapper The thin wrapper to wrap.
  * @constructor
  * @extends {EventTarget}
  */
@@ -48,7 +48,7 @@ goog.inherits(Element, EventTarget);
 
 /**
  * The graphics object that contains this element.
- * @type {goog.graphics.ext.Graphics|Element}
+ * @type {Graphics|Element}
  * @private
  */
 Element.prototype.graphics_;
@@ -56,7 +56,7 @@ Element.prototype.graphics_;
 
 /**
  * The goog.graphics wrapper this class wraps.
- * @type {goog.graphics.Element}
+ * @type {GraphicsElement}
  * @private
  */
 Element.prototype.wrapper_;
@@ -64,7 +64,7 @@ Element.prototype.wrapper_;
 
 /**
  * The group or surface containing this element.
- * @type {goog.graphics.ext.Group|undefined}
+ * @type {Group|undefined}
  * @private
  */
 Element.prototype.parent_;
@@ -111,14 +111,14 @@ Element.prototype.xPosition_;
 Element.prototype.yPosition_;
 
 
-/** @return {goog.graphics.Element} The underlying thin wrapper. */
+/** @return {GraphicsElement} The underlying thin wrapper. */
 Element.prototype.getWrapper = function() {
  return this.wrapper_;
 };
 
 
 /**
- * @return {Element|goog.graphics.ext.Graphics} The graphics
+ * @return {Element|Graphics} The graphics
  *     surface the element is a part of.
  */
 Element.prototype.getGraphics = function() {
@@ -128,7 +128,7 @@ Element.prototype.getGraphics = function() {
 
 /**
  * Returns the graphics implementation.
- * @return {goog.graphics.AbstractGraphics} The underlying graphics
+ * @return {AbstractGraphics} The underlying graphics
  *     implementation drawing this element's wrapper.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -139,7 +139,7 @@ Element.prototype.getGraphicsImplementation = function() {
 
 
 /**
- * @return {goog.graphics.ext.Group|undefined} The parent of this element.
+ * @return {Group|undefined} The parent of this element.
  */
 Element.prototype.getParent = function() {
  return this.parent_;

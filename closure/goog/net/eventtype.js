@@ -9,7 +9,11 @@
  */
 
 
-EventType = {
+/**
+ * Event names for network events
+ * @enum {string}
+ */
+export var EventType = {
   COMPLETE: 'complete',
   SUCCESS: 'success',
   ERROR: 'error',
@@ -25,4 +29,3 @@ EventType = {
   DOWNLOAD_PROGRESS: 'downloadprogress',
   UPLOAD_PROGRESS: 'uploadprogress',
 };
-export var EventType;

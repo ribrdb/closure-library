@@ -458,7 +458,7 @@ Matrix.prototype.multiply = function(m) {
           'Invalid matrices for multiplication. Second matrix ' +
           'should have the same number of rows as the first has columns.');
     }
-    return this.matrixMultiply_(/** @type {!math.Matrix} */ (m));
+    return this.matrixMultiply_(/** @type {!Matrix} */ (m));
   } else if (typeof m === 'number') {
     return this.scalarMultiply_(/** @type {number} */ (m));
   } else {

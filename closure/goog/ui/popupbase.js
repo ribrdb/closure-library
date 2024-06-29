@@ -416,7 +416,7 @@ PopupBase.prototype.getLastHideTime = function() {
  */
 PopupBase.prototype.getHandler = function() {
   // As the template type is unbounded, narrow the "this" type
-  var self = /** @type {!goog.ui.PopupBase} */ (this);
+  var self = /** @type {!PopupBase} */ (this);
 
   return self.handler_;
 };
@@ -756,7 +756,7 @@ PopupBase.prototype.onHide = function(opt_target) {
  * Mouse down handler for the document on capture phase. Used to hide the
  * popup for auto-hide mode.
  *
- * @param {events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @private
  */
 PopupBase.prototype.onDocumentMouseDown_ = function(e) {
@@ -774,7 +774,7 @@ PopupBase.prototype.onDocumentMouseDown_ = function(e) {
 /**
  * Handles key-downs on the document to handle the escape key.
  *
- * @param {events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @private
  */
 PopupBase.prototype.onDocumentKeyDown_ = function(e) {
@@ -792,7 +792,7 @@ PopupBase.prototype.onDocumentKeyDown_ = function(e) {
  * Deactivate handler(IE) and blur handler (other browsers) for document.
  * Used to hide the popup for auto-hide mode.
  *
- * @param {events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @private
  */
 PopupBase.prototype.onDocumentBlur_ = function(e) {

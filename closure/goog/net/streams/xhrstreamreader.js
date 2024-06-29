@@ -31,8 +31,8 @@ import * as googLog from '../../log/log.js';
 import * as googUserAgent from '../../useragent/useragent.js';
 import streamParsers from './streamparsers.js';
 const {getStreamParser} = streamParsers;
-const Event = goog.requireType('goog.events.event');
-const StreamParser = goog.requireType('goog.net.streams.streamparser');
+const {Event} = goog.requireType('goog.events.event');
+const {StreamParser} = goog.requireType('goog.net.streams.streamparser');
 
 /**
  * The XhrStreamReader class.
@@ -42,7 +42,7 @@ const StreamParser = goog.requireType('goog.net.streams.streamparser');
  * @final
  * @package
  */
-class XhrStreamReader {
+export class XhrStreamReader {
   /**
    * @param {!XhrIo} xhr The XhrIo object with its response body to
    * be handled by NodeReadableStream.
@@ -370,7 +370,7 @@ class XhrStreamReader {
  * Enum type for current stream status.
  * @enum {number}
  */
-const XhrStreamReaderStatus = {
+export const XhrStreamReaderStatus = {
   /**
    * Init status, with xhr inactive.
    */

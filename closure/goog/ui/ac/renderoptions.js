@@ -8,7 +8,12 @@
  * @fileoverview Options for rendering matches.
  */
 
-RenderOptions = function() {};
+/**
+ * A simple class that contains options for rendering a set of autocomplete
+ * matches.  Used as an optional argument in the callback from the matcher.
+ * @constructor
+ */
+export function RenderOptions() {};
 
 
 /**
@@ -59,4 +64,3 @@ RenderOptions.prototype.setAutoHilite = function(flag) {
 RenderOptions.prototype.getAutoHilite = function() {
  return this.autoHilite_;
 };
-export var RenderOptions;

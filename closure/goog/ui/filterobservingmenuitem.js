@@ -16,15 +16,15 @@ import { FilterObservingMenuItemRenderer } from './filterobservingmenuitemrender
 import { MenuItem } from './menuitem.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menuitemrenderer');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { MenuItemRenderer } = goog.requireType('goog.ui.menuitemrenderer');
 
 
 
 /**
  * Class representing a filter observing menu item.
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to
+ * @param {ControlContent} content Text caption or DOM structure to
  *     display as the content of the item (use to add icons or styling to
  *     menus).
  * @param {*=} opt_model Data/model associated with the menu item.

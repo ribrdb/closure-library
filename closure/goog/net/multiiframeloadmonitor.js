@@ -11,7 +11,7 @@
 import * as events from '../events/events.js';
 
 import { IframeLoadMonitor } from './iframeloadmonitor.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -68,7 +68,7 @@ export function MultiIframeLoadMonitor(iframes, callback, opt_hasContent) {
 
 /**
  * Handles a pending iframe load monitor load event.
- * @param {events.Event} e The IframeLoadMonitor.LOAD_EVENT event.
+ * @param {Event} e The IframeLoadMonitor.LOAD_EVENT event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 MultiIframeLoadMonitor.prototype.handleEvent = function(e) {

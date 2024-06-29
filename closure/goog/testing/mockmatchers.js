@@ -18,7 +18,7 @@ goog.setTestOnly('goog.testing.mockmatchers');
 import * as array from '../array/array.js';
 import * as dom from '../dom/dom.js';
 import * as asserts from './asserts.js';
-goog.requireType('goog.testing.mock');
+const { MockExpectation } = goog.requireType('goog.testing.mock');
 
 
 
@@ -55,7 +55,7 @@ export function ArgumentMatcher(opt_matchFn, opt_matchName) {
  * which (if provided) will get error information and returns whether or
  * not it matches.
  * @param {*} toVerify The argument that should be verified.
- * @param {?goog.testing.MockExpectation=} opt_expectation The expectation
+ * @param {?MockExpectation=} opt_expectation The expectation
  *     for this match.
  * @return {boolean} Whether or not a given argument passes verification.
  */
@@ -340,7 +340,7 @@ export var isNodeLike = new ArgumentMatcher(
  * @param {Array<?>} expectedArr An array of expectations which can be either
  *     values to check for equality or ArgumentMatchers.
  * @param {Array<?>} arr The array to match.
- * @param {goog.testing.MockExpectation?=} opt_expectation The expectation
+ * @param {MockExpectation?=} opt_expectation The expectation
  *     for this match.
  * @return {boolean} Whether or not the given array matches the expectations.
  */

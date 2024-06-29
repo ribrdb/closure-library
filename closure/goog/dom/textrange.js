@@ -20,7 +20,7 @@ import { TextRangeIterator } from './textrangeiterator.js';
 import * as browserrange from './browserrange/browserrange.js';
 import * as userAgent from '../useragent/useragent.js';
 import * as RangeUtils from './range.js';
-const {AbstractRange} = goog.requireType('goog.dom.browserrange.abstractrange');
+const {AbstractRange: BrowserAbstractRange} = goog.requireType('goog.dom.browserrange.abstractrange');
 
 
 
@@ -31,11 +31,11 @@ const {AbstractRange} = goog.requireType('goog.dom.browserrange.abstractrange');
  * @extends {AbstractRange}
  * @final
  */
-export function TextRange() {
+function GoogTextRange() {
   /**
      * The browser specific range wrapper.  This can be null if one of the other
      * representations of the range is specified.
-     * @private {browserrange.AbstractRange?}
+     * @private {BrowserAbstractRange?}
      */
   this.browserRangeWrapper_ = null;
 
@@ -73,7 +73,8 @@ export function TextRange() {
    */
   this.isReversed_ = false;
 }
-goog.inherits(TextRange, AbstractRange);
+goog.inherits(GoogTextRange, AbstractRange);
+export { GoogTextRange as TextRange };
 
 
 /**
@@ -82,26 +83,26 @@ goog.inherits(TextRange, AbstractRange);
  * @param {Range|TextRange} range The browser range object.
  * @param {boolean=} opt_isReversed Whether the focus node is before the anchor
  *     node.
- * @return {!TextRange} A range wrapper object.
+ * @return {!GoogTextRange} A range wrapper object.
  */
-TextRange.createFromBrowserRange = function(range, opt_isReversed) {
-  return TextRange.createFromBrowserRangeWrapper_(
+GoogTextRange.createFromBrowserRange = function(range, opt_isReversed) {
+  return GoogTextRange.createFromBrowserRangeWrapper_(
       browserrange.createRange(range), opt_isReversed);
 };
 
 
 /**
  * Create a new range wrapper from the given browser range wrapper.
- * @param {browserrange.AbstractRange} browserRange The browser range
+ * @param {BrowserAbstractRange} browserRange The browser range
  *     wrapper.
  * @param {boolean=} opt_isReversed Whether the focus node is before the anchor
  *     node.
- * @return {!TextRange} A range wrapper object.
+ * @return {!GoogTextRange} A range wrapper object.
  * @private
  */
-TextRange.createFromBrowserRangeWrapper_ = function(
+GoogTextRange.createFromBrowserRangeWrapper_ = function(
     browserRange, opt_isReversed) {
-  var range = new TextRange();
+  var range = new GoogTextRange();
 
   // Initialize the range as a browser range wrapper type range.
   range.browserRangeWrapper_ = browserRange;
@@ -117,10 +118,10 @@ TextRange.createFromBrowserRangeWrapper_ = function(
  * @param {Node} node The node to select.
  * @param {boolean=} opt_isReversed Whether the focus node is before the anchor
  *     node.
- * @return {!TextRange} A range wrapper object.
+ * @return {!GoogTextRange} A range wrapper object.
  */
-TextRange.createFromNodeContents = function(node, opt_isReversed) {
-  return TextRange.createFromBrowserRangeWrapper_(
+GoogTextRange.createFromNodeContents = function(node, opt_isReversed) {
+  return GoogTextRange.createFromBrowserRangeWrapper_(
       browserrange.createRangeFromNodeContents(node), opt_isReversed);
 };
 
@@ -133,11 +134,11 @@ TextRange.createFromNodeContents = function(node, opt_isReversed) {
  * @param {number} anchorOffset The offset within the node to start.
  * @param {Node} focusNode The node to end with.
  * @param {number} focusOffset The offset within the node to end.
- * @return {!TextRange} A range wrapper object.
+ * @return {!GoogTextRange} A range wrapper object.
  */
-TextRange.createFromNodes = function(
+GoogTextRange.createFromNodes = function(
     anchorNode, anchorOffset, focusNode, focusOffset) {
-  var range = new TextRange();
+  var range = new GoogTextRange();
   range.isReversed_ =
       RangeUtils.isReversed(anchorNode, anchorOffset, focusNode, focusOffset);
 
@@ -175,11 +176,11 @@ TextRange.createFromNodes = function(
 
 
 /**
- * @return {!TextRange} A clone of this range.
+ * @return {!GoogTextRange} A clone of this range.
  * @override
  */
-TextRange.prototype.clone = function() {
-  var range = new TextRange();
+GoogTextRange.prototype.clone = function() {
+  var range = new GoogTextRange();
   range.browserRangeWrapper_ =
       this.browserRangeWrapper_ && this.browserRangeWrapper_.clone();
   range.startNode_ = this.startNode_;
@@ -193,19 +194,19 @@ TextRange.prototype.clone = function() {
 
 
 /** @override */
-TextRange.prototype.getType = function() {
+GoogTextRange.prototype.getType = function() {
   return RangeType.TEXT;
 };
 
 
 /** @override */
-TextRange.prototype.getBrowserRangeObject = function() {
+GoogTextRange.prototype.getBrowserRangeObject = function() {
   return this.getBrowserRangeWrapper_().getBrowserRange();
 };
 
 
 /** @override */
-TextRange.prototype.setBrowserRangeObject = function(nativeRange) {
+GoogTextRange.prototype.setBrowserRangeObject = function(nativeRange) {
   // Test if it's a control range by seeing if a control range only method
   // exists.
   if (AbstractRange.isNativeControlRange(nativeRange)) {
@@ -221,28 +222,28 @@ TextRange.prototype.setBrowserRangeObject = function(nativeRange) {
  * Clear all cached values.
  * @private
  */
-TextRange.prototype.clearCachedValues_ = function() {
+GoogTextRange.prototype.clearCachedValues_ = function() {
   this.startNode_ = this.startOffset_ = this.endNode_ = this.endOffset_ = null;
 };
 
 
 /** @override */
-TextRange.prototype.getTextRangeCount = function() {
+GoogTextRange.prototype.getTextRangeCount = function() {
   return 1;
 };
 
 
 /** @override */
-TextRange.prototype.getTextRange = function(i) {
+GoogTextRange.prototype.getTextRange = function(i) {
   return this;
 };
 
 
 /**
- * @return {!browserrange.AbstractRange} The range wrapper object.
+ * @return {!BrowserAbstractRange} The range wrapper object.
  * @private
  */
-TextRange.prototype.getBrowserRangeWrapper_ = function() {
+GoogTextRange.prototype.getBrowserRangeWrapper_ = function() {
   return this.browserRangeWrapper_ ||
       (this.browserRangeWrapper_ = browserrange.createRangeFromNodes(
            this.getStartNode(), this.getStartOffset(), this.getEndNode(),
@@ -251,20 +252,20 @@ TextRange.prototype.getBrowserRangeWrapper_ = function() {
 
 
 /** @override */
-TextRange.prototype.getContainer = function() {
+GoogTextRange.prototype.getContainer = function() {
   return this.getBrowserRangeWrapper_().getContainer();
 };
 
 
 /** @override */
-TextRange.prototype.getStartNode = function() {
+GoogTextRange.prototype.getStartNode = function() {
   return this.startNode_ ||
       (this.startNode_ = this.getBrowserRangeWrapper_().getStartNode());
 };
 
 
 /** @override */
-TextRange.prototype.getStartOffset = function() {
+GoogTextRange.prototype.getStartOffset = function() {
   return this.startOffset_ != null ?
       this.startOffset_ :
       (this.startOffset_ = this.getBrowserRangeWrapper_().getStartOffset());
@@ -272,20 +273,20 @@ TextRange.prototype.getStartOffset = function() {
 
 
 /** @override */
-TextRange.prototype.getStartPosition = function() {
+GoogTextRange.prototype.getStartPosition = function() {
   return this.getBrowserRangeWrapper_().getStartPosition();
 };
 
 
 /** @override */
-TextRange.prototype.getEndNode = function() {
+GoogTextRange.prototype.getEndNode = function() {
   return this.endNode_ ||
       (this.endNode_ = this.getBrowserRangeWrapper_().getEndNode());
 };
 
 
 /** @override */
-TextRange.prototype.getEndOffset = function() {
+GoogTextRange.prototype.getEndOffset = function() {
   return this.endOffset_ != null ?
       this.endOffset_ :
       (this.endOffset_ = this.getBrowserRangeWrapper_().getEndOffset());
@@ -293,7 +294,7 @@ TextRange.prototype.getEndOffset = function() {
 
 
 /** @override */
-TextRange.prototype.getEndPosition = function() {
+GoogTextRange.prototype.getEndPosition = function() {
   return this.getBrowserRangeWrapper_().getEndPosition();
 };
 
@@ -306,7 +307,7 @@ TextRange.prototype.getEndPosition = function() {
  * @param {number} endOffset The offset within the node to end.
  * @param {boolean} isReversed Whether the range is reversed.
  */
-TextRange.prototype.moveToNodes = function(
+GoogTextRange.prototype.moveToNodes = function(
     startNode, startOffset, endNode, endOffset, isReversed) {
   this.startNode_ = startNode;
   this.startOffset_ = startOffset;
@@ -318,7 +319,7 @@ TextRange.prototype.moveToNodes = function(
 
 
 /** @override */
-TextRange.prototype.isReversed = function() {
+GoogTextRange.prototype.isReversed = function() {
   return this.isReversed_;
 };
 
@@ -327,7 +328,7 @@ TextRange.prototype.isReversed = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-TextRange.prototype.containsRange = function(
+GoogTextRange.prototype.containsRange = function(
     otherRange, opt_allowPartial) {
   var otherRangeType = otherRange.getType();
   if (otherRangeType == RangeType.TEXT) {
@@ -340,7 +341,7 @@ TextRange.prototype.containsRange = function(
     return fn(
         elements,
         /**
-                 * @this {TextRange}
+                 * @this {GoogTextRange}
                  * @param {!Element} el
                  * @return {boolean}
                  */
@@ -354,9 +355,9 @@ TextRange.prototype.containsRange = function(
 
 
 /** @override */
-TextRange.prototype.containsNode = function(node, opt_allowPartial) {
+GoogTextRange.prototype.containsNode = function(node, opt_allowPartial) {
   return this.containsRange(
-      TextRange.createFromNodeContents(node), opt_allowPartial);
+      GoogTextRange.createFromNodeContents(node), opt_allowPartial);
 };
 
 
@@ -366,7 +367,7 @@ TextRange.prototype.containsNode = function(node, opt_allowPartial) {
  * @param {Node} node The node to check.
  * @return {boolean} Whether the given node is in the given document.
  */
-TextRange.isAttachedNode = function(node) {
+GoogTextRange.isAttachedNode = function(node) {
   if (userAgent.IE && !userAgent.isDocumentModeOrHigher(9)) {
     var returnValue = false;
 
@@ -385,28 +386,28 @@ TextRange.isAttachedNode = function(node) {
 
 
 /** @override */
-TextRange.prototype.isRangeInDocument = function() {
+GoogTextRange.prototype.isRangeInDocument = function() {
   // Ensure any cached nodes are in the document.
   return (!this.startNode_ ||
-          TextRange.isAttachedNode(this.startNode_)) &&
-      (!this.endNode_ || TextRange.isAttachedNode(this.endNode_));
+          GoogTextRange.isAttachedNode(this.startNode_)) &&
+      (!this.endNode_ || GoogTextRange.isAttachedNode(this.endNode_));
 };
 
 
 /** @override */
-TextRange.prototype.isCollapsed = function() {
+GoogTextRange.prototype.isCollapsed = function() {
   return this.getBrowserRangeWrapper_().isCollapsed();
 };
 
 
 /** @override */
-TextRange.prototype.getText = function() {
+GoogTextRange.prototype.getText = function() {
   return this.getBrowserRangeWrapper_().getText();
 };
 
 
 /** @override */
-TextRange.prototype.getHtmlFragment = function() {
+GoogTextRange.prototype.getHtmlFragment = function() {
   // TODO(robbyw): Generalize the code in browserrange so it is static and
   // just takes an iterator.  This would mean we don't always have to create a
   // browser range.
@@ -415,7 +416,7 @@ TextRange.prototype.getHtmlFragment = function() {
 
 
 /** @override */
-TextRange.prototype.getValidHtml = function() {
+GoogTextRange.prototype.getValidHtml = function() {
   return this.getBrowserRangeWrapper_().getValidHtml();
 };
 
@@ -424,7 +425,7 @@ TextRange.prototype.getValidHtml = function() {
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
-TextRange.prototype.getPastableHtml = function() {
+GoogTextRange.prototype.getPastableHtml = function() {
   // TODO(robbyw): Get any attributes the table or tr has.
 
   var html = this.getValidHtml();
@@ -465,7 +466,7 @@ TextRange.prototype.getPastableHtml = function() {
  * @return {!TextRangeIterator} An iterator over tags in the range.
  * @override
  */
-TextRange.prototype.__iterator__ = function(opt_keys) {
+GoogTextRange.prototype.__iterator__ = function(opt_keys) {
   return new TextRangeIterator(
       this.getStartNode(), this.getStartOffset(), this.getEndNode(),
       this.getEndOffset());
@@ -476,13 +477,13 @@ TextRange.prototype.__iterator__ = function(opt_keys) {
 
 
 /** @override */
-TextRange.prototype.select = function() {
+GoogTextRange.prototype.select = function() {
   this.getBrowserRangeWrapper_().select(this.isReversed_);
 };
 
 
 /** @override */
-TextRange.prototype.removeContents = function() {
+GoogTextRange.prototype.removeContents = function() {
   this.getBrowserRangeWrapper_().removeContents();
   this.clearCachedValues_();
 };
@@ -498,7 +499,7 @@ TextRange.prototype.removeContents = function() {
  * @return {Element} The surrounding element (same as the argument on Mozilla,
  *    but not on IE), or null if unsuccessful.
  */
-TextRange.prototype.surroundContents = function(element) {
+GoogTextRange.prototype.surroundContents = function(element) {
   var output = this.getBrowserRangeWrapper_().surroundContents(element);
   this.clearCachedValues_();
   return output;
@@ -506,7 +507,7 @@ TextRange.prototype.surroundContents = function(element) {
 
 
 /** @override */
-TextRange.prototype.insertNode = function(node, before) {
+GoogTextRange.prototype.insertNode = function(node, before) {
   var output = this.getBrowserRangeWrapper_().insertNode(node, before);
   this.clearCachedValues_();
   return output;
@@ -514,7 +515,7 @@ TextRange.prototype.insertNode = function(node, before) {
 
 
 /** @override */
-TextRange.prototype.surroundWithNodes = function(startNode, endNode) {
+GoogTextRange.prototype.surroundWithNodes = function(startNode, endNode) {
   this.getBrowserRangeWrapper_().surroundWithNodes(startNode, endNode);
   this.clearCachedValues_();
 };
@@ -524,12 +525,12 @@ TextRange.prototype.surroundWithNodes = function(startNode, endNode) {
 
 
 /** @override */
-TextRange.prototype.saveUsingDom = function() {
+GoogTextRange.prototype.saveUsingDom = function() {
   return new DomSavedTextRange_(this);
 };
 
 /** @override */
-TextRange.prototype.saveUsingCarets = function() {
+GoogTextRange.prototype.saveUsingCarets = function() {
   return (this.getStartNode() && this.getEndNode()) ?
       new SavedCaretRange(this) :
       null;
@@ -540,7 +541,7 @@ TextRange.prototype.saveUsingCarets = function() {
 
 
 /** @override */
-TextRange.prototype.collapse = function(toAnchor) {
+GoogTextRange.prototype.collapse = function(toAnchor) {
   var toStart = this.isReversed() ? !toAnchor : toAnchor;
 
   if (this.browserRangeWrapper_) {

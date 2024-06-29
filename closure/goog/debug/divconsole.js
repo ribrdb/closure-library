@@ -19,7 +19,7 @@ import * as log from '../log/log.js';
 import { Const } from '../string/const.js';
 import * as style from '../style/style.js';
 goog.requireType('goog.debug.formatter');
-goog.requireType('goog.log.log');
+const { LogRecord } = goog.requireType('goog.log.log');
 
 
 /**
@@ -85,7 +85,7 @@ DivConsole.prototype.setCapturing = function(capturing) {
 
 /**
  * Adds a log record.
- * @param {?log.LogRecord} logRecord The log entry.
+ * @param {?LogRecord} logRecord The log entry.
  */
 DivConsole.prototype.addLogRecord = function(logRecord) {
   if (!logRecord) {

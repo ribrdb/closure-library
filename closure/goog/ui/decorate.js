@@ -11,14 +11,14 @@
 
 import * as registry from './registry.js';
 
-goog.requireType('goog.ui.component');
+const { Component } = goog.requireType('goog.ui.component');
 
 
 /**
- * Decorates the element with a suitable {@link goog.ui.Component} instance, if
+ * Decorates the element with a suitable {@link Component} instance, if
  * a matching decorator is found.
  * @param {Element} element Element to decorate.
- * @return {goog.ui.Component?} New component instance, decorating the element.
+ * @return {Component?} New component instance, decorating the element.
  */
 export function decorate(element) {
  var decorator = registry.getDecorator(element);

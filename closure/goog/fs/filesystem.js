@@ -10,7 +10,7 @@
 
 goog.declareModuleId('goog.fs.filesystem');
 
-const {Entry} = goog.requireType('goog.fs.entry');
+const {DirectoryEntry} = goog.requireType('goog.fs.entry');
 
 
 

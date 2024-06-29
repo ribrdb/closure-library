@@ -12,9 +12,7 @@ goog.setTestOnly('goog.testing.StrictMock');
 
 import * as array from '../array/array.js';
 import * as asserts from '../asserts/asserts.js';
-import { Mock } from './mock.js';
-goog.requireType('goog.testing.mock');
-
+import { Mock, MockExpectation } from './mock.js';
 
 
 /**

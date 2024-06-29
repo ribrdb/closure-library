@@ -7,10 +7,8 @@
 goog.setTestOnly();
 
 import { recordFunction } from '../testing/recordfunction.js';
-import fullTypes from './full_types.js';
-const {ReadableStream, ReadableStreamDefaultController, ReadableStreamStrategy, ReadableStreamUnderlyingSource} = fullTypes;
-import liteTestCases from './lite_test_cases.js';
-const {TestCases: LiteTestCases} = liteTestCases;
+import {ReadableStream, ReadableStreamDefaultController, ReadableStreamStrategy, ReadableStreamUnderlyingSource} from './full_types.js';
+import {TestCases as LiteTestCases} from './lite_test_cases.js';
 
 /**
  * @return {number}

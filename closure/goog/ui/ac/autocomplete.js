@@ -17,8 +17,8 @@ import * as events from '../../events/events.js';
 import { EventTarget } from '../../events/eventtarget.js';
 import object from '../../object/object.js';
 import { RenderOptions } from './renderoptions.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.ac.inputhandler');
+const { Event } = goog.requireType('goog.events.event');
+const { InputHandler } = goog.requireType('goog.ui.ac.inputhandler');
 
 
 /**
@@ -364,11 +364,11 @@ AutoComplete.prototype.getHighlightedId = function() {
 
 /**
  * Generic event handler that handles any events this object is listening to.
- * @param {events.Event} e Event Object.
+ * @param {Event} e Event Object.
  * @suppress {missingProperties} e.row
  */
 AutoComplete.prototype.handleEvent = function(e) {
-  var matcher = /** @type {?goog.ui.ac.AutoComplete.Matcher} */ (this.matcher_);
+  var matcher = /** @type {?AutoComplete.Matcher} */ (this.matcher_);
 
   if (e.target == this.renderer_) {
     switch (e.type) {
@@ -639,7 +639,7 @@ AutoComplete.prototype.selectHilited = function() {
   if (index != -1) {
     var selectedRow = this.rows_[index];
     var suppressUpdate =
-        /** @type {!goog.ui.ac.InputHandler} */ (this.selectionHandler_)
+        /** @type {!InputHandler} */ (this.selectionHandler_)
             .selectRow(selectedRow);
     if (this.triggerSuggestionsOnUpdate_) {
       this.token_ = null;
@@ -872,7 +872,7 @@ AutoComplete.prototype.getIdOfIndex_ = function(index) {
  */
 AutoComplete.prototype.attachInputs = function(var_args) {
   // Delegate to the input handler
-  var inputHandler = /** @type {goog.ui.ac.InputHandler} */
+  var inputHandler = /** @type {InputHandler} */
       (this.selectionHandler_);
   inputHandler.attachInputs.apply(inputHandler, arguments);
 };
@@ -885,7 +885,7 @@ AutoComplete.prototype.attachInputs = function(var_args) {
  */
 AutoComplete.prototype.detachInputs = function(var_args) {
   // Delegate to the input handler
-  var inputHandler = /** @type {goog.ui.ac.InputHandler} */
+  var inputHandler = /** @type {InputHandler} */
       (this.selectionHandler_);
   inputHandler.detachInputs.apply(inputHandler, arguments);
 
@@ -917,7 +917,7 @@ AutoComplete.prototype.attachInputWithAnchor = function(
  * @param {boolean=} opt_force Whether to force an update.
  */
 AutoComplete.prototype.update = function(opt_force) {
-  var inputHandler = /** @type {goog.ui.ac.InputHandler} */
+  var inputHandler = /** @type {InputHandler} */
       (this.selectionHandler_);
   inputHandler.update(opt_force);
 };

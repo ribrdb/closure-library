@@ -312,6 +312,6 @@ class TestCases {
   }
 }
 
-export default {
+export {
   TestCases,
 };

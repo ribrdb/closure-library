@@ -13,7 +13,7 @@ import { Role } from '../a11y/aria/roles.js';
 
 import { Component } from './component.js';
 import { ControlRenderer } from './controlrenderer.js';
-goog.requireType('goog.ui.control');
+const { Control } = goog.requireType('goog.ui.control');
 
 
 
@@ -66,7 +66,7 @@ TabRenderer.prototype.getAriaRole = function() {
  *
  *    <div class="goog-tab" title="Title">Content</div>
  *
- * @param {goog.ui.Control} tab Tab to render.
+ * @param {Control} tab Tab to render.
  * @return {Element} Root element for the tab.
  * @override
  */
@@ -88,7 +88,7 @@ TabRenderer.prototype.createDom = function(tab) {
  * Decorates the element with the tab.  Initializes the tab's ID, content,
  * tooltip, and state based on the ID of the element, its title, child nodes,
  * and CSS classes, respectively.  Returns the element.
- * @param {goog.ui.Control} tab Tab to decorate the element.
+ * @param {Control} tab Tab to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override

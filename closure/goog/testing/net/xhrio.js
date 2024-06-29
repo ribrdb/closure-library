@@ -24,7 +24,7 @@ import { XhrIo as netXhrIo } from '../../net/xhrio.js';
 import { XmlHttp } from '../../net/xmlhttp.js';
 import object from '../../object/object.js';
 import { TestQueue } from '../testqueue.js';
-goog.requireType('goog.net.xhrlike');
+const { XhrLike } = goog.requireType('goog.net.xhrlike');
 
 /**
  * Mock implementation of netXhrIo. This doesn't provide a mock
@@ -411,7 +411,7 @@ XhrIo_.prototype.send = function(
 
 /**
  * Creates a new XHR object.
- * @return {!goog.net.XhrLike.OrNative} The newly created XHR object.
+ * @return {!XhrLike.OrNative} The newly created XHR object.
  * @override
  */
 XhrIo_.prototype.createXhr = function() {

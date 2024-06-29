@@ -15,7 +15,11 @@
  * TODO: Make base64 and baseN classes that have common interface.  (Perhaps...)
  */
 
-BASE_BINARY = '01';
+/**
+ * Base-2, i.e. '01'.
+ * @type {string}
+ */
+export var BASE_BINARY = '01';
 
 
 /**
@@ -225,4 +229,3 @@ function arrayToString_(number, base) {
   }
   return chars.join('');
 }
-export var BASE_BINARY;

@@ -15,7 +15,7 @@ import { EventHandler } from '../events/eventhandler.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { Container } from './container.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -108,7 +108,7 @@ ContainerScroller.prototype.disableHover_ = false;
  * Helps enforce two constraints: scrolling should not cause mouse highlights,
  * and mouse highlights should not cause scrolling.
  *
- * @param {goog.events.Event} e The container's ENTER event.
+ * @param {Event} e The container's ENTER event.
  * @private
  */
 ContainerScroller.prototype.onEnter_ = function(e) {
@@ -127,7 +127,7 @@ ContainerScroller.prototype.onEnter_ = function(e) {
 
 /**
  * Handles highlight events on the container's children.
- * @param {goog.events.Event} e The container's highlight event.
+ * @param {Event} e The container's highlight event.
  * @private
  */
 ContainerScroller.prototype.onHighlight_ = function(e) {
@@ -141,7 +141,7 @@ ContainerScroller.prototype.onHighlight_ = function(e) {
  * then adjust it to make the highlighted element be in view (if there is one).
  * If there was no previous scroll position, then center the highlighted
  * element (if there is one).
- * @param {goog.events.Event} e The container's AFTER_SHOW event.
+ * @param {Event} e The container's AFTER_SHOW event.
  * @private
  */
 ContainerScroller.prototype.onAfterShow_ = function(e) {
@@ -160,7 +160,7 @@ ContainerScroller.prototype.onAfterShow_ = function(e) {
  * Handles hide events on the container. Clears out the last enter target,
  * since it is no longer applicable, and remembers the scroll position of
  * the menu so that it can be restored when the menu is reopened.
- * @param {goog.events.Event} e The container's hide event.
+ * @param {Event} e The container's hide event.
  * @private
  */
 ContainerScroller.prototype.onHide_ = function(e) {

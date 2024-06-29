@@ -12,13 +12,13 @@
 
 import { Disposable } from '../disposable/disposable.js';
 
-goog.requireType('goog.uri.uri');
+const { Uri } = goog.requireType('goog.uri.uri');
 
 
 
 /**
  * Helper class used to load multiple URIs.
- * @param {Array<string|goog.Uri>} uris The URIs to load.
+ * @param {Array<string|Uri>} uris The URIs to load.
  * @constructor
  * @extends {Disposable}
  * @final
@@ -28,7 +28,7 @@ export function BulkLoaderHelper(uris) {
 
  /**
   * The URIs to load.
-  * @type {Array<string|goog.Uri>}
+  * @type {Array<string|Uri>}
   * @private
   */
  this.uris_ = uris;
@@ -47,7 +47,7 @@ goog.inherits(BulkLoaderHelper, Disposable);
 /**
  * Gets the URI by id.
  * @param {number} id The id.
- * @return {string|goog.Uri} The URI specified by the id.
+ * @return {string|Uri} The URI specified by the id.
  */
 BulkLoaderHelper.prototype.getUri = function(id) {
  return this.uris_[id];
@@ -56,7 +56,7 @@ BulkLoaderHelper.prototype.getUri = function(id) {
 
 /**
  * Gets the URIs.
- * @return {Array<string|goog.Uri>} The URIs.
+ * @return {Array<string|Uri>} The URIs.
  */
 BulkLoaderHelper.prototype.getUris = function() {
  return this.uris_;

@@ -16,8 +16,8 @@ import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { MenuButtonRenderer } from './menubuttonrenderer.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
+const { Control } = goog.requireType('goog.ui.control');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -55,7 +55,7 @@ ColorMenuButtonRenderer.CSS_CLASS =
  * The 'goog-color-menu-button-indicator' style should be defined to have a
  * bottom border of nonzero width and a default color that blends into its
  * background.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure.
+ * @param {ControlContent} content Text caption or DOM structure.
  * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.
  * @override
@@ -69,7 +69,7 @@ ColorMenuButtonRenderer.prototype.createCaption = function(
 
 /**
  * Wrap a caption in a div with the color-menu-button-indicator CSS class.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure.
+ * @param {ControlContent} content Text caption or DOM structure.
  * @param {DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.
  */
@@ -125,7 +125,7 @@ ColorMenuButtonRenderer.setCaptionValue = function(caption, value) {
  * Initializes the button's DOM when it enters the document.  Overrides the
  * superclass implementation by making sure the button's color indicator is
  * initialized.
- * @param {goog.ui.Control} button goog.ui.ColorMenuButton whose DOM is to be
+ * @param {Control} button goog.ui.ColorMenuButton whose DOM is to be
  *     initialized as it enters the document.
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks

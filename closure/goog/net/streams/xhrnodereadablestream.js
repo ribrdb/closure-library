@@ -12,9 +12,7 @@ import { NodeReadableStream } from './nodereadablestream.js';
 
 import * as googArray from '../../array/array.js';
 import * as googLog from '../../log/log.js';
-import xhrStreamReader from './xhrstreamreader.js';
-const {XhrStreamReader, XhrStreamReaderStatus} = xhrStreamReader;
-
+import {XhrStreamReader, XhrStreamReaderStatus} from './xhrstreamreader.js';
 
 /**
  * The XhrNodeReadableStream class.

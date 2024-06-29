@@ -11,12 +11,11 @@
 
 
 import { Element } from './element.js';
+import { StrokeAndFillElement as GraphicsStrokeAndFillElement } from '../strokeandfillelement.js';
 
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.stroke');
-goog.requireType('goog.graphics.strokeandfillelement');
-goog.requireType('goog.graphics.ext.group');
-
+const { Fill } = goog.requireType('goog.graphics.fill');
+const { Stroke } = goog.requireType('goog.graphics.stroke');
+const { Group } = goog.requireType('goog.graphics.ext.group');
 
 
 /**
@@ -24,8 +23,8 @@ goog.requireType('goog.graphics.ext.group');
  * This is the base interface for ellipse, rectangle and other
  * shape interfaces.
  * You should not construct objects from this constructor. Use a subclass.
- * @param {goog.graphics.ext.Group} group Parent for this element.
- * @param {goog.graphics.StrokeAndFillElement} wrapper The thin wrapper to wrap.
+ * @param {Group} group Parent for this element.
+ * @param {GraphicsStrokeAndFillElement} wrapper The thin wrapper to wrap.
  * @constructor
  * @extends {Element}
  */
@@ -38,7 +37,7 @@ goog.inherits(
 
 /**
  * Sets the fill for this element.
- * @param {goog.graphics.Fill?} fill The fill object.
+ * @param {Fill?} fill The fill object.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 StrokeAndFillElement.prototype.setFill = function(fill) {
@@ -48,7 +47,7 @@ StrokeAndFillElement.prototype.setFill = function(fill) {
 
 /**
  * Sets the stroke for this element.
- * @param {goog.graphics.Stroke?} stroke The stroke object.
+ * @param {Stroke?} stroke The stroke object.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 StrokeAndFillElement.prototype.setStroke = function(stroke) {

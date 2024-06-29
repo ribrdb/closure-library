@@ -35,10 +35,10 @@ import { MenuItem } from './menuitem.js';
 import { MenuSeparator } from './menuseparator.js';
 import * as registry from './registry.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menuitemrenderer');
+const { Event } = goog.requireType('goog.events.event');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { MenuItemRenderer } = goog.requireType('goog.ui.menuitemrenderer');
 
 
 
@@ -690,7 +690,7 @@ ComboBox.prototype.onDocClicked_ = function(e) {
 
 /**
  * Handle the menu's select event.
- * @param {goog.events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 ComboBox.prototype.onMenuSelected_ = function(e) {
@@ -730,7 +730,7 @@ ComboBox.prototype.onInputBlur_ = function(e) {
 /**
  * Handles keyboard events from the input box.  Returns true if the combo box
  * was able to handle the event, false otherwise.
- * @param {goog.events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} Whether the event was handled by the combo box.
  * @protected
  * @suppress {visibility} performActionInternal
@@ -788,7 +788,7 @@ ComboBox.prototype.handleKeyEvent = function(e) {
 
 /**
  * Handles the content of the input box changing.
- * @param {goog.events.Event} e The INPUT event to handle.
+ * @param {Event} e The INPUT event to handle.
  * @private
  */
 ComboBox.prototype.onInputEvent_ = function(e) {
@@ -908,7 +908,7 @@ ComboBox.prototype.isItemSticky_ = function(item) {
 
 /**
  * Class for combo box items.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to
+ * @param {ControlContent} content Text caption or DOM structure to
  *     display as the content of the item (use to add icons or styling to
  *     menus).
  * @param {*=} opt_data Identifying data for the menu item.

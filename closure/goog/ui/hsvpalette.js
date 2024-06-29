@@ -27,8 +27,8 @@ import * as bidi from '../style/bidi.js';
 import { Component } from './component.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.rect');
+const { Event } = goog.requireType('goog.events.event');
+const { Rect } = goog.requireType('goog.math.rect');
 
 
 
@@ -430,7 +430,7 @@ HsvPalette.prototype.updateUi = function() {
 
 /**
  * Handles mousedown events on palette UI elements.
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  * @protected
  */
 HsvPalette.prototype.handleMouseDown = function(e) {
@@ -462,9 +462,9 @@ HsvPalette.prototype.handleMouseDown = function(e) {
 /**
  * Handles mousemove events on the document once a drag operation on the value
  * slider has started.
- * @param {goog.math.Rect} b Boundaries of the value slider object at the start
+ * @param {Rect} b Boundaries of the value slider object at the start
  *     of the drag operation.
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  * @private
  */
 HsvPalette.prototype.handleMouseMoveV_ = function(b, e) {
@@ -483,9 +483,9 @@ HsvPalette.prototype.handleMouseMoveV_ = function(b, e) {
 /**
  * Handles mousemove events on the document once a drag operation on the
  * hue/saturation slider has started.
- * @param {goog.math.Rect} b Boundaries of the value slider object at the start
+ * @param {Rect} b Boundaries of the value slider object at the start
  *     of the drag operation.
- * @param {events.BrowserEvent} e Event object.
+ * @param {BrowserEvent} e Event object.
  * @private
  */
 HsvPalette.prototype.handleMouseMoveHs_ = function(b, e) {
@@ -505,7 +505,7 @@ HsvPalette.prototype.handleMouseMoveHs_ = function(b, e) {
 
 /**
  * Handles mouseup events on the document, which ends a drag operation.
- * @param {events.Event} e Event object.
+ * @param {Event} e Event object.
  * @protected
  */
 HsvPalette.prototype.handleMouseUp = function(e) {
@@ -516,7 +516,7 @@ HsvPalette.prototype.handleMouseUp = function(e) {
 
 /**
  * Handles input events on the hex value input field.
- * @param {events.Event} e Event object.
+ * @param {Event} e Event object.
  * @protected
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

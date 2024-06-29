@@ -17,8 +17,8 @@ import { Plugin } from '../plugin.js';
 import * as range from '../range.js';
 import * as events from '../../events/events.js';
 import { AbstractDialog } from '../../ui/editor/abstractdialog.js';
-goog.requireType('goog.dom.savedrange');
-goog.requireType('goog.events.event');
+const { SavedRange } = goog.requireType('goog.dom.savedrange');
+const { Event } = goog.requireType('goog.events.event');
 
 
 // *** Public interface ***************************************************** //
@@ -68,7 +68,7 @@ export function AbstractDialogPlugin(command) {
 
  /**
    * SavedRange representing the selection before the dialog was opened.
-   * @private {?dom.SavedRange}
+   * @private {?SavedRange}
    */
  this.savedRange_ = null;
 }
@@ -226,7 +226,7 @@ AbstractDialogPlugin.prototype.execCommandInternal =
  * subclass' responsibility to place the selection in the desired place during
  * the OK or Cancel (or other) handler. In that case, this method will leave the
  * selection in place.
- * @param {events.Event} e The AFTER_HIDE event object.
+ * @param {Event} e The AFTER_HIDE event object.
  * @protected
  */
 AbstractDialogPlugin.prototype.handleAfterHide = function(

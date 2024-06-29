@@ -17,7 +17,7 @@ import { BrowserFeature } from '../../editor/browserfeature.js';
 import * as node from '../../editor/node.js';
 import { AbstractBubblePlugin } from '../../editor/plugins/abstractbubbleplugin.js';
 import * as testingDom from '../dom.js';
-goog.requireType('goog.dom.abstractrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -144,7 +144,7 @@ TestHelper.prototype.findTextNode = function(textOrRegexp) {
  *     at.
  * @param {number=} opt_toOffset Offset within the above node to end the
  *     selection at.
- * @return {!dom.AbstractRange}
+ * @return {!AbstractRange}
  */
 TestHelper.prototype.select = function(
     from, fromOffset, opt_to, opt_toOffset) {

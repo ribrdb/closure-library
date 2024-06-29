@@ -12,7 +12,7 @@
  * @see ../demos/inputdatepicker.html
  */
 
-import { DateTime } from '../date/date.js';
+import { DateTime, Date, DateLike } from '../date/date.js';
 
 import * as dom from '../dom/dom.js';
 import { InputType } from '../dom/inputtype.js';
@@ -24,10 +24,8 @@ import { DatePicker } from './datepicker.js';
 import { LabelInput } from './labelinput.js';
 import { PopupBase } from './popupbase.js';
 import { PopupDatePicker } from './popupdatepicker.js';
-goog.requireType('goog.date.date');
-goog.requireType('goog.date.date');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.datepicker');
+const { Event } = goog.requireType('goog.events.event');
+const { DatePickerEvent } = goog.requireType('goog.ui.datepicker');
 
 
 
@@ -139,7 +137,7 @@ InputDatePicker.prototype.getDate = function() {
 
 /**
  * Sets the selected date.  See PopupDatePicker.setDate().
- * @param {goog.date.Date} date The date to set.
+ * @param {Date} date The date to set.
  */
 InputDatePicker.prototype.setDate = function(date) {
   this.popupDatePicker_.setDate(date);
@@ -183,7 +181,7 @@ InputDatePicker.prototype.getInputValue = function() {
 /**
  * Sets the value of the input element from date object.
  *
- * @param {?goog.date.Date} date The value to set.
+ * @param {?Date} date The value to set.
  * @private
  */
 InputDatePicker.prototype.setInputValueAsDate_ = function(date) {
@@ -210,7 +208,7 @@ InputDatePicker.prototype.getInputValueAsDate_ = function() {
       // Same is true for any other pattern when number entered by user is
       // different from number of digits in the pattern. (YY and 1 will be 1AD).
       // See i18n/datetimeparse.js
-      // Conversion happens in goog.date.Date/DateTime constructor
+      // Conversion happens in Date/DateTime constructor
       // when it calls new Date(year...). See ui/datepicker.js.
       return date;
     }
@@ -329,7 +327,7 @@ InputDatePicker.prototype.hidePopup = function() {
 /**
  * Event handler for popup date picker popup events.
  *
- * @param {goog.events.Event} e popup event.
+ * @param {Event} e popup event.
  * @private
  */
 InputDatePicker.prototype.onPopup_ = function(e) {
@@ -362,7 +360,7 @@ InputDatePicker.prototype.onDateChanged_ = function(e) {
 InputDatePicker.DateFormatter = function() {};
 
 /**
- * @param {!goog.date.DateLike} date The Date object that is being formatted.
+ * @param {!DateLike} date The Date object that is being formatted.
  * @return {string} The formatted date value.
  */
 InputDatePicker.DateFormatter.prototype.format = function(date) {};
@@ -378,7 +376,7 @@ InputDatePicker.DateParser = function() {};
 
 /**
  * @param {string} text The string being parsed.
- * @param {!goog.date.DateLike} date The Date object to hold the parsed date.
+ * @param {!DateLike} date The Date object to hold the parsed date.
  * @param {!DateTimeParse.ParseOptions=} options The options object.
  * @return {number} How many characters parser advanced.
  */

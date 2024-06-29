@@ -29,15 +29,14 @@ import { DeferredChannel } from './deferredchannel.js';
 import object from '../object/object.js';
 import * as googString from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.messaging.messagechannel');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
 /**
  * A wrapper for several types of HTML5 message-passing entities
  * ({@link MessagePort}s and {@link Worker}s). This class implements the
- * {@link goog.messaging.MessageChannel} interface.
+ * {@link MessageChannel} interface.
  *
  * This class can be used in conjunction with other communication on the port.
  * It sets {@link PortChannel.FLAG} to true on all messages it
@@ -154,7 +153,7 @@ PortChannel.forEmbeddedWindow = function(
  *
  * @param {string} peerOrigin The expected origin of the enclosing document. See
  *     http://dev.w3.org/html5/postmsg/#dom-window-postmessage.
- * @return {!goog.messaging.MessageChannel} The PortChannel. Although this may
+ * @return {!MessageChannel} The PortChannel. Although this may
  *     not actually be an instance of the PortChannel class, it will behave like
  *     one in that MessagePorts may be sent across it.
  */
@@ -262,7 +261,7 @@ PortChannel.prototype.send = function(serviceName, payload) {
  * Delivers a message to the appropriate service handler. If this message isn't
  * a GearsWorkerChannel message, it's ignored and passed on to other handlers.
  *
- * @param {events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 PortChannel.prototype.deliver_ = function(e) {

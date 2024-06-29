@@ -13,7 +13,7 @@ goog.setTestOnly('goog.testing.LooseExpectationCollection');
 import * as array from '../array/array.js';
 import * as asserts from '../asserts/asserts.js';
 import { Mock } from './mock.js';
-goog.requireType('goog.testing.mock');
+const { MockExpectation } = goog.requireType('goog.testing.mock');
 
 
 

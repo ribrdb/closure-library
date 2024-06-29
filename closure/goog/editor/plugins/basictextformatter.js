@@ -12,7 +12,6 @@ import * as array from '../../array/array.js';
 
 import * as googDom from '../../dom/dom.js';
 import { NodeType } from '../../dom/nodetype.js';
-import * as Range from '../../dom/range.js';
 import { TagName } from '../../dom/tagname.js';
 import * as safe from '../../dom/safe.js';
 import { BrowserFeature } from '../browserfeature.js';
@@ -33,7 +32,8 @@ import { Const } from '../../string/const.js';
 import * as googStyle from '../../style/style.js';
 import * as messages from '../../ui/editor/messages.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
+import { createFromBrowserRange, createFromNodeContents, createFromNodes } from '../../dom/range.js';
+const {AbstractRange} = goog.requireType('goog.dom.abstractrange');
 
 /**
  * Functions to style text (e.g. underline, make bold, etc.)
@@ -138,7 +138,7 @@ BasicTextFormatter.prototype.isSilentCommand = function (
 };
 
 /**
- * @return {googDom.AbstractRange} The closure range object that wraps the
+ * @return {AbstractRange} The closure range object that wraps the
  *     current user selection.
  * @private
  */
@@ -282,10 +282,10 @@ BasicTextFormatter.prototype.execCommandInternal =
                 // Mark that we need to delete the placeholder selection later.
                 hasPlaceholderSelection = true;
 
-                Range.createFromBrowserRange(
+                createFromBrowserRange(
                   selection.getRangeAt(0)
                 ).replaceContentsWithNode(placeholderNode);
-                Range.createFromNodeContents(placeholderNode).select();
+                createFromNodeContents(placeholderNode).select();
               } else if (userAgent.WEBKIT) {
                 // For webkit, we need insert unselected, unformatted content
                 // at the start of the LI to prevent the list being split into 2
@@ -1004,7 +1004,7 @@ BasicTextFormatter.prototype.applyBgColorManually_ =
         );
         range.replaceContentsWithNode(parentTag);
       }
-      Range.createFromNodeContents(textNode).select();
+      createFromNodeContents(textNode).select();
     }
 
     this.execCommandHelper_("hiliteColor", bgColor, false, true);
@@ -1067,7 +1067,7 @@ BasicTextFormatter.prototype.toggleLink_ = function (
           editableLink.placeCursorRightOf();
         } else {
           var savedRange = editorRange.saveUsingNormalizedCarets(
-            Range.createFromNodeContents(editableLink.getAnchor())
+            createFromNodeContents(editableLink.getAnchor())
           );
           editableLink.removeLink();
           savedRange.restore().select();
@@ -1083,7 +1083,7 @@ BasicTextFormatter.prototype.toggleLink_ = function (
 /**
  * Create a link out of the current selection.  If nothing is selected, insert
  * a new link.  Otherwise, enclose the selection in a link.
- * @param {googDom.AbstractRange} range The closure range object for the
+ * @param {AbstractRange} range The closure range object for the
  *     current selection.
  * @param {string} url The url to link to.
  * @param {string=} opt_target Target for the link.
@@ -1336,11 +1336,11 @@ BasicTextFormatter.prototype.applyExecCommandIEFixes_ =
           toRemove.push(endDiv);
 
           if (bq) {
-            range = Range.createFromNodes(bq, 0, endDiv, 0);
+            range = createFromNodes(bq, 0, endDiv, 0);
           } else if (range.containsNode(endDiv)) {
             // the selection might be the entire blockquote, and
             // it's important that endDiv not be in the selection.
-            range = Range.createFromNodes(
+            range = createFromNodes(
               range.getStartNode(),
               range.getStartOffset(),
               endDiv,
@@ -1723,7 +1723,7 @@ BasicTextFormatter.prototype.beforeInsertListGecko_ =
         Unicode.NBSP
       );
       range.insertNode(tempTextNode, false);
-      Range.createFromNodeContents(tempTextNode).select();
+      createFromNodeContents(tempTextNode).select();
       return true;
     }
     return false;
@@ -1733,7 +1733,7 @@ BasicTextFormatter.prototype.beforeInsertListGecko_ =
 
 /**
  * Get the toolbar state for the block-level elements in the given range.
- * @param {googDom.AbstractRange} range The range to get toolbar state for.
+ * @param {AbstractRange} range The range to get toolbar state for.
  * @return {string?} The selection block state.
  * @private
  * @suppress {missingProperties}
@@ -1824,7 +1824,7 @@ BasicTextFormatter.prototype.isJustification_ = function (
      * disambiguated.
      */
     var bidiPlugin =
-      /** @type {!goog.editor.plugins.BasicTextFormatter.IBidiPlugin} */ (
+      /** @type {!BasicTextFormatter.IBidiPlugin} */ (
         /** @type {*} */ (maybeBidiPlugin)
       );
 

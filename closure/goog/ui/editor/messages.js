@@ -10,7 +10,7 @@
 
 import { SafeHtmlFormatter } from '../../html/safehtmlformatter.js';
 
-goog.requireType('goog.html.SafeHtml');
+const { SafeHtml } = goog.requireType('goog.html.SafeHtml');
 
 
 /** @desc Link button / bubble caption. */
@@ -46,7 +46,7 @@ MSG_TEST_THIS_LINK = goog.getMsg('Test this link');
 
 
 /**
- * @return {!goog.html.SafeHtml} SafeHtml version of MSG_TR_LINK_EXPLANATION.
+ * @return {!SafeHtml} SafeHtml version of MSG_TR_LINK_EXPLANATION.
  */
 export function getTrLinkExplanationSafeHtml() {
  const formatter = new SafeHtmlFormatter();
@@ -106,7 +106,7 @@ MSG_WHAT_EMAIL =
 
 
 /**
- * @return {!goog.html.SafeHtml} SafeHtml version of MSG_EMAIL_EXPLANATION.
+ * @return {!SafeHtml} SafeHtml version of MSG_EMAIL_EXPLANATION.
  */
 export function getEmailExplanationSafeHtml() {
  const formatter = new SafeHtmlFormatter();

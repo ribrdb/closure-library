@@ -31,18 +31,18 @@ import { SolidFill } from './solidfill.js';
 import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.graphics.affinetransform');
-goog.requireType('goog.graphics.element');
-goog.requireType('goog.graphics.ellipseelement');
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.groupelement');
-goog.requireType('goog.graphics.imageelement');
-goog.requireType('goog.graphics.path');
-goog.requireType('goog.graphics.pathelement');
-goog.requireType('goog.graphics.rectelement');
-goog.requireType('goog.graphics.stroke');
-goog.requireType('goog.graphics.strokeandfillelement');
-goog.requireType('goog.graphics.textelement');
+const { AffineTransform } = goog.requireType('goog.graphics.affinetransform');
+const { Element } = goog.requireType('goog.graphics.element');
+const { EllipseElement } = goog.requireType('goog.graphics.ellipseelement');
+const { Fill } = goog.requireType('goog.graphics.fill');
+const { GroupElement } = goog.requireType('goog.graphics.groupelement');
+const { ImageElement } = goog.requireType('goog.graphics.imageelement');
+const { Path } = goog.requireType('goog.graphics.path');
+const { PathElement } = goog.requireType('goog.graphics.pathelement');
+const { RectElement } = goog.requireType('goog.graphics.rectelement');
+const { Stroke } = goog.requireType('goog.graphics.stroke');
+const { StrokeAndFillElement } = goog.requireType('goog.graphics.strokeandfillelement');
+const { TextElement } = goog.requireType('goog.graphics.textelement');
 
 
 
@@ -73,9 +73,9 @@ goog.inherits(CanvasGraphics, AbstractGraphics);
 
 /**
  * Sets the fill for the given element.
- * @param {goog.graphics.StrokeAndFillElement} element The element
+ * @param {StrokeAndFillElement} element The element
  *     wrapper.
- * @param {goog.graphics.Fill} fill The fill object.
+ * @param {Fill} fill The fill object.
  * @override
  */
 CanvasGraphics.prototype.setElementFill = function(
@@ -86,9 +86,9 @@ CanvasGraphics.prototype.setElementFill = function(
 
 /**
  * Sets the stroke for the given element.
- * @param {goog.graphics.StrokeAndFillElement} element The element
+ * @param {StrokeAndFillElement} element The element
  *     wrapper.
- * @param {goog.graphics.Stroke} stroke The stroke object.
+ * @param {Stroke} stroke The stroke object.
  * @override
  */
 CanvasGraphics.prototype.setElementStroke = function(
@@ -102,7 +102,7 @@ CanvasGraphics.prototype.setElementStroke = function(
  *
  * If a more general affine transform is needed than this provides
  * (e.g. skew and scale) then use setElementAffineTransform.
- * @param {goog.graphics.Element} element The element wrapper.
+ * @param {Element} element The element wrapper.
  * @param {number} x The x coordinate of the translation transform.
  * @param {number} y The y coordinate of the translation transform.
  * @param {number} angle The angle of the rotation transform.
@@ -121,8 +121,8 @@ CanvasGraphics.prototype.setElementTransform = function(
  *
  * Note that in this implementation this method just calls this.redraw()
  * and the affineTransform param is unused.
- * @param {!goog.graphics.Element} element The element wrapper.
- * @param {!goog.graphics.AffineTransform} affineTransform The
+ * @param {!Element} element The element wrapper.
+ * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  * @override
  */
@@ -134,7 +134,7 @@ CanvasGraphics.prototype.setElementAffineTransform = function(
 
 /**
  * Push an element transform on to the transform stack.
- * @param {goog.graphics.Element} element The transformed element.
+ * @param {Element} element The transformed element.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 CanvasGraphics.prototype.pushElementTransform = function(
@@ -384,7 +384,7 @@ CanvasGraphics.prototype.redraw = function() {
 
 /**
  * Draw an element, including any stroke or fill.
- * @param {goog.graphics.Element} element The element to draw.
+ * @param {Element} element The element to draw.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 CanvasGraphics.prototype.drawElement = function(element) {
@@ -463,8 +463,8 @@ CanvasGraphics.prototype.drawElement = function(element) {
 /**
  * Append an element.
  *
- * @param {goog.graphics.Element} element The element to draw.
- * @param {goog.graphics.GroupElement|undefined} group The group to draw
+ * @param {Element} element The element to draw.
+ * @param {GroupElement|undefined} group The group to draw
  *     it in. If null or undefined, defaults to the root group.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -486,13 +486,13 @@ CanvasGraphics.prototype.append = function(element, group) {
  * @param {number} cy Center Y coordinate.
  * @param {number} rx Radius length for the x-axis.
  * @param {number} ry Radius length for the y-axis.
- * @param {goog.graphics.Stroke} stroke Stroke object describing the
+ * @param {Stroke} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper
+ * @param {Fill} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper
  *     element to append to.  If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.EllipseElement} The newly created element.
+ * @return {!EllipseElement} The newly created element.
  * @override
  */
 CanvasGraphics.prototype.drawEllipse = function(
@@ -511,13 +511,13 @@ CanvasGraphics.prototype.drawEllipse = function(
  * @param {number} y Y coordinate (top).
  * @param {number} width Width of rectangle.
  * @param {number} height Height of rectangle.
- * @param {goog.graphics.Stroke} stroke Stroke object describing the
+ * @param {Stroke} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper
+ * @param {Fill} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.RectElement} The newly created element.
+ * @return {!RectElement} The newly created element.
  * @override
  */
 CanvasGraphics.prototype.drawRect = function(
@@ -537,10 +537,10 @@ CanvasGraphics.prototype.drawRect = function(
  * @param {number} width Width of image.
  * @param {number} height Height of image.
  * @param {string} src Source of the image.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper
+ * @param {GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.ImageElement} The newly created element.
+ * @return {!ImageElement} The newly created element.
  */
 CanvasGraphics.prototype.drawImage = function(
     x, y, width, height, src, opt_group) {
@@ -561,12 +561,12 @@ CanvasGraphics.prototype.drawImage = function(
  * @param {number} y2 Y coordinate of end of line.
  * @param {?string} align Horizontal alignment: left (default), center, right.
  * @param {Font} font Font describing the font properties.
- * @param {goog.graphics.Stroke} stroke Stroke object describing the stroke.
- * @param {goog.graphics.Fill} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper
+ * @param {Stroke} stroke Stroke object describing the stroke.
+ * @param {Fill} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.TextElement} The newly created element.
+ * @return {!TextElement} The newly created element.
  * @override
  */
 CanvasGraphics.prototype.drawTextOnLine = function(
@@ -581,13 +581,13 @@ CanvasGraphics.prototype.drawTextOnLine = function(
 
 /**
  * Draw a path.
- * @param {!goog.graphics.Path} path The path object to draw.
- * @param {goog.graphics.Stroke} stroke Stroke object describing the stroke.
- * @param {goog.graphics.Fill} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper
+ * @param {!Path} path The path object to draw.
+ * @param {Stroke} stroke Stroke object describing the stroke.
+ * @param {Fill} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.PathElement} The newly created element.
+ * @return {!PathElement} The newly created element.
  * @override
  */
 CanvasGraphics.prototype.drawPath = function(
@@ -600,7 +600,7 @@ CanvasGraphics.prototype.drawPath = function(
 
 
 /**
- * @param {goog.graphics.GroupElement} group The group to possibly
+ * @param {GroupElement} group The group to possibly
  *     draw to.
  * @return {boolean} Whether drawing can occur now.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -613,7 +613,7 @@ CanvasGraphics.prototype.isDrawable = function(group) {
 
 /**
  * Returns true if drawing to the given group means a redraw is required.
- * @param {goog.graphics.GroupElement} group The group to draw to.
+ * @param {GroupElement} group The group to draw to.
  * @return {boolean} Whether drawing to this group should force a redraw.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -626,7 +626,7 @@ CanvasGraphics.prototype.isRedrawRequired = function(group) {
 /**
  * Create an empty group of drawing elements.
  *
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper
+ * @param {GroupElement=} opt_group The group wrapper
  *     element to append to. If not specified, appends to the main canvas.
  *
  * @return {!CanvasGroupElement} The newly created group.
@@ -721,7 +721,7 @@ CanvasGraphics.prototype.resume = function() {
 
 /**
  * Removes an element from the Canvas.
- * @param {goog.graphics.Element} elem the element to remove.
+ * @param {Element} elem the element to remove.
  * @override
  */
 CanvasGraphics.prototype.removeElement = function(elem) {

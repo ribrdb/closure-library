@@ -280,7 +280,7 @@ NativeMessagingTransport.initialize_ = function(listenWindow) {
 
 /**
  * Processes an incoming message-event.
- * @param {events.BrowserEvent} msgEvt The message event.
+ * @param {BrowserEvent} msgEvt The message event.
  * @return {boolean} True if message was successfully delivered to a channel.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks

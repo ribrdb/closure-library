@@ -25,7 +25,7 @@ goog.declareModuleId('goog.soy.InjectedDataSupplier');
  * An interface for a supplier that provides Soy injected data.
  * @interface
  */
-export default class InjectedDataSupplier {
+export class InjectedDataSupplier {
   /**
    * Gets the injected data. Implementation may assume that
    * `goog.soy.Renderer` will treat the returned data as

@@ -1,27 +1,4 @@
-/**
- * @license
- * Copyright The Closure Library Authors.
- * SPDX-License-Identifier: Apache-2.0
- */
-/**
- * @fileoverview Number formatting symbols.
- *
- * File generated from CLDR ver. 43
- *
- * To reduce the file size (which may cause issues in some JS
- * developing environments), this file will only contain locales
- * that are frequently used by web applications. This is defined as
- * proto/closure_locales_data.txt and will change (most likely addition)
- * over time.  Rest of the data can be found in another file named
- * "numberformatsymbolsext.js", which will be generated at
- * the same time together with this file.
- *
- * @suppress {const,useOfGoogProvide}
- */
-
-// clang-format off
-
-goog.requireType('goog.i18n.NumberFormatSymbolsType');
+const NumberFormatSymbolsType = goog.requireType('NumberFormatSymbolsType');
 
 
 /**

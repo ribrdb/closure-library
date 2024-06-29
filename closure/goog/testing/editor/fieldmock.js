@@ -15,7 +15,7 @@ import * as Range from '../../dom/range.js';
 import { Field } from '../../editor/field.js';
 import { LooseMock } from '../loosemock.js';
 import * as mockmatchers from '../mockmatchers.js';
-goog.requireType('goog.dom.abstractrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
 
 
 
@@ -26,7 +26,7 @@ goog.requireType('goog.dom.abstractrange');
  * @param {Window=} opt_appWindow "AppWindow" of the field, which can be
  *     different from `opt_window` when mocking a field that uses an
  *     iframe. Defaults to `opt_window`.
- * @param {dom.AbstractRange=} opt_range An object (mock or real) to be
+ * @param {AbstractRange=} opt_range An object (mock or real) to be
  *     returned by getRange(). If omitted, a new Range is created
  *     from the window every time getRange() is called.
  * @constructor

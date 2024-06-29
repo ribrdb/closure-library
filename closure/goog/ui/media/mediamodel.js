@@ -11,7 +11,7 @@
 
 import { TrustedResourceUrl } from '../../html/trustedresourceurl.js';
 
-goog.requireType('goog.math.size');
+const { Size } = goog.requireType('goog.math.size');
 
 
 
@@ -409,7 +409,7 @@ MediaModel.prototype.findCategoryWithScheme = function(scheme) {
   return category ? scheme == category.getScheme() : false;
  }) ||
      null;
- return /** @type {?goog.ui.media.MediaModel.Category} */ (category);
+ return /** @type {?MediaModel.Category} */ (category);
 };
 
 
@@ -444,7 +444,7 @@ MediaModel.prototype.findCreditsWithRole = function(role) {
  const credits = this.credits_.filter(function(credit) {
   return role == credit.getRole();
  });
- return /** @type {!Array<!goog.ui.media.MediaModel.Credit>} */ (credits);
+ return /** @type {!Array<!MediaModel.Credit>} */ (credits);
 };
 
 
@@ -473,7 +473,7 @@ MediaModel.prototype.setSubTitles = function(subtitles) {
  * Constructs a thumbnail containing details of the thumbnail's image URL and
  * optionally its size.
  * @param {string} url The URL of the thumbnail's image.
- * @param {goog.math.Size=} opt_size The size of the thumbnail's image if known.
+ * @param {Size=} opt_size The size of the thumbnail's image if known.
  * @constructor
  * @final
  */
@@ -487,7 +487,7 @@ MediaModel.Thumbnail = function(url, opt_size) {
 
  /**
   * The size of the thumbnail's image if known.
-  * @type {goog.math.Size}
+  * @type {Size}
   * @private
   */
  this.size_ = opt_size || null;
@@ -517,7 +517,7 @@ MediaModel.Thumbnail.prototype.setUrl = function(url) {
 
 /**
  * Gets the thumbnail size.
- * @return {goog.math.Size} The size of the thumbnail's image if known.
+ * @return {Size} The size of the thumbnail's image if known.
  */
 MediaModel.Thumbnail.prototype.getSize = function() {
  return this.size_;
@@ -526,7 +526,7 @@ MediaModel.Thumbnail.prototype.getSize = function() {
 
 /**
  * Sets the thumbnail size.
- * @param {goog.math.Size} size The size of the thumbnail's image.
+ * @param {Size} size The size of the thumbnail's image.
  * @return {!MediaModel.Thumbnail} The object itself, used for
  *     chaining.
  */
@@ -542,7 +542,7 @@ MediaModel.Thumbnail.prototype.setSize = function(size) {
  * optionally its size.
  * @param {!TrustedResourceUrl} url The URL of the player.
  * @param {Object=} opt_vars Optional map of arguments to the player.
- * @param {goog.math.Size=} opt_size The size of the player if known.
+ * @param {Size=} opt_size The size of the player if known.
  * @constructor
  * @final
  */
@@ -563,7 +563,7 @@ MediaModel.Player = function(url, opt_vars, opt_size) {
 
  /**
   * The size of the player if known.
-  * @type {goog.math.Size}
+  * @type {Size}
   * @private
   */
  this.size_ = opt_size || null;
@@ -623,7 +623,7 @@ MediaModel.Player.prototype.setVars = function(vars) {
 
 /**
  * Gets the size of the player.
- * @return {goog.math.Size} The size of the player if known.
+ * @return {Size} The size of the player if known.
  */
 MediaModel.Player.prototype.getSize = function() {
  return this.size_;
@@ -632,7 +632,7 @@ MediaModel.Player.prototype.getSize = function() {
 
 /**
  * Sets the size of the player.
- * @param {goog.math.Size} size The size of the player.
+ * @param {Size} size The size of the player.
  * @return {!MediaModel.Player} The object itself, used for
  *     chaining.
  */

@@ -258,7 +258,7 @@ xpcdemo.stopMousemoveForwarding = function() {
 
 /**
  * Function to be used as handler for mouse-events.
- * @param {events.BrowserEvent} e The mouse event.
+ * @param {BrowserEvent} e The mouse event.
  * @private
  */
 xpcdemo.mouseEventHandler_ = function(e) {

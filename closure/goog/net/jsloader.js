@@ -146,7 +146,7 @@ export function safeLoadMany(trustedUris, opt_options) {
  *     parameter.
  */
 export function safeLoad(trustedUri, opt_options) {
-  const options = opt_options || /** @type {!goog.net.jsloader.Options} */ ({});
+  const options = opt_options || /** @type {!Options} */ ({});
   const doc = options.document || document;
   const uri = TrustedResourceUrl.unwrap(trustedUri);
 

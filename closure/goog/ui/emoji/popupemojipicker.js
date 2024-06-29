@@ -28,10 +28,10 @@ import { Popup } from '../popup.js';
 import { EmojiPicker } from './emojipicker.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.popupbase');
-goog.requireType('goog.ui.tabpane');
-goog.requireType('goog.ui.emoji.emoji');
+const { Event } = goog.requireType('goog.events.event');
+const { PopupBase } = goog.requireType('goog.ui.popupbase');
+const { TabPane } = goog.requireType('goog.ui.tabpane');
+const { Emoji } = goog.requireType('goog.ui.emoji.emoji');
 
 
 
@@ -176,7 +176,7 @@ PopupEmojiPicker.prototype.setUrlPrefix = function(urlPrefix) {
  * Sets the location of the tabs in relation to the emoji grids. This should
  * only be called before the picker has been rendered.
  *
- * @param {goog.ui.TabPane.TabLocation} tabLocation The location of the tabs.
+ * @param {TabPane.TabLocation} tabLocation The location of the tabs.
  */
 PopupEmojiPicker.prototype.setTabLocation = function(
     tabLocation) {
@@ -370,7 +370,7 @@ PopupEmojiPicker.prototype.getLastTarget = function() {
 
 
 /**
- * @return {goog.ui.emoji.Emoji} The currently selected emoji.
+ * @return {Emoji} The currently selected emoji.
  */
 PopupEmojiPicker.prototype.getSelectedEmoji = function() {
   return this.emojiPicker_.getSelectedEmoji();
@@ -402,7 +402,7 @@ PopupEmojiPicker.prototype.show_ = function(e) {
 /**
  * Handles selection of an emoji.
  *
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @private
  */
 PopupEmojiPicker.prototype.onEmojiPicked_ = function(e) {

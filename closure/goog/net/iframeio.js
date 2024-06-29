@@ -150,8 +150,8 @@ import { Const } from '../string/const.js';
 import * as structs from '../structs/structs.js';
 import * as userAgent from '../useragent/useragent.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.html.SafeHtml');
-goog.requireType('goog.structs.map');
+const { SafeHtml } = goog.requireType('goog.html.SafeHtml');
+const { Map } = goog.requireType('goog.structs.map');
 
 
 
@@ -245,7 +245,7 @@ IframeIo.form_;
  *     request.
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
- * @param {Object|structs.Map=} opt_data Map of key-value pairs that
+ * @param {Object|Map=} opt_data Map of key-value pairs that
  *     will be posted to the server via the iframe's form.
  */
 IframeIo.send = function(
@@ -342,7 +342,7 @@ IframeIo.getForm_ = function() {
 /**
  * Adds the key value pairs from a map like data structure to a form
  * @param {HTMLFormElement} form The form to add to.
- * @param {Object|structs.Map|Uri.QueryData} data The data to add.
+ * @param {Object|Map|Uri.QueryData} data The data to add.
  * @private
  */
 IframeIo.addFormInputs_ = function(form, data) {
@@ -513,7 +513,7 @@ IframeIo.prototype.lastContentHtml_;
  *     request.
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
- * @param {Object|structs.Map=} opt_data Map of key-value pairs.
+ * @param {Object|Map=} opt_data Map of key-value pairs.
  */
 IframeIo.prototype.send = function(
     uri, opt_method, opt_noCache, opt_data) {
@@ -942,7 +942,7 @@ IframeIo.prototype.sendFormInternal_ = function() {
 
 /**
  * @param {string} innerFrameName
- * @return {!goog.html.SafeHtml}
+ * @return {!SafeHtml}
  * @private
  */
 IframeIo.createIframeHtml_ = function(innerFrameName) {
@@ -958,7 +958,7 @@ IframeIo.createIframeHtml_ = function(innerFrameName) {
 
 /**
  * @param {string} innerFrameName
- * @return {!goog.html.SafeHtml}
+ * @return {!SafeHtml}
  * @private
  */
 IframeIo.createIframeHtmlWithBaseUri_ = function(innerFrameName) {
@@ -978,7 +978,7 @@ IframeIo.createIframeHtmlWithBaseUri_ = function(innerFrameName) {
 /**
  * Handles the load event of the iframe for IE, determines if the request was
  * successful or not, handles clean up and dispatching of appropriate events.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 IframeIo.prototype.onIeReadyStateChange_ = function(e) {
@@ -1008,7 +1008,7 @@ IframeIo.prototype.onIeReadyStateChange_ = function(e) {
 
 /**
  * Handles the load event of the iframe for non-IE browsers.
- * @param {events.BrowserEvent} e The browser event.
+ * @param {BrowserEvent} e The browser event.
  * @private
  */
 IframeIo.prototype.onIframeLoaded_ = function(e) {

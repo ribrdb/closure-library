@@ -24,7 +24,7 @@ import { ModuleInfo } from './moduleinfo.js';
 import { ModuleLoadCallback } from './moduleloadcallback.js';
 import { ModuleLoadFailure } from './moduleloadfailure.js';
 import object from '../object/object.js';
-goog.requireType('goog.module.AbstractModuleLoader');
+const { AbstractModuleLoader } = goog.requireType('goog.module.AbstractModuleLoader');
 
 /**
  * A fake module ID used to handle synthetic module callbacks when their
@@ -107,7 +107,7 @@ export function ModuleManager() {
   this.userInitiatedLoadingModuleIds_ = [];
 
   /**
-     * @private @const {!module.AbstractModuleLoader.ExtraEdgesMap} Map of
+     * @private @const {!AbstractModuleLoader.ExtraEdgesMap} Map of
      *     extra edges to traverse in the module graph
      */
   this.extraEdges_ = {};

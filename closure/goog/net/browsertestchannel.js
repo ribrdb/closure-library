@@ -24,8 +24,8 @@ import { ServerReachability } from './browserchannelserverreachability.js';
 import * as stats from './browserchannelstats.js';
 import * as tmpnetwork from './tmpnetwork.js';
 import { Parser } from '../string/parser.js';
-goog.requireType('goog.net.browserchannel');
-goog.requireType('goog.net.channeldebug');
+const { BrowserChannel } = goog.requireType('goog.net.browserchannel');
+const { ChannelDebug } = goog.requireType('goog.net.channeldebug');
 
 
 
@@ -33,23 +33,23 @@ goog.requireType('goog.net.channeldebug');
  * Encapsulates the logic for a single BrowserTestChannel.
  *
  * @constructor
- * @param {goog.net.BrowserChannel} channel  The BrowserChannel that owns this
+ * @param {BrowserChannel} channel  The BrowserChannel that owns this
  *     test channel.
- * @param {goog.net.ChannelDebug} channelDebug A ChannelDebug to use for
+ * @param {ChannelDebug} channelDebug A ChannelDebug to use for
  *     logging.
  * @final
  */
 export function BrowserTestChannel(channel, channelDebug) {
   /**
    * The BrowserChannel that owns this test channel
-   * @type {goog.net.BrowserChannel}
+   * @type {BrowserChannel}
    * @private
    */
   this.channel_ = channel;
 
   /**
    * The channel debug to use for logging
-   * @type {goog.net.ChannelDebug}
+   * @type {ChannelDebug}
    * @private
    */
   this.channelDebug_ = channelDebug;
@@ -579,7 +579,7 @@ BrowserTestChannel.prototype.shouldUseSecondaryDomains = function() {
  * Gets whether this channel is currently active. This is used to determine the
  * length of time to wait before retrying.
  *
- * @param {goog.net.BrowserChannel} browserChannel The browser channel.
+ * @param {BrowserChannel} browserChannel The browser channel.
  * @return {boolean} Whether the channel is currently active.
  */
 BrowserTestChannel.prototype.isActive = function(browserChannel) {

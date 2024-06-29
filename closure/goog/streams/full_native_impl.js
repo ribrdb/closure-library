@@ -7,9 +7,9 @@
 /**
  * @fileoverview A native implementation of the ponyfill.
  */
-import fullTypes from './full_types.js';
+import * as fullTypes from './full_types.js';
 
-import liteNativeImpl from './lite_native_impl.js';
+import * as liteNativeImpl from './lite_native_impl.js';
 
 /**
  * The implemenation of ReadableStream.

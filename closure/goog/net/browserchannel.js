@@ -42,9 +42,9 @@ import object from '../object/object.js';
 import * as googString from '../string/string.js';
 import * as structs from '../structs/structs.js';
 import { CircularBuffer } from '../structs/circularbuffer.js';
-goog.requireType('goog.debug.formatter');
-goog.requireType('goog.string.parser');
-goog.requireType('goog.structs.map');
+const { Formatter } = goog.requireType('goog.debug.formatter');
+const { Parser } = goog.requireType('goog.string.parser');
+const { Map } = goog.requireType('goog.structs.map');
 
 
 
@@ -109,7 +109,7 @@ export function BrowserChannel(
 
   /**
      * Parser for a response payload. The parser should return an array.
-     * @type {!googString.Parser}
+     * @type {!Parser}
      * @private
      */
   this.parser_ = new NativeJsonProcessor();
@@ -157,7 +157,7 @@ BrowserChannel.getStatEventTarget =
 /**
  * Simple container class for a (mapId, map) pair.
  * @param {number} mapId The id for this map.
- * @param {Object|structs.Map} map The map itself.
+ * @param {Object|Map} map The map itself.
  * @param {Object=} opt_context The context associated with the map.
  * @constructor
  * @final
@@ -1187,7 +1187,7 @@ BrowserChannel.prototype.hasOutstandingRequests = function() {
 
 /**
  * Sets a new parser for the response payload.
- * @param {!googString.Parser} parser Parser.
+ * @param {!Parser} parser Parser.
  */
 BrowserChannel.prototype.setParser = function(parser) {
   this.parser_ = parser;
@@ -2362,7 +2362,7 @@ BrowserChannel.LogSaver.enabled_ = false;
 
 /**
  * Formatter for saving logs.
- * @type {formatter.Formatter}
+ * @type {Formatter}
  * @private
  */
 BrowserChannel.LogSaver.formatter_ = new formatter.TextFormatter();

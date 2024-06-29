@@ -9,6 +9,12 @@
  * like objects to be used with goog.math.Rect.
  */
 
+/**
+ * Record for representing rectangular regions, allows compatibility between
+ * things like ClientRect and goog.math.Rect.
+ *
+ * @record
+ */
 IRect = function() {};
 
 

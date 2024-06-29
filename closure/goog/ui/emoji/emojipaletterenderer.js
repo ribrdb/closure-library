@@ -19,8 +19,8 @@ import * as style from '../../style/style.js';
 import { PaletteRenderer } from '../paletterenderer.js';
 import { Emoji } from './emoji.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.palette');
-goog.requireType('goog.ui.emoji.spriteinfo');
+const { Palette } = goog.requireType('goog.ui.palette');
+const { SpriteInfo } = goog.requireType('goog.ui.emoji.spriteinfo');
 
 
 
@@ -71,7 +71,7 @@ EmojiPaletteRenderer.getCssClass = function() {
  *
  * @param {DomHelper} dom DOM helper for constructing DOM elements.
  * @param {string} id Goomoji id for the emoji.
- * @param {goog.ui.emoji.SpriteInfo} spriteInfo Spriting info for the emoji.
+ * @param {SpriteInfo} spriteInfo Spriting info for the emoji.
  * @param {string} displayUrl URL of the image served for this cell, whether
  *     an individual emoji image or a sprite.
  * @return {!HTMLDivElement} The palette item for this emoji.
@@ -134,7 +134,7 @@ EmojiPaletteRenderer.prototype.updateAnimatedPaletteItem =
  * Builds the inner contents of a palette item out of sprite metadata.
  *
  * @param {DomHelper} dom DOM helper for constructing DOM elements.
- * @param {goog.ui.emoji.SpriteInfo} spriteInfo The metadata to create the css
+ * @param {SpriteInfo} spriteInfo The metadata to create the css
  *     for the sprite.
  * @param {string} displayUrl The URL of the image for this cell.
  * @return {!HTMLDivElement} The inner element for a palette item.
@@ -189,7 +189,7 @@ EmojiPaletteRenderer.prototype.createCell = function(node, dom) {
 /**
  * Returns the item corresponding to the given node, or null if the node is
  * neither a palette cell nor part of a palette item.
- * @param {goog.ui.Palette} palette Palette in which to look for the item.
+ * @param {Palette} palette Palette in which to look for the item.
  * @param {Node} node Node to look for.
  * @return {Node} The corresponding palette item (null if not found).
  * @override

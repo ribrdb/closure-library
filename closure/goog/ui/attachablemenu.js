@@ -22,7 +22,7 @@ import { ItemEvent } from './itemevent.js';
 import { MenuBase } from './menubase.js';
 import { PopupBase } from './popupbase.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.events.keyevent');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
 
 
 
@@ -326,7 +326,7 @@ AttachableMenu.prototype.onMouseUp = function(e) {
 
 /**
  * Key down handler for the menu.
- * @param {goog.events.KeyEvent} e The event object.
+ * @param {KeyEvent} e The event object.
  * @protected
  * @override
  */

@@ -39,7 +39,7 @@ import { KeyCodes } from '../../events/keycodes.js';
 import object from '../../object/object.js';
 import * as style from '../../style/style.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.math.coordinate');
+const { Coordinate } = goog.requireType('goog.math.coordinate');
 
 
 
@@ -55,13 +55,14 @@ goog.requireType('goog.math.coordinate');
  * @constructor
  * @extends {Event}
  */
-export function Event(type, opt_target) {
+function TestingEvent(type, opt_target) {
   this.type = type;
 
   this.target = /** @type {EventTarget} */ (opt_target || null);
 
   this.currentTarget = this.target;
 }
+export { TestingEvent as Event };
 
 
 /**
@@ -71,11 +72,11 @@ export function Event(type, opt_target) {
  * @suppress {underscore|visibility} Technically public, but referencing this
  *     outside this package is strongly discouraged.
  */
-Event.prototype.propagationStopped_ = false;
+TestingEvent.prototype.propagationStopped_ = false;
 
 
 /** @override */
-Event.prototype.defaultPrevented = false;
+TestingEvent.prototype.defaultPrevented = false;
 
 
 /**
@@ -85,17 +86,17 @@ Event.prototype.defaultPrevented = false;
  * @suppress {underscore|visibility} Technically public, but referencing this
  *     outside this package is strongly discouraged.
  */
-Event.prototype.returnValue_ = true;
+TestingEvent.prototype.returnValue_ = true;
 
 
 /** @override */
-Event.prototype.stopPropagation = function() {
+TestingEvent.prototype.stopPropagation = function() {
   this.propagationStopped_ = true;
 };
 
 
 /** @override */
-Event.prototype.preventDefault = function() {
+TestingEvent.prototype.preventDefault = function() {
   this.defaultPrevented = true;
   this.returnValue_ = false;
 };
@@ -119,7 +120,7 @@ function assertEventTarget_(target) {
 /**
  * A static helper function that sets the mouse position to the event.
  * @param {Event} event A simulated native event.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @private
  */
@@ -153,7 +154,7 @@ function setEventClientXY_(event, opt_coords) {
  * @param {EventTarget} target The target for the event.
  * @param {BrowserEvent.MouseButton=} opt_button Mouse button;
  *     defaults to `BrowserEvent.MouseButton.LEFT`.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -176,7 +177,7 @@ export function fireClickSequence(target, opt_button, opt_coords, opt_eventPrope
  * Simulates the sequence of events fired by the browser when the user double-
  * clicks the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -295,15 +296,15 @@ export function fireKeySequence(target, keyOrKeyCode, opt_eventProperties) {
 export function fireNonAsciiKeySequence(target, keyOrKeyCode, keyPressKeyOrKeyCode, opt_eventProperties) {
   const keydown =
       /** @type {!KeyboardEvent} */ (
-          /** @type {!Event} */ (new Event(
+          /** @type {!Event} */ (new TestingEvent(
               EventType.KEYDOWN, target)));
   const keyup =  //
       /** @type {!KeyboardEvent} */ (
-          /** @type {!Event} */ (new Event(
+          /** @type {!Event} */ (new TestingEvent(
               EventType.KEYUP, target)));
   const keypress =
       /** @type {!KeyboardEvent} */ (
-          /** @type {!Event} */ (new Event(
+          /** @type {!Event} */ (new TestingEvent(
               EventType.KEYPRESS, target)));
 
   if (typeof keyOrKeyCode === 'string') {
@@ -365,14 +366,14 @@ export function fireNonAsciiKeySequence(target, keyOrKeyCode, keyPressKeyOrKeyCo
  * @param {!EventTarget} target The target for the event.
  * @param {?EventTarget} relatedTarget The related target for the event (e.g.,
  *     the node that the mouse is being moved out of).
- * @param {!goog.math.Coordinate=} opt_coords Mouse position. Defaults to
+ * @param {!Coordinate=} opt_coords Mouse position. Defaults to
  *     event's target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the event: false if preventDefault() was
  *     called on it, true otherwise.
  */
 export function fireMouseEnterEvent(target, relatedTarget, opt_coords) {
   const mouseenter =
-      new Event(EventType.MOUSEENTER, target);
+      new TestingEvent(EventType.MOUSEENTER, target);
   mouseenter.relatedTarget = relatedTarget;
   setEventClientXY_(mouseenter, opt_coords);
   return fireBrowserEvent(mouseenter);
@@ -384,14 +385,14 @@ export function fireMouseEnterEvent(target, relatedTarget, opt_coords) {
  * @param {!EventTarget} target The target for the event.
  * @param {?EventTarget} relatedTarget The related target for the event (e.g.,
  *     the node that the mouse is being moved into).
- * @param {!goog.math.Coordinate=} opt_coords Mouse position. Defaults to
+ * @param {!Coordinate=} opt_coords Mouse position. Defaults to
  *     event's target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the event: false if preventDefault() was
  *     called on it, true otherwise.
  */
 export function fireMouseLeaveEvent(target, relatedTarget, opt_coords) {
   const mouseleave =
-      new Event(EventType.MOUSELEAVE, target);
+      new TestingEvent(EventType.MOUSELEAVE, target);
   mouseleave.relatedTarget = relatedTarget;
   setEventClientXY_(mouseleave, opt_coords);
   return fireBrowserEvent(mouseleave);
@@ -403,14 +404,14 @@ export function fireMouseLeaveEvent(target, relatedTarget, opt_coords) {
  * @param {EventTarget} target The target for the event.
  * @param {EventTarget} relatedTarget The related target for the event (e.g.,
  *     the node that the mouse is being moved out of).
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the event: false if preventDefault() was
  *     called on it, true otherwise.
  */
 export function fireMouseOverEvent(target, relatedTarget, opt_coords) {
   const mouseover =
-      new Event(EventType.MOUSEOVER, target);
+      new TestingEvent(EventType.MOUSEOVER, target);
   mouseover.relatedTarget = relatedTarget;
   setEventClientXY_(mouseover, opt_coords);
   return fireBrowserEvent(mouseover);
@@ -420,14 +421,14 @@ export function fireMouseOverEvent(target, relatedTarget, opt_coords) {
 /**
  * Simulates a mousemove event on the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the event: false if preventDefault() was
  *     called on it, true otherwise.
  */
 export function fireMouseMoveEvent(target, opt_coords) {
   const mousemove =
-      new Event(EventType.MOUSEMOVE, target);
+      new TestingEvent(EventType.MOUSEMOVE, target);
 
   setEventClientXY_(mousemove, opt_coords);
   return fireBrowserEvent(mousemove);
@@ -439,14 +440,14 @@ export function fireMouseMoveEvent(target, opt_coords) {
  * @param {EventTarget} target The target for the event.
  * @param {EventTarget} relatedTarget The related target for the event (e.g.,
  *     the node that the mouse is being moved into).
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the event: false if preventDefault() was
  *     called on it, true otherwise.
  */
 export function fireMouseOutEvent(target, relatedTarget, opt_coords) {
   const mouseout =
-      new Event(EventType.MOUSEOUT, target);
+      new TestingEvent(EventType.MOUSEOUT, target);
   mouseout.relatedTarget = relatedTarget;
   setEventClientXY_(mouseout, opt_coords);
   return fireBrowserEvent(mouseout);
@@ -458,7 +459,7 @@ export function fireMouseOutEvent(target, relatedTarget, opt_coords) {
  * @param {EventTarget} target The target for the event.
  * @param {BrowserEvent.MouseButton=} opt_button Mouse button;
  *     defaults to `BrowserEvent.MouseButton.LEFT`.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -478,7 +479,7 @@ export function fireMouseDownEvent(target, opt_button, opt_coords, opt_eventProp
  * @param {EventTarget} target The target for the event.
  * @param {BrowserEvent.MouseButton=} opt_button Mouse button;
  *     defaults to `BrowserEvent.MouseButton.LEFT`.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -499,7 +500,7 @@ export function fireMouseUpEvent(target, opt_button, opt_coords, opt_eventProper
  * @param {EventTarget} target The target for the event.
  * @param {BrowserEvent.MouseButton=} opt_button Mouse button;
  *     defaults to `BrowserEvent.MouseButton.LEFT`.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -518,7 +519,7 @@ export function fireClickEvent(target, opt_button, opt_coords, opt_eventProperti
  * with the left mouse button since no browser supports double-clicking with
  * any other buttons.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -541,7 +542,7 @@ export function fireDoubleClickEvent(target, opt_coords, opt_eventProperties) {
  * @param {EventTarget} target The target for the event.
  * @param {number=} opt_button Mouse button; defaults to
  *     `BrowserEvent.MouseButton.LEFT`.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -550,7 +551,7 @@ export function fireDoubleClickEvent(target, opt_coords, opt_eventProperties) {
  * @private
  */
 function fireMouseButtonEvent_(type, target, opt_button, opt_coords, opt_eventProperties) {
-  const e = new Event(type, target);
+  const e = new TestingEvent(type, target);
   e.button = opt_button || BrowserEvent.MouseButton.LEFT;
   setEventClientXY_(e, opt_coords);
   if (opt_eventProperties) {
@@ -563,7 +564,7 @@ function fireMouseButtonEvent_(type, target, opt_button, opt_coords, opt_eventPr
 /**
  * Simulates a contextmenu event on the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the event: false if preventDefault() was
  *     called on it, true otherwise.
@@ -573,7 +574,7 @@ export function fireContextMenuEvent(target, opt_coords) {
       BrowserEvent.MouseButton.LEFT :
       BrowserEvent.MouseButton.RIGHT;
   const contextmenu =
-      new Event(EventType.CONTEXTMENU, target);
+      new TestingEvent(EventType.CONTEXTMENU, target);
   contextmenu.button = button;
   contextmenu.ctrlKey = userAgent.MAC;
   setEventClientXY_(contextmenu, opt_coords);
@@ -585,7 +586,7 @@ export function fireContextMenuEvent(target, opt_coords) {
  * Simulates a mousedown, contextmenu, and the mouseup on the given event
  * target, with the right mouse button.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Mouse position. Defaults to event's
+ * @param {Coordinate=} opt_coords Mouse position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @return {boolean} The returnValue of the sequence: false if preventDefault()
  *     was called on any of the events, true otherwise.
@@ -643,7 +644,7 @@ export function fireContextMenuSequence(target, opt_coords) {
  */
 export function firePopStateEvent(target, state) {
   const e = /** @type {!PopStateEvent} */ (/** @type {!Event} */ (
-      new Event(EventType.POPSTATE, target)));
+      new TestingEvent(EventType.POPSTATE, target)));
   e.state = state;
   return fireBrowserEvent(e);
 }
@@ -656,7 +657,7 @@ export function firePopStateEvent(target, state) {
  *      which returns false iff 'preventDefault' was invoked.
  */
 export function fireBlurEvent(target) {
-  const e = new Event(EventType.BLUR, target);
+  const e = new TestingEvent(EventType.BLUR, target);
   return fireBrowserEvent(e);
 }
 
@@ -668,7 +669,7 @@ export function fireBlurEvent(target) {
  *     which returns false iff 'preventDefault' was invoked.
  */
 export function fireFocusEvent(target) {
-  const e = new Event(EventType.FOCUS, target);
+  const e = new TestingEvent(EventType.FOCUS, target);
   return fireBrowserEvent(e);
 }
 
@@ -681,7 +682,7 @@ export function fireFocusEvent(target) {
  */
 export function fireFocusInEvent(target) {
   const e =
-      new Event(EventType.FOCUSIN, target);
+      new TestingEvent(EventType.FOCUSIN, target);
   return fireBrowserEvent(e);
 }
 
@@ -695,7 +696,7 @@ export function fireFocusInEvent(target) {
  *     called on it, true otherwise.
  */
 export function fireBrowserEvent(event) {
-  event = /** @type {!goog.testing.events.Event} */ (event);
+  event = /** @type {!Event} */ (event);
 
   event.returnValue_ = true;
 
@@ -727,7 +728,7 @@ export function fireBrowserEvent(event) {
 /**
  * Simulates a touchstart event on the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Touch position. Defaults to event's
+ * @param {Coordinate=} opt_coords Touch position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -737,7 +738,7 @@ export function fireBrowserEvent(event) {
 export function fireTouchStartEvent(target, opt_coords, opt_eventProperties) {
   // TODO: Support multi-touch events with array of coordinates.
   const touchstart =
-      new Event(EventType.TOUCHSTART, target);
+      new TestingEvent(EventType.TOUCHSTART, target);
   setEventClientXY_(touchstart, opt_coords);
   if (opt_eventProperties) {
     object.extend(touchstart, opt_eventProperties);
@@ -749,7 +750,7 @@ export function fireTouchStartEvent(target, opt_coords, opt_eventProperties) {
 /**
  * Simulates a touchmove event on the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Touch position. Defaults to event's
+ * @param {Coordinate=} opt_coords Touch position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -759,7 +760,7 @@ export function fireTouchStartEvent(target, opt_coords, opt_eventProperties) {
 export function fireTouchMoveEvent(target, opt_coords, opt_eventProperties) {
   // TODO: Support multi-touch events with array of coordinates.
   const touchmove =
-      new Event(EventType.TOUCHMOVE, target);
+      new TestingEvent(EventType.TOUCHMOVE, target);
   setEventClientXY_(touchmove, opt_coords);
   if (opt_eventProperties) {
     object.extend(touchmove, opt_eventProperties);
@@ -771,7 +772,7 @@ export function fireTouchMoveEvent(target, opt_coords, opt_eventProperties) {
 /**
  * Simulates a touchend event on the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Touch position. Defaults to event's
+ * @param {Coordinate=} opt_coords Touch position. Defaults to event's
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.
@@ -781,7 +782,7 @@ export function fireTouchMoveEvent(target, opt_coords, opt_eventProperties) {
 export function fireTouchEndEvent(target, opt_coords, opt_eventProperties) {
   // TODO: Support multi-touch events with array of coordinates.
   const touchend =
-      new Event(EventType.TOUCHEND, target);
+      new TestingEvent(EventType.TOUCHEND, target);
   setEventClientXY_(touchend, opt_coords);
   if (opt_eventProperties) {
     object.extend(touchend, opt_eventProperties);
@@ -793,7 +794,7 @@ export function fireTouchEndEvent(target, opt_coords, opt_eventProperties) {
 /**
  * Simulates a simple touch sequence on the given target.
  * @param {EventTarget} target The target for the event.
- * @param {goog.math.Coordinate=} opt_coords Touch position. Defaults to event
+ * @param {Coordinate=} opt_coords Touch position. Defaults to event
  *     target's position (if available), otherwise (0, 0).
  * @param {Object=} opt_eventProperties Event properties to be mixed into the
  *     BrowserEvent.

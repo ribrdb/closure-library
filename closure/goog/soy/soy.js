@@ -14,7 +14,7 @@ import { TagName } from '../dom/tagname.js';
 import * as asserts from '../asserts/asserts.js';
 import * as googDom from '../dom/dom.js';
 import * as safe from '../dom/safe.js';
-const SanitizedHtml = goog.requireType('goog.soy.data');
+const {SanitizedHtml} = goog.requireType('goog.soy.data');
 
 /**
  * A define to control the behavior of SoyJS. If set to true, all Soy templates

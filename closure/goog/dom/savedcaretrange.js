@@ -69,7 +69,7 @@ goog.inherits(SavedCaretRange, AbstractSavedCaretRange);
 /**
  * Gets the range that this SavedCaretRage represents, without selecting it
  * or removing the carets from the DOM.
- * @return {dom.AbstractRange?} An abstract range.
+ * @return /{AbstractRange?} An abstract range.
  * @override
  */
 SavedCaretRange.prototype.toAbstractRange = function() {
@@ -97,10 +97,10 @@ SavedCaretRange.prototype.getCaret = function(start) {
 
 /**
  * Removes the carets from the current restoration document.
- * @param {dom.AbstractRange=} opt_range A range whose offsets have already
+ * @param {AbstractRange=} opt_range A range whose offsets have already
  *     been adjusted for caret removal; it will be adjusted if it is also
  *     affected by post-removal operations, such as text node normalization.
- * @return {dom.AbstractRange|undefined} The adjusted range, if opt_range
+ * @return {AbstractRange|undefined} The adjusted range, if opt_range
  *     was provided.
  * @override
  */
@@ -128,7 +128,7 @@ SavedCaretRange.prototype.setRestorationDocument = function(doc) {
  * restoring the selection. If restore does not dispose this saved range, it may
  * only be restored a second time if innerHTML or some other mechanism is used
  * to restore the carets to the dom.
- * @return {dom.AbstractRange?} Restored selection.
+ * @return {AbstractRange?} Restored selection.
  * @override
  * @protected
  */

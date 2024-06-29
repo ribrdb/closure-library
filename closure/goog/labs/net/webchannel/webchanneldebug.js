@@ -14,8 +14,8 @@
 import * as json from '../../../json/json.js';
 
 import * as log from '../../../log/log.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.net.xmlhttp');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { XmlHttp } = goog.requireType('goog.net.xmlhttp');
 
 
 
@@ -53,7 +53,7 @@ goog.scope(function() {
 
   /**
    * Logs that the browser went offline during the lifetime of a request.
-   * @param {goog.Uri} url The URL being requested.
+   * @param {Uri} url The URL being requested.
    */
   WebChannelDebug.prototype.browserOfflineResponse = function(url) {
     this.info(function() {
@@ -65,7 +65,7 @@ goog.scope(function() {
   /**
    * Logs an XmlHttp request..
    * @param {string} verb The request type (GET/POST).
-   * @param {goog.Uri} uri The request destination.
+   * @param {Uri} uri The request destination.
    * @param {string|number|undefined} id The request id.
    * @param {number} attempt Which attempt # the request was.
    * @param {?string} postData The data posted in the request.
@@ -83,10 +83,10 @@ goog.scope(function() {
   /**
    * Logs the meta data received from an XmlHttp request.
    * @param {string} verb The request type (GET/POST).
-   * @param {goog.Uri} uri The request destination.
+   * @param {Uri} uri The request destination.
    * @param {string|number|undefined} id The request id.
    * @param {number} attempt Which attempt # the request was.
-   * @param {goog.net.XmlHttp.ReadyState} readyState The ready state.
+   * @param {XmlHttp.ReadyState} readyState The ready state.
    * @param {number} statusCode The HTTP status code.
    */
   WebChannelDebug.prototype.xmlHttpChannelResponseMetaData = function(
@@ -116,7 +116,7 @@ goog.scope(function() {
 
   /**
    * Logs a request timeout.
-   * @param {goog.Uri} uri The uri that timed out.
+   * @param {Uri} uri The uri that timed out.
    */
   WebChannelDebug.prototype.timeoutResponse = function(uri) {
     this.info(function() {

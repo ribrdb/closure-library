@@ -7,12 +7,12 @@
 import { Disposable } from '../disposable/disposable.js';
 
 import { PubSub } from './pubsub.js';
-goog.requireType('goog.pubsub.topicid');
+const { TopicId } = goog.requireType('goog.pubsub.topicid');
 
 
 
 /**
- * This object is a temporary shim that provides goog.pubsub.TopicId support
+ * This object is a temporary shim that provides TopicId support
  * for PubSub.  See b/12477087 for more info.
  * @param {boolean=} opt_async Enable asynchronous behavior.  Recommended for
  *     new code.  See notes on `PubSub.publish`.
@@ -30,7 +30,7 @@ goog.inherits(TypedPubSub, Disposable);
 
 /**
  * See `PubSub.subscribe`.
- * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to subscribe to.
+ * @param {!TopicId<PAYLOAD>} topic Topic to subscribe to.
  * @param {function(this:CONTEXT, PAYLOAD)} fn Function to be invoked when a
  *     message is published to the given topic.
  * @param {CONTEXT=} opt_context Object in whose context the function is to be
@@ -45,7 +45,7 @@ TypedPubSub.prototype.subscribe = function(topic, fn, opt_context) {
 
 /**
  * See `PubSub.subscribeOnce`.
- * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to subscribe to.
+ * @param {!TopicId<PAYLOAD>} topic Topic to subscribe to.
  * @param {function(this:CONTEXT, PAYLOAD)} fn Function to be invoked once and
  *     then unsubscribed when a message is published to the given topic.
  * @param {CONTEXT=} opt_context Object in whose context the function is to be
@@ -61,7 +61,7 @@ TypedPubSub.prototype.subscribeOnce = function(
 
 /**
  * See `PubSub.unsubscribe`.
- * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to unsubscribe from.
+ * @param {!TopicId<PAYLOAD>} topic Topic to unsubscribe from.
  * @param {function(this:CONTEXT, PAYLOAD)} fn Function to unsubscribe.
  * @param {CONTEXT=} opt_context Object in whose context the function was to be
  *     called (the global scope if none).
@@ -86,7 +86,7 @@ TypedPubSub.prototype.unsubscribeByKey = function(key) {
 
 /**
  * See `PubSub.publish`.
- * @param {!goog.pubsub.TopicId<PAYLOAD>} topic Topic to publish to.
+ * @param {!TopicId<PAYLOAD>} topic Topic to publish to.
  * @param {PAYLOAD} payload Payload passed to each subscription function.
  * @return {boolean} Whether any subscriptions were called.
  * @template PAYLOAD
@@ -98,7 +98,7 @@ TypedPubSub.prototype.publish = function(topic, payload) {
 
 /**
  * See `PubSub.clear`.
- * @param {!goog.pubsub.TopicId<PAYLOAD>=} opt_topic Topic to clear (all topics
+ * @param {!TopicId<PAYLOAD>=} opt_topic Topic to clear (all topics
  *     if unspecified).
  * @template PAYLOAD
  */
@@ -110,7 +110,7 @@ TypedPubSub.prototype.clear = function(opt_topic) {
 
 /**
  * See `PubSub.getCount`.
- * @param {!goog.pubsub.TopicId<PAYLOAD>=} opt_topic The topic (all topics if
+ * @param {!TopicId<PAYLOAD>=} opt_topic The topic (all topics if
  *     unspecified).
  * @return {number} Number of subscriptions to the topic.
  * @template PAYLOAD

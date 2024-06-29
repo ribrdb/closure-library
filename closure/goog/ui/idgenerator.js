@@ -8,7 +8,12 @@
  * @fileoverview Generator for unique element IDs.
  */
 
-IdGenerator = function() {};
+/**
+ * Creates a new id generator.
+ * @constructor
+ * @final
+ */
+export function IdGenerator() {};
 goog.addSingletonGetter(IdGenerator);
 
 
@@ -48,4 +53,3 @@ IdGenerator.prototype.setIdPrefix = function(idPrefix) {
 IdGenerator.prototype.getNextUniqueId = function() {
  return this.idPrefix_ + ':' + (this.nextId_++).toString(36);
 };
-export var IdGenerator;

@@ -22,7 +22,7 @@ import { Component } from '../component.js';
 import { Control } from '../control.js';
 import { Tab } from '../tab.js';
 import { TabBar } from '../tabbar.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -168,7 +168,7 @@ TabPane.prototype.enterDocument = function() {
 
 /**
  * Handles a tab change.
- * @param {goog.events.Event} e The browser change event.
+ * @param {Event} e The browser change event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

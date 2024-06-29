@@ -20,16 +20,16 @@ import * as style from '../../style/style.js';
 import * as ToolbarFactory from './toolbarfactory.js';
 import * as messages from './messages.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.ui.button');
-goog.requireType('goog.ui.buttonrenderer');
-goog.requireType('goog.ui.colormenubuttonrenderer');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menubuttonrenderer');
-goog.requireType('goog.ui.menuitem');
-goog.requireType('goog.ui.select');
-goog.requireType('goog.ui.toolbar');
-goog.requireType('goog.ui.toolbarcolormenubutton');
+const { Button } = goog.requireType('goog.ui.button');
+const { ButtonRenderer } = goog.requireType('goog.ui.buttonrenderer');
+const { ColorMenuButtonRenderer } = goog.requireType('goog.ui.colormenubuttonrenderer');
+const { Control } = goog.requireType('goog.ui.control');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { MenuButtonRenderer } = goog.requireType('goog.ui.menubuttonrenderer');
+const { MenuItem } = goog.requireType('goog.ui.menuitem');
+const { Select } = goog.requireType('goog.ui.select');
+const { Toolbar } = goog.requireType('goog.ui.toolbar');
+const { ToolbarColorMenuButton } = goog.requireType('goog.ui.toolbarcolormenubutton');
 
 // Font menu creation.
 
@@ -128,7 +128,7 @@ export function setLocale(locale) {
  * If setLocale was called to specify a locale
  * for which locale-specific default fonts exist, those are added before
  * common fonts.
- * @param {!goog.ui.Select} button Font menu button.
+ * @param {!Select} button Font menu button.
  */
 export function addDefaultFonts(button) {
   // Normalize locale to lowercase, with a hyphen (see bug 1036165).
@@ -188,7 +188,7 @@ var FONT_SIZES_ = [
 /**
  * Initializes the given font size menu button by adding default font sizes to
  * it.
- * @param {!goog.ui.Select} button Font size menu button.
+ * @param {!Select} button Font size menu button.
  */
 export function addDefaultFontSizes(button) {
   ToolbarFactory.addFontSizes(
@@ -249,7 +249,7 @@ var FORMAT_OPTIONS_ = [
 /**
  * Initializes the given "Format block" menu button by adding default format
  * options to the menu.
- * @param {!goog.ui.Select} button "Format block" menu button.
+ * @param {!Select} button "Format block" menu button.
  */
 export function addDefaultFormatOptions(button) {
   ToolbarFactory.addFormatOptions(
@@ -258,13 +258,13 @@ export function addDefaultFormatOptions(button) {
 
 
 /**
- * Creates a {@link goog.ui.Toolbar} containing a default set of editor
+ * Creates a {@link Toolbar} containing a default set of editor
  * toolbar buttons, and renders it into the given parent element.
  * @param {!Element} elem Toolbar parent element.
  * @param {boolean=} opt_isRightToLeft Whether the editor chrome is
  *     right-to-left; defaults to the directionality of the toolbar parent
  *     element.
- * @return {!goog.ui.Toolbar} Default editor toolbar, rendered into the given
+ * @return {!Toolbar} Default editor toolbar, rendered into the given
  *     parent element.
  * @see DEFAULT_BUTTONS
  */
@@ -279,18 +279,18 @@ export function makeDefaultToolbar(elem, opt_isRightToLeft) {
 
 
 /**
- * Creates a {@link goog.ui.Toolbar} containing the specified set of
+ * Creates a {@link Toolbar} containing the specified set of
  * toolbar buttons, and renders it into the given parent element.  Each
  * item in the `items` array must either be a
  * {@link Command} (to create a built-in button) or a subclass
- * of {@link goog.ui.Control} (to create a custom control).
- * @param {!Array<string|goog.ui.Control>} items Toolbar items; each must
- *     be a {@link Command} or a {@link goog.ui.Control}.
+ * of {@link Control} (to create a custom control).
+ * @param {!Array<string|Control>} items Toolbar items; each must
+ *     be a {@link Command} or a {@link Control}.
  * @param {!Element} elem Toolbar parent element.
  * @param {boolean=} opt_isRightToLeft Whether the editor chrome is
  *     right-to-left; defaults to the directionality of the toolbar parent
  *     element.
- * @return {!goog.ui.Toolbar} Editor toolbar, rendered into the given parent
+ * @return {!Toolbar} Editor toolbar, rendered into the given parent
  *     element.
  */
 export function makeToolbar(items, elem, opt_isRightToLeft) {
@@ -313,14 +313,14 @@ export function makeToolbar(items, elem, opt_isRightToLeft) {
 
 
 /**
- * Creates an instance of a subclass of {@link goog.ui.Button} for the given
+ * Creates an instance of a subclass of {@link Button} for the given
  * {@link Command}, or null if no built-in button exists for the
  * command.  Note that this function is only intended to create built-in
  * buttons; please don't try to hack it!
  * @param {string} command Editor command ID.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {goog.ui.Button} Toolbar button (null if no built-in button exists
+ * @return {Button} Toolbar button (null if no built-in button exists
  *     for the command).
  */
 export function makeBuiltInToolbarButton(command, opt_domHelper) {
@@ -388,14 +388,14 @@ export var DEFAULT_BUTTONS_RTL = [
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.ButtonRenderer=} opt_renderer Button renderer; defaults to
+ * @param {ButtonRenderer=} opt_renderer Button renderer; defaults to
  *     {@link goog.ui.ToolbarButtonRenderer} if unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -424,14 +424,14 @@ function rtlButtonFactory_(id, tooltip, caption, opt_classNames, opt_renderer, o
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.ButtonRenderer=} opt_renderer Button renderer; defaults to
+ * @param {ButtonRenderer=} opt_renderer Button renderer; defaults to
  *     {@link goog.ui.ToolbarButtonRenderer} if unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -452,14 +452,14 @@ function undoRedoButtonFactory_(id, tooltip, caption, opt_classNames, opt_render
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.MenuButtonRenderer=} opt_renderer Button renderer; defaults
+ * @param {MenuButtonRenderer=} opt_renderer Button renderer; defaults
  *     to {@link goog.ui.ToolbarMenuButtonRenderer} if unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -483,7 +483,7 @@ function fontFaceFactory_(id, tooltip, caption, opt_classNames, opt_renderer, op
     // TODO (attila): Try to make this more robust.
     let item = null;
     if (value && value.length > 0) {
-      item = /** @type {goog.ui.MenuItem} */ (button.getMenu().getChild(
+      item = /** @type {MenuItem} */ (button.getMenu().getChild(
           ToolbarFactory.getPrimaryFont(value)));
     }
     const selectedItem = button.getSelectedItem();
@@ -502,14 +502,14 @@ function fontFaceFactory_(id, tooltip, caption, opt_classNames, opt_renderer, op
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.MenuButtonRenderer=} opt_renderer Button renderer; defaults
+ * @param {MenuButtonRenderer=} opt_renderer Button renderer; defaults
  *     to {@link goog.ui.ToolbarMebuButtonRenderer} if unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -546,7 +546,7 @@ function fontSizeFactory_(id, tooltip, caption, opt_classNames, opt_renderer, op
 
 /**
  * Function to update the state of a color menu button.
- * @param {goog.ui.ToolbarColorMenuButton} button The button to which the
+ * @param {ToolbarColorMenuButton} button The button to which the
  *     color menu is attached.
  * @param {number} color Color value to update to.
  * @private
@@ -579,15 +579,15 @@ function colorUpdateFromValue_(button, color) {
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.ColorMenuButtonRenderer=} opt_renderer Button renderer;
+ * @param {ColorMenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to {@link goog.ui.ToolbarColorMenuButtonRenderer} if
  *     unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -598,7 +598,7 @@ function fontColorFactory_(id, tooltip, caption, opt_classNames, opt_renderer, o
   button.setSelectedColor('#000');
   button.updateFromValue = goog.partial(
       colorUpdateFromValue_,
-      /** @type {!goog.ui.ToolbarColorMenuButton} */ (button));
+      /** @type {!ToolbarColorMenuButton} */ (button));
   return button;
 }
 
@@ -610,15 +610,15 @@ function fontColorFactory_(id, tooltip, caption, opt_classNames, opt_renderer, o
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.ColorMenuButtonRenderer=} opt_renderer Button renderer;
+ * @param {ColorMenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to {@link goog.ui.ToolbarColorMenuButtonRenderer} if
  *     unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -629,7 +629,7 @@ function backgroundColorFactory_(id, tooltip, caption, opt_classNames, opt_rende
   button.setSelectedColor('#FFF');
   button.updateFromValue = goog.partial(
       colorUpdateFromValue_,
-      /** @type {!goog.ui.ToolbarColorMenuButton} */ (button));
+      /** @type {!ToolbarColorMenuButton} */ (button));
   return button;
 }
 
@@ -641,15 +641,15 @@ function backgroundColorFactory_(id, tooltip, caption, opt_classNames, opt_rende
  * @param {string} id Button ID; must equal a {@link Command} for
  *     built-in buttons, anything else for custom buttons.
  * @param {string} tooltip Tooltip to be shown on hover.
- * @param {goog.ui.ControlContent} caption Button caption.
+ * @param {ControlContent} caption Button caption.
  * @param {string=} opt_classNames CSS class name(s) to apply to the caption
  *     element.
- * @param {goog.ui.MenuButtonRenderer=} opt_renderer Button renderer;
+ * @param {MenuButtonRenderer=} opt_renderer Button renderer;
  *     defaults to
  *     {@link goog.ui.ToolbarMenuButtonRenderer} if unspecified.
  * @param {dom.DomHelper=} opt_domHelper DOM helper, used for DOM
  *     creation; defaults to the current document if unspecified.
- * @return {!goog.ui.Button} A toolbar button.
+ * @return {!Button} A toolbar button.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -827,7 +827,7 @@ MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
  *   <li>`factory` - factory function used to create the button, which
  *       must accept `id`, `tooltip`, `caption`, and
  *       `classes` as arguments, and must return an instance of
- *       {@link goog.ui.Button} or an appropriate subclass (optional); if
+ *       {@link Button} or an appropriate subclass (optional); if
  *       unspecified, defaults to
  *       {@link makeToggleButton},
  *       since most built-in toolbar buttons are toggle buttons
@@ -846,7 +846,7 @@ var buttons_ = {};
  * @typedef {{
  *   command: string,
  *   tooltip: (undefined|string),
- *   caption: (undefined|goog.ui.ControlContent),
+ *   caption: (undefined|ControlContent),
  *   classes: (undefined|string),
  *   factory: (undefined|!Function),
  *   queryable:(undefined|boolean)}}

@@ -14,7 +14,11 @@
  * about how to edit it via the generator check go/closure-ariagen.
  */
 
-State = {
+/**
+ * ARIA states and properties.
+ * @enum {string}
+ */
+export var State = {
   // ARIA property for setting the currently active descendant of an element,
   // for example the selected item in a list box. Value: ID of an element.
   ACTIVEDESCENDANT: 'activedescendant',
@@ -375,4 +379,3 @@ export var SelectedValues = {
   // The element is not selectable.
   UNDEFINED: 'undefined'
 };
-export var State;

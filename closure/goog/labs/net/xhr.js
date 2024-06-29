@@ -22,8 +22,8 @@ import object from '../../object/object.js';
 import * as googString from '../../string/string.js';
 import * as utils from '../../uri/utils.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.net.xhrlike');
-goog.requireType('goog.net.xmlhttpfactory');
+const { XhrLike } = goog.requireType('goog.net.xhrlike');
+const { XmlHttpFactory } = goog.requireType('goog.net.xmlhttpfactory');
 
 
 
@@ -49,7 +49,7 @@ goog.requireType('goog.net.xmlhttpfactory');
  * @typedef {{
  *   headers: (Object<string>|undefined),
  *   mimeType: (string|undefined),
- *   responseType: (xhr.ResponseType|undefined),
+ *   responseType: (ResponseType|undefined),
  *   timeoutMs: (number|undefined),
  *   withCredentials: (boolean|undefined),
  *   xmlHttpFactory: (XmlHttpFactory|undefined),
@@ -99,7 +99,7 @@ export var ResponseType = {
  * with the response text once the request completes.
  *
  * @param {string} url The URL to request.
- * @param {xhr.Options=} opt_options Configuration options for the request.
+ * @param {Options=} opt_options Configuration options for the request.
  * @return {!Promise<string>} A promise that will be resolved with the
  *     response text once the request completes.
  */
@@ -115,8 +115,8 @@ export function get(url, opt_options) {
  * with the response text once the request completes.
  *
  * @param {string} url The URL to request.
- * @param {xhr.PostData} data The body of the post request.
- * @param {xhr.Options=} opt_options Configuration options for the request.
+ * @param {PostData} data The body of the post request.
+ * @param {Options=} opt_options Configuration options for the request.
  * @return {!Promise<string>} A promise that will be resolved with the
  *     response text once the request completes.
  */
@@ -132,7 +132,7 @@ export function post(url, data, opt_options) {
  * the parsed response text once the request completes.
  *
  * @param {string} url The URL to request.
- * @param {xhr.Options=} opt_options Configuration options for the request.
+ * @param {Options=} opt_options Configuration options for the request.
  * @return {!Promise<Object>} A promise that will be resolved with the
  *     response JSON once the request completes.
  */
@@ -148,7 +148,7 @@ export function getJson(url, opt_options) {
  * response as a Blob.
  *
  * @param {string} url The URL to request.
- * @param {xhr.Options=} opt_options Configuration options for the request. If
+ * @param {Options=} opt_options Configuration options for the request. If
  *     responseType is set, it will be ignored for this request.
  * @return {!Promise<!Blob>} A promise that will be resolved with an
  *     immutable Blob representing the file once the request completes.
@@ -157,7 +157,7 @@ export function getBlob(url, opt_options) {
   asserts.assert(
       'Blob' in goog.global, 'getBlob is not supported in this browser.');
 
-  const options = /** @type {!xhr.Options} */ (
+  const options = /** @type {!Options} */ (
       opt_options ? object.clone(opt_options) : {});
   options.responseType = ResponseType.BLOB;
 
@@ -175,7 +175,7 @@ export function getBlob(url, opt_options) {
  * earlier are not supported.
  *
  * @param {string} url The URL to request.
- * @param {xhr.Options=} opt_options Configuration options for the request. If
+ * @param {Options=} opt_options Configuration options for the request. If
  *     responseType is set, it will be ignored for this request.
  * @return {!Promise<!Uint8Array|!Array<number>>} A promise that will be
  *     resolved with an array of bytes once the request completes.
@@ -185,7 +185,7 @@ export function getBytes(url, opt_options) {
       !userAgent.IE || userAgent.isDocumentModeOrHigher(9),
       'getBytes is not supported in this browser.');
 
-  const options = /** @type {!xhr.Options} */ (
+  const options = /** @type {!Options} */ (
       opt_options ? object.clone(opt_options) : {});
   options.responseType = ResponseType.ARRAYBUFFER;
 
@@ -220,8 +220,8 @@ export function getBytes(url, opt_options) {
  * the parsed response text once the request completes.
  *
  * @param {string} url The URL to request.
- * @param {xhr.PostData} data The body of the post request.
- * @param {xhr.Options=} opt_options Configuration options for the request.
+ * @param {PostData} data The body of the post request.
+ * @param {Options=} opt_options Configuration options for the request.
  * @return {!Promise<Object>} A promise that will be resolved with the
  *     response JSON once the request completes.
  */
@@ -241,14 +241,14 @@ export function postJson(url, data, opt_options) {
  *
  * @param {string} method The HTTP method for the request.
  * @param {string} url The URL to request.
- * @param {xhr.PostData} data The body of the post request.
- * @param {xhr.Options=} opt_options Configuration options for the request.
- * @return {!Promise<!goog.net.XhrLike.OrNative>} A promise that will be
+ * @param {PostData} data The body of the post request.
+ * @param {Options=} opt_options Configuration options for the request.
+ * @return {!Promise<!XhrLike.OrNative>} A promise that will be
  *     resolved with the XHR object once the request completes.
  * @suppress {missingProperties} request is loosely typed
  */
 export function send(method, url, data, opt_options) {
-  const options = opt_options || /** @type {!xhr.Options} */ ({});
+  const options = opt_options || /** @type {!Options} */ ({});
   const request = options.xmlHttpFactory ?
       options.xmlHttpFactory.createInstance() :
       XmlHttp();
@@ -402,7 +402,7 @@ export function parseJson(responseText, opt_xssiPrefix) {
  * JSON-parses the given response text, returning an Object.
  *
  * @param {string} responseText Response text.
- * @param {xhr.Options|undefined} options The options object.
+ * @param {Options|undefined} options The options object.
  * @return {!Object} The JSON-parsed value of the original responseText.
  * @private
  */
@@ -438,7 +438,7 @@ function stripXssiPrefix_(prefix, string) {
  *
  * @param {string} message The error message.
  * @param {string} url The URL that was being requested.
- * @param {!goog.net.XhrLike.OrNative} request The XHR that failed.
+ * @param {!XhrLike.OrNative} request The XHR that failed.
  * @extends {DebugError}
  * @constructor
  */
@@ -453,7 +453,7 @@ export function Error(message, url, request) {
 
   /**
    * The XMLHttpRequest corresponding with the failed request.
-   * @type {!goog.net.XhrLike.OrNative}
+   * @type {!XhrLike.OrNative}
    */
   this.xhr = request;
 }
@@ -470,8 +470,8 @@ Error.prototype.name = 'XhrError';
  *
  * @param {number} status The HTTP status code of the response.
  * @param {string} url The URL that was being requested.
- * @param {!goog.net.XhrLike.OrNative} request The XHR that failed.
- * @extends {xhr.Error}
+ * @param {!XhrLike.OrNative} request The XHR that failed.
+ * @extends {Error}
  * @constructor
  * @final
  */
@@ -497,8 +497,8 @@ HttpError.prototype.name = 'XhrHttpError';
  * Class for Timeout errors.
  *
  * @param {string} url The URL that timed out.
- * @param {!goog.net.XhrLike.OrNative} request The XHR that failed.
- * @extends {xhr.Error}
+ * @param {!XhrLike.OrNative} request The XHR that failed.
+ * @extends {Error}
  * @constructor
  * @final
  */

@@ -11,18 +11,18 @@
 goog.setTestOnly();
 
 import * as asserts from '../testing/asserts.js';
-goog.requireType('goog.storage.collectablestorage');
-goog.requireType('goog.storage.mechanism.IterableMechanism');
-goog.requireType('goog.testing.mockclock');
+const { CollectableStorage } = goog.requireType('goog.storage.collectablestorage');
+const { IterableMechanism } = goog.requireType('goog.storage.mechanism.IterableMechanism');
+const { MockClock } = goog.requireType('goog.testing.mockclock');
 
 
 
 /**
  * Tests basic operation: expiration and collection of collectable storage.
  *
- * @param {goog.storage.mechanism.IterableMechanism} mechanism
- * @param {goog.testing.MockClock} clock
- * @param {goog.storage.CollectableStorage} storage
+ * @param {IterableMechanism} mechanism
+ * @param {MockClock} clock
+ * @param {CollectableStorage} storage
   */
 export function runBasicTests(mechanism, clock, storage) {
  // No expiration.

@@ -17,7 +17,7 @@ import { EventTarget } from '../../events/eventtarget.js';
 import * as googString from '../../string/string.js';
 import { Dialog } from '../dialog.js';
 import { PopupBase } from '../popupbase.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 // *** Public interface ***************************************************** //
@@ -355,10 +355,10 @@ AbstractDialog.prototype.getButtonElement = function(buttonId) {
  * Creates and returns the event object to be used when dispatching the OK
  * event to listeners, or returns null to prevent the dialog from closing.
  * Subclasses should override this to return their own subclass of
- * goog.events.Event that includes all data a plugin would need from the dialog.
- * @param {goog.events.Event} e The event object dispatched by the wrapped
+ * Event that includes all data a plugin would need from the dialog.
+ * @param {Event} e The event object dispatched by the wrapped
  *     dialog.
- * @return {goog.events.Event} The event object to be used when dispatching the
+ * @return {Event} The event object to be used when dispatching the
  *     OK event to listeners.
  * @protected
  */

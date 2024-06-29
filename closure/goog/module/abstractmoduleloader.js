@@ -10,7 +10,7 @@
 
 goog.declareModuleId('goog.module.AbstractModuleLoader');
 
-const ModuleInfo = goog.requireType('goog.module.moduleinfo');
+const {ModuleInfo} = goog.requireType('goog.module.moduleinfo');
 
 /**
  * An interface that loads JavaScript modules.

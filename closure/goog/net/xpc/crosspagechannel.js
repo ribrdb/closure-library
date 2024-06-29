@@ -35,7 +35,7 @@ import { NativeMessagingTransport } from './nativemessagingtransport.js';
 import * as googString from '../../string/string.js';
 import * as utils from '../../uri/utils.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.net.xpc.transport');
+const { Transport } = goog.requireType('goog.net.xpc.transport');
 
 
 
@@ -165,7 +165,7 @@ CrossPageChannel.prototype.peerWindowDeferred_ = null;
 
 /**
  * The transport.
- * @type {xpc.Transport?}
+ * @type {Transport?}
  * @private
  */
 CrossPageChannel.prototype.transport_ = null;
@@ -317,7 +317,7 @@ CrossPageChannel.prototype.createTransport_ = function() {
   // Transport implementation. Allows fine-grained dependency control over
   // what Transport impls are brought in.
   if (typeof this.cfg_[CfgFields.TRANSPORT] === 'function') {
-    this.transport_ = /** @type {!xpc.Transport} */ (
+    this.transport_ = /** @type {!Transport} */ (
         new this.cfg_[CfgFields.TRANSPORT](this, this.domHelper_));
   } else {
     switch (this.cfg_[CfgFields.TRANSPORT]) {

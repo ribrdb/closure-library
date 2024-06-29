@@ -13,7 +13,7 @@
 import * as dom from '../../dom/dom.js';
 
 import { NodeOffset } from '../../dom/nodeoffset.js';
-import * as Range from '../../dom/range.js';
+import { createFromBrowserRange} from '../../dom/range.js';
 import { Command } from '../command.js';
 import { Field } from '../field.js';
 import { Plugin } from '../plugin.js';
@@ -24,8 +24,8 @@ import * as events from '../../events/events.js';
 import { EventHandler } from '../../events/eventhandler.js';
 import * as log from '../../log/log.js';
 import object from '../../object/object.js';
-goog.requireType('goog.dom.abstractrange');
-goog.requireType('goog.events.event');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -501,7 +501,7 @@ UndoRedo.prototype.refreshCurrentState = function(
 
 /**
  * Before the field changes, we want to save the state.
- * @param {events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 UndoRedo.prototype.handleBeforeChange_ = function(e) {
@@ -525,7 +525,7 @@ UndoRedo.prototype.handleBeforeChange_ = function(e) {
 
 /**
  * After some idle time, we want to save the state.
- * @param {events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 UndoRedo.prototype.handleDelayedChange_ = function(e) {
@@ -546,7 +546,7 @@ UndoRedo.prototype.handleDelayedChange_ = function(e) {
 
 /**
  * When the user blurs away, we need to save the state on that field.
- * @param {events.Event} e The event.
+ * @param {Event} e The event.
  * @private
  */
 UndoRedo.prototype.handleBlur_ = function(e) {
@@ -812,7 +812,7 @@ UndoRedo.CursorPosition_ = function(field) {
 
 /**
  * The standards compliant version keeps a list of childNode offsets.
- * @param {dom.AbstractRange?} range The range to save.
+ * @param {AbstractRange?} range The range to save.
  * @private
  */
 UndoRedo.CursorPosition_.prototype.initW3C_ = function(
@@ -890,7 +890,7 @@ UndoRedo.CursorPosition_.prototype.toString = function() {
 UndoRedo.CursorPosition_.prototype.select = function() {
   var range = this.getRange_(this.field_.getElement());
   if (range) {
-    Range.createFromBrowserRange(range).select();
+    createFromBrowserRange(range).select();
   }
 };
 

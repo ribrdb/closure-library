@@ -3,7 +3,7 @@
  * Copyright The Closure Library Authors.
  * SPDX-License-Identifier: Apache-2.0
  */
-
+goog.declareModuleId('goog.events.eventtype');
 import * as eventTypeHelpers from './eventtypehelpers.js';
 
 import * as userAgent from '../useragent/useragent.js';

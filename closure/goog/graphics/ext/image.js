@@ -12,13 +12,13 @@
 
 import { Element } from './element.js';
 
-goog.requireType('goog.graphics.ext.group');
+const { Group } = goog.requireType('goog.graphics.ext.group');
 
 
 
 /**
  * Wrapper for a graphics image element.
- * @param {goog.graphics.ext.Group} group Parent for this element.
+ * @param {Group} group Parent for this element.
  * @param {string} src The path to the image to display.
  * @constructor
  * @extends {Element}

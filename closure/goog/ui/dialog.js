@@ -983,7 +983,7 @@ Dialog.prototype.setDraggerLimits_ = function(e) {
 
 /**
  * Handles a click on the title close area.
- * @param {events.BrowserEvent} e Browser's event object.
+ * @param {BrowserEvent} e Browser's event object.
  * @private
  */
 Dialog.prototype.onTitleCloseClick_ = function(e) {
@@ -1110,7 +1110,7 @@ Dialog.prototype.getButtonSet = function() {
 
 /**
  * Handles a click on the button container.
- * @param {events.BrowserEvent} e Browser's event object.
+ * @param {BrowserEvent} e Browser's event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -1150,7 +1150,7 @@ Dialog.prototype.findParentButton_ = function(element) {
  * Handles keydown and keypress events, and dismisses the popup if cancel is
  * pressed.  If there is a cancel action in the ButtonSet, than that will be
  * fired.  Also prevents tabbing out of the dialog.
- * @param {events.BrowserEvent} e Browser's event object.
+ * @param {BrowserEvent} e Browser's event object.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

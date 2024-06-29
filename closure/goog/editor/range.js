@@ -18,8 +18,8 @@ import * as editorNode from './node.js';
 import * as style from './style.js';
 import * as iter from '../iter/iter.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
-goog.requireType('goog.dom.tagname');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
+const { TagName } = goog.requireType('goog.dom.tagname');
 
 
 /**
@@ -27,9 +27,9 @@ goog.requireType('goog.dom.tagname');
  * boundaries of the element. If the range starts (or ends) outside the
  * element, the narrowed range's start point (or end point) will be the
  * leftmost (or rightmost) leaf of the element.
- * @param {dom.AbstractRange} range The range.
+ * @param {AbstractRange} range The range.
  * @param {Element} el The element to limit the range to.
- * @return {dom.AbstractRange} A new narrowed range, or null if the
+ * @return {AbstractRange} A new narrowed range, or null if the
  *     element does not contain any part of the given range.
  */
 export function narrow(range, el) {
@@ -71,9 +71,9 @@ export function narrow(range, el) {
  * but not the visible position of the range.
  * Ex. <code><li>foo</li></code> if "foo" is selected, instead of returning
  * start and end nodes as the foo text node, return the li.
- * @param {dom.AbstractRange} range The range.
+ * @param {AbstractRange} range The range.
  * @param {Node=} opt_stopNode Optional node to stop expanding past.
- * @return {!dom.AbstractRange} The expanded range.
+ * @return {!AbstractRange} The expanded range.
  */
 export function expand(range, opt_stopNode) {
   // Expand the start out to the common container.
@@ -112,10 +112,10 @@ export function expand(range, opt_stopNode) {
  * range's common container (or stopNode, if provided) as possible, while
  * perserving the same visible position.
  *
- * @param {dom.AbstractRange} range The range to expand.
+ * @param {AbstractRange} range The range to expand.
  * @param {RangeEndpoint} endpoint The endpoint to expand.
  * @param {Node=} opt_stopNode Optional node to stop expanding past.
- * @return {!dom.AbstractRange} The expanded range.
+ * @return {!AbstractRange} The expanded range.
  * @private
  */
 function expandEndPointToContainer_(range, endpoint, opt_stopNode) {
@@ -168,7 +168,7 @@ export function selectNodeStart(node) {
  * Bug: http://bugs.webkit.org/show_bug.cgi?id=17697
  * @param {Node} node The node to position the cursor relative to.
  * @param {boolean} toLeft True to place it to the left, false to the right.
- * @return {!dom.AbstractRange} The newly selected range.
+ * @return {!AbstractRange} The newly selected range.
  */
 export function placeCursorNextTo(node, toLeft) {
   var parent = node.parentNode;
@@ -248,8 +248,8 @@ export function normalizeNode(node) {
  * May also normalize things outside the node, if it is more efficient to do so.
  *
  * @param {Node} node The node to normalize.
- * @param {dom.AbstractRange?} range The range to normalize.
- * @return {dom.AbstractRange?} The range, adjusted for normalization.
+ * @param {AbstractRange?} range The range to normalize.
+ * @return {AbstractRange?} The range, adjusted for normalization.
  */
 export function rangePreservingNormalize(node, range) {
   if (range) {
@@ -282,7 +282,7 @@ export function rangePreservingNormalize(node, range) {
  * Get the deepest point in the DOM that's equivalent to the endpoint of the
  * given range.
  *
- * @param {dom.AbstractRange} range A range.
+ * @param {AbstractRange} range A range.
  * @param {boolean} atStart True for the start point, false for the end point.
  * @return {!Point} The end point, expressed as a node
  *    and an offset.
@@ -314,9 +314,9 @@ export function getDeepEndPoint(range, atStart) {
  * without problems. It must be created before any normalization happens,
  * and invoked after normalization happens.
  *
- * @param {dom.AbstractRange} range The range to normalize. It may
+ * @param {AbstractRange} range The range to normalize. It may
  *    become invalid after body.normalize() is called.
- * @return {function(): dom.AbstractRange} A factory for a normalized
+ * @return {function(): AbstractRange} A factory for a normalized
  *    range. Should be called after body.normalize() is called.
  */
 export function normalize(range) {
@@ -406,7 +406,7 @@ function normalizePoint_(point) {
 
 /**
  * Checks if a range is completely inside an editable region.
- * @param {dom.AbstractRange} range The range to test.
+ * @param {AbstractRange} range The range to test.
  * @return {boolean} Whether the range is completely inside an editable region.
  */
 export function isEditable(range) {
@@ -430,8 +430,8 @@ export function isEditable(range) {
 /**
  * Returns whether the given range intersects with any instance of the given
  * tag.
- * @param {dom.AbstractRange} range The range to check.
- * @param {!dom.TagName} tagName The name of the tag.
+ * @param {AbstractRange} range The range to check.
+ * @param {!TagName} tagName The name of the tag.
  * @return {boolean} Whether the given range intersects with any instance of
  *     the given tag.
  */
@@ -564,7 +564,7 @@ Point.getPointAtEndOfNode = function(node) {
  * Browsers have other bugs where they don't handle split text nodes in
  * contentEditable regions right.
  *
- * @param {dom.AbstractRange} range The abstract range object.
+ * @param {AbstractRange} range The abstract range object.
  * @return {!SavedCaretRange} A saved caret range that normalizes
  *     text nodes.
  */
@@ -578,7 +578,7 @@ export function saveUsingNormalizedCarets(range) {
  * Saves the range using carets, but normalizes text nodes when carets
  * are removed.
  * @see saveUsingNormalizedCarets
- * @param {dom.AbstractRange} range The range being saved.
+ * @param {AbstractRange} range The range being saved.
  * @constructor
  * @extends {SavedCaretRange}
  * @private
@@ -592,11 +592,11 @@ goog.inherits(
 
 /**
  * Normalizes text nodes whenever carets are removed from the document.
- * @param {dom.AbstractRange=} opt_range A range whose offsets have already
+ * @param {AbstractRange=} opt_range A range whose offsets have already
  *     been adjusted for caret removal; it will be adjusted and returned if it
  *     is also affected by post-removal operations, such as text node
  *     normalization.
- * @return {dom.AbstractRange|undefined} The adjusted range, if opt_range
+ * @return {AbstractRange|undefined} The adjusted range, if opt_range
  *     was provided.
  * @override
  */

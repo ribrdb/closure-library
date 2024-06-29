@@ -34,7 +34,7 @@ import * as events from '../events/events.js';
 import { Event } from '../events/event.js';
 import { EventTarget } from '../events/eventtarget.js';
 import * as log from '../log/log.js';
-goog.requireType('goog.debug.errorhandler');
+const { ErrorHandler } = goog.requireType('goog.debug.errorhandler');
 
 
 /**
@@ -48,7 +48,7 @@ goog.requireType('goog.debug.errorhandler');
 function WebSocket_(opt_params) {
  WebSocket_.base(this, 'constructor');
  if (!opt_params) {
-   opt_params = /** @type {!goog.net.WebSocket.Options} */ ({});
+   opt_params = /** @type {!WebSocket_.Options} */ ({});
  }
  /** @private {boolean} @see WebSocket_.Options.autoReconnect */
  this.autoReconnect_ = opt_params.autoReconnect != false;
@@ -239,11 +239,11 @@ WebSocket_.EXPONENTIAL_BACKOFF_ = function(attempt) {
 /**
  * Installs exception protection for all entry points introduced by
  * WebSocket_ instances which are not protected by
- * {@link goog.debug.ErrorHandler#protectWindowSetTimeout},
- * {@link goog.debug.ErrorHandler#protectWindowSetInterval}, or
+ * {@link ErrorHandler#protectWindowSetTimeout},
+ * {@link ErrorHandler#protectWindowSetInterval}, or
  * {@link events.protectBrowserEventEntryPoint}.
  *
- * @param {!goog.debug.ErrorHandler} errorHandler Error handler with which to
+ * @param {!ErrorHandler} errorHandler Error handler with which to
  *     protect the entry points.
  */
 WebSocket_.protectEntryPoints = function(errorHandler) {

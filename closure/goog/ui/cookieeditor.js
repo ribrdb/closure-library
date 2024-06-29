@@ -17,7 +17,7 @@ import { Cookies } from '../net/cookies.js';
 import * as googString from '../string/string.js';
 import * as style from '../style/style.js';
 import { Component } from './component.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -87,7 +87,7 @@ export class CookieEditor extends Component {
 
   /**
    * Handles user clicking clear button.
-   * @param {!goog.events.Event} e The click event.
+   * @param {!Event} e The click event.
    * @private
    */
   handleClear_(e) {
@@ -99,7 +99,7 @@ export class CookieEditor extends Component {
 
   /**
    * Handles user clicking update button.
-   * @param {!goog.events.Event} e The click event.
+   * @param {!Event} e The click event.
    * @private
    */
   handleUpdate_(e) {

@@ -12,7 +12,7 @@
 goog.setTestOnly('proto2.TestAllTypes');
 
 import { Message } from './message.js';
-goog.requireType('goog.proto2.descriptor');
+const { Descriptor } = goog.requireType('goog.proto2.descriptor');
 
 
 
@@ -30,7 +30,7 @@ goog.inherits(TestAllTypes, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestAllTypes.descriptor_ = null;
 
@@ -3169,7 +3169,7 @@ goog.inherits(TestAllTypes.NestedMessage, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestAllTypes.NestedMessage.descriptor_ = null;
 
@@ -3299,7 +3299,7 @@ goog.inherits(TestAllTypes.OptionalGroup, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestAllTypes.OptionalGroup.descriptor_ = null;
 
@@ -3378,7 +3378,7 @@ goog.inherits(TestAllTypes.RepeatedGroup, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestAllTypes.RepeatedGroup.descriptor_ = null;
 
@@ -3468,7 +3468,7 @@ goog.inherits(TestDefaultParent, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestDefaultParent.descriptor_ = null;
 
@@ -3551,7 +3551,7 @@ goog.inherits(TestDefaultChild, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestDefaultChild.descriptor_ = null;
 

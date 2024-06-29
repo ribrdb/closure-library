@@ -12,7 +12,7 @@ import * as asserts from '../asserts/asserts.js';
 
 import { FieldDescriptor } from './fielddescriptor.js';
 import { Message } from './message.js';
-goog.requireType('goog.proto2.descriptor');
+const { Descriptor } = goog.requireType('goog.proto2.descriptor');
 
 
 
@@ -72,7 +72,7 @@ Serializer.prototype.getSerializedValue = function(field, value) {
 /**
  * Deserializes a message from the expected format.
  *
- * @param {goog.proto2.Descriptor} descriptor The descriptor of the message
+ * @param {Descriptor} descriptor The descriptor of the message
  *     to be created.
  * @param {*} data The data of the message.
  *

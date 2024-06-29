@@ -14,7 +14,7 @@
 import { Promise } from '../promise/promise.js';
 
 import { EventTarget } from '../events/eventtarget.js';
-goog.requireType('goog.Thenable');
+const { Thenable } = goog.requireType('goog.Thenable');
 
 
 

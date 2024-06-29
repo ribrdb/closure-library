@@ -14,7 +14,7 @@ import * as liteTypes from './lite_types.js';
  * @template T
  * @implements {liteTypes.ReadableStream<T>}
  */
-class NativeReadableStream {
+export class NativeReadableStream {
   /**
    * @param {!ReadableStream} stream
    */
@@ -41,7 +41,7 @@ class NativeReadableStream {
  * @suppress {strictMissingProperties}
  * @template T
  */
-function newReadableStream(underlyingSource) {
+export function newReadableStream(underlyingSource) {
   /** @const {!ReadableStreamSource} */
   const source = {
     start(controller) {
@@ -57,7 +57,7 @@ function newReadableStream(underlyingSource) {
  * @template T
  * @implements {liteTypes.ReadableStreamDefaultReader<T>}
  */
-class NativeReadableStreamDefaultReader {
+export class NativeReadableStreamDefaultReader {
   /**
    * @param {!ReadableStreamDefaultReader} reader
    */
@@ -86,7 +86,7 @@ class NativeReadableStreamDefaultReader {
  * @template T
  * @implements {liteTypes.ReadableStreamDefaultController<T>}
  */
-class NativeReadableStreamDefaultController {
+export class NativeReadableStreamDefaultController {
   /**
    * @param {!ReadableStreamDefaultController} controller
    */

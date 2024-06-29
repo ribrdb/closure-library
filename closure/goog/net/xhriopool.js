@@ -13,13 +13,13 @@
 import { XhrIo } from './xhrio.js';
 
 import { PriorityPool } from '../structs/prioritypool.js';
-goog.requireType('goog.structs.map');
+const { Map } = goog.requireType('goog.structs.map');
 
 
 
 /**
  * A pool of XhrIo objects.
- * @param {goog.structs.Map=} opt_headers Map of default headers to add to every
+ * @param {Map=} opt_headers Map of default headers to add to every
  *     request.
  * @param {number=} opt_minCount Minimum number of objects (Default: 0).
  * @param {number=} opt_maxCount Maximum number of objects (Default: 10).
@@ -31,7 +31,7 @@ goog.requireType('goog.structs.map');
 export function XhrIoPool(opt_headers, opt_minCount, opt_maxCount, opt_withCredentials) {
  /**
   * Map of default headers to add to every request.
-  * @type {goog.structs.Map|undefined}
+  * @type {Map|undefined}
   * @private
   */
  this.headers_ = opt_headers;

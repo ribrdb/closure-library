@@ -42,9 +42,9 @@ import { EventType } from './eventtype.js';
 import { XhrIo } from './xhrio.js';
 import { XhrIoPool } from './xhriopool.js';
 import object from '../object/object.js';
-goog.requireType('goog.fs.entry');
-goog.requireType('goog.fs.filewriter');
-goog.requireType('goog.net.errorcode');
+const { FileEntry } = goog.requireType('goog.fs.entry');
+const { FileWriter } = goog.requireType('goog.fs.filewriter');
+const { ErrorCode } = goog.requireType('goog.net.errorcode');
 
 
 
@@ -357,7 +357,7 @@ FileDownloader.prototype.xhrSuccess_ = function(download) {
  *
  * @param {!FileDownloader.Download_} download The download object for
  *     this download.
- * @param {!fs.FileEntry} file The newly-opened file object.
+ * @param {!FileEntry} file The newly-opened file object.
  * @private
  */
 FileDownloader.prototype.fileSuccess_ = function(download, file) {
@@ -379,7 +379,7 @@ FileDownloader.prototype.fileSuccess_ = function(download, file) {
  *
  * @param {!FileDownloader.Download_} download The download object for
  *     this download.
- * @param {!fs.FileWriter} writer The newly-created file writer object.
+ * @param {!FileWriter} writer The newly-created file writer object.
  * @private
  */
 FileDownloader.prototype.fileWriterSuccess_ = function(
@@ -647,7 +647,7 @@ FileDownloader.Error.prototype.xhrStatus;
 /**
  * The error code of the XHR. Only set if the error was caused by an XHR
  * failure.
- * @type {goog.net.ErrorCode|undefined}
+ * @type {ErrorCode|undefined}
  */
 FileDownloader.Error.prototype.xhrErrorCode;
 
@@ -715,14 +715,14 @@ FileDownloader.Download_ = function(url, downloader) {
   /**
      * The file entry where the blob is to be stored. Only set once it's been
      * loaded from the filesystem.
-     * @type {?fs.FileEntry}
+     * @type {?FileEntry}
      */
   this.file = null;
 
   /**
      * The file writer for writing the blob to the filesystem. Only set once it's
      * been loaded from the filesystem.
-     * @type {?fs.FileWriter}
+     * @type {?FileWriter}
      */
   this.writer = null;
 };

@@ -46,7 +46,7 @@ Path.prototype.bounds_ = null;
  * @override
  */
 Path.prototype.clone = function() {
-  const output = /** @type {goog.graphics.ext.Path} */
+  const output = /** @type {Path} */
       (Path.superClass_.clone.call(this));
   output.bounds_ = this.bounds_ && this.bounds_.clone();
   return output;

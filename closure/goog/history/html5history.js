@@ -274,7 +274,7 @@ Html5History.prototype.getUrl_ = function(token) {
 
 /**
  * Handles history events dispatched by the browser.
- * @param {events.BrowserEvent} e The browser event object.
+ * @param {BrowserEvent} e The browser event object.
  * @private
  */
 Html5History.prototype.onHistoryEvent_ = function(e) {

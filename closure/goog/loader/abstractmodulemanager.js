@@ -13,8 +13,8 @@ import { AbstractModuleLoader } from '../module/abstractmoduleloader.js';
 
 import { ModuleInfo } from '../module/moduleinfo.js';
 import { ModuleLoadCallback } from '../module/moduleloadcallback.js';
-goog.requireType('goog.html.trustedresourceurl');
-goog.requireType('goog.module.basemodule');
+const { TrustedResourceUrl } = goog.requireType('goog.html.trustedresourceurl');
+const { BaseModule } = goog.requireType('goog.module.basemodule');
 
 
 
@@ -166,7 +166,7 @@ AbstractModuleManager.prototype.removeExtraEdge = function(
 
 /**
  * Sets the module uris.
- * @param {!Object<string, !Array<!goog.html.TrustedResourceUrl>>} moduleUriMap
+ * @param {!Object<string, !Array<!TrustedResourceUrl>>} moduleUriMap
  *     The map of id/uris pairs for each module.
  */
 AbstractModuleManager.prototype.setModuleTrustedUris = function(
@@ -375,8 +375,8 @@ AbstractModuleManager.prototype.registerLateInitializationCallback =
 /**
  * Sets the constructor to use for the module object for the currently
  * loading module. The constructor should derive from
- * {@see goog.module.BaseModule}.
- * @param {function(new:goog.module.BaseModule)} fn The constructor function.
+ * {@see BaseModule}.
+ * @param {function(new:BaseModule)} fn The constructor function.
  */
 AbstractModuleManager.prototype.setModuleConstructor = function(
     fn) {};

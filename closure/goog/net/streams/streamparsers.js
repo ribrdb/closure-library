@@ -15,7 +15,7 @@ import { PbJsonStreamParser } from './pbjsonstreamparser.js';
 import { PbStreamParser } from './pbstreamparser.js';
 import { XhrIo } from '../xhrio.js';
 import * as log from '../../log/log.js';
-const StreamParser = goog.requireType('goog.net.streams.streamparser');
+const {StreamParser} = goog.requireType('goog.net.streams.streamparser');
 
 
 /**

@@ -13,7 +13,7 @@ goog.setTestOnly('someprotopackage.TestPackageTypes');
 
 import { Message } from './message.js';
 import { TestAllTypes } from './test.pb.js';
-goog.requireType('goog.proto2.descriptor');
+const { Descriptor } = goog.requireType('goog.proto2.descriptor');
 
 
 
@@ -31,7 +31,7 @@ goog.inherits(TestPackageTypes, Message);
 
 /**
  * Descriptor for this message, deserialized lazily in getDescriptor().
- * @private {?goog.proto2.Descriptor}
+ * @private {?Descriptor}
  */
 TestPackageTypes.descriptor_ = null;
 

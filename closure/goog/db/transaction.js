@@ -15,7 +15,7 @@ import { Error } from './error.js';
 import { ObjectStore } from './objectstore.js';
 import * as events from '../events/events.js';
 import { EventHandler } from '../events/eventhandler.js';
-import { EventTarget } from '../events/eventtarget.js';
+import { EventTarget as GoogEventTarget } from '../events/eventtarget.js';
 const {IndexedDb} = goog.requireType('goog.db.indexeddb');
 
 
@@ -29,7 +29,7 @@ const {IndexedDb} = goog.requireType('goog.db.indexeddb');
  * @param {!IDBTransaction} tx IndexedDB transaction to back this wrapper.
  * @param {!IndexedDb} db The database that this transaction modifies.
  * @constructor
- * @extends {EventTarget}
+ * @extends {GoogEventTarget}
  * @final
  */
 export function Transaction(tx, db) {
@@ -72,7 +72,7 @@ export function Transaction(tx, db) {
   this.eventHandler_.listen(
       /** @type {!EventTarget} */ (this.tx_), 'error', this.dispatchError_);
 }
-goog.inherits(Transaction, EventTarget);
+goog.inherits(Transaction, GoogEventTarget);
 
 
 /**

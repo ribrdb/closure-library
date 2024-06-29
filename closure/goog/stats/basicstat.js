@@ -96,7 +96,7 @@ BasicStat.prototype.getInterval = function() {
 BasicStat.prototype.incBy = function(amt, opt_now) {
  const now = opt_now ? opt_now : Date.now();
  this.checkForTimeTravel_(now);
- let slot = /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.getLast());
+ let slot = /** @type {BasicStat.Slot_} */ (this.slots_.getLast());
  if (!slot || now >= slot.end) {
    slot = new BasicStat.Slot_(this.getSlotBoundary_(now));
    this.slots_.add(slot);
@@ -170,7 +170,7 @@ BasicStat.prototype.reduceSlots_ = function(now, func, val) {
  let rval = val;
  const start = this.getSlotBoundary_(now) - this.interval_;
  for (let i = this.slots_.getCount() - 1; i >= 0; --i) {
-   const slot = /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.get(i));
+   const slot = /** @type {BasicStat.Slot_} */ (this.slots_.get(i));
    if (slot.end <= start) {
      break;
    }
@@ -201,7 +201,7 @@ BasicStat.prototype.getSlotBoundary_ = function(time) {
  */
 BasicStat.prototype.checkForTimeTravel_ = function(now) {
  const slot =
-     /** @type {goog.stats.BasicStat.Slot_} */ (this.slots_.getLast());
+     /** @type {BasicStat.Slot_} */ (this.slots_.getLast());
  if (slot) {
    const slotStart = slot.end - this.slotInterval_;
    if (now < slotStart) {

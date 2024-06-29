@@ -29,7 +29,7 @@ import { ModalAriaVisibilityHelper } from './modalariavisibilityhelper.js';
 import { PopupBase } from './popupbase.js';
 import * as userAgent from '../useragent/useragent.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.eventtarget');
+const { EventTarget } = goog.requireType('goog.events.eventtarget');
 
 
 
@@ -520,7 +520,7 @@ ModalPopup.prototype.show_ = function() {
 
   if (this.popupShowTransition_ && this.bgShowTransition_) {
     events.listenOnce(
-        /** @type {!events.EventTarget} */ (this.popupShowTransition_),
+        /** @type {!EventTarget} */ (this.popupShowTransition_),
         Transition.EventType.END, this.onShow, false, this);
     this.bgShowTransition_.play();
     this.popupShowTransition_.play();
@@ -566,7 +566,7 @@ ModalPopup.prototype.hide_ = function() {
 
   if (this.popupHideTransition_ && this.bgHideTransition_) {
     events.listenOnce(
-        /** @type {!events.EventTarget} */ (this.popupHideTransition_),
+        /** @type {!EventTarget} */ (this.popupHideTransition_),
         Transition.EventType.END, this.onHide, false, this);
     this.bgHideTransition_.play();
     // The transition whose END event you are listening to must be played last
@@ -759,7 +759,7 @@ ModalPopup.prototype.reposition = function() {
  * elements in the modal popup, the focus wraps back to the beginning, and that
  * if the user shift-tabs past the front of the modal popup, focus wraps around
  * to the end.
- * @param {events.BrowserEvent} e Browser's event object.
+ * @param {BrowserEvent} e Browser's event object.
  * @protected
  */
 ModalPopup.prototype.onFocus = function(e) {

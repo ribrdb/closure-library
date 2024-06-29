@@ -9,7 +9,17 @@
  */
 
 
-KeyRange = function(range) {
+/**
+ * Creates a new IDBKeyRange wrapper object. Should not be created directly,
+ * instead use one of the static factory methods. For example:
+ * @see goog.db.KeyRange.bound
+ * @see goog.db.KeyRange.lowerBound
+ *
+ * @param {!IDBKeyRange} range Underlying IDBKeyRange object.
+ * @constructor
+ * @final
+ */
+export function KeyRange(range) {
  /**
   * Underlying IDBKeyRange object.
   *
@@ -93,4 +103,3 @@ KeyRange.upperBound = function(upper, opt_upperOpen) {
 KeyRange.prototype.range = function() {
  return this.range_;
 };
-export var KeyRange;

@@ -9,6 +9,10 @@
  * @fileoverview Defines an interface for serializing objects into strings.
  */
 
+/**
+ * An interface for serializing objects into strings.
+ * @interface
+ */
 Stringifier = function() {};
 
 

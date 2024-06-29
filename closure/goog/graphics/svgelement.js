@@ -18,11 +18,10 @@ import { ImageElement } from './imageelement.js';
 import { PathElement } from './pathelement.js';
 import { RectElement } from './rectelement.js';
 import { TextElement } from './textelement.js';
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.path');
-goog.requireType('goog.graphics.stroke');
-goog.requireType('goog.graphics.svggraphics');
-
+import { SvgGraphics } from './svggraphics.js';
+const { Fill } = goog.requireType('goog.graphics.fill');
+const { Path } = goog.requireType('goog.graphics.path');
+const { Stroke } = goog.requireType('goog.graphics.stroke');
 
 
 /**
@@ -30,7 +29,7 @@ goog.requireType('goog.graphics.svggraphics');
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.SvgGraphics} graphics The graphics creating
+ * @param {SvgGraphics} graphics The graphics creating
  *     this element.
  * @constructor
  * @extends {GroupElement}
@@ -74,10 +73,10 @@ SvgGroupElement.prototype.setSize = function(width, height) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.SvgGraphics} graphics The graphics creating
+ * @param {SvgGraphics} graphics The graphics creating
  *     this element.
- * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill?} fill The fill to use for this element.
+ * @param {Stroke?} stroke The stroke to use for this element.
+ * @param {Fill?} fill The fill to use for this element.
  * @constructor
  * @extends {EllipseElement}
  * @final
@@ -121,10 +120,10 @@ SvgEllipseElement.prototype.setRadius = function(rx, ry) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.SvgGraphics} graphics The graphics creating
+ * @param {SvgGraphics} graphics The graphics creating
  *     this element.
- * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill?} fill The fill to use for this element.
+ * @param {Stroke?} stroke The stroke to use for this element.
+ * @param {Fill?} fill The fill to use for this element.
  * @constructor
  * @extends {RectElement}
  * @final
@@ -167,10 +166,10 @@ SvgRectElement.prototype.setSize = function(width, height) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.SvgGraphics} graphics The graphics creating
+ * @param {SvgGraphics} graphics The graphics creating
  *     this element.
- * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill?} fill The fill to use for this element.
+ * @param {Stroke?} stroke The stroke to use for this element.
+ * @param {Fill?} fill The fill to use for this element.
  * @constructor
  * @extends {PathElement}
  * @final
@@ -183,14 +182,14 @@ goog.inherits(SvgPathElement, PathElement);
 
 /**
  * Update the underlying path.
- * @param {!goog.graphics.Path} path The path object to draw.
+ * @param {!Path} path The path object to draw.
  * @override
  * @suppress {strictMissingProperties} Added to tighten compiler checks
- * @suppress {missingRequire} goog.graphics.SvgGraphics
+ * @suppress {missingRequire} SvgGraphics
  */
 SvgPathElement.prototype.setPath = function(path) {
  this.getGraphics().setElementAttributes(
-     this.getElement(), {'d': goog.graphics.SvgGraphics.getSvgPath(path)});
+     this.getElement(), {'d': SvgGraphics.getSvgPath(path)});
 };
 
 
@@ -201,10 +200,10 @@ SvgPathElement.prototype.setPath = function(path) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.SvgGraphics} graphics The graphics creating
+ * @param {SvgGraphics} graphics The graphics creating
  *     this element.
- * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill?} fill The fill to use for this element.
+ * @param {Stroke?} stroke The stroke to use for this element.
+ * @param {Fill?} fill The fill to use for this element.
  * @constructor
  * @extends {TextElement}
  * @final
@@ -233,7 +232,7 @@ SvgTextElement.prototype.setText = function(text) {
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.SvgGraphics} graphics The graphics creating
+ * @param {SvgGraphics} graphics The graphics creating
  *     this element.
  * @constructor
  * @extends {ImageElement}

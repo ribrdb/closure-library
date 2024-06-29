@@ -14,9 +14,9 @@ import { Uri } from '../../uri/uri.js';
 import * as events from '../../events/events.js';
 import { EventType } from '../../net/eventtype.js';
 import { XhrIo } from '../../net/xhrio.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.net.xmlhttpfactory');
-goog.requireType('goog.structs.map');
+const { Event } = goog.requireType('goog.events.event');
+const { XmlHttpFactory } = goog.requireType('goog.net.xmlhttpfactory');
+const { Map } = goog.requireType('goog.structs.map');
 
 
 
@@ -28,7 +28,7 @@ goog.requireType('goog.structs.map');
  *     similarity matches for the input token against the dictionary.
  *     The value is sent to the server as the 'use_similar' query param which is
  *     either "1" (opt_noSimilar==false) or "0" (opt_noSimilar==true).
- * @param {goog.net.XmlHttpFactory=} opt_xmlHttpFactory Specify the
+ * @param {XmlHttpFactory=} opt_xmlHttpFactory Specify the
  *     XmlHttpFactory used to retrieve the matches.
  * @constructor
  * @extends {Disposable}
@@ -81,7 +81,7 @@ RemoteArrayMatcher.prototype.content_ = undefined;
 
 /**
  * Headers to send with every HTTP request.
- * @type {?Object|?goog.structs.Map}
+ * @type {?Object|?Map}
  * @private
  */
 RemoteArrayMatcher.prototype.headers_ = null;
@@ -115,7 +115,7 @@ RemoteArrayMatcher.prototype.setContent = function(content) {
 
 /**
  * Set the HTTP headers.
- * @param {Object|goog.structs.Map} headers Map of headers to add to the
+ * @param {Object|Map} headers Map of headers to add to the
  *     request.
  */
 RemoteArrayMatcher.prototype.setHeaders = function(headers) {
@@ -200,7 +200,7 @@ RemoteArrayMatcher.prototype.parseResponseText = function(
  * Handles the XHR response.
  * @param {string} token The XHR autocomplete token.
  * @param {Function} matchHandler The AutoComplete match handler.
- * @param {events.Event} event The XHR success event.
+ * @param {Event} event The XHR success event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 RemoteArrayMatcher.prototype.xhrCallback = function(

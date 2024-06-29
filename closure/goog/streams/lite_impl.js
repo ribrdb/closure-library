@@ -26,7 +26,7 @@ import { assert, assertFunction } from '../asserts/asserts.js';
  * @template T
  * @implements {liteTypes.ReadableStream<T>}
  */
-class ReadableStream {
+export class ReadableStream {
   /** @package */
   constructor() {
     /** @package {!ReadableStream.State} */
@@ -148,7 +148,7 @@ ReadableStream.State = {
  * @suppress {strictMissingProperties}
  * @template T
  */
-function newReadableStream(underlyingSource) {
+export function newReadableStream(underlyingSource) {
   assertFunction(
       underlyingSource.start,
       `'start' property must be a function on an underlying source for a ` +
@@ -187,7 +187,7 @@ function newReadableStream(underlyingSource) {
  * @template T
  * @implements {liteTypes.ReadableStreamDefaultReader<T>}
  */
-class ReadableStreamDefaultReader {
+export class ReadableStreamDefaultReader {
   /**
    * @param {!ReadableStream} stream
    * @package
@@ -303,7 +303,7 @@ class ReadableStreamDefaultReader {
  * @template T
  * @implements {liteTypes.ReadableStreamDefaultController<T>}
  */
-class ReadableStreamDefaultController {
+export class ReadableStreamDefaultController {
   /**
    * @param {!ReadableStream} stream
    * @package
@@ -483,7 +483,7 @@ class ReadableStreamDefaultController {
  * @template T
  * @package
  */
-class Queue {
+export class Queue {
   constructor() {
     /** @private {!Array<T>} */
     this.queue_ = [];

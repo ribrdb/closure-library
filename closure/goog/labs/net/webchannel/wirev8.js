@@ -20,7 +20,7 @@ import * as json from '../../../json/json.js';
 import NativeJsonProcessor from '../../../json/nativejsonprocessor.js';
 import { Wire as webChannelWire } from './wire.js';
 import * as structs from '../../../structs/structs.js';
-goog.requireType('goog.string.parser');
+const { Parser } = goog.requireType('goog.string.parser');
 
 
 
@@ -33,7 +33,7 @@ goog.requireType('goog.string.parser');
 export function WireV8() {
   /**
    * Parser for a response payload. The parser should return an array.
-   * @private {!goog.string.Parser}
+   * @private {!Parser}
    */
   this.parser_ = new NativeJsonProcessor();
 }

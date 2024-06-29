@@ -11,7 +11,11 @@
  */
 
 // clang-format off
-CharPickerData = function() {};
+/**
+ * Object holding two level character organization and character listing.
+ * @constructor
+ */
+export function CharPickerData() {};
 
 
 /**
@@ -3649,4 +3653,3 @@ CharPickerData.prototype.charList = [
   CharPickerData.CHARLIST_OF_HAN_11_17_STROKE_RADICALS,
   CharPickerData.CHARLIST_OF_HAN_OTHER
 ];
-export var CharPickerData;

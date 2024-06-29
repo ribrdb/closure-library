@@ -524,7 +524,7 @@ NodeAncestry_.instances_ = {};
  * the structure or class/id attributes of your document and you want
  * to recalculate the currently applied CSS rules.
  */
-resetDomCache = function() {
+export var resetDomCache = function() {
   NodeAncestry_.instances_ = {};
 };
 
@@ -969,4 +969,3 @@ export function getBackgroundContext(element) {
   }
   return propertyValues;
 }
-export var resetDomCache;

@@ -8,7 +8,12 @@
  * @fileoverview Commands that the editor can execute.
  * @see ../demos/editor/editor.html
  */
-Command = {
+
+/**
+ * Commands that the editor can execute via execCommand or queryCommandValue.
+ * @enum {string}
+ */
+export var Command = {
   // Prepend all the strings of built in execCommands with a plus to ensure
   // that there's no conflict if a client wants to use the
   // browser's execCommand.
@@ -59,4 +64,3 @@ Command = {
   // Modal editor commands (usually dialogs).
   MODAL_LINK_EDITOR: 'link'
 };
-export var Command;

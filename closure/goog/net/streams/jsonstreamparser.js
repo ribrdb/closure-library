@@ -66,7 +66,7 @@ export function JsonStreamParser(opt_options) {
 
   /**
    * The current stack.
-   * @private {!Array<!Parser.State_>}
+   * @private {!Array<!JsonStreamParser.State_>}
    */
   this.stack_ = [];
 

@@ -52,10 +52,11 @@ export var FullscreenNavigationUI = {
  * @record
  * @extends {FullscreenOptions}
  */
-export function FullscreenOptions() {}
+function GoogFullscreenOptions() {}
+export { GoogFullscreenOptions as FullscreenOptions };
 
 /** @type {!FullscreenNavigationUI} */
-FullscreenOptions.prototype.navigationUI;
+GoogFullscreenOptions.prototype.navigationUI;
 
 
 /**
@@ -78,7 +79,7 @@ export function isSupported(opt_domHelper) {
 /**
  * Requests putting the element in full screen.
  * @param {!Element} element The element to put full screen.
- * @param {!FullscreenOptions=} opt_options Options for full
+ * @param {!GoogFullscreenOptions=} opt_options Options for full
  *     screen. This field will be ignored on older browsers.
    @return {!Promise<undefined>|undefined} A promise in later versions of Chrome
        and undefined otherwise.
@@ -99,7 +100,7 @@ export function requestFullScreen(element, opt_options) {
 /**
  * Requests putting the element in full screen with full keyboard access.
  * @param {!Element} element The element to put full screen.
- * @param {!FullscreenOptions=} opt_options Options for full
+ * @param {!GoogFullscreenOptions=} opt_options Options for full
  *     screen. This field will be ignored on older browsers.
    @return {!Promise<undefined>|undefined} A promise in later versions of Chrome
        and undefined otherwise.

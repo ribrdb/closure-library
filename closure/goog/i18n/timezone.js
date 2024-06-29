@@ -13,7 +13,7 @@ import * as array from '../array/array.js';
 
 import object from '../object/object.js';
 import * as googString from '../string/string.js';
-goog.requireType('goog.date.date');
+const { DateLike } = goog.requireType('goog.date.date');
 
 
 
@@ -259,7 +259,7 @@ TimeZone.prototype.getTimeZoneData = function() {
  * Return the DST adjustment to the time zone offset for a given time.
  * While Daylight Saving Time is in effect, this number is positive.
  * Otherwise, it is zero.
- * @param {goog.date.DateLike} date The time to check.
+ * @param {DateLike} date The time to check.
  * @return {number} The DST adjustment in minutes EAST of UTC.
  */
 TimeZone.prototype.getDaylightAdjustment = function(date) {
@@ -278,7 +278,7 @@ TimeZone.prototype.getDaylightAdjustment = function(date) {
 
 /**
  * Return the GMT representation of this time zone object.
- * @param {goog.date.DateLike} date The date for which time to retrieve
+ * @param {DateLike} date The date for which time to retrieve
  *     GMT string.
  * @return {string} GMT representation string.
  */
@@ -288,7 +288,7 @@ TimeZone.prototype.getGMTString = function(date) {
 
 /**
  * Return the UTC representation of this time zone object.
- * @param {!goog.date.DateLike} date The date for which time to retrieve
+ * @param {!DateLike} date The date for which time to retrieve
  *     UTC string.
  * @return {string} UTC representation string.
  */
@@ -299,7 +299,7 @@ TimeZone.prototype.getUTCString = function(date) {
 
 /**
  * Get the long time zone name for a given date/time.
- * @param {goog.date.DateLike} date The time for which to retrieve
+ * @param {DateLike} date The time for which to retrieve
  *     the long time zone name.
  * @return {string} The long time zone name.
  */
@@ -312,7 +312,7 @@ TimeZone.prototype.getLongName = function(date) {
 
 /**
  * Get the time zone offset in minutes WEST of UTC for a given date/time.
- * @param {goog.date.DateLike} date The time for which to retrieve
+ * @param {DateLike} date The time for which to retrieve
  *     the time zone offset.
  * @return {number} The time zone offset in minutes WEST of UTC.
  */
@@ -329,7 +329,7 @@ TimeZone.prototype.getOffset = function(date) {
 
 /**
  * Get the RFC representation of the time zone for a given date/time.
- * @param {goog.date.DateLike} date The time for which to retrieve the
+ * @param {DateLike} date The time for which to retrieve the
  *     RFC time zone string.
  * @return {string} The RFC time zone string.
  */
@@ -346,7 +346,7 @@ TimeZone.prototype.getRFCTimeZoneString = function(date) {
 
 /**
  * Get the short time zone name for given date/time.
- * @param {goog.date.DateLike} date The time for which to retrieve
+ * @param {DateLike} date The time for which to retrieve
  *     the short time zone name.
  * @return {string} The short time zone name.
  */
@@ -368,7 +368,7 @@ TimeZone.prototype.getTimeZoneId = function() {
 
 /**
  * Check if Daylight Saving Time is in effect at a given time in this time zone.
- * @param {goog.date.DateLike} date The time to check.
+ * @param {DateLike} date The time to check.
  * @return {boolean} True if Daylight Saving Time is in effect.
  */
 TimeZone.prototype.isDaylightTime = function(date) {
@@ -378,7 +378,7 @@ TimeZone.prototype.isDaylightTime = function(date) {
 
 /**
  * Get the long GMT time zone name for a given date/time.
- * @param {!goog.date.DateLike} date The time for which to retrieve
+ * @param {!DateLike} date The time for which to retrieve
  *     the long GMT time zone name.
  * @return {string} The long GMT time zone name.
  */
@@ -397,7 +397,7 @@ TimeZone.prototype.getLongNameGMT = function(date) {
 
 /**
  * Get the generic location time zone name for a given date/time.
- * @param {!goog.date.DateLike} date The time for which to retrieve
+ * @param {!DateLike} date The time for which to retrieve
  *     the generic location time zone name.
  * @return {string} The generic location time zone name.
  */

@@ -9,7 +9,15 @@
  */
 
 
-Node = function(key, value) {
+/**
+ * A generic immutable node. This can be used in various collections that
+ * require a node object for its item (such as a heap).
+ * @param {K} key Key.
+ * @param {V} value Value.
+ * @constructor
+ * @template K, V
+ */
+export function Node(key, value) {
  /**
   * The key.
   * @private {K}
@@ -50,4 +58,3 @@ Node.prototype.getValue = function() {
 Node.prototype.clone = function() {
  return new Node(this.key_, this.value_);
 };
-export var Node;

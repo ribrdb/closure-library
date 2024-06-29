@@ -1,19 +1,7 @@
-/**
- * @license
- * Copyright The Closure Library Authors.
- * SPDX-License-Identifier: Apache-2.0
- */
-
-/**
- * @fileoverview A core interface for WebChannelBase.
- *
- */
-
-
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.labs.net.webchannel.channelrequest');
-goog.requireType('goog.labs.net.webchannel.connectionstate');
-goog.requireType('goog.net.xhrio');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { ChannelRequest } = goog.requireType('goog.labs.net.webchannel.channelrequest');
+const { ConnectionState } = goog.requireType('goog.labs.net.webchannel.connectionstate');
+const { XhrIo } = goog.requireType('goog.net.xhrio');
 
 
 /**
@@ -55,7 +43,7 @@ goog.scope(function() {
   *     capable of calling a secondary domain.
   * @param {boolean=} isStreaming Whether or not fetch/streams are enabled for
   *     the underlying HTTP request.
-  * @return {!goog.net.XhrIo} A new XhrIo object.
+  * @return {!XhrIo} A new XhrIo object.
   */
  Channel.prototype.createXhrIo = goog.abstractMethod;
 
@@ -107,7 +95,7 @@ goog.scope(function() {
   *
   * Gets the Uri used for the connection that sends data to the server.
   * @param {string} path The path on the host.
-  * @return {goog.Uri} The forward channel URI.
+  * @return {Uri} The forward channel URI.
   */
  Channel.prototype.getForwardChannelUri = goog.abstractMethod;
 
@@ -118,7 +106,7 @@ goog.scope(function() {
   * Gets the Uri used for the connection that receives data from the server.
   * @param {?string} hostPrefix The host prefix.
   * @param {string} path The path on the host.
-  * @return {goog.Uri} The back channel URI.
+  * @return {Uri} The back channel URI.
   */
  Channel.prototype.getBackChannelUri = goog.abstractMethod;
 
@@ -143,7 +131,7 @@ goog.scope(function() {
   * @param {?string} hostPrefix The host prefix.
   * @param {string} path The path on the host (may be absolute or relative).
   * @param {number=} opt_overridePort Optional override port.
-  * @return {goog.Uri} The data URI.
+  * @return {Uri} The data URI.
   */
  Channel.prototype.createDataUri = goog.abstractMethod;
 
@@ -152,7 +140,7 @@ goog.scope(function() {
   * Not needed for testchannel.
   * Gets the result of previous connectivity tests.
   *
-  * @return {!goog.labs.net.webChannel.ConnectionState} The connectivity state.
+  * @return {!ConnectionState} The connectivity state.
   */
  Channel.prototype.getConnectionState = goog.abstractMethod;
 

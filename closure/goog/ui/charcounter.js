@@ -142,7 +142,7 @@ CharCounter.prototype.getDisplayMode = function() {
 /**
  * Change event handler for input field.
  *
- * @param {events.BrowserEvent} event Change event.
+ * @param {BrowserEvent} event Change event.
  * @private
  */
 CharCounter.prototype.onChange_ = function(event) {

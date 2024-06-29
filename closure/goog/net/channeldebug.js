@@ -18,8 +18,8 @@ goog.declareModuleId('goog.net.channeldebug');
 import * as json from '../json/json.js';
 import * as log from '../log/log.js';
 import * as googLog from '../log/log.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.net.xmlhttp');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { XmlHttp } = goog.requireType('goog.net.xmlhttp');
 
 
 
@@ -49,7 +49,7 @@ ChannelDebug.prototype.getLogger = function() {
 
 /**
  * Logs that the browser went offline during the lifetime of a request.
- * @param {goog.Uri} url The URL being requested.
+ * @param {Uri} url The URL being requested.
  */
 ChannelDebug.prototype.browserOfflineResponse = function(url) {
   this.info('BROWSER_OFFLINE: ' + url);
@@ -59,7 +59,7 @@ ChannelDebug.prototype.browserOfflineResponse = function(url) {
 /**
  * Logs an XmlHttp request..
  * @param {string} verb The request type (GET/POST).
- * @param {goog.Uri} uri The request destination.
+ * @param {Uri} uri The request destination.
  * @param {string|number|undefined} id The request id.
  * @param {number} attempt Which attempt # the request was.
  * @param {?string} postData The data posted in the request.
@@ -75,10 +75,10 @@ ChannelDebug.prototype.xmlHttpChannelRequest = function(
 /**
  * Logs the meta data received from an XmlHttp request.
  * @param {string} verb The request type (GET/POST).
- * @param {goog.Uri} uri The request destination.
+ * @param {Uri} uri The request destination.
  * @param {string|number|undefined} id The request id.
  * @param {number} attempt Which attempt # the request was.
- * @param {goog.net.XmlHttp.ReadyState} readyState The ready state.
+ * @param {XmlHttp.ReadyState} readyState The ready state.
  * @param {number} statusCode The HTTP status code.
  */
 ChannelDebug.prototype.xmlHttpChannelResponseMetaData = function(
@@ -106,7 +106,7 @@ ChannelDebug.prototype.xmlHttpChannelResponseText = function(
 /**
  * Logs a Trident ActiveX request.
  * @param {string} verb The request type (GET/POST).
- * @param {goog.Uri} uri The request destination.
+ * @param {Uri} uri The request destination.
  * @param {string|number|undefined} id The request id.
  * @param {number} attempt Which attempt # the request was.
  */
@@ -142,7 +142,7 @@ ChannelDebug.prototype.tridentChannelResponseDone = function(
 
 /**
  * Logs a request timeout.
- * @param {goog.Uri} uri The uri that timed out.
+ * @param {Uri} uri The uri that timed out.
  */
 ChannelDebug.prototype.timeoutResponse = function(uri) {
   this.info('TIMEOUT: ' + uri);

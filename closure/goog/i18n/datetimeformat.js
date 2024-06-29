@@ -22,7 +22,7 @@ import * as LocaleFeature from './localefeature.js';
 import * as NativeLocaleDigits from './nativelocaledigits.js';
 import { TimeZone } from './timezone.js';
 import * as googString from '../string/string.js';
-goog.requireType('goog.i18n.datetimesymbols');
+const { DateTimeSymbolsType } = goog.requireType('goog.i18n.datetimesymbols');
 
 /**
  * IMPORTANT: Datetime formatting results different between JavaScript and
@@ -145,7 +145,7 @@ export function DateTimeFormat(pattern, opt_dateTimeSymbols) {
   asserts.assert(
       opt_dateTimeSymbols !== undefined ||
           DateTimeSymbols !== undefined,
-      'goog.i18n.DateTimeSymbols or explicit symbols must be defined');
+      'DateTimeSymbols or explicit symbols must be defined');
 
   /**
    * Remember if the implementation is ECMAScript

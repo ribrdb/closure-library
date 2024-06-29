@@ -33,13 +33,13 @@ import {
 
 import { Zippy } from '../ui/zippy.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.tweak.registry');
+const { Registry } = goog.requireType('goog.tweak.registry');
 
 
 
 /**
  * A UI for editing tweak settings / clicking tweak actions.
- * @param {!googTweak.Registry} registry The registry to render.
+ * @param {!Registry} registry The registry to render.
  * @param {dom.DomHelper=} opt_domHelper The DomHelper to render with.
  * @constructor
  * @final
@@ -47,7 +47,7 @@ goog.requireType('goog.tweak.registry');
 export function TweakUi(registry, opt_domHelper) {
   /**
      * The registry to create a UI from.
-     * @type {!googTweak.Registry}
+     * @type {!Registry}
      * @private
      */
   this.registry_ = registry;
@@ -845,7 +845,7 @@ function NamespaceEntry_(namespace, entries) {
   this.entries = entries;
 
   this.label = namespace;
-};
+}
 goog.inherits(NamespaceEntry_, BaseEntry);
 
 

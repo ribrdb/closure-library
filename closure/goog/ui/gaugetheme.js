@@ -14,7 +14,7 @@ import { LinearGradient } from '../graphics/lineargradient.js';
 
 import { SolidFill } from '../graphics/solidfill.js';
 import { Stroke } from '../graphics/stroke.js';
-goog.requireType('goog.graphics.fill');
+const { Fill } = goog.requireType('goog.graphics.fill');
 
 
 
@@ -42,7 +42,7 @@ GaugeTheme.prototype.getExternalBorderStroke = function() {
  * @param {number} cx X coordinate of the center of the gauge.
  * @param {number} cy Y coordinate of the center of the gauge.
  * @param {number} r Radius of the gauge.
- * @return {!goog.graphics.Fill} The fill to use.
+ * @return {!Fill} The fill to use.
  */
 GaugeTheme.prototype.getExternalBorderFill = function(cx, cy, r) {
  return new LinearGradient(
@@ -64,7 +64,7 @@ GaugeTheme.prototype.getInternalBorderStroke = function() {
  * @param {number} cx X coordinate of the center of the gauge.
  * @param {number} cy Y coordinate of the center of the gauge.
  * @param {number} r Radius of the gauge.
- * @return {!goog.graphics.Fill} The fill to use.
+ * @return {!Fill} The fill to use.
  */
 GaugeTheme.prototype.getInternalBorderFill = function(cx, cy, r) {
  return new SolidFill('#f7f7f7');
@@ -103,7 +103,7 @@ GaugeTheme.prototype.getHingeStroke = function() {
  * @param {number} cx  X coordinate of the center of the gauge.
  * @param {number} cy  Y coordinate of the center of the gauge.
  * @param {number} r  Radius of the hinge.
- * @return {!goog.graphics.Fill} The fill to use.
+ * @return {!Fill} The fill to use.
  */
 GaugeTheme.prototype.getHingeFill = function(cx, cy, r) {
  return new LinearGradient(
@@ -125,7 +125,7 @@ GaugeTheme.prototype.getNeedleStroke = function() {
  * @param {number} cx X coordinate of the center of the gauge.
  * @param {number} cy Y coordinate of the center of the gauge.
  * @param {number} r Radius of the gauge.
- * @return {!goog.graphics.Fill} The fill to use.
+ * @return {!Fill} The fill to use.
  */
 GaugeTheme.prototype.getNeedleFill = function(cx, cy, r) {
  // Make needle a bit transparent so that text underneeth is still visible.

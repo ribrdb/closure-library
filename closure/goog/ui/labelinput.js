@@ -37,7 +37,7 @@ import { EventType } from '../events/eventtype.js';
 import { Component } from './component.js';
 import * as userAgent from '../useragent/useragent.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -276,7 +276,7 @@ LabelInput.prototype.labelCssClassName =
 
 /**
  * Handler for the focus event.
- * @param {goog.events.Event} e The event object passed in to the event handler.
+ * @param {Event} e The event object passed in to the event handler.
  * @private
  */
 LabelInput.prototype.handleFocus_ = function(e) {
@@ -307,7 +307,7 @@ LabelInput.prototype.handleFocus_ = function(e) {
 
 /**
  * Handler for the blur event.
- * @param {goog.events.Event} e The event object passed in to the event handler.
+ * @param {Event} e The event object passed in to the event handler.
  * @private
  */
 LabelInput.prototype.handleBlur_ = function(e) {
@@ -358,7 +358,7 @@ LabelInput.prototype.handleEscapeKeys_ = function(e) {
 
 /**
  * Handler for the submit event of the form element.
- * @param {goog.events.Event} e The event object passed in to the event handler.
+ * @param {Event} e The event object passed in to the event handler.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

@@ -9,7 +9,7 @@
  * @see ../demos/gauge.html
  */
 
-const AbstractGraphics = goog.requireType('goog.graphics.abstractgraphics');
+const {AbstractGraphics} = goog.requireType('goog.graphics.abstractgraphics');
 import { Animation } from '../fx/animation.js';
 import { Component } from './component.js';
 import { Font } from '../graphics/font.js';
@@ -24,9 +24,9 @@ import * as easing from '../fx/easing.js';
 import * as googEvents from '../events/events.js';
 import * as googGraphics from '../graphics/graphics.js';
 import * as googMath from '../math/math.js';
-const AnimationEvent = goog.requireType('goog.fx.animation');
-const DomHelper = goog.requireType('goog.dom.dom');
-const GroupElement = goog.requireType('goog.graphics.groupelement');
+const {AnimationEvent} = goog.requireType('goog.fx.animation');
+const {DomHelper} = goog.requireType('goog.dom.dom');
+const {GroupElement} = goog.requireType('goog.graphics.groupelement');
 
 /**
  * The radius of the entire gauge from the canvas size.

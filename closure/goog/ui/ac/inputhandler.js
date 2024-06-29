@@ -97,9 +97,9 @@ import { KeyHandler } from '../../events/keyhandler.js';
 import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.eventtarget');
-goog.requireType('goog.ui.ac.autocomplete');
+const { Event } = goog.requireType('goog.events.event');
+const { EventTarget } = goog.requireType('goog.events.eventtarget');
+const { AutoComplete } = goog.requireType('goog.ui.ac.autocomplete');
 
 
 
@@ -230,7 +230,7 @@ InputHandler.QUOTE_LITERALS = '"';
 
 /**
  * The AutoComplete instance this inputhandler is associated with.
- * @type {goog.ui.ac.AutoComplete}
+ * @type {AutoComplete}
  */
 InputHandler.prototype.ac_;
 
@@ -370,7 +370,7 @@ InputHandler.prototype.updateDuringTyping_ = true;
 
 /**
  * Attach an instance of an AutoComplete
- * @param {goog.ui.ac.AutoComplete} ac Autocomplete object.
+ * @param {AutoComplete} ac Autocomplete object.
  */
 InputHandler.prototype.attachAutoComplete = function(ac) {
   this.ac_ = ac;
@@ -379,7 +379,7 @@ InputHandler.prototype.attachAutoComplete = function(ac) {
 
 /**
  * Returns the associated autocomplete instance.
- * @return {goog.ui.ac.AutoComplete} The associated autocomplete instance.
+ * @return {AutoComplete} The associated autocomplete instance.
  */
 InputHandler.prototype.getAutoComplete = function() {
   return this.ac_;
@@ -438,7 +438,7 @@ InputHandler.prototype.setCursorPosition = function(pos) {
  * Attaches the input handler to a target element. The target element
  * should be a textarea, input box, or other focusable element with the
  * same interface.
- * @param {Element|goog.events.EventTarget} target An element to attach the
+ * @param {Element|EventTarget} target An element to attach the
  *     input handler to.
  */
 InputHandler.prototype.attachInput = function(target) {
@@ -470,7 +470,7 @@ InputHandler.prototype.attachInput = function(target) {
 
 /**
  * Detaches the input handler from the provided element.
- * @param {Element|goog.events.EventTarget} target An element to detach the
+ * @param {Element|EventTarget} target An element to detach the
  *     input handler from.
  */
 InputHandler.prototype.detachInput = function(target) {
@@ -930,7 +930,7 @@ InputHandler.prototype.needKeyUpListener = function() {
 
 /**
  * Handles the key up event. Registered only if needKeyUpListener returns true.
- * @param {goog.events.Event} e The keyup event.
+ * @param {Event} e The keyup event.
  * @return {boolean} Whether an action was taken or not.
  * @protected
  */
@@ -990,7 +990,7 @@ InputHandler.prototype.removeEventHandlers_ = function() {
 
 /**
  * Handles an element getting focus.
- * @param {goog.events.Event} e Browser event object.
+ * @param {Event} e Browser event object.
  * @protected
  */
 InputHandler.prototype.handleFocus = function(e) {
@@ -1026,7 +1026,7 @@ InputHandler.prototype.processFocus = function(target) {
 
 /**
  * Handles an element blurring.
- * @param {goog.events.Event=} opt_e Browser event object.
+ * @param {Event=} opt_e Browser event object.
  * @protected
  */
 InputHandler.prototype.handleBlur = function(opt_e) {
@@ -1075,7 +1075,7 @@ InputHandler.prototype.processBlur = function() {
 /**
  * Handles the timer's tick event.  Calculates the current token, and reports
  * any update to the autocomplete.
- * @param {goog.events.Event} e Browser event object.
+ * @param {Event} e Browser event object.
  * @private
  */
 InputHandler.prototype.onTick_ = function(e) {

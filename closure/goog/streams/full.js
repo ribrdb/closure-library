@@ -10,8 +10,7 @@
 import fullImpl from './full_impl.js';
 
 import fullNativeImpl from './full_native_impl.js';
-import fullTypes from './full_types.js';
-const {ReadableStream, ReadableStreamAsyncIterator, ReadableStreamDefaultController, ReadableStreamDefaultReader, ReadableStreamStrategy, ReadableStreamUnderlyingSource} = fullTypes;
+import {ReadableStream, ReadableStreamAsyncIterator, ReadableStreamDefaultController, ReadableStreamDefaultReader, ReadableStreamStrategy, ReadableStreamUnderlyingSource} from './full_types.js';
 import defines from './defines.js';
 const {USE_NATIVE_IMPLEMENTATION} = defines;
 

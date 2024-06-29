@@ -9,7 +9,7 @@
  * matcher's matches method to test if a matcher matches assertThat's arguments.
  */
 
-const Matcher = goog.requireType('goog.labs.testing.matcher');
+const {Matcher} = goog.requireType('goog.labs.testing.matcher');
 import { MatcherError } from './matchererror.js';
 
 /**

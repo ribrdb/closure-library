@@ -14,7 +14,7 @@ import { HTML5LocalStorage } from './html5localstorage.js';
 import { HTML5SessionStorage } from './html5sessionstorage.js';
 import { IEUserData } from './ieuserdata.js';
 import { PrefixedMechanism } from './prefixedmechanism.js';
-goog.requireType('goog.storage.mechanism.IterableMechanism');
+const { IterableMechanism } = goog.requireType('goog.storage.mechanism.IterableMechanism');
 
 
 /**
@@ -32,7 +32,7 @@ export var USER_DATA_SHARED_KEY = 'UserDataSharedStore';
  * provides separation and makes key collisions unlikely.
  *
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
- * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
+ * @return {IterableMechanism} Created mechanism or null.
  */
 export function create(opt_namespace) {
  return createHTML5LocalStorage(
@@ -49,7 +49,7 @@ export function create(opt_namespace) {
  * used to provide key separation employing a prefix.
  *
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
- * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
+ * @return {IterableMechanism} Created mechanism or null.
  */
 export function createHTML5LocalStorage(opt_namespace) {
  var storage = new HTML5LocalStorage();
@@ -70,7 +70,7 @@ export function createHTML5LocalStorage(opt_namespace) {
  * used to provide key separation employing a prefix.
  *
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
- * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
+ * @return {IterableMechanism} Created mechanism or null.
  */
 export function createHTML5SessionStorage(opt_namespace) {
  var storage = new HTML5SessionStorage();
@@ -89,7 +89,7 @@ export function createHTML5SessionStorage(opt_namespace) {
  * avoid key collisions.
  *
  * @param {string=} opt_namespace Restricts the visibility to given namespace.
- * @return {goog.storage.mechanism.IterableMechanism} Created mechanism or null.
+ * @return {IterableMechanism} Created mechanism or null.
  */
 export function createIEUserData(opt_namespace) {
  var storage = new IEUserData(

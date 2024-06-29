@@ -67,7 +67,7 @@ export var ServerReachability = {
  *
  * @param {EventTarget} target The stat event target for
        the channel.
- * @param {requestStats.ServerReachability} reachabilityType
+ * @param {ServerReachability} reachabilityType
  *     The reachability event type.
  * @constructor
  * @extends {eventsEvent}
@@ -77,7 +77,7 @@ export function ServerReachabilityEvent(target, reachabilityType) {
      this, Event.SERVER_REACHABILITY_EVENT, target);
 
  /**
-  * @type {requestStats.ServerReachability}
+  * @type {ServerReachability}
   */
  this.reachabilityType = reachabilityType;
 }
@@ -87,7 +87,7 @@ goog.inherits(ServerReachabilityEvent, eventsEvent);
 /**
  * Notify the channel that a particular fine grained network event has occurred.
  * Should be considered package-private.
- * @param {requestStats.ServerReachability} reachabilityType
+ * @param {ServerReachability} reachabilityType
  *     The reachability event type.
  */
 export function notifyServerReachabilityEvent(reachabilityType) {
@@ -201,7 +201,7 @@ export var Stat = {
  *
  * @param {EventTarget} eventTarget The stat event target for
        the channel.
- * @param {requestStats.Stat} stat The stat.
+ * @param {Stat} stat The stat.
  * @constructor
  * @extends {eventsEvent}
  */
@@ -210,7 +210,7 @@ export function StatEvent(eventTarget, stat) {
 
  /**
   * The stat
-  * @type {requestStats.Stat}
+  * @type {Stat}
   */
  this.stat = stat;
 }
@@ -228,7 +228,7 @@ export function getStatEventTarget() {
 
 /**
  * Helper function to call the stat event callback.
- * @param {requestStats.Stat} stat The stat.
+ * @param {Stat} stat The stat.
  */
 export function notifyStatEvent(stat) {
  const target = getStatEventTarget_();

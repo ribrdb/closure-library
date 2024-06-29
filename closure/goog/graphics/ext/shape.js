@@ -21,17 +21,17 @@
 
 import { StrokeAndFillElement } from './strokeandfillelement.js';
 
-goog.requireType('goog.graphics.path');
-goog.requireType('goog.graphics.ext.group');
-goog.requireType('goog.graphics.ext.path');
-goog.requireType('goog.math.rect');
+const { Path } = goog.requireType('goog.graphics.path');
+const { Group } = goog.requireType('goog.graphics.ext.group');
+const { Path: ExtPath } = goog.requireType('goog.graphics.ext.path');
+const { Rect } = goog.requireType('goog.math.rect');
 
 
 
 /**
  * Wrapper for a graphics shape element.
- * @param {goog.graphics.ext.Group} group Parent for this element.
- * @param {!goog.graphics.ext.Path} path  The path to draw.
+ * @param {Group} group Parent for this element.
+ * @param {!ExtPath} path  The path to draw.
  * @param {boolean=} opt_autoSize Optional flag to specify the path should
  *     automatically resize to fit the element.  Defaults to false.
  * @constructor
@@ -60,7 +60,7 @@ Shape.prototype.autoSize_ = false;
 
 /**
  * The original path, specified by the caller.
- * @type {goog.graphics.Path}
+ * @type {Path}
  * @private
  */
 Shape.prototype.path_;
@@ -68,7 +68,7 @@ Shape.prototype.path_;
 
 /**
  * The bounding box of the original path.
- * @type {goog.math.Rect?}
+ * @type {Rect?}
  * @private
  */
 Shape.prototype.boundingBox_ = null;
@@ -76,7 +76,7 @@ Shape.prototype.boundingBox_ = null;
 
 /**
  * The scaled path.
- * @type {goog.graphics.Path}
+ * @type {Path}
  * @private
  */
 Shape.prototype.scaledPath_;
@@ -84,7 +84,7 @@ Shape.prototype.scaledPath_;
 
 /**
  * Get the path drawn by this shape.
- * @return {goog.graphics.Path?} The path drawn by this shape.
+ * @return {Path?} The path drawn by this shape.
  */
 Shape.prototype.getPath = function() {
  return this.path_;
@@ -93,7 +93,7 @@ Shape.prototype.getPath = function() {
 
 /**
  * Set the path to draw.
- * @param {goog.graphics.ext.Path} path The path to draw.
+ * @param {ExtPath} path The path to draw.
  */
 Shape.prototype.setPath = function(path) {
  this.path_ = path;

@@ -13,10 +13,10 @@
 goog.declareModuleId('goog.graphics.pathelement');
 
 import { StrokeAndFillElement } from './strokeandfillelement.js';
-goog.requireType('goog.graphics.abstractgraphics');
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.path');
-goog.requireType('goog.graphics.stroke');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
+const { Fill } = goog.requireType('goog.graphics.fill');
+const { Path } = goog.requireType('goog.graphics.path');
+const { Stroke } = goog.requireType('goog.graphics.stroke');
 
 
 
@@ -25,10 +25,10 @@ goog.requireType('goog.graphics.stroke');
  * You should not construct objects from this constructor. The graphics
  * will return an implementation of this interface for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.AbstractGraphics} graphics The graphics creating
+ * @param {AbstractGraphics} graphics The graphics creating
  *     this element.
- * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill?} fill The fill to use for this element.
+ * @param {Stroke?} stroke The stroke to use for this element.
+ * @param {Fill?} fill The fill to use for this element.
  * @constructor
  * @extends {StrokeAndFillElement}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
@@ -44,6 +44,6 @@ goog.inherits(PathElement, StrokeAndFillElement);
 
 /**
  * Update the underlying path.
- * @param {!goog.graphics.Path} path The path object to draw.
+ * @param {!Path} path The path object to draw.
  */
 PathElement.prototype.setPath = goog.abstractMethod;

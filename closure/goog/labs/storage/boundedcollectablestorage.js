@@ -22,7 +22,7 @@ import * as iter from '../../iter/iter.js';
 import { CollectableStorage } from '../../storage/collectablestorage.js';
 import { ErrorCode } from '../../storage/errorcode.js';
 import { ExpiringStorage } from '../../storage/expiringstorage.js';
-goog.requireType('goog.storage.mechanism.IterableMechanism');
+const { IterableMechanism } = goog.requireType('goog.storage.mechanism.IterableMechanism');
 
 
 
@@ -30,7 +30,7 @@ goog.requireType('goog.storage.mechanism.IterableMechanism');
  * Provides a storage with bounded number of elements, expiring keys and
  * a collection method.
  *
- * @param {!goog.storage.mechanism.IterableMechanism} mechanism The underlying
+ * @param {!IterableMechanism} mechanism The underlying
  *     storage mechanism.
  * @param {number} maxItems Maximum number of items in storage.
  * @constructor
@@ -72,7 +72,7 @@ BoundedCollectableStorage.prototype.rebuildIndex_ =
     function() {
       const keys = [];
       iter.forEach(
-          /** @type {goog.storage.mechanism.IterableMechanism} */ (this.mechanism)
+          /** @type {IterableMechanism} */ (this.mechanism)
               .__iterator__(true),
           function(key) {
             if (BoundedCollectableStorage.KEY_LIST_KEY_ == key) {

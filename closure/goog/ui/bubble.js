@@ -29,7 +29,7 @@ import * as style from '../style/style.js';
 import { Component } from './component.js';
 import { Popup } from './popup.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.positioning.abstractposition');
+const { AbstractPosition } = goog.requireType('goog.positioning.abstractposition');
 
 
 /**
@@ -161,7 +161,7 @@ Bubble.prototype.setPinnedCorner = function(corner) {
  * Sets the position of the bubble. Pass null for corner in AnchoredPosition
  * for corner to be computed automatically.
  *
- * @param {positioning.AbstractPosition} position The position of the
+ * @param {AbstractPosition} position The position of the
  *     bubble.
  */
 Bubble.prototype.setPosition = function(position) {

@@ -16,7 +16,7 @@ import { AbstractRange } from './abstractrange.js';
 import { ControlRange } from './controlrange.js';
 import { MultiRange } from './multirange.js';
 import { NodeType } from './nodetype.js';
-import { TextRange } from './textrange.js';
+import { TextRange as GoogTextRange } from './textrange.js';
 
 
 /**
@@ -84,7 +84,7 @@ export function createFromBrowserRange(range, opt_isReversed) {
   // Create an IE control range when appropriate.
   return AbstractRange.isNativeControlRange(range) ?
       ControlRange.createFromBrowserRange(range) :
-      TextRange.createFromBrowserRange(range, opt_isReversed);
+      GoogTextRange.createFromBrowserRange(range, opt_isReversed);
 }
 
 
@@ -96,7 +96,7 @@ export function createFromBrowserRange(range, opt_isReversed) {
  * @return {!AbstractRange} A range wrapper object.
  */
 export function createFromNodeContents(node, opt_isReversed) {
-  return TextRange.createFromNodeContents(node, opt_isReversed);
+  return GoogTextRange.createFromNodeContents(node, opt_isReversed);
 }
 
 
@@ -109,7 +109,7 @@ export function createFromNodeContents(node, opt_isReversed) {
  * @return {!AbstractRange} A range wrapper object.
  */
 export function createCaret(node, offset) {
-  return TextRange.createFromNodes(node, offset, node, offset);
+  return GoogTextRange.createFromNodes(node, offset, node, offset);
 }
 
 
@@ -123,7 +123,7 @@ export function createCaret(node, offset) {
  * @return {!AbstractRange} A range wrapper object.
  */
 export function createFromNodes(anchorNode, anchorOffset, focusNode, focusOffset) {
-  return TextRange.createFromNodes(
+  return GoogTextRange.createFromNodes(
       anchorNode, anchorOffset, focusNode, focusOffset);
 }
 

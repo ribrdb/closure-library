@@ -15,8 +15,8 @@ import * as positioning from './positioning.js';
 import { Overflow, OverflowStatus } from './positioning.js';
 import { ClientPosition } from './clientposition.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
+const { Box } = goog.requireType('goog.math.box');
+const { Size } = goog.requireType('goog.math.size');
 
 
 
@@ -62,8 +62,8 @@ ViewportClientPosition.prototype.setLastResortOverflow =
  * @param {positioning.Corner} popupCorner The corner of the popup
  *     element that that should be positioned adjacent to the anchorElement.
  *     One of the positioning.Corner constants.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
- * @param {goog.math.Size=} opt_preferredSize Preferred size fo the element.
+ * @param {Box=} opt_margin A margin specified in pixels.
+ * @param {Size=} opt_preferredSize Preferred size fo the element.
  * @override
  */
 ViewportClientPosition.prototype.reposition = function(

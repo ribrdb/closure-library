@@ -9,8 +9,11 @@
  */
 
 
-RangeEndpoint = {
+/**
+ * Constants for selection endpoints.
+ * @enum {number}
+ */
+export var RangeEndpoint = {
   START: 1,
   END: 0
 };
-export var RangeEndpoint;

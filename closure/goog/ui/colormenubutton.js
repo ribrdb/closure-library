@@ -19,10 +19,10 @@ import { Menu } from './menu.js';
 import { MenuButton } from './menubutton.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
-goog.requireType('goog.ui.menubuttonrenderer');
+const { Event } = goog.requireType('goog.events.event');
+const { Control } = goog.requireType('goog.ui.control');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
+const { MenuButtonRenderer } = goog.requireType('goog.ui.menubuttonrenderer');
 
 
 
@@ -31,7 +31,7 @@ goog.requireType('goog.ui.menubuttonrenderer');
  * an API for getting and setting the currently selected color from a menu of
  * color palettes.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
  * @param {Menu=} opt_menu Menu to render under the button when clicked;
  *     should contain at least one {@link ColorPalette} if present.
@@ -89,7 +89,7 @@ ColorMenuButton.NO_COLOR = 'none';
 /**
  * Factory method that creates and returns a new {@link Menu} instance
  * containing default color palettes.
- * @param {Array<goog.ui.Control>=} opt_extraItems Optional extra menu items to
+ * @param {Array<Control>=} opt_extraItems Optional extra menu items to
  *     add before the color palettes.
  * @param {DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
@@ -158,7 +158,7 @@ ColorMenuButton.prototype.setValue = function(value) {
  * implementation to hide the menu, stops the propagation of the event, and
  * dispatches an ACTION event on behalf of the button itself.  Overrides
  * {@link MenuButton#handleMenuAction}.
- * @param {goog.events.Event} e Action event to handle.
+ * @param {Event} e Action event to handle.
  * @override
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -180,7 +180,7 @@ ColorMenuButton.prototype.handleMenuAction = function(e) {
  * Opens or closes the menu.  Overrides {@link MenuButton#setOpen} by
  * generating a default color menu on the fly if needed.
  * @param {boolean} open Whether to open or close the menu.
- * @param {goog.events.Event=} opt_e Mousedown event that caused the menu to
+ * @param {Event=} opt_e Mousedown event that caused the menu to
  *     be opened.
  * @override
  */

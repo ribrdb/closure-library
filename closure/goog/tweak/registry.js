@@ -27,7 +27,7 @@ import {
 } from './entries.js';
 
 import * as utils from '../uri/utils.js';
-goog.requireType('goog.tweak.entries');
+const { BaseEntry } = goog.requireType('goog.tweak.entries');
 
 
 
@@ -41,7 +41,7 @@ goog.requireType('goog.tweak.entries');
 export function Registry(queryParams) {
   /**
    * A map of entry id -> entry object
-   * @type {!Object<!goog.tweak.BaseEntry>}
+   * @type {!Object<!BaseEntry>}
    * @private
    */
   this.entryMap_ = {};
@@ -94,7 +94,7 @@ Registry.parseQueryParams = function(queryParams) {
 
 /**
  * Registers the given tweak setting/action.
- * @param {goog.tweak.BaseEntry} entry The entry.
+ * @param {BaseEntry} entry The entry.
  */
 Registry.prototype.register = function(entry) {
   var id = entry.getId();
@@ -145,7 +145,7 @@ Registry.prototype.hasEntry = function(id) {
 /**
  * Returns the BaseEntry with the given ID. Asserts if it does not exists.
  * @param {string} id The unique string that identifies this entry.
- * @return {!goog.tweak.BaseEntry} The entry.
+ * @return {!BaseEntry} The entry.
  */
 Registry.prototype.getEntry = function(id) {
   var ret = this.entryMap_[id];

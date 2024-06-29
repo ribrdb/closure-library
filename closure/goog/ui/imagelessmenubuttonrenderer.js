@@ -24,8 +24,8 @@ import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import { MenuButton } from './menubutton.js';
 import { MenuButtonRenderer } from './menubuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.ui.button');
-goog.requireType('goog.ui.controlcontent');
+const { Button } = goog.requireType('goog.ui.button');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -101,7 +101,7 @@ ImagelessMenuButtonRenderer.prototype.canDecorate = function(element) {
  *
  * Used by both {@link #createDom} and {@link #decorate}.  To be overridden
  * by subclasses.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
+ * @param {ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.
@@ -139,7 +139,7 @@ ImagelessMenuButtonRenderer.prototype.createButton = function(
 
 /**
  * Check if the button's element has a box structure.
- * @param {goog.ui.Button} button Button instance whose structure is being
+ * @param {Button} button Button instance whose structure is being
  *     checked.
  * @param {Element} element Element of the button.
  * @return {boolean} Whether the element has a box structure.

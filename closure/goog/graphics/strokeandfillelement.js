@@ -14,9 +14,9 @@
 goog.declareModuleId('goog.graphics.strokeandfillelement');
 
 import { Element } from './element.js';
-goog.requireType('goog.graphics.abstractgraphics');
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.stroke');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
+const { Fill } = goog.requireType('goog.graphics.fill');
+const { Stroke } = goog.requireType('goog.graphics.stroke');
 
 
 
@@ -28,10 +28,10 @@ goog.requireType('goog.graphics.stroke');
  * will return an implementation of this interface for you.
  *
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.AbstractGraphics} graphics The graphics creating
+ * @param {AbstractGraphics} graphics The graphics creating
  *     this element.
- * @param {goog.graphics.Stroke?} stroke The stroke to use for this element.
- * @param {goog.graphics.Fill?} fill The fill to use for this element.
+ * @param {Stroke?} stroke The stroke to use for this element.
+ * @param {Fill?} fill The fill to use for this element.
  * @constructor
  * @extends {Element}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
@@ -48,7 +48,7 @@ goog.inherits(StrokeAndFillElement, Element);
 
 /**
  * The latest fill applied to this element.
- * @type {goog.graphics.Fill?}
+ * @type {Fill?}
  * @protected
  */
 StrokeAndFillElement.prototype.fill = null;
@@ -56,7 +56,7 @@ StrokeAndFillElement.prototype.fill = null;
 
 /**
  * The latest stroke applied to this element.
- * @type {goog.graphics.Stroke?}
+ * @type {Stroke?}
  * @private
  */
 StrokeAndFillElement.prototype.stroke_ = null;
@@ -64,7 +64,7 @@ StrokeAndFillElement.prototype.stroke_ = null;
 
 /**
  * Sets the fill for this element.
- * @param {goog.graphics.Fill?} fill The fill object.
+ * @param {Fill?} fill The fill object.
  */
 StrokeAndFillElement.prototype.setFill = function(fill) {
  this.fill = fill;
@@ -73,7 +73,7 @@ StrokeAndFillElement.prototype.setFill = function(fill) {
 
 
 /**
- * @return {goog.graphics.Fill?} fill The fill object.
+ * @return {Fill?} fill The fill object.
  */
 StrokeAndFillElement.prototype.getFill = function() {
  return this.fill;
@@ -82,7 +82,7 @@ StrokeAndFillElement.prototype.getFill = function() {
 
 /**
  * Sets the stroke for this element.
- * @param {goog.graphics.Stroke?} stroke The stroke object.
+ * @param {Stroke?} stroke The stroke object.
  */
 StrokeAndFillElement.prototype.setStroke = function(stroke) {
  this.stroke_ = stroke;
@@ -91,7 +91,7 @@ StrokeAndFillElement.prototype.setStroke = function(stroke) {
 
 
 /**
- * @return {goog.graphics.Stroke?} stroke The stroke object.
+ * @return {Stroke?} stroke The stroke object.
  */
 StrokeAndFillElement.prototype.getStroke = function() {
  return this.stroke_;

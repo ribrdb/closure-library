@@ -13,14 +13,14 @@ goog.declareModuleId('goog.proto2.descriptor');
 import * as asserts from '../asserts/asserts.js';
 import object from '../object/object.js';
 import * as googString from '../string/string.js';
-goog.requireType('goog.proto2.fielddescriptor');
-goog.requireType('goog.proto2.message');
+const { FieldDescriptor } = goog.requireType('goog.proto2.fielddescriptor');
+const { Message } = goog.requireType('goog.proto2.message');
 
 
 /**
  * @typedef {{name: (string|undefined),
  *            fullName: (string|undefined),
- *            containingType: (goog.proto2.Message|undefined)}}
+ *            containingType: (Message|undefined)}}
  */
 export var Metadata;
 
@@ -29,11 +29,11 @@ export var Metadata;
 /**
  * A class which describes a Protocol Buffer 2 Message.
  *
- * @param {function(new:goog.proto2.Message)} messageType Constructor for
+ * @param {function(new:Message)} messageType Constructor for
  *      the message class that this descriptor describes.
  * @param {!Metadata} metadata The metadata about the message that
  *      will be used to construct this descriptor.
- * @param {Array<!goog.proto2.FieldDescriptor>} fields The fields of the
+ * @param {Array<!FieldDescriptor>} fields The fields of the
  *      message described by this descriptor.
  *
  * @constructor
@@ -41,7 +41,7 @@ export var Metadata;
  */
 export function Descriptor(messageType, metadata, fields) {
  /**
-  * @type {function(new:goog.proto2.Message)}
+  * @type {function(new:Message)}
   * @private
   */
  this.messageType_ = messageType;
@@ -59,14 +59,14 @@ export function Descriptor(messageType, metadata, fields) {
  this.fullName_ = metadata.fullName || null;
 
  /**
-  * @type {goog.proto2.Message|undefined}
+  * @type {Message|undefined}
   * @private
   */
  this.containingType_ = metadata.containingType;
 
  /**
   * The fields of the message described by this descriptor.
-  * @type {!Object<number, !goog.proto2.FieldDescriptor>}
+  * @type {!Object<number, !FieldDescriptor>}
   * @private
   */
  this.fields_ = {};
@@ -116,13 +116,13 @@ Descriptor.prototype.getContainingType = function() {
  * Returns the fields in the message described by this descriptor ordered by
  * tag.
  *
- * @return {!Array<!goog.proto2.FieldDescriptor>} The array of field
+ * @return {!Array<!FieldDescriptor>} The array of field
  *     descriptors.
  */
 Descriptor.prototype.getFields = function() {
  /**
-  * @param {!goog.proto2.FieldDescriptor} fieldA First field.
-  * @param {!goog.proto2.FieldDescriptor} fieldB Second field.
+  * @param {!FieldDescriptor} fieldA First field.
+  * @param {!FieldDescriptor} fieldB Second field.
   * @return {number} Negative if fieldA's tag number is smaller, positive
   *     if greater, zero if the same.
   */
@@ -143,7 +143,7 @@ Descriptor.prototype.getFields = function() {
  * the actual, internal, fields map for performance reasons, and changing the
  * map can result in undefined behavior of this library.
  *
- * @return {!Object<number, !goog.proto2.FieldDescriptor>} The field map.
+ * @return {!Object<number, !FieldDescriptor>} The field map.
  */
 Descriptor.prototype.getFieldsMap = function() {
  return this.fields_;
@@ -157,7 +157,7 @@ Descriptor.prototype.getFieldsMap = function() {
  *
  * @param {string} name The field name for which to search.
  *
- * @return {goog.proto2.FieldDescriptor} The field found, if any.
+ * @return {FieldDescriptor} The field found, if any.
  */
 Descriptor.prototype.findFieldByName = function(name) {
  var valueFound =
@@ -165,7 +165,7 @@ Descriptor.prototype.findFieldByName = function(name) {
       return field.getName() == name;
      });
 
- return /** @type {goog.proto2.FieldDescriptor} */ (valueFound) || null;
+ return /** @type {FieldDescriptor} */ (valueFound) || null;
 };
 
 
@@ -174,7 +174,7 @@ Descriptor.prototype.findFieldByName = function(name) {
  *
  * @param {number|string} tag The field tag number for which to search.
  *
- * @return {goog.proto2.FieldDescriptor} The field found, if any.
+ * @return {FieldDescriptor} The field found, if any.
  */
 Descriptor.prototype.findFieldByTag = function(tag) {
  asserts.assert(googString.isNumeric(tag));
@@ -186,7 +186,7 @@ Descriptor.prototype.findFieldByTag = function(tag) {
  * Creates an instance of the message type that this descriptor
  * describes.
  *
- * @return {!goog.proto2.Message} The instance of the message.
+ * @return {!Message} The instance of the message.
  */
 Descriptor.prototype.createMessageInstance = function() {
  return new this.messageType_;

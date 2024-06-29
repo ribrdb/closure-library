@@ -53,7 +53,7 @@ import * as events from './events.js';
 import object from '../object/object.js';
 const { Event } = goog.requireType('goog.events.event');
 const { EventId } = goog.requireType('goog.events.eventid');
-const { EventTarget } = goog.requireType('goog.events.eventtarget');
+const eventtarget = goog.requireType('goog.events.eventtarget');
 const { EventWrapper } = goog.requireType('goog.events.eventwrapper');
 
 
@@ -286,10 +286,10 @@ EventHandler.prototype.listenOnce_ = function(
 
 /**
  * Adds an event listener with a specific event wrapper on a DOM Node or an
- * object that has implemented {@link EventTarget}. A listener can
+ * object that has implemented {@link eventtarget.EventTarget}. A listener can
  * only be added once to an object.
  *
- * @param {EventTarget|EventTarget} src The node to listen to
+ * @param {EventTarget|eventtarget.EventTarget} src The node to listen to
  *     events on.
  * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(this:SCOPE, ?):?|{handleEvent:function(?):?}|null} listener
@@ -311,10 +311,10 @@ EventHandler.prototype.listenWithWrapper = function(
 
 /**
  * Adds an event listener with a specific event wrapper on a DOM Node or an
- * object that has implemented {@link EventTarget}. A listener can
+ * object that has implemented {@link eventtarget.EventTarget}. A listener can
  * only be added once to an object.
  *
- * @param {EventTarget|EventTarget} src The node to listen to
+ * @param {EventTarget|eventtarget.EventTarget} src The node to listen to
  *     events on.
  * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(this:T, ?):?|{handleEvent:function(this:T, ?):?}|null}
@@ -336,10 +336,10 @@ EventHandler.prototype.listenWithWrapperAndScope = function(
 
 /**
  * Adds an event listener with a specific event wrapper on a DOM Node or an
- * object that has implemented {@link EventTarget}. A listener can
+ * object that has implemented {@link eventtarget.EventTarget}. A listener can
  * only be added once to an object.
  *
- * @param {EventTarget|EventTarget} src The node to listen to
+ * @param {EventTarget|eventtarget.EventTarget} src The node to listen to
  *     events on.
  * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener Callback
@@ -417,7 +417,7 @@ EventHandler.prototype.unlisten = function(
 /**
  * Removes an event listener which was added with listenWithWrapper().
  *
- * @param {EventTarget|EventTarget} src The target to stop
+ * @param {EventTarget|eventtarget.EventTarget} src The target to stop
  *     listening to events on.
  * @param {EventWrapper} wrapper Event wrapper to use.
  * @param {function(?):?|{handleEvent:function(?):?}|null} listener The

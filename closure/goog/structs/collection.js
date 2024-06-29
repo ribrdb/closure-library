@@ -8,7 +8,12 @@
  * @fileoverview Defines the collection interface.
  */
 
-Collection = function() {};
+/**
+ * An interface for a collection of values.
+ * @interface
+ * @template T
+ */
+export function Collection() {};
 
 
 /**
@@ -34,4 +39,3 @@ Collection.prototype.contains;
  * @return {number} The number of values stored in the collection.
  */
 Collection.prototype.getCount;
-export var Collection;

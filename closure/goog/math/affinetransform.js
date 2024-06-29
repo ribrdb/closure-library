@@ -11,6 +11,37 @@
  */
 
 
+
+/**
+ * Creates a 2D affine transform. An affine transform performs a linear
+ * mapping from 2D coordinates to other 2D coordinates that preserves the
+ * "straightness" and "parallelness" of lines.
+ *
+ * Such a coordinate transformation can be represented by a 3 row by 3 column
+ * matrix with an implied last row of [ 0 0 1 ]. This matrix transforms source
+ * coordinates (x,y) into destination coordinates (x',y') by considering them
+ * to be a column vector and multiplying the coordinate vector by the matrix
+ * according to the following process:
+ * <pre>
+ *      [ x']   [  m00  m01  m02  ] [ x ]   [ m00x + m01y + m02 ]
+ *      [ y'] = [  m10  m11  m12  ] [ y ] = [ m10x + m11y + m12 ]
+ *      [ 1 ]   [   0    0    1   ] [ 1 ]   [         1         ]
+ * </pre>
+ *
+ * This class is optimized for speed and minimizes calculations based on its
+ * knowledge of the underlying matrix (as opposed to say simply performing
+ * matrix multiplication).
+ *
+ * @param {number=} opt_m00 The m00 coordinate of the transform.
+ * @param {number=} opt_m10 The m10 coordinate of the transform.
+ * @param {number=} opt_m01 The m01 coordinate of the transform.
+ * @param {number=} opt_m11 The m11 coordinate of the transform.
+ * @param {number=} opt_m02 The m02 coordinate of the transform.
+ * @param {number=} opt_m12 The m12 coordinate of the transform.
+ * @struct
+ * @constructor
+ * @final
+ */
 AffineTransform = function(
     opt_m00, opt_m10, opt_m01, opt_m11, opt_m02, opt_m12) {
  if (arguments.length == 6) {

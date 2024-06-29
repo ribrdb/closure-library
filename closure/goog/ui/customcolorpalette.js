@@ -16,8 +16,8 @@ import { TagName } from '../dom/tagname.js';
 import * as classlist from '../dom/classlist.js';
 import { ColorPalette } from './colorpalette.js';
 import { Component } from './component.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.paletterenderer');
+const { Event } = goog.requireType('goog.events.event');
+const { PaletteRenderer } = goog.requireType('goog.ui.paletterenderer');
 
 
 
@@ -27,8 +27,8 @@ goog.requireType('goog.ui.paletterenderer');
  *
  * @param {Array<string>} initColors Array of initial colors to populate the
  *     palette with.
- * @param {goog.ui.PaletteRenderer=} opt_renderer Renderer used to render or
- *     decorate the palette; defaults to {@link goog.ui.PaletteRenderer}.
+ * @param {PaletteRenderer=} opt_renderer Renderer used to render or
+ *     decorate the palette; defaults to {@link PaletteRenderer}.
  * @param {dom.DomHelper=} opt_domHelper Optional DOM helper, used for
  *     document interaction.
  * @constructor
@@ -65,7 +65,7 @@ CustomColorPalette.prototype.createColorNodes = function() {
 
 /**
  * @override
- * @param {goog.events.Event} e Mouse or key event that triggered the action.
+ * @param {Event} e Mouse or key event that triggered the action.
  * @return {boolean} True if the action was allowed to proceed, false otherwise.
  */
 CustomColorPalette.prototype.performActionInternal = function(e) {

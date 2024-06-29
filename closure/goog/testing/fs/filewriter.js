@@ -19,7 +19,7 @@ import * as googString from '../../string/string.js';
 import { Blob } from './blob.js';
 import { File } from './file.js';
 import { ProgressEvent } from './progressevent.js';
-goog.requireType('goog.testing.fs.entry');
+const { FileEntry } = goog.requireType('goog.testing.fs.entry');
 
 
 

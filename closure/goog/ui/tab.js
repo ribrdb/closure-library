@@ -17,7 +17,7 @@ import { Control } from './control.js';
 import { TabRenderer } from './tabrenderer.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 

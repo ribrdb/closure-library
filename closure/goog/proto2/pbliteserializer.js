@@ -32,7 +32,7 @@ import * as asserts from '../asserts/asserts.js';
 import { FieldDescriptor } from './fielddescriptor.js';
 import { LazyDeserializer } from './lazydeserializer.js';
 import { Serializer } from './serializer.js';
-goog.requireType('goog.proto2.message');
+const { Message } = goog.requireType('goog.proto2.message');
 
 
 
@@ -73,7 +73,7 @@ PbLiteSerializer.prototype.setZeroIndexed = function(zeroIndexing) {
 /**
  * Serializes a message to a PB-Lite object.
  *
- * @param {goog.proto2.Message} message The message to be serialized.
+ * @param {Message} message The message to be serialized.
  * @return {!Array<?>} The serialized form of the message.
  * @override
  */

@@ -13,16 +13,16 @@ import { EventTarget } from '../events/eventtarget.js';
 import { ErrorCode } from './errorcode.js';
 import { EventType } from './eventtype.js';
 import { IframeIo } from './iframeio.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.structs.map');
-goog.requireType('goog.testing.testqueue');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { Map } = goog.requireType('goog.structs.map');
+const { TestQueue } = goog.requireType('goog.testing.testqueue');
 
 
 
 /**
  * Mock implementation of IframeIo. This doesn't provide a mock
  * implementation for all cases, but it's not too hard to add them as needed.
- * @param {goog.testing.TestQueue} testQueue Test queue for inserting test
+ * @param {TestQueue} testQueue Test queue for inserting test
  *     events.
  * @constructor
  * @extends {EventTarget}
@@ -34,7 +34,7 @@ export function MockIFrameIo(testQueue) {
 
  /**
   * Queue of events write to
-  * @type {goog.testing.TestQueue}
+  * @type {TestQueue}
   * @private
   */
  this.testQueue_ = testQueue;
@@ -84,7 +84,7 @@ MockIFrameIo.prototype.lastCustomError_ = null;
 
 /**
  * Last URI.
- * @type {?goog.Uri}
+ * @type {?Uri}
  * @private
  */
 MockIFrameIo.prototype.lastUri_ = null;
@@ -105,12 +105,12 @@ MockIFrameIo.prototype.complete_;
 /**
  * Simulates the iframe send.
  *
- * @param {goog.Uri|string} uri Uri of the request.
+ * @param {Uri|string} uri Uri of the request.
  * @param {string=} opt_method Default is GET, POST uses a form to submit the
  *     request.
  * @param {boolean=} opt_noCache Append a timestamp to the request to avoid
  *     caching.
- * @param {Object|goog.structs.Map=} opt_data Map of key-value pairs.
+ * @param {Object|Map=} opt_data Map of key-value pairs.
  */
 MockIFrameIo.prototype.send = function(
     uri, opt_method, opt_noCache, opt_data) {
@@ -246,7 +246,7 @@ MockIFrameIo.prototype.getResponseJson = function() {
 
 /**
  * Get the uri of the last request.
- * @return {goog.Uri} Uri of last request.
+ * @return {Uri} Uri of last request.
  */
 MockIFrameIo.prototype.getLastUri = function() {
  return this.lastUri_;

@@ -8,7 +8,21 @@
  * @fileoverview Definition of NodeType.
  */
 
-NodeType = {
+
+/**
+ * Constants for the nodeType attribute in the Node interface.
+ *
+ * These constants match those specified in the Node interface. These are
+ * usually present on the Node object in recent browsers, but not in older
+ * browsers (specifically, early IEs) and thus are given here.
+ *
+ * In some browsers (early IEs), these are not defined on the Node object,
+ * so they are provided here.
+ *
+ * See http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-1950641247
+ * @enum {number}
+ */
+export var NodeType = {
   ELEMENT: 1,
   ATTRIBUTE: 2,
   TEXT: 3,
@@ -22,4 +36,3 @@ NodeType = {
   DOCUMENT_FRAGMENT: 11,
   NOTATION: 12
 };
-export var NodeType;

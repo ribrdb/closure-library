@@ -22,8 +22,8 @@ import * as legacyconversions from '../../html/legacyconversions.js';
 import platform from '../../labs/useragent/platform.js';
 import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
-goog.requireType('goog.dom.savedcaretrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
+const { SavedCaretRange } = goog.requireType('goog.dom.savedcaretrange');
 
 
 
@@ -77,11 +77,11 @@ RemoveFormatting.appendNewline_ = function(sb) {
 /**
  * Create a new range delimited by the start point of the first range and
  * the end point of the second range.
- * @param {dom.AbstractRange} startRange Use the start point of this
+ * @param {AbstractRange} startRange Use the start point of this
  *    range as the beginning of the new range.
- * @param {dom.AbstractRange} endRange Use the end point of this
+ * @param {AbstractRange} endRange Use the end point of this
  *    range as the end of the new range.
- * @return {!dom.AbstractRange} The new range.
+ * @return {!AbstractRange} The new range.
  * @private
  */
 RemoveFormatting.createRangeDelimitedByRanges_ = function(
@@ -325,7 +325,7 @@ RemoveFormatting.prototype.pasteHtml_ = function(html) {
  * get the range before we do the execCommand and continue to operate on that
  * same range (reasons are documented above).
  *
- * @param {dom.AbstractRange} range The selection.
+ * @param {AbstractRange} range The selection.
  * @return {string} The html string to format.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -345,10 +345,10 @@ RemoveFormatting.prototype.getHtmlText_ = function(range) {
 
 /**
  * Move the range so that it doesn't include any partially selected tables.
- * @param {dom.AbstractRange} range The range to adjust.
+ * @param {AbstractRange} range The range to adjust.
  * @param {Node} startInTable Table node that the range starts in.
  * @param {Node} endInTable Table node that the range ends in.
- * @return {!dom.SavedCaretRange} Range to use to restore the
+ * @return {!SavedCaretRange} Range to use to restore the
  *     selection after we run our custom remove formatting.
  * @private
  */
@@ -389,7 +389,7 @@ RemoveFormatting.prototype.adjustRangeForTables_ = function(
 /**
  * Remove a caret from the dom and hide it in a safe place, so it can
  * be restored later via restoreCaretsFromCave.
- * @param {dom.SavedCaretRange} caretRange The caret range to
+ * @param {SavedCaretRange} caretRange The caret range to
  *     get the carets from.
  * @param {boolean} isStart Whether this is the start or end caret.
  * @private

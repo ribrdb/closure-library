@@ -26,9 +26,9 @@ import { AbstractSpellChecker } from './abstractspellchecker.js';
 import { Component } from './component.js';
 import * as userAgent from '../useragent/useragent.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.math.size');
-goog.requireType('goog.ui.popupmenu');
+const { Event } = goog.requireType('goog.events.event');
+const { Size } = goog.requireType('goog.math.size');
+const { PopupMenu } = goog.requireType('goog.ui.popupmenu');
 
 
 
@@ -105,7 +105,7 @@ PlainTextSpellChecker.prototype.dictionaryPreScanSize_ = 1000;
 /**
  * Size of window. Used to check if a resize operation actually changed the size
  * of the window.
- * @type {goog.math.Size|undefined}
+ * @type {Size|undefined}
  * @private
  */
 PlainTextSpellChecker.prototype.winSize_;
@@ -184,7 +184,7 @@ PlainTextSpellChecker.prototype.exitDocument = function() {
 PlainTextSpellChecker.prototype.initSuggestionsMenu = function() {
   PlainTextSpellChecker.superClass_.initSuggestionsMenu.call(this);
   this.eventHandler_.listen(
-      /** @type {goog.ui.PopupMenu} */ (this.getMenu()),
+      /** @type {PopupMenu} */ (this.getMenu()),
       Component.EventType.HIDE, this.onCorrectionHide_);
 };
 
@@ -253,7 +253,7 @@ PlainTextSpellChecker.prototype.preChargeDictionary_ = function(text) {
 
 /**
  * Loads few initial dictionary words into the cache.
- * @param {goog.events.Event} e SpellCheck.EventType.READY event.
+ * @param {Event} e SpellCheck.EventType.READY event.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
@@ -604,7 +604,7 @@ PlainTextSpellChecker.prototype.handleOverlayKeyEvent = function(e) {
 /**
  * Handles correction menu actions.
  *
- * @param {goog.events.Event} event Action event.
+ * @param {Event} event Action event.
  * @override
  */
 PlainTextSpellChecker.prototype.onCorrectionAction = function(event) {

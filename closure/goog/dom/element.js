@@ -45,7 +45,8 @@ const isHtmlElementOfType = (value, tagName) => {
   return goog.isObject(value) && isHtmlElement(value) &&
       // Some uncommon JS environments (e.g. Cobalt 9) have issues with tag
       // capitalization.
-      (/** @type {!HTMLElement} */ ((value).tagName.toUpperCase() === tagName.toString()));
+      (/** @type {!HTMLElement} */ (value).tagName.toUpperCase() ===
+       tagName.toString());
 };
 
 /**

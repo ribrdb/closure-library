@@ -11,7 +11,7 @@ goog.setTestOnly();
 import { EventTarget } from '../../../../events/eventtarget.js';
 import { clear } from '../../../../array/array.js';
 import { fail } from '../../../../testing/asserts.js';
-const WebChannel = goog.requireType('goog.labs.net.webchannel');
+const {WebChannel} = goog.requireType('goog.labs.net.webchannel');
 
 /**
  * A fake web channel that captures all "sent" messages to memory, for testing.

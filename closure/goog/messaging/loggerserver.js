@@ -15,7 +15,7 @@ import { Disposable } from '../disposable/disposable.js';
 import * as googLog from '../log/log.js';
 import * as log from '../log/log.js';
 const Level = googLog.Level;
-const MessageChannel = goog.requireType('goog.messaging.messagechannel');
+const {MessageChannel} = goog.requireType('goog.messaging.messagechannel');
 
 /**
  * A logger server that logs messages on behalf of the remote end of a

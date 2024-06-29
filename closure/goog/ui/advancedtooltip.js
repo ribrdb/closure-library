@@ -282,7 +282,7 @@ AdvancedTooltip.prototype.maybeHide = function(el) {
 /**
  * Handler for mouse move events.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  * @override
  */
@@ -324,7 +324,7 @@ AdvancedTooltip.prototype.handleMouseMove = function(event) {
 /**
  * Handler for mouse over events for the tooltip element.
  *
- * @param {events.BrowserEvent} event Event object.
+ * @param {BrowserEvent} event Event object.
  * @protected
  * @override
  */

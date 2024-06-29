@@ -36,6 +36,7 @@ import { recordFunction } from '../testing/recordfunction.js';
 import { testSuite } from '../testing/testsuite.js';
 import * as testingDom from '../testing/dom.js';
 import * as userAgent from '../useragent/useragent.js';
+import { Event } from '../events/event.js';
 
 /** Hard-coded HTML for the tests. */
 const HTML = '<div id="testField">I am text.</div>';
@@ -73,7 +74,7 @@ class TestPlugin extends Plugin {
 const STRING_KEY = String.fromCharCode(KeyCodes.A).toLowerCase();
 
 /**
- * @return {!events.Event} Returns an event for a keyboard shortcut for the
+ * @return {!Event} Returns an event for a keyboard shortcut for the
  *     letter 'a'.
  */
 function getBrowserEvent() {

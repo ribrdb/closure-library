@@ -14,16 +14,16 @@ import { Field } from '../../editor/field.js';
 import { EventHandler } from '../../events/eventhandler.js';
 import { EventTarget } from '../../events/eventtarget.js';
 import { Component } from '../component.js';
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.toolbar');
+const { Event } = goog.requireType('goog.events.event');
+const { Toolbar } = goog.requireType('goog.ui.toolbar');
 
 
 
 /**
  * A class for managing the editor toolbar.  Acts as a bridge between
- * a {@link Field} and a {@link goog.ui.Toolbar}.
+ * a {@link Field} and a {@link Toolbar}.
  *
- * The `toolbar` argument must be an instance of {@link goog.ui.Toolbar}
+ * The `toolbar` argument must be an instance of {@link Toolbar}
  * or a subclass.  This class doesn't care how the toolbar was created.  As
  * long as one or more controls hosted  in the toolbar have IDs that match
  * built-in {@link goog.editor.Command}s, they will function as expected.  It is
@@ -33,7 +33,7 @@ goog.requireType('goog.ui.toolbar');
  *
  * @param {!Field} field Editable field to be controlled by the
  *     toolbar.
- * @param {!goog.ui.Toolbar} toolbar Toolbar to control the editable field.
+ * @param {!Toolbar} toolbar Toolbar to control the editable field.
  * @constructor
  * @extends {EventTarget}
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -57,7 +57,7 @@ export function ToolbarController(field, toolbar) {
 
   /**
    * The toolbar that controls the field.
-   * @type {!goog.ui.Toolbar}
+   * @type {!Toolbar}
    * @private
    */
   this.toolbar_ = toolbar;
@@ -154,7 +154,7 @@ ToolbarController.prototype.getField = function() {
 /**
  * Returns the toolbar UI component that manages the editor.  Useful for
  * classes that extend `ToolbarController`.
- * @return {!goog.ui.Toolbar} The toolbar UI component.
+ * @return {!Toolbar} The toolbar UI component.
  */
 ToolbarController.prototype.getToolbar = function() {
   return this.toolbar_;
@@ -227,7 +227,7 @@ ToolbarController.prototype.disposeInternal = function() {
  * Updates the toolbar in response to editor events.  Specifically, updates
  * button states based on `COMMAND_VALUE_CHANGE` events, reflecting the
  * effective formatting of the selection.
- * @param {goog.events.Event} e Editor event to handle.
+ * @param {Event} e Editor event to handle.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -282,7 +282,7 @@ ToolbarController.prototype.updateToolbarFromState = function(
 /**
  * Handles `ACTION` events dispatched by toolbar buttons in response to
  * user actions by executing the corresponding field command.
- * @param {goog.events.Event} e Action event to handle.
+ * @param {Event} e Action event to handle.
  * @protected
  * @suppress {missingProperties} Added to unblock check_level=STRICT
  */

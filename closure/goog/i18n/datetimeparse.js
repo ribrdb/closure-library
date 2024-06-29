@@ -19,7 +19,7 @@ import { DateTimeFormat } from './datetimeformat.js';
 import { DateTimeSymbols } from './datetimesymbols.js';
 import { DayPeriods, getDayPeriods } from './dayperiodsymbols.js';
 import object from '../object/object.js';
-goog.requireType('goog.i18n.datetimesymbols');
+const { DateTimeSymbolsType } = goog.requireType('goog.i18n.datetimesymbols');
 
 /**
  * DateTimeParse is for parsing date in a locale-sensitive manner. It allows
@@ -160,7 +160,7 @@ export function DateTimeParse(pattern, opt_dateTimeSymbols) {
   asserts.assert(
       opt_dateTimeSymbols !== undefined ||
           DateTimeSymbols !== undefined,
-      'goog.i18n.DateTimeSymbols or explicit symbols must be defined');
+      'DateTimeSymbols or explicit symbols must be defined');
 
   /** @const @private {!Array<!DateTimeParse.PatternPart>}; */
   this.patternParts_ = [];

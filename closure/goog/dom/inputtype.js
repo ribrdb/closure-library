@@ -17,7 +17,12 @@
  * https://html.spec.whatwg.org/multipage/forms.html#dom-select-type
  * https://html.spec.whatwg.org/multipage/forms.html#dom-textarea-type
  */
-InputType = {
+/**
+ * Enum of all input types (for INPUT, BUTTON, SELECT and TEXTAREA elements)
+ * specified by the W3C HTML4.01 and HTML5 specifications.
+ * @enum {string}
+ */
+export var InputType = {
   BUTTON: 'button',
   CHECKBOX: 'checkbox',
   COLOR: 'color',
@@ -46,4 +51,3 @@ InputType = {
   URL: 'url',
   WEEK: 'week'
 };
-export var InputType;

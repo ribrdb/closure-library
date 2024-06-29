@@ -359,7 +359,7 @@ AbstractDragDrop.prototype.removeItems = function() {
  * cursor moves a few pixels. Allows dragging of items without first having to
  * register them with addItem.
  *
- * @param {events.BrowserEvent} event Mouse down event.
+ * @param {BrowserEvent} event Mouse down event.
  * @param {DragDropItem} item Item that's being dragged.
  */
 AbstractDragDrop.prototype.maybeStartDrag = function(event, item) {
@@ -370,7 +370,7 @@ AbstractDragDrop.prototype.maybeStartDrag = function(event, item) {
 /**
  * Event handler that's used to start drag.
  *
- * @param {events.BrowserEvent} event Mouse move event.
+ * @param {BrowserEvent} event Mouse move event.
  * @param {DragDropItem} item Item that's being dragged.
  */
 AbstractDragDrop.prototype.startDrag = function(event, item) {
@@ -486,7 +486,7 @@ AbstractDragDrop.prototype.recalculateScrollableContainers =
  * Creates the Dragger for the drag element.
  * @param {Element} sourceEl Drag source element.
  * @param {Element} el the element created by createDragElement().
- * @param {events.BrowserEvent} event Mouse down event for start of drag.
+ * @param {BrowserEvent} event Mouse down event for start of drag.
  * @return {!Dragger} The new Dragger.
  * @protected
  */
@@ -740,7 +740,7 @@ AbstractDragDrop.prototype.removeAllScrollableContainers = function() {
 
 /**
  * Event handler for containers scrolling.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @suppress {visibility} TODO(martone): update dependent projects.
  * @private
  */
@@ -824,7 +824,7 @@ AbstractDragDrop.prototype.createDragElement = function(sourceEl) {
  *
  * @param {Element} el Drag source element.
  * @param {Element} dragEl The dragged element created by createDragElement().
- * @param {events.BrowserEvent} event Mouse down event for start of drag.
+ * @param {BrowserEvent} event Mouse down event for start of drag.
  * @return {!Coordinate} The position for the drag element.
  */
 AbstractDragDrop.prototype.getDragElementPosition = function(
@@ -1187,7 +1187,7 @@ AbstractDragDrop.prototype.disposeInternal = function() {
  * @param {number=} opt_x X-Position relative to the viewport.
  * @param {number=} opt_y Y-Position relative to the viewport.
  * @param {Object=} opt_subtarget The currently active subtarget.
- * @param {events.BrowserEvent=} opt_browserEvent The browser event
+ * @param {BrowserEvent=} opt_browserEvent The browser event
  *     that caused this dragdrop event.
  * @extends {Event}
  * @constructor

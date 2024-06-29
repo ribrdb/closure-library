@@ -625,7 +625,7 @@ BgColorTransform.prototype.updateStyle = function() {
  * @param {Element} element Dom Node to be used in the animation.
  * @param {Array<number>} start 3D Array for RGB of start color.
  * @param {number} time Length of animation in milliseconds.
- * @param {events.EventHandler=} opt_eventHandler Optional event handler
+ * @param {EventHandler=} opt_eventHandler Optional event handler
  *     to use when listening for events.
  */
 export function bgColorFadeIn(element, start, time, opt_eventHandler) {

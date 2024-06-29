@@ -26,7 +26,7 @@ goog.setTestOnly('goog.testing.events.EventObserver');
 
 import * as array from '../../array/array.js';
 import { Event } from '../../events/event.js';
-goog.requireType('goog.events.eventid');
+const { EventId } = goog.requireType('goog.events.eventid');
 
 
 

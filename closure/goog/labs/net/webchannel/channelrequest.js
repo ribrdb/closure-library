@@ -33,10 +33,10 @@ import { XmlHttp } from '../../../net/xmlhttp.js';
 import object from '../../../object/object.js';
 import * as googString from '../../../string/string.js';
 import * as userAgent from '../../../useragent/useragent.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.events.event');
-goog.requireType('goog.labs.net.webchannel.wire');
-goog.requireType('goog.net.xhrio');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { Event } = goog.requireType('goog.events.event');
+const { Wire } = goog.requireType('goog.labs.net.webchannel.wire');
+const { XhrIo } = goog.requireType('goog.net.xhrio');
 
 
 
@@ -149,13 +149,13 @@ export function ChannelRequest(channel, channelDebug, opt_sessionId, opt_request
   /**
    * The base Uri for the request. The includes all the parameters except the
    * one that indicates the retry number.
-   * @private {?goog.Uri}
+   * @private {?Uri}
    */
   this.baseUri_ = null;
 
   /**
    * The request Uri that was actually used for the most recent request attempt.
-   * @private {?goog.Uri}
+   * @private {?Uri}
    */
   this.requestUri_ = null;
 
@@ -169,13 +169,13 @@ export function ChannelRequest(channel, channelDebug, opt_sessionId, opt_request
    * An array of pending messages that we have either received a non-successful
    * response for, or no response at all, and which therefore may or may not
    * have been received by the server.
-   * @private {!Array<goog.labs.net.webChannel.Wire.QueuedMap>}
+   * @private {!Array<Wire.QueuedMap>}
    */
   this.pendingMessages_ = [];
 
   /**
    * The XhrLte request if the request is using XMLHTTP
-   * @private {?goog.net.XhrIo}
+   * @private {?XhrIo}
    */
   this.xmlHttp_ = null;
 
@@ -292,7 +292,7 @@ function FetchResponseState() {
    * @type {boolean}
    */
   this.responseArrivedForFetch = false;
-};
+}
 
 
 goog.scope(function() {
@@ -461,7 +461,7 @@ goog.scope(function() {
   /**
    * Sets the pending messages that this request is handling.
    *
-   * @param {!Array<goog.labs.net.webChannel.Wire.QueuedMap>} pendingMessages
+   * @param {!Array<Wire.QueuedMap>} pendingMessages
    *     The pending messages for this request.
    */
   ChannelRequest.prototype.setPendingMessages = function(pendingMessages) {
@@ -472,7 +472,7 @@ goog.scope(function() {
   /**
    * Gets the pending messages that this request is handling, in case of a retry.
    *
-   * @return {!Array<goog.labs.net.webChannel.Wire.QueuedMap>} The pending
+   * @return {!Array<Wire.QueuedMap>} The pending
    *     messages for this request.
    */
   ChannelRequest.prototype.getPendingMessages = function() {
@@ -483,7 +483,7 @@ goog.scope(function() {
   /**
    * Uses XMLHTTP to send an HTTP POST to the server.
    *
-   * @param {goog.Uri} uri  The uri of the request.
+   * @param {Uri} uri  The uri of the request.
    * @param {?string} postData  The data for the post body.
    * @param {boolean} decodeChunks  Whether to the result is expected to be
    *     encoded for chunking and thus requires decoding.
@@ -500,7 +500,7 @@ goog.scope(function() {
   /**
    * Uses XMLHTTP to send an HTTP GET to the server.
    *
-   * @param {goog.Uri} uri  The uri of the request.
+   * @param {Uri} uri  The uri of the request.
    * @param {boolean} decodeChunks  Whether to the result is expected to be
    *     encoded for chunking and thus requires decoding.
    * @param {?string} hostPrefix  The host prefix, if we might be using a
@@ -576,11 +576,11 @@ goog.scope(function() {
 
   /**
    * Handles a readystatechange event.
-   * @param {goog.events.Event} evt The event.
+   * @param {Event} evt The event.
    * @private
    */
   ChannelRequest.prototype.readyStateChangeHandler_ = function(evt) {
-    const xhr = /** @type {goog.net.XhrIo} */ (evt.target);
+    const xhr = /** @type {XhrIo} */ (evt.target);
     const throttle = this.readyStateChangeThrottle_;
     if (throttle &&
         xhr.getReadyState() == XmlHttp.ReadyState.INTERACTIVE) {
@@ -596,7 +596,7 @@ goog.scope(function() {
 
   /**
    * XmlHttp handler
-   * @param {goog.net.XhrIo} xmlhttp The XhrIo object for the current request.
+   * @param {XhrIo} xmlhttp The XhrIo object for the current request.
    * @private
    */
   ChannelRequest.prototype.xmlHttpHandler_ = function(xmlhttp) {
@@ -1038,7 +1038,7 @@ goog.scope(function() {
    * For react-native, we use xhr to send the actual close request, and assume
    * there is no page-close issue with react-native.
    *
-   * @param {goog.Uri} uri The uri to send a request to.
+   * @param {Uri} uri The uri to send a request to.
    */
   ChannelRequest.prototype.sendCloseRequest = function(uri) {
     this.type_ = ChannelRequest.Type_.CLOSE_REQUEST;
@@ -1311,7 +1311,7 @@ goog.scope(function() {
   /**
    * Returns the XhrIo request object.
    *
-   * @return {?goog.net.XhrIo} Any XhrIo request created for this object.
+   * @return {?XhrIo} Any XhrIo request created for this object.
    */
   ChannelRequest.prototype.getXhr = function() {
     return this.xmlHttp_;

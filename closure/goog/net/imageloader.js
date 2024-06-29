@@ -18,7 +18,7 @@ import { EventTarget } from '../events/eventtarget.js';
 import { EventType } from '../events/eventtype.js';
 import { EventType as netEventType } from './eventtype.js';
 import object from '../object/object.js';
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -255,7 +255,7 @@ ImageLoader.prototype.loadImage_ = function(imageRequest, id) {
 
 /**
  * Handles net events (READY_STATE_CHANGE, LOAD, ABORT, and ERROR).
- * @param {goog.events.Event} evt The network event to handle.
+ * @param {Event} evt The network event to handle.
  * @private
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */

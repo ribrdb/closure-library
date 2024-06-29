@@ -402,7 +402,7 @@ AbstractRange.prototype.surroundWithNodes = goog.abstractMethod;
 /**
  * Saves the range so that if the start and end nodes are left alone, it can
  * be restored.
- * @return {!dom.SavedRange} A range representation that can be restored
+ * @return {!SavedRange} A range representation that can be restored
  *     as long as the endpoint nodes of the selection are not modified.
  */
 AbstractRange.prototype.saveUsingDom = goog.abstractMethod;
@@ -412,7 +412,7 @@ AbstractRange.prototype.saveUsingDom = goog.abstractMethod;
  * Saves the range using HTML carets. As long as the carets remained in the
  * HTML, the range can be restored...even when the HTML is copied across
  * documents.
- * @return {?dom.AbstractSavedCaretRange} A range representation that can
+ * @return {?AbstractSavedCaretRange} A range representation that can
  *     be restored as long as carets are not removed. Returns null if carets
  *     could not be created.
  * @abstract

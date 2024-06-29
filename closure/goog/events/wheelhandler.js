@@ -98,7 +98,7 @@ WheelHandler.getDomEventType = function() {
 
 /**
  * Handles the events on the element.
- * @param {!events.BrowserEvent} e The underlying browser event.
+ * @param {!BrowserEvent} e The underlying browser event.
  * @suppress {strictMissingProperties} Part of the go/strict_warnings_migration
  */
 WheelHandler.prototype.handleEvent = function(e) {

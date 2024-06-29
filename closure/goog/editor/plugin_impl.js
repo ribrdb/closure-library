@@ -18,7 +18,7 @@ import object from '../object/object.js';
 import * as reflect from '../reflect/reflect.js';
 import * as userAgent from '../useragent/useragent.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.editor.field');
+const { Field } = goog.requireType('goog.editor.field');
 // TODO(user): Remove the dependency on goog.editor.Command asap. Currently only
 // needed for execCommand issues with links.
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
@@ -41,7 +41,7 @@ export function PluginImpl() {
 
  /**
     * The field object this plugin is attached to.
-    * @type {?goog.editor.Field}
+    * @type {?Field}
     * @protected
     * @deprecated Use PluginImpl.getFieldObject and
     *     PluginImpl.setFieldObject.
@@ -78,7 +78,7 @@ PluginImpl.prototype.getFieldDomHelper = function() {
 
 /**
  * Sets the field object for use with this plugin.
- * @return {goog.editor.Field} The editable field object.
+ * @return {Field} The editable field object.
  * @protected
  * @suppress {deprecated} Until fieldObject can be made private.
  */
@@ -89,7 +89,7 @@ PluginImpl.prototype.getFieldObject = function() {
 
 /**
  * Sets the field object for use with this plugin.
- * @param {goog.editor.Field} fieldObject The editable field object.
+ * @param {Field} fieldObject The editable field object.
  * @protected
  * @suppress {deprecated} Until fieldObject can be made private.
  */
@@ -100,7 +100,7 @@ PluginImpl.prototype.setFieldObject = function(fieldObject) {
 
 /**
  * Registers the field object for use with this plugin.
- * @param {goog.editor.Field} fieldObject The editable field object.
+ * @param {Field} fieldObject The editable field object.
  */
 PluginImpl.prototype.registerFieldObject = function(fieldObject) {
  this.setFieldObject(fieldObject);
@@ -109,7 +109,7 @@ PluginImpl.prototype.registerFieldObject = function(fieldObject) {
 
 /**
  * Unregisters and disables this plugin for the current field object.
- * @param {goog.editor.Field} fieldObj The field object. For single-field
+ * @param {Field} fieldObj The field object. For single-field
  *     plugins, this parameter is ignored.
  */
 PluginImpl.prototype.unregisterFieldObject = function(fieldObj) {
@@ -123,7 +123,7 @@ PluginImpl.prototype.unregisterFieldObject = function(fieldObj) {
 /**
  * Enables this plugin for the specified, registered field object. A field
  * object should only be enabled when it is loaded.
- * @param {goog.editor.Field} fieldObject The field object.
+ * @param {Field} fieldObject The field object.
  */
 PluginImpl.prototype.enable = function(fieldObject) {
  if (this.getFieldObject() == fieldObject) {
@@ -139,7 +139,7 @@ PluginImpl.prototype.enable = function(fieldObject) {
 
 /**
  * Disables this plugin for the specified, registered field object.
- * @param {goog.editor.Field} fieldObject The field object.
+ * @param {Field} fieldObject The field object.
  */
 PluginImpl.prototype.disable = function(fieldObject) {
  if (this.getFieldObject() == fieldObject) {
@@ -156,7 +156,7 @@ PluginImpl.prototype.disable = function(fieldObject) {
 /**
  * Returns whether this plugin is enabled for the field object.
  *
- * @param {goog.editor.Field} fieldObject The field object.
+ * @param {Field} fieldObject The field object.
  * @return {boolean} Whether this plugin is enabled for the field object.
  */
 PluginImpl.prototype.isEnabled = function(fieldObject) {
@@ -312,7 +312,7 @@ PluginImpl.prototype.handleSelectionChange;
  * of dispatching events.
  * NOTE: For performance reasons this is only called when any key is pressed
  * in conjunction with ctrl/meta keys OR when a small subset of keys (defined
- * in goog.editor.Field.POTENTIAL_SHORTCUT_KEYCODES_) are pressed without
+ * in Field.POTENTIAL_SHORTCUT_KEYCODES_) are pressed without
  * ctrl/meta keys. We specifically don't invoke it when altKey is pressed since
  * alt key is used in many i18n UIs to enter certain characters.
  * @param {!BrowserEvent} e The browser event.

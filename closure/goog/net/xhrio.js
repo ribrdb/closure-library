@@ -52,10 +52,10 @@ import object from '../object/object.js';
 import * as googString from '../string/string.js';
 import * as utils from '../uri/utils.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.uri.uri');
-goog.requireType('goog.debug.errorhandler');
-goog.requireType('goog.net.xhrlike');
-goog.requireType('goog.net.xmlhttpfactory');
+const { Uri } = goog.requireType('goog.uri.uri');
+const { ErrorHandler } = goog.requireType('goog.debug.errorhandler');
+const { XhrLike } = goog.requireType('goog.net.xhrlike');
+const { XmlHttpFactory } = goog.requireType('goog.net.xmlhttpfactory');
 
 /**
  * Basic class for handling XMLHttpRequests.
@@ -90,7 +90,7 @@ export function XhrIo(opt_xmlHttpFactory) {
 
   /**
    * The XMLHttpRequest object that is being used for the transfer.
-   * @private {?goog.net.XhrLike.OrNative}
+   * @private {?XhrLike.OrNative}
    */
   this.xhr_ = null;
 
@@ -102,7 +102,7 @@ export function XhrIo(opt_xmlHttpFactory) {
 
   /**
    * Last URL that was requested.
-   * @private {string|goog.Uri}
+   * @private {string|Uri}
    */
   this.lastUri_ = '';
 
@@ -317,7 +317,7 @@ XhrIo.sendInstances_ = [];
  * Static send that creates a short lived instance of XhrIo to send the
  * request.
  * @see XhrIo.cleanup
- * @param {string|goog.Uri} url Uri to make request to.
+ * @param {string|Uri} url Uri to make request to.
  * @param {?function(this:XhrIo, ?)=} opt_callback Callback function
  *     for when request is complete.
  * @param {string=} opt_method Send method, default: GET.
@@ -377,11 +377,11 @@ XhrIo.cleanup = function() {
 /**
  * Installs exception protection for all entry point introduced by
  * XhrIo instances which are not protected by
- * {@link goog.debug.ErrorHandler#protectWindowSetTimeout},
- * {@link goog.debug.ErrorHandler#protectWindowSetInterval}, or
+ * {@link ErrorHandler#protectWindowSetTimeout},
+ * {@link ErrorHandler#protectWindowSetInterval}, or
  * {@link goog.events.protectBrowserEventEntryPoint}.
  *
- * @param {goog.debug.ErrorHandler} errorHandler Error handler with which to
+ * @param {ErrorHandler} errorHandler Error handler with which to
  *     protect the entry point(s).
  */
 XhrIo.protectEntryPoints = function(errorHandler) {
@@ -499,7 +499,7 @@ XhrIo.prototype.setTrustToken = function(trustToken) {
 };
 /**
  * Instance send that actually uses XMLHttpRequest to make a server call.
- * @param {string|goog.Uri} url Uri to make request to.
+ * @param {string|Uri} url Uri to make request to.
  * @param {string=} opt_method Send method, default: GET.
  * @param {ArrayBuffer|ArrayBufferView|Blob|Document|FormData|string=}
  *     opt_content Body data.
@@ -679,7 +679,7 @@ XhrIo.prototype.send = function(
  * @see http://www.w3.org/TR/XMLHttpRequest/#the-timeout-attribute
  * @see https://bugzilla.mozilla.org/show_bug.cgi?id=525816
  *
- * @param {!goog.net.XhrLike.OrNative} xhr The request.
+ * @param {!XhrLike.OrNative} xhr The request.
  * @return {boolean} True if the request supports level 2 timeout.
  * @private
  */
@@ -692,7 +692,7 @@ XhrIo.shouldUseXhr2Timeout_ = function(xhr) {
 
 /**
  * Creates a new XHR object.
- * @return {!goog.net.XhrLike.OrNative} The newly created XHR object.
+ * @return {!XhrLike.OrNative} The newly created XHR object.
  * @protected
  */
 XhrIo.prototype.createXhr = function() {

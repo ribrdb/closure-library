@@ -9,7 +9,7 @@
  * objects.
  */
 
-goog.declareModuleId('goog.i18n.NumberFormatSymbolsType');
+goog.declareModuleId('NumberFormatSymbolsType');
 
 /**
  * Number formatting symbols for locale.

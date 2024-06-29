@@ -25,7 +25,7 @@ import { INLINE_BLOCK_CLASSNAME } from './cssnames.js';
 import { MenuButton } from './menubutton.js';
 import { MenuButtonRenderer } from './menubuttonrenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.ui.controlcontent');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -88,7 +88,7 @@ Css3MenuButtonRenderer.prototype.canDecorate = function(element) {
  *
  * Used by both {@link #createDom} and {@link #decorate}.  To be overridden
  * by subclasses.
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
+ * @param {ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Pseudo-rounded-corner box containing the content.

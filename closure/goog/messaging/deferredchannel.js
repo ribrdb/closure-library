@@ -12,14 +12,14 @@
 import { Disposable } from '../disposable/disposable.js';
 
 import { MessageChannel } from './messagechannel.js';
-goog.requireType('goog.mochikit.async.deferred');
+const { Deferred } = goog.requireType('goog.mochikit.async.deferred');
 
 
 /**
  * Creates a new DeferredChannel, which wraps a deferred MessageChannel and
  * enqueues messages to be sent once the wrapped channel is resolved.
  *
- * @param {!goog.async.Deferred<!MessageChannel>} deferredChannel
+ * @param {!Deferred<!MessageChannel>} deferredChannel
  *     The underlying deferred MessageChannel.
  * @constructor
  * @extends {Disposable}
@@ -29,7 +29,7 @@ goog.requireType('goog.mochikit.async.deferred');
 export function DeferredChannel(deferredChannel) {
   DeferredChannel.base(this, 'constructor');
 
-  /** @private {!goog.async.Deferred<!MessageChannel>} */
+  /** @private {!Deferred<!MessageChannel>} */
   this.deferred_ = deferredChannel;
 }
 goog.inherits(DeferredChannel, Disposable);

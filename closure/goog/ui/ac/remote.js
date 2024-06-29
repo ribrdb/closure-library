@@ -16,7 +16,7 @@ import { AutoComplete } from './autocomplete.js';
 import { InputHandler } from './inputhandler.js';
 import { RemoteArrayMatcher } from './remotearraymatcher.js';
 import { Renderer } from './renderer.js';
-goog.requireType('goog.structs.map');
+const { Map } = goog.requireType('goog.structs.map');
 
 
 
@@ -92,7 +92,7 @@ Remote.prototype.setContent = function(content) {
 
 /**
  * Set the HTTP headers for the matcher.
- * @param {Object|goog.structs.Map} headers Map of headers to add to the
+ * @param {Object|Map} headers Map of headers to add to the
  *     request.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */

@@ -555,7 +555,7 @@ AbstractBubblePlugin.prototype.handleKeyDown = function(e) {
  * Handles a key event on the bubble. This ensures that the focus loops through
  * the tabbable elements found in the bubble and then the focus is got by the
  * field element.
- * @param {events.BrowserEvent} e The event.
+ * @param {BrowserEvent} e The event.
  * @private
  */
 AbstractBubblePlugin.prototype.onBubbleKey_ = function(e) {

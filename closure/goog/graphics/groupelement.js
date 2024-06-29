@@ -13,7 +13,7 @@
 goog.declareModuleId('goog.graphics.groupelement');
 
 import { Element } from './element.js';
-goog.requireType('goog.graphics.abstractgraphics');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
 
 
 
@@ -22,7 +22,7 @@ goog.requireType('goog.graphics.abstractgraphics');
  * You should not construct objects from this constructor. The graphics
  * will return the object for you.
  * @param {Element} element The DOM element to wrap.
- * @param {goog.graphics.AbstractGraphics} graphics The graphics creating
+ * @param {AbstractGraphics} graphics The graphics creating
  *     this element.
  * @constructor
  * @extends {Element}

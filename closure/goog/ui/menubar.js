@@ -18,7 +18,7 @@ import { Container } from './container.js';
 
 import { MenuBarRenderer } from './menubarrenderer.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.containerrenderer');
+const { ContainerRenderer } = goog.requireType('goog.ui.containerrenderer');
 
 
 /**

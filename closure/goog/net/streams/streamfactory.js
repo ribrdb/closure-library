@@ -8,8 +8,8 @@
  * @fileoverview the factory for creating stream objects.
  */
 
-const NodeReadableStream = goog.requireType('goog.net.streams.nodereadablestream');
-const XhrIo = goog.requireType('goog.net.xhrio');
+const {NodeReadableStream} = goog.requireType('goog.net.streams.nodereadablestream');
+const {XhrIo} = goog.requireType('goog.net.xhrio');
 import * as asserts from '../../asserts/asserts.js';
 import xhrNodeReadableStream from './xhrnodereadablestream.js';
 const {XhrNodeReadableStream} = xhrNodeReadableStream;

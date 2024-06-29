@@ -10,14 +10,14 @@
 
 import { RichStorage } from './richstorage.js';
 
-goog.requireType('goog.storage.mechanism.mechanism');
+const { Mechanism } = goog.requireType('goog.storage.mechanism.mechanism');
 
 
 
 /**
  * Provides a storage with expiring keys.
  *
- * @param {!goog.storage.mechanism.Mechanism} mechanism The underlying
+ * @param {!Mechanism} mechanism The underlying
  *     storage mechanism.
  * @constructor
  * @struct

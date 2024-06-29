@@ -25,7 +25,7 @@ import { Promise } from '../promise/promise.js';
 import * as testing from './functionmock.js';
 import { LooseMock } from './loosemock.js';
 import { StrictMock } from './strictmock.js';
-goog.requireType('goog.testing.mockinterface');
+const { MockInterface } = goog.requireType('goog.testing.mockinterface');
 
 
 
@@ -37,7 +37,7 @@ goog.requireType('goog.testing.mockinterface');
 export function MockControl() {
   /**
      * The list of mocks being controlled.
-     * @type {Array<testing.MockInterface>}
+     * @type {Array<MockInterface>}
      * @private
      */
   this.mocks_ = [];
@@ -46,8 +46,8 @@ export function MockControl() {
 
 /**
  * Takes control of this mock.
- * @param {testing.MockInterface} mock Mock to be controlled.
- * @return {testing.MockInterface} The same mock passed in,
+ * @param {MockInterface} mock Mock to be controlled.
+ * @return {MockInterface} The same mock passed in,
  *     for convenience.
  */
 MockControl.prototype.addMock = function(mock) {
@@ -166,7 +166,7 @@ MockControl.prototype.createLooseMock = function(
  *     set to '[anonymous mocked function]' if not passed in.
  * @param {number=} opt_strictness One of testing.Mock.LOOSE or
  *     testing.Mock.STRICT. The default is STRICT.
- * @return {!testing.MockInterface} The mocked function.
+ * @return {!MockInterface} The mocked function.
  */
 MockControl.prototype.createFunctionMock = function(
     opt_functionName, opt_strictness) {
@@ -183,7 +183,7 @@ MockControl.prototype.createFunctionMock = function(
  * @param {string} functionName The name of the function we're going to mock.
  * @param {number=} opt_strictness One of testing.Mock.LOOSE or
  *     testing.Mock.STRICT. The default is STRICT.
- * @return {!testing.MockInterface} The mocked method.
+ * @return {!MockInterface} The mocked method.
  */
 MockControl.prototype.createMethodMock = function(
     scope, functionName, opt_strictness) {
@@ -201,7 +201,7 @@ MockControl.prototype.createMethodMock = function(
  * @param {string} constructorName The name of the function we're going to mock.
  * @param {number=} opt_strictness One of testing.Mock.LOOSE or
  *     testing.Mock.STRICT. The default is STRICT.
- * @return {!testing.MockInterface} The mocked method.
+ * @return {!MockInterface} The mocked method.
  */
 MockControl.prototype.createConstructorMock = function(
     scope, constructorName, opt_strictness) {
@@ -218,7 +218,7 @@ MockControl.prototype.createConstructorMock = function(
  * @param {string} functionName The name of the function we're going to mock.
  * @param {number=} opt_strictness One of testing.Mock.LOOSE or
  *     testing.Mock.STRICT. The default is STRICT.
- * @return {!testing.MockInterface} The mocked function.
+ * @return {!MockInterface} The mocked function.
  */
 MockControl.prototype.createGlobalFunctionMock = function(
     functionName, opt_strictness) {

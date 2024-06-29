@@ -13,14 +13,14 @@ import { ToggleButton } from './togglebutton.js';
 import { ToolbarButtonRenderer } from './toolbarbuttonrenderer.js';
 import * as registry from './registry.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.ui.controlcontent');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
 /**
  * A toggle button control for a toolbar.
  *
- * @param {goog.ui.ControlContent} content Text caption or existing DOM
+ * @param {ControlContent} content Text caption or existing DOM
  *     structure to display as the button's caption.
  * @param {ToolbarButtonRenderer=} opt_renderer Optional renderer used
  *     to render or decorate the button; defaults to

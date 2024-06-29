@@ -20,7 +20,6 @@ import * as log from '../log/log.js';
 import { PortChannel } from './portchannel.js';
 import { PortNetwork } from './portnetwork.js';  // interface
 import object from '../object/object.js';
-goog.requireType('goog.messaging.messagechannel');
 
 
 
@@ -53,7 +52,7 @@ export function PortOperator(name) {
   * contexts. This is not lazily populated, and always contains entries for
   * each member of the network.
   *
-  * @type {!Object<!goog.messaging.MessageChannel>}
+  * @type {!Object<!MessageChannel>}
   * @private
   */
  this.switchboard_ = {};
@@ -90,7 +89,7 @@ PortOperator.prototype.dial = function(name) {
  * services registered on it. It will be disposed along with the PortOperator.
  *
  * @param {string} name The name of the port to add.
- * @param {!goog.messaging.MessageChannel} port The port to add. Must be either
+ * @param {!MessageChannel} port The port to add. Must be either
  *     a {@link PortChannel} or a decorator wrapping a
  *     PortChannel; in particular, it must be able to send and receive
  *     {@link MessagePort}s.

@@ -35,16 +35,16 @@ import * as math from '../math/math.js';
 import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.graphics.affinetransform');
-goog.requireType('goog.graphics.element');
-goog.requireType('goog.graphics.ellipseelement');
-goog.requireType('goog.graphics.fill');
-goog.requireType('goog.graphics.groupelement');
-goog.requireType('goog.graphics.imageelement');
-goog.requireType('goog.graphics.pathelement');
-goog.requireType('goog.graphics.rectelement');
-goog.requireType('goog.graphics.strokeandfillelement');
-goog.requireType('goog.graphics.textelement');
+const { AffineTransform } = goog.requireType('goog.graphics.affinetransform');
+const { Element } = goog.requireType('goog.graphics.element');
+const { EllipseElement } = goog.requireType('goog.graphics.ellipseelement');
+const { Fill } = goog.requireType('goog.graphics.fill');
+const { GroupElement } = goog.requireType('goog.graphics.groupelement');
+const { ImageElement } = goog.requireType('goog.graphics.imageelement');
+const { PathElement } = goog.requireType('goog.graphics.pathelement');
+const { RectElement } = goog.requireType('goog.graphics.rectelement');
+const { StrokeAndFillElement } = goog.requireType('goog.graphics.strokeandfillelement');
+const { TextElement } = goog.requireType('goog.graphics.textelement');
 
 
 
@@ -172,8 +172,8 @@ SvgGraphics.prototype.setElementAttributes = function(
 /**
  * Appends an element.
  *
- * @param {goog.graphics.Element} element The element wrapper.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {Element} element The element wrapper.
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  * @private
  */
@@ -186,7 +186,7 @@ SvgGraphics.prototype.append_ = function(element, opt_group) {
 /**
  * Sets the fill of the given element.
  * @param {StrokeAndFillElement} element The element wrapper.
- * @param {goog.graphics.Fill?} fill The fill object.
+ * @param {Fill?} fill The fill object.
  * @override
  */
 SvgGraphics.prototype.setElementFill = function(element, fill) {
@@ -282,7 +282,7 @@ SvgGraphics.prototype.setElementStroke = function(
  *
  * If a more general affine transform is needed than this provides
  * (e.g. skew and scale) then use setElementAffineTransform.
- * @param {goog.graphics.Element} element The element wrapper.
+ * @param {Element} element The element wrapper.
  * @param {number} x The x coordinate of the translation transform.
  * @param {number} y The y coordinate of the translation transform.
  * @param {number} angle The angle of the rotation transform.
@@ -301,8 +301,8 @@ SvgGraphics.prototype.setElementTransform = function(
 
 /**
  * Set the transformation of an element.
- * @param {goog.graphics.Element} element The element wrapper.
- * @param {!goog.graphics.AffineTransform} affineTransform The
+ * @param {Element} element The element wrapper.
+ * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  * @override
  */
@@ -501,11 +501,11 @@ SvgGraphics.prototype.clear = function() {
  * @param {number} ry Radius length for the y-axis.
  * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.EllipseElement} The newly created element.
+ * @return {!EllipseElement} The newly created element.
  * @override
  */
 SvgGraphics.prototype.drawEllipse = function(
@@ -528,11 +528,11 @@ SvgGraphics.prototype.drawEllipse = function(
  * @param {number} height Height of rectangle.
  * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.RectElement} The newly created element.
+ * @return {!RectElement} The newly created element.
  * @override
  */
 SvgGraphics.prototype.drawRect = function(
@@ -553,10 +553,10 @@ SvgGraphics.prototype.drawRect = function(
  * @param {number} width Width of the image.
  * @param {number} height Height of the image.
  * @param {string} src The source fo the image.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.ImageElement} The newly created image wrapped in a
+ * @return {!ImageElement} The newly created image wrapped in a
  *     rectangle element.
  */
 SvgGraphics.prototype.drawImage = function(
@@ -588,11 +588,11 @@ SvgGraphics.prototype.drawImage = function(
  * @param {Font} font Font describing the font properties.
  * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.TextElement} The newly created element.
+ * @return {!TextElement} The newly created element.
  * @override
  */
 SvgGraphics.prototype.drawTextOnLine = function(
@@ -654,8 +654,8 @@ SvgGraphics.prototype.drawTextOnLine = function(
  * @param {!Path} path The path object to draw.
  * @param {Stroke?} stroke Stroke object describing the
  *    stroke.
- * @param {goog.graphics.Fill?} fill Fill object describing the fill.
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {Fill?} fill Fill object describing the fill.
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  *
  * @return {!PathElement} The newly created element.
@@ -713,10 +713,10 @@ SvgGraphics.getSvgPath = function(path) {
 /**
  * Create an empty group of drawing elements.
  *
- * @param {goog.graphics.GroupElement=} opt_group The group wrapper element
+ * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  *
- * @return {!goog.graphics.GroupElement} The newly created group.
+ * @return {!GroupElement} The newly created group.
  * @override
  */
 SvgGraphics.prototype.createGroup = function(opt_group) {

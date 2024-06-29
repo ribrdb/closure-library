@@ -10,7 +10,12 @@
  * a simple event model with BEGIN and END event.
  */
 
-Transition = function() {};
+/**
+ * An interface for programmatic transition. Must extend
+ * `goog.events.EventTarget`.
+ * @interface
+ */
+export function Transition() {};
 
 
 /**
@@ -56,4 +61,3 @@ Transition.prototype.play;
  * Stops the transition.
  */
 Transition.prototype.stop;
-export var Transition;

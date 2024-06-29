@@ -10,7 +10,7 @@ goog.setTestOnly('goog.testing.net.XhrIoPool');
 
 import { XhrIoPool as netXhrIoPool } from '../../net/xhriopool.js';
 import { XhrIo } from './xhrio.js';
-goog.requireType('goog.net.xhrio');
+const { XhrIo: netXhrIo } = goog.requireType('goog.net.xhrio');
 
 
 
@@ -41,7 +41,7 @@ goog.inherits(XhrIoPool, netXhrIoPool);
  * @suppress {invalidCasts}
  */
 XhrIoPool.prototype.createObject = function() {
- return (/** @type {!goog.net.XhrIo} */ (this.xhr_));
+ return (/** @type {!netXhrIo} */ (this.xhr_));
 };
 
 

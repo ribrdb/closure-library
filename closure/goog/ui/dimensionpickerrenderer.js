@@ -20,13 +20,13 @@ import * as bidi from '../i18n/bidi.js';
 import * as googStyle from '../style/style.js';
 import { ControlRenderer } from './controlrenderer.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.dimensionpicker');
+const { Control } = goog.requireType('goog.ui.control');
+const { DimensionPicker } = goog.requireType('goog.ui.dimensionpicker');
 
 
 
 /**
- * Default renderer for {@link goog.ui.DimensionPicker}s.  Renders the
+ * Default renderer for {@link DimensionPicker}s.  Renders the
  * palette as two divs, one with the un-highlighted background, and one with the
  * highlighted background.
  *
@@ -111,14 +111,14 @@ DimensionPickerRenderer.prototype.canDecorate = function(element) {
 
 /**
  * Overrides {@link ControlRenderer#decorate} to decorate empty DIVs.
- * @param {goog.ui.Control} control goog.ui.DimensionPicker to decorate.
+ * @param {Control} control DimensionPicker to decorate.
  * @param {Element} element The element to decorate.
  * @return {Element} The decorated element.
  * @override
  */
 DimensionPickerRenderer.prototype.decorate = function(
     control, element) {
-  var palette = /** @type {goog.ui.DimensionPicker} */ (control);
+  var palette = /** @type {DimensionPicker} */ (control);
   DimensionPickerRenderer.superClass_.decorate.call(
       this, palette, element);
 
@@ -131,7 +131,7 @@ DimensionPickerRenderer.prototype.decorate = function(
 
 /**
  * Scales various elements in order to update the palette's size.
- * @param {goog.ui.DimensionPicker} palette The palette object.
+ * @param {DimensionPicker} palette The palette object.
  * @param {Element} element The element to set the style of.
  */
 DimensionPickerRenderer.prototype.updateSize = function(
@@ -152,7 +152,7 @@ DimensionPickerRenderer.prototype.updateSize = function(
 
 /**
  * Adds the appropriate content elements to the given outer DIV.
- * @param {goog.ui.DimensionPicker} palette The palette object.
+ * @param {DimensionPicker} palette The palette object.
  * @param {Element} element The element to decorate.
  * @private
  */
@@ -190,12 +190,12 @@ DimensionPickerRenderer.prototype.addElementContents_ = function(
 
 /**
  * Creates a div and adds the appropriate contents to it.
- * @param {goog.ui.Control} control Picker to render.
+ * @param {Control} control Picker to render.
  * @return {!Element} Root element for the palette.
  * @override
  */
 DimensionPickerRenderer.prototype.createDom = function(control) {
-  var palette = /** @type {goog.ui.DimensionPicker} */ (control);
+  var palette = /** @type {DimensionPicker} */ (control);
   var classNames = this.getClassNames(palette);
   // Hide the element from screen readers so they don't announce "1 of 1" for
   // the perceived number of items in the palette.
@@ -210,13 +210,13 @@ DimensionPickerRenderer.prototype.createDom = function(control) {
 
 /**
  * Initializes the control's DOM when the control enters the document.  Called
- * from {@link goog.ui.Control#enterDocument}.
- * @param {goog.ui.Control} control Palette whose DOM is to be
+ * from {@link Control#enterDocument}.
+ * @param {Control} control Palette whose DOM is to be
  *     initialized as it enters the document.
  * @override
  */
 DimensionPickerRenderer.prototype.initializeDom = function(control) {
-  var palette = /** @type {goog.ui.DimensionPicker} */ (control);
+  var palette = /** @type {DimensionPicker} */ (control);
   DimensionPickerRenderer.superClass_.initializeDom.call(this, palette);
 
   // Make the displayed highlighted size match the dimension picker's value.
@@ -230,7 +230,7 @@ DimensionPickerRenderer.prototype.initializeDom = function(control) {
 
 /**
  * Get the element to listen for mouse move events on.
- * @param {goog.ui.DimensionPicker} palette The palette to listen on.
+ * @param {DimensionPicker} palette The palette to listen on.
  * @return {Element} The element to listen for mouse move events on.
  */
 DimensionPickerRenderer.prototype.getMouseMoveElement = function(
@@ -241,7 +241,7 @@ DimensionPickerRenderer.prototype.getMouseMoveElement = function(
 
 /**
  * Returns the x offset in to the grid for the given mouse x position.
- * @param {goog.ui.DimensionPicker} palette The table size palette.
+ * @param {DimensionPicker} palette The table size palette.
  * @param {number} x The mouse event x position.
  * @return {number} The x offset in to the grid.
  */
@@ -254,7 +254,7 @@ DimensionPickerRenderer.prototype.getGridOffsetX = function(
 
 /**
  * Returns the y offset in to the grid for the given mouse y position.
- * @param {goog.ui.DimensionPicker} palette The table size palette.
+ * @param {DimensionPicker} palette The table size palette.
  * @param {number} y The mouse event y position.
  * @return {number} The y offset in to the grid.
  */
@@ -266,7 +266,7 @@ DimensionPickerRenderer.prototype.getGridOffsetY = function(
 
 /**
  * Sets the highlighted size. Does nothing if the palette hasn't been rendered.
- * @param {goog.ui.DimensionPicker} palette The table size palette.
+ * @param {DimensionPicker} palette The table size palette.
  * @param {number} columns The number of columns to highlight.
  * @param {number} rows The number of rows to highlight.
  */
@@ -311,7 +311,7 @@ DimensionPickerRenderer.prototype.setHighlightedSize = function(
  * Position the mouse catcher such that it receives mouse events past the
  * selectedsize up to the maximum size.  Takes care to not introduce scrollbars.
  * Should be called on enter document and when the window changes size.
- * @param {goog.ui.DimensionPicker} palette The table size palette.
+ * @param {DimensionPicker} palette The table size palette.
  */
 DimensionPickerRenderer.prototype.positionMouseCatcher = function(
     palette) {
@@ -374,7 +374,7 @@ DimensionPickerRenderer.prototype.getCssClass = function() {
  * control with 'right' and 'top'.
  * @private
  *
- * @param {goog.ui.DimensionPicker} palette The palette object.
+ * @param {DimensionPicker} palette The palette object.
  * @param {Element} element The palette's element.
  */
 DimensionPickerRenderer.prototype.adjustParentDirection_ = function(

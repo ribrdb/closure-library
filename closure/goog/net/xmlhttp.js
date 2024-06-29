@@ -13,12 +13,12 @@ goog.declareModuleId('goog.net.xmlhttp');
 import * as asserts from '../asserts/asserts.js';
 import { WrapperXmlHttpFactory } from './wrapperxmlhttpfactory.js';
 import { XmlHttpFactory } from './xmlhttpfactory.js';
-goog.requireType('goog.net.xhrlike');
+const { XhrLike } = goog.requireType('goog.net.xhrlike');
 
 
 /**
  * Static class for creating XMLHttpRequest objects.
- * @return {!goog.net.XhrLike.OrNative} A new XMLHttpRequest object.
+ * @return {!XhrLike.OrNative} A new XMLHttpRequest object.
  */
 export function XmlHttp() {
  return XmlHttp.factory_.createInstance();

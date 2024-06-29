@@ -181,7 +181,7 @@ export function createTask(spec, opt_context) {
       const tasksArray =
           tasks_[doubleBufferIndex_];
       tasksArray.push(
-          /** @type {goog.dom.animationFrame.TaskSet_} */ (taskSet));
+          /** @type {TaskSet_} */ (taskSet));
     }
     requestAnimationFrame_();
   };

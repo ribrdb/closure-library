@@ -76,7 +76,7 @@ import { Component } from './component.js';
 export function DrilldownRow(opt_properties, opt_domHelper) {
   Component.call(this, opt_domHelper);
   var properties = opt_properties ||
-      /** @type {!goog.ui.DrilldownRow.DrilldownRowProperties} */ ({});
+      /** @type {!DrilldownRow.DrilldownRowProperties} */ ({});
 
   // Initialize instance variables.
 
@@ -479,7 +479,7 @@ DrilldownRow.prototype.lastRenderedLeaf_ = function() {
        node = node.getChildAt(node.getChildCount() - 1)) {
     leaf = node;
   }
-  return /** @type {goog.ui.DrilldownRow} */ (leaf);
+  return /** @type {DrilldownRow} */ (leaf);
 };
 
 

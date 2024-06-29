@@ -20,7 +20,7 @@ export var ENABLED =
 /**
  * Installs the requestAnimationFrame (and cancelAnimationFrame) polyfill.
  */
-install = function() {
+export function install() {
   if (ENABLED) {
     const vendors = ['ms', 'moz', 'webkit', 'o'];
     let v;
@@ -51,4 +51,3 @@ install = function() {
     }
   }
 };
-export var install;

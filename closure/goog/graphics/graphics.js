@@ -21,7 +21,7 @@ import * as dom from '../dom/dom.js';
 import { CanvasGraphics } from './canvasgraphics.js';
 import { SvgGraphics } from './svggraphics.js';
 import * as userAgent from '../useragent/useragent.js';
-goog.requireType('goog.graphics.abstractgraphics');
+const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
 
 
 /**

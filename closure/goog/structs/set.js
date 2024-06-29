@@ -19,7 +19,7 @@ import * as structs from './structs.js';
 
 import { Collection } from './collection.js';
 import { Map } from './map.js';
-goog.requireType('goog.iter.iter');
+const { Iterator } = goog.requireType('goog.iter.iter');
 
 /**
  * A set that can contain both primitives and objects.  Adding and removing
@@ -330,7 +330,7 @@ Set.prototype.isSubsetOf = function(col) {
 /**
  * Returns an iterator that iterates over the elements in this set.
  * @param {boolean=} opt_keys This argument is ignored.
- * @return {!goog.iter.Iterator} An iterator over the elements in this set.
+ * @return {!Iterator} An iterator over the elements in this set.
  * @deprecated Call `values` and use native iteration, for alignment with ES6
  *     Set.
  */

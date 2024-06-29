@@ -15,8 +15,8 @@ import { Coordinate } from '../math/coordinate.js';
 import * as positioning from './positioning.js';
 import { AbstractPosition } from './abstractposition.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
+const { Box } = goog.requireType('goog.math.box');
+const { Size } = goog.requireType('goog.math.size');
 
 
 
@@ -54,8 +54,8 @@ goog.inherits(
  *     the popup element that that should be positioned adjacent to
  *     the anchorElement.  One of the positioning.Corner
  *     constants.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
- * @param {goog.math.Size=} opt_preferredSize Preferred size of the element.
+ * @param {Box=} opt_margin A margin specified in pixels.
+ * @param {Size=} opt_preferredSize Preferred size of the element.
  * @override
  */
 ClientPosition.prototype.reposition = function(

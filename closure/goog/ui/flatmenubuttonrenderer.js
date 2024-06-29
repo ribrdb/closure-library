@@ -21,9 +21,9 @@ import { Menu } from './menu.js';
 import { MenuButton } from './menubutton.js';
 import { MenuRenderer } from './menurenderer.js';
 import * as registry from './registry.js';
-goog.requireType('goog.ui.button');
-goog.requireType('goog.ui.control');
-goog.requireType('goog.ui.controlcontent');
+const { Button } = goog.requireType('goog.ui.button');
+const { Control } = goog.requireType('goog.ui.control');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -64,12 +64,12 @@ FlatMenuButtonRenderer.CSS_CLASS =
  *    </div>
  *
  * Overrides {@link FlatButtonRenderer#createDom}.
- * @param {goog.ui.Control} control Button to render.
+ * @param {Control} control Button to render.
  * @return {!Element} Root element for the button.
  * @override
  */
 FlatMenuButtonRenderer.prototype.createDom = function(control) {
-    var button = /** @type {goog.ui.Button} */ (control);
+    var button = /** @type {Button} */ (control);
     var classNames = this.getClassNames(button);
     var element = button.getDomHelper().createDom(
         TagName.DIV,
@@ -100,7 +100,7 @@ FlatMenuButtonRenderer.prototype.getContentElement = function(element) {
  * the element.  Overrides {@link goog.ui.CustomButtonRenderer#decorate} by
  * looking for a child element that can be decorated by a menu, and if it
  * finds one, decorates it and attaches it to the menu button.
- * @param {goog.ui.Control} button Menu button to decorate the element.
+ * @param {Control} button Menu button to decorate the element.
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
@@ -153,7 +153,7 @@ FlatMenuButtonRenderer.prototype.decorate = function(button, element) {
  *      Contents...
  *    </div>
  *
- * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
+ * @param {ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
  * @param {googDom.DomHelper} dom DOM helper, used for document interaction.
  * @return {!Element} Caption element.

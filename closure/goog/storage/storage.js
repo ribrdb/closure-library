@@ -12,14 +12,14 @@
 import * as googJson from '../json/json.js';
 
 import { ErrorCode } from './errorcode.js';
-goog.requireType('goog.storage.mechanism.mechanism');
+const { Mechanism } = goog.requireType('goog.storage.mechanism.mechanism');
 
 
 
 /**
  * The base implementation for all storage APIs.
  *
- * @param {!goog.storage.mechanism.Mechanism} mechanism The underlying
+ * @param {!Mechanism} mechanism The underlying
  *     storage mechanism.
  * @constructor
  * @struct
@@ -28,7 +28,7 @@ export function Storage(mechanism) {
   /**
    * The mechanism used to persist key-value pairs.
    *
-   * @protected {goog.storage.mechanism.Mechanism}
+   * @protected {Mechanism}
    */
   this.mechanism = mechanism;
 }

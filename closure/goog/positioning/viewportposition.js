@@ -14,8 +14,8 @@ import * as positioning from './positioning.js';
 import { Corner } from './positioning.js';
 import { AbstractPosition } from './abstractposition.js';
 import * as style from '../style/style.js';
-goog.requireType('goog.math.box');
-goog.requireType('goog.math.size');
+const { Box } = goog.requireType('goog.math.box');
+const { Size } = goog.requireType('goog.math.size');
 
 
 
@@ -46,8 +46,8 @@ goog.inherits(
  * @param {Element} element The DOM element of the popup.
  * @param {Corner} popupCorner The corner of the popup
  *     element that that should be positioned adjacent to the anchorElement.
- * @param {goog.math.Box=} opt_margin A margin specified in pixels.
- * @param {goog.math.Size=} opt_preferredSize Preferred size of the element.
+ * @param {Box=} opt_margin A margin specified in pixels.
+ * @param {Size=} opt_preferredSize Preferred size of the element.
  * @override
  */
 ViewportPosition.prototype.reposition = function(

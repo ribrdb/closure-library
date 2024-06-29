@@ -20,7 +20,7 @@ import { module as googModule } from './module.js';
 
 import { BaseModule } from './basemodule.js';
 import { ModuleLoadCallback } from './moduleloadcallback.js';
-goog.requireType('goog.module.ModuleLoadFailure');
+const { ModuleLoadFailure } = goog.requireType('goog.module.ModuleLoadFailure');
 
 
 
@@ -288,7 +288,7 @@ ModuleInfo.prototype.onLoad = function(contextProvider) {
 
 /**
  * Calls the error callbacks for the module.
- * @param {!googModule.ModuleLoadFailure} cause What caused the
+ * @param {!ModuleLoadFailure} cause What caused the
  *     error.
  */
 ModuleInfo.prototype.onError = function(cause) {

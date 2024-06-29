@@ -138,7 +138,7 @@ FontSizeMonitor.prototype.disposeInternal = function() {
 /**
  * Handles the onresize event of the iframe and dispatches a change event in
  * case its size really changed.
- * @param {events.BrowserEvent} e The event object.
+ * @param {BrowserEvent} e The event object.
  * @private
  */
 FontSizeMonitor.prototype.handleResize_ = function(e) {

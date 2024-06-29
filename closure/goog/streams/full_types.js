@@ -17,7 +17,7 @@ import * as liteTypes from './lite_types.js';
  * @record
  * @extends {liteTypes.ReadableStreamUnderlyingSource}
  */
-class ReadableStreamUnderlyingSource {
+export class ReadableStreamUnderlyingSource {
   constructor() {
     /**
      * A pull method that is called when the ReadableStream's internal queue
@@ -40,7 +40,7 @@ class ReadableStreamUnderlyingSource {
  * @template T
  * @record
  */
-class ReadableStreamStrategy {
+export class ReadableStreamStrategy {
   constructor() {
     /**
      * A sizing algorithm that takes a chunk of the ReadableStream and returns
@@ -68,7 +68,7 @@ class ReadableStreamStrategy {
  * @extends {liteTypes.ReadableStream<T>}
  * @extends {AsyncIterable<T>}
  */
-class ReadableStream {
+export class ReadableStream {
   /**
    * Returns a ReadableStreamDefaultReader that enables reading chunks from
    * the source.
@@ -121,7 +121,7 @@ class ReadableStream {
  * @interface
  * @extends {liteTypes.ReadableStreamDefaultReader<T>}
  */
-class ReadableStreamDefaultReader {
+export class ReadableStreamDefaultReader {
   /**
    * Cancels the ReadableStream with an optional reason.
    * https://streams.spec.whatwg.org/#default-reader-cancel
@@ -136,7 +136,7 @@ class ReadableStreamDefaultReader {
  * @interface
  * @extends {AsyncIterator<T>}
  */
-class ReadableStreamAsyncIterator {
+export class ReadableStreamAsyncIterator {
   /**
    * Gets the next value from the ReadableStream.
    * https://streams.spec.whatwg.org/#rs-asynciterator-prototype-next
@@ -158,7 +158,7 @@ class ReadableStreamAsyncIterator {
  * @interface
  * @extends {liteTypes.ReadableStreamDefaultController<T>}
  */
-class ReadableStreamDefaultController {
+export class ReadableStreamDefaultController {
   constructor() {
     /**
      * The desired size to fill the controlled stream's internal queue.

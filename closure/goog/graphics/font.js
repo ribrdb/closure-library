@@ -11,7 +11,17 @@
  */
 
 
-Font = function(size, family) {
+/**
+ * This class represents a font to be used with a renderer.
+ * @param {number} size  The font size.
+ * @param {string} family  The font family.
+ * @constructor
+ * @deprecated goog.graphics is deprecated. It existed to abstract over browser
+ *     differences before the canvas tag was widely supported.  See
+ *     http://en.wikipedia.org/wiki/Canvas_element for details.
+ * @final
+ */
+export function Font(size, family) {
  /**
   * Font size.
   * @type {number}
@@ -39,4 +49,3 @@ Font.prototype.bold = false;
  * @type {boolean}
  */
 Font.prototype.italic = false;
-export var Font;

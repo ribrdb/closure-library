@@ -39,7 +39,7 @@ import object from '../../object/object.js';
 import * as googString from '../../string/string.js';
 import { File } from './file.js';
 import { FileWriter } from './filewriter.js';
-goog.requireType('goog.testing.fs.filesystem');
+const { FileSystem } = goog.requireType('goog.testing.fs.filesystem');
 
 /**
  * A mock filesystem entry object.

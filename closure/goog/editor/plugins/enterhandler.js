@@ -25,9 +25,9 @@ import * as functions from '../../functions/functions.js';
 import object from '../../object/object.js';
 import * as googString from '../../string/string.js';
 import * as userAgent from '../../useragent/useragent.js';
-goog.requireType('goog.dom.abstractrange');
+const { AbstractRange } = goog.requireType('goog.dom.abstractrange');
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
+const { Event } = goog.requireType('goog.events.event');
 
 
 
@@ -102,8 +102,8 @@ EnterHandler.prototype.getNonCollapsingBlankHtml =
 
 /**
  * Internal backspace handler.
- * @param {goog.events.Event} e The keypress event.
- * @param {dom.AbstractRange} range The closure range object.
+ * @param {Event} e The keypress event.
+ * @param {AbstractRange} range The closure range object.
  * @protected
  */
 EnterHandler.prototype.handleBackspaceInternal = function(
@@ -121,7 +121,7 @@ EnterHandler.prototype.handleBackspaceInternal = function(
 
 /**
  * Fix paragraphs to be the correct type of node.
- * @param {goog.events.Event} e The `<enter>` key event.
+ * @param {Event} e The `<enter>` key event.
  * @param {boolean} split Whether we already split up a blockquote by
  *     manually inserting elements.
  * @protected
@@ -171,8 +171,7 @@ EnterHandler.isDirectlyInBlockquote = function(n) {
   for (var current = n; current; current = current.parentNode) {
     if (editorNode.isBlockTag(current)) {
       return (
-        /** @type {!Element} */ (current).tagName ==
-            TagName.BLOCKQUOTE
+        /** @type {!Element} */ ((current).tagName == TagName.BLOCKQUOTE)
       );
     }
   }
@@ -183,7 +182,7 @@ EnterHandler.isDirectlyInBlockquote = function(n) {
 
 /**
  * Internal delete key handler.
- * @param {goog.events.Event} e The keypress event.
+ * @param {Event} e The keypress event.
  * @protected
  */
 EnterHandler.prototype.handleDeleteGecko = function(e) {
@@ -199,7 +198,7 @@ EnterHandler.prototype.handleDeleteGecko = function(e) {
  * need to account for an ill-formed cursor which occurs from us trying to
  * stop the browser from deleting.
  *
- * @param {goog.events.Event} e The DELETE keypress event.
+ * @param {Event} e The DELETE keypress event.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -336,7 +335,7 @@ EnterHandler.prototype.handleKeyUp = function(e) {
 
 /**
  * Internal handler for keyup events.
- * @param {goog.events.Event} e The key event.
+ * @param {Event} e The key event.
  * @protected
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
@@ -390,7 +389,7 @@ EnterHandler.prototype.handleEnterWebkitInternal = function(
  * @param {boolean} wasCollapsed Whether the selection was collapsed before
  *     the key press.  If it was not, code before this function has already
  *     cleared the contents of the selection.
- * @param {dom.AbstractRange} range Object representing the selection.
+ * @param {AbstractRange} range Object representing the selection.
  * @protected
  */
 EnterHandler.prototype.handleEnterAtCursorGeckoInternal =
@@ -550,8 +549,8 @@ EnterHandler.isNodeLeftMostChild_ = function(
 
 /**
  * Deletes the contents of the selection from the DOM.
- * @param {dom.AbstractRange} range The range to remove contents from.
- * @return {dom.AbstractRange} The resulting range. Used for testing.
+ * @param {AbstractRange} range The range to remove contents from.
+ * @return {AbstractRange} The resulting range. Used for testing.
  * @private
  */
 EnterHandler.deleteW3cRange_ = function(range) {
@@ -640,7 +639,7 @@ EnterHandler.deleteW3cRange_ = function(range) {
 
 /**
  * Checks whether the whole range is in a single block-level element.
- * @param {dom.AbstractRange} range The range to check.
+ * @param {AbstractRange} range The range to check.
  * @return {boolean} Whether the whole range is in a single block-level element.
  * @private
  */
@@ -669,7 +668,7 @@ EnterHandler.isInOneContainerW3c_ = function(range) {
 /**
  * Checks whether the end of the range is not at the end of a block-level
  * element.
- * @param {dom.AbstractRange} range The range to check.
+ * @param {AbstractRange} range The range to check.
  * @return {boolean} Whether the end of the range is not at the end of a
  *     block-level element.
  * @private

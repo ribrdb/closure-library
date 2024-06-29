@@ -25,9 +25,9 @@ import { Control } from './control.js';
 import { PaletteRenderer } from './paletterenderer.js';
 import { SelectionModel } from './selectionmodel.js';
 const { BrowserEvent } = goog.requireType('goog.events.browserevent');
-goog.requireType('goog.events.event');
-goog.requireType('goog.events.keyevent');
-goog.requireType('goog.ui.controlcontent');
+const { Event } = goog.requireType('goog.events.event');
+const { KeyEvent } = goog.requireType('goog.events.keyevent');
+const { ControlContent } = goog.requireType('goog.ui.controlcontent');
 
 
 
@@ -190,7 +190,7 @@ Palette.prototype.setCaption = function(caption) {
  * Handles mouseover events.  Overrides {@link Control#handleMouseOver}
  * by determining which palette item (if any) was moused over, highlighting it,
  * and un-highlighting any previously-highlighted item.
- * @param {events.BrowserEvent} e Mouse event to handle.
+ * @param {BrowserEvent} e Mouse event to handle.
  * @override
  */
 Palette.prototype.handleMouseOver = function(e) {
@@ -212,7 +212,7 @@ Palette.prototype.handleMouseOver = function(e) {
 /**
  * Handles mousedown events.  Overrides {@link Control#handleMouseDown}
  * by ensuring that the item on which the user moused down is highlighted.
- * @param {events.Event} e Mouse event to handle.
+ * @param {Event} e Mouse event to handle.
  * @override
  */
 Palette.prototype.handleMouseDown = function(e) {
@@ -234,7 +234,7 @@ Palette.prototype.handleMouseDown = function(e) {
  * Selects the currently highlighted palette item (triggered by mouseup or by
  * keyboard action).  Overrides {@link Control#performActionInternal}
  * by selecting the highlighted item and dispatching an ACTION event.
- * @param {events.Event} e Mouse or key event that triggered the action.
+ * @param {Event} e Mouse or key event that triggered the action.
  * @return {boolean} True if the action was allowed to proceed, false otherwise.
  * @override
  */
@@ -254,7 +254,7 @@ Palette.prototype.performActionInternal = function(e) {
  * Determines whether to select the highlighted item while handling an internal
  * action. The highlighted item should not be selected if the action is a mouse
  * event occurring outside the palette or in an "empty" cell.
- * @param {!events.Event} e Mouseup or key event being handled.
+ * @param {!Event} e Mouseup or key event being handled.
  * @return {boolean} True if the highlighted item should be selected.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
@@ -281,7 +281,7 @@ Palette.prototype.shouldSelectHighlightedItem_ = function(e) {
  * and this method returns false; it is then up to the parent component to
  * handle the event (e.g. by wrapping the highlight around).  Overrides {@link
  * Control#handleKeyEvent}.
- * @param {events.KeyEvent} e Key event to handle.
+ * @param {KeyEvent} e Key event to handle.
  * @return {boolean} True iff the key event was handled by the component.
  * @override
  */
@@ -371,7 +371,7 @@ Palette.prototype.handleKeyEvent = function(e) {
 
 /**
  * Handles selection change events dispatched by the selection model.
- * @param {events.Event} e Selection event to handle.
+ * @param {Event} e Selection event to handle.
  */
 Palette.prototype.handleSelectionChange = function(e) {
   // No-op in the base class.

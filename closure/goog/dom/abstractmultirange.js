@@ -11,10 +11,9 @@
 
 
 import * as array from '../array/array.js';
-
 import * as dom from './dom.js';
 import { AbstractRange } from './abstractrange.js';
-// import { TextRange } from './textrange.js';
+import { TextRange } from './textrange.js';
 
 
 

@@ -23,8 +23,8 @@ import { Palette } from '../palette.js';
 import { Emoji } from './emoji.js';
 import { EmojiPaletteRenderer } from './emojipaletterenderer.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
-goog.requireType('goog.events.event');
-goog.requireType('goog.ui.paletterenderer');
+const { Event } = goog.requireType('goog.events.event');
+const { PaletteRenderer } = goog.requireType('goog.ui.paletterenderer');
 
 
 
@@ -188,7 +188,7 @@ EmojiPalette.prototype.loadAnimatedEmoji = function() {
 /**
  * Handles image load events from the ImageLoader.
  *
- * @param {goog.events.Event} e The event object.
+ * @param {Event} e The event object.
  * @private
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
