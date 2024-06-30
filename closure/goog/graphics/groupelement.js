@@ -12,7 +12,7 @@
 
 goog.declareModuleId('goog.graphics.groupelement');
 
-import { Element } from './element.js';
+import { Element as GraphicsElement } from './element.js';
 const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
 
 
@@ -25,15 +25,15 @@ const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
  * @param {AbstractGraphics} graphics The graphics creating
  *     this element.
  * @constructor
- * @extends {Element}
+ * @extends {GraphicsElement}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
 export function GroupElement(element, graphics) {
- Element.call(this, element, graphics);
+ GraphicsElement.call(this, element, graphics);
 }
-goog.inherits(GroupElement, Element);
+goog.inherits(GroupElement, GraphicsElement);
 
 
 /**

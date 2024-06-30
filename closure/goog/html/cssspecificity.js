@@ -152,6 +152,6 @@ function calculateSpecificity(selector) {
   return specificity;
 }
 
-export default {
-  getSpecificity: getSpecificity
+export {
+  getSpecificity
 };

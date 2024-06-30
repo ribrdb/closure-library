@@ -10,7 +10,7 @@
  */
 import { DirectoryEntryImpl } from './entryimpl.js';
 
-import { FileSystem } from './filesystem.js';
+import * as fs from './filesystem.js';
 
 
 
@@ -22,7 +22,7 @@ import { FileSystem } from './filesystem.js';
  *
  * @param {!FileSystem} fs The underlying FileSystem object.
  * @constructor
- * @implements {FileSystem}
+ * @implements {fs.FileSystem}
  * @final
  */
 export function FileSystemImpl(fs) {

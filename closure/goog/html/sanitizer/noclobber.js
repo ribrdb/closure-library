@@ -67,7 +67,7 @@ function prototypeMethodOrNull(className, method) {
 
 // Functions we use to avoid looking up the prototypes and the descriptors
 // multiple times.
-/** @const @enum {?Function} */
+/** @package @const @enum {?Function} */
 var Methods = {
   ATTRIBUTES_GETTER: getterOrNull('Element', 'attributes') ||
       // Edge and IE10 define this Element property on Node instead of
@@ -449,27 +449,26 @@ function getElementNamespaceURI(element) {
       });
 }
 
-export default {
-  getElementAttributes: getElementAttributes,
-  hasElementAttribute: hasElementAttribute,
-  getElementAttribute: getElementAttribute,
-  setElementAttribute: setElementAttribute,
-  removeElementAttribute: removeElementAttribute,
-  getElementInnerHTML: getElementInnerHTML,
-  getElementStyle: getElementStyle,
-  getElementsByTagName: getElementsByTagName,
-  getElementStyleSheet: getElementStyleSheet,
-  elementMatches: elementMatches,
-  assertNodeIsElement: assertNodeIsElement,
-  isNodeElement: isNodeElement,
-  getNodeName: getNodeName,
-  getNodeType: getNodeType,
-  getParentNode: getParentNode,
-  getChildNodes: getChildNodes,
-  appendNodeChild: appendNodeChild,
-  getCssPropertyValue: getCssPropertyValue,
-  setCssProperty: setCssProperty,
-  getElementNamespaceURI: getElementNamespaceURI,
-  /** @package */
-  Methods: Methods,
+export {
+  getElementAttributes,
+  hasElementAttribute,
+  getElementAttribute,
+  setElementAttribute,
+  removeElementAttribute,
+  getElementInnerHTML,
+  getElementStyle,
+  getElementsByTagName,
+  getElementStyleSheet,
+  elementMatches,
+  assertNodeIsElement,
+  isNodeElement,
+  getNodeName,
+  getNodeType,
+  getParentNode,
+  getChildNodes,
+  appendNodeChild,
+  getCssPropertyValue,
+  setCssProperty,
+  getElementNamespaceURI,
+  Methods,
 };

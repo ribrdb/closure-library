@@ -33,7 +33,7 @@ import * as asserts from '../../asserts/asserts.js';
 import { NodeType } from '../../dom/nodetype.js';
 import * as events from '../../events/events.js';
 import { BrowserEvent } from '../../events/browserevent.js';
-import { EventTarget } from '../../events/eventtarget.js';
+import { EventTarget as GEventTarget } from '../../events/eventtarget.js';
 import { EventType } from '../../events/eventtype.js';
 import { KeyCodes } from '../../events/keycodes.js';
 import object from '../../object/object.js';
@@ -820,11 +820,11 @@ export function fireTouchSequence(target, opt_coords, opt_eventProperties) {
  * @param {!Object} obj The object to mixin into.
  */
 export function mixinListenable(obj) {
-  const listenable = new EventTarget();
+  const listenable = new GEventTarget();
 
   listenable.setTargetForTesting(obj);
 
-  const listenablePrototype = EventTarget.prototype;
+  const listenablePrototype = GEventTarget.prototype;
   const disposablePrototype = Disposable.prototype;
   for (let key in listenablePrototype) {
     if (listenablePrototype.hasOwnProperty(key) ||

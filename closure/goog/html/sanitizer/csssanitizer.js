@@ -13,13 +13,13 @@ import * as array from '../../array/array.js';
 
 import * as dom from '../../dom/dom.js';
 import * as safe from '../../dom/safe.js';
-import CssSpecificity from '../cssspecificity.js';
+import * as CssSpecificity from '../cssspecificity.js';
 import { SafeStyle } from '../safestyle.js';
 import { SafeStyleSheet } from '../safestylesheet.js';
 import { SafeUrl } from '../safeurl.js';
 import * as CssPropertySanitizer from './csspropertysanitizer.js';
-import inertDocument from './inertdocument.js';
-import noclobber from './noclobber.js';
+import * as inertDocument from './inertdocument.js';
+import * as noclobber from './noclobber.js';
 import * as uncheckedconversions from '../uncheckedconversions.js';
 import object from '../../object/object.js';
 import * as googString from '../../string/string.js';

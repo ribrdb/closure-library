@@ -9,7 +9,10 @@
  */
 
 
-EventType = {
+/**
+ * Event types for goog.history.
+ * @enum {string}
+ */
+export const EventType = {
   NAVIGATE: 'navigate'
 };
-export var EventType;

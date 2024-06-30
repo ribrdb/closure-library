@@ -30,8 +30,8 @@ import { FileSaver } from './filesaver.js';
  * @extends {FileSaver}
  * @final
  */
-export function FileWriter(writer) {
-  FileWriter.base(this, 'constructor', writer);
+function GoogFsFileWriter(writer) {
+  GoogFsFileWriter.base(this, 'constructor', writer);
 
   /**
    * The underlying FileWriter object.
@@ -41,13 +41,14 @@ export function FileWriter(writer) {
    */
   this.writer_ = writer;
 }
-goog.inherits(FileWriter, FileSaver);
+goog.inherits(GoogFsFileWriter, FileSaver);
+export {GoogFsFileWriter as FileWriter};
 
 
 /**
  * @return {number} The byte offset at which the next write will occur.
  */
-FileWriter.prototype.getPosition = function() {
+GoogFsFileWriter.prototype.getPosition = function() {
   return this.writer_.position;
 };
 
@@ -55,7 +56,7 @@ FileWriter.prototype.getPosition = function() {
 /**
  * @return {number} The length of the file.
  */
-FileWriter.prototype.getLength = function() {
+GoogFsFileWriter.prototype.getLength = function() {
   return this.writer_.length;
 };
 
@@ -65,7 +66,7 @@ FileWriter.prototype.getLength = function() {
  *
  * @param {!Blob} blob The data to write.
  */
-FileWriter.prototype.write = function(blob) {
+GoogFsFileWriter.prototype.write = function(blob) {
   try {
     this.writer_.write(blob);
   } catch (e) {
@@ -79,7 +80,7 @@ FileWriter.prototype.write = function(blob) {
  *
  * @param {number} offset An absolute byte offset into the file.
  */
-FileWriter.prototype.seek = function(offset) {
+GoogFsFileWriter.prototype.seek = function(offset) {
   try {
     this.writer_.seek(offset);
   } catch (e) {
@@ -93,7 +94,7 @@ FileWriter.prototype.seek = function(offset) {
  *
  * @param {number} size The new size of the file, in bytes.
  */
-FileWriter.prototype.truncate = function(size) {
+GoogFsFileWriter.prototype.truncate = function(size) {
   try {
     this.writer_.truncate(size);
   } catch (e) {

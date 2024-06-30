@@ -36,4 +36,3 @@ export function getErrorContext(err) {
 // able to use ES6.
 /** @private @const {string} */
 var CONTEXT_KEY_ = '__closure__error__context__984382';
-export var addErrorContext;

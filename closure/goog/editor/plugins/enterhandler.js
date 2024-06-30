@@ -170,9 +170,7 @@ EnterHandler.prototype.processParagraphTagsInternal =
 EnterHandler.isDirectlyInBlockquote = function(n) {
   for (var current = n; current; current = current.parentNode) {
     if (editorNode.isBlockTag(current)) {
-      return (
-        /** @type {!Element} */ ((current).tagName == TagName.BLOCKQUOTE)
-      );
+      return /** @type {!Element} */ (current).tagName == TagName.BLOCKQUOTE;
     }
   }
 

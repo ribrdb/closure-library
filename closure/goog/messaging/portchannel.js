@@ -30,13 +30,14 @@ import object from '../object/object.js';
 import * as googString from '../string/string.js';
 import * as userAgent from '../useragent/useragent.js';
 const { Event } = goog.requireType('goog.events.event');
+const messaging = goog.requireType('goog.messaging.messagechannel');
 
 
 
 /**
  * A wrapper for several types of HTML5 message-passing entities
  * ({@link MessagePort}s and {@link Worker}s). This class implements the
- * {@link MessageChannel} interface.
+ * {@link messaging.MessageChannel} interface.
  *
  * This class can be used in conjunction with other communication on the port.
  * It sets {@link PortChannel.FLAG} to true on all messages it
@@ -153,7 +154,7 @@ PortChannel.forEmbeddedWindow = function(
  *
  * @param {string} peerOrigin The expected origin of the enclosing document. See
  *     http://dev.w3.org/html5/postmsg/#dom-window-postmessage.
- * @return {!MessageChannel} The PortChannel. Although this may
+ * @return {!messaging.MessageChannel} The PortChannel. Although this may
  *     not actually be an instance of the PortChannel class, it will behave like
  *     one in that MessagePorts may be sent across it.
  */

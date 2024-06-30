@@ -20,8 +20,8 @@ import { Event } from '../events/event.js';
  * @constructor
  * @final
  */
-export function ProgressEvent(event, target) {
- ProgressEvent.base(this, 'constructor', event.type, target);
+function GoogProgressEvent(event, target) {
+ GoogProgressEvent.base(this, 'constructor', event.type, target);
 
  /**
   * The underlying event object.
@@ -30,14 +30,15 @@ export function ProgressEvent(event, target) {
   */
  this.event_ = event;
 }
-goog.inherits(ProgressEvent, Event);
+goog.inherits(GoogProgressEvent, Event);
+export {GoogProgressEvent as ProgressEvent};
 
 
 /**
  * @return {boolean} Whether or not the total size of the of the file being
  *     saved is known.
  */
-ProgressEvent.prototype.isLengthComputable = function() {
+GoogProgressEvent.prototype.isLengthComputable = function() {
  return this.event_.lengthComputable;
 };
 
@@ -45,7 +46,7 @@ ProgressEvent.prototype.isLengthComputable = function() {
 /**
  * @return {number} The number of bytes saved so far.
  */
-ProgressEvent.prototype.getLoaded = function() {
+GoogProgressEvent.prototype.getLoaded = function() {
  return this.event_.loaded;
 };
 
@@ -53,6 +54,6 @@ ProgressEvent.prototype.getLoaded = function() {
 /**
  * @return {number} The total number of bytes in the file being saved.
  */
-ProgressEvent.prototype.getTotal = function() {
+GoogProgressEvent.prototype.getTotal = function() {
  return this.event_.total;
 };

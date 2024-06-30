@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/** @fileoverview @suppress {visibility} */
+
 goog.setTestOnly('goog.date.relativeCommonTests');
 
 import { DateTime } from './date.js';

@@ -19,4 +19,4 @@ function createInertDocument() {
   return document.implementation.createHTMLDocument('');
 }
 
-export default {createInertDocument};
+export {createInertDocument};

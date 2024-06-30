@@ -176,7 +176,7 @@ PopupEmojiPicker.prototype.setUrlPrefix = function(urlPrefix) {
  * Sets the location of the tabs in relation to the emoji grids. This should
  * only be called before the picker has been rendered.
  *
- * @param {TabPane.TabLocation} tabLocation The location of the tabs.
+ * @param {!TabPane.TabLocation} tabLocation The location of the tabs.
  */
 PopupEmojiPicker.prototype.setTabLocation = function(
     tabLocation) {

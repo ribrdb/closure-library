@@ -319,5 +319,6 @@ FirstStrong.isBlock_ = function(node) {
  */
 FirstStrong.isGeckoBlock_ = function(node) {
   return !!node &&
-      (/** @type {!Element} */ ((node).tagName == TagName.BR || FirstStrong.isBlock_(node)));
+      (/** @type {!Element} */ (node).tagName == TagName.BR ||
+       FirstStrong.isBlock_(node));
 };

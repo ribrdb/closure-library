@@ -11,7 +11,6 @@
 goog.setTestOnly('goog.testing.fs.ProgressEvent');
 
 import { Event } from '../../events/event.js';
-const { EventType } = goog.requireType('goog.events.eventtype');
 const { FileReader } = goog.requireType('goog.fs.filereader');
 const { FileSaver } = goog.requireType('goog.fs.filesaver');
 
@@ -20,7 +19,7 @@ const { FileSaver } = goog.requireType('goog.fs.filesaver');
 /**
  * A mock progress event.
  *
- * @param {!EventType|!EventType} type
+ * @param {!FileSaver.EventType|!FileReader.EventType} type
  *     Event type.
  * @param {number} loaded The number of bytes processed.
  * @param {number} total The total data that was to be processed, in bytes.

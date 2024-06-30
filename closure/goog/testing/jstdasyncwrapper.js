@@ -131,7 +131,8 @@ Queue.prototype.defer = function(
     this.delegate_.defer(stepName, fn);
     return;
   }
-  this.steps_.push(new Step_( (stepName),
+  this.steps_.push(new Step_(
+      /** @type {string} */ (stepName),
       /** @type {function(!Pool_=)} */ (fn)));
 };
 

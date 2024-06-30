@@ -34,7 +34,7 @@ import { SafeDomTreeProcessor } from './safedomtreeprocessor.js';
 import { TagBlacklist } from './tagblacklist.js';
 import { TagWhitelist } from './tagwhitelist.js';
 import * as attributeallowlists from './attributeallowlists.js';
-import noclobber from './noclobber.js';
+import * as noclobber from './noclobber.js';
 import * as uncheckedconversions from '../uncheckedconversions.js';
 import object from '../../object/object.js';
 import * as googString from '../../string/string.js';

@@ -301,7 +301,11 @@ MultiRange.prototype.getPastableHtml = function() {
 };
 
 
-/** @override */
+/**
+ * @override
+ * @param {boolean=} opt_keys Unused for this iterator.
+ * @return {!RangeIterator} An iterator over tags in the range.
+ */
 MultiRange.prototype.__iterator__ = function(opt_keys) {
   return new MultiRangeIterator(this);
 };
@@ -371,7 +375,14 @@ MultiRange.prototype.collapse = function(toAnchor) {
 };
 
 
-/** @override */
+/**
+ * Tests if this range contains the given node.
+ * @param {Node} node The node to test for.
+ * @param {boolean=} opt_allowPartial If not set or false, the node must be
+ *     entirely contained in the selection for this function to return true.
+ * @return {boolean} Whether this range contains the given node.
+ * @override
+ */
 MultiRange.prototype.containsNode = function(
   node, opt_allowPartial) {
 return this.containsRange(

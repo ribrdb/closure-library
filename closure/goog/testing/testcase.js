@@ -1354,7 +1354,7 @@ TestCase.invalidateAssertionException = function(e) {
 /**
  * Gets called before any tests are executed.  Can be overridden to set up the
  * environment for the whole test case.
- * @return {!Thenable|undefined}
+ * @return {!IThenable<*>|undefined}
  */
 TestCase.prototype.setUpPage = function() {};
 
@@ -1369,7 +1369,7 @@ TestCase.prototype.tearDownPage = function() {};
 /**
  * Gets called before every TestCase.Test is been executed. Can
  * be overridden to add set up functionality to each test.
- * @return {!Thenable|undefined}
+ * @return {!IThenable<*>|undefined}
  */
 TestCase.prototype.setUp = function() {};
 
@@ -1377,7 +1377,7 @@ TestCase.prototype.setUp = function() {};
 /**
  * Gets called after every TestCase.Test has been executed. Can
  * be overridden to add tear down functionality to each test.
- * @return {!Thenable|undefined}
+ * @return {!IThenable<*>|undefined}
  */
 TestCase.prototype.tearDown = function() {};
 

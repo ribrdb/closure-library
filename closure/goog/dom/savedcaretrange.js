@@ -69,7 +69,7 @@ goog.inherits(SavedCaretRange, AbstractSavedCaretRange);
 /**
  * Gets the range that this SavedCaretRage represents, without selecting it
  * or removing the carets from the DOM.
- * @return /{AbstractRange?} An abstract range.
+ * @return {AbstractRange?} An abstract range.
  * @override
  */
 SavedCaretRange.prototype.toAbstractRange = function() {

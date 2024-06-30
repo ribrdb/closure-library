@@ -192,6 +192,8 @@ export function Promise(resolver, opt_context) {
   }
 }
 
+/** @type {!Promise<?>} */
+var fakePromise;
 
 /**
  * @define {boolean} Whether traces of `then` calls should be included in
@@ -330,7 +332,7 @@ Promise.returnEntry_ = function(entry) {
  *     with the given value. If the input value is already a Promise, it
  *     will be returned immediately without creating a new instance.
  * @template VALUE
- * @template RESULT := type('Promise',
+ * @template RESULT := type('goog.Promise',
  *     cond(isUnknown(VALUE), unknown(),
  *       mapunion(VALUE, (V) =>
  *         cond(isTemplatized(V) && sub(rawTypeOf(V), 'IThenable'),
@@ -529,6 +531,9 @@ Promise.firstFulfilled = function(promises) {
   });
 };
 
+/** @typedef {!Promise} */
+goog.Promise = Promise;
+
 
 /**
  * @return {!Resolver<TYPE>} Resolver wrapping the promise and its
@@ -577,7 +582,7 @@ Promise.withResolver = function() {
  * When a Promise (or thenable) is returned from the fulfilled callback,
  * the result is the payload of that promise, not the promise itself.
  *
- * @template RESULT := type('Promise',
+ * @template RESULT := type('goog.Promise',
  *     cond(isUnknown(VALUE), unknown(),
  *       mapunion(VALUE, (V) =>
  *         cond(isTemplatized(V) && sub(rawTypeOf(V), 'IThenable'),

@@ -14,6 +14,7 @@ import { Role } from '../a11y/aria/roles.js';
 import { Component } from './component.js';
 import { ControlRenderer } from './controlrenderer.js';
 const { Control } = goog.requireType('goog.ui.control');
+const { Tab } = goog.requireType('goog.ui.tab');
 
 
 
@@ -74,7 +75,7 @@ TabRenderer.prototype.createDom = function(tab) {
   var element = TabRenderer.superClass_.createDom.call(this, tab);
 
   /** @suppress {strictMissingProperties} Added to tighten compiler checks */
-  var tooltip = tab.getTooltip();
+  var tooltip = /** @type {!Tab} */ (tab).getTooltip();
   if (tooltip) {
     // Only update the element if the tab has a tooltip.
     this.setTooltip(element, tooltip);
@@ -92,7 +93,7 @@ TabRenderer.prototype.createDom = function(tab) {
  * @param {Element} element Element to decorate.
  * @return {Element} Decorated element.
  * @override
- * @suppress {strictMissingProperties} Added to tighten compiler checks
+ * @suppress {strictMissingProperties,visibility} Added to tighten compiler checks
  */
 TabRenderer.prototype.decorate = function(tab, element) {
   element = TabRenderer.superClass_.decorate.call(this, tab, element);
@@ -100,7 +101,7 @@ TabRenderer.prototype.decorate = function(tab, element) {
   var tooltip = this.getTooltip(element);
   if (tooltip) {
     // Only update the tab if the element has a tooltip.
-    tab.setTooltipInternal(tooltip);
+    /** @type {!Tab} */ (tab).setTooltipInternal(tooltip);
   }
 
   // If the tab is selected and hosted in a tab bar, update the tab bar's

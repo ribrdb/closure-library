@@ -10,9 +10,9 @@
  */
 import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
 
-import { DirectoryEntry, Entry, FileEntry } from './entry.js';
+import * as fs from './entry.js';
 import { Error } from './error.js';
-import { FileWriter } from './filewriter.js';
+import { FileWriter as GoogFsFileWriter } from './filewriter.js';
 import * as functions from '../functions/functions.js';
 import * as googString from '../string/string.js';
 const {FileSystem} = goog.requireType('goog.fs.filesystem');
@@ -20,11 +20,11 @@ const {FileSystem} = goog.requireType('goog.fs.filesystem');
 
 
 /**
- * Base class for concrete implementations of Entry.
+ * Base class for concrete implementations of goog.fs.Entry.
  * @param {!FileSystem} fs The wrapped filesystem.
  * @param {!Entry} entry The underlying Entry object.
  * @constructor
- * @implements {Entry}
+ * @implements {fs.Entry}
  */
 export function EntryImpl(fs, entry) {
   /**
@@ -181,13 +181,13 @@ EntryImpl.prototype.getParent = function() {
  *
  * This should not be instantiated directly. Instead, it should be accessed via
  * {@link FileSystem#getRoot} or
- * {@link DirectoryEntry#getDirectoryEntry}.
+ * {@link fs.DirectoryEntry#getDirectoryEntry}.
  *
  * @param {!FileSystem} fs The wrapped filesystem.
  * @param {!DirectoryEntry} dir The underlying DirectoryEntry object.
  * @constructor
  * @extends {EntryImpl}
- * @implements {DirectoryEntry}
+ * @implements {fs.DirectoryEntry}
  * @final
  */
 export function DirectoryEntryImpl(fs, dir) {
@@ -263,7 +263,7 @@ DirectoryEntryImpl.prototype.createPath = function(path) {
     } else if (nextDir == '.') {
       def = Deferred.succeed(dir);
     } else {
-      def = dir.getDirectory(nextDir, DirectoryEntry.Behavior.CREATE);
+      def = dir.getDirectory(nextDir, fs.DirectoryEntry.Behavior.CREATE);
     }
     return def.addCallback(getNextDirectory);
   }
@@ -315,15 +315,15 @@ DirectoryEntryImpl.prototype.removeRecursively = function() {
  * Converts a value in the Behavior enum into an options object expected by the
  * File API.
  *
- * @param {DirectoryEntry.Behavior=} opt_behavior The behavior for
+ * @param {fs.DirectoryEntry.Behavior=} opt_behavior The behavior for
  *     existing files.
  * @return {!Object<boolean>} The options object expected by the File API.
  * @private
  */
 DirectoryEntryImpl.prototype.getOptions_ = function(opt_behavior) {
-  if (opt_behavior == DirectoryEntry.Behavior.CREATE) {
+  if (opt_behavior == fs.DirectoryEntry.Behavior.CREATE) {
     return {'create': true};
-  } else if (opt_behavior == DirectoryEntry.Behavior.CREATE_EXCLUSIVE) {
+  } else if (opt_behavior == fs.DirectoryEntry.Behavior.CREATE_EXCLUSIVE) {
     return {'create': true, 'exclusive': true};
   } else {
     return {};
@@ -336,13 +336,13 @@ DirectoryEntryImpl.prototype.getOptions_ = function(opt_behavior) {
  * A file in a local filesystem.
  *
  * This should not be instantiated directly. Instead, it should be accessed via
- * {@link DirectoryEntry#getFile}.
+ * {@link fs.DirectoryEntry#getFile}.
  *
  * @param {!FileSystem} fs The wrapped filesystem.
  * @param {!FileEntry} file The underlying FileEntry object.
  * @constructor
  * @extends {EntryImpl}
- * @implements {FileEntry}
+ * @implements {fs.FileEntry}
  * @final
  */
 export function FileEntryImpl(fs, file) {
@@ -363,7 +363,7 @@ goog.inherits(FileEntryImpl, EntryImpl);
 FileEntryImpl.prototype.createWriter = function() {
   const d = new Deferred();
   this.file_.createWriter(function(w) {
-    d.callback(new FileWriter(w));
+    d.callback(new GoogFsFileWriter(w));
   }, goog.bind(function(err) {
     const msg = 'creating writer for ' + this.getFullPath();
     d.errback(new Error(err, msg));

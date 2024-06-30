@@ -13,7 +13,7 @@
 
 goog.declareModuleId('goog.graphics.strokeandfillelement');
 
-import { Element } from './element.js';
+import { Element as GraphicsElement } from './element.js';
 const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
 const { Fill } = goog.requireType('goog.graphics.fill');
 const { Stroke } = goog.requireType('goog.graphics.stroke');
@@ -33,17 +33,17 @@ const { Stroke } = goog.requireType('goog.graphics.stroke');
  * @param {Stroke?} stroke The stroke to use for this element.
  * @param {Fill?} fill The fill to use for this element.
  * @constructor
- * @extends {Element}
+ * @extends {GraphicsElement}
  * @deprecated goog.graphics is deprecated. It existed to abstract over browser
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
 export function StrokeAndFillElement(element, graphics, stroke, fill) {
- Element.call(this, element, graphics);
+ GraphicsElement.call(this, element, graphics);
  this.setStroke(stroke);
  this.setFill(fill);
 }
-goog.inherits(StrokeAndFillElement, Element);
+goog.inherits(StrokeAndFillElement, GraphicsElement);
 
 
 /**

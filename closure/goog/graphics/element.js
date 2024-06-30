@@ -38,7 +38,7 @@ const { AbstractGraphics } = goog.requireType('goog.graphics.abstractgraphics');
  *     differences before the canvas tag was widely supported.  See
  *     http://en.wikipedia.org/wiki/Canvas_element for details.
  */
-export function Element(element, graphics) {
+function Element_(element, graphics) {
  EventTarget.call(this);
  this.element_ = element;
  this.graphics_ = graphics;
@@ -46,7 +46,8 @@ export function Element(element, graphics) {
  // TODO(user) Should be handled in EventTarget.js (see bug 846824).
  this[Listenable.IMPLEMENTED_BY_PROP] = false;
 }
-goog.inherits(Element, EventTarget);
+goog.inherits(Element_, EventTarget);
+export {Element_ as Element};
 
 
 /**
@@ -54,7 +55,7 @@ goog.inherits(Element, EventTarget);
  * @type {AbstractGraphics?}
  * @private
  */
-Element.prototype.graphics_ = null;
+Element_.prototype.graphics_ = null;
 
 
 /**
@@ -62,7 +63,7 @@ Element.prototype.graphics_ = null;
  * @type {?Element}
  * @private
  */
-Element.prototype.element_ = null;
+Element_.prototype.element_ = null;
 
 
 /**
@@ -70,14 +71,14 @@ Element.prototype.element_ = null;
  * @type {AffineTransform?}
  * @private
  */
-Element.prototype.transform_ = null;
+Element_.prototype.transform_ = null;
 
 
 /**
  * Returns the underlying object.
  * @return {Element} The underlying element.
  */
-Element.prototype.getElement = function() {
+Element_.prototype.getElement = function() {
  return this.element_;
 };
 
@@ -87,7 +88,7 @@ Element.prototype.getElement = function() {
  * @return {AbstractGraphics} The graphics that created the
  *     element.
  */
-Element.prototype.getGraphics = function() {
+Element_.prototype.getGraphics = function() {
  return this.graphics_;
 };
 
@@ -103,7 +104,7 @@ Element.prototype.getGraphics = function() {
  * @param {number} centerX The horizontal center of the rotation transform.
  * @param {number} centerY The vertical center of the rotation transform.
  */
-Element.prototype.setTransformation = function(
+Element_.prototype.setTransformation = function(
     x, y, rotate, centerX, centerY) {
  this.transform_ =
      AffineTransform
@@ -117,7 +118,7 @@ Element.prototype.setTransformation = function(
  * @return {!AffineTransform} The transformation applied to
  *     this element.
  */
-Element.prototype.getTransform = function() {
+Element_.prototype.getTransform = function() {
  return this.transform_ ? this.transform_.clone() :
                           new AffineTransform();
 };
@@ -128,14 +129,14 @@ Element.prototype.getTransform = function() {
  * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  */
-Element.prototype.setTransform = function(affineTransform) {
+Element_.prototype.setTransform = function(affineTransform) {
  this.transform_ = affineTransform.clone();
  this.getGraphics().setElementAffineTransform(this, affineTransform);
 };
 
 
 /** @override */
-Element.prototype.addEventListener = function(
+Element_.prototype.addEventListener = function(
     type, handler, opt_capture, opt_handlerScope) {
  events.listen(
      this.element_, type, handler, opt_capture, opt_handlerScope);
@@ -143,7 +144,7 @@ Element.prototype.addEventListener = function(
 
 
 /** @override */
-Element.prototype.removeEventListener = function(
+Element_.prototype.removeEventListener = function(
     type, handler, opt_capture, opt_handlerScope) {
  events.unlisten(
      this.element_, type, handler, opt_capture, opt_handlerScope);
@@ -151,8 +152,8 @@ Element.prototype.removeEventListener = function(
 
 
 /** @override */
-Element.prototype.disposeInternal = function() {
- Element.superClass_.disposeInternal.call(this);
+Element_.prototype.disposeInternal = function() {
+ Element_.superClass_.disposeInternal.call(this);
  asserts.assert(this.element_);
  events.removeAll(this.element_);
 };

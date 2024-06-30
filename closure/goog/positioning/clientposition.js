@@ -40,7 +40,7 @@ export function ClientPosition(arg1, opt_arg2) {
    */
  this.coordinate = arg1 instanceof Coordinate ?
      arg1 :
-     new Coordinate( (arg1), opt_arg2);
+     new Coordinate(/** @type {number} */ (arg1), opt_arg2);
 }
 goog.inherits(
     ClientPosition, AbstractPosition);

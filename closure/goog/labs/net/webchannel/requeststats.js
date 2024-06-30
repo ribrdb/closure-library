@@ -318,7 +318,7 @@ export function setEndThreadExecutionHook(endHook) {
  * @type {Function}
  * @private
  */
-function startExecutionHook_() {}
+var startExecutionHook_ = function() {}
 
 
 /**
@@ -327,7 +327,7 @@ function startExecutionHook_() {}
  * @type {Function}
  * @private
  */
-function endExecutionHook_() {}
+var endExecutionHook_ = function() {}
 
 
 /**

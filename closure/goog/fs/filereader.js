@@ -13,7 +13,7 @@ goog.declareModuleId('goog.fs.filereader');
 import { Deferred } from '../../../third_party/closure/goog/mochikit/async/deferred.js';
 import { EventTarget } from '../events/eventtarget.js';
 import { Error } from './error.js';
-import { ProgressEvent } from './progressevent.js';
+import { ProgressEvent as GoogProgressEvent } from './progressevent.js';
 
 
 
@@ -152,7 +152,7 @@ FileReader_.prototype.getError = function() {
  * @private
  */
 FileReader_.prototype.dispatchProgressEvent_ = function(event) {
- this.dispatchEvent(new ProgressEvent(event, this));
+ this.dispatchEvent(new GoogProgressEvent(event, this));
 };
 
 

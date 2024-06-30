@@ -39,7 +39,7 @@ import * as dateIntervalSymbols from './dateintervalsymbols.js';
  *   DAY_ABBR: !dateIntervalSymbols.DateIntervalPatternMap
  * }}
  */
-export let DateIntervalPatterns;
+export var DateIntervalPatterns;
 
 /** @type {!DateIntervalPatterns} */
 let defaultPatterns;
@@ -61,7 +61,7 @@ export let setDateIntervalPatterns = function(patterns) {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_af = {
+export const DateIntervalPatterns_af = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -133,7 +133,7 @@ export let DateIntervalPatterns_af = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_am = {
+export const DateIntervalPatterns_am = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -209,7 +209,7 @@ export let DateIntervalPatterns_am = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ar = {
+export const DateIntervalPatterns_ar = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -285,13 +285,13 @@ export let DateIntervalPatterns_ar = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ar_DZ = DateIntervalPatterns_ar;
+export const DateIntervalPatterns_ar_DZ = DateIntervalPatterns_ar;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ar_EG = DateIntervalPatterns_ar;
+export const DateIntervalPatterns_ar_EG = DateIntervalPatterns_ar;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_az = {
+export const DateIntervalPatterns_az = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -362,7 +362,7 @@ export let DateIntervalPatterns_az = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_be = {
+export const DateIntervalPatterns_be = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -436,7 +436,7 @@ export let DateIntervalPatterns_be = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_bg = {
+export const DateIntervalPatterns_bg = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y – y \'г\'.',
@@ -501,7 +501,7 @@ export let DateIntervalPatterns_bg = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_bn = {
+export const DateIntervalPatterns_bn = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -572,7 +572,7 @@ export let DateIntervalPatterns_bn = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_br = {
+export const DateIntervalPatterns_br = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -642,7 +642,7 @@ export let DateIntervalPatterns_br = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_bs = {
+export const DateIntervalPatterns_bs = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -717,7 +717,7 @@ export let DateIntervalPatterns_bs = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ca = {
+export const DateIntervalPatterns_ca = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -792,7 +792,7 @@ export let DateIntervalPatterns_ca = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_chr = {
+export const DateIntervalPatterns_chr = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -860,7 +860,7 @@ export let DateIntervalPatterns_chr = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_cs = {
+export const DateIntervalPatterns_cs = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -932,7 +932,7 @@ export let DateIntervalPatterns_cs = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_cy = {
+export const DateIntervalPatterns_cy = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -1005,7 +1005,7 @@ export let DateIntervalPatterns_cy = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_da = {
+export const DateIntervalPatterns_da = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1085,7 +1085,7 @@ export let DateIntervalPatterns_da = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_de = {
+export const DateIntervalPatterns_de = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1160,13 +1160,13 @@ export let DateIntervalPatterns_de = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_de_AT = DateIntervalPatterns_de;
+export const DateIntervalPatterns_de_AT = DateIntervalPatterns_de;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_de_CH = DateIntervalPatterns_de;
+export const DateIntervalPatterns_de_CH = DateIntervalPatterns_de;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_el = {
+export const DateIntervalPatterns_el = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1245,7 +1245,7 @@ export let DateIntervalPatterns_el = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en = {
+export const DateIntervalPatterns_en = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -1314,7 +1314,7 @@ export let DateIntervalPatterns_en = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_AU = {
+export const DateIntervalPatterns_en_AU = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1387,7 +1387,7 @@ export let DateIntervalPatterns_en_AU = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_CA = {
+export const DateIntervalPatterns_en_CA = {
   YEAR_FULL: {
     'G': 'y G–y G',
     '_': 'y'
@@ -1457,7 +1457,7 @@ export let DateIntervalPatterns_en_CA = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_GB = {
+export const DateIntervalPatterns_en_GB = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1529,7 +1529,7 @@ export let DateIntervalPatterns_en_GB = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_IE = {
+export const DateIntervalPatterns_en_IE = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1602,7 +1602,7 @@ export let DateIntervalPatterns_en_IE = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_IN = {
+export const DateIntervalPatterns_en_IN = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1674,7 +1674,7 @@ export let DateIntervalPatterns_en_IN = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_SG = {
+export const DateIntervalPatterns_en_SG = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1744,10 +1744,10 @@ export let DateIntervalPatterns_en_SG = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_US = DateIntervalPatterns_en;
+export const DateIntervalPatterns_en_US = DateIntervalPatterns_en;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_en_ZA = {
+export const DateIntervalPatterns_en_ZA = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1823,7 +1823,7 @@ export let DateIntervalPatterns_en_ZA = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_es = {
+export const DateIntervalPatterns_es = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1893,7 +1893,7 @@ export let DateIntervalPatterns_es = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_es_419 = {
+export const DateIntervalPatterns_es_419 = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -1970,10 +1970,10 @@ export let DateIntervalPatterns_es_419 = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_es_ES = DateIntervalPatterns_es;
+export const DateIntervalPatterns_es_ES = DateIntervalPatterns_es;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_es_MX = {
+export const DateIntervalPatterns_es_MX = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2048,7 +2048,7 @@ export let DateIntervalPatterns_es_MX = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_es_US = {
+export const DateIntervalPatterns_es_US = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2124,7 +2124,7 @@ export let DateIntervalPatterns_es_US = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_et = {
+export const DateIntervalPatterns_et = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2196,7 +2196,7 @@ export let DateIntervalPatterns_et = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_eu = {
+export const DateIntervalPatterns_eu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2270,7 +2270,7 @@ export let DateIntervalPatterns_eu = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_fa = {
+export const DateIntervalPatterns_fa = {
   YEAR_FULL: {
     'G': 'y G تا y G',
     '_': 'y'
@@ -2339,7 +2339,7 @@ export let DateIntervalPatterns_fa = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_fi = {
+export const DateIntervalPatterns_fi = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -2419,7 +2419,7 @@ export let DateIntervalPatterns_fi = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_fil = {
+export const DateIntervalPatterns_fil = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2490,7 +2490,7 @@ export let DateIntervalPatterns_fil = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_fr = {
+export const DateIntervalPatterns_fr = {
   YEAR_FULL: {
     'G': 'y G \'à\' y G',
     'y': 'y–y',
@@ -2563,7 +2563,7 @@ export let DateIntervalPatterns_fr = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_fr_CA = {
+export const DateIntervalPatterns_fr_CA = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -2634,7 +2634,7 @@ export let DateIntervalPatterns_fr_CA = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ga = {
+export const DateIntervalPatterns_ga = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -2703,7 +2703,7 @@ export let DateIntervalPatterns_ga = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_gl = {
+export const DateIntervalPatterns_gl = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -2775,7 +2775,7 @@ export let DateIntervalPatterns_gl = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_gsw = {
+export const DateIntervalPatterns_gsw = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2851,7 +2851,7 @@ export let DateIntervalPatterns_gsw = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_gu = {
+export const DateIntervalPatterns_gu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -2920,7 +2920,7 @@ export let DateIntervalPatterns_gu = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_haw = {
+export const DateIntervalPatterns_haw = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -2997,7 +2997,7 @@ export let DateIntervalPatterns_haw = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_he = {
+export const DateIntervalPatterns_he = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3074,7 +3074,7 @@ export let DateIntervalPatterns_he = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_hi = {
+export const DateIntervalPatterns_hi = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -3146,7 +3146,7 @@ export let DateIntervalPatterns_hi = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_hr = {
+export const DateIntervalPatterns_hr = {
   YEAR_FULL: {
     'G': 'y. G – y. G',
     '_': 'y.'
@@ -3219,7 +3219,7 @@ export let DateIntervalPatterns_hr = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_hu = {
+export const DateIntervalPatterns_hu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -3294,7 +3294,7 @@ export let DateIntervalPatterns_hu = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_hy = {
+export const DateIntervalPatterns_hy = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -3368,7 +3368,7 @@ export let DateIntervalPatterns_hy = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_id = {
+export const DateIntervalPatterns_id = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -3438,7 +3438,7 @@ export let DateIntervalPatterns_id = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_in = {
+export const DateIntervalPatterns_in = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -3508,7 +3508,7 @@ export let DateIntervalPatterns_in = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_is = {
+export const DateIntervalPatterns_is = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3582,7 +3582,7 @@ export let DateIntervalPatterns_is = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_it = {
+export const DateIntervalPatterns_it = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3657,7 +3657,7 @@ export let DateIntervalPatterns_it = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_iw = {
+export const DateIntervalPatterns_iw = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -3734,7 +3734,7 @@ export let DateIntervalPatterns_iw = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ja = {
+export const DateIntervalPatterns_ja = {
   YEAR_FULL: {
     'G': 'Gy年～Gy年',
     '_': 'y年'
@@ -3805,7 +3805,7 @@ export let DateIntervalPatterns_ja = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ka = {
+export const DateIntervalPatterns_ka = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -3881,7 +3881,7 @@ export let DateIntervalPatterns_ka = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_kk = {
+export const DateIntervalPatterns_kk = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -3959,7 +3959,7 @@ export let DateIntervalPatterns_kk = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_km = {
+export const DateIntervalPatterns_km = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y – y',
@@ -4037,7 +4037,7 @@ export let DateIntervalPatterns_km = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_kn = {
+export const DateIntervalPatterns_kn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -4113,7 +4113,7 @@ export let DateIntervalPatterns_kn = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ko = {
+export const DateIntervalPatterns_ko = {
   YEAR_FULL: {
     'G': 'G y년 ~ G y년',
     '_': 'y년'
@@ -4190,7 +4190,7 @@ export let DateIntervalPatterns_ko = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ky = {
+export const DateIntervalPatterns_ky = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -4270,7 +4270,7 @@ export let DateIntervalPatterns_ky = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ln = {
+export const DateIntervalPatterns_ln = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -4348,7 +4348,7 @@ export let DateIntervalPatterns_ln = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_lo = {
+export const DateIntervalPatterns_lo = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -4420,7 +4420,7 @@ export let DateIntervalPatterns_lo = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_lt = {
+export const DateIntervalPatterns_lt = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -4497,7 +4497,7 @@ export let DateIntervalPatterns_lt = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_lv = {
+export const DateIntervalPatterns_lv = {
   YEAR_FULL: {
     'G': 'G y. – G y.',
     'y': 'y.–y.',
@@ -4573,7 +4573,7 @@ export let DateIntervalPatterns_lv = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_mk = {
+export const DateIntervalPatterns_mk = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y – y',
@@ -4650,7 +4650,7 @@ export let DateIntervalPatterns_mk = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ml = {
+export const DateIntervalPatterns_ml = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y – y',
@@ -4728,7 +4728,7 @@ export let DateIntervalPatterns_ml = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_mn = {
+export const DateIntervalPatterns_mn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -4804,7 +4804,7 @@ export let DateIntervalPatterns_mn = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_mo = {
+export const DateIntervalPatterns_mo = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -4874,7 +4874,7 @@ export let DateIntervalPatterns_mo = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_mr = {
+export const DateIntervalPatterns_mr = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -4944,7 +4944,7 @@ export let DateIntervalPatterns_mr = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ms = {
+export const DateIntervalPatterns_ms = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5016,7 +5016,7 @@ export let DateIntervalPatterns_ms = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_mt = {
+export const DateIntervalPatterns_mt = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -5093,7 +5093,7 @@ export let DateIntervalPatterns_mt = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_my = {
+export const DateIntervalPatterns_my = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -5166,7 +5166,7 @@ export let DateIntervalPatterns_my = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_nb = {
+export const DateIntervalPatterns_nb = {
   YEAR_FULL: {
     'G': 'y G–y G',
     '_': 'y'
@@ -5237,7 +5237,7 @@ export let DateIntervalPatterns_nb = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ne = {
+export const DateIntervalPatterns_ne = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5308,7 +5308,7 @@ export let DateIntervalPatterns_ne = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_nl = {
+export const DateIntervalPatterns_nl = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5381,7 +5381,7 @@ export let DateIntervalPatterns_nl = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_no = {
+export const DateIntervalPatterns_no = {
   YEAR_FULL: {
     'G': 'y G–y G',
     '_': 'y'
@@ -5452,10 +5452,10 @@ export let DateIntervalPatterns_no = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_no_NO = DateIntervalPatterns_no;
+export const DateIntervalPatterns_no_NO = DateIntervalPatterns_no;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_or = {
+export const DateIntervalPatterns_or = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -5531,7 +5531,7 @@ export let DateIntervalPatterns_or = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_pa = {
+export const DateIntervalPatterns_pa = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -5602,7 +5602,7 @@ export let DateIntervalPatterns_pa = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_pl = {
+export const DateIntervalPatterns_pl = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5679,7 +5679,7 @@ export let DateIntervalPatterns_pl = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_pt = {
+export const DateIntervalPatterns_pt = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -5747,10 +5747,10 @@ export let DateIntervalPatterns_pt = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_pt_BR = DateIntervalPatterns_pt;
+export const DateIntervalPatterns_pt_BR = DateIntervalPatterns_pt;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_pt_PT = {
+export const DateIntervalPatterns_pt_PT = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5825,7 +5825,7 @@ export let DateIntervalPatterns_pt_PT = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ro = {
+export const DateIntervalPatterns_ro = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -5895,7 +5895,7 @@ export let DateIntervalPatterns_ro = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ru = {
+export const DateIntervalPatterns_ru = {
   YEAR_FULL: {
     'G': 'y \'г\'. G – y \'г\'. G',
     'y': 'y–y',
@@ -5966,7 +5966,7 @@ export let DateIntervalPatterns_ru = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sh = {
+export const DateIntervalPatterns_sh = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6043,7 +6043,7 @@ export let DateIntervalPatterns_sh = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_si = {
+export const DateIntervalPatterns_si = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6113,7 +6113,7 @@ export let DateIntervalPatterns_si = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sk = {
+export const DateIntervalPatterns_sk = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -6185,7 +6185,7 @@ export let DateIntervalPatterns_sk = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sl = {
+export const DateIntervalPatterns_sl = {
   YEAR_FULL: {
     'G': 'y G–y G',
     '_': 'y'
@@ -6257,7 +6257,7 @@ export let DateIntervalPatterns_sl = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sq = {
+export const DateIntervalPatterns_sq = {
   YEAR_FULL: {
     'G': 'y G – y G',
     '_': 'y'
@@ -6327,7 +6327,7 @@ export let DateIntervalPatterns_sq = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sr = {
+export const DateIntervalPatterns_sr = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6405,7 +6405,7 @@ export let DateIntervalPatterns_sr = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sr_Latn = {
+export const DateIntervalPatterns_sr_Latn = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6482,7 +6482,7 @@ export let DateIntervalPatterns_sr_Latn = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sv = {
+export const DateIntervalPatterns_sv = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6557,7 +6557,7 @@ export let DateIntervalPatterns_sv = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_sw = {
+export const DateIntervalPatterns_sw = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6626,7 +6626,7 @@ export let DateIntervalPatterns_sw = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ta = {
+export const DateIntervalPatterns_ta = {
   YEAR_FULL: {
     'G': 'G y – G y',
     '_': 'y'
@@ -6698,7 +6698,7 @@ export let DateIntervalPatterns_ta = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_te = {
+export const DateIntervalPatterns_te = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6770,7 +6770,7 @@ export let DateIntervalPatterns_te = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_th = {
+export const DateIntervalPatterns_th = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6842,7 +6842,7 @@ export let DateIntervalPatterns_th = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_tl = {
+export const DateIntervalPatterns_tl = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -6913,7 +6913,7 @@ export let DateIntervalPatterns_tl = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_tr = {
+export const DateIntervalPatterns_tr = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -6984,7 +6984,7 @@ export let DateIntervalPatterns_tr = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_uk = {
+export const DateIntervalPatterns_uk = {
   YEAR_FULL: {
     'G': 'y \'р\'. G – y \'р\'. G',
     'y': 'y–y',
@@ -7060,7 +7060,7 @@ export let DateIntervalPatterns_uk = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_ur = {
+export const DateIntervalPatterns_ur = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7131,7 +7131,7 @@ export let DateIntervalPatterns_ur = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_uz = {
+export const DateIntervalPatterns_uz = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',
@@ -7202,7 +7202,7 @@ export let DateIntervalPatterns_uz = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_vi = {
+export const DateIntervalPatterns_vi = {
   YEAR_FULL: {
     'G': 'y G – y G',
     'y': 'y–y',
@@ -7280,7 +7280,7 @@ export let DateIntervalPatterns_vi = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_zh = {
+export const DateIntervalPatterns_zh = {
   YEAR_FULL: {
     'G': 'Gy年 – Gy年',
     'y': 'y–y年',
@@ -7359,10 +7359,10 @@ export let DateIntervalPatterns_zh = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_zh_CN = DateIntervalPatterns_zh;
+export const DateIntervalPatterns_zh_CN = DateIntervalPatterns_zh;
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_zh_HK = {
+export const DateIntervalPatterns_zh_HK = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y至y',
@@ -7441,7 +7441,7 @@ export let DateIntervalPatterns_zh_HK = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_zh_TW = {
+export const DateIntervalPatterns_zh_TW = {
   YEAR_FULL: {
     'G': 'Gy – Gy',
     'y': 'y至y',
@@ -7520,7 +7520,7 @@ export let DateIntervalPatterns_zh_TW = {
 };
 
 /** @const {!DateIntervalPatterns} */
-export let DateIntervalPatterns_zu = {
+export const DateIntervalPatterns_zu = {
   YEAR_FULL: {
     'G': 'G y – G y',
     'y': 'y–y',

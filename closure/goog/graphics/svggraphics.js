@@ -36,7 +36,7 @@ import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
 import * as userAgent from '../useragent/useragent.js';
 const { AffineTransform } = goog.requireType('goog.graphics.affinetransform');
-const { Element } = goog.requireType('goog.graphics.element');
+const { Element:GraphicsElement } = goog.requireType('goog.graphics.element');
 const { EllipseElement } = goog.requireType('goog.graphics.ellipseelement');
 const { Fill } = goog.requireType('goog.graphics.fill');
 const { GroupElement } = goog.requireType('goog.graphics.groupelement');
@@ -172,7 +172,7 @@ SvgGraphics.prototype.setElementAttributes = function(
 /**
  * Appends an element.
  *
- * @param {Element} element The element wrapper.
+ * @param {GraphicsElement} element The element wrapper.
  * @param {GroupElement=} opt_group The group wrapper element
  *     to append to. If not specified, appends to the main canvas.
  * @private
@@ -282,7 +282,7 @@ SvgGraphics.prototype.setElementStroke = function(
  *
  * If a more general affine transform is needed than this provides
  * (e.g. skew and scale) then use setElementAffineTransform.
- * @param {Element} element The element wrapper.
+ * @param {GraphicsElement} element The element wrapper.
  * @param {number} x The x coordinate of the translation transform.
  * @param {number} y The y coordinate of the translation transform.
  * @param {number} angle The angle of the rotation transform.
@@ -301,7 +301,7 @@ SvgGraphics.prototype.setElementTransform = function(
 
 /**
  * Set the transformation of an element.
- * @param {Element} element The element wrapper.
+ * @param {GraphicsElement} element The element wrapper.
  * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  * @override
@@ -476,7 +476,8 @@ SvgGraphics.prototype.getPixelSize = function() {
         parseFloat(/** @type {string} */ (height)) * parentSize.height / 100;
   }
 
-  return new Size( (width),
+  return new Size(
+      /** @type {number} */ (width),
       /** @type {number} */ (height));
 };
 

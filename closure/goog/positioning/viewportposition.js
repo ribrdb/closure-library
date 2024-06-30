@@ -31,10 +31,9 @@ const { Size } = goog.requireType('goog.math.size');
  * @extends {AbstractPosition}
  */
 export function ViewportPosition(arg1, opt_arg2) {
- /** @type {!Coordinate} */
  this.coordinate = arg1 instanceof Coordinate ?
      arg1 :
-     new Coordinate( (arg1), opt_arg2);
+     new Coordinate(/** @type {number} */ (arg1), opt_arg2);
 }
 goog.inherits(
     ViewportPosition, AbstractPosition);

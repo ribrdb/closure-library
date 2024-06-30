@@ -5,8 +5,7 @@
  */
 goog.declareModuleId('goog.Thenable');
 
-/** @suppress {extraRequire} used in complex type */
-const GoogPromise = goog.requireType('goog.promise.promise');  // for the type reference.
+import {Promise} from './promise.js';
 
 /**
  * Provides a more strict interface for Thenables in terms of

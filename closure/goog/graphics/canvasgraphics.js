@@ -32,7 +32,7 @@ import { Size } from '../math/size.js';
 import * as style from '../style/style.js';
 const { DomHelper } = goog.requireType('goog.dom.dom');
 const { AffineTransform } = goog.requireType('goog.graphics.affinetransform');
-const { Element } = goog.requireType('goog.graphics.element');
+const { Element:GraphicsElement } = goog.requireType('goog.graphics.element');
 const { EllipseElement } = goog.requireType('goog.graphics.ellipseelement');
 const { Fill } = goog.requireType('goog.graphics.fill');
 const { GroupElement } = goog.requireType('goog.graphics.groupelement');
@@ -102,7 +102,7 @@ CanvasGraphics.prototype.setElementStroke = function(
  *
  * If a more general affine transform is needed than this provides
  * (e.g. skew and scale) then use setElementAffineTransform.
- * @param {Element} element The element wrapper.
+ * @param {GraphicsElement} element The element wrapper.
  * @param {number} x The x coordinate of the translation transform.
  * @param {number} y The y coordinate of the translation transform.
  * @param {number} angle The angle of the rotation transform.
@@ -121,7 +121,7 @@ CanvasGraphics.prototype.setElementTransform = function(
  *
  * Note that in this implementation this method just calls this.redraw()
  * and the affineTransform param is unused.
- * @param {!Element} element The element wrapper.
+ * @param {!GraphicsElement} element The element wrapper.
  * @param {!AffineTransform} affineTransform The
  *     transformation applied to this element.
  * @override
@@ -134,7 +134,7 @@ CanvasGraphics.prototype.setElementAffineTransform = function(
 
 /**
  * Push an element transform on to the transform stack.
- * @param {Element} element The transformed element.
+ * @param {GraphicsElement} element The transformed element.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 CanvasGraphics.prototype.pushElementTransform = function(
@@ -295,7 +295,8 @@ CanvasGraphics.prototype.getPixelSize = function() {
         parseFloat(/** @type {string} */ (height)) * parentSize.height / 100;
   }
 
-  return new Size( (width),
+  return new Size(
+      /** @type {number} */ (width),
       /** @type {number} */ (height));
 };
 
@@ -384,7 +385,7 @@ CanvasGraphics.prototype.redraw = function() {
 
 /**
  * Draw an element, including any stroke or fill.
- * @param {Element} element The element to draw.
+ * @param {GraphicsElement} element The element to draw.
  * @suppress {strictMissingProperties} Added to tighten compiler checks
  */
 CanvasGraphics.prototype.drawElement = function(element) {
@@ -463,7 +464,7 @@ CanvasGraphics.prototype.drawElement = function(element) {
 /**
  * Append an element.
  *
- * @param {Element} element The element to draw.
+ * @param {GraphicsElement} element The element to draw.
  * @param {GroupElement|undefined} group The group to draw
  *     it in. If null or undefined, defaults to the root group.
  * @protected
@@ -721,7 +722,7 @@ CanvasGraphics.prototype.resume = function() {
 
 /**
  * Removes an element from the Canvas.
- * @param {Element} elem the element to remove.
+ * @param {GraphicsElement} elem the element to remove.
  * @override
  */
 CanvasGraphics.prototype.removeElement = function(elem) {

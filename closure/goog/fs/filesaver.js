@@ -12,13 +12,13 @@ goog.declareModuleId('goog.fs.filesaver');
 
 import { EventTarget } from '../events/eventtarget.js';
 import { Error } from './error.js';
-import { ProgressEvent } from './progressevent.js';
+import { ProgressEvent as GoogProgressEvent } from './progressevent.js';
 
 
 
 /**
  * An object for monitoring the saving of files. This emits ProgressEvents of
- * the types listed in {@link FileSaver.EventType}.
+ * the types listed in {@link GoogFileSaver.EventType}.
  *
  * This should not be instantiated directly. Instead, its subclass
  * {@link goog.fs.FileWriter} should be accessed via
@@ -28,8 +28,8 @@ import { ProgressEvent } from './progressevent.js';
  * @constructor
  * @extends {EventTarget}
  */
-export function FileSaver(fileSaver) {
- FileSaver.base(this, 'constructor');
+function GoogFileSaver(fileSaver) {
+ GoogFileSaver.base(this, 'constructor');
 
  /**
   * The underlying FileSaver object.
@@ -46,7 +46,8 @@ export function FileSaver(fileSaver) {
  this.saver_.onerror = goog.bind(this.dispatchProgressEvent_, this);
  this.saver_.onwriteend = goog.bind(this.dispatchProgressEvent_, this);
 }
-goog.inherits(FileSaver, EventTarget);
+goog.inherits(GoogFileSaver, EventTarget);
+export {GoogFileSaver as FileSaver};
 
 
 /**
@@ -54,7 +55,7 @@ goog.inherits(FileSaver, EventTarget);
  *
  * @enum {number}
  */
-FileSaver.ReadyState = {
+GoogFileSaver.ReadyState = {
   /**
    * The object has been constructed, but there is no pending write.
    */
@@ -76,7 +77,7 @@ FileSaver.ReadyState = {
  *
  * @enum {string}
  */
-FileSaver.EventType = {
+GoogFileSaver.EventType = {
   /**
    * Emitted when the writing begins. readyState will be WRITING.
    */
@@ -111,7 +112,7 @@ FileSaver.EventType = {
 /**
  * Abort the writing of the file.
  */
-FileSaver.prototype.abort = function() {
+GoogFileSaver.prototype.abort = function() {
  try {
    this.saver_.abort();
  } catch (e) {
@@ -121,11 +122,11 @@ FileSaver.prototype.abort = function() {
 
 
 /**
- * @return {FileSaver.ReadyState} The current state of the FileSaver.
+ * @return {GoogFileSaver.ReadyState} The current state of the FileSaver.
  */
-FileSaver.prototype.getReadyState = function() {
+GoogFileSaver.prototype.getReadyState = function() {
  return (
-  /** @type {FileSaver.ReadyState} */ (this.saver_.readyState)
+  /** @type {GoogFileSaver.ReadyState} */ (this.saver_.readyState)
  );
 };
 
@@ -133,7 +134,7 @@ FileSaver.prototype.getReadyState = function() {
 /**
  * @return {Error} The error encountered while writing, if any.
  */
-FileSaver.prototype.getError = function() {
+GoogFileSaver.prototype.getError = function() {
  return this.saver_.error &&
      new Error(this.saver_.error, 'saving file');
 };
@@ -145,13 +146,13 @@ FileSaver.prototype.getError = function() {
  * @param {!ProgressEvent} event The underlying event.
  * @private
  */
-FileSaver.prototype.dispatchProgressEvent_ = function(event) {
- this.dispatchEvent(new ProgressEvent(event, this));
+GoogFileSaver.prototype.dispatchProgressEvent_ = function(event) {
+ this.dispatchEvent(new GoogProgressEvent(event, this));
 };
 
 
 /** @override */
-FileSaver.prototype.disposeInternal = function() {
+GoogFileSaver.prototype.disposeInternal = function() {
  delete this.saver_;
- FileSaver.base(this, 'disposeInternal');
+ GoogFileSaver.base(this, 'disposeInternal');
 };

@@ -1444,7 +1444,7 @@ DragDropItem.prototype.maybeStartDrag_ = function(event, element) {
  * Event handler for mouse move. Starts drag operation if moved more than the
  * threshold value.
  *
- * @BrowserEvent} event Mouse move or mouse out event.
+ * @param {BrowserEvent} event Mouse move or mouse out event.
  * @private
  */
 DragDropItem.prototype.mouseMove_ = function(event) {

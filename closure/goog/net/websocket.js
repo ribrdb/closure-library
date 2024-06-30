@@ -31,7 +31,7 @@ import { Timer } from '../timer/timer.js';
 import * as asserts from '../asserts/asserts.js';
 import * as entryPointRegistry from '../debug/entrypointregistry.js';
 import * as events from '../events/events.js';
-import { Event } from '../events/event.js';
+import { Event as GEvent } from '../events/event.js';
 import { EventTarget } from '../events/eventtarget.js';
 import * as log from '../log/log.js';
 const { ErrorHandler } = goog.requireType('goog.debug.errorhandler');
@@ -483,7 +483,7 @@ WebSocket_.prototype.disposeInternal = function() {
  * @param {number} code
  * @param {string} reason
  * @param {boolean} wasClean
- * @extends {Event}
+ * @extends {GEvent}
  * @constructor
  * @final
  */
@@ -506,7 +506,7 @@ WebSocket_.ClosedEvent = function(code, reason, wasClean) {
    */
   this.wasClean = wasClean;
 };
-goog.inherits(WebSocket_.ClosedEvent, Event);
+goog.inherits(WebSocket_.ClosedEvent, GEvent);
 
 
 /**
@@ -514,7 +514,7 @@ goog.inherits(WebSocket_.ClosedEvent, Event);
  *
  * @param {string|!ArrayBuffer|!Blob} message The raw message coming from the
  *     web socket.
- * @extends {Event}
+ * @extends {GEvent}
  * @constructor
  * @final
  */
@@ -530,7 +530,7 @@ WebSocket_.MessageEvent = function(message) {
   */
  this.message = message;
 };
-goog.inherits(WebSocket_.MessageEvent, Event);
+goog.inherits(WebSocket_.MessageEvent, GEvent);
 
 
 /**
@@ -538,7 +538,7 @@ goog.inherits(WebSocket_.MessageEvent, Event);
  * on the web socket.
  *
  * @param {string} data The error data.
- * @extends {Event}
+ * @extends {GEvent}
  * @constructor
  * @final
  */
@@ -552,7 +552,7 @@ WebSocket_.ErrorEvent = function(data) {
   */
  this.data = data;
 };
-goog.inherits(WebSocket_.ErrorEvent, Event);
+goog.inherits(WebSocket_.ErrorEvent, GEvent);
 
 
 // Register the WebSocket as an entry point, so that it can be monitored for

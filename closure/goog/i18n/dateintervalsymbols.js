@@ -23,7 +23,7 @@
  * Map containing the interval pattern for every calendar field.
  * @typedef {!Object<string, string>}
  */
-export let DateIntervalPatternMap;
+export var DateIntervalPatternMap;
 
 /**
  * Collection of date interval symbols.
@@ -43,7 +43,7 @@ export let DateIntervalPatternMap;
  *   FALLBACK: string
  * }}
  */
-export let DateIntervalSymbols;
+export var DateIntervalSymbols;
 
 /** @type {!DateIntervalSymbols} */
 let defaultSymbols;

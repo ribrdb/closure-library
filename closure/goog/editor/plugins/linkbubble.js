@@ -139,31 +139,29 @@ LinkBubble.LINK_DIV_ID_ = 'tr_link-div';
  * @desc Text label for link that lets the user click it to see where the link
  *     this bubble is for point to.
  */
-LinkBubble.MSG_LINK_BUBBLE_TEST_LINK =
-    goog.getMsg('Go to link: ');
+const MSG_LINK_BUBBLE_TEST_LINK = goog.getMsg('Go to link: ');
 
 
 /**
  * @desc Label that pops up a dialog to change the link.
  */
-LinkBubble.MSG_LINK_BUBBLE_CHANGE = goog.getMsg('Change');
+const MSG_LINK_BUBBLE_CHANGE = goog.getMsg('Change');
 
 
 /**
  * @desc Label that allow the user to remove this link.
  */
-LinkBubble.MSG_LINK_BUBBLE_REMOVE = goog.getMsg('Remove');
+const MSG_LINK_BUBBLE_REMOVE = goog.getMsg('Remove');
 
 
 /**
  * @desc Message shown in a link bubble when the link is not a valid url.
  */
-LinkBubble.MSG_INVALID_URL_LINK_BUBBLE =
-    goog.getMsg('invalid url');
+const MSG_INVALID_URL_LINK_BUBBLE = goog.getMsg('invalid url');
 
 
 /** @desc Screen reader announcement that a link has been removed. */
-LinkBubble.MSG_LINK_BUBBLE_REMOVE_ANNOUNCEMENT =
+const MSG_LINK_BUBBLE_REMOVE_ANNOUNCEMENT =
     goog.getMsg('Removed link.');
 
 
@@ -350,7 +348,7 @@ LinkBubble.prototype.getBubbleTitle = function() {
  * @protected
  */
 LinkBubble.prototype.getTestLinkMessage = function() {
-  return LinkBubble.MSG_LINK_BUBBLE_TEST_LINK;
+  return MSG_LINK_BUBBLE_TEST_LINK;
 };
 
 /** @override */
@@ -415,7 +413,7 @@ LinkBubble.prototype.createBubbleContents = function(
       LinkBubble.CHANGE_LINK_SPAN_ID_);
   this.createLink(
       LinkBubble.CHANGE_LINK_ID_,
-      LinkBubble.MSG_LINK_BUBBLE_CHANGE,
+      MSG_LINK_BUBBLE_CHANGE,
       this.showLinkDialog_, changeLinkSpan);
 
   // This function is called multiple times - we have to reset the array.
@@ -433,7 +431,7 @@ LinkBubble.prototype.createBubbleContents = function(
       LinkBubble.DELETE_LINK_SPAN_ID_);
   this.createLink(
       LinkBubble.DELETE_LINK_ID_,
-      LinkBubble.MSG_LINK_BUBBLE_REMOVE, this.deleteLink_,
+      MSG_LINK_BUBBLE_REMOVE, this.deleteLink_,
       removeLinkSpan);
 
   this.onShow();
@@ -490,7 +488,7 @@ LinkBubble.prototype.getLinkToTextObj_ = function() {
   var targetUrl = this.getTargetUrl();
 
   if (this.isInvalidUrl(targetUrl)) {
-    targetUrl = LinkBubble.MSG_INVALID_URL_LINK_BUBBLE;
+    targetUrl = MSG_INVALID_URL_LINK_BUBBLE;
     isError = true;
   } else if (Link.isMailto(targetUrl)) {
     targetUrl = targetUrl.substring(7);  // 7 == "mailto:".length
@@ -512,7 +510,8 @@ LinkBubble.prototype.showLinkDialog_ = function(e) {
 
   this.getFieldObject().execCommand(
       Command.MODAL_LINK_EDITOR,
-      new Link( (this.getTargetElement()), false));
+      new Link(
+          /** @type {HTMLAnchorElement} */ (this.getTargetElement()), false));
   this.closeBubble();
 };
 
@@ -545,7 +544,7 @@ LinkBubble.prototype.deleteLink_ = function(e) {
   restoreScrollPosition();
 
   this.announcer_.say(
-      LinkBubble.MSG_LINK_BUBBLE_REMOVE_ANNOUNCEMENT,
+      MSG_LINK_BUBBLE_REMOVE_ANNOUNCEMENT,
       LivePriority.ASSERTIVE);
 };
 

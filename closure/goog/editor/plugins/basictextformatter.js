@@ -1406,7 +1406,7 @@ BasicTextFormatter.prototype.fixSafariLists_ = function() {
  * Sane "type" attribute values for OL elements
  * @private
  */
-BasicTextFormatter.orderedListTypes_ = {
+const orderedListTypes_ = {
   '1': 1,
   'a': 1,
   'A': 1,
@@ -1419,7 +1419,7 @@ BasicTextFormatter.orderedListTypes_ = {
  * Sane "type" attribute values for UL elements
  * @private
  */
-BasicTextFormatter.unorderedListTypes_ = {
+const unorderedListTypes_ = {
   'disc': 1,
   'circle': 1,
   'square': 1
@@ -1459,8 +1459,8 @@ BasicTextFormatter.prototype.fixIELists_ = function() {
     var type = node.type;
     if (type) {
       var saneTypes = node.tagName == TagName.UL ?
-          BasicTextFormatter.unorderedListTypes_ :
-          BasicTextFormatter.orderedListTypes_;
+          unorderedListTypes_ :
+          orderedListTypes_;
       if (!saneTypes[type]) {
         node.type = '';
       }
@@ -1474,7 +1474,7 @@ BasicTextFormatter.prototype.fixIELists_ = function() {
  * contentEditable=true if there are no block-level elements.
  * @private
  */
-BasicTextFormatter.brokenExecCommandsSafari_ = {
+const brokenExecCommandsSafari_ = {
   'justifyCenter': 1,
   'justifyFull': 1,
   'justifyRight': 1,
@@ -1489,7 +1489,7 @@ BasicTextFormatter.brokenExecCommandsSafari_ = {
  * https://bugs.webkit.org/show_bug.cgi?id=19735
  * @private
  */
-BasicTextFormatter.hangingExecCommandWebkit_ = {
+const hangingExecCommandWebkit_ = {
   'insertOrderedList': 1,
   'insertUnorderedList': 1
 };
@@ -1505,8 +1505,7 @@ BasicTextFormatter.prototype.applyExecCommandSafariFixes_ =
     function(command) {
   // See the comment on brokenExecCommandsSafari_
   var div;
-  if (BasicTextFormatter
-          .brokenExecCommandsSafari_[command]) {
+  if (brokenExecCommandsSafari_[command]) {
     // Add a new div at the end of the field.
     // Safari knows that it would be wrong to apply text-align to the
     // contentEditable element if there are non-empty block nodes in the field,
@@ -1518,8 +1517,7 @@ BasicTextFormatter.prototype.applyExecCommandSafariFixes_ =
   }
 
   if (!userAgent.isVersionOrHigher(534) &&
-      BasicTextFormatter
-          .hangingExecCommandWebkit_[command]) {
+      hangingExecCommandWebkit_[command]) {
     // Add a new div at the beginning of the field.
     var field = this.getFieldObject().getElement();
     div = this.getFieldDomHelper().createDom(

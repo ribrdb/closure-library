@@ -19,19 +19,18 @@ import { Const } from '../../string/const.js';
 
 import { ElementWeakMap } from './elementweakmap.js';
 import * as log from '../../log/log.js';
-import * as googLog from '../../log/log.js';
 const Logger = log.Logger;
 import { NodeType } from '../../dom/nodetype.js';
 import * as googDom from '../../dom/dom.js';
-import noclobber from './noclobber.js';
+import * as noclobber from './noclobber.js';
 import * as safe from '../../dom/safe.js';
 import * as uncheckedconversions from '../uncheckedconversions.js';
 import * as userAgent from '../../useragent/useragent.js';
-import inertDocument from './inertdocument.js';
+import * as inertDocument from './inertdocument.js';
 const {createInertDocument} = inertDocument;
 
 /** @const {?Logger} */
-var logger = googLog.getLogger('goog.html.sanitizer.SafeDomTreeProcessor');
+var logger = log.getLogger('goog.html.sanitizer.SafeDomTreeProcessor');
 
 /**
  * Whether the HTML sanitizer is supported. For now mainly exclude
@@ -245,7 +244,7 @@ SafeDomTreeProcessor.prototype.createNode_ = function(originalNode) {
     case NodeType.ELEMENT:
       return this.createElement_(noclobber.assertNodeIsElement(originalNode));
     default:
-      googLog.warning(logger, 'Dropping unknown node type: ' + nodeType);
+      log.warning(logger, 'Dropping unknown node type: ' + nodeType);
       return null;
   }
 };

@@ -36,7 +36,7 @@ goog.inherits(
  * A string representing the RegExp for the local part of an EAI email address.
  * @private
  */
-InternationalizedEmailAddress.EAI_LOCAL_PART_REGEXP_STR_ =
+const EAI_LOCAL_PART_REGEXP_STR_ =
     '((?!\\s)[+a-zA-Z0-9_.!#$%&\'*\\/=?^`{|}~\u0080-\uFFFFFF-])+';
 
 
@@ -45,7 +45,7 @@ InternationalizedEmailAddress.EAI_LOCAL_PART_REGEXP_STR_ =
  * email address.
  * @private
  */
-InternationalizedEmailAddress.EAI_LABEL_CHAR_REGEXP_STR_ =
+const EAI_LABEL_CHAR_REGEXP_STR_ =
     '(?!\\s)[a-zA-Z0-9\u0080-\u3001\u3003-\uFF0D\uFF0F-\uFF60\uFF62-\uFFFFFF-]';
 
 
@@ -53,13 +53,13 @@ InternationalizedEmailAddress.EAI_LABEL_CHAR_REGEXP_STR_ =
  * A string representing the RegExp for the domain part of an EAI email address.
  * @private
  */
-InternationalizedEmailAddress.EAI_DOMAIN_PART_REGEXP_STR_ =
+const EAI_DOMAIN_PART_REGEXP_STR_ =
     // A unicode character (ASCII or Unicode excluding periods)
-    '(' + InternationalizedEmailAddress.EAI_LABEL_CHAR_REGEXP_STR_ +
+    '(' + EAI_LABEL_CHAR_REGEXP_STR_ +
     // Such character 1+ times, followed by a Unicode period. All 1+ times.
     '+[\\.\\uFF0E\\u3002\\uFF61])+' +
     // And same thing but without a period in the end
-    InternationalizedEmailAddress.EAI_LABEL_CHAR_REGEXP_STR_ +
+    EAI_LABEL_CHAR_REGEXP_STR_ +
     '{2,63}';
 
 
@@ -103,7 +103,7 @@ InternationalizedEmailAddress.CHARS_REQUIRE_QUOTES_ =
  * @private {!RegExp}
  */
 InternationalizedEmailAddress.EAI_LOCAL_PART_ = new RegExp(
-    '^' + InternationalizedEmailAddress.EAI_LOCAL_PART_REGEXP_STR_ +
+    '^' + EAI_LOCAL_PART_REGEXP_STR_ +
     '$');
 
 
@@ -113,7 +113,7 @@ InternationalizedEmailAddress.EAI_LOCAL_PART_ = new RegExp(
  */
 InternationalizedEmailAddress.EAI_DOMAIN_PART_ = new RegExp(
     '^' +
-    InternationalizedEmailAddress.EAI_DOMAIN_PART_REGEXP_STR_ +
+    EAI_DOMAIN_PART_REGEXP_STR_ +
     '$');
 
 
@@ -122,9 +122,9 @@ InternationalizedEmailAddress.EAI_DOMAIN_PART_ = new RegExp(
  * @private {!RegExp}
  */
 InternationalizedEmailAddress.EAI_EMAIL_ADDRESS_ = new RegExp(
-    '^' + InternationalizedEmailAddress.EAI_LOCAL_PART_REGEXP_STR_ +
+    '^' + EAI_LOCAL_PART_REGEXP_STR_ +
     '@' +
-    InternationalizedEmailAddress.EAI_DOMAIN_PART_REGEXP_STR_ +
+    EAI_DOMAIN_PART_REGEXP_STR_ +
     '$');
 
 

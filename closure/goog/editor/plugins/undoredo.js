@@ -13,7 +13,7 @@
 import * as dom from '../../dom/dom.js';
 
 import { NodeOffset } from '../../dom/nodeoffset.js';
-import { createFromBrowserRange} from '../../dom/range.js';
+import { createFromBrowserRange, createFromNodes} from '../../dom/range.js';
 import { Command } from '../command.js';
 import { Field } from '../field.js';
 import { Plugin } from '../plugin.js';
@@ -914,10 +914,8 @@ UndoRedo.CursorPosition_.prototype.getRange_ = function(
   }
 
   // Create range.
-  return (
-    /** @type {Range} */ (Range
-        .createFromNodes(
-            startNode, this.startChildOffset_, endNode, this.endChildOffset_)
-        .getBrowserRangeObject())
-  );
+  return /** @type {Range} */ (
+      createFromNodes(
+          startNode, this.startChildOffset_, endNode, this.endChildOffset_)
+      .getBrowserRangeObject());
 };

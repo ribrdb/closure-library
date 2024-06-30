@@ -10,7 +10,7 @@
  * by making anti-clobbering support optional.
  */
 
-import noclobber from './noclobber.js';
+import * as noclobber from './noclobber.js';
 
 // We also need to check if WeakMap has been polyfilled, because we want to use
 // ElementWeakMap instead of the polyfill.

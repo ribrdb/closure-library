@@ -31,7 +31,10 @@ export function Emoticons() {
 goog.inherits(Emoticons, Plugin);
 
 
-/** The emoticon command. */
+/**
+ * The emoticon command.
+ * @const
+ */
 Emoticons.COMMAND = '+emoticon';
 
 
