@@ -18,7 +18,7 @@ import * as asserts from '../../../asserts/asserts.js';
 import * as maps from '../../../collections/maps.js';
 import * as json from '../../../json/json.js';
 import NativeJsonProcessor from '../../../json/nativejsonprocessor.js';
-import { Wire as webChannelWire } from './wire.js';
+import { Wire } from './wire.js';
 import * as structs from '../../../structs/structs.js';
 const { Parser } = goog.requireType('goog.string.parser');
 
@@ -40,9 +40,6 @@ export function WireV8() {
 
 
 goog.scope(function() {
-  const Wire = webChannelWire;
-
-
   /**
      * Encodes a standalone message into the wire format.
      *
