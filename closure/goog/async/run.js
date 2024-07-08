@@ -36,7 +36,7 @@ let workQueue = new WorkQueue();
  *     provided function.
  * @template THIS
  */
-let run = (callback, context = undefined) => {
+export function run(callback, context = undefined) {
   if (!schedule) {
     initializeRunner();
   }
@@ -121,5 +121,3 @@ run.processWorkQueue = () => {
   // There are no more work items, allow processing to be scheduled again.
   workQueueScheduled = false;
 };
-
-export { run };
