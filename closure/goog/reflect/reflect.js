@@ -8,7 +8,7 @@
  * @fileoverview Useful compiler idioms.
  */
 
-object_ = function(type, object) {
+export function object(type, object) {
  return object;
 };
 
@@ -110,5 +110,3 @@ export function cache(cacheObj, key, valueFn, opt_keyFn) {
 
  return (cacheObj[storedKey] = valueFn(key));
 }
-var object_;
-export { object_ as object };
