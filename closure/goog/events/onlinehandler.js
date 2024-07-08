@@ -48,14 +48,6 @@ export function OnlineHandler() {
 goog.inherits(OnlineHandler, EventTarget);
 
 
-/**
- * Enum for the events dispatched by the OnlineHandler.
- * @enum {string}
- * @deprecated Use NetworkStatusMonitor.EventType instead.
- */
-OnlineHandler.EventType = NetworkStatusMonitor.EventType;
-
-
 /** @override */
 OnlineHandler.prototype.isOnline = function() {
  return navigator.onLine;
