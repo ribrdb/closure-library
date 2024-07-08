@@ -20,7 +20,7 @@ import * as asserts from '../../asserts/asserts.js';
  *
  * This base class has no dependencies on mocking or goog.testing.asserts.
  */
-export let EnvironmentBase = class EnvironmentBase {
+export class EnvironmentBase {
   constructor() {
     // Use the same EnvironmentTestCase instance across all EnvironmentBase
     // objects.
