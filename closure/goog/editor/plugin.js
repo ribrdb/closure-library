@@ -13,12 +13,8 @@
  * about unfullfilled forward declarations.
  */
 
-import { Field } from './field.js';
+import './field.js';
 
 import { PluginImpl } from './plugin_impl.js';
 
-/**
- * @constructor
- * @extends {PluginImpl}
- */
-export var Plugin = PluginImpl;
+export {PluginImpl as Plugin};
