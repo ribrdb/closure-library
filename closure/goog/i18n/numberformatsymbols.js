@@ -2623,7 +2623,7 @@ export var NumberFormatSymbols_zu = {
  * @const {!NumberFormatSymbolsType.Type}
  */
 export var NumberFormatSymbols = NumberFormatSymbols_en;
-NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en;
+export var NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_en;
 
 switch (goog.LOCALE) {
   case 'af':
@@ -3095,4 +3095,3 @@ switch (goog.LOCALE) {
     NumberFormatSymbols_u_nu_latn = NumberFormatSymbols_zu;
     break;
 }
-export var NumberFormatSymbols_u_nu_latn;

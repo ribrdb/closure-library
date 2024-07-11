@@ -179,7 +179,7 @@ export function beginBooleanGroup(id, description, opt_configParams) {
 /**
  * Stops adding boolean entries to the active boolean group.
  */
-endBooleanGroup = function() {
+function endBooleanGroup() {
   activeBooleanGroup_ = null;
 };
 
@@ -280,7 +280,6 @@ export function getString(id) {
 export function getNumber(id) {
   return getRegistry().getNumericSetting(id).getValue();
 }
-export var endBooleanGroup;
 
 /**
  * 

@@ -43,12 +43,12 @@ let shouldStubAtRuntime_ = true;
  * loaded), and A2 (A1 but code stubbed at runtime).
  * @return {boolean}
  */
-export let shouldStubAtRuntime = function() {
+export function shouldStubAtRuntime() {
   return shouldStubAtRuntime_;
 };
 
 /** See above. */
-export let disableStubbingAtRuntime = function() {
+export function disableStubbingAtRuntime() {
   shouldStubAtRuntime_ = false;
 };
 

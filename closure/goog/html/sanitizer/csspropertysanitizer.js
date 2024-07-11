@@ -101,7 +101,7 @@ function getSafeUri(uri, propName, uriRewriter) {
  * @return {?string} Sanitized property value or null if the property should be
  *     rejected altogether.
  */
-export let sanitizeProperty = function(propName, propValue, opt_uriRewriter) {
+export function sanitizeProperty(propName, propValue, opt_uriRewriter) {
   propValue = googString.trim(propValue);
   if (propValue == '') {
     return null;

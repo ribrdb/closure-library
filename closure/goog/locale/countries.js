@@ -16,7 +16,12 @@
 /**
  * Namespace for current country codes.
  */
-countries = [
+
+/**
+ * List of codes for countries valid today.
+ * @type {!Array<string>}
+ */
+export var countries = [
   'AC', // Ascension Island
   'AD', // Andorra
   'AE', // United Arab Emirates
@@ -275,4 +280,3 @@ countries = [
   'ZM', // Zambia
   'ZW' // Zimbabwe
 ];
-export var countries;

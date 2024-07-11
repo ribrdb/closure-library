@@ -100,7 +100,7 @@ class MapIterator {
  *     mapped values.
  * @template VALUE, RESULT
  */
-export let map = function(iterable, f) {
+export function map(iterable, f) {
   return new MapIterator(iterable, f);
 };
 
@@ -160,7 +160,7 @@ class FilterIterator {
  *     values.
  * @template VALUE
  */
-export let filter = function(iterable, f) {
+export function filter(iterable, f) {
   return new FilterIterator(iterable, f);
 };
 
@@ -212,7 +212,7 @@ class ConcatIterator {
  * @return {!IteratorIterable<VALUE>}
  * @template VALUE
  */
-export let concat = function(...iterables) {
+export function concat(...iterables) {
   return new ConcatIterator(iterables.map(getIterator));
 };
 
@@ -222,7 +222,7 @@ export let concat = function(...iterables) {
  * @return {!Array<VALUE>}
  * @template VALUE
  */
-export let toArray = function(iterator) {
+export function toArray(iterator) {
   const arr = [];
   forEach(iterator, e => arr.push(e));
   return arr;

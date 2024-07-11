@@ -12,7 +12,7 @@
  * An interface for one dimensional data interpolation.
  * @interface
  */
-Interpolator1 = function() {};
+export function Interpolator1() {};
 
 
 /**
@@ -48,4 +48,3 @@ Interpolator1.prototype.interpolate;
  * @return {!Interpolator1} The inverse interpolator.
  */
 Interpolator1.prototype.getInverse;
-export var Interpolator1;

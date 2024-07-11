@@ -52,7 +52,7 @@ let defaultSymbols;
  * Returns the default DateIntervalSymbols.
  * @return {!DateIntervalSymbols}
  */
-export let getDateIntervalSymbols = function() {
+export function getDateIntervalSymbols() {
   return defaultSymbols;
 };
 
@@ -60,7 +60,7 @@ export let getDateIntervalSymbols = function() {
  * Sets the default DateIntervalSymbols.
  * @param {!DateIntervalSymbols} symbols
  */
-export let setDateIntervalSymbols = function(symbols) {
+export function setDateIntervalSymbols(symbols) {
   defaultSymbols = symbols;
 };
 

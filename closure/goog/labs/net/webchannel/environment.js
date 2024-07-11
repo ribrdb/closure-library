@@ -42,7 +42,7 @@ var EDGE_POLLING_INTERVAL_ = 125;
  *
  * @return {boolean} True if polling is required with XHR.
  */
-export let isPollingRequired = function() {
+export function isPollingRequired() {
   return userAgent.EDGE_OR_IE;
 };
 
@@ -54,7 +54,7 @@ export let isPollingRequired = function() {
  * @return {number|undefined} The polling interval (MS) for the current U-A;
  * or undefined if polling is not supposed to be enabled.
  */
-export let getPollingInterval = function() {
+export function getPollingInterval() {
   if (userAgent.EDGE_OR_IE) {
     return EDGE_POLLING_INTERVAL_;
   }
@@ -164,7 +164,7 @@ let isStartOriginTrialsCalled = false;
  * @param {function(*)} logError A function to execute when exceptions are
  *     caught.
  */
-export let startOriginTrials = function(path, logError) {
+export function startOriginTrials(path, logError) {
   if (isStartOriginTrialsCalled) {
     return;
   }

@@ -13,6 +13,6 @@
  * @param {string} c The char to check
  * @return {boolean} true if a char is a whitespace
  */
-export let isJsonWhitespace = function(c) {
+export function isJsonWhitespace(c) {
   return c == '\r' || c == '\n' || c == ' ' || c == '\t';
 };

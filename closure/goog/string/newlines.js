@@ -12,7 +12,14 @@
 /**
  * Namespace for string utilities
  */
-splitLines = function(str, opt_keepNewlines) {
+/**
+ * Splits a string into lines, properly handling universal newlines.
+ * @param {string} str String to split.
+ * @param {boolean=} opt_keepNewlines Whether to keep the newlines in the
+ *     resulting strings. Defaults to false.
+ * @return {!Array<string>} String split into lines.
+ */
+export function splitLines(str, opt_keepNewlines) {
  const lines = getLines(str);
  return lines.map(function(line) {
   return opt_keepNewlines ? line.getFullLine() : line.getContent();
@@ -129,4 +136,3 @@ export function getLines(str) {
 
  return lines;
 }
-export var splitLines;

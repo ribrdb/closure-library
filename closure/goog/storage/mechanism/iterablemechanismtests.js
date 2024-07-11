@@ -143,7 +143,7 @@ function testIteratorWithWeirdKeys(mechanism) {
  * }} state
  * @return {!Object}
  */
-export let register = function(state) {
+export function register(state) {
   return bindTests(
       [
         testCount, testIteratorBasics, testIteratorWithTwoValues, testClear,

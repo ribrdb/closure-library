@@ -94,7 +94,7 @@ function testSeparateClean(mechanism, mechanismSeparate) {
  * }} state
  * @return {!Object}
  */
-export let register = function(state) {
+export function register(state) {
   return bindTests(
       [
         testSeparateSet,

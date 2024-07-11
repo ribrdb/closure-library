@@ -8,7 +8,16 @@
  * @fileoverview Collection of utility functions for Unicode character.
  */
 
-SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ = 0x10000;
+
+// Constants for handling Unicode supplementary characters (surrogate pairs).
+
+
+/**
+ * The minimum value for Supplementary code points.
+ * @type {number}
+ * @private
+ */
+var SUPPLEMENTARY_CODE_POINT_MIN_VALUE_ = 0x10000;
 
 
 /**
@@ -270,4 +279,3 @@ export function buildSupplementaryCodePoint(lead, trail) {
  }
  return null;
 }
-export var SUPPLEMENTARY_CODE_POINT_MIN_VALUE_;

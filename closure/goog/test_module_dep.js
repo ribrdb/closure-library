@@ -22,4 +22,4 @@ goog.setTestOnly('goog.test_module');
 export let someValue = 1;
 
 /** @type {function()} */
-export let someFunction = function() {};
+export function someFunction() {};

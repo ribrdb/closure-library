@@ -9,7 +9,7 @@
 
 goog.setTestOnly();
 
-HTML_TEST_VECTORS = [
+export const HTML_TEST_VECTORS = [
     {input: "<a href=\"javascript:alert('xss');\">foo</a>",
      acceptable: [
          "<a href=\"javascript:void(0);\">foo</a>",
@@ -13710,4 +13710,4 @@ HTML_TEST_VECTORS = [
      ],
      name: "contract_target__blank"},
 ];
-export var HTML_TEST_VECTORS;
+

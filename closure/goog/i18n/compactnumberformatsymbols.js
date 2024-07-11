@@ -21,7 +21,10 @@
 
 // clang-format off
 
-CompactNumberFormatSymbols_af = {
+/**
+ * Compact number formatting symbols for locale af.
+ */
+export var CompactNumberFormatSymbols_af = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 k'
@@ -104,7 +107,7 @@ CompactNumberFormatSymbols_af = {
 /**
  * Compact number formatting symbols for locale am.
  */
-CompactNumberFormatSymbols_am = {
+export var CompactNumberFormatSymbols_am = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ሺ'
@@ -187,7 +190,7 @@ CompactNumberFormatSymbols_am = {
 /**
  * Compact number formatting symbols for locale ar.
  */
-CompactNumberFormatSymbols_ar = {
+export var CompactNumberFormatSymbols_ar = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ألف'
@@ -270,19 +273,19 @@ CompactNumberFormatSymbols_ar = {
 /**
  * Compact number formatting symbols for locale ar_DZ.
  */
-CompactNumberFormatSymbols_ar_DZ = CompactNumberFormatSymbols_ar;
+export var CompactNumberFormatSymbols_ar_DZ = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale ar_EG.
  */
-CompactNumberFormatSymbols_ar_EG = CompactNumberFormatSymbols_ar;
+export var CompactNumberFormatSymbols_ar_EG = CompactNumberFormatSymbols_ar;
 
 
 /**
  * Compact number formatting symbols for locale az.
  */
-CompactNumberFormatSymbols_az = {
+export var CompactNumberFormatSymbols_az = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -365,7 +368,7 @@ CompactNumberFormatSymbols_az = {
 /**
  * Compact number formatting symbols for locale be.
  */
-CompactNumberFormatSymbols_be = {
+export var CompactNumberFormatSymbols_be = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 тыс.'
@@ -448,7 +451,7 @@ CompactNumberFormatSymbols_be = {
 /**
  * Compact number formatting symbols for locale bg.
  */
-CompactNumberFormatSymbols_bg = {
+export var CompactNumberFormatSymbols_bg = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 хил.'
@@ -531,7 +534,7 @@ CompactNumberFormatSymbols_bg = {
 /**
  * Compact number formatting symbols for locale bn.
  */
-CompactNumberFormatSymbols_bn = {
+export var CompactNumberFormatSymbols_bn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 হা'
@@ -614,7 +617,7 @@ CompactNumberFormatSymbols_bn = {
 /**
  * Compact number formatting symbols for locale br.
  */
-CompactNumberFormatSymbols_br = {
+export var CompactNumberFormatSymbols_br = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0k'
@@ -697,7 +700,7 @@ CompactNumberFormatSymbols_br = {
 /**
  * Compact number formatting symbols for locale bs.
  */
-CompactNumberFormatSymbols_bs = {
+export var CompactNumberFormatSymbols_bs = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -780,7 +783,7 @@ CompactNumberFormatSymbols_bs = {
 /**
  * Compact number formatting symbols for locale ca.
  */
-CompactNumberFormatSymbols_ca = {
+export var CompactNumberFormatSymbols_ca = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 k'
@@ -863,7 +866,7 @@ CompactNumberFormatSymbols_ca = {
 /**
  * Compact number formatting symbols for locale chr.
  */
-CompactNumberFormatSymbols_chr = {
+export var CompactNumberFormatSymbols_chr = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -946,7 +949,7 @@ CompactNumberFormatSymbols_chr = {
 /**
  * Compact number formatting symbols for locale cs.
  */
-CompactNumberFormatSymbols_cs = {
+export var CompactNumberFormatSymbols_cs = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tis.'
@@ -1029,7 +1032,7 @@ CompactNumberFormatSymbols_cs = {
 /**
  * Compact number formatting symbols for locale cy.
  */
-CompactNumberFormatSymbols_cy = {
+export var CompactNumberFormatSymbols_cy = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1112,7 +1115,7 @@ CompactNumberFormatSymbols_cy = {
 /**
  * Compact number formatting symbols for locale da.
  */
-CompactNumberFormatSymbols_da = {
+export var CompactNumberFormatSymbols_da = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 t'
@@ -1195,7 +1198,7 @@ CompactNumberFormatSymbols_da = {
 /**
  * Compact number formatting symbols for locale de.
  */
-CompactNumberFormatSymbols_de = {
+export var CompactNumberFormatSymbols_de = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -1278,19 +1281,19 @@ CompactNumberFormatSymbols_de = {
 /**
  * Compact number formatting symbols for locale de_AT.
  */
-CompactNumberFormatSymbols_de_AT = CompactNumberFormatSymbols_de;
+export var CompactNumberFormatSymbols_de_AT = CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale de_CH.
  */
-CompactNumberFormatSymbols_de_CH = CompactNumberFormatSymbols_de;
+export var CompactNumberFormatSymbols_de_CH = CompactNumberFormatSymbols_de;
 
 
 /**
  * Compact number formatting symbols for locale el.
  */
-CompactNumberFormatSymbols_el = {
+export var CompactNumberFormatSymbols_el = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 χιλ.'
@@ -1373,7 +1376,7 @@ CompactNumberFormatSymbols_el = {
 /**
  * Compact number formatting symbols for locale en.
  */
-CompactNumberFormatSymbols_en = {
+export var CompactNumberFormatSymbols_en = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -1456,31 +1459,31 @@ CompactNumberFormatSymbols_en = {
 /**
  * Compact number formatting symbols for locale en_AU.
  */
-CompactNumberFormatSymbols_en_AU = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_AU = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_CA.
  */
-CompactNumberFormatSymbols_en_CA = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_CA = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_GB.
  */
-CompactNumberFormatSymbols_en_GB = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_GB = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IE.
  */
-CompactNumberFormatSymbols_en_IE = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_IE = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_IN.
  */
-CompactNumberFormatSymbols_en_IN = {
+export var CompactNumberFormatSymbols_en_IN = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0T'
@@ -1563,25 +1566,25 @@ CompactNumberFormatSymbols_en_IN = {
 /**
  * Compact number formatting symbols for locale en_SG.
  */
-CompactNumberFormatSymbols_en_SG = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_SG = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_US.
  */
-CompactNumberFormatSymbols_en_US = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_US = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale en_ZA.
  */
-CompactNumberFormatSymbols_en_ZA = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols_en_ZA = CompactNumberFormatSymbols_en;
 
 
 /**
  * Compact number formatting symbols for locale es.
  */
-CompactNumberFormatSymbols_es = {
+export var CompactNumberFormatSymbols_es = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -1664,7 +1667,7 @@ CompactNumberFormatSymbols_es = {
 /**
  * Compact number formatting symbols for locale es_419.
  */
-CompactNumberFormatSymbols_es_419 = {
+export var CompactNumberFormatSymbols_es_419 = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -1747,13 +1750,13 @@ CompactNumberFormatSymbols_es_419 = {
 /**
  * Compact number formatting symbols for locale es_ES.
  */
-CompactNumberFormatSymbols_es_ES = CompactNumberFormatSymbols_es;
+export var CompactNumberFormatSymbols_es_ES = CompactNumberFormatSymbols_es;
 
 
 /**
  * Compact number formatting symbols for locale es_MX.
  */
-CompactNumberFormatSymbols_es_MX = {
+export var CompactNumberFormatSymbols_es_MX = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 k'
@@ -1836,7 +1839,7 @@ CompactNumberFormatSymbols_es_MX = {
 /**
  * Compact number formatting symbols for locale es_US.
  */
-CompactNumberFormatSymbols_es_US = {
+export var CompactNumberFormatSymbols_es_US = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -1919,7 +1922,7 @@ CompactNumberFormatSymbols_es_US = {
 /**
  * Compact number formatting symbols for locale et.
  */
-CompactNumberFormatSymbols_et = {
+export var CompactNumberFormatSymbols_et = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tuh'
@@ -2002,7 +2005,7 @@ CompactNumberFormatSymbols_et = {
 /**
  * Compact number formatting symbols for locale eu.
  */
-CompactNumberFormatSymbols_eu = {
+export var CompactNumberFormatSymbols_eu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -2085,7 +2088,7 @@ CompactNumberFormatSymbols_eu = {
 /**
  * Compact number formatting symbols for locale fa.
  */
-CompactNumberFormatSymbols_fa = {
+export var CompactNumberFormatSymbols_fa = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 هزار'
@@ -2168,7 +2171,7 @@ CompactNumberFormatSymbols_fa = {
 /**
  * Compact number formatting symbols for locale fi.
  */
-CompactNumberFormatSymbols_fi = {
+export var CompactNumberFormatSymbols_fi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 t.'
@@ -2251,7 +2254,7 @@ CompactNumberFormatSymbols_fi = {
 /**
  * Compact number formatting symbols for locale fil.
  */
-CompactNumberFormatSymbols_fil = {
+export var CompactNumberFormatSymbols_fil = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2334,7 +2337,7 @@ CompactNumberFormatSymbols_fil = {
 /**
  * Compact number formatting symbols for locale fr.
  */
-CompactNumberFormatSymbols_fr = {
+export var CompactNumberFormatSymbols_fr = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 k'
@@ -2417,7 +2420,7 @@ CompactNumberFormatSymbols_fr = {
 /**
  * Compact number formatting symbols for locale fr_CA.
  */
-CompactNumberFormatSymbols_fr_CA = {
+export var CompactNumberFormatSymbols_fr_CA = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 k'
@@ -2500,7 +2503,7 @@ CompactNumberFormatSymbols_fr_CA = {
 /**
  * Compact number formatting symbols for locale ga.
  */
-CompactNumberFormatSymbols_ga = {
+export var CompactNumberFormatSymbols_ga = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0k'
@@ -2583,7 +2586,7 @@ CompactNumberFormatSymbols_ga = {
 /**
  * Compact number formatting symbols for locale gl.
  */
-CompactNumberFormatSymbols_gl = {
+export var CompactNumberFormatSymbols_gl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -2666,7 +2669,7 @@ CompactNumberFormatSymbols_gl = {
 /**
  * Compact number formatting symbols for locale gsw.
  */
-CompactNumberFormatSymbols_gsw = {
+export var CompactNumberFormatSymbols_gsw = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 Tsg.'
@@ -2749,7 +2752,7 @@ CompactNumberFormatSymbols_gsw = {
 /**
  * Compact number formatting symbols for locale gu.
  */
-CompactNumberFormatSymbols_gu = {
+export var CompactNumberFormatSymbols_gu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 હજાર'
@@ -2832,7 +2835,7 @@ CompactNumberFormatSymbols_gu = {
 /**
  * Compact number formatting symbols for locale haw.
  */
-CompactNumberFormatSymbols_haw = {
+export var CompactNumberFormatSymbols_haw = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -2877,7 +2880,7 @@ CompactNumberFormatSymbols_haw = {
 /**
  * Compact number formatting symbols for locale he.
  */
-CompactNumberFormatSymbols_he = {
+export var CompactNumberFormatSymbols_he = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K‏'
@@ -2960,7 +2963,7 @@ CompactNumberFormatSymbols_he = {
 /**
  * Compact number formatting symbols for locale hi.
  */
-CompactNumberFormatSymbols_hi = {
+export var CompactNumberFormatSymbols_hi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 हज़ार'
@@ -3043,7 +3046,7 @@ CompactNumberFormatSymbols_hi = {
 /**
  * Compact number formatting symbols for locale hr.
  */
-CompactNumberFormatSymbols_hr = {
+export var CompactNumberFormatSymbols_hr = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tis.'
@@ -3126,7 +3129,7 @@ CompactNumberFormatSymbols_hr = {
 /**
  * Compact number formatting symbols for locale hu.
  */
-CompactNumberFormatSymbols_hu = {
+export var CompactNumberFormatSymbols_hu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 E'
@@ -3209,7 +3212,7 @@ CompactNumberFormatSymbols_hu = {
 /**
  * Compact number formatting symbols for locale hy.
  */
-CompactNumberFormatSymbols_hy = {
+export var CompactNumberFormatSymbols_hy = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 հզր'
@@ -3292,7 +3295,7 @@ CompactNumberFormatSymbols_hy = {
 /**
  * Compact number formatting symbols for locale id.
  */
-CompactNumberFormatSymbols_id = {
+export var CompactNumberFormatSymbols_id = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 rb'
@@ -3375,7 +3378,7 @@ CompactNumberFormatSymbols_id = {
 /**
  * Compact number formatting symbols for locale in.
  */
-CompactNumberFormatSymbols_in = {
+export var CompactNumberFormatSymbols_in = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 rb'
@@ -3458,7 +3461,7 @@ CompactNumberFormatSymbols_in = {
 /**
  * Compact number formatting symbols for locale is.
  */
-CompactNumberFormatSymbols_is = {
+export var CompactNumberFormatSymbols_is = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 þ.'
@@ -3541,7 +3544,7 @@ CompactNumberFormatSymbols_is = {
 /**
  * Compact number formatting symbols for locale it.
  */
-CompactNumberFormatSymbols_it = {
+export var CompactNumberFormatSymbols_it = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -3624,7 +3627,7 @@ CompactNumberFormatSymbols_it = {
 /**
  * Compact number formatting symbols for locale iw.
  */
-CompactNumberFormatSymbols_iw = {
+export var CompactNumberFormatSymbols_iw = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K‏'
@@ -3707,7 +3710,7 @@ CompactNumberFormatSymbols_iw = {
 /**
  * Compact number formatting symbols for locale ja.
  */
-CompactNumberFormatSymbols_ja = {
+export var CompactNumberFormatSymbols_ja = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -3820,7 +3823,7 @@ CompactNumberFormatSymbols_ja = {
 /**
  * Compact number formatting symbols for locale ka.
  */
-CompactNumberFormatSymbols_ka = {
+export var CompactNumberFormatSymbols_ka = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ათ.'
@@ -3903,7 +3906,7 @@ CompactNumberFormatSymbols_ka = {
 /**
  * Compact number formatting symbols for locale kk.
  */
-CompactNumberFormatSymbols_kk = {
+export var CompactNumberFormatSymbols_kk = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 мың'
@@ -3986,7 +3989,7 @@ CompactNumberFormatSymbols_kk = {
 /**
  * Compact number formatting symbols for locale km.
  */
-CompactNumberFormatSymbols_km = {
+export var CompactNumberFormatSymbols_km = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0ពាន់'
@@ -4069,7 +4072,7 @@ CompactNumberFormatSymbols_km = {
 /**
  * Compact number formatting symbols for locale kn.
  */
-CompactNumberFormatSymbols_kn = {
+export var CompactNumberFormatSymbols_kn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0ಸಾ'
@@ -4152,7 +4155,7 @@ CompactNumberFormatSymbols_kn = {
 /**
  * Compact number formatting symbols for locale ko.
  */
-CompactNumberFormatSymbols_ko = {
+export var CompactNumberFormatSymbols_ko = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0천'
@@ -4235,7 +4238,7 @@ CompactNumberFormatSymbols_ko = {
 /**
  * Compact number formatting symbols for locale ky.
  */
-CompactNumberFormatSymbols_ky = {
+export var CompactNumberFormatSymbols_ky = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 миң'
@@ -4318,7 +4321,7 @@ CompactNumberFormatSymbols_ky = {
 /**
  * Compact number formatting symbols for locale ln.
  */
-CompactNumberFormatSymbols_ln = {
+export var CompactNumberFormatSymbols_ln = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -4363,7 +4366,7 @@ CompactNumberFormatSymbols_ln = {
 /**
  * Compact number formatting symbols for locale lo.
  */
-CompactNumberFormatSymbols_lo = {
+export var CompactNumberFormatSymbols_lo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ພັນ'
@@ -4446,7 +4449,7 @@ CompactNumberFormatSymbols_lo = {
 /**
  * Compact number formatting symbols for locale lt.
  */
-CompactNumberFormatSymbols_lt = {
+export var CompactNumberFormatSymbols_lt = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tūkst.'
@@ -4529,7 +4532,7 @@ CompactNumberFormatSymbols_lt = {
 /**
  * Compact number formatting symbols for locale lv.
  */
-CompactNumberFormatSymbols_lv = {
+export var CompactNumberFormatSymbols_lv = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tūkst.'
@@ -4612,7 +4615,7 @@ CompactNumberFormatSymbols_lv = {
 /**
  * Compact number formatting symbols for locale mk.
  */
-CompactNumberFormatSymbols_mk = {
+export var CompactNumberFormatSymbols_mk = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 илј.'
@@ -4695,7 +4698,7 @@ CompactNumberFormatSymbols_mk = {
 /**
  * Compact number formatting symbols for locale ml.
  */
-CompactNumberFormatSymbols_ml = {
+export var CompactNumberFormatSymbols_ml = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -4778,7 +4781,7 @@ CompactNumberFormatSymbols_ml = {
 /**
  * Compact number formatting symbols for locale mn.
  */
-CompactNumberFormatSymbols_mn = {
+export var CompactNumberFormatSymbols_mn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 мянга'
@@ -4861,7 +4864,7 @@ CompactNumberFormatSymbols_mn = {
 /**
  * Compact number formatting symbols for locale mo.
  */
-CompactNumberFormatSymbols_mo = {
+export var CompactNumberFormatSymbols_mo = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -4944,7 +4947,7 @@ CompactNumberFormatSymbols_mo = {
 /**
  * Compact number formatting symbols for locale mr.
  */
-CompactNumberFormatSymbols_mr = {
+export var CompactNumberFormatSymbols_mr = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ह'
@@ -5027,7 +5030,7 @@ CompactNumberFormatSymbols_mr = {
 /**
  * Compact number formatting symbols for locale ms.
  */
-CompactNumberFormatSymbols_ms = {
+export var CompactNumberFormatSymbols_ms = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -5110,7 +5113,7 @@ CompactNumberFormatSymbols_ms = {
 /**
  * Compact number formatting symbols for locale mt.
  */
-CompactNumberFormatSymbols_mt = {
+export var CompactNumberFormatSymbols_mt = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -5155,7 +5158,7 @@ CompactNumberFormatSymbols_mt = {
 /**
  * Compact number formatting symbols for locale my.
  */
-CompactNumberFormatSymbols_my = {
+export var CompactNumberFormatSymbols_my = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ထောင်'
@@ -5238,7 +5241,7 @@ CompactNumberFormatSymbols_my = {
 /**
  * Compact number formatting symbols for locale nb.
  */
-CompactNumberFormatSymbols_nb = {
+export var CompactNumberFormatSymbols_nb = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0k'
@@ -5321,7 +5324,7 @@ CompactNumberFormatSymbols_nb = {
 /**
  * Compact number formatting symbols for locale ne.
  */
-CompactNumberFormatSymbols_ne = {
+export var CompactNumberFormatSymbols_ne = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 हजार'
@@ -5404,7 +5407,7 @@ CompactNumberFormatSymbols_ne = {
 /**
  * Compact number formatting symbols for locale nl.
  */
-CompactNumberFormatSymbols_nl = {
+export var CompactNumberFormatSymbols_nl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -5487,7 +5490,7 @@ CompactNumberFormatSymbols_nl = {
 /**
  * Compact number formatting symbols for locale no.
  */
-CompactNumberFormatSymbols_no = {
+export var CompactNumberFormatSymbols_no = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0k'
@@ -5570,13 +5573,13 @@ CompactNumberFormatSymbols_no = {
 /**
  * Compact number formatting symbols for locale no_NO.
  */
-CompactNumberFormatSymbols_no_NO = CompactNumberFormatSymbols_no;
+export var CompactNumberFormatSymbols_no_NO = CompactNumberFormatSymbols_no;
 
 
 /**
  * Compact number formatting symbols for locale or.
  */
-CompactNumberFormatSymbols_or = {
+export var CompactNumberFormatSymbols_or = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0ହ'
@@ -5659,7 +5662,7 @@ CompactNumberFormatSymbols_or = {
 /**
  * Compact number formatting symbols for locale pa.
  */
-CompactNumberFormatSymbols_pa = {
+export var CompactNumberFormatSymbols_pa = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ਹਜ਼ਾਰ'
@@ -5742,7 +5745,7 @@ CompactNumberFormatSymbols_pa = {
 /**
  * Compact number formatting symbols for locale pl.
  */
-CompactNumberFormatSymbols_pl = {
+export var CompactNumberFormatSymbols_pl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tys.'
@@ -5825,7 +5828,7 @@ CompactNumberFormatSymbols_pl = {
 /**
  * Compact number formatting symbols for locale pt.
  */
-CompactNumberFormatSymbols_pt = {
+export var CompactNumberFormatSymbols_pt = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -5908,13 +5911,13 @@ CompactNumberFormatSymbols_pt = {
 /**
  * Compact number formatting symbols for locale pt_BR.
  */
-CompactNumberFormatSymbols_pt_BR = CompactNumberFormatSymbols_pt;
+export var CompactNumberFormatSymbols_pt_BR = CompactNumberFormatSymbols_pt;
 
 
 /**
  * Compact number formatting symbols for locale pt_PT.
  */
-CompactNumberFormatSymbols_pt_PT = {
+export var CompactNumberFormatSymbols_pt_PT = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mil'
@@ -5997,7 +6000,7 @@ CompactNumberFormatSymbols_pt_PT = {
 /**
  * Compact number formatting symbols for locale ro.
  */
-CompactNumberFormatSymbols_ro = {
+export var CompactNumberFormatSymbols_ro = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 K'
@@ -6080,7 +6083,7 @@ CompactNumberFormatSymbols_ro = {
 /**
  * Compact number formatting symbols for locale ru.
  */
-CompactNumberFormatSymbols_ru = {
+export var CompactNumberFormatSymbols_ru = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 тыс.'
@@ -6163,7 +6166,7 @@ CompactNumberFormatSymbols_ru = {
 /**
  * Compact number formatting symbols for locale sh.
  */
-CompactNumberFormatSymbols_sh = {
+export var CompactNumberFormatSymbols_sh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -6246,7 +6249,7 @@ CompactNumberFormatSymbols_sh = {
 /**
  * Compact number formatting symbols for locale si.
  */
-CompactNumberFormatSymbols_si = {
+export var CompactNumberFormatSymbols_si = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': 'ද0'
@@ -6329,7 +6332,7 @@ CompactNumberFormatSymbols_si = {
 /**
  * Compact number formatting symbols for locale sk.
  */
-CompactNumberFormatSymbols_sk = {
+export var CompactNumberFormatSymbols_sk = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tis.'
@@ -6412,7 +6415,7 @@ CompactNumberFormatSymbols_sk = {
 /**
  * Compact number formatting symbols for locale sl.
  */
-CompactNumberFormatSymbols_sl = {
+export var CompactNumberFormatSymbols_sl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tis.'
@@ -6495,7 +6498,7 @@ CompactNumberFormatSymbols_sl = {
 /**
  * Compact number formatting symbols for locale sq.
  */
-CompactNumberFormatSymbols_sq = {
+export var CompactNumberFormatSymbols_sq = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 mijë'
@@ -6578,7 +6581,7 @@ CompactNumberFormatSymbols_sq = {
 /**
  * Compact number formatting symbols for locale sr.
  */
-CompactNumberFormatSymbols_sr = {
+export var CompactNumberFormatSymbols_sr = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 хиљ.'
@@ -6661,7 +6664,7 @@ CompactNumberFormatSymbols_sr = {
 /**
  * Compact number formatting symbols for locale sr_Latn.
  */
-CompactNumberFormatSymbols_sr_Latn = {
+export var CompactNumberFormatSymbols_sr_Latn = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 hilj.'
@@ -6744,7 +6747,7 @@ CompactNumberFormatSymbols_sr_Latn = {
 /**
  * Compact number formatting symbols for locale sv.
  */
-CompactNumberFormatSymbols_sv = {
+export var CompactNumberFormatSymbols_sv = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 tn'
@@ -6827,7 +6830,7 @@ CompactNumberFormatSymbols_sv = {
 /**
  * Compact number formatting symbols for locale sw.
  */
-CompactNumberFormatSymbols_sw = {
+export var CompactNumberFormatSymbols_sw = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': 'elfu 0;elfu -0'
@@ -6910,7 +6913,7 @@ CompactNumberFormatSymbols_sw = {
 /**
  * Compact number formatting symbols for locale ta.
  */
-CompactNumberFormatSymbols_ta = {
+export var CompactNumberFormatSymbols_ta = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0ஆ'
@@ -6993,7 +6996,7 @@ CompactNumberFormatSymbols_ta = {
 /**
  * Compact number formatting symbols for locale te.
  */
-CompactNumberFormatSymbols_te = {
+export var CompactNumberFormatSymbols_te = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0వే'
@@ -7076,7 +7079,7 @@ CompactNumberFormatSymbols_te = {
 /**
  * Compact number formatting symbols for locale th.
  */
-CompactNumberFormatSymbols_th = {
+export var CompactNumberFormatSymbols_th = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7159,7 +7162,7 @@ CompactNumberFormatSymbols_th = {
 /**
  * Compact number formatting symbols for locale tl.
  */
-CompactNumberFormatSymbols_tl = {
+export var CompactNumberFormatSymbols_tl = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7242,7 +7245,7 @@ CompactNumberFormatSymbols_tl = {
 /**
  * Compact number formatting symbols for locale tr.
  */
-CompactNumberFormatSymbols_tr = {
+export var CompactNumberFormatSymbols_tr = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 B'
@@ -7325,7 +7328,7 @@ CompactNumberFormatSymbols_tr = {
 /**
  * Compact number formatting symbols for locale uk.
  */
-CompactNumberFormatSymbols_uk = {
+export var CompactNumberFormatSymbols_uk = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 тис.'
@@ -7408,7 +7411,7 @@ CompactNumberFormatSymbols_uk = {
 /**
  * Compact number formatting symbols for locale ur.
  */
-CompactNumberFormatSymbols_ur = {
+export var CompactNumberFormatSymbols_ur = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ہزار'
@@ -7491,7 +7494,7 @@ CompactNumberFormatSymbols_ur = {
 /**
  * Compact number formatting symbols for locale uz.
  */
-CompactNumberFormatSymbols_uz = {
+export var CompactNumberFormatSymbols_uz = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 ming'
@@ -7574,7 +7577,7 @@ CompactNumberFormatSymbols_uz = {
 /**
  * Compact number formatting symbols for locale vi.
  */
-CompactNumberFormatSymbols_vi = {
+export var CompactNumberFormatSymbols_vi = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0 N'
@@ -7657,7 +7660,7 @@ CompactNumberFormatSymbols_vi = {
 /**
  * Compact number formatting symbols for locale zh.
  */
-CompactNumberFormatSymbols_zh = {
+export var CompactNumberFormatSymbols_zh = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -7740,13 +7743,13 @@ CompactNumberFormatSymbols_zh = {
 /**
  * Compact number formatting symbols for locale zh_CN.
  */
-CompactNumberFormatSymbols_zh_CN = CompactNumberFormatSymbols_zh;
+export var CompactNumberFormatSymbols_zh_CN = CompactNumberFormatSymbols_zh;
 
 
 /**
  * Compact number formatting symbols for locale zh_HK.
  */
-CompactNumberFormatSymbols_zh_HK = {
+export var CompactNumberFormatSymbols_zh_HK = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7829,7 +7832,7 @@ CompactNumberFormatSymbols_zh_HK = {
 /**
  * Compact number formatting symbols for locale zh_TW.
  */
-CompactNumberFormatSymbols_zh_TW = {
+export var CompactNumberFormatSymbols_zh_TW = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0'
@@ -7912,7 +7915,7 @@ CompactNumberFormatSymbols_zh_TW = {
 /**
  * Compact number formatting symbols for locale zu.
  */
-CompactNumberFormatSymbols_zu = {
+export var CompactNumberFormatSymbols_zu = {
   COMPACT_DECIMAL_SHORT_PATTERN: {
     '1000': {
       'other': '0K'
@@ -7995,7 +7998,7 @@ CompactNumberFormatSymbols_zu = {
 /**
  * Select compact number formatting symbols by locale.
  */
-CompactNumberFormatSymbols = CompactNumberFormatSymbols_en;
+export var CompactNumberFormatSymbols = CompactNumberFormatSymbols_en;
 
 switch (goog.LOCALE) {
   case 'af':
@@ -8356,115 +8359,3 @@ switch (goog.LOCALE) {
     CompactNumberFormatSymbols = CompactNumberFormatSymbols_zu;
     break;
 }
-export var CompactNumberFormatSymbols_af;
-export var CompactNumberFormatSymbols_am;
-export var CompactNumberFormatSymbols_ar;
-export var CompactNumberFormatSymbols_ar_DZ;
-export var CompactNumberFormatSymbols_ar_EG;
-export var CompactNumberFormatSymbols_az;
-export var CompactNumberFormatSymbols_be;
-export var CompactNumberFormatSymbols_bg;
-export var CompactNumberFormatSymbols_bn;
-export var CompactNumberFormatSymbols_br;
-export var CompactNumberFormatSymbols_bs;
-export var CompactNumberFormatSymbols_ca;
-export var CompactNumberFormatSymbols_chr;
-export var CompactNumberFormatSymbols_cs;
-export var CompactNumberFormatSymbols_cy;
-export var CompactNumberFormatSymbols_da;
-export var CompactNumberFormatSymbols_de;
-export var CompactNumberFormatSymbols_de_AT;
-export var CompactNumberFormatSymbols_de_CH;
-export var CompactNumberFormatSymbols_el;
-export var CompactNumberFormatSymbols_en;
-export var CompactNumberFormatSymbols_en_AU;
-export var CompactNumberFormatSymbols_en_CA;
-export var CompactNumberFormatSymbols_en_GB;
-export var CompactNumberFormatSymbols_en_IE;
-export var CompactNumberFormatSymbols_en_IN;
-export var CompactNumberFormatSymbols_en_SG;
-export var CompactNumberFormatSymbols_en_US;
-export var CompactNumberFormatSymbols_en_ZA;
-export var CompactNumberFormatSymbols_es;
-export var CompactNumberFormatSymbols_es_419;
-export var CompactNumberFormatSymbols_es_ES;
-export var CompactNumberFormatSymbols_es_MX;
-export var CompactNumberFormatSymbols_es_US;
-export var CompactNumberFormatSymbols_et;
-export var CompactNumberFormatSymbols_eu;
-export var CompactNumberFormatSymbols_fa;
-export var CompactNumberFormatSymbols_fi;
-export var CompactNumberFormatSymbols_fil;
-export var CompactNumberFormatSymbols_fr;
-export var CompactNumberFormatSymbols_fr_CA;
-export var CompactNumberFormatSymbols_ga;
-export var CompactNumberFormatSymbols_gl;
-export var CompactNumberFormatSymbols_gsw;
-export var CompactNumberFormatSymbols_gu;
-export var CompactNumberFormatSymbols_haw;
-export var CompactNumberFormatSymbols_he;
-export var CompactNumberFormatSymbols_hi;
-export var CompactNumberFormatSymbols_hr;
-export var CompactNumberFormatSymbols_hu;
-export var CompactNumberFormatSymbols_hy;
-export var CompactNumberFormatSymbols_id;
-export var CompactNumberFormatSymbols_in;
-export var CompactNumberFormatSymbols_is;
-export var CompactNumberFormatSymbols_it;
-export var CompactNumberFormatSymbols_iw;
-export var CompactNumberFormatSymbols_ja;
-export var CompactNumberFormatSymbols_ka;
-export var CompactNumberFormatSymbols_kk;
-export var CompactNumberFormatSymbols_km;
-export var CompactNumberFormatSymbols_kn;
-export var CompactNumberFormatSymbols_ko;
-export var CompactNumberFormatSymbols_ky;
-export var CompactNumberFormatSymbols_ln;
-export var CompactNumberFormatSymbols_lo;
-export var CompactNumberFormatSymbols_lt;
-export var CompactNumberFormatSymbols_lv;
-export var CompactNumberFormatSymbols_mk;
-export var CompactNumberFormatSymbols_ml;
-export var CompactNumberFormatSymbols_mn;
-export var CompactNumberFormatSymbols_mo;
-export var CompactNumberFormatSymbols_mr;
-export var CompactNumberFormatSymbols_ms;
-export var CompactNumberFormatSymbols_mt;
-export var CompactNumberFormatSymbols_my;
-export var CompactNumberFormatSymbols_nb;
-export var CompactNumberFormatSymbols_ne;
-export var CompactNumberFormatSymbols_nl;
-export var CompactNumberFormatSymbols_no;
-export var CompactNumberFormatSymbols_no_NO;
-export var CompactNumberFormatSymbols_or;
-export var CompactNumberFormatSymbols_pa;
-export var CompactNumberFormatSymbols_pl;
-export var CompactNumberFormatSymbols_pt;
-export var CompactNumberFormatSymbols_pt_BR;
-export var CompactNumberFormatSymbols_pt_PT;
-export var CompactNumberFormatSymbols_ro;
-export var CompactNumberFormatSymbols_ru;
-export var CompactNumberFormatSymbols_sh;
-export var CompactNumberFormatSymbols_si;
-export var CompactNumberFormatSymbols_sk;
-export var CompactNumberFormatSymbols_sl;
-export var CompactNumberFormatSymbols_sq;
-export var CompactNumberFormatSymbols_sr;
-export var CompactNumberFormatSymbols_sr_Latn;
-export var CompactNumberFormatSymbols_sv;
-export var CompactNumberFormatSymbols_sw;
-export var CompactNumberFormatSymbols_ta;
-export var CompactNumberFormatSymbols_te;
-export var CompactNumberFormatSymbols_th;
-export var CompactNumberFormatSymbols_tl;
-export var CompactNumberFormatSymbols_tr;
-export var CompactNumberFormatSymbols_uk;
-export var CompactNumberFormatSymbols_ur;
-export var CompactNumberFormatSymbols_uz;
-export var CompactNumberFormatSymbols_vi;
-export var CompactNumberFormatSymbols_zh;
-export var CompactNumberFormatSymbols_zh_CN;
-export var CompactNumberFormatSymbols_zh_HK;
-export var CompactNumberFormatSymbols_zh_TW;
-export var CompactNumberFormatSymbols_zu;
-export var CompactNumberFormatSymbols;

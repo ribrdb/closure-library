@@ -108,7 +108,7 @@ export function unregisterAnimation(animation) {
  * Tears down this module. Useful for testing.
  */
 // TODO(nicksantos): Wow, this api is pretty broken. This should be fixed.
-tearDown = function() {
+export function tearDown() {
   animationWindow_ = null;
   dispose(animationDelay_);
   animationDelay_ = null;
@@ -203,4 +203,4 @@ export function cycleAnimations_(now) {
     requestAnimationFrame_();
   }
 }
-export var tearDown;
+

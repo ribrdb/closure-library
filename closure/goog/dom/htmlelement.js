@@ -14,4 +14,4 @@
  * @constructor
  * @extends {HTMLElement}
  */
-export var HtmlElement = function() {};
+export function HtmlElement() {};

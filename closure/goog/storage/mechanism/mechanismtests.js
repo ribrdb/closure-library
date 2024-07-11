@@ -26,7 +26,7 @@ import { bindTests } from './mechanismtestdefinition.js';
  * }} state
  * @return {!Object}
  */
-export let register = function(state) {
+export function register(state) {
   return {...bindTests(
       [
         testSetGet,

@@ -48,7 +48,7 @@ let defaultPatterns;
  * Returns the default DateIntervalPatterns.
  * @return {!DateIntervalPatterns}
  */
-export let getDateIntervalPatterns = function() {
+export function getDateIntervalPatterns() {
   return defaultPatterns;
 };
 
@@ -56,7 +56,7 @@ export let getDateIntervalPatterns = function() {
  * Sets the default DateIntervalPatterns.
  * @param {!DateIntervalPatterns} patterns
  */
-export let setDateIntervalPatterns = function(patterns) {
+export function setDateIntervalPatterns(patterns) {
   defaultPatterns = patterns;
 };
 

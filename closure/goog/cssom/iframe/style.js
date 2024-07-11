@@ -524,7 +524,7 @@ NodeAncestry_.instances_ = {};
  * the structure or class/id attributes of your document and you want
  * to recalculate the currently applied CSS rules.
  */
-export var resetDomCache = function() {
+export function resetDomCache() {
   NodeAncestry_.instances_ = {};
 };
 

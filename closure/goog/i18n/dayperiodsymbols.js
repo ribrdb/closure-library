@@ -96,7 +96,7 @@ let defaultDayPeriods;
  * Returns the DayPeriod for the given locale. This may be undefined or null.
  * @return {?DayPeriods}
  */
-export let getDayPeriods = function() {
+export function getDayPeriods() {
   return defaultDayPeriods;
 };
 
@@ -104,7 +104,7 @@ export let getDayPeriods = function() {
  * Sets the default ListFormatSymbols
  * @param {?DayPeriods} newDayPeriods
  */
-export let setDayPeriods = function(newDayPeriods) {
+export function setDayPeriods(newDayPeriods) {
   defaultDayPeriods = newDayPeriods;
 };
 

@@ -34,7 +34,7 @@
  * @param {Array<number>=} opt_result The optional array to store the result.
  * @return {!Array<number>} The vector that is the solution to the system.
  */
-solve = function(
+export function solve(
     subDiag, mainDiag, supDiag, vecRight, opt_result) {
  // Make a local copy of the main diagonal and the right vector.
  mainDiag = mainDiag.slice();
@@ -60,4 +60,3 @@ solve = function(
  }
  return result;
 };
-export var solve;

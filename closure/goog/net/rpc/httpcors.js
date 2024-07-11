@@ -48,7 +48,7 @@ export let HTTP_METHOD_PARAM_NAME = '$httpMethod';
  * @param {!Object<string, string>} headers The custom headers.
  * @return {string} The URL param to overwrite custom HTTP headers.
  */
-export let generateHttpHeadersOverwriteParam = function(headers) {
+export function generateHttpHeadersOverwriteParam(headers) {
   let result = '';
   googObject.forEach(headers, function(value, key) {
     result += key;
@@ -67,7 +67,7 @@ export let generateHttpHeadersOverwriteParam = function(headers) {
  * @param {!Object<string, string>} headers The custom headers.
  * @return {string} The URL param to overwrite custom HTTP headers.
  */
-export let generateEncodedHttpHeadersOverwriteParam = function(headers) {
+export function generateEncodedHttpHeadersOverwriteParam(headers) {
   return googString.urlEncode(
       generateHttpHeadersOverwriteParam(headers));
 };
@@ -82,7 +82,7 @@ export let generateEncodedHttpHeadersOverwriteParam = function(headers) {
  * @return {!GoogUri|string} The URI object or a string path with headers
  * encoded as a url param.
  */
-export let setHttpHeadersWithOverwriteParam = function(
+export function setHttpHeadersWithOverwriteParam(
     url, urlParam, extraHeaders) {
   if (googObject.isEmpty(extraHeaders)) {
     return url;

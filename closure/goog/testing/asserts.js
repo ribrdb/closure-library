@@ -1788,7 +1788,7 @@ var standardizeHTML = function(html) {
  * @param {string} value CSS value.
  * @return {string} Normalized CSS value.
  */
-export var standardizeCSSValue = function(propertyName, value) {
+export function standardizeCSSValue(propertyName, value) {
   var styleDeclaration = document.createElement('div').style;
   styleDeclaration[propertyName] = value;
   return styleDeclaration[propertyName];

@@ -19,7 +19,7 @@
  *     append, e.g., new goog.string.StringBuffer('foo', 'bar').
  * @constructor
  */
-StringBuffer = function(opt_a1, var_args) {
+export function StringBuffer(opt_a1, var_args) {
  if (opt_a1 != null) {
    this.append.apply(this, arguments);
  }
@@ -92,4 +92,3 @@ StringBuffer.prototype.getLength = function() {
 StringBuffer.prototype.toString = function() {
  return this.buffer_;
 };
-export var StringBuffer;

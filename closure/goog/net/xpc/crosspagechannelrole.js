@@ -8,8 +8,11 @@
  * @fileoverview Provides the enum for the role of the CrossPageChannel.
  */
 
-CrossPageChannelRole = {
+/**
+ * The role of the peer.
+ * @enum {number}
+ */
+export var CrossPageChannelRole = {
   OUTER: 0,
   INNER: 1,
 };
-export var CrossPageChannelRole;

@@ -71,7 +71,7 @@ let defaultSymbols;
  * Returns the default RelativeDateTimeSymbols.
  * @return {!RelativeDateTimeSymbols}
  */
-export let getRelativeDateTimeSymbols = function() {
+export function getRelativeDateTimeSymbols() {
   return defaultSymbols;
 };
 
@@ -79,7 +79,7 @@ export let getRelativeDateTimeSymbols = function() {
  * Sets the default RelativeDateTimeSymbols.
  * @param {!RelativeDateTimeSymbols} symbols
  */
-export let setRelativeDateTimeSymbols = function(symbols) {
+export function setRelativeDateTimeSymbols(symbols) {
   defaultSymbols = symbols;
 };
 

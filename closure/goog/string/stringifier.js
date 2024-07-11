@@ -13,7 +13,7 @@
  * An interface for serializing objects into strings.
  * @interface
  */
-Stringifier = function() {};
+export function Stringifier() {};
 
 
 /**
@@ -24,4 +24,3 @@ Stringifier = function() {};
  * @return {string} A string representation of the input.
  */
 Stringifier.prototype.stringify;
-export var Stringifier;

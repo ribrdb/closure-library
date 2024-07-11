@@ -8,7 +8,13 @@
  * @fileoverview Constant declarations for common key values.
  */
 
-Keys = {
+/**
+ * Key values for common characters.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+ * @enum {string}
+ */
+export const Keys = {
   ALT: 'Meta',
   ALTGRAPH: 'AltGraph',
   BACKSPACE: 'Backspace',
@@ -29,4 +35,3 @@ Keys = {
   TAB: 'Tab',
   UP: 'ArrowUp',
 };
-export var Keys;

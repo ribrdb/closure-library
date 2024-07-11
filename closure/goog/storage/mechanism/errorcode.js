@@ -8,9 +8,12 @@
  * @fileoverview Defines error codes to be thrown by storage mechanisms.
  */
 
-ErrorCode = {
+/**
+ * Errors thrown by storage mechanisms.
+ * @enum {string}
+ */
+export var ErrorCode = {
   INVALID_VALUE: 'Storage mechanism: Invalid value was encountered',
   QUOTA_EXCEEDED: 'Storage mechanism: Quota exceeded',
   STORAGE_DISABLED: 'Storage mechanism: Storage disabled'
 };
-export var ErrorCode;

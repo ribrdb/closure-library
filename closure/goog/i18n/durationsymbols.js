@@ -28,7 +28,7 @@ let defaultSymbols;
  * Returns the default DurationSymbols.
  * @return {!DurationSymbolTypes.DurationSymbols}
  */
-export let getDurationSymbols = function() {
+export function getDurationSymbols() {
   return defaultSymbols;
 };
 
@@ -36,7 +36,7 @@ export let getDurationSymbols = function() {
  * Sets the default DurationSymbols if locale is in durationsymbolsext.js.
  * @param {!DurationSymbolTypes.DurationSymbols} symbols
  */
-export let setDurationSymbols = function(symbols) {
+export function setDurationSymbols(symbols) {
   defaultSymbols = symbols;
 };
 

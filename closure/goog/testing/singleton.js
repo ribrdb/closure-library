@@ -53,5 +53,4 @@ export function reset(singleton) {
 /**
  * @deprecated Please use `googSingleton.getInstance()`.
  */
-addSingletonGetter = goog.addSingletonGetter;
-export var addSingletonGetter;
+export var addSingletonGetter = goog.addSingletonGetter;

@@ -17,7 +17,14 @@
 export var DETECT_DOUBLE_ESCAPING = goog.define('goog.string.DETECT_DOUBLE_ESCAPING', false);
 
 
-startsWith = function(str, prefix) {
+/**
+ * Fast prefix-checker.
+ * @param {string} str The string to check.
+ * @param {string} prefix A string to look for at the start of `str`.
+ * @return {boolean} True if `str` begins with `prefix`.
+ * @see goog.string.startsWith
+ */
+export function startsWith(str, prefix) {
   return str.lastIndexOf(prefix, 0) == 0;
 };
 
@@ -369,4 +376,3 @@ function compareElements_(left, right) {
   }
   return 0;
 }
-export var startsWith;

@@ -14,7 +14,12 @@
 /**
  * Namespace for native country and language names
  */
-nativeNameConstants = {
+
+/**
+ * Native country and language names
+ * @const {!Object<string, !Object<string, string>>}
+ */
+export var nativeNameConstants = {
   'COUNTRY': {
     'AC': 'Ascension Island',
     'AD': 'Andorra',
@@ -1415,4 +1420,3 @@ nativeNameConstants = {
     'zza': 'Zaza'
   }
 };
-export var nativeNameConstants;

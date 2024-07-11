@@ -14,7 +14,14 @@
  * its mock counterpart to goog.testing.fs.
  */
 
-getBlob = function(var_args) {
+/**
+ * Concatenates one or more values together and converts them to a Blob.
+ *
+ * @param {...(string|!Blob|!ArrayBuffer)} var_args The values that will make up
+ *     the resulting blob.
+ * @return {!Blob} The blob.
+ */
+export function getBlob(var_args) {
   const BlobBuilder = goog.global.BlobBuilder || goog.global.WebKitBlobBuilder;
 
   if (BlobBuilder !== undefined) {
@@ -64,4 +71,3 @@ export function getBlobWithProperties(parts, opt_type, opt_endings) {
     throw new Error('This browser doesn\'t seem to support creating Blobs');
   }
 }
-export var getBlob;

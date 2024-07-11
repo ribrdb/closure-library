@@ -370,6 +370,7 @@ UndoRedo.prototype.dispatchCommandValueChange_ =
  * @param {string} content The content to restore.
  * @param {UndoRedo.CursorPosition_?} cursorPosition
  *     The cursor position within the content.
+ * @private
  */
 UndoRedo.prototype.restoreState = function(
     state, content, cursorPosition) {

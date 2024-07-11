@@ -47,7 +47,7 @@
  *
  * @interface
  */
-VerificationMode = function() {};
+export function VerificationMode() {};
 
 
 /**
@@ -215,4 +215,3 @@ describe() {
 return 'at most ' + this.maxNumberOfInvocations_ + ' times';
 }
 }
-export var VerificationMode;

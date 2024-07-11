@@ -36,7 +36,7 @@ import { DateTimePatterns, DateTimePatterns_af, DateTimePatterns_am, DateTimePat
 /**
  * Extended set of localized date/time patterns for locale af_NA.
  */
-DateTimePatterns_af_NA = {
+export var DateTimePatterns_af_NA = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -57,13 +57,13 @@ DateTimePatterns_af_NA = {
 /**
  * Extended set of localized date/time patterns for locale af_ZA.
  */
-DateTimePatterns_af_ZA = DateTimePatterns_af;
+export var DateTimePatterns_af_ZA = DateTimePatterns_af;
 
 
 /**
  * Extended set of localized date/time patterns for locale agq.
  */
-DateTimePatterns_agq = {
+export var DateTimePatterns_agq = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -84,13 +84,13 @@ DateTimePatterns_agq = {
 /**
  * Extended set of localized date/time patterns for locale agq_CM.
  */
-DateTimePatterns_agq_CM = DateTimePatterns_agq;
+export var DateTimePatterns_agq_CM = DateTimePatterns_agq;
 
 
 /**
  * Extended set of localized date/time patterns for locale ak.
  */
-DateTimePatterns_ak = {
+export var DateTimePatterns_ak = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -111,55 +111,55 @@ DateTimePatterns_ak = {
 /**
  * Extended set of localized date/time patterns for locale ak_GH.
  */
-DateTimePatterns_ak_GH = DateTimePatterns_ak;
+export var DateTimePatterns_ak_GH = DateTimePatterns_ak;
 
 
 /**
  * Extended set of localized date/time patterns for locale am_ET.
  */
-DateTimePatterns_am_ET = DateTimePatterns_am;
+export var DateTimePatterns_am_ET = DateTimePatterns_am;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_001.
  */
-DateTimePatterns_ar_001 = DateTimePatterns_ar;
+export var DateTimePatterns_ar_001 = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_AE.
  */
-DateTimePatterns_ar_AE = DateTimePatterns_ar;
+export var DateTimePatterns_ar_AE = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_BH.
  */
-DateTimePatterns_ar_BH = DateTimePatterns_ar;
+export var DateTimePatterns_ar_BH = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_DJ.
  */
-DateTimePatterns_ar_DJ = DateTimePatterns_ar;
+export var DateTimePatterns_ar_DJ = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_EH.
  */
-DateTimePatterns_ar_EH = DateTimePatterns_ar;
+export var DateTimePatterns_ar_EH = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_ER.
  */
-DateTimePatterns_ar_ER = DateTimePatterns_ar;
+export var DateTimePatterns_ar_ER = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_IL.
  */
-DateTimePatterns_ar_IL = {
+export var DateTimePatterns_ar_IL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -180,19 +180,19 @@ DateTimePatterns_ar_IL = {
 /**
  * Extended set of localized date/time patterns for locale ar_IQ.
  */
-DateTimePatterns_ar_IQ = DateTimePatterns_ar;
+export var DateTimePatterns_ar_IQ = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_JO.
  */
-DateTimePatterns_ar_JO = DateTimePatterns_ar;
+export var DateTimePatterns_ar_JO = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_KM.
  */
-DateTimePatterns_ar_KM = {
+export var DateTimePatterns_ar_KM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -213,25 +213,25 @@ DateTimePatterns_ar_KM = {
 /**
  * Extended set of localized date/time patterns for locale ar_KW.
  */
-DateTimePatterns_ar_KW = DateTimePatterns_ar;
+export var DateTimePatterns_ar_KW = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_LB.
  */
-DateTimePatterns_ar_LB = DateTimePatterns_ar;
+export var DateTimePatterns_ar_LB = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_LY.
  */
-DateTimePatterns_ar_LY = DateTimePatterns_ar;
+export var DateTimePatterns_ar_LY = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_MA.
  */
-DateTimePatterns_ar_MA = {
+export var DateTimePatterns_ar_MA = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -252,73 +252,73 @@ DateTimePatterns_ar_MA = {
 /**
  * Extended set of localized date/time patterns for locale ar_MR.
  */
-DateTimePatterns_ar_MR = DateTimePatterns_ar;
+export var DateTimePatterns_ar_MR = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_OM.
  */
-DateTimePatterns_ar_OM = DateTimePatterns_ar;
+export var DateTimePatterns_ar_OM = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_PS.
  */
-DateTimePatterns_ar_PS = DateTimePatterns_ar;
+export var DateTimePatterns_ar_PS = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_QA.
  */
-DateTimePatterns_ar_QA = DateTimePatterns_ar;
+export var DateTimePatterns_ar_QA = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SA.
  */
-DateTimePatterns_ar_SA = DateTimePatterns_ar;
+export var DateTimePatterns_ar_SA = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SD.
  */
-DateTimePatterns_ar_SD = DateTimePatterns_ar;
+export var DateTimePatterns_ar_SD = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SO.
  */
-DateTimePatterns_ar_SO = DateTimePatterns_ar;
+export var DateTimePatterns_ar_SO = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SS.
  */
-DateTimePatterns_ar_SS = DateTimePatterns_ar;
+export var DateTimePatterns_ar_SS = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_SY.
  */
-DateTimePatterns_ar_SY = DateTimePatterns_ar;
+export var DateTimePatterns_ar_SY = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_TD.
  */
-DateTimePatterns_ar_TD = DateTimePatterns_ar;
+export var DateTimePatterns_ar_TD = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_TN.
  */
-DateTimePatterns_ar_TN = DateTimePatterns_ar;
+export var DateTimePatterns_ar_TN = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale ar_XB.
  */
-DateTimePatterns_ar_XB = {
+export var DateTimePatterns_ar_XB = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -339,13 +339,13 @@ DateTimePatterns_ar_XB = {
 /**
  * Extended set of localized date/time patterns for locale ar_YE.
  */
-DateTimePatterns_ar_YE = DateTimePatterns_ar;
+export var DateTimePatterns_ar_YE = DateTimePatterns_ar;
 
 
 /**
  * Extended set of localized date/time patterns for locale as.
  */
-DateTimePatterns_as = {
+export var DateTimePatterns_as = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -366,13 +366,13 @@ DateTimePatterns_as = {
 /**
  * Extended set of localized date/time patterns for locale as_IN.
  */
-DateTimePatterns_as_IN = DateTimePatterns_as;
+export var DateTimePatterns_as_IN = DateTimePatterns_as;
 
 
 /**
  * Extended set of localized date/time patterns for locale asa.
  */
-DateTimePatterns_asa = {
+export var DateTimePatterns_asa = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -393,13 +393,13 @@ DateTimePatterns_asa = {
 /**
  * Extended set of localized date/time patterns for locale asa_TZ.
  */
-DateTimePatterns_asa_TZ = DateTimePatterns_asa;
+export var DateTimePatterns_asa_TZ = DateTimePatterns_asa;
 
 
 /**
  * Extended set of localized date/time patterns for locale ast.
  */
-DateTimePatterns_ast = {
+export var DateTimePatterns_ast = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -420,13 +420,13 @@ DateTimePatterns_ast = {
 /**
  * Extended set of localized date/time patterns for locale ast_ES.
  */
-DateTimePatterns_ast_ES = DateTimePatterns_ast;
+export var DateTimePatterns_ast_ES = DateTimePatterns_ast;
 
 
 /**
  * Extended set of localized date/time patterns for locale az_Cyrl.
  */
-DateTimePatterns_az_Cyrl = {
+export var DateTimePatterns_az_Cyrl = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM, y',
@@ -447,7 +447,7 @@ DateTimePatterns_az_Cyrl = {
 /**
  * Extended set of localized date/time patterns for locale az_Cyrl_AZ.
  */
-DateTimePatterns_az_Cyrl_AZ = {
+export var DateTimePatterns_az_Cyrl_AZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM, y',
@@ -468,19 +468,19 @@ DateTimePatterns_az_Cyrl_AZ = {
 /**
  * Extended set of localized date/time patterns for locale az_Latn.
  */
-DateTimePatterns_az_Latn = DateTimePatterns_az;
+export var DateTimePatterns_az_Latn = DateTimePatterns_az;
 
 
 /**
  * Extended set of localized date/time patterns for locale az_Latn_AZ.
  */
-DateTimePatterns_az_Latn_AZ = DateTimePatterns_az;
+export var DateTimePatterns_az_Latn_AZ = DateTimePatterns_az;
 
 
 /**
  * Extended set of localized date/time patterns for locale bas.
  */
-DateTimePatterns_bas = {
+export var DateTimePatterns_bas = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -501,19 +501,19 @@ DateTimePatterns_bas = {
 /**
  * Extended set of localized date/time patterns for locale bas_CM.
  */
-DateTimePatterns_bas_CM = DateTimePatterns_bas;
+export var DateTimePatterns_bas_CM = DateTimePatterns_bas;
 
 
 /**
  * Extended set of localized date/time patterns for locale be_BY.
  */
-DateTimePatterns_be_BY = DateTimePatterns_be;
+export var DateTimePatterns_be_BY = DateTimePatterns_be;
 
 
 /**
  * Extended set of localized date/time patterns for locale bem.
  */
-DateTimePatterns_bem = {
+export var DateTimePatterns_bem = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -534,13 +534,13 @@ DateTimePatterns_bem = {
 /**
  * Extended set of localized date/time patterns for locale bem_ZM.
  */
-DateTimePatterns_bem_ZM = DateTimePatterns_bem;
+export var DateTimePatterns_bem_ZM = DateTimePatterns_bem;
 
 
 /**
  * Extended set of localized date/time patterns for locale bez.
  */
-DateTimePatterns_bez = {
+export var DateTimePatterns_bez = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -561,19 +561,19 @@ DateTimePatterns_bez = {
 /**
  * Extended set of localized date/time patterns for locale bez_TZ.
  */
-DateTimePatterns_bez_TZ = DateTimePatterns_bez;
+export var DateTimePatterns_bez_TZ = DateTimePatterns_bez;
 
 
 /**
  * Extended set of localized date/time patterns for locale bg_BG.
  */
-DateTimePatterns_bg_BG = DateTimePatterns_bg;
+export var DateTimePatterns_bg_BG = DateTimePatterns_bg;
 
 
 /**
  * Extended set of localized date/time patterns for locale bgc.
  */
-DateTimePatterns_bgc = {
+export var DateTimePatterns_bgc = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -594,13 +594,13 @@ DateTimePatterns_bgc = {
 /**
  * Extended set of localized date/time patterns for locale bgc_IN.
  */
-DateTimePatterns_bgc_IN = DateTimePatterns_bgc;
+export var DateTimePatterns_bgc_IN = DateTimePatterns_bgc;
 
 
 /**
  * Extended set of localized date/time patterns for locale bho.
  */
-DateTimePatterns_bho = {
+export var DateTimePatterns_bho = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -621,13 +621,13 @@ DateTimePatterns_bho = {
 /**
  * Extended set of localized date/time patterns for locale bho_IN.
  */
-DateTimePatterns_bho_IN = DateTimePatterns_bho;
+export var DateTimePatterns_bho_IN = DateTimePatterns_bho;
 
 
 /**
  * Extended set of localized date/time patterns for locale bm.
  */
-DateTimePatterns_bm = {
+export var DateTimePatterns_bm = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -648,25 +648,25 @@ DateTimePatterns_bm = {
 /**
  * Extended set of localized date/time patterns for locale bm_ML.
  */
-DateTimePatterns_bm_ML = DateTimePatterns_bm;
+export var DateTimePatterns_bm_ML = DateTimePatterns_bm;
 
 
 /**
  * Extended set of localized date/time patterns for locale bn_BD.
  */
-DateTimePatterns_bn_BD = DateTimePatterns_bn;
+export var DateTimePatterns_bn_BD = DateTimePatterns_bn;
 
 
 /**
  * Extended set of localized date/time patterns for locale bn_IN.
  */
-DateTimePatterns_bn_IN = DateTimePatterns_bn;
+export var DateTimePatterns_bn_IN = DateTimePatterns_bn;
 
 
 /**
  * Extended set of localized date/time patterns for locale bo.
  */
-DateTimePatterns_bo = {
+export var DateTimePatterns_bo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y LLL',
@@ -687,13 +687,13 @@ DateTimePatterns_bo = {
 /**
  * Extended set of localized date/time patterns for locale bo_CN.
  */
-DateTimePatterns_bo_CN = DateTimePatterns_bo;
+export var DateTimePatterns_bo_CN = DateTimePatterns_bo;
 
 
 /**
  * Extended set of localized date/time patterns for locale bo_IN.
  */
-DateTimePatterns_bo_IN = {
+export var DateTimePatterns_bo_IN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y LLL',
@@ -714,13 +714,13 @@ DateTimePatterns_bo_IN = {
 /**
  * Extended set of localized date/time patterns for locale br_FR.
  */
-DateTimePatterns_br_FR = DateTimePatterns_br;
+export var DateTimePatterns_br_FR = DateTimePatterns_br;
 
 
 /**
  * Extended set of localized date/time patterns for locale brx.
  */
-DateTimePatterns_brx = {
+export var DateTimePatterns_brx = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'Gy',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -741,13 +741,13 @@ DateTimePatterns_brx = {
 /**
  * Extended set of localized date/time patterns for locale brx_IN.
  */
-DateTimePatterns_brx_IN = DateTimePatterns_brx;
+export var DateTimePatterns_brx_IN = DateTimePatterns_brx;
 
 
 /**
  * Extended set of localized date/time patterns for locale bs_Cyrl.
  */
-DateTimePatterns_bs_Cyrl = {
+export var DateTimePatterns_bs_Cyrl = {
   YEAR_FULL: 'y.',
   YEAR_FULL_WITH_ERA: 'y. G',
   YEAR_MONTH_ABBR: 'MMM y.',
@@ -768,7 +768,7 @@ DateTimePatterns_bs_Cyrl = {
 /**
  * Extended set of localized date/time patterns for locale bs_Cyrl_BA.
  */
-DateTimePatterns_bs_Cyrl_BA = {
+export var DateTimePatterns_bs_Cyrl_BA = {
   YEAR_FULL: 'y.',
   YEAR_FULL_WITH_ERA: 'y. G',
   YEAR_MONTH_ABBR: 'MMM y.',
@@ -789,43 +789,43 @@ DateTimePatterns_bs_Cyrl_BA = {
 /**
  * Extended set of localized date/time patterns for locale bs_Latn.
  */
-DateTimePatterns_bs_Latn = DateTimePatterns_bs;
+export var DateTimePatterns_bs_Latn = DateTimePatterns_bs;
 
 
 /**
  * Extended set of localized date/time patterns for locale bs_Latn_BA.
  */
-DateTimePatterns_bs_Latn_BA = DateTimePatterns_bs;
+export var DateTimePatterns_bs_Latn_BA = DateTimePatterns_bs;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_AD.
  */
-DateTimePatterns_ca_AD = DateTimePatterns_ca;
+export var DateTimePatterns_ca_AD = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_ES.
  */
-DateTimePatterns_ca_ES = DateTimePatterns_ca;
+export var DateTimePatterns_ca_ES = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_FR.
  */
-DateTimePatterns_ca_FR = DateTimePatterns_ca;
+export var DateTimePatterns_ca_FR = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ca_IT.
  */
-DateTimePatterns_ca_IT = DateTimePatterns_ca;
+export var DateTimePatterns_ca_IT = DateTimePatterns_ca;
 
 
 /**
  * Extended set of localized date/time patterns for locale ccp.
  */
-DateTimePatterns_ccp = {
+export var DateTimePatterns_ccp = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -846,19 +846,19 @@ DateTimePatterns_ccp = {
 /**
  * Extended set of localized date/time patterns for locale ccp_BD.
  */
-DateTimePatterns_ccp_BD = DateTimePatterns_ccp;
+export var DateTimePatterns_ccp_BD = DateTimePatterns_ccp;
 
 
 /**
  * Extended set of localized date/time patterns for locale ccp_IN.
  */
-DateTimePatterns_ccp_IN = DateTimePatterns_ccp;
+export var DateTimePatterns_ccp_IN = DateTimePatterns_ccp;
 
 
 /**
  * Extended set of localized date/time patterns for locale ce.
  */
-DateTimePatterns_ce = {
+export var DateTimePatterns_ce = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -879,13 +879,13 @@ DateTimePatterns_ce = {
 /**
  * Extended set of localized date/time patterns for locale ce_RU.
  */
-DateTimePatterns_ce_RU = DateTimePatterns_ce;
+export var DateTimePatterns_ce_RU = DateTimePatterns_ce;
 
 
 /**
  * Extended set of localized date/time patterns for locale ceb.
  */
-DateTimePatterns_ceb = {
+export var DateTimePatterns_ceb = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -906,13 +906,13 @@ DateTimePatterns_ceb = {
 /**
  * Extended set of localized date/time patterns for locale ceb_PH.
  */
-DateTimePatterns_ceb_PH = DateTimePatterns_ceb;
+export var DateTimePatterns_ceb_PH = DateTimePatterns_ceb;
 
 
 /**
  * Extended set of localized date/time patterns for locale cgg.
  */
-DateTimePatterns_cgg = {
+export var DateTimePatterns_cgg = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -933,19 +933,19 @@ DateTimePatterns_cgg = {
 /**
  * Extended set of localized date/time patterns for locale cgg_UG.
  */
-DateTimePatterns_cgg_UG = DateTimePatterns_cgg;
+export var DateTimePatterns_cgg_UG = DateTimePatterns_cgg;
 
 
 /**
  * Extended set of localized date/time patterns for locale chr_US.
  */
-DateTimePatterns_chr_US = DateTimePatterns_chr;
+export var DateTimePatterns_chr_US = DateTimePatterns_chr;
 
 
 /**
  * Extended set of localized date/time patterns for locale ckb.
  */
-DateTimePatterns_ckb = {
+export var DateTimePatterns_ckb = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMMی y',
@@ -966,19 +966,19 @@ DateTimePatterns_ckb = {
 /**
  * Extended set of localized date/time patterns for locale ckb_Arab.
  */
-DateTimePatterns_ckb_Arab = DateTimePatterns_ckb;
+export var DateTimePatterns_ckb_Arab = DateTimePatterns_ckb;
 
 
 /**
  * Extended set of localized date/time patterns for locale ckb_Arab_IQ.
  */
-DateTimePatterns_ckb_Arab_IQ = DateTimePatterns_ckb;
+export var DateTimePatterns_ckb_Arab_IQ = DateTimePatterns_ckb;
 
 
 /**
  * Extended set of localized date/time patterns for locale ckb_Arab_IR.
  */
-DateTimePatterns_ckb_Arab_IR = {
+export var DateTimePatterns_ckb_Arab_IR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMMی y',
@@ -999,13 +999,13 @@ DateTimePatterns_ckb_Arab_IR = {
 /**
  * Extended set of localized date/time patterns for locale ckb_IQ.
  */
-DateTimePatterns_ckb_IQ = DateTimePatterns_ckb;
+export var DateTimePatterns_ckb_IQ = DateTimePatterns_ckb;
 
 
 /**
  * Extended set of localized date/time patterns for locale ckb_IR.
  */
-DateTimePatterns_ckb_IR = {
+export var DateTimePatterns_ckb_IR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMMی y',
@@ -1026,13 +1026,13 @@ DateTimePatterns_ckb_IR = {
 /**
  * Extended set of localized date/time patterns for locale cs_CZ.
  */
-DateTimePatterns_cs_CZ = DateTimePatterns_cs;
+export var DateTimePatterns_cs_CZ = DateTimePatterns_cs;
 
 
 /**
  * Extended set of localized date/time patterns for locale cv.
  */
-DateTimePatterns_cv = {
+export var DateTimePatterns_cv = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y \'ҫ\'. G',
   YEAR_MONTH_ABBR: 'LLL y \'ҫ\'.',
@@ -1053,31 +1053,31 @@ DateTimePatterns_cv = {
 /**
  * Extended set of localized date/time patterns for locale cv_RU.
  */
-DateTimePatterns_cv_RU = DateTimePatterns_cv;
+export var DateTimePatterns_cv_RU = DateTimePatterns_cv;
 
 
 /**
  * Extended set of localized date/time patterns for locale cy_GB.
  */
-DateTimePatterns_cy_GB = DateTimePatterns_cy;
+export var DateTimePatterns_cy_GB = DateTimePatterns_cy;
 
 
 /**
  * Extended set of localized date/time patterns for locale da_DK.
  */
-DateTimePatterns_da_DK = DateTimePatterns_da;
+export var DateTimePatterns_da_DK = DateTimePatterns_da;
 
 
 /**
  * Extended set of localized date/time patterns for locale da_GL.
  */
-DateTimePatterns_da_GL = DateTimePatterns_da;
+export var DateTimePatterns_da_GL = DateTimePatterns_da;
 
 
 /**
  * Extended set of localized date/time patterns for locale dav.
  */
-DateTimePatterns_dav = {
+export var DateTimePatterns_dav = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1098,43 +1098,43 @@ DateTimePatterns_dav = {
 /**
  * Extended set of localized date/time patterns for locale dav_KE.
  */
-DateTimePatterns_dav_KE = DateTimePatterns_dav;
+export var DateTimePatterns_dav_KE = DateTimePatterns_dav;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_BE.
  */
-DateTimePatterns_de_BE = DateTimePatterns_de;
+export var DateTimePatterns_de_BE = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_DE.
  */
-DateTimePatterns_de_DE = DateTimePatterns_de;
+export var DateTimePatterns_de_DE = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_IT.
  */
-DateTimePatterns_de_IT = DateTimePatterns_de;
+export var DateTimePatterns_de_IT = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_LI.
  */
-DateTimePatterns_de_LI = DateTimePatterns_de;
+export var DateTimePatterns_de_LI = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale de_LU.
  */
-DateTimePatterns_de_LU = DateTimePatterns_de;
+export var DateTimePatterns_de_LU = DateTimePatterns_de;
 
 
 /**
  * Extended set of localized date/time patterns for locale dje.
  */
-DateTimePatterns_dje = {
+export var DateTimePatterns_dje = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1155,13 +1155,13 @@ DateTimePatterns_dje = {
 /**
  * Extended set of localized date/time patterns for locale dje_NE.
  */
-DateTimePatterns_dje_NE = DateTimePatterns_dje;
+export var DateTimePatterns_dje_NE = DateTimePatterns_dje;
 
 
 /**
  * Extended set of localized date/time patterns for locale doi.
  */
-DateTimePatterns_doi = {
+export var DateTimePatterns_doi = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1182,13 +1182,13 @@ DateTimePatterns_doi = {
 /**
  * Extended set of localized date/time patterns for locale doi_IN.
  */
-DateTimePatterns_doi_IN = DateTimePatterns_doi;
+export var DateTimePatterns_doi_IN = DateTimePatterns_doi;
 
 
 /**
  * Extended set of localized date/time patterns for locale dsb.
  */
-DateTimePatterns_dsb = {
+export var DateTimePatterns_dsb = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1209,13 +1209,13 @@ DateTimePatterns_dsb = {
 /**
  * Extended set of localized date/time patterns for locale dsb_DE.
  */
-DateTimePatterns_dsb_DE = DateTimePatterns_dsb;
+export var DateTimePatterns_dsb_DE = DateTimePatterns_dsb;
 
 
 /**
  * Extended set of localized date/time patterns for locale dua.
  */
-DateTimePatterns_dua = {
+export var DateTimePatterns_dua = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1236,13 +1236,13 @@ DateTimePatterns_dua = {
 /**
  * Extended set of localized date/time patterns for locale dua_CM.
  */
-DateTimePatterns_dua_CM = DateTimePatterns_dua;
+export var DateTimePatterns_dua_CM = DateTimePatterns_dua;
 
 
 /**
  * Extended set of localized date/time patterns for locale dyo.
  */
-DateTimePatterns_dyo = {
+export var DateTimePatterns_dyo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1263,13 +1263,13 @@ DateTimePatterns_dyo = {
 /**
  * Extended set of localized date/time patterns for locale dyo_SN.
  */
-DateTimePatterns_dyo_SN = DateTimePatterns_dyo;
+export var DateTimePatterns_dyo_SN = DateTimePatterns_dyo;
 
 
 /**
  * Extended set of localized date/time patterns for locale dz.
  */
-DateTimePatterns_dz = {
+export var DateTimePatterns_dz = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y སྤྱི་ཟླ་MMM',
@@ -1290,13 +1290,13 @@ DateTimePatterns_dz = {
 /**
  * Extended set of localized date/time patterns for locale dz_BT.
  */
-DateTimePatterns_dz_BT = DateTimePatterns_dz;
+export var DateTimePatterns_dz_BT = DateTimePatterns_dz;
 
 
 /**
  * Extended set of localized date/time patterns for locale ebu.
  */
-DateTimePatterns_ebu = {
+export var DateTimePatterns_ebu = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1317,13 +1317,13 @@ DateTimePatterns_ebu = {
 /**
  * Extended set of localized date/time patterns for locale ebu_KE.
  */
-DateTimePatterns_ebu_KE = DateTimePatterns_ebu;
+export var DateTimePatterns_ebu_KE = DateTimePatterns_ebu;
 
 
 /**
  * Extended set of localized date/time patterns for locale ee.
  */
-DateTimePatterns_ee = {
+export var DateTimePatterns_ee = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1344,13 +1344,13 @@ DateTimePatterns_ee = {
 /**
  * Extended set of localized date/time patterns for locale ee_GH.
  */
-DateTimePatterns_ee_GH = DateTimePatterns_ee;
+export var DateTimePatterns_ee_GH = DateTimePatterns_ee;
 
 
 /**
  * Extended set of localized date/time patterns for locale ee_TG.
  */
-DateTimePatterns_ee_TG = {
+export var DateTimePatterns_ee_TG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1371,19 +1371,19 @@ DateTimePatterns_ee_TG = {
 /**
  * Extended set of localized date/time patterns for locale el_CY.
  */
-DateTimePatterns_el_CY = DateTimePatterns_el;
+export var DateTimePatterns_el_CY = DateTimePatterns_el;
 
 
 /**
  * Extended set of localized date/time patterns for locale el_GR.
  */
-DateTimePatterns_el_GR = DateTimePatterns_el;
+export var DateTimePatterns_el_GR = DateTimePatterns_el;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_001.
  */
-DateTimePatterns_en_001 = {
+export var DateTimePatterns_en_001 = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1404,7 +1404,7 @@ DateTimePatterns_en_001 = {
 /**
  * Extended set of localized date/time patterns for locale en_150.
  */
-DateTimePatterns_en_150 = {
+export var DateTimePatterns_en_150 = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1425,7 +1425,7 @@ DateTimePatterns_en_150 = {
 /**
  * Extended set of localized date/time patterns for locale en_AE.
  */
-DateTimePatterns_en_AE = {
+export var DateTimePatterns_en_AE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1446,7 +1446,7 @@ DateTimePatterns_en_AE = {
 /**
  * Extended set of localized date/time patterns for locale en_AG.
  */
-DateTimePatterns_en_AG = {
+export var DateTimePatterns_en_AG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1467,7 +1467,7 @@ DateTimePatterns_en_AG = {
 /**
  * Extended set of localized date/time patterns for locale en_AI.
  */
-DateTimePatterns_en_AI = {
+export var DateTimePatterns_en_AI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1488,13 +1488,13 @@ DateTimePatterns_en_AI = {
 /**
  * Extended set of localized date/time patterns for locale en_AS.
  */
-DateTimePatterns_en_AS = DateTimePatterns_en;
+export var DateTimePatterns_en_AS = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_AT.
  */
-DateTimePatterns_en_AT = {
+export var DateTimePatterns_en_AT = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1515,7 +1515,7 @@ DateTimePatterns_en_AT = {
 /**
  * Extended set of localized date/time patterns for locale en_BB.
  */
-DateTimePatterns_en_BB = {
+export var DateTimePatterns_en_BB = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1536,7 +1536,7 @@ DateTimePatterns_en_BB = {
 /**
  * Extended set of localized date/time patterns for locale en_BE.
  */
-DateTimePatterns_en_BE = {
+export var DateTimePatterns_en_BE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1557,7 +1557,7 @@ DateTimePatterns_en_BE = {
 /**
  * Extended set of localized date/time patterns for locale en_BI.
  */
-DateTimePatterns_en_BI = {
+export var DateTimePatterns_en_BI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1578,7 +1578,7 @@ DateTimePatterns_en_BI = {
 /**
  * Extended set of localized date/time patterns for locale en_BM.
  */
-DateTimePatterns_en_BM = {
+export var DateTimePatterns_en_BM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1599,7 +1599,7 @@ DateTimePatterns_en_BM = {
 /**
  * Extended set of localized date/time patterns for locale en_BS.
  */
-DateTimePatterns_en_BS = {
+export var DateTimePatterns_en_BS = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1620,7 +1620,7 @@ DateTimePatterns_en_BS = {
 /**
  * Extended set of localized date/time patterns for locale en_BW.
  */
-DateTimePatterns_en_BW = {
+export var DateTimePatterns_en_BW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1641,7 +1641,7 @@ DateTimePatterns_en_BW = {
 /**
  * Extended set of localized date/time patterns for locale en_BZ.
  */
-DateTimePatterns_en_BZ = {
+export var DateTimePatterns_en_BZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1662,7 +1662,7 @@ DateTimePatterns_en_BZ = {
 /**
  * Extended set of localized date/time patterns for locale en_CC.
  */
-DateTimePatterns_en_CC = {
+export var DateTimePatterns_en_CC = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1683,7 +1683,7 @@ DateTimePatterns_en_CC = {
 /**
  * Extended set of localized date/time patterns for locale en_CH.
  */
-DateTimePatterns_en_CH = {
+export var DateTimePatterns_en_CH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1704,7 +1704,7 @@ DateTimePatterns_en_CH = {
 /**
  * Extended set of localized date/time patterns for locale en_CK.
  */
-DateTimePatterns_en_CK = {
+export var DateTimePatterns_en_CK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1725,7 +1725,7 @@ DateTimePatterns_en_CK = {
 /**
  * Extended set of localized date/time patterns for locale en_CM.
  */
-DateTimePatterns_en_CM = {
+export var DateTimePatterns_en_CM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1746,7 +1746,7 @@ DateTimePatterns_en_CM = {
 /**
  * Extended set of localized date/time patterns for locale en_CX.
  */
-DateTimePatterns_en_CX = {
+export var DateTimePatterns_en_CX = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1767,7 +1767,7 @@ DateTimePatterns_en_CX = {
 /**
  * Extended set of localized date/time patterns for locale en_CY.
  */
-DateTimePatterns_en_CY = {
+export var DateTimePatterns_en_CY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1788,7 +1788,7 @@ DateTimePatterns_en_CY = {
 /**
  * Extended set of localized date/time patterns for locale en_DE.
  */
-DateTimePatterns_en_DE = {
+export var DateTimePatterns_en_DE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1809,7 +1809,7 @@ DateTimePatterns_en_DE = {
 /**
  * Extended set of localized date/time patterns for locale en_DG.
  */
-DateTimePatterns_en_DG = {
+export var DateTimePatterns_en_DG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1830,7 +1830,7 @@ DateTimePatterns_en_DG = {
 /**
  * Extended set of localized date/time patterns for locale en_DK.
  */
-DateTimePatterns_en_DK = {
+export var DateTimePatterns_en_DK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1851,7 +1851,7 @@ DateTimePatterns_en_DK = {
 /**
  * Extended set of localized date/time patterns for locale en_DM.
  */
-DateTimePatterns_en_DM = {
+export var DateTimePatterns_en_DM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1872,7 +1872,7 @@ DateTimePatterns_en_DM = {
 /**
  * Extended set of localized date/time patterns for locale en_ER.
  */
-DateTimePatterns_en_ER = {
+export var DateTimePatterns_en_ER = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1893,7 +1893,7 @@ DateTimePatterns_en_ER = {
 /**
  * Extended set of localized date/time patterns for locale en_FI.
  */
-DateTimePatterns_en_FI = {
+export var DateTimePatterns_en_FI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1914,7 +1914,7 @@ DateTimePatterns_en_FI = {
 /**
  * Extended set of localized date/time patterns for locale en_FJ.
  */
-DateTimePatterns_en_FJ = {
+export var DateTimePatterns_en_FJ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1935,7 +1935,7 @@ DateTimePatterns_en_FJ = {
 /**
  * Extended set of localized date/time patterns for locale en_FK.
  */
-DateTimePatterns_en_FK = {
+export var DateTimePatterns_en_FK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1956,7 +1956,7 @@ DateTimePatterns_en_FK = {
 /**
  * Extended set of localized date/time patterns for locale en_FM.
  */
-DateTimePatterns_en_FM = {
+export var DateTimePatterns_en_FM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1977,7 +1977,7 @@ DateTimePatterns_en_FM = {
 /**
  * Extended set of localized date/time patterns for locale en_GD.
  */
-DateTimePatterns_en_GD = {
+export var DateTimePatterns_en_GD = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -1998,7 +1998,7 @@ DateTimePatterns_en_GD = {
 /**
  * Extended set of localized date/time patterns for locale en_GG.
  */
-DateTimePatterns_en_GG = {
+export var DateTimePatterns_en_GG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2019,7 +2019,7 @@ DateTimePatterns_en_GG = {
 /**
  * Extended set of localized date/time patterns for locale en_GH.
  */
-DateTimePatterns_en_GH = {
+export var DateTimePatterns_en_GH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2040,7 +2040,7 @@ DateTimePatterns_en_GH = {
 /**
  * Extended set of localized date/time patterns for locale en_GI.
  */
-DateTimePatterns_en_GI = {
+export var DateTimePatterns_en_GI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2061,7 +2061,7 @@ DateTimePatterns_en_GI = {
 /**
  * Extended set of localized date/time patterns for locale en_GM.
  */
-DateTimePatterns_en_GM = {
+export var DateTimePatterns_en_GM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2082,13 +2082,13 @@ DateTimePatterns_en_GM = {
 /**
  * Extended set of localized date/time patterns for locale en_GU.
  */
-DateTimePatterns_en_GU = DateTimePatterns_en;
+export var DateTimePatterns_en_GU = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_GY.
  */
-DateTimePatterns_en_GY = {
+export var DateTimePatterns_en_GY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2109,7 +2109,7 @@ DateTimePatterns_en_GY = {
 /**
  * Extended set of localized date/time patterns for locale en_HK.
  */
-DateTimePatterns_en_HK = {
+export var DateTimePatterns_en_HK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2130,7 +2130,7 @@ DateTimePatterns_en_HK = {
 /**
  * Extended set of localized date/time patterns for locale en_IL.
  */
-DateTimePatterns_en_IL = {
+export var DateTimePatterns_en_IL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2151,7 +2151,7 @@ DateTimePatterns_en_IL = {
 /**
  * Extended set of localized date/time patterns for locale en_IM.
  */
-DateTimePatterns_en_IM = {
+export var DateTimePatterns_en_IM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2172,7 +2172,7 @@ DateTimePatterns_en_IM = {
 /**
  * Extended set of localized date/time patterns for locale en_IO.
  */
-DateTimePatterns_en_IO = {
+export var DateTimePatterns_en_IO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2193,7 +2193,7 @@ DateTimePatterns_en_IO = {
 /**
  * Extended set of localized date/time patterns for locale en_JE.
  */
-DateTimePatterns_en_JE = {
+export var DateTimePatterns_en_JE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2214,7 +2214,7 @@ DateTimePatterns_en_JE = {
 /**
  * Extended set of localized date/time patterns for locale en_JM.
  */
-DateTimePatterns_en_JM = {
+export var DateTimePatterns_en_JM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2235,7 +2235,7 @@ DateTimePatterns_en_JM = {
 /**
  * Extended set of localized date/time patterns for locale en_KE.
  */
-DateTimePatterns_en_KE = {
+export var DateTimePatterns_en_KE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2256,7 +2256,7 @@ DateTimePatterns_en_KE = {
 /**
  * Extended set of localized date/time patterns for locale en_KI.
  */
-DateTimePatterns_en_KI = {
+export var DateTimePatterns_en_KI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2277,7 +2277,7 @@ DateTimePatterns_en_KI = {
 /**
  * Extended set of localized date/time patterns for locale en_KN.
  */
-DateTimePatterns_en_KN = {
+export var DateTimePatterns_en_KN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2298,7 +2298,7 @@ DateTimePatterns_en_KN = {
 /**
  * Extended set of localized date/time patterns for locale en_KY.
  */
-DateTimePatterns_en_KY = {
+export var DateTimePatterns_en_KY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2319,7 +2319,7 @@ DateTimePatterns_en_KY = {
 /**
  * Extended set of localized date/time patterns for locale en_LC.
  */
-DateTimePatterns_en_LC = {
+export var DateTimePatterns_en_LC = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2340,7 +2340,7 @@ DateTimePatterns_en_LC = {
 /**
  * Extended set of localized date/time patterns for locale en_LR.
  */
-DateTimePatterns_en_LR = {
+export var DateTimePatterns_en_LR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2361,7 +2361,7 @@ DateTimePatterns_en_LR = {
 /**
  * Extended set of localized date/time patterns for locale en_LS.
  */
-DateTimePatterns_en_LS = {
+export var DateTimePatterns_en_LS = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2382,7 +2382,7 @@ DateTimePatterns_en_LS = {
 /**
  * Extended set of localized date/time patterns for locale en_MG.
  */
-DateTimePatterns_en_MG = {
+export var DateTimePatterns_en_MG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2403,13 +2403,13 @@ DateTimePatterns_en_MG = {
 /**
  * Extended set of localized date/time patterns for locale en_MH.
  */
-DateTimePatterns_en_MH = DateTimePatterns_en;
+export var DateTimePatterns_en_MH = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_MO.
  */
-DateTimePatterns_en_MO = {
+export var DateTimePatterns_en_MO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2430,13 +2430,13 @@ DateTimePatterns_en_MO = {
 /**
  * Extended set of localized date/time patterns for locale en_MP.
  */
-DateTimePatterns_en_MP = DateTimePatterns_en;
+export var DateTimePatterns_en_MP = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_MS.
  */
-DateTimePatterns_en_MS = {
+export var DateTimePatterns_en_MS = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2457,7 +2457,7 @@ DateTimePatterns_en_MS = {
 /**
  * Extended set of localized date/time patterns for locale en_MT.
  */
-DateTimePatterns_en_MT = {
+export var DateTimePatterns_en_MT = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2478,7 +2478,7 @@ DateTimePatterns_en_MT = {
 /**
  * Extended set of localized date/time patterns for locale en_MU.
  */
-DateTimePatterns_en_MU = {
+export var DateTimePatterns_en_MU = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2499,7 +2499,7 @@ DateTimePatterns_en_MU = {
 /**
  * Extended set of localized date/time patterns for locale en_MV.
  */
-DateTimePatterns_en_MV = {
+export var DateTimePatterns_en_MV = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2520,7 +2520,7 @@ DateTimePatterns_en_MV = {
 /**
  * Extended set of localized date/time patterns for locale en_MW.
  */
-DateTimePatterns_en_MW = {
+export var DateTimePatterns_en_MW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2541,7 +2541,7 @@ DateTimePatterns_en_MW = {
 /**
  * Extended set of localized date/time patterns for locale en_MY.
  */
-DateTimePatterns_en_MY = {
+export var DateTimePatterns_en_MY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2562,7 +2562,7 @@ DateTimePatterns_en_MY = {
 /**
  * Extended set of localized date/time patterns for locale en_NA.
  */
-DateTimePatterns_en_NA = {
+export var DateTimePatterns_en_NA = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2583,7 +2583,7 @@ DateTimePatterns_en_NA = {
 /**
  * Extended set of localized date/time patterns for locale en_NF.
  */
-DateTimePatterns_en_NF = {
+export var DateTimePatterns_en_NF = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2604,7 +2604,7 @@ DateTimePatterns_en_NF = {
 /**
  * Extended set of localized date/time patterns for locale en_NG.
  */
-DateTimePatterns_en_NG = {
+export var DateTimePatterns_en_NG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2625,7 +2625,7 @@ DateTimePatterns_en_NG = {
 /**
  * Extended set of localized date/time patterns for locale en_NL.
  */
-DateTimePatterns_en_NL = {
+export var DateTimePatterns_en_NL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2646,7 +2646,7 @@ DateTimePatterns_en_NL = {
 /**
  * Extended set of localized date/time patterns for locale en_NR.
  */
-DateTimePatterns_en_NR = {
+export var DateTimePatterns_en_NR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2667,7 +2667,7 @@ DateTimePatterns_en_NR = {
 /**
  * Extended set of localized date/time patterns for locale en_NU.
  */
-DateTimePatterns_en_NU = {
+export var DateTimePatterns_en_NU = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2688,7 +2688,7 @@ DateTimePatterns_en_NU = {
 /**
  * Extended set of localized date/time patterns for locale en_NZ.
  */
-DateTimePatterns_en_NZ = {
+export var DateTimePatterns_en_NZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2709,7 +2709,7 @@ DateTimePatterns_en_NZ = {
 /**
  * Extended set of localized date/time patterns for locale en_PG.
  */
-DateTimePatterns_en_PG = {
+export var DateTimePatterns_en_PG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2730,13 +2730,13 @@ DateTimePatterns_en_PG = {
 /**
  * Extended set of localized date/time patterns for locale en_PH.
  */
-DateTimePatterns_en_PH = DateTimePatterns_en;
+export var DateTimePatterns_en_PH = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_PK.
  */
-DateTimePatterns_en_PK = {
+export var DateTimePatterns_en_PK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2757,7 +2757,7 @@ DateTimePatterns_en_PK = {
 /**
  * Extended set of localized date/time patterns for locale en_PN.
  */
-DateTimePatterns_en_PN = {
+export var DateTimePatterns_en_PN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2778,13 +2778,13 @@ DateTimePatterns_en_PN = {
 /**
  * Extended set of localized date/time patterns for locale en_PR.
  */
-DateTimePatterns_en_PR = DateTimePatterns_en;
+export var DateTimePatterns_en_PR = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_PW.
  */
-DateTimePatterns_en_PW = {
+export var DateTimePatterns_en_PW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2805,7 +2805,7 @@ DateTimePatterns_en_PW = {
 /**
  * Extended set of localized date/time patterns for locale en_RW.
  */
-DateTimePatterns_en_RW = {
+export var DateTimePatterns_en_RW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2826,7 +2826,7 @@ DateTimePatterns_en_RW = {
 /**
  * Extended set of localized date/time patterns for locale en_SB.
  */
-DateTimePatterns_en_SB = {
+export var DateTimePatterns_en_SB = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2847,7 +2847,7 @@ DateTimePatterns_en_SB = {
 /**
  * Extended set of localized date/time patterns for locale en_SC.
  */
-DateTimePatterns_en_SC = {
+export var DateTimePatterns_en_SC = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2868,7 +2868,7 @@ DateTimePatterns_en_SC = {
 /**
  * Extended set of localized date/time patterns for locale en_SD.
  */
-DateTimePatterns_en_SD = {
+export var DateTimePatterns_en_SD = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2889,7 +2889,7 @@ DateTimePatterns_en_SD = {
 /**
  * Extended set of localized date/time patterns for locale en_SE.
  */
-DateTimePatterns_en_SE = {
+export var DateTimePatterns_en_SE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2910,7 +2910,7 @@ DateTimePatterns_en_SE = {
 /**
  * Extended set of localized date/time patterns for locale en_SH.
  */
-DateTimePatterns_en_SH = {
+export var DateTimePatterns_en_SH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2931,7 +2931,7 @@ DateTimePatterns_en_SH = {
 /**
  * Extended set of localized date/time patterns for locale en_SI.
  */
-DateTimePatterns_en_SI = {
+export var DateTimePatterns_en_SI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2952,7 +2952,7 @@ DateTimePatterns_en_SI = {
 /**
  * Extended set of localized date/time patterns for locale en_SL.
  */
-DateTimePatterns_en_SL = {
+export var DateTimePatterns_en_SL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2973,7 +2973,7 @@ DateTimePatterns_en_SL = {
 /**
  * Extended set of localized date/time patterns for locale en_SS.
  */
-DateTimePatterns_en_SS = {
+export var DateTimePatterns_en_SS = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -2994,7 +2994,7 @@ DateTimePatterns_en_SS = {
 /**
  * Extended set of localized date/time patterns for locale en_SX.
  */
-DateTimePatterns_en_SX = {
+export var DateTimePatterns_en_SX = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3015,7 +3015,7 @@ DateTimePatterns_en_SX = {
 /**
  * Extended set of localized date/time patterns for locale en_SZ.
  */
-DateTimePatterns_en_SZ = {
+export var DateTimePatterns_en_SZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3036,7 +3036,7 @@ DateTimePatterns_en_SZ = {
 /**
  * Extended set of localized date/time patterns for locale en_TC.
  */
-DateTimePatterns_en_TC = {
+export var DateTimePatterns_en_TC = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3057,7 +3057,7 @@ DateTimePatterns_en_TC = {
 /**
  * Extended set of localized date/time patterns for locale en_TK.
  */
-DateTimePatterns_en_TK = {
+export var DateTimePatterns_en_TK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3078,7 +3078,7 @@ DateTimePatterns_en_TK = {
 /**
  * Extended set of localized date/time patterns for locale en_TO.
  */
-DateTimePatterns_en_TO = {
+export var DateTimePatterns_en_TO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3099,7 +3099,7 @@ DateTimePatterns_en_TO = {
 /**
  * Extended set of localized date/time patterns for locale en_TT.
  */
-DateTimePatterns_en_TT = {
+export var DateTimePatterns_en_TT = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3120,7 +3120,7 @@ DateTimePatterns_en_TT = {
 /**
  * Extended set of localized date/time patterns for locale en_TV.
  */
-DateTimePatterns_en_TV = {
+export var DateTimePatterns_en_TV = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3141,7 +3141,7 @@ DateTimePatterns_en_TV = {
 /**
  * Extended set of localized date/time patterns for locale en_TZ.
  */
-DateTimePatterns_en_TZ = {
+export var DateTimePatterns_en_TZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3162,7 +3162,7 @@ DateTimePatterns_en_TZ = {
 /**
  * Extended set of localized date/time patterns for locale en_UG.
  */
-DateTimePatterns_en_UG = {
+export var DateTimePatterns_en_UG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3183,19 +3183,19 @@ DateTimePatterns_en_UG = {
 /**
  * Extended set of localized date/time patterns for locale en_UM.
  */
-DateTimePatterns_en_UM = DateTimePatterns_en;
+export var DateTimePatterns_en_UM = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_US_POSIX.
  */
-DateTimePatterns_en_US_POSIX = DateTimePatterns_en;
+export var DateTimePatterns_en_US_POSIX = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_VC.
  */
-DateTimePatterns_en_VC = {
+export var DateTimePatterns_en_VC = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3216,7 +3216,7 @@ DateTimePatterns_en_VC = {
 /**
  * Extended set of localized date/time patterns for locale en_VG.
  */
-DateTimePatterns_en_VG = {
+export var DateTimePatterns_en_VG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3237,13 +3237,13 @@ DateTimePatterns_en_VG = {
 /**
  * Extended set of localized date/time patterns for locale en_VI.
  */
-DateTimePatterns_en_VI = DateTimePatterns_en;
+export var DateTimePatterns_en_VI = DateTimePatterns_en;
 
 
 /**
  * Extended set of localized date/time patterns for locale en_VU.
  */
-DateTimePatterns_en_VU = {
+export var DateTimePatterns_en_VU = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3264,7 +3264,7 @@ DateTimePatterns_en_VU = {
 /**
  * Extended set of localized date/time patterns for locale en_WS.
  */
-DateTimePatterns_en_WS = {
+export var DateTimePatterns_en_WS = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3285,7 +3285,7 @@ DateTimePatterns_en_WS = {
 /**
  * Extended set of localized date/time patterns for locale en_XA.
  */
-DateTimePatterns_en_XA = {
+export var DateTimePatterns_en_XA = {
   YEAR_FULL: '[y \'one\']',
   YEAR_FULL_WITH_ERA: '[y G \'one\']',
   YEAR_MONTH_ABBR: '[MMM y \'one\']',
@@ -3306,7 +3306,7 @@ DateTimePatterns_en_XA = {
 /**
  * Extended set of localized date/time patterns for locale en_ZM.
  */
-DateTimePatterns_en_ZM = {
+export var DateTimePatterns_en_ZM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3327,7 +3327,7 @@ DateTimePatterns_en_ZM = {
 /**
  * Extended set of localized date/time patterns for locale en_ZW.
  */
-DateTimePatterns_en_ZW = {
+export var DateTimePatterns_en_ZW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3348,7 +3348,7 @@ DateTimePatterns_en_ZW = {
 /**
  * Extended set of localized date/time patterns for locale eo.
  */
-DateTimePatterns_eo = {
+export var DateTimePatterns_eo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -3369,13 +3369,13 @@ DateTimePatterns_eo = {
 /**
  * Extended set of localized date/time patterns for locale eo_001.
  */
-DateTimePatterns_eo_001 = DateTimePatterns_eo;
+export var DateTimePatterns_eo_001 = DateTimePatterns_eo;
 
 
 /**
  * Extended set of localized date/time patterns for locale es_AR.
  */
-DateTimePatterns_es_AR = {
+export var DateTimePatterns_es_AR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3396,7 +3396,7 @@ DateTimePatterns_es_AR = {
 /**
  * Extended set of localized date/time patterns for locale es_BO.
  */
-DateTimePatterns_es_BO = {
+export var DateTimePatterns_es_BO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3417,7 +3417,7 @@ DateTimePatterns_es_BO = {
 /**
  * Extended set of localized date/time patterns for locale es_BR.
  */
-DateTimePatterns_es_BR = {
+export var DateTimePatterns_es_BR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3438,7 +3438,7 @@ DateTimePatterns_es_BR = {
 /**
  * Extended set of localized date/time patterns for locale es_BZ.
  */
-DateTimePatterns_es_BZ = {
+export var DateTimePatterns_es_BZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3459,7 +3459,7 @@ DateTimePatterns_es_BZ = {
 /**
  * Extended set of localized date/time patterns for locale es_CL.
  */
-DateTimePatterns_es_CL = {
+export var DateTimePatterns_es_CL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3480,7 +3480,7 @@ DateTimePatterns_es_CL = {
 /**
  * Extended set of localized date/time patterns for locale es_CO.
  */
-DateTimePatterns_es_CO = {
+export var DateTimePatterns_es_CO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM \'de\' y',
@@ -3501,7 +3501,7 @@ DateTimePatterns_es_CO = {
 /**
  * Extended set of localized date/time patterns for locale es_CR.
  */
-DateTimePatterns_es_CR = {
+export var DateTimePatterns_es_CR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3522,7 +3522,7 @@ DateTimePatterns_es_CR = {
 /**
  * Extended set of localized date/time patterns for locale es_CU.
  */
-DateTimePatterns_es_CU = {
+export var DateTimePatterns_es_CU = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3543,7 +3543,7 @@ DateTimePatterns_es_CU = {
 /**
  * Extended set of localized date/time patterns for locale es_DO.
  */
-DateTimePatterns_es_DO = {
+export var DateTimePatterns_es_DO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3564,13 +3564,13 @@ DateTimePatterns_es_DO = {
 /**
  * Extended set of localized date/time patterns for locale es_EA.
  */
-DateTimePatterns_es_EA = DateTimePatterns_es;
+export var DateTimePatterns_es_EA = DateTimePatterns_es;
 
 
 /**
  * Extended set of localized date/time patterns for locale es_EC.
  */
-DateTimePatterns_es_EC = {
+export var DateTimePatterns_es_EC = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3591,13 +3591,13 @@ DateTimePatterns_es_EC = {
 /**
  * Extended set of localized date/time patterns for locale es_GQ.
  */
-DateTimePatterns_es_GQ = DateTimePatterns_es;
+export var DateTimePatterns_es_GQ = DateTimePatterns_es;
 
 
 /**
  * Extended set of localized date/time patterns for locale es_GT.
  */
-DateTimePatterns_es_GT = {
+export var DateTimePatterns_es_GT = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3618,7 +3618,7 @@ DateTimePatterns_es_GT = {
 /**
  * Extended set of localized date/time patterns for locale es_HN.
  */
-DateTimePatterns_es_HN = {
+export var DateTimePatterns_es_HN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3639,13 +3639,13 @@ DateTimePatterns_es_HN = {
 /**
  * Extended set of localized date/time patterns for locale es_IC.
  */
-DateTimePatterns_es_IC = DateTimePatterns_es;
+export var DateTimePatterns_es_IC = DateTimePatterns_es;
 
 
 /**
  * Extended set of localized date/time patterns for locale es_NI.
  */
-DateTimePatterns_es_NI = {
+export var DateTimePatterns_es_NI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3666,7 +3666,7 @@ DateTimePatterns_es_NI = {
 /**
  * Extended set of localized date/time patterns for locale es_PA.
  */
-DateTimePatterns_es_PA = {
+export var DateTimePatterns_es_PA = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3687,7 +3687,7 @@ DateTimePatterns_es_PA = {
 /**
  * Extended set of localized date/time patterns for locale es_PE.
  */
-DateTimePatterns_es_PE = {
+export var DateTimePatterns_es_PE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3708,7 +3708,7 @@ DateTimePatterns_es_PE = {
 /**
  * Extended set of localized date/time patterns for locale es_PH.
  */
-DateTimePatterns_es_PH = {
+export var DateTimePatterns_es_PH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3729,7 +3729,7 @@ DateTimePatterns_es_PH = {
 /**
  * Extended set of localized date/time patterns for locale es_PR.
  */
-DateTimePatterns_es_PR = {
+export var DateTimePatterns_es_PR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3750,7 +3750,7 @@ DateTimePatterns_es_PR = {
 /**
  * Extended set of localized date/time patterns for locale es_PY.
  */
-DateTimePatterns_es_PY = {
+export var DateTimePatterns_es_PY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3771,7 +3771,7 @@ DateTimePatterns_es_PY = {
 /**
  * Extended set of localized date/time patterns for locale es_SV.
  */
-DateTimePatterns_es_SV = {
+export var DateTimePatterns_es_SV = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3792,7 +3792,7 @@ DateTimePatterns_es_SV = {
 /**
  * Extended set of localized date/time patterns for locale es_UY.
  */
-DateTimePatterns_es_UY = {
+export var DateTimePatterns_es_UY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3813,7 +3813,7 @@ DateTimePatterns_es_UY = {
 /**
  * Extended set of localized date/time patterns for locale es_VE.
  */
-DateTimePatterns_es_VE = {
+export var DateTimePatterns_es_VE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3834,19 +3834,19 @@ DateTimePatterns_es_VE = {
 /**
  * Extended set of localized date/time patterns for locale et_EE.
  */
-DateTimePatterns_et_EE = DateTimePatterns_et;
+export var DateTimePatterns_et_EE = DateTimePatterns_et;
 
 
 /**
  * Extended set of localized date/time patterns for locale eu_ES.
  */
-DateTimePatterns_eu_ES = DateTimePatterns_eu;
+export var DateTimePatterns_eu_ES = DateTimePatterns_eu;
 
 
 /**
  * Extended set of localized date/time patterns for locale ewo.
  */
-DateTimePatterns_ewo = {
+export var DateTimePatterns_ewo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3867,13 +3867,13 @@ DateTimePatterns_ewo = {
 /**
  * Extended set of localized date/time patterns for locale ewo_CM.
  */
-DateTimePatterns_ewo_CM = DateTimePatterns_ewo;
+export var DateTimePatterns_ewo_CM = DateTimePatterns_ewo;
 
 
 /**
  * Extended set of localized date/time patterns for locale fa_AF.
  */
-DateTimePatterns_fa_AF = {
+export var DateTimePatterns_fa_AF = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3894,13 +3894,13 @@ DateTimePatterns_fa_AF = {
 /**
  * Extended set of localized date/time patterns for locale fa_IR.
  */
-DateTimePatterns_fa_IR = DateTimePatterns_fa;
+export var DateTimePatterns_fa_IR = DateTimePatterns_fa;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff.
  */
-DateTimePatterns_ff = {
+export var DateTimePatterns_ff = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3921,7 +3921,7 @@ DateTimePatterns_ff = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm.
  */
-DateTimePatterns_ff_Adlm = {
+export var DateTimePatterns_ff_Adlm = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3942,7 +3942,7 @@ DateTimePatterns_ff_Adlm = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_BF.
  */
-DateTimePatterns_ff_Adlm_BF = {
+export var DateTimePatterns_ff_Adlm_BF = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3963,7 +3963,7 @@ DateTimePatterns_ff_Adlm_BF = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_CM.
  */
-DateTimePatterns_ff_Adlm_CM = {
+export var DateTimePatterns_ff_Adlm_CM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -3984,7 +3984,7 @@ DateTimePatterns_ff_Adlm_CM = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_GH.
  */
-DateTimePatterns_ff_Adlm_GH = {
+export var DateTimePatterns_ff_Adlm_GH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4005,7 +4005,7 @@ DateTimePatterns_ff_Adlm_GH = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_GM.
  */
-DateTimePatterns_ff_Adlm_GM = {
+export var DateTimePatterns_ff_Adlm_GM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4026,7 +4026,7 @@ DateTimePatterns_ff_Adlm_GM = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_GN.
  */
-DateTimePatterns_ff_Adlm_GN = {
+export var DateTimePatterns_ff_Adlm_GN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4047,7 +4047,7 @@ DateTimePatterns_ff_Adlm_GN = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_GW.
  */
-DateTimePatterns_ff_Adlm_GW = {
+export var DateTimePatterns_ff_Adlm_GW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4068,7 +4068,7 @@ DateTimePatterns_ff_Adlm_GW = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_LR.
  */
-DateTimePatterns_ff_Adlm_LR = {
+export var DateTimePatterns_ff_Adlm_LR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4089,7 +4089,7 @@ DateTimePatterns_ff_Adlm_LR = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_MR.
  */
-DateTimePatterns_ff_Adlm_MR = {
+export var DateTimePatterns_ff_Adlm_MR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4110,7 +4110,7 @@ DateTimePatterns_ff_Adlm_MR = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_NE.
  */
-DateTimePatterns_ff_Adlm_NE = {
+export var DateTimePatterns_ff_Adlm_NE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4131,7 +4131,7 @@ DateTimePatterns_ff_Adlm_NE = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_NG.
  */
-DateTimePatterns_ff_Adlm_NG = {
+export var DateTimePatterns_ff_Adlm_NG = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4152,7 +4152,7 @@ DateTimePatterns_ff_Adlm_NG = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_SL.
  */
-DateTimePatterns_ff_Adlm_SL = {
+export var DateTimePatterns_ff_Adlm_SL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4173,7 +4173,7 @@ DateTimePatterns_ff_Adlm_SL = {
 /**
  * Extended set of localized date/time patterns for locale ff_Adlm_SN.
  */
-DateTimePatterns_ff_Adlm_SN = {
+export var DateTimePatterns_ff_Adlm_SN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4194,25 +4194,25 @@ DateTimePatterns_ff_Adlm_SN = {
 /**
  * Extended set of localized date/time patterns for locale ff_Latn.
  */
-DateTimePatterns_ff_Latn = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_BF.
  */
-DateTimePatterns_ff_Latn_BF = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_BF = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_CM.
  */
-DateTimePatterns_ff_Latn_CM = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_CM = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_GH.
  */
-DateTimePatterns_ff_Latn_GH = {
+export var DateTimePatterns_ff_Latn_GH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4233,7 +4233,7 @@ DateTimePatterns_ff_Latn_GH = {
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_GM.
  */
-DateTimePatterns_ff_Latn_GM = {
+export var DateTimePatterns_ff_Latn_GM = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4254,19 +4254,19 @@ DateTimePatterns_ff_Latn_GM = {
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_GN.
  */
-DateTimePatterns_ff_Latn_GN = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_GN = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_GW.
  */
-DateTimePatterns_ff_Latn_GW = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_GW = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_LR.
  */
-DateTimePatterns_ff_Latn_LR = {
+export var DateTimePatterns_ff_Latn_LR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4287,7 +4287,7 @@ DateTimePatterns_ff_Latn_LR = {
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_MR.
  */
-DateTimePatterns_ff_Latn_MR = {
+export var DateTimePatterns_ff_Latn_MR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4308,19 +4308,19 @@ DateTimePatterns_ff_Latn_MR = {
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_NE.
  */
-DateTimePatterns_ff_Latn_NE = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_NE = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_NG.
  */
-DateTimePatterns_ff_Latn_NG = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_NG = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_SL.
  */
-DateTimePatterns_ff_Latn_SL = {
+export var DateTimePatterns_ff_Latn_SL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4341,25 +4341,25 @@ DateTimePatterns_ff_Latn_SL = {
 /**
  * Extended set of localized date/time patterns for locale ff_Latn_SN.
  */
-DateTimePatterns_ff_Latn_SN = DateTimePatterns_ff;
+export var DateTimePatterns_ff_Latn_SN = DateTimePatterns_ff;
 
 
 /**
  * Extended set of localized date/time patterns for locale fi_FI.
  */
-DateTimePatterns_fi_FI = DateTimePatterns_fi;
+export var DateTimePatterns_fi_FI = DateTimePatterns_fi;
 
 
 /**
  * Extended set of localized date/time patterns for locale fil_PH.
  */
-DateTimePatterns_fil_PH = DateTimePatterns_fil;
+export var DateTimePatterns_fil_PH = DateTimePatterns_fil;
 
 
 /**
  * Extended set of localized date/time patterns for locale fo.
  */
-DateTimePatterns_fo = {
+export var DateTimePatterns_fo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4380,67 +4380,67 @@ DateTimePatterns_fo = {
 /**
  * Extended set of localized date/time patterns for locale fo_DK.
  */
-DateTimePatterns_fo_DK = DateTimePatterns_fo;
+export var DateTimePatterns_fo_DK = DateTimePatterns_fo;
 
 
 /**
  * Extended set of localized date/time patterns for locale fo_FO.
  */
-DateTimePatterns_fo_FO = DateTimePatterns_fo;
+export var DateTimePatterns_fo_FO = DateTimePatterns_fo;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BE.
  */
-DateTimePatterns_fr_BE = DateTimePatterns_fr;
+export var DateTimePatterns_fr_BE = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BF.
  */
-DateTimePatterns_fr_BF = DateTimePatterns_fr;
+export var DateTimePatterns_fr_BF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BI.
  */
-DateTimePatterns_fr_BI = DateTimePatterns_fr;
+export var DateTimePatterns_fr_BI = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BJ.
  */
-DateTimePatterns_fr_BJ = DateTimePatterns_fr;
+export var DateTimePatterns_fr_BJ = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_BL.
  */
-DateTimePatterns_fr_BL = DateTimePatterns_fr;
+export var DateTimePatterns_fr_BL = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CD.
  */
-DateTimePatterns_fr_CD = DateTimePatterns_fr;
+export var DateTimePatterns_fr_CD = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CF.
  */
-DateTimePatterns_fr_CF = DateTimePatterns_fr;
+export var DateTimePatterns_fr_CF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CG.
  */
-DateTimePatterns_fr_CG = DateTimePatterns_fr;
+export var DateTimePatterns_fr_CG = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CH.
  */
-DateTimePatterns_fr_CH = {
+export var DateTimePatterns_fr_CH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4461,19 +4461,19 @@ DateTimePatterns_fr_CH = {
 /**
  * Extended set of localized date/time patterns for locale fr_CI.
  */
-DateTimePatterns_fr_CI = DateTimePatterns_fr;
+export var DateTimePatterns_fr_CI = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_CM.
  */
-DateTimePatterns_fr_CM = DateTimePatterns_fr;
+export var DateTimePatterns_fr_CM = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_DJ.
  */
-DateTimePatterns_fr_DJ = {
+export var DateTimePatterns_fr_DJ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4494,7 +4494,7 @@ DateTimePatterns_fr_DJ = {
 /**
  * Extended set of localized date/time patterns for locale fr_DZ.
  */
-DateTimePatterns_fr_DZ = {
+export var DateTimePatterns_fr_DZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4515,97 +4515,97 @@ DateTimePatterns_fr_DZ = {
 /**
  * Extended set of localized date/time patterns for locale fr_FR.
  */
-DateTimePatterns_fr_FR = DateTimePatterns_fr;
+export var DateTimePatterns_fr_FR = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GA.
  */
-DateTimePatterns_fr_GA = DateTimePatterns_fr;
+export var DateTimePatterns_fr_GA = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GF.
  */
-DateTimePatterns_fr_GF = DateTimePatterns_fr;
+export var DateTimePatterns_fr_GF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GN.
  */
-DateTimePatterns_fr_GN = DateTimePatterns_fr;
+export var DateTimePatterns_fr_GN = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GP.
  */
-DateTimePatterns_fr_GP = DateTimePatterns_fr;
+export var DateTimePatterns_fr_GP = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_GQ.
  */
-DateTimePatterns_fr_GQ = DateTimePatterns_fr;
+export var DateTimePatterns_fr_GQ = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_HT.
  */
-DateTimePatterns_fr_HT = DateTimePatterns_fr;
+export var DateTimePatterns_fr_HT = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_KM.
  */
-DateTimePatterns_fr_KM = DateTimePatterns_fr;
+export var DateTimePatterns_fr_KM = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_LU.
  */
-DateTimePatterns_fr_LU = DateTimePatterns_fr;
+export var DateTimePatterns_fr_LU = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MA.
  */
-DateTimePatterns_fr_MA = DateTimePatterns_fr;
+export var DateTimePatterns_fr_MA = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MC.
  */
-DateTimePatterns_fr_MC = DateTimePatterns_fr;
+export var DateTimePatterns_fr_MC = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MF.
  */
-DateTimePatterns_fr_MF = DateTimePatterns_fr;
+export var DateTimePatterns_fr_MF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MG.
  */
-DateTimePatterns_fr_MG = DateTimePatterns_fr;
+export var DateTimePatterns_fr_MG = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_ML.
  */
-DateTimePatterns_fr_ML = DateTimePatterns_fr;
+export var DateTimePatterns_fr_ML = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MQ.
  */
-DateTimePatterns_fr_MQ = DateTimePatterns_fr;
+export var DateTimePatterns_fr_MQ = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_MR.
  */
-DateTimePatterns_fr_MR = {
+export var DateTimePatterns_fr_MR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4626,61 +4626,61 @@ DateTimePatterns_fr_MR = {
 /**
  * Extended set of localized date/time patterns for locale fr_MU.
  */
-DateTimePatterns_fr_MU = DateTimePatterns_fr;
+export var DateTimePatterns_fr_MU = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_NC.
  */
-DateTimePatterns_fr_NC = DateTimePatterns_fr;
+export var DateTimePatterns_fr_NC = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_NE.
  */
-DateTimePatterns_fr_NE = DateTimePatterns_fr;
+export var DateTimePatterns_fr_NE = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_PF.
  */
-DateTimePatterns_fr_PF = DateTimePatterns_fr;
+export var DateTimePatterns_fr_PF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_PM.
  */
-DateTimePatterns_fr_PM = DateTimePatterns_fr;
+export var DateTimePatterns_fr_PM = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_RE.
  */
-DateTimePatterns_fr_RE = DateTimePatterns_fr;
+export var DateTimePatterns_fr_RE = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_RW.
  */
-DateTimePatterns_fr_RW = DateTimePatterns_fr;
+export var DateTimePatterns_fr_RW = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_SC.
  */
-DateTimePatterns_fr_SC = DateTimePatterns_fr;
+export var DateTimePatterns_fr_SC = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_SN.
  */
-DateTimePatterns_fr_SN = DateTimePatterns_fr;
+export var DateTimePatterns_fr_SN = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_SY.
  */
-DateTimePatterns_fr_SY = {
+export var DateTimePatterns_fr_SY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4701,7 +4701,7 @@ DateTimePatterns_fr_SY = {
 /**
  * Extended set of localized date/time patterns for locale fr_TD.
  */
-DateTimePatterns_fr_TD = {
+export var DateTimePatterns_fr_TD = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4722,13 +4722,13 @@ DateTimePatterns_fr_TD = {
 /**
  * Extended set of localized date/time patterns for locale fr_TG.
  */
-DateTimePatterns_fr_TG = DateTimePatterns_fr;
+export var DateTimePatterns_fr_TG = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_TN.
  */
-DateTimePatterns_fr_TN = {
+export var DateTimePatterns_fr_TN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4749,7 +4749,7 @@ DateTimePatterns_fr_TN = {
 /**
  * Extended set of localized date/time patterns for locale fr_VU.
  */
-DateTimePatterns_fr_VU = {
+export var DateTimePatterns_fr_VU = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4770,19 +4770,19 @@ DateTimePatterns_fr_VU = {
 /**
  * Extended set of localized date/time patterns for locale fr_WF.
  */
-DateTimePatterns_fr_WF = DateTimePatterns_fr;
+export var DateTimePatterns_fr_WF = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fr_YT.
  */
-DateTimePatterns_fr_YT = DateTimePatterns_fr;
+export var DateTimePatterns_fr_YT = DateTimePatterns_fr;
 
 
 /**
  * Extended set of localized date/time patterns for locale fur.
  */
-DateTimePatterns_fur = {
+export var DateTimePatterns_fur = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4803,13 +4803,13 @@ DateTimePatterns_fur = {
 /**
  * Extended set of localized date/time patterns for locale fur_IT.
  */
-DateTimePatterns_fur_IT = DateTimePatterns_fur;
+export var DateTimePatterns_fur_IT = DateTimePatterns_fur;
 
 
 /**
  * Extended set of localized date/time patterns for locale fy.
  */
-DateTimePatterns_fy = {
+export var DateTimePatterns_fy = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4830,25 +4830,25 @@ DateTimePatterns_fy = {
 /**
  * Extended set of localized date/time patterns for locale fy_NL.
  */
-DateTimePatterns_fy_NL = DateTimePatterns_fy;
+export var DateTimePatterns_fy_NL = DateTimePatterns_fy;
 
 
 /**
  * Extended set of localized date/time patterns for locale ga_GB.
  */
-DateTimePatterns_ga_GB = DateTimePatterns_ga;
+export var DateTimePatterns_ga_GB = DateTimePatterns_ga;
 
 
 /**
  * Extended set of localized date/time patterns for locale ga_IE.
  */
-DateTimePatterns_ga_IE = DateTimePatterns_ga;
+export var DateTimePatterns_ga_IE = DateTimePatterns_ga;
 
 
 /**
  * Extended set of localized date/time patterns for locale gd.
  */
-DateTimePatterns_gd = {
+export var DateTimePatterns_gd = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'LLL Y',
@@ -4869,43 +4869,43 @@ DateTimePatterns_gd = {
 /**
  * Extended set of localized date/time patterns for locale gd_GB.
  */
-DateTimePatterns_gd_GB = DateTimePatterns_gd;
+export var DateTimePatterns_gd_GB = DateTimePatterns_gd;
 
 
 /**
  * Extended set of localized date/time patterns for locale gl_ES.
  */
-DateTimePatterns_gl_ES = DateTimePatterns_gl;
+export var DateTimePatterns_gl_ES = DateTimePatterns_gl;
 
 
 /**
  * Extended set of localized date/time patterns for locale gsw_CH.
  */
-DateTimePatterns_gsw_CH = DateTimePatterns_gsw;
+export var DateTimePatterns_gsw_CH = DateTimePatterns_gsw;
 
 
 /**
  * Extended set of localized date/time patterns for locale gsw_FR.
  */
-DateTimePatterns_gsw_FR = DateTimePatterns_gsw;
+export var DateTimePatterns_gsw_FR = DateTimePatterns_gsw;
 
 
 /**
  * Extended set of localized date/time patterns for locale gsw_LI.
  */
-DateTimePatterns_gsw_LI = DateTimePatterns_gsw;
+export var DateTimePatterns_gsw_LI = DateTimePatterns_gsw;
 
 
 /**
  * Extended set of localized date/time patterns for locale gu_IN.
  */
-DateTimePatterns_gu_IN = DateTimePatterns_gu;
+export var DateTimePatterns_gu_IN = DateTimePatterns_gu;
 
 
 /**
  * Extended set of localized date/time patterns for locale guz.
  */
-DateTimePatterns_guz = {
+export var DateTimePatterns_guz = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4926,13 +4926,13 @@ DateTimePatterns_guz = {
 /**
  * Extended set of localized date/time patterns for locale guz_KE.
  */
-DateTimePatterns_guz_KE = DateTimePatterns_guz;
+export var DateTimePatterns_guz_KE = DateTimePatterns_guz;
 
 
 /**
  * Extended set of localized date/time patterns for locale gv.
  */
-DateTimePatterns_gv = {
+export var DateTimePatterns_gv = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -4953,13 +4953,13 @@ DateTimePatterns_gv = {
 /**
  * Extended set of localized date/time patterns for locale gv_IM.
  */
-DateTimePatterns_gv_IM = DateTimePatterns_gv;
+export var DateTimePatterns_gv_IM = DateTimePatterns_gv;
 
 
 /**
  * Extended set of localized date/time patterns for locale ha.
  */
-DateTimePatterns_ha = {
+export var DateTimePatterns_ha = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -4980,7 +4980,7 @@ DateTimePatterns_ha = {
 /**
  * Extended set of localized date/time patterns for locale ha_GH.
  */
-DateTimePatterns_ha_GH = {
+export var DateTimePatterns_ha_GH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5001,37 +5001,37 @@ DateTimePatterns_ha_GH = {
 /**
  * Extended set of localized date/time patterns for locale ha_NE.
  */
-DateTimePatterns_ha_NE = DateTimePatterns_ha;
+export var DateTimePatterns_ha_NE = DateTimePatterns_ha;
 
 
 /**
  * Extended set of localized date/time patterns for locale ha_NG.
  */
-DateTimePatterns_ha_NG = DateTimePatterns_ha;
+export var DateTimePatterns_ha_NG = DateTimePatterns_ha;
 
 
 /**
  * Extended set of localized date/time patterns for locale haw_US.
  */
-DateTimePatterns_haw_US = DateTimePatterns_haw;
+export var DateTimePatterns_haw_US = DateTimePatterns_haw;
 
 
 /**
  * Extended set of localized date/time patterns for locale he_IL.
  */
-DateTimePatterns_he_IL = DateTimePatterns_he;
+export var DateTimePatterns_he_IL = DateTimePatterns_he;
 
 
 /**
  * Extended set of localized date/time patterns for locale hi_IN.
  */
-DateTimePatterns_hi_IN = DateTimePatterns_hi;
+export var DateTimePatterns_hi_IN = DateTimePatterns_hi;
 
 
 /**
  * Extended set of localized date/time patterns for locale hi_Latn.
  */
-DateTimePatterns_hi_Latn = {
+export var DateTimePatterns_hi_Latn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5052,7 +5052,7 @@ DateTimePatterns_hi_Latn = {
 /**
  * Extended set of localized date/time patterns for locale hi_Latn_IN.
  */
-DateTimePatterns_hi_Latn_IN = {
+export var DateTimePatterns_hi_Latn_IN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5073,19 +5073,19 @@ DateTimePatterns_hi_Latn_IN = {
 /**
  * Extended set of localized date/time patterns for locale hr_BA.
  */
-DateTimePatterns_hr_BA = DateTimePatterns_hr;
+export var DateTimePatterns_hr_BA = DateTimePatterns_hr;
 
 
 /**
  * Extended set of localized date/time patterns for locale hr_HR.
  */
-DateTimePatterns_hr_HR = DateTimePatterns_hr;
+export var DateTimePatterns_hr_HR = DateTimePatterns_hr;
 
 
 /**
  * Extended set of localized date/time patterns for locale hsb.
  */
-DateTimePatterns_hsb = {
+export var DateTimePatterns_hsb = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5106,25 +5106,25 @@ DateTimePatterns_hsb = {
 /**
  * Extended set of localized date/time patterns for locale hsb_DE.
  */
-DateTimePatterns_hsb_DE = DateTimePatterns_hsb;
+export var DateTimePatterns_hsb_DE = DateTimePatterns_hsb;
 
 
 /**
  * Extended set of localized date/time patterns for locale hu_HU.
  */
-DateTimePatterns_hu_HU = DateTimePatterns_hu;
+export var DateTimePatterns_hu_HU = DateTimePatterns_hu;
 
 
 /**
  * Extended set of localized date/time patterns for locale hy_AM.
  */
-DateTimePatterns_hy_AM = DateTimePatterns_hy;
+export var DateTimePatterns_hy_AM = DateTimePatterns_hy;
 
 
 /**
  * Extended set of localized date/time patterns for locale ia.
  */
-DateTimePatterns_ia = {
+export var DateTimePatterns_ia = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5145,19 +5145,19 @@ DateTimePatterns_ia = {
 /**
  * Extended set of localized date/time patterns for locale ia_001.
  */
-DateTimePatterns_ia_001 = DateTimePatterns_ia;
+export var DateTimePatterns_ia_001 = DateTimePatterns_ia;
 
 
 /**
  * Extended set of localized date/time patterns for locale id_ID.
  */
-DateTimePatterns_id_ID = DateTimePatterns_id;
+export var DateTimePatterns_id_ID = DateTimePatterns_id;
 
 
 /**
  * Extended set of localized date/time patterns for locale ig.
  */
-DateTimePatterns_ig = {
+export var DateTimePatterns_ig = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5178,13 +5178,13 @@ DateTimePatterns_ig = {
 /**
  * Extended set of localized date/time patterns for locale ig_NG.
  */
-DateTimePatterns_ig_NG = DateTimePatterns_ig;
+export var DateTimePatterns_ig_NG = DateTimePatterns_ig;
 
 
 /**
  * Extended set of localized date/time patterns for locale ii.
  */
-DateTimePatterns_ii = {
+export var DateTimePatterns_ii = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5205,49 +5205,49 @@ DateTimePatterns_ii = {
 /**
  * Extended set of localized date/time patterns for locale ii_CN.
  */
-DateTimePatterns_ii_CN = DateTimePatterns_ii;
+export var DateTimePatterns_ii_CN = DateTimePatterns_ii;
 
 
 /**
  * Extended set of localized date/time patterns for locale is_IS.
  */
-DateTimePatterns_is_IS = DateTimePatterns_is;
+export var DateTimePatterns_is_IS = DateTimePatterns_is;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_CH.
  */
-DateTimePatterns_it_CH = DateTimePatterns_it;
+export var DateTimePatterns_it_CH = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_IT.
  */
-DateTimePatterns_it_IT = DateTimePatterns_it;
+export var DateTimePatterns_it_IT = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_SM.
  */
-DateTimePatterns_it_SM = DateTimePatterns_it;
+export var DateTimePatterns_it_SM = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale it_VA.
  */
-DateTimePatterns_it_VA = DateTimePatterns_it;
+export var DateTimePatterns_it_VA = DateTimePatterns_it;
 
 
 /**
  * Extended set of localized date/time patterns for locale ja_JP.
  */
-DateTimePatterns_ja_JP = DateTimePatterns_ja;
+export var DateTimePatterns_ja_JP = DateTimePatterns_ja;
 
 
 /**
  * Extended set of localized date/time patterns for locale jgo.
  */
-DateTimePatterns_jgo = {
+export var DateTimePatterns_jgo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5268,13 +5268,13 @@ DateTimePatterns_jgo = {
 /**
  * Extended set of localized date/time patterns for locale jgo_CM.
  */
-DateTimePatterns_jgo_CM = DateTimePatterns_jgo;
+export var DateTimePatterns_jgo_CM = DateTimePatterns_jgo;
 
 
 /**
  * Extended set of localized date/time patterns for locale jmc.
  */
-DateTimePatterns_jmc = {
+export var DateTimePatterns_jmc = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5295,13 +5295,13 @@ DateTimePatterns_jmc = {
 /**
  * Extended set of localized date/time patterns for locale jmc_TZ.
  */
-DateTimePatterns_jmc_TZ = DateTimePatterns_jmc;
+export var DateTimePatterns_jmc_TZ = DateTimePatterns_jmc;
 
 
 /**
  * Extended set of localized date/time patterns for locale jv.
  */
-DateTimePatterns_jv = {
+export var DateTimePatterns_jv = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5322,19 +5322,19 @@ DateTimePatterns_jv = {
 /**
  * Extended set of localized date/time patterns for locale jv_ID.
  */
-DateTimePatterns_jv_ID = DateTimePatterns_jv;
+export var DateTimePatterns_jv_ID = DateTimePatterns_jv;
 
 
 /**
  * Extended set of localized date/time patterns for locale ka_GE.
  */
-DateTimePatterns_ka_GE = DateTimePatterns_ka;
+export var DateTimePatterns_ka_GE = DateTimePatterns_ka;
 
 
 /**
  * Extended set of localized date/time patterns for locale kab.
  */
-DateTimePatterns_kab = {
+export var DateTimePatterns_kab = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5355,13 +5355,13 @@ DateTimePatterns_kab = {
 /**
  * Extended set of localized date/time patterns for locale kab_DZ.
  */
-DateTimePatterns_kab_DZ = DateTimePatterns_kab;
+export var DateTimePatterns_kab_DZ = DateTimePatterns_kab;
 
 
 /**
  * Extended set of localized date/time patterns for locale kam.
  */
-DateTimePatterns_kam = {
+export var DateTimePatterns_kam = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5382,13 +5382,13 @@ DateTimePatterns_kam = {
 /**
  * Extended set of localized date/time patterns for locale kam_KE.
  */
-DateTimePatterns_kam_KE = DateTimePatterns_kam;
+export var DateTimePatterns_kam_KE = DateTimePatterns_kam;
 
 
 /**
  * Extended set of localized date/time patterns for locale kde.
  */
-DateTimePatterns_kde = {
+export var DateTimePatterns_kde = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5409,13 +5409,13 @@ DateTimePatterns_kde = {
 /**
  * Extended set of localized date/time patterns for locale kde_TZ.
  */
-DateTimePatterns_kde_TZ = DateTimePatterns_kde;
+export var DateTimePatterns_kde_TZ = DateTimePatterns_kde;
 
 
 /**
  * Extended set of localized date/time patterns for locale kea.
  */
-DateTimePatterns_kea = {
+export var DateTimePatterns_kea = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'LLL y',
@@ -5436,13 +5436,13 @@ DateTimePatterns_kea = {
 /**
  * Extended set of localized date/time patterns for locale kea_CV.
  */
-DateTimePatterns_kea_CV = DateTimePatterns_kea;
+export var DateTimePatterns_kea_CV = DateTimePatterns_kea;
 
 
 /**
  * Extended set of localized date/time patterns for locale kgp.
  */
-DateTimePatterns_kgp = {
+export var DateTimePatterns_kgp = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM, y',
@@ -5463,13 +5463,13 @@ DateTimePatterns_kgp = {
 /**
  * Extended set of localized date/time patterns for locale kgp_BR.
  */
-DateTimePatterns_kgp_BR = DateTimePatterns_kgp;
+export var DateTimePatterns_kgp_BR = DateTimePatterns_kgp;
 
 
 /**
  * Extended set of localized date/time patterns for locale khq.
  */
-DateTimePatterns_khq = {
+export var DateTimePatterns_khq = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5490,13 +5490,13 @@ DateTimePatterns_khq = {
 /**
  * Extended set of localized date/time patterns for locale khq_ML.
  */
-DateTimePatterns_khq_ML = DateTimePatterns_khq;
+export var DateTimePatterns_khq_ML = DateTimePatterns_khq;
 
 
 /**
  * Extended set of localized date/time patterns for locale ki.
  */
-DateTimePatterns_ki = {
+export var DateTimePatterns_ki = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5517,19 +5517,19 @@ DateTimePatterns_ki = {
 /**
  * Extended set of localized date/time patterns for locale ki_KE.
  */
-DateTimePatterns_ki_KE = DateTimePatterns_ki;
+export var DateTimePatterns_ki_KE = DateTimePatterns_ki;
 
 
 /**
  * Extended set of localized date/time patterns for locale kk_KZ.
  */
-DateTimePatterns_kk_KZ = DateTimePatterns_kk;
+export var DateTimePatterns_kk_KZ = DateTimePatterns_kk;
 
 
 /**
  * Extended set of localized date/time patterns for locale kkj.
  */
-DateTimePatterns_kkj = {
+export var DateTimePatterns_kkj = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5550,13 +5550,13 @@ DateTimePatterns_kkj = {
 /**
  * Extended set of localized date/time patterns for locale kkj_CM.
  */
-DateTimePatterns_kkj_CM = DateTimePatterns_kkj;
+export var DateTimePatterns_kkj_CM = DateTimePatterns_kkj;
 
 
 /**
  * Extended set of localized date/time patterns for locale kl.
  */
-DateTimePatterns_kl = {
+export var DateTimePatterns_kl = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5577,13 +5577,13 @@ DateTimePatterns_kl = {
 /**
  * Extended set of localized date/time patterns for locale kl_GL.
  */
-DateTimePatterns_kl_GL = DateTimePatterns_kl;
+export var DateTimePatterns_kl_GL = DateTimePatterns_kl;
 
 
 /**
  * Extended set of localized date/time patterns for locale kln.
  */
-DateTimePatterns_kln = {
+export var DateTimePatterns_kln = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5604,37 +5604,37 @@ DateTimePatterns_kln = {
 /**
  * Extended set of localized date/time patterns for locale kln_KE.
  */
-DateTimePatterns_kln_KE = DateTimePatterns_kln;
+export var DateTimePatterns_kln_KE = DateTimePatterns_kln;
 
 
 /**
  * Extended set of localized date/time patterns for locale km_KH.
  */
-DateTimePatterns_km_KH = DateTimePatterns_km;
+export var DateTimePatterns_km_KH = DateTimePatterns_km;
 
 
 /**
  * Extended set of localized date/time patterns for locale kn_IN.
  */
-DateTimePatterns_kn_IN = DateTimePatterns_kn;
+export var DateTimePatterns_kn_IN = DateTimePatterns_kn;
 
 
 /**
  * Extended set of localized date/time patterns for locale ko_KP.
  */
-DateTimePatterns_ko_KP = DateTimePatterns_ko;
+export var DateTimePatterns_ko_KP = DateTimePatterns_ko;
 
 
 /**
  * Extended set of localized date/time patterns for locale ko_KR.
  */
-DateTimePatterns_ko_KR = DateTimePatterns_ko;
+export var DateTimePatterns_ko_KR = DateTimePatterns_ko;
 
 
 /**
  * Extended set of localized date/time patterns for locale kok.
  */
-DateTimePatterns_kok = {
+export var DateTimePatterns_kok = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5655,13 +5655,13 @@ DateTimePatterns_kok = {
 /**
  * Extended set of localized date/time patterns for locale kok_IN.
  */
-DateTimePatterns_kok_IN = DateTimePatterns_kok;
+export var DateTimePatterns_kok_IN = DateTimePatterns_kok;
 
 
 /**
  * Extended set of localized date/time patterns for locale ks.
  */
-DateTimePatterns_ks = {
+export var DateTimePatterns_ks = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5682,19 +5682,19 @@ DateTimePatterns_ks = {
 /**
  * Extended set of localized date/time patterns for locale ks_Arab.
  */
-DateTimePatterns_ks_Arab = DateTimePatterns_ks;
+export var DateTimePatterns_ks_Arab = DateTimePatterns_ks;
 
 
 /**
  * Extended set of localized date/time patterns for locale ks_Arab_IN.
  */
-DateTimePatterns_ks_Arab_IN = DateTimePatterns_ks;
+export var DateTimePatterns_ks_Arab_IN = DateTimePatterns_ks;
 
 
 /**
  * Extended set of localized date/time patterns for locale ks_Deva.
  */
-DateTimePatterns_ks_Deva = {
+export var DateTimePatterns_ks_Deva = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5715,7 +5715,7 @@ DateTimePatterns_ks_Deva = {
 /**
  * Extended set of localized date/time patterns for locale ks_Deva_IN.
  */
-DateTimePatterns_ks_Deva_IN = {
+export var DateTimePatterns_ks_Deva_IN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5736,7 +5736,7 @@ DateTimePatterns_ks_Deva_IN = {
 /**
  * Extended set of localized date/time patterns for locale ksb.
  */
-DateTimePatterns_ksb = {
+export var DateTimePatterns_ksb = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5757,13 +5757,13 @@ DateTimePatterns_ksb = {
 /**
  * Extended set of localized date/time patterns for locale ksb_TZ.
  */
-DateTimePatterns_ksb_TZ = DateTimePatterns_ksb;
+export var DateTimePatterns_ksb_TZ = DateTimePatterns_ksb;
 
 
 /**
  * Extended set of localized date/time patterns for locale ksf.
  */
-DateTimePatterns_ksf = {
+export var DateTimePatterns_ksf = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5784,13 +5784,13 @@ DateTimePatterns_ksf = {
 /**
  * Extended set of localized date/time patterns for locale ksf_CM.
  */
-DateTimePatterns_ksf_CM = DateTimePatterns_ksf;
+export var DateTimePatterns_ksf_CM = DateTimePatterns_ksf;
 
 
 /**
  * Extended set of localized date/time patterns for locale ksh.
  */
-DateTimePatterns_ksh = {
+export var DateTimePatterns_ksh = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5811,13 +5811,13 @@ DateTimePatterns_ksh = {
 /**
  * Extended set of localized date/time patterns for locale ksh_DE.
  */
-DateTimePatterns_ksh_DE = DateTimePatterns_ksh;
+export var DateTimePatterns_ksh_DE = DateTimePatterns_ksh;
 
 
 /**
  * Extended set of localized date/time patterns for locale ku.
  */
-DateTimePatterns_ku = {
+export var DateTimePatterns_ku = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5838,13 +5838,13 @@ DateTimePatterns_ku = {
 /**
  * Extended set of localized date/time patterns for locale ku_TR.
  */
-DateTimePatterns_ku_TR = DateTimePatterns_ku;
+export var DateTimePatterns_ku_TR = DateTimePatterns_ku;
 
 
 /**
  * Extended set of localized date/time patterns for locale kw.
  */
-DateTimePatterns_kw = {
+export var DateTimePatterns_kw = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5865,19 +5865,19 @@ DateTimePatterns_kw = {
 /**
  * Extended set of localized date/time patterns for locale kw_GB.
  */
-DateTimePatterns_kw_GB = DateTimePatterns_kw;
+export var DateTimePatterns_kw_GB = DateTimePatterns_kw;
 
 
 /**
  * Extended set of localized date/time patterns for locale ky_KG.
  */
-DateTimePatterns_ky_KG = DateTimePatterns_ky;
+export var DateTimePatterns_ky_KG = DateTimePatterns_ky;
 
 
 /**
  * Extended set of localized date/time patterns for locale lag.
  */
-DateTimePatterns_lag = {
+export var DateTimePatterns_lag = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5898,13 +5898,13 @@ DateTimePatterns_lag = {
 /**
  * Extended set of localized date/time patterns for locale lag_TZ.
  */
-DateTimePatterns_lag_TZ = DateTimePatterns_lag;
+export var DateTimePatterns_lag_TZ = DateTimePatterns_lag;
 
 
 /**
  * Extended set of localized date/time patterns for locale lb.
  */
-DateTimePatterns_lb = {
+export var DateTimePatterns_lb = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5925,13 +5925,13 @@ DateTimePatterns_lb = {
 /**
  * Extended set of localized date/time patterns for locale lb_LU.
  */
-DateTimePatterns_lb_LU = DateTimePatterns_lb;
+export var DateTimePatterns_lb_LU = DateTimePatterns_lb;
 
 
 /**
  * Extended set of localized date/time patterns for locale lg.
  */
-DateTimePatterns_lg = {
+export var DateTimePatterns_lg = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -5952,13 +5952,13 @@ DateTimePatterns_lg = {
 /**
  * Extended set of localized date/time patterns for locale lg_UG.
  */
-DateTimePatterns_lg_UG = DateTimePatterns_lg;
+export var DateTimePatterns_lg_UG = DateTimePatterns_lg;
 
 
 /**
  * Extended set of localized date/time patterns for locale lkt.
  */
-DateTimePatterns_lkt = {
+export var DateTimePatterns_lkt = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -5979,43 +5979,43 @@ DateTimePatterns_lkt = {
 /**
  * Extended set of localized date/time patterns for locale lkt_US.
  */
-DateTimePatterns_lkt_US = DateTimePatterns_lkt;
+export var DateTimePatterns_lkt_US = DateTimePatterns_lkt;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_AO.
  */
-DateTimePatterns_ln_AO = DateTimePatterns_ln;
+export var DateTimePatterns_ln_AO = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_CD.
  */
-DateTimePatterns_ln_CD = DateTimePatterns_ln;
+export var DateTimePatterns_ln_CD = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_CF.
  */
-DateTimePatterns_ln_CF = DateTimePatterns_ln;
+export var DateTimePatterns_ln_CF = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale ln_CG.
  */
-DateTimePatterns_ln_CG = DateTimePatterns_ln;
+export var DateTimePatterns_ln_CG = DateTimePatterns_ln;
 
 
 /**
  * Extended set of localized date/time patterns for locale lo_LA.
  */
-DateTimePatterns_lo_LA = DateTimePatterns_lo;
+export var DateTimePatterns_lo_LA = DateTimePatterns_lo;
 
 
 /**
  * Extended set of localized date/time patterns for locale lrc.
  */
-DateTimePatterns_lrc = {
+export var DateTimePatterns_lrc = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6036,7 +6036,7 @@ DateTimePatterns_lrc = {
 /**
  * Extended set of localized date/time patterns for locale lrc_IQ.
  */
-DateTimePatterns_lrc_IQ = {
+export var DateTimePatterns_lrc_IQ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6057,19 +6057,19 @@ DateTimePatterns_lrc_IQ = {
 /**
  * Extended set of localized date/time patterns for locale lrc_IR.
  */
-DateTimePatterns_lrc_IR = DateTimePatterns_lrc;
+export var DateTimePatterns_lrc_IR = DateTimePatterns_lrc;
 
 
 /**
  * Extended set of localized date/time patterns for locale lt_LT.
  */
-DateTimePatterns_lt_LT = DateTimePatterns_lt;
+export var DateTimePatterns_lt_LT = DateTimePatterns_lt;
 
 
 /**
  * Extended set of localized date/time patterns for locale lu.
  */
-DateTimePatterns_lu = {
+export var DateTimePatterns_lu = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6090,13 +6090,13 @@ DateTimePatterns_lu = {
 /**
  * Extended set of localized date/time patterns for locale lu_CD.
  */
-DateTimePatterns_lu_CD = DateTimePatterns_lu;
+export var DateTimePatterns_lu_CD = DateTimePatterns_lu;
 
 
 /**
  * Extended set of localized date/time patterns for locale luo.
  */
-DateTimePatterns_luo = {
+export var DateTimePatterns_luo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6117,13 +6117,13 @@ DateTimePatterns_luo = {
 /**
  * Extended set of localized date/time patterns for locale luo_KE.
  */
-DateTimePatterns_luo_KE = DateTimePatterns_luo;
+export var DateTimePatterns_luo_KE = DateTimePatterns_luo;
 
 
 /**
  * Extended set of localized date/time patterns for locale luy.
  */
-DateTimePatterns_luy = {
+export var DateTimePatterns_luy = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6144,19 +6144,19 @@ DateTimePatterns_luy = {
 /**
  * Extended set of localized date/time patterns for locale luy_KE.
  */
-DateTimePatterns_luy_KE = DateTimePatterns_luy;
+export var DateTimePatterns_luy_KE = DateTimePatterns_luy;
 
 
 /**
  * Extended set of localized date/time patterns for locale lv_LV.
  */
-DateTimePatterns_lv_LV = DateTimePatterns_lv;
+export var DateTimePatterns_lv_LV = DateTimePatterns_lv;
 
 
 /**
  * Extended set of localized date/time patterns for locale mai.
  */
-DateTimePatterns_mai = {
+export var DateTimePatterns_mai = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6177,13 +6177,13 @@ DateTimePatterns_mai = {
 /**
  * Extended set of localized date/time patterns for locale mai_IN.
  */
-DateTimePatterns_mai_IN = DateTimePatterns_mai;
+export var DateTimePatterns_mai_IN = DateTimePatterns_mai;
 
 
 /**
  * Extended set of localized date/time patterns for locale mas.
  */
-DateTimePatterns_mas = {
+export var DateTimePatterns_mas = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6204,19 +6204,19 @@ DateTimePatterns_mas = {
 /**
  * Extended set of localized date/time patterns for locale mas_KE.
  */
-DateTimePatterns_mas_KE = DateTimePatterns_mas;
+export var DateTimePatterns_mas_KE = DateTimePatterns_mas;
 
 
 /**
  * Extended set of localized date/time patterns for locale mas_TZ.
  */
-DateTimePatterns_mas_TZ = DateTimePatterns_mas;
+export var DateTimePatterns_mas_TZ = DateTimePatterns_mas;
 
 
 /**
  * Extended set of localized date/time patterns for locale mer.
  */
-DateTimePatterns_mer = {
+export var DateTimePatterns_mer = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6237,13 +6237,13 @@ DateTimePatterns_mer = {
 /**
  * Extended set of localized date/time patterns for locale mer_KE.
  */
-DateTimePatterns_mer_KE = DateTimePatterns_mer;
+export var DateTimePatterns_mer_KE = DateTimePatterns_mer;
 
 
 /**
  * Extended set of localized date/time patterns for locale mfe.
  */
-DateTimePatterns_mfe = {
+export var DateTimePatterns_mfe = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6264,13 +6264,13 @@ DateTimePatterns_mfe = {
 /**
  * Extended set of localized date/time patterns for locale mfe_MU.
  */
-DateTimePatterns_mfe_MU = DateTimePatterns_mfe;
+export var DateTimePatterns_mfe_MU = DateTimePatterns_mfe;
 
 
 /**
  * Extended set of localized date/time patterns for locale mg.
  */
-DateTimePatterns_mg = {
+export var DateTimePatterns_mg = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6291,13 +6291,13 @@ DateTimePatterns_mg = {
 /**
  * Extended set of localized date/time patterns for locale mg_MG.
  */
-DateTimePatterns_mg_MG = DateTimePatterns_mg;
+export var DateTimePatterns_mg_MG = DateTimePatterns_mg;
 
 
 /**
  * Extended set of localized date/time patterns for locale mgh.
  */
-DateTimePatterns_mgh = {
+export var DateTimePatterns_mgh = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6318,13 +6318,13 @@ DateTimePatterns_mgh = {
 /**
  * Extended set of localized date/time patterns for locale mgh_MZ.
  */
-DateTimePatterns_mgh_MZ = DateTimePatterns_mgh;
+export var DateTimePatterns_mgh_MZ = DateTimePatterns_mgh;
 
 
 /**
  * Extended set of localized date/time patterns for locale mgo.
  */
-DateTimePatterns_mgo = {
+export var DateTimePatterns_mgo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6345,13 +6345,13 @@ DateTimePatterns_mgo = {
 /**
  * Extended set of localized date/time patterns for locale mgo_CM.
  */
-DateTimePatterns_mgo_CM = DateTimePatterns_mgo;
+export var DateTimePatterns_mgo_CM = DateTimePatterns_mgo;
 
 
 /**
  * Extended set of localized date/time patterns for locale mi.
  */
-DateTimePatterns_mi = {
+export var DateTimePatterns_mi = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6372,31 +6372,31 @@ DateTimePatterns_mi = {
 /**
  * Extended set of localized date/time patterns for locale mi_NZ.
  */
-DateTimePatterns_mi_NZ = DateTimePatterns_mi;
+export var DateTimePatterns_mi_NZ = DateTimePatterns_mi;
 
 
 /**
  * Extended set of localized date/time patterns for locale mk_MK.
  */
-DateTimePatterns_mk_MK = DateTimePatterns_mk;
+export var DateTimePatterns_mk_MK = DateTimePatterns_mk;
 
 
 /**
  * Extended set of localized date/time patterns for locale ml_IN.
  */
-DateTimePatterns_ml_IN = DateTimePatterns_ml;
+export var DateTimePatterns_ml_IN = DateTimePatterns_ml;
 
 
 /**
  * Extended set of localized date/time patterns for locale mn_MN.
  */
-DateTimePatterns_mn_MN = DateTimePatterns_mn;
+export var DateTimePatterns_mn_MN = DateTimePatterns_mn;
 
 
 /**
  * Extended set of localized date/time patterns for locale mni.
  */
-DateTimePatterns_mni = {
+export var DateTimePatterns_mni = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6417,31 +6417,31 @@ DateTimePatterns_mni = {
 /**
  * Extended set of localized date/time patterns for locale mni_Beng.
  */
-DateTimePatterns_mni_Beng = DateTimePatterns_mni;
+export var DateTimePatterns_mni_Beng = DateTimePatterns_mni;
 
 
 /**
  * Extended set of localized date/time patterns for locale mni_Beng_IN.
  */
-DateTimePatterns_mni_Beng_IN = DateTimePatterns_mni;
+export var DateTimePatterns_mni_Beng_IN = DateTimePatterns_mni;
 
 
 /**
  * Extended set of localized date/time patterns for locale mr_IN.
  */
-DateTimePatterns_mr_IN = DateTimePatterns_mr;
+export var DateTimePatterns_mr_IN = DateTimePatterns_mr;
 
 
 /**
  * Extended set of localized date/time patterns for locale ms_BN.
  */
-DateTimePatterns_ms_BN = DateTimePatterns_ms;
+export var DateTimePatterns_ms_BN = DateTimePatterns_ms;
 
 
 /**
  * Extended set of localized date/time patterns for locale ms_ID.
  */
-DateTimePatterns_ms_ID = {
+export var DateTimePatterns_ms_ID = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6462,25 +6462,25 @@ DateTimePatterns_ms_ID = {
 /**
  * Extended set of localized date/time patterns for locale ms_MY.
  */
-DateTimePatterns_ms_MY = DateTimePatterns_ms;
+export var DateTimePatterns_ms_MY = DateTimePatterns_ms;
 
 
 /**
  * Extended set of localized date/time patterns for locale ms_SG.
  */
-DateTimePatterns_ms_SG = DateTimePatterns_ms;
+export var DateTimePatterns_ms_SG = DateTimePatterns_ms;
 
 
 /**
  * Extended set of localized date/time patterns for locale mt_MT.
  */
-DateTimePatterns_mt_MT = DateTimePatterns_mt;
+export var DateTimePatterns_mt_MT = DateTimePatterns_mt;
 
 
 /**
  * Extended set of localized date/time patterns for locale mua.
  */
-DateTimePatterns_mua = {
+export var DateTimePatterns_mua = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6501,19 +6501,19 @@ DateTimePatterns_mua = {
 /**
  * Extended set of localized date/time patterns for locale mua_CM.
  */
-DateTimePatterns_mua_CM = DateTimePatterns_mua;
+export var DateTimePatterns_mua_CM = DateTimePatterns_mua;
 
 
 /**
  * Extended set of localized date/time patterns for locale my_MM.
  */
-DateTimePatterns_my_MM = DateTimePatterns_my;
+export var DateTimePatterns_my_MM = DateTimePatterns_my;
 
 
 /**
  * Extended set of localized date/time patterns for locale mzn.
  */
-DateTimePatterns_mzn = {
+export var DateTimePatterns_mzn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6534,13 +6534,13 @@ DateTimePatterns_mzn = {
 /**
  * Extended set of localized date/time patterns for locale mzn_IR.
  */
-DateTimePatterns_mzn_IR = DateTimePatterns_mzn;
+export var DateTimePatterns_mzn_IR = DateTimePatterns_mzn;
 
 
 /**
  * Extended set of localized date/time patterns for locale naq.
  */
-DateTimePatterns_naq = {
+export var DateTimePatterns_naq = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6561,25 +6561,25 @@ DateTimePatterns_naq = {
 /**
  * Extended set of localized date/time patterns for locale naq_NA.
  */
-DateTimePatterns_naq_NA = DateTimePatterns_naq;
+export var DateTimePatterns_naq_NA = DateTimePatterns_naq;
 
 
 /**
  * Extended set of localized date/time patterns for locale nb_NO.
  */
-DateTimePatterns_nb_NO = DateTimePatterns_nb;
+export var DateTimePatterns_nb_NO = DateTimePatterns_nb;
 
 
 /**
  * Extended set of localized date/time patterns for locale nb_SJ.
  */
-DateTimePatterns_nb_SJ = DateTimePatterns_nb;
+export var DateTimePatterns_nb_SJ = DateTimePatterns_nb;
 
 
 /**
  * Extended set of localized date/time patterns for locale nd.
  */
-DateTimePatterns_nd = {
+export var DateTimePatterns_nd = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6600,13 +6600,13 @@ DateTimePatterns_nd = {
 /**
  * Extended set of localized date/time patterns for locale nd_ZW.
  */
-DateTimePatterns_nd_ZW = DateTimePatterns_nd;
+export var DateTimePatterns_nd_ZW = DateTimePatterns_nd;
 
 
 /**
  * Extended set of localized date/time patterns for locale ne_IN.
  */
-DateTimePatterns_ne_IN = {
+export var DateTimePatterns_ne_IN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6627,19 +6627,19 @@ DateTimePatterns_ne_IN = {
 /**
  * Extended set of localized date/time patterns for locale ne_NP.
  */
-DateTimePatterns_ne_NP = DateTimePatterns_ne;
+export var DateTimePatterns_ne_NP = DateTimePatterns_ne;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_AW.
  */
-DateTimePatterns_nl_AW = DateTimePatterns_nl;
+export var DateTimePatterns_nl_AW = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_BE.
  */
-DateTimePatterns_nl_BE = {
+export var DateTimePatterns_nl_BE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6660,37 +6660,37 @@ DateTimePatterns_nl_BE = {
 /**
  * Extended set of localized date/time patterns for locale nl_BQ.
  */
-DateTimePatterns_nl_BQ = DateTimePatterns_nl;
+export var DateTimePatterns_nl_BQ = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_CW.
  */
-DateTimePatterns_nl_CW = DateTimePatterns_nl;
+export var DateTimePatterns_nl_CW = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_NL.
  */
-DateTimePatterns_nl_NL = DateTimePatterns_nl;
+export var DateTimePatterns_nl_NL = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_SR.
  */
-DateTimePatterns_nl_SR = DateTimePatterns_nl;
+export var DateTimePatterns_nl_SR = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nl_SX.
  */
-DateTimePatterns_nl_SX = DateTimePatterns_nl;
+export var DateTimePatterns_nl_SX = DateTimePatterns_nl;
 
 
 /**
  * Extended set of localized date/time patterns for locale nmg.
  */
-DateTimePatterns_nmg = {
+export var DateTimePatterns_nmg = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6711,13 +6711,13 @@ DateTimePatterns_nmg = {
 /**
  * Extended set of localized date/time patterns for locale nmg_CM.
  */
-DateTimePatterns_nmg_CM = DateTimePatterns_nmg;
+export var DateTimePatterns_nmg_CM = DateTimePatterns_nmg;
 
 
 /**
  * Extended set of localized date/time patterns for locale nn.
  */
-DateTimePatterns_nn = {
+export var DateTimePatterns_nn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6738,13 +6738,13 @@ DateTimePatterns_nn = {
 /**
  * Extended set of localized date/time patterns for locale nn_NO.
  */
-DateTimePatterns_nn_NO = DateTimePatterns_nn;
+export var DateTimePatterns_nn_NO = DateTimePatterns_nn;
 
 
 /**
  * Extended set of localized date/time patterns for locale nnh.
  */
-DateTimePatterns_nnh = {
+export var DateTimePatterns_nnh = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6765,13 +6765,13 @@ DateTimePatterns_nnh = {
 /**
  * Extended set of localized date/time patterns for locale nnh_CM.
  */
-DateTimePatterns_nnh_CM = DateTimePatterns_nnh;
+export var DateTimePatterns_nnh_CM = DateTimePatterns_nnh;
 
 
 /**
  * Extended set of localized date/time patterns for locale nus.
  */
-DateTimePatterns_nus = {
+export var DateTimePatterns_nus = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6792,13 +6792,13 @@ DateTimePatterns_nus = {
 /**
  * Extended set of localized date/time patterns for locale nus_SS.
  */
-DateTimePatterns_nus_SS = DateTimePatterns_nus;
+export var DateTimePatterns_nus_SS = DateTimePatterns_nus;
 
 
 /**
  * Extended set of localized date/time patterns for locale nyn.
  */
-DateTimePatterns_nyn = {
+export var DateTimePatterns_nyn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6819,13 +6819,13 @@ DateTimePatterns_nyn = {
 /**
  * Extended set of localized date/time patterns for locale nyn_UG.
  */
-DateTimePatterns_nyn_UG = DateTimePatterns_nyn;
+export var DateTimePatterns_nyn_UG = DateTimePatterns_nyn;
 
 
 /**
  * Extended set of localized date/time patterns for locale om.
  */
-DateTimePatterns_om = {
+export var DateTimePatterns_om = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6846,13 +6846,13 @@ DateTimePatterns_om = {
 /**
  * Extended set of localized date/time patterns for locale om_ET.
  */
-DateTimePatterns_om_ET = DateTimePatterns_om;
+export var DateTimePatterns_om_ET = DateTimePatterns_om;
 
 
 /**
  * Extended set of localized date/time patterns for locale om_KE.
  */
-DateTimePatterns_om_KE = {
+export var DateTimePatterns_om_KE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -6873,13 +6873,13 @@ DateTimePatterns_om_KE = {
 /**
  * Extended set of localized date/time patterns for locale or_IN.
  */
-DateTimePatterns_or_IN = DateTimePatterns_or;
+export var DateTimePatterns_or_IN = DateTimePatterns_or;
 
 
 /**
  * Extended set of localized date/time patterns for locale os.
  */
-DateTimePatterns_os = {
+export var DateTimePatterns_os = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'LLL y',
@@ -6900,19 +6900,19 @@ DateTimePatterns_os = {
 /**
  * Extended set of localized date/time patterns for locale os_GE.
  */
-DateTimePatterns_os_GE = DateTimePatterns_os;
+export var DateTimePatterns_os_GE = DateTimePatterns_os;
 
 
 /**
  * Extended set of localized date/time patterns for locale os_RU.
  */
-DateTimePatterns_os_RU = DateTimePatterns_os;
+export var DateTimePatterns_os_RU = DateTimePatterns_os;
 
 
 /**
  * Extended set of localized date/time patterns for locale pa_Arab.
  */
-DateTimePatterns_pa_Arab = {
+export var DateTimePatterns_pa_Arab = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6933,7 +6933,7 @@ DateTimePatterns_pa_Arab = {
 /**
  * Extended set of localized date/time patterns for locale pa_Arab_PK.
  */
-DateTimePatterns_pa_Arab_PK = {
+export var DateTimePatterns_pa_Arab_PK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6954,19 +6954,19 @@ DateTimePatterns_pa_Arab_PK = {
 /**
  * Extended set of localized date/time patterns for locale pa_Guru.
  */
-DateTimePatterns_pa_Guru = DateTimePatterns_pa;
+export var DateTimePatterns_pa_Guru = DateTimePatterns_pa;
 
 
 /**
  * Extended set of localized date/time patterns for locale pa_Guru_IN.
  */
-DateTimePatterns_pa_Guru_IN = DateTimePatterns_pa;
+export var DateTimePatterns_pa_Guru_IN = DateTimePatterns_pa;
 
 
 /**
  * Extended set of localized date/time patterns for locale pcm.
  */
-DateTimePatterns_pcm = {
+export var DateTimePatterns_pcm = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -6987,19 +6987,19 @@ DateTimePatterns_pcm = {
 /**
  * Extended set of localized date/time patterns for locale pcm_NG.
  */
-DateTimePatterns_pcm_NG = DateTimePatterns_pcm;
+export var DateTimePatterns_pcm_NG = DateTimePatterns_pcm;
 
 
 /**
  * Extended set of localized date/time patterns for locale pl_PL.
  */
-DateTimePatterns_pl_PL = DateTimePatterns_pl;
+export var DateTimePatterns_pl_PL = DateTimePatterns_pl;
 
 
 /**
  * Extended set of localized date/time patterns for locale ps.
  */
-DateTimePatterns_ps = {
+export var DateTimePatterns_ps = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7020,13 +7020,13 @@ DateTimePatterns_ps = {
 /**
  * Extended set of localized date/time patterns for locale ps_AF.
  */
-DateTimePatterns_ps_AF = DateTimePatterns_ps;
+export var DateTimePatterns_ps_AF = DateTimePatterns_ps;
 
 
 /**
  * Extended set of localized date/time patterns for locale ps_PK.
  */
-DateTimePatterns_ps_PK = {
+export var DateTimePatterns_ps_PK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7047,7 +7047,7 @@ DateTimePatterns_ps_PK = {
 /**
  * Extended set of localized date/time patterns for locale pt_AO.
  */
-DateTimePatterns_pt_AO = {
+export var DateTimePatterns_pt_AO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7068,7 +7068,7 @@ DateTimePatterns_pt_AO = {
 /**
  * Extended set of localized date/time patterns for locale pt_CH.
  */
-DateTimePatterns_pt_CH = {
+export var DateTimePatterns_pt_CH = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7089,7 +7089,7 @@ DateTimePatterns_pt_CH = {
 /**
  * Extended set of localized date/time patterns for locale pt_CV.
  */
-DateTimePatterns_pt_CV = {
+export var DateTimePatterns_pt_CV = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7110,7 +7110,7 @@ DateTimePatterns_pt_CV = {
 /**
  * Extended set of localized date/time patterns for locale pt_GQ.
  */
-DateTimePatterns_pt_GQ = {
+export var DateTimePatterns_pt_GQ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7131,7 +7131,7 @@ DateTimePatterns_pt_GQ = {
 /**
  * Extended set of localized date/time patterns for locale pt_GW.
  */
-DateTimePatterns_pt_GW = {
+export var DateTimePatterns_pt_GW = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7152,7 +7152,7 @@ DateTimePatterns_pt_GW = {
 /**
  * Extended set of localized date/time patterns for locale pt_LU.
  */
-DateTimePatterns_pt_LU = {
+export var DateTimePatterns_pt_LU = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7173,7 +7173,7 @@ DateTimePatterns_pt_LU = {
 /**
  * Extended set of localized date/time patterns for locale pt_MO.
  */
-DateTimePatterns_pt_MO = {
+export var DateTimePatterns_pt_MO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7194,7 +7194,7 @@ DateTimePatterns_pt_MO = {
 /**
  * Extended set of localized date/time patterns for locale pt_MZ.
  */
-DateTimePatterns_pt_MZ = {
+export var DateTimePatterns_pt_MZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7215,7 +7215,7 @@ DateTimePatterns_pt_MZ = {
 /**
  * Extended set of localized date/time patterns for locale pt_ST.
  */
-DateTimePatterns_pt_ST = {
+export var DateTimePatterns_pt_ST = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7236,7 +7236,7 @@ DateTimePatterns_pt_ST = {
 /**
  * Extended set of localized date/time patterns for locale pt_TL.
  */
-DateTimePatterns_pt_TL = {
+export var DateTimePatterns_pt_TL = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MM/y',
@@ -7257,7 +7257,7 @@ DateTimePatterns_pt_TL = {
 /**
  * Extended set of localized date/time patterns for locale qu.
  */
-DateTimePatterns_qu = {
+export var DateTimePatterns_qu = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7278,25 +7278,25 @@ DateTimePatterns_qu = {
 /**
  * Extended set of localized date/time patterns for locale qu_BO.
  */
-DateTimePatterns_qu_BO = DateTimePatterns_qu;
+export var DateTimePatterns_qu_BO = DateTimePatterns_qu;
 
 
 /**
  * Extended set of localized date/time patterns for locale qu_EC.
  */
-DateTimePatterns_qu_EC = DateTimePatterns_qu;
+export var DateTimePatterns_qu_EC = DateTimePatterns_qu;
 
 
 /**
  * Extended set of localized date/time patterns for locale qu_PE.
  */
-DateTimePatterns_qu_PE = DateTimePatterns_qu;
+export var DateTimePatterns_qu_PE = DateTimePatterns_qu;
 
 
 /**
  * Extended set of localized date/time patterns for locale raj.
  */
-DateTimePatterns_raj = {
+export var DateTimePatterns_raj = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7317,13 +7317,13 @@ DateTimePatterns_raj = {
 /**
  * Extended set of localized date/time patterns for locale raj_IN.
  */
-DateTimePatterns_raj_IN = DateTimePatterns_raj;
+export var DateTimePatterns_raj_IN = DateTimePatterns_raj;
 
 
 /**
  * Extended set of localized date/time patterns for locale rm.
  */
-DateTimePatterns_rm = {
+export var DateTimePatterns_rm = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'LLL y',
@@ -7344,13 +7344,13 @@ DateTimePatterns_rm = {
 /**
  * Extended set of localized date/time patterns for locale rm_CH.
  */
-DateTimePatterns_rm_CH = DateTimePatterns_rm;
+export var DateTimePatterns_rm_CH = DateTimePatterns_rm;
 
 
 /**
  * Extended set of localized date/time patterns for locale rn.
  */
-DateTimePatterns_rn = {
+export var DateTimePatterns_rn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7371,25 +7371,25 @@ DateTimePatterns_rn = {
 /**
  * Extended set of localized date/time patterns for locale rn_BI.
  */
-DateTimePatterns_rn_BI = DateTimePatterns_rn;
+export var DateTimePatterns_rn_BI = DateTimePatterns_rn;
 
 
 /**
  * Extended set of localized date/time patterns for locale ro_MD.
  */
-DateTimePatterns_ro_MD = DateTimePatterns_ro;
+export var DateTimePatterns_ro_MD = DateTimePatterns_ro;
 
 
 /**
  * Extended set of localized date/time patterns for locale ro_RO.
  */
-DateTimePatterns_ro_RO = DateTimePatterns_ro;
+export var DateTimePatterns_ro_RO = DateTimePatterns_ro;
 
 
 /**
  * Extended set of localized date/time patterns for locale rof.
  */
-DateTimePatterns_rof = {
+export var DateTimePatterns_rof = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7410,49 +7410,49 @@ DateTimePatterns_rof = {
 /**
  * Extended set of localized date/time patterns for locale rof_TZ.
  */
-DateTimePatterns_rof_TZ = DateTimePatterns_rof;
+export var DateTimePatterns_rof_TZ = DateTimePatterns_rof;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_BY.
  */
-DateTimePatterns_ru_BY = DateTimePatterns_ru;
+export var DateTimePatterns_ru_BY = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_KG.
  */
-DateTimePatterns_ru_KG = DateTimePatterns_ru;
+export var DateTimePatterns_ru_KG = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_KZ.
  */
-DateTimePatterns_ru_KZ = DateTimePatterns_ru;
+export var DateTimePatterns_ru_KZ = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_MD.
  */
-DateTimePatterns_ru_MD = DateTimePatterns_ru;
+export var DateTimePatterns_ru_MD = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_RU.
  */
-DateTimePatterns_ru_RU = DateTimePatterns_ru;
+export var DateTimePatterns_ru_RU = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale ru_UA.
  */
-DateTimePatterns_ru_UA = DateTimePatterns_ru;
+export var DateTimePatterns_ru_UA = DateTimePatterns_ru;
 
 
 /**
  * Extended set of localized date/time patterns for locale rw.
  */
-DateTimePatterns_rw = {
+export var DateTimePatterns_rw = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7473,13 +7473,13 @@ DateTimePatterns_rw = {
 /**
  * Extended set of localized date/time patterns for locale rw_RW.
  */
-DateTimePatterns_rw_RW = DateTimePatterns_rw;
+export var DateTimePatterns_rw_RW = DateTimePatterns_rw;
 
 
 /**
  * Extended set of localized date/time patterns for locale rwk.
  */
-DateTimePatterns_rwk = {
+export var DateTimePatterns_rwk = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7500,13 +7500,13 @@ DateTimePatterns_rwk = {
 /**
  * Extended set of localized date/time patterns for locale rwk_TZ.
  */
-DateTimePatterns_rwk_TZ = DateTimePatterns_rwk;
+export var DateTimePatterns_rwk_TZ = DateTimePatterns_rwk;
 
 
 /**
  * Extended set of localized date/time patterns for locale sa.
  */
-DateTimePatterns_sa = {
+export var DateTimePatterns_sa = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7527,13 +7527,13 @@ DateTimePatterns_sa = {
 /**
  * Extended set of localized date/time patterns for locale sa_IN.
  */
-DateTimePatterns_sa_IN = DateTimePatterns_sa;
+export var DateTimePatterns_sa_IN = DateTimePatterns_sa;
 
 
 /**
  * Extended set of localized date/time patterns for locale sah.
  */
-DateTimePatterns_sah = {
+export var DateTimePatterns_sah = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y \'с\'. G',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7554,13 +7554,13 @@ DateTimePatterns_sah = {
 /**
  * Extended set of localized date/time patterns for locale sah_RU.
  */
-DateTimePatterns_sah_RU = DateTimePatterns_sah;
+export var DateTimePatterns_sah_RU = DateTimePatterns_sah;
 
 
 /**
  * Extended set of localized date/time patterns for locale saq.
  */
-DateTimePatterns_saq = {
+export var DateTimePatterns_saq = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7581,13 +7581,13 @@ DateTimePatterns_saq = {
 /**
  * Extended set of localized date/time patterns for locale saq_KE.
  */
-DateTimePatterns_saq_KE = DateTimePatterns_saq;
+export var DateTimePatterns_saq_KE = DateTimePatterns_saq;
 
 
 /**
  * Extended set of localized date/time patterns for locale sat.
  */
-DateTimePatterns_sat = {
+export var DateTimePatterns_sat = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7608,19 +7608,19 @@ DateTimePatterns_sat = {
 /**
  * Extended set of localized date/time patterns for locale sat_Olck.
  */
-DateTimePatterns_sat_Olck = DateTimePatterns_sat;
+export var DateTimePatterns_sat_Olck = DateTimePatterns_sat;
 
 
 /**
  * Extended set of localized date/time patterns for locale sat_Olck_IN.
  */
-DateTimePatterns_sat_Olck_IN = DateTimePatterns_sat;
+export var DateTimePatterns_sat_Olck_IN = DateTimePatterns_sat;
 
 
 /**
  * Extended set of localized date/time patterns for locale sbp.
  */
-DateTimePatterns_sbp = {
+export var DateTimePatterns_sbp = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7641,13 +7641,13 @@ DateTimePatterns_sbp = {
 /**
  * Extended set of localized date/time patterns for locale sbp_TZ.
  */
-DateTimePatterns_sbp_TZ = DateTimePatterns_sbp;
+export var DateTimePatterns_sbp_TZ = DateTimePatterns_sbp;
 
 
 /**
  * Extended set of localized date/time patterns for locale sc.
  */
-DateTimePatterns_sc = {
+export var DateTimePatterns_sc = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7668,13 +7668,13 @@ DateTimePatterns_sc = {
 /**
  * Extended set of localized date/time patterns for locale sc_IT.
  */
-DateTimePatterns_sc_IT = DateTimePatterns_sc;
+export var DateTimePatterns_sc_IT = DateTimePatterns_sc;
 
 
 /**
  * Extended set of localized date/time patterns for locale sd.
  */
-DateTimePatterns_sd = {
+export var DateTimePatterns_sd = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7695,19 +7695,19 @@ DateTimePatterns_sd = {
 /**
  * Extended set of localized date/time patterns for locale sd_Arab.
  */
-DateTimePatterns_sd_Arab = DateTimePatterns_sd;
+export var DateTimePatterns_sd_Arab = DateTimePatterns_sd;
 
 
 /**
  * Extended set of localized date/time patterns for locale sd_Arab_PK.
  */
-DateTimePatterns_sd_Arab_PK = DateTimePatterns_sd;
+export var DateTimePatterns_sd_Arab_PK = DateTimePatterns_sd;
 
 
 /**
  * Extended set of localized date/time patterns for locale sd_Deva.
  */
-DateTimePatterns_sd_Deva = {
+export var DateTimePatterns_sd_Deva = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7728,7 +7728,7 @@ DateTimePatterns_sd_Deva = {
 /**
  * Extended set of localized date/time patterns for locale sd_Deva_IN.
  */
-DateTimePatterns_sd_Deva_IN = {
+export var DateTimePatterns_sd_Deva_IN = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7749,7 +7749,7 @@ DateTimePatterns_sd_Deva_IN = {
 /**
  * Extended set of localized date/time patterns for locale se.
  */
-DateTimePatterns_se = {
+export var DateTimePatterns_se = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7770,7 +7770,7 @@ DateTimePatterns_se = {
 /**
  * Extended set of localized date/time patterns for locale se_FI.
  */
-DateTimePatterns_se_FI = {
+export var DateTimePatterns_se_FI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7791,19 +7791,19 @@ DateTimePatterns_se_FI = {
 /**
  * Extended set of localized date/time patterns for locale se_NO.
  */
-DateTimePatterns_se_NO = DateTimePatterns_se;
+export var DateTimePatterns_se_NO = DateTimePatterns_se;
 
 
 /**
  * Extended set of localized date/time patterns for locale se_SE.
  */
-DateTimePatterns_se_SE = DateTimePatterns_se;
+export var DateTimePatterns_se_SE = DateTimePatterns_se;
 
 
 /**
  * Extended set of localized date/time patterns for locale seh.
  */
-DateTimePatterns_seh = {
+export var DateTimePatterns_seh = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM \'de\' y',
@@ -7824,13 +7824,13 @@ DateTimePatterns_seh = {
 /**
  * Extended set of localized date/time patterns for locale seh_MZ.
  */
-DateTimePatterns_seh_MZ = DateTimePatterns_seh;
+export var DateTimePatterns_seh_MZ = DateTimePatterns_seh;
 
 
 /**
  * Extended set of localized date/time patterns for locale ses.
  */
-DateTimePatterns_ses = {
+export var DateTimePatterns_ses = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7851,13 +7851,13 @@ DateTimePatterns_ses = {
 /**
  * Extended set of localized date/time patterns for locale ses_ML.
  */
-DateTimePatterns_ses_ML = DateTimePatterns_ses;
+export var DateTimePatterns_ses_ML = DateTimePatterns_ses;
 
 
 /**
  * Extended set of localized date/time patterns for locale sg.
  */
-DateTimePatterns_sg = {
+export var DateTimePatterns_sg = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7878,13 +7878,13 @@ DateTimePatterns_sg = {
 /**
  * Extended set of localized date/time patterns for locale sg_CF.
  */
-DateTimePatterns_sg_CF = DateTimePatterns_sg;
+export var DateTimePatterns_sg_CF = DateTimePatterns_sg;
 
 
 /**
  * Extended set of localized date/time patterns for locale shi.
  */
-DateTimePatterns_shi = {
+export var DateTimePatterns_shi = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -7905,49 +7905,49 @@ DateTimePatterns_shi = {
 /**
  * Extended set of localized date/time patterns for locale shi_Latn.
  */
-DateTimePatterns_shi_Latn = DateTimePatterns_shi;
+export var DateTimePatterns_shi_Latn = DateTimePatterns_shi;
 
 
 /**
  * Extended set of localized date/time patterns for locale shi_Latn_MA.
  */
-DateTimePatterns_shi_Latn_MA = DateTimePatterns_shi;
+export var DateTimePatterns_shi_Latn_MA = DateTimePatterns_shi;
 
 
 /**
  * Extended set of localized date/time patterns for locale shi_Tfng.
  */
-DateTimePatterns_shi_Tfng = DateTimePatterns_shi;
+export var DateTimePatterns_shi_Tfng = DateTimePatterns_shi;
 
 
 /**
  * Extended set of localized date/time patterns for locale shi_Tfng_MA.
  */
-DateTimePatterns_shi_Tfng_MA = DateTimePatterns_shi;
+export var DateTimePatterns_shi_Tfng_MA = DateTimePatterns_shi;
 
 
 /**
  * Extended set of localized date/time patterns for locale si_LK.
  */
-DateTimePatterns_si_LK = DateTimePatterns_si;
+export var DateTimePatterns_si_LK = DateTimePatterns_si;
 
 
 /**
  * Extended set of localized date/time patterns for locale sk_SK.
  */
-DateTimePatterns_sk_SK = DateTimePatterns_sk;
+export var DateTimePatterns_sk_SK = DateTimePatterns_sk;
 
 
 /**
  * Extended set of localized date/time patterns for locale sl_SI.
  */
-DateTimePatterns_sl_SI = DateTimePatterns_sl;
+export var DateTimePatterns_sl_SI = DateTimePatterns_sl;
 
 
 /**
  * Extended set of localized date/time patterns for locale smn.
  */
-DateTimePatterns_smn = {
+export var DateTimePatterns_smn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'LLL y',
@@ -7968,13 +7968,13 @@ DateTimePatterns_smn = {
 /**
  * Extended set of localized date/time patterns for locale smn_FI.
  */
-DateTimePatterns_smn_FI = DateTimePatterns_smn;
+export var DateTimePatterns_smn_FI = DateTimePatterns_smn;
 
 
 /**
  * Extended set of localized date/time patterns for locale sn.
  */
-DateTimePatterns_sn = {
+export var DateTimePatterns_sn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -7995,13 +7995,13 @@ DateTimePatterns_sn = {
 /**
  * Extended set of localized date/time patterns for locale sn_ZW.
  */
-DateTimePatterns_sn_ZW = DateTimePatterns_sn;
+export var DateTimePatterns_sn_ZW = DateTimePatterns_sn;
 
 
 /**
  * Extended set of localized date/time patterns for locale so.
  */
-DateTimePatterns_so = {
+export var DateTimePatterns_so = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8022,19 +8022,19 @@ DateTimePatterns_so = {
 /**
  * Extended set of localized date/time patterns for locale so_DJ.
  */
-DateTimePatterns_so_DJ = DateTimePatterns_so;
+export var DateTimePatterns_so_DJ = DateTimePatterns_so;
 
 
 /**
  * Extended set of localized date/time patterns for locale so_ET.
  */
-DateTimePatterns_so_ET = DateTimePatterns_so;
+export var DateTimePatterns_so_ET = DateTimePatterns_so;
 
 
 /**
  * Extended set of localized date/time patterns for locale so_KE.
  */
-DateTimePatterns_so_KE = {
+export var DateTimePatterns_so_KE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8055,19 +8055,19 @@ DateTimePatterns_so_KE = {
 /**
  * Extended set of localized date/time patterns for locale so_SO.
  */
-DateTimePatterns_so_SO = DateTimePatterns_so;
+export var DateTimePatterns_so_SO = DateTimePatterns_so;
 
 
 /**
  * Extended set of localized date/time patterns for locale sq_AL.
  */
-DateTimePatterns_sq_AL = DateTimePatterns_sq;
+export var DateTimePatterns_sq_AL = DateTimePatterns_sq;
 
 
 /**
  * Extended set of localized date/time patterns for locale sq_MK.
  */
-DateTimePatterns_sq_MK = {
+export var DateTimePatterns_sq_MK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8088,7 +8088,7 @@ DateTimePatterns_sq_MK = {
 /**
  * Extended set of localized date/time patterns for locale sq_XK.
  */
-DateTimePatterns_sq_XK = {
+export var DateTimePatterns_sq_XK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8109,61 +8109,61 @@ DateTimePatterns_sq_XK = {
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl.
  */
-DateTimePatterns_sr_Cyrl = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Cyrl = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_BA.
  */
-DateTimePatterns_sr_Cyrl_BA = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Cyrl_BA = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_ME.
  */
-DateTimePatterns_sr_Cyrl_ME = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Cyrl_ME = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_RS.
  */
-DateTimePatterns_sr_Cyrl_RS = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Cyrl_RS = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Cyrl_XK.
  */
-DateTimePatterns_sr_Cyrl_XK = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Cyrl_XK = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_BA.
  */
-DateTimePatterns_sr_Latn_BA = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Latn_BA = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_ME.
  */
-DateTimePatterns_sr_Latn_ME = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Latn_ME = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_RS.
  */
-DateTimePatterns_sr_Latn_RS = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Latn_RS = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale sr_Latn_XK.
  */
-DateTimePatterns_sr_Latn_XK = DateTimePatterns_sr;
+export var DateTimePatterns_sr_Latn_XK = DateTimePatterns_sr;
 
 
 /**
  * Extended set of localized date/time patterns for locale su.
  */
-DateTimePatterns_su = {
+export var DateTimePatterns_su = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8184,25 +8184,25 @@ DateTimePatterns_su = {
 /**
  * Extended set of localized date/time patterns for locale su_Latn.
  */
-DateTimePatterns_su_Latn = DateTimePatterns_su;
+export var DateTimePatterns_su_Latn = DateTimePatterns_su;
 
 
 /**
  * Extended set of localized date/time patterns for locale su_Latn_ID.
  */
-DateTimePatterns_su_Latn_ID = DateTimePatterns_su;
+export var DateTimePatterns_su_Latn_ID = DateTimePatterns_su;
 
 
 /**
  * Extended set of localized date/time patterns for locale sv_AX.
  */
-DateTimePatterns_sv_AX = DateTimePatterns_sv;
+export var DateTimePatterns_sv_AX = DateTimePatterns_sv;
 
 
 /**
  * Extended set of localized date/time patterns for locale sv_FI.
  */
-DateTimePatterns_sv_FI = {
+export var DateTimePatterns_sv_FI = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8223,43 +8223,43 @@ DateTimePatterns_sv_FI = {
 /**
  * Extended set of localized date/time patterns for locale sv_SE.
  */
-DateTimePatterns_sv_SE = DateTimePatterns_sv;
+export var DateTimePatterns_sv_SE = DateTimePatterns_sv;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_CD.
  */
-DateTimePatterns_sw_CD = DateTimePatterns_sw;
+export var DateTimePatterns_sw_CD = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_KE.
  */
-DateTimePatterns_sw_KE = DateTimePatterns_sw;
+export var DateTimePatterns_sw_KE = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_TZ.
  */
-DateTimePatterns_sw_TZ = DateTimePatterns_sw;
+export var DateTimePatterns_sw_TZ = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale sw_UG.
  */
-DateTimePatterns_sw_UG = DateTimePatterns_sw;
+export var DateTimePatterns_sw_UG = DateTimePatterns_sw;
 
 
 /**
  * Extended set of localized date/time patterns for locale ta_IN.
  */
-DateTimePatterns_ta_IN = DateTimePatterns_ta;
+export var DateTimePatterns_ta_IN = DateTimePatterns_ta;
 
 
 /**
  * Extended set of localized date/time patterns for locale ta_LK.
  */
-DateTimePatterns_ta_LK = {
+export var DateTimePatterns_ta_LK = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8280,25 +8280,25 @@ DateTimePatterns_ta_LK = {
 /**
  * Extended set of localized date/time patterns for locale ta_MY.
  */
-DateTimePatterns_ta_MY = DateTimePatterns_ta;
+export var DateTimePatterns_ta_MY = DateTimePatterns_ta;
 
 
 /**
  * Extended set of localized date/time patterns for locale ta_SG.
  */
-DateTimePatterns_ta_SG = DateTimePatterns_ta;
+export var DateTimePatterns_ta_SG = DateTimePatterns_ta;
 
 
 /**
  * Extended set of localized date/time patterns for locale te_IN.
  */
-DateTimePatterns_te_IN = DateTimePatterns_te;
+export var DateTimePatterns_te_IN = DateTimePatterns_te;
 
 
 /**
  * Extended set of localized date/time patterns for locale teo.
  */
-DateTimePatterns_teo = {
+export var DateTimePatterns_teo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8319,19 +8319,19 @@ DateTimePatterns_teo = {
 /**
  * Extended set of localized date/time patterns for locale teo_KE.
  */
-DateTimePatterns_teo_KE = DateTimePatterns_teo;
+export var DateTimePatterns_teo_KE = DateTimePatterns_teo;
 
 
 /**
  * Extended set of localized date/time patterns for locale teo_UG.
  */
-DateTimePatterns_teo_UG = DateTimePatterns_teo;
+export var DateTimePatterns_teo_UG = DateTimePatterns_teo;
 
 
 /**
  * Extended set of localized date/time patterns for locale tg.
  */
-DateTimePatterns_tg = {
+export var DateTimePatterns_tg = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8352,19 +8352,19 @@ DateTimePatterns_tg = {
 /**
  * Extended set of localized date/time patterns for locale tg_TJ.
  */
-DateTimePatterns_tg_TJ = DateTimePatterns_tg;
+export var DateTimePatterns_tg_TJ = DateTimePatterns_tg;
 
 
 /**
  * Extended set of localized date/time patterns for locale th_TH.
  */
-DateTimePatterns_th_TH = DateTimePatterns_th;
+export var DateTimePatterns_th_TH = DateTimePatterns_th;
 
 
 /**
  * Extended set of localized date/time patterns for locale ti.
  */
-DateTimePatterns_ti = {
+export var DateTimePatterns_ti = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8385,19 +8385,19 @@ DateTimePatterns_ti = {
 /**
  * Extended set of localized date/time patterns for locale ti_ER.
  */
-DateTimePatterns_ti_ER = DateTimePatterns_ti;
+export var DateTimePatterns_ti_ER = DateTimePatterns_ti;
 
 
 /**
  * Extended set of localized date/time patterns for locale ti_ET.
  */
-DateTimePatterns_ti_ET = DateTimePatterns_ti;
+export var DateTimePatterns_ti_ET = DateTimePatterns_ti;
 
 
 /**
  * Extended set of localized date/time patterns for locale tk.
  */
-DateTimePatterns_tk = {
+export var DateTimePatterns_tk = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8418,13 +8418,13 @@ DateTimePatterns_tk = {
 /**
  * Extended set of localized date/time patterns for locale tk_TM.
  */
-DateTimePatterns_tk_TM = DateTimePatterns_tk;
+export var DateTimePatterns_tk_TM = DateTimePatterns_tk;
 
 
 /**
  * Extended set of localized date/time patterns for locale to.
  */
-DateTimePatterns_to = {
+export var DateTimePatterns_to = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8445,13 +8445,13 @@ DateTimePatterns_to = {
 /**
  * Extended set of localized date/time patterns for locale to_TO.
  */
-DateTimePatterns_to_TO = DateTimePatterns_to;
+export var DateTimePatterns_to_TO = DateTimePatterns_to;
 
 
 /**
  * Extended set of localized date/time patterns for locale tr_CY.
  */
-DateTimePatterns_tr_CY = {
+export var DateTimePatterns_tr_CY = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8472,13 +8472,13 @@ DateTimePatterns_tr_CY = {
 /**
  * Extended set of localized date/time patterns for locale tr_TR.
  */
-DateTimePatterns_tr_TR = DateTimePatterns_tr;
+export var DateTimePatterns_tr_TR = DateTimePatterns_tr;
 
 
 /**
  * Extended set of localized date/time patterns for locale tt.
  */
-DateTimePatterns_tt = {
+export var DateTimePatterns_tt = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y \'ел\'',
   YEAR_MONTH_ABBR: 'y \'ел\', MMM',
@@ -8499,13 +8499,13 @@ DateTimePatterns_tt = {
 /**
  * Extended set of localized date/time patterns for locale tt_RU.
  */
-DateTimePatterns_tt_RU = DateTimePatterns_tt;
+export var DateTimePatterns_tt_RU = DateTimePatterns_tt;
 
 
 /**
  * Extended set of localized date/time patterns for locale twq.
  */
-DateTimePatterns_twq = {
+export var DateTimePatterns_twq = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8526,13 +8526,13 @@ DateTimePatterns_twq = {
 /**
  * Extended set of localized date/time patterns for locale twq_NE.
  */
-DateTimePatterns_twq_NE = DateTimePatterns_twq;
+export var DateTimePatterns_twq_NE = DateTimePatterns_twq;
 
 
 /**
  * Extended set of localized date/time patterns for locale tzm.
  */
-DateTimePatterns_tzm = {
+export var DateTimePatterns_tzm = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8553,13 +8553,13 @@ DateTimePatterns_tzm = {
 /**
  * Extended set of localized date/time patterns for locale tzm_MA.
  */
-DateTimePatterns_tzm_MA = DateTimePatterns_tzm;
+export var DateTimePatterns_tzm_MA = DateTimePatterns_tzm;
 
 
 /**
  * Extended set of localized date/time patterns for locale ug.
  */
-DateTimePatterns_ug = {
+export var DateTimePatterns_ug = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -8580,31 +8580,31 @@ DateTimePatterns_ug = {
 /**
  * Extended set of localized date/time patterns for locale ug_CN.
  */
-DateTimePatterns_ug_CN = DateTimePatterns_ug;
+export var DateTimePatterns_ug_CN = DateTimePatterns_ug;
 
 
 /**
  * Extended set of localized date/time patterns for locale uk_UA.
  */
-DateTimePatterns_uk_UA = DateTimePatterns_uk;
+export var DateTimePatterns_uk_UA = DateTimePatterns_uk;
 
 
 /**
  * Extended set of localized date/time patterns for locale ur_IN.
  */
-DateTimePatterns_ur_IN = DateTimePatterns_ur;
+export var DateTimePatterns_ur_IN = DateTimePatterns_ur;
 
 
 /**
  * Extended set of localized date/time patterns for locale ur_PK.
  */
-DateTimePatterns_ur_PK = DateTimePatterns_ur;
+export var DateTimePatterns_ur_PK = DateTimePatterns_ur;
 
 
 /**
  * Extended set of localized date/time patterns for locale uz_Arab.
  */
-DateTimePatterns_uz_Arab = {
+export var DateTimePatterns_uz_Arab = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -8625,7 +8625,7 @@ DateTimePatterns_uz_Arab = {
 /**
  * Extended set of localized date/time patterns for locale uz_Arab_AF.
  */
-DateTimePatterns_uz_Arab_AF = {
+export var DateTimePatterns_uz_Arab_AF = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'y MMM',
@@ -8646,7 +8646,7 @@ DateTimePatterns_uz_Arab_AF = {
 /**
  * Extended set of localized date/time patterns for locale uz_Cyrl.
  */
-DateTimePatterns_uz_Cyrl = {
+export var DateTimePatterns_uz_Cyrl = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM, y',
@@ -8667,7 +8667,7 @@ DateTimePatterns_uz_Cyrl = {
 /**
  * Extended set of localized date/time patterns for locale uz_Cyrl_UZ.
  */
-DateTimePatterns_uz_Cyrl_UZ = {
+export var DateTimePatterns_uz_Cyrl_UZ = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM, y',
@@ -8688,19 +8688,19 @@ DateTimePatterns_uz_Cyrl_UZ = {
 /**
  * Extended set of localized date/time patterns for locale uz_Latn.
  */
-DateTimePatterns_uz_Latn = DateTimePatterns_uz;
+export var DateTimePatterns_uz_Latn = DateTimePatterns_uz;
 
 
 /**
  * Extended set of localized date/time patterns for locale uz_Latn_UZ.
  */
-DateTimePatterns_uz_Latn_UZ = DateTimePatterns_uz;
+export var DateTimePatterns_uz_Latn_UZ = DateTimePatterns_uz;
 
 
 /**
  * Extended set of localized date/time patterns for locale vai.
  */
-DateTimePatterns_vai = {
+export var DateTimePatterns_vai = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8721,7 +8721,7 @@ DateTimePatterns_vai = {
 /**
  * Extended set of localized date/time patterns for locale vai_Latn.
  */
-DateTimePatterns_vai_Latn = {
+export var DateTimePatterns_vai_Latn = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8742,7 +8742,7 @@ DateTimePatterns_vai_Latn = {
 /**
  * Extended set of localized date/time patterns for locale vai_Latn_LR.
  */
-DateTimePatterns_vai_Latn_LR = {
+export var DateTimePatterns_vai_Latn_LR = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8763,25 +8763,25 @@ DateTimePatterns_vai_Latn_LR = {
 /**
  * Extended set of localized date/time patterns for locale vai_Vaii.
  */
-DateTimePatterns_vai_Vaii = DateTimePatterns_vai;
+export var DateTimePatterns_vai_Vaii = DateTimePatterns_vai;
 
 
 /**
  * Extended set of localized date/time patterns for locale vai_Vaii_LR.
  */
-DateTimePatterns_vai_Vaii_LR = DateTimePatterns_vai;
+export var DateTimePatterns_vai_Vaii_LR = DateTimePatterns_vai;
 
 
 /**
  * Extended set of localized date/time patterns for locale vi_VN.
  */
-DateTimePatterns_vi_VN = DateTimePatterns_vi;
+export var DateTimePatterns_vi_VN = DateTimePatterns_vi;
 
 
 /**
  * Extended set of localized date/time patterns for locale vun.
  */
-DateTimePatterns_vun = {
+export var DateTimePatterns_vun = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8802,13 +8802,13 @@ DateTimePatterns_vun = {
 /**
  * Extended set of localized date/time patterns for locale vun_TZ.
  */
-DateTimePatterns_vun_TZ = DateTimePatterns_vun;
+export var DateTimePatterns_vun_TZ = DateTimePatterns_vun;
 
 
 /**
  * Extended set of localized date/time patterns for locale wae.
  */
-DateTimePatterns_wae = {
+export var DateTimePatterns_wae = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8829,13 +8829,13 @@ DateTimePatterns_wae = {
 /**
  * Extended set of localized date/time patterns for locale wae_CH.
  */
-DateTimePatterns_wae_CH = DateTimePatterns_wae;
+export var DateTimePatterns_wae_CH = DateTimePatterns_wae;
 
 
 /**
  * Extended set of localized date/time patterns for locale wo.
  */
-DateTimePatterns_wo = {
+export var DateTimePatterns_wo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8856,13 +8856,13 @@ DateTimePatterns_wo = {
 /**
  * Extended set of localized date/time patterns for locale wo_SN.
  */
-DateTimePatterns_wo_SN = DateTimePatterns_wo;
+export var DateTimePatterns_wo_SN = DateTimePatterns_wo;
 
 
 /**
  * Extended set of localized date/time patterns for locale xh.
  */
-DateTimePatterns_xh = {
+export var DateTimePatterns_xh = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8883,13 +8883,13 @@ DateTimePatterns_xh = {
 /**
  * Extended set of localized date/time patterns for locale xh_ZA.
  */
-DateTimePatterns_xh_ZA = DateTimePatterns_xh;
+export var DateTimePatterns_xh_ZA = DateTimePatterns_xh;
 
 
 /**
  * Extended set of localized date/time patterns for locale xog.
  */
-DateTimePatterns_xog = {
+export var DateTimePatterns_xog = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8910,13 +8910,13 @@ DateTimePatterns_xog = {
 /**
  * Extended set of localized date/time patterns for locale xog_UG.
  */
-DateTimePatterns_xog_UG = DateTimePatterns_xog;
+export var DateTimePatterns_xog_UG = DateTimePatterns_xog;
 
 
 /**
  * Extended set of localized date/time patterns for locale yav.
  */
-DateTimePatterns_yav = {
+export var DateTimePatterns_yav = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8937,13 +8937,13 @@ DateTimePatterns_yav = {
 /**
  * Extended set of localized date/time patterns for locale yav_CM.
  */
-DateTimePatterns_yav_CM = DateTimePatterns_yav;
+export var DateTimePatterns_yav_CM = DateTimePatterns_yav;
 
 
 /**
  * Extended set of localized date/time patterns for locale yi.
  */
-DateTimePatterns_yi = {
+export var DateTimePatterns_yi = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8964,13 +8964,13 @@ DateTimePatterns_yi = {
 /**
  * Extended set of localized date/time patterns for locale yi_001.
  */
-DateTimePatterns_yi_001 = DateTimePatterns_yi;
+export var DateTimePatterns_yi_001 = DateTimePatterns_yi;
 
 
 /**
  * Extended set of localized date/time patterns for locale yo.
  */
-DateTimePatterns_yo = {
+export var DateTimePatterns_yo = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -8991,19 +8991,19 @@ DateTimePatterns_yo = {
 /**
  * Extended set of localized date/time patterns for locale yo_BJ.
  */
-DateTimePatterns_yo_BJ = DateTimePatterns_yo;
+export var DateTimePatterns_yo_BJ = DateTimePatterns_yo;
 
 
 /**
  * Extended set of localized date/time patterns for locale yo_NG.
  */
-DateTimePatterns_yo_NG = DateTimePatterns_yo;
+export var DateTimePatterns_yo_NG = DateTimePatterns_yo;
 
 
 /**
  * Extended set of localized date/time patterns for locale yrl.
  */
-DateTimePatterns_yrl = {
+export var DateTimePatterns_yrl = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -9024,13 +9024,13 @@ DateTimePatterns_yrl = {
 /**
  * Extended set of localized date/time patterns for locale yrl_BR.
  */
-DateTimePatterns_yrl_BR = DateTimePatterns_yrl;
+export var DateTimePatterns_yrl_BR = DateTimePatterns_yrl;
 
 
 /**
  * Extended set of localized date/time patterns for locale yrl_CO.
  */
-DateTimePatterns_yrl_CO = {
+export var DateTimePatterns_yrl_CO = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -9051,7 +9051,7 @@ DateTimePatterns_yrl_CO = {
 /**
  * Extended set of localized date/time patterns for locale yrl_VE.
  */
-DateTimePatterns_yrl_VE = {
+export var DateTimePatterns_yrl_VE = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'y G',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -9072,7 +9072,7 @@ DateTimePatterns_yrl_VE = {
 /**
  * Extended set of localized date/time patterns for locale yue.
  */
-DateTimePatterns_yue = {
+export var DateTimePatterns_yue = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9093,7 +9093,7 @@ DateTimePatterns_yue = {
 /**
  * Extended set of localized date/time patterns for locale yue_Hans.
  */
-DateTimePatterns_yue_Hans = {
+export var DateTimePatterns_yue_Hans = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9114,7 +9114,7 @@ DateTimePatterns_yue_Hans = {
 /**
  * Extended set of localized date/time patterns for locale yue_Hans_CN.
  */
-DateTimePatterns_yue_Hans_CN = {
+export var DateTimePatterns_yue_Hans_CN = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9135,19 +9135,19 @@ DateTimePatterns_yue_Hans_CN = {
 /**
  * Extended set of localized date/time patterns for locale yue_Hant.
  */
-DateTimePatterns_yue_Hant = DateTimePatterns_yue;
+export var DateTimePatterns_yue_Hant = DateTimePatterns_yue;
 
 
 /**
  * Extended set of localized date/time patterns for locale yue_Hant_HK.
  */
-DateTimePatterns_yue_Hant_HK = DateTimePatterns_yue;
+export var DateTimePatterns_yue_Hant_HK = DateTimePatterns_yue;
 
 
 /**
  * Extended set of localized date/time patterns for locale zgh.
  */
-DateTimePatterns_zgh = {
+export var DateTimePatterns_zgh = {
   YEAR_FULL: 'y',
   YEAR_FULL_WITH_ERA: 'G y',
   YEAR_MONTH_ABBR: 'MMM y',
@@ -9168,25 +9168,25 @@ DateTimePatterns_zgh = {
 /**
  * Extended set of localized date/time patterns for locale zgh_MA.
  */
-DateTimePatterns_zgh_MA = DateTimePatterns_zgh;
+export var DateTimePatterns_zgh_MA = DateTimePatterns_zgh;
 
 
 /**
  * Extended set of localized date/time patterns for locale zh_Hans.
  */
-DateTimePatterns_zh_Hans = DateTimePatterns_zh;
+export var DateTimePatterns_zh_Hans = DateTimePatterns_zh;
 
 
 /**
  * Extended set of localized date/time patterns for locale zh_Hans_CN.
  */
-DateTimePatterns_zh_Hans_CN = DateTimePatterns_zh;
+export var DateTimePatterns_zh_Hans_CN = DateTimePatterns_zh;
 
 
 /**
  * Extended set of localized date/time patterns for locale zh_Hans_HK.
  */
-DateTimePatterns_zh_Hans_HK = {
+export var DateTimePatterns_zh_Hans_HK = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9207,7 +9207,7 @@ DateTimePatterns_zh_Hans_HK = {
 /**
  * Extended set of localized date/time patterns for locale zh_Hans_MO.
  */
-DateTimePatterns_zh_Hans_MO = {
+export var DateTimePatterns_zh_Hans_MO = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9228,7 +9228,7 @@ DateTimePatterns_zh_Hans_MO = {
 /**
  * Extended set of localized date/time patterns for locale zh_Hans_SG.
  */
-DateTimePatterns_zh_Hans_SG = {
+export var DateTimePatterns_zh_Hans_SG = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9249,7 +9249,7 @@ DateTimePatterns_zh_Hans_SG = {
 /**
  * Extended set of localized date/time patterns for locale zh_Hant.
  */
-DateTimePatterns_zh_Hant = {
+export var DateTimePatterns_zh_Hant = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9270,7 +9270,7 @@ DateTimePatterns_zh_Hant = {
 /**
  * Extended set of localized date/time patterns for locale zh_Hant_HK.
  */
-DateTimePatterns_zh_Hant_HK = {
+export var DateTimePatterns_zh_Hant_HK = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9291,7 +9291,7 @@ DateTimePatterns_zh_Hant_HK = {
 /**
  * Extended set of localized date/time patterns for locale zh_Hant_MO.
  */
-DateTimePatterns_zh_Hant_MO = {
+export var DateTimePatterns_zh_Hant_MO = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9312,7 +9312,7 @@ DateTimePatterns_zh_Hant_MO = {
 /**
  * Extended set of localized date/time patterns for locale zh_Hant_TW.
  */
-DateTimePatterns_zh_Hant_TW = {
+export var DateTimePatterns_zh_Hant_TW = {
   YEAR_FULL: 'y年',
   YEAR_FULL_WITH_ERA: 'Gy年',
   YEAR_MONTH_ABBR: 'y年M月',
@@ -9333,7 +9333,7 @@ DateTimePatterns_zh_Hant_TW = {
 /**
  * Extended set of localized date/time patterns for locale zu_ZA.
  */
-DateTimePatterns_zu_ZA = DateTimePatterns_zu;
+export var DateTimePatterns_zu_ZA = DateTimePatterns_zu;
 
 
 /**
@@ -12037,711 +12037,3 @@ switch (goog.LOCALE) {
     internalSetDateTimePatterns_(DateTimePatterns_zu_ZA);
     break;
 }
-export var DateTimePatterns_af_NA;
-export var DateTimePatterns_af_ZA;
-export var DateTimePatterns_agq;
-export var DateTimePatterns_agq_CM;
-export var DateTimePatterns_ak;
-export var DateTimePatterns_ak_GH;
-export var DateTimePatterns_am_ET;
-export var DateTimePatterns_ar_001;
-export var DateTimePatterns_ar_AE;
-export var DateTimePatterns_ar_BH;
-export var DateTimePatterns_ar_DJ;
-export var DateTimePatterns_ar_EH;
-export var DateTimePatterns_ar_ER;
-export var DateTimePatterns_ar_IL;
-export var DateTimePatterns_ar_IQ;
-export var DateTimePatterns_ar_JO;
-export var DateTimePatterns_ar_KM;
-export var DateTimePatterns_ar_KW;
-export var DateTimePatterns_ar_LB;
-export var DateTimePatterns_ar_LY;
-export var DateTimePatterns_ar_MA;
-export var DateTimePatterns_ar_MR;
-export var DateTimePatterns_ar_OM;
-export var DateTimePatterns_ar_PS;
-export var DateTimePatterns_ar_QA;
-export var DateTimePatterns_ar_SA;
-export var DateTimePatterns_ar_SD;
-export var DateTimePatterns_ar_SO;
-export var DateTimePatterns_ar_SS;
-export var DateTimePatterns_ar_SY;
-export var DateTimePatterns_ar_TD;
-export var DateTimePatterns_ar_TN;
-export var DateTimePatterns_ar_XB;
-export var DateTimePatterns_ar_YE;
-export var DateTimePatterns_as;
-export var DateTimePatterns_as_IN;
-export var DateTimePatterns_asa;
-export var DateTimePatterns_asa_TZ;
-export var DateTimePatterns_ast;
-export var DateTimePatterns_ast_ES;
-export var DateTimePatterns_az_Cyrl;
-export var DateTimePatterns_az_Cyrl_AZ;
-export var DateTimePatterns_az_Latn;
-export var DateTimePatterns_az_Latn_AZ;
-export var DateTimePatterns_bas;
-export var DateTimePatterns_bas_CM;
-export var DateTimePatterns_be_BY;
-export var DateTimePatterns_bem;
-export var DateTimePatterns_bem_ZM;
-export var DateTimePatterns_bez;
-export var DateTimePatterns_bez_TZ;
-export var DateTimePatterns_bg_BG;
-export var DateTimePatterns_bgc;
-export var DateTimePatterns_bgc_IN;
-export var DateTimePatterns_bho;
-export var DateTimePatterns_bho_IN;
-export var DateTimePatterns_bm;
-export var DateTimePatterns_bm_ML;
-export var DateTimePatterns_bn_BD;
-export var DateTimePatterns_bn_IN;
-export var DateTimePatterns_bo;
-export var DateTimePatterns_bo_CN;
-export var DateTimePatterns_bo_IN;
-export var DateTimePatterns_br_FR;
-export var DateTimePatterns_brx;
-export var DateTimePatterns_brx_IN;
-export var DateTimePatterns_bs_Cyrl;
-export var DateTimePatterns_bs_Cyrl_BA;
-export var DateTimePatterns_bs_Latn;
-export var DateTimePatterns_bs_Latn_BA;
-export var DateTimePatterns_ca_AD;
-export var DateTimePatterns_ca_ES;
-export var DateTimePatterns_ca_FR;
-export var DateTimePatterns_ca_IT;
-export var DateTimePatterns_ccp;
-export var DateTimePatterns_ccp_BD;
-export var DateTimePatterns_ccp_IN;
-export var DateTimePatterns_ce;
-export var DateTimePatterns_ce_RU;
-export var DateTimePatterns_ceb;
-export var DateTimePatterns_ceb_PH;
-export var DateTimePatterns_cgg;
-export var DateTimePatterns_cgg_UG;
-export var DateTimePatterns_chr_US;
-export var DateTimePatterns_ckb;
-export var DateTimePatterns_ckb_Arab;
-export var DateTimePatterns_ckb_Arab_IQ;
-export var DateTimePatterns_ckb_Arab_IR;
-export var DateTimePatterns_ckb_IQ;
-export var DateTimePatterns_ckb_IR;
-export var DateTimePatterns_cs_CZ;
-export var DateTimePatterns_cv;
-export var DateTimePatterns_cv_RU;
-export var DateTimePatterns_cy_GB;
-export var DateTimePatterns_da_DK;
-export var DateTimePatterns_da_GL;
-export var DateTimePatterns_dav;
-export var DateTimePatterns_dav_KE;
-export var DateTimePatterns_de_BE;
-export var DateTimePatterns_de_DE;
-export var DateTimePatterns_de_IT;
-export var DateTimePatterns_de_LI;
-export var DateTimePatterns_de_LU;
-export var DateTimePatterns_dje;
-export var DateTimePatterns_dje_NE;
-export var DateTimePatterns_doi;
-export var DateTimePatterns_doi_IN;
-export var DateTimePatterns_dsb;
-export var DateTimePatterns_dsb_DE;
-export var DateTimePatterns_dua;
-export var DateTimePatterns_dua_CM;
-export var DateTimePatterns_dyo;
-export var DateTimePatterns_dyo_SN;
-export var DateTimePatterns_dz;
-export var DateTimePatterns_dz_BT;
-export var DateTimePatterns_ebu;
-export var DateTimePatterns_ebu_KE;
-export var DateTimePatterns_ee;
-export var DateTimePatterns_ee_GH;
-export var DateTimePatterns_ee_TG;
-export var DateTimePatterns_el_CY;
-export var DateTimePatterns_el_GR;
-export var DateTimePatterns_en_001;
-export var DateTimePatterns_en_150;
-export var DateTimePatterns_en_AE;
-export var DateTimePatterns_en_AG;
-export var DateTimePatterns_en_AI;
-export var DateTimePatterns_en_AS;
-export var DateTimePatterns_en_AT;
-export var DateTimePatterns_en_BB;
-export var DateTimePatterns_en_BE;
-export var DateTimePatterns_en_BI;
-export var DateTimePatterns_en_BM;
-export var DateTimePatterns_en_BS;
-export var DateTimePatterns_en_BW;
-export var DateTimePatterns_en_BZ;
-export var DateTimePatterns_en_CC;
-export var DateTimePatterns_en_CH;
-export var DateTimePatterns_en_CK;
-export var DateTimePatterns_en_CM;
-export var DateTimePatterns_en_CX;
-export var DateTimePatterns_en_CY;
-export var DateTimePatterns_en_DE;
-export var DateTimePatterns_en_DG;
-export var DateTimePatterns_en_DK;
-export var DateTimePatterns_en_DM;
-export var DateTimePatterns_en_ER;
-export var DateTimePatterns_en_FI;
-export var DateTimePatterns_en_FJ;
-export var DateTimePatterns_en_FK;
-export var DateTimePatterns_en_FM;
-export var DateTimePatterns_en_GD;
-export var DateTimePatterns_en_GG;
-export var DateTimePatterns_en_GH;
-export var DateTimePatterns_en_GI;
-export var DateTimePatterns_en_GM;
-export var DateTimePatterns_en_GU;
-export var DateTimePatterns_en_GY;
-export var DateTimePatterns_en_HK;
-export var DateTimePatterns_en_IL;
-export var DateTimePatterns_en_IM;
-export var DateTimePatterns_en_IO;
-export var DateTimePatterns_en_JE;
-export var DateTimePatterns_en_JM;
-export var DateTimePatterns_en_KE;
-export var DateTimePatterns_en_KI;
-export var DateTimePatterns_en_KN;
-export var DateTimePatterns_en_KY;
-export var DateTimePatterns_en_LC;
-export var DateTimePatterns_en_LR;
-export var DateTimePatterns_en_LS;
-export var DateTimePatterns_en_MG;
-export var DateTimePatterns_en_MH;
-export var DateTimePatterns_en_MO;
-export var DateTimePatterns_en_MP;
-export var DateTimePatterns_en_MS;
-export var DateTimePatterns_en_MT;
-export var DateTimePatterns_en_MU;
-export var DateTimePatterns_en_MV;
-export var DateTimePatterns_en_MW;
-export var DateTimePatterns_en_MY;
-export var DateTimePatterns_en_NA;
-export var DateTimePatterns_en_NF;
-export var DateTimePatterns_en_NG;
-export var DateTimePatterns_en_NL;
-export var DateTimePatterns_en_NR;
-export var DateTimePatterns_en_NU;
-export var DateTimePatterns_en_NZ;
-export var DateTimePatterns_en_PG;
-export var DateTimePatterns_en_PH;
-export var DateTimePatterns_en_PK;
-export var DateTimePatterns_en_PN;
-export var DateTimePatterns_en_PR;
-export var DateTimePatterns_en_PW;
-export var DateTimePatterns_en_RW;
-export var DateTimePatterns_en_SB;
-export var DateTimePatterns_en_SC;
-export var DateTimePatterns_en_SD;
-export var DateTimePatterns_en_SE;
-export var DateTimePatterns_en_SH;
-export var DateTimePatterns_en_SI;
-export var DateTimePatterns_en_SL;
-export var DateTimePatterns_en_SS;
-export var DateTimePatterns_en_SX;
-export var DateTimePatterns_en_SZ;
-export var DateTimePatterns_en_TC;
-export var DateTimePatterns_en_TK;
-export var DateTimePatterns_en_TO;
-export var DateTimePatterns_en_TT;
-export var DateTimePatterns_en_TV;
-export var DateTimePatterns_en_TZ;
-export var DateTimePatterns_en_UG;
-export var DateTimePatterns_en_UM;
-export var DateTimePatterns_en_US_POSIX;
-export var DateTimePatterns_en_VC;
-export var DateTimePatterns_en_VG;
-export var DateTimePatterns_en_VI;
-export var DateTimePatterns_en_VU;
-export var DateTimePatterns_en_WS;
-export var DateTimePatterns_en_XA;
-export var DateTimePatterns_en_ZM;
-export var DateTimePatterns_en_ZW;
-export var DateTimePatterns_eo;
-export var DateTimePatterns_eo_001;
-export var DateTimePatterns_es_AR;
-export var DateTimePatterns_es_BO;
-export var DateTimePatterns_es_BR;
-export var DateTimePatterns_es_BZ;
-export var DateTimePatterns_es_CL;
-export var DateTimePatterns_es_CO;
-export var DateTimePatterns_es_CR;
-export var DateTimePatterns_es_CU;
-export var DateTimePatterns_es_DO;
-export var DateTimePatterns_es_EA;
-export var DateTimePatterns_es_EC;
-export var DateTimePatterns_es_GQ;
-export var DateTimePatterns_es_GT;
-export var DateTimePatterns_es_HN;
-export var DateTimePatterns_es_IC;
-export var DateTimePatterns_es_NI;
-export var DateTimePatterns_es_PA;
-export var DateTimePatterns_es_PE;
-export var DateTimePatterns_es_PH;
-export var DateTimePatterns_es_PR;
-export var DateTimePatterns_es_PY;
-export var DateTimePatterns_es_SV;
-export var DateTimePatterns_es_UY;
-export var DateTimePatterns_es_VE;
-export var DateTimePatterns_et_EE;
-export var DateTimePatterns_eu_ES;
-export var DateTimePatterns_ewo;
-export var DateTimePatterns_ewo_CM;
-export var DateTimePatterns_fa_AF;
-export var DateTimePatterns_fa_IR;
-export var DateTimePatterns_ff;
-export var DateTimePatterns_ff_Adlm;
-export var DateTimePatterns_ff_Adlm_BF;
-export var DateTimePatterns_ff_Adlm_CM;
-export var DateTimePatterns_ff_Adlm_GH;
-export var DateTimePatterns_ff_Adlm_GM;
-export var DateTimePatterns_ff_Adlm_GN;
-export var DateTimePatterns_ff_Adlm_GW;
-export var DateTimePatterns_ff_Adlm_LR;
-export var DateTimePatterns_ff_Adlm_MR;
-export var DateTimePatterns_ff_Adlm_NE;
-export var DateTimePatterns_ff_Adlm_NG;
-export var DateTimePatterns_ff_Adlm_SL;
-export var DateTimePatterns_ff_Adlm_SN;
-export var DateTimePatterns_ff_Latn;
-export var DateTimePatterns_ff_Latn_BF;
-export var DateTimePatterns_ff_Latn_CM;
-export var DateTimePatterns_ff_Latn_GH;
-export var DateTimePatterns_ff_Latn_GM;
-export var DateTimePatterns_ff_Latn_GN;
-export var DateTimePatterns_ff_Latn_GW;
-export var DateTimePatterns_ff_Latn_LR;
-export var DateTimePatterns_ff_Latn_MR;
-export var DateTimePatterns_ff_Latn_NE;
-export var DateTimePatterns_ff_Latn_NG;
-export var DateTimePatterns_ff_Latn_SL;
-export var DateTimePatterns_ff_Latn_SN;
-export var DateTimePatterns_fi_FI;
-export var DateTimePatterns_fil_PH;
-export var DateTimePatterns_fo;
-export var DateTimePatterns_fo_DK;
-export var DateTimePatterns_fo_FO;
-export var DateTimePatterns_fr_BE;
-export var DateTimePatterns_fr_BF;
-export var DateTimePatterns_fr_BI;
-export var DateTimePatterns_fr_BJ;
-export var DateTimePatterns_fr_BL;
-export var DateTimePatterns_fr_CD;
-export var DateTimePatterns_fr_CF;
-export var DateTimePatterns_fr_CG;
-export var DateTimePatterns_fr_CH;
-export var DateTimePatterns_fr_CI;
-export var DateTimePatterns_fr_CM;
-export var DateTimePatterns_fr_DJ;
-export var DateTimePatterns_fr_DZ;
-export var DateTimePatterns_fr_FR;
-export var DateTimePatterns_fr_GA;
-export var DateTimePatterns_fr_GF;
-export var DateTimePatterns_fr_GN;
-export var DateTimePatterns_fr_GP;
-export var DateTimePatterns_fr_GQ;
-export var DateTimePatterns_fr_HT;
-export var DateTimePatterns_fr_KM;
-export var DateTimePatterns_fr_LU;
-export var DateTimePatterns_fr_MA;
-export var DateTimePatterns_fr_MC;
-export var DateTimePatterns_fr_MF;
-export var DateTimePatterns_fr_MG;
-export var DateTimePatterns_fr_ML;
-export var DateTimePatterns_fr_MQ;
-export var DateTimePatterns_fr_MR;
-export var DateTimePatterns_fr_MU;
-export var DateTimePatterns_fr_NC;
-export var DateTimePatterns_fr_NE;
-export var DateTimePatterns_fr_PF;
-export var DateTimePatterns_fr_PM;
-export var DateTimePatterns_fr_RE;
-export var DateTimePatterns_fr_RW;
-export var DateTimePatterns_fr_SC;
-export var DateTimePatterns_fr_SN;
-export var DateTimePatterns_fr_SY;
-export var DateTimePatterns_fr_TD;
-export var DateTimePatterns_fr_TG;
-export var DateTimePatterns_fr_TN;
-export var DateTimePatterns_fr_VU;
-export var DateTimePatterns_fr_WF;
-export var DateTimePatterns_fr_YT;
-export var DateTimePatterns_fur;
-export var DateTimePatterns_fur_IT;
-export var DateTimePatterns_fy;
-export var DateTimePatterns_fy_NL;
-export var DateTimePatterns_ga_GB;
-export var DateTimePatterns_ga_IE;
-export var DateTimePatterns_gd;
-export var DateTimePatterns_gd_GB;
-export var DateTimePatterns_gl_ES;
-export var DateTimePatterns_gsw_CH;
-export var DateTimePatterns_gsw_FR;
-export var DateTimePatterns_gsw_LI;
-export var DateTimePatterns_gu_IN;
-export var DateTimePatterns_guz;
-export var DateTimePatterns_guz_KE;
-export var DateTimePatterns_gv;
-export var DateTimePatterns_gv_IM;
-export var DateTimePatterns_ha;
-export var DateTimePatterns_ha_GH;
-export var DateTimePatterns_ha_NE;
-export var DateTimePatterns_ha_NG;
-export var DateTimePatterns_haw_US;
-export var DateTimePatterns_he_IL;
-export var DateTimePatterns_hi_IN;
-export var DateTimePatterns_hi_Latn;
-export var DateTimePatterns_hi_Latn_IN;
-export var DateTimePatterns_hr_BA;
-export var DateTimePatterns_hr_HR;
-export var DateTimePatterns_hsb;
-export var DateTimePatterns_hsb_DE;
-export var DateTimePatterns_hu_HU;
-export var DateTimePatterns_hy_AM;
-export var DateTimePatterns_ia;
-export var DateTimePatterns_ia_001;
-export var DateTimePatterns_id_ID;
-export var DateTimePatterns_ig;
-export var DateTimePatterns_ig_NG;
-export var DateTimePatterns_ii;
-export var DateTimePatterns_ii_CN;
-export var DateTimePatterns_is_IS;
-export var DateTimePatterns_it_CH;
-export var DateTimePatterns_it_IT;
-export var DateTimePatterns_it_SM;
-export var DateTimePatterns_it_VA;
-export var DateTimePatterns_ja_JP;
-export var DateTimePatterns_jgo;
-export var DateTimePatterns_jgo_CM;
-export var DateTimePatterns_jmc;
-export var DateTimePatterns_jmc_TZ;
-export var DateTimePatterns_jv;
-export var DateTimePatterns_jv_ID;
-export var DateTimePatterns_ka_GE;
-export var DateTimePatterns_kab;
-export var DateTimePatterns_kab_DZ;
-export var DateTimePatterns_kam;
-export var DateTimePatterns_kam_KE;
-export var DateTimePatterns_kde;
-export var DateTimePatterns_kde_TZ;
-export var DateTimePatterns_kea;
-export var DateTimePatterns_kea_CV;
-export var DateTimePatterns_kgp;
-export var DateTimePatterns_kgp_BR;
-export var DateTimePatterns_khq;
-export var DateTimePatterns_khq_ML;
-export var DateTimePatterns_ki;
-export var DateTimePatterns_ki_KE;
-export var DateTimePatterns_kk_KZ;
-export var DateTimePatterns_kkj;
-export var DateTimePatterns_kkj_CM;
-export var DateTimePatterns_kl;
-export var DateTimePatterns_kl_GL;
-export var DateTimePatterns_kln;
-export var DateTimePatterns_kln_KE;
-export var DateTimePatterns_km_KH;
-export var DateTimePatterns_kn_IN;
-export var DateTimePatterns_ko_KP;
-export var DateTimePatterns_ko_KR;
-export var DateTimePatterns_kok;
-export var DateTimePatterns_kok_IN;
-export var DateTimePatterns_ks;
-export var DateTimePatterns_ks_Arab;
-export var DateTimePatterns_ks_Arab_IN;
-export var DateTimePatterns_ks_Deva;
-export var DateTimePatterns_ks_Deva_IN;
-export var DateTimePatterns_ksb;
-export var DateTimePatterns_ksb_TZ;
-export var DateTimePatterns_ksf;
-export var DateTimePatterns_ksf_CM;
-export var DateTimePatterns_ksh;
-export var DateTimePatterns_ksh_DE;
-export var DateTimePatterns_ku;
-export var DateTimePatterns_ku_TR;
-export var DateTimePatterns_kw;
-export var DateTimePatterns_kw_GB;
-export var DateTimePatterns_ky_KG;
-export var DateTimePatterns_lag;
-export var DateTimePatterns_lag_TZ;
-export var DateTimePatterns_lb;
-export var DateTimePatterns_lb_LU;
-export var DateTimePatterns_lg;
-export var DateTimePatterns_lg_UG;
-export var DateTimePatterns_lkt;
-export var DateTimePatterns_lkt_US;
-export var DateTimePatterns_ln_AO;
-export var DateTimePatterns_ln_CD;
-export var DateTimePatterns_ln_CF;
-export var DateTimePatterns_ln_CG;
-export var DateTimePatterns_lo_LA;
-export var DateTimePatterns_lrc;
-export var DateTimePatterns_lrc_IQ;
-export var DateTimePatterns_lrc_IR;
-export var DateTimePatterns_lt_LT;
-export var DateTimePatterns_lu;
-export var DateTimePatterns_lu_CD;
-export var DateTimePatterns_luo;
-export var DateTimePatterns_luo_KE;
-export var DateTimePatterns_luy;
-export var DateTimePatterns_luy_KE;
-export var DateTimePatterns_lv_LV;
-export var DateTimePatterns_mai;
-export var DateTimePatterns_mai_IN;
-export var DateTimePatterns_mas;
-export var DateTimePatterns_mas_KE;
-export var DateTimePatterns_mas_TZ;
-export var DateTimePatterns_mer;
-export var DateTimePatterns_mer_KE;
-export var DateTimePatterns_mfe;
-export var DateTimePatterns_mfe_MU;
-export var DateTimePatterns_mg;
-export var DateTimePatterns_mg_MG;
-export var DateTimePatterns_mgh;
-export var DateTimePatterns_mgh_MZ;
-export var DateTimePatterns_mgo;
-export var DateTimePatterns_mgo_CM;
-export var DateTimePatterns_mi;
-export var DateTimePatterns_mi_NZ;
-export var DateTimePatterns_mk_MK;
-export var DateTimePatterns_ml_IN;
-export var DateTimePatterns_mn_MN;
-export var DateTimePatterns_mni;
-export var DateTimePatterns_mni_Beng;
-export var DateTimePatterns_mni_Beng_IN;
-export var DateTimePatterns_mr_IN;
-export var DateTimePatterns_ms_BN;
-export var DateTimePatterns_ms_ID;
-export var DateTimePatterns_ms_MY;
-export var DateTimePatterns_ms_SG;
-export var DateTimePatterns_mt_MT;
-export var DateTimePatterns_mua;
-export var DateTimePatterns_mua_CM;
-export var DateTimePatterns_my_MM;
-export var DateTimePatterns_mzn;
-export var DateTimePatterns_mzn_IR;
-export var DateTimePatterns_naq;
-export var DateTimePatterns_naq_NA;
-export var DateTimePatterns_nb_NO;
-export var DateTimePatterns_nb_SJ;
-export var DateTimePatterns_nd;
-export var DateTimePatterns_nd_ZW;
-export var DateTimePatterns_ne_IN;
-export var DateTimePatterns_ne_NP;
-export var DateTimePatterns_nl_AW;
-export var DateTimePatterns_nl_BE;
-export var DateTimePatterns_nl_BQ;
-export var DateTimePatterns_nl_CW;
-export var DateTimePatterns_nl_NL;
-export var DateTimePatterns_nl_SR;
-export var DateTimePatterns_nl_SX;
-export var DateTimePatterns_nmg;
-export var DateTimePatterns_nmg_CM;
-export var DateTimePatterns_nn;
-export var DateTimePatterns_nn_NO;
-export var DateTimePatterns_nnh;
-export var DateTimePatterns_nnh_CM;
-export var DateTimePatterns_nus;
-export var DateTimePatterns_nus_SS;
-export var DateTimePatterns_nyn;
-export var DateTimePatterns_nyn_UG;
-export var DateTimePatterns_om;
-export var DateTimePatterns_om_ET;
-export var DateTimePatterns_om_KE;
-export var DateTimePatterns_or_IN;
-export var DateTimePatterns_os;
-export var DateTimePatterns_os_GE;
-export var DateTimePatterns_os_RU;
-export var DateTimePatterns_pa_Arab;
-export var DateTimePatterns_pa_Arab_PK;
-export var DateTimePatterns_pa_Guru;
-export var DateTimePatterns_pa_Guru_IN;
-export var DateTimePatterns_pcm;
-export var DateTimePatterns_pcm_NG;
-export var DateTimePatterns_pl_PL;
-export var DateTimePatterns_ps;
-export var DateTimePatterns_ps_AF;
-export var DateTimePatterns_ps_PK;
-export var DateTimePatterns_pt_AO;
-export var DateTimePatterns_pt_CH;
-export var DateTimePatterns_pt_CV;
-export var DateTimePatterns_pt_GQ;
-export var DateTimePatterns_pt_GW;
-export var DateTimePatterns_pt_LU;
-export var DateTimePatterns_pt_MO;
-export var DateTimePatterns_pt_MZ;
-export var DateTimePatterns_pt_ST;
-export var DateTimePatterns_pt_TL;
-export var DateTimePatterns_qu;
-export var DateTimePatterns_qu_BO;
-export var DateTimePatterns_qu_EC;
-export var DateTimePatterns_qu_PE;
-export var DateTimePatterns_raj;
-export var DateTimePatterns_raj_IN;
-export var DateTimePatterns_rm;
-export var DateTimePatterns_rm_CH;
-export var DateTimePatterns_rn;
-export var DateTimePatterns_rn_BI;
-export var DateTimePatterns_ro_MD;
-export var DateTimePatterns_ro_RO;
-export var DateTimePatterns_rof;
-export var DateTimePatterns_rof_TZ;
-export var DateTimePatterns_ru_BY;
-export var DateTimePatterns_ru_KG;
-export var DateTimePatterns_ru_KZ;
-export var DateTimePatterns_ru_MD;
-export var DateTimePatterns_ru_RU;
-export var DateTimePatterns_ru_UA;
-export var DateTimePatterns_rw;
-export var DateTimePatterns_rw_RW;
-export var DateTimePatterns_rwk;
-export var DateTimePatterns_rwk_TZ;
-export var DateTimePatterns_sa;
-export var DateTimePatterns_sa_IN;
-export var DateTimePatterns_sah;
-export var DateTimePatterns_sah_RU;
-export var DateTimePatterns_saq;
-export var DateTimePatterns_saq_KE;
-export var DateTimePatterns_sat;
-export var DateTimePatterns_sat_Olck;
-export var DateTimePatterns_sat_Olck_IN;
-export var DateTimePatterns_sbp;
-export var DateTimePatterns_sbp_TZ;
-export var DateTimePatterns_sc;
-export var DateTimePatterns_sc_IT;
-export var DateTimePatterns_sd;
-export var DateTimePatterns_sd_Arab;
-export var DateTimePatterns_sd_Arab_PK;
-export var DateTimePatterns_sd_Deva;
-export var DateTimePatterns_sd_Deva_IN;
-export var DateTimePatterns_se;
-export var DateTimePatterns_se_FI;
-export var DateTimePatterns_se_NO;
-export var DateTimePatterns_se_SE;
-export var DateTimePatterns_seh;
-export var DateTimePatterns_seh_MZ;
-export var DateTimePatterns_ses;
-export var DateTimePatterns_ses_ML;
-export var DateTimePatterns_sg;
-export var DateTimePatterns_sg_CF;
-export var DateTimePatterns_shi;
-export var DateTimePatterns_shi_Latn;
-export var DateTimePatterns_shi_Latn_MA;
-export var DateTimePatterns_shi_Tfng;
-export var DateTimePatterns_shi_Tfng_MA;
-export var DateTimePatterns_si_LK;
-export var DateTimePatterns_sk_SK;
-export var DateTimePatterns_sl_SI;
-export var DateTimePatterns_smn;
-export var DateTimePatterns_smn_FI;
-export var DateTimePatterns_sn;
-export var DateTimePatterns_sn_ZW;
-export var DateTimePatterns_so;
-export var DateTimePatterns_so_DJ;
-export var DateTimePatterns_so_ET;
-export var DateTimePatterns_so_KE;
-export var DateTimePatterns_so_SO;
-export var DateTimePatterns_sq_AL;
-export var DateTimePatterns_sq_MK;
-export var DateTimePatterns_sq_XK;
-export var DateTimePatterns_sr_Cyrl;
-export var DateTimePatterns_sr_Cyrl_BA;
-export var DateTimePatterns_sr_Cyrl_ME;
-export var DateTimePatterns_sr_Cyrl_RS;
-export var DateTimePatterns_sr_Cyrl_XK;
-export var DateTimePatterns_sr_Latn_BA;
-export var DateTimePatterns_sr_Latn_ME;
-export var DateTimePatterns_sr_Latn_RS;
-export var DateTimePatterns_sr_Latn_XK;
-export var DateTimePatterns_su;
-export var DateTimePatterns_su_Latn;
-export var DateTimePatterns_su_Latn_ID;
-export var DateTimePatterns_sv_AX;
-export var DateTimePatterns_sv_FI;
-export var DateTimePatterns_sv_SE;
-export var DateTimePatterns_sw_CD;
-export var DateTimePatterns_sw_KE;
-export var DateTimePatterns_sw_TZ;
-export var DateTimePatterns_sw_UG;
-export var DateTimePatterns_ta_IN;
-export var DateTimePatterns_ta_LK;
-export var DateTimePatterns_ta_MY;
-export var DateTimePatterns_ta_SG;
-export var DateTimePatterns_te_IN;
-export var DateTimePatterns_teo;
-export var DateTimePatterns_teo_KE;
-export var DateTimePatterns_teo_UG;
-export var DateTimePatterns_tg;
-export var DateTimePatterns_tg_TJ;
-export var DateTimePatterns_th_TH;
-export var DateTimePatterns_ti;
-export var DateTimePatterns_ti_ER;
-export var DateTimePatterns_ti_ET;
-export var DateTimePatterns_tk;
-export var DateTimePatterns_tk_TM;
-export var DateTimePatterns_to;
-export var DateTimePatterns_to_TO;
-export var DateTimePatterns_tr_CY;
-export var DateTimePatterns_tr_TR;
-export var DateTimePatterns_tt;
-export var DateTimePatterns_tt_RU;
-export var DateTimePatterns_twq;
-export var DateTimePatterns_twq_NE;
-export var DateTimePatterns_tzm;
-export var DateTimePatterns_tzm_MA;
-export var DateTimePatterns_ug;
-export var DateTimePatterns_ug_CN;
-export var DateTimePatterns_uk_UA;
-export var DateTimePatterns_ur_IN;
-export var DateTimePatterns_ur_PK;
-export var DateTimePatterns_uz_Arab;
-export var DateTimePatterns_uz_Arab_AF;
-export var DateTimePatterns_uz_Cyrl;
-export var DateTimePatterns_uz_Cyrl_UZ;
-export var DateTimePatterns_uz_Latn;
-export var DateTimePatterns_uz_Latn_UZ;
-export var DateTimePatterns_vai;
-export var DateTimePatterns_vai_Latn;
-export var DateTimePatterns_vai_Latn_LR;
-export var DateTimePatterns_vai_Vaii;
-export var DateTimePatterns_vai_Vaii_LR;
-export var DateTimePatterns_vi_VN;
-export var DateTimePatterns_vun;
-export var DateTimePatterns_vun_TZ;
-export var DateTimePatterns_wae;
-export var DateTimePatterns_wae_CH;
-export var DateTimePatterns_wo;
-export var DateTimePatterns_wo_SN;
-export var DateTimePatterns_xh;
-export var DateTimePatterns_xh_ZA;
-export var DateTimePatterns_xog;
-export var DateTimePatterns_xog_UG;
-export var DateTimePatterns_yav;
-export var DateTimePatterns_yav_CM;
-export var DateTimePatterns_yi;
-export var DateTimePatterns_yi_001;
-export var DateTimePatterns_yo;
-export var DateTimePatterns_yo_BJ;
-export var DateTimePatterns_yo_NG;
-export var DateTimePatterns_yrl;
-export var DateTimePatterns_yrl_BR;
-export var DateTimePatterns_yrl_CO;
-export var DateTimePatterns_yrl_VE;
-export var DateTimePatterns_yue;
-export var DateTimePatterns_yue_Hans;
-export var DateTimePatterns_yue_Hans_CN;
-export var DateTimePatterns_yue_Hant;
-export var DateTimePatterns_yue_Hant_HK;
-export var DateTimePatterns_zgh;
-export var DateTimePatterns_zgh_MA;
-export var DateTimePatterns_zh_Hans;
-export var DateTimePatterns_zh_Hans_CN;
-export var DateTimePatterns_zh_Hans_HK;
-export var DateTimePatterns_zh_Hans_MO;
-export var DateTimePatterns_zh_Hans_SG;
-export var DateTimePatterns_zh_Hant;
-export var DateTimePatterns_zh_Hant_HK;
-export var DateTimePatterns_zh_Hant_MO;
-export var DateTimePatterns_zh_Hant_TW;
-export var DateTimePatterns_zu_ZA;

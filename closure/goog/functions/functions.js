@@ -18,7 +18,13 @@
  */
 
 
-constant = function(retValue) {
+/**
+ * Creates a function that always returns the same value.
+ * @param {T} retValue The value to return.
+ * @return {function():T} The new function.
+ * @template T
+ */
+export function constant(retValue) {
   return function() {
     return retValue;
   };
@@ -534,4 +540,3 @@ export function rateLimit(f, interval, opt_scope) {
 export var isFunction = (val) => {
   return typeof val === 'function';
 };
-export var constant;

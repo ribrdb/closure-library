@@ -454,4 +454,4 @@ var registerTimeZoneSelectedLongNames =
  * @param {string} localeName Locale ID.
  */
 var registerTimeZoneAllLongNames = registerTimeZoneAllLongNames_;
-export var activeLocale_;
+var activeLocale_;

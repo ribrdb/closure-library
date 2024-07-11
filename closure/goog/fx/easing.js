@@ -8,7 +8,12 @@
  * @fileoverview Easing functions for animations.
  */
 
-easeIn = function(t) {
+/**
+ * Ease in - Start slow and speed up.
+ * @param {number} t Input between 0 and 1.
+ * @return {number} Output between 0 and 1.
+ */
+export function easeIn(t) {
  return easeInInternal_(t, 3);
 };
 
@@ -65,4 +70,3 @@ export function easeOutLong(t) {
 export function inAndOut(t) {
  return 3 * t * t - 2 * t * t * t;
 }
-export var easeIn;

@@ -21,7 +21,7 @@ import { getFunctionName } from '../../debug/debug.js';
  * @param {!Function} bindFnCallback
  * @return {!Object}
  */
-export let bindTests = function(tests, bindFnCallback) {
+export function bindTests(tests, bindFnCallback) {
   const boundTests = {};
   for (const test of tests) {
     const name = getFunctionName(test);

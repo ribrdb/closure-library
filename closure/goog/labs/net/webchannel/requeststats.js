@@ -333,7 +333,7 @@ var endExecutionHook_ = function() {}
 /**
  * Helper function to call the start hook
  */
-onStartExecution = function() {
+export function onStartExecution() {
  startExecutionHook_();
 };
 
@@ -341,7 +341,7 @@ onStartExecution = function() {
 /**
  * Helper function to call the end hook
  */
-onEndExecution = function() {
+export function onEndExecution() {
  endExecutionHook_();
 };
 
@@ -366,5 +366,3 @@ export function setTimeout(fn, ms) {
   }
  }, ms);
 }
-export var onStartExecution;
-export var onEndExecution;

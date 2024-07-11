@@ -139,7 +139,7 @@ export function getDecorator(element) {
 /**
  * Resets the global renderer and decorator registry.
  */
-reset = function() {
+export function reset() {
   object.clear(defaultRenderers_);
   object.clear(decoratorFunctions_);
 };
@@ -164,4 +164,3 @@ export var defaultRenderers_ = {};
  * @private
  */
 export var decoratorFunctions_ = {};
-export var reset;

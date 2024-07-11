@@ -15,7 +15,7 @@
  *
  * @record
  */
-IRect = function() {};
+export function IRect() {};
 
 
 /** @type {number} */
@@ -32,4 +32,3 @@ IRect.prototype.width;
 
 /** @type {number} */
 IRect.prototype.height;
-export var IRect;

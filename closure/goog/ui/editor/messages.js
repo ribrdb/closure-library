@@ -14,27 +14,27 @@ const { SafeHtml } = goog.requireType('goog.html.SafeHtml');
 
 
 /** @desc Link button / bubble caption. */
-MSG_LINK_CAPTION = goog.getMsg('Link');
+export var MSG_LINK_CAPTION = goog.getMsg('Link');
 
 
 /** @desc Title for the dialog that edits a link. */
-MSG_EDIT_LINK = goog.getMsg('Edit Link');
+export var MSG_EDIT_LINK = goog.getMsg('Edit Link');
 
 
 /** @desc Prompt the user for the text of the link they've written. */
-MSG_TEXT_TO_DISPLAY = goog.getMsg('Text to display:');
+export var MSG_TEXT_TO_DISPLAY = goog.getMsg('Text to display:');
 
 
 /** @desc Prompt the user for the URL of the link they've created. */
-MSG_LINK_TO = goog.getMsg('Link to:');
+export var MSG_LINK_TO = goog.getMsg('Link to:');
 
 
 /** @desc Prompt the user to type a web address for their link. */
-MSG_ON_THE_WEB = goog.getMsg('Web address');
+export var MSG_ON_THE_WEB = goog.getMsg('Web address');
 
 
 /** @desc More details on what linking to a web address involves.. */
-MSG_ON_THE_WEB_TIP =
+export var MSG_ON_THE_WEB_TIP =
     goog.getMsg('Link to a page or file somewhere else on the web');
 
 
@@ -42,7 +42,7 @@ MSG_ON_THE_WEB_TIP =
  * @desc Text for a button that allows the user to test the link that
  *     they created.
  */
-MSG_TEST_THIS_LINK = goog.getMsg('Test this link');
+export var MSG_TEST_THIS_LINK = goog.getMsg('Test this link');
 
 
 /**
@@ -74,7 +74,7 @@ export function getTrLinkExplanationSafeHtml() {
 
 
 /** @desc Prompt for the URL of a link that the user is creating. */
-MSG_WHAT_URL =
+export var MSG_WHAT_URL =
     goog.getMsg('To what URL should this link go?');
 
 
@@ -82,18 +82,18 @@ MSG_WHAT_URL =
  * @desc Prompt for an email address, so that the user can create a link
  *    that sends an email.
  */
-MSG_EMAIL_ADDRESS = goog.getMsg('Email address');
+export var MSG_EMAIL_ADDRESS = goog.getMsg('Email address');
 
 
 /**
  * @desc Explanation of the prompt for an email address in a link.
  */
-MSG_EMAIL_ADDRESS_TIP =
+export var MSG_EMAIL_ADDRESS_TIP =
     goog.getMsg('Link to an email address');
 
 
 /** @desc Error message when the user enters an invalid email address. */
-MSG_INVALID_EMAIL =
+export var MSG_INVALID_EMAIL =
     goog.getMsg('Invalid email address');
 
 
@@ -101,7 +101,7 @@ MSG_INVALID_EMAIL =
  * @desc When the user creates a mailto link, asks them what email
  *     address clicking on this link will send mail to.
  */
-MSG_WHAT_EMAIL =
+export var MSG_WHAT_EMAIL =
     goog.getMsg('To what email address should this link?');
 
 
@@ -129,23 +129,10 @@ export function getEmailExplanationSafeHtml() {
  * @desc Label for the checkbox that allows the user to specify what when this
  *     link is clicked, it should be opened in a new window.
  */
-MSG_OPEN_IN_NEW_WINDOW =
+export var MSG_OPEN_IN_NEW_WINDOW =
     goog.getMsg('Open this link in a new window');
 
 
 /** @desc Image bubble caption. */
-MSG_IMAGE_CAPTION = goog.getMsg('Image');
-export var MSG_LINK_CAPTION;
-export var MSG_EDIT_LINK;
-export var MSG_TEXT_TO_DISPLAY;
-export var MSG_LINK_TO;
-export var MSG_ON_THE_WEB;
-export var MSG_ON_THE_WEB_TIP;
-export var MSG_TEST_THIS_LINK;
-export var MSG_WHAT_URL;
-export var MSG_EMAIL_ADDRESS;
-export var MSG_EMAIL_ADDRESS_TIP;
-export var MSG_INVALID_EMAIL;
-export var MSG_WHAT_EMAIL;
-export var MSG_OPEN_IN_NEW_WINDOW;
-export var MSG_IMAGE_CAPTION;
+export var MSG_IMAGE_CAPTION = goog.getMsg('Image');
+

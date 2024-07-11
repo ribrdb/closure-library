@@ -28,7 +28,7 @@ goog.setTestOnly('goog.userAgentTestUtil');
  * Rerun the initialization code to set all of the userAgent constants.
  * @suppress {accessControls}
  */
-reinitializeUserAgent = function() {
+export function reinitializeUserAgent() {
   // Unfortunately we can't isolate the useragent setting in a function
   // we can call, because things rely on it compiling to nothing when
   // one of the ASSUME flags is set, and the compiler isn't smart enough
@@ -116,4 +116,3 @@ export function getUserAgentDetected(agent) {
 
   throw new Error('Unrecognized user agent');
 }
-export var reinitializeUserAgent;

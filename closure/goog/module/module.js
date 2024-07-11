@@ -12,5 +12,13 @@
  *   <http://go/js_modules_design>
  */
 
-module = module || {};
-export var module;
+// TODO(johnlenz): Here we explicitly initialize the namespace to avoid
+// problems with the goog.module method in base.js. We should rename this
+// entire package to goog.loader and then we can delete this file.
+//
+// However, note that it is tricky to do that without breaking the world.
+/**
+ * @suppress {duplicate}
+ * @type {function(string):void}
+ */
+export var module =  {};

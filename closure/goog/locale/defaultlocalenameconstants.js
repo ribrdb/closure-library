@@ -14,7 +14,12 @@
 /**
  * Namespace for locale specific country and lanugage names
  */
-defaultLocaleNameConstants = {
+
+/**
+ * Default list of locale specific country and language names
+ * @const
+ */
+export var defaultLocaleNameConstants = {
   'COUNTRY': {
     '001': 'world',
     '002': 'Africa',
@@ -884,4 +889,3 @@ defaultLocaleNameConstants = {
     'zza': 'Zaza'
   }
 };
-export var defaultLocaleNameConstants;

@@ -25,7 +25,7 @@ import * as testingAsserts from './asserts.js';
  * @param {number=} opt_number of time the assertion should throw. Default is 1.
  * @return {*} the return value of f.
  */
-export let withAssertionFailure = function(f, opt_message, opt_number) {
+export function withAssertionFailure(f, opt_message, opt_number) {
   try {
     if (!opt_number) {
       opt_number = 1;

@@ -1497,7 +1497,7 @@ let defaultSymbols = ListFormatSymbols_en;
  * Returns the default ListFormatSymbols
  * @return {!ListFormatSymbols}
  */
-export let getListFormatSymbols = function() {
+export function getListFormatSymbols() {
   return defaultSymbols;
 };
 
@@ -1505,7 +1505,7 @@ export let getListFormatSymbols = function() {
  * Sets the default ListFormatSymbols
  * @param {!ListFormatSymbols} symbols
  */
-export let setListFormatSymbols = function(symbols) {
+export function setListFormatSymbols(symbols) {
   defaultSymbols = symbols;
 };
 

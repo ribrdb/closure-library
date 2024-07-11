@@ -110,7 +110,7 @@ import * as url from '../url/url.js';
  *     'Untitled Test Case'.
  * @constructor
  */
-export const TestCase = function(opt_name) {
+export function TestCase(opt_name) {
   /**
    * A name for the test case.
    * @type {string}

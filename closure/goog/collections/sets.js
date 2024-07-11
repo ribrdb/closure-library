@@ -62,7 +62,7 @@ export { SetLike };
  * @returns {!Set<T>}
  * @template T
  */
-export let intersection = function(a, b) {
+export function intersection(a, b) {
   return new Set(iters.filter(b, elem => a.has(elem)));
 };
 
@@ -75,7 +75,7 @@ export let intersection = function(a, b) {
  * @return {!Set<T>}
  * @template T
  */
-export let union = function(a, b) {
+export function union(a, b) {
   const set = new Set(a);
   iters.forEach(b[Symbol.iterator](), elem => set.add(elem));
   return set;
@@ -91,7 +91,7 @@ export let union = function(a, b) {
  * @return {!Set<T>}
  * @template T
  */
-export let difference = function(a, b) {
+export function difference(a, b) {
   const set = new Set(a);
   iters.forEach(b[Symbol.iterator](), elem => set.delete(elem));
   return set;
@@ -108,7 +108,7 @@ export let difference = function(a, b) {
  */
 // TODO(nnaze): Consider widening the type of b per discussion in
 // https://github.com/tc39/proposal-set-methods/issues/56
-export let symmetricDifference = function(a, b) {
+export function symmetricDifference(a, b) {
   const newSet = new Set(a);
   for (const elem of b) {
     if (a.has(elem)) {
@@ -126,7 +126,7 @@ export let symmetricDifference = function(a, b) {
  * @param {!Iterable<T>} col A collection containing items to add.
  * @template T
  */
-export let addAll = function(set, col) {
+export function addAll(set, col) {
   for (const elem of col) {
     set.add(elem);
   }
@@ -138,7 +138,7 @@ export let addAll = function(set, col) {
  * @param {!Iterable<T>} col A collection containing the elements to remove.
  * @template T
  */
-export let removeAll = function(set, col) {
+export function removeAll(set, col) {
   for (const elem of col) {
     set.delete(elem);
   }
@@ -152,7 +152,7 @@ export let removeAll = function(set, col) {
  *     given collection, false otherwise.
  * @template T
  */
-export let hasAll = function(set, col) {
+export function hasAll(set, col) {
   for (const elem of col) {
     if (!set.has(elem)) return false;
   }
@@ -169,7 +169,7 @@ export let hasAll = function(set, col) {
  *     all the elements in the given collection, false otherwise.
  * @template T
  */
-export let equals = function(set, col) {
+export function equals(set, col) {
   const colSize = Array.isArray(col) ? col.length : col.size;
   if (set.size !== colSize) {
     return false;
@@ -187,7 +187,7 @@ export let equals = function(set, col) {
  *     otherwise.
  * @template T
  */
-export let isSubsetOf = function(set, col) {
+export function isSubsetOf(set, col) {
   if (Array.isArray(col) && set.size > col.length) return false;
   const colSet = Array.isArray(col) ? new Set(col) : col;
   if (set.size > colSet.size) {

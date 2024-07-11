@@ -18,7 +18,11 @@
  * https://www.khronos.org/registry/webgl/specs/1.0/#WEBGLRENDERINGCONTEXT
  */
 
-DEPTH_BUFFER_BIT = 0x00000100;
+/**
+ * @const
+ * @type {number}
+ */
+export var DEPTH_BUFFER_BIT = 0x00000100;
 
 
 /**
@@ -2177,4 +2181,3 @@ export var TEXTURE_MAX_ANISOTROPY_EXT = 0x84FE;
  * @type {number}
  */
 export var MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;
-export var DEPTH_BUFFER_BIT;

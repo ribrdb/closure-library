@@ -32,7 +32,7 @@ let defaultStateValueMap;
  * @return {!Object<!State|string, string|boolean|number>}
  *      The names for each of the notification methods.
  */
-export let getDefaultValuesMap = function() {
+export function getDefaultValuesMap() {
   if (!defaultStateValueMap) {
     defaultStateValueMap = {
       [State.ATOMIC]: false,

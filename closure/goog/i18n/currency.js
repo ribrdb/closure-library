@@ -23,7 +23,11 @@
  */
 
 
-PRECISION_MASK_ = 0x07;
+/**
+ * The mask of precision field.
+ * @private
+ */
+var PRECISION_MASK_ = 0x07;
 
 
 /**
@@ -68,7 +72,7 @@ export function isAvailable(currencyCode) {
  * to support some of the rarely used currencies, it should call this function
  * before any other functions in this namespace.
  */
-addTier2Support = function() {
+export function addTier2Support() {
   // Protection from executing this these again and again.
   if (!tier2Enabled_) {
     for (const key in CurrencyInfoTier2) {
@@ -551,5 +555,3 @@ export var CurrencyInfoTier2 = {
   'ZMW': [0, 'ZMW', 'ZMW'],
   'ZWD': [0, '$', 'Z$']
 };
-export var PRECISION_MASK_;
-export var addTier2Support;

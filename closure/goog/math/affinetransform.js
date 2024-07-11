@@ -42,7 +42,7 @@
  * @constructor
  * @final
  */
-AffineTransform = function(
+export function AffineTransform(
     opt_m00, opt_m10, opt_m01, opt_m11, opt_m02, opt_m12) {
  if (arguments.length == 6) {
    this.setTransform(
@@ -567,4 +567,3 @@ AffineTransform.prototype.equals = function(tx) {
  return this.m00_ == tx.m00_ && this.m01_ == tx.m01_ && this.m02_ == tx.m02_ &&
      this.m10_ == tx.m10_ && this.m11_ == tx.m11_ && this.m12_ == tx.m12_;
 };
-export var AffineTransform;

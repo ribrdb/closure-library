@@ -28,7 +28,7 @@
  * @implements {IArrayLike<number>}
  * @final
  */
-Float32Array_ = function(p0) {
+function Float32Array_(p0) {
  /** @type {number} */
  this.length = /** @type {number} */ (/** @type {?} */ ((p0).length || p0));
  for (let i = 0; i < this.length; i++) {
@@ -104,5 +104,4 @@ if (typeof Float32Array == 'undefined') {
       Float32Array_.prototype.toString);
   goog.exportSymbol('Float32Array', Float32Array_);
 }
-var Float32Array_;
 export { Float32Array_ as Float32Array };

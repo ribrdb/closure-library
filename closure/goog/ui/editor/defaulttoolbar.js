@@ -35,11 +35,11 @@ const { ToolbarColorMenuButton } = goog.requireType('goog.ui.toolbarcolormenubut
 
 
 /** @desc Font menu item caption for the default sans-serif font. */
-MSG_FONT_NORMAL = goog.getMsg('Normal');
+export var MSG_FONT_NORMAL = goog.getMsg('Normal');
 
 
 /** @desc Font menu item caption for the default serif font. */
-MSG_FONT_NORMAL_SERIF =
+export var MSG_FONT_NORMAL_SERIF =
     goog.getMsg('Normal / serif');
 
 
@@ -153,19 +153,19 @@ export function addDefaultFonts(button) {
 
 
 /** @desc Font size menu item caption for the 'Small' size. */
-MSG_FONT_SIZE_SMALL = goog.getMsg('Small');
+export var MSG_FONT_SIZE_SMALL = goog.getMsg('Small');
 
 
 /** @desc Font size menu item caption for the 'Normal' size. */
-MSG_FONT_SIZE_NORMAL = goog.getMsg('Normal');
+export var MSG_FONT_SIZE_NORMAL = goog.getMsg('Normal');
 
 
 /** @desc Font size menu item caption for the 'Large' size. */
-MSG_FONT_SIZE_LARGE = goog.getMsg('Large');
+export var MSG_FONT_SIZE_LARGE = goog.getMsg('Large');
 
 
 /** @desc Font size menu item caption for the 'Huge' size. */
-MSG_FONT_SIZE_HUGE = goog.getMsg('Huge');
+export var MSG_FONT_SIZE_HUGE = goog.getMsg('Huge');
 
 
 /**
@@ -200,20 +200,20 @@ export function addDefaultFontSizes(button) {
 
 
 /** @desc Caption for "Heading" block format option. */
-MSG_FORMAT_HEADING = goog.getMsg('Heading');
+export var MSG_FORMAT_HEADING = goog.getMsg('Heading');
 
 
 /** @desc Caption for "Subheading" block format option. */
-MSG_FORMAT_SUBHEADING = goog.getMsg('Subheading');
+export var MSG_FORMAT_SUBHEADING = goog.getMsg('Subheading');
 
 
 /** @desc Caption for "Minor heading" block format option. */
-MSG_FORMAT_MINOR_HEADING =
+export var MSG_FORMAT_MINOR_HEADING =
     goog.getMsg('Minor heading');
 
 
 /** @desc Caption for "Normal" block format option. */
-MSG_FORMAT_NORMAL = goog.getMsg('Normal');
+export var MSG_FORMAT_NORMAL = goog.getMsg('Normal');
 
 
 /**
@@ -679,133 +679,133 @@ function formatBlockFactory_(id, tooltip, caption, opt_classNames, opt_renderer,
 
 
 /** @desc Format menu tooltip. */
-MSG_FORMAT_BLOCK_TITLE = goog.getMsg('Format');
+export var MSG_FORMAT_BLOCK_TITLE = goog.getMsg('Format');
 
 
 /** @desc Format menu caption. */
-MSG_FORMAT_BLOCK_CAPTION = goog.getMsg('Format');
+export var MSG_FORMAT_BLOCK_CAPTION = goog.getMsg('Format');
 
 
 /** @desc Undo button tooltip. */
-MSG_UNDO_TITLE = goog.getMsg('Undo');
+export var MSG_UNDO_TITLE = goog.getMsg('Undo');
 
 
 /** @desc Redo button tooltip. */
-MSG_REDO_TITLE = goog.getMsg('Redo');
+export var MSG_REDO_TITLE = goog.getMsg('Redo');
 
 
 /** @desc Font menu tooltip. */
-MSG_FONT_FACE_TITLE = goog.getMsg('Font');
+export var MSG_FONT_FACE_TITLE = goog.getMsg('Font');
 
 
 /** @desc Font size menu tooltip. */
-MSG_FONT_SIZE_TITLE = goog.getMsg('Font size');
+export var MSG_FONT_SIZE_TITLE = goog.getMsg('Font size');
 
 
 /** @desc Text foreground color menu tooltip. */
-MSG_FONT_COLOR_TITLE = goog.getMsg('Text color');
+export var MSG_FONT_COLOR_TITLE = goog.getMsg('Text color');
 
 
 /** @desc Bold button tooltip. */
-MSG_BOLD_TITLE = goog.getMsg('Bold');
+export var MSG_BOLD_TITLE = goog.getMsg('Bold');
 
 
 /** @desc Italic button tooltip. */
-MSG_ITALIC_TITLE = goog.getMsg('Italic');
+export var MSG_ITALIC_TITLE = goog.getMsg('Italic');
 
 
 /** @desc Underline button tooltip. */
-MSG_UNDERLINE_TITLE = goog.getMsg('Underline');
+export var MSG_UNDERLINE_TITLE = goog.getMsg('Underline');
 
 
 /** @desc Text background color menu tooltip. */
-MSG_BACKGROUND_COLOR_TITLE =
+export var MSG_BACKGROUND_COLOR_TITLE =
     goog.getMsg('Text background color');
 
 
 /** @desc Link button tooltip. */
-MSG_LINK_TITLE =
+export var MSG_LINK_TITLE =
     goog.getMsg('Add or remove link');
 
 
 /** @desc Numbered list button tooltip. */
-MSG_ORDERED_LIST_TITLE =
+export var MSG_ORDERED_LIST_TITLE =
     goog.getMsg('Numbered list');
 
 
 /** @desc Bullet list button tooltip. */
-MSG_UNORDERED_LIST_TITLE =
+export var MSG_UNORDERED_LIST_TITLE =
     goog.getMsg('Bullet list');
 
 
 /** @desc Outdent button tooltip. */
-MSG_OUTDENT_TITLE =
+export var MSG_OUTDENT_TITLE =
     goog.getMsg('Decrease indent');
 
 
 /** @desc Indent button tooltip. */
-MSG_INDENT_TITLE = goog.getMsg('Increase indent');
+export var MSG_INDENT_TITLE = goog.getMsg('Increase indent');
 
 
 /** @desc Align left button tooltip. */
-MSG_ALIGN_LEFT_TITLE = goog.getMsg('Align left');
+export var MSG_ALIGN_LEFT_TITLE = goog.getMsg('Align left');
 
 
 /** @desc Align center button tooltip. */
-MSG_ALIGN_CENTER_TITLE =
+export var MSG_ALIGN_CENTER_TITLE =
     goog.getMsg('Align center');
 
 
 /** @desc Align right button tooltip. */
-MSG_ALIGN_RIGHT_TITLE =
+export var MSG_ALIGN_RIGHT_TITLE =
     goog.getMsg('Align right');
 
 
 /** @desc Justify button tooltip. */
-MSG_JUSTIFY_TITLE = goog.getMsg('Justify');
+export var MSG_JUSTIFY_TITLE = goog.getMsg('Justify');
 
 
 /** @desc Remove formatting button tooltip. */
-MSG_REMOVE_FORMAT_TITLE =
+export var MSG_REMOVE_FORMAT_TITLE =
     goog.getMsg('Remove formatting');
 
 
 /** @desc Insert image button tooltip. */
-MSG_IMAGE_TITLE = goog.getMsg('Insert image');
+export var MSG_IMAGE_TITLE = goog.getMsg('Insert image');
 
 
 /** @desc Strike through button tooltip. */
-MSG_STRIKE_THROUGH_TITLE =
+export var MSG_STRIKE_THROUGH_TITLE =
     goog.getMsg('Strikethrough');
 
 
 /** @desc Left-to-right button tooltip. */
-MSG_DIR_LTR_TITLE = goog.getMsg('Left-to-right');
+export var MSG_DIR_LTR_TITLE = goog.getMsg('Left-to-right');
 
 
 /** @desc Right-to-left button tooltip. */
-MSG_DIR_RTL_TITLE = goog.getMsg('Right-to-left');
+export var MSG_DIR_RTL_TITLE = goog.getMsg('Right-to-left');
 
 
 /** @desc Blockquote button tooltip. */
-MSG_BLOCKQUOTE_TITLE = goog.getMsg('Quote');
+export var MSG_BLOCKQUOTE_TITLE = goog.getMsg('Quote');
 
 
 /** @desc Edit HTML button tooltip. */
-MSG_EDIT_HTML_TITLE =
+export var MSG_EDIT_HTML_TITLE =
     goog.getMsg('Edit HTML source');
 
 
 /** @desc Subscript button tooltip. */
-MSG_SUBSCRIPT = goog.getMsg('Subscript');
+export var MSG_SUBSCRIPT = goog.getMsg('Subscript');
 
 
 /** @desc Superscript button tooltip. */
-MSG_SUPERSCRIPT = goog.getMsg('Superscript');
+export var MSG_SUPERSCRIPT = goog.getMsg('Superscript');
 
 
 /** @desc Edit HTML button caption. */
-MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
+export var MSG_EDIT_HTML_CAPTION = goog.getMsg('Edit HTML');
 
 
 /**
@@ -1066,43 +1066,4 @@ var button_list_ = [
   // once the map is ready.
   button_list_ = null;
 })();
-export var MSG_FONT_NORMAL;
-export var MSG_FONT_NORMAL_SERIF;
-export var MSG_FONT_SIZE_SMALL;
-export var MSG_FONT_SIZE_NORMAL;
-export var MSG_FONT_SIZE_LARGE;
-export var MSG_FONT_SIZE_HUGE;
-export var MSG_FORMAT_HEADING;
-export var MSG_FORMAT_SUBHEADING;
-export var MSG_FORMAT_MINOR_HEADING;
-export var MSG_FORMAT_NORMAL;
-export var MSG_FORMAT_BLOCK_TITLE;
-export var MSG_FORMAT_BLOCK_CAPTION;
-export var MSG_UNDO_TITLE;
-export var MSG_REDO_TITLE;
-export var MSG_FONT_FACE_TITLE;
-export var MSG_FONT_SIZE_TITLE;
-export var MSG_FONT_COLOR_TITLE;
-export var MSG_BOLD_TITLE;
-export var MSG_ITALIC_TITLE;
-export var MSG_UNDERLINE_TITLE;
-export var MSG_BACKGROUND_COLOR_TITLE;
-export var MSG_LINK_TITLE;
-export var MSG_ORDERED_LIST_TITLE;
-export var MSG_UNORDERED_LIST_TITLE;
-export var MSG_OUTDENT_TITLE;
-export var MSG_INDENT_TITLE;
-export var MSG_ALIGN_LEFT_TITLE;
-export var MSG_ALIGN_CENTER_TITLE;
-export var MSG_ALIGN_RIGHT_TITLE;
-export var MSG_JUSTIFY_TITLE;
-export var MSG_REMOVE_FORMAT_TITLE;
-export var MSG_IMAGE_TITLE;
-export var MSG_STRIKE_THROUGH_TITLE;
-export var MSG_DIR_LTR_TITLE;
-export var MSG_DIR_RTL_TITLE;
-export var MSG_BLOCKQUOTE_TITLE;
-export var MSG_EDIT_HTML_TITLE;
-export var MSG_SUBSCRIPT;
-export var MSG_SUPERSCRIPT;
-export var MSG_EDIT_HTML_CAPTION;
+
