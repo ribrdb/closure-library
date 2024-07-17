@@ -206,7 +206,7 @@ RichTextSpellChecker.prototype.initSuggestionsMenu = function() {
       this.getMenu(), PopupMenu,
       'The menu of a richtextspellchecker must be a PopupMenu.');
   this.eventHandler_.listen(
-      menu, Component.EventType.HIDE, this.onCorrectionHide_);
+      menu, Component.ComponentEventType.HIDE, this.onCorrectionHide_);
 };
 
 

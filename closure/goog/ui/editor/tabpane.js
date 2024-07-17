@@ -154,7 +154,7 @@ TabPane.prototype.enterDocument = function() {
  // Add the tabs.
  this.addChild(this.tabBar_, true);
  this.eventHandler_.listen(
-     this.tabBar_, Component.EventType.SELECT, this.handleTabSelect_);
+     this.tabBar_, Component.ComponentEventType.SELECT, this.handleTabSelect_);
 
  // Add the tab content.
  root.appendChild(this.tabContent_);

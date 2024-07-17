@@ -799,8 +799,8 @@ Control.prototype.setVisible = function(visible, opt_force) {
   if (opt_force ||
       (this.visible_ != visible &&
        this.dispatchEvent(
-           visible ? Component.EventType.SHOW :
-                     Component.EventType.HIDE))) {
+           visible ? Component.ComponentEventType.SHOW :
+                     Component.ComponentEventType.HIDE))) {
     var element = this.getElement();
     if (element) {
       this.renderer_.setVisible(element, visible);
@@ -1190,7 +1190,7 @@ Control.prototype.isTransitionAllowed = function(state, enable) {
 Control.prototype.handleMouseOver = function(e) {
   // Ignore mouse moves between descendants.
   if (!Control.isMouseEventWithinElement_(e, this.getElement()) &&
-      this.dispatchEvent(Component.EventType.ENTER) &&
+      this.dispatchEvent(Component.ComponentEventType.ENTER) &&
       this.isEnabled() && this.isAutoState(Component.State.HOVER)) {
     this.setHighlighted(true);
   }
@@ -1206,7 +1206,7 @@ Control.prototype.handleMouseOver = function(e) {
  */
 Control.prototype.handleMouseOut = function(e) {
   if (!Control.isMouseEventWithinElement_(e, this.getElement()) &&
-      this.dispatchEvent(Component.EventType.LEAVE)) {
+      this.dispatchEvent(Component.ComponentEventType.LEAVE)) {
     if (this.isAutoState(Component.State.ACTIVE)) {
       // Deactivate on mouseout; otherwise we lose track of the mouse button.
       this.setActive(false);
@@ -1349,7 +1349,7 @@ Control.prototype.performActionInternal = function(e) {
   }
 
   var actionEvent =
-      new Event(Component.EventType.ACTION, this);
+      new Event(Component.ComponentEventType.ACTION, this);
   if (e) {
     /** @suppress {strictMissingProperties} Added to tighten compiler checks */
     actionEvent.altKey = e.altKey;

@@ -45,7 +45,7 @@ export function ProgressBar(opt_domHelper) {
      */
   this.rangeModel_ = new RangeModel;
   events.listen(
-      this.rangeModel_, Component.EventType.CHANGE, this.handleChange_,
+      this.rangeModel_, Component.ComponentEventType.CHANGE, this.handleChange_,
       false, this);
 }
 goog.inherits(ProgressBar, Component);
@@ -286,7 +286,7 @@ ProgressBar.prototype.orientation_ =
  */
 ProgressBar.prototype.handleChange_ = function(e) {
   this.updateUi_();
-  this.dispatchEvent(Component.EventType.CHANGE);
+  this.dispatchEvent(Component.ComponentEventType.CHANGE);
 };
 
 

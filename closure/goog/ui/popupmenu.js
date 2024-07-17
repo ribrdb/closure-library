@@ -137,7 +137,7 @@ PopupMenu.prototype.enterDocument = function() {
   this.targets_.forEach(this.attachEvent_, this);
 
   var handler = this.getHandler();
-  handler.listen(this, Component.EventType.ACTION, this.onAction_);
+  handler.listen(this, Component.ComponentEventType.ACTION, this.onAction_);
   handler.listen(
       this.getDomHelper().getDocument(), EventType.MOUSEDOWN,
       this.onDocClick, true);
@@ -437,7 +437,7 @@ PopupMenu.prototype.showWithPosition = function(
   this.currentAnchor_ = opt_anchor || null;
 
   // Notify event handlers that the menu is about to be shown.
-  if (!this.dispatchEvent(Component.EventType.BEFORE_SHOW)) {
+  if (!this.dispatchEvent(Component.ComponentEventType.BEFORE_SHOW)) {
     return;
   }
 
@@ -463,7 +463,7 @@ PopupMenu.prototype.showWithPosition = function(
 
   this.setHighlightedIndex(-1);
 
-  // setVisible dispatches a Component.EventType.SHOW event, which may
+  // setVisible dispatches a Component.ComponentEventType.SHOW event, which may
   // be canceled to prevent the menu from being shown.
   this.setVisible(true);
 };
@@ -532,7 +532,7 @@ PopupMenu.prototype.hide = function() {
     return;
   }
 
-  // setVisible dispatches a Component.EventType.HIDE event, which may
+  // setVisible dispatches a Component.ComponentEventType.HIDE event, which may
   // be canceled to prevent the menu from being hidden.
   this.setVisible(false);
   if (!this.isVisible()) {

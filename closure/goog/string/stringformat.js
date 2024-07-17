@@ -141,7 +141,7 @@ format.demuxes_['f'] = function(
   // empty string instead of undefined for non-participating capture groups,
   // and isNaN('') == false.
   if (!(isNaN(precision) || precision == '')) {
-    replacement = parseFloat(value).toFixed(precision);
+    replacement = parseFloat(value).toFixed(/** @type {?} */(precision));
   }
 
   // Generates sign string that will be attached to the replacement.
@@ -167,7 +167,7 @@ format.demuxes_['f'] = function(
 
   // We need a clean signless replacement to start with
   replacement = isNaN(precision) ? Math.abs(Number(value)).toString() :
-                                   Math.abs(Number(value)).toFixed(precision);
+                                   Math.abs(Number(value)).toFixed(/** @type {?} */(precision));
 
   const padCount = Number(width) - replacement.length - sign.length;
 

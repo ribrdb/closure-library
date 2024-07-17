@@ -54,7 +54,7 @@ export function PopupEmojiPicker(defaultImgUrl, opt_domHelper) {
   this.addChild(this.emojiPicker_);
 
   this.getHandler().listen(
-      this.emojiPicker_, Component.EventType.ACTION,
+      this.emojiPicker_, Component.ComponentEventType.ACTION,
       this.onEmojiPicked_);
 }
 goog.inherits(PopupEmojiPicker, Component);

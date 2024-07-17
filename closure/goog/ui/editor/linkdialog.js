@@ -504,7 +504,7 @@ LinkDialog.prototype.createDialogContent_ = function() {
   this.tabPane_.render(content);
 
   this.eventHandler_.listen(
-      this.tabPane_, Component.EventType.SELECT, this.onChangeTab_);
+      this.tabPane_, Component.ComponentEventType.SELECT, this.onChangeTab_);
 
   if (this.showOpenLinkInNewWindow_) {
     content.appendChild(this.buildOpenInNewWindowDiv_());
@@ -656,7 +656,7 @@ LinkDialog.prototype.buildTabOnTheWeb_ = function() {
   testLink.render(inputDiv);
   testLink.getElement().style.marginTop = '1em';
   this.eventHandler_.listen(
-      testLink, Component.EventType.ACTION, this.onWebTestLink_);
+      testLink, Component.ComponentEventType.ACTION, this.onWebTestLink_);
 
   // Build the "On the web" explanation text div.
   const explanationDiv = this.dom.createDom(

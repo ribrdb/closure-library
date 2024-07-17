@@ -207,7 +207,7 @@ HsvPalette.prototype.setColor = function(
    this.setColorInternal(color);
    this.updateUi();
    if (!opt_disableDispatchEvent) {
-     this.dispatchEvent(Component.EventType.ACTION);
+     this.dispatchEvent(Component.ComponentEventType.ACTION);
    }
  }
 };
@@ -242,7 +242,7 @@ HsvPalette.prototype.setHsv = function(
  if (opt_hue != null || opt_saturation != null || opt_value != null) {
    this.setHsv_(opt_hue, opt_saturation, opt_value);
    this.updateUi();
-   this.dispatchEvent(Component.EventType.ACTION);
+   this.dispatchEvent(Component.ComponentEventType.ACTION);
  }
 };
 

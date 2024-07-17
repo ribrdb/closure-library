@@ -88,7 +88,7 @@ export function ToolbarController(field, toolbar) {
           this.field_, Field.EventType.COMMAND_VALUE_CHANGE,
           this.updateToolbar)
       .listen(
-          this.toolbar_, Component.EventType.ACTION, this.handleAction);
+          this.toolbar_, Component.ComponentEventType.ACTION, this.handleAction);
 }
 goog.inherits(ToolbarController, EventTarget);
 
@@ -233,7 +233,7 @@ ToolbarController.prototype.disposeInternal = function() {
  */
 ToolbarController.prototype.updateToolbar = function(e) {
   if (!this.toolbar_.isEnabled() || !this.field_.isSelectionEditable() ||
-      !this.dispatchEvent(Component.EventType.CHANGE)) {
+      !this.dispatchEvent(Component.ComponentEventType.CHANGE)) {
     return;
   }
 

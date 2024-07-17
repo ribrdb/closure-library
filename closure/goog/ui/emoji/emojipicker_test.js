@@ -774,7 +774,7 @@ testSuite({
     palette.setSelectedIndex(0);  // Select a different emoji.
 
     let eventSent;
-    handler.listen(picker, Component.EventType.ACTION, (e) => {
+    handler.listen(picker, Component.ComponentEventType.ACTION, (e) => {
       eventSent = e;
     });
     events.fireClickSequence(element, undefined, undefined, {shiftKey: false});
@@ -802,7 +802,7 @@ testSuite({
     palette.setSelectedIndex(0);  // Select a different emoji.
 
     let eventSent;
-    handler.listen(picker, Component.EventType.ACTION, (e) => {
+    handler.listen(picker, Component.ComponentEventType.ACTION, (e) => {
       eventSent = e;
     });
     events.fireClickSequence(element, undefined, undefined, {shiftKey: true});
@@ -827,7 +827,7 @@ testSuite({
     const palette = picker.getPage(0);
     // Artificially select the an emoji
     palette.setSelectedIndex(0);
-    palette.dispatchEvent(Component.EventType.ACTION);
+    palette.dispatchEvent(Component.ComponentEventType.ACTION);
 
     // Now we should get the first emoji back. See emojiGroup1 above.
     const emoji = picker.getSelectedEmoji();

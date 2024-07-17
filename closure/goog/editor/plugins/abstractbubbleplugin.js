@@ -407,7 +407,7 @@ AbstractBubblePlugin.prototype.createBubble = function(
         goog.bind(this.createBubbleContents, this),
         this.shouldPreferBubbleAboveElement());
     this.eventRegister.listen(
-        bubble, Component.EventType.HIDE, this.handlePanelClosed_);
+        bubble, Component.ComponentEventType.HIDE, this.handlePanelClosed_);
 
     this.onShow();
 

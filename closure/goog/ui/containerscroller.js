@@ -56,13 +56,13 @@ export function ContainerScroller(container) {
   this.eventHandler_ = new EventHandler(this);
 
   this.eventHandler_.listen(
-      container, Component.EventType.HIGHLIGHT, this.onHighlight_);
+      container, Component.ComponentEventType.HIGHLIGHT, this.onHighlight_);
   this.eventHandler_.listen(
-      container, Component.EventType.ENTER, this.onEnter_);
+      container, Component.ComponentEventType.ENTER, this.onEnter_);
   this.eventHandler_.listen(
       container, Container.EventType.AFTER_SHOW, this.onAfterShow_);
   this.eventHandler_.listen(
-      container, Component.EventType.HIDE, this.onHide_);
+      container, Component.ComponentEventType.HIDE, this.onHide_);
 
   // TODO(gboyer): Allow a ContainerScroller to be attached with a Container
   // before the container is rendered.

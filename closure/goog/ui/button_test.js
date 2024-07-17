@@ -152,7 +152,7 @@ testSuite({
     const handleAction = () => {
       dispatchedActionCount++;
     };
-    events.listen(button, Component.EventType.ACTION, handleAction);
+    events.listen(button, Component.ComponentEventType.ACTION, handleAction);
 
     button.decorate(demoButtonElement);
     testingEvents.fireClickSequence(demoButtonElement);
@@ -184,7 +184,7 @@ testSuite({
         'Enabled button must have dispatched ACTION on Space key', 1,
         dispatchedActionCount);
 
-    events.unlisten(button, Component.EventType.ACTION, handleAction);
+    events.unlisten(button, Component.ComponentEventType.ACTION, handleAction);
   },
 
   testDisabledButtonBehavior() {
@@ -192,7 +192,7 @@ testSuite({
     const handleAction = () => {
       dispatchedActionCount++;
     };
-    events.listen(button, Component.EventType.ACTION, handleAction);
+    events.listen(button, Component.ComponentEventType.ACTION, handleAction);
 
     button.setEnabled(false);
 
@@ -208,7 +208,7 @@ testSuite({
         'Disabled button must not have dispatched ACTION on Space', 0,
         dispatchedActionCount);
 
-    events.unlisten(button, Component.EventType.ACTION, handleAction);
+    events.unlisten(button, Component.ComponentEventType.ACTION, handleAction);
   },
 
   testSpaceFireActionOnKeyUp() {
@@ -216,7 +216,7 @@ testSuite({
     const handleAction = () => {
       dispatchedActionCount++;
     };
-    events.listen(button, Component.EventType.ACTION, handleAction);
+    events.listen(button, Component.ComponentEventType.ACTION, handleAction);
 
     dispatchedActionCount = 0;
     let e = new GoogEvent(KeyHandler.EventType.KEY, button);
@@ -246,7 +246,7 @@ testSuite({
         'Button must have dispatched ACTION on Space keyup', 1,
         dispatchedActionCount);
 
-    events.unlisten(button, Component.EventType.ACTION, handleAction);
+    events.unlisten(button, Component.ComponentEventType.ACTION, handleAction);
   },
 
   testEnterFireActionOnKeyPress() {
@@ -254,7 +254,7 @@ testSuite({
     const handleAction = () => {
       dispatchedActionCount++;
     };
-    events.listen(button, Component.EventType.ACTION, handleAction);
+    events.listen(button, Component.ComponentEventType.ACTION, handleAction);
 
     dispatchedActionCount = 0;
     let e = new GoogEvent(KeyHandler.EventType.KEY, button);
@@ -280,7 +280,7 @@ testSuite({
         'Button must not have dispatched ACTION on Enter keyup', 0,
         dispatchedActionCount);
 
-    events.unlisten(button, Component.EventType.ACTION, handleAction);
+    events.unlisten(button, Component.ComponentEventType.ACTION, handleAction);
   },
 
   testSetAriaLabel() {

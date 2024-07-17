@@ -86,7 +86,7 @@ testSuite({
   testChangeEventWithDisableDispatchEventOmitted() {
     // TODO(user): Add functionality to goog.testing.events to assert
     // an event was fired.
-    events.listen(samplePalette, Component.EventType.ACTION, () => {
+    events.listen(samplePalette, Component.ComponentEventType.ACTION, () => {
       eventWasFired = true;
     });
     samplePalette.setColor('#123456');
@@ -94,7 +94,7 @@ testSuite({
   },
 
   testChangeEventWithDisableDispatchEventTrue() {
-    events.listen(samplePalette, Component.EventType.ACTION, () => {
+    events.listen(samplePalette, Component.ComponentEventType.ACTION, () => {
       eventWasFired = true;
     });
     samplePalette.setColor('#123456', true);
@@ -102,7 +102,7 @@ testSuite({
   },
 
   testChangeEventWithDisableDispatchEventFalse() {
-    events.listen(samplePalette, Component.EventType.ACTION, () => {
+    events.listen(samplePalette, Component.ComponentEventType.ACTION, () => {
       eventWasFired = true;
     });
     samplePalette.setColor('#123456', false);

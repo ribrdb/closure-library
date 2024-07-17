@@ -104,7 +104,7 @@ export function SliderBase(opt_domHelper, opt_labelFn) {
 
   // Don't use getHandler because it gets cleared in exitDocument.
   events.listen(
-      this.rangeModel, Component.EventType.CHANGE,
+      this.rangeModel, Component.ComponentEventType.CHANGE,
       this.handleRangeModelChange, false, this);
 }
 goog.inherits(SliderBase, Component);
@@ -1023,7 +1023,7 @@ SliderBase.prototype.getClosestThumb_ = function(position) {
 SliderBase.prototype.handleRangeModelChange = function(e) {
   this.updateUi_();
   this.updateAriaStates();
-  this.dispatchEvent(Component.EventType.CHANGE);
+  this.dispatchEvent(Component.ComponentEventType.CHANGE);
 };
 
 
@@ -1608,7 +1608,7 @@ SliderBase.prototype.enableMouseWheelHandling_ = function(enable) {
 
 /**
  * Enables or disables the slider. A disabled slider will ignore all
- * user-initiated events. Also fires Component.EventType.ENABLE/DISABLE
+ * user-initiated events. Also fires Component.ComponentEventType.ENABLE/DISABLE
  * event as appropriate.
  * @param {boolean} enable Whether to enable the slider or not.
  */
@@ -1617,8 +1617,8 @@ SliderBase.prototype.setEnabled = function(enable) {
     return;
   }
 
-  var eventType = enable ? Component.EventType.ENABLE :
-                           Component.EventType.DISABLE;
+  var eventType = enable ? Component.ComponentEventType.ENABLE :
+                           Component.ComponentEventType.DISABLE;
   if (this.dispatchEvent(eventType)) {
     this.enabled_ = enable;
     this.enableEventHandlers_(enable);

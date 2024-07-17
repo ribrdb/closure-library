@@ -141,13 +141,13 @@ SelectionMenuButton.prototype.handleCheckboxClick = function(e) {
     this.setSelectionState(SelectionMenuButton.SelectionState.ALL);
     if (this.getItemAt(0)) {
       this.getItemAt(0).dispatchEvent(  // 'All' item
-          Component.EventType.ACTION);
+          Component.ComponentEventType.ACTION);
     }
   } else {
     this.setSelectionState(SelectionMenuButton.SelectionState.NONE);
     if (this.getItemAt(1)) {
       this.getItemAt(1).dispatchEvent(  // 'None' item
-          Component.EventType.ACTION);
+          Component.ComponentEventType.ACTION);
     }
   }
 };
@@ -175,7 +175,7 @@ SelectionMenuButton.prototype.handleMenuAction_ = function(e) {
 SelectionMenuButton.prototype.addMenuEvent_ = function() {
   if (this.getItemAt(0) && this.getItemAt(1)) {
     this.getHandler().listen(
-        this.getMenu(), Component.EventType.ACTION,
+        this.getMenu(), Component.ComponentEventType.ACTION,
         this.handleMenuAction_);
     this.getItemAt(0).setModel(SelectionMenuButton.SelectionState.ALL);
     this.getItemAt(1).setModel(SelectionMenuButton.SelectionState.NONE);

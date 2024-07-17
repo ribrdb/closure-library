@@ -153,7 +153,7 @@ HsvaPalette.prototype.setColorAlphaHelper_ = function(color, alpha) {
   }
   if (colorChange || alphaChange) {
     this.updateUi();
-    this.dispatchEvent(Component.EventType.ACTION);
+    this.dispatchEvent(Component.ComponentEventType.ACTION);
   }
 };
 

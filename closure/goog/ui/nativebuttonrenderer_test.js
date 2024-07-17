@@ -172,7 +172,7 @@ testSuite({
     const handleAction = () => {
       dispatchedActionCount++;
     };
-    events.listen(button, Component.EventType.ACTION, handleAction);
+    events.listen(button, Component.ComponentEventType.ACTION, handleAction);
 
     button.render(sandbox);
     testingEvents.fireClickSequence(button.getElement());
@@ -180,7 +180,7 @@ testSuite({
         'Button must have dispatched ACTION on click', 1,
         dispatchedActionCount);
 
-    events.unlisten(button, Component.EventType.ACTION, handleAction);
+    events.unlisten(button, Component.ComponentEventType.ACTION, handleAction);
   },
 
   testIsFocusable() {

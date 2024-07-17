@@ -19,8 +19,8 @@ import * as maps from '../../../collections/maps.js';
 import { EventTarget } from '../../../events/eventtarget.js';
 import * as json from '../../../json/json.js';
 import { ChannelRequest } from './channelrequest.js';
-import { WebChannelBase as webChannelWebChannelBase } from './webchannelbase.js';
-import { Wire as webChannelWire } from './wire.js';
+import { WebChannelBase } from './webchannelbase.js';
+import { Wire } from './wire.js';
 import * as log from '../../../log/log.js';
 import { WebChannel } from '../webchannel.js';
 import { WebChannelTransport } from '../webchanneltransport.js';
@@ -47,10 +47,6 @@ export function WebChannelBaseTransport() {
 
 
 goog.scope(function() {
-  const WebChannelBase = webChannelWebChannelBase;
-  const Wire = webChannelWire;
-
-
   /**
    * @override
    */

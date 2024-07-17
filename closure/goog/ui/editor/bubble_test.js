@@ -118,7 +118,7 @@ testSuite({
     this.testCreateBubbleWithLinkPanel();
 
     let count = 0;
-    events.listen(bubble, Component.EventType.HIDE, () => {
+    events.listen(bubble, Component.ComponentEventType.HIDE, () => {
       count++;
     });
 
@@ -133,7 +133,7 @@ testSuite({
     this.testCreateBubbleWithLinkPanel();
 
     let count = 0;
-    events.listen(bubble, Component.EventType.HIDE, () => {
+    events.listen(bubble, Component.ComponentEventType.HIDE, () => {
       count++;
     });
 

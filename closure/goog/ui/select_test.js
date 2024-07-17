@@ -106,11 +106,11 @@ testSuite({
     select.addItem(item1);
     select.addItem(item2);
 
-    item1.dispatchEvent(Component.EventType.ACTION);
+    item1.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(item1, select.getSelectedItem());
     assertEquals(item1.getCaption(), select.getCaption());
 
-    item2.dispatchEvent(Component.EventType.ACTION);
+    item2.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(item2, select.getSelectedItem());
     assertEquals(item2.getCaption(), select.getCaption());
   },
@@ -165,15 +165,15 @@ testSuite({
     select.addItem(item3);
 
     component.addChild(select, true);
-    item2.dispatchEvent(Component.EventType.ACTION);
+    item2.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(item2.getCaption(), select.getCaption());
 
     component.removeChild(select, true);
-    item1.dispatchEvent(Component.EventType.ACTION);
+    item1.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(item2.getCaption(), select.getCaption());
 
     component.addChild(select, true);
-    item3.dispatchEvent(Component.EventType.ACTION);
+    item3.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(item3.getCaption(), select.getCaption());
   },
 
@@ -186,7 +186,7 @@ testSuite({
 
     /** @suppress {checkTypes} suppression added to enable type checking */
     const recordingHandler = new recordFunction();
-    events.listen(select, Component.EventType.CHANGE, recordingHandler);
+    events.listen(select, Component.ComponentEventType.CHANGE, recordingHandler);
 
     select.setSelectedItem(item2);
     assertEquals(
@@ -218,11 +218,11 @@ testSuite({
 
     /** @suppress {checkTypes} suppression added to enable type checking */
     const recordingHandler = new recordFunction();
-    events.listen(select, Component.EventType.CHANGE, recordingHandler);
+    events.listen(select, Component.ComponentEventType.CHANGE, recordingHandler);
 
     select.setOpen(true);
 
-    item2.dispatchEvent(Component.EventType.ACTION);
+    item2.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(
         'Selecting new item should fire CHANGE event.', 1,
         recordingHandler.getCallCount());
@@ -230,7 +230,7 @@ testSuite({
 
     select.setOpen(true);
 
-    item2.dispatchEvent(Component.EventType.ACTION);
+    item2.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals(
         'Selecting the same item should not fire CHANGE event.', 1,
         recordingHandler.getCallCount());

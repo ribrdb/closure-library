@@ -21,4 +21,4 @@
  * @suppress {duplicate}
  * @type {function(string):void}
  */
-export var module =  {};
+goog.module = goog.module || {}

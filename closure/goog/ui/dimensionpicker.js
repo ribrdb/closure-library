@@ -127,7 +127,7 @@ DimensionPicker.prototype.enterDocument = function() {
 
   var parent = this.getParent();
   if (parent) {
-    handler.listen(parent, Component.EventType.SHOW, this.handleShow_);
+    handler.listen(parent, Component.ComponentEventType.SHOW, this.handleShow_);
   }
 };
 
@@ -153,7 +153,7 @@ DimensionPicker.prototype.exitDocument = function() {
   var parent = this.getParent();
   if (parent) {
     handler.unlisten(
-        parent, Component.EventType.SHOW, this.handleShow_);
+        parent, Component.ComponentEventType.SHOW, this.handleShow_);
   }
 };
 

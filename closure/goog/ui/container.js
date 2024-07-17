@@ -71,7 +71,7 @@ Container.EventType = {
   /**
        * Dispatched after a Container becomes visible. Non-cancellable.
        * NOTE(user): This event really shouldn't exist, because the
-       * Component.EventType.SHOW event should behave like this one. But the
+       * Component.ComponentEventType.SHOW event should behave like this one. But the
        * SHOW event for containers has been behaving as other components'
        * BEFORE_SHOW event for a long time, and too much code relies on that old
        * behavior to fix it now.
@@ -376,14 +376,14 @@ Container.prototype.enterDocument = function() {
 
   // Handle events dispatched by child controls.
   this.getHandler()
-      .listen(this, Component.EventType.ENTER, this.handleEnterItem)
+      .listen(this, Component.ComponentEventType.ENTER, this.handleEnterItem)
       .listen(
-          this, Component.EventType.HIGHLIGHT, this.handleHighlightItem)
+          this, Component.ComponentEventType.HIGHLIGHT, this.handleHighlightItem)
       .listen(
-          this, Component.EventType.UNHIGHLIGHT,
+          this, Component.ComponentEventType.UNHIGHLIGHT,
           this.handleUnHighlightItem)
-      .listen(this, Component.EventType.OPEN, this.handleOpenItem)
-      .listen(this, Component.EventType.CLOSE, this.handleCloseItem)
+      .listen(this, Component.ComponentEventType.OPEN, this.handleOpenItem)
+      .listen(this, Component.ComponentEventType.CLOSE, this.handleCloseItem)
 
       // Handle mouse events.
       .listen(elem, MouseEventType.MOUSEDOWN, this.handleMouseDown)
@@ -1070,8 +1070,8 @@ Container.prototype.setVisible = function(visible, opt_force) {
   if (opt_force ||
       (this.visible_ != visible &&
        this.dispatchEvent(
-           visible ? Component.EventType.SHOW :
-                     Component.EventType.HIDE))) {
+           visible ? Component.ComponentEventType.SHOW :
+                     Component.ComponentEventType.HIDE))) {
     this.visible_ = visible;
 
     var elem = this.getElement();
@@ -1115,8 +1115,8 @@ Container.prototype.isEnabled = function() {
 Container.prototype.setEnabled = function(enable) {
   if (this.enabled_ != enable &&
       this.dispatchEvent(
-          enable ? Component.EventType.ENABLE :
-                   Component.EventType.DISABLE)) {
+          enable ? Component.ComponentEventType.ENABLE :
+                   Component.ComponentEventType.DISABLE)) {
     if (enable) {
       // Flag the container as enabled first, then update children.  This is
       // because controls can't be enabled if their parent is disabled.

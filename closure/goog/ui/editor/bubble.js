@@ -357,7 +357,7 @@ Bubble.prototype.handlePopupHide = function() {
      goog.getCssName('tr_multi_bubble'));
 
  this.eventHandler_.removeAll();
- this.dispatchEvent(Component.EventType.HIDE);
+ this.dispatchEvent(Component.ComponentEventType.HIDE);
 };
 
 

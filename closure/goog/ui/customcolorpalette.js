@@ -78,7 +78,7 @@ CustomColorPalette.prototype.performActionInternal = function(e) {
     } else {
       // User activated a normal color swatch.
       this.setSelectedItem(item);
-      return this.dispatchEvent(Component.EventType.ACTION);
+      return this.dispatchEvent(Component.ComponentEventType.ACTION);
     }
   }
   return false;
@@ -131,5 +131,5 @@ CustomColorPalette.prototype.promptForCustomColor = function() {
 
   // Set the selected color to the new color and notify listeners of the action.
   this.setSelectedColor(color);
-  this.dispatchEvent(Component.EventType.ACTION);
+  this.dispatchEvent(Component.ComponentEventType.ACTION);
 };

@@ -81,20 +81,20 @@ goog.inherits(Menu, uiContainer);
 /**
  * Event types dispatched by the menu.
  * @enum {string}
- * @deprecated Use Component.EventType.
+ * @deprecated Use Component.ComponentEventType.
  */
 Menu.EventType = {
   /** Dispatched before the menu becomes visible */
-  BEFORE_SHOW: uiComponent.EventType.BEFORE_SHOW,
+  BEFORE_SHOW: uiComponent.ComponentEventType.BEFORE_SHOW,
 
   /** Dispatched when the menu is shown */
-  SHOW: uiComponent.EventType.SHOW,
+  SHOW: uiComponent.ComponentEventType.SHOW,
 
   /** Dispatched before the menu becomes hidden */
-  BEFORE_HIDE: uiComponent.EventType.HIDE,
+  BEFORE_HIDE: uiComponent.ComponentEventType.HIDE,
 
   /** Dispatched when the menu is hidden */
-  HIDE: uiComponent.EventType.HIDE
+  HIDE: uiComponent.ComponentEventType.HIDE
 };
 
 

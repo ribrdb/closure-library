@@ -450,7 +450,7 @@ FilteredMenu.prototype.filterItems_ = function(str) {
         }
       }
       this.enteredItems_ = items;
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
       this.setHighlightedIndex(-1);
     }
 
@@ -547,7 +547,7 @@ FilteredMenu.prototype.handleKeyEventInternal = function(e) {
   }
 
   if (e.keyCode == KeyCodes.ESC) {
-    this.dispatchEvent(Component.EventType.BLUR);
+    this.dispatchEvent(Component.ComponentEventType.BLUR);
     return true;
   }
 

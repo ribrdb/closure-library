@@ -643,7 +643,7 @@ AbstractSpellChecker.prototype.initSuggestionsMenu = function() {
   classlist.add(menuElement, this.suggestionsMenuClassName);
 
   events.listen(
-      this.menu_, Component.EventType.ACTION, this.onCorrectionAction,
+      this.menu_, Component.ComponentEventType.ACTION, this.onCorrectionAction,
       false, this);
 };
 
@@ -663,7 +663,7 @@ AbstractSpellChecker.prototype.onCorrectionAction = function(event) {
     this.editWord_(el, word);
   } else {
     this.replaceWord(el, word, event.target.getModel());
-    this.dispatchEvent(Component.EventType.CHANGE);
+    this.dispatchEvent(Component.ComponentEventType.CHANGE);
   }
 
   delete this.activeWord_;

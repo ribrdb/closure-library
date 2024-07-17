@@ -142,7 +142,7 @@ testSuite({
 
     let menuItemClicked = 0;
     let lastMenuItemClicked = null;
-    events.listen(menuButton.getMenu(), Component.EventType.ACTION, (e) => {
+    events.listen(menuButton.getMenu(), Component.ComponentEventType.ACTION, (e) => {
       menuItemClicked++;
       lastMenuItemClicked = e.target;
     });
@@ -812,7 +812,7 @@ testSuite({
     assertTrue('Menu should be visible.', menuButton.getMenu().isVisible());
 
     const key =
-        events.listen(menuButton, Component.EventType.CLOSE, (event) => {
+        events.listen(menuButton, Component.ComponentEventType.CLOSE, (event) => {
           event.preventDefault();
         });
 

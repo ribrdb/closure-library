@@ -185,7 +185,7 @@ PlainTextSpellChecker.prototype.initSuggestionsMenu = function() {
   PlainTextSpellChecker.superClass_.initSuggestionsMenu.call(this);
   this.eventHandler_.listen(
       /** @type {PopupMenu} */ (this.getMenu()),
-      Component.EventType.HIDE, this.onCorrectionHide_);
+      Component.ComponentEventType.HIDE, this.onCorrectionHide_);
 };
 
 

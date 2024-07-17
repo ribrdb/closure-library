@@ -230,12 +230,12 @@ Checkbox.prototype.enterDocument = function() {
  */
 Checkbox.prototype.handleClickOrSpace_ = function(e) {
   e.stopPropagation();
-  var eventType = this.checked_ ? Component.EventType.UNCHECK :
-                                  Component.EventType.CHECK;
+  var eventType = this.checked_ ? Component.ComponentEventType.UNCHECK :
+                                  Component.ComponentEventType.CHECK;
   if (this.isEnabled() && !e.target.href && this.dispatchEvent(eventType)) {
     e.preventDefault();  // Prevent scrolling in Chrome if SPACE is pressed.
     this.toggle();
-    this.dispatchEvent(Component.EventType.CHANGE);
+    this.dispatchEvent(Component.ComponentEventType.CHANGE);
   }
 };
 

@@ -130,7 +130,7 @@ SubMenu.prototype.enterDocument = function() {
   SubMenu.superClass_.enterDocument.call(this);
 
   this.getHandler().listen(
-      this.getParent(), Component.EventType.HIDE, this.onParentHidden_);
+      this.getParent(), Component.ComponentEventType.HIDE, this.onParentHidden_);
 
   if (this.subMenu_) {
     this.setMenuListenersEnabled_(this.subMenu_, true);
@@ -141,7 +141,7 @@ SubMenu.prototype.enterDocument = function() {
 /** @override */
 SubMenu.prototype.exitDocument = function() {
   this.getHandler().unlisten(
-      this.getParent(), Component.EventType.HIDE, this.onParentHidden_);
+      this.getParent(), Component.ComponentEventType.HIDE, this.onParentHidden_);
 
   if (this.subMenu_) {
     this.setMenuListenersEnabled_(this.subMenu_, false);
@@ -455,7 +455,7 @@ SubMenu.prototype.setMenuListenersEnabled_ = function(menu, attach) {
   var handler = this.getHandler();
   var method = attach ? handler.listen : handler.unlisten;
   method.call(
-      handler, menu, Component.EventType.ENTER, this.onChildEnter_);
+      handler, menu, Component.ComponentEventType.ENTER, this.onChildEnter_);
 };
 
 

@@ -325,13 +325,13 @@ testSuite({
 
     assertNull('No tab must be selected', tabBar.getSelectedTab());
 
-    tabBar.handleTabSelect(new GoogEvent(Component.EventType.SELECT, bar));
+    tabBar.handleTabSelect(new GoogEvent(Component.ComponentEventType.SELECT, bar));
     assertEquals('Bar must be the selected tab', bar, tabBar.getSelectedTab());
 
-    tabBar.handleTabSelect(new GoogEvent(Component.EventType.SELECT, bar));
+    tabBar.handleTabSelect(new GoogEvent(Component.ComponentEventType.SELECT, bar));
     assertEquals('Bar must remain selected tab', bar, tabBar.getSelectedTab());
 
-    tabBar.handleTabSelect(new GoogEvent(Component.EventType.SELECT, foo));
+    tabBar.handleTabSelect(new GoogEvent(Component.ComponentEventType.SELECT, foo));
     assertEquals(
         'Foo must now be the selected tab', foo, tabBar.getSelectedTab());
   },
@@ -350,11 +350,11 @@ testSuite({
     bar.setSelected(true);
     assertEquals('Bar must be the selected tab', bar, tabBar.getSelectedTab());
 
-    tabBar.handleTabUnselect(new GoogEvent(Component.EventType.UNSELECT, foo));
+    tabBar.handleTabUnselect(new GoogEvent(Component.ComponentEventType.UNSELECT, foo));
     assertEquals(
         'Bar must remain the selected tab', bar, tabBar.getSelectedTab());
 
-    tabBar.handleTabUnselect(new GoogEvent(Component.EventType.SELECT, bar));
+    tabBar.handleTabUnselect(new GoogEvent(Component.ComponentEventType.SELECT, bar));
     assertNull('No tab must be selected', tabBar.getSelectedTab());
   },
 
@@ -530,8 +530,8 @@ testSuite({
     events.listen(
         tabBar,
         [
-          Component.EventType.SELECT,
-          Component.EventType.UNSELECT,
+          Component.ComponentEventType.SELECT,
+          Component.ComponentEventType.UNSELECT,
         ],
         countEvent);
 
@@ -551,10 +551,10 @@ testSuite({
         rightEvent.defaultPrevented);
     assertEquals(
         'Foo must have dispatched UNSELECT', 1,
-        getEventCount('foo', Component.EventType.UNSELECT));
+        getEventCount('foo', Component.ComponentEventType.UNSELECT));
     assertEquals(
         'Bar must have dispatched SELECT', 1,
-        getEventCount('bar', Component.EventType.SELECT));
+        getEventCount('bar', Component.ComponentEventType.SELECT));
     assertEquals('Bar must have been selected', bar, tabBar.getSelectedTab());
 
     // Simulate a left arrow key event.
@@ -569,10 +569,10 @@ testSuite({
         leftEvent.defaultPrevented);
     assertEquals(
         'Bar must have dispatched UNSELECT', 1,
-        getEventCount('bar', Component.EventType.UNSELECT));
+        getEventCount('bar', Component.ComponentEventType.UNSELECT));
     assertEquals(
         'Foo must have dispatched SELECT', 1,
-        getEventCount('foo', Component.EventType.SELECT));
+        getEventCount('foo', Component.ComponentEventType.SELECT));
     assertEquals('Foo must have been selected', foo, tabBar.getSelectedTab());
 
     // Disable tab auto-selection.
@@ -592,10 +592,10 @@ testSuite({
     assertEquals('Foo must remain selected', foo, tabBar.getSelectedTab());
     assertEquals(
         'Foo must not have dispatched another UNSELECT event', 1,
-        getEventCount('foo', Component.EventType.UNSELECT));
+        getEventCount('foo', Component.ComponentEventType.UNSELECT));
     assertEquals(
         'Baz must not have dispatched a SELECT event', 0,
-        getEventCount('baz', Component.EventType.SELECT));
+        getEventCount('baz', Component.ComponentEventType.SELECT));
     assertFalse('Baz must not be selected', baz.isSelected());
     assertTrue('Baz must be highlighted', baz.isHighlighted());
 
@@ -615,8 +615,8 @@ testSuite({
     events.unlisten(
         tabBar,
         [
-          Component.EventType.SELECT,
-          Component.EventType.UNSELECT,
+          Component.ComponentEventType.SELECT,
+          Component.ComponentEventType.UNSELECT,
         ],
         countEvent);
   },

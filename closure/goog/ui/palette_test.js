@@ -93,9 +93,9 @@ testSuite({
         palette,
         [
           this,
-          Component.EventType.HIGHLIGHT,
+          Component.ComponentEventType.HIGHLIGHT,
           this,
-          Component.EventType.UNHIGHLIGHT,
+          Component.ComponentEventType.UNHIGHLIGHT,
         ],
         handleEvent);
 
@@ -103,7 +103,7 @@ testSuite({
     palette.setHighlightedItem(nodes[0]);
     assertEquals('Should have fired 1 event', 1, events.length);
     assertEquals(
-        'HIGHLIGHT event should be fired', Component.EventType.HIGHLIGHT,
+        'HIGHLIGHT event should be fired', Component.ComponentEventType.HIGHLIGHT,
         events[0].type);
     assertEquals(
         'Event should be fired for node[0] cell',
@@ -122,14 +122,14 @@ testSuite({
     const unhighlightEvent = events.shift();
     const highlightEvent = events.shift();
     assertEquals(
-        'UNHIGHLIGHT should be fired first', Component.EventType.UNHIGHLIGHT,
+        'UNHIGHLIGHT should be fired first', Component.ComponentEventType.UNHIGHLIGHT,
         unhighlightEvent.type);
     assertEquals(
         'UNHIGHLIGHT should be fired for node[0] cell',
         renderer.getCellForItem(nodes[0]), targetElements[0]);
     assertEquals(
         'HIGHLIGHT should be fired after UNHIGHLIGHT',
-        Component.EventType.HIGHLIGHT, highlightEvent.type);
+        Component.ComponentEventType.HIGHLIGHT, highlightEvent.type);
     assertEquals(
         'HIGHLIGHT should be fired for node[1] cell',
         renderer.getCellForItem(nodes[1]), targetElements[1]);
@@ -142,7 +142,7 @@ testSuite({
 
     assertEquals('Should have fired 1 event', 1, events.length);
     assertEquals(
-        'UNHIGHLIGHT event should be fired', Component.EventType.UNHIGHLIGHT,
+        'UNHIGHLIGHT event should be fired', Component.ComponentEventType.UNHIGHLIGHT,
         events[0].type);
     assertEquals(
         'Event should be fired for node[1] cell',

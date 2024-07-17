@@ -23,7 +23,6 @@ import { isVersion } from './product_isversion.js';
 
 goog.setTestOnly('goog.userAgentTestUtil');
 
-
 /**
  * Rerun the initialization code to set all of the userAgent constants.
  * @suppress {accessControls}
@@ -33,48 +32,48 @@ export function reinitializeUserAgent() {
   // we can call, because things rely on it compiling to nothing when
   // one of the ASSUME flags is set, and the compiler isn't smart enough
   // to do that when the setting is done inside a function that's inlined.
-  userAgent.$set('OPERA', browser.isOpera());
-  userAgent.$set('IE', browser.isIE());
-  userAgent.$set('EDGE', engine.isEdge());
-  userAgent.$set('EDGE_OR_IE', userAgent.EDGE || userAgent.IE);
-  userAgent.$set('GECKO', engine.isGecko());
-  userAgent.$set('WEBKIT', engine.isWebKit());
-  userAgent.$set('MOBILE', userAgent.isMobile_());
-  userAgent.$set('SAFARI', userAgent.WEBKIT);
+  set(userAgent, 'OPERA', browser.isOpera());
+  set(userAgent, 'IE', browser.isIE());
+  set(userAgent, 'EDGE', engine.isEdge());
+  set(userAgent, 'EDGE_OR_IE', userAgent.EDGE || userAgent.IE);
+  set(userAgent, 'GECKO', engine.isGecko());
+  set(userAgent, 'WEBKIT', engine.isWebKit());
+  set(userAgent, 'MOBILE', userAgent.isMobile_());
+  set(userAgent, 'SAFARI', userAgent.WEBKIT);
 
   // Platform in goog.userAgent.
-  userAgent.$set('PLATFORM', userAgent.determinePlatform_());
+  set(userAgent, 'PLATFORM', userAgent.determinePlatform_());
 
-  userAgent.$set('MAC', platform.isMacintosh());
-  userAgent.$set('WINDOWS', platform.isWindows());
-  userAgent.$set('LINUX', userAgent.isLegacyLinux_());
-  userAgent.$set('ANDROID', platform.isAndroid());
-  userAgent.$set('IPAD', platform.isIpad());
-  userAgent.$set('IPHONE', platform.isIphone());
-  userAgent.$set('IPOD', platform.isIpod());
-  userAgent.$set('KAIOS', platform.isKaiOS());
-  userAgent.$set('VERSION', userAgent.determineVersion_());
+  set(userAgent, 'MAC', platform.isMacintosh());
+  set(userAgent, 'WINDOWS', platform.isWindows());
+  set(userAgent, 'LINUX', userAgent.isLegacyLinux_());
+  set(userAgent, 'ANDROID', platform.isAndroid());
+  set(userAgent, 'IPAD', platform.isIpad());
+  set(userAgent, 'IPHONE', platform.isIphone());
+  set(userAgent, 'IPOD', platform.isIpod());
+  set(userAgent, 'KAIOS', platform.isKaiOS());
+  set(userAgent, 'VERSION', userAgent.determineVersion_());
 
   // Platform in goog.userAgent.platform.
-  userAgentPlatform.$set('VERSION', userAgentPlatform.determineVersion_());
+  set(userAgentPlatform, 'VERSION', userAgentPlatform.determineVersion_());
 
   // Update goog.userAgent.product
-  product.$set('ANDROID',
+  set(product, 'ANDROID',
       browser.isAndroidBrowser());
-  product.$set('CHROME', browser.isChrome());
-  product.$set('EDGE', browser.isEdge());
-  product.$set('FIREFOX', browser.isFirefox());
-  product.$set('IE', browser.isIE());
-  product.$set('IPAD', platform.isIpad());
-  product.$set('IPHONE', product.isIphoneOrIpod_());
-  product.$set('OPERA', browser.isOpera());
-  product.$set('SAFARI', product.isSafariDesktop_());
+  set(product, 'CHROME', browser.isChrome());
+  set(product, 'EDGE', browser.isEdge());
+  set(product, 'FIREFOX', browser.isFirefox());
+  set(product, 'IE', browser.isIE());
+  set(product, 'IPAD', platform.isIpad());
+  set(product, 'IPHONE', product.isIphoneOrIpod_());
+  set(product, 'OPERA', browser.isOpera());
+  set(product, 'SAFARI', product.isSafariDesktop_());
 
   // Still uses its own implementation.
-  productIsVersion.$set('VERSION', productIsVersion.determineVersion_());
+  set(productIsVersion, 'VERSION', productIsVersion.determineVersion_());
 
   // goog.userAgent.keyboard
-  keyboard.$set('MAC_KEYBOARD',
+  set(keyboard, 'MAC_KEYBOARD',
       keyboard.determineMacKeyboard_());
 
   // Reset cache so calls to isVersionOrHigher don't use cached version.
@@ -115,4 +114,18 @@ export function getUserAgentDetected(agent) {
   }
 
   throw new Error('Unrecognized user agent');
+}
+
+/**
+ * 
+ * @param {?} obj 
+ * @param {string} key 
+ * @param {*} value 
+ */
+function set(obj, key, value) {
+  if (typeof obj['$set'] == 'function') {
+    obj['$set'](key, value);
+  } else {
+    obj[key] = value;
+  }
 }

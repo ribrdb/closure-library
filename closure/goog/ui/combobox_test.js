@@ -100,14 +100,14 @@ testSuite({
      checking
    */
   testActionSelectsItem() {
-    comboBox.getMenu().getItemAt(2).dispatchEvent(Component.EventType.ACTION);
+    comboBox.getMenu().getItemAt(2).dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals('Gre<en', input.value);
   },
 
   testActionSelectsItemWithModel() {
     const itemWithModel = new MenuItem('one', 1);
     comboBox.addItem(itemWithModel);
-    itemWithModel.dispatchEvent(Component.EventType.ACTION);
+    itemWithModel.dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals('one', comboBox.getValue());
   },
 
@@ -142,7 +142,7 @@ testSuite({
 
     /** @suppress {checkTypes} suppression added to enable type checking */
     input = dom.getElementsByTagName(TagName.INPUT, comboBox.getElement())[0];
-    menu.getItemAt(2).dispatchEvent(Component.EventType.ACTION);
+    menu.getItemAt(2).dispatchEvent(Component.ComponentEventType.ACTION);
     assertEquals('Blue', input.value);
   },
 

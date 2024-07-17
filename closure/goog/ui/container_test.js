@@ -207,7 +207,7 @@ testSuite({
 
   testHighlightOnEnterPreventable() {
     container.decorate(containerElement);
-    googEvents.listen(container, Component.EventType.ENTER, (event) => {
+    googEvents.listen(container, Component.ComponentEventType.ENTER, (event) => {
       event.preventDefault();
     });
     testingEvents.fireMouseOverEvent(
@@ -249,7 +249,7 @@ testSuite({
     container.decorate(containerElement);
     container.setVisible(false);
     let eventFired = false;
-    googEvents.listen(container, Component.EventType.SHOW, () => {
+    googEvents.listen(container, Component.ComponentEventType.SHOW, () => {
       assertFalse(
           'Container must not be visible when SHOW event is ' +
               'fired',
@@ -280,7 +280,7 @@ testSuite({
     container.decorate(containerElement);
     container.setVisible(true);
     const eventFired = false;
-    googEvents.listen(container, Component.EventType.HIDE, (e) => {
+    googEvents.listen(container, Component.ComponentEventType.HIDE, (e) => {
       assertTrue(
           'Container must be visible when HIDE event is fired',
           container.isVisible());
@@ -296,7 +296,7 @@ testSuite({
     assertArrayEquals(
         'HIDE event followed by AFTER_HIDE expected',
         [
-          Component.EventType.HIDE,
+          Component.ComponentEventType.HIDE,
           Container.EventType.AFTER_HIDE,
         ],
         events);

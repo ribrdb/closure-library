@@ -36,7 +36,7 @@ const { TabPaneEvent } = goog.requireType('goog.ui.tabpane');
  * pages of emoji.
  *
  * When a user selects an emoji, by either clicking or pressing enter, the
- * picker fires a Component.EventType.ACTION event with the id. The
+ * picker fires a Component.ComponentEventType.ACTION event with the id. The
  * client listens on this event and in the handler can retrieve the id of the
  * selected emoji and do something with it, for instance, inserting an image
  * tag into a rich text control. An emoji picker does not maintain state. That
@@ -93,7 +93,7 @@ export function EmojiPicker(defaultImgUrl, opt_domHelper) {
   this.tabPane_ = null;
 
   this.getHandler().listen(
-      this, Component.EventType.ACTION, this.onEmojiPaletteAction_);
+      this, Component.ComponentEventType.ACTION, this.onEmojiPaletteAction_);
 }
 goog.inherits(EmojiPicker, Component);
 
@@ -662,7 +662,7 @@ EmojiPicker.prototype.getCssClass = function() {
  * Returns the currently selected emoji from this picker. If the picker is
  * using the URL prefix optimization, allocates a new emoji object with the
  * full URL. This method is meant to be used by clients of the emojipicker,
- * e.g., in a listener on goog.ui.component.EventType.ACTION that wants to use
+ * e.g., in a listener on goog.ui.Component.ComponentEventType.ACTION that wants to use
  * the just-selected emoji.
  *
  * @return {Emoji} The currently selected emoji from this picker.
@@ -733,7 +733,7 @@ EmojiPicker.prototype.getActivePage_ = function() {
 /**
  * Handles actions from the EmojiPalettes that this picker contains.
  *
- * @param {Component.EventType} e The event object.
+ * @param {Component.ComponentEventType} e The event object.
  * @private
  */
 EmojiPicker.prototype.onEmojiPaletteAction_ = function(e) {

@@ -48,7 +48,7 @@ goog.inherits(Option, MenuItem);
  * @override
  */
 Option.prototype.performActionInternal = function(e) {
- return this.dispatchEvent(Component.EventType.ACTION);
+ return this.dispatchEvent(Component.ComponentEventType.ACTION);
 };
 
 

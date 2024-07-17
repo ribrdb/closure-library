@@ -31,10 +31,10 @@ const { Control } = goog.requireType('goog.ui.control');
  * before, or after tab contents.  Tabs in tab bars dispatch the following
  * events:
  * <ul>
- *   <li>{@link Component.EventType.ACTION} when activated via the
+ *   <li>{@link Component.ComponentEventType.ACTION} when activated via the
  *       keyboard or the mouse,
- *   <li>{@link Component.EventType.SELECT} when selected, and
- *   <li>{@link Component.EventType.UNSELECT} when deselected.
+ *   <li>{@link Component.ComponentEventType.SELECT} when selected, and
+ *   <li>{@link Component.ComponentEventType.UNSELECT} when deselected.
  * </ul>
  * Clients may listen for all of the above events on the tab bar itself, and
  * refer to the event target to identify the tab that dispatched the event.
@@ -356,11 +356,11 @@ TabBar.prototype.handleFocus = function(e) {
 TabBar.prototype.listenToTabEvents_ = function() {
   // Listen for SELECT, UNSELECT, DISABLE, and HIDE events dispatched by tabs.
   this.getHandler()
-      .listen(this, Component.EventType.SELECT, this.handleTabSelect)
+      .listen(this, Component.ComponentEventType.SELECT, this.handleTabSelect)
       .listen(
-          this, Component.EventType.UNSELECT, this.handleTabUnselect)
-      .listen(this, Component.EventType.DISABLE, this.handleTabDisable)
-      .listen(this, Component.EventType.HIDE, this.handleTabHide);
+          this, Component.ComponentEventType.UNSELECT, this.handleTabUnselect)
+      .listen(this, Component.ComponentEventType.DISABLE, this.handleTabDisable)
+      .listen(this, Component.ComponentEventType.HIDE, this.handleTabHide);
 };
 
 

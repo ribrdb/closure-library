@@ -187,7 +187,7 @@ Component.defaultRightToLeft_ =
  * the corresponding state change.
  * @enum {string}
  */
-Component.EventType = {
+Component.ComponentEventType = {
   /** Dispatched before the component becomes visible. */
   BEFORE_SHOW: 'beforeshow',
 
@@ -324,51 +324,51 @@ Component.State = {
 
   /**
      * Component is disabled.
-     * @see Component.EventType.DISABLE
-     * @see Component.EventType.ENABLE
+     * @see Component.ComponentEventType.DISABLE
+     * @see Component.ComponentEventType.ENABLE
      */
   DISABLED: 0x01,
 
   /**
      * Component is highlighted.
-     * @see Component.EventType.HIGHLIGHT
-     * @see Component.EventType.UNHIGHLIGHT
+     * @see Component.ComponentEventType.HIGHLIGHT
+     * @see Component.ComponentEventType.UNHIGHLIGHT
      */
   HOVER: 0x02,
 
   /**
      * Component is active (or "pressed").
-     * @see Component.EventType.ACTIVATE
-     * @see Component.EventType.DEACTIVATE
+     * @see Component.ComponentEventType.ACTIVATE
+     * @see Component.ComponentEventType.DEACTIVATE
      */
   ACTIVE: 0x04,
 
   /**
      * Component is selected.
-     * @see Component.EventType.SELECT
-     * @see Component.EventType.UNSELECT
+     * @see Component.ComponentEventType.SELECT
+     * @see Component.ComponentEventType.UNSELECT
      */
   SELECTED: 0x08,
 
   /**
      * Component is checked.
-     * @see Component.EventType.CHECK
-     * @see Component.EventType.UNCHECK
+     * @see Component.ComponentEventType.CHECK
+     * @see Component.ComponentEventType.UNCHECK
      */
   CHECKED: 0x10,
 
   /**
      * Component has focus.
-     * @see Component.EventType.FOCUS
-     * @see Component.EventType.BLUR
+     * @see Component.ComponentEventType.FOCUS
+     * @see Component.ComponentEventType.BLUR
      */
   FOCUSED: 0x20,
 
   /**
      * Component is opened (expanded).  Applies to tree nodes, menu buttons,
      * submenus, zippys (zippies?), etc.
-     * @see Component.EventType.OPEN
-     * @see Component.EventType.CLOSE
+     * @see Component.ComponentEventType.OPEN
+     * @see Component.ComponentEventType.CLOSE
      */
   OPENED: 0x40
 };
@@ -381,31 +381,31 @@ Component.State = {
  *     is transitioning.
  * @param {boolean} isEntering Whether the component is entering or leaving the
  *     state.
- * @return {Component.EventType} Event type to dispatch.
+ * @return {Component.ComponentEventType} Event type to dispatch.
  */
 Component.getStateTransitionEvent = function(state, isEntering) {
   switch (state) {
     case Component.State.DISABLED:
-      return isEntering ? Component.EventType.DISABLE :
-                          Component.EventType.ENABLE;
+      return isEntering ? Component.ComponentEventType.DISABLE :
+                          Component.ComponentEventType.ENABLE;
     case Component.State.HOVER:
-      return isEntering ? Component.EventType.HIGHLIGHT :
-                          Component.EventType.UNHIGHLIGHT;
+      return isEntering ? Component.ComponentEventType.HIGHLIGHT :
+                          Component.ComponentEventType.UNHIGHLIGHT;
     case Component.State.ACTIVE:
-      return isEntering ? Component.EventType.ACTIVATE :
-                          Component.EventType.DEACTIVATE;
+      return isEntering ? Component.ComponentEventType.ACTIVATE :
+                          Component.ComponentEventType.DEACTIVATE;
     case Component.State.SELECTED:
-      return isEntering ? Component.EventType.SELECT :
-                          Component.EventType.UNSELECT;
+      return isEntering ? Component.ComponentEventType.SELECT :
+                          Component.ComponentEventType.UNSELECT;
     case Component.State.CHECKED:
-      return isEntering ? Component.EventType.CHECK :
-                          Component.EventType.UNCHECK;
+      return isEntering ? Component.ComponentEventType.CHECK :
+                          Component.ComponentEventType.UNCHECK;
     case Component.State.FOCUSED:
-      return isEntering ? Component.EventType.FOCUS :
-                          Component.EventType.BLUR;
+      return isEntering ? Component.ComponentEventType.FOCUS :
+                          Component.ComponentEventType.BLUR;
     case Component.State.OPENED:
-      return isEntering ? Component.EventType.OPEN :
-                          Component.EventType.CLOSE;
+      return isEntering ? Component.ComponentEventType.OPEN :
+                          Component.ComponentEventType.CLOSE;
     default:
       // Fall through.
   }

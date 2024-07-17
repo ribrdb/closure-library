@@ -42,7 +42,7 @@ testSuite({
     let menuItemClicked = 0;
     let lastMenuItemClicked = null;
     events.listen(
-        selectionMenuButton.getMenu(), Component.EventType.ACTION, (e) => {
+        selectionMenuButton.getMenu(), Component.ComponentEventType.ACTION, (e) => {
           menuItemClicked++;
           lastMenuItemClicked = e.target;
         });
@@ -70,7 +70,7 @@ testSuite({
     let menuItemClicked = 0;
     let lastMenuItemClicked = null;
     events.listen(
-        selectionMenuButton.getMenu(), Component.EventType.ACTION, (e) => {
+        selectionMenuButton.getMenu(), Component.ComponentEventType.ACTION, (e) => {
           menuItemClicked++;
           lastMenuItemClicked = e.target;
         });

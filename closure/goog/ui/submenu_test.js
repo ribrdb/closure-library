@@ -303,10 +303,10 @@ testSuite({
 
     function handleEvent(e) {
       switch (e.type) {
-        case Component.EventType.OPEN:
+        case Component.ComponentEventType.OPEN:
           openEventDispatched = true;
           break;
-        case Component.EventType.CLOSE:
+        case Component.ComponentEventType.CLOSE:
           closeEventDispatched = true;
           break;
         default:
@@ -319,7 +319,7 @@ testSuite({
     subMenu.setHighlighted(true);
 
     events.listen(
-        subMenu, [Component.EventType.OPEN, Component.EventType.CLOSE],
+        subMenu, [Component.ComponentEventType.OPEN, Component.ComponentEventType.CLOSE],
         handleEvent);
 
     assertFalse(
@@ -349,7 +349,7 @@ testSuite({
     assertTrue('CLOSE event must have been dispatched', closeEventDispatched);
 
     events.unlisten(
-        subMenu, [Component.EventType.OPEN, Component.EventType.CLOSE],
+        subMenu, [Component.ComponentEventType.OPEN, Component.ComponentEventType.CLOSE],
         handleEvent);
   },
 
@@ -359,10 +359,10 @@ testSuite({
 
     function handleEvent(e) {
       switch (e.type) {
-        case Component.EventType.OPEN:
+        case Component.ComponentEventType.OPEN:
           openEventDispatched = true;
           break;
-        case Component.EventType.CLOSE:
+        case Component.ComponentEventType.CLOSE:
           closeEventDispatched = true;
           break;
         default:
@@ -375,7 +375,7 @@ testSuite({
     subMenu.setHighlighted(true);
 
     events.listen(
-        subMenu, [Component.EventType.OPEN, Component.EventType.CLOSE],
+        subMenu, [Component.ComponentEventType.OPEN, Component.ComponentEventType.CLOSE],
         handleEvent);
 
     assertFalse(
@@ -400,7 +400,7 @@ testSuite({
     assertTrue('CLOSE event must have been dispatched', closeEventDispatched);
 
     events.unlisten(
-        subMenu, [Component.EventType.OPEN, Component.EventType.CLOSE],
+        subMenu, [Component.ComponentEventType.OPEN, Component.ComponentEventType.CLOSE],
         handleEvent);
   },
 
@@ -447,7 +447,7 @@ testSuite({
 
     let lazyMenu;
 
-    const key = events.listen(subMenu, Component.EventType.OPEN, (e) => {
+    const key = events.listen(subMenu, Component.ComponentEventType.OPEN, (e) => {
       lazyMenu = new Menu();
       lazyMenu.addItem(new MenuItem('foo'));
       lazyMenu.addItem(new MenuItem('bar'));
@@ -579,7 +579,7 @@ testSuite({
       numClicks++;
     };
 
-    events.listen(submenu, Component.EventType.ACTION, menuClickedFn);
+    events.listen(submenu, Component.ComponentEventType.ACTION, menuClickedFn);
     submenu.performActionInternal(null);
     submenu.performActionInternal(null);
 
@@ -607,7 +607,7 @@ testSuite({
       numClicks++;
     };
 
-    events.listen(submenu, Component.EventType.ACTION, menuClickedFn);
+    events.listen(submenu, Component.ComponentEventType.ACTION, menuClickedFn);
     submenu.performActionInternal(null);
     submenu.performActionInternal(null);
 
@@ -637,7 +637,7 @@ testSuite({
     submenu.setHighlighted(false);
 
     // This should cancel the dismiss timer.
-    submenu.getMenu().dispatchEvent(Component.EventType.ENTER);
+    submenu.getMenu().dispatchEvent(Component.ComponentEventType.ENTER);
 
     // Tick the length of the dismiss timer.
     mockClock.tick(SubMenu.MENU_DELAY_MS);

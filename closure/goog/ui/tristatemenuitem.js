@@ -127,8 +127,8 @@ TriStateMenuItem.prototype.setCheckedState = function(state) {
 TriStateMenuItem.prototype.setCheckedState_ = function(state) {
  if (this.dispatchEvent(
          state != TriStateMenuItem.State.NOT_CHECKED ?
-             Component.EventType.CHECK :
-             Component.EventType.UNCHECK)) {
+             Component.ComponentEventType.CHECK :
+             Component.ComponentEventType.UNCHECK)) {
    this.setState(
        Component.State.CHECKED,
        state != TriStateMenuItem.State.NOT_CHECKED);
@@ -163,8 +163,8 @@ TriStateMenuItem.prototype.performActionInternal = function(e) {
 
  return this.dispatchEvent(
      clickOnCheckbox || this.allowPartial_ ?
-         Component.EventType.CHANGE :
-         Component.EventType.ACTION);
+         Component.ComponentEventType.CHANGE :
+         Component.ComponentEventType.ACTION);
 };
 
 

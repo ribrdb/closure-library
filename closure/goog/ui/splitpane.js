@@ -693,7 +693,7 @@ SplitPane.prototype.setFirstComponentSize_ = function(
         new Size(secondComponentWidth, secondComponentHeight));
   }
   // Fire a CHANGE event.
-  this.dispatchEvent(Component.EventType.CHANGE);
+  this.dispatchEvent(Component.ComponentEventType.CHANGE);
 };
 
 

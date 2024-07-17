@@ -110,7 +110,7 @@ RangeModel.prototype.setValue = function(value) {
       this.value_ = value;
     }
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
   }
 };
@@ -139,7 +139,7 @@ RangeModel.prototype.setExtent = function(extent) {
       this.extent_ = extent;
     }
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
   }
 };
@@ -180,7 +180,7 @@ RangeModel.prototype.setMinimum = function(minimum) {
 
     this.isChanging_ = oldIsChanging;
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
   }
 };
@@ -220,7 +220,7 @@ RangeModel.prototype.setMaximum = function(maximum) {
 
     this.isChanging_ = oldIsChanging;
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
   }
 };
@@ -262,7 +262,7 @@ RangeModel.prototype.setStep = function(step) {
 
     this.isChanging_ = oldIsChanging;
     if (!this.isChanging_ && !this.mute_) {
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
   }
 };

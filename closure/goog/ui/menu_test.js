@@ -41,7 +41,7 @@ testSuite({
 
     const menuItem = menu.getChildAt(1);
     let actionDispatched = false;
-    events.listen(menuItem, Component.EventType.ACTION, (e) => {
+    events.listen(menuItem, Component.ComponentEventType.ACTION, (e) => {
       actionDispatched = true;
     });
 

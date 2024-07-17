@@ -130,7 +130,7 @@ Select.prototype.disposeInternal = function() {
 
 
 /**
- * Handles {@link Component.EventType.ACTION} events dispatched by
+ * Handles {@link Component.ComponentEventType.ACTION} events dispatched by
  * the menu item clicked by the user.  Updates the selection model, calls
  * the superclass implementation to hide the menu, stops the propagation of
  * the event, and dispatches an ACTION event on behalf of the select control
@@ -146,7 +146,7 @@ Select.prototype.handleMenuAction = function(e) {
   // our own ACTION event. Fixing this without breaking anyone
   // relying on this event is hard though.
   e.stopPropagation();
-  this.dispatchEvent(Component.EventType.ACTION);
+  this.dispatchEvent(Component.ComponentEventType.ACTION);
 };
 
 
@@ -298,7 +298,7 @@ Select.prototype.setSelectedItem = function(item) {
     this.selectionModel_.setSelectedItem(item);
 
     if (item != prevItem) {
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
   }
 };

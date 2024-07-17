@@ -165,7 +165,7 @@ testSuite({
     oneThumbSlider = new OneThumbSlider();
     oneThumbSlider.decorate(oneThumbElem);
     oneChangeEventCount = 0;
-    events.listen(oneThumbSlider, Component.EventType.CHANGE, () => {
+    events.listen(oneThumbSlider, Component.ComponentEventType.CHANGE, () => {
       oneChangeEventCount++;
     });
 
@@ -178,7 +178,7 @@ testSuite({
     twoThumbSlider = new TwoThumbSlider();
     twoThumbSlider.decorate(twoThumbElem);
     twoChangeEventCount = 0;
-    events.listen(twoThumbSlider, Component.EventType.CHANGE, () => {
+    events.listen(twoThumbSlider, Component.ComponentEventType.CHANGE, () => {
       twoChangeEventCount++;
     });
 
@@ -193,7 +193,7 @@ testSuite({
     oneThumbSliderRtl = new OneThumbSlider(true /* testOnlyIsRightToLeft */);
     oneThumbSliderRtl.enableFlipForRtl(true);
     oneThumbSliderRtl.decorate(oneThumbElemRtl);
-    events.listen(oneThumbSliderRtl, Component.EventType.CHANGE, () => {
+    events.listen(oneThumbSliderRtl, Component.ComponentEventType.CHANGE, () => {
       oneChangeEventCount++;
     });
 
@@ -207,7 +207,7 @@ testSuite({
     twoThumbSliderRtl.enableFlipForRtl(true);
     twoThumbSliderRtl.decorate(twoThumbElemRtl);
     twoChangeEventCount = 0;
-    events.listen(twoThumbSliderRtl, Component.EventType.CHANGE, () => {
+    events.listen(twoThumbSliderRtl, Component.ComponentEventType.CHANGE, () => {
       twoChangeEventCount++;
     });
   },
@@ -401,7 +401,7 @@ testSuite({
     slider.rangeModel.setValue(0);
 
     const f = recordFunction();
-    events.listen(slider, Component.EventType.CHANGE, f);
+    events.listen(slider, Component.ComponentEventType.CHANGE, f);
 
     slider.rangeModel.setValue(50);
     assertEquals(1, f.getCallCount());
@@ -935,7 +935,7 @@ testSuite({
           SliderBase.EventType.DRAG_VALUE_END,
           SliderBase.EventType.DRAG_EXTENT_START,
           SliderBase.EventType.DRAG_EXTENT_END,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.CHANGE,
         ],
         handler);
 
@@ -965,7 +965,7 @@ testSuite({
     assertEquals(SliderBase.EventType.DRAG_START, event_types[2]);
     assertTrue(isValueOrExtentDragStart(event_types[3]));
 
-    assertEquals(Component.EventType.CHANGE, event_types[4]);
+    assertEquals(Component.ComponentEventType.CHANGE, event_types[4]);
 
     assertEquals(SliderBase.EventType.DRAG_END, event_types[5]);
     assertTrue(isValueOrExtentDragEnd(event_types[6]));

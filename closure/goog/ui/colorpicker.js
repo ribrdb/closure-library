@@ -46,7 +46,7 @@ export function ColorPicker(opt_domHelper, opt_colorPalette) {
   this.colorPalette_ = opt_colorPalette || null;
 
   this.getHandler().listen(
-      this, Component.EventType.ACTION, this.onColorPaletteAction_);
+      this, Component.ComponentEventType.ACTION, this.onColorPaletteAction_);
 }
 goog.inherits(ColorPicker, Component);
 

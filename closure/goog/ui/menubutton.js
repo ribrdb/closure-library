@@ -932,14 +932,14 @@ MenuButton.prototype.attachMenuEventListeners_ = function(
 
   // Handle events dispatched by menu items.
   method.call(
-      handler, menu, Component.EventType.ACTION, this.handleMenuAction);
+      handler, menu, Component.ComponentEventType.ACTION, this.handleMenuAction);
   method.call(
-      handler, menu, Component.EventType.CLOSE, this.handleCloseItem);
+      handler, menu, Component.ComponentEventType.CLOSE, this.handleCloseItem);
   method.call(
-      handler, menu, Component.EventType.HIGHLIGHT,
+      handler, menu, Component.ComponentEventType.HIGHLIGHT,
       this.handleHighlightItem);
   method.call(
-      handler, menu, Component.EventType.UNHIGHLIGHT,
+      handler, menu, Component.ComponentEventType.UNHIGHLIGHT,
       this.handleUnHighlightItem);
 };
 
@@ -1072,7 +1072,7 @@ MenuButton.prototype.attachPopupListeners_ = function(attach) {
   if (this.isFocusablePopupMenu()) {
     method.call(
         handler, /** @type {!EventTarget} */ (this.menu_),
-        Component.EventType.BLUR, this.handleMenuBlur);
+        Component.ComponentEventType.BLUR, this.handleMenuBlur);
   }
 
   method.call(handler, this.timer_, Timer.TICK, this.onTick_);

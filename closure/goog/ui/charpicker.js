@@ -541,13 +541,13 @@ CharPicker.prototype.enterDocument = function() {
  // click.
  this.eventHandler_
      .listen(
-         this.menubutton_, Component.EventType.ACTION,
+         this.menubutton_, Component.ComponentEventType.ACTION,
          Event.stopPropagation)
      .listen(
-         this.submenubutton_, Component.EventType.ACTION,
+         this.submenubutton_, Component.ComponentEventType.ACTION,
          Event.stopPropagation)
      .listen(
-         this, Component.EventType.ACTION, this.handleSelectedItem_,
+         this, Component.ComponentEventType.ACTION, this.handleSelectedItem_,
          true)
      .listen(
          inputkh, InputHandler.EventType.INPUT, this.handleInput_)
@@ -555,9 +555,9 @@ CharPicker.prototype.enterDocument = function() {
          this.keyHandler_, KeyHandler.EventType.KEY,
          this.handleEnter_)
      .listen(
-         this.recentgrid_, Component.EventType.FOCUS,
+         this.recentgrid_, Component.ComponentEventType.FOCUS,
          this.handleFocus_)
-     .listen(this.grid_, Component.EventType.FOCUS, this.handleFocus_);
+     .listen(this.grid_, Component.ComponentEventType.FOCUS, this.handleFocus_);
 
  events.listen(
      this.okbutton_.getElement(), EventType.MOUSEDOWN,
@@ -704,7 +704,7 @@ CharPicker.prototype.handleOkClick_ = function(opt_event) {
 CharPicker.prototype.handleEnter_ = function(e) {
  if (e.keyCode == KeyCodes.ENTER) {
    return this.handleOkClick_() ?
-       this.dispatchEvent(Component.EventType.ACTION) :
+       this.dispatchEvent(Component.ComponentEventType.ACTION) :
        false;
  }
  return false;

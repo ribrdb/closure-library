@@ -271,7 +271,7 @@ ComboBox.prototype.enterDocument = function() {
       this.onInputEvent_);
 
   handler.listen(
-      this.menu_, Component.EventType.ACTION, this.onMenuSelected_);
+      this.menu_, Component.ComponentEventType.ACTION, this.onMenuSelected_);
 };
 
 
@@ -701,13 +701,13 @@ ComboBox.prototype.onMenuSelected_ = function(e) {
   // the value.
   if (this.dispatchEvent(
           new ItemEvent(
-              Component.EventType.ACTION, this, item))) {
+              Component.ComponentEventType.ACTION, this, item))) {
     var caption = item.getCaption();
     log.fine(
         this.logger_, 'Menu selection: ' + caption + '. Dismissing menu');
     if (this.labelInput_.getValue() != caption) {
       this.labelInput_.setValue(caption);
-      this.dispatchEvent(Component.EventType.CHANGE);
+      this.dispatchEvent(Component.ComponentEventType.CHANGE);
     }
     this.dismiss();
   }
@@ -819,7 +819,7 @@ ComboBox.prototype.handleInputChange_ = function() {
     this.setItemHighlightFromToken_(token);
   }
   this.lastToken_ = token;
-  this.dispatchEvent(Component.EventType.CHANGE);
+  this.dispatchEvent(Component.ComponentEventType.CHANGE);
 };
 
 

@@ -172,10 +172,10 @@ testSuite({
     googEvents.listen(
         checkbox,
         [
-          Component.EventType.ACTION,
-          Component.EventType.CHECK,
-          Component.EventType.UNCHECK,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.ACTION,
+          Component.ComponentEventType.CHECK,
+          Component.ComponentEventType.UNCHECK,
+          Component.ComponentEventType.CHANGE,
         ],
         (e) => {
           events.push(e.type);
@@ -192,9 +192,9 @@ testSuite({
     assertArrayEquals(
         'ACTION+CHECK+CHANGE fired',
         [
-          Component.EventType.ACTION,
-          Component.EventType.CHECK,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.ACTION,
+          Component.ComponentEventType.CHECK,
+          Component.ComponentEventType.CHANGE,
         ],
         events);
     assertTrue('checkbox became checked', checkbox.getChecked());
@@ -204,21 +204,21 @@ testSuite({
     assertArrayEquals(
         'ACTION+UNCHECK+CHANGE fired',
         [
-          Component.EventType.ACTION,
-          Component.EventType.UNCHECK,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.ACTION,
+          Component.ComponentEventType.UNCHECK,
+          Component.ComponentEventType.CHANGE,
         ],
         events);
     assertFalse('checkbox became unchecked', checkbox.getChecked());
     events = [];
 
-    googEvents.listen(checkbox, Component.EventType.CHECK, (e) => {
+    googEvents.listen(checkbox, Component.ComponentEventType.CHECK, (e) => {
       e.preventDefault();
     });
     testingEvents.fireClickSequence(checkbox.getElement());
     assertArrayEquals(
         'ACTION+CHECK fired',
-        [Component.EventType.ACTION, Component.EventType.CHECK], events);
+        [Component.ComponentEventType.ACTION, Component.ComponentEventType.CHECK], events);
     assertFalse('toggling has been prevented', checkbox.getChecked());
   },
 
@@ -451,10 +451,10 @@ testSuite({
     googEvents.listen(
         checkbox,
         [
-          Component.EventType.ACTION,
-          Component.EventType.CHECK,
-          Component.EventType.UNCHECK,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.ACTION,
+          Component.ComponentEventType.CHECK,
+          Component.ComponentEventType.UNCHECK,
+          Component.ComponentEventType.CHANGE,
         ],
         (e) => {
           events.push(e.type);
@@ -467,9 +467,9 @@ testSuite({
     assertArrayEquals(
         'Unexpected events fired when checking with spacebar.',
         [
-          Component.EventType.ACTION,
-          Component.EventType.CHECK,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.ACTION,
+          Component.ComponentEventType.CHECK,
+          Component.ComponentEventType.CHANGE,
         ],
         events);
     assertEquals(
@@ -481,9 +481,9 @@ testSuite({
     assertArrayEquals(
         'Unexpected events fired when unchecking with spacebar.',
         [
-          Component.EventType.ACTION,
-          Component.EventType.UNCHECK,
-          Component.EventType.CHANGE,
+          Component.ComponentEventType.ACTION,
+          Component.ComponentEventType.UNCHECK,
+          Component.ComponentEventType.CHANGE,
         ],
         events);
     assertEquals(
@@ -491,14 +491,14 @@ testSuite({
         checkbox.getChecked());
 
     events = [];
-    googEvents.listenOnce(checkbox, Component.EventType.CHECK, (e) => {
+    googEvents.listenOnce(checkbox, Component.ComponentEventType.CHECK, (e) => {
       e.preventDefault();
     });
     testingEvents.fireKeySequence(normalSpan, KeyCodes.SPACE);
     assertArrayEquals(
         'Unexpected events fired when checking with spacebar and ' +
             'the check event is cancelled.',
-        [Component.EventType.ACTION, Component.EventType.CHECK], events);
+        [Component.ComponentEventType.ACTION, Component.ComponentEventType.CHECK], events);
     assertEquals(
         'Unexpected state after check event is cancelled.',
         Checkbox.State.UNCHECKED, checkbox.getChecked());
