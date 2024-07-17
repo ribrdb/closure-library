@@ -83,14 +83,10 @@ function findUrlObject_() {
  // http://dev.w3.org/2006/webapi/FileAPI/#dfn-createObjectURL
  if (goog.global.URL !== undefined &&
      goog.global.URL.createObjectURL !== undefined) {
-   return (
-    /** @type {!UrlObject_} */ (goog.global.URL)
-   );
+   return /** @type {!UrlObject_} */ (goog.global.URL);
    // This is what the spec used to say to do
  } else if (goog.global.createObjectURL !== undefined) {
-   return (
-    /** @type {!UrlObject_} */ (goog.global)
-   );
+   return /** @type {!UrlObject_} */ (goog.global);
  } else {
    return null;
  }

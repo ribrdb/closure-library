@@ -64,9 +64,7 @@ Remote.prototype.setUseStandardHighlighting = function(
  * @return {InputHandler} The input handler.
  */
 Remote.prototype.getInputHandler = function() {
- return (
-  /** @type {InputHandler} */ (this.selectionHandler_)
- );
+ return /** @type {InputHandler} */ (this.selectionHandler_);
 };
 
 

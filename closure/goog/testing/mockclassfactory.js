@@ -288,8 +288,7 @@ MockClassFactory.prototype.classHasMock_ = function(className) {
  */
 MockClassFactory.prototype.getProxyCtor_ = function(
     className, mockFinder) {
-  return (
-    /** @type {function(new:?)} */ (function() {
+  return /** @type {function(new:?)} */ (function() {
       var self = /** @type {?} */ (this);  // unknown this is expected.
       self.$mock_ = mockFinder(className, arguments);
       if (!self.$mock_) {
@@ -299,8 +298,7 @@ MockClassFactory.prototype.getProxyCtor_ = function(
             'No mock found for ' + className + ' with arguments ' +
             args.join(', '));
       }
-    })
-  );
+    });
 };
 
 
@@ -313,12 +311,10 @@ MockClassFactory.prototype.getProxyCtor_ = function(
  * @private
  */
 MockClassFactory.prototype.getProxyFunction_ = function(fnName) {
-  return (
-    /** @type {function(this:?,...?):?} */ (function() {
+  return /** @type {function(this:?,...?):?} */ (function() {
       var self = /** @type {?} */ (this);  // unknown this is expected.
       return self.$mock_[fnName].apply(self.$mock_, arguments);
-    })
-  );
+    });
 };
 
 
@@ -439,9 +435,7 @@ MockClassFactory.prototype.getMockClass_ = function(
  */
 MockClassFactory.prototype.getStrictMockClass = function(
     namespace, classToMock, var_args) {
-  return (
-    /** @type {!StrictMock} */ (this.getMockClass_(namespace, classToMock, true, arguments))
-  );
+  return /** @type {!StrictMock} */ (this.getMockClass_(namespace, classToMock, true, arguments));
 };
 
 
@@ -455,9 +449,7 @@ MockClassFactory.prototype.getStrictMockClass = function(
  */
 MockClassFactory.prototype.getLooseMockClass = function(
     namespace, classToMock, var_args) {
-  return (
-    /** @type {LooseMock} */ (this.getMockClass_(namespace, classToMock, false, arguments))
-  );
+  return /** @type {LooseMock} */ (this.getMockClass_(namespace, classToMock, false, arguments));
 };
 
 
@@ -552,9 +544,7 @@ MockClassFactory.prototype.getStaticMock_ = function(
  */
 MockClassFactory.prototype.getStrictStaticMock = function(
     namespace, classToMock) {
-  return (
-    /** @type {StrictMock} */ (this.getStaticMock_(namespace, classToMock, true))
-  );
+  return /** @type {StrictMock} */ (this.getStaticMock_(namespace, classToMock, true));
 };
 
 
@@ -568,9 +558,7 @@ MockClassFactory.prototype.getStrictStaticMock = function(
  */
 MockClassFactory.prototype.getLooseStaticMock = function(
     namespace, classToMock) {
-  return (
-    /** @type {LooseMock} */ (this.getStaticMock_(namespace, classToMock, false))
-  );
+  return /** @type {LooseMock} */ (this.getStaticMock_(namespace, classToMock, false));
 };
 
 

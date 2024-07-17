@@ -135,11 +135,9 @@ export function getLastChild(parent) {
  *     node exists.
  */
 export function getPreviousSibling(sibling) {
-  return (
-    /** @type {Node} */ (getFirstValue_(iter.filter(
+  return /** @type {Node} */ (getFirstValue_(iter.filter(
           new SiblingIterator(sibling, false, true),
-          isImportant)))
-  );
+          isImportant)));
 }
 
 
@@ -152,11 +150,9 @@ export function getPreviousSibling(sibling) {
  *     such node exists.
  */
 export function getNextSibling(sibling) {
-  return (
-    /** @type {Node} */ (getFirstValue_(iter.filter(
+  return /** @type {Node} */ (getFirstValue_(iter.filter(
           new SiblingIterator(sibling),
-          isImportant)))
-  );
+          isImportant)));
 }
 
 

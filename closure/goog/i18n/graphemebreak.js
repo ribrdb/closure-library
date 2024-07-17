@@ -371,9 +371,7 @@ function getBreakProp_(codePoint) {
           ],
           true);
     }
-    return (
-      /** @type {number} */ (inversions_.at(codePoint))
-    );
+    return /** @type {number} */ (inversions_.at(codePoint));
   }
 }
 

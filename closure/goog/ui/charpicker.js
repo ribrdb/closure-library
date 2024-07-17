@@ -922,9 +922,7 @@ CharPicker.prototype.getInputChar = function() {
  /** @suppress {strictMissingProperties} Added to tighten compiler checks */
  var text = this.input_.getValue();
  var code = parseInt(text, 16);
- return (
-  /** @type {string} */ (uChar.fromCharCode(code))
- );
+ return /** @type {string} */ (uChar.fromCharCode(code));
 };
 
 

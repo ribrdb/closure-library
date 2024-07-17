@@ -115,9 +115,7 @@ Transaction.EventTypes = {
  * @return {Transaction.TransactionMode} The transaction's mode.
  */
 Transaction.prototype.getMode = function() {
-  return (
-    /** @type {Transaction.TransactionMode} */ (this.tx_.mode)
-  );
+  return /** @type {Transaction.TransactionMode} */ (this.tx_.mode);
 };
 
 

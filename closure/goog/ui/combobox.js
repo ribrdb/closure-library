@@ -384,9 +384,7 @@ ComboBox.prototype.removeItemAt = function(n) {
  * @return {MenuItem?} Reference to the menu item.
  */
 ComboBox.prototype.getItemAt = function(n) {
-  return (
-    /** @type {MenuItem?} */ (this.menu_.getChildAt(n))
-  );
+  return /** @type {MenuItem?} */ (this.menu_.getChildAt(n));
 };
 
 

@@ -71,9 +71,7 @@ export function getTimeZoneSelectedLongNames(opt_regionOrLang) {
  */
 export function getTimeZoneAllLongNames() {
  var locale = googLocale.getLocale();
- return (
-  /** @type {Array<Object>} */ (googLocale.getResource('TimeZoneAllLongNames', locale))
- );
+ return /** @type {Array<Object>} */ (googLocale.getResource('TimeZoneAllLongNames', locale));
 }
 
 

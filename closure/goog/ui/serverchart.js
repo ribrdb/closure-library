@@ -394,9 +394,7 @@ ServerChart.prototype.setGridParameter = function(value) {
  * @return {string|undefined} The 'chg' parameter of the chart Uri.
  */
 ServerChart.prototype.getGridParameter = function() {
- return (
-  /** @type {string} */ (this.uri_.getParameterValue(ServerChart.UriParam.GRID))
- );
+ return /** @type {string} */ (this.uri_.getParameterValue(ServerChart.UriParam.GRID));
 };
 
 
@@ -418,9 +416,7 @@ ServerChart.prototype.setMarkerParameter = function(value) {
  * @return {string|undefined} The 'chm' parameter of the chart Uri.
  */
 ServerChart.prototype.getMarkerParameter = function() {
- return (
-  /** @type {string} */ (this.uri_.getParameterValue(ServerChart.UriParam.MARKERS))
- );
+ return /** @type {string} */ (this.uri_.getParameterValue(ServerChart.UriParam.MARKERS));
 };
 
 
@@ -445,9 +441,7 @@ ServerChart.prototype.setMiscParameter = function(value) {
  * @return {string|undefined} The 'chp' parameter of the chart Uri.
  */
 ServerChart.prototype.getMiscParameter = function() {
- return (
-  /** @type {string} */ (this.uri_.getParameterValue(ServerChart.UriParam.MISC_PARAMS))
- );
+ return /** @type {string} */ (this.uri_.getParameterValue(ServerChart.UriParam.MISC_PARAMS));
 };
 
 
@@ -690,9 +684,7 @@ ServerChart.prototype.setType = function(type) {
  * @return {ServerChart.ChartType} The chart type.
  */
 ServerChart.prototype.getType = function() {
- return (
-  /** @type {ServerChart.ChartType} */ (this.uri_.getParameterValue(ServerChart.UriParam.TYPE))
- );
+ return /** @type {ServerChart.ChartType} */ (this.uri_.getParameterValue(ServerChart.UriParam.TYPE));
 };
 
 
@@ -1024,9 +1016,7 @@ ServerChart.prototype.setLegendPosition = function(value) {
  * @return {ServerChart.LegendPosition} Legend position.
  */
 ServerChart.prototype.getLegendPosition = function() {
- return (
-  /** @type {ServerChart.LegendPosition} */ (this.uri_.getParameterValue(ServerChart.UriParam.LEGEND_POSITION))
- );
+ return /** @type {ServerChart.LegendPosition} */ (this.uri_.getParameterValue(ServerChart.UriParam.LEGEND_POSITION));
 };
 
 

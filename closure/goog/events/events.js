@@ -430,9 +430,7 @@ export function unlistenByKey(key) {
 
   var src = listener.src;
   if (Listenable.isImplementedBy(src)) {
-    return (
-      /** @type {!Listenable} */ (src).unlistenByKey(listener)
-    );
+    return /** @type {!Listenable} */ (src).unlistenByKey(listener);
   }
 
   var type = listener.type;
@@ -543,10 +541,8 @@ export function removeAll(obj, opt_type) {
  */
 export function getListeners(obj, type, capture) {
   if (Listenable.isImplementedBy(obj)) {
-    return (
-      /** @type {!Listenable} */ (obj).getListeners(
-          type, capture)
-    );
+    return /** @type {!Listenable} */ (obj).getListeners(
+          type, capture);
   } else {
     if (!obj) {
       // TODO(chrishenry): We should tighten the API to accept
@@ -672,10 +668,8 @@ function getOnString_(type) {
  */
 export function fireListeners(obj, type, capture, eventObject) {
   if (Listenable.isImplementedBy(obj)) {
-    return (
-      /** @type {!Listenable} */ (obj).fireListeners(
-          type, capture, eventObject)
-    );
+    return /** @type {!Listenable} */ (obj).fireListeners(
+          type, capture, eventObject);
   }
 
   return fireListeners_(obj, type, capture, eventObject);

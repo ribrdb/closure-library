@@ -1359,9 +1359,7 @@ export function flattenElement(element) {
       }
 
       // Detach the original element.
-      return (
-        /** @type {Element} */ (removeNode(element))
-      );
+      return /** @type {Element} */ (removeNode(element));
     }
   }
 }
@@ -1777,9 +1775,7 @@ export function isInDocument(node) {
 export function getOwnerDocument(node) {
   // TODO(nnaze): Update param signature to be non-nullable.
   asserts.assert(node, 'Node cannot be null or undefined.');
-  return (
-    /** @type {!Document} */ (node.nodeType == NodeType.DOCUMENT ? node : node.ownerDocument || node.document)
-  );
+  return /** @type {!Document} */ (node.nodeType == NodeType.DOCUMENT ? node : node.ownerDocument || node.document);
 }
 
 
@@ -2356,14 +2352,12 @@ export function getAncestorByTagNameAndClass(element, opt_tag, opt_class, opt_ma
     return null;
   }
   var tagName = opt_tag ? String(opt_tag).toUpperCase() : null;
-  return (
-    /** @type {Element} */ (getAncestor(element, function(node) {
+  return /** @type {Element} */ (getAncestor(element, function(node) {
         return (!tagName || node.nodeName == tagName) &&
             (!opt_class ||
              typeof node.className === 'string' &&
                  array.contains(node.className.split(/\s+/), opt_class));
-      }, true, opt_maxSearchSteps))
-  );
+      }, true, opt_maxSearchSteps));
 }
 
 

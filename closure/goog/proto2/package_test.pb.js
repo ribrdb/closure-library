@@ -101,9 +101,7 @@ TestPackageTypes.prototype.clearOptionalInt32 = function() {
  * @return {?TestAllTypes} The value.
  */
 TestPackageTypes.prototype.getOtherAll = function() {
-  return (
-    /** @type {?TestAllTypes} */ (this.get$Value(2))
-  );
+  return /** @type {?TestAllTypes} */ (this.get$Value(2));
 };
 
 
@@ -112,9 +110,7 @@ TestPackageTypes.prototype.getOtherAll = function() {
  * @return {!TestAllTypes} The value.
  */
 TestPackageTypes.prototype.getOtherAllOrDefault = function() {
-  return (
-    /** @type {!TestAllTypes} */ (this.get$ValueOrDefault(2))
-  );
+  return /** @type {!TestAllTypes} */ (this.get$ValueOrDefault(2));
 };
 
 

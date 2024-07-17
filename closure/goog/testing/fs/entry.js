@@ -377,13 +377,11 @@ DirectoryEntry.prototype.getDirectory = function(
 DirectoryEntry.prototype.getFileSync = function(
     path, opt_behavior, opt_data, opt_type) {
   opt_behavior = opt_behavior || fsDirectoryEntry.Behavior.DEFAULT;
-  return (
-    /** @type {!FileEntry} */ (this.getEntry_(path, opt_behavior, true, /* isFile */goog.bind(function(parent, name) {
+  return /** @type {!FileEntry} */ (this.getEntry_(path, opt_behavior, true, /* isFile */goog.bind(function(parent, name) {
       return new FileEntry(
           this.getFileSystem(), parent, name,
           opt_data !== undefined ? opt_data : '', opt_type);
-    }, this)))
-  );
+    }, this)));
 };
 
 
@@ -410,12 +408,10 @@ DirectoryEntry.prototype.createFileSync = function(path) {
 DirectoryEntry.prototype.getDirectorySync = function(
     path, opt_behavior) {
   opt_behavior = opt_behavior || fsDirectoryEntry.Behavior.DEFAULT;
-  return (
-    /** @type {!DirectoryEntry} */ (this.getEntry_(path, opt_behavior, false, /* isFile */goog.bind(function(parent, name) {
+  return /** @type {!DirectoryEntry} */ (this.getEntry_(path, opt_behavior, false, /* isFile */goog.bind(function(parent, name) {
       return new DirectoryEntry(
           this.getFileSystem(), parent, name, {});
-    }, this)))
-  );
+    }, this)));
 };
 
 

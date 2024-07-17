@@ -554,10 +554,8 @@ export function adjustForViewport_(pos, size, viewport, overflow) {
  * @return {Corner} Effective corner.
  */
 export function getEffectiveCorner(element, corner) {
-  return (
-    /** @type {Corner} */ ((corner & CornerBit.FLIP_RTL &&
-               style.isRightToLeft(element) ? corner ^ CornerBit.RIGHT : corner) & ~CornerBit.FLIP_RTL)
-  );
+  return /** @type {Corner} */ ((corner & CornerBit.FLIP_RTL &&
+               style.isRightToLeft(element) ? corner ^ CornerBit.RIGHT : corner) & ~CornerBit.FLIP_RTL);
 }
 
 
@@ -567,9 +565,7 @@ export function getEffectiveCorner(element, corner) {
  * @return {Corner} The opposite corner horizontally.
  */
 export function flipCornerHorizontal(corner) {
-  return (
-    /** @type {Corner} */ (corner ^ CornerBit.RIGHT)
-  );
+  return /** @type {Corner} */ (corner ^ CornerBit.RIGHT);
 }
 
 
@@ -579,9 +575,7 @@ export function flipCornerHorizontal(corner) {
  * @return {Corner} The opposite corner vertically.
  */
 export function flipCornerVertical(corner) {
-  return (
-    /** @type {Corner} */ (corner ^ CornerBit.BOTTOM)
-  );
+  return /** @type {Corner} */ (corner ^ CornerBit.BOTTOM);
 }
 
 
@@ -592,7 +586,5 @@ export function flipCornerVertical(corner) {
  *     vertically.
  */
 export function flipCorner(corner) {
-  return (
-    /** @type {Corner} */ (corner ^ CornerBit.BOTTOM ^ CornerBit.RIGHT)
-  );
+  return /** @type {Corner} */ (corner ^ CornerBit.BOTTOM ^ CornerBit.RIGHT);
 }

@@ -268,9 +268,7 @@ goog.scope(function() {
       const rawMessage = map[Wire.RAW_DATA_KEY];
 
       if (this.sendRawJson_) {
-        return (
-          /** @type {!WebChannel.MessageData} */ (json.parse(rawMessage))
-        );
+        return /** @type {!WebChannel.MessageData} */ (json.parse(rawMessage));
       } else {  // string message
         return rawMessage;
       }

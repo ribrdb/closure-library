@@ -907,9 +907,7 @@ Date_.prototype.getYear = function() {
  * @return {month_} The month of date, 0 = Jan, 11 = Dec.
  */
 Date_.prototype.getMonth = function() {
-  return (
-    /** @type {month_} */ (this.date.getMonth())
-  );
+  return /** @type {month_} */ (this.date.getMonth());
 };
 
 
@@ -943,9 +941,7 @@ Date_.prototype.getDay = function() {
  * @return {weekDay} The day of week, ISO style. 0 = Mon, 6 = Sun.
  */
 Date_.prototype.getIsoWeekday = function() {
-  return (
-    /** @type {weekDay} */ ((this.getDay() + 6) % 7)
-  );
+  return /** @type {weekDay} */ ((this.getDay() + 6) % 7);
 };
 
 
@@ -970,9 +966,7 @@ Date_.prototype.getUTCFullYear = function() {
  *     0 = Jan, 11 = Dec.
  */
 Date_.prototype.getUTCMonth = function() {
-  return (
-    /** @type {month_} */ (this.date.getUTCMonth())
-  );
+  return /** @type {month_} */ (this.date.getUTCMonth());
 };
 
 
@@ -1014,9 +1008,7 @@ Date_.prototype.getUTCMinutes = function() {
  *     style. 0 = Mon, 6 = Sun.
  */
 Date_.prototype.getUTCIsoWeekday = function() {
-  return (
-    /** @type {weekDay} */ ((this.date.getUTCDay() + 6) % 7)
-  );
+  return /** @type {weekDay} */ ((this.date.getUTCDay() + 6) % 7);
 };
 
 
@@ -1531,9 +1523,7 @@ DateTime.prototype.getMilliseconds = function() {
  * @override
  */
 DateTime.prototype.getUTCDay = function() {
-  return (
-    /** @type {weekDay} */ (this.date.getUTCDay())
-  );
+  return /** @type {weekDay} */ (this.date.getUTCDay());
 };
 
 

@@ -193,9 +193,7 @@ export function getCodePointAround(string, index) {
    const trail = string.charCodeAt(index + 1);
    if (isTrailSurrogateCodePoint(trail)) {
      // Part of a surrogate pair.
-     return (
-      /** @type {number} */ (buildSupplementaryCodePoint(charCode, trail))
-     );
+     return /** @type {number} */ (buildSupplementaryCodePoint(charCode, trail));
    }
  } else if (isTrailSurrogateCodePoint(charCode) && index > 0) {
    const lead = string.charCodeAt(index - 1);

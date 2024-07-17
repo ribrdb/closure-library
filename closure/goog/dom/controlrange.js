@@ -167,11 +167,9 @@ ControlRange.prototype.getStartOffset = function() {
 ControlRange.prototype.getEndNode = function() {
   var sorted = this.getSortedElements();
   var startsLast = /** @type {Node} */ (array.peek(sorted));
-  return (
-    /** @type {Node} */ (sorted.find(function(el) {
+  return /** @type {Node} */ (sorted.find(function(el) {
         return dom.contains(el, startsLast);
-      }))
-  );
+      }));
 };
 
 

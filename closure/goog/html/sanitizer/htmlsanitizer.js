@@ -223,8 +223,7 @@ goog.inherits(
  * @private
  */
 HtmlSanitizer.wrapUrlPolicy_ = function(urlPolicy) {
-  return (
-    /** @type {!HtmlSanitizerPolicy} */ (function(url, policyHints) {
+  return /** @type {!HtmlSanitizerPolicy} */ (function(url, policyHints) {
         var trimmed = HtmlSanitizer.cleanUpAttribute_(url);
         var safeUrl = urlPolicy(trimmed, policyHints);
         if (safeUrl &&
@@ -234,8 +233,7 @@ HtmlSanitizer.wrapUrlPolicy_ = function(urlPolicy) {
         } else {
           return null;
         }
-      })
-  );
+      });
 };
 
 
@@ -707,12 +705,10 @@ HtmlSanitizer.Builder.prototype.withCustomTokenPolicy =
  */
 HtmlSanitizer.wrapPolicy_ = function(
     customPolicy, defaultPolicy) {
-  return (
-    /** @type {!HtmlSanitizerPolicy} */ (function(value, hints, ctx, policy) {
+  return /** @type {!HtmlSanitizerPolicy} */ (function(value, hints, ctx, policy) {
       var result = customPolicy(value, hints, ctx, policy);
       return result == null ? null : defaultPolicy(result, hints, ctx, policy);
-    })
-  );
+    });
 };
 
 

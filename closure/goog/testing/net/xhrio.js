@@ -584,9 +584,7 @@ XhrIo_.prototype.isSuccess = function() {
  * @override
  */
 XhrIo_.prototype.getReadyState = function() {
-  return (
-    /** @type {!XmlHttp.ReadyState} */ (this.readyState_)
-  );
+  return /** @type {!XmlHttp.ReadyState} */ (this.readyState_);
 };
 
 

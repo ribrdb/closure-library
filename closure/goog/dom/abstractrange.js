@@ -136,9 +136,7 @@ AbstractRange.prototype.getContainer = goog.abstractMethod;
  */
 AbstractRange.prototype.getContainerElement = function() {
  var node = this.getContainer();
- return (
-  /** @type {Element} */ (node.nodeType == NodeType.ELEMENT ? node : node.parentNode)
- );
+ return /** @type {Element} */ (node.nodeType == NodeType.ELEMENT ? node : node.parentNode);
 };
 
 

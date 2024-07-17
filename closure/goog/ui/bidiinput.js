@@ -64,9 +64,7 @@ BidiInput.prototype.decorateInternal = function(element) {
  * @override
  */
 BidiInput.prototype.getElement = function() {
-  return (
-    /** @type {?HTMLInputElement} */ (BidiInput.superClass_.getElement.call(this))
-  );
+  return /** @type {?HTMLInputElement} */ (BidiInput.superClass_.getElement.call(this));
 };
 
 

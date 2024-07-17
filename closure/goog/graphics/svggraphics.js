@@ -871,9 +871,7 @@ SvgGraphics.getResizeCheckTimer_ = function() {
     SvgGraphics.resizeCheckTimer_.start();
   }
 
-  return (
-    /** @type {Timer} */ (SvgGraphics.resizeCheckTimer_)
-  );
+  return /** @type {Timer} */ (SvgGraphics.resizeCheckTimer_);
 };
 
 

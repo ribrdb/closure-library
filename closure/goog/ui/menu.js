@@ -233,9 +233,7 @@ Menu.prototype.removeItemAt = function(n) {
  * @deprecated Use {@link #getChildAt} instead.
  */
 Menu.prototype.getItemAt = function(n) {
-  return (
-    /** @type {MenuItem?} */ (this.getChildAt(n))
-  );
+  return /** @type {MenuItem?} */ (this.getChildAt(n));
 };
 
 

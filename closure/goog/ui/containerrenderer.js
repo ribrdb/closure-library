@@ -277,9 +277,7 @@ ContainerRenderer.prototype.decorateChildren = function(
  *     (null if none).
  */
 ContainerRenderer.prototype.getDecoratorForChild = function(element) {
-  return (
-    /** @type {Control} */ (registry.getDecorator(element))
-  );
+  return /** @type {Control} */ (registry.getDecorator(element));
 };
 
 

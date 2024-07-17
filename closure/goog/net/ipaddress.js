@@ -76,9 +76,7 @@ IpAddress.prototype.equals = function(other) {
  * @return {!Integer} The IP Address, as an Integer.
  */
 IpAddress.prototype.toInteger = function() {
-  return (
-    /** @type {!Integer} */ (object.clone(this.ip_))
-  );
+  return /** @type {!Integer} */ (object.clone(this.ip_));
 };
 
 

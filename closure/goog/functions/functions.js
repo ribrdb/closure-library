@@ -435,15 +435,13 @@ export function once(f) {
  */
 export function debounce(f, interval, opt_scope) {
   let timeout = 0;
-  return (
-    /** @type {function(...?)} */ (function(var_args) {
+  return /** @type {function(...?)} */ (function(var_args) {
       goog.global.clearTimeout(timeout);
       const args = arguments;
       timeout = goog.global.setTimeout(function() {
         f.apply(opt_scope, args);
       }, interval);
-    })
-  );
+    });
 }
 
 
@@ -484,16 +482,14 @@ export function throttle(f, interval, opt_scope) {
     f.apply(opt_scope, args);
   };
 
-  return (
-    /** @type {function(...?)} */ (function(var_args) {
+  return /** @type {function(...?)} */ (function(var_args) {
       storedArgs = arguments;
       if (!timeout) {
         fire();
       } else {
         shouldFire = true;
       }
-    })
-  );
+    });
 }
 
 
@@ -522,14 +518,12 @@ export function rateLimit(f, interval, opt_scope) {
     timeout = 0;
   };
 
-  return (
-    /** @type {function(...?)} */ (function(var_args) {
+  return /** @type {function(...?)} */ (function(var_args) {
       if (!timeout) {
         timeout = goog.global.setTimeout(handleTimeout, interval);
         f.apply(opt_scope, arguments);
       }
-    })
-  );
+    });
 }
 
 /**

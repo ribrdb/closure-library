@@ -107,9 +107,7 @@ export function setRole(element, roleName) {
  */
 export function getRole(element) {
   var role = element.getAttribute(ROLE_ATTRIBUTE_);
-  return (
-    /** @type {Role} */ (role) || null
-  );
+  return /** @type {Role} */ (role) || null;
 }
 
 

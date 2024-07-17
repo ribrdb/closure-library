@@ -97,9 +97,7 @@ export function isContainer(element) {
  */
 export function getContainer(node) {
   // We assume that every node must have a container.
-  return (
-    /** @type {Element} */ (dom.getAncestor(node, isContainer, true))
-  );
+  return /** @type {Element} */ (dom.getAncestor(node, isContainer, true));
 }
 
 

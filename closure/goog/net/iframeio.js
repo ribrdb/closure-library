@@ -1274,9 +1274,7 @@ IframeIo.prototype.disposeForm_ = function() {
  */
 IframeIo.prototype.getContentDocument_ = function() {
   if (this.iframe_) {
-    return (
-      /** @type {!HTMLDocument} */ (googDom.getFrameContentDocument(this.getRequestIframe()))
-    );
+    return /** @type {!HTMLDocument} */ (googDom.getFrameContentDocument(this.getRequestIframe()));
   }
   return null;
 };
@@ -1288,10 +1286,8 @@ IframeIo.prototype.getContentDocument_ = function() {
  */
 IframeIo.prototype.getRequestIframe = function() {
   if (this.iframe_) {
-    return (
-      /** @type {?HTMLIFrameElement} */ (googDom.getFrameContentDocument(this.iframe_)
-            .getElementById(this.iframeName_ + IframeIo.INNER_FRAME_SUFFIX))
-    );
+    return /** @type {?HTMLIFrameElement} */ (googDom.getFrameContentDocument(this.iframe_)
+            .getElementById(this.iframeName_ + IframeIo.INNER_FRAME_SUFFIX));
   }
   return null;
 };

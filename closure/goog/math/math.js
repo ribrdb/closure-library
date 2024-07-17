@@ -303,11 +303,9 @@ export function longestCommonSubsequence(array1, array2, opt_compareFn, opt_coll
  *     `NaN` if any of the arguments is not a valid number).
  */
 function sum_(var_args) {
-  return (
-    /** @type {number} */ (Array.prototype.reduce.call(arguments, function(sum, value) {
+  return /** @type {number} */ (Array.prototype.reduce.call(arguments, function(sum, value) {
       return sum + value;
-    }, 0))
-  );
+    }, 0));
 }
 
 

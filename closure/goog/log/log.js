@@ -779,9 +779,7 @@ LogRegistry_.getInstance = function() {
   if (!LogRegistry_.instance_) {
     LogRegistry_.instance_ = new LogRegistry_();
   }
-  return (
-   /** @type {!LogRegistry_} */ (LogRegistry_.instance_)
-  );
+  return /** @type {!LogRegistry_} */ (LogRegistry_.instance_);
 };
 
 /**

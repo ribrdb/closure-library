@@ -638,9 +638,7 @@ function product_(var_args) {
 
   // An empty set in a cartesian product gives an empty set.
   if (someArrayEmpty || !arguments.length) {
-    return (
-      /** @type {!GoogIterator<!Array<VALUE>>} */ (new GoogIterator())
-    );
+    return /** @type {!GoogIterator<!Array<VALUE>>} */ (new GoogIterator());
   }
 
   const iter =

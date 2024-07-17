@@ -229,9 +229,7 @@ MessageFormat.getNumberFormatter_ = function() {
         new NumberFormat(NumberFormat.Format.DECIMAL);
   }
 
-  return (
-    /** @type {!NumberFormat} */ (MessageFormat.numberFormatter_)
-  );
+  return /** @type {!NumberFormat} */ (MessageFormat.numberFormatter_);
 };
 
 

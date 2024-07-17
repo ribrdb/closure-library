@@ -148,12 +148,10 @@ function sanitizeStyleSheet_(cssStyleSheet, containerId, uriRewriter) {
 // TODO(pelizzi): some of these at-rules are safe, consider adding partial
 // support for them.
 function getOnlyStyleRules_(cssRules) {
-    return (
-        /** @type {!Array<!CSSStyleRule>} */ (cssRules.filter(function(cssRule) {
+    return /** @type {!Array<!CSSStyleRule>} */ (cssRules.filter(function(cssRule) {
             return cssRule instanceof CSSStyleRule ||
                 cssRule.type == CSSRule.STYLE_RULE;
-        }))
-    );
+        }));
 }
 
 

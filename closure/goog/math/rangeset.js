@@ -327,11 +327,9 @@ RangeSet.prototype.inverse = function(range) {
  * @return {number} The sum of the lengths of ranges covered in the set.
  */
 RangeSet.prototype.coveredLength = function() {
-  return (
-    /** @type {number} */ (this.ranges_.reduce(function(res, range) {
+  return /** @type {number} */ (this.ranges_.reduce(function(res, range) {
       return res + range.end - range.start;
-    }, 0))
-  );
+    }, 0));
 };
 
 

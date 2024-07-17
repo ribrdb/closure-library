@@ -311,9 +311,7 @@ MenuItem.prototype.getPreferredAriaRole = function() {
  * @return {Menu}
  */
 MenuItem.prototype.getParent = function() {
-  return (
-    /** @type {Menu} */ (Control.prototype.getParent.call(this))
-  );
+  return /** @type {Menu} */ (Control.prototype.getParent.call(this));
 };
 
 
@@ -322,7 +320,5 @@ MenuItem.prototype.getParent = function() {
  * @return {Menu}
  */
 MenuItem.prototype.getParentEventTarget = function() {
-  return (
-    /** @type {Menu} */ (Control.prototype.getParentEventTarget.call(this))
-  );
+  return /** @type {Menu} */ (Control.prototype.getParentEventTarget.call(this));
 };

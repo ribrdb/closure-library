@@ -125,9 +125,7 @@ GoogFileSaver.prototype.abort = function() {
  * @return {GoogFileSaver.ReadyState} The current state of the FileSaver.
  */
 GoogFileSaver.prototype.getReadyState = function() {
- return (
-  /** @type {GoogFileSaver.ReadyState} */ (this.saver_.readyState)
- );
+ return /** @type {GoogFileSaver.ReadyState} */ (this.saver_.readyState);
 };
 
 

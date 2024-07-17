@@ -46,9 +46,7 @@ export var CssRuleType = {
  */
 export function getAllCssText(opt_styleSheet) {
   var styleSheet = opt_styleSheet || document.styleSheets;
-  return (
-    /** @type {string} */ (getAllCss_(styleSheet, true))
-  );
+  return /** @type {string} */ (getAllCss_(styleSheet, true));
 }
 
 
@@ -61,9 +59,7 @@ export function getAllCssText(opt_styleSheet) {
  */
 export function getAllCssStyleRules(opt_styleSheet) {
   var styleSheet = opt_styleSheet || document.styleSheets;
-  return (
-    /** @type {!Array<CSSStyleRule>} */ (getAllCss_(styleSheet, false))
-  );
+  return /** @type {!Array<CSSStyleRule>} */ (getAllCss_(styleSheet, false));
 }
 
 

@@ -75,8 +75,7 @@ AnythingMatcher.is = function(matcher) {
  */
 AnythingMatcher.describedAs = function(
     description, matcher) {
- return (
-  /** @type {!Matcher} */ ({
+ return /** @type {!Matcher} */ ({
    matches: function(value) {
     return matcher.matches(value);
    },
@@ -84,6 +83,5 @@ AnythingMatcher.describedAs = function(
    describe: function() {
     return description;
    }
-  })
- );
+  });
 };

@@ -122,9 +122,7 @@ FileReader_.prototype.abort = function() {
  * @return {FileReader_.ReadyState} The current state of the FileReader.
  */
 FileReader_.prototype.getReadyState = function() {
- return (
-  /** @type {FileReader_.ReadyState} */ (this.reader_.readyState)
- );
+ return /** @type {FileReader_.ReadyState} */ (this.reader_.readyState);
 };
 
 

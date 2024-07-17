@@ -813,9 +813,7 @@ TestAllTypes.prototype.clearOptionalBytes = function() {
  * @return {?TestAllTypes.OptionalGroup} The value.
  */
 TestAllTypes.prototype.getOptionalgroup = function() {
-  return (
-    /** @type {?TestAllTypes.OptionalGroup} */ (this.get$Value(16))
-  );
+  return /** @type {?TestAllTypes.OptionalGroup} */ (this.get$Value(16));
 };
 
 
@@ -824,9 +822,7 @@ TestAllTypes.prototype.getOptionalgroup = function() {
  * @return {!TestAllTypes.OptionalGroup} The value.
  */
 TestAllTypes.prototype.getOptionalgroupOrDefault = function() {
-  return (
-    /** @type {!TestAllTypes.OptionalGroup} */ (this.get$ValueOrDefault(16))
-  );
+  return /** @type {!TestAllTypes.OptionalGroup} */ (this.get$ValueOrDefault(16));
 };
 
 
@@ -868,9 +864,7 @@ TestAllTypes.prototype.clearOptionalgroup = function() {
  * @return {?TestAllTypes.NestedMessage} The value.
  */
 TestAllTypes.prototype.getOptionalNestedMessage = function() {
-  return (
-    /** @type {?TestAllTypes.NestedMessage} */ (this.get$Value(18))
-  );
+  return /** @type {?TestAllTypes.NestedMessage} */ (this.get$Value(18));
 };
 
 
@@ -879,9 +873,7 @@ TestAllTypes.prototype.getOptionalNestedMessage = function() {
  * @return {!TestAllTypes.NestedMessage} The value.
  */
 TestAllTypes.prototype.getOptionalNestedMessageOrDefault = function() {
-  return (
-    /** @type {!TestAllTypes.NestedMessage} */ (this.get$ValueOrDefault(18))
-  );
+  return /** @type {!TestAllTypes.NestedMessage} */ (this.get$ValueOrDefault(18));
 };
 
 
@@ -923,9 +915,7 @@ TestAllTypes.prototype.clearOptionalNestedMessage = function() {
  * @return {?TestAllTypes.NestedEnum} The value.
  */
 TestAllTypes.prototype.getOptionalNestedEnum = function() {
-  return (
-    /** @type {?TestAllTypes.NestedEnum} */ (this.get$Value(21))
-  );
+  return /** @type {?TestAllTypes.NestedEnum} */ (this.get$Value(21));
 };
 
 
@@ -934,9 +924,7 @@ TestAllTypes.prototype.getOptionalNestedEnum = function() {
  * @return {!TestAllTypes.NestedEnum} The value.
  */
 TestAllTypes.prototype.getOptionalNestedEnumOrDefault = function() {
-  return (
-    /** @type {!TestAllTypes.NestedEnum} */ (this.get$ValueOrDefault(21))
-  );
+  return /** @type {!TestAllTypes.NestedEnum} */ (this.get$ValueOrDefault(21));
 };
 
 
@@ -2011,9 +1999,7 @@ TestAllTypes.prototype.clearRepeatedBytes = function() {
  * @return {?TestAllTypes.RepeatedGroup} The value.
  */
 TestAllTypes.prototype.getRepeatedgroup = function(index) {
-  return (
-    /** @type {?TestAllTypes.RepeatedGroup} */ (this.get$Value(46, index))
-  );
+  return /** @type {?TestAllTypes.RepeatedGroup} */ (this.get$Value(46, index));
 };
 
 
@@ -2023,9 +2009,7 @@ TestAllTypes.prototype.getRepeatedgroup = function(index) {
  * @return {!TestAllTypes.RepeatedGroup} The value.
  */
 TestAllTypes.prototype.getRepeatedgroupOrDefault = function(index) {
-  return (
-    /** @type {!TestAllTypes.RepeatedGroup} */ (this.get$ValueOrDefault(46, index))
-  );
+  return /** @type {!TestAllTypes.RepeatedGroup} */ (this.get$ValueOrDefault(46, index));
 };
 
 
@@ -2043,9 +2027,7 @@ TestAllTypes.prototype.addRepeatedgroup = function(value) {
  * @return {!Array<!TestAllTypes.RepeatedGroup>} The values in the field.
  */
 TestAllTypes.prototype.repeatedgroupArray = function() {
-  return (
-    /** @type {!Array<!TestAllTypes.RepeatedGroup>} */ (this.array$Values(46))
-  );
+  return /** @type {!Array<!TestAllTypes.RepeatedGroup>} */ (this.array$Values(46));
 };
 
 
@@ -2079,9 +2061,7 @@ TestAllTypes.prototype.clearRepeatedgroup = function() {
  * @return {?TestAllTypes.NestedMessage} The value.
  */
 TestAllTypes.prototype.getRepeatedNestedMessage = function(index) {
-  return (
-    /** @type {?TestAllTypes.NestedMessage} */ (this.get$Value(48, index))
-  );
+  return /** @type {?TestAllTypes.NestedMessage} */ (this.get$Value(48, index));
 };
 
 
@@ -2092,9 +2072,7 @@ TestAllTypes.prototype.getRepeatedNestedMessage = function(index) {
  */
 TestAllTypes.prototype.getRepeatedNestedMessageOrDefault = function(
     index) {
-  return (
-    /** @type {!TestAllTypes.NestedMessage} */ (this.get$ValueOrDefault(48, index))
-  );
+  return /** @type {!TestAllTypes.NestedMessage} */ (this.get$ValueOrDefault(48, index));
 };
 
 
@@ -2112,9 +2090,7 @@ TestAllTypes.prototype.addRepeatedNestedMessage = function(value) {
  * @return {!Array<!TestAllTypes.NestedMessage>} The values in the field.
  */
 TestAllTypes.prototype.repeatedNestedMessageArray = function() {
-  return (
-    /** @type {!Array<!TestAllTypes.NestedMessage>} */ (this.array$Values(48))
-  );
+  return /** @type {!Array<!TestAllTypes.NestedMessage>} */ (this.array$Values(48));
 };
 
 
@@ -2148,9 +2124,7 @@ TestAllTypes.prototype.clearRepeatedNestedMessage = function() {
  * @return {?TestAllTypes.NestedEnum} The value.
  */
 TestAllTypes.prototype.getRepeatedNestedEnum = function(index) {
-  return (
-    /** @type {?TestAllTypes.NestedEnum} */ (this.get$Value(49, index))
-  );
+  return /** @type {?TestAllTypes.NestedEnum} */ (this.get$Value(49, index));
 };
 
 
@@ -2160,9 +2134,7 @@ TestAllTypes.prototype.getRepeatedNestedEnum = function(index) {
  * @return {!TestAllTypes.NestedEnum} The value.
  */
 TestAllTypes.prototype.getRepeatedNestedEnumOrDefault = function(index) {
-  return (
-    /** @type {!TestAllTypes.NestedEnum} */ (this.get$ValueOrDefault(49, index))
-  );
+  return /** @type {!TestAllTypes.NestedEnum} */ (this.get$ValueOrDefault(49, index));
 };
 
 
@@ -2180,9 +2152,7 @@ TestAllTypes.prototype.addRepeatedNestedEnum = function(value) {
  * @return {!Array<!TestAllTypes.NestedEnum>} The values in the field.
  */
 TestAllTypes.prototype.repeatedNestedEnumArray = function() {
-  return (
-    /** @type {!Array<!TestAllTypes.NestedEnum>} */ (this.array$Values(49))
-  );
+  return /** @type {!Array<!TestAllTypes.NestedEnum>} */ (this.array$Values(49));
 };
 
 
@@ -3486,9 +3456,7 @@ TestDefaultParent.prototype.clone;
  * @return {?TestDefaultChild} The value.
  */
 TestDefaultParent.prototype.getChild = function() {
-  return (
-    /** @type {?TestDefaultChild} */ (this.get$Value(1))
-  );
+  return /** @type {?TestDefaultChild} */ (this.get$Value(1));
 };
 
 
@@ -3497,9 +3465,7 @@ TestDefaultParent.prototype.getChild = function() {
  * @return {!TestDefaultChild} The value.
  */
 TestDefaultParent.prototype.getChildOrDefault = function() {
-  return (
-    /** @type {!TestDefaultChild} */ (this.get$ValueOrDefault(1))
-  );
+  return /** @type {!TestDefaultChild} */ (this.get$ValueOrDefault(1));
 };
 
 

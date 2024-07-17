@@ -858,9 +858,7 @@ ControlRenderer.prototype.getStateFromClass = function(className) {
     this.createStateByClassMap_();
   }
   var state = parseInt(this.stateByClass_[className], 10);
-  return (
-    /** @type {Component.State} */ (isNaN(state) ? 0x00 : state)
-  );
+  return /** @type {Component.State} */ (isNaN(state) ? 0x00 : state);
 };
 
 

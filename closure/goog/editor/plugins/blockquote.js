@@ -128,12 +128,10 @@ Blockquote.prototype.isSplittableBlockquote = function(
  *     name applied.
  */
 Blockquote.prototype.isSetupBlockquote = function(node) {
-  return (
-    /** @type {!Element} */ (node).tagName ==
+  return /** @type {!Element} */ (node).tagName ==
         TagName.BLOCKQUOTE &&
         classlist.contains(
-            /** @type {!Element} */ (node), this.className_)
-  );
+            /** @type {!Element} */ (node), this.className_);
 };
 
 
@@ -144,11 +142,9 @@ Blockquote.prototype.isSetupBlockquote = function(node) {
  *     class name applied.
  */
 Blockquote.prototype.isUnsetupBlockquote = function(node) {
-  return (
-    /** @type {!Element} */ (node).tagName ==
+  return /** @type {!Element} */ (node).tagName ==
         TagName.BLOCKQUOTE &&
-        !this.isSetupBlockquote(node)
-  );
+        !this.isSetupBlockquote(node);
 };
 
 
