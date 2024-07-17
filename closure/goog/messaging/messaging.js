@@ -1,3 +1,13 @@
+/**
+ * @license
+ * Copyright The Closure Library Authors.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
+ * @fileoverview Functions for manipulating message channels.
+ */
+
 const { MessageChannel } = goog.requireType('goog.messaging.messagechannel');
 
 

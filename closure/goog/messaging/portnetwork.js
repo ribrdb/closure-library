@@ -1,3 +1,26 @@
+/**
+ * @license
+ * Copyright The Closure Library Authors.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
+ * @fileoverview An interface for classes that connect a collection of HTML5
+ * message-passing entities ({@link MessagePort}s, {@link Worker}s, and
+ * {@link Window}s) and allow them to seamlessly communicate with one another.
+ *
+ * Conceptually, a PortNetwork is a collection of JS contexts, such as pages (in
+ * or outside of iframes) or web workers. Each context has a unique name, and
+ * each one can communicate with any of the others in the same network. This
+ * communication takes place through a {@link goog.messaging.PortChannel} that
+ * is retrieved via {#link goog.messaging.PortNetwork#dial}.
+ *
+ * One context (usually the main page) has a
+ * {@link goog.messaging.PortOperator}, which is in charge of connecting each
+ * context to each other context. All other contexts have
+ * {@link goog.messaging.PortCaller}s which connect to the operator.
+ */
+
 const { MessageChannel } = goog.requireType('goog.messaging.messagechannel');
 
 

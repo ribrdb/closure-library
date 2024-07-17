@@ -1,3 +1,13 @@
+/**
+ * @license
+ * Copyright The Closure Library Authors.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
+ * @fileoverview A core interface for WebChannelBase.
+ *
+ */
 const { Uri } = goog.requireType('goog.uri.uri');
 const { ChannelRequest } = goog.requireType('goog.labs.net.webchannel.channelrequest');
 const { ConnectionState } = goog.requireType('goog.labs.net.webchannel.connectionstate');

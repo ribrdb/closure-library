@@ -13,6 +13,9 @@
  * a TimeoutMode instance.
  */
 
+/**
+ * Used to specify max timeout on waitAndVerify
+ */
 export class TimeoutMode {
   /**
    * @param {number} duration Timeout duration in milliseconds.
